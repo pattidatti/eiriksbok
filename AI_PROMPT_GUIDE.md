@@ -52,23 +52,31 @@ Your goal is to create high-quality, "Dark Immersion" styled educational compone
 1. **Tailwind v4**: Do NOT suggest `tailwind.config.js` changes unless necessary for theme extension. The CSS handles imports.
 2. **No Placeholders**: Generate fully functional code with mock data if real data isn't provided.
 3. **Visuals**: Always prioritize "Wow-factor". Use gradients, glows, and smooth transitions.
+### 📄 Content Extraction Strategy
+- **Source Material**: I will provide PDFs or PPTX files.
+- **Goal**: Extract the core learning concepts and gamify them.
+- **Transformation**: Turn static text/bullet points into interactive elements (sliders, drag-and-drop, decision trees).
+- **Tone**: Professional yet engaging for students.
 ```
 
 ---
 
-## Hvordan be om nye moduler?
+## Hvordan be om nye moduler (med opplastet fil)?
 
-Når du vil ha en ny interaktiv modul (f.eks. "Etikk-simulator"), bruk denne malen:
+Last opp PDF/PPTX-filen til Gem-en og bruk denne prompten:
 
 **Prompt:**
-> "Jeg trenger en ny modul for [Fag/Tema]. Den skal hete '[Navn på modul]'.
+> "Basert på den opplastede filen, lag en interaktiv React-modul for [Fag/Tema].
+>
+> **Mål:**
+> 1. Analyser innholdet og finn de viktigste konseptene.
+> 2. Foreslå en interaktiv måte å lære dette på (ikke bare tekst!).
+> 3. Implementer dette som en 'Dark Immersion' komponent.
 >
 > **Funksjonalitet:**
-> 1. [Beskriv funksjon 1, f.eks. 'Velge et dilemma']
-> 2. [Beskriv funksjon 2, f.eks. 'Se konsekvenser']
->
-> **Design:**
-> Bruk 'Dark Immersion' stilen beskrevet i System Context.
+> - Bruk innholdet fra filen til å fylle modulen med ekte data (spørsmål, scenarioer, definisjoner).
+> - Lag en 'Utforsker'-del hvor eleven kan klikke seg rundt.
+> - Lag en 'Quiz'-del basert på innholdet.
 >
 > **Output:**
 > Gi meg hele React-komponenten i én fil (`src/components/[Navn].tsx`)."
