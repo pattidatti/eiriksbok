@@ -29,7 +29,7 @@ export const SubjectPage: React.FC = () => {
                 {subjectData.title}
             </motion.h1>
 
-            <div style={{ display: 'grid', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: subjectId === 'samfunnsfag' ? '1fr 1fr' : '1fr', gap: '2rem' }}>
                 {subjectData.topics.map((topic, index) => (
                     <motion.div
                         key={topic.id}
@@ -47,27 +47,59 @@ export const SubjectPage: React.FC = () => {
                             {topic.title}
                         </h2>
                         <div style={{ display: 'grid', gap: '1rem', marginTop: '1rem' }}>
-                            {topic.lessons.map(lesson => (
-                                <Link
-                                    key={lesson.id}
-                                    to={`/${subjectId}/${topic.id}/${lesson.id}`}
-                                    style={{
-                                        display: 'block',
-                                        padding: '1rem',
-                                        background: '#f8fafc',
-                                        borderRadius: '8px',
-                                        textDecoration: 'none',
-                                        color: 'var(--text-color)',
-                                        fontWeight: 500,
-                                        transition: 'background 0.2s'
-                                    }}
-                                    onMouseEnter={(e) => e.currentTarget.style.background = '#eff6ff'}
-                                    onMouseLeave={(e) => e.currentTarget.style.background = '#f8fafc'}
-                                >
-                                    {lesson.title}
-                                </Link>
-                            ))}
-                            {topic.lessons.length === 0 && (
+                            {topic.subTopics ? (
+                                topic.subTopics.map(subTopic => (
+                                    <div key={subTopic.id}>
+                                        <h3 style={{ marginTop: 0, marginBottom: '0.5rem' }}>{subTopic.title}</h3>
+                                        {subTopic.lessons.map(lesson => (
+                                            <Link
+                                                key={lesson.id}
+                                                to={`/${subjectId}/${topic.id}/${subTopic.id}/${lesson.id}`}
+                                                style={{
+                                                    display: 'block',
+                                                    padding: '1rem',
+                                                    background: '#f8fafc',
+                                                    borderRadius: '8px',
+                                                    textDecoration: 'none',
+                                                    color: 'var(--text-color)',
+                                                    fontWeight: 500,
+                                                    transition: 'background 0.2s',
+                                                    marginBottom: '0.5rem'
+                                                }}
+                                                onMouseEnter={(e) => e.currentTarget.style.background = '#eff6ff'}
+                                                onMouseLeave={(e) => e.currentTarget.style.background = '#f8fafc'}
+                                            >
+                                                {lesson.title}
+                                            </Link>
+                                        ))}
+                                        {subTopic.lessons.length === 0 && (
+                                            <p style={{ color: 'var(--secondary-color)', fontStyle: 'italic' }}>Ingen leksjoner enda.</p>
+                                        )}
+                                    </div>
+                                ))
+                            ) : (
+                                topic.lessons && topic.lessons.map(lesson => (
+                                    <Link
+                                        key={lesson.id}
+                                        to={`/${subjectId}/${topic.id}/${lesson.id}`}
+                                        style={{
+                                            display: 'block',
+                                            padding: '1rem',
+                                            background: '#f8fafc',
+                                            borderRadius: '8px',
+                                            textDecoration: 'none',
+                                            color: 'var(--text-color)',
+                                            fontWeight: 500,
+                                            transition: 'background 0.2s'
+                                        }}
+                                        onMouseEnter={(e) => e.currentTarget.style.background = '#eff6ff'}
+                                        onMouseLeave={(e) => e.currentTarget.style.background = '#f8fafc'}
+                                    >
+                                        {lesson.title}
+                                    </Link>
+                                ))
+                            )}
+                             {(!topic.subTopics && (!topic.lessons || topic.lessons.length === 0)) && (
                                 <p style={{ color: 'var(--secondary-color)', fontStyle: 'italic' }}>Ingen leksjoner enda.</p>
                             )}
                         </div>

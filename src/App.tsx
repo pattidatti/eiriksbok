@@ -12,6 +12,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<LandingPage />} />
           <Route path=":subjectId" element={<SubjectPage />} />
+          <Route path=":subjectId/:topicId/:subTopicId/:lessonId" element={<LessonPage />} />
           <Route path=":subjectId/:topicId/:lessonId" element={<LessonPage />} />
         </Route>
       </Routes>

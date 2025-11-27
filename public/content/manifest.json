@@ -19,11 +19,54 @@
         {
             "id": "samfunnsfag",
             "title": "Samfunnsfag",
-            "topics": []
+            "topics": [
+                {
+                    "id": "historie",
+                    "title": "Historie",
+                    "subTopics": [
+                        {
+                            "id": "andre-verdenskrig",
+                            "title": "Andre verdenskrig",
+                            "lessons": [
+                                {
+                                    "id": "bakgrunn",
+                                    "title": "Bakgrunn"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kolonialisering",
+                            "title": "Kolonialisering",
+                            "lessons": [
+                                {
+                                    "id": "trekanthandelen",
+                                    "title": "Trekanthandelen"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "samfunnskunnskap",
+                    "title": "Samfunnskunnskap",
+                    "subTopics": [
+                        {
+                            "id": "demografi",
+                            "title": "Demografi",
+                            "lessons": [
+                                {
+                                    "id": "befolkningspyramider",
+                                    "title": "Befolkningspyramider"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         },
         {
-            "id": "mat-og-helse",
-            "title": "Mat & Helse",
+            "id": "krle",
+            "title": "KRLE",
             "topics": []
         },
         {

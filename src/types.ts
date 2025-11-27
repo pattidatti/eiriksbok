@@ -36,10 +36,17 @@ export interface ManifestLesson {
     title: string;
 }
 
-export interface ManifestTopic {
+export interface ManifestSubTopic {
     id: string;
     title: string;
     lessons: ManifestLesson[];
+}
+
+export interface ManifestTopic {
+    id: string;
+    title: string;
+    lessons?: ManifestLesson[];
+    subTopics?: ManifestSubTopic[];
 }
 
 export interface ManifestSubject {

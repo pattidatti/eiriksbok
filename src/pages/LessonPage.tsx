@@ -8,19 +8,19 @@ import { Quiz } from '../components/Quiz';
 import { motion } from 'framer-motion';
 
 export const LessonPage: React.FC = () => {
-    const { subjectId, topicId, lessonId } = useParams<{ subjectId: string; topicId: string; lessonId: string }>();
+    const { subjectId, topicId, subTopicId, lessonId } = useParams<{ subjectId: string; topicId: string; subTopicId?: string; lessonId: string }>();
     const [lesson, setLesson] = useState<Lesson | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (subjectId && topicId && lessonId) {
             setLoading(true);
-            fetchLesson(subjectId, topicId, lessonId).then(data => {
+            fetchLesson(subjectId, topicId, lessonId, subTopicId).then(data => {
                 setLesson(data);
                 setLoading(false);
             });
         }
-    }, [subjectId, topicId, lessonId]);
+    }, [subjectId, topicId, subTopicId, lessonId]);
 
     if (loading) return <div className="p-8 text-center">Laster leksjon...</div>;
     if (!lesson) return <div className="p-8 text-center">Fant ikke leksjonen.</div>;
@@ -39,7 +39,7 @@ export const LessonPage: React.FC = () => {
                     fontSize: '0.875rem',
                     fontWeight: 600
                 }}>
-                    {lesson.subject} / {lesson.topic}
+                    {lesson.subject} / {lesson.topic} {subTopicId && `/ ${subTopicId}`}
                 </span>
                 <h1 style={{ fontSize: '2.5rem', marginTop: '0.5rem', color: 'var(--primary-color)' }}>
                     {lesson.title}

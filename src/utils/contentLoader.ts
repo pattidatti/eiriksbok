@@ -1,11 +1,14 @@
 import type { Lesson, Manifest } from '../types';
 
-export async function fetchLesson(subject: string, topic: string, lessonId: string): Promise<Lesson | null> {
+export async function fetchLesson(subject: string, topic: string, lessonId: string, subTopicId?: string): Promise<Lesson | null> {
     try {
         const basePath = import.meta.env.BASE_URL.endsWith('/')
             ? import.meta.env.BASE_URL
             : `${import.meta.env.BASE_URL}/`;
-        const response = await fetch(`${basePath}content/${subject}/${topic}/${lessonId}.json`);
+        const lessonPath = subTopicId
+            ? `content/${subject}/${topic}/${subTopicId}/${lessonId}.json`
+            : `content/${subject}/${topic}/${lessonId}.json`;
+        const response = await fetch(`${basePath}${lessonPath}`);
         if (!response.ok) {
             console.error(`Failed to fetch lesson: ${response.status} ${response.statusText}`);
             return null;
