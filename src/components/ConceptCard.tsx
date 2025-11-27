@@ -1,25 +1,34 @@
 import React from 'react';
 import type { Concept } from '../types';
 import './ConceptCard.css';
-import { motion } from 'framer-motion';
 
 interface ConceptCardProps {
     concept: Concept;
 }
 
 export const ConceptCard: React.FC<ConceptCardProps> = ({ concept }) => {
+    
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const card = e.currentTarget;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    };
+
     return (
-        <motion.div
-            className="concept-card"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+        <div 
+            className="immersive-card"
+            onMouseMove={handleMouseMove}
         >
-            <h3 className="concept-term">{concept.term}</h3>
-            <p className="concept-definition">{concept.definition}</p>
-            <div className="concept-example">
-                <strong>Eksempel:</strong> {concept.example}
+            <div className="card-content">
+                <h3 className="card-term">{concept.term}</h3>
+                <p className="card-definition">{concept.definition}</p>
+                <div className="card-example">
+                    <strong>Eksempel:</strong> {concept.example}
+                </div>
             </div>
-        </motion.div>
+        </div>
     );
 };

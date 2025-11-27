@@ -1,8 +1,14 @@
 .context-builder {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: #f8fafc;
-    border-radius: var(--border-radius);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.context-builder h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
 }
 
 .connections-list {
@@ -14,30 +20,38 @@
 .connection-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    background: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.connection-item:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(4px);
 }
 
 .concept-node {
-    font-weight: 600;
-    color: var(--primary-color);
-    background: #eff6ff;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+    font-weight: 500;
 }
 
 .connection-arrow {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--secondary-color);
+    color: var(--text-muted);
+    gap: 0.25rem;
 }
 
 .connection-label {
     font-size: 0.8rem;
-    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--neon-accent);
 }
