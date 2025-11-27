@@ -15,14 +15,15 @@ export const Layout: React.FC = () => {
                 <div className="blue-glow"></div>
                 <div className="purple-glow"></div>
             </div>
-            
+
             <header className="glass-navbar">
                 <div className="navbar-content">
                     <Link to="/" className="nav-brand">Eiriksbok</Link>
                     <nav className="nav-links">
                         <Link to="/norsk" className={`nav-link ${isActive('/norsk')}`}>Norsk</Link>
                         <Link to="/samfunnsfag" className={`nav-link ${isActive('/samfunnsfag')}`}>Samfunnsfag</Link>
-                        {/* Add other links as needed */}
+                        <Link to="/krle" className={`nav-link ${isActive('/krle')}`}>KRLE</Link>
+                        <Link to="/musikk" className={`nav-link ${isActive('/musikk')}`}>Musikk</Link>
                     </nav>
                     <div className="nav-actions">
                         {/* Search bar or profile icon can go here */}

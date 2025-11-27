@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { fetchManifest } from '../utils/contentLoader';
 import type { Manifest } from '../types';
 import { motion } from 'framer-motion';
+import { ImmersiveCard } from '../components/ImmersiveCard';
 
 export const LandingPage: React.FC = () => {
     const [manifest, setManifest] = useState<Manifest | null>(null);
@@ -11,7 +12,7 @@ export const LandingPage: React.FC = () => {
         fetchManifest().then(setManifest);
     }, []);
 
-    if (!manifest) return <div className="p-8 text-center">Laster fag...</div>;
+    if (!manifest) return <div className="p-8 text-center text-white">Laster fag...</div>;
 
     return (
         <div className="landing-page">
@@ -20,10 +21,10 @@ export const LandingPage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
             >
-                <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--primary-color)' }}>
+                <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--text-main)', fontFamily: 'Outfit, sans-serif' }}>
                     Velkommen til Interactive Concept Hub
                 </h1>
-                <p style={{ fontSize: '1.25rem', color: 'var(--secondary-color)', marginBottom: '3rem' }}>
+                <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', marginBottom: '3rem' }}>
                     Velg et fag for å starte læringen.
                 </p>
             </motion.div>
@@ -36,25 +37,13 @@ export const LandingPage: React.FC = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: index * 0.1 }}
                     >
-                        <Link
-                            to={`/${subject.id}`}
-                            style={{
-                                display: 'block',
-                                padding: '2rem',
-                                background: 'white',
-                                borderRadius: 'var(--border-radius)',
-                                boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
-                                textDecoration: 'none',
-                                color: 'var(--text-color)',
-                                transition: 'transform 0.2s'
-                            }}
-                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
-                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-                        >
-                            <h2 style={{ marginTop: 0 }}>{subject.title}</h2>
-                            <p style={{ color: 'var(--secondary-color)' }}>
-                                {subject.topics.length} emner tilgjengelig
-                            </p>
+                        <Link to={`/${subject.id}`} style={{ textDecoration: 'none' }}>
+                            <ImmersiveCard>
+                                <h2 style={{ marginTop: 0, color: 'var(--text-main)', fontFamily: 'Outfit, sans-serif' }}>{subject.title}</h2>
+                                <p style={{ color: 'var(--text-muted)' }}>
+                                    {subject.topics.length} emner tilgjengelig
+                                </p>
+                            </ImmersiveCard>
                         </Link>
                     </motion.div>
                 ))}
