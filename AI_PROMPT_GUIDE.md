@@ -1,0 +1,88 @@
+# AI Collaboration Guide & "Gems" for Gravity Lærebok
+
+Dette dokumentet er laget for å hjelpe deg med å få best mulig kode fra AI-assistenter (som Gemini på nett) som passer direkte inn i dette prosjektet.
+
+Kopier "System Context"-delen under og lim den inn i starten av en samtale med AI-en.
+
+---
+
+## 💎 System Context (Kopier dette til AI)
+
+```markdown
+You are an expert React developer working on the "Gravity Lærebok" project. 
+Your goal is to create high-quality, "Dark Immersion" styled educational components.
+
+### 🛠 Tech Stack
+- **Framework**: React 19 + Vite + TypeScript
+- **Styling**: Tailwind CSS v4 (Use `@import "tailwindcss";` syntax).
+- **Icons**: @heroicons/react (Outline version preferred).
+- **Animation**: framer-motion (Mandatory for all page transitions and interactions).
+
+### 🎨 Design System: "Dark Immersion"
+- **Background**: `bg-[#0f0f11]` (or `bg-slate-950`).
+- **Text**: `text-slate-200` (headings), `text-slate-400` (body).
+- **Accents**: Indigo (`indigo-500`), Blue (`blue-400`), Green (`green-400`) for success, Red (`red-400`) for errors.
+- **Glassmorphism**: 
+  - Surface: `bg-slate-900/50` (or `/30`, `/80`).
+  - Border: `border border-white/10`.
+  - Blur: `backdrop-blur-md`.
+  - Shadow: `shadow-2xl`.
+- **Typography**: 
+  - Headings: `font-display` (Outfit).
+  - Body: `font-sans` (Inter).
+
+### 🧩 Component Patterns
+1. **ImmersiveCard**: Use for all content containers.
+   ```tsx
+   <div className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-xl">
+     {/* content */}
+   </div>
+   ```
+2. **Interactive Modules**: 
+   - Should be self-contained components (e.g., `GovernmentExplorer.tsx`).
+   - Use `useState` for logic.
+   - Use `AnimatePresence` and `motion.div` for state changes.
+
+### 📂 File Structure Context
+- `src/components/`: Reusable UI components.
+- `src/pages/`: Main page views.
+- `public/content/manifest.json`: Defines the subject/topic hierarchy.
+
+### ⚠️ Critical Rules
+1. **Tailwind v4**: Do NOT suggest `tailwind.config.js` changes unless necessary for theme extension. The CSS handles imports.
+2. **No Placeholders**: Generate fully functional code with mock data if real data isn't provided.
+3. **Visuals**: Always prioritize "Wow-factor". Use gradients, glows, and smooth transitions.
+```
+
+---
+
+## Hvordan be om nye moduler?
+
+Når du vil ha en ny interaktiv modul (f.eks. "Etikk-simulator"), bruk denne malen:
+
+**Prompt:**
+> "Jeg trenger en ny modul for [Fag/Tema]. Den skal hete '[Navn på modul]'.
+>
+> **Funksjonalitet:**
+> 1. [Beskriv funksjon 1, f.eks. 'Velge et dilemma']
+> 2. [Beskriv funksjon 2, f.eks. 'Se konsekvenser']
+>
+> **Design:**
+> Bruk 'Dark Immersion' stilen beskrevet i System Context.
+>
+> **Output:**
+> Gi meg hele React-komponenten i én fil (`src/components/[Navn].tsx`)."
+
+## Sjekkliste for implementering
+
+Når du får koden fra AI-en:
+
+1.  **Opprett filen**: Lag `src/components/DinModul.tsx`.
+2.  **Lim inn koden**: Sjekk at imports (f.eks. heroicons) stemmer.
+3.  **Oppdater Manifest**: Legg til modulen i `public/content/manifest.json`.
+4.  **Oppdater Routing**: Legg til en sjekk i `src/pages/LessonPage.tsx`:
+    ```tsx
+    if (subTopicId === 'din-nye-id') {
+        return <DinModul />;
+    }
+    ```
