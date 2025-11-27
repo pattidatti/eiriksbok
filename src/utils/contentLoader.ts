@@ -2,7 +2,10 @@ import type { Lesson, Manifest } from '../types';
 
 export async function fetchLesson(subject: string, topic: string, lessonId: string): Promise<Lesson | null> {
     try {
-        const response = await fetch(`/content/${subject}/${topic}/${lessonId}.json`);
+        const basePath = import.meta.env.BASE_URL.endsWith('/')
+            ? import.meta.env.BASE_URL
+            : `${import.meta.env.BASE_URL}/`;
+        const response = await fetch(`${basePath}content/${subject}/${topic}/${lessonId}.json`);
         if (!response.ok) {
             console.error(`Failed to fetch lesson: ${response.status} ${response.statusText}`);
             return null;
@@ -17,7 +20,10 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
 
 export async function fetchManifest(): Promise<Manifest | null> {
     try {
-        const response = await fetch('/content/manifest.json');
+        const basePath = import.meta.env.BASE_URL.endsWith('/')
+            ? import.meta.env.BASE_URL
+            : `${import.meta.env.BASE_URL}/`;
+        const response = await fetch(`${basePath}content/manifest.json`);
         if (!response.ok) return null;
         return await response.json() as Manifest;
     } catch (error) {
