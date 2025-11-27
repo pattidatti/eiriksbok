@@ -59,6 +59,16 @@
                                     "title": "Introduksjon"
                                 }
                             ]
+                        },
+                        {
+                            "id": "styringsformer",
+                            "title": "Styringsformer",
+                            "lessons": [
+                                {
+                                    "id": "utforsk",
+                                    "title": "Utforsk Styringsformer"
+                                }
+                            ]
                         }
                     ]
                 }
