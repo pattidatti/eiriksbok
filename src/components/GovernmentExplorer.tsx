@@ -231,8 +231,8 @@ const ChoiceButton = ({
     <button
         onClick={onClick}
         className={`w-full text-left p-4 rounded-xl border transition-all duration-200 group ${selected
-                ? 'bg-indigo-600 border-indigo-500 text-white shadow-lg ring-1 ring-indigo-400'
-                : 'bg-slate-800/50 border-white/10 text-slate-300 hover:bg-slate-800 hover:border-white/20'
+            ? 'bg-indigo-600 border-indigo-500 text-white shadow-lg ring-1 ring-indigo-400'
+            : 'bg-slate-800/50 border-white/10 text-slate-300 hover:bg-slate-800 hover:border-white/20'
             }`}
     >
         <div className="flex items-center justify-between">
@@ -395,8 +395,8 @@ export const GovernmentExplorer: React.FC = () => {
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id as any)}
                             className={`px-4 py-2 rounded-lg text-sm font-bold transition-all flex items-center gap-2 ${activeTab === tab.id
-                                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
-                                    : 'text-slate-400 hover:text-white hover:bg-white/5'
+                                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
+                                : 'text-slate-400 hover:text-white hover:bg-white/5'
                                 }`}
                         >
                             <tab.icon className="h-4 w-4" />
@@ -729,8 +729,8 @@ export const GovernmentExplorer: React.FC = () => {
                             <button
                                 onClick={() => { setBalanceSystem('parlamentarisk'); setGovStatus('sitter'); setTriggerAction(false); }}
                                 className={`p-6 rounded-2xl border text-left transition-all relative overflow-hidden ${balanceSystem === 'parlamentarisk'
-                                        ? 'bg-indigo-600/20 border-indigo-500 ring-1 ring-indigo-500'
-                                        : 'bg-slate-800/30 border-white/10 hover:bg-slate-800/50'
+                                    ? 'bg-indigo-600/20 border-indigo-500 ring-1 ring-indigo-500'
+                                    : 'bg-slate-800/30 border-white/10 hover:bg-slate-800/50'
                                     }`}
                             >
                                 <div className="flex items-center gap-3 mb-2 relative z-10">
@@ -745,8 +745,8 @@ export const GovernmentExplorer: React.FC = () => {
                             <button
                                 onClick={() => { setBalanceSystem('maktfordeling'); setGovStatus('sitter'); setTriggerAction(false); }}
                                 className={`p-6 rounded-2xl border text-left transition-all relative overflow-hidden ${balanceSystem === 'maktfordeling'
-                                        ? 'bg-blue-600/20 border-blue-500 ring-1 ring-blue-500'
-                                        : 'bg-slate-800/30 border-white/10 hover:bg-slate-800/50'
+                                    ? 'bg-blue-600/20 border-blue-500 ring-1 ring-blue-500'
+                                    : 'bg-slate-800/30 border-white/10 hover:bg-slate-800/50'
                                     }`}
                             >
                                 <div className="flex items-center gap-3 mb-2 relative z-10">
@@ -810,8 +810,8 @@ export const GovernmentExplorer: React.FC = () => {
                                         disabled={govStatus === 'felt'}
                                         onClick={handleMistillit}
                                         className={`mt-4 w-full py-2 rounded-lg font-bold text-xs transition-all shadow-lg ${govStatus === 'felt'
-                                                ? 'bg-slate-700 text-slate-500 cursor-not-allowed'
-                                                : 'bg-red-500/10 text-red-400 border border-red-500/30 hover:bg-red-500 hover:text-white'
+                                            ? 'bg-slate-700 text-slate-500 cursor-not-allowed'
+                                            : 'bg-red-500/10 text-red-400 border border-red-500/30 hover:bg-red-500 hover:text-white'
                                             }`}
                                     >
                                         {govStatus === 'felt' ? 'Regjeringen har gått av' : '⚠️ Fremme Mistillit'}
@@ -1116,3 +1116,11 @@ export const GovernmentExplorer: React.FC = () => {
 };
 
 export default GovernmentExplorer;
+
+// Safelist for dynamic classes to ensure Tailwind generates them
+const safelist = [
+    'via-pink-400', 'via-yellow-400', 'via-red-500', 'via-purple-400', 'via-cyan-400',
+    'via-orange-400', 'via-green-400', 'via-blue-400', 'via-emerald-300', 'via-rose-400',
+    'via-indigo-400', 'via-indigo-500', 'via-indigo-300', 'via-slate-300', 'via-red-400',
+    'via-red-600', 'via-green-500'
+];

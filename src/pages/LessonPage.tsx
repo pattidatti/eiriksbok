@@ -7,7 +7,7 @@ import { ContextBuilder } from '../components/ContextBuilder';
 import { Quiz } from '../components/Quiz';
 import { DemographyPage } from './DemographyPage';
 import { motion } from 'framer-motion';
-import { GovernmentExplorer } from '../components/government/GovernmentExplorer';
+import { GovernmentExplorer } from '../components/GovernmentExplorer';
 
 export const LessonPage: React.FC = () => {
     const { subjectId, topicId, subTopicId, lessonId } = useParams<{ subjectId: string; topicId: string; subTopicId?: string; lessonId: string }>();
