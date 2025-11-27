@@ -1,0 +1,43 @@
+.context-builder {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: var(--border-radius);
+}
+
+.connections-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.connection-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.concept-node {
+    font-weight: 600;
+    color: var(--primary-color);
+    background: #eff6ff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.connection-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--secondary-color);
+}
+
+.connection-label {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}

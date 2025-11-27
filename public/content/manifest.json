@@ -1,0 +1,35 @@
+{
+    "subjects": [
+        {
+            "id": "norsk",
+            "title": "Norsk",
+            "topics": [
+                {
+                    "id": "grammatikk",
+                    "title": "Grammatikk",
+                    "lessons": [
+                        {
+                            "id": "setningsanalyse",
+                            "title": "Setningsanalyse"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "samfunnsfag",
+            "title": "Samfunnsfag",
+            "topics": []
+        },
+        {
+            "id": "mat-og-helse",
+            "title": "Mat & Helse",
+            "topics": []
+        },
+        {
+            "id": "musikk",
+            "title": "Musikk",
+            "topics": []
+        }
+    ]
+}

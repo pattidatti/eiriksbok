@@ -1,0 +1,39 @@
+{
+  "id": "setningsanalyse",
+  "title": "Setningsanalyse",
+  "subject": "Norsk",
+  "topic": "Grammatikk",
+  "concepts": [
+    {
+      "id": "subjekt",
+      "term": "Subjekt",
+      "definition": "Den eller det som utfører handlingen i setningen.",
+      "example": "I setningen 'Hunden løper', er 'Hunden' subjektet."
+    },
+    {
+      "id": "verbal",
+      "term": "Verbal",
+      "definition": "Handlingen i setningen. Forteller hva som skjer.",
+      "example": "I setningen 'Hunden løper', er 'løper' verbalet."
+    },
+    {
+      "id": "objekt",
+      "term": "Objekt",
+      "definition": "Den eller det handlingen går ut over.",
+      "example": "I setningen 'Jeg spiser eplet', er 'eplet' objektet."
+    }
+  ],
+  "context": {
+    "connections": [
+      { "from": "subjekt", "to": "verbal", "label": "utfører" },
+      { "from": "verbal", "to": "objekt", "label": "påvirker" }
+    ]
+  },
+  "quiz": [
+    {
+      "question": "Hva er verbalet i setningen 'Bilen kjører fort'?",
+      "options": ["Bilen", "Kjører", "Fort"],
+      "answer": "Kjører"
+    }
+  ]
+}
