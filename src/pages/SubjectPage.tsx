@@ -19,6 +19,8 @@ export const SubjectPage: React.FC = () => {
 
     if (!subjectData) return <div className="p-8 text-center">Finner ikke faget...</div>;
 
+    const hasSubTopics = subjectData.topics.some(topic => topic.subTopics && topic.subTopics.length > 0);
+
     return (
         <div className="subject-page">
             <motion.h1
@@ -29,7 +31,7 @@ export const SubjectPage: React.FC = () => {
                 {subjectData.title}
             </motion.h1>
 
-            <div style={{ display: 'grid', gridTemplateColumns: subjectId === 'samfunnsfag' ? '1fr 1fr' : '1fr', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: hasSubTopics ? '1fr 1fr' : '1fr', gap: '2rem' }}>
                 {subjectData.topics.map((topic, index) => (
                     <motion.div
                         key={topic.id}
