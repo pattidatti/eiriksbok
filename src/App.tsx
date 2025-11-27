@@ -3,7 +3,6 @@ import { Layout } from './components/Layout';
 import { LandingPage } from './pages/LandingPage';
 import { SubjectPage } from './pages/SubjectPage';
 import { LessonPage } from './pages/LessonPage';
-import { DemographyPage } from './pages/DemographyPage';
 import './App.css';
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
           <Route path=":subjectId" element={<SubjectPage />} />
           <Route path=":subjectId/:topicId/:subTopicId/:lessonId" element={<LessonPage />} />
           <Route path=":subjectId/:topicId/:lessonId" element={<LessonPage />} />
-          <Route path="samfunnsfag/demografi" element={<DemographyPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

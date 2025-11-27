@@ -13,7 +13,7 @@ export const MalthusSection: React.FC = () => {
         setIsRunning(true);
         setIsGameOver(false);
 
-        timerRef.current = setInterval(() => {
+        timerRef.current = window.setInterval(() => {
             setPop(prev => {
                 const newPop = Math.floor(prev * 1.08) + 1;
                 return newPop;

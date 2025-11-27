@@ -51,12 +51,12 @@
                     "title": "Samfunnskunnskap",
                     "subTopics": [
                         {
-                            "id": "demografi",
-                            "title": "Demografi",
+                            "id": "demografi-okonomi",
+                            "title": "Demografi & Økonomi",
                             "lessons": [
                                 {
-                                    "id": "befolkningspyramider",
-                                    "title": "Befolkningspyramider"
+                                    "id": "intro",
+                                    "title": "Introduksjon"
                                 }
                             ]
                         }

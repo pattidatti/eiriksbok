@@ -24,7 +24,6 @@ export const Layout: React.FC = () => {
                         <Link to="/samfunnsfag" className={`nav-link ${isActive('/samfunnsfag')}`}>Samfunnsfag</Link>
                         <Link to="/krle" className={`nav-link ${isActive('/krle')}`}>KRLE</Link>
                         <Link to="/musikk" className={`nav-link ${isActive('/musikk')}`}>Musikk</Link>
-                        <Link to="/samfunnsfag/demografi" className={`nav-link ${isActive('/samfunnsfag/demografi')}`}>Demografi</Link>
                     </nav>
                     <div className="nav-actions">
                         {/* Search bar or profile icon can go here */}

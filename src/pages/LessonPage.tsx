@@ -5,6 +5,7 @@ import type { Lesson } from '../types';
 import { ConceptCard } from '../components/ConceptCard';
 import { ContextBuilder } from '../components/ContextBuilder';
 import { Quiz } from '../components/Quiz';
+import { DemographyPage } from './DemographyPage';
 import { motion } from 'framer-motion';
 
 export const LessonPage: React.FC = () => {
@@ -23,6 +24,12 @@ export const LessonPage: React.FC = () => {
     }, [subjectId, topicId, subTopicId, lessonId]);
 
     if (loading) return <div className="p-8 text-center">Laster leksjon...</div>;
+
+    // Special handling for Demography module
+    if (subTopicId === 'demografi-okonomi') {
+        return <DemographyPage />;
+    }
+
     if (!lesson) return <div className="p-8 text-center">Fant ikke leksjonen.</div>;
 
     return (

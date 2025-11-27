@@ -21,11 +21,18 @@ export const MoneySection: React.FC = () => {
 
         let animationFrameId: number;
 
+        const resizeCanvas = () => {
+            if (canvas.parentElement) {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight || 400;
+            }
+        };
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
         const draw = () => {
             if (!canvas || !ctx) return;
-            // Resize logic inside draw loop or resize observer is better, but for simplicity:
-            canvas.width = canvas.parentElement?.clientWidth || 400;
-            canvas.height = canvas.parentElement?.clientHeight || 400;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             const cx = canvas.width / 2;
@@ -92,7 +99,10 @@ export const MoneySection: React.FC = () => {
 
         draw();
 
-        return () => cancelAnimationFrame(animationFrameId);
+        return () => {
+            window.removeEventListener('resize', resizeCanvas);
+            cancelAnimationFrame(animationFrameId);
+        };
     }, [tradeMode]);
 
     return (
