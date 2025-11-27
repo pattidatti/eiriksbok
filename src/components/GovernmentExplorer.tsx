@@ -1118,7 +1118,7 @@ export const GovernmentExplorer: React.FC = () => {
 export default GovernmentExplorer;
 
 // Safelist for dynamic classes to ensure Tailwind generates them
-const safelist = [
+export const safelist = [
     'via-pink-400', 'via-yellow-400', 'via-red-500', 'via-purple-400', 'via-cyan-400',
     'via-orange-400', 'via-green-400', 'via-blue-400', 'via-emerald-300', 'via-rose-400',
     'via-indigo-400', 'via-indigo-500', 'via-indigo-300', 'via-slate-300', 'via-red-400',
