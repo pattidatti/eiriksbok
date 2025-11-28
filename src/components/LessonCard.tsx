@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { ManifestLesson } from '../types';
-import { BookOpen, Clock, Tag } from 'lucide-react';
+import { BookOpen, Clock } from 'lucide-react';
 
 interface LessonCardProps {
     lesson: ManifestLesson;

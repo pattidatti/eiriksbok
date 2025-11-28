@@ -14,23 +14,26 @@ import {
     BookOpen,
     ArrowLeft
 } from 'lucide-react';
+import { ArticleContent } from './ArticleContent';
+import type { ContentBlock } from '../types';
 
-// Re-using the type definition for now. In a real app, this should be in types.ts
-export type TimelineEvent = {
-    id: number;
+// Generic Article Data Type
+export type ArticleData = {
+    id: string | number;
     year: string;
     title: string;
     description: string;
-    content: string[];
+    content: ContentBlock[];
     details: string[];
-    icon: React.ReactNode;
-    category: 'Verden' | 'Norge';
-    url: string;
+    icon?: React.ReactNode;
+    category: string;
+    url?: string;
     readTime: string;
+    heroImage?: string;
 };
 
 interface InteractiveArticleProps {
-    event: TimelineEvent;
+    event: ArticleData;
     onClose: () => void;
 }
 
@@ -92,6 +95,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
 
     return (
         <div className="bg-white min-h-screen relative z-20">
+            {/* ... (Header/Hero section remains unchanged) ... */}
             {/* Progress Bar */}
             <motion.div
                 className="fixed top-0 left-0 h-1 bg-indigo-600 z-50"
@@ -101,7 +105,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
             />
 
             {/* Header Image / Hero */}
-            <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
+            <div className="relative h-[60vh] min-h-[400px] overflow-hidden">
                 <div className="absolute inset-0 bg-slate-900">
                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay" />
                     <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
@@ -131,7 +135,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                 </div>
 
                 {/* Title & Meta */}
-                <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 max-w-5xl mx-auto">
+                <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -151,11 +155,11 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                             </span>
                         </div>
 
-                        <h1 className="text-4xl md:text-6xl font-display font-bold text-slate-900 mb-6 leading-tight drop-shadow-sm">
+                        <h1 className="text-4xl md:text-7xl font-display font-bold text-slate-900 mb-6 leading-tight drop-shadow-sm max-w-4xl">
                             {event.title}
                         </h1>
 
-                        <p className="text-xl text-slate-700 max-w-2xl leading-relaxed font-light drop-shadow-sm">
+                        <p className="text-xl md:text-2xl text-slate-700 max-w-3xl leading-relaxed font-light drop-shadow-sm">
                             {event.description}
                         </p>
                     </motion.div>
@@ -163,21 +167,11 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
             </div>
 
             {/* Main Content */}
-            <div className="max-w-4xl mx-auto px-6 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-12">
+            <div className="max-w-7xl mx-auto px-6 py-16">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-16">
                     {/* Left Column: Article Text */}
                     <div className="space-y-8">
-                        <div className="prose prose-lg prose-slate max-w-none">
-                            <p className="lead text-2xl text-slate-600 font-light leading-relaxed mb-8">
-                                {event.content[0]}
-                            </p>
-
-                            {event.content.slice(1).map((paragraph, idx) => (
-                                <p key={idx} className="text-slate-700 leading-loose">
-                                    {paragraph}
-                                </p>
-                            ))}
-                        </div>
+                        <ArticleContent content={event.content} />
 
                         <FactBox content="Visste du at denne hendelsen fikk ringvirkninger som vi fortsatt merker i dag? Historikere mener at dette var et vendepunkt for hele regionen." />
 
@@ -194,14 +188,6 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                             </div>
                             <p className="text-sm text-slate-500 mt-4 text-center italic">
                                 En 5-minutters gjennomgang av de viktigste punktene.
-                            </p>
-                        </div>
-
-                        <div className="prose prose-lg prose-slate max-w-none">
-                            <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Konsekvenser og Betydning</h3>
-                            <p className="text-slate-700 leading-loose">
-                                Hendelsen fikk store konsekvenser for samfunnsutviklingen. Det førte til endringer i både lovverk, sosiale strukturer og økonomiske forhold.
-                                Mange historikere peker på dette som starten på en ny æra.
                             </p>
                         </div>
                     </div>

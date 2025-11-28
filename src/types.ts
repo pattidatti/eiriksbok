@@ -22,7 +22,7 @@ export interface QuizQuestion {
 }
 
 export type ContentBlock =
-    | { type: 'text'; content: string }
+    | { type: 'text'; content: string; title?: string }
     | { type: 'image'; src: string; caption?: string; alt: string }
     | { type: 'component'; name: string; props?: Record<string, any> };
 
@@ -32,6 +32,14 @@ export interface Lesson {
     subject: string;
     topic: string;
     content?: ContentBlock[]; // New flexible content
+    // Rich layout fields
+    heroImage?: string;
+    readTime?: string;
+    details?: string[];
+    externalUrl?: string;
+    layout?: 'standard' | 'rich';
+    year?: string;
+    category?: string;
     // Legacy fields for backward compatibility
     concepts?: Concept[];
     context?: Context;

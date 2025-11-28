@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { fetchManifest } from '../utils/contentLoader';
 import type { ManifestSubject, ManifestTopic, ManifestSubTopic } from '../types';
 import { motion } from 'framer-motion';
@@ -8,9 +8,13 @@ import { TopicCard } from '../components/TopicCard';
 import { ChevronRight, ArrowLeft } from 'lucide-react';
 import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ErrorBoundary } from '../components/ErrorBoundary';
+import { timelineData } from '../data/timelineData';
+import { InteractiveArticle } from '../components/InteractiveArticle';
+import { LessonPage } from './LessonPage';
 
 export const TopicPage: React.FC = () => {
     const { subjectId, topicId, subTopicId } = useParams<{ subjectId: string; topicId: string; subTopicId?: string }>();
+    const navigate = useNavigate();
     const [subjectData, setSubjectData] = useState<ManifestSubject | null>(null);
     const [currentTopic, setCurrentTopic] = useState<ManifestTopic | null>(null);
     const [currentSubTopic, setCurrentSubTopic] = useState<ManifestSubTopic | null>(null);
@@ -41,6 +45,34 @@ export const TopicPage: React.FC = () => {
         return (
             <ErrorBoundary>
                 <HistoryLongLines />
+            </ErrorBoundary>
+        );
+    }
+
+    // Check if subTopicId corresponds to a timeline event (direct lesson under topic)
+    const timelineEvent = subTopicId ? timelineData.find(e =>
+        e.title.toLowerCase().replace(/\s+/g, '-') === subTopicId.toLowerCase() ||
+        e.title.toLowerCase() === subTopicId.toLowerCase() ||
+        e.id.toString() === subTopicId
+    ) : null;
+
+    if (timelineEvent) {
+        return (
+            <ErrorBoundary>
+                <InteractiveArticle
+                    event={timelineEvent}
+                    onClose={() => navigate(`/${subjectId}/${topicId}`)}
+                />
+            </ErrorBoundary>
+        );
+    }
+
+    // Check if subTopicId is actually a lesson in the current topic (e.g. demo-artikkel)
+    const lessonInTopic = currentTopic?.lessons?.find(l => l.id === subTopicId);
+    if (lessonInTopic) {
+        return (
+            <ErrorBoundary>
+                <LessonPage lessonIdOverride={subTopicId} />
             </ErrorBoundary>
         );
     }
@@ -87,29 +119,35 @@ export const TopicPage: React.FC = () => {
                 )}
             </motion.div>
 
-            {subTopics.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {subTopics.map((subTopic, index) => (
-                        <motion.div
-                            key={subTopic.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                        >
-                            <TopicCard
-                                title={subTopic.title}
-                                description={subTopic.description}
-                                image={subTopic.image}
-                                path={`/${subjectId}/${topicId}/${subTopic.id}`}
-                                lessonCount={subTopic.lessons?.length || 0}
-                            />
-                        </motion.div>
-                    ))}
+            {subTopics.length > 0 && (
+                <div className="mb-12">
+                    <h2 className="text-2xl font-display font-bold text-text-main mb-6">Emner</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {subTopics.map((subTopic, index) => (
+                            <motion.div
+                                key={subTopic.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                            >
+                                <TopicCard
+                                    title={subTopic.title}
+                                    description={subTopic.description}
+                                    image={subTopic.image}
+                                    path={`/${subjectId}/${topicId}/${subTopic.id}`}
+                                    lessonCount={subTopic.lessons?.length || 0}
+                                />
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
-            ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {lessons.length > 0 ? (
-                        lessons.map((lesson, index) => (
+            )}
+
+            {lessons.length > 0 && (
+                <div>
+                    {subTopics.length > 0 && <h2 className="text-2xl font-display font-bold text-text-main mb-6">Leksjoner</h2>}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {lessons.map((lesson, index) => (
                             <motion.div
                                 key={lesson.id}
                                 initial={{ opacity: 0, y: 20 }}
@@ -123,12 +161,14 @@ export const TopicPage: React.FC = () => {
                                     topicImage={image}
                                 />
                             </motion.div>
-                        ))
-                    ) : (
-                        <div className="col-span-full text-center py-12 bg-slate-50 rounded-2xl border border-slate-100">
-                            <p className="text-text-muted italic">Ingen leksjoner funnet i dette emnet.</p>
-                        </div>
-                    )}
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {subTopics.length === 0 && lessons.length === 0 && (
+                <div className="col-span-full text-center py-12 bg-slate-50 rounded-2xl border border-slate-100">
+                    <p className="text-text-muted italic">Ingen leksjoner funnet i dette emnet.</p>
                 </div>
             )}
         </div>

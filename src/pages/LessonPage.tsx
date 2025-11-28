@@ -15,8 +15,15 @@ import { InteractiveArticle } from '../components/InteractiveArticle';
 import { timelineData } from '../data/timelineData';
 import { useNavigate } from 'react-router-dom';
 
-export const LessonPage: React.FC = () => {
-    const { subjectId, topicId, subTopicId, lessonId } = useParams<{ subjectId: string; topicId: string; subTopicId?: string; lessonId: string }>();
+export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOverride }) => {
+    const params = useParams<{ subjectId: string; topicId: string; subTopicId?: string; lessonId: string }>();
+    const subjectId = params.subjectId || '';
+    const topicId = params.topicId || '';
+
+    // If override is provided, it means we are being rendered from TopicPage where subTopicId param is actually the lessonId
+    const lessonId = lessonIdOverride || params.lessonId || '';
+    const subTopicId = lessonIdOverride ? undefined : params.subTopicId;
+
     const [lesson, setLesson] = useState<Lesson | null>(null);
     const [lessonImage, setLessonImage] = useState<string | undefined>(undefined);
     const [loading, setLoading] = useState(true);
@@ -69,31 +76,50 @@ export const LessonPage: React.FC = () => {
         return <GovernmentExplorer />;
     }
 
+    // Check if this is a timeline event (regardless of subtopic)
+    const timelineEvent = lessonId ? timelineData.find(e =>
+        e.title.toLowerCase().replace(/\s+/g, '-') === lessonId.toLowerCase() ||
+        e.title.toLowerCase() === lessonId.toLowerCase() ||
+        e.id.toString() === lessonId
+    ) : null;
+
+    if (timelineEvent) {
+        return (
+            <ErrorBoundary>
+                <InteractiveArticle
+                    event={timelineEvent}
+                    onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
+                />
+            </ErrorBoundary>
+        );
+    }
+
+    // Check for rich layout in standard lesson
+    if (lesson && lesson.layout === 'rich') {
+        const articleData = {
+            id: lesson.id,
+            year: lesson.year || '',
+            title: lesson.title,
+            description: lesson.content?.find(c => c.type === 'text')?.content.substring(0, 150) + '...' || '',
+            content: lesson.content || [],
+            details: lesson.details || [],
+            category: lesson.category || lesson.topic,
+            readTime: lesson.readTime || '5 min lesning',
+            heroImage: lesson.heroImage,
+            url: lesson.externalUrl
+        };
+
+        return (
+            <ErrorBoundary>
+                <InteractiveArticle
+                    event={articleData}
+                    onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
+                />
+            </ErrorBoundary>
+        );
+    }
+
     if (subTopicId === 'lange-linjer') {
-        if (lessonId) {
-            // Try to match by ID (number)
-            let event = timelineData.find(e => e.id.toString() === lessonId);
-
-            // If not found by ID, try to match by title (slugified)
-            if (!event) {
-                event = timelineData.find(e =>
-                    e.title.toLowerCase().replace(/\s+/g, '-') === lessonId.toLowerCase() ||
-                    e.title.toLowerCase() === lessonId.toLowerCase()
-                );
-            }
-
-            if (event) {
-                return (
-                    <ErrorBoundary>
-                        <InteractiveArticle
-                            event={event}
-                            onClose={() => navigate(`/${subjectId}/${topicId}/${subTopicId}`)}
-                        />
-                    </ErrorBoundary>
-                );
-            }
-        }
-
         return (
             <ErrorBoundary>
                 <HistoryLongLines />

@@ -103,10 +103,8 @@ const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => 
             onClick={onClick}
             className="group relative cursor-pointer w-full bg-white border border-slate-200 backdrop-blur-md rounded-2xl overflow-hidden hover:border-indigo-400/30 transition-all shadow-sm hover:shadow-md"
             initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.3 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
         >
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -393,7 +391,7 @@ export const HistoryLongLines: React.FC = () => {
 
                                 <div className="relative pl-4 md:pl-8">
                                     {/* Vertical Timeline Line */}
-                                    <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-slate-200" />
+                                    <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-slate-300" />
 
                                     {timelineData.map((event) => {
                                         const yearNum = parseYear(event.year);

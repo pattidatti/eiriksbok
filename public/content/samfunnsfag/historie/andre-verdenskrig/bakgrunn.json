@@ -3,9 +3,43 @@
     "title": "Bakgrunn for andre verdenskrig",
     "subject": "samfunnsfag",
     "topic": "historie",
-    "concepts": [],
-    "context": {
-        "connections": []
-    },
-    "quiz": []
+    "layout": "rich",
+    "year": "1918–1939",
+    "category": "Verden",
+    "readTime": "6 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1580130732478-7f14d4255091?auto=format&fit=crop&q=80",
+    "externalUrl": "https://snl.no/andre_verdenskrig",
+    "details": [
+        "Versailles-traktaten skapte dyp misnøye.",
+        "Hitler utnyttet kaoset til å ta makten.",
+        "Tyskland brøt avtaler og rustet opp.",
+        "Vestmaktene var for ettergivende.",
+        "Invasjonen av Polen startet krigen."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Andre verdenskrig brøt ikke ut over natten. Årsakene var mange og sammensatte, men de fleste historikere peker på oppgjøret etter første verdenskrig som en hovedårsak. Det var en urolig tid i Europa, preget av økonomisk krise, politisk kaos og ulmende konflikter."
+        },
+        {
+            "type": "text",
+            "title": "Versailles-traktaten: En fred som skapte krig?",
+            "content": "**Versailles-traktaten** i 1919 la hele skylden for første verdenskrig på Tyskland. Tyskerne opplevde fredsavtalen som en ydmykelse. De måtte betale enorme krigserstatninger, gi fra seg viktige landområder og redusere militæret til et minimum.\n\nDette skapte en dyp følelse av urettferdighet og hevnlyst i det tyske folket. Mange følte seg dolket i ryggen av sine egne politikere som hadde signert avtalen."
+        },
+        {
+            "type": "text",
+            "title": "Hitlers vei til makten",
+            "content": "I denne situasjonen kunne **Adolf Hitler** og nazistpartiet (NSDAP) vokse frem. Tyskland var rammet av hyperinflasjon og arbeidsledighet. Hitler var en karismatisk taler som lovet å gjenreise Tysklands ære, skape arbeidsplasser og samle alle tyskere i ett rike.\n\nEtter at han ble utnevnt til rikskansler i **1933**, avskaffet han demokratiet og innførte diktatur. Han begynte systematisk å bryte Versailles-traktaten ved å ruste opp militæret i hemmelighet."
+        },
+        {
+            "type": "text",
+            "title": "Erobring og ettergivenhet",
+            "content": "Hitler ønsket mer \"Lebensraum\" (livsrom) for det tyske folk. Han innlemmet Østerrike i Tyskland (Anschluss) og krevde Sudetenland fra Tsjekkoslovakia. Vestmaktene, særlig Storbritannia og Frankrike, førte lenge en **appeasement-politikk** (ettergivenhetspolitikk).\n\nDe håpet at ved å gi Hitler det han ville ha, kunne de unngå en ny storkrig. Den britiske statsministeren Neville Chamberlain kom hjem fra forhandlinger med Hitler i 1938 og erklærte \"Peace for our time\". Han tok feil."
+        },
+        {
+            "type": "text",
+            "title": "Krigen bryter ut",
+            "content": "Da Tyskland krevde områder i Polen, sa Storbritannia og Frankrike stopp. De garanterte for Polens sikkerhet. Men Hitler trodde ikke de ville gripe inn.\n\nDen **1. september 1939** invaderte Tyskland Polen. To dager senere, den 3. september, erklærte Storbritannia og Frankrike krig mot Tyskland. Andre verdenskrig var et faktum."
+        }
+    ]
 }

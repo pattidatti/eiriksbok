@@ -18,8 +18,11 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                     case 'text':
                         return (
                             <div key={index} className="prose prose-invert max-w-none">
+                                {block.title && (
+                                    <h2 className="text-2xl font-bold text-slate-800 mb-4 mt-8">{block.title}</h2>
+                                )}
                                 {block.content.split('\n\n').map((paragraph, pIndex) => (
-                                    <p key={pIndex} className="mb-4">{paragraph}</p>
+                                    <p key={pIndex} className="mb-4 text-slate-700 leading-relaxed">{paragraph}</p>
                                 ))}
                             </div>
                         );
@@ -47,7 +50,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                             case 'GovernmentExplorer':
                                 return <GovernmentExplorer key={index} />;
                             case 'HistoryLongLines':
-                                return <HistoryLongLines key={index} initialLessonId={block.props?.initialLessonId} />;
+                                return <HistoryLongLines key={index} />;
                             case 'Quiz':
                                 return <Quiz key={index} questions={block.props?.questions || []} />;
                             default:
