@@ -5,6 +5,7 @@ import { DemographyPage } from '../pages/DemographyPage';
 import { GovernmentExplorer } from './GovernmentExplorer';
 import { HistoryLongLines } from './HistoryLongLines';
 import { Quiz } from './Quiz';
+import { EICSimulation } from './EICSimulation';
 
 interface ArticleContentProps {
     content: ContentBlock[];
@@ -53,6 +54,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                                 return <HistoryLongLines key={index} />;
                             case 'Quiz':
                                 return <Quiz key={index} questions={block.props?.questions || []} />;
+                            case 'EICSimulation':
+                                return <EICSimulation key={index} />;
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">

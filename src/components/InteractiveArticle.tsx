@@ -108,7 +108,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
             <div className="relative h-[60vh] min-h-[400px] overflow-hidden">
                 <div className="absolute inset-0 bg-slate-900">
                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
                 </div>
 
                 {/* Navigation Bar */}
@@ -175,21 +175,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
 
                         <FactBox content="Visste du at denne hendelsen fikk ringvirkninger som vi fortsatt merker i dag? Historikere mener at dette var et vendepunkt for hele regionen." />
 
-                        <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 my-12">
-                            <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                                <PlayCircle className="w-6 h-6 mr-3 text-indigo-600" />
-                                Video: {event.title} - Kort forklart
-                            </h3>
-                            <div className="aspect-video bg-slate-200 rounded-xl flex items-center justify-center relative group cursor-pointer overflow-hidden shadow-sm">
-                                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
-                                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                    <PlayCircle className="w-8 h-8 text-indigo-600 fill-current" />
-                                </div>
-                            </div>
-                            <p className="text-sm text-slate-500 mt-4 text-center italic">
-                                En 5-minutters gjennomgang av de viktigste punktene.
-                            </p>
-                        </div>
+
                     </div>
 
                     {/* Right Column: Sidebar / Interactive Elements */}

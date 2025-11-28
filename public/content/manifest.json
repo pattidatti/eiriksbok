@@ -93,6 +93,11 @@
                                     "id": "voc",
                                     "title": "Det nederlandske ostindiske kompani (VOC)",
                                     "description": "Verdens første aksjeselskap og et globalt handelsimperium."
+                                },
+                                {
+                                    "id": "eic",
+                                    "title": "Det britiske ostindiske kompani (EIC)",
+                                    "description": "Handelskompaniet som la grunnlaget for det britiske imperiet i India."
                                 }
                             ]
                         }
