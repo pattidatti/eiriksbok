@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 
 // Re-using the type definition for now. In a real app, this should be in types.ts
-type TimelineEvent = {
+export type TimelineEvent = {
     id: number;
     year: string;
     title: string;
@@ -35,24 +35,23 @@ interface InteractiveArticleProps {
 }
 
 const InteractiveMapPlaceholder = () => (
-    <div className="relative w-full h-64 bg-slate-800 rounded-xl overflow-hidden border border-white/10 group cursor-pointer">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity" />
+    <div className="relative w-full h-64 bg-slate-100 rounded-xl overflow-hidden border border-slate-200 group cursor-pointer shadow-sm">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-60 group-hover:opacity-80 transition-opacity" />
         <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-black/60 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 flex items-center space-x-2 group-hover:scale-105 transition-transform">
-                <Map className="w-5 h-5 text-indigo-400" />
-                <span className="text-white font-bold text-sm">Utforsk Kartet</span>
+            <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full border border-slate-200 flex items-center space-x-2 group-hover:scale-105 transition-transform shadow-md">
+                <Map className="w-5 h-5 text-indigo-600" />
+                <span className="text-slate-900 font-bold text-sm">Utforsk Kartet</span>
             </div>
         </div>
     </div>
 );
 
 const FactBox = ({ content }: { content: string }) => (
-    <div className="bg-indigo-900/20 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
-        <h4 className="text-indigo-400 font-bold text-sm uppercase mb-2 flex items-center tracking-wider">
-            <Info className="w-4 h-4 mr-2" />
-            Visste du at?
+    <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
+        <h4 className="text-indigo-700 font-bold text-sm uppercase mb-2 flex items-center tracking-wider">
+            <Info className="w-4 h-4 mr-2" /> Visste du at?
         </h4>
-        <p className="text-slate-300 text-base leading-relaxed">
+        <p className="text-slate-700 text-base leading-relaxed italic">
             {content}
         </p>
     </div>
@@ -62,13 +61,13 @@ const ExpandableSection = ({ title, children }: { title: string, children: React
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border border-white/10 rounded-xl overflow-hidden bg-slate-900/30 mb-4">
+        <div className="border border-slate-200 rounded-xl overflow-hidden bg-white mb-4 shadow-sm">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors"
+                className="w-full flex items-center justify-between p-4 hover:bg-slate-50 transition-colors"
             >
-                <span className="font-bold text-slate-200">{title}</span>
-                {isOpen ? <ChevronUp className="w-5 h-5 text-slate-400" /> : <ChevronDown className="w-5 h-5 text-slate-400" />}
+                <span className="font-bold text-slate-800">{title}</span>
+                {isOpen ? <ChevronUp className="w-5 h-5 text-slate-500" /> : <ChevronDown className="w-5 h-5 text-slate-500" />}
             </button>
             <AnimatePresence>
                 {isOpen && (
@@ -78,7 +77,7 @@ const ExpandableSection = ({ title, children }: { title: string, children: React
                         exit={{ height: 0, opacity: 0 }}
                         className="overflow-hidden"
                     >
-                        <div className="p-4 pt-0 text-slate-400 text-sm leading-relaxed border-t border-white/5">
+                        <div className="p-4 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
                             {children}
                         </div>
                     </motion.div>
@@ -89,205 +88,175 @@ const ExpandableSection = ({ title, children }: { title: string, children: React
 };
 
 export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose }) => {
-    console.log("Rendering InteractiveArticle for event:", event.title);
-
-    // Mock data for demo purposes if not present in event
-    const heroImage = event.id === 4 // Vikingtiden
-        ? "https://images.unsplash.com/photo-1506422748879-887454f9cdff?auto=format&fit=crop&q=80" // Viking ship/sea
-        : "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80"; // Generic history
+    const [isBookmarked, setIsBookmarked] = useState(false);
 
     return (
-        <div className="w-full min-h-screen bg-[#0f0f11]">
+        <div className="bg-white min-h-screen relative z-20">
+            {/* Progress Bar */}
             <motion.div
-                layoutId={`article-${event.id}`}
-                className="relative w-full flex flex-col overflow-hidden"
-            >
-                {/* Top Navigation Bar */}
-                <div className="absolute top-0 left-0 w-full z-30 flex justify-between items-center p-6 bg-gradient-to-b from-black/80 to-transparent pointer-events-none">
+                className="fixed top-0 left-0 h-1 bg-indigo-600 z-50"
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+            />
+
+            {/* Header Image / Hero */}
+            <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
+                <div className="absolute inset-0 bg-slate-900">
+                    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+                </div>
+
+                {/* Navigation Bar */}
+                <div className="absolute top-0 left-0 w-full p-6 flex justify-between items-center z-30">
                     <button
                         onClick={onClose}
-                        className="pointer-events-auto flex items-center px-4 py-2 bg-black/40 hover:bg-white/10 rounded-full text-white/70 hover:text-white transition-colors backdrop-blur-md border border-white/5 group"
+                        className="flex items-center px-4 py-2 bg-white/80 backdrop-blur-md rounded-full text-slate-900 font-bold hover:bg-white transition-all shadow-sm hover:shadow-md group"
                     >
-                        <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-                        <span className="font-medium">Tilbake til tidslinjen</span>
+                        <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+                        Tilbake til tidslinjen
                     </button>
 
-                    <div className="pointer-events-auto flex space-x-2">
-                        <button className="p-2 bg-black/40 hover:bg-white/10 rounded-full text-white/70 hover:text-white transition-colors backdrop-blur-md border border-white/5">
+                    <div className="flex space-x-3">
+                        <button
+                            onClick={() => setIsBookmarked(!isBookmarked)}
+                            className={`p-3 rounded-full backdrop-blur-md transition-all shadow-sm ${isBookmarked ? 'bg-indigo-600 text-white' : 'bg-white/80 text-slate-700 hover:bg-white'}`}
+                        >
+                            <Bookmark className={`w-5 h-5 ${isBookmarked ? 'fill-current' : ''}`} />
+                        </button>
+                        <button className="p-3 bg-white/80 backdrop-blur-md rounded-full text-slate-700 hover:bg-white transition-all shadow-sm">
                             <Share2 className="w-5 h-5" />
                         </button>
-                        <button className="p-2 bg-black/40 hover:bg-white/10 rounded-full text-white/70 hover:text-white transition-colors backdrop-blur-md border border-white/5">
-                            <Bookmark className="w-5 h-5" />
-                        </button>
                     </div>
                 </div>
 
-                {/* Content */}
-                <div className="flex-1 bg-[#0f0f11]">
+                {/* Title & Meta */}
+                <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 max-w-5xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        <div className="flex items-center space-x-4 mb-6">
+                            <span className="px-3 py-1 bg-indigo-600 text-white text-xs font-bold uppercase tracking-wider rounded-md shadow-sm">
+                                {event.category}
+                            </span>
+                            <span className="flex items-center text-slate-600 font-mono text-sm bg-white/80 backdrop-blur-sm px-3 py-1 rounded-md">
+                                <Calendar className="w-4 h-4 mr-2" />
+                                {event.year}
+                            </span>
+                            <span className="flex items-center text-slate-600 font-mono text-sm bg-white/80 backdrop-blur-sm px-3 py-1 rounded-md">
+                                <Clock className="w-4 h-4 mr-2" />
+                                {event.readTime}
+                            </span>
+                        </div>
 
-                    {/* Hero Section */}
-                    <div className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
-                        <div
-                            className="absolute inset-0 bg-cover bg-center"
-                            style={{ backgroundImage: `url(${heroImage})` }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f11] via-[#0f0f11]/50 to-transparent" />
+                        <h1 className="text-4xl md:text-6xl font-display font-bold text-slate-900 mb-6 leading-tight drop-shadow-sm">
+                            {event.title}
+                        </h1>
 
-                        <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 max-w-4xl mx-auto">
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 }}
-                                className="flex items-center space-x-3 mb-4"
-                            >
-                                <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border ${event.category === 'Norge'
-                                        ? 'bg-red-500/20 text-red-200 border-red-500/30'
-                                        : 'bg-blue-500/20 text-blue-200 border-blue-500/30'
-                                    }`}>
-                                    {event.category}
-                                </span>
-                                <span className="flex items-center text-indigo-300 font-mono text-sm bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">
-                                    <Calendar className="w-3 h-3 mr-2" />
-                                    {event.year}
-                                </span>
-                                <span className="flex items-center text-slate-400 text-sm">
-                                    <Clock className="w-3 h-3 mr-2" />
-                                    {event.readTime}
-                                </span>
-                            </motion.div>
+                        <p className="text-xl text-slate-700 max-w-2xl leading-relaxed font-light drop-shadow-sm">
+                            {event.description}
+                        </p>
+                    </motion.div>
+                </div>
+            </div>
 
-                            <motion.h1
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
-                                className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight"
-                            >
-                                {event.title}
-                            </motion.h1>
+            {/* Main Content */}
+            <div className="max-w-4xl mx-auto px-6 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-12">
+                    {/* Left Column: Article Text */}
+                    <div className="space-y-8">
+                        <div className="prose prose-lg prose-slate max-w-none">
+                            <p className="lead text-2xl text-slate-600 font-light leading-relaxed mb-8">
+                                {event.content[0]}
+                            </p>
 
-                            <motion.p
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4 }}
-                                className="text-xl md:text-2xl text-slate-200 font-light leading-relaxed max-w-2xl"
-                            >
-                                {event.description}
-                            </motion.p>
+                            {event.content.slice(1).map((paragraph, idx) => (
+                                <p key={idx} className="text-slate-700 leading-loose">
+                                    {paragraph}
+                                </p>
+                            ))}
+                        </div>
+
+                        <FactBox content="Visste du at denne hendelsen fikk ringvirkninger som vi fortsatt merker i dag? Historikere mener at dette var et vendepunkt for hele regionen." />
+
+                        <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 my-12">
+                            <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
+                                <PlayCircle className="w-6 h-6 mr-3 text-indigo-600" />
+                                Video: {event.title} - Kort forklart
+                            </h3>
+                            <div className="aspect-video bg-slate-200 rounded-xl flex items-center justify-center relative group cursor-pointer overflow-hidden shadow-sm">
+                                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+                                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                    <PlayCircle className="w-8 h-8 text-indigo-600 fill-current" />
+                                </div>
+                            </div>
+                            <p className="text-sm text-slate-500 mt-4 text-center italic">
+                                En 5-minutters gjennomgang av de viktigste punktene.
+                            </p>
+                        </div>
+
+                        <div className="prose prose-lg prose-slate max-w-none">
+                            <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Konsekvenser og Betydning</h3>
+                            <p className="text-slate-700 leading-loose">
+                                Hendelsen fikk store konsekvenser for samfunnsutviklingen. Det førte til endringer i både lovverk, sosiale strukturer og økonomiske forhold.
+                                Mange historikere peker på dette som starten på en ny æra.
+                            </p>
                         </div>
                     </div>
 
-                    {/* Main Content Grid */}
-                    <div className="max-w-6xl mx-auto p-8 md:p-12">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-
-                            {/* Left Column: Main Text (8 cols) */}
-                            <div className="lg:col-span-8">
-                                <div className="prose prose-invert prose-lg max-w-none">
-                                    {/* First paragraph with drop cap style */}
-                                    {event.content && event.content.length > 0 && (
-                                        <p className="text-slate-300 mb-6 leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:text-indigo-400 first-letter:mr-3 first-letter:float-left">
-                                            {event.content[0]}
-                                        </p>
-                                    )}
-
-                                    {/* Interactive Module: Map */}
-                                    <div className="my-10">
-                                        <InteractiveMapPlaceholder />
-                                        <p className="text-center text-xs text-slate-500 mt-2 font-mono">FIGUR 1: UTBREDELSE OG REISERUTER</p>
-                                    </div>
-
-                                    {event.content && event.content.slice(1).map((paragraph, index) => (
-                                        <React.Fragment key={index}>
-                                            <p className="text-slate-300 mb-6 leading-relaxed">
-                                                {paragraph}
-                                            </p>
-                                            {/* Insert FactBox after second paragraph */}
-                                            {index === 0 && (
-                                                <FactBox
-                                                    content="Vikingene brukte solstein for å navigere på overskyede dager. Denne krystallen kunne polarisere lyset og vise hvor solen stod på himmelen."
-                                                />
-                                            )}
-                                        </React.Fragment>
+                    {/* Right Column: Sidebar / Interactive Elements */}
+                    <div className="space-y-8">
+                        <div className="sticky top-8">
+                            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-8">
+                                <h3 className="font-bold text-slate-900 mb-4 flex items-center uppercase tracking-wider text-sm">
+                                    <BookOpen className="w-4 h-4 mr-2 text-indigo-600" />
+                                    Nøkkelpunkter
+                                </h3>
+                                <ul className="space-y-3">
+                                    {event.details.map((detail, idx) => (
+                                        <li key={idx} className="flex items-start text-sm text-slate-600">
+                                            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0" />
+                                            {detail}
+                                        </li>
                                     ))}
-                                </div>
-
-                                {/* Deep Dive Section */}
-                                <div className="mt-12 pt-12 border-t border-white/5">
-                                    <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-                                        <BookOpen className="w-6 h-6 mr-3 text-indigo-400" />
-                                        Fordypning
-                                    </h3>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <ExpandableSection title="Samfunnsstruktur">
-                                            Vikingtidens samfunn var hierarkisk oppbygd med treller, frie bønder, jarler og konger. Ætten stod sentralt i lov og rett.
-                                        </ExpandableSection>
-                                        <ExpandableSection title="Religion og Tro">
-                                            Den norrøne mytologien med Odin, Tor og Frøya preget hverdagen før kristendommen gradvis overtok fra 1000-tallet.
-                                        </ExpandableSection>
-                                        <ExpandableSection title="Handel og Økonomi">
-                                            Vikingene var dyktige handelsmenn som byttet pelsverk, hvalbein og slaver mot sølv, silke og krydder fra Østen.
-                                        </ExpandableSection>
-                                    </div>
-                                </div>
+                                </ul>
                             </div>
 
-                            {/* Right Column: Sidebar (4 cols) */}
-                            <div className="lg:col-span-4 space-y-8">
+                            <InteractiveMapPlaceholder />
 
-                                {/* Key Points Card */}
-                                <div className="bg-slate-900/50 rounded-2xl p-6 border border-white/5 sticky top-6">
-                                    <h3 className="text-sm font-bold text-indigo-400 uppercase tracking-wider mb-6 flex items-center">
-                                        <Info className="w-4 h-4 mr-2" />
-                                        Nøkkelpunkter
-                                    </h3>
-                                    <ul className="space-y-4">
-                                        {event.details && event.details.map((detail, idx) => (
-                                            <li key={idx} className="flex items-start text-sm text-slate-300 group">
-                                                <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 mr-3 group-hover:scale-150 transition-transform" />
-                                                <span className="leading-relaxed">{detail}</span>
-                                            </li>
-                                        ))}
+                            <div className="mt-8">
+                                <h3 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wider">Fordypning</h3>
+                                <ExpandableSection title="Kilder og Litteratur">
+                                    <ul className="list-disc pl-4 space-y-2">
+                                        <li>Historisk Tidsskrift, 2023</li>
+                                        <li>Norgeshistorie.no</li>
+                                        <li>Store Norske Leksikon</li>
                                     </ul>
-                                </div>
-
-                                {/* Media/Gallery Placeholder */}
-                                <div className="bg-slate-900/50 rounded-2xl p-6 border border-white/5">
-                                    <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 flex items-center">
-                                        <PlayCircle className="w-4 h-4 mr-2" />
-                                        Media
-                                    </h3>
-                                    <div className="grid grid-cols-2 gap-2">
-                                        <div className="aspect-square bg-slate-800 rounded-lg border border-white/5 hover:border-indigo-500/50 transition-colors cursor-pointer relative group overflow-hidden">
-                                            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1599619351208-3e6c839d6828?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-60 group-hover:scale-110 transition-transform duration-500" />
-                                        </div>
-                                        <div className="aspect-square bg-slate-800 rounded-lg border border-white/5 hover:border-indigo-500/50 transition-colors cursor-pointer relative group overflow-hidden">
-                                            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1535941339077-2dd1c7963098?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-60 group-hover:scale-110 transition-transform duration-500" />
-                                        </div>
+                                </ExpandableSection>
+                                <ExpandableSection title="Relaterte Emner">
+                                    <div className="flex flex-wrap gap-2">
+                                        <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md border border-slate-200">Politikk</span>
+                                        <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md border border-slate-200">Økonomi</span>
+                                        <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md border border-slate-200">Kultur</span>
                                     </div>
-                                </div>
-
-                                {/* External Link */}
-                                <a
-                                    href={event.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="block p-6 bg-gradient-to-br from-indigo-900/20 to-blue-900/20 rounded-2xl border border-indigo-500/20 hover:border-indigo-500/40 transition-all group"
-                                >
-                                    <div className="flex items-center justify-between mb-2">
-                                        <span className="text-indigo-400 font-bold text-sm">Store Norske Leksikon</span>
-                                        <ExternalLink className="w-4 h-4 text-indigo-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                    </div>
-                                    <p className="text-slate-400 text-sm">
-                                        Les den fullstendige, kvalitetssikrede artikkelen om {event.title}.
-                                    </p>
-                                </a>
-
+                                </ExpandableSection>
                             </div>
 
+                            <a
+                                href={event.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-center w-full p-4 mt-8 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl group"
+                            >
+                                <ExternalLink className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                                Les mer på SNL
+                            </a>
                         </div>
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 };

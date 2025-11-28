@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchLesson, fetchManifest } from '../utils/contentLoader';
-import type { Lesson, Manifest, ManifestLesson } from '../types';
+import type { Lesson, ManifestLesson } from '../types';
 import { ConceptCard } from '../components/ConceptCard';
 import { ContextBuilder } from '../components/ContextBuilder';
 import { Quiz } from '../components/Quiz';
@@ -11,12 +11,16 @@ import { GovernmentExplorer } from '../components/GovernmentExplorer';
 import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ArticleContent } from '../components/ArticleContent';
 import { ErrorBoundary } from '../components/ErrorBoundary';
+import { InteractiveArticle } from '../components/InteractiveArticle';
+import { timelineData } from '../data/timelineData';
+import { useNavigate } from 'react-router-dom';
 
 export const LessonPage: React.FC = () => {
     const { subjectId, topicId, subTopicId, lessonId } = useParams<{ subjectId: string; topicId: string; subTopicId?: string; lessonId: string }>();
     const [lesson, setLesson] = useState<Lesson | null>(null);
     const [lessonImage, setLessonImage] = useState<string | undefined>(undefined);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (subjectId && topicId && lessonId) {
@@ -66,9 +70,33 @@ export const LessonPage: React.FC = () => {
     }
 
     if (subTopicId === 'lange-linjer') {
+        if (lessonId) {
+            // Try to match by ID (number)
+            let event = timelineData.find(e => e.id.toString() === lessonId);
+
+            // If not found by ID, try to match by title (slugified)
+            if (!event) {
+                event = timelineData.find(e =>
+                    e.title.toLowerCase().replace(/\s+/g, '-') === lessonId.toLowerCase() ||
+                    e.title.toLowerCase() === lessonId.toLowerCase()
+                );
+            }
+
+            if (event) {
+                return (
+                    <ErrorBoundary>
+                        <InteractiveArticle
+                            event={event}
+                            onClose={() => navigate(`/${subjectId}/${topicId}/${subTopicId}`)}
+                        />
+                    </ErrorBoundary>
+                );
+            }
+        }
+
         return (
             <ErrorBoundary>
-                <HistoryLongLines initialLessonId={lessonId} />
+                <HistoryLongLines />
             </ErrorBoundary>
         );
     }
