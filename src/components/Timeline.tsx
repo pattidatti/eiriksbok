@@ -12,7 +12,26 @@ export const Timeline: React.FC<TimelineProps> = ({ lessons }) => {
     const sortedLessons = lessons
         .filter(lesson => lesson.date)
         .sort((a, b) => {
-            return new Date(b.date!).getTime() - new Date(a.date!).getTime();
+            const getDateValue = (dateStr: string) => {
+                const date = new Date(dateStr);
+                if (!isNaN(date.getTime())) {
+                    return date.getTime();
+                }
+                // Handle ancient dates manually (e.g. -300000-01-01)
+                // Assuming format YYYY-MM-DD or -YYYYYY-MM-DD
+                const parts = dateStr.split('-');
+                if (parts.length >= 3) {
+                    // If starts with -, the first part is empty string
+                    const isNegative = dateStr.startsWith('-');
+                    const yearIndex = isNegative ? 1 : 0;
+                    const year = parseInt(parts[yearIndex]) * (isNegative ? -1 : 1);
+                    // Return a timestamp-like value (year * approx ms in year)
+                    // This is rough but enough for sorting against other dates
+                    return year * 31536000000;
+                }
+                return 0;
+            };
+            return getDateValue(b.date!) - getDateValue(a.date!);
         });
 
     return (
@@ -118,7 +137,20 @@ export const Timeline: React.FC<TimelineProps> = ({ lessons }) => {
                                 fontSize: '0.9rem'
                             }}>
                                 <span style={{ color: 'var(--text-main)', fontWeight: 500 }}>
-                                    {new Date(lesson.date!).toLocaleDateString('no-NO', { year: 'numeric', month: 'long' })}
+                                    {(() => {
+                                        const dateStr = lesson.date!;
+                                        const isNegative = dateStr.startsWith('-');
+                                        if (isNegative) {
+                                            const parts = dateStr.split('-');
+                                            const year = parts[1];
+                                            return `ca. ${year} fvt.`;
+                                        }
+                                        const date = new Date(dateStr);
+                                        if (!isNaN(date.getTime())) {
+                                            return date.toLocaleDateString('no-NO', { year: 'numeric', month: 'long' });
+                                        }
+                                        return dateStr;
+                                    })()}
                                 </span>
                             </div>
 
@@ -140,7 +172,8 @@ export const Timeline: React.FC<TimelineProps> = ({ lessons }) => {
                         </div>
                     </Link>
                 </motion.div>
-            ))}
-        </div>
+            ))
+            }
+        </div >
     );
 };

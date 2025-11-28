@@ -8,6 +8,7 @@ import { Quiz } from '../components/Quiz';
 import { DemographyPage } from './DemographyPage';
 import { motion } from 'framer-motion';
 import { GovernmentExplorer } from '../components/GovernmentExplorer';
+import { HistoryLongLines } from '../components/HistoryLongLines';
 
 export const LessonPage: React.FC = () => {
     const { subjectId, topicId, subTopicId, lessonId } = useParams<{ subjectId: string; topicId: string; subTopicId?: string; lessonId: string }>();
@@ -33,6 +34,10 @@ export const LessonPage: React.FC = () => {
 
     if (subTopicId === 'styringsformer') {
         return <GovernmentExplorer />;
+    }
+
+    if (subTopicId === 'lange-linjer') {
+        return <HistoryLongLines initialLessonId={lessonId} />;
     }
 
     if (!lesson) return <div className="p-8 text-center">Fant ikke leksjonen.</div>;

@@ -48,6 +48,60 @@
                                     "description": "Handelen mellom Europa, Afrika og Amerika."
                                 }
                             ]
+                        },
+                        {
+                            "id": "lange-linjer",
+                            "title": "Historien i Lange Linjer",
+                            "lessons": [
+                                {
+                                    "id": "menneskets-opprinnelse",
+                                    "title": "Menneskets Opprinnelse",
+                                    "date": "-300000-01-01",
+                                    "description": "Homo sapiens oppstår i Afrika."
+                                },
+                                {
+                                    "id": "jordbruksrevolusjonen",
+                                    "title": "Jordbruksrevolusjonen",
+                                    "date": "-10000-01-01",
+                                    "description": "Overgangen fra jeger/samler til bonde."
+                                },
+                                {
+                                    "id": "romerriket",
+                                    "title": "Romerriket",
+                                    "date": "-0500-01-01",
+                                    "description": "Antikkens mektigste imperium."
+                                },
+                                {
+                                    "id": "vikingtiden",
+                                    "title": "Vikingtiden",
+                                    "date": "0800-01-01",
+                                    "description": "Nordboernes ekspansjon."
+                                },
+                                {
+                                    "id": "rikssamlingen",
+                                    "title": "Rikssamlingen",
+                                    "date": "0872-01-01",
+                                    "description": "Norge samles til ett rike."
+                                },
+                                {
+                                    "id": "svartedauden",
+                                    "title": "Svartedauden",
+                                    "date": "1349-08-01",
+                                    "description": "Pesten som endret Norge."
+                                },
+                                {
+                                    "id": "boktrykkerkunsten",
+                                    "title": "Boktrykkerkunsten",
+                                    "date": "1450-01-01",
+                                    "description": "Informasjonsrevolusjonen."
+                                },
+                                {
+                                    "id": "industriell-revolusjon",
+                                    "title": "Industriell Revolusjon",
+                                    "date": "1840-01-01",
+                                    "description": "Fra bonde- til industrisamfunn."
+                                }
+                            ]
                         }
                     ]
                 },
