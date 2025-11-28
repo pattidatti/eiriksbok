@@ -88,6 +88,11 @@
                                     "id": "verdenshandel-for-oppdagelsesreisene",
                                     "title": "Verdenshandel før oppdagelsesreisene",
                                     "description": "Handel med krydder og luksusvarer før 1500."
+                                },
+                                {
+                                    "id": "voc",
+                                    "title": "Det nederlandske ostindiske kompani (VOC)",
+                                    "description": "Verdens første aksjeselskap og et globalt handelsimperium."
                                 }
                             ]
                         }
