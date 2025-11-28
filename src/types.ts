@@ -21,14 +21,21 @@ export interface QuizQuestion {
     answer: string;
 }
 
+export type ContentBlock =
+    | { type: 'text'; content: string }
+    | { type: 'image'; src: string; caption?: string; alt: string }
+    | { type: 'component'; name: string; props?: Record<string, any> };
+
 export interface Lesson {
     id: string;
     title: string;
     subject: string;
     topic: string;
-    concepts: Concept[];
-    context: Context;
-    quiz: QuizQuestion[];
+    content?: ContentBlock[]; // New flexible content
+    // Legacy fields for backward compatibility
+    concepts?: Concept[];
+    context?: Context;
+    quiz?: QuizQuestion[];
 }
 
 export interface ManifestLesson {

@@ -1,0 +1,39 @@
+{
+    "id": "test-artikkel",
+    "title": "Test Artikkel med Blandet Innhold",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "content": [
+        {
+            "type": "text",
+            "content": "Dette er en introduksjonstekst som viser at vi nå kan blande tekst, bilder og komponenter fritt.\n\nHer er et nytt avsnitt for å teste avsnittshåndtering."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.jpg",
+            "alt": "Et testbilde",
+            "caption": "Figur 1: Dette er en bildetekst."
+        },
+        {
+            "type": "text",
+            "content": "Her kommer det mer tekst etter bildet. Nedenfor skal vi se en interaktiv quiz-komponent."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Fungerer den nye strukturen?",
+                        "options": [
+                            "Ja",
+                            "Nei",
+                            "Kanskje"
+                        ],
+                        "answer": "Ja"
+                    }
+                ]
+            }
+        }
+    ]
+}

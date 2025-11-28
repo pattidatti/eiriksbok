@@ -33,19 +33,6 @@
                             "id": "andre-verdenskrig",
                             "title": "Andre verdenskrig",
                             "description": "Den største konflikten i menneskehetens historie.",
-                            "image": "/Eiriksbok/images/topics/andre-verdenskrig.png",
-                            "lessons": [
-                                {
-                                    "id": "bakgrunn",
-                                    "title": "Bakgrunn",
-                                    "date": "1939-09-01",
-                                    "description": "Årsakene til at krigen brøt ut."
-                                }
-                            ]
-                        },
-                        {
-                            "id": "kolonialisering",
-                            "title": "Kolonialisering",
                             "description": "Europeisk ekspansjon og dens konsekvenser.",
                             "image": "/Eiriksbok/images/topics/kolonialisering.png",
                             "lessons": [

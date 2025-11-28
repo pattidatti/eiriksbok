@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchLesson } from '../utils/contentLoader';
-import type { Lesson } from '../types';
+import { fetchLesson, fetchManifest } from '../utils/contentLoader';
+import type { Lesson, Manifest, ManifestLesson } from '../types';
 import { ConceptCard } from '../components/ConceptCard';
 import { ContextBuilder } from '../components/ContextBuilder';
 import { Quiz } from '../components/Quiz';
@@ -9,6 +9,8 @@ import { DemographyPage } from './DemographyPage';
 import { motion } from 'framer-motion';
 import { GovernmentExplorer } from '../components/GovernmentExplorer';
 import { HistoryLongLines } from '../components/HistoryLongLines';
+import { ArticleContent } from '../components/ArticleContent';
+import { ErrorBoundary } from '../components/ErrorBoundary';
 
 export const LessonPage: React.FC = () => {
     const { subjectId, topicId, subTopicId, lessonId } = useParams<{ subjectId: string; topicId: string; subTopicId?: string; lessonId: string }>();
@@ -64,7 +66,11 @@ export const LessonPage: React.FC = () => {
     }
 
     if (subTopicId === 'lange-linjer') {
-        return <HistoryLongLines initialLessonId={lessonId} />;
+        return (
+            <ErrorBoundary>
+                <HistoryLongLines initialLessonId={lessonId} />
+            </ErrorBoundary>
+        );
     }
 
     if (!lesson) return <div className="p-8 text-center">Fant ikke leksjonen.</div>;
@@ -94,33 +100,41 @@ export const LessonPage: React.FC = () => {
                 )}
             </motion.div>
 
-            <section className="mb-16">
-                <h2 className="text-2xl font-display font-bold text-text-main mb-6 border-l-4 border-neon-accent pl-4">
-                    Begreper
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {lesson.concepts.map(concept => (
-                        <ConceptCard key={concept.id} concept={concept} />
-                    ))}
-                </div>
-            </section>
+            {/* New Flexible Content Renderer */}
+            {lesson.content ? (
+                <ArticleContent content={lesson.content} />
+            ) : (
+                /* Legacy Rendering Fallback */
+                <>
+                    <section className="mb-16">
+                        <h2 className="text-2xl font-display font-bold text-text-main mb-6 border-l-4 border-neon-accent pl-4">
+                            Begreper
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {lesson.concepts?.map(concept => (
+                                <ConceptCard key={concept.id} concept={concept} />
+                            ))}
+                        </div>
+                    </section>
 
-            {lesson.context && (
-                <section className="mb-16">
-                    <h2 className="text-2xl font-display font-bold text-text-main mb-6 border-l-4 border-neon-accent pl-4">
-                        Kontekst
-                    </h2>
-                    <ContextBuilder context={lesson.context} concepts={lesson.concepts} />
-                </section>
-            )}
+                    {lesson.context && (
+                        <section className="mb-16">
+                            <h2 className="text-2xl font-display font-bold text-text-main mb-6 border-l-4 border-neon-accent pl-4">
+                                Kontekst
+                            </h2>
+                            <ContextBuilder context={lesson.context} concepts={lesson.concepts || []} />
+                        </section>
+                    )}
 
-            {lesson.quiz && lesson.quiz.length > 0 && (
-                <section className="mb-16">
-                    <h2 className="text-2xl font-display font-bold text-text-main mb-6 border-l-4 border-neon-accent pl-4">
-                        Test deg selv
-                    </h2>
-                    <Quiz questions={lesson.quiz} />
-                </section>
+                    {lesson.quiz && lesson.quiz.length > 0 && (
+                        <section className="mb-16">
+                            <h2 className="text-2xl font-display font-bold text-text-main mb-6 border-l-4 border-neon-accent pl-4">
+                                Test deg selv
+                            </h2>
+                            <Quiz questions={lesson.quiz} />
+                        </section>
+                    )}
+                </>
             )}
         </div>
     );

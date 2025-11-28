@@ -18,6 +18,8 @@ import {
     AlignLeft,
     Info
 } from 'lucide-react';
+import { InteractiveArticle } from './InteractiveArticle';
+import { ErrorBoundary } from './ErrorBoundary';
 
 // --- Types & Data ---
 
@@ -267,10 +269,6 @@ const quizData: QuizQuestion[] = [
 
 // --- Components ---
 
-import { InteractiveArticle } from './InteractiveArticle';
-
-// ... (previous code remains the same until ArticleCard)
-
 const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => void }) => {
     return (
         <motion.article
@@ -305,8 +303,8 @@ const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => 
 
                         <div className="relative z-10 mt-auto">
                             <span className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold border ${event.category === 'Norge'
-                                ? 'bg-red-500/10 text-red-300 border-red-500/20'
-                                : 'bg-blue-500/10 text-blue-300 border-blue-500/20'
+                                    ? 'bg-red-500/10 text-red-300 border-red-500/20'
+                                    : 'bg-blue-500/10 text-blue-300 border-blue-500/20'
                                 }`}>
                                 <Tag className="w-3 h-3 mr-1.5" />
                                 {event.category}
@@ -465,8 +463,8 @@ const QuizModule = () => {
                     onClick={nextQuestion}
                     disabled={answered === null}
                     className={`flex items-center px-8 py-4 rounded-xl font-bold transition-all ${answered === null
-                        ? 'bg-slate-800 text-slate-600 cursor-not-allowed border border-white/5'
-                        : 'bg-white text-indigo-900 hover:bg-indigo-50 shadow-xl hover:scale-105 active:scale-95'
+                            ? 'bg-slate-800 text-slate-600 cursor-not-allowed border border-white/5'
+                            : 'bg-white text-indigo-900 hover:bg-indigo-50 shadow-xl hover:scale-105 active:scale-95'
                         }`}
                 >
                     {currentIdx === quizData.length - 1 ? 'Se Resultat' : 'Neste Spørsmål'}
@@ -544,8 +542,8 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
                             <button
                                 onClick={() => setActiveTab('artikler')}
                                 className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center ${activeTab === 'artikler'
-                                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
-                                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                                        ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
+                                        : 'text-slate-400 hover:text-white hover:bg-slate-800'
                                     }`}
                             >
                                 <BookOpen className="w-4 h-4 mr-2" />
@@ -554,8 +552,8 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
                             <button
                                 onClick={() => setActiveTab('quiz')}
                                 className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center ${activeTab === 'quiz'
-                                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
-                                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                                        ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
+                                        : 'text-slate-400 hover:text-white hover:bg-slate-800'
                                     }`}
                             >
                                 <CheckCircle className="w-4 h-4 mr-2" />
@@ -615,7 +613,9 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
                 {/* Reading Overlay */}
                 <AnimatePresence>
                     {selectedEvent && (
-                        <InteractiveArticle event={selectedEvent} onClose={() => setSelectedEvent(null)} />
+                        <ErrorBoundary>
+                            <InteractiveArticle event={selectedEvent} onClose={() => setSelectedEvent(null)} />
+                        </ErrorBoundary>
                     )}
                 </AnimatePresence>
             </div>

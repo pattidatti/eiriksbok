@@ -29,7 +29,7 @@ export const LandingPage: React.FC = () => {
                 </p>
             </motion.div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem' }}>
                 {manifest.subjects.map((subject, index) => (
                     <motion.div
                         key={subject.id}
@@ -39,8 +39,15 @@ export const LandingPage: React.FC = () => {
                     >
                         <Link to={`/${subject.id}`} style={{ textDecoration: 'none' }}>
                             <ImmersiveCard>
-                                <h2 style={{ marginTop: 0, color: 'var(--text-main)', fontFamily: 'Outfit, sans-serif' }}>{subject.title}</h2>
-                                <p style={{ color: 'var(--text-muted)' }}>
+                                <div style={{ height: '250px', overflow: 'hidden', borderRadius: '8px', marginBottom: '1.5rem' }}>
+                                    <img
+                                        src={`https://placehold.co/800x500?text=${encodeURIComponent(subject.title)}`}
+                                        alt={subject.title}
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                    />
+                                </div>
+                                <h2 style={{ marginTop: 0, color: 'var(--text-main)', fontFamily: 'Outfit, sans-serif', fontSize: '2rem' }}>{subject.title}</h2>
+                                <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem' }}>
                                     {subject.topics.length} emner tilgjengelig
                                 </p>
                             </ImmersiveCard>
