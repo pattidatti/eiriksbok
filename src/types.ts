@@ -34,6 +34,9 @@ export interface Lesson {
 export interface ManifestLesson {
     id: string;
     title: string;
+    date?: string;
+    tags?: string[];
+    description?: string;
 }
 
 export interface ManifestSubTopic {

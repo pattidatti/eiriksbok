@@ -10,7 +10,8 @@
                     "lessons": [
                         {
                             "id": "setningsanalyse",
-                            "title": "Setningsanalyse"
+                            "title": "Setningsanalyse",
+                            "description": "Lær å analysere setninger for bedre språkforståelse."
                         }
                     ]
                 }
@@ -30,7 +31,9 @@
                             "lessons": [
                                 {
                                     "id": "bakgrunn",
-                                    "title": "Bakgrunn"
+                                    "title": "Bakgrunn",
+                                    "date": "1939-09-01",
+                                    "description": "Årsakene til at krigen brøt ut."
                                 }
                             ]
                         },
@@ -40,7 +43,9 @@
                             "lessons": [
                                 {
                                     "id": "trekanthandelen",
-                                    "title": "Trekanthandelen"
+                                    "title": "Trekanthandelen",
+                                    "date": "1700-01-01",
+                                    "description": "Handelen mellom Europa, Afrika og Amerika."
                                 }
                             ]
                         }
@@ -56,7 +61,8 @@
                             "lessons": [
                                 {
                                     "id": "intro",
-                                    "title": "Introduksjon"
+                                    "title": "Introduksjon",
+                                    "description": "Grunnleggende om befolkning og økonomi."
                                 }
                             ]
                         },
@@ -66,7 +72,8 @@
                             "lessons": [
                                 {
                                     "id": "utforsk",
-                                    "title": "Utforsk Styringsformer"
+                                    "title": "Utforsk Styringsformer",
+                                    "description": "Sammenlign ulike måter å styre et land på."
                                 }
                             ]
                         }

@@ -48,6 +48,13 @@ Your goal is to create high-quality, "Dark Immersion" styled educational compone
 - `src/pages/`: Main page views.
 - `public/content/manifest.json`: Defines the subject/topic hierarchy.
 
+### 📅 Timeline & Manifest Data
+- **Manifest Structure**: When adding lessons to `public/content/manifest.json`:
+  - **Hierarchy**: Use `subTopics` (e.g. "Andre verdenskrig") for historical eras to ensure correct context on the timeline.
+  - **`date`**: (Optional) Format `YYYY-MM-DD`. **ONLY** include for historical events or content that belongs on a timeline.
+  - **`description`**: (Optional) Short context string (e.g. "Starten på krigen") displayed on the timeline.
+  - **Filtering**: Lessons **WITHOUT** a `date` will **NOT** appear on the timeline (but will be in the hierarchical view).
+
 ### ⚠️ Critical Rules
 1. **Tailwind v4**: Do NOT suggest `tailwind.config.js` changes unless necessary for theme extension. The CSS handles imports.
 2. **No Placeholders**: Generate fully functional code with mock data if real data isn't provided.
@@ -87,7 +94,7 @@ Når du får koden fra AI-en:
 
 1.  **Opprett filen**: Lag `src/components/DinModul.tsx`.
 2.  **Lim inn koden**: Sjekk at imports (f.eks. heroicons) stemmer.
-3.  **Oppdater Manifest**: Legg til modulen i `public/content/manifest.json`.
+3.  **Oppdater Manifest**: Legg til modulen i `public/content/manifest.json`. Husk `date` og `description` hvis det er tidslinje-relevant!
 4.  **Oppdater Routing**: Legg til en sjekk i `src/pages/LessonPage.tsx`:
     ```tsx
     if (subTopicId === 'din-nye-id') {

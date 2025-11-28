@@ -58,3 +58,13 @@ Enkle tester for å sjekke forståelse.
 *   **`public/content/manifest.json`**: Definerer hele strukturen (Fag -> Emner -> Leksjoner).
 *   **`public/content/<fag>/<emne>/<leksjon>.json`**: Inneholder selve dataene for en standard leksjon (tekst, begreper, quiz).
 *   **Spesialleksjoner**: Noen leksjoner (som Demografi) har egne React-komponenter og rutes direkte i koden for å tilby avansert funksjonalitet som ikke dekkes av standard JSON-formatet.
+
+## Tidslinje og Datering
+
+For å støtte tidslinjevisningen, kan leksjoner i `manifest.json` ha følgende valgfrie felt:
+
+*   **`date`**: Dato for hendelsen eller temaet (format: YYYY-MM-DD).
+    *   *Logikk*: Leksjoner **uten** dato vises kun i den hierarkiske oversikten, ikke på tidslinjen.
+*   **`description`**: En kort beskrivelse som gir kontekst på tidslinjen.
+    *   *Visning*: Vises under tittelen.
+    *   *Kontekst*: Tidslinjen viser automatisk navnet på **Undertemaet** (f.eks. "Andre verdenskrig") som en tydelig merkelapp over datoen for å gi historisk kontekst.
