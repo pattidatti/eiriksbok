@@ -41,7 +41,7 @@
     top: 0;
     z-index: 50;
     width: 100%;
-    background: rgba(15, 15, 17, 0.7);
+    background: var(--glass-bg);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
 }
@@ -50,14 +50,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1440px; /* max-w-7xl is 1280px, but we use a larger one for navbar */
+    max-width: 1440px;
+    /* max-w-7xl is 1280px, but we use a larger one for navbar */
     margin: 0 auto;
-    padding: 1rem 1.5rem; /* px-6 */
+    padding: 1rem 1.5rem;
+    /* px-6 */
 }
 
 .nav-brand {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.5rem; /* text-2xl */
+    font-size: 1.5rem;
+    /* text-2xl */
     font-weight: 400;
     color: var(--text-main);
     text-decoration: none;
@@ -100,8 +103,10 @@
 .main-content {
     position: relative;
     z-index: 10;
-    max-width: 1280px; /* max-w-7xl */
+    max-width: 1280px;
+    /* max-w-7xl */
     margin: 0 auto;
-    padding: 2rem 1.5rem; /* px-6 */
+    padding: 2rem 1.5rem;
+    /* px-6 */
     width: 100%;
 }

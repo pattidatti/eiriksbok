@@ -12,7 +12,7 @@ export const LandingPage: React.FC = () => {
         fetchManifest().then(setManifest);
     }, []);
 
-    if (!manifest) return <div className="p-8 text-center text-white">Laster fag...</div>;
+    if (!manifest) return <div className="p-8 text-center text-text-muted">Laster fag...</div>;
 
     return (
         <div className="landing-page">

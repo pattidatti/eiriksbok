@@ -13,27 +13,24 @@ import {
     RefreshCw,
     Clock,
     Map,
-    X,
-    Info,
-    ExternalLink,
     Calendar,
     Tag,
     AlignLeft,
-    FileText
+    Info
 } from 'lucide-react';
 
 // --- Types & Data ---
 
 type TimelineEvent = {
-    id: string; // Changed to string to match lessonId
+    id: number;
     year: string;
     title: string;
-    description: string; // Ingress/Kort beskrivelse
-    content: string[]; // Hvert element er et avsnitt
-    details: string[]; // Nøkkelpunkter (Bullets)
+    description: string;
+    content: string[];
+    details: string[];
     icon: React.ReactNode;
     category: 'Verden' | 'Norge';
-    url: string; // URL til SNL
+    url: string;
     readTime: string;
 };
 
@@ -45,107 +42,107 @@ type QuizQuestion = {
     explanation: string;
 };
 
-// Data med utvidede artikler
+// Data oppdatert nøyaktig etter innholdet i "Historien og Norge.pdf"
 const timelineData: TimelineEvent[] = [
     {
-        id: "menneskets-opprinnelse",
-        year: "ca. 300 000 år siden",
-        title: "Menneskets Opprinnelse",
-        description: "Homo sapiens oppstår i Afrika og begynner den lange vandringen som til slutt skal dekke hele kloden.",
+        id: 1,
+        year: "200 000 fvt.",
+        title: "Menneskets tidlige historie",
+        description: "Fra nomader i Afrika til spredning over hele kloden.",
         content: [
-            "Historien om oss starter i Afrika. Det er her, for omtrent 300 000 år siden, at arten Homo sapiens først utviklet seg. I hundretusener av år levde menneskene som nomader. Dette betyr at de ikke hadde faste bosteder, men flyttet seg i takt med årstidene og dyrene de jaktet på.",
-            "Livet var preget av en tilværelse som jegere og samlere. Mennene jaktet ofte på større dyr, mens kvinnene samlet røtter, frukt og bær. Dette samspillet var avgjørende for overlevelse. Det som virkelig skilte mennesket fra andre arter, var evnen til å samarbeide i store grupper, utvikle avanserte redskaper av stein og bein, og – viktigst av alt – evnen til å kommunisere gjennom språk.",
-            "For omtrent 70 000 år siden skjedde det noe avgjørende: Mennesket begynte å vandre ut av Afrika. Denne utvandringen førte oss først til Midtøsten, så til Asia og Europa, og til slutt, for rundt 15 000 år siden, over landbroen til Amerika. Da isen trakk seg tilbake fra Norden for ca. 10 000 år siden, fulgte de første menneskene etter reinsdyrene opp til norskekysten."
+            "Ifølge kartleggingen av menneskets vandringer, oppstod Homo sapiens i Afrika for rundt 200 000 år siden. I titusenvis av år levde menneskene som nomader. En nomade er en som ikke har fast boplass, men flytter rundt som jeger og samler for å finne mat.",
+            "For omtrent 70 000 år siden begynte en stor utvandring fra Afrika mot Asia. Menneskene nådde Europa for ca. 40 000 år siden, og krysset til slutt over til Amerika for rundt 15 000 år siden. Samtidig fantes det andre mennesketyper, som Homo neanderthalensis i Europa og Homo erectus i Asia, men det var Homo sapiens som spredte seg til hele verden.",
+            "I Norges historie starter fortellingen mye senere. De første nomadene kom til Finnmark rundt 9300 fvt., etter at isen trakk seg tilbake."
         ],
         details: [
-            "Utviklet seg i Afrika for ca. 300 000 år siden.",
-            "Vandret ut til resten av verden for ca. 70 000 år siden.",
-            "Levde som nomader (jegere og samlere) uten faste hus.",
-            "Brukte redskaper av stein, tre og bein."
+            "Homo sapiens oppstod i Afrika (200 000 år siden).",
+            "Nomader: Jegere og samlere uten fast boplass.",
+            "Utvandring fra Afrika startet for alvor for 70 000 år siden.",
+            "Norge: Første nomader i Finnmark 9300 fvt."
         ],
         icon: <Globe className="w-8 h-8 text-blue-400" />,
         category: 'Verden',
         url: "https://snl.no/menneskets_opprinnelse_og_utvikling",
-        readTime: "3 min lesning"
+        readTime: "2 min lesning"
     },
     {
-        id: "jordbruksrevolusjonen",
-        year: "ca. 10 000 fvt.",
-        title: "Jordbruksrevolusjonen",
-        description: "Kanskje den største endringen i menneskets historie: Overgangen fra å finne mat til å lage den selv.",
+        id: 2,
+        year: "12 000 – 4000 fvt.",
+        title: "Jordbruk og Sivilisasjoner",
+        description: "Mennesket slår seg til ro: Fra nomade til fastboende med husdyr.",
         content: [
-            "For omtrent 12 000 år siden, i et område i Midtøsten kalt 'Den fruktbare halvmåne', begynte mennesker med noe helt nytt: De begynte å så frø og temme dyr. Dette markerte slutten på millioner av år som nomader og starten på det vi kaller jordbrukssamfunnet.",
-            "Konsekvensene var enorme. Når man kunne dyrke sin egen mat, kunne man bo på samme sted år etter år. Dette førte til de første faste bosetningene, som etter hvert vokste til landsbyer og byer. Fordi jordbruk ga mer mat enn jakt, kunne befolkningen vokse raskt. Det ble også mulig for noen å jobbe med andre ting enn å skaffe mat – som å være håndverkere, prester eller soldater.",
-            "De første store sivilisasjonene, elvedalssivilisasjonene, vokste frem der jorden var fruktbar, som langs Nilen i Egypt og Eufrat og Tigris i Mesopotamia (dagens Irak). I Norge kom jordbruket mye senere, først rundt 4000 fvt., da folk på Østlandet begynte å rydde skog for å dyrke korn."
+            "Det store skiftet i menneskets historie skjedde da vi gikk fra å være nomader til å bli fastboende bønder. Tidlig jordbruk startet i Midtøsten mellom 8000 og 12 000 fvt. Her begynte folk å bo fast og holde husdyr.",
+            "Dette la grunnlaget for 'Elvedalssivilisasjoner' (4000–10 000 fvt.) i områder som Irak (Mesopotamia), Egypt og Midtøsten. Fordi de dyrket jorden ved store elver, kunne de produsere nok mat til å bygge større byer og samfunn.",
+            "I Norge skjedde denne endringen senere. Jordbruket begynte på Østlandet rundt 4000 fvt. Senere, rundt 2500 fvt., kom 'Stridsøksfolket' fra Germania, og nye folkegrupper (Horder, Ryger) ankom rundt år 400 evt."
         ],
         details: [
-            "Startet i 'Den fruktbare halvmåne' i Midtøsten.",
-            "Førte til faste bosetninger og befolkningsvekst.",
-            "Gjorde det mulig å bygge byer og utvikle sivilisasjoner.",
-            "Nådde Norge ca. 4000 fvt. (yngre steinalder)."
+            "Nomader sluttet å vandre og fikk fast boplass.",
+            "Tidlig jordbruk i Midtøsten (8000–12 000 fvt.).",
+            "Elvedalssivilisasjoner oppstod ved Nilen, Eufrat og Tigris.",
+            "Jordbruk i Norge startet ca. 4000 fvt."
         ],
         icon: <Map className="w-8 h-8 text-green-400" />,
         category: 'Verden',
         url: "https://snl.no/jordbrukets_historie",
-        readTime: "4 min lesning"
+        readTime: "3 min lesning"
     },
     {
-        id: "romerriket",
-        year: "ca. 500 fvt. – 400 evt.",
+        id: 3,
+        year: "500 fvt. – 400 evt.",
         title: "Romerriket",
-        description: "Et verdensrike styrt fra Roma som la grunnlaget for moderne europeisk lov og kultur.",
+        description: "Et av historiens første store imperier som spredte kristendom og veier.",
         content: [
-            "Romerriket startet som en liten bystat i Italia rundt 500 fvt., men vokste til å bli antikkens mektigste imperium. På sitt største kontrollerte Roma hele området rundt Middelhavet, fra England i nord til Egypt i sør, og fra Spania i vest til Syria i øst.",
-            "Romerne var mestere i organisering. De bygget tusenvis av kilometer med rette veier som bandt riket sammen – mange av dem brukes fortsatt i dag. De bygget akvedukter for å frakte vann til byene, og enorme amfiteatre som Colosseum for underholdning. Romersk rett (lovgivning) er fortsatt grunnlaget for lovene i mange europeiske land.",
-            "Riket gikk gjennom flere faser, fra republikk til keiserdømme med Augustus som den første keiseren. Rundt år 300 ble kristendommen statsreligion, noe som forandret Europas historie for alltid. Men riket ble for stort til å styres fra ett sted, og i 395 ble det delt i to: Vestromerriket og Østromerriket. Vestriket falt sammen rundt år 476, mens Østromerriket bestod i nesten tusen år til."
+            "Romerriket startet i Roma ca. år 500 fvt. og vokste til å bli et enormt imperium. De erobret Sør-Europa, Nord-Afrika og Vest-Asia. Romerriket var en av de første store kolonimaktene, og de bandt riket sammen med et imponerende veinett.",
+            "Det var på disse veiene kristendommen etter hvert ble spredt. Rundt år 300 ble kristendommen offisiell religion i riket. Romerriket eksisterte samtidig med andre imperier, som Persia (Achaemenid) og Makedonia (under Alexander den Store).",
+            "Rundt år 400 evt. ble Romerriket delt i to: et vestlig og et østlig rike. Mens vestriket falt, levde østriket (Bysants) videre. I denne perioden ser vi også starten på 'Justinians pest' (541–549), som var den første bølgen av svartedauden."
         ],
         details: [
-            "Startet som republikk, ble keiserdømme under Augustus.",
-            "Erobret store deler av Europa, Nord-Afrika og Midtøsten.",
-            "Innført kristendommen som statsreligion på 300-tallet.",
-            "Delt i Vest- og Østromerriket før det vestlige fallet."
+            "Startet i Roma ca. 500 fvt.",
+            "Erobret store deler av Europa, Afrika og Asia.",
+            "Kristendommen ble offisiell religion ca. år 300.",
+            "Riket ble delt i øst og vest ca. år 400."
         ],
         icon: <Sword className="w-8 h-8 text-red-400" />,
         category: 'Verden',
         url: "https://snl.no/Romerrikets_historie",
-        readTime: "5 min lesning"
+        readTime: "4 min lesning"
     },
     {
-        id: "vikingtiden",
-        year: "ca. 800 – 1050 evt.",
+        id: 4,
+        year: "793 – 1066 evt.",
         title: "Vikingtiden",
-        description: "Da nordboerne satte seil og satte sitt preg på verdenskartet gjennom handel, krig og oppdagelser.",
+        description: "Hvorfor dro bønder fra nord ut for å plyndre og handle?",
         content: [
-            "Vikingtiden innledes tradisjonelt med angrepet på klosteret Lindisfarne i England i 793. Dette markerte starten på en periode hvor folk fra Norge, Sverige og Danmark dominerte havene i Nord-Europa. Årsakene til at de dro ut var mange: befolkningsvekst hjemme, jakt på rikdom, og politiske konflikter.",
-            "Teknologien som gjorde dette mulig, var langskipet. Disse skipene var raske, kunne krysse åpent hav, men var også grunnne nok til å seile langt oppover elver for å angripe byer langt inne i landet. Vikingene var ikke bare krigere; de var også dyktige handelsmenn som grunnla byer som Dublin og Kyiv, og handlet så langt øst som Bagdad.",
-            "De var også oppdagere. Norske vikinger koloniserte Island og Grønland. Leiv Eiriksson seilte helt til Nord-Amerika (Vinland) rundt år 1000, 500 år før Columbus. Slutten på vikingtiden knyttes ofte til slaget ved Stamford Bridge i 1066, men også til at kristendommen ble innført i Norden, noe som knyttet landene tettere til europeisk kultur og avsluttet den gamle norrøne levemåten."
+            "Vikingtiden regnes fra angrepet på Lindisfarne i 793 til slaget ved Stamford Bridge i 1066. Vikingene kom fra hele Skandinavia og var både bønder, handelsfolk, sjømenn og krigere. Men hvorfor reiste de? Før år 700 ble jernredskaper vanligere, noe som gjorde det lettere å rydde gårder. Dette førte til at folketallet økte, og det ble plassmangel på Vestlandet. Mange søkte derfor rikdom i utlandet.",
+            "Samfunnet var organisert i ætter (storfamilier) og stammer ledet av en høvding. Høvdingen hadde sin egen hær, kalt hirden. Viktige avgjørelser ble tatt på Tinget, en hellig plass for diskusjon og dom. De rike bøndene (frie menn) eide jorden, mens treller (slaver) var ufrie arbeidsfolk.",
+            "Vikingene reiste med langskip som kunne seile både på åpent hav og grunt vann (elver). De grunnla riker i øst (Rus-riket/Kiev) og vest (Danelagen i England), og oppdaget Island, Grønland og Vinland (Amerika). De fikk ulike navn der de dro: 'Væringer' i Bysants, 'Rus' blant slaverne, og 'Normanner' i Frankrike."
         ],
         details: [
-            "Startet med Lindisfarne-angrepet i 793.",
-            "Muliggjort av avanserte langskip.",
-            "Oppdaget Island, Grønland og Amerika (Vinland).",
-            "Varte til ca. 1066 (Stamford Bridge) og kristendommens innføring."
+            "Årsaker: Jernredskaper, befolkningsvekst og plassmangel.",
+            "Samfunn: Styrt av høvdinger og tinget. Treller var slaver.",
+            "Teknologi: Langskipet muliggjorde reiser til Russland og Amerika.",
+            "Slutt: Tapet ved Stamford Bridge i 1066."
         ],
         icon: <Anchor className="w-8 h-8 text-indigo-400" />,
         category: 'Norge',
         url: "https://snl.no/vikingtiden",
-        readTime: "6 min lesning"
+        readTime: "5 min lesning"
     },
     {
-        id: "rikssamlingen",
-        year: "ca. 872 evt.",
+        id: 5,
+        year: "872 evt.",
         title: "Rikssamlingen",
-        description: "Historien om hvordan Norge gikk fra mange småhøvdinger til ett kongerike.",
+        description: "Harald Hårfagre samler Norge – for kjærlighet eller makt?",
         content: [
-            "Før vikingtiden var ikke 'Norge' ett land, men bestod av mange små kongedømmer og høvdingdømmer. Prosessen med å samle disse startet for alvor med Harald Hårfagre. Ifølge sagaen forelsket han seg i kongsdattern Gyda, men hun ville ikke ha ham før han hadde lagt under seg hele Norge.",
-            "Harald sverget da at han ikke skulle klippe eller gre håret før han var enekonge over landet. Han reiste rundt og kjempet mot lokale høvdinger, og det hele kulminerte i det store slaget i Hafrsfjord (tradisjonelt datert til 872, men sannsynligvis litt senere). Her vant Harald over en allianse av motstandere, og regnes dermed som Norges første rikskonge.",
-            "Selv om Harald samlet mye av landet, var riket fortsatt løst sammensatt. Han styrte gjennom allianser med mektige bønder og jarler, særlig Ladejarlene i Trøndelag. Etter hans død gikk riket delvis i oppløsning gjennom maktkamper mellom sønnene hans (som Eirik Blodøks og Håkon den Gode), og det tok mange hundre år før Norge ble en fasttømret stat."
+            "Harald Hårfagre (konge ca. 865–933) regnes som Norges første rikskonge. Han kom sannsynligvis fra Vestfold og arvet riket etter faren Halvdan Svarte. Historien forteller at han lovet kongsdattern Gyda å samle hele Norge til ett rike før han ville klippe håret.",
+            "Det avgjørende slaget stod i Hafrsfjord (tradisjonelt år 872). Her allierte Harald seg med jarler fra Trøndelag for å slå sjøkongene på Sør-Vestlandet. Han etablerte et viktig maktsenter på Karmøy.",
+            "Selv om Harald samlet landet, var makten sårbar. Han fikk mange sønner som ble sendt til ulike allierte ætter for oppfostring. Etter Haralds død gikk riket delvis i oppløsning gjennom maktkamper mellom sønnene, som Eirik Blodøks og Håkon den Gode. Harald Hårfagre ga senere konger 'historisk legitimitet' – retten til å styre fordi de stammet fra ham."
         ],
         details: [
-            "Harald Hårfagre samlet Norge etter slaget i Hafrsfjord.",
-            "Motivert av løftet til Gyda (ifølge sagaen).",
-            "Styrte gjennom allianser, særlig i Trøndelag og på Vestlandet.",
-            "Starten på det norske kongedømmet."
+            "Slaget i Hafrsfjord (872) samlet Norge.",
+            "Harald allierte seg med Trøndelag mot Sør-Vestlandet.",
+            "Maktsenteret lå på Avaldsnes (Karmøy).",
+            "Riket ble splittet mellom sønnene etter hans død."
         ],
         icon: <Sword className="w-8 h-8 text-yellow-400" />,
         category: 'Norge',
@@ -153,122 +150,126 @@ const timelineData: TimelineEvent[] = [
         readTime: "4 min lesning"
     },
     {
-        id: "svartedauden",
+        id: 6,
         year: "1349 evt.",
         title: "Svartedauden",
-        description: "Pesten som ankom Bergen og forandret Norges historie dramatisk.",
+        description: "Pesten som drepte halvparten av befolkningen og endret samfunnet.",
         content: [
-            "Sensommeren 1349 la et skip til kai i Bergen. Om bord var det varer fra England, men også noe mye farligere: byllepest. Svartedauden spredte seg som en ild gjennom Norge. Sykdommen var nådeløs, med store byller, feber og død i løpet av få dager.",
-            "Konsekvensene var katastrofale. Det anslås at over halvparten av Norges befolkning døde i løpet av kort tid. Hele bygder ble lagt øde, og tusenvis av gårder (ødegårder) ble stående tomme og gro igjen. Dette knekte den norske staten og adelen fullstendig.",
-            "Fordi så mange døde, mistet kongen og kirken store inntekter (skatter og leieinntekter). Det fantes ikke lenger nok folk til å drive landet som en selvstendig statsmakt. Dette er hovedårsaken til at Norge etter hvert mistet sin selvstendighet og gikk inn i en union med Danmark som skulle vare i over 400 år (400-årsnatten). På den annen side fikk de fattige bøndene som overlevde det bedre, fordi det ble rikelig med jord til alle."
+            "Svartedauden kom til Norge (Bergen) i 1349, men pesten hadde herjet i Europa siden 1346. Den spredte seg via handelsruter fra det Mongolske riket i øst. På verdensbasis døde mellom 70 og 200 millioner mennesker.",
+            "I Norge døde ca. 50% av befolkningen. Dette førte til at mange gårder ble stående tomme (ødegårder). For staten var dette en katastrofe, da skatteinntektene forsvant. Men for de fattige bøndene som overlevde, ble livet faktisk bedre: Det var nå rikelig med jord tilgjengelig, og de kunne kreve bedre vilkår.",
+            "Svartedauden markerer slutten på Norges storhetstid i middelalderen og starten på unionstiden med Danmark. Pesten kom tilbake i bølger i over 200 år etterpå."
         ],
         details: [
-            "Kom til Bergen i 1349 med et handelsskip.",
-            "Drepte ca. 50-60% av befolkningen.",
-            "Førte til tusenvis av ødegårder og økonomisk kollaps.",
-            "Innledet nedgangstiden og unionen med Danmark."
+            "Kom til Bergen i 1349.",
+            "Ca. 50% av Norges befolkning døde.",
+            "Førte til ødegårder og økonomisk kollaps for staten.",
+            "Overlevende bønder fikk mer jord og bedre kår."
         ],
         icon: <Skull className="w-8 h-8 text-slate-400" />,
         category: 'Norge',
         url: "https://snl.no/svartedauden",
-        readTime: "5 min lesning"
+        readTime: "3 min lesning"
     },
     {
-        id: "boktrykkerkunsten",
-        year: "ca. 1450 evt.",
+        id: 7,
+        year: "1440 evt.",
         title: "Boktrykkerkunsten",
-        description: "Teknologien som demokratiserte kunnskap og startet en informasjonsrevolusjon.",
+        description: "En informasjonsrevolusjon startet av Gutenberg (og kineserne).",
         content: [
-            "På midten av 1400-tallet, i byen Mainz i Tyskland, gjorde gullsmeden Johann Gutenberg en oppfinnelse som skulle endre verden. Han fant opp en metode for å støpe løse bokstavtyper i metall, som kunne settes sammen til ord, svertes med blekk og trykkes mot papir.",
-            "Før dette måtte alle bøker skrives for hånd av munker, en prosess som kunne ta år for én enkelt bok. Bøker var derfor ekstremt dyre og kun for de aller rikeste. Med Gutenbergs presse kunne man plutselig trykke tusenvis av sider om dagen. I år 1500 var det allerede trykket 20 millioner bøker i Europa.",
-            "Effekten var eksplosiv. Kunnskap, nyheter og nye ideer kunne spre seg raskt. Dette var avgjørende for Reformasjonen, da Martin Luther kunne spre sine ideer mot paven til hele Europa via trykte pamfletter. Det la også grunnlaget for den vitenskapelige revolusjon, fordi forskere kunne dele oppdagelsene sine med hverandre."
+            "I 1440 'oppfant' gullsmeden Johannes Gutenberg boktrykkerkunsten i Tyskland. Han utviklet en metode med løse typer som gjorde det mulig å masseprodusere bøker. Men det er verdt å merke seg at kineserne hadde utviklet lignende teknologi allerede rundt år 700.",
+            "Før trykkpressen måtte bøker skrives for hånd, noe som var dyrt og tidkrevende. Med den nye teknologien eksploderte antall bøker: Rundt år 1500 fantes det over 20 millioner bøker i Europa.",
+            "Dette førte til en enorm spredning av kunnskap, ideer og kritikk mot makthaverne (som kirken). Det ble vanskeligere å holde informasjon hemmelig, og flere lærte å lese."
         ],
         details: [
-            "Oppfunnet av Johann Gutenberg i Tyskland.",
-            "Erstattet håndskrevne bøker med masseproduksjon.",
-            "Gjorde bøker billigere og tilgjengelig for flere.",
-            "Avgjørende for Reformasjonen og vitenskapens fremmarsj."
+            "Gutenberg utviklet trykkpressen ca. 1440.",
+            "Kineserne hadde teknologien mye tidligere (år 700).",
+            "Førte til 20 millioner bøker innen år 1500.",
+            "Gjorde kunnskap tilgjengelig for massene."
         ],
         icon: <BookOpen className="w-8 h-8 text-purple-400" />,
         category: 'Verden',
         url: "https://snl.no/Johann_Gutenberg",
-        readTime: "3 min lesning"
+        readTime: "2 min lesning"
     },
     {
-        id: "industriell-revolusjon",
+        id: 8,
         year: "ca. 1840 evt.",
         title: "Industriell Revolusjon i Norge",
-        description: "Da maskinene kom til Norge og forvandlet bondesamfunnet til et industriland.",
+        description: "Fra overskudd av mat til fabrikker og maskiner.",
         content: [
-            "Den industrielle revolusjon startet i England på 1700-tallet, men kom sent til Norge. Startskuddet regnes ofte til 1840-tallet, da gründere begynte å bygge tekstilfabrikker langs Akerselva i Oslo (daværende Christiania). De brukte vannkraften fra elva til å drive spinnemaskiner og vevstoler.",
-            "Dette skapte et enormt skifte i samfunnet. Før dette hadde nesten alle nordmenn bodd på landsbygda og jobbet som bønder eller fiskere. Nå strømmet tusenvis av mennesker – særlig unge kvinner – til byene for å få jobb i fabrikkene. Oslo vokste i rekordfart.",
-            "Forutsetningene for denne veksten var overskudd av arbeidskraft (befolkningsvekst på bygdene) og kapital (penger) til å kjøpe maskiner fra utlandet. Etter hvert utviklet Norge også annen industri, som mekaniske verksteder og treforedling. Dette var starten på det moderne velstandsnorge vi kjenner i dag, selv om arbeidsforholdene i starten var svært harde."
+            "Før 1800-tallet var det svært lite industri i Norge, kanskje bare noen vindmøller og gruver. Nesten alle jobbet som bønder. Den industrielle revolusjon skjøt først fart i Norge rundt 1840-tallet.",
+            "Hva måtte til for å starte en fabrikk? Ifølge historien kreves det to ting: For det første et overskudd av mat. En bonde eller fisker må produsere mer mat enn han selv trenger, slik at andre kan jobbe i fabrikk i stedet for på jordet. For det andre må man ha kapital – man må spare penger for å kunne kjøpe dyre maskiner.",
+            "I Norge startet industrien ofte med tekstilfabrikker som utnyttet vannkraften i elvene. Fabrikkene omdannet råvarer (som ull) til ferdige produkter (som klær/tepper). Dette endret samfunnet totalt og skapte de moderne byene."
         ],
         details: [
-            "Startet ca. 1840 med tekstilindustri langs Akerselva.",
-            "Drevet av vannkraft og importerte maskiner.",
-            "Førte til urbanisering (folk flyttet til byene).",
+            "Startet for alvor i Norge på 1840-tallet.",
+            "Forutsetning 1: Overskudd av mat.",
+            "Forutsetning 2: Penger til å kjøpe maskiner.",
             "Endret Norge fra bondesamfunn til industrisamfunn."
         ],
         icon: <Hammer className="w-8 h-8 text-orange-400" />,
         category: 'Norge',
         url: "https://snl.no/den_industrielle_revolusjon_i_Norge",
-        readTime: "6 min lesning"
+        readTime: "4 min lesning"
     }
 ];
 
 const quizData: QuizQuestion[] = [
     {
         id: 1,
-        question: "Hva var en viktig årsak til at vikingtiden tok slutt?",
+        question: "Hva var en viktig årsak til at vikingene begynte å reise ut?",
         options: [
-            "Vikingene gikk tom for trevirke til skip",
-            "Innføringen av kristendommen og sterkere kongemakt",
-            "En stor flodbølge ødela alle kystbyene",
-            "Romerriket erobret Skandinavia"
+            "De ble kastet ut av kongen",
+            "Befolkningsvekst og mangel på jord (plassmangel)",
+            "En stor flodbølge ødela avlingene",
+            "De ville spre kristendommen"
         ],
         correct: 1,
-        explanation: "Kristendommen knyttet Norden til resten av Europa, og kongene ønsket ro og orden for å styre rikene sine."
+        explanation: "Jernredskaper gjorde at de kunne dyrke mer mat, som førte til at folketallet økte. Det ble trangt om plassen på Vestlandet."
     },
     {
         id: 2,
-        question: "Når kom Svartedauden til Norge?",
+        question: "Hva kalles samfunnssystemet vikingene levde under?",
         options: [
-            "1066",
-            "1814",
-            "1349",
-            "1537"
+            "Demokrati",
+            "Ættesamfunn med høvdinger og ting",
+            "Keiserdømme",
+            "Føydalisme"
         ],
-        correct: 2,
-        explanation: "Pesten kom til Bergen med et skip sommeren 1349 og spredte seg raskt over hele landet."
+        correct: 1,
+        explanation: "Samfunnet var bygget opp rundt ætten (storfamilien). Høvdingen var leder, og viktige saker ble avgjort på tinget."
     },
     {
         id: 3,
-        question: "Hva er Harald Hårfagre mest kjent for?",
+        question: "Hva måtte til for at den industrielle revolusjon kunne starte?",
         options: [
-            "Han oppdaget Amerika",
-            "Han samlet Norge til ett rike",
-            "Han startet den industrielle revolusjon",
-            "Han skrev Norges første lovbok"
+            "At man fant olje",
+            "At alle sluttet å være bønder",
+            "Overskudd av mat og penger til maskiner",
+            "At kongen bestemte det"
         ],
-        correct: 1,
-        explanation: "Etter slaget i Hafrsfjord (ca. 872) regnes han som den som samlet Norge til ett kongerike."
+        correct: 2,
+        explanation: "For å frigjøre folk til å jobbe i fabrikker, måtte bøndene produsere mer mat enn de selv spiste (overskudd)."
     },
     {
         id: 4,
-        question: "Hvor oppstod de første sivilisasjonene?",
+        question: "Hvor startet jordbruket først?",
         options: [
-            "I Norge og Sverige",
-            "Langs store elver i Midtøsten, Egypt og Asia",
-            "På slettene i Nord-Amerika",
-            "I regnskogen i Amazonas"
+            "I Norge",
+            "I 'Den fruktbare halvmåne' i Midtøsten",
+            "I Romerriket",
+            "I Amerika"
         ],
         correct: 1,
-        explanation: "De første sivilisasjonene (som Mesopotamia og Egypt) oppstod der det var lett å dyrke mat, ofte langs store elver."
+        explanation: "Jordbruket oppstod i Midtøsten ca. 8000-12 000 fvt., lenge før det kom til Norge."
     }
 ];
 
 // --- Components ---
+
+import { InteractiveArticle } from './InteractiveArticle';
+
+// ... (previous code remains the same until ArticleCard)
 
 const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => void }) => {
     return (
@@ -304,8 +305,8 @@ const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => 
 
                         <div className="relative z-10 mt-auto">
                             <span className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold border ${event.category === 'Norge'
-                                    ? 'bg-red-500/10 text-red-300 border-red-500/20'
-                                    : 'bg-blue-500/10 text-blue-300 border-blue-500/20'
+                                ? 'bg-red-500/10 text-red-300 border-red-500/20'
+                                : 'bg-blue-500/10 text-blue-300 border-blue-500/20'
                                 }`}>
                                 <Tag className="w-3 h-3 mr-1.5" />
                                 {event.category}
@@ -339,115 +340,6 @@ const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => 
                 </div>
             </div>
         </motion.article>
-    );
-};
-
-const ArticleReader = ({ event, onClose }: { event: TimelineEvent; onClose: () => void }) => {
-    return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 overflow-hidden">
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={onClose}
-                className="absolute inset-0 bg-black/90 backdrop-blur-md"
-            />
-            <motion.div
-                layoutId={`article-${event.id}`}
-                className="relative w-full max-w-4xl h-full md:h-[90vh] bg-[#0f0f11] md:rounded-3xl shadow-2xl z-10 flex flex-col overflow-hidden border border-white/10"
-            >
-                {/* Article Header */}
-                <div className="relative shrink-0 h-64 md:h-80 bg-slate-900 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0f0f11]" />
-                    <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.3),transparent_70%)]" />
-
-                    <button
-                        onClick={onClose}
-                        className="absolute top-6 right-6 p-2 bg-black/40 hover:bg-white/10 rounded-full text-white/70 hover:text-white transition-colors backdrop-blur-md border border-white/5 z-20"
-                    >
-                        <X className="w-6 h-6" />
-                    </button>
-
-                    <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 z-10">
-                        <div className="flex items-center space-x-3 mb-4">
-                            <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border ${event.category === 'Norge'
-                                    ? 'bg-red-500/20 text-red-200 border-red-500/30'
-                                    : 'bg-blue-500/20 text-blue-200 border-blue-500/30'
-                                }`}>
-                                {event.category}
-                            </span>
-                            <span className="text-indigo-300 font-mono text-sm border border-indigo-500/30 bg-indigo-500/10 px-2 py-0.5 rounded">
-                                {event.year}
-                            </span>
-                        </div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-2 leading-tight">
-                            {event.title}
-                        </h1>
-                    </div>
-                </div>
-
-                {/* Article Content */}
-                <div className="flex-1 overflow-y-auto custom-scrollbar bg-[#0f0f11]">
-                    <div className="max-w-3xl mx-auto p-8 md:p-12">
-
-                        {/* Intro Lead */}
-                        <p className="text-xl md:text-2xl text-slate-200 font-light leading-relaxed mb-12 border-b border-white/5 pb-8">
-                            {event.description}
-                        </p>
-
-                        <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-12">
-
-                            {/* Main Text Column */}
-                            <div className="flex-1 order-2 lg:order-1">
-                                <div className="prose prose-invert prose-lg max-w-none">
-                                    {event.content.map((paragraph, index) => (
-                                        <p key={index} className="text-slate-300 mb-6 leading-relaxed">
-                                            {paragraph}
-                                        </p>
-                                    ))}
-                                </div>
-
-                                {/* Sources Box */}
-                                <div className="mt-16 bg-slate-900/50 rounded-2xl p-6 border border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-                                    <div className="text-slate-400 text-sm">
-                                        <p className="font-bold text-slate-300 mb-1">Kvalitetssikret innhold</p>
-                                        <p>Les mer om dette emnet hos Store Norske Leksikon.</p>
-                                    </div>
-                                    <a
-                                        href={event.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center px-5 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-all shadow-lg shadow-indigo-900/20 whitespace-nowrap"
-                                    >
-                                        Gå til SNL.no
-                                        <ExternalLink className="w-4 h-4 ml-2" />
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Sidebar / Key Points */}
-                            <div className="w-full lg:w-72 shrink-0 mb-12 lg:mb-0 order-1 lg:order-2">
-                                <div className="bg-slate-900/50 rounded-2xl p-6 border border-white/5 sticky top-6">
-                                    <h3 className="text-sm font-bold text-indigo-400 uppercase tracking-wider mb-4 flex items-center">
-                                        <FileText className="w-4 h-4 mr-2" />
-                                        Nøkkelpunkter
-                                    </h3>
-                                    <ul className="space-y-4">
-                                        {event.details.map((detail, idx) => (
-                                            <li key={idx} className="flex text-sm text-slate-300">
-                                                <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 mr-3" />
-                                                <span className="leading-relaxed">{detail}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </motion.div>
-        </div>
     );
 };
 
@@ -573,8 +465,8 @@ const QuizModule = () => {
                     onClick={nextQuestion}
                     disabled={answered === null}
                     className={`flex items-center px-8 py-4 rounded-xl font-bold transition-all ${answered === null
-                            ? 'bg-slate-800 text-slate-600 cursor-not-allowed border border-white/5'
-                            : 'bg-white text-indigo-900 hover:bg-indigo-50 shadow-xl hover:scale-105 active:scale-95'
+                        ? 'bg-slate-800 text-slate-600 cursor-not-allowed border border-white/5'
+                        : 'bg-white text-indigo-900 hover:bg-indigo-50 shadow-xl hover:scale-105 active:scale-95'
                         }`}
                 >
                     {currentIdx === quizData.length - 1 ? 'Se Resultat' : 'Neste Spørsmål'}
@@ -597,7 +489,9 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
 
     useEffect(() => {
         if (initialLessonId) {
-            const event = timelineData.find(e => e.id === initialLessonId);
+            // Try to match by ID (number) or if it's a string, maybe we can't match it easily with new data
+            // Assuming initialLessonId might be a number in string form
+            const event = timelineData.find(e => e.id.toString() === initialLessonId);
             if (event) {
                 setSelectedEvent(event);
             }
@@ -650,8 +544,8 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
                             <button
                                 onClick={() => setActiveTab('artikler')}
                                 className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center ${activeTab === 'artikler'
-                                        ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
-                                        : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
+                                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
                                     }`}
                             >
                                 <BookOpen className="w-4 h-4 mr-2" />
@@ -660,8 +554,8 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
                             <button
                                 onClick={() => setActiveTab('quiz')}
                                 className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center ${activeTab === 'quiz'
-                                        ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
-                                        : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
+                                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
                                     }`}
                             >
                                 <CheckCircle className="w-4 h-4 mr-2" />
@@ -721,7 +615,7 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
                 {/* Reading Overlay */}
                 <AnimatePresence>
                     {selectedEvent && (
-                        <ArticleReader event={selectedEvent} onClose={() => setSelectedEvent(null)} />
+                        <InteractiveArticle event={selectedEvent} onClose={() => setSelectedEvent(null)} />
                     )}
                 </AnimatePresence>
             </div>

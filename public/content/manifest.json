@@ -7,11 +7,14 @@
                 {
                     "id": "grammatikk",
                     "title": "Grammatikk",
+                    "description": "Lær om språkets oppbygning.",
+                    "image": "/Eiriksbok/images/topics/grammatikk.png",
                     "lessons": [
                         {
                             "id": "setningsanalyse",
                             "title": "Setningsanalyse",
-                            "description": "Lær å analysere setninger for bedre språkforståelse."
+                            "description": "Hvordan analysere setninger.",
+                            "image": "/Eiriksbok/images/lessons/setningsanalyse.png"
                         }
                     ]
                 }
@@ -24,10 +27,13 @@
                 {
                     "id": "historie",
                     "title": "Historie",
+                    "description": "Utforsk fortiden for å forstå nåtiden.",
                     "subTopics": [
                         {
                             "id": "andre-verdenskrig",
                             "title": "Andre verdenskrig",
+                            "description": "Den største konflikten i menneskehetens historie.",
+                            "image": "/Eiriksbok/images/topics/andre-verdenskrig.png",
                             "lessons": [
                                 {
                                     "id": "bakgrunn",
@@ -40,6 +46,8 @@
                         {
                             "id": "kolonialisering",
                             "title": "Kolonialisering",
+                            "description": "Europeisk ekspansjon og dens konsekvenser.",
+                            "image": "/Eiriksbok/images/topics/kolonialisering.png",
                             "lessons": [
                                 {
                                     "id": "trekanthandelen",
@@ -52,6 +60,8 @@
                         {
                             "id": "lange-linjer",
                             "title": "Historien i Lange Linjer",
+                            "description": "De store linjene fra steinalderen til i dag.",
+                            "image": "/Eiriksbok/images/topics/lange-linjer.png",
                             "lessons": [
                                 {
                                     "id": "menneskets-opprinnelse",
@@ -108,10 +118,13 @@
                 {
                     "id": "samfunnskunnskap",
                     "title": "Samfunnskunnskap",
+                    "description": "Hvordan samfunnet vårt er bygget opp.",
                     "subTopics": [
                         {
                             "id": "demografi-okonomi",
                             "title": "Demografi & Økonomi",
+                            "description": "Befolkningsutvikling og økonomiske systemer.",
+                            "image": "/Eiriksbok/images/topics/demografi-okonomi.png",
                             "lessons": [
                                 {
                                     "id": "intro",
@@ -123,6 +136,8 @@
                         {
                             "id": "styringsformer",
                             "title": "Styringsformer",
+                            "description": "Demokrati, diktatur og alt imellom.",
+                            "image": "/Eiriksbok/images/topics/styringsformer.png",
                             "lessons": [
                                 {
                                     "id": "utforsk",

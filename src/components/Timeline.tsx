@@ -35,18 +35,9 @@ export const Timeline: React.FC<TimelineProps> = ({ lessons }) => {
         });
 
     return (
-        <div className="timeline-container" style={{ position: 'relative', maxWidth: '800px', margin: '0 auto', padding: '2rem 0' }}>
+        <div className="timeline-container relative max-w-4xl mx-auto py-8">
             {/* Vertical Line */}
-            <div style={{
-                position: 'absolute',
-                left: '50%',
-                top: 0,
-                bottom: 0,
-                width: '2px',
-                background: 'linear-gradient(to bottom, transparent, var(--neon-accent), transparent)',
-                transform: 'translateX(-50%)',
-                opacity: 0.5
-            }} />
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-slate-300 to-transparent -translate-x-1/2 opacity-50" />
 
             {sortedLessons.map((lesson, index) => (
                 <motion.div
@@ -54,89 +45,31 @@ export const Timeline: React.FC<TimelineProps> = ({ lessons }) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    style={{
-                        display: 'flex',
-                        justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start',
-                        paddingBottom: '4rem',
-                        position: 'relative'
-                    }}
+                    className={`flex ${index % 2 === 0 ? 'justify-end' : 'justify-start'} pb-16 relative`}
                 >
                     {/* Node on the line */}
-                    <div style={{
-                        position: 'absolute',
-                        left: '50%',
-                        width: '12px',
-                        height: '12px',
-                        background: 'var(--bg-dark)',
-                        border: '2px solid var(--neon-accent)',
-                        borderRadius: '50%',
-                        transform: 'translate(-50%, 0)',
-                        boxShadow: '0 0 15px var(--neon-accent)',
-                        zIndex: 10,
-                        marginTop: '1.5rem'
-                    }} />
+                    <div className="absolute left-1/2 w-3 h-3 bg-bg-main border-2 border-slate-400 rounded-full -translate-x-1/2 mt-6 z-10 shadow-[0_0_10px_rgba(148,163,184,0.5)]" />
 
                     {/* Content Card */}
                     <Link
                         to={lesson.path}
-                        style={{
-                            width: '45%',
-                            textDecoration: 'none',
-                            color: 'inherit'
-                        }}
+                        className={`w-[45%] no-underline text-inherit group`}
                     >
-                        <div style={{
-                            background: 'rgba(255, 255, 255, 0.03)',
-                            backdropFilter: 'blur(10px)',
-                            border: '1px solid var(--glass-border)',
-                            padding: '1.5rem',
-                            borderRadius: '16px',
-                            textAlign: index % 2 === 0 ? 'right' : 'left',
-                            transition: 'all 0.3s ease',
-                            cursor: 'pointer',
-                            position: 'relative',
-                            overflow: 'hidden'
-                        }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-5px)';
-                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                                e.currentTarget.style.borderColor = 'var(--neon-accent)';
-                                e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.5)';
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.transform = 'translateY(0)';
-                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
-                                e.currentTarget.style.borderColor = 'var(--glass-border)';
-                                e.currentTarget.style.boxShadow = 'none';
-                            }}
-                        >
+                        <div className={`
+                            bg-white/80 backdrop-blur-md border border-slate-200 
+                            p-6 rounded-2xl 
+                            ${index % 2 === 0 ? 'text-right' : 'text-left'}
+                            transition-all duration-300 ease-out
+                            cursor-pointer relative overflow-hidden
+                            group-hover:-translate-y-1 group-hover:bg-white group-hover:border-slate-300 group-hover:shadow-lg
+                        `}>
                             {/* Topic Badge - Prominent */}
-                            <div style={{
-                                display: 'inline-block',
-                                background: 'rgba(96, 165, 250, 0.15)',
-                                color: 'var(--neon-accent)',
-                                padding: '4px 12px',
-                                borderRadius: '20px',
-                                fontSize: '0.75rem',
-                                fontWeight: 700,
-                                textTransform: 'uppercase',
-                                letterSpacing: '1px',
-                                marginBottom: '1rem',
-                                border: '1px solid rgba(96, 165, 250, 0.3)'
-                            }}>
+                            <div className="inline-block bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-slate-200">
                                 {lesson.topicTitle}
                             </div>
 
-                            <div style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start',
-                                gap: '0.5rem',
-                                marginBottom: '0.5rem',
-                                color: 'var(--text-muted)',
-                                fontSize: '0.9rem'
-                            }}>
-                                <span style={{ color: 'var(--text-main)', fontWeight: 500 }}>
+                            <div className={`flex items-center ${index % 2 === 0 ? 'justify-end' : 'justify-start'} gap-2 mb-2 text-text-muted text-sm`}>
+                                <span className="text-text-main font-medium">
                                     {(() => {
                                         const dateStr = lesson.date!;
                                         const isNegative = dateStr.startsWith('-');
@@ -154,18 +87,18 @@ export const Timeline: React.FC<TimelineProps> = ({ lessons }) => {
                                 </span>
                             </div>
 
-                            <h3 style={{ margin: 0, fontSize: '1.5rem', color: 'var(--text-main)', marginBottom: '0.75rem', lineHeight: 1.2 }}>{lesson.title}</h3>
+                            <h3 className="m-0 text-2xl text-text-main mb-3 leading-tight font-display">{lesson.title}</h3>
 
                             {lesson.description && (
-                                <p style={{ margin: 0, fontSize: '1rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                                <p className="m-0 text-base text-text-muted leading-relaxed">
                                     {lesson.description}
                                 </p>
                             )}
 
                             {lesson.tags && (
-                                <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem', justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start', flexWrap: 'wrap' }}>
+                                <div className={`mt-4 flex gap-2 ${index % 2 === 0 ? 'justify-end' : 'justify-start'} flex-wrap`}>
                                     {lesson.tags.map(tag => (
-                                        <span key={tag} style={{ fontSize: '0.75rem', background: 'rgba(255,255,255,0.1)', padding: '2px 8px', borderRadius: '12px' }}>#{tag}</span>
+                                        <span key={tag} className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-full border border-slate-200">#{tag}</span>
                                     ))}
                                 </div>
                             )}
@@ -177,3 +110,4 @@ export const Timeline: React.FC<TimelineProps> = ({ lessons }) => {
         </div >
     );
 };
+

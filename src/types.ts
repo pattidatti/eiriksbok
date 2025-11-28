@@ -37,17 +37,22 @@ export interface ManifestLesson {
     date?: string;
     tags?: string[];
     description?: string;
+    image?: string;
 }
 
 export interface ManifestSubTopic {
     id: string;
     title: string;
+    description?: string;
+    image?: string;
     lessons: ManifestLesson[];
 }
 
 export interface ManifestTopic {
     id: string;
     title: string;
+    description?: string;
+    image?: string;
     lessons?: ManifestLesson[];
     subTopics?: ManifestSubTopic[];
 }
