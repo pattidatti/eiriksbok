@@ -1,0 +1,86 @@
+{
+    "id": "perserriket",
+    "title": "Perserriket: Det første verdensriket",
+    "layout": "rich",
+    "year": "550 fvt - 330 fvt",
+    "category": "Historie",
+    "readTime": "6 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
+    "details": [
+        "Verdens største rike i sin tid.",
+        "Kjent for toleranse og effektiv administrasjon.",
+        "Grunnlagt av Kyros den store.",
+        "Falt for Aleksander den store."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Achaemenide-riket, også kjent som det første persiske riket, var et imperium i det gamle Iran fra 550 til 330 fvt. Det ble grunnlagt av Kyros den store, som styrtet det mediske riket og erobret store deler av Midtøsten, inkludert Babylon. Riket strakte seg på sitt største fra Balkan og Egypt i vest til Indusdalen i øst, og var det største imperiet verden hadde sett til da."
+        },
+        {
+            "type": "text",
+            "title": "En ny type imperium",
+            "content": "Perserriket skilte seg fra tidligere imperier, som det assyriske, ved sin toleranse overfor erobrede folk. Kyros den store lot jødene vende tilbake til Jerusalem fra eksilet i Babylon og gjenoppbygge tempelet sitt. Han respekterte lokale skikker og religioner, noe som bidro til å holde det enorme riket sammen.\n\nUnder Dareios I (den store) ble riket organisert i provinser kalt satrapier, styrt av satraper (guvernører). Han innførte også et standardisert myntsystem (dareiken) og bygde et omfattende veinett, inkludert den berømte Kongeveien, som gjorde kommunikasjon og handel raskere og tryggere."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "Tidslinje: Perserrikets vekst og fall",
+                "events": [
+                    {
+                        "year": "550 fvt",
+                        "title": "Riket grunnlegges",
+                        "description": "Kyros den store forener perserne og mederne og grunnlegger Achaemenide-riket."
+                    },
+                    {
+                        "year": "539 fvt",
+                        "title": "Erobringen av Babylon",
+                        "description": "Kyros erobrer Babylon og lar jødene vende hjem fra eksil."
+                    },
+                    {
+                        "year": "525 fvt",
+                        "title": "Egypt erobres",
+                        "description": "Kambyses II, Kyros' sønn, legger Egypt under persisk styre."
+                    },
+                    {
+                        "year": "522 fvt",
+                        "title": "Dareios den store",
+                        "description": "Dareios I tar makten, organiserer riket i satrapier og bygger Persepolis."
+                    },
+                    {
+                        "year": "490 fvt",
+                        "title": "Slaget ved Marathon",
+                        "description": "Perserne forsøker å invadere Hellas, men blir slått tilbake av athenerne."
+                    },
+                    {
+                        "year": "480 fvt",
+                        "title": "Xerxes' invasjon",
+                        "description": "Xerxes I invaderer Hellas med en enorm hær, men taper sjøslaget ved Salamis."
+                    },
+                    {
+                        "year": "330 fvt",
+                        "title": "Rikets fall",
+                        "description": "Aleksander den store erobrer Persepolis og gjør slutt på Achaemenide-riket."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "title": "Kultur og religion",
+            "content": "Perserne fulgte zoroastrismen, en religion grunnlagt av profeten Zarathustra. Den lærte at verden var en kampplass mellom det gode (Ahura Mazda) og det onde (Ahriman), og at menneskene måtte velge side gjennom gode tanker, gode ord og gode gjerninger. Denne religionen påvirket senere jødedom, kristendom og islam.\n\nPersisk kunst og arkitektur var storslått, med palassbyen Persepolis som det fremste eksempelet. Her møttes utsendinger fra alle rikets hjørner for å gi gaver til kongen. Relieffene i Persepolis viser folk fra hele imperiet i sine nasjonale drakter, noe som understreker rikets flerkulturelle karakter."
+        },
+        {
+            "type": "image",
+            "src": "https://images.unsplash.com/photo-1565060169308-5452d37c7629?auto=format&fit=crop&q=80",
+            "alt": "Ruiner av Persepolis",
+            "caption": "Ruiner av Persepolis, den seremonielle hovedstaden i Achaemenide-riket."
+        },
+        {
+            "type": "text",
+            "title": "Arven etter Perserriket",
+            "content": "Selv om riket falt for Aleksander den store, levde den persiske kulturen og administrasjonsmodellen videre. Aleksander selv adopterte mange persiske skikker og giftet seg med en persisk prinsesse. Achaemenide-riket satte standarden for hvordan et multikulturelt imperium kunne styres, og ideen om et universelt rike levde videre gjennom historien."
+        }
+    ]
+}

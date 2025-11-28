@@ -37,6 +37,9 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             fetchLesson(subjectId, topicId, lessonId, subTopicId).then(data => {
                 setLesson(data);
                 setLoading(false);
+            }).catch(err => {
+                console.error('Error fetching lesson:', err);
+                setLoading(false);
             });
 
             // Load manifest to get image

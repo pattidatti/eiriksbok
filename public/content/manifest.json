@@ -116,6 +116,12 @@
                             "image": "/Eiriksbok/images/lessons/jordbruk.png"
                         },
                         {
+                            "id": "perserriket",
+                            "title": "Perserriket",
+                            "description": "Det første verdensriket, fra Kyros den store til Aleksander den store.",
+                            "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80"
+                        },
+                        {
                             "id": "romerriket",
                             "title": "Romerriket",
                             "description": "Et av historiens første store imperier som spredte kristendom og veier.",

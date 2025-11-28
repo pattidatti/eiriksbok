@@ -1,11 +1,12 @@
 import React from 'react';
 
 import type { ContentBlock } from '../types';
-import { DemographyPage } from '../pages/DemographyPage';
+// import { DemographyPage } from '../pages/DemographyPage';
 import { GovernmentExplorer } from './GovernmentExplorer';
 import { HistoryLongLines } from './HistoryLongLines';
 import { Quiz } from './Quiz';
 import { EICSimulation } from './EICSimulation';
+import { TimelineComponent } from './TimelineComponent';
 
 interface ArticleContentProps {
     content: ContentBlock[];
@@ -46,8 +47,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                         // Registry of available components
                         // In a real app, this might be dynamic or lazy loaded
                         switch (block.name) {
-                            case 'DemographyModel':
-                                return <DemographyPage key={index} />;
+                            // case 'DemographyModel':
+                            //     return <DemographyPage key={index} />;
                             case 'GovernmentExplorer':
                                 return <GovernmentExplorer key={index} />;
                             case 'HistoryLongLines':
@@ -56,6 +57,14 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                                 return <Quiz key={index} questions={block.props?.questions || []} />;
                             case 'EICSimulation':
                                 return <EICSimulation key={index} />;
+                            case 'TimelineComponent':
+                                return (
+                                    <TimelineComponent
+                                        key={index}
+                                        events={block.props?.events || []}
+                                        title={block.props?.title}
+                                    />
+                                );
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">
