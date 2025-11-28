@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
     BookOpen,
     Skull,
@@ -303,8 +304,8 @@ const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => 
 
                         <div className="relative z-10 mt-auto">
                             <span className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold border ${event.category === 'Norge'
-                                    ? 'bg-red-500/10 text-red-300 border-red-500/20'
-                                    : 'bg-blue-500/10 text-blue-300 border-blue-500/20'
+                                ? 'bg-red-500/10 text-red-300 border-red-500/20'
+                                : 'bg-blue-500/10 text-blue-300 border-blue-500/20'
                                 }`}>
                                 <Tag className="w-3 h-3 mr-1.5" />
                                 {event.category}
@@ -463,8 +464,8 @@ const QuizModule = () => {
                     onClick={nextQuestion}
                     disabled={answered === null}
                     className={`flex items-center px-8 py-4 rounded-xl font-bold transition-all ${answered === null
-                            ? 'bg-slate-800 text-slate-600 cursor-not-allowed border border-white/5'
-                            : 'bg-white text-indigo-900 hover:bg-indigo-50 shadow-xl hover:scale-105 active:scale-95'
+                        ? 'bg-slate-800 text-slate-600 cursor-not-allowed border border-white/5'
+                        : 'bg-white text-indigo-900 hover:bg-indigo-50 shadow-xl hover:scale-105 active:scale-95'
                         }`}
                 >
                     {currentIdx === quizData.length - 1 ? 'Se Resultat' : 'Neste Spørsmål'}
@@ -484,17 +485,44 @@ interface HistoryLongLinesProps {
 export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLessonId }) => {
     const [activeTab, setActiveTab] = useState<'artikler' | 'quiz'>('artikler');
     const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | null>(null);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         if (initialLessonId) {
-            // Try to match by ID (number) or if it's a string, maybe we can't match it easily with new data
-            // Assuming initialLessonId might be a number in string form
-            const event = timelineData.find(e => e.id.toString() === initialLessonId);
+            // Try to match by ID (number)
+            let event = timelineData.find(e => e.id.toString() === initialLessonId);
+
+            // If not found by ID, try to match by title (slugified)
+            if (!event) {
+                event = timelineData.find(e =>
+                    e.title.toLowerCase().replace(/\s+/g, '-') === initialLessonId.toLowerCase() ||
+                    e.title.toLowerCase() === initialLessonId.toLowerCase()
+                );
+            }
+
             if (event) {
                 setSelectedEvent(event);
             }
+        } else {
+            // If no initialLessonId, ensure we are in list view
+            setSelectedEvent(null);
         }
     }, [initialLessonId]);
+
+    const handleArticleClick = (event: TimelineEvent) => {
+        const slug = event.title.toLowerCase().replace(/\s+/g, '-');
+        // Navigate to the article URL. 
+        // If we are at /lange-linjer, we want /lange-linjer/slug
+        // We can use relative navigation.
+        navigate(slug);
+    };
+
+    const handleCloseArticle = () => {
+        setSelectedEvent(null);
+        // Navigate back to the parent route (e.g. /lange-linjer)
+        navigate('..');
+    };
 
     return (
         <div className="min-h-screen bg-[#0f0f11] text-slate-400 font-sans selection:bg-indigo-500/30 overflow-x-hidden">
@@ -542,8 +570,8 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
                             <button
                                 onClick={() => setActiveTab('artikler')}
                                 className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center ${activeTab === 'artikler'
-                                        ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
-                                        : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
+                                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
                                     }`}
                             >
                                 <BookOpen className="w-4 h-4 mr-2" />
@@ -552,8 +580,8 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
                             <button
                                 onClick={() => setActiveTab('quiz')}
                                 className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 flex items-center ${activeTab === 'quiz'
-                                        ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
-                                        : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
+                                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
                                     }`}
                             >
                                 <CheckCircle className="w-4 h-4 mr-2" />
@@ -566,7 +594,19 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
                 {/* Main Content Area */}
                 <main className="max-w-5xl mx-auto px-6 py-24 min-h-[800px]">
                     <AnimatePresence mode="wait">
-                        {activeTab === 'artikler' ? (
+                        {selectedEvent ? (
+                            <motion.div
+                                key="article-view"
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -20 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <ErrorBoundary>
+                                    <InteractiveArticle event={selectedEvent} onClose={handleCloseArticle} />
+                                </ErrorBoundary>
+                            </motion.div>
+                        ) : activeTab === 'artikler' ? (
                             <motion.div
                                 key="artikler"
                                 initial={{ opacity: 0, y: 20 }}
@@ -586,7 +626,7 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
                                 </div>
 
                                 {timelineData.map((event) => (
-                                    <ArticleCard key={event.id} event={event} onClick={() => setSelectedEvent(event)} />
+                                    <ArticleCard key={event.id} event={event} onClick={() => handleArticleClick(event)} />
                                 ))}
 
                                 <div className="text-center pt-16 pb-8">
@@ -609,15 +649,6 @@ export const HistoryLongLines: React.FC<HistoryLongLinesProps> = ({ initialLesso
                         )}
                     </AnimatePresence>
                 </main>
-
-                {/* Reading Overlay */}
-                <AnimatePresence>
-                    {selectedEvent && (
-                        <ErrorBoundary>
-                            <InteractiveArticle event={selectedEvent} onClose={() => setSelectedEvent(null)} />
-                        </ErrorBoundary>
-                    )}
-                </AnimatePresence>
             </div>
         </div>
     );

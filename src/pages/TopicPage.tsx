@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import { LessonCard } from '../components/LessonCard';
 import { TopicCard } from '../components/TopicCard';
 import { ChevronRight, ArrowLeft } from 'lucide-react';
+import { HistoryLongLines } from '../components/HistoryLongLines';
+import { ErrorBoundary } from '../components/ErrorBoundary';
 
 export const TopicPage: React.FC = () => {
     const { subjectId, topicId, subTopicId } = useParams<{ subjectId: string; topicId: string; subTopicId?: string }>();
@@ -33,6 +35,15 @@ export const TopicPage: React.FC = () => {
     }, [subjectId, topicId, subTopicId]);
 
     if (!subjectData || !currentTopic) return <div className="p-8 text-center text-text-muted">Laster emne...</div>;
+
+    // Special handling for History Timeline
+    if (subTopicId === 'lange-linjer') {
+        return (
+            <ErrorBoundary>
+                <HistoryLongLines />
+            </ErrorBoundary>
+        );
+    }
 
     const activeItem = currentSubTopic || currentTopic;
     const lessons = activeItem.lessons || [];
