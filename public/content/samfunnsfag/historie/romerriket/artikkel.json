@@ -1,0 +1,27 @@
+{
+    "id": "romerriket",
+    "title": "Romerriket",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "content": [
+        {
+            "type": "text",
+            "content": "Romerriket startet i Roma ca. år 500 fvt. og vokste til å bli et enormt imperium. De erobret Sør-Europa, Nord-Afrika og Vest-Asia. Romerriket var en av de første store kolonimaktene, og de bandt riket sammen med et imponerende veinett."
+        },
+        {
+            "type": "text",
+            "content": "Det var på disse veiene kristendommen etter hvert ble spredt. Rundt år 300 ble kristendommen offisiell religion i riket. Romerriket eksisterte samtidig med andre imperier, som Persia (Achaemenid) og Makedonia (under Alexander den Store)."
+        },
+        {
+            "type": "text",
+            "content": "Rundt år 400 evt. ble Romerriket delt i to: et vestlig og et østlig rike. Mens vestriket falt, levde østriket (Bysants) videre. I denne perioden ser vi også starten på 'Justinians pest' (541–549), som var den første bølgen av svartedauden."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "content": "Romerriket varte i nesten 1000 år og strakte seg over tre kontinenter. De bygde veier, akvedukter og spredte latin og kristendom."
+            }
+        }
+    ]
+}

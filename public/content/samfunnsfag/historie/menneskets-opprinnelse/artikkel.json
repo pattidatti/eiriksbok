@@ -1,0 +1,27 @@
+{
+    "id": "menneskets-opprinnelse",
+    "title": "Menneskets tidlige historie",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "content": [
+        {
+            "type": "text",
+            "content": "Ifølge kartleggingen av menneskets vandringer, oppstod Homo sapiens i Afrika for rundt 200 000 år siden. I titusenvis av år levde menneskene som nomader. En nomade er en som ikke har fast boplass, men flytter rundt som jeger og samler for å finne mat."
+        },
+        {
+            "type": "text",
+            "content": "For omtrent 70 000 år siden begynte en stor utvandring fra Afrika mot Asia. Menneskene nådde Europa for ca. 40 000 år siden, og krysset til slutt over til Amerika for rundt 15 000 år siden. Samtidig fantes det andre mennesketyper, som Homo neanderthalensis i Europa og Homo erectus i Asia, men det var Homo sapiens som spredte seg til hele verden."
+        },
+        {
+            "type": "text",
+            "content": "I Norges historie starter fortellingen mye senere. De første nomadene kom til Finnmark rundt 9300 fvt., etter at isen trakk seg tilbake."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "content": "Homo sapiens oppstod i Afrika for 200 000 år siden. Nomader er jegere og samlere uten fast boplass."
+            }
+        }
+    ]
+}

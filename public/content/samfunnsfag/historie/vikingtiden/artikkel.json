@@ -1,0 +1,57 @@
+{
+    "id": "vikingtiden",
+    "title": "Vikingtiden",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "content": [
+        {
+            "type": "text",
+            "content": "Vikingtiden regnes fra angrepet på Lindisfarne i 793 til slaget ved Stamford Bridge i 1066. Vikingene kom fra hele Skandinavia og var både bønder, handelsfolk, sjømenn og krigere. Men hvorfor reiste de? Før år 700 ble jernredskaper vanligere, noe som gjorde det lettere å rydde gårder. Dette førte til at folketallet økte, og det ble plassmangel på Vestlandet. Mange søkte derfor rikdom i utlandet."
+        },
+        {
+            "type": "text",
+            "content": "Samfunnet var organisert i ætter (storfamilier) og stammer ledet av en høvding. Høvdingen hadde sin egen hær, kalt hirden. Viktige avgjørelser ble tatt på Tinget, en hellig plass for diskusjon og dom. De rike bøndene (frie menn) eide jorden, mens treller (slaver) var ufrie arbeidsfolk."
+        },
+        {
+            "type": "text",
+            "content": "Vikingene reiste med langskip som kunne seile både på åpent hav og grunt vann (elver). De grunnla riker i øst (Rus-riket/Kiev) og vest (Danelagen i England), og oppdaget Island, Grønland og Vinland (Amerika). De fikk ulike navn der de dro: 'Væringer' i Bysants, 'Rus' blant slaverne, og 'Normanner' i Frankrike."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "content": "Vikingene var dyktige sjøfolk som nådde helt til Amerika (Vinland) 500 år før Columbus."
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva var en viktig årsak til at vikingene begynte å reise ut?",
+                        "options": [
+                            "De ble kastet ut av kongen",
+                            "Befolkningsvekst og mangel på jord (plassmangel)",
+                            "En stor flodbølge ødela avlingene",
+                            "De ville spre kristendommen"
+                        ],
+                        "answer": "Befolkningsvekst og mangel på jord (plassmangel)",
+                        "explanation": "Jernredskaper gjorde at de kunne dyrke mer mat, som førte til at folketallet økte. Det ble trangt om plassen på Vestlandet."
+                    },
+                    {
+                        "question": "Hva kalles samfunnssystemet vikingene levde under?",
+                        "options": [
+                            "Demokrati",
+                            "Ættesamfunn med høvdinger og ting",
+                            "Keiserdømme",
+                            "Føydalisme"
+                        ],
+                        "answer": "Ættesamfunn med høvdinger og ting",
+                        "explanation": "Samfunnet var bygget opp rundt ætten (storfamilien). Høvdingen var leder, og viktige saker ble avgjort på tinget."
+                    }
+                ]
+            }
+        }
+    ]
+}

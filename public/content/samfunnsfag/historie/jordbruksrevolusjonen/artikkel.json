@@ -1,0 +1,46 @@
+{
+    "id": "jordbruksrevolusjonen",
+    "title": "Jordbruk og Sivilisasjoner",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "content": [
+        {
+            "type": "text",
+            "content": "Det store skiftet i menneskets historie skjedde da vi gikk fra å være nomader til å bli fastboende bønder. Tidlig jordbruk startet i Midtøsten mellom 8000 og 12 000 fvt. Her begynte folk å bo fast og holde husdyr."
+        },
+        {
+            "type": "text",
+            "content": "Dette la grunnlaget for 'Elvedalssivilisasjoner' (4000–10 000 fvt.) i områder som Irak (Mesopotamia), Egypt og Midtøsten. Fordi de dyrket jorden ved store elver, kunne de produsere nok mat til å bygge større byer og samfunn."
+        },
+        {
+            "type": "text",
+            "content": "I Norge skjedde denne endringen senere. Jordbruket begynte på Østlandet rundt 4000 fvt. Senere, rundt 2500 fvt., kom 'Stridsøksfolket' fra Germania, og nye folkegrupper (Horder, Ryger) ankom rundt år 400 evt."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "content": "Jordbruket startet i 'Den fruktbare halvmåne' i Midtøsten. Dette gjorde at folk kunne bo fast og bygge sivilisasjoner."
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvor startet jordbruket først?",
+                        "options": [
+                            "I Norge",
+                            "I 'Den fruktbare halvmåne' i Midtøsten",
+                            "I Romerriket",
+                            "I Amerika"
+                        ],
+                        "answer": "I 'Den fruktbare halvmåne' i Midtøsten",
+                        "explanation": "Jordbruket oppstod i Midtøsten ca. 8000-12 000 fvt., lenge før det kom til Norge."
+                    }
+                ]
+            }
+        }
+    ]
+}

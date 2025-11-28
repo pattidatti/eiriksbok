@@ -77,6 +77,23 @@ const quizData: QuizQuestion[] = [
     }
 ];
 
+// --- Utils ---
+
+const parseYear = (yearStr: string): number => {
+    const cleanStr = yearStr.toLowerCase().replace(/ca\.?\s*/, '').replace(/\s+/g, '');
+    const isFvt = cleanStr.includes('fvt') || cleanStr.includes('f.kr');
+    const match = cleanStr.match(/(\d+)/);
+    if (!match) return 0;
+    let year = parseInt(match[1], 10);
+    if (isFvt) year = -year;
+    return year;
+};
+
+const formatYear = (year: number): string => {
+    if (year < 0) return `${Math.abs(year)} FVT`;
+    return `${year}`;
+};
+
 // --- Components ---
 
 const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => void }) => {
@@ -84,65 +101,54 @@ const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => 
         <motion.article
             layoutId={`article-${event.id}`}
             onClick={onClick}
-            className="group relative cursor-pointer mb-8 w-full max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="group relative cursor-pointer w-full bg-white border border-slate-200 backdrop-blur-md rounded-2xl overflow-hidden hover:border-indigo-400/30 transition-all shadow-sm hover:shadow-md"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
             whileHover={{ y: -4 }}
             transition={{ duration: 0.3 }}
         >
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-blue-500/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            <div className="relative bg-white border border-slate-200 backdrop-blur-md rounded-2xl overflow-hidden hover:border-indigo-400/30 transition-all shadow-sm hover:shadow-md">
-                <div className="flex flex-col md:flex-row">
-                    {/* Left: Visual/Date Section */}
-                    <div className="md:w-1/3 bg-slate-50 p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-200 relative overflow-hidden">
-                        {/* Background Pattern */}
-                        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-                            <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[size:20px_20px]" />
-                        </div>
+            <div className="flex flex-col md:flex-row relative z-10">
+                {/* Left: Icon & Category */}
+                <div className="md:w-1/4 bg-slate-50 p-6 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-slate-200">
+                    <div className="p-4 bg-white rounded-2xl border border-slate-200 shadow-sm mb-4 group-hover:scale-110 transition-transform duration-500">
+                        {event.icon}
+                    </div>
+                    <span className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold border ${event.category === 'Norge'
+                        ? 'bg-red-100 text-red-700 border-red-200'
+                        : 'bg-blue-100 text-blue-700 border-blue-200'
+                        }`}>
+                        <Tag className="w-3 h-3 mr-1.5" />
+                        {event.category}
+                    </span>
+                </div>
 
-                        <div className="relative z-10">
-                            <div className="inline-flex items-center space-x-2 text-indigo-600 font-mono text-xs uppercase tracking-wider mb-4">
-                                <Calendar className="w-3 h-3" />
-                                <span>{event.year}</span>
-                            </div>
-                            <div className="p-4 bg-white rounded-2xl border border-slate-200 inline-block shadow-sm mb-6 group-hover:scale-110 transition-transform duration-500">
-                                {event.icon}
-                            </div>
+                {/* Right: Content */}
+                <div className="md:w-3/4 p-6 md:p-8 flex flex-col">
+                    <div className="mb-4">
+                        <div className="flex items-center space-x-2 text-slate-400 text-xs font-mono mb-2 uppercase tracking-wider">
+                            <Calendar className="w-3 h-3" />
+                            <span>{event.year}</span>
                         </div>
-
-                        <div className="relative z-10 mt-auto">
-                            <span className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold border ${event.category === 'Norge'
-                                ? 'bg-red-100 text-red-700 border-red-200'
-                                : 'bg-blue-100 text-blue-700 border-blue-200'
-                                }`}>
-                                <Tag className="w-3 h-3 mr-1.5" />
-                                {event.category}
-                            </span>
-                        </div>
+                        <h3 className="text-2xl font-display font-bold text-slate-900 group-hover:text-indigo-700 mb-2 leading-tight">
+                            {event.title}
+                        </h3>
+                        <p className="text-slate-600 text-base leading-relaxed line-clamp-2">
+                            {event.description}
+                        </p>
                     </div>
 
-                    {/* Right: Content Section */}
-                    <div className="md:w-2/3 p-8 flex flex-col">
-                        <div className="mb-4">
-                            <h3 className="text-2xl md:text-3xl font-display font-bold text-slate-900 group-hover:text-indigo-700 mb-3 leading-tight">
-                                {event.title}
-                            </h3>
-                            <p className="text-slate-600 text-base leading-relaxed line-clamp-3">
-                                {event.description}
-                            </p>
+                    <div className="mt-auto flex items-center justify-between pt-4 border-t border-slate-100">
+                        <div className="flex items-center text-xs text-slate-500 font-mono">
+                            <Clock className="w-3 h-3 mr-2" />
+                            {event.readTime}
                         </div>
 
-                        <div className="mt-auto flex items-center justify-between pt-6 border-t border-slate-100">
-                            <div className="flex items-center text-xs text-slate-500 font-mono">
-                                <Clock className="w-3 h-3 mr-2" />
-                                {event.readTime}
-                            </div>
-
-                            <div className="flex items-center text-sm font-bold text-indigo-600 group-hover:text-indigo-500 transition-colors group-hover:translate-x-1 duration-300">
-                                Les hele artikkelen
-                                <ChevronRight className="w-4 h-4 ml-1" />
-                            </div>
+                        <div className="flex items-center text-sm font-bold text-indigo-600 group-hover:text-indigo-500 transition-colors group-hover:translate-x-1 duration-300">
+                            Les mer
+                            <ChevronRight className="w-4 h-4 ml-1" />
                         </div>
                     </div>
                 </div>
@@ -293,9 +299,6 @@ export const HistoryLongLines: React.FC = () => {
 
     const handleArticleClick = (event: TimelineEvent) => {
         const slug = event.title.toLowerCase().replace(/\s+/g, '-');
-        // Navigate to the article URL. 
-        // If we are at /lange-linjer, we want /lange-linjer/slug
-        // We can use relative navigation.
         navigate(slug);
     };
 
@@ -388,9 +391,29 @@ export const HistoryLongLines: React.FC = () => {
                                     </span>
                                 </div>
 
-                                {timelineData.map((event) => (
-                                    <ArticleCard key={event.id} event={event} onClick={() => handleArticleClick(event)} />
-                                ))}
+                                <div className="relative pl-4 md:pl-8">
+                                    {/* Vertical Timeline Line */}
+                                    <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-slate-200" />
+
+                                    {timelineData.map((event) => {
+                                        const yearNum = parseYear(event.year);
+                                        const yearDisplay = formatYear(yearNum);
+
+                                        return (
+                                            <div key={event.id} className="relative pl-12 md:pl-20 py-6">
+                                                {/* Year Marker */}
+                                                <div className="absolute left-0 md:left-4 top-12 -translate-x-1/2 flex flex-col items-center z-10">
+                                                    <div className="bg-indigo-600 text-white font-bold py-2 px-3 rounded-xl text-xs md:text-sm shadow-lg border-4 border-slate-50 min-w-[80px] text-center">
+                                                        {yearDisplay}
+                                                    </div>
+                                                    <div className="w-0.5 h-full bg-indigo-200/50 mt-1" />
+                                                </div>
+
+                                                <ArticleCard event={event} onClick={() => handleArticleClick(event)} />
+                                            </div>
+                                        );
+                                    })}
+                                </div>
 
                                 <div className="text-center pt-16 pb-8">
                                     <p className="text-slate-400 text-sm font-mono">
