@@ -44,6 +44,7 @@ export interface Lesson {
     concepts?: Concept[];
     context?: Context;
     quiz?: QuizQuestion[];
+    timeline?: { year: string; title: string; description: string }[];
 }
 
 export interface ManifestLesson {

@@ -15,6 +15,7 @@ import {
     ArrowLeft
 } from 'lucide-react';
 import { ArticleContent } from './ArticleContent';
+import { TimelineComponent } from './TimelineComponent';
 import type { ContentBlock } from '../types';
 
 // Generic Article Data Type
@@ -30,6 +31,7 @@ export type ArticleData = {
     url?: string;
     readTime: string;
     heroImage?: string;
+    timeline?: { year: string; title: string; description: string }[];
 };
 
 interface InteractiveArticleProps {
@@ -195,6 +197,14 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                                     ))}
                                 </ul>
                             </div>
+
+                            {event.timeline && (
+                                <TimelineComponent
+                                    events={event.timeline}
+                                    title="Tidslinje"
+                                    compact={true}
+                                />
+                            )}
 
                             <InteractiveMapPlaceholder />
 

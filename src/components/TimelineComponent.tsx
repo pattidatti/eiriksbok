@@ -10,9 +10,37 @@ interface TimelineEvent {
 interface TimelineComponentProps {
     events: TimelineEvent[];
     title?: string;
+    compact?: boolean;
 }
 
-export const TimelineComponent: React.FC<TimelineComponentProps> = ({ events, title }) => {
+export const TimelineComponent: React.FC<TimelineComponentProps> = ({ events, title, compact = false }) => {
+    if (compact) {
+        return (
+            <div className="py-4">
+                {title && (
+                    <h3 className="text-sm font-bold text-slate-900 mb-4 uppercase tracking-wider flex items-center">
+                        <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-2" />
+                        {title}
+                    </h3>
+                )}
+                <div className="relative pl-4 border-l-2 border-indigo-100 space-y-6">
+                    {events.map((event, index) => (
+                        <div key={index} className="relative">
+                            <div className="absolute -left-[21px] top-1.5 w-3 h-3 bg-indigo-600 rounded-full border-2 border-white shadow-sm" />
+                            <div className="mb-1">
+                                <span className="inline-block px-2 py-0.5 bg-indigo-50 text-indigo-700 text-[10px] font-bold rounded-full mb-1">
+                                    {event.year}
+                                </span>
+                                <h4 className="text-sm font-bold text-slate-900 leading-tight">{event.title}</h4>
+                            </div>
+                            <p className="text-slate-500 text-xs leading-relaxed">{event.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="my-12 p-6 bg-slate-50 rounded-3xl border border-slate-200">
             {title && (

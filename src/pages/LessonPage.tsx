@@ -109,7 +109,8 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             category: lesson.category || lesson.topic,
             readTime: lesson.readTime || '5 min lesning',
             heroImage: lesson.heroImage,
-            url: lesson.externalUrl
+            url: lesson.externalUrl,
+            timeline: lesson.timeline || []
         };
 
         return (

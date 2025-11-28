@@ -12,6 +12,43 @@
         "Grunnlagt av Kyros den store.",
         "Falt for Aleksander den store."
     ],
+    "timeline": [
+        {
+            "year": "550 fvt",
+            "title": "Riket grunnlegges",
+            "description": "Kyros den store forener perserne og mederne og grunnlegger Achaemenide-riket."
+        },
+        {
+            "year": "539 fvt",
+            "title": "Erobringen av Babylon",
+            "description": "Kyros erobrer Babylon og lar jødene vende hjem fra eksil."
+        },
+        {
+            "year": "525 fvt",
+            "title": "Egypt erobres",
+            "description": "Kambyses II, Kyros' sønn, legger Egypt under persisk styre."
+        },
+        {
+            "year": "522 fvt",
+            "title": "Dareios den store",
+            "description": "Dareios I tar makten, organiserer riket i satrapier og bygger Persepolis."
+        },
+        {
+            "year": "490 fvt",
+            "title": "Slaget ved Marathon",
+            "description": "Perserne forsøker å invadere Hellas, men blir slått tilbake av athenerne."
+        },
+        {
+            "year": "480 fvt",
+            "title": "Xerxes' invasjon",
+            "description": "Xerxes I invaderer Hellas med en enorm hær, men taper sjøslaget ved Salamis."
+        },
+        {
+            "year": "330 fvt",
+            "title": "Rikets fall",
+            "description": "Aleksander den store erobrer Persepolis og gjør slutt på Achaemenide-riket."
+        }
+    ],
     "content": [
         {
             "type": "text",
@@ -21,50 +58,6 @@
             "type": "text",
             "title": "En ny type imperium",
             "content": "Perserriket skilte seg fra tidligere imperier, som det assyriske, ved sin toleranse overfor erobrede folk. Kyros den store lot jødene vende tilbake til Jerusalem fra eksilet i Babylon og gjenoppbygge tempelet sitt. Han respekterte lokale skikker og religioner, noe som bidro til å holde det enorme riket sammen.\n\nUnder Dareios I (den store) ble riket organisert i provinser kalt satrapier, styrt av satraper (guvernører). Han innførte også et standardisert myntsystem (dareiken) og bygde et omfattende veinett, inkludert den berømte Kongeveien, som gjorde kommunikasjon og handel raskere og tryggere."
-        },
-        {
-            "type": "component",
-            "name": "TimelineComponent",
-            "props": {
-                "title": "Tidslinje: Perserrikets vekst og fall",
-                "events": [
-                    {
-                        "year": "550 fvt",
-                        "title": "Riket grunnlegges",
-                        "description": "Kyros den store forener perserne og mederne og grunnlegger Achaemenide-riket."
-                    },
-                    {
-                        "year": "539 fvt",
-                        "title": "Erobringen av Babylon",
-                        "description": "Kyros erobrer Babylon og lar jødene vende hjem fra eksil."
-                    },
-                    {
-                        "year": "525 fvt",
-                        "title": "Egypt erobres",
-                        "description": "Kambyses II, Kyros' sønn, legger Egypt under persisk styre."
-                    },
-                    {
-                        "year": "522 fvt",
-                        "title": "Dareios den store",
-                        "description": "Dareios I tar makten, organiserer riket i satrapier og bygger Persepolis."
-                    },
-                    {
-                        "year": "490 fvt",
-                        "title": "Slaget ved Marathon",
-                        "description": "Perserne forsøker å invadere Hellas, men blir slått tilbake av athenerne."
-                    },
-                    {
-                        "year": "480 fvt",
-                        "title": "Xerxes' invasjon",
-                        "description": "Xerxes I invaderer Hellas med en enorm hær, men taper sjøslaget ved Salamis."
-                    },
-                    {
-                        "year": "330 fvt",
-                        "title": "Rikets fall",
-                        "description": "Aleksander den store erobrer Persepolis og gjør slutt på Achaemenide-riket."
-                    }
-                ]
-            }
         },
         {
             "type": "text",
