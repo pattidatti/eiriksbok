@@ -142,4 +142,9 @@ Du kan nå søke etter fag, emner og leksjoner!
 - Søket finner både titler og innhold.
 
 ## 🎨 Designsystem (Tailwind)
-Vi går bort fra egne `.css`-filer (som `Layout.css`) og bruker **Tailwind CSS** for alt. Dette gjør det lettere å holde designet konsekvent (farger, avstander, fonter).
+
+## 📖 Ordbok (Glossary)
+Vi har nå en innebygd ordbok!
+- Vanskelige ord (som "Imperialisme") blir automatisk understreket med en stiplet linje.
+- Når du holder musen over (eller trykker på mobil), vises en enkel forklaring.
+- Ordene hentes fra `src/data/glossary.ts`. Du kan enkelt legge til nye ord der.

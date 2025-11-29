@@ -1,4 +1,5 @@
 import React from 'react';
+import { GlossaryText } from './GlossaryText';
 
 import type { ContentBlock } from '../types';
 // import { DemographyPage } from '../pages/DemographyPage';
@@ -24,7 +25,9 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                                     <h2 className="text-2xl font-bold text-slate-800 mb-4 mt-8">{block.title}</h2>
                                 )}
                                 {block.content.split('\n\n').map((paragraph, pIndex) => (
-                                    <p key={pIndex} className="mb-4 text-slate-700 leading-relaxed">{paragraph}</p>
+                                    <p key={pIndex} className="mb-4 text-slate-700 leading-relaxed">
+                                        <GlossaryText content={paragraph} />
+                                    </p>
                                 ))}
                             </div>
                         );
