@@ -30,7 +30,7 @@ export type ArticleData = {
     url?: string;
     readTime: string;
     heroImage?: string;
-    timeline?: { year: string; title: string; description: string }[];
+    timeline?: { year: string; title: string; description: string; link?: string }[];
     fact?: string;
     mapData?: any;
     tags?: string[];
@@ -98,8 +98,88 @@ const ExpandableSection = ({ title, children }: { title: string, children: React
     );
 };
 
+import { timelineData } from '../data/timelineData';
+
+// Helper to parse year strings into numeric range
+const parseYearRange = (yearStr: string): { start: number, end: number } => {
+    // Remove "ca." and spaces
+    const cleanStr = yearStr.replace(/ca\.?/i, '').replace(/\s+/g, '');
+
+    // Check for "fvt." (BC)
+    const isBC = cleanStr.toLowerCase().includes('fvt');
+    const multiplier = isBC ? -1 : 1;
+
+    // Remove text suffix
+    const numStr = cleanStr.replace(/fvt\.?|evt\.?/i, '');
+
+    // Handle ranges "1400-1500"
+    if (numStr.includes('–') || numStr.includes('-')) {
+        const parts = numStr.split(/[–-]/);
+        if (parts.length === 2) {
+            let start = parseInt(parts[0]);
+            let end = parseInt(parts[1]);
+
+            if (isNaN(start)) start = 0;
+            if (isNaN(end)) end = 0;
+
+            // If BC, the larger number is actually smaller (older), but usually written "12000-4000 fvt"
+            // So 12000 BC is start (-12000), 4000 BC is end (-4000)
+            if (isBC) {
+                return { start: start * multiplier, end: end * multiplier };
+            }
+            return { start, end };
+        }
+    }
+
+    // Single year
+    const year = parseInt(numStr);
+    if (isNaN(year)) return { start: 0, end: 0 };
+    return { start: year * multiplier, end: year * multiplier };
+};
+
+const getOverlappingEvents = (currentEventId: string | number, currentYearStr: string) => {
+    const currentRange = parseYearRange(currentYearStr);
+    // Add a buffer to context (e.g. +/- 50 years or 10% overlap?)
+    // For now, let's just find events that overlap or are very close.
+    // Let's say "context" means events that happened WITHIN the start/end of this event,
+    // OR if this event is a point in time, events around it.
+
+    // Actually, user said: "inkludere årstall og hendelser som ligger utenfor det artikkelen selv nevner, for å gi større kontekst."
+    // So maybe we just grab everything from timelineData that is somewhat relevant?
+    // Let's filter for events that overlap with the range [start - 50, end + 50] to give some context.
+
+    const buffer = 50;
+    const contextStart = currentRange.start - buffer;
+    const contextEnd = currentRange.end + buffer;
+
+    return timelineData
+        .filter(e => e.id !== currentEventId)
+        .filter(e => {
+            const eRange = parseYearRange(e.year);
+            // Check overlap
+            return (eRange.start <= contextEnd && eRange.end >= contextStart);
+        })
+        .map(e => ({
+            year: e.year,
+            title: e.title,
+            description: e.description, // Use short description
+            link: `../${e.id}` // Assuming relative link to sibling article
+        }));
+};
+
 export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose }) => {
     const [isBookmarked, setIsBookmarked] = useState(false);
+
+    // Merge internal timeline events with external context events
+    const contextEvents = getOverlappingEvents(event.id, event.year);
+    const internalEvents = event.timeline || [];
+
+    // Combine and sort by year
+    const combinedTimeline = [...internalEvents, ...contextEvents].sort((a, b) => {
+        const rangeA = parseYearRange(a.year);
+        const rangeB = parseYearRange(b.year);
+        return rangeA.start - rangeB.start;
+    });
 
     return (
         <div className="bg-white min-h-screen relative z-20">
@@ -204,9 +284,9 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                                 </ul>
                             </div>
 
-                            {event.timeline && (
+                            {combinedTimeline.length > 0 && (
                                 <TimelineComponent
-                                    events={event.timeline}
+                                    events={combinedTimeline}
                                     title="Tidslinje"
                                     compact={true}
                                 />

@@ -20,7 +20,9 @@ export type TimelineEvent = {
     icon: React.ReactNode;
     category: 'Verden' | 'Norge';
     url: string;
+    timeline?: { year: string; title: string; description: string; link?: string }[];
     readTime: string;
+    tags?: string[];
 };
 
 export const timelineData: TimelineEvent[] = [
@@ -51,7 +53,26 @@ export const timelineData: TimelineEvent[] = [
         icon: <Anchor className="w-8 h-8 text-teal-400" />,
         category: 'Verden',
         url: "https://snl.no/oppdagelsesreisene",
-        readTime: "5 min lesning"
+        readTime: "5 min lesning",
+        tags: ["Historie", "Verden", "Handel"],
+        timeline: [
+            {
+                year: "1602",
+                title: "VOC Opprettes",
+                description: "Det nederlandske ostindiske kompani (VOC) blir grunnlagt og får monopol på handel i Asia.",
+                link: "https://snl.no/Det_nederlandske_ostindiske_kompani"
+            },
+            {
+                year: "1799",
+                title: "VOC Konkurs",
+                description: "Etter nesten 200 år med dominans går selskapet konkurs og oppløses.",
+            },
+            {
+                year: "1600-tallet",
+                title: "Gullalderen",
+                description: "Nederland opplever en enorm økonomisk vekst basert på internasjonal handel.",
+            }
+        ]
     },
     {
         id: 1,
@@ -72,7 +93,8 @@ export const timelineData: TimelineEvent[] = [
         icon: <Globe className="w-8 h-8 text-blue-400" />,
         category: 'Verden',
         url: "https://snl.no/menneskets_opprinnelse_og_utvikling",
-        readTime: "2 min lesning"
+        readTime: "2 min lesning",
+        tags: ["Historie", "Verden", "Mennesket"]
     },
     {
         id: 2,
@@ -93,7 +115,8 @@ export const timelineData: TimelineEvent[] = [
         icon: <Map className="w-8 h-8 text-green-400" />,
         category: 'Verden',
         url: "https://snl.no/jordbrukets_historie",
-        readTime: "3 min lesning"
+        readTime: "3 min lesning",
+        tags: ["Historie", "Verden", "Jordbruk"]
     },
     {
         id: 3,
@@ -114,7 +137,8 @@ export const timelineData: TimelineEvent[] = [
         icon: <Sword className="w-8 h-8 text-red-400" />,
         category: 'Verden',
         url: "https://snl.no/Romerrikets_historie",
-        readTime: "4 min lesning"
+        readTime: "4 min lesning",
+        tags: ["Historie", "Verden", "Antikken", "Imperier"]
     },
     {
         id: 4,
@@ -135,7 +159,8 @@ export const timelineData: TimelineEvent[] = [
         icon: <Anchor className="w-8 h-8 text-indigo-400" />,
         category: 'Norge',
         url: "https://snl.no/vikingtiden",
-        readTime: "5 min lesning"
+        readTime: "5 min lesning",
+        tags: ["Historie", "Norge", "Vikingtiden"]
     },
     {
         id: 5,
@@ -156,7 +181,8 @@ export const timelineData: TimelineEvent[] = [
         icon: <Sword className="w-8 h-8 text-yellow-400" />,
         category: 'Norge',
         url: "https://snl.no/Harald_H%C3%A5rfagre",
-        readTime: "4 min lesning"
+        readTime: "4 min lesning",
+        tags: ["Historie", "Norge", "Middelalderen"]
     },
     {
         id: 6,
@@ -177,7 +203,8 @@ export const timelineData: TimelineEvent[] = [
         icon: <Skull className="w-8 h-8 text-slate-400" />,
         category: 'Norge',
         url: "https://snl.no/svartedauden",
-        readTime: "3 min lesning"
+        readTime: "3 min lesning",
+        tags: ["Historie", "Norge", "Pest"]
     },
     {
         id: 7,
@@ -198,7 +225,8 @@ export const timelineData: TimelineEvent[] = [
         icon: <BookOpen className="w-8 h-8 text-purple-400" />,
         category: 'Verden',
         url: "https://snl.no/Johann_Gutenberg",
-        readTime: "2 min lesning"
+        readTime: "2 min lesning",
+        tags: ["Historie", "Verden", "Teknologi"]
     },
     {
         id: 8,
@@ -219,6 +247,7 @@ export const timelineData: TimelineEvent[] = [
         icon: <Hammer className="w-8 h-8 text-orange-400" />,
         category: 'Norge',
         url: "https://snl.no/den_industrielle_revolusjon_i_Norge",
-        readTime: "4 min lesning"
+        readTime: "4 min lesning",
+        tags: ["Historie", "Norge", "Industri"]
     }
 ];

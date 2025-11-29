@@ -5,6 +5,7 @@ interface TimelineEvent {
     year: string;
     title: string;
     description: string;
+    link?: string;
 }
 
 interface TimelineComponentProps {
@@ -31,7 +32,13 @@ export const TimelineComponent: React.FC<TimelineComponentProps> = ({ events, ti
                                 <span className="inline-block px-2 py-0.5 bg-indigo-50 text-indigo-700 text-[10px] font-bold rounded-full mb-1">
                                     {event.year}
                                 </span>
-                                <h4 className="text-sm font-bold text-slate-900 leading-tight">{event.title}</h4>
+                                {event.link ? (
+                                    <a href={event.link} className="block text-sm font-bold text-indigo-700 hover:text-indigo-900 hover:underline leading-tight transition-colors">
+                                        {event.title}
+                                    </a>
+                                ) : (
+                                    <h4 className="text-sm font-bold text-slate-900 leading-tight">{event.title}</h4>
+                                )}
                             </div>
                             <p className="text-slate-500 text-xs leading-relaxed">{event.description}</p>
                         </div>

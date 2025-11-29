@@ -43,158 +43,158 @@
             ]
         },
         {
-            "id": "samfunnsfag",
-            "title": "Samfunnsfag",
+            "id": "samfunnskunnskap",
+            "title": "Samfunnskunnskap",
             "topics": [
                 {
-                    "id": "samfunnskunnskap",
-                    "title": "Samfunnskunnskap",
-                    "description": "Hvordan samfunnet vårt er bygget opp.",
-                    "subTopics": [
+                    "id": "demografi-okonomi",
+                    "title": "Demografi & Økonomi",
+                    "description": "Befolkningsutvikling og økonomiske systemer.",
+                    "image": "/Eiriksbok/images/topics/demografi-okonomi.png",
+                    "lessons": [
                         {
-                            "id": "demografi-okonomi",
-                            "title": "Demografi & Økonomi",
-                            "description": "Befolkningsutvikling og økonomiske systemer.",
-                            "image": "/Eiriksbok/images/topics/demografi-okonomi.png",
-                            "lessons": [
-                                {
-                                    "id": "intro",
-                                    "title": "Introduksjon",
-                                    "description": "Grunnleggende om befolkning og økonomi."
-                                }
-                            ]
-                        },
+                            "id": "intro",
+                            "title": "Introduksjon",
+                            "description": "Grunnleggende om befolkning og økonomi."
+                        }
+                    ]
+                },
+                {
+                    "id": "styringsformer",
+                    "title": "Styringsformer",
+                    "description": "Demokrati, diktatur og alt imellom.",
+                    "image": "/Eiriksbok/images/topics/styringsformer.png",
+                    "lessons": [
                         {
-                            "id": "styringsformer",
-                            "title": "Styringsformer",
-                            "description": "Demokrati, diktatur og alt imellom.",
-                            "image": "/Eiriksbok/images/topics/styringsformer.png",
-                            "lessons": [
-                                {
-                                    "id": "utforsk",
-                                    "title": "Utforsk Styringsformer",
-                                    "description": "Sammenlign ulike måter å styre et land på."
-                                }
+                            "id": "utforsk",
+                            "title": "Utforsk Styringsformer",
+                            "description": "Sammenlign ulike måter å styre et land på."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "historie",
+            "title": "Historie",
+            "topics": [
+                {
+                    "id": "andre-verdenskrig",
+                    "title": "Andre Verdenskrig",
+                    "lessons": [
+                        {
+                            "id": "bakgrunn",
+                            "title": "Bakgrunn",
+                            "description": "Bakgrunnen for krigen.",
+                            "date": "2023-04-01",
+                            "tags": [
+                                "krig",
+                                "historie",
+                                "konflikt"
                             ]
                         }
                     ]
                 },
                 {
-                    "id": "historie",
-                    "title": "Historie",
-                    "description": "Fortiden som former nåtiden.",
-                    "subTopics": [
-                        {
-                            "id": "andre-verdenskrig",
-                            "title": "Andre Verdenskrig",
-                            "lessons": [
-                                {
-                                    "id": "bakgrunn",
-                                    "title": "Bakgrunn",
-                                    "description": "Bakgrunnen for krigen.",
-                                    "date": "2023-04-01",
-                                    "tags": [
-                                        "krig",
-                                        "historie",
-                                        "konflikt"
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "industriell-revolusjon",
-                            "title": "Industriell Revolusjon",
-                            "description": "Fra bonde- til industrisamfunn.",
-                            "lessons": []
-                        },
-                        {
-                            "id": "kolonialisering",
-                            "title": "Kolonialisering",
-                            "description": "Europeisk ekspansjon og dens konsekvenser.",
-                            "lessons": [
-                                {
-                                    "id": "verdenshandel-for-oppdagelsesreisene",
-                                    "title": "Verdenshandel før oppdagelsesreisene",
-                                    "description": "Handel med krydder og luksusvarer før 1500."
-                                },
-                                {
-                                    "id": "voc",
-                                    "title": "Det nederlandske ostindiske kompani (VOC)",
-                                    "description": "Verdens første aksjeselskap og et globalt handelsimperium.",
-                                    "createdDate": "2023-11-20"
-                                },
-                                {
-                                    "id": "eic",
-                                    "title": "Det britiske ostindiske kompani (EIC)",
-                                    "description": "Handelskompaniet som la grunnlaget for det britiske imperiet i India."
-                                }
-                            ]
-                        }
-                    ],
+                    "id": "industriell-revolusjon",
+                    "title": "Industriell Revolusjon",
+                    "description": "Fra bonde- til industrisamfunn.",
+                    "lessons": []
+                },
+                {
+                    "id": "kolonialisering",
+                    "title": "Kolonialisering",
+                    "description": "Europeisk ekspansjon og dens konsekvenser.",
                     "lessons": [
                         {
-                            "id": "menneskets-tidlige-historie",
-                            "title": "Menneskets tidlige historie",
-                            "description": "Fra nomader i Afrika til spredning over hele kloden.",
-                            "image": "/Eiriksbok/images/lessons/menneskets-tidlige-historie.png"
+                            "id": "verdenshandel-for-oppdagelsesreisene",
+                            "title": "Verdenshandel før oppdagelsesreisene",
+                            "description": "Handel med krydder og luksusvarer før 1500."
                         },
                         {
-                            "id": "jordbruk-og-sivilisasjoner",
-                            "title": "Jordbruk og Sivilisasjoner",
-                            "description": "Mennesket slår seg til ro: Fra nomade til fastboende med husdyr.",
-                            "image": "/Eiriksbok/images/lessons/jordbruk.png",
-                            "createdDate": "2023-11-15",
-                            "updatedDate": "2023-11-29"
+                            "id": "voc",
+                            "title": "Det nederlandske ostindiske kompani (VOC)",
+                            "description": "Verdens første aksjeselskap og et globalt handelsimperium.",
+                            "createdDate": "2023-11-20"
                         },
                         {
-                            "id": "perserriket",
-                            "title": "Perserriket",
-                            "description": "Det første verdensriket, fra Kyros den store til Aleksander den store.",
-                            "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80"
-                        },
-                        {
-                            "id": "romerriket",
-                            "title": "Romerriket",
-                            "description": "Et av historiens første store imperier som spredte kristendom og veier.",
-                            "image": "/Eiriksbok/images/lessons/romerriket.png"
-                        },
-                        {
-                            "id": "vikingtiden",
-                            "title": "Vikingtiden",
-                            "description": "Hvorfor dro bønder fra nord ut for å plyndre og handle?",
-                            "image": "/Eiriksbok/images/lessons/vikingtiden.png",
-                            "createdDate": "2023-10-01"
-                        },
-                        {
-                            "id": "rikssamlingen",
-                            "title": "Rikssamlingen",
-                            "description": "Harald Hårfagre samler Norge – for kjærlighet eller makt?",
-                            "image": "/Eiriksbok/images/lessons/rikssamlingen.png"
-                        },
-                        {
-                            "id": "svartedauden",
-                            "title": "Svartedauden",
-                            "description": "Pesten som drepte halvparten av befolkningen og endret samfunnet.",
-                            "image": "/Eiriksbok/images/lessons/svartedauden.png"
-                        },
-                        {
-                            "id": "boktrykkerkunsten",
-                            "title": "Boktrykkerkunsten",
-                            "description": "En informasjonsrevolusjon startet av Gutenberg (og kineserne).",
-                            "image": "/Eiriksbok/images/lessons/boktrykkerkunsten.png"
-                        },
-                        {
-                            "id": "industriell-revolusjon-i-norge",
-                            "title": "Industriell Revolusjon i Norge",
-                            "description": "Fra overskudd av mat til fabrikker og maskiner.",
-                            "image": "/Eiriksbok/images/lessons/industriell-revolusjon.png"
-                        },
-                        {
-                            "id": "demo-artikkel",
-                            "title": "Demo Artikkel",
-                            "description": "En demonstrasjon av standardisert artikkellayout."
+                            "id": "eic",
+                            "title": "Det britiske ostindiske kompani (EIC)",
+                            "description": "Handelskompaniet som la grunnlaget for det britiske imperiet i India."
                         }
                     ]
+                },
+                {
+                    "id": "menneskets-tidlige-historie",
+                    "title": "Menneskets tidlige historie",
+                    "description": "Fra nomader i Afrika til spredning over hele kloden.",
+                    "image": "/Eiriksbok/images/lessons/menneskets-tidlige-historie.png",
+                    "lessons": []
+                },
+                {
+                    "id": "jordbruk-og-sivilisasjoner",
+                    "title": "Jordbruk og Sivilisasjoner",
+                    "description": "Mennesket slår seg til ro: Fra nomade til fastboende med husdyr.",
+                    "image": "/Eiriksbok/images/lessons/jordbruk.png",
+                    "createdDate": "2023-11-15",
+                    "updatedDate": "2023-11-29",
+                    "lessons": []
+                },
+                {
+                    "id": "perserriket",
+                    "title": "Perserriket",
+                    "description": "Det første verdensriket, fra Kyros den store til Aleksander den store.",
+                    "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
+                    "lessons": []
+                },
+                {
+                    "id": "romerriket",
+                    "title": "Romerriket",
+                    "description": "Et av historiens første store imperier som spredte kristendom og veier.",
+                    "image": "/Eiriksbok/images/lessons/romerriket.png",
+                    "lessons": []
+                },
+                {
+                    "id": "vikingtiden",
+                    "title": "Vikingtiden",
+                    "description": "Hvorfor dro bønder fra nord ut for å plyndre og handle?",
+                    "image": "/Eiriksbok/images/lessons/vikingtiden.png",
+                    "createdDate": "2023-10-01",
+                    "lessons": []
+                },
+                {
+                    "id": "rikssamlingen",
+                    "title": "Rikssamlingen",
+                    "description": "Harald Hårfagre samler Norge – for kjærlighet eller makt?",
+                    "image": "/Eiriksbok/images/lessons/rikssamlingen.png",
+                    "lessons": []
+                },
+                {
+                    "id": "svartedauden",
+                    "title": "Svartedauden",
+                    "description": "Pesten som drepte halvparten av befolkningen og endret samfunnet.",
+                    "image": "/Eiriksbok/images/lessons/svartedauden.png",
+                    "lessons": []
+                },
+                {
+                    "id": "boktrykkerkunsten",
+                    "title": "Boktrykkerkunsten",
+                    "description": "En informasjonsrevolusjon startet av Gutenberg (og kineserne).",
+                    "image": "/Eiriksbok/images/lessons/boktrykkerkunsten.png",
+                    "lessons": []
+                },
+                {
+                    "id": "industriell-revolusjon-i-norge",
+                    "title": "Industriell Revolusjon i Norge",
+                    "description": "Fra overskudd av mat til fabrikker og maskiner.",
+                    "image": "/Eiriksbok/images/lessons/industriell-revolusjon.png",
+                    "lessons": []
+                },
+                {
+                    "id": "demo-artikkel",
+                    "title": "Demo Artikkel",
+                    "description": "En demonstrasjon av standardisert artikkellayout.",
+                    "lessons": []
                 }
             ]
         },

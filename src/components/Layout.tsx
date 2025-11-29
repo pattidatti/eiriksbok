@@ -28,7 +28,8 @@ export const Layout: React.FC = () => {
 
                     <nav className="hidden md:flex items-center space-x-8">
                         <Link to="/norsk" className={`text-sm transition-colors ${isActive('/norsk')}`}>Norsk</Link>
-                        <Link to="/samfunnsfag" className={`text-sm transition-colors ${isActive('/samfunnsfag')}`}>Samfunnsfag</Link>
+                        <Link to="/samfunnskunnskap" className={`text-sm transition-colors ${isActive('/samfunnskunnskap')}`}>Samfunnskunnskap</Link>
+                        <Link to="/historie" className={`text-sm transition-colors ${isActive('/historie')}`}>Historie</Link>
                         <Link to="/krle" className={`text-sm transition-colors ${isActive('/krle')}`}>KRLE</Link>
                         <Link to="/musikk" className={`text-sm transition-colors ${isActive('/musikk')}`}>Musikk</Link>
                     </nav>

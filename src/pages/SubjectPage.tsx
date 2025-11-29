@@ -6,11 +6,15 @@ import { motion } from 'framer-motion';
 import { Timeline } from '../components/Timeline';
 import { TopicCard } from '../components/TopicCard';
 import { LayoutGrid, List } from 'lucide-react';
+import { usePageTitle } from '../hooks/usePageTitle';
+import { getTopicLink } from '../utils/navigationUtils';
 
 export const SubjectPage: React.FC = () => {
     const { subjectId } = useParams<{ subjectId: string }>();
     const [subjectData, setSubjectData] = useState<ManifestSubject | null>(null);
     const [viewMode, setViewMode] = useState<'hierarchical' | 'timeline'>('hierarchical');
+
+    usePageTitle(subjectData?.title || 'Fag');
 
     useEffect(() => {
         fetchManifest().then(manifest => {
@@ -73,8 +77,8 @@ export const SubjectPage: React.FC = () => {
                     <button
                         onClick={() => setViewMode('hierarchical')}
                         className={`flex items-center px-4 py-2 rounded-md font-sans text-sm font-medium transition-all ${viewMode === 'hierarchical'
-                                ? 'bg-slate-100 text-slate-900'
-                                : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'
+                            ? 'bg-slate-100 text-slate-900'
+                            : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'
                             }`}
                     >
                         <LayoutGrid className="w-4 h-4 mr-2" />
@@ -83,8 +87,8 @@ export const SubjectPage: React.FC = () => {
                     <button
                         onClick={() => setViewMode('timeline')}
                         className={`flex items-center px-4 py-2 rounded-md font-sans text-sm font-medium transition-all ${viewMode === 'timeline'
-                                ? 'bg-slate-100 text-slate-900'
-                                : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'
+                            ? 'bg-slate-100 text-slate-900'
+                            : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'
                             }`}
                     >
                         <List className="w-4 h-4 mr-2" />
@@ -113,11 +117,15 @@ export const SubjectPage: React.FC = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
                             >
+                                import {getTopicLink} from '../utils/navigationUtils';
+
+                                // ... (inside component)
+
                                 <TopicCard
                                     title={topic.title}
                                     description={topic.description}
                                     image={topic.image}
-                                    path={`/${subjectId}/${topic.id}`}
+                                    path={getTopicLink(subjectId, topic)}
                                     lessonCount={lessonCount}
                                 />
                             </motion.div>

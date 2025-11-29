@@ -16,6 +16,7 @@ import { timelineData } from '../data/timelineData';
 import { useNavigate } from 'react-router-dom';
 import { ImageWithFallback } from '../components/ImageWithFallback';
 import { useUserHistory } from '../hooks/useUserHistory';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOverride }) => {
     const params = useParams<{ subjectId: string; topicId: string; subTopicId?: string; lessonId: string }>();
@@ -31,6 +32,8 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const { addToHistory } = useUserHistory();
+
+    usePageTitle(lesson?.title || 'Leksjon');
 
     useEffect(() => {
         if (subjectId && topicId && lessonId) {
@@ -83,11 +86,11 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     if (loading) return <div className="p-8 text-center">Laster leksjon...</div>;
 
     // Special handling for Demography module
-    if (subTopicId === 'demografi-okonomi') {
+    if (topicId === 'demografi-okonomi') {
         return <DemographyPage />;
     }
 
-    if (subTopicId === 'styringsformer') {
+    if (topicId === 'styringsformer' && lessonId === 'utforsk') {
         return <GovernmentExplorer />;
     }
 

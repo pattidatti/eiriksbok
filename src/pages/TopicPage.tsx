@@ -12,6 +12,7 @@ import { timelineData } from '../data/timelineData';
 import { InteractiveArticle } from '../components/InteractiveArticle';
 import { LessonPage } from './LessonPage';
 import { useUserHistory } from '../hooks/useUserHistory';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 type ViewMode = 'grid' | 'list';
 type SortMode = 'alphabetical' | 'year' | 'newest';
@@ -26,6 +27,8 @@ export const TopicPage: React.FC = () => {
 
     const [viewMode, setViewMode] = useState<ViewMode>('grid');
     const [sortMode, setSortMode] = useState<SortMode>('alphabetical');
+
+    usePageTitle(currentSubTopic?.title || currentTopic?.title || 'Emne');
 
     useEffect(() => {
         fetchManifest().then(manifest => {

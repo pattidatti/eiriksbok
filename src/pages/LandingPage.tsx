@@ -7,11 +7,14 @@ import { ImmersiveCard } from '../components/ImmersiveCard';
 import { ContentRow } from '../components/ContentRow';
 import { useUserHistory } from '../hooks/useUserHistory';
 import { ImageWithFallback } from '../components/ImageWithFallback';
+import { usePageTitle } from '../hooks/usePageTitle';
 import { Calendar, Clock } from 'lucide-react';
+import { getTopicLink } from '../utils/navigationUtils';
 
 export const LandingPage: React.FC = () => {
     const [manifest, setManifest] = useState<Manifest | null>(null);
     const { history } = useUserHistory();
+    usePageTitle('Eiriks lærebok', true);
 
     useEffect(() => {
         fetchManifest().then(setManifest);
@@ -45,7 +48,7 @@ export const LandingPage: React.FC = () => {
         const sortedTopics = [...historyTopics, ...otherTopics];
 
         // 2. Lessons
-        let allLessons: (ManifestLesson & { topicId: string, topicTitle: string, topicImage?: string })[] = [];
+        let allLessons: (ManifestLesson & { topicId: string, subTopicId?: string, topicTitle: string, topicImage?: string })[] = [];
         topics.forEach(topic => {
             // Collect lessons from direct lessons
             if (topic.lessons) {
@@ -61,7 +64,7 @@ export const LandingPage: React.FC = () => {
                     if (st.lessons) {
                         st.lessons.forEach(l => {
                             if (l && l.id) {
-                                allLessons.push({ ...l, topicId: topic.id, topicTitle: topic.title, topicImage: st.image || topic.image });
+                                allLessons.push({ ...l, topicId: topic.id, subTopicId: st.id, topicTitle: topic.title, topicImage: st.image || topic.image });
                             }
                         });
                     }
@@ -103,12 +106,19 @@ export const LandingPage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
             >
-                <h1 className="text-4xl md:text-5xl font-display font-bold text-text-main mb-4">
-                    Velkommen til Eiriks lærebok
-                </h1>
-                <p className="text-xl text-text-muted mb-12 max-w-2xl mx-auto">
-                    Velg et fag, emne, eller søk oppe til høyre.
-                </p>
+                <div className="relative z-10">
+                    <h1 className="text-4xl md:text-6xl font-display font-bold text-text-main mb-6 tracking-tight">
+                        Velkommen til <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Eiriks lærebok</span>
+                    </h1>
+                    <p className="text-xl text-text-muted mb-8 max-w-2xl mx-auto leading-relaxed">
+                        Utforsk interaktive artikler og lær noe nytt i dag.
+                        <br />
+                        Velg et fag, emne, eller søk oppe til høyre.
+                    </p>
+                </div>
+
+                {/* Decorative background elements */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-100 rounded-full blur-3xl opacity-30 -z-10 pointer-events-none" />
             </motion.div>
 
             <div className="space-y-16">
@@ -117,17 +127,21 @@ export const LandingPage: React.FC = () => {
                     if (topics.length === 0 && lessons.length === 0) return null;
 
                     return (
-                        <ContentRow key={subject.id} title={subject.title}>
+                        <ContentRow key={subject.id} title={subject.title} titleLink={`/${subject.id}`}>
                             {/* Topics */}
                             {topics.map((topic, index) => (
                                 <motion.div
                                     key={`topic-${topic.id}`}
-                                    className="min-w-[300px] md:min-w-[400px] snap-start"
+                                    className="min-w-[240px] md:min-w-[280px] snap-start"
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: index * 0.05 }}
                                 >
-                                    <Link to={`/${subject.id}/${topic.id}`} className="block no-underline group h-full">
+                                    import {getTopicLink} from '../utils/navigationUtils';
+
+                                    // ... (inside component)
+
+                                    <Link to={getTopicLink(subject.id, topic)} className="block no-underline group h-full">
                                         <ImmersiveCard>
                                             <div className="h-48 overflow-hidden rounded-lg mb-4 relative">
                                                 <ImageWithFallback
@@ -155,12 +169,12 @@ export const LandingPage: React.FC = () => {
                             {lessons.map((lesson, index) => (
                                 <motion.div
                                     key={`lesson-${lesson.id}`}
-                                    className="min-w-[300px] md:min-w-[400px] snap-start"
+                                    className="min-w-[240px] md:min-w-[280px] snap-start"
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: (topics.length + index) * 0.05 }}
                                 >
-                                    <Link to={`/${subject.id}/${lesson.topicId}/${lesson.id}`} className="block no-underline group h-full">
+                                    <Link to={`/${subject.id}/${lesson.topicId}${lesson.subTopicId ? `/${lesson.subTopicId}` : ''}/${lesson.id}`} className="block no-underline group h-full">
                                         <ImmersiveCard>
                                             <div className="h-48 overflow-hidden rounded-lg mb-4 relative">
                                                 <ImageWithFallback

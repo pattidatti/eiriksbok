@@ -8,14 +8,14 @@ Strukturen er bygget opp hierarkisk for å organisere læringsinnholdet på en l
 
 ### 1. Fag (Subject)
 Det øverste nivået i hierarkiet. Representerer de overordnede skolefagene.
-*   **Eksempler**: Norsk, KRLE, Samfunnsfag, Musikk.
+*   **Eksempler**: Norsk, Historie, Samfunnskunnskap, KRLE, Musikk.
 *   **Teknisk**: `ManifestSubject` i koden.
 *   **Ansvar**: Samler alle emner som tilhører et fagområde.
 
 ### 2. Emne / Tema (Topic)
 En inndeling av et fag. Dette er de store overskriftene eller kapidlene i faget.
-*   **Eksempler**: Grammatikk (i Norsk), Historie (i Samfunnsfag), Etikk (i KRLE).
-*   **Teknisk**: `ManifestTopic` i koden. Kan også inneholde *Undertema* (`ManifestSubTopic`) for ytterligere inndeling (f.eks. Historie -> Andre verdenskrig).
+*   **Eksempler**: Grammatikk (i Norsk), Andre verdenskrig (i Historie), Demografi (i Samfunnskunnskap).
+*   **Teknisk**: `ManifestTopic` i koden. Kan også inneholde *Undertema* (`ManifestSubTopic`) for ytterligere inndeling.
 
 ### 3. Leksjon / Modul (Lesson / Module)
 Den minste enheten for organisert læringsinnhold. Dette er siden eleven faktisk lander på.
