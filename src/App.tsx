@@ -4,6 +4,7 @@ import { LandingPage } from './pages/LandingPage';
 import { SubjectPage } from './pages/SubjectPage';
 import { TopicPage } from './pages/TopicPage';
 import { LessonPage } from './pages/LessonPage';
+import ColonizationMap from './components/ColonizationMap/ColonizationMap';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path=":subjectId/:topicId/:subTopicId" element={<TopicPage />} />
           <Route path=":subjectId/:topicId/:subTopicId/:lessonId" element={<LessonPage />} />
           <Route path=":subjectId/:topicId/:lessonId" element={<LessonPage />} />
+          <Route path="colonization" element={<ColonizationMap />} />
         </Route>
       </Routes>
     </BrowserRouter>

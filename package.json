@@ -11,14 +11,21 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@types/d3-geo": "^3.1.0",
+    "@types/d3-scale": "^4.0.9",
+    "@types/topojson-client": "^3.1.5",
     "chart.js": "^4.5.1",
     "clsx": "^2.1.1",
+    "d3-geo": "^3.1.1",
+    "d3-scale": "^4.0.2",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.555.0",
     "react": "^19.2.0",
     "react-chartjs-2": "^5.3.1",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^6.28.0"
+    "react-router-dom": "^6.28.0",
+    "react-tooltip": "^5.30.0",
+    "topojson-client": "^3.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -26,6 +33,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@types/react-simple-maps": "^3.0.6",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.22",
     "eslint": "^9.39.1",
