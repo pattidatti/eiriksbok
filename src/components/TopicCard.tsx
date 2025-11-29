@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BookOpen, FolderOpen } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
+import { PlaceholderImage } from './PlaceholderImage';
 
 interface TopicCardProps {
     title: string;
@@ -12,6 +13,8 @@ interface TopicCardProps {
 }
 
 export const TopicCard: React.FC<TopicCardProps> = ({ title, description, image, path, lessonCount }) => {
+    const [imageError, setImageError] = React.useState(false);
+
     return (
         <Link to={path} className="block group no-underline">
             <motion.div
@@ -20,16 +23,15 @@ export const TopicCard: React.FC<TopicCardProps> = ({ title, description, image,
             >
                 {/* Image Area */}
                 <div className="h-40 bg-slate-100 relative overflow-hidden">
-                    {image ? (
+                    {image && !imageError ? (
                         <img
                             src={image}
                             alt={title}
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            onError={() => setImageError(true)}
                         />
                     ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-indigo-50 to-blue-50 flex items-center justify-center">
-                            <FolderOpen className="w-12 h-12 text-indigo-200" />
-                        </div>
+                        <PlaceholderImage seed={title} />
                     )}
 
                     <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-slate-600 border border-slate-200 shadow-sm">

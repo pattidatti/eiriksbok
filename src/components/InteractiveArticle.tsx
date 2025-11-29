@@ -10,7 +10,6 @@ import {
     ExternalLink,
     Share2,
     Bookmark,
-    PlayCircle,
     BookOpen,
     ArrowLeft
 } from 'lucide-react';

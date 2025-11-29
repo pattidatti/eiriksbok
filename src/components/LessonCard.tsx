@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { ManifestLesson } from '../types';
-import { BookOpen, Clock } from 'lucide-react';
+import { Clock } from 'lucide-react';
+import { PlaceholderImage } from './PlaceholderImage';
 
 interface LessonCardProps {
     lesson: ManifestLesson;
@@ -12,6 +13,7 @@ interface LessonCardProps {
 }
 
 export const LessonCard: React.FC<LessonCardProps> = ({ lesson, path, topicTitle, topicImage }) => {
+    const [imageError, setImageError] = React.useState(false);
     const displayImage = lesson.image || topicImage;
 
     return (
@@ -22,16 +24,15 @@ export const LessonCard: React.FC<LessonCardProps> = ({ lesson, path, topicTitle
             >
                 {/* Image Area */}
                 <div className="h-48 bg-slate-100 relative overflow-hidden">
-                    {displayImage ? (
+                    {displayImage && !imageError ? (
                         <img
                             src={displayImage}
                             alt={lesson.title}
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            onError={() => setImageError(true)}
                         />
                     ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
-                            <BookOpen className="w-12 h-12 text-slate-300" />
-                        </div>
+                        <PlaceholderImage seed={lesson.title} />
                     )}
 
                     {/* Topic Badge */}
