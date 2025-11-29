@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { fetchManifest } from '../utils/contentLoader';
 import type { Manifest, ManifestLesson } from '../types';
+import { Search, X } from 'lucide-react';
 
 interface SearchOverlayProps {
     isOpen: boolean;
@@ -30,7 +31,17 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
         if (isOpen && inputRef.current) {
             inputRef.current.focus();
         }
-    }, [isOpen]);
+
+        // Keyboard shortcut to close
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onClose();
+        };
+
+        if (isOpen) {
+            window.addEventListener('keydown', handleKeyDown);
+        }
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isOpen, onClose]);
 
     useEffect(() => {
         if (!query.trim() || !manifest) {
@@ -48,7 +59,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                     searchResults.push({
                         type: 'topic',
                         title: topic.title,
-                        path: `/${subject.id}`, // Navigate to subject for now, could be specific topic anchor
+                        path: `/${subject.id}`,
                         description: `Emne i ${subject.title}`
                     });
                 }
@@ -89,93 +100,70 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    style={{
-                        position: 'fixed',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        background: 'rgba(0, 0, 0, 0.8)',
-                        backdropFilter: 'blur(10px)',
-                        zIndex: 1000,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        paddingTop: '10vh'
-                    }}
+                    className="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex flex-col items-center pt-[10vh]"
                     onClick={onClose}
                 >
                     <motion.div
                         initial={{ y: -50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -50, opacity: 0 }}
-                        style={{ width: '100%', maxWidth: '600px', padding: '0 20px' }}
+                        className="w-full max-w-2xl px-4"
                         onClick={e => e.stopPropagation()}
                     >
-                        <input
-                            ref={inputRef}
-                            type="text"
-                            placeholder="Søk etter begreper, leksjoner..."
-                            value={query}
-                            onChange={e => setQuery(e.target.value)}
-                            style={{
-                                width: '100%',
-                                padding: '1.5rem',
-                                fontSize: '1.5rem',
-                                background: 'rgba(255, 255, 255, 0.1)',
-                                border: '1px solid rgba(255, 255, 255, 0.2)',
-                                borderRadius: '16px',
-                                color: 'white',
-                                outline: 'none',
-                                fontFamily: 'Outfit, sans-serif'
-                            }}
-                        />
+                        <div className="relative mb-8">
+                            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-6 h-6" />
+                            <input
+                                ref={inputRef}
+                                type="text"
+                                placeholder="Søk etter begreper, leksjoner..."
+                                value={query}
+                                onChange={e => setQuery(e.target.value)}
+                                className="w-full pl-14 pr-4 py-4 text-xl bg-white/10 border border-white/20 rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-display"
+                            />
+                            <button
+                                onClick={onClose}
+                                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white transition-colors"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+                        </div>
 
-                        <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div className="space-y-3 max-h-[60vh] overflow-y-auto custom-scrollbar">
                             {results.map((result, index) => (
                                 <Link
                                     key={index}
                                     to={result.path}
                                     onClick={onClose}
-                                    style={{
-                                        textDecoration: 'none',
-                                        color: 'inherit'
-                                    }}
+                                    className="block no-underline"
                                 >
                                     <motion.div
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: index * 0.05 }}
-                                        style={{
-                                            background: 'rgba(255, 255, 255, 0.05)',
-                                            padding: '1rem 1.5rem',
-                                            borderRadius: '12px',
-                                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                                            display: 'flex',
-                                            justifyContent: 'space-between',
-                                            alignItems: 'center'
-                                        }}
-                                        whileHover={{ background: 'rgba(255, 255, 255, 0.1)', scale: 1.02 }}
+                                        className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 flex justify-between items-center transition-all group"
                                     >
                                         <div>
-                                            <div style={{ fontSize: '1.1rem', fontWeight: 600 }}>{result.title}</div>
-                                            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>{result.description}</div>
+                                            <div className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">
+                                                {result.title}
+                                            </div>
+                                            <div className="text-sm text-slate-400">
+                                                {result.description}
+                                            </div>
                                         </div>
-                                        <div style={{
-                                            fontSize: '0.8rem',
-                                            padding: '4px 8px',
-                                            borderRadius: '4px',
-                                            background: 'rgba(255,255,255,0.1)',
-                                            textTransform: 'uppercase'
-                                        }}>
+                                        <div className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-white/10 text-slate-300">
                                             {result.type}
                                         </div>
                                     </motion.div>
                                 </Link>
                             ))}
                             {query && results.length === 0 && (
-                                <div style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
-                                    Ingen resultater funnet.
+                                <div className="text-center text-slate-400 py-8">
+                                    Ingen resultater funnet for "{query}"
+                                </div>
+                            )}
+                            {!query && (
+                                <div className="text-center text-slate-500 py-8 text-sm">
+                                    Skriv for å søke...
                                 </div>
                             )}
                         </div>

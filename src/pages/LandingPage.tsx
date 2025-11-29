@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { ImmersiveCard } from '../components/ImmersiveCard';
 import { ContentRow } from '../components/ContentRow';
 import { useUserHistory } from '../hooks/useUserHistory';
+import { ImageWithFallback } from '../components/ImageWithFallback';
 
 export const LandingPage: React.FC = () => {
     const [manifest, setManifest] = useState<Manifest | null>(null);
@@ -44,21 +45,21 @@ export const LandingPage: React.FC = () => {
     };
 
     return (
-        <div className="landing-page pb-20">
+        <div className="pb-20">
             <motion.div
-                className="hero-section mb-12"
+                className="mb-12 text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
             >
-                <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--text-main)', fontFamily: 'Outfit, sans-serif' }}>
+                <h1 className="text-4xl md:text-5xl font-display font-bold text-text-main mb-4">
                     Velkommen til Interactive Concept Hub
                 </h1>
-                <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', marginBottom: '3rem' }}>
+                <p className="text-xl text-text-muted mb-12 max-w-2xl mx-auto">
                     Velg et fag for å starte læringen.
                 </p>
             </motion.div>
 
-            <div className="space-y-12">
+            <div className="space-y-16">
                 {manifest.subjects.map((subject) => {
                     const sortedTopics = getSortedTopics(subject.id, subject.topics);
                     if (sortedTopics.length === 0) return null;
@@ -73,17 +74,20 @@ export const LandingPage: React.FC = () => {
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: index * 0.05 }}
                                 >
-                                    <Link to={`/${subject.id}/${topic.id}`} style={{ textDecoration: 'none' }}>
+                                    <Link to={`/${subject.id}/${topic.id}`} className="block no-underline group">
                                         <ImmersiveCard>
-                                            <div style={{ height: '200px', overflow: 'hidden', borderRadius: '8px', marginBottom: '1rem' }}>
-                                                <img
-                                                    src={topic.image || `https://placehold.co/800x500?text=${encodeURIComponent(topic.title)}`}
+                                            <div className="h-48 overflow-hidden rounded-lg mb-4 relative">
+                                                <ImageWithFallback
+                                                    src={topic.image}
                                                     alt={topic.title}
-                                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                                    seed={topic.title}
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                                 />
                                             </div>
-                                            <h3 style={{ marginTop: 0, color: 'var(--text-main)', fontFamily: 'Outfit, sans-serif', fontSize: '1.5rem' }}>{topic.title}</h3>
-                                            <p style={{ color: 'var(--text-muted)', fontSize: '1rem', margin: 0 }}>
+                                            <h3 className="text-2xl font-display font-bold text-text-main mt-0 mb-2 group-hover:text-neon-accent transition-colors">
+                                                {topic.title}
+                                            </h3>
+                                            <p className="text-base text-text-muted m-0">
                                                 {topic.lessons?.length || 0} artikler
                                             </p>
                                         </ImmersiveCard>

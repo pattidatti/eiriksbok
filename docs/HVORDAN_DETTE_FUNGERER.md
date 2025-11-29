@@ -127,4 +127,19 @@ Vi har et strengt skille mellom innhold og kode:
 - **Ytelse:** Statiske filer lastes ekstremt raskt.
 - **Sikkerhet:** Ingen database eller server-side kode som kan hackes.
 - **Vedlikehold:** Innholdsprodusenter kan skrive JSON (eller bruke en fremtidig editor) uten å kunne ødelegge applikasjonskoden.
-- **Skalerbarhet:** Det er trivielt å legge til nye fag og artikler bare ved å opprette nye filer.
+
+## 🧭 Navigasjon og Søk
+
+Vi har lagt til nye måter å finne frem på:
+
+### Brødsmuler (Breadcrumbs)
+Øverst på siden ser du nå en sti (f.eks. `Hjem > Historie > Andre Verdenskrig`). Dette hjelper deg å vite hvor du er, og lar deg enkelt hoppe tilbake et nivå.
+
+### Søk (Cmd+K / Ctrl+K)
+Du kan nå søke etter fag, emner og leksjoner!
+- Trykk på søkeikonet i menyen.
+- Eller bruk hurtigtasten `Cmd+K` (Mac) eller `Ctrl+K` (Windows).
+- Søket finner både titler og innhold.
+
+## 🎨 Designsystem (Tailwind)
+Vi går bort fra egne `.css`-filer (som `Layout.css`) og bruker **Tailwind CSS** for alt. Dette gjør det lettere å holde designet konsekvent (farger, avstander, fonter).
