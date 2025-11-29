@@ -307,5 +307,52 @@ export const timelineData: TimelineEvent[] = [
         timeline: [
             { year: "1840", title: "Industriell start", description: "Den industrielle revolusjon skyter fart i Norge." }
         ]
+    },
+    {
+        id: "voc",
+        year: "1602–1799",
+        title: "Det nederlandske ostindiske kompani (VOC)",
+        description: "Verdens første aksjeselskap og et globalt handelsimperium.",
+        content: [
+            { type: 'text', content: "Det nederlandske ostindiske kompani (Vereenigde Oostindische Compagnie, VOC) ble grunnlagt i 1602. Det regnes ofte som verdens første multinasjonale selskap og det første selskapet som utstedte aksjer. VOC fikk monopol av den nederlandske staten på all handel i Asia." },
+            { type: 'text', content: "Selskapet ble en enorm suksess og drev handel med krydder (som pepper, muskat, nellik), silke, porselen og tekstiler. De etablerte hovedkvarteret sitt i Batavia (dagens Jakarta i Indonesia). På 1600-tallet, under den nederlandske gullalderen, var VOC verdens rikeste selskap." },
+            { type: 'text', content: "Men VOC var ikke bare et handelsselskap; det hadde også rett til å føre krig, inngå traktater, slå sin egen mynt og etablere kolonier. De brukte ofte brutal makt for å sikre seg monopol på krydderhandelen, for eksempel på Banda-øyene." },
+            { type: 'text', content: "Mot slutten av 1700-tallet gikk det dårligere. Korrupsjon, høy gjeld og konkurranse fra det britiske ostindiske kompani førte til at VOC ble oppløst og gikk konkurs i 1799. Eiendommene ble overtatt av den nederlandske staten." }
+        ],
+        details: [
+            "Grunnlagt: 1602.",
+            "Oppløst: 1799.",
+            "Hovedkvarter: Batavia (Jakarta).",
+            "Kjent for: Krydderhandel, aksjer, og monopol."
+        ],
+        icon: <Anchor className="w-8 h-8 text-orange-400" />,
+        category: 'Verden',
+        url: "https://snl.no/Det_nederlandske_ostindiske_kompani",
+        readTime: "4 min lesning",
+        tags: ["Historie", "Verden", "Handel", "Kolonialisering"],
+        timeline: [
+            {
+                year: "1602",
+                title: "VOC Opprettes",
+                description: "Det nederlandske ostindiske kompani (VOC) blir grunnlagt.",
+                link: "https://snl.no/Det_nederlandske_ostindiske_kompani"
+            },
+            {
+                year: "1619",
+                title: "Batavia grunnlegges",
+                description: "VOC etablerer sitt hovedkvarter i Batavia (Jakarta).",
+                link: "https://snl.no/Jakarta"
+            },
+            {
+                year: "1600-tallet",
+                title: "Gullalderen",
+                description: "Nederland og VOC dominerer verdenshandelen.",
+            },
+            {
+                year: "1799",
+                title: "VOC Konkurs",
+                description: "Selskapet oppløses etter nesten 200 år.",
+            }
+        ]
     }
 ];

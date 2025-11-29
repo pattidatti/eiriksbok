@@ -147,21 +147,42 @@
                     "image": "/Eiriksbok/images/lessons/jordbruk.png",
                     "createdDate": "2023-11-15",
                     "updatedDate": "2023-11-29",
-                    "lessons": []
+                    "lessons": [
+                        {
+                            "id": "artikkel",
+                            "title": "Jordbruksrevolusjonen",
+                            "description": "Det store skiftet.",
+                            "image": "/Eiriksbok/images/lessons/jordbruk.png"
+                        }
+                    ]
                 },
                 {
                     "id": "perserriket",
                     "title": "Perserriket",
                     "description": "Det første verdensriket, fra Kyros den store til Aleksander den store.",
                     "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
-                    "lessons": []
+                    "lessons": [
+                        {
+                            "id": "artikkel",
+                            "title": "Perserriket",
+                            "description": "Det første verdensriket.",
+                            "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80"
+                        }
+                    ]
                 },
                 {
                     "id": "romerriket",
                     "title": "Romerriket",
                     "description": "Et av historiens første store imperier som spredte kristendom og veier.",
                     "image": "/Eiriksbok/images/lessons/romerriket.png",
-                    "lessons": []
+                    "lessons": [
+                        {
+                            "id": "artikkel",
+                            "title": "Romerriket",
+                            "description": "Imperiet som formet Europa.",
+                            "image": "/Eiriksbok/images/lessons/romerriket.png"
+                        }
+                    ]
                 },
                 {
                     "id": "vikingtiden",
@@ -169,7 +190,14 @@
                     "description": "Hvorfor dro bønder fra nord ut for å plyndre og handle?",
                     "image": "/Eiriksbok/images/lessons/vikingtiden.png",
                     "createdDate": "2023-10-01",
-                    "lessons": []
+                    "lessons": [
+                        {
+                            "id": "artikkel",
+                            "title": "Vikingtiden",
+                            "description": "Krigerne fra nord.",
+                            "image": "/Eiriksbok/images/lessons/vikingtiden.png"
+                        }
+                    ]
                 },
                 {
                     "id": "rikssamlingen",
@@ -183,7 +211,14 @@
                     "title": "Svartedauden",
                     "description": "Pesten som drepte halvparten av befolkningen og endret samfunnet.",
                     "image": "/Eiriksbok/images/lessons/svartedauden.png",
-                    "lessons": []
+                    "lessons": [
+                        {
+                            "id": "artikkel",
+                            "title": "Svartedauden",
+                            "description": "Pesten som endret Norge.",
+                            "image": "/Eiriksbok/images/lessons/svartedauden.png"
+                        }
+                    ]
                 },
                 {
                     "id": "boktrykkerkunsten",

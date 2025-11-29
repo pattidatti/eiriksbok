@@ -3,18 +3,34 @@
     "title": "Svartedauden",
     "subject": "Samfunnsfag",
     "topic": "Historie",
-    "fact": "Visste du at Svartedauden drepte så mange mennesker i Norge at det tok over 300 år før befolkningen var tilbake på samme nivå som før pesten?",
+    "layout": "rich",
+    "year": "1349",
+    "readTime": "5 min lesning",
+    "category": "Middelalderen",
+    "details": [
+        "Drepte ca. 50% av befolkningen",
+        "Kom til Bergen i 1349",
+        "Førte til ødegårder og bedre kår for bønder"
+    ],
+    "tags": [
+        "pest",
+        "middelalder",
+        "norge"
+    ],
     "content": [
         {
             "type": "text",
+            "title": "Pesten kommer til Norge",
             "content": "Svartedauden kom til Norge (Bergen) i 1349, men pesten hadde herjet i Europa siden 1346. Den spredte seg via handelsruter fra det Mongolske riket i øst. På verdensbasis døde mellom 70 og 200 millioner mennesker."
         },
         {
             "type": "text",
+            "title": "Konsekvenser for samfunnet",
             "content": "I Norge døde ca. 50% av befolkningen. Dette førte til at mange gårder ble stående tomme (ødegårder). For staten var dette en katastrofe, da skatteinntektene forsvant. Men for de fattige bøndene som overlevde, ble livet faktisk bedre: Det var nå rikelig med jord tilgjengelig, og de kunne kreve bedre vilkår."
         },
         {
             "type": "text",
+            "title": "Slutten på en epoke",
             "content": "Svartedauden markerer slutten på Norges storhetstid i middelalderen og starten på unionstiden med Danmark. Pesten kom tilbake i bølger i over 200 år etterpå."
         },
         {

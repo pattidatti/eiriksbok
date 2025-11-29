@@ -1,4 +1,51 @@
 {
+    "id": "eic",
+    "title": "Det britiske ostindiske kompani (EIC)",
+    "layout": "rich",
+    "description": "Handelskompaniet som la grunnlaget for det britiske imperiet i India.",
+    "year": "1600-1874",
+    "category": "Kolonialisering",
+    "readTime": "8 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80",
+    "details": [
+        "Verdens mektigste selskap",
+        "Hadde egen hær og flåte",
+        "Styrte India i 100 år",
+        "Startet opiumskrigene"
+    ],
+    "tags": [
+        "handel",
+        "imperialisme",
+        "india",
+        "storbritannia"
+    ],
+    "timeline": [
+        {
+            "year": "1600",
+            "title": "Grunnleggelsen",
+            "description": "Dronning Elizabeth I gir selskapet kongelig privilegium."
+        },
+        {
+            "year": "1757",
+            "title": "Slaget ved Plassey",
+            "description": "Robert Clive beseirer herskeren av Bengal, starten på britisk styre."
+        },
+        {
+            "year": "1857",
+            "title": "Sepoy-opprøret",
+            "description": "Stort opprør blant indiske soldater mot kompaniets styre."
+        },
+        {
+            "year": "1858",
+            "title": "The British Raj",
+            "description": "Den britiske staten tar over styringen av India."
+        },
+        {
+            "year": "1874",
+            "title": "Oppløsning",
+            "description": "Kompaniet blir formelt oppløst."
+        }
+    ],
     "content": [
         {
             "type": "text",

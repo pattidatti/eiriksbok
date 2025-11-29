@@ -60,6 +60,17 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                                 return <Quiz key={index} questions={block.props?.questions || []} />;
                             case 'EICSimulation':
                                 return <EICSimulation key={index} />;
+                            case 'FactBox':
+                                return (
+                                    <div key={index} className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
+                                        <h4 className="text-indigo-700 font-bold text-sm uppercase mb-2 flex items-center tracking-wider">
+                                            Visste du at?
+                                        </h4>
+                                        <p className="text-slate-700 text-base leading-relaxed italic">
+                                            {block.props?.content}
+                                        </p>
+                                    </div>
+                                );
                             case 'TimelineComponent':
                                 return (
                                     <TimelineComponent
