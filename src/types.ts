@@ -51,9 +51,9 @@ export interface ManifestLesson {
     id: string;
     title: string;
     date?: string;
-    tags?: string[];
     description?: string;
     image?: string;
+    tags?: string[];
 }
 
 export interface ManifestSubTopic {
@@ -71,6 +71,7 @@ export interface ManifestTopic {
     image?: string;
     lessons?: ManifestLesson[];
     subTopics?: ManifestSubTopic[];
+    tags?: string[];
 }
 
 export interface ManifestSubject {

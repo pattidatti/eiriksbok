@@ -14,7 +14,29 @@
                             "id": "setningsanalyse",
                             "title": "Setningsanalyse",
                             "description": "Hvordan analysere setninger.",
-                            "image": "/Eiriksbok/images/lessons/setningsanalyse.png"
+                            "image": "/Eiriksbok/images/lessons/setningsanalyse.png",
+                            "date": "2023-01-10",
+                            "tags": [
+                                "grammatikk",
+                                "språk"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "litteraturhistorie",
+                    "title": "Litteraturhistorie",
+                    "image": "https://placehold.co/600x400?text=Litteratur",
+                    "lessons": [
+                        {
+                            "id": "realismen",
+                            "title": "Realismen",
+                            "date": "2023-03-10",
+                            "tags": [
+                                "litteratur",
+                                "historie",
+                                "samfunn"
+                            ]
                         }
                     ]
                 }
@@ -69,7 +91,13 @@
                                 {
                                     "id": "bakgrunn",
                                     "title": "Bakgrunn",
-                                    "description": "Bakgrunnen for krigen."
+                                    "description": "Bakgrunnen for krigen.",
+                                    "date": "2023-04-01",
+                                    "tags": [
+                                        "krig",
+                                        "historie",
+                                        "konflikt"
+                                    ]
                                 }
                             ]
                         },
