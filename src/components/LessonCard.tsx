@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { ManifestLesson } from '../types';
 import { Clock } from 'lucide-react';
-import { PlaceholderImage } from './PlaceholderImage';
+import { ImageWithFallback } from './ImageWithFallback';
 
 interface LessonCardProps {
     lesson: ManifestLesson;
@@ -13,7 +13,6 @@ interface LessonCardProps {
 }
 
 export const LessonCard: React.FC<LessonCardProps> = ({ lesson, path, topicTitle, topicImage }) => {
-    const [imageError, setImageError] = React.useState(false);
     const displayImage = lesson.image || topicImage;
 
     return (
@@ -24,16 +23,12 @@ export const LessonCard: React.FC<LessonCardProps> = ({ lesson, path, topicTitle
             >
                 {/* Image Area */}
                 <div className="h-48 bg-slate-100 relative overflow-hidden">
-                    {displayImage && !imageError ? (
-                        <img
-                            src={displayImage}
-                            alt={lesson.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            onError={() => setImageError(true)}
-                        />
-                    ) : (
-                        <PlaceholderImage seed={lesson.title} />
-                    )}
+                    <ImageWithFallback
+                        src={displayImage}
+                        alt={lesson.title}
+                        seed={lesson.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
 
                     {/* Topic Badge */}
                     <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-slate-600 uppercase tracking-wider border border-slate-200 shadow-sm">

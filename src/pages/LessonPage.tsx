@@ -14,7 +14,7 @@ import { ErrorBoundary } from '../components/ErrorBoundary';
 import { InteractiveArticle } from '../components/InteractiveArticle';
 import { timelineData } from '../data/timelineData';
 import { useNavigate } from 'react-router-dom';
-import { PlaceholderImage } from '../components/PlaceholderImage';
+import { ImageWithFallback } from '../components/ImageWithFallback';
 
 export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOverride }) => {
     const params = useParams<{ subjectId: string; topicId: string; subTopicId?: string; lessonId: string }>();
@@ -27,7 +27,6 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
     const [lesson, setLesson] = useState<Lesson | null>(null);
     const [lessonImage, setLessonImage] = useState<string | undefined>(undefined);
-    const [imageError, setImageError] = useState(false);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
@@ -149,20 +148,14 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                     {lesson.title}
                 </h1>
 
-                {(lessonImage && !imageError) ? (
-                    <div className="w-full h-64 md:h-96 rounded-3xl overflow-hidden shadow-lg mb-12 border border-slate-200">
-                        <img
-                            src={lessonImage}
-                            alt={lesson.title}
-                            className="w-full h-full object-cover"
-                            onError={() => setImageError(true)}
-                        />
-                    </div>
-                ) : (
-                    <div className="w-full h-64 md:h-96 rounded-3xl overflow-hidden shadow-lg mb-12 border border-slate-200">
-                        <PlaceholderImage seed={lesson.title} />
-                    </div>
-                )}
+                <div className="w-full h-64 md:h-96 rounded-3xl overflow-hidden shadow-lg mb-12 border border-slate-200">
+                    <ImageWithFallback
+                        src={lessonImage}
+                        alt={lesson.title}
+                        seed={lesson.title}
+                        className="w-full h-full object-cover"
+                    />
+                </div>
             </motion.div>
 
             {/* New Flexible Content Renderer */}

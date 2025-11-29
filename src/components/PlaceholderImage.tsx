@@ -97,12 +97,12 @@ export const PlaceholderImage: React.FC<PlaceholderImageProps> = ({ seed, classN
 
                 {/* Overlay gradient for depth */}
                 <defs>
-                    <linearGradient id={`grad-${seed}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearGradient id={`grad-${seed.replace(/[^a-zA-Z0-9]/g, '-')}`} x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="white" stopOpacity="0.1" />
                         <stop offset="100%" stopColor="black" stopOpacity="0.05" />
                     </linearGradient>
                 </defs>
-                <rect width="100%" height="100%" fill={`url(#grad-${seed})`} />
+                <rect width="100%" height="100%" fill={`url(#grad-${seed.replace(/[^a-zA-Z0-9]/g, '-')})`} />
             </svg>
         </div>
     );
