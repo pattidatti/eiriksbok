@@ -1,18 +1,4 @@
 {
-    "id": "eic",
-    "title": "Det britiske ostindiske kompani (EIC)",
-    "layout": "rich",
-    "year": "1600-1873",
-    "category": "Kolonialisering",
-    "readTime": "10 min lesning",
-    "heroImage": "/Eiriksbok/images/topics/kolonialisering.png",
-    "ingress": "Det britiske ostindiske kompani var et mektig handelskompani som styrte store deler av India og la grunnlaget for det britiske imperiet i Asia. Fra ydmyk handel til brutal kolonimakt.",
-    "details": [
-        "Stiftet: 31. desember 1600",
-        "Oppløst: 1. juni 1874",
-        "Hovedkvarter: London",
-        "Fokus: Handel, kolonisering, militærmakt"
-    ],
     "content": [
         {
             "type": "text",

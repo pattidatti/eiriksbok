@@ -120,7 +120,8 @@
                                 {
                                     "id": "voc",
                                     "title": "Det nederlandske ostindiske kompani (VOC)",
-                                    "description": "Verdens første aksjeselskap og et globalt handelsimperium."
+                                    "description": "Verdens første aksjeselskap og et globalt handelsimperium.",
+                                    "createdDate": "2023-11-20"
                                 },
                                 {
                                     "id": "eic",
@@ -141,7 +142,9 @@
                             "id": "jordbruk-og-sivilisasjoner",
                             "title": "Jordbruk og Sivilisasjoner",
                             "description": "Mennesket slår seg til ro: Fra nomade til fastboende med husdyr.",
-                            "image": "/Eiriksbok/images/lessons/jordbruk.png"
+                            "image": "/Eiriksbok/images/lessons/jordbruk.png",
+                            "createdDate": "2023-11-15",
+                            "updatedDate": "2023-11-29"
                         },
                         {
                             "id": "perserriket",
@@ -159,7 +162,8 @@
                             "id": "vikingtiden",
                             "title": "Vikingtiden",
                             "description": "Hvorfor dro bønder fra nord ut for å plyndre og handle?",
-                            "image": "/Eiriksbok/images/lessons/vikingtiden.png"
+                            "image": "/Eiriksbok/images/lessons/vikingtiden.png",
+                            "createdDate": "2023-10-01"
                         },
                         {
                             "id": "rikssamlingen",

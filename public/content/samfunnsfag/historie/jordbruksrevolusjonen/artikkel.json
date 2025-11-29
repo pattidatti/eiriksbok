@@ -3,6 +3,13 @@
     "title": "Jordbruk og Sivilisasjoner",
     "subject": "Samfunnsfag",
     "topic": "Historie",
+    "fact": "Visste du at overgangen til jordbruk førte til at menneskene ble lavere og fikk dårligere tenner sammenlignet med jegere og sankere?",
+    "year": "12 000 – 4000 fvt.",
+    "tags": [
+        "Historie",
+        "Samfunn",
+        "Teknologi"
+    ],
     "content": [
         {
             "type": "text",

@@ -31,6 +31,9 @@ export type ArticleData = {
     readTime: string;
     heroImage?: string;
     timeline?: { year: string; title: string; description: string }[];
+    fact?: string;
+    mapData?: any;
+    tags?: string[];
 };
 
 interface InteractiveArticleProps {
@@ -50,16 +53,20 @@ const InteractiveMapPlaceholder = () => (
     </div>
 );
 
-const FactBox = ({ content }: { content: string }) => (
-    <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
-        <h4 className="text-indigo-700 font-bold text-sm uppercase mb-2 flex items-center tracking-wider">
-            <Info className="w-4 h-4 mr-2" /> Visste du at?
-        </h4>
-        <p className="text-slate-700 text-base leading-relaxed italic">
-            {content}
-        </p>
-    </div>
-);
+const FactBox = ({ content }: { content: string }) => {
+    if (!content) return null;
+
+    return (
+        <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
+            <h4 className="text-indigo-700 font-bold text-sm uppercase mb-2 flex items-center tracking-wider">
+                <Info className="w-4 h-4 mr-2" /> Visste du at?
+            </h4>
+            <p className="text-slate-700 text-base leading-relaxed italic">
+                {content}
+            </p>
+        </div>
+    );
+};
 
 const ExpandableSection = ({ title, children }: { title: string, children: React.ReactNode }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -174,7 +181,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                     <div className="space-y-8">
                         <ArticleContent content={event.content} />
 
-                        <FactBox content="Visste du at denne hendelsen fikk ringvirkninger som vi fortsatt merker i dag? Historikere mener at dette var et vendepunkt for hele regionen." />
+                        {event.fact && <FactBox content={event.fact} />}
 
 
                     </div>
@@ -205,7 +212,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                                 />
                             )}
 
-                            <InteractiveMapPlaceholder />
+                            {event.mapData && <InteractiveMapPlaceholder />}
 
                             <div className="mt-8">
                                 <h3 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wider">Fordypning</h3>
@@ -216,13 +223,21 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                                         <li>Store Norske Leksikon</li>
                                     </ul>
                                 </ExpandableSection>
-                                <ExpandableSection title="Relaterte Emner">
-                                    <div className="flex flex-wrap gap-2">
-                                        <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md border border-slate-200">Politikk</span>
-                                        <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md border border-slate-200">Økonomi</span>
-                                        <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md border border-slate-200">Kultur</span>
-                                    </div>
-                                </ExpandableSection>
+                                {event.tags && event.tags.length > 0 && (
+                                    <ExpandableSection title="Relaterte Emner">
+                                        <div className="flex flex-wrap gap-2">
+                                            {event.tags.map(tag => (
+                                                <a
+                                                    key={tag}
+                                                    href={`/sok?tag=${tag}`} // Using search/filter route for now, or could be topic page with filter
+                                                    className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md border border-slate-200 hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-200 transition-colors"
+                                                >
+                                                    {tag}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    </ExpandableSection>
+                                )}
                             </div>
 
                             <a

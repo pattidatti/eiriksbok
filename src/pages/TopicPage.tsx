@@ -46,7 +46,8 @@ export const TopicPage: React.FC = () => {
                         addToHistory({
                             id: topic.id,
                             title: topic.title,
-                            subjectId: subjectId
+                            subjectId: subjectId,
+                            type: 'topic'
                         });
                     }
                 }
@@ -102,6 +103,14 @@ export const TopicPage: React.FC = () => {
     };
 
     const sortedLessons = sortLessons(rawLessons);
+
+    // Filter by tag if present in query params
+    const queryParams = new URLSearchParams(location.search);
+    const tagFilter = queryParams.get('tag');
+
+    const filteredLessons = tagFilter
+        ? sortedLessons.filter(l => l.tags?.includes(tagFilter))
+        : sortedLessons;
 
     return (
         <div className="topic-page max-w-7xl mx-auto px-6 py-12">
@@ -207,11 +216,26 @@ export const TopicPage: React.FC = () => {
                 </div>
             )}
 
-            {sortedLessons.length > 0 && (
+            {tagFilter && (
+                <div className="mb-8 p-4 bg-indigo-50 border border-indigo-100 rounded-xl flex items-center justify-between">
+                    <div className="flex items-center">
+                        <span className="text-indigo-900 font-medium mr-2">Viser resultater for emneknagg:</span>
+                        <span className="px-3 py-1 bg-indigo-600 text-white text-sm font-bold rounded-lg">#{tagFilter}</span>
+                    </div>
+                    <button
+                        onClick={() => navigate(location.pathname)}
+                        className="text-sm text-indigo-600 hover:text-indigo-800 font-medium hover:underline"
+                    >
+                        Fjern filter
+                    </button>
+                </div>
+            )}
+
+            {filteredLessons.length > 0 && (
                 <div>
                     {subTopics.length > 0 && <h2 className="text-2xl font-display font-bold text-text-main mb-6">Leksjoner</h2>}
                     <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
-                        {sortedLessons.map((lesson, index) => (
+                        {filteredLessons.map((lesson, index) => (
                             <motion.div
                                 key={lesson.id}
                                 initial={{ opacity: 0, y: 20 }}
@@ -252,7 +276,7 @@ export const TopicPage: React.FC = () => {
                 </div>
             )}
 
-            {subTopics.length === 0 && sortedLessons.length === 0 && (
+            {subTopics.length === 0 && filteredLessons.length === 0 && (
                 <div className="col-span-full text-center py-12 bg-slate-50 rounded-2xl border border-slate-100">
                     <p className="text-text-muted italic">Ingen leksjoner funnet i dette emnet.</p>
                 </div>

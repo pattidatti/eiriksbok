@@ -3,6 +3,7 @@
     "title": "Vikingtiden",
     "subject": "Samfunnsfag",
     "topic": "Historie",
+    "fact": "Visste du at vikinger ikke hadde horn på hjelmene sine? Dette er en myte som oppstod på 1800-tallet.",
     "content": [
         {
             "type": "text",
@@ -10,7 +11,7 @@
         },
         {
             "type": "text",
-            "content": "Samfunnet var organisert i ætter (storfamilier) og stammer ledet av en høvding. Høvdingen hadde sin egen hær, kalt hirden. Viktige avgjørelser ble tatt på Tinget, en hellig plass for diskusjon og dom. De rike bøndene (frie menn) eide jorden, mens treller (slaver) var ufrie arbeidsfolk."
+            "content": "Samfunnet var organisert i ætter (storfamilier) og stammer ledet av en høvding. Høvdingen var leder, og viktige avgjørelser ble tatt på Tinget, en hellig plass for diskusjon og dom. De rike bøndene (frie menn) eide jorden, mens treller (slaver) var ufrie arbeidsfolk."
         },
         {
             "type": "text",

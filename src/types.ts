@@ -45,12 +45,17 @@ export interface Lesson {
     context?: Context;
     quiz?: QuizQuestion[];
     timeline?: { year: string; title: string; description: string }[];
+    fact?: string;
+    mapData?: any; // Placeholder for map data structure
+    tags?: string[];
 }
 
 export interface ManifestLesson {
     id: string;
     title: string;
     date?: string;
+    createdDate?: string;
+    updatedDate?: string;
     description?: string;
     image?: string;
     tags?: string[];

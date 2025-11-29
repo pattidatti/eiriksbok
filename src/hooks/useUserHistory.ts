@@ -5,6 +5,7 @@ export interface HistoryItem {
     title: string;
     subjectId: string;
     timestamp: number;
+    type?: 'topic' | 'lesson';
 }
 
 const HISTORY_KEY = 'gravity_user_history';

@@ -22,6 +22,12 @@
             "content": "Andre verdenskrig brøt ikke ut over natten. Årsakene var mange og sammensatte, men de fleste historikere peker på oppgjøret etter første verdenskrig som en hovedårsak. Det var en urolig tid i Europa, preget av økonomisk krise, politisk kaos og ulmende konflikter."
         },
         {
+            "type": "fact",
+            "title": "Bakgrunnen for krigen",
+            "fact": "Visste du at Versaillestraktaten var så streng mot Tyskland at den britiske økonomen John Maynard Keynes forutså at den ville føre til en ny krig?",
+            "description": "Mellomkrigstiden var preget av ustabilitet. Versaillestraktaten skapte bitterhet i Tyskland, mens børskrakket i 1929 førte til global økonomisk krise. Dette ga grobunn for fascismens fremvekst."
+        },
+        {
             "type": "text",
             "title": "Versailles-traktaten: En fred som skapte krig?",
             "content": "**Versailles-traktaten** i 1919 la hele skylden for første verdenskrig på Tyskland. Tyskerne opplevde fredsavtalen som en ydmykelse. De måtte betale enorme krigserstatninger, gi fra seg viktige landområder og redusere militæret til et minimum.\n\nDette skapte en dyp følelse av urettferdighet og hevnlyst i det tyske folket. Mange følte seg dolket i ryggen av sine egne politikere som hadde signert avtalen."
