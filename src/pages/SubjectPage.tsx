@@ -117,15 +117,12 @@ export const SubjectPage: React.FC = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
                             >
-                                import {getTopicLink} from '../utils/navigationUtils';
-
-                                // ... (inside component)
 
                                 <TopicCard
                                     title={topic.title}
                                     description={topic.description}
                                     image={topic.image}
-                                    path={getTopicLink(subjectId, topic)}
+                                    path={subjectId ? getTopicLink(subjectId, topic) : '#'}
                                     lessonCount={lessonCount}
                                 />
                             </motion.div>

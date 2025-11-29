@@ -137,9 +137,6 @@ export const LandingPage: React.FC = () => {
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: index * 0.05 }}
                                 >
-                                    import {getTopicLink} from '../utils/navigationUtils';
-
-                                    // ... (inside component)
 
                                     <Link to={getTopicLink(subject.id, topic)} className="block no-underline group h-full">
                                         <ImmersiveCard>
