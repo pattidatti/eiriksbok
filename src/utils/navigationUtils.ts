@@ -1,4 +1,4 @@
-import { ManifestTopic } from '../types';
+import type { ManifestTopic } from '../types';
 
 /**
  * Returns the link for a topic.
