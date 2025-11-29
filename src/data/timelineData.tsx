@@ -57,6 +57,24 @@ export const timelineData: TimelineEvent[] = [
         tags: ["Historie", "Verden", "Handel"],
         timeline: [
             {
+                year: "1271–1295",
+                title: "Marco Polos reiser",
+                description: "Marco Polo reiser til Kina og øker interessen for Asia.",
+                link: "https://snl.no/Marco_Polo"
+            },
+            {
+                year: "1453",
+                title: "Konstantinopels fall",
+                description: "Det osmanske riket erobrer Konstantinopel, noe som forstyrrer handelsrutene.",
+                link: "https://snl.no/Konstantinopels_fall"
+            },
+            {
+                year: "1492",
+                title: "Reconquista fullføres",
+                description: "Spania tar tilbake hele Iberia og Columbus reiser til Amerika.",
+                link: "https://snl.no/Reconquista"
+            },
+            {
                 year: "1602",
                 title: "VOC Opprettes",
                 description: "Det nederlandske ostindiske kompani (VOC) blir grunnlagt og får monopol på handel i Asia.",
@@ -94,7 +112,14 @@ export const timelineData: TimelineEvent[] = [
         category: 'Verden',
         url: "https://snl.no/menneskets_opprinnelse_og_utvikling",
         readTime: "2 min lesning",
-        tags: ["Historie", "Verden", "Mennesket"]
+        tags: ["Historie", "Verden", "Mennesket"],
+        timeline: [
+            { year: "200 000 fvt.", title: "Homo sapiens i Afrika", description: "Menneskearten oppstår." },
+            { year: "70 000 fvt.", title: "Utvandring fra Afrika", description: "Mennesker begynner å spre seg til Asia." },
+            { year: "40 000 fvt.", title: "Mennesker i Europa", description: "Homo sapiens ankommer Europa." },
+            { year: "15 000 fvt.", title: "Mennesker i Amerika", description: "Mennesker krysser til Amerika." },
+            { year: "9300 fvt.", title: "Nomader i Finnmark", description: "De første menneskene bosetter seg i Norge." }
+        ]
     },
     {
         id: 2,
@@ -116,7 +141,13 @@ export const timelineData: TimelineEvent[] = [
         category: 'Verden',
         url: "https://snl.no/jordbrukets_historie",
         readTime: "3 min lesning",
-        tags: ["Historie", "Verden", "Jordbruk"]
+        tags: ["Historie", "Verden", "Jordbruk"],
+        timeline: [
+            { year: "8000-12000 fvt.", title: "Tidlig jordbruk", description: "Jordbruk starter i Midtøsten." },
+            { year: "4000 fvt.", title: "Jordbruk i Norge", description: "Jordbruket når Østlandet." },
+            { year: "2500 fvt.", title: "Stridsøksfolket", description: "Innvandring fra Germania." },
+            { year: "400 evt.", title: "Horder og Ryger", description: "Nye folkegrupper ankommer Norge." }
+        ]
     },
     {
         id: 3,
@@ -138,7 +169,13 @@ export const timelineData: TimelineEvent[] = [
         category: 'Verden',
         url: "https://snl.no/Romerrikets_historie",
         readTime: "4 min lesning",
-        tags: ["Historie", "Verden", "Antikken", "Imperier"]
+        tags: ["Historie", "Verden", "Antikken", "Imperier"],
+        timeline: [
+            { year: "500 fvt.", title: "Romerriket grunnlegges", description: "Starten på den romerske republikken." },
+            { year: "300 evt.", title: "Kristendommens seier", description: "Kristendommen blir offisiell religion." },
+            { year: "400 evt.", title: "Riket deles", description: "Romerriket deles i øst og vest." },
+            { year: "541-549", title: "Justinians pest", description: "Første bølge av svartedauden." }
+        ]
     },
     {
         id: 4,
@@ -160,7 +197,12 @@ export const timelineData: TimelineEvent[] = [
         category: 'Norge',
         url: "https://snl.no/vikingtiden",
         readTime: "5 min lesning",
-        tags: ["Historie", "Norge", "Vikingtiden"]
+        tags: ["Historie", "Norge", "Vikingtiden"],
+        timeline: [
+            { year: "700", title: "Jernredskaper", description: "Jern blir vanligere, befolkningen øker." },
+            { year: "793", title: "Lindisfarne", description: "Vikingangrep på klosteret Lindisfarne." },
+            { year: "1066", title: "Stamford Bridge", description: "Slaget som markerer slutten på vikingtiden." }
+        ]
     },
     {
         id: 5,
@@ -182,7 +224,11 @@ export const timelineData: TimelineEvent[] = [
         category: 'Norge',
         url: "https://snl.no/Harald_H%C3%A5rfagre",
         readTime: "4 min lesning",
-        tags: ["Historie", "Norge", "Middelalderen"]
+        tags: ["Historie", "Norge", "Middelalderen"],
+        timeline: [
+            { year: "865-933", title: "Harald Hårfagre", description: "Norges første rikskonge." },
+            { year: "872", title: "Slaget i Hafrsfjord", description: "Norge samles til ett rike." }
+        ]
     },
     {
         id: 6,
@@ -204,7 +250,11 @@ export const timelineData: TimelineEvent[] = [
         category: 'Norge',
         url: "https://snl.no/svartedauden",
         readTime: "3 min lesning",
-        tags: ["Historie", "Norge", "Pest"]
+        tags: ["Historie", "Norge", "Pest"],
+        timeline: [
+            { year: "1346", title: "Pesten i Europa", description: "Svartedauden bryter ut i Europa." },
+            { year: "1349", title: "Pesten i Norge", description: "Svartedauden kommer til Bergen." }
+        ]
     },
     {
         id: 7,
@@ -226,7 +276,12 @@ export const timelineData: TimelineEvent[] = [
         category: 'Verden',
         url: "https://snl.no/Johann_Gutenberg",
         readTime: "2 min lesning",
-        tags: ["Historie", "Verden", "Teknologi"]
+        tags: ["Historie", "Verden", "Teknologi"],
+        timeline: [
+            { year: "700", title: "Kinesisk trykking", description: "Kineserne utvikler trykketeknologi." },
+            { year: "1440", title: "Gutenberg", description: "Johannes Gutenberg oppfinner trykkpressen i Europa." },
+            { year: "1500", title: "Bokeksplosjon", description: "Over 20 millioner bøker i Europa." }
+        ]
     },
     {
         id: 8,
@@ -248,6 +303,9 @@ export const timelineData: TimelineEvent[] = [
         category: 'Norge',
         url: "https://snl.no/den_industrielle_revolusjon_i_Norge",
         readTime: "4 min lesning",
-        tags: ["Historie", "Norge", "Industri"]
+        tags: ["Historie", "Norge", "Industri"],
+        timeline: [
+            { year: "1840", title: "Industriell start", description: "Den industrielle revolusjon skyter fart i Norge." }
+        ]
     }
 ];

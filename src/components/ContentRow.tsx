@@ -38,8 +38,8 @@ export const ContentRow: React.FC<ContentRowProps> = ({ title, titleLink, childr
     };
 
     return (
-        <div className="content-row mb-12">
-            <h2 className="text-2xl font-bold mb-4 text-text-main font-outfit px-4 md:px-0 flex items-center">
+        <div className="content-row mb-6">
+            <h2 className="text-3xl font-bold mb-6 text-text-main font-outfit px-4 md:px-0 flex items-center">
                 {titleLink ? (
                     <Link to={titleLink} className="hover:text-neon-accent transition-colors flex items-center group">
                         {title}
@@ -51,7 +51,7 @@ export const ContentRow: React.FC<ContentRowProps> = ({ title, titleLink, childr
             </h2>
             <div
                 ref={scrollRef}
-                className={`flex overflow-x-auto gap-6 pb-8 px-4 md:px-0 snap-x ${isDragging ? 'cursor-grabbing snap-none' : 'cursor-grab'}`}
+                className={`flex overflow-x-auto gap-4 pb-4 px-4 md:px-0 snap-x ${isDragging ? 'cursor-grabbing snap-none' : 'cursor-grab'}`}
                 style={{ scrollBehavior: isDragging ? 'auto' : 'smooth' }}
                 onMouseDown={handleMouseDown}
                 onMouseLeave={handleMouseLeave}

@@ -61,12 +61,21 @@ export interface ManifestLesson {
     tags?: string[];
 }
 
+export interface TopicTool {
+    id: string;
+    title: string;
+    description?: string;
+    link: string;
+    icon?: string;
+}
+
 export interface ManifestSubTopic {
     id: string;
     title: string;
     description?: string;
     image?: string;
     lessons: ManifestLesson[];
+    tools?: TopicTool[];
 }
 
 export interface ManifestTopic {
@@ -77,6 +86,7 @@ export interface ManifestTopic {
     lessons?: ManifestLesson[];
     subTopics?: ManifestSubTopic[];
     tags?: string[];
+    tools?: TopicTool[];
 }
 
 export interface ManifestSubject {

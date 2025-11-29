@@ -105,6 +105,15 @@
                     "id": "kolonialisering",
                     "title": "Kolonialisering",
                     "description": "Europeisk ekspansjon og dens konsekvenser.",
+                    "tools": [
+                        {
+                            "id": "colonization-map",
+                            "title": "Colonization Era Explorer",
+                            "description": "Interaktivt kart som viser koloniseringens historie.",
+                            "link": "/colonization",
+                            "icon": "map"
+                        }
+                    ],
                     "lessons": [
                         {
                             "id": "verdenshandel-for-oppdagelsesreisene",

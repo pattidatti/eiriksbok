@@ -100,9 +100,9 @@ export const LandingPage: React.FC = () => {
     };
 
     return (
-        <div className="pb-20">
+        <div className="pb-10">
             <motion.div
-                className="mb-12 text-center"
+                className="mb-6 text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
             >
@@ -121,7 +121,7 @@ export const LandingPage: React.FC = () => {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-100 rounded-full blur-3xl opacity-30 -z-10 pointer-events-none" />
             </motion.div>
 
-            <div className="space-y-16">
+            <div className="space-y-8">
                 {manifest.subjects.map((subject) => {
                     const { topics, lessons } = getSortedContent(subject.id, subject.topics);
                     if (topics.length === 0 && lessons.length === 0) return null;
@@ -139,8 +139,8 @@ export const LandingPage: React.FC = () => {
                                 >
 
                                     <Link to={getTopicLink(subject.id, topic)} className="block no-underline group h-full">
-                                        <ImmersiveCard>
-                                            <div className="h-48 overflow-hidden rounded-lg mb-4 relative">
+                                        <ImmersiveCard className="h-full flex flex-col">
+                                            <div className="h-24 overflow-hidden rounded-lg mb-2 relative">
                                                 <ImageWithFallback
                                                     src={topic.image}
                                                     alt={topic.title}
@@ -172,8 +172,8 @@ export const LandingPage: React.FC = () => {
                                     transition={{ delay: (topics.length + index) * 0.05 }}
                                 >
                                     <Link to={`/${subject.id}/${lesson.topicId}${lesson.subTopicId ? `/${lesson.subTopicId}` : ''}/${lesson.id}`} className="block no-underline group h-full">
-                                        <ImmersiveCard>
-                                            <div className="h-48 overflow-hidden rounded-lg mb-4 relative">
+                                        <ImmersiveCard className="h-full flex flex-col">
+                                            <div className="h-24 overflow-hidden rounded-lg mb-2 relative">
                                                 <ImageWithFallback
                                                     src={lesson.image || lesson.topicImage}
                                                     alt={lesson.title}

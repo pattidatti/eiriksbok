@@ -5,7 +5,7 @@ import type { ManifestSubject, ManifestTopic, ManifestSubTopic, ManifestLesson }
 import { motion } from 'framer-motion';
 import { LessonCard } from '../components/LessonCard';
 import { TopicCard } from '../components/TopicCard';
-import { ChevronRight, ArrowLeft, Grid, List, ArrowDownAZ, Calendar, Clock } from 'lucide-react';
+import { ChevronRight, ArrowLeft, Grid, List, ArrowDownAZ, Calendar, Clock, Map } from 'lucide-react';
 import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { timelineData } from '../data/timelineData';
@@ -194,6 +194,38 @@ export const TopicPage: React.FC = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Tools Section */}
+            {activeItem.tools && activeItem.tools.length > 0 && (
+                <div className="mb-12">
+                    <h2 className="text-2xl font-display font-bold text-text-main mb-6">Verktøy & Ressurser</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {activeItem.tools.map((tool) => (
+                            <Link
+                                key={tool.id}
+                                to={tool.link}
+                                className="block bg-surface-card hover:bg-surface-card-hover border border-white/10 rounded-xl p-6 transition-all group"
+                            >
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 bg-neon-accent/10 rounded-lg text-neon-accent group-hover:bg-neon-accent/20 transition-colors">
+                                        <Map className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-text-main group-hover:text-neon-accent transition-colors mb-2">
+                                            {tool.title}
+                                        </h3>
+                                        {tool.description && (
+                                            <p className="text-text-muted text-sm leading-relaxed">
+                                                {tool.description}
+                                            </p>
+                                        )}
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            )}
 
             {subTopics.length > 0 && (
                 <div className="mb-12">
