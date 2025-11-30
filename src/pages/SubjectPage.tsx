@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { fetchManifest } from '../utils/contentLoader';
 import type { ManifestSubject, ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
@@ -13,6 +13,7 @@ export const SubjectPage: React.FC = () => {
     const { subjectId } = useParams<{ subjectId: string }>();
     const [subjectData, setSubjectData] = useState<ManifestSubject | null>(null);
     const [viewMode, setViewMode] = useState<'hierarchical' | 'timeline'>('hierarchical');
+    const navigate = useNavigate();
 
     usePageTitle(subjectData?.title || 'Fag');
 
@@ -100,35 +101,68 @@ export const SubjectPage: React.FC = () => {
             {viewMode === 'timeline' ? (
                 <Timeline lessons={allLessons} />
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {subjectData.topics.map((topic, index) => {
-                        // Calculate total lessons
-                        let lessonCount = 0;
-                        if (topic.subTopics) {
-                            topic.subTopics.forEach(st => lessonCount += st.lessons?.length || 0);
-                        } else if (topic.lessons) {
-                            lessonCount = topic.lessons.length;
-                        }
+                <div className="space-y-12">
+                    {/* Tools Section */}
+                    {subjectData.tools && subjectData.tools.length > 0 && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {subjectData.tools.map((tool) => (
+                                <motion.div
+                                    key={tool.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    onClick={() => navigate(tool.link)}
+                                    className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 cursor-pointer hover:shadow-md transition-all group"
+                                >
+                                    <div className="flex items-start gap-4">
+                                        <div className="p-3 bg-indigo-50 text-indigo-600 rounded-lg group-hover:bg-indigo-100 transition-colors">
+                                            {/* You might want to dynamically render icons here based on tool.icon */}
+                                            <LayoutGrid size={24} />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-bold text-lg text-slate-900 mb-1 group-hover:text-indigo-600 transition-colors">
+                                                {tool.title}
+                                            </h3>
+                                            <p className="text-sm text-slate-600">
+                                                {tool.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    )}
 
-                        return (
-                            <motion.div
-                                key={topic.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                className="h-full"
-                            >
+                    {/* Topics Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {subjectData.topics.map((topic, index) => {
+                            // Calculate total lessons
+                            let lessonCount = 0;
+                            if (topic.subTopics) {
+                                topic.subTopics.forEach(st => lessonCount += st.lessons?.length || 0);
+                            } else if (topic.lessons) {
+                                lessonCount = topic.lessons.length;
+                            }
 
-                                <TopicCard
-                                    title={topic.title}
-                                    description={topic.description}
-                                    image={topic.image}
-                                    path={subjectId ? getTopicLink(subjectId, topic) : '#'}
-                                    lessonCount={lessonCount}
-                                />
-                            </motion.div>
-                        );
-                    })}
+                            return (
+                                <motion.div
+                                    key={topic.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="h-full"
+                                >
+
+                                    <TopicCard
+                                        title={topic.title}
+                                        description={topic.description}
+                                        image={topic.image}
+                                        path={subjectId ? getTopicLink(subjectId, topic) : '#'}
+                                        lessonCount={lessonCount}
+                                    />
+                                </motion.div>
+                            );
+                        })}
+                    </div>
                 </div>
             )}
 

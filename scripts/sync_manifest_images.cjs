@@ -1,0 +1,87 @@
+const fs = require('fs');
+const path = require('path');
+
+const MANIFEST_PATH = path.join(process.cwd(), 'public', 'content', 'manifest.json');
+const CONTENT_DIR = path.join(process.cwd(), 'public', 'content');
+
+function syncImages() {
+    console.log('Starting manifest image sync...');
+
+    if (!fs.existsSync(MANIFEST_PATH)) {
+        console.error('Manifest file not found at:', MANIFEST_PATH);
+        return;
+    }
+
+    const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    let updates = 0;
+
+    manifest.subjects.forEach(subject => {
+        if (!subject.topics) return;
+
+        subject.topics.forEach(topic => {
+            // Handle direct lessons
+            if (topic.lessons) {
+                topic.lessons.forEach(lesson => {
+                    updates += processLesson(subject.id, topic.id, null, lesson);
+                });
+            }
+
+            // Handle subtopics if they exist
+            if (topic.subTopics) {
+                topic.subTopics.forEach(subTopic => {
+                    if (subTopic.lessons) {
+                        subTopic.lessons.forEach(lesson => {
+                            updates += processLesson(subject.id, topic.id, subTopic.id, lesson);
+                        });
+                    }
+                });
+            }
+        });
+    });
+
+    if (updates > 0) {
+        fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 4), 'utf8');
+        console.log(`\nSync complete. Updated ${updates} lessons.`);
+    } else {
+        console.log('\nSync complete. No updates needed.');
+    }
+}
+
+function processLesson(subjectId, topicId, subTopicId, lesson) {
+    // Skip if image is already set
+    if (lesson.image && lesson.image.trim() !== '') {
+        return 0;
+    }
+
+    // Construct potential file paths
+    // Strategy 1: [subject]/[topic]/[lesson].json
+    // Strategy 2: [subject]/[topic]/[subTopic]/[lesson].json (if subTopic exists)
+
+    let filePaths = [];
+
+    if (subTopicId) {
+        filePaths.push(path.join(CONTENT_DIR, subjectId, topicId, subTopicId, `${lesson.id}.json`));
+        filePaths.push(path.join(CONTENT_DIR, subjectId, topicId, `${lesson.id}.json`)); // Fallback
+    } else {
+        filePaths.push(path.join(CONTENT_DIR, subjectId, topicId, `${lesson.id}.json`));
+    }
+
+    for (const filePath of filePaths) {
+        if (fs.existsSync(filePath)) {
+            try {
+                const article = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+                if (article.heroImage) {
+                    console.log(`Updating ${lesson.title} (${lesson.id}) with image: ${article.heroImage}`);
+                    lesson.image = article.heroImage;
+                    return 1;
+                }
+            } catch (e) {
+                console.error(`Error reading/parsing ${filePath}:`, e.message);
+            }
+        }
+    }
+
+    return 0;
+}
+
+syncImages();

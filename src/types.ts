@@ -93,6 +93,7 @@ export interface ManifestSubject {
     id: string;
     title: string;
     topics: ManifestTopic[];
+    tools?: TopicTool[];
 }
 
 export interface Manifest {

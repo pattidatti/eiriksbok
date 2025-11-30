@@ -3,6 +3,15 @@
         {
             "id": "norsk",
             "title": "Norsk",
+            "tools": [
+                {
+                    "id": "text-library",
+                    "title": "Tekstbibliotek",
+                    "description": "Utforsk noveller, dikt og utdrag.",
+                    "link": "/norsk/bibliotek",
+                    "icon": "book"
+                }
+            ],
             "topics": [
                 {
                     "id": "grammatikk",
@@ -37,6 +46,68 @@
                                 "litteratur",
                                 "historie",
                                 "samfunn"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "tekstsjangre",
+                    "title": "Tekstsjangre",
+                    "description": "Lær om ulike typer tekster, fra noveller til debattinnlegg.",
+                    "image": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "novelle",
+                            "title": "Novelle",
+                            "description": "Korte, oppdiktede fortellinger med en overraskende slutt.",
+                            "image": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "skjønnlitteratur",
+                                "fortelling"
+                            ]
+                        },
+                        {
+                            "id": "roman",
+                            "title": "Roman",
+                            "description": "Lengre fortellinger som gir rom for fordypning.",
+                            "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "skjønnlitteratur",
+                                "fortelling",
+                                "bok"
+                            ]
+                        },
+                        {
+                            "id": "dikt",
+                            "title": "Dikt (Lyrikk)",
+                            "description": "Tekster som uttrykker stemninger og følelser.",
+                            "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "skjønnlitteratur",
+                                "lyrikk",
+                                "poesi"
+                            ]
+                        },
+                        {
+                            "id": "artikkel",
+                            "title": "Fagartikkel",
+                            "description": "Objektive tekster som formidler kunnskap.",
+                            "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "sakprosa",
+                                "fakta",
+                                "informasjon"
+                            ]
+                        },
+                        {
+                            "id": "debattinnlegg",
+                            "title": "Debattinnlegg",
+                            "description": "Tekster som argumenterer for en mening.",
+                            "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "sakprosa",
+                                "mening",
+                                "argumentasjon"
                             ]
                         }
                     ]
@@ -105,7 +176,8 @@
                                 "krig",
                                 "historie",
                                 "konflikt"
-                            ]
+                            ],
+                            "image": "https://images.unsplash.com/photo-1580130732478-7f14d4255091?auto=format&fit=crop&q=80"
                         }
                     ]
                 },
@@ -151,7 +223,8 @@
                                 "kolonialisme",
                                 "nederland",
                                 "økonomi"
-                            ]
+                            ],
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/A_View_of_the_Port_of_Batavia%2C_c._1665.jpg/1280px-A_View_of_the_Port_of_Batavia%2C_c._1665.jpg"
                         },
                         {
                             "id": "eic",
@@ -162,7 +235,8 @@
                                 "imperialisme",
                                 "india",
                                 "storbritannia"
-                            ]
+                            ],
+                            "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80"
                         }
                     ]
                 },

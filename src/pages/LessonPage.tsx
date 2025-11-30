@@ -12,6 +12,7 @@ import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ArticleContent } from '../components/ArticleContent';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { InteractiveArticle } from '../components/InteractiveArticle';
+import { NorskArticleLayout } from '../components/NorskArticleLayout';
 import { timelineData } from '../data/timelineData';
 import { useNavigate } from 'react-router-dom';
 import { ImageWithFallback } from '../components/ImageWithFallback';
@@ -106,6 +107,26 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             <ErrorBoundary>
                 <InteractiveArticle
                     event={timelineEvent}
+                    onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
+                />
+            </ErrorBoundary>
+        );
+    }
+
+    // Special handling for Norsk subject articles
+    if (subjectId === 'norsk' && lesson && lesson.layout === 'rich') {
+        const articleData = {
+            title: lesson.title,
+            description: lesson.content?.find(c => c.type === 'text')?.content.substring(0, 150) + '...' || '',
+            heroImage: lesson.heroImage,
+            content: lesson.content || [],
+            tags: lesson.tags
+        };
+
+        return (
+            <ErrorBoundary>
+                <NorskArticleLayout
+                    article={articleData}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
                 />
             </ErrorBoundary>

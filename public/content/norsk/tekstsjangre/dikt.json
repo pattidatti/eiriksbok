@@ -1,0 +1,14 @@
+{
+    "id": "dikt",
+    "title": "Dikt (Lyrikk)",
+    "subject": "norsk",
+    "topic": "tekstsjangre",
+    "layout": "rich",
+    "heroImage": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
+    "content": [
+        {
+            "type": "text",
+            "content": "Lyrikk (dikt) er en av de tre hovedsjangrene i litteraturen. Lyrikk er tekster som uttrykker stemninger, tanker og følelser.\n\nDikt er ofte kjennetegnet ved at de er skrevet på verselinjer og har strofer, og at de bruker språklige bilder og symboler. Men moderne dikt trenger ikke å ha rim eller fast rytme.\n\nKjennetegn på dikt:\n- Verselinjer og strofer (linjedeling)\n- Konsentrert språk (mye innhold på få ord)\n- Bruk av virkemidler som rim, rytme, metaforer og symboler\n- Uttrykker ofte en stemning eller følelse"
+        }
+    ]
+}
