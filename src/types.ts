@@ -22,10 +22,12 @@ export interface QuizQuestion {
 }
 
 export type ContentBlock =
-    | { type: 'text'; content: string; title?: string }
+    | { type: 'text'; content?: string; text?: string; title?: string }
     | { type: 'header'; content: string }
     | { type: 'image'; src: string; caption?: string; alt: string }
-    | { type: 'component'; name: string; props?: Record<string, any> };
+    | { type: 'component'; name: string; props?: Record<string, any> }
+    | { type: 'section'; title?: string; content: ContentBlock[] }
+    | { type: 'list'; items: string[] };
 
 export interface Lesson {
     id: string;

@@ -26,9 +26,9 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                                 {block.title && (
                                     <h2 className="text-2xl font-bold text-slate-800 mb-4 mt-8">{block.title}</h2>
                                 )}
-                                {textContent.split('\n\n').map((paragraph, pIndex) => (
+                                {textContent.split('\n\n').map((paragraph: string, pIndex: number) => (
                                     <p key={pIndex} className="mb-4 text-slate-700 leading-relaxed">
-                                        {paragraph.split(/(\*\*.*?\*\*|\*[^*]+?\*)/g).map((part, i) => {
+                                        {paragraph.split(/(\*\*.*?\*\*|\*[^*]+?\*)/g).map((part: string, i: number) => {
                                             if (part.startsWith('**') && part.endsWith('**')) {
                                                 return <strong key={i}><GlossaryText content={part.slice(2, -2)} /></strong>;
                                             }
@@ -59,9 +59,9 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                     case 'list':
                         return (
                             <ul key={index} className="list-disc list-inside space-y-2 mb-8 text-slate-700">
-                                {block.items?.map((item, i) => (
+                                {block.items?.map((item: string, i: number) => (
                                     <li key={i} className="leading-relaxed">
-                                        {item.split(/(\*\*.*?\*\*|\*[^*]+?\*)/g).map((part, j) => {
+                                        {item.split(/(\*\*.*?\*\*|\*[^*]+?\*)/g).map((part: string, j: number) => {
                                             if (part.startsWith('**') && part.endsWith('**')) {
                                                 return <strong key={j}><GlossaryText content={part.slice(2, -2)} /></strong>;
                                             }

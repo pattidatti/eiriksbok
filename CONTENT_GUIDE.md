@@ -118,6 +118,30 @@ En utvidbar boks for ekstra info eller eksempler.
 }
 ```
 
+#### 5. Liste (`list`)
+```json
+{
+  "type": "list",
+  "items": [
+    "Første punkt",
+    "Andre punkt",
+    "Tredje punkt"
+  ]
+}
+```
+
+#### 6. Seksjon (`section`)
+Brukes for å gruppere innhold, ofte med en egen tittel.
+```json
+{
+  "type": "section",
+  "title": "Seksjonstittel",
+  "content": [
+    { "type": "text", "content": "Innhold i seksjonen..." }
+  ]
+}
+```
+
 ### 2. Legg til bilder
 Bilder bør legges i samme mappe som innholdsfilen (eller en undermappe `assets`).
 Bruk absolutte stier fra `public`-mappen når du refererer til dem (f.eks. `/content/...`).

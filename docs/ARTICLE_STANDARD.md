@@ -31,6 +31,17 @@ Vi har innført en standardisert layout for artikler som gir en rikere leseopple
         {
             "type": "text",
             "content": "Andre avsnitt..."
+        },
+        {
+            "type": "section",
+            "title": "Underseksjon",
+            "content": [
+                { "type": "text", "content": "Tekst i seksjon..." }
+            ]
+        },
+        {
+            "type": "list",
+            "items": ["Punkt 1", "Punkt 2"]
         }
     ]
 }
@@ -45,7 +56,7 @@ Vi har innført en standardisert layout for artikler som gir en rikere leseopple
 *   `readTime`: Estimert lesetid.
 *   `details`: En liste med korte punkter som vises i sidebaren ("Nøkkelpunkter").
 *   `externalUrl`: Link til ekstern kilde (f.eks. SNL) som vises som en knapp i sidebaren.
-*   `content`: En liste med innholdsblokker. Foreløpig støttes `type: "text"`.
+*   `content`: En liste med innholdsblokker. Støtter `type: "text"`, `"header"`, `"image"`, `"component"`, `"section"`, og `"list"`.
 
 ## Demo
 

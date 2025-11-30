@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchLesson, fetchManifest } from '../utils/contentLoader';
-import type { Lesson, ManifestLesson } from '../types';
+import type { Lesson, ManifestLesson, ContentBlock } from '../types';
 import { ConceptCard } from '../components/ConceptCard';
 import { ContextBuilder } from '../components/ContextBuilder';
 import { Quiz } from '../components/Quiz';
@@ -18,6 +18,11 @@ import { useNavigate } from 'react-router-dom';
 import { ImageWithFallback } from '../components/ImageWithFallback';
 import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
+
+const getFirstTextContent = (blocks: ContentBlock[]): string | undefined => {
+    const block = blocks.find((b): b is Extract<ContentBlock, { type: 'text' }> => b.type === 'text' && !!b.content);
+    return block?.content;
+};
 
 export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOverride }) => {
     const params = useParams<{ subjectId: string; topicId: string; subTopicId?: string; lessonId: string }>();
@@ -117,7 +122,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     if (subjectId === 'norsk' && lesson && lesson.layout === 'rich') {
         const articleData = {
             title: lesson.title,
-            description: lesson.content?.find(c => c.type === 'text')?.content.substring(0, 150) + '...' || '',
+            description: getFirstTextContent(lesson.content || [])?.substring(0, 150) + '...' || '',
             heroImage: lesson.heroImage || lessonImage,
             content: lesson.content || [],
             tags: lesson.tags
@@ -139,7 +144,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             id: lesson.id,
             year: lesson.year || '',
             title: lesson.title,
-            description: lesson.content?.find(c => c.type === 'text')?.content.substring(0, 150) + '...' || '',
+            description: getFirstTextContent(lesson.content || [])?.substring(0, 150) + '...' || '',
             content: lesson.content || [],
             details: lesson.details || [],
             category: lesson.category || lesson.topic,
