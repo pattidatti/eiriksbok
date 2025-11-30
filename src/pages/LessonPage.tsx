@@ -118,7 +118,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         const articleData = {
             title: lesson.title,
             description: lesson.content?.find(c => c.type === 'text')?.content.substring(0, 150) + '...' || '',
-            heroImage: lesson.heroImage,
+            heroImage: lesson.heroImage || lessonImage,
             content: lesson.content || [],
             tags: lesson.tags
         };
@@ -144,7 +144,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             details: lesson.details || [],
             category: lesson.category || lesson.topic,
             readTime: lesson.readTime || '5 min lesning',
-            heroImage: lesson.heroImage,
+            heroImage: lesson.heroImage || lessonImage,
             url: lesson.externalUrl,
             timeline: lesson.timeline || [],
             fact: lesson.fact,

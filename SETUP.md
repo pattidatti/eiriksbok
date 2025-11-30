@@ -1,0 +1,87 @@
+# Oppsett av ny maskin 🛠️
+
+Denne guiden beskriver hva du trenger å installere og konfigurere for å jobbe på dette prosjektet når du bytter til en ny maskin.
+
+## 1. Nødvendig programvare
+
+Før du begynner, må du installere følgende programmer:
+
+### 🟢 Node.js (Kritisk)
+Dette prosjektet er bygget med Node.js.
+1.  Gå til [nodejs.org](https://nodejs.org/).
+2.  Last ned og installer **LTS**-versjonen (Long Term Support).
+3.  For å sjekke at det er installert, åpne Terminal (eller PowerShell) og skriv:
+    ```bash
+    node -v
+    npm -v
+    ```
+
+### 🐙 Git (Valgfritt men anbefalt)
+Brukes for versjonskontroll.
+1.  Last ned og installer fra [git-scm.com](https://git-scm.com/).
+2.  Hvis du bruker GitHub Desktop, kan du bruke det i stedet.
+
+### 📝 Visual Studio Code (Anbefalt editor)
+Den beste editoren for webutvikling.
+1.  Last ned fra [code.visualstudio.com](https://code.visualstudio.com/).
+2.  **Anbefalte utvidelser** (søk etter disse i Extensions-fanen i VS Code):
+    - **ESLint**: For å finne feil i koden.
+    - **Tailwind CSS IntelliSense**: For hjelp med styling.
+    - **Prettier - Code formatter**: For automatisk formatering av kode.
+    - **TinaCMS**: (Valgfritt) Hvis du jobber mye med CMS-konfigurasjonen.
+
+## 2. Klargjøring av prosjektet
+
+Siden prosjektet ligger i **Dropbox**, vil filene sannsynligvis allerede være synkronisert til maskinen din. Men `node_modules`-mappen (hvor alle bibliotekene ligger) skal **ikke** synkroniseres, så denne må bygges på nytt på hver maskin.
+
+1.  **Åpne prosjektmappen** i VS Code.
+2.  Åpne en **Terminal** i VS Code (`Terminal` -> `New Terminal` i menyen).
+3.  Kjør følgende kommando for å installere alle nødvendige biblioteker:
+    ```bash
+    npm install
+    ```
+    *Dette kan ta noen minutter.*
+
+## 3. Starte utvikling
+
+Når installasjonen er ferdig, kan du starte prosjektet.
+
+### Starte nettsiden (Vanlig utvikling)
+For å se nettsiden og gjøre endringer i koden:
+```bash
+npm run dev
+```
+Nettsiden vil da være tilgjengelig på `http://localhost:5173` (eller lignende).
+
+### Starte med TinaCMS (For å redigere innhold)
+Hvis du skal redigere tekst og bilder via CMS-et:
+```bash
+npm run tina-dev
+```
+Dette starter både nettsiden og CMS-systemet.
+
+## 4. Hold programvare oppdatert 🔄
+
+For å unngå problemer over tid, er det viktig å holde verktøyene oppdatert.
+
+### Oppdatere prosjektet (Viktig!)
+Når du henter ned endringer fra andre (via `git pull`), kan det hende at `package.json` er endret. Da må du oppdatere bibliotekene dine:
+```bash
+npm install
+```
+Gjør dette hvis du får rare feilmeldinger etter å ha hentet ny kode.
+
+### Oppdatere Node.js
+Sjekk versjonen din av og til:
+```bash
+node -v
+```
+Hvis den er veldig gammel (f.eks. mer enn 1 år), last ned nyeste **LTS**-versjon fra [nodejs.org](https://nodejs.org/).
+
+### Oppdatere VS Code utvidelser
+VS Code oppdaterer seg selv, men sjekk av og til "Extensions"-fanen for å se om utvidelsene dine trenger en oppdatering (eller reload).
+
+## ⚠️ Feilsøking
+
+- **"Command not found"**: Hvis du får denne feilen når du skriver `npm` eller `node`, betyr det at Node.js ikke er installert riktig, eller at du må starte VS Code/Terminalen på nytt etter installasjon.
+- **Rare feilmeldinger under `npm install`**: Prøv å slette `node_modules`-mappen og filen `package-lock.json`, og kjør `npm install` på nytt.

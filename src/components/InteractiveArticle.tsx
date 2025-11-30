@@ -195,7 +195,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
             {/* Header Image / Hero */}
             <div className="relative h-[60vh] min-h-[400px] overflow-hidden">
                 <div className="absolute inset-0 bg-slate-900">
-                    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay" />
+                    <div className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay" style={{ backgroundImage: `url('${event.heroImage || 'https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80'}')` }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 via-22% to-transparent" />
                 </div>
 
@@ -206,7 +206,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                         className="flex items-center px-4 py-2 bg-white/80 backdrop-blur-md rounded-full text-slate-900 font-bold hover:bg-white transition-all shadow-sm hover:shadow-md group"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-                        Tilbake til tidslinjen
+                        Tilbake
                     </button>
 
                     <div className="flex space-x-3">

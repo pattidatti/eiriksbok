@@ -16,5 +16,12 @@ Du kan se den ferdige nettsiden her: **[https://pattidatti.github.io/Eiriksbok/]
     npm run dev
     ```
 
+## 📚 Dokumentasjon
+
+- **[Oppsett av ny maskin](SETUP.md)**: Kom i gang med utvikling.
+- **[Arkitektur](ARCHITECTURE.md)**: Teknisk oversikt over prosjektet.
+- **[Innholdsguide](CONTENT_GUIDE.md)**: Hvordan legge til nytt innhold.
+- **[AI Guide](AI_PROMPT_GUIDE.md)**: Hvordan bruke AI til å generere kode for dette prosjektet.
+
 ## 📦 Publisering
 Prosjektet bygges og publiseres automatisk til GitHub Pages via GitHub Actions når du pusher til `main`-branchen.
