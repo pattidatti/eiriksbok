@@ -3,7 +3,7 @@ import { geoMercator, geoPath } from 'd3-geo';
 import * as topojson from 'topojson-client';
 import { territoryHistory, countryColors, colonizationEvents, majorWars } from './colonizationData';
 import { Tooltip } from 'react-tooltip';
-import { Swords } from 'lucide-react'; // Assuming lucide-react is available, otherwise use SVG
+
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchManifest } from '../utils/contentLoader';
 import { LessonCard } from '../components/LessonCard';
-import type { Manifest, ManifestLesson } from '../types';
+import type { ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
 
 interface SearchResult {
