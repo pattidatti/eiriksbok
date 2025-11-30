@@ -4,6 +4,12 @@
     "subject": "Samfunnsfag",
     "topic": "Historie",
     "fact": "Visste du at vikinger ikke hadde horn på hjelmene sine? Dette er en myte som oppstod på 1800-tallet.",
+    "tags": [
+        "vikingtiden",
+        "norge",
+        "krig",
+        "handel"
+    ],
     "content": [
         {
             "type": "text",

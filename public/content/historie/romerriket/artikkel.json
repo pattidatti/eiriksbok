@@ -4,6 +4,12 @@
     "subject": "Samfunnsfag",
     "topic": "Historie",
     "fact": "Visste du at Romerriket på sitt største strakte seg fra Skottland i nord til Sahara i sør, og hadde et veinett som var langt nok til å nå rundt jorden to ganger?",
+    "tags": [
+        "antikken",
+        "roma",
+        "imperium",
+        "europa"
+    ],
     "content": [
         {
             "type": "text",

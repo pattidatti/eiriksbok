@@ -4,6 +4,7 @@ import { LandingPage } from './pages/LandingPage';
 import { SubjectPage } from './pages/SubjectPage';
 import { TopicPage } from './pages/TopicPage';
 import { LessonPage } from './pages/LessonPage';
+import { SearchPage } from './pages/SearchPage';
 import ColonizationMap from './components/ColonizationMap/ColonizationMap';
 import './App.css';
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<LandingPage />} />
+          <Route path="sok" element={<SearchPage />} />
           <Route path=":subjectId" element={<SubjectPage />} />
           <Route path=":subjectId/:topicId" element={<TopicPage />} />
           <Route path=":subjectId/:topicId/:subTopicId" element={<TopicPage />} />

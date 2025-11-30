@@ -55,7 +55,13 @@
                         {
                             "id": "intro",
                             "title": "Introduksjon",
-                            "description": "Grunnleggende om befolkning og økonomi."
+                            "description": "Grunnleggende om befolkning og økonomi.",
+                            "tags": [
+                                "demografi",
+                                "økonomi",
+                                "samfunn",
+                                "befolkning"
+                            ]
                         }
                     ]
                 },
@@ -68,7 +74,13 @@
                         {
                             "id": "utforsk",
                             "title": "Utforsk Styringsformer",
-                            "description": "Sammenlign ulike måter å styre et land på."
+                            "description": "Sammenlign ulike måter å styre et land på.",
+                            "tags": [
+                                "politikk",
+                                "demokrati",
+                                "diktatur",
+                                "styresett"
+                            ]
                         }
                     ]
                 }
@@ -118,18 +130,35 @@
                         {
                             "id": "verdenshandel-for-oppdagelsesreisene",
                             "title": "Verdenshandel før oppdagelsesreisene",
-                            "description": "Handel med krydder og luksusvarer før 1500."
+                            "description": "Handel med krydder og luksusvarer før 1500.",
+                            "tags": [
+                                "handel",
+                                "middelalderen",
+                                "silkeveien"
+                            ]
                         },
                         {
                             "id": "voc",
                             "title": "Det nederlandske ostindiske kompani (VOC)",
                             "description": "Verdens første aksjeselskap og et globalt handelsimperium.",
-                            "createdDate": "2023-11-20"
+                            "createdDate": "2023-11-20",
+                            "tags": [
+                                "handel",
+                                "kolonialisme",
+                                "nederland",
+                                "økonomi"
+                            ]
                         },
                         {
                             "id": "eic",
                             "title": "Det britiske ostindiske kompani (EIC)",
-                            "description": "Handelskompaniet som la grunnlaget for det britiske imperiet i India."
+                            "description": "Handelskompaniet som la grunnlaget for det britiske imperiet i India.",
+                            "tags": [
+                                "handel",
+                                "imperialisme",
+                                "india",
+                                "storbritannia"
+                            ]
                         }
                     ]
                 },
@@ -152,7 +181,13 @@
                             "id": "artikkel",
                             "title": "Jordbruksrevolusjonen",
                             "description": "Det store skiftet.",
-                            "image": "/Eiriksbok/images/lessons/jordbruk.png"
+                            "image": "/Eiriksbok/images/lessons/jordbruk.png",
+                            "tags": [
+                                "jordbruk",
+                                "steinalder",
+                                "sivilisasjon",
+                                "teknologi"
+                            ]
                         }
                     ]
                 },
@@ -166,7 +201,13 @@
                             "id": "artikkel",
                             "title": "Perserriket",
                             "description": "Det første verdensriket.",
-                            "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80"
+                            "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "antikken",
+                                "midtøsten",
+                                "imperier",
+                                "krig"
+                            ]
                         }
                     ]
                 },
@@ -180,7 +221,13 @@
                             "id": "artikkel",
                             "title": "Romerriket",
                             "description": "Imperiet som formet Europa.",
-                            "image": "/Eiriksbok/images/lessons/romerriket.png"
+                            "image": "/Eiriksbok/images/lessons/romerriket.png",
+                            "tags": [
+                                "antikken",
+                                "roma",
+                                "imperium",
+                                "europa"
+                            ]
                         }
                     ]
                 },
@@ -195,7 +242,13 @@
                             "id": "artikkel",
                             "title": "Vikingtiden",
                             "description": "Krigerne fra nord.",
-                            "image": "/Eiriksbok/images/lessons/vikingtiden.png"
+                            "image": "/Eiriksbok/images/lessons/vikingtiden.png",
+                            "tags": [
+                                "vikingtiden",
+                                "norge",
+                                "krig",
+                                "handel"
+                            ]
                         }
                     ]
                 },
@@ -216,7 +269,13 @@
                             "id": "artikkel",
                             "title": "Svartedauden",
                             "description": "Pesten som endret Norge.",
-                            "image": "/Eiriksbok/images/lessons/svartedauden.png"
+                            "image": "/Eiriksbok/images/lessons/svartedauden.png",
+                            "tags": [
+                                "pest",
+                                "middelalder",
+                                "norge",
+                                "sykdom"
+                            ]
                         }
                     ]
                 },

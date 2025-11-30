@@ -5,6 +5,12 @@
     "description": "Utforsk ulike styringsformer og se hvordan de påvirker samfunnet. Sammenlign demokrati, diktatur og andre systemer.",
     "subject": "samfunnsfag",
     "topic": "samfunnskunnskap",
+    "tags": [
+        "politikk",
+        "demokrati",
+        "diktatur",
+        "styresett"
+    ],
     "concepts": [],
     "context": {
         "connections": []
