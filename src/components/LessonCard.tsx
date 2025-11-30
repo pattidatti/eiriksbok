@@ -16,7 +16,7 @@ export const LessonCard: React.FC<LessonCardProps> = ({ lesson, path, topicTitle
     const displayImage = lesson.image || topicImage;
 
     return (
-        <Link to={path} className="block group no-underline">
+        <Link to={path} className="block group no-underline h-full">
             <motion.div
                 whileHover={{ y: -5 }}
                 className="h-full bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"

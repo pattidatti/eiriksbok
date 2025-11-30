@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "tina-dev": "tinacms dev -c \"vite\"",
+    "tina-build": "tinacms build && vite build"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -25,11 +27,13 @@
     "react-dom": "^19.2.0",
     "react-router-dom": "^6.28.0",
     "react-tooltip": "^5.30.0",
+    "tinacms": "^2.2.0",
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@tailwindcss/postcss": "^4.1.17",
+    "@tinacms/cli": "^1.6.0",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
