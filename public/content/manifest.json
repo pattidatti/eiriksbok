@@ -6,7 +6,7 @@
             "tools": [
                 {
                     "id": "text-library",
-                    "title": "Tekstbibliotek",
+                    "title": "Bibliotek",
                     "description": "Utforsk noveller, dikt og utdrag.",
                     "link": "/norsk/bibliotek",
                     "icon": "book"

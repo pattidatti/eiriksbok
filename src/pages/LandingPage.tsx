@@ -7,6 +7,8 @@ import { ImageWithFallback } from '../components/ImageWithFallback';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useUserHistory } from '../hooks/useUserHistory';
 
+import { textLibraryData } from '../data/textLibraryData';
+
 export const LandingPage: React.FC = () => {
     const [manifest, setManifest] = useState<Manifest | null>(null);
     const { history } = useUserHistory();
@@ -45,6 +47,21 @@ export const LandingPage: React.FC = () => {
                 }
             });
         });
+
+        // Add library texts
+        textLibraryData.forEach(text => {
+            allLessons.push({
+                id: text.id,
+                title: text.title,
+                description: `Av ${text.author}. ${text.genre}.`,
+                subjectId: 'norsk',
+                topicId: 'bibliotek',
+                topicTitle: 'Bibliotek',
+                createdDate: text.createdDate,
+                image: undefined // Will use fallback
+            });
+        });
+
         return allLessons;
     };
 
@@ -150,7 +167,7 @@ export const LandingPage: React.FC = () => {
                 >
                     <div className="flex items-center justify-between mb-6">
                         <h3 className="text-xl font-display font-bold text-text-main">
-                            Nye artikler
+                            Nytt innhold
                         </h3>
                         <Link to="/sok" className="text-sm font-medium text-text-muted hover:text-text-main transition-colors">
                             Se alle
