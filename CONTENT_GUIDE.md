@@ -43,21 +43,78 @@ Filen `public/content/manifest.json` er "hjernen" som styrer hva som vises på n
 ### 1. Opprett innholdsfilen
 Lag en ny JSON-fil for artikkelen din, f.eks. `public/content/historie/mitt-emne/min-artikkel.json`.
 Filen bør følge dette formatet:
-```json
 {
   "id": "min-artikkel",
   "title": "Min Artikkel",
   "content": [
     {
+      "type": "header",
+      "content": "Overskrift"
+    },
+    {
       "type": "text",
-      "value": "Her er teksten i artikkelen..."
+      "content": "Her er teksten. Du kan bruke **fet skrift** for utheving og *kursiv* for begreper eller titler."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Visste du at?",
+        "content": "Her kan du skrive fakta.\n• Bruk kulepunkter (•) for lister.\n• Ny linje gir nytt avsnitt."
+      }
     },
     {
       "type": "image",
-      "url": "/content/historie/mitt-emne/bilde.jpg",
-      "caption": "Bildetekst"
+      "src": "https://images.unsplash.com/...",
+      "caption": "Bildetekst",
+      "alt": "Beskrivelse av bildet"
     }
   ]
+}
+```
+
+### 📝 Formatering
+*   **Fet skrift:** Bruk `**tekst**` for å få **tekst**.
+*   **Kursiv:** Bruk `*tekst*` for å få *tekst*.
+*   **Lister:** Bruk unicode-tegnet `•` (Alt+7 på Mac, Alt+0149 på Windows) for kulepunkter. Unngå å bruke `*` som kulepunkt da det kan forveksles med kursiv.
+
+### 🧱 Blokker og Komponenter
+Du kan bruke følgende blokktyper i `content`-listen:
+
+#### 1. Tekst (`text`)
+Vanlige avsnitt.
+```json
+{ "type": "text", "content": "Ditt innhold her..." }
+```
+
+#### 2. Overskrift (`header`)
+Lager en underoverskrift (H2) i artikkelen.
+```json
+{ "type": "header", "content": "Min Underoverskrift" }
+```
+
+#### 3. Faktaboks (`FactBox`)
+En utvidbar boks for ekstra info eller eksempler.
+*   `title`: Overskriften på boksen (valgfritt, default: "Visste du at?").
+*   `content`: Innholdet. Støtter `\n` for ny linje.
+```json
+{
+  "type": "component",
+  "name": "FactBox",
+  "props": {
+    "title": "Eksempler",
+    "content": "Første linje.\nAndre linje."
+  }
+}
+```
+
+#### 4. Bilde (`image`)
+```json
+{
+  "type": "image",
+  "src": "URL til bildet",
+  "caption": "Bildetekst under bildet",
+  "alt": "Alternativ tekst for skjermlesere"
 }
 ```
 
