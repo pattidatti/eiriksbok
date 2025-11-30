@@ -5,7 +5,7 @@ import type { ManifestSubject, ManifestTopic, ManifestSubTopic, ManifestLesson }
 import { motion } from 'framer-motion';
 import { LessonCard } from '../components/LessonCard';
 import { TopicCard } from '../components/TopicCard';
-import { ChevronRight, ArrowLeft, Grid, List, ArrowDownAZ, Calendar, Clock, Map } from 'lucide-react';
+import { ChevronRight, Grid, List, ArrowDownAZ, Calendar, Clock, Map } from 'lucide-react';
 import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { timelineData } from '../data/timelineData';
@@ -117,23 +117,6 @@ export const TopicPage: React.FC = () => {
 
     return (
         <div className="topic-page max-w-7xl mx-auto px-6 py-12">
-            {/* Breadcrumbs */}
-            <div className="flex items-center text-sm text-text-muted mb-8">
-                <Link to={`/${subjectId}`} className="hover:text-neon-accent transition-colors flex items-center">
-                    <ArrowLeft className="w-4 h-4 mr-1" />
-                    {subjectData.title}
-                </Link>
-                <ChevronRight className="w-4 h-4 mx-2 text-slate-300" />
-                {currentSubTopic && (
-                    <>
-                        <Link to={`/${subjectId}/${topicId}`} className="hover:text-neon-accent transition-colors">
-                            {currentTopic.title}
-                        </Link>
-                        <ChevronRight className="w-4 h-4 mx-2 text-slate-300" />
-                    </>
-                )}
-                <span className="font-medium text-text-main">{title}</span>
-            </div>
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
                 <motion.div

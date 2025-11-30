@@ -81,12 +81,11 @@ export default defineConfig({
                     filename: {
                         // Example: historie/vikingtiden/artikkel
                         slugify: (values) => {
-                            return `${values.topic}/${values.id}/artikkel`;
+                            return `${values.topic}/${values.id || 'ny-artikkel'}/artikkel`;
                         },
                     },
                 },
                 fields: [
-                    { type: "string", name: "id", label: "ID" },
                     { type: "string", name: "title", label: "Tittel" },
                     { type: "string", name: "subject", label: "Fag" },
                     { type: "string", name: "topic", label: "Emne" },

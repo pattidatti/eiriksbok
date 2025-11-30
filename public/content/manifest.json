@@ -26,11 +26,12 @@
                 {
                     "id": "litteraturhistorie",
                     "title": "Litteraturhistorie",
-                    "image": "https://placehold.co/600x400?text=Litteratur",
+                    "image": "https://images.unsplash.com/photo-1683178862099-325f9b29e081?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "lessons": [
                         {
                             "id": "realismen",
                             "title": "Realismen",
+                            "image": "https://images.unsplash.com/photo-1712687948350-9906073eb5f7?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "date": "2023-03-10",
                             "tags": [
                                 "litteratur",
@@ -93,6 +94,7 @@
                 {
                     "id": "andre-verdenskrig",
                     "title": "Andre Verdenskrig",
+                    "image": "https://images.unsplash.com/photo-1654359569921-8356a96a9808?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "lessons": [
                         {
                             "id": "bakgrunn",
@@ -111,12 +113,14 @@
                     "id": "industriell-revolusjon",
                     "title": "Industriell Revolusjon",
                     "description": "Fra bonde- til industrisamfunn.",
+                    "image": "https://images.unsplash.com/photo-1633619425163-149e7793542a?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "lessons": []
                 },
                 {
                     "id": "kolonialisering",
                     "title": "Kolonialisering",
                     "description": "Europeisk ekspansjon og dens konsekvenser.",
+                    "image": "https://images.unsplash.com/photo-1657322933305-390ddb0ca969?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "tools": [
                         {
                             "id": "colonization-map",
@@ -166,13 +170,13 @@
                     "id": "menneskets-tidlige-historie",
                     "title": "Menneskets tidlige historie",
                     "description": "Fra nomader i Afrika til spredning over hele kloden.",
-                    "image": "/Eiriksbok/images/lessons/menneskets-tidlige-historie.png",
+                    "image": "https://images.unsplash.com/photo-1564429247506-322ee8fc5190?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "lessons": [
                         {
-                            "id": "artikkel",
+                            "id": "menneskets-tidlige-historie",
                             "title": "Menneskets tidlige historie",
                             "description": "Vår felles opprinnelse.",
-                            "image": "/Eiriksbok/images/lessons/menneskets-tidlige-historie.png",
+                            "image": "https://images.unsplash.com/photo-1564429247506-322ee8fc5190?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "tags": [
                                 "forhistorie",
                                 "mennesket",
@@ -191,7 +195,7 @@
                     "updatedDate": "2023-11-29",
                     "lessons": [
                         {
-                            "id": "artikkel",
+                            "id": "jordbruk-og-sivilisasjoner",
                             "title": "Jordbruksrevolusjonen",
                             "description": "Det store skiftet.",
                             "image": "/Eiriksbok/images/lessons/jordbruk.png",
@@ -228,13 +232,13 @@
                     "id": "romerriket",
                     "title": "Romerriket",
                     "description": "Et av historiens første store imperier som spredte kristendom og veier.",
-                    "image": "/Eiriksbok/images/lessons/romerriket.png",
+                    "image": "https://images.unsplash.com/photo-1679161058715-201f70bbb2f4?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "lessons": [
                         {
-                            "id": "artikkel",
+                            "id": "romerriket",
                             "title": "Romerriket",
                             "description": "Imperiet som formet Europa.",
-                            "image": "/Eiriksbok/images/lessons/romerriket.png",
+                            "image": "https://images.unsplash.com/photo-1679161058715-201f70bbb2f4?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "tags": [
                                 "antikken",
                                 "roma",
@@ -281,13 +285,13 @@
                     "id": "svartedauden",
                     "title": "Svartedauden",
                     "description": "Pesten som drepte halvparten av befolkningen og endret samfunnet.",
-                    "image": "/Eiriksbok/images/lessons/svartedauden.png",
+                    "image": "https://images.unsplash.com/photo-1597553054033-64d1c29ff389?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "lessons": [
                         {
                             "id": "artikkel",
                             "title": "Svartedauden",
                             "description": "Pesten som endret Norge.",
-                            "image": "/Eiriksbok/images/lessons/svartedauden.png",
+                            "image": "https://images.unsplash.com/photo-1597553054033-64d1c29ff389?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "tags": [
                                 "pest",
                                 "middelalder",
@@ -301,13 +305,13 @@
                     "id": "boktrykkerkunsten",
                     "title": "Boktrykkerkunsten",
                     "description": "En informasjonsrevolusjon startet av Gutenberg (og kineserne).",
-                    "image": "/Eiriksbok/images/lessons/boktrykkerkunsten.png",
+                    "image": "https://images.unsplash.com/photo-1592776115343-3f2f637dba4d?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "lessons": [
                         {
-                            "id": "artikkel",
+                            "id": "boktrykkerkunsten",
                             "title": "Boktrykkerkunsten",
                             "description": "Revolusjonen som spredte kunnskap.",
-                            "image": "/Eiriksbok/images/lessons/boktrykkerkunsten.png",
+                            "image": "https://images.unsplash.com/photo-1592776115343-3f2f637dba4d?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "tags": [
                                 "oppfinnelser",
                                 "teknologi",
@@ -328,7 +332,18 @@
                     "id": "demo-artikkel",
                     "title": "Demo Artikkel",
                     "description": "En demonstrasjon av standardisert artikkellayout.",
-                    "lessons": []
+                    "lessons": [
+                        {
+                            "id": "demo-artikkel",
+                            "title": "Demo Artikkel",
+                            "description": "En demonstrasjon av standardisert artikkellayout.",
+                            "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "demo",
+                                "layout"
+                            ]
+                        }
+                    ]
                 }
             ]
         },

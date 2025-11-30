@@ -1,0 +1,57 @@
+fragment ManifestParts on Manifest {
+  __typename
+  subjects {
+    __typename
+    id
+    title
+    topics {
+      __typename
+      id
+      title
+      description
+      image
+      lessons {
+        __typename
+        id
+        title
+        description
+        image
+        tags
+      }
+    }
+  }
+}
+
+fragment ArticleParts on Article {
+  __typename
+  title
+  subject
+  topic
+  fact
+  tags
+  content {
+    __typename
+    ... on ArticleContentText {
+      content
+    }
+    ... on ArticleContentImage {
+      src
+      caption
+      alt
+    }
+    ... on ArticleContentComponent {
+      name
+      props {
+        __typename
+        content
+        questions {
+          __typename
+          question
+          options
+          answer
+          explanation
+        }
+      }
+    }
+  }
+}

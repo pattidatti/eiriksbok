@@ -196,7 +196,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
             <div className="relative h-[60vh] min-h-[400px] overflow-hidden">
                 <div className="absolute inset-0 bg-slate-900">
                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 via-22% to-transparent" />
                 </div>
 
                 {/* Navigation Bar */}

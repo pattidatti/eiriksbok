@@ -4,6 +4,12 @@
     "subject": "Samfunnsfag",
     "topic": "Historie",
     "fact": "Visste du at Homo sapiens og Neanderthalere levde side om side i Europa i tusenvis av år og fikk barn sammen?",
+    "tags": [
+        "forhistorie",
+        "mennesket",
+        "evolusjon",
+        "afrika"
+    ],
     "content": [
         {
             "type": "text",
