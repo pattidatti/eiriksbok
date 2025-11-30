@@ -4,6 +4,7 @@ import { fetchManifest } from '../utils/contentLoader';
 import { LessonCard } from '../components/LessonCard';
 import type { ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
+import { textLibraryData } from '../data/textLibraryData';
 
 interface SearchResult {
     lesson: ManifestLesson;
@@ -69,14 +70,16 @@ export const SearchPage: React.FC = () => {
                 });
                 setResults(found);
             } else {
-                // Show 10 most recent articles if no tag
-                const allLessons: SearchResult[] = [];
+                // Show 15 most recent items (articles + texts) if no tag
+                const allContent: SearchResult[] = [];
+
+                // Add lessons from manifest
                 manifest.subjects.forEach(subject => {
                     subject.topics.forEach(topic => {
                         const processLessons = (lessons: ManifestLesson[], subTopicId?: string) => {
                             lessons.forEach(lesson => {
                                 if (lesson.id) {
-                                    allLessons.push({
+                                    allContent.push({
                                         lesson,
                                         path: `/${subject.id}/${topic.id}${subTopicId ? `/${subTopicId}` : ''}/${lesson.id}`,
                                         topicTitle: topic.title,
@@ -96,13 +99,29 @@ export const SearchPage: React.FC = () => {
                     });
                 });
 
-                allLessons.sort((a, b) => {
+                // Add library texts
+                textLibraryData.forEach(text => {
+                    allContent.push({
+                        lesson: {
+                            id: text.id,
+                            title: text.title,
+                            description: `Av ${text.author}. ${text.genre}.`,
+                            createdDate: text.createdDate,
+                            tags: text.theme
+                        },
+                        path: `/norsk/bibliotek/${text.id}`,
+                        topicTitle: 'Bibliotek',
+                        subjectId: 'norsk'
+                    });
+                });
+
+                allContent.sort((a, b) => {
                     const dateA = a.lesson.createdDate || a.lesson.date || '0000';
                     const dateB = b.lesson.createdDate || b.lesson.date || '0000';
                     return dateB.localeCompare(dateA);
                 });
 
-                setResults(allLessons.slice(0, 10));
+                setResults(allContent.slice(0, 15));
             }
 
             setLoading(false);
@@ -134,10 +153,10 @@ export const SearchPage: React.FC = () => {
                 ) : (
                     <>
                         <h1 className="text-4xl font-display font-bold text-text-main mb-4">
-                            Nye artikler
+                            Nytt innhold
                         </h1>
                         <p className="text-text-muted text-lg">
-                            De siste publiserte artiklene
+                            De siste publiserte artiklene og tekstene
                         </p>
                     </>
                 )}
@@ -164,7 +183,7 @@ export const SearchPage: React.FC = () => {
             ) : (
                 <div className="text-center py-12 bg-slate-50 rounded-3xl border border-slate-200">
                     <p className="text-xl text-slate-500">
-                        Ingen artikler funnet.
+                        Ingen innhold funnet.
                     </p>
                 </div>
             )}

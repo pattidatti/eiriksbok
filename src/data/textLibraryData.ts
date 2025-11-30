@@ -21,7 +21,7 @@ export const textLibraryData: TextEntry[] = [
         language: 'bm.',
         theme: ['Farsrolle', 'Makt', 'Status'],
         publishedYear: 1860,
-        createdDate: '2023-11-29',
+        createdDate: '2023-11-29T12:00:00',
         definitions: [
             { term: "fader", definition: "far" },
             { term: "prestegjeld", definition: "område knyttet til en kirke" },
@@ -59,7 +59,7 @@ export const textLibraryData: TextEntry[] = [
         genre: 'Novelle',
         language: 'nn.',
         theme: ['Moderne kommunikasjon'],
-        createdDate: '2023-11-28'
+        createdDate: '2023-11-28T12:00:00'
     },
     {
         id: 'sma-nokler-store-rom',
@@ -68,7 +68,7 @@ export const textLibraryData: TextEntry[] = [
         genre: 'Romanutdrag',
         language: 'bm.',
         theme: ['Oppvekst'],
-        createdDate: '2023-11-27'
+        createdDate: '2023-11-27T12:00:00'
     },
     {
         id: 'barsakh',
@@ -77,7 +77,7 @@ export const textLibraryData: TextEntry[] = [
         genre: 'Romanutdrag',
         language: 'bm.',
         theme: ['Flukt'],
-        createdDate: '2023-11-26'
+        createdDate: '2023-11-26T12:00:00'
     },
     {
         id: 'hjorten-i-skogbrynet',
@@ -86,7 +86,7 @@ export const textLibraryData: TextEntry[] = [
         genre: 'Novelle',
         language: 'nn.',
         theme: ['Natur'],
-        createdDate: '2023-11-25'
+        createdDate: '2023-11-25T12:00:00'
     },
     {
         id: 'mennesker-pa-kafe',
@@ -95,7 +95,7 @@ export const textLibraryData: TextEntry[] = [
         genre: 'Novelle',
         language: 'bm.',
         theme: ['Ensomhet'],
-        createdDate: '2023-11-24'
+        createdDate: '2023-11-24T12:00:00'
     },
     {
         id: 'alt-blir-som-for',
@@ -104,7 +104,7 @@ export const textLibraryData: TextEntry[] = [
         genre: 'Novelle',
         language: 'bm.',
         theme: ['Relasjoner'],
-        createdDate: '2023-11-23'
+        createdDate: '2023-11-23T12:00:00'
     },
     {
         id: 'ung-gutt-i-sno',
@@ -113,7 +113,7 @@ export const textLibraryData: TextEntry[] = [
         genre: 'Novelle',
         language: 'bm.',
         theme: ['Ungdom'],
-        createdDate: '2023-11-22'
+        createdDate: '2023-11-22T12:00:00'
     },
     {
         id: 'a-drepe-et-barn',
@@ -122,7 +122,7 @@ export const textLibraryData: TextEntry[] = [
         genre: 'Novelle',
         language: 'bm.',
         theme: ['Skjebne'],
-        createdDate: '2023-11-21'
+        createdDate: '2023-11-21T12:00:00'
     },
     {
         id: 'dypfryst',
@@ -131,7 +131,7 @@ export const textLibraryData: TextEntry[] = [
         genre: 'Novelle',
         language: 'bm.',
         theme: ['Krim', 'Spenning'],
-        createdDate: '2023-11-20'
+        createdDate: '2023-11-20T12:00:00'
     },
     {
         id: 'karens-jul',
@@ -141,7 +141,7 @@ export const textLibraryData: TextEntry[] = [
         language: 'bm.',
         theme: ['Fattigdom', 'Jul', 'Tragedie', 'Samfunnskritikk'],
         publishedYear: 1885,
-        createdDate: '2025-11-30',
+        createdDate: '2025-11-30T20:15:00',
         content: [
             "På en av dampskipskaiene i Kristiania lå der for en del år siden et gråmalt trehus med flatt tak, uten skorsten, omtrent 4 alen langt og litt kortere på den annen lid. I begge tverrveggene var der et lite vindu, det ene like overfor det andre. Døren vendte mod sjøsiden og kunne lukkes både innvendig og utvendig med jernkroker, der ble hektet fast i kramper av samme metall.",
             "Hytten var opprinnelig blitt oppført til fergemennene, for at de skulle ha tak over hodet i regnvær og i vinterkulden når de satt og drev og ventet på at noen skulle komme og forlange båt. Senere, da smådamperne mer og mer slukte trafikken, var fergemennene trukket annet steds hen. Så ble huset kun benyttet leilighetsvis av hvem det kunne falle seg. De siste som hadde gjort bruk av det, var noen stenarbeidere, når de holdt sine måltider to av gangen, da de en sommer reparerte på kaistykket i nærheten.",
@@ -186,7 +186,7 @@ export const textLibraryData: TextEntry[] = [
             "«Oppgi du bare navnet hans til meg, du» – mente konstabelen – «så skal han nok bli fremskaffet.»",
             "«Ja, den som visste det» – sa hun stillferdig.",
             "«Hå for nå’e! Kjenner du inte navnet på ditt eget barns far?»",
-            "Karen stakk fingeren i munnen og suget på den. Hodet gled forover. Der kom et hjelpeløst, fjollet smil på ansiktet. «N-e-i,» hvisket hun med en langtrukken betoning på hver bokstav og uten å ta fingeren bort.",
+            "«Karen stakk fingeren i munnen og suget på den. Hodet gled forover. Der kom et hjelpeløst, fjollet smil på ansiktet. «N-e-i,» hvisket hun med en langtrukken betoning på hver bokstav og uten å ta fingeren bort.",
             "«Nå har jeg aldri i mine dager hørt så galt» – satte konstabelen i. «I Jessu navn da, hosdan gikk det til at du kom isammens med ham?»",
             "«Jæ traff ham på gata om kveldene, når det var mørkt,» sa hun, «men det varte inte lenge før han ble borte, og siden har jæ aldri sett ham.»",
             "«Har du inte spurt deg for da?»",
@@ -225,7 +225,7 @@ export const textLibraryData: TextEntry[] = [
         language: 'bm.',
         theme: ['Kjærlighet', 'Svik', 'Tragedie', 'Kvinneskjebne', 'Realisme'],
         publishedYear: 1882,
-        createdDate: '2025-11-30',
+        createdDate: '2025-11-30T20:10:00',
         content: [
             "Det var en gang i Krarup Kro en pike, som het Karen. Hun var alene om oppvartningen; for Kromannens kone gikk nesten alltid omkring og lette efter sine nøkler. Og der kom mange i Krarup Kro; - både folk fra omegn, som samledes, når det mørknet om høstaftenen og satt i krostuen og drakk kaffepunsjer sådan i alminnelighet uten noen bestemt hensikt, men også reisende og veifarende, som kom trampende inn – blå og forblåste, for å få seg noe varmt, som kunne holde livet oppe til neste kro. Men Karen kunne allikevel klare det hele, skjønt hun gikk så stille og aldri syntes å ha hastverk.",
             "Hun var spinkel og liten – ganske ung, alvorlig og taus, så det var ingen morskap ved henne for de handelsreisende. Men skikkelige folk, som gikk i kroen for alvor, og som satte pris på at kaffen servertes hurtig og skåldende het, de holdt desto mer av Karen. Og når hun smøg seg frem mellom gjestene med sitt brett, vek de tunge vadmelskropper til side med en uvanlig fart, det ble gjort vei for henne, og samtalen sluknet for et øyeblikk, alle måtte se efter henne, hun var så nydelig.",
@@ -271,6 +271,6 @@ export const textLibraryData: TextEntry[] = [
         genre: 'Novelle',
         language: 'bm.',
         theme: ['Identitet'],
-        createdDate: '2023-11-19'
+        createdDate: '2023-11-19T12:00:00'
     }
 ];

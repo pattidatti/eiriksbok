@@ -1,0 +1,127 @@
+{
+    "id": "grunnleggende-retorikk",
+    "title": "Hva er retorikk?",
+    "subject": "Norsk",
+    "topic": "Retorikk",
+    "fact": "Aristoteles (384–322 f.Kr.) regnes som retorikkens far og delte overbevisning inn i tre former: etos, patos og logos.",
+    "tags": [
+        "retorikk",
+        "språk",
+        "kommunikasjon",
+        "argumentasjon"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Retorikk er kunsten å overbevise. Det er et verktøy vi bruker hver eneste dag, ofte uten å tenke over det. Når du diskuterer med foreldrene dine om innetider, når en politiker holder en branntale før valget, eller når en influenser anbefaler et nytt produkt – alt dette er retorikk i praksis.\n\nFor over 2300 år siden systematiserte den greske filosofen Aristoteles retorikken. Han mente at for å overbevise noen, må du beherske tre ulike appellformer: **etos**, **patos** og **logos**. En god taler (eller tekstforfatter) klarer å balansere disse tre for å nå frem til mottakeren."
+        },
+        {
+            "type": "header",
+            "content": "Etos: Troverdighet og tillit"
+        },
+        {
+            "type": "text",
+            "content": "Etos handler om **hvem** du er. Hvorfor skal vi stole på deg? Etos er den tilliten mottakeren har til avsenderen. Uten tillit hjelper det lite med gode argumenter. Vi skiller ofte mellom *innledende etos* (det ryktet eller den posisjonen du har før du åpner munnen) og *avledet etos* (den tilliten du bygger opp mens du snakker).\n\nDu kan styrke din etos ved å:\n• Vise at du har kunnskap (faglig dyktighet).\n• Vise at du vil mottakeren vel (velvilje).\n• Fremstå som ærlig og moralsk (dyd)."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Eksempler på Etos",
+                "content": "1. **Eksperten:** «Som overlege med 20 års erfaring ved hjerteavdelingen, anbefaler jeg dette kostholdet.» (Her lånes troverdighet fra tittel og erfaring).\n2. **Den vanlige personen:** «Jeg er en tobarnsmor akkurat som deg, og jeg vet hvor tidsklemma klemmer.» (Her bygges tillit gjennom likhet og gjenkjennelse).\n3. **Kjendisen:** Når Erling Braut Haaland reklamerer for en klokke, låner produktet litt av hans stjernestatus (selv om han ikke er urmaker!)."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Patos: Følelser og engasjement"
+        },
+        {
+            "type": "text",
+            "content": "Patos handler om å bevege mottakeren. Mennesker styres ikke bare av fornuft; vi styres i stor grad av følelser. Hvis du klarer å få mottakeren til å *føle* noe – enten det er sinne, glede, frykt, håp eller medlidenhet – er sjansen større for at du klarer å overbevise dem.\n\nPatos er spesielt effektivt for å motivere til handling. En tørr statistikk om klimaendringer kan informere, men et bilde av en isbjørn på et smeltende isflak kan få folk til å donere penger."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Eksempler på Patos",
+                "content": "1. **Frykt:** «Hvis vi ikke handler nå, vil våre barnebarn vokse opp i en verden som ikke kan reddes.»\n2. **Medlidenhet:** «For prisen av en kopp kaffe kan du redde livet til et barn som sulter.»\n3. **Stolthet/Nasjonalfølelse:** «Vi er nordmenn. Vi har klart oss gjennom stormer før, og vi skal klare det igjen!» (Typisk i nyttårstaler)."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Logos: Fornuft og fakta"
+        },
+        {
+            "type": "text",
+            "content": "Logos henvender seg til intellektet vårt. Her handler det om saken, ikke personen eller følelsene. Logos-argumentasjon bygger på fakta, logikk, statistikk og etterprøvbar kunnskap. Det skal være en logisk sammenheng mellom påstandene dine og konklusjonen du trekker.\n\nSelv om patos kan tenne en gnist, er det logos som sørger for at bålet brenner lenge. Uten saklige argumenter vil en tale fort falle sammen når følelsene har lagt seg."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Eksempler på Logos",
+                "content": "1. **Statistikk:** «Forskning fra SSB viser at arbeidsledigheten har sunket med 2% det siste året.»\n2. **Årsak-virkning:** «Hvis vi senker prisene på kollektivtrafikk, vil flere la bilen stå. Dette vil føre til mindre kø og renere luft.»\n3. **Sammenligning:** «I Finland har de ingen lekser, og elevene scorer høyest i verden. Derfor bør vi også vurdere leksefri skole.»"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Balansen er nøkkelen"
+        },
+        {
+            "type": "text",
+            "content": "De beste tekstene og talene bruker alle tre appellformene samtidig. Tenk deg en advokat i en rettssak:\n• Hun må ha **etos** (fremstå som profesjonell og kunnskapsrik).\n• Hun må bruke **logos** (bevise at klienten er uskyldig ved hjelp av bevis og lover).\n• Hun må bruke **patos** (få juryen til å føle sympati for klienten).\n\nHvis én av dem mangler, blir overbevisningen svakere."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva kalles det når en taler prøver å vekke medlidenhet hos publikum?",
+                        "options": [
+                            "Etos",
+                            "Patos",
+                            "Logos",
+                            "Kairos"
+                        ],
+                        "answer": "Patos",
+                        "explanation": "Patos er appellformen som spiller på mottakerens følelser."
+                    },
+                    {
+                        "question": "En forsker presenterer en graf som viser temperaturøkning over 100 år. Hvilken appellform dominerer?",
+                        "options": [
+                            "Etos",
+                            "Patos",
+                            "Logos",
+                            "Topos"
+                        ],
+                        "answer": "Logos",
+                        "explanation": "Her brukes fakta og data (grafen) for å appellere til fornuften, altså logos."
+                    },
+                    {
+                        "question": "Hvorfor er det viktig med etos?",
+                        "options": [
+                            "For å få folk til å le",
+                            "For at mottakeren skal stole på deg",
+                            "For å forvirre motstanderen",
+                            "For å vise at du er rik"
+                        ],
+                        "answer": "For at mottakeren skal stole på deg",
+                        "explanation": "Etos handler om troverdighet. Uten tillit vil ikke mottakeren lytte til argumentene dine."
+                    },
+                    {
+                        "question": "Hvem regnes som retorikkens far?",
+                        "options": [
+                            "Sokrates",
+                            "Platon",
+                            "Aristoteles",
+                            "Julius Cæsar"
+                        ],
+                        "answer": "Aristoteles",
+                        "explanation": "Den greske filosofen Aristoteles systematiserte retorikken og beskrev de tre appellformene."
+                    }
+                ]
+            }
+        }
+    ]
+}

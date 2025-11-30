@@ -23,6 +23,7 @@ export interface QuizQuestion {
 
 export type ContentBlock =
     | { type: 'text'; content: string; title?: string }
+    | { type: 'header'; content: string }
     | { type: 'image'; src: string; caption?: string; alt: string }
     | { type: 'component'; name: string; props?: Record<string, any> };
 

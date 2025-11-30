@@ -8,6 +8,7 @@ import { HistoryLongLines } from './HistoryLongLines';
 import { Quiz } from './Quiz';
 import { EICSimulation } from './EICSimulation';
 import { TimelineComponent } from './TimelineComponent';
+import { FactBox } from './FactBox';
 
 interface ArticleContentProps {
     content: ContentBlock[];
@@ -26,10 +27,24 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                                 )}
                                 {block.content.split('\n\n').map((paragraph, pIndex) => (
                                     <p key={pIndex} className="mb-4 text-slate-700 leading-relaxed">
-                                        <GlossaryText content={paragraph} />
+                                        {paragraph.split(/(\*\*.*?\*\*|\*[^*]+?\*)/g).map((part, i) => {
+                                            if (part.startsWith('**') && part.endsWith('**')) {
+                                                return <strong key={i}><GlossaryText content={part.slice(2, -2)} /></strong>;
+                                            }
+                                            if (part.startsWith('*') && part.endsWith('*')) {
+                                                return <em key={i}><GlossaryText content={part.slice(1, -1)} /></em>;
+                                            }
+                                            return <GlossaryText key={i} content={part} />;
+                                        })}
                                     </p>
                                 ))}
                             </div>
+                        );
+                    case 'header':
+                        return (
+                            <h2 key={index} className="text-2xl font-bold text-slate-800 mb-4 mt-8">
+                                {block.content}
+                            </h2>
                         );
                     case 'image':
                         return (
@@ -62,14 +77,11 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                                 return <EICSimulation key={index} />;
                             case 'FactBox':
                                 return (
-                                    <div key={index} className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
-                                        <h4 className="text-indigo-700 font-bold text-sm uppercase mb-2 flex items-center tracking-wider">
-                                            Visste du at?
-                                        </h4>
-                                        <p className="text-slate-700 text-base leading-relaxed italic">
-                                            {block.props?.content}
-                                        </p>
-                                    </div>
+                                    <FactBox
+                                        key={index}
+                                        title={block.props?.title}
+                                        content={block.props?.content}
+                                    />
                                 );
                             case 'TimelineComponent':
                                 return (
