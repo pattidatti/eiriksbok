@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { fetchManifest } from '../utils/contentLoader';
+import { textLibraryData } from '../data/textLibraryData';
 import type { Manifest, ManifestLesson } from '../types';
 import { Search, X } from 'lucide-react';
 
@@ -11,7 +12,7 @@ interface SearchOverlayProps {
 }
 
 interface SearchResult {
-    type: 'lesson' | 'topic' | 'concept';
+    type: 'lesson' | 'topic' | 'concept' | 'library';
     title: string;
     path: string;
     description?: string;
@@ -52,6 +53,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
         const searchResults: SearchResult[] = [];
         const lowerQuery = query.toLowerCase();
 
+        // Search Manifest (Subjects, Topics, Lessons)
         manifest.subjects.forEach(subject => {
             subject.topics.forEach(topic => {
                 // Search Topics
@@ -90,6 +92,23 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
             });
         });
 
+        // Search Text Library
+        textLibraryData.forEach(text => {
+            if (
+                text.title.toLowerCase().includes(lowerQuery) ||
+                text.author.toLowerCase().includes(lowerQuery) ||
+                text.genre.toLowerCase().includes(lowerQuery) ||
+                text.theme?.some(t => t.toLowerCase().includes(lowerQuery))
+            ) {
+                searchResults.push({
+                    type: 'library',
+                    title: text.title,
+                    path: `/norsk/bibliotek/${text.id}`,
+                    description: `Av ${text.author} • ${text.genre}`
+                });
+            }
+        });
+
         setResults(searchResults);
     }, [query, manifest]);
 
@@ -115,7 +134,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                             <input
                                 ref={inputRef}
                                 type="text"
-                                placeholder="Søk etter begreper, leksjoner..."
+                                placeholder="Søk etter begreper, leksjoner, tekster..."
                                 value={query}
                                 onChange={e => setQuery(e.target.value)}
                                 className="w-full pl-14 pr-4 py-4 text-xl bg-white/10 border border-white/20 rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-display"
@@ -151,7 +170,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                                             </div>
                                         </div>
                                         <div className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-white/10 text-slate-300">
-                                            {result.type}
+                                            {result.type === 'library' ? 'bibliotek' : result.type}
                                         </div>
                                     </motion.div>
                                 </Link>

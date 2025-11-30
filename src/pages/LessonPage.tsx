@@ -53,7 +53,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                     addToHistory({
                         id: data.id,
                         title: data.title,
-                        subjectId: data.subject.toLowerCase(), // Ensure subjectId matches manifest
+                        subjectId: (data.subject || subjectId).toLowerCase(),
                         type: 'lesson'
                     });
                 }
