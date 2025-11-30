@@ -167,7 +167,20 @@
                     "title": "Menneskets tidlige historie",
                     "description": "Fra nomader i Afrika til spredning over hele kloden.",
                     "image": "/Eiriksbok/images/lessons/menneskets-tidlige-historie.png",
-                    "lessons": []
+                    "lessons": [
+                        {
+                            "id": "artikkel",
+                            "title": "Menneskets tidlige historie",
+                            "description": "Vår felles opprinnelse.",
+                            "image": "/Eiriksbok/images/lessons/menneskets-tidlige-historie.png",
+                            "tags": [
+                                "forhistorie",
+                                "mennesket",
+                                "evolusjon",
+                                "afrika"
+                            ]
+                        }
+                    ]
                 },
                 {
                     "id": "jordbruk-og-sivilisasjoner",
@@ -249,15 +262,20 @@
                                 "krig",
                                 "handel"
                             ]
+                        },
+                        {
+                            "id": "rikssamlingen",
+                            "title": "Rikssamlingen",
+                            "description": "Harald Hårfagre samler Norge – for kjærlighet eller makt?",
+                            "image": "/Eiriksbok/images/lessons/rikssamlingen.png",
+                            "tags": [
+                                "rikssamlingen",
+                                "norge",
+                                "konger",
+                                "middelalder"
+                            ]
                         }
                     ]
-                },
-                {
-                    "id": "rikssamlingen",
-                    "title": "Rikssamlingen",
-                    "description": "Harald Hårfagre samler Norge – for kjærlighet eller makt?",
-                    "image": "/Eiriksbok/images/lessons/rikssamlingen.png",
-                    "lessons": []
                 },
                 {
                     "id": "svartedauden",
@@ -284,7 +302,20 @@
                     "title": "Boktrykkerkunsten",
                     "description": "En informasjonsrevolusjon startet av Gutenberg (og kineserne).",
                     "image": "/Eiriksbok/images/lessons/boktrykkerkunsten.png",
-                    "lessons": []
+                    "lessons": [
+                        {
+                            "id": "artikkel",
+                            "title": "Boktrykkerkunsten",
+                            "description": "Revolusjonen som spredte kunnskap.",
+                            "image": "/Eiriksbok/images/lessons/boktrykkerkunsten.png",
+                            "tags": [
+                                "oppfinnelser",
+                                "teknologi",
+                                "renessansen",
+                                "bøker"
+                            ]
+                        }
+                    ]
                 },
                 {
                     "id": "industriell-revolusjon-i-norge",

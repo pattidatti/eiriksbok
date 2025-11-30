@@ -1,0 +1,28 @@
+{
+    "id": "boktrykkerkunsten",
+    "title": "Boktrykkerkunsten",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "fact": "Før boktrykkerkunsten kunne en munk bruke et helt år på å kopiere én bibel for hånd.",
+    "content": [
+        {
+            "type": "text",
+            "content": "Johann Gutenberg (ca. 1400–1468) regnes ofte som oppfinneren av boktrykkerkunsten i Europa, selv om kineserne hadde utviklet lignende teknologi lenge før. Gutenbergs store innovasjon var bruken av løse typer i metall og en effektiv trykkpresse."
+        },
+        {
+            "type": "text",
+            "content": "Før 1450 ble bøker skrevet for hånd, noe som gjorde dem ekstremt dyre og sjeldne. Med trykkpressen kunne man plutselig masseprodusere tekster. Dette førte til en informasjonsrevolusjon som kan sammenlignes med internett i dag."
+        },
+        {
+            "type": "text",
+            "content": "Boktrykkerkunsten gjorde det mulig å spre nye ideer raskt. Martin Luthers reformasjon ville neppe vært mulig uten trykte flygeblader og bibler på tysk. Vitenskapelige oppdagelser kunne deles på tvers av landegrenser, og flere mennesker lærte å lese."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "content": "Gutenbergbibelen, trykket rundt 1455, var den første store boken som ble masseprodusert i Europa."
+            }
+        }
+    ]
+}

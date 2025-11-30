@@ -57,7 +57,7 @@ export const SearchPage: React.FC = () => {
                                         found.push({
                                             lesson,
                                             path: `/${subject.id}/${topic.id}/${subTopic.id}/${lesson.id}`,
-                                            topicTitle: subTopic.title, // Or `${topic.title} - ${subTopic.title}`
+                                            topicTitle: subTopic.title,
                                             topicImage: subTopic.image || topic.image,
                                             subjectId: subject.id
                                         });
@@ -67,9 +67,44 @@ export const SearchPage: React.FC = () => {
                         }
                     });
                 });
+                setResults(found);
+            } else {
+                // Show 10 most recent articles if no tag
+                const allLessons: SearchResult[] = [];
+                manifest.subjects.forEach(subject => {
+                    subject.topics.forEach(topic => {
+                        const processLessons = (lessons: ManifestLesson[], subTopicId?: string) => {
+                            lessons.forEach(lesson => {
+                                if (lesson.id) {
+                                    allLessons.push({
+                                        lesson,
+                                        path: `/${subject.id}/${topic.id}${subTopicId ? `/${subTopicId}` : ''}/${lesson.id}`,
+                                        topicTitle: topic.title,
+                                        topicImage: topic.image,
+                                        subjectId: subject.id
+                                    });
+                                }
+                            });
+                        };
+
+                        if (topic.lessons) processLessons(topic.lessons);
+                        if (topic.subTopics) {
+                            topic.subTopics.forEach(st => {
+                                if (st.lessons) processLessons(st.lessons, st.id);
+                            });
+                        }
+                    });
+                });
+
+                allLessons.sort((a, b) => {
+                    const dateA = a.lesson.createdDate || a.lesson.date || '0000';
+                    const dateB = b.lesson.createdDate || b.lesson.date || '0000';
+                    return dateB.localeCompare(dateA);
+                });
+
+                setResults(allLessons.slice(0, 10));
             }
 
-            setResults(found);
             setLoading(false);
         };
 
@@ -77,7 +112,7 @@ export const SearchPage: React.FC = () => {
     }, [tag]);
 
     if (loading) {
-        return <div className="p-8 text-center">Laster søkeresultater...</div>;
+        return <div className="p-8 text-center">Laster innhold...</div>;
     }
 
     return (
@@ -87,12 +122,25 @@ export const SearchPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-12"
             >
-                <h1 className="text-4xl font-display font-bold text-text-main mb-4">
-                    Emne: <span className="text-neon-accent capitalize">{tag}</span>
-                </h1>
-                <p className="text-text-muted text-lg">
-                    Fant {results.length} {results.length === 1 ? 'artikkel' : 'artikler'} merket med "{tag}"
-                </p>
+                {tag ? (
+                    <>
+                        <h1 className="text-4xl font-display font-bold text-text-main mb-4">
+                            Emne: <span className="text-neon-accent capitalize">{tag}</span>
+                        </h1>
+                        <p className="text-text-muted text-lg">
+                            Fant {results.length} {results.length === 1 ? 'artikkel' : 'artikler'} merket med "{tag}"
+                        </p>
+                    </>
+                ) : (
+                    <>
+                        <h1 className="text-4xl font-display font-bold text-text-main mb-4">
+                            Nye artikler
+                        </h1>
+                        <p className="text-text-muted text-lg">
+                            De siste publiserte artiklene
+                        </p>
+                    </>
+                )}
             </motion.div>
 
             {results.length > 0 ? (
@@ -116,7 +164,7 @@ export const SearchPage: React.FC = () => {
             ) : (
                 <div className="text-center py-12 bg-slate-50 rounded-3xl border border-slate-200">
                     <p className="text-xl text-slate-500">
-                        Ingen artikler funnet med dette emneknaggen.
+                        Ingen artikler funnet.
                     </p>
                 </div>
             )}
