@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { fetchManifest } from '../utils/contentLoader';
 import type { Manifest, ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
-import { ImageWithFallback } from '../components/ImageWithFallback';
+import { LessonCard } from '../components/LessonCard';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useUserHistory } from '../hooks/useUserHistory';
 
@@ -125,36 +125,14 @@ export const LandingPage: React.FC = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             {historyLessons.map((lesson) => (
-                                <Link
-                                    key={`history-${lesson.id}`}
-                                    to={`/${lesson.subjectId}/${lesson.topicId}${lesson.subTopicId ? `/${lesson.subTopicId}` : ''}/${lesson.id}`}
-                                    className="group block"
-                                >
-                                    <div className="bg-surface-card rounded-xl overflow-hidden border border-white/5 hover:border-white/10 transition-colors h-full flex flex-col">
-                                        <div className="h-32 relative overflow-hidden">
-                                            <ImageWithFallback
-                                                src={lesson.image}
-                                                alt={lesson.title}
-                                                seed={lesson.title}
-                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                            />
-                                            <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md text-white text-[10px] px-2 py-0.5 rounded-full border border-white/10">
-                                                Fortsett
-                                            </div>
-                                        </div>
-                                        <div className="p-4 flex flex-col flex-grow">
-                                            <div className="text-[10px] font-medium text-blue-400 mb-1 uppercase tracking-wide">
-                                                {lesson.topicTitle}
-                                            </div>
-                                            <h4 className="text-base font-bold text-text-main mb-1 line-clamp-1 group-hover:text-blue-400 transition-colors">
-                                                {lesson.title}
-                                            </h4>
-                                            <p className="text-xs text-text-muted line-clamp-2 mb-0 flex-grow">
-                                                {lesson.description}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </Link>
+                                <div key={`history-${lesson.id}`} className="h-full">
+                                    <LessonCard
+                                        lesson={lesson}
+                                        path={`/${lesson.subjectId}/${lesson.topicId}${lesson.subTopicId ? `/${lesson.subTopicId}` : ''}/${lesson.id}`}
+                                        topicTitle={lesson.topicTitle}
+                                        badgeText="Fortsett"
+                                    />
+                                </div>
                             ))}
                         </div>
                     </motion.div>
@@ -176,36 +154,13 @@ export const LandingPage: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {recentLessons.map((lesson) => (
-                            <Link
-                                key={lesson.id}
-                                to={`/${lesson.subjectId}/${lesson.topicId}${lesson.subTopicId ? `/${lesson.subTopicId}` : ''}/${lesson.id}`}
-                                className="group block"
-                            >
-                                <div className="bg-surface-card rounded-xl overflow-hidden border border-white/5 hover:border-white/10 transition-colors h-full flex flex-col">
-                                    <div className="h-32 relative overflow-hidden">
-                                        <ImageWithFallback
-                                            src={lesson.image}
-                                            alt={lesson.title}
-                                            seed={lesson.title}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                        />
-                                    </div>
-                                    <div className="p-4 flex flex-col flex-grow">
-                                        <div className="text-[10px] font-medium text-blue-400 mb-1 uppercase tracking-wide">
-                                            {lesson.topicTitle}
-                                        </div>
-                                        <h4 className="text-base font-bold text-text-main mb-1 line-clamp-1 group-hover:text-blue-400 transition-colors">
-                                            {lesson.title}
-                                        </h4>
-                                        <p className="text-xs text-text-muted line-clamp-2 mb-2 flex-grow">
-                                            {lesson.description}
-                                        </p>
-                                        <div className="text-[10px] text-text-muted pt-2 border-t border-white/5 flex items-center gap-2">
-                                            <span>11 hours ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
+                            <div key={lesson.id} className="h-full">
+                                <LessonCard
+                                    lesson={lesson}
+                                    path={`/${lesson.subjectId}/${lesson.topicId}${lesson.subTopicId ? `/${lesson.subTopicId}` : ''}/${lesson.id}`}
+                                    topicTitle={lesson.topicTitle}
+                                />
+                            </div>
                         ))}
                     </div>
                 </motion.div>

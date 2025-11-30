@@ -1,0 +1,41 @@
+{
+    "id": "ny-realismen",
+    "title": "Nyrealismen: Etikk og historie",
+    "ingress": "På begynnelsen av 1900-tallet vendte forfatterne tilbake til virkelighetsskildring, men nå med dypere psykologisk innsikt og ofte med historiske motiver.",
+    "heroImage": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80",
+    "content": [
+        {
+            "type": "text",
+            "text": "Etter nyromantikkens fokus på det indre sjeleliv, kom en ny bølge av realisme fra ca. 1905. Norge var blitt en selvstendig nasjon i 1905, og det var en tid for bygging og forankring. Nyrealistene skrev om vanlige folk, arbeidere, bønder og fiskere, men de tok med seg lærdommen fra nyromantikken: Mennesker er kompliserte.\n\nDerfor handler nyrealismen ikke bare om samfunnsproblemer (som i realismen), men om etiske valg, forholdet mellom slekt og individ, og menneskets plass i historien."
+        },
+        {
+            "type": "section",
+            "title": "Hva kjennetegner nyrealismen?",
+            "content": [
+                {
+                    "type": "list",
+                    "items": [
+                        "**Store episke verk:** Mange forfattere skrev lange romanserier i flere bind som fulgte en slekt gjennom generasjoner.",
+                        "**Historiske romaner:** Man så tilbake i historien (f.eks. middelalderen) for å forstå sin egen tid.",
+                        "**Etiske dilemmaer:** Hva er rett og galt? Hva er menneskets ansvar overfor seg selv og andre?",
+                        "**Hjemstavnsdiktning:** Handlingen var ofte lagt til et bestemt geografisk område som forfatteren kjente godt (f.eks. Jæren, Trøndelag eller Røros)."
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "De store fortellerne",
+            "content": [
+                {
+                    "type": "list",
+                    "items": [
+                        "**Sigrid Undset:** Hun fikk Nobelprisen i litteratur, mest for sine mektige skildringer av livet i Norden i middelalderen. Trilogien om *Kristin Lavransdatter* er hennes hovedverk. Selv om den foregår på 1300-tallet, handler den om tidløse temaer som kjærlighet, tro, skyld og forholdet mellom foreldre og barn.",
+                        "**Olav Duun:** Han skrev på nynorsk (jølster-dialekt) og er kjent for verket *Juvikfolke* (seks bind). Det handler om en slekt gjennom flere generasjoner og kampen mellom det gode og det onde i menneskesinnet.",
+                        "**Johan Falkberget:** Han skrev om gruvearbeiderne på Røros. I verket *Den fjerde nattevakt* og serien om *Christianus Sextus* skildret han hardt arbeid, fattigdom, men også samhold og kristen nestekjærlighet."
+                    ]
+                }
+            ]
+        }
+    ]
+}

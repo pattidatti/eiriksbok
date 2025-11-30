@@ -23,29 +23,10 @@
                             "id": "setningsanalyse",
                             "title": "Setningsanalyse",
                             "description": "Hvordan analysere setninger.",
-                            "image": "/Eiriksbok/images/lessons/setningsanalyse.png",
-                            "date": "2023-01-10T12:00:00",
+                            "image": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
                             "tags": [
-                                "grammatikk",
-                                "språk"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "litteraturhistorie",
-                    "title": "Litteraturhistorie",
-                    "image": "https://images.unsplash.com/photo-1683178862099-325f9b29e081?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
-                    "lessons": [
-                        {
-                            "id": "realismen",
-                            "title": "Realismen",
-                            "image": "https://images.unsplash.com/photo-1712687948350-9906073eb5f7?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
-                            "date": "2023-03-10T12:00:00",
-                            "tags": [
-                                "litteratur",
-                                "historie",
-                                "samfunn"
+                                "skjønnlitteratur",
+                                "fortelling"
                             ]
                         }
                     ]
@@ -53,19 +34,9 @@
                 {
                     "id": "tekstsjangre",
                     "title": "Tekstsjangre",
-                    "description": "Lær om ulike typer tekster, fra noveller til debattinnlegg.",
-                    "image": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80",
+                    "description": "Lær om ulike typer tekster.",
+                    "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
                     "lessons": [
-                        {
-                            "id": "novelle",
-                            "title": "Novelle",
-                            "description": "Korte, oppdiktede fortellinger med en overraskende slutt.",
-                            "image": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "skjønnlitteratur",
-                                "fortelling"
-                            ]
-                        },
                         {
                             "id": "roman",
                             "title": "Roman",
@@ -127,6 +98,62 @@
                                 "retorikk",
                                 "språk",
                                 "kommunikasjon"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "litteraturhistorie",
+                    "title": "Litteraturhistorie",
+                    "description": "Fra sagaer til samtidslitteratur.",
+                    "image": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "nasjonalromantikken",
+                            "title": "Nasjonalromantikken",
+                            "description": "Bønder, natur og nasjonsbygging.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Tidemand_og_Gude_-_Brudeferden_i_Hardanger.jpg/1200px-Tidemand_og_Gude_-_Brudeferden_i_Hardanger.jpg",
+                            "createdDate": "2025-11-30T20:00:00",
+                            "tags": [
+                                "litteraturhistorie",
+                                "1800-tallet",
+                                "norge"
+                            ]
+                        },
+                        {
+                            "id": "realismen",
+                            "title": "Realismen",
+                            "description": "Sannheten skal frem - samfunnskritikk og debatt.",
+                            "image": "https://images.unsplash.com/photo-1712687948350-9906073eb5f7?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                            "createdDate": "2025-11-30T20:30:00",
+                            "tags": [
+                                "litteraturhistorie",
+                                "samfunn",
+                                "ibsen"
+                            ]
+                        },
+                        {
+                            "id": "ny-romantikken",
+                            "title": "Nyromantikken",
+                            "description": "Følelser, mystikk og det ubevisste sjeleliv.",
+                            "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80",
+                            "createdDate": "2025-11-30T21:00:00",
+                            "tags": [
+                                "litteraturhistorie",
+                                "hamsun",
+                                "sult"
+                            ]
+                        },
+                        {
+                            "id": "ny-realismen",
+                            "title": "Nyrealismen",
+                            "description": "Etikk, historie og vanlige folks liv.",
+                            "image": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80",
+                            "createdDate": "2025-11-30T21:30:00",
+                            "tags": [
+                                "litteraturhistorie",
+                                "undset",
+                                "historie"
                             ]
                         }
                     ]

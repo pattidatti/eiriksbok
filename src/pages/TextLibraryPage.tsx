@@ -11,6 +11,26 @@ export const TextLibraryPage: React.FC = () => {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
 
+    // Sorting State
+    const [sortOption, setSortOption] = React.useState<'title' | 'year_asc' | 'year_desc'>('title');
+
+    // Read Status State (Local Storage)
+    const [readTexts, setReadTexts] = React.useState<string[]>(() => {
+        const saved = localStorage.getItem('readTexts');
+        return saved ? JSON.parse(saved) : [];
+    });
+
+    const toggleRead = (e: React.MouseEvent, id: string) => {
+        e.stopPropagation();
+        setReadTexts(prev => {
+            const newReadTexts = prev.includes(id)
+                ? prev.filter(textId => textId !== id)
+                : [...prev, id];
+            localStorage.setItem('readTexts', JSON.stringify(newReadTexts));
+            return newReadTexts;
+        });
+    };
+
     const searchTerm = searchParams.get('search') || '';
     const selectedGenre = searchParams.get('genre');
     const selectedTheme = searchParams.get('theme');
@@ -36,8 +56,8 @@ export const TextLibraryPage: React.FC = () => {
         { label: 'Etter 2000', filter: (year: number) => year > 2000 }
     ];
 
-    const filteredTexts = useMemo(() => {
-        return textLibraryData.filter(text => {
+    const filteredAndSortedTexts = useMemo(() => {
+        let result = textLibraryData.filter(text => {
             const matchesSearch = text.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 text.author.toLowerCase().includes(searchTerm.toLowerCase());
             const matchesGenre = selectedGenre ? text.genre === selectedGenre : true;
@@ -55,15 +75,43 @@ export const TextLibraryPage: React.FC = () => {
 
             return matchesSearch && matchesGenre && matchesTheme && matchesPeriod;
         });
-    }, [searchTerm, selectedGenre, selectedTheme, selectedPeriod]);
+
+        // Sorting Logic
+        return result.sort((a, b) => {
+            if (sortOption === 'title') {
+                return a.title.localeCompare(b.title);
+            } else if (sortOption === 'year_asc') {
+                return (a.publishedYear || 9999) - (b.publishedYear || 9999);
+            } else if (sortOption === 'year_desc') {
+                return (b.publishedYear || -9999) - (a.publishedYear || -9999);
+            }
+            return 0;
+        });
+    }, [searchTerm, selectedGenre, selectedTheme, selectedPeriod, sortOption]);
 
     return (
         <div className="max-w-7xl mx-auto px-6 py-12">
-            <header className="mb-12">
-                <h1 className="text-4xl font-display font-bold text-slate-900 mb-4">Bibliotek</h1>
-                <p className="text-xl text-slate-600 max-w-3xl">
-                    Utforsk et utvalg av noveller, romanutdrag og andre tekster til bruk i norskfaget.
-                </p>
+            <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h1 className="text-4xl font-display font-bold text-slate-900 mb-4">Bibliotek</h1>
+                    <p className="text-xl text-slate-600 max-w-3xl">
+                        Utforsk et utvalg av noveller, romanutdrag og andre tekster til bruk i norskfaget.
+                    </p>
+                </div>
+                
+                {/* Sorting Controls */}
+                <div className="flex items-center gap-2 bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+                    <span className="text-sm font-medium text-slate-500 pl-2">Sorter etter:</span>
+                    <select 
+                        value={sortOption}
+                        onChange={(e) => setSortOption(e.target.value as any)}
+                        className="bg-transparent text-sm font-semibold text-slate-700 focus:outline-none cursor-pointer"
+                    >
+                        <option value="title">Tittel (A-Å)</option>
+                        <option value="year_asc">År (Eldst først)</option>
+                        <option value="year_desc">År (Nyest først)</option>
+                    </select>
+                </div>
             </header>
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -153,7 +201,7 @@ export const TextLibraryPage: React.FC = () => {
 
                 {/* Main Content */}
                 <main className="lg:col-span-3">
-                    {filteredTexts.length === 0 && (
+                    {filteredAndSortedTexts.length === 0 && (
                         <div className="text-center py-12 bg-slate-50 rounded-xl border border-slate-100 border-dashed">
                             <BookOpen className="mx-auto text-slate-300 mb-4" size={48} />
                             <p className="text-slate-500 font-medium">Ingen tekster funnet med valgte filter.</p>
@@ -167,59 +215,76 @@ export const TextLibraryPage: React.FC = () => {
                     )}
 
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                        {filteredTexts.map(text => (
-                            <motion.div
-                                key={text.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.3 }}
-                                className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
-                            >
-                                <div className="p-6 flex-grow">
-                                    <h3
-                                        onClick={() => navigate(`/norsk/bibliotek/${text.id}`)}
-                                        className="text-xl font-semibold text-slate-900 mb-2 cursor-pointer hover:text-indigo-600 transition-colors"
-                                    >
-                                        {text.title}
-                                    </h3>
-                                    <p
-                                        onClick={() => updateFilter('search', text.author)}
-                                        className="text-slate-600 text-sm mb-4 cursor-pointer hover:text-indigo-600 transition-colors inline-block"
-                                    >
-                                        Av {text.author}
-                                    </p>
-                                    <div className="flex flex-wrap gap-2 mb-4">
+                        {filteredAndSortedTexts.map(text => {
+                            const isRead = readTexts.includes(text.id);
+                            return (
+                                <motion.div
+                                    key={text.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className={`bg-white rounded-xl shadow-sm border overflow-hidden flex flex-col hover:shadow-md transition-all group ${isRead ? 'border-green-200 bg-green-50/30' : 'border-slate-100'}`}
+                                >
+                                    <div className="p-6 flex-grow relative">
+                                        {/* Read Status Toggle */}
                                         <button
-                                            onClick={(e) => { e.stopPropagation(); updateFilter('genre', text.genre); }}
-                                            className="inline-flex items-center rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
+                                            onClick={(e) => toggleRead(e, text.id)}
+                                            className={`absolute top-4 right-4 p-2 rounded-full transition-colors ${isRead ? 'bg-green-100 text-green-600' : 'bg-slate-50 text-slate-300 hover:bg-slate-100 hover:text-slate-400'}`}
+                                            title={isRead ? "Marker som ulest" : "Marker som lest"}
                                         >
-                                            <Tag className="mr-1" size={12} /> {text.genre}
+                                            <BookOpen size={16} className={isRead ? "fill-current" : ""} />
                                         </button>
-                                        {text.theme && text.theme.map(t => (
+
+                                        <h3
+                                            onClick={() => navigate(`/norsk/bibliotek/${text.id}`)}
+                                            className="text-xl font-semibold text-slate-900 mb-2 cursor-pointer hover:text-indigo-600 transition-colors pr-8"
+                                        >
+                                            {text.title}
+                                        </h3>
+                                        <p
+                                            onClick={() => updateFilter('search', text.author)}
+                                            className="text-slate-600 text-sm mb-4 cursor-pointer hover:text-indigo-600 transition-colors inline-block"
+                                        >
+                                            Av {text.author}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2 mb-4">
                                             <button
-                                                key={t}
-                                                onClick={(e) => { e.stopPropagation(); updateFilter('theme', t); }}
-                                                className="inline-flex items-center rounded-full bg-purple-50 px-2.5 py-0.5 text-xs font-medium text-purple-700 hover:bg-purple-100 transition-colors"
+                                                onClick={(e) => { e.stopPropagation(); updateFilter('genre', text.genre); }}
+                                                className="inline-flex items-center rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
                                             >
-                                                <BookOpen className="mr-1" size={12} /> {t}
+                                                <Tag className="mr-1" size={12} /> {text.genre}
                                             </button>
-                                        ))}
-                                        {text.publishedYear && (
-                                            <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    const period = periods.find(p => p.filter(text.publishedYear!));
-                                                    if (period) updateFilter('period', period.label);
-                                                }}
-                                                className="inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-100 transition-colors"
-                                            >
-                                                {text.publishedYear}
-                                            </button>
-                                        )}
+                                            {text.theme && text.theme.map(t => (
+                                                <button
+                                                    key={t}
+                                                    onClick={(e) => { e.stopPropagation(); updateFilter('theme', t); }}
+                                                    className="inline-flex items-center rounded-full bg-purple-50 px-2.5 py-0.5 text-xs font-medium text-purple-700 hover:bg-purple-100 transition-colors"
+                                                >
+                                                    <BookOpen className="mr-1" size={12} /> {t}
+                                                </button>
+                                            ))}
+                                            {text.publishedYear && (
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        const period = periods.find(p => p.filter(text.publishedYear!));
+                                                        if (period) updateFilter('period', period.label);
+                                                    }}
+                                                    className="inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-100 transition-colors"
+                                                >
+                                                    {text.publishedYear}
+                                                </button>
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                    {isRead && (
+                                        <div className="bg-green-100 px-6 py-2 text-xs font-medium text-green-700 flex items-center justify-center gap-2">
+                                            <BookOpen size={12} /> Lest
+                                        </div>
+                                    )}
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </main>
             </div>

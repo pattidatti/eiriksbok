@@ -20,12 +20,13 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
             {content.map((block, index) => {
                 switch (block.type) {
                     case 'text':
+                        const textContent = block.content || block.text || '';
                         return (
                             <div key={index} className="prose prose-invert max-w-none">
                                 {block.title && (
                                     <h2 className="text-2xl font-bold text-slate-800 mb-4 mt-8">{block.title}</h2>
                                 )}
-                                {block.content.split('\n\n').map((paragraph, pIndex) => (
+                                {textContent.split('\n\n').map((paragraph, pIndex) => (
                                     <p key={pIndex} className="mb-4 text-slate-700 leading-relaxed">
                                         {paragraph.split(/(\*\*.*?\*\*|\*[^*]+?\*)/g).map((part, i) => {
                                             if (part.startsWith('**') && part.endsWith('**')) {
@@ -45,6 +46,33 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                             <h2 key={index} className="text-2xl font-bold text-slate-800 mb-4 mt-8">
                                 {block.content}
                             </h2>
+                        );
+                    case 'section':
+                        return (
+                            <div key={index} className="my-8">
+                                {block.title && (
+                                    <h2 className="text-2xl font-bold text-slate-800 mb-4">{block.title}</h2>
+                                )}
+                                {block.content && <ArticleContent content={block.content} />}
+                            </div>
+                        );
+                    case 'list':
+                        return (
+                            <ul key={index} className="list-disc list-inside space-y-2 mb-8 text-slate-700">
+                                {block.items?.map((item, i) => (
+                                    <li key={i} className="leading-relaxed">
+                                        {item.split(/(\*\*.*?\*\*|\*[^*]+?\*)/g).map((part, j) => {
+                                            if (part.startsWith('**') && part.endsWith('**')) {
+                                                return <strong key={j}><GlossaryText content={part.slice(2, -2)} /></strong>;
+                                            }
+                                            if (part.startsWith('*') && part.endsWith('*')) {
+                                                return <em key={j}><GlossaryText content={part.slice(1, -1)} /></em>;
+                                            }
+                                            return <GlossaryText key={j} content={part} />;
+                                        })}
+                                    </li>
+                                ))}
+                            </ul>
                         );
                     case 'image':
                         return (

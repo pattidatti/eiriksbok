@@ -17,10 +17,10 @@ export const TopicCard: React.FC<TopicCardProps> = ({ title, description, image,
         <Link to={path} className="block group no-underline h-full">
             <motion.div
                 whileHover={{ y: -5 }}
-                className="h-full bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
+                className="h-full bg-surface-card border border-white/5 hover:border-white/10 rounded-xl overflow-hidden transition-all duration-300 flex flex-col"
             >
                 {/* Image Area */}
-                <div className="h-40 bg-slate-100 relative overflow-hidden">
+                <div className="h-32 bg-slate-100 relative overflow-hidden">
                     <ImageWithFallback
                         src={image}
                         alt={title}
@@ -28,25 +28,25 @@ export const TopicCard: React.FC<TopicCardProps> = ({ title, description, image,
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
 
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-slate-600 border border-slate-200 shadow-sm">
+                    <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-full text-[10px] font-bold text-white border border-white/10">
                         {lessonCount} leksjoner
                     </div>
                 </div>
 
                 {/* Content Area */}
-                <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-display font-bold text-text-main mb-2 group-hover:text-neon-accent transition-colors">
+                <div className="p-4 flex flex-col flex-grow">
+                    <h3 className="text-base font-bold text-text-main mb-1 group-hover:text-blue-400 transition-colors">
                         {title}
                     </h3>
 
                     {description && (
-                        <p className="text-text-muted text-sm leading-relaxed mb-4 line-clamp-3">
+                        <p className="text-xs text-text-muted line-clamp-2 mb-2 flex-grow">
                             {description}
                         </p>
                     )}
 
-                    <div className="mt-auto pt-4 border-t border-slate-100 flex items-center text-neon-accent font-medium text-sm">
-                        <BookOpen className="w-4 h-4 mr-2" />
+                    <div className="mt-auto pt-2 border-t border-white/5 flex items-center text-blue-400 font-medium text-[10px]">
+                        <BookOpen className="w-3 h-3 mr-1" />
                         Gå til emne
                     </div>
                 </div>
