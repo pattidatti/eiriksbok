@@ -10,6 +10,7 @@ import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { timelineData } from '../data/timelineData';
 import { InteractiveArticle } from '../components/InteractiveArticle';
+import { TopicInteractiveModel } from '../components/TopicInteractiveModel';
 import { LessonPage } from './LessonPage';
 import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -208,6 +209,11 @@ export const TopicPage: React.FC = () => {
                         ))}
                     </div>
                 </div>
+            )}
+
+            {/* Interactive Model Section */}
+            {currentTopic && subjectId && (
+                <TopicInteractiveModel topicId={currentTopic.id} subjectId={subjectId} />
             )}
 
             {subTopics.length > 0 && (
