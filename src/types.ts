@@ -62,6 +62,7 @@ export interface ManifestLesson {
     description?: string;
     image?: string;
     tags?: string[];
+    definitions?: { term: string; definition: string }[];
 }
 
 export interface TopicTool {

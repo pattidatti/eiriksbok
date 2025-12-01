@@ -16,4 +16,5 @@ export const routeFactories: Record<string, PageFactory> = {
     TextReaderPage: () => import('./pages/TextReaderPage').then(module => ({ default: module.TextReaderPage })),
     NotFoundPage: () => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })),
     ColonizationMap: () => import('./components/ColonizationMap/ColonizationMap'),
+    FlashcardPage: () => import('./pages/FlashcardPage').then(module => ({ default: module.FlashcardPage })),
 };

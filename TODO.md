@@ -11,6 +11,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Et emne på norskfaget med alle typer tekstsjanger (novelle, roman, dikt, artikkel, debattinnlegg, etc.). 
 - [ ] Et emne på norskfaget med skrivetips; Heroes journey osv, bør være koblet til tekstsjanger.  
 - [ ] Interaktive modeller på toppen/innsiden av hvert emne som fukuserer på helhetens nivå, repitisjoner osv. Det må basere seg på alt innholdet i emnet. 
+- [ ] En flashcard-app. Ruteark med fagbegreper. Trykke på dem og få definisjon og link til artikkel. Mulighet for filtre basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet og artiklene. 
 ## 📝 Gjøremål (Todo)
 - [ ] 
 

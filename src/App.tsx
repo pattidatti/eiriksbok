@@ -16,6 +16,7 @@ const TextLibraryPage = React.lazy(routeFactories.TextLibraryPage);
 const TextReaderPage = React.lazy(routeFactories.TextReaderPage);
 const NotFoundPage = React.lazy(routeFactories.NotFoundPage);
 const ColonizationMap = React.lazy(routeFactories.ColonizationMap);
+const FlashcardPage = React.lazy(routeFactories.FlashcardPage);
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Route path=":subjectId/:topicId/:subTopicId" element={<TopicPage />} />
               <Route path=":subjectId/:topicId/:subTopicId/:lessonId" element={<LessonPage />} />
               <Route path=":subjectId/:topicId/:lessonId" element={<LessonPage />} />
+              <Route path="flashcards" element={<FlashcardPage />} />
               <Route path="colonization" element={<ColonizationMap />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
