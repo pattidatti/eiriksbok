@@ -15,6 +15,28 @@ export interface TextEntry {
 
 export const textLibraryData: TextEntry[] = [
     {
+        id: 'piken-med-svovelstikkene',
+        title: 'Piken med svovelstikkene',
+        author: 'H.C. Andersen',
+        genre: 'Eventyr',
+        language: 'bm.',
+        theme: ['Fattigdom', 'Håp', 'Døden'],
+        publishedYear: 1845,
+        createdDate: '2025-12-01T14:00:00',
+        content: [
+            "Det var så gruelig kaldt. Det snødde, og det begynte å bli mørk aften. Det var også den siste aftenen i året, nyttårsaften. I denne kulda og i dette mørket gikk det på gata ei lita, fattig jente med bart hode og nakne føtter. Ja, hun hadde jo riktignok hatt tøfler på da hun dro hjemmefra. Men hva kunne det hjelpe! Det var ganske store tøfler, mora hennes hadde brukt dem sist, så store var de, og de mista den lille da hun skyndte seg over gata i det to vogner fór så fryktelig raskt forbi. Den ene tøffelen var ikke å finne, og den andre løp en gutt av gårde med. Han sa at den kunne han bruke til vugge, når han selv fikk barn.",
+            "Der gikk nå den lille jenta på de nakne små føttene, som var røde og blåe av kulde. I et gammelt forkle holdt hun en mengde svovelstikker, og en bunt gikk hun med i hånda. Ingen hadde kjøpt av henne hele den dagen. Ingen hadde gitt henne en skilling. Sulten og forfrossen gikk hun og så så forkua ut, den stakkars lille! Snøfnuggene falt i det lange gule håret hennes, som krølla seg så pent om nakken, men den stasen tenkte hun riktignok ikke på. Ut fra alle vinduene skinte lysene, og i gata så lukta det så deilig av gåsesteik. Det var jo nyttårsaften, ja det tenkte hun på.",
+            "Borte i en krok mellom to hus, det ene gikk litt mere frem i gata enn det andre, der satte hun seg og krøyp sammen. De små beina hadde hun trukket opp under seg, men hun frøys enda mere, og hjem turde hun ikke gå. Hun hadde jo ikke solgt noen svovelstikker, ikke fått en eneste skilling, så faren hennes ville slå henne. Og kaldt var det også hjemme, de hadde kun taket like over seg, og der peip vinden inn, skjønt det var stappa strå og kluter i de største sprekkene. De små hendene hennes var nesten helt døde av kulde. Akk! En liten svovelstikke kunne gjøre godt. Om hun bare turde trekke en ut av bunten, stryke den mot veggen og varme fingrene. Hun trakk en ut. «Ritsch!»",
+            "Hvordan den freste, hvordan den brente! Det var en varm, klar lue, akkurat som et lite lys, da hun holdt hånda rundt den. Det var et underlig lys! Den lille jenta syntes hun satt foran en stor jernkakkelovn med blanke messingkuler og messingtromme. Ilden brente så velsigna, og varma så godt! Nei, så fint det var! Den lille strakte nå føttene ut for å varme disse også. – Da slokka flammen, kakkelovnen forsvant, og hun satt med den lille stumpen av den utbrente svovelstikken i hånda.",
+            "En ny ble strøket, den brente, den lyste, og når skinnet falt på muren, ble denne gjennomsiktig, som en blomst. Hun så rett inn i stua, hvor bordet stod dekka med en skinnende hvit duk, med fint porselen, og deilig dampa den stekte gåsa, fylt med svisker og epler! Og det som var enda prektigere, var at gåsa hoppa fra fatet, og vralta hen over golvet med gaffel og kniv i ryggen. Rett hen til den fattige jenta kom den. Da slokka svovelstikken og det var kun den tykke, kalde muren å se.",
+            "Hun tente en ny. Da satt hun under det vakreste juletre. Det var enda større og mere pynta enn det hun hadde sett gjennom glassdøra hos den rike kjøpmannen, nå sist jul. Tusenvis av brennende lys på de grønne greinene og fargerike bildene, lik de som pynta butikkvinduene, så ned til henne. Den lille strakte begge hendene i været – da slokka svovelstikken. De mange julelysene gikk høyere og høyere, hun så nå at de var de klare stjernene. En av dem falt og gjorde en lang ildstripe på himlen.",
+            "«Nå dør det en!» sa den lille, for gamle mormor, som var den eneste som hadde vært god mot henne, og som nå var død, hadde sagt: Når ei stjerne faller, går det en sjel opp til Gud.",
+            "Hun strøk igjen en svovelstikke mot muren. Den lyste rundt om, og i glansen stod den gamle mormora, så klar og så skinnende, så mild og velsigna.",
+            "«Mormor!» ropte den lille. «Å, ta meg med! Jeg vet du er borte når svovelstikken går ut; borte slik som den varme kakkelovnen, den deilige gåsesteika og det store velsignede juletreet!» – og hun strøk i hast hele resten av svovelstikkene som var i bunten, hun ville så gjerne holde på mormor. Og svovelstikkene lyste med en slik glans at det var klarere enn ved den lyse dag. Mormor hadde aldri før vært så vakker og så stor. Hun løfta den lille jenta opp på armen sin, og de fløy i glans og glede, så høyt, så høyt. Og det var ingen kulde, ingen sult, ingen redsel; de var hos Gud!",
+            "Men i kroken ved huset satt i den kalde morgenstunden den lille jenta med røde kinn, med smil om munnen – død, frosset i hjel den siste aftenen av det gamle året. Nyttårsmorgen gikk opp over det lille liket som satt med svovelstikkene, hvor et knippe var nesten brent. «Hun har villet varme seg!» sa man. Ingen visste hva slags skjønnhet hun hadde sett, i hvilken glans hun med gamle mormor hadde gått inn til nyttårs glede!"
+        ]
+    },
+    {
         id: 'doden',
         title: 'Døden',
         author: 'Ragnar Hovland',
