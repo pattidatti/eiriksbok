@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, User, Tag } from 'lucide-react';
@@ -14,7 +14,29 @@ export const TextReaderPage: React.FC = () => {
         textLibraryData.find(t => t.id === textId),
         [textId]);
 
-    usePageTitle(textEntry?.title || 'Les tekst');
+    const [currentLanguage, setCurrentLanguage] = useState<string>('bm.');
+
+    useEffect(() => {
+        if (textEntry) {
+            setCurrentLanguage(textEntry.language || 'bm.');
+        }
+    }, [textEntry]);
+
+    const displayContent = useMemo(() => {
+        if (!textEntry) return [];
+        if (currentLanguage === (textEntry.language || 'bm.')) return textEntry.content;
+        const translation = textEntry.translations?.find(t => t.language === currentLanguage);
+        return translation ? translation.content : textEntry.content;
+    }, [textEntry, currentLanguage]);
+
+    const displayTitle = useMemo(() => {
+        if (!textEntry) return '';
+        if (currentLanguage === (textEntry.language || 'bm.')) return textEntry.title;
+        const translation = textEntry.translations?.find(t => t.language === currentLanguage);
+        return translation ? translation.title : textEntry.title;
+    }, [textEntry, currentLanguage]);
+
+    usePageTitle(displayTitle || 'Les tekst');
 
     const renderParagraph = (text: string) => {
         if (!textEntry?.definitions) return text;
@@ -87,7 +109,7 @@ export const TextReaderPage: React.FC = () => {
                         {textEntry.genre}
                     </span>
                     <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">
-                        {textEntry.title}
+                        {displayTitle}
                     </h1>
                     <div className="flex items-center justify-center gap-6 text-slate-600">
                         <button
@@ -119,12 +141,37 @@ export const TextReaderPage: React.FC = () => {
                                 {textEntry.language}
                             </span>
                         )}
+                        {textEntry.translations && textEntry.translations.length > 0 && (
+                            <div className="flex items-center bg-slate-100 rounded-lg p-1 ml-4">
+                                <button
+                                    onClick={() => setCurrentLanguage(textEntry.language || 'bm.')}
+                                    className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${currentLanguage === (textEntry.language || 'bm.')
+                                            ? 'bg-white text-indigo-600 shadow-sm'
+                                            : 'text-slate-600 hover:text-slate-900'
+                                        }`}
+                                >
+                                    {textEntry.language === 'bm.' ? 'Bokmål' : textEntry.language === 'nn.' ? 'Nynorsk' : textEntry.language}
+                                </button>
+                                {textEntry.translations.map(t => (
+                                    <button
+                                        key={t.language}
+                                        onClick={() => setCurrentLanguage(t.language)}
+                                        className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${currentLanguage === t.language
+                                                ? 'bg-white text-indigo-600 shadow-sm'
+                                                : 'text-slate-600 hover:text-slate-900'
+                                            }`}
+                                    >
+                                        {t.language}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </header>
 
                 <div className="prose prose-lg prose-slate mx-auto font-serif">
-                    {textEntry.content ? (
-                        textEntry.content.map((paragraph, index) => (
+                    {displayContent ? (
+                        displayContent.map((paragraph, index) => (
                             <p key={index} className={`mb-6 leading-relaxed text-slate-800 ${textEntry.genre === 'Dikt' ? 'whitespace-pre-line' : ''}`}>
                                 {renderParagraph(paragraph)}
                             </p>
