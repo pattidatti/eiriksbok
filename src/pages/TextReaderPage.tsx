@@ -125,7 +125,7 @@ export const TextReaderPage: React.FC = () => {
                 <div className="prose prose-lg prose-slate mx-auto font-serif">
                     {textEntry.content ? (
                         textEntry.content.map((paragraph, index) => (
-                            <p key={index} className="mb-6 leading-relaxed text-slate-800">
+                            <p key={index} className={`mb-6 leading-relaxed text-slate-800 ${textEntry.genre === 'Dikt' ? 'whitespace-pre-line' : ''}`}>
                                 {renderParagraph(paragraph)}
                             </p>
                         ))

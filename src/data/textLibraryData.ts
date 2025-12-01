@@ -14,6 +14,21 @@ export interface TextEntry {
 
 export const textLibraryData: TextEntry[] = [
     {
+        id: 'doden',
+        title: 'Døden',
+        author: 'Ragnar Hovland',
+        genre: 'Dikt',
+        language: 'nn.',
+        theme: ['Døden', 'Livet'],
+        publishedYear: 2011, // Estimated/Placeholder year, can be updated if known
+        createdDate: '2025-12-01T12:00:00',
+        content: [
+            "Det er lenge til eg skal døy,\nhar eg bestemt.\nDet er mykje eg skal ha gjort\nfør den tid,\nmange jenter eg skal kysse\nog gifte meg med,\nmange land eg skal besøke\nog hav eg skal symje i.",
+            "Og når døden ein dag kjem\ni den store svarte bilen sin,\nskal eg først be han inn\npå ein kopp svart kaffi\nfør vi set oss inn i bilen og kjører.",
+            "Og når døden snur seg mot meg\nog spør: No, har du fått\ngjort alt du skulle?\nskal eg svare fornøgd:\nJa, det har eg."
+        ]
+    },
+    {
         id: 'faderen',
         title: 'Faderen',
         author: 'Bjørnstjerne Bjørnson',
