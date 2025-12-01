@@ -147,6 +147,31 @@ export const TextReaderPage: React.FC = () => {
                     )}
                 </div>
 
+                {textEntry.reflectionTasks && (
+                    <div className="max-w-3xl mx-auto mt-12 mb-8">
+                        <details className="group bg-indigo-50/50 rounded-xl border border-indigo-100 overflow-hidden">
+                            <summary className="flex items-center justify-between p-6 cursor-pointer list-none text-indigo-900 font-semibold hover:bg-indigo-50 transition-colors">
+                                <span className="flex items-center gap-2">
+                                    <BookOpen size={20} className="text-indigo-600" />
+                                    Refleksjonsoppgaver
+                                </span>
+                                <span className="transform group-open:rotate-180 transition-transform duration-200">
+                                    ▼
+                                </span>
+                            </summary>
+                            <div className="px-6 pb-6 pt-2 text-slate-700">
+                                <ol className="list-decimal list-outside ml-5 space-y-4">
+                                    {textEntry.reflectionTasks.map((task, index) => (
+                                        <li key={index} className="pl-2">
+                                            {task}
+                                        </li>
+                                    ))}
+                                </ol>
+                            </div>
+                        </details>
+                    </div>
+                )}
+
                 {textEntry.theme && (
                     <footer className="mt-16 pt-8 border-t border-slate-100">
                         <div className="flex flex-wrap gap-2 text-slate-500 text-sm">

@@ -10,6 +10,7 @@ export interface TextEntry {
     publishedYear?: number;
     createdDate?: string;
     definitions?: { term: string; definition: string }[];
+    reflectionTasks?: string[];
 }
 
 export const textLibraryData: TextEntry[] = [
@@ -26,6 +27,16 @@ export const textLibraryData: TextEntry[] = [
             "Det er lenge til eg skal døy,\nhar eg bestemt.\nDet er mykje eg skal ha gjort\nfør den tid,\nmange jenter eg skal kysse\nog gifte meg med,\nmange land eg skal besøke\nog hav eg skal symje i.",
             "Og når døden ein dag kjem\ni den store svarte bilen sin,\nskal eg først be han inn\npå ein kopp svart kaffi\nfør vi set oss inn i bilen og kjører.",
             "Og når døden snur seg mot meg\nog spør: No, har du fått\ngjort alt du skulle?\nskal eg svare fornøgd:\nJa, det har eg."
+        ],
+        reflectionTasks: [
+            "Forklar motivet/handlingen i diktet med egne ord.",
+            "Hvor gammel tror du jeg-personen i diktet er? Hvorfor?",
+            "Hva mener du diktet handler om, hva er tema? Kan det være noe mer enn døden?",
+            "Hvordan blir døden beskrevet i diktet?",
+            "Hva tror du det kan bety at jeg-personen blir med døden inn i den svarte bilen, og at de kjører?",
+            "Hva er det jeg-personen ønsker å ha gjort når døden kommer?",
+            "Hvilke ulike teorier om hva som skjer når vi dør, kjenner du til? Hva tror du vil skje?",
+            "Fargen svart er nevnt flere ganger. Hva pleier denne fargen å symbolisere?"
         ]
     },
     {
