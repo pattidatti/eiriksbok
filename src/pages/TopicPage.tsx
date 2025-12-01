@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { fetchManifest } from '../utils/contentLoader';
-import type { ManifestSubject, ManifestTopic, ManifestSubTopic, ManifestLesson } from '../types';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
+import { useManifest } from '../hooks/useManifest';
+import type { ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
 import { LessonCard } from '../components/LessonCard';
 import { TopicCard } from '../components/TopicCard';
@@ -14,6 +14,7 @@ import { TopicInteractiveModel } from '../components/TopicInteractiveModel';
 import { LessonPage } from './LessonPage';
 import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { PageSkeleton } from '../components/Skeleton';
 
 type ViewMode = 'grid' | 'list';
 type SortMode = 'alphabetical' | 'year' | 'newest';
@@ -21,44 +22,31 @@ type SortMode = 'alphabetical' | 'year' | 'newest';
 export const TopicPage: React.FC = () => {
     const { subjectId, topicId, subTopicId } = useParams<{ subjectId: string; topicId: string; subTopicId?: string }>();
     const navigate = useNavigate();
-    const [subjectData, setSubjectData] = useState<ManifestSubject | null>(null);
-    const [currentTopic, setCurrentTopic] = useState<ManifestTopic | null>(null);
-    const [currentSubTopic, setCurrentSubTopic] = useState<ManifestSubTopic | null>(null);
+    const location = useLocation();
+    const { data: manifest, isLoading } = useManifest();
     const { addToHistory } = useUserHistory();
 
     const [viewMode, setViewMode] = useState<ViewMode>('grid');
     const [sortMode, setSortMode] = useState<SortMode>('alphabetical');
 
-    usePageTitle(currentSubTopic?.title || currentTopic?.title || 'Emne');
+    const subjectData = manifest?.subjects.find((s: any) => s.id === subjectId);
+    const currentTopic = subjectData?.topics.find((t: any) => t.id === topicId);
+    const currentSubTopic = currentTopic?.subTopics?.find((st: any) => st.id === subTopicId);
+
+    usePageTitle(currentSubTopic?.title || currentTopic?.title || 'Emne', !!currentTopic);
 
     useEffect(() => {
-        fetchManifest().then(manifest => {
-            if (manifest && subjectId) {
-                const subject = manifest.subjects.find(s => s.id === subjectId);
-                setSubjectData(subject || null);
+        if (currentTopic && !subTopicId && subjectId) {
+            addToHistory({
+                id: currentTopic.id,
+                title: currentTopic.title,
+                subjectId: subjectId,
+                type: 'topic'
+            });
+        }
+    }, [currentTopic, subTopicId, subjectId]);
 
-                if (subject && topicId) {
-                    const topic = subject.topics.find(t => t.id === topicId);
-                    setCurrentTopic(topic || null);
-
-                    if (topic && subTopicId && topic.subTopics) {
-                        const sub = topic.subTopics.find(st => st.id === subTopicId);
-                        setCurrentSubTopic(sub || null);
-                    }
-
-                    if (topic && !subTopicId) {
-                        addToHistory({
-                            id: topic.id,
-                            title: topic.title,
-                            subjectId: subjectId,
-                            type: 'topic'
-                        });
-                    }
-                }
-            }
-        });
-    }, [subjectId, topicId, subTopicId]);
-
+    if (isLoading) return <PageSkeleton />;
     if (!subjectData || !currentTopic) return <div className="p-8 text-center text-text-muted">Laster emne...</div>;
 
     if (subTopicId === 'lange-linjer') {
@@ -89,7 +77,7 @@ export const TopicPage: React.FC = () => {
 
     // Sorting Logic
     const sortLessons = (lessons: ManifestLesson[]) => {
-        return [...lessons].sort((a, b) => {
+        return [...lessons].sort((a: any, b: any) => {
             if (sortMode === 'alphabetical') return a.title.localeCompare(b.title);
             if (sortMode === 'year') {
                 const dateA = a.date || '9999';
@@ -113,7 +101,7 @@ export const TopicPage: React.FC = () => {
     const tagFilter = queryParams.get('tag');
 
     const filteredLessons = tagFilter
-        ? sortedLessons.filter(l => l.tags?.includes(tagFilter))
+        ? sortedLessons.filter((l: any) => l.tags?.includes(tagFilter))
         : sortedLessons;
 
     return (
@@ -184,7 +172,7 @@ export const TopicPage: React.FC = () => {
                 <div className="mb-12">
                     <h2 className="text-2xl font-display font-bold text-text-main mb-6">Verktøy & Ressurser</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {activeItem.tools.map((tool) => (
+                        {activeItem.tools.map((tool: any) => (
                             <Link
                                 key={tool.id}
                                 to={tool.link}
@@ -220,7 +208,7 @@ export const TopicPage: React.FC = () => {
                 <div className="mb-12">
                     <h2 className="text-2xl font-display font-bold text-text-main mb-6">Emner</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {subTopics.map((subTopic, index) => (
+                        {subTopics.map((subTopic: any, index: number) => (
                             <motion.div
                                 key={subTopic.id}
                                 initial={{ opacity: 0, y: 20 }}

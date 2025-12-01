@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
+import { PrefetchLink } from './PrefetchLink';
 import { SearchOverlay } from './SearchOverlay';
 import { Breadcrumbs } from './Breadcrumbs';
 
@@ -27,11 +28,11 @@ export const Layout: React.FC = () => {
                     </Link>
 
                     <nav className="hidden md:flex items-center space-x-8">
-                        <Link to="/norsk" className={`text-sm transition-colors ${isActive('/norsk')}`}>Norsk</Link>
-                        <Link to="/samfunnskunnskap" className={`text-sm transition-colors ${isActive('/samfunnskunnskap')}`}>Samfunnskunnskap</Link>
-                        <Link to="/historie" className={`text-sm transition-colors ${isActive('/historie')}`}>Historie</Link>
-                        <Link to="/krle" className={`text-sm transition-colors ${isActive('/krle')}`}>KRLE</Link>
-                        <Link to="/musikk" className={`text-sm transition-colors ${isActive('/musikk')}`}>Musikk</Link>
+                        <PrefetchLink to="/norsk" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/norsk')}`}>Norsk</PrefetchLink>
+                        <PrefetchLink to="/samfunnskunnskap" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/samfunnskunnskap')}`}>Samfunnskunnskap</PrefetchLink>
+                        <PrefetchLink to="/historie" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/historie')}`}>Historie</PrefetchLink>
+                        <PrefetchLink to="/krle" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/krle')}`}>KRLE</PrefetchLink>
+                        <PrefetchLink to="/musikk" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/musikk')}`}>Musikk</PrefetchLink>
                     </nav>
 
                     <div className="flex items-center">

@@ -15,47 +15,55 @@ Her er 20 konkrete forslag til forbedringer basert på en gjennomgang av koden, 
 
 ## Ytelse og Optimalisering
 
-5.  **Bildeoptimalisering**:
-    *   Implementer en `<Image />` komponent som bruker `loading="lazy"` og håndterer "blur-up" placeholders. Mange bilder lastes fra Unsplash; disse kan optimaliseres med URL-parametere for størrelse.
+5.  **Bildeoptimalisering** (Implementert):
+    *   Implementert en `<Image />` komponent som bruker `loading="lazy"` og håndterer "blur-up" placeholders.
 6.  **React Query / SWR**:
     *   Bruk et bibliotek som TanStack Query for datahenting (`fetchManifest`). Dette gir caching, auto-refetching, og bedre håndtering av loading/error states ut av boksen.
-7.  **Code Splitting**:
+7.  **Code Splitting** (Implementert):
     *   Bruk `React.lazy` og `Suspense` for å laste tunge sider (som `TopicPage` eller `LessonPage`) kun når brukeren navigerer til dem. Dette reduserer initiell lastetid.
 8.  **Virtualisering av lister**:
     *   Hvis lister med leksjoner eller bibliotektekster blir lange, vurder `react-window` for å kun rendre elementene som er synlige i skjermbildet.
+9.  **Prefetching av ruter** (Implementert):
+    *   Implementert `PrefetchLink` som laster koden for neste side i bakgrunnen når brukeren holder musen over lenken.
+10. **Bundle Analysis**:
+    *   Legg til `rollup-plugin-visualizer` i byggeprosessen for å se nøyaktig hvilke biblioteker som tar plass, og fjern eller bytt ut unødvendig store avhengigheter.
+11. **Optimalisering av fonter** (Verifisert):
+    *   Sørg for at webfonter bruker `font-display: swap` for å vise tekst umiddelbart (allerede på plass i index.html).
+12. **Memoization** (Implementert):
+    *   Brukt `React.memo` på `LessonCard` for å hindre unødvendige re-renders.
 
 ## Brukeropplevelse (UX) og Design
-
-9.  **Avansert Søk**:
+ 
+13. **Avansert Søk**:
     *   Oppgrader `SearchOverlay` med fuzzy search (f.eks. `fuse.js`) for å håndtere skrivefeil. Legg til filtrering på fag og type (artikkel, video, oppgave).
-10. **Dark Mode**:
+14. **Dark Mode**:
     *   Utvid Tailwind-konfigurasjonen til å støtte `dark:` klasser fullt ut, og legg til en toggle i `Layout` for å la brukeren velge tema.
-11. **Brødsmulesti (Breadcrumbs)**:
+15. **Brødsmulesti (Breadcrumbs)**:
     *   Sørg for at `Breadcrumbs`-komponenten håndterer alle nivåer korrekt, inkludert dype nøstinger i `subTopics`, for enklere navigering tilbake.
-12. **Bedre Loading Skeletons**:
-    *   I stedet for "Laster fag...", lag en "Skeleton"-komponent som viser grå bokser der innholdet vil komme. Dette oppleves raskere for brukeren.
-13. **404 Side**:
-    *   Lag en dedikert "Fant ikke siden"-komponent med en hyggelig melding og lenke tilbake til forsiden, i stedet for standard ruting-feil.
-
+16. **Bedre Loading Skeletons** (Implementert):
+    *   Implementert `Skeleton` og `PageSkeleton` komponenter som viser grå bokser mens innholdet laster.
+17. **404 Side** (Implementert):
+    *   Laget en dedikert "Fant ikke siden"-komponent med en hyggelig melding og lenke tilbake til forsiden.
+ 
 ## Funksjonalitet
-
-14. **Bokmerker / Favoritter**:
+ 
+18. **Bokmerker / Favoritter**:
     *   Utvid `useUserHistory` til å også støtte "Favoritter". La brukere stjernemarkere artikler de vil finne tilbake til.
-15. **Progress Tracking**:
+19. **Progress Tracking**:
     *   Vis en visuell indikator (f.eks. en grønn hake eller progress bar) på `LessonCard` for artikler brukeren har lest ferdig.
-16. **PWA (Progressive Web App)**:
+20. **PWA (Progressive Web App)**:
     *   Legg til `vite-plugin-pwa` for å gjøre nettsiden installerbar som en app og støtte offline-lesing. Perfekt for skolebruk.
-
+ 
 ## DevOps og Testing
-
-17. **Testing med Vitest**:
+ 
+21. **Testing med Vitest**:
     *   Sett opp `vitest` og `react-testing-library`. Skriv enkle tester for kritiske komponenter som `LessonCard` og `manifest` parsing-logikken.
-18. **CI/CD Pipeline**:
+22. **CI/CD Pipeline**:
     *   Lag en GitHub Action workflow som kjører `npm run lint` og `npm run build` ved hver push for å fange opp feil tidlig.
-19. **Automatisert Link-sjekk**:
+23. **Automatisert Link-sjekk**:
     *   Lag et script som går gjennom `manifest.json` og sjekker at alle interne lenker peker til eksisterende ID-er, og at eksterne bilder laster.
-
+ 
 ## Innhold
-
-20. **Deling av Manifestet**:
+ 
+24. **Deling av Manifestet**:
     *   `manifest.json` er over 400 linjer. Vurder å splitte den opp i flere filer (f.eks. `norsk.json`, `historie.json`) og merge dem ved build-time eller runtime for bedre oversikt.

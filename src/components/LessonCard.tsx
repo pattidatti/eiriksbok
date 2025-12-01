@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { ManifestLesson } from '../types';
 import { Clock } from 'lucide-react';
-import { ImageWithFallback } from './ImageWithFallback';
+import { Image as LazyImage } from './Image';
 
 interface LessonCardProps {
     lesson: ManifestLesson;
@@ -12,7 +12,7 @@ interface LessonCardProps {
     topicImage?: string;
 }
 
-export const LessonCard: React.FC<LessonCardProps & { badgeText?: string }> = ({ lesson, path, topicTitle, topicImage, badgeText }) => {
+export const LessonCard = React.memo<LessonCardProps & { badgeText?: string }>(({ lesson, path, topicTitle, topicImage, badgeText }) => {
     const displayImage = lesson.image || topicImage;
 
     return (
@@ -23,7 +23,7 @@ export const LessonCard: React.FC<LessonCardProps & { badgeText?: string }> = ({
             >
                 {/* Image Area */}
                 <div className="h-32 relative overflow-hidden">
-                    <ImageWithFallback
+                    <LazyImage
                         src={displayImage}
                         alt={lesson.title}
                         seed={lesson.title}
@@ -77,4 +77,4 @@ export const LessonCard: React.FC<LessonCardProps & { badgeText?: string }> = ({
             </motion.div>
         </Link>
     );
-};
+});

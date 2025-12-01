@@ -36,6 +36,8 @@ export const TextLibraryPage: React.FC = () => {
     const selectedTheme = searchParams.get('theme');
     const selectedPeriod = searchParams.get('period');
 
+    const hasActiveFilters = searchTerm || selectedGenre || selectedTheme || selectedPeriod;
+
     const updateFilter = (key: string, value: string | null) => {
         const newParams = new URLSearchParams(searchParams);
         if (value) {
@@ -98,11 +100,11 @@ export const TextLibraryPage: React.FC = () => {
                         Utforsk et utvalg av noveller, romanutdrag og andre tekster til bruk i norskfaget.
                     </p>
                 </div>
-                
+
                 {/* Sorting Controls */}
                 <div className="flex items-center gap-2 bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
                     <span className="text-sm font-medium text-slate-500 pl-2">Sorter etter:</span>
-                    <select 
+                    <select
                         value={sortOption}
                         onChange={(e) => setSortOption(e.target.value as any)}
                         className="bg-transparent text-sm font-semibold text-slate-700 focus:outline-none cursor-pointer"
@@ -118,9 +120,19 @@ export const TextLibraryPage: React.FC = () => {
                 {/* Filters Sidebar */}
                 <aside className="lg:col-span-1 space-y-8">
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                        <div className="flex items-center gap-2 mb-4 text-slate-900 font-bold">
-                            <Filter size={20} />
-                            <h2>Filter</h2>
+                        <div className="flex items-center justify-between mb-4">
+                            <div className="flex items-center gap-2 text-slate-900 font-bold">
+                                <Filter size={20} />
+                                <h2>Filter</h2>
+                            </div>
+                            {hasActiveFilters && (
+                                <button
+                                    onClick={() => setSearchParams({})}
+                                    className="text-xs font-medium text-indigo-600 hover:text-indigo-800 hover:underline transition-colors"
+                                >
+                                    Nullstill
+                                </button>
+                            )}
                         </div>
 
                         {/* Search */}
@@ -139,7 +151,17 @@ export const TextLibraryPage: React.FC = () => {
 
                         {/* Genre Filter */}
                         <div className="mb-6">
-                            <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider mb-3">Sjanger</h3>
+                            <div className="flex items-center justify-between mb-3">
+                                <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider">Sjanger</h3>
+                                {selectedGenre && (
+                                    <button
+                                        onClick={() => updateFilter('genre', null)}
+                                        className="text-xs font-medium text-indigo-600 hover:text-indigo-800 hover:underline transition-colors"
+                                    >
+                                        Nullstill
+                                    </button>
+                                )}
+                            </div>
                             <div className="space-y-2">
                                 <button
                                     onClick={() => updateFilter('genre', null)}
@@ -161,7 +183,17 @@ export const TextLibraryPage: React.FC = () => {
 
                         {/* Period Filter */}
                         <div className="mb-6">
-                            <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider mb-3">Periode</h3>
+                            <div className="flex items-center justify-between mb-3">
+                                <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider">Periode</h3>
+                                {selectedPeriod && (
+                                    <button
+                                        onClick={() => updateFilter('period', null)}
+                                        className="text-xs font-medium text-indigo-600 hover:text-indigo-800 hover:underline transition-colors"
+                                    >
+                                        Nullstill
+                                    </button>
+                                )}
+                            </div>
                             <div className="space-y-2">
                                 <button
                                     onClick={() => updateFilter('period', null)}
@@ -183,7 +215,17 @@ export const TextLibraryPage: React.FC = () => {
 
                         {/* Theme Filter */}
                         <div>
-                            <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider mb-3">Tema</h3>
+                            <div className="flex items-center justify-between mb-3">
+                                <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider">Tema</h3>
+                                {selectedTheme && (
+                                    <button
+                                        onClick={() => updateFilter('theme', null)}
+                                        className="text-xs font-medium text-indigo-600 hover:text-indigo-800 hover:underline transition-colors"
+                                    >
+                                        Nullstill
+                                    </button>
+                                )}
+                            </div>
                             <div className="flex flex-wrap gap-2">
                                 {themes.map(theme => (
                                     <button

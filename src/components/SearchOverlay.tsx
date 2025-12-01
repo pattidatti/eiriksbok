@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { fetchManifest } from '../utils/contentLoader';
-import { textLibraryData } from '../data/textLibraryData';
-import type { Manifest, ManifestLesson } from '../types';
+import { useManifest } from '../hooks/useManifest';
+import type { ManifestLesson } from '../types';
 import { Search, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { textLibraryData } from '../data/textLibraryData';
 
 interface SearchOverlayProps {
     isOpen: boolean;
@@ -21,12 +21,8 @@ interface SearchResult {
 export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState<SearchResult[]>([]);
-    const [manifest, setManifest] = useState<Manifest | null>(null);
     const inputRef = useRef<HTMLInputElement>(null);
-
-    useEffect(() => {
-        fetchManifest().then(setManifest);
-    }, []);
+    const { data: manifest } = useManifest();
 
     useEffect(() => {
         if (isOpen && inputRef.current) {
@@ -85,7 +81,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                         });
                     });
                 } else if (topic.lessons) {
-                    topic.lessons.forEach(lesson => {
+                    topic.lessons.forEach((lesson: any) => {
                         processLesson(lesson, `/${subject.id}/${topic.id}/${lesson.id}`);
                     });
                 }

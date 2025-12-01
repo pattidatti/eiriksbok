@@ -1,40 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { fetchManifest } from '../utils/contentLoader';
-import type { ManifestSubject, ManifestLesson } from '../types';
+import { useManifest } from '../hooks/useManifest';
+import type { ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
 import { Timeline } from '../components/Timeline';
 import { TopicCard } from '../components/TopicCard';
 import { LayoutGrid, List } from 'lucide-react';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { getTopicLink } from '../utils/navigationUtils';
+import { PageSkeleton } from '../components/Skeleton';
 
 export const SubjectPage: React.FC = () => {
     const { subjectId } = useParams<{ subjectId: string }>();
-    const [subjectData, setSubjectData] = useState<ManifestSubject | null>(null);
+    const { data: manifest, isLoading } = useManifest();
     const [viewMode, setViewMode] = useState<'hierarchical' | 'timeline'>('hierarchical');
     const navigate = useNavigate();
 
-    usePageTitle(subjectData?.title || 'Fag');
+    const subjectData = manifest?.subjects.find((s: any) => s.id === subjectId);
 
-    useEffect(() => {
-        fetchManifest().then(manifest => {
-            if (manifest && subjectId) {
-                const subject = manifest.subjects.find(s => s.id === subjectId);
-                setSubjectData(subject || null);
-            }
-        });
-    }, [subjectId]);
+    usePageTitle(subjectData?.title || 'Fag', !!subjectData);
 
+    if (isLoading) return <PageSkeleton />;
     if (!subjectData) return <div className="p-8 text-center text-text-muted">Finner ikke faget...</div>;
 
     // Flatten lessons for timeline
     const allLessons: (ManifestLesson & { path: string; topicTitle: string; topicImage?: string })[] = [];
-    subjectData.topics.forEach(topic => {
+    subjectData.topics.forEach((topic: any) => {
         if (topic.subTopics) {
-            topic.subTopics.forEach(subTopic => {
+            topic.subTopics.forEach((subTopic: any) => {
                 if (subTopic.lessons) {
-                    subTopic.lessons.forEach(lesson => {
+                    subTopic.lessons.forEach((lesson: any) => {
                         allLessons.push({
                             ...lesson,
                             path: `/${subjectId}/${topic.id}/${subTopic.id}/${lesson.id}`,
@@ -45,7 +40,7 @@ export const SubjectPage: React.FC = () => {
                 }
             });
         } else if (topic.lessons) {
-            topic.lessons.forEach(lesson => {
+            topic.lessons.forEach((lesson: any) => {
                 allLessons.push({
                     ...lesson,
                     path: `/${subjectId}/${topic.id}/${lesson.id}`,
@@ -105,7 +100,7 @@ export const SubjectPage: React.FC = () => {
                     {/* Tools Section */}
                     {subjectData.tools && subjectData.tools.length > 0 && (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {subjectData.tools.map((tool) => (
+                            {subjectData.tools.map((tool: any) => (
                                 <motion.div
                                     key={tool.id}
                                     initial={{ opacity: 0, y: 20 }}
@@ -134,11 +129,11 @@ export const SubjectPage: React.FC = () => {
 
                     {/* Topics Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {subjectData.topics.map((topic, index) => {
+                        {subjectData.topics.map((topic: any, index: number) => {
                             // Calculate total lessons
                             let lessonCount = 0;
                             if (topic.subTopics) {
-                                topic.subTopics.forEach(st => lessonCount += st.lessons?.length || 0);
+                                topic.subTopics.forEach((st: any) => lessonCount += st.lessons?.length || 0);
                             } else if (topic.lessons) {
                                 lessonCount = topic.lessons.length;
                             }

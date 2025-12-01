@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchLesson, fetchManifest } from '../utils/contentLoader';
-import type { Lesson, ManifestLesson, ContentBlock } from '../types';
+import { useManifest } from '../hooks/useManifest';
+import { useLesson } from '../hooks/useLesson';
+import type { ManifestLesson, ContentBlock } from '../types';
 import { ConceptCard } from '../components/ConceptCard';
 import { ContextBuilder } from '../components/ContextBuilder';
 import { Quiz } from '../components/Quiz';
@@ -33,61 +34,50 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const lessonId = lessonIdOverride || params.lessonId || '';
     const subTopicId = lessonIdOverride ? undefined : params.subTopicId;
 
-    const [lesson, setLesson] = useState<Lesson | null>(null);
+    const { data: manifest } = useManifest();
+    const { data: lesson, isLoading: lessonLoading } = useLesson(subjectId, topicId, lessonId, subTopicId);
+
     const [lessonImage, setLessonImage] = useState<string | undefined>(undefined);
-    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const { addToHistory } = useUserHistory();
 
-    usePageTitle(lesson?.title || 'Leksjon');
+    usePageTitle(lesson?.title || 'Leksjon', !!lesson);
 
     useEffect(() => {
-        if (subjectId && topicId && lessonId) {
-            setLoading(true);
-
-            // Load lesson content
-            fetchLesson(subjectId, topicId, lessonId, subTopicId).then(data => {
-                setLesson(data);
-                setLoading(false);
-                if (data) {
-                    addToHistory({
-                        id: data.id,
-                        title: data.title,
-                        subjectId: (data.subject || subjectId).toLowerCase(),
-                        type: 'lesson'
-                    });
-                }
-            }).catch(err => {
-                console.error('Error fetching lesson:', err);
-                setLoading(false);
-            });
-
-
-            // Load manifest to get image
-            fetchManifest().then(manifest => {
-                if (manifest) {
-                    const subject = manifest.subjects.find(s => s.id === subjectId);
-                    const topic = subject?.topics.find(t => t.id === topicId);
-                    let foundLesson: ManifestLesson | undefined;
-                    let topicImg = topic?.image;
-
-                    if (subTopicId && topic?.subTopics) {
-                        const subTopic = topic.subTopics.find(st => st.id === subTopicId);
-                        foundLesson = subTopic?.lessons.find(l => l.id === lessonId);
-                        topicImg = subTopic?.image || topicImg;
-                    } else if (topic?.lessons) {
-                        foundLesson = topic.lessons.find(l => l.id === lessonId);
-                    }
-
-                    if (foundLesson?.image) {
-                        setLessonImage(foundLesson.image);
-                    } else if (topicImg) {
-                        setLessonImage(topicImg);
-                    }
-                }
+        if (lesson) {
+            addToHistory({
+                id: lesson.id,
+                title: lesson.title,
+                subjectId: (lesson.subject || subjectId).toLowerCase(),
+                type: 'lesson'
             });
         }
-    }, [subjectId, topicId, subTopicId, lessonId]);
+    }, [lesson, subjectId, addToHistory]);
+
+    useEffect(() => {
+        if (manifest && subjectId && topicId && lessonId) {
+            const subject = manifest.subjects.find(s => s.id === subjectId);
+            const topic = subject?.topics.find(t => t.id === topicId);
+            let foundLesson: ManifestLesson | undefined;
+            let topicImg = topic?.image;
+
+            if (subTopicId && topic?.subTopics) {
+                const subTopic = topic.subTopics.find(st => st.id === subTopicId);
+                foundLesson = subTopic?.lessons.find((l: any) => l.id === lessonId);
+                topicImg = subTopic?.image || topicImg;
+            } else if (topic?.lessons) {
+                foundLesson = topic.lessons.find((l: any) => l.id === lessonId);
+            }
+
+            if (foundLesson?.image) {
+                setLessonImage(foundLesson.image);
+            } else if (topicImg) {
+                setLessonImage(topicImg);
+            }
+        }
+    }, [manifest, subjectId, topicId, subTopicId, lessonId]);
+
+    const loading = lessonLoading;
 
     if (loading) return <div className="p-8 text-center">Laster leksjon...</div>;
 
@@ -251,7 +241,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                             Begreper
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {lesson.concepts?.map(concept => (
+                            {lesson.concepts?.map((concept: any) => (
                                 <ConceptCard key={concept.id} concept={concept} />
                             ))}
                         </div>
