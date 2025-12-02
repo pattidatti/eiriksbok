@@ -28,7 +28,9 @@ Filen `public/content/manifest.json` er "hjernen" som styrer hva som vises på n
             {
               "id": "rikssamlingen",
               "title": "Rikssamlingen",
-              "contentPath": "/content/historie/vikingtiden/rikssamlingen.json"
+              "description": "Harald Hårfagre samler Norge.",
+              "image": "/images/rikssamlingen.jpg",
+              "tags": ["vikingtiden", "konger"]
             }
           ]
         }

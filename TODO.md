@@ -18,3 +18,4 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 ## ✅ Ferdig
 - [x] Opprettet denne filen
+- [x] Fikset hierarkiet for Litteraturhistorie (Nasjonalromantikken, Realismen, Nyromantikken, Nyrealismen)
