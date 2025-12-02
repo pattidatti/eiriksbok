@@ -1,0 +1,335 @@
+{
+    "id": "7-vanlige-plot",
+    "title": "De 7 grunnleggende plottene",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "layout": "rich",
+    "heroImage": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
+    "content": [
+        {
+            "type": "text",
+            "content": "Christopher Booker hevder i sin bok *The Seven Basic Plots* at alle historier i verden kan kokes ned til syv grunnleggende mønstre. Å kjenne til disse kan være et fantastisk verktøy når du står fast i skrivingen din, eller når du vil forstå hvorfor favorittfilmene dine fungerer som de gjør."
+        },
+        {
+            "type": "section",
+            "title": "1. Overvinne monsteret (Overcoming the Monster)",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Helten må bekjempe en ond kraft som truer helten selv, hjemstedet eller verden. Det er en kamp mellom det gode og det onde, hvor helten ofte er underlegen, men vinner gjennom mot og list."
+                },
+                {
+                    "type": "text",
+                    "content": "**Eksempler:** *Beowulf*, *Jaws*, *Star Wars (A New Hope)*, *Harry Potter*."
+                },
+                {
+                    "type": "component",
+                    "name": "PlotGraph",
+                    "props": {
+                        "title": "Overvinne monsteret - Spenningskurve",
+                        "description": "Helten møter motstand, oppnår en foreløpig seier, møter monsteret i en avgjørende kamp, og vinner til slutt.",
+                        "points": [
+                            {
+                                "x": 0,
+                                "y": 50
+                            },
+                            {
+                                "x": 20,
+                                "y": 60
+                            },
+                            {
+                                "x": 40,
+                                "y": 70
+                            },
+                            {
+                                "x": 60,
+                                "y": 30
+                            },
+                            {
+                                "x": 80,
+                                "y": 10
+                            },
+                            {
+                                "x": 100,
+                                "y": 90
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "2. Fra fattig til rik (Rags to Riches)",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "En hovedperson fra enkle kår oppnår noe stort (rikdom, makt, kjærlighet), mister det nesten igjen, men vinner det tilbake for godt etter å ha vokst som menneske."
+                },
+                {
+                    "type": "text",
+                    "content": "**Eksempler:** *Askepott*, *Aladdin*, *Jane Eyre*, *Den stygge andungen*."
+                },
+                {
+                    "type": "component",
+                    "name": "PlotGraph",
+                    "props": {
+                        "title": "Fra fattig til rik - Lykkekurve",
+                        "description": "En jevn stigning, et tilbakeslag når helten må bevise sin verdi, og til slutt fullbyrdelse.",
+                        "points": [
+                            {
+                                "x": 0,
+                                "y": 10
+                            },
+                            {
+                                "x": 30,
+                                "y": 40
+                            },
+                            {
+                                "x": 60,
+                                "y": 20
+                            },
+                            {
+                                "x": 80,
+                                "y": 80
+                            },
+                            {
+                                "x": 100,
+                                "y": 100
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "3. Oppdraget (The Quest)",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Helten (ofte sammen med følgesvenner) legger ut på en reise for å finne et objekt, nå et sted eller oppfylle et mål. Veien er full av hindringer og fristelser."
+                },
+                {
+                    "type": "text",
+                    "content": "**Eksempler:** *Ringenes Herre*, *Odysseen*, *Indiana Jones*."
+                },
+                {
+                    "type": "component",
+                    "name": "PlotGraph",
+                    "props": {
+                        "title": "Oppdraget - Reisekurve",
+                        "description": "Reisen starter, møter store utfordringer (Ordeal), og ender med måloppnåelse.",
+                        "points": [
+                            {
+                                "x": 0,
+                                "y": 50
+                            },
+                            {
+                                "x": 20,
+                                "y": 60
+                            },
+                            {
+                                "x": 50,
+                                "y": 20
+                            },
+                            {
+                                "x": 80,
+                                "y": 10
+                            },
+                            {
+                                "x": 100,
+                                "y": 100
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "4. Reise og retur (Voyage and Return)",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Helten reiser til en fremmed verden som er annerledes enn hjemme. Først er det spennende, men så blir det farlig, og helten må rømme tilbake til sin egen verden, ofte klokere enn før."
+                },
+                {
+                    "type": "text",
+                    "content": "**Eksempler:** *Alice i Eventyrland*, *Trollmannen fra Oz*, *Narnia*."
+                },
+                {
+                    "type": "component",
+                    "name": "PlotGraph",
+                    "props": {
+                        "title": "Reise og retur - Spenningskurve",
+                        "description": "Fascinasjon over det nye, som går over i frustrasjon og mareritt, før returen til normalen.",
+                        "points": [
+                            {
+                                "x": 0,
+                                "y": 50
+                            },
+                            {
+                                "x": 20,
+                                "y": 60
+                            },
+                            {
+                                "x": 40,
+                                "y": 70
+                            },
+                            {
+                                "x": 60,
+                                "y": 40
+                            },
+                            {
+                                "x": 80,
+                                "y": 10
+                            },
+                            {
+                                "x": 100,
+                                "y": 50
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "5. Komedie (Comedy)",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Ikke nødvendigvis 'morsom', men en historie preget av forvirring, misforståelser og kaos som til slutt løses opp i harmoni og klarhet. Ofte ender det med bryllup eller fest."
+                },
+                {
+                    "type": "text",
+                    "content": "**Eksempler:** *En midtsommernattsdrøm*, *Bridget Jones' dagbok*, *Stolthet og fordom*."
+                },
+                {
+                    "type": "component",
+                    "name": "PlotGraph",
+                    "props": {
+                        "title": "Komedie - Forvirringskurve",
+                        "description": "Ting blir verre og mer komplisert før knuten løses opp til slutt.",
+                        "points": [
+                            {
+                                "x": 0,
+                                "y": 40
+                            },
+                            {
+                                "x": 30,
+                                "y": 30
+                            },
+                            {
+                                "x": 60,
+                                "y": 10
+                            },
+                            {
+                                "x": 80,
+                                "y": 50
+                            },
+                            {
+                                "x": 100,
+                                "y": 90
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "6. Tragedie (Tragedy)",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Det motsatte av 'Fra fattig til rik'. Helten har ofte en fatal svakhet (hubris) som fører til deres undergang. Vi følger ferden mot den uunngåelige katastrofen."
+                },
+                {
+                    "type": "text",
+                    "content": "**Eksempler:** *Macbeth*, *Romeo og Julie*, *Breaking Bad*."
+                },
+                {
+                    "type": "component",
+                    "name": "PlotGraph",
+                    "props": {
+                        "title": "Tragedie - Skjebnekurve",
+                        "description": "En opptur som snur til en bratt nedtur og endelig ødeleggelse.",
+                        "points": [
+                            {
+                                "x": 0,
+                                "y": 40
+                            },
+                            {
+                                "x": 30,
+                                "y": 80
+                            },
+                            {
+                                "x": 50,
+                                "y": 90
+                            },
+                            {
+                                "x": 80,
+                                "y": 20
+                            },
+                            {
+                                "x": 100,
+                                "y": 0
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "7. Gjenfødelse (Rebirth)",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Helten er fanget av en mørk kraft (eller sin egen skygge), og ser ut til å være tapt, men blir reddet eller finner styrke til å forandre seg i siste liten."
+                },
+                {
+                    "type": "text",
+                    "content": "**Eksempler:** *Skjønnheten og udyret*, *En julefortelling*, *Grusomme meg*."
+                },
+                {
+                    "type": "component",
+                    "name": "PlotGraph",
+                    "props": {
+                        "title": "Gjenfødelse - Forløsningskurve",
+                        "description": "Fanget i mørket, men stiger mot lyset gjennom forandring.",
+                        "points": [
+                            {
+                                "x": 0,
+                                "y": 40
+                            },
+                            {
+                                "x": 30,
+                                "y": 20
+                            },
+                            {
+                                "x": 60,
+                                "y": 10
+                            },
+                            {
+                                "x": 80,
+                                "y": 80
+                            },
+                            {
+                                "x": 100,
+                                "y": 90
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "tags": [
+        "skrivehjelp",
+        "plot",
+        "fortelleteknikk"
+    ]
+}

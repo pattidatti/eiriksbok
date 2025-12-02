@@ -1,14 +1,3 @@
-# Innholdsguide ✍️
-
-Denne guiden forklarer hvordan du legger til nytt innhold (fag, emner, leksjoner) i Gravity Lærebok.
-
-## 📂 Struktur
-
-Alt innhold ligger i `public/content`-mappen. Strukturen er hierarkisk:
-1.  **Fag** (f.eks. `historie`, `norsk`)
-2.  **Emner** (f.eks. `vikingtiden`, `romerriket`)
-3.  **Leksjoner/Artikler** (selve innholdet)
-
 ## 🗺️ Manifestet (`manifest.json`)
 
 Filen `public/content/manifest.json` er "hjernen" som styrer hva som vises på nettsiden.

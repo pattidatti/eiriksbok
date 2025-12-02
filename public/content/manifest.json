@@ -225,6 +225,17 @@
                                 "skrivehjelp",
                                 "roman"
                             ]
+                        },
+                        {
+                            "id": "7-vanlige-plot",
+                            "title": "7 vanlige plot",
+                            "description": "De syv grunnleggende historiene som alle fortellinger bygger på.",
+                            "image": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "skrivehjelp",
+                                "plot",
+                                "fortelleteknikk"
+                            ]
                         }
                     ]
                 }

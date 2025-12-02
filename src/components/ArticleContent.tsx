@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { GlossaryText } from './GlossaryText';
+import { AuthorLinker } from './AuthorLinker';
 
 import type { ContentBlock } from '../types';
 // import { DemographyPage } from '../pages/DemographyPage';
@@ -10,6 +11,7 @@ import { Quiz } from './Quiz';
 import { EICSimulation } from './EICSimulation';
 import { TimelineComponent } from './TimelineComponent';
 import { FactBox } from './FactBox';
+import { PlotGraph } from './PlotGraph';
 
 interface ArticleContentProps {
     content: ContentBlock[];
@@ -17,7 +19,7 @@ interface ArticleContentProps {
 
 export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
     const renderWithMarkdown = (text: string) => {
-        return text.split(/(\[.*?\]\(.*?\)| \*\*.*?\*\*|\*[^*]+?\*)/g).map((part, i) => {
+        return text.split(/(\[.*?\]\(.*?\)|(?:\*\*|__).*?(?:\*\*|__)|\*[^*]+?\*)/g).map((part, i) => {
             // Check for link
             const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
             if (linkMatch) {
@@ -39,16 +41,16 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
             }
 
             // Check for bold
-            if (part.startsWith('**') && part.endsWith('**')) {
-                return <strong key={i}><GlossaryText content={part.slice(2, -2)} /></strong>;
+            if ((part.startsWith('**') && part.endsWith('**')) || (part.startsWith('__') && part.endsWith('__'))) {
+                return <strong key={i}><AuthorLinker content={part.slice(2, -2)} /></strong>;
             }
 
             // Check for italic
             if (part.startsWith('*') && part.endsWith('*')) {
-                return <em key={i}><GlossaryText content={part.slice(1, -1)} /></em>;
+                return <em key={i}><AuthorLinker content={part.slice(1, -1)} /></em>;
             }
 
-            return <GlossaryText key={i} content={part} />;
+            return <AuthorLinker key={i} content={part} />;
         });
     };
 
@@ -138,6 +140,17 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                                         key={index}
                                         events={block.props?.events || []}
                                         title={block.props?.title}
+                                    />
+                                );
+                            case 'PlotGraph':
+                                return (
+                                    <PlotGraph
+                                        key={index}
+                                        points={block.props?.points || []}
+                                        title={block.props?.title}
+                                        description={block.props?.description}
+                                        xAxisLabel={block.props?.xAxisLabel}
+                                        yAxisLabel={block.props?.yAxisLabel}
                                     />
                                 );
                             default:
