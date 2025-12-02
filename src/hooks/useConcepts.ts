@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useManifest } from './useManifest';
 import { textLibraryData } from '../data/textLibraryData';
+import { glossaryTerms } from '../data/glossary';
 
 export interface ConceptItem {
     id: string;
@@ -66,19 +67,20 @@ export const useConcepts = () => {
             });
         });
 
-        // 2. Extract from Text Library
-        textLibraryData.forEach(text => {
-            // Assuming textLibraryData might have definitions in the future or mapping existing fields
-            // For now, we'll just check if there are any explicit definitions if we added them to the type
-            // But based on current types, textLibraryData doesn't have 'definitions'.
-            // If the user wants to extract concepts from library texts, we might need to add 'definitions' to TextEntry type too.
-            // For this demo, we'll skip library if it doesn't have definitions, or we can add a TODO.
+        // 2. Extract from Glossary (Global Terms)
+        glossaryTerms.forEach((item, index) => {
+            allConcepts.push({
+                id: `glossary-${index}`,
+                term: item.term,
+                definition: item.definition,
+                sourceType: 'library', // Treating glossary as library content for now
+                subjectId: item.subjectId,
+                topicId: item.topicId
+            });
+        });
 
-            // Checking if TextEntry has definitions (it currently doesn't in the file I saw, but I can check types if I need to).
-            // The user said "hente ut fagbegreper fra emnet og artiklene".
-            // Let's assume for now only lessons have explicit definitions as per my plan.
-            // If I need to add definitions to library texts, I'd need to update that data file too.
-            // I'll leave this placeholder for now.
+        // 3. Extract from Text Library (if needed in future)
+        textLibraryData.forEach(text => {
             if ((text as any).definitions) {
                 (text as any).definitions.forEach((def: any, index: number) => {
                     allConcepts.push({

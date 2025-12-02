@@ -146,8 +146,8 @@ export const TextReaderPage: React.FC = () => {
                                 <button
                                     onClick={() => setCurrentLanguage(textEntry.language || 'bm.')}
                                     className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${currentLanguage === (textEntry.language || 'bm.')
-                                            ? 'bg-white text-indigo-600 shadow-sm'
-                                            : 'text-slate-600 hover:text-slate-900'
+                                        ? 'bg-white text-indigo-600 shadow-sm'
+                                        : 'text-slate-600 hover:text-slate-900'
                                         }`}
                                 >
                                     {textEntry.language === 'bm.' ? 'Bokmål' : textEntry.language === 'nn.' ? 'Nynorsk' : textEntry.language}
@@ -157,8 +157,8 @@ export const TextReaderPage: React.FC = () => {
                                         key={t.language}
                                         onClick={() => setCurrentLanguage(t.language)}
                                         className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${currentLanguage === t.language
-                                                ? 'bg-white text-indigo-600 shadow-sm'
-                                                : 'text-slate-600 hover:text-slate-900'
+                                            ? 'bg-white text-indigo-600 shadow-sm'
+                                            : 'text-slate-600 hover:text-slate-900'
                                             }`}
                                     >
                                         {t.language}
@@ -168,6 +168,24 @@ export const TextReaderPage: React.FC = () => {
                         )}
                     </div>
                 </header>
+
+                {/* Genre Links Section */}
+                <div className="mb-12 flex flex-wrap gap-4 justify-center">
+                    <button
+                        onClick={() => navigate(`/norsk/tekstsjangre/${textEntry.genre.toLowerCase()}`)}
+                        className="flex items-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-lg hover:bg-indigo-100 transition-colors font-medium"
+                    >
+                        <BookOpen size={18} />
+                        Kjennetegn på {textEntry.genre.toLowerCase()}
+                    </button>
+                    <button
+                        onClick={() => navigate(`/norsk/skrivehjelp/hvordan-skrive-${textEntry.genre.toLowerCase()}`)}
+                        className="flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition-colors font-medium"
+                    >
+                        <User size={18} />
+                        Hvordan skrive {textEntry.genre.toLowerCase()}
+                    </button>
+                </div>
 
                 <div className="prose prose-lg prose-slate mx-auto font-serif">
                     {displayContent ? (
@@ -237,6 +255,6 @@ export const TextReaderPage: React.FC = () => {
                     </footer>
                 )}
             </motion.article>
-        </div>
+        </div >
     );
 };

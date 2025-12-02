@@ -8,7 +8,32 @@
     "content": [
         {
             "type": "text",
-            "content": "En roman er en lengre, oppdiktet fortelling. Den er en av de tre hovedsjangrene innenfor skjønnlitteraturen (sammen med dikt og skuespill).\n\nI motsetning til novellen, som er kort og konsentrert, gir romanen rom for fordypning. Den kan ha mange personer, flere parallelle handlinger, og strekke seg over lang tid – noen ganger flere generasjoner.\n\nKjennetegn på en roman:\n- Lang tekst (boklengde)\n- Flere personer og karakterutvikling\n- Mer kompleks handling\n- Kan foregå over lang tid\n- Detaljerte miljøskildringer"
+            "content": "Romanen er den store fortellingen. Her er det plass til mange personer, flere handlingstråder og dypdykk i tanker og følelser."
+        },
+        {
+            "type": "section",
+            "title": "Kjennetegn",
+            "content": [
+                {
+                    "type": "list",
+                    "items": [
+                        "Lang tekst",
+                        "Mange personer og miljøer",
+                        "Utvikling over tid",
+                        "Parallelle handlinger",
+                        "Detaljerte beskrivelser"
+                    ]
+                }
+            ]
         }
-    ]
+    ],
+    "tags": [
+        "skjønnlitteratur",
+        "fortelling",
+        "bok"
+    ],
+    "relatedLink": {
+        "text": "Hvordan skrive roman",
+        "url": "/norsk/skrivehjelp/hvordan-skrive-roman"
+    }
 }

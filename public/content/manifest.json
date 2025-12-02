@@ -38,6 +38,28 @@
                     "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
+                            "id": "novelle",
+                            "title": "Novelle",
+                            "description": "Korte fortellinger med en tydelig konflikt.",
+                            "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "skjønnlitteratur",
+                                "fortelling",
+                                "korthistorie"
+                            ]
+                        },
+                        {
+                            "id": "eventyr",
+                            "title": "Eventyr",
+                            "description": "Folkediktning full av magi og overnaturlige vesener.",
+                            "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "skjønnlitteratur",
+                                "eventyr",
+                                "folkediktning"
+                            ]
+                        },
+                        {
                             "id": "roman",
                             "title": "Roman",
                             "description": "Lengre fortellinger som gir rom for fordypning.",
@@ -128,6 +150,54 @@
                                 "litteraturhistorie",
                                 "undset",
                                 "historie"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "skrivehjelp",
+                    "title": "Skrivehjelp",
+                    "description": "Tips og triks for å skrive bedre.",
+                    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "hvordan-skrive-novelle",
+                            "title": "Hvordan skrive novelle",
+                            "description": "Tips og triks for å skrive gode noveller.",
+                            "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "skrivehjelp",
+                                "novelle"
+                            ]
+                        },
+                        {
+                            "id": "hvordan-skrive-eventyr",
+                            "title": "Hvordan skrive eventyr",
+                            "description": "Lær å skrive eventyr med magi og moral.",
+                            "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "skrivehjelp",
+                                "eventyr"
+                            ]
+                        },
+                        {
+                            "id": "hvordan-skrive-dikt",
+                            "title": "Hvordan skrive dikt",
+                            "description": "Slipp løs kreativiteten med lyrikk.",
+                            "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "skrivehjelp",
+                                "dikt"
+                            ]
+                        },
+                        {
+                            "id": "hvordan-skrive-roman",
+                            "title": "Hvordan skrive roman",
+                            "description": "Tips for å planlegge og skrive lengre fortellinger.",
+                            "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "skrivehjelp",
+                                "roman"
                             ]
                         }
                     ]

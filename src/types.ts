@@ -27,7 +27,8 @@ export type ContentBlock =
     | { type: 'image'; src: string; caption?: string; alt: string }
     | { type: 'component'; name: string; props?: Record<string, any> }
     | { type: 'section'; title?: string; content: ContentBlock[] }
-    | { type: 'list'; items: string[] };
+    | { type: 'list'; items: string[] }
+    | { type: 'link'; text: string; url: string; icon?: string };
 
 export interface Lesson {
     id: string;
@@ -51,6 +52,7 @@ export interface Lesson {
     fact?: string;
     mapData?: any; // Placeholder for map data structure
     tags?: string[];
+    relatedLink?: { text: string; url: string; };
 }
 
 export interface ManifestLesson {

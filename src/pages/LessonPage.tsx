@@ -115,7 +115,8 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             description: getFirstTextContent(lesson.content || [])?.substring(0, 150) + '...' || '',
             heroImage: lesson.heroImage || lessonImage,
             content: lesson.content || [],
-            tags: lesson.tags
+            tags: lesson.tags,
+            relatedLink: lesson.relatedLink
         };
 
         return (

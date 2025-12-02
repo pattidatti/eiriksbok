@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { GlossaryText } from './GlossaryText';
 
 import type { ContentBlock } from '../types';
@@ -126,6 +127,23 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                                     </div>
                                 );
                         }
+                    case 'link':
+                        const isExternal = block.url.startsWith('http');
+                        const className = "inline-flex items-center gap-2 px-6 py-3 bg-indigo-50 text-indigo-700 rounded-full font-medium hover:bg-indigo-100 transition-colors my-4";
+
+                        if (isExternal) {
+                            return (
+                                <a key={index} href={block.url} className={className} target="_blank" rel="noopener noreferrer">
+                                    {block.text}
+                                </a>
+                            );
+                        }
+
+                        return (
+                            <Link key={index} to={block.url} className={className}>
+                                {block.text}
+                            </Link>
+                        );
                     default:
                         return null;
                 }

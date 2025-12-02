@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { X, BookOpen, Share2, Bookmark } from 'lucide-react';
 import { ImageWithFallback } from './ImageWithFallback';
@@ -12,6 +13,7 @@ interface NorskArticleLayoutProps {
         heroImage?: string;
         content: ContentBlock[];
         tags?: string[];
+        relatedLink?: { text: string; url: string; };
     };
     onClose: () => void;
 }
@@ -78,6 +80,19 @@ export const NorskArticleLayout: React.FC<NorskArticleLayoutProps> = ({ article,
                             className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                    </div>
+                )}
+
+                {/* Related Link Button */}
+                {article.relatedLink && (
+                    <div className="flex justify-center -mt-8 mb-16 relative z-10">
+                        <Link
+                            to={article.relatedLink.url}
+                            className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white rounded-full font-bold shadow-lg hover:bg-indigo-700 transition-all hover:scale-105"
+                        >
+                            <BookOpen size={20} />
+                            {article.relatedLink.text}
+                        </Link>
                     </div>
                 )}
 

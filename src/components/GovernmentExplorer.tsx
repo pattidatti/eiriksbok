@@ -41,7 +41,7 @@ const definitions: Definition[] = [
         title: 'Anarki',
         category: 'Styringsform',
         description: 'Ingen stat eller hersker. Et samfunn uten formell styring.',
-        details: 'Ordet betyr "uten hersker". Det finnes ingen politi eller domstoler til å håndheve lover.',
+        details: 'Ordet betyr "uten hersker". Det finnes ingen stat, skatt eller voldsmonopol.',
         icon: SparklesIcon,
         color: 'text-pink-600'
     },
@@ -158,7 +158,7 @@ const definitions: Definition[] = [
     {
         id: 'parl_stat',
         title: 'Parlamentarisk stat',
-        category: 'Begrep',
+        category: 'Styringsform',
         description: 'Et system der regjeringen må ha tillit fra parlamentet (Stortinget).',
         details: 'Gjelder både monarkier (Norge) og republikker. Hvis Stortinget sier nei, må regjeringen gå.',
         icon: HandRaisedIcon,

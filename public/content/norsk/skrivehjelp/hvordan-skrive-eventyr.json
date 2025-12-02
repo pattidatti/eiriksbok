@@ -1,0 +1,62 @@
+{
+    "id": "hvordan-skrive-eventyr",
+    "title": "Hvordan skrive eventyr",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "layout": "rich",
+    "heroImage": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
+    "content": [
+        {
+            "type": "text",
+            "content": "Eventyr er en sjanger med faste rammer og mye magi. Her er oppskriften på et godt eventyr."
+        },
+        {
+            "type": "section",
+            "title": "1. Starten",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Start alltid med 'Det var en gang'. Introduser helten (Askeladden?) og målet (prinsessen og halve kongeriket?)."
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "2. Prøvelsene",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Helten må gjennom tre prøvelser. De to første kan gå galt, eller brødrene feiler, men den tredje gangen lykkes helten."
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "3. Hjelpere",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Helten møter ofte en magisk hjelper. Det kan være en gammel kone eller et dyr som gir gode råd eller magiske gjenstander."
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "4. Slutten",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Det gode vinner alltid over det onde. Og de lever lykkelig alle sine dager."
+                }
+            ]
+        }
+    ],
+    "tags": [
+        "skrivehjelp",
+        "eventyr"
+    ],
+    "relatedLink": {
+        "text": "Les om sjangeren Eventyr",
+        "url": "/norsk/tekstsjangre/eventyr"
+    }
+}
