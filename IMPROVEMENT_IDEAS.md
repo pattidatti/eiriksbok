@@ -67,3 +67,15 @@ Her er 20 konkrete forslag til forbedringer basert på en gjennomgang av koden, 
  
 24. **Deling av Manifestet**:
     *   `manifest.json` er over 400 linjer. Vurder å splitte den opp i flere filer (f.eks. `norsk.json`, `historie.json`) og merge dem ved build-time eller runtime for bedre oversikt.
+
+## 🚀 Pro Tips for "Snappiness" (Avansert)
+
+25. **Optimistisk UI (Optimistic UI)**:
+    *   Ikke vent på serveren! Når brukeren gjør noe (f.eks. markerer en leksjon som ferdig), oppdater UI-et *umiddelbart*. Hvis server-kallet feiler, rull tilbake endringen og vis en feilmelding. Dette får appen til å føles "instant".
+26. **CSS `content-visibility: auto`**:
+    *   Legg til `content-visibility: auto` på store seksjoner langt nede på siden. Dette ber nettleseren om å hoppe over rendering av innhold som ikke er synlig, noe som drastisk øker initiell rendering-ytelse.
+27. **Ressurs-hinting (`rel="preconnect"`)**:
+    *   Legg til `<link rel="preconnect">` i `index.html` for viktige eksterne domener (som Unsplash for bilder eller Google Fonts). Dette sparer dyrebare millisekunder på å opprette tilkoblingen før innholdet faktisk bes om.
+28. **Interaksjon til neste paint (INP) optimalisering**:
+    *   Unngå lange oppgaver på hovedtråden. Bruk `scheduler.postTask` (eller en polyfill) for å utsette ikke-kritisk JavaScript (som analyse-logging) til etter at siden har blitt interaktiv.
+

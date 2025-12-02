@@ -88,7 +88,7 @@ export const LandingPage: React.FC = () => {
                 });
             }, 100);
 
-        }, 800);
+        }, 50);
 
         return () => clearTimeout(timer);
     }, [manifest, history]);
@@ -128,7 +128,7 @@ export const LandingPage: React.FC = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
+                        transition={{ delay: 0.1 }}
                         className="mb-12"
                     >
                         <div className="flex items-center justify-between mb-6">
@@ -138,15 +138,21 @@ export const LandingPage: React.FC = () => {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            {historyLessons.map((lesson) => (
-                                <div key={`history-${lesson.id}`} className="h-full">
+                            {historyLessons.map((lesson, index) => (
+                                <motion.div
+                                    key={`history-${lesson.id}`}
+                                    className="h-full"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.05 }}
+                                >
                                     <LessonCard
                                         lesson={lesson}
                                         path={`/${lesson.subjectId}/${lesson.topicId}${lesson.subTopicId ? `/${lesson.subTopicId}` : ''}/${lesson.id}`}
                                         topicTitle={lesson.topicTitle}
                                         badgeText="Fortsett"
                                     />
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </motion.div>
@@ -156,7 +162,7 @@ export const LandingPage: React.FC = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
+                        transition={{ delay: 0.2 }}
                     >
                         <div className="flex items-center justify-between mb-6">
                             <h3 className="text-xl font-display font-bold text-text-main">
@@ -168,14 +174,20 @@ export const LandingPage: React.FC = () => {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            {recentLessons.map((lesson) => (
-                                <div key={lesson.id} className="h-full">
+                            {recentLessons.map((lesson, index) => (
+                                <motion.div
+                                    key={lesson.id}
+                                    className="h-full"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.05 }}
+                                >
                                     <LessonCard
                                         lesson={lesson}
                                         path={`/${lesson.subjectId}/${lesson.topicId}${lesson.subTopicId ? `/${lesson.subTopicId}` : ''}/${lesson.id}`}
                                         topicTitle={lesson.topicTitle}
                                     />
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </motion.div>

@@ -58,3 +58,9 @@ body {
   border: 2px solid transparent;
   background-clip: content-box;
 }
+
+/* Performance Utilities */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
+}
