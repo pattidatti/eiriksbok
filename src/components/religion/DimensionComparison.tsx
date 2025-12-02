@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { Link } from 'react-router-dom';
+import { client } from '../../../tina/__generated__/client';
 import type { Religion } from '../../types';
 
 interface DimensionComparisonProps {
@@ -19,6 +21,41 @@ const DIMENSIONS = [
 
 export const DimensionComparison: React.FC<DimensionComparisonProps> = ({ religions }) => {
     const [activeDim, setActiveDim] = useState<typeof DIMENSIONS[number]['key']>('ritual');
+    const [linkedArticles, setLinkedArticles] = useState<Record<string, any[]>>({});
+
+    useEffect(() => {
+        const fetchArticles = async () => {
+            try {
+                const res = await client.queries.articleConnection({
+                    filter: { dimension: { eq: activeDim } }
+                });
+                const articles = res.data.articleConnection.edges?.map(e => e?.node) || [];
+
+                const grouped: Record<string, any[]> = {};
+                articles.forEach((article: any) => {
+                    if (article?.religion) {
+                        // Handle reference (might be object or string path)
+                        const ref = article.religion;
+                        let religionId = '';
+                        if (typeof ref === 'string') {
+                            religionId = ref.split('/').pop()?.replace('.json', '') || '';
+                        } else if (ref._sys) {
+                            religionId = ref._sys.filename;
+                        }
+
+                        if (religionId) {
+                            if (!grouped[religionId]) grouped[religionId] = [];
+                            grouped[religionId].push(article);
+                        }
+                    }
+                });
+                setLinkedArticles(grouped);
+            } catch (e) {
+                console.error("Error fetching linked articles", e);
+            }
+        };
+        fetchArticles();
+    }, [activeDim]);
 
     return (
         <div className="space-y-8">
@@ -54,11 +91,35 @@ export const DimensionComparison: React.FC<DimensionComparisonProps> = ({ religi
                                 {religion.name}
                             </h3>
                         </div>
-                        <div className="p-6 flex-1 prose prose-sm max-w-none text-text-main prose-headings:text-text-main prose-p:text-text-muted prose-strong:text-text-main">
-                            {religion.dimensions[activeDim] ? (
-                                <TinaMarkdown content={religion.dimensions[activeDim]} />
-                            ) : (
-                                <p className="text-text-muted italic">Ingen informasjon tilgjengelig.</p>
+                        <div className="p-6 flex-1 flex flex-col">
+                            <div className="prose prose-sm max-w-none text-text-main prose-headings:text-text-main prose-p:text-text-muted prose-strong:text-text-main mb-6">
+                                {religion.dimensions[activeDim] ? (
+                                    <TinaMarkdown content={religion.dimensions[activeDim]} />
+                                ) : (
+                                    <p className="text-text-muted italic">Ingen informasjon tilgjengelig.</p>
+                                )}
+                            </div>
+
+                            {/* Linked Articles */}
+                            {linkedArticles[religion.id] && linkedArticles[religion.id].length > 0 && (
+                                <div className="mt-auto pt-4 border-t border-border-main">
+                                    <h4 className="text-xs font-bold text-text-muted uppercase tracking-wider mb-2">
+                                        Fordypning
+                                    </h4>
+                                    <ul className="space-y-2">
+                                        {linkedArticles[religion.id].map((article) => (
+                                            <li key={article.id}>
+                                                <Link
+                                                    to={`/${article._sys.breadcrumbs.join('/')}`}
+                                                    className="text-sm text-indigo-400 hover:text-indigo-300 flex items-center gap-1 group"
+                                                >
+                                                    <span className="group-hover:underline">{article.title}</span>
+                                                    <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             )}
                         </div>
                     </motion.div>

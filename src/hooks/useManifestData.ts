@@ -63,7 +63,7 @@ export const useManifestData = () => {
                     topicTitle: 'Bibliotek',
                     createdDate: text.createdDate,
                     image: undefined, // Will use fallback
-                    tags: [text.genre, text.language]
+                    tags: [text.genre, text.language].filter((t): t is string => !!t)
                 });
             });
 

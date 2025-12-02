@@ -13,10 +13,25 @@ const queryClient = new QueryClient({
   },
 });
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </StrictMode>,
-);
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  document.body.innerHTML = '<div style="color: red; padding: 20px;">Critical Error: Root element not found.</div>';
+} else {
+  try {
+    createRoot(rootElement).render(
+      <StrictMode>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
+      </StrictMode>,
+    );
+  } catch (e) {
+    console.error("Failed to render app:", e);
+    rootElement.innerHTML = `<div style="color: red; padding: 20px;">
+      <h1>Critical Startup Error</h1>
+      <pre>${e instanceof Error ? e.message : String(e)}</pre>
+      <pre>${e instanceof Error ? e.stack : ''}</pre>
+    </div>`;
+  }
+}

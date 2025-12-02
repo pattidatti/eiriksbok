@@ -89,6 +89,33 @@ export default defineConfig({
                     { type: "string", name: "title", label: "Tittel" },
                     { type: "string", name: "subject", label: "Fag" },
                     { type: "string", name: "topic", label: "Emne" },
+                    {
+                        type: "reference",
+                        name: "religion",
+                        label: "Tilknyttet Religion",
+                        collections: ["religion"],
+                    },
+                    {
+                        type: "string",
+                        name: "dimension",
+                        label: "Dimensjon (Ninian Smart)",
+                        options: [
+                            { value: "ritual", label: "Ritualer og kult" },
+                            { value: "narrative", label: "Fortellinger og myter" },
+                            { value: "experiential", label: "Opplevelser og erfaringer" },
+                            { value: "social", label: "Sosial organisering" },
+                            { value: "ethical", label: "Etikk og moral" },
+                            { value: "doctrinal", label: "Lære og filosofi" },
+                            { value: "material", label: "Materielle og estetiske uttrykk" },
+                        ],
+                    },
+                    {
+                        type: "string",
+                        name: "comparison_tags",
+                        label: "Sammenligningstemaer",
+                        list: true,
+                        description: "F.eks. 'skapelsesmyte', 'bønn', 'døden'",
+                    },
                     { type: "string", name: "fact", label: "Fakta", ui: { component: "textarea" } },
                     { type: "string", name: "tags", label: "Tags", list: true },
                     {

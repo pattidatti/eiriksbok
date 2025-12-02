@@ -27,6 +27,38 @@ fragment ArticleParts on Article {
   title
   subject
   topic
+  religion {
+    ... on Religion {
+      __typename
+      name
+      color
+      icon
+      dimensions {
+        __typename
+        ritual
+        narrative
+        experiential
+        social
+        ethical
+        doctrinal
+        material
+      }
+    }
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+  }
+  dimension
+  comparison_tags
   fact
   tags
   content {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -9,13 +9,16 @@ import {
     ChevronDown,
     ChevronUp,
     ExternalLink,
-
+    Volume2,
+    PauseCircle,
+    PlayCircle,
     BookOpen,
     ArrowLeft
 } from 'lucide-react';
 import { ArticleContent } from './ArticleContent';
 import { TimelineComponent } from './TimelineComponent';
 import type { ContentBlock } from '../types';
+import { useTextToSpeech } from '../hooks/useTextToSpeech';
 
 // Generic Article Data Type
 export type ArticleData = {
@@ -168,8 +171,82 @@ const getOverlappingEvents = (currentEventId: string | number, currentYearStr: s
         }));
 };
 
-export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, parentPath }) => {
+// Helper to strip markdown/html for speech
+const cleanTextForSpeech = (blocks: ContentBlock[]): string => {
+    return blocks
+        .filter(b => b.type === 'text' && b.content)
+        .map(b => {
+            // Basic markdown stripping
+            let text = (b as any).content || '';
+            text = text.replace(/#{1,6}\s?/g, ''); // Headers
+            text = text.replace(/(\*\*|__)(.*?)\1/g, '$2'); // Bold
+            text = text.replace(/(\*|_)(.*?)\1/g, '$2'); // Italic
+            text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'); // Links
+            return text;
+        })
+        .join('. ');
+};
 
+export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, parentPath }) => {
+    const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();
+
+    // Calculate speech blocks and mapping
+    const speechData = React.useMemo(() => {
+        if (!event?.content) return { blocks: [], mapSpeechToContent: [], mapContentToSpeech: {} };
+
+        const blocks: string[] = [];
+        const mapSpeechToContent: number[] = [];
+        const mapContentToSpeech: Record<number, number> = {};
+
+        // Add title as first block
+        blocks.push(event.title);
+        mapSpeechToContent.push(-1); // -1 indicates title
+
+        event.content.forEach((block, index) => {
+            if (block.type === 'text' && block.content) {
+                const cleanText = cleanTextForSpeech([block]);
+                if (cleanText) {
+                    blocks.push(cleanText);
+                    const speechIndex = blocks.length - 1;
+                    mapSpeechToContent.push(index);
+                    mapContentToSpeech[index] = speechIndex;
+                }
+            }
+        });
+
+        return { blocks, mapSpeechToContent, mapContentToSpeech };
+    }, [event]);
+
+    // Stop speaking when leaving the component
+    useEffect(() => {
+        return () => {
+            cancel();
+        };
+    }, [cancel]);
+
+    const handleListenClick = () => {
+        if (isPlaying) {
+            if (isPaused) {
+                resume();
+            } else {
+                pause();
+            }
+        } else {
+            if (speechData.blocks.length > 0) {
+                speak(speechData.blocks);
+            }
+        }
+    };
+
+    const handleBlockClick = (contentIndex: number) => {
+        const speechIndex = speechData.mapContentToSpeech[contentIndex];
+        if (speechIndex !== undefined) {
+            playBlock(speechIndex);
+        }
+    };
+
+    // Determine active content block for highlighting
+    const activeContentIndex = activeBlockIndex !== -1 ? speechData.mapSpeechToContent[activeBlockIndex] : undefined;
 
     // Merge internal timeline events with external context events
     const contextEvents = getOverlappingEvents(event.id, event.year, parentPath);
@@ -211,6 +288,32 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                     </button>
 
                     <div className="flex space-x-3">
+                        {/* TTS Button in Header */}
+                        {hasVoice && (
+                            <button
+                                onClick={handleListenClick}
+                                className={`flex items-center px-4 py-2 rounded-full font-bold transition-all shadow-sm backdrop-blur-md ${isPlaying
+                                    ? 'bg-indigo-600 text-white shadow-lg'
+                                    : 'bg-white/80 text-slate-900 hover:bg-white'
+                                    }`}
+                            >
+                                {isPlaying ? (
+                                    isPaused ? (
+                                        <>
+                                            <PlayCircle className="w-4 h-4 mr-2" /> Fortsett
+                                        </>
+                                    ) : (
+                                        <>
+                                            <PauseCircle className="w-4 h-4 mr-2" /> Pause
+                                        </>
+                                    )
+                                ) : (
+                                    <>
+                                        <Volume2 className="w-4 h-4 mr-2" /> Lytt
+                                    </>
+                                )}
+                            </button>
+                        )}
                     </div>
                 </div>
 
@@ -251,7 +354,11 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-16">
                     {/* Left Column: Article Text */}
                     <div className="space-y-8">
-                        <ArticleContent content={event.content} />
+                        <ArticleContent
+                            content={event.content}
+                            activeBlockIndex={activeContentIndex}
+                            onBlockClick={handleBlockClick}
+                        />
 
                         {event.fact && <FactBox content={event.fact} />}
 

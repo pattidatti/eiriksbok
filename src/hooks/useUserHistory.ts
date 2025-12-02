@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export interface HistoryItem {
     id: string;
@@ -25,7 +25,7 @@ export const useUserHistory = () => {
         }
     }, []);
 
-    const addToHistory = (item: Omit<HistoryItem, 'timestamp'>) => {
+    const addToHistory = useCallback((item: Omit<HistoryItem, 'timestamp'>) => {
         setHistory(prev => {
             // Remove existing entry for same ID to avoid duplicates
             const filtered = prev.filter(i => i.id !== item.id);
@@ -36,12 +36,12 @@ export const useUserHistory = () => {
             localStorage.setItem(HISTORY_KEY, JSON.stringify(newHistory));
             return newHistory;
         });
-    };
+    }, []);
 
-    const clearHistory = () => {
+    const clearHistory = useCallback(() => {
         setHistory([]);
         localStorage.removeItem(HISTORY_KEY);
-    };
+    }, []);
 
     return { history, addToHistory, clearHistory };
 };

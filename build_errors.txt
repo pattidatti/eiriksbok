@@ -1,0 +1,12 @@
+src/components/ArticleContent.tsx(126,58): error TS2740: Type '{}' is missing the following properties from type 'QuizQuestion[]': length, pop, push, concat, and 29 more.
+src/components/ArticleContent.tsx(133,41): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/components/ArticleContent.tsx(134,41): error TS2322: Type 'unknown' is not assignable to type 'string'.
+src/components/ArticleContent.tsx(141,41): error TS2740: Type '{}' is missing the following properties from type 'TimelineEvent[]': length, pop, push, concat, and 29 more.
+src/components/ArticleContent.tsx(142,41): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/components/ArticleContent.tsx(149,41): error TS2740: Type '{}' is missing the following properties from type 'Point[]': length, pop, push, concat, and 29 more.
+src/components/ArticleContent.tsx(150,41): error TS2322: Type 'unknown' is not assignable to type 'string'.
+src/components/ArticleContent.tsx(151,41): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/components/ArticleContent.tsx(152,41): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/components/ArticleContent.tsx(153,41): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/hooks/useManifestData.ts(66,40): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.

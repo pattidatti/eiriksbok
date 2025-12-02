@@ -577,16 +577,34 @@
                     "title": "Verdensreligioner",
                     "description": "Utforsk de store verdensreligionene.",
                     "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
-                    "lessons": [
+                    "subTopics": [
                         {
                             "id": "kristendom",
                             "title": "Kristendom",
                             "description": "Verdens største religion.",
                             "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/kristendom",
-                            "tags": [
-                                "religion",
-                                "kristendom"
+                            "lessons": [
+                                {
+                                    "id": "dap",
+                                    "title": "Dåp",
+                                    "description": "Det kristne initieringsritualet.",
+                                    "image": "https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "ritual",
+                                        "kristendom"
+                                    ]
+                                },
+                                {
+                                    "id": "skapelse",
+                                    "title": "Skapelsen",
+                                    "description": "Bibelens fortelling om verdens begynnelse.",
+                                    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "narrative",
+                                        "kristendom"
+                                    ]
+                                }
                             ]
                         },
                         {
@@ -595,9 +613,27 @@
                             "description": "Den nest største verdensreligionen.",
                             "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/islam",
-                            "tags": [
-                                "religion",
-                                "islam"
+                            "lessons": [
+                                {
+                                    "id": "bonn",
+                                    "title": "Bønn (Salah)",
+                                    "description": "Den rituelle bønnen i islam.",
+                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "ritual",
+                                        "islam"
+                                    ]
+                                },
+                                {
+                                    "id": "skapelse",
+                                    "title": "Skapelsen",
+                                    "description": "Koranens fortelling om skapelsen.",
+                                    "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "narrative",
+                                        "islam"
+                                    ]
+                                }
                             ]
                         }
                     ]

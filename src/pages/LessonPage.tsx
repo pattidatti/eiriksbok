@@ -20,9 +20,28 @@ import { ImageWithFallback } from '../components/ImageWithFallback';
 import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
 
+import { useTextToSpeech } from '../hooks/useTextToSpeech';
+import { Volume2, PauseCircle, PlayCircle } from 'lucide-react';
+
 const getFirstTextContent = (blocks: ContentBlock[]): string | undefined => {
     const block = blocks.find((b): b is Extract<ContentBlock, { type: 'text' }> => b.type === 'text' && !!b.content);
     return block?.content;
+};
+
+// Helper to strip markdown/html for speech
+const cleanTextForSpeech = (blocks: ContentBlock[]): string => {
+    return blocks
+        .filter(b => b.type === 'text' && b.content)
+        .map(b => {
+            // Basic markdown stripping
+            let text = (b as any).content || '';
+            text = text.replace(/#{1,6}\s?/g, ''); // Headers
+            text = text.replace(/(\*\*|__)(.*?)\1/g, '$2'); // Bold
+            text = text.replace(/(\*|_)(.*?)\1/g, '$2'); // Italic
+            text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'); // Links
+            return text;
+        })
+        .join('. ');
 };
 
 export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOverride }) => {
@@ -41,7 +60,37 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const navigate = useNavigate();
     const { addToHistory } = useUserHistory();
 
+    // TTS Hook
+    const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();
+
     usePageTitle(lesson?.title || 'Leksjon', !!lesson);
+
+    // Calculate speech blocks and mapping
+    const speechData = React.useMemo(() => {
+        if (!lesson?.content) return { blocks: [], mapSpeechToContent: [], mapContentToSpeech: {} };
+
+        const blocks: string[] = [];
+        const mapSpeechToContent: number[] = [];
+        const mapContentToSpeech: Record<number, number> = {};
+
+        // Add title as first block
+        blocks.push(lesson.title);
+        mapSpeechToContent.push(-1); // -1 indicates title
+
+        lesson.content.forEach((block, index) => {
+            if (block.type === 'text' && block.content) {
+                const cleanText = cleanTextForSpeech([block]);
+                if (cleanText) {
+                    blocks.push(cleanText);
+                    const speechIndex = blocks.length - 1;
+                    mapSpeechToContent.push(index);
+                    mapContentToSpeech[index] = speechIndex;
+                }
+            }
+        });
+
+        return { blocks, mapSpeechToContent, mapContentToSpeech };
+    }, [lesson]);
 
     useEffect(() => {
         if (lesson) {
@@ -53,6 +102,13 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             });
         }
     }, [lesson, subjectId, addToHistory]);
+
+    // Stop speaking when leaving the page
+    useEffect(() => {
+        return () => {
+            cancel();
+        };
+    }, [cancel]);
 
     useEffect(() => {
         if (manifest && subjectId && topicId && lessonId) {
@@ -76,6 +132,30 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             }
         }
     }, [manifest, subjectId, topicId, subTopicId, lessonId]);
+
+    const handleListenClick = () => {
+        if (isPlaying) {
+            if (isPaused) {
+                resume();
+            } else {
+                pause();
+            }
+        } else {
+            if (speechData.blocks.length > 0) {
+                speak(speechData.blocks);
+            }
+        }
+    };
+
+    const handleBlockClick = (contentIndex: number) => {
+        const speechIndex = speechData.mapContentToSpeech[contentIndex];
+        if (speechIndex !== undefined) {
+            playBlock(speechIndex);
+        }
+    };
+
+    // Determine active content block for highlighting
+    const activeContentIndex = activeBlockIndex !== -1 ? speechData.mapSpeechToContent[activeBlockIndex] : undefined;
 
     const loading = lessonLoading;
 
@@ -223,6 +303,35 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                     {lesson.title}
                 </h1>
 
+                {/* TTS Button */}
+                {hasVoice && (
+                    <div className="flex justify-center mb-8">
+                        <button
+                            onClick={handleListenClick}
+                            className={`flex items-center px-4 py-2 rounded-full font-bold transition-all shadow-sm ${isPlaying
+                                ? 'bg-neon-accent text-slate-900 shadow-neon-glow'
+                                : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                                }`}
+                        >
+                            {isPlaying ? (
+                                isPaused ? (
+                                    <>
+                                        <PlayCircle className="w-5 h-5 mr-2" /> Fortsett
+                                    </>
+                                ) : (
+                                    <>
+                                        <PauseCircle className="w-5 h-5 mr-2" /> Pause
+                                    </>
+                                )
+                            ) : (
+                                <>
+                                    <Volume2 className="w-5 h-5 mr-2" /> Lytt til artikkel
+                                </>
+                            )}
+                        </button>
+                    </div>
+                )}
+
                 <div className="w-full h-64 md:h-96 rounded-3xl overflow-hidden shadow-lg mb-12 border border-slate-200">
                     <ImageWithFallback
                         src={lessonImage}
@@ -235,7 +344,11 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
             {/* New Flexible Content Renderer */}
             {lesson.content ? (
-                <ArticleContent content={lesson.content} />
+                <ArticleContent
+                    content={lesson.content}
+                    activeBlockIndex={activeContentIndex}
+                    onBlockClick={handleBlockClick}
+                />
             ) : (
                 /* Legacy Rendering Fallback */
                 <>

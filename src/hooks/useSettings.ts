@@ -22,7 +22,11 @@ export const useSettings = () => {
     });
 
     useEffect(() => {
-        localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+        try {
+            localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+        } catch (e) {
+            console.error("Failed to save settings", e);
+        }
 
         // Apply settings to body
         if (settings.dyslexicMode) {

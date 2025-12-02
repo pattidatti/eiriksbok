@@ -1,0 +1,30 @@
+{
+    "title": "Dåp i Kristendommen",
+    "subject": "KRLE",
+    "topic": "Kristendom",
+    "religion": "content/religion/kristendom.json",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "ritualer",
+        "dåp",
+        "livsfaser"
+    ],
+    "fact": "Dåpen er et sakrament i de fleste kristne kirker.",
+    "tags": [
+        "kristendom",
+        "ritual",
+        "sakrament"
+    ],
+    "content": [
+        {
+            "name": "text",
+            "content": "Dåpen er det grunnleggende initieringsritualet i kristendommen. Gjennom dåpen blir den døpte en del av kirken og det kristne fellesskapet. I Den norske kirke praktiseres barnedåp, hvor barnet bæres til døpefonten, og presten øser vann over barnets hode tre ganger i navnet til Faderen, Sønnen og Den hellige ånd."
+        },
+        {
+            "name": "image",
+            "src": "https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&q=80",
+            "caption": "Dåpsfont i en kirke.",
+            "alt": "Dåpsfont"
+        }
+    ]
+}

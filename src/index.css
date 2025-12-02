@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@config "../tailwind.config.js";
 
 :root {
   /* Glass Effects - Light */
@@ -26,6 +25,30 @@
   /* Compatibility Aliases */
   --primary-color: var(--text-main);
   --secondary-color: var(--neon-accent);
+
+  /* ErrorBoundary Fallbacks */
+  --background: var(--bg-main);
+  --foreground: var(--text-main);
+  --card: var(--bg-card);
+  --card-foreground: var(--text-main);
+  --primary: var(--neon-accent);
+  --primary-foreground: #ffffff;
+  --muted: var(--bg-main);
+  --muted-foreground: var(--text-muted);
+  --border: var(--glass-border);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -50,4 +73,22 @@
 .content-auto {
   content-visibility: auto;
   contain-intrinsic-size: 1px 1000px;
+}
+
+/* Dyslexia Friendly Mode */
+body.dyslexia-mode {
+  font-family: 'OpenDyslexic', sans-serif !important;
+  line-height: 1.8 !important;
+  word-spacing: 0.1em;
+  letter-spacing: 0.05em;
+}
+
+body.dyslexia-mode h1,
+body.dyslexia-mode h2,
+body.dyslexia-mode h3,
+body.dyslexia-mode h4,
+body.dyslexia-mode h5,
+body.dyslexia-mode h6 {
+  font-family: 'OpenDyslexic', sans-serif !important;
+  letter-spacing: 0.05em;
 }

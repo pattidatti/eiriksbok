@@ -1,0 +1,30 @@
+{
+    "title": "Skapelsen i Bibelen",
+    "subject": "KRLE",
+    "topic": "Kristendom",
+    "religion": "content/religion/kristendom.json",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "fortellinger",
+        "skapelsesmyte",
+        "opprinnelse"
+    ],
+    "fact": "Bibelen starter med to ulike skapelsesfortellinger i 1. Mosebok.",
+    "tags": [
+        "kristendom",
+        "narrative",
+        "skapelse"
+    ],
+    "content": [
+        {
+            "name": "text",
+            "content": "I begynnelsen skapte Gud himmelen og jorden. Bibelen forteller at Gud skapte verden på seks dager og hvilte på den syvende. Mennesket ble skapt i Guds bilde, som mann og kvinne, og satt til å forvalte skaperverket."
+        },
+        {
+            "name": "image",
+            "src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
+            "caption": "Jorden sett fra verdensrommet.",
+            "alt": "Jorden"
+        }
+    ]
+}

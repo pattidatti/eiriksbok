@@ -21,10 +21,17 @@ const PracticePage = React.lazy(routeFactories.PracticePage);
 const QuizPage = React.lazy(routeFactories.QuizPage);
 const ReligionPage = React.lazy(routeFactories.ReligionPage);
 const ReligionComparisonPage = React.lazy(routeFactories.ReligionComparisonPage);
+const TopicComparisonPage = React.lazy(routeFactories.TopicComparisonPage);
 
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter
+      basename={import.meta.env.BASE_URL}
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
       <ErrorBoundary>
         <Suspense fallback={<PageSkeleton />}>
           <Routes>
@@ -40,6 +47,7 @@ function App() {
               <Route path="oving/quiz" element={<QuizPage />} />
 
               <Route path="krle/sammenlign" element={<ReligionComparisonPage />} />
+              <Route path="krle/sammenlign/tema/:tag" element={<TopicComparisonPage />} />
               <Route path="krle/religion/:religionId" element={<ReligionPage />} />
 
               <Route path=":subjectId" element={<SubjectPage />} />
