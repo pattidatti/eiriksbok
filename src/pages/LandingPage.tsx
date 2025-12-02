@@ -104,7 +104,7 @@ export const LandingPage: React.FC = () => {
                     className="mb-8"
                 >
                     <div className="flex flex-col gap-1">
-                        {manifest.subjects.map((subject: any, index: number) => (
+                        {manifest.subjects.map((subject: any) => (
                             <motion.div
                                 key={subject.id}
                                 className="mb-8"
