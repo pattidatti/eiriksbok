@@ -326,6 +326,7 @@ export const GovernmentExplorer: React.FC = () => {
     const [quizAnswered, setQuizAnswered] = useState(false);
     const [quizCorrect, setQuizCorrect] = useState(false);
     const [shuffledQuiz, setShuffledQuiz] = useState<Definition[]>([]);
+    const [currentOptions, setCurrentOptions] = useState<Definition[]>([]);
 
     useEffect(() => {
         if (activeTab === 'quiz') {
@@ -341,6 +342,21 @@ export const GovernmentExplorer: React.FC = () => {
             setTriggerAction(false);
         }
     }, [activeTab]);
+
+    useEffect(() => {
+        if (shuffledQuiz.length > 0 && shuffledQuiz[quizIndex]) {
+            const currentQ = shuffledQuiz[quizIndex];
+            // Get 3 wrong answers excluding the current one
+            const wrongAnswers = definitions
+                .filter(d => d.id !== currentQ.id && d.category === currentQ.category)
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 3);
+
+            // Combine and shuffle
+            const options = [...wrongAnswers, currentQ].sort(() => Math.random() - 0.5);
+            setCurrentOptions(options);
+        }
+    }, [quizIndex, shuffledQuiz]);
 
     const handleQuizAnswer = (answerId: string) => {
         if (quizAnswered) return;
@@ -929,47 +945,36 @@ export const GovernmentExplorer: React.FC = () => {
 
                             {/* Options */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {(() => {
+                                {currentOptions.map((option) => {
                                     const currentQ = shuffledQuiz[quizIndex];
-                                    // Get 3 wrong answers excluding the current one
-                                    const wrongAnswers = definitions
-                                        .filter(d => d.id !== currentQ.id && d.category === currentQ.category)
-                                        .sort(() => Math.random() - 0.5)
-                                        .slice(0, 3);
+                                    let btnClass = "bg-slate-50 border-slate-200 hover:bg-slate-100 hover:border-slate-300";
+                                    let icon = null;
 
-                                    // Combine and shuffle
-                                    const options = [...wrongAnswers, currentQ].sort(() => Math.random() - 0.5);
-
-                                    return options.map((option) => {
-                                        let btnClass = "bg-slate-50 border-slate-200 hover:bg-slate-100 hover:border-slate-300";
-                                        let icon = null;
-
-                                        if (quizAnswered) {
-                                            if (option.id === currentQ.id) {
-                                                btnClass = "bg-green-50 border-green-500 text-green-700 shadow-md";
-                                                icon = <CheckCircleIcon className="h-6 w-6 text-green-500" />;
-                                            } else if (option.id !== currentQ.id && !quizCorrect) {
-                                                btnClass = "bg-slate-50 border-slate-200 opacity-40";
-                                            } else if (!quizCorrect) { // This handles if user clicked wrong
-                                                // We don't need explicit wrong style on unclicked wrong answers, just fade them
-                                            }
+                                    if (quizAnswered) {
+                                        if (option.id === currentQ.id) {
+                                            btnClass = "bg-green-50 border-green-500 text-green-700 shadow-md";
+                                            icon = <CheckCircleIcon className="h-6 w-6 text-green-500" />;
+                                        } else if (option.id !== currentQ.id && !quizCorrect) {
+                                            btnClass = "bg-slate-50 border-slate-200 opacity-40";
+                                        } else if (!quizCorrect) { // This handles if user clicked wrong
+                                            // We don't need explicit wrong style on unclicked wrong answers, just fade them
                                         }
+                                    }
 
-                                        return (
-                                            <button
-                                                key={option.id}
-                                                disabled={quizAnswered}
-                                                onClick={() => handleQuizAnswer(option.id)}
-                                                className={`p-5 rounded-2xl border text-left font-bold transition-all duration-300 flex items-center justify-between group ${btnClass} ${!quizAnswered && 'hover:scale-[1.02] active:scale-98'}`}
-                                            >
-                                                <span className={quizAnswered && option.id === currentQ.id ? 'text-green-700' : 'text-slate-700'}>
-                                                    {option.title}
-                                                </span>
-                                                {icon}
-                                            </button>
-                                        );
-                                    });
-                                })()}
+                                    return (
+                                        <button
+                                            key={option.id}
+                                            disabled={quizAnswered}
+                                            onClick={() => handleQuizAnswer(option.id)}
+                                            className={`p-5 rounded-2xl border text-left font-bold transition-all duration-300 flex items-center justify-between group ${btnClass} ${!quizAnswered && 'hover:scale-[1.02] active:scale-98'}`}
+                                        >
+                                            <span className={quizAnswered && option.id === currentQ.id ? 'text-green-700' : 'text-slate-700'}>
+                                                {option.title}
+                                            </span>
+                                            {icon}
+                                        </button>
+                                    );
+                                })}
                             </div>
 
                             {/* Feedback & Next Button */}
