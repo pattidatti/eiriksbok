@@ -34,7 +34,7 @@ export const AuthorLinker: React.FC<AuthorLinkerProps> = ({ content }) => {
                     return (
                         <Link
                             key={i}
-                            to={`/bibliotek?author=${encodeURIComponent(part)}`}
+                            to={`/norsk/bibliotek?search=${encodeURIComponent(part)}`}
                             className="text-indigo-600 hover:text-indigo-800 hover:underline font-medium"
                             title={`Se tekster av ${part} i biblioteket`}
                         >
