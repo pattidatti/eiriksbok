@@ -3,6 +3,7 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 import { PrefetchLink } from './PrefetchLink';
 import { SearchOverlay } from './SearchOverlay';
 import { Breadcrumbs } from './Breadcrumbs';
+import { ScrollToTop } from './ScrollToTop';
 
 export const Layout: React.FC = () => {
     const location = useLocation();
@@ -59,6 +60,8 @@ export const Layout: React.FC = () => {
                     <Outlet />
                 </div>
             </main>
+
+            <ScrollToTop />
         </div>
     );
 };

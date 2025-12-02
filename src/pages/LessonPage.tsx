@@ -103,6 +103,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                 <InteractiveArticle
                     event={timelineEvent}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
+                    parentPath={`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`}
                 />
             </ErrorBoundary>
         );
@@ -192,6 +193,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                 <InteractiveArticle
                     event={articleData}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
+                    parentPath={`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`}
                 />
             </ErrorBoundary>
         );

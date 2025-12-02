@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { DemographySection } from '../components/demography/DemographySection';
 import { MalthusSection } from '../components/demography/MalthusSection';
@@ -70,11 +71,11 @@ export const DemographyPage: React.FC = () => {
                         Bruk kunnskapen du har lært om demografi, Malthus og inflasjon for å bygge en sivilisasjon fra bunnen av. Klarer du å balansere matproduksjon med befolkningsvekst uten å krasje økonomien?
                     </p>
 
-                    <a href="/game" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-indigo-900 font-bold rounded-full text-xl hover:scale-105 transition-transform shadow-2xl relative z-10">
+                    <Link to="/game" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-indigo-900 font-bold rounded-full text-xl hover:scale-105 transition-transform shadow-2xl relative z-10">
                         <span>🎮</span>
                         Start Simulatoren
                         <span>→</span>
-                    </a>
+                    </Link>
                 </div>
             </ImmersiveCard>
         </div>

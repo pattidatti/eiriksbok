@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 interface TimelineEvent {
     year: string;
@@ -33,9 +34,15 @@ export const TimelineComponent: React.FC<TimelineComponentProps> = ({ events, ti
                                     {event.year}
                                 </span>
                                 {event.link ? (
-                                    <a href={event.link} className="block text-sm font-bold text-indigo-700 hover:text-indigo-900 hover:underline leading-tight transition-colors">
-                                        {event.title}
-                                    </a>
+                                    event.link.startsWith('http') ? (
+                                        <a href={event.link} target="_blank" rel="noopener noreferrer" className="block text-sm font-bold text-indigo-700 hover:text-indigo-900 hover:underline leading-tight transition-colors">
+                                            {event.title}
+                                        </a>
+                                    ) : (
+                                        <Link to={event.link} className="block text-sm font-bold text-indigo-700 hover:text-indigo-900 hover:underline leading-tight transition-colors">
+                                            {event.title}
+                                        </Link>
+                                    )
                                 ) : (
                                     <h4 className="text-sm font-bold text-slate-900 leading-tight">{event.title}</h4>
                                 )}

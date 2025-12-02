@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { X, BookOpen, Share2, Bookmark } from 'lucide-react';
+import { X, BookOpen } from 'lucide-react';
 import { ImageWithFallback } from './ImageWithFallback';
 import { ArticleContent } from './ArticleContent';
 import type { ContentBlock } from '../types';
@@ -33,12 +33,6 @@ export const NorskArticleLayout: React.FC<NorskArticleLayoutProps> = ({ article,
                     <span className="font-medium text-sm uppercase tracking-wider">Norskfaget</span>
                 </div>
                 <div className="flex items-center gap-4">
-                    <button className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-500">
-                        <Share2 size={20} />
-                    </button>
-                    <button className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-500">
-                        <Bookmark size={20} />
-                    </button>
                     <button
                         onClick={onClose}
                         className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-500"

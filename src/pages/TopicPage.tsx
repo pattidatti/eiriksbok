@@ -60,7 +60,7 @@ export const TopicPage: React.FC = () => {
     ) : null;
 
     if (timelineEvent) {
-        return <ErrorBoundary><InteractiveArticle event={timelineEvent} onClose={() => navigate(`/${subjectId}/${topicId}`)} /></ErrorBoundary>;
+        return <ErrorBoundary><InteractiveArticle event={timelineEvent} onClose={() => navigate(`/${subjectId}/${topicId}`)} parentPath={`/${subjectId}/${topicId}`} /></ErrorBoundary>;
     }
 
     const lessonInTopic = currentTopic?.lessons?.find(l => l.id === subTopicId);

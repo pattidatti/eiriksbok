@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Calendar,
@@ -8,8 +9,7 @@ import {
     ChevronDown,
     ChevronUp,
     ExternalLink,
-    Share2,
-    Bookmark,
+
     BookOpen,
     ArrowLeft
 } from 'lucide-react';
@@ -39,6 +39,7 @@ export type ArticleData = {
 interface InteractiveArticleProps {
     event: ArticleData;
     onClose: () => void;
+    parentPath?: string;
 }
 
 const InteractiveMapPlaceholder = () => (
@@ -137,7 +138,7 @@ const parseYearRange = (yearStr: string): { start: number, end: number } => {
     return { start: year * multiplier, end: year * multiplier };
 };
 
-const getOverlappingEvents = (currentEventId: string | number, currentYearStr: string) => {
+const getOverlappingEvents = (currentEventId: string | number, currentYearStr: string, parentPath?: string) => {
     const currentRange = parseYearRange(currentYearStr);
     // Add a buffer to context (e.g. +/- 50 years or 10% overlap?)
     // For now, let's just find events that overlap or are very close.
@@ -163,15 +164,15 @@ const getOverlappingEvents = (currentEventId: string | number, currentYearStr: s
             year: e.year,
             title: e.title,
             description: e.description, // Use short description
-            link: `../${e.id}` // Assuming relative link to sibling article
+            link: parentPath ? `${parentPath}/${e.id}` : `../${e.id}` // Use absolute path if available, else relative
         }));
 };
 
-export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose }) => {
-    const [isBookmarked, setIsBookmarked] = useState(false);
+export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, parentPath }) => {
+
 
     // Merge internal timeline events with external context events
-    const contextEvents = getOverlappingEvents(event.id, event.year);
+    const contextEvents = getOverlappingEvents(event.id, event.year, parentPath);
     const internalEvents = event.timeline || [];
 
     // Combine and sort by year
@@ -210,15 +211,6 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                     </button>
 
                     <div className="flex space-x-3">
-                        <button
-                            onClick={() => setIsBookmarked(!isBookmarked)}
-                            className={`p-3 rounded-full backdrop-blur-md transition-all shadow-sm ${isBookmarked ? 'bg-indigo-600 text-white' : 'bg-white/80 text-slate-700 hover:bg-white'}`}
-                        >
-                            <Bookmark className={`w-5 h-5 ${isBookmarked ? 'fill-current' : ''}`} />
-                        </button>
-                        <button className="p-3 bg-white/80 backdrop-blur-md rounded-full text-slate-700 hover:bg-white transition-all shadow-sm">
-                            <Share2 className="w-5 h-5" />
-                        </button>
                     </div>
                 </div>
 
@@ -307,13 +299,13 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                                     <ExpandableSection title="Relaterte Emner">
                                         <div className="flex flex-wrap gap-2">
                                             {event.tags.map(tag => (
-                                                <a
+                                                <Link
                                                     key={tag}
-                                                    href={`/sok?tag=${tag}`} // Using search/filter route for now, or could be topic page with filter
+                                                    to={`/sok?tag=${tag}`} // Using search/filter route for now, or could be topic page with filter
                                                     className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md border border-slate-200 hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-200 transition-colors"
                                                 >
                                                     {tag}
-                                                </a>
+                                                </Link>
                                             ))}
                                         </div>
                                     </ExpandableSection>
