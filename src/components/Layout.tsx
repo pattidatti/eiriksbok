@@ -34,7 +34,7 @@ export const Layout: React.FC = () => {
                         <PrefetchLink to="/historie" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/historie')}`}>Historie</PrefetchLink>
                         <PrefetchLink to="/krle" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/krle')}`}>KRLE</PrefetchLink>
                         <PrefetchLink to="/musikk" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/musikk')}`}>Musikk</PrefetchLink>
-                        <PrefetchLink to="/flashcards" prefetchTarget="FlashcardPage" className={`text-sm transition-colors ${isActive('/flashcards')}`}>Fagbegreper</PrefetchLink>
+                        <PrefetchLink to="/oving" prefetchTarget="PracticePage" className={`text-sm transition-colors ${isActive('/oving')}`}>Øving</PrefetchLink>
                     </nav>
 
                     <div className="flex items-center">

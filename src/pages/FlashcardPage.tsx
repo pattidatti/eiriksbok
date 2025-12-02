@@ -45,6 +45,12 @@ export const FlashcardPage: React.FC = () => {
         <div className="min-h-screen pt-24 pb-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
+                    <div className="flex justify-center mb-4">
+                        <Link to="/oving" className="flex items-center text-slate-500 hover:text-indigo-600 transition-colors text-sm font-medium">
+                            <ArrowRight className="w-4 h-4 mr-1 rotate-180" />
+                            Tilbake til oversikt
+                        </Link>
+                    </div>
                     <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-slate-900">
                         Fagbegreper
                     </h1>

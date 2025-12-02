@@ -17,4 +17,6 @@ export const routeFactories: Record<string, PageFactory> = {
     NotFoundPage: () => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })),
     ColonizationMap: () => import('./components/ColonizationMap/ColonizationMap'),
     FlashcardPage: () => import('./pages/FlashcardPage').then(module => ({ default: module.FlashcardPage })),
+    PracticePage: () => import('./pages/PracticePage').then(module => ({ default: module.PracticePage })),
+    QuizPage: () => import('./pages/QuizPage').then(module => ({ default: module.QuizPage })),
 };

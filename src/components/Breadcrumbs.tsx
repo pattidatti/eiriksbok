@@ -37,6 +37,10 @@ export const Breadcrumbs: React.FC = () => {
         // Subtopic or Lesson (Index 2+)
         // This is a simplified lookup and might need recursion for deep structures
         // For now, we return the ID formatted nicely if not found easily
+        // Manual overrides
+        if (id === 'oving') return 'Øving';
+        if (id === 'flashcards') return 'Fagbegreper';
+
         return id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     };
 

@@ -17,6 +17,8 @@ const TextReaderPage = React.lazy(routeFactories.TextReaderPage);
 const NotFoundPage = React.lazy(routeFactories.NotFoundPage);
 const ColonizationMap = React.lazy(routeFactories.ColonizationMap);
 const FlashcardPage = React.lazy(routeFactories.FlashcardPage);
+const PracticePage = React.lazy(routeFactories.PracticePage);
+const QuizPage = React.lazy(routeFactories.QuizPage);
 
 function App() {
   return (
@@ -29,11 +31,19 @@ function App() {
               <Route path="sok" element={<SearchPage />} />
               <Route path="norsk/bibliotek" element={<TextLibraryPage />} />
               <Route path="norsk/bibliotek/:textId" element={<TextReaderPage />} />
+
+              {/* Static routes must come before dynamic :subjectId routes */}
+              <Route path="oving" element={<PracticePage />} />
+              <Route path="oving/flashcards" element={<FlashcardPage />} />
+              <Route path="oving/quiz" element={<QuizPage />} />
+
               <Route path=":subjectId" element={<SubjectPage />} />
               <Route path=":subjectId/:topicId" element={<TopicPage />} />
               <Route path=":subjectId/:topicId/:subTopicId" element={<TopicPage />} />
               <Route path=":subjectId/:topicId/:subTopicId/:lessonId" element={<LessonPage />} />
               <Route path=":subjectId/:topicId/:lessonId" element={<LessonPage />} />
+
+              {/* Backward compatibility / direct access */}
               <Route path="flashcards" element={<FlashcardPage />} />
               <Route path="colonization" element={<ColonizationMap />} />
               <Route path="*" element={<NotFoundPage />} />
