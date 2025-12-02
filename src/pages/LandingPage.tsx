@@ -107,9 +107,7 @@ export const LandingPage: React.FC = () => {
                         {manifest.subjects.map((subject: any, index: number) => (
                             <motion.div
                                 key={subject.id}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.1 }}
+                                className="mb-8"
                             >
                                 <PrefetchLink
                                     to={`/${subject.id}`}
