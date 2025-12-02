@@ -17,7 +17,7 @@ export const useManifestData = () => {
 
     const [recentLessons, setRecentLessons] = useState<ProcessedLesson[]>([]);
     const [historyLessons, setHistoryLessons] = useState<ProcessedLesson[]>([]);
-    const [isPending, startTransition] = useTransition();
+    const [, startTransition] = useTransition();
 
     useEffect(() => {
         if (!manifest) return;
@@ -99,6 +99,6 @@ export const useManifestData = () => {
         manifest,
         recentLessons,
         historyLessons,
-        isLoading: isManifestLoading || isPending
+        isLoading: isManifestLoading
     };
 };
