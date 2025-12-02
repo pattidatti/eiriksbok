@@ -107,3 +107,58 @@ query articleConnection($before: String, $after: String, $first: Float, $last: F
     }
   }
 }
+
+query religion($relativePath: String!) {
+  religion(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ReligionParts
+  }
+}
+
+query religionConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ReligionFilter) {
+  religionConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ReligionParts
+      }
+    }
+  }
+}

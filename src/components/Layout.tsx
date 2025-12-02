@@ -4,10 +4,12 @@ import { PrefetchLink } from './PrefetchLink';
 import { SearchOverlay } from './SearchOverlay';
 import { Breadcrumbs } from './Breadcrumbs';
 import { ScrollToTop } from './ScrollToTop';
+import { useSettings } from '../hooks/useSettings';
 
 export const Layout: React.FC = () => {
     const location = useLocation();
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const { settings, toggleDyslexicMode } = useSettings();
 
     const isActive = (path: string) => {
         return location.pathname.startsWith(path) ? 'text-text-main font-semibold' : 'text-text-muted hover:text-text-main';
@@ -38,7 +40,18 @@ export const Layout: React.FC = () => {
                         <PrefetchLink to="/oving" prefetchTarget="PracticePage" className={`text-sm transition-colors ${isActive('/oving')}`}>Øving</PrefetchLink>
                     </nav>
 
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-2">
+                        <button
+                            onClick={toggleDyslexicMode}
+                            className={`p-2 transition-colors rounded-full hover:bg-black/5 ${settings.dyslexicMode ? 'text-blue-600 bg-blue-50' : 'text-text-muted hover:text-text-main'}`}
+                            aria-label="Dysleksivennlig modus"
+                            title="Dysleksivennlig modus"
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </button>
                         <button
                             onClick={() => setIsSearchOpen(true)}
                             className="p-2 text-text-muted hover:text-text-main transition-colors rounded-full hover:bg-black/5"

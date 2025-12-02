@@ -19,4 +19,6 @@ export const routeFactories: Record<string, PageFactory> = {
     FlashcardPage: () => import('./pages/FlashcardPage').then(module => ({ default: module.FlashcardPage })),
     PracticePage: () => import('./pages/PracticePage').then(module => ({ default: module.PracticePage })),
     QuizPage: () => import('./pages/QuizPage').then(module => ({ default: module.QuizPage })),
+    ReligionPage: () => import('./pages/ReligionPage').then(module => ({ default: module.ReligionPage })),
+    ReligionComparisonPage: () => import('./pages/ReligionComparisonPage').then(module => ({ default: module.ReligionComparisonPage })),
 };

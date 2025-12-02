@@ -58,11 +58,14 @@ type Query {
   manifestConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ManifestFilter): ManifestConnection!
   article(relativePath: String): Article!
   articleConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ArticleFilter): ArticleConnection!
+  religion(relativePath: String): Religion!
+  religionConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ReligionFilter): ReligionConnection!
 }
 
 input DocumentFilter {
   manifest: ManifestFilter
   article: ArticleFilter
+  religion: ReligionFilter
 }
 
 type DocumentConnectionEdges {
@@ -88,7 +91,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Manifest | Article | Folder
+union DocumentNode = Manifest | Article | Religion | Folder
 
 type ManifestSubjectsTopicsLessons {
   id: String
@@ -264,6 +267,60 @@ type ArticleConnection implements Connection {
   edges: [ArticleConnectionEdges]
 }
 
+type ReligionDimensions {
+  ritual: JSON
+  narrative: JSON
+  experiential: JSON
+  social: JSON
+  ethical: JSON
+  doctrinal: JSON
+  material: JSON
+}
+
+type Religion implements Node & Document {
+  name: String!
+  color: String
+  icon: String
+  dimensions: ReligionDimensions
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input RichTextFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+}
+
+input ReligionDimensionsFilter {
+  ritual: RichTextFilter
+  narrative: RichTextFilter
+  experiential: RichTextFilter
+  social: RichTextFilter
+  ethical: RichTextFilter
+  doctrinal: RichTextFilter
+  material: RichTextFilter
+}
+
+input ReligionFilter {
+  name: StringFilter
+  color: StringFilter
+  icon: ImageFilter
+  dimensions: ReligionDimensionsFilter
+}
+
+type ReligionConnectionEdges {
+  cursor: String!
+  node: Religion
+}
+
+type ReligionConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ReligionConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
@@ -274,17 +331,21 @@ type Mutation {
   createManifest(relativePath: String!, params: ManifestMutation!): Manifest!
   updateArticle(relativePath: String!, params: ArticleMutation!): Article!
   createArticle(relativePath: String!, params: ArticleMutation!): Article!
+  updateReligion(relativePath: String!, params: ReligionMutation!): Religion!
+  createReligion(relativePath: String!, params: ReligionMutation!): Religion!
 }
 
 input DocumentUpdateMutation {
   manifest: ManifestMutation
   article: ArticleMutation
+  religion: ReligionMutation
   relativePath: String
 }
 
 input DocumentMutation {
   manifest: ManifestMutation
   article: ArticleMutation
+  religion: ReligionMutation
 }
 
 input ManifestSubjectsTopicsLessonsMutation {
@@ -353,6 +414,23 @@ input ArticleMutation {
   fact: String
   tags: [String]
   content: [ArticleContentMutation]
+}
+
+input ReligionDimensionsMutation {
+  ritual: JSON
+  narrative: JSON
+  experiential: JSON
+  social: JSON
+  ethical: JSON
+  doctrinal: JSON
+  material: JSON
+}
+
+input ReligionMutation {
+  name: String
+  color: String
+  icon: String
+  dimensions: ReligionDimensionsMutation
 }
 
 schema {

@@ -19,6 +19,8 @@ const ColonizationMap = React.lazy(routeFactories.ColonizationMap);
 const FlashcardPage = React.lazy(routeFactories.FlashcardPage);
 const PracticePage = React.lazy(routeFactories.PracticePage);
 const QuizPage = React.lazy(routeFactories.QuizPage);
+const ReligionPage = React.lazy(routeFactories.ReligionPage);
+const ReligionComparisonPage = React.lazy(routeFactories.ReligionComparisonPage);
 
 function App() {
   return (
@@ -36,6 +38,9 @@ function App() {
               <Route path="oving" element={<PracticePage />} />
               <Route path="oving/flashcards" element={<FlashcardPage />} />
               <Route path="oving/quiz" element={<QuizPage />} />
+
+              <Route path="krle/sammenlign" element={<ReligionComparisonPage />} />
+              <Route path="krle/religion/:religionId" element={<ReligionPage />} />
 
               <Route path=":subjectId" element={<SubjectPage />} />
               <Route path=":subjectId/:topicId" element={<TopicPage />} />

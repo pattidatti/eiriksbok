@@ -86,6 +86,8 @@ export type Query = {
   manifestConnection: ManifestConnection;
   article: Article;
   articleConnection: ArticleConnection;
+  religion: Religion;
+  religionConnection: ReligionConnection;
 };
 
 
@@ -139,9 +141,25 @@ export type QueryArticleConnectionArgs = {
   filter?: InputMaybe<ArticleFilter>;
 };
 
+
+export type QueryReligionArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryReligionConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<ReligionFilter>;
+};
+
 export type DocumentFilter = {
   manifest?: InputMaybe<ManifestFilter>;
   article?: InputMaybe<ArticleFilter>;
+  religion?: InputMaybe<ReligionFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -181,7 +199,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Manifest | Article | Folder;
+export type DocumentNode = Manifest | Article | Religion | Folder;
 
 export type ManifestSubjectsTopicsLessons = {
   __typename?: 'ManifestSubjectsTopicsLessons';
@@ -371,6 +389,64 @@ export type ArticleConnection = Connection & {
   edges?: Maybe<Array<Maybe<ArticleConnectionEdges>>>;
 };
 
+export type ReligionDimensions = {
+  __typename?: 'ReligionDimensions';
+  ritual?: Maybe<Scalars['JSON']['output']>;
+  narrative?: Maybe<Scalars['JSON']['output']>;
+  experiential?: Maybe<Scalars['JSON']['output']>;
+  social?: Maybe<Scalars['JSON']['output']>;
+  ethical?: Maybe<Scalars['JSON']['output']>;
+  doctrinal?: Maybe<Scalars['JSON']['output']>;
+  material?: Maybe<Scalars['JSON']['output']>;
+};
+
+export type Religion = Node & Document & {
+  __typename?: 'Religion';
+  name: Scalars['String']['output'];
+  color?: Maybe<Scalars['String']['output']>;
+  icon?: Maybe<Scalars['String']['output']>;
+  dimensions?: Maybe<ReligionDimensions>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type RichTextFilter = {
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ReligionDimensionsFilter = {
+  ritual?: InputMaybe<RichTextFilter>;
+  narrative?: InputMaybe<RichTextFilter>;
+  experiential?: InputMaybe<RichTextFilter>;
+  social?: InputMaybe<RichTextFilter>;
+  ethical?: InputMaybe<RichTextFilter>;
+  doctrinal?: InputMaybe<RichTextFilter>;
+  material?: InputMaybe<RichTextFilter>;
+};
+
+export type ReligionFilter = {
+  name?: InputMaybe<StringFilter>;
+  color?: InputMaybe<StringFilter>;
+  icon?: InputMaybe<ImageFilter>;
+  dimensions?: InputMaybe<ReligionDimensionsFilter>;
+};
+
+export type ReligionConnectionEdges = {
+  __typename?: 'ReligionConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Religion>;
+};
+
+export type ReligionConnection = Connection & {
+  __typename?: 'ReligionConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<ReligionConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -382,6 +458,8 @@ export type Mutation = {
   createManifest: Manifest;
   updateArticle: Article;
   createArticle: Article;
+  updateReligion: Religion;
+  createReligion: Religion;
 };
 
 
@@ -441,15 +519,29 @@ export type MutationCreateArticleArgs = {
   params: ArticleMutation;
 };
 
+
+export type MutationUpdateReligionArgs = {
+  relativePath: Scalars['String']['input'];
+  params: ReligionMutation;
+};
+
+
+export type MutationCreateReligionArgs = {
+  relativePath: Scalars['String']['input'];
+  params: ReligionMutation;
+};
+
 export type DocumentUpdateMutation = {
   manifest?: InputMaybe<ManifestMutation>;
   article?: InputMaybe<ArticleMutation>;
+  religion?: InputMaybe<ReligionMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentMutation = {
   manifest?: InputMaybe<ManifestMutation>;
   article?: InputMaybe<ArticleMutation>;
+  religion?: InputMaybe<ReligionMutation>;
 };
 
 export type ManifestSubjectsTopicsLessonsMutation = {
@@ -520,9 +612,28 @@ export type ArticleMutation = {
   content?: InputMaybe<Array<InputMaybe<ArticleContentMutation>>>;
 };
 
+export type ReligionDimensionsMutation = {
+  ritual?: InputMaybe<Scalars['JSON']['input']>;
+  narrative?: InputMaybe<Scalars['JSON']['input']>;
+  experiential?: InputMaybe<Scalars['JSON']['input']>;
+  social?: InputMaybe<Scalars['JSON']['input']>;
+  ethical?: InputMaybe<Scalars['JSON']['input']>;
+  doctrinal?: InputMaybe<Scalars['JSON']['input']>;
+  material?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type ReligionMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  color?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  dimensions?: InputMaybe<ReligionDimensionsMutation>;
+};
+
 export type ManifestPartsFragment = { __typename: 'Manifest', subjects?: Array<{ __typename: 'ManifestSubjects', id?: string | null, title?: string | null, topics?: Array<{ __typename: 'ManifestSubjectsTopics', id?: string | null, title?: string | null, description?: string | null, image?: string | null, lessons?: Array<{ __typename: 'ManifestSubjectsTopicsLessons', id?: string | null, title?: string | null, description?: string | null, image?: string | null, tags?: Array<string | null> | null } | null> | null } | null> | null } | null> | null };
 
 export type ArticlePartsFragment = { __typename: 'Article', title?: string | null, subject?: string | null, topic?: string | null, fact?: string | null, tags?: Array<string | null> | null, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null };
+
+export type ReligionPartsFragment = { __typename: 'Religion', name: string, color?: string | null, icon?: string | null, dimensions?: { __typename: 'ReligionDimensions', ritual?: any | null, narrative?: any | null, experiential?: any | null, social?: any | null, ethical?: any | null, doctrinal?: any | null, material?: any | null } | null };
 
 export type ManifestQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -561,6 +672,25 @@ export type ArticleConnectionQueryVariables = Exact<{
 
 
 export type ArticleConnectionQuery = { __typename?: 'Query', articleConnection: { __typename?: 'ArticleConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ArticleConnectionEdges', cursor: string, node?: { __typename: 'Article', id: string, title?: string | null, subject?: string | null, topic?: string | null, fact?: string | null, tags?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null } | null } | null> | null } };
+
+export type ReligionQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type ReligionQuery = { __typename?: 'Query', religion: { __typename: 'Religion', id: string, name: string, color?: string | null, icon?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, dimensions?: { __typename: 'ReligionDimensions', ritual?: any | null, narrative?: any | null, experiential?: any | null, social?: any | null, ethical?: any | null, doctrinal?: any | null, material?: any | null } | null } };
+
+export type ReligionConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<ReligionFilter>;
+}>;
+
+
+export type ReligionConnectionQuery = { __typename?: 'Query', religionConnection: { __typename?: 'ReligionConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ReligionConnectionEdges', cursor: string, node?: { __typename: 'Religion', id: string, name: string, color?: string | null, icon?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, dimensions?: { __typename: 'ReligionDimensions', ritual?: any | null, narrative?: any | null, experiential?: any | null, social?: any | null, ethical?: any | null, doctrinal?: any | null, material?: any | null } | null } | null } | null> | null } };
 
 export const ManifestPartsFragmentDoc = gql`
     fragment ManifestParts on Manifest {
@@ -619,6 +749,24 @@ export const ArticlePartsFragmentDoc = gql`
         }
       }
     }
+  }
+}
+    `;
+export const ReligionPartsFragmentDoc = gql`
+    fragment ReligionParts on Religion {
+  __typename
+  name
+  color
+  icon
+  dimensions {
+    __typename
+    ritual
+    narrative
+    experiential
+    social
+    ethical
+    doctrinal
+    material
   }
 }
     `;
@@ -736,6 +884,63 @@ export const ArticleConnectionDocument = gql`
   }
 }
     ${ArticlePartsFragmentDoc}`;
+export const ReligionDocument = gql`
+    query religion($relativePath: String!) {
+  religion(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ReligionParts
+  }
+}
+    ${ReligionPartsFragmentDoc}`;
+export const ReligionConnectionDocument = gql`
+    query religionConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ReligionFilter) {
+  religionConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ReligionParts
+      }
+    }
+  }
+}
+    ${ReligionPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -750,6 +955,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     articleConnection(variables?: ArticleConnectionQueryVariables, options?: C): Promise<{data: ArticleConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ArticleConnectionQueryVariables, query: string}> {
         return requester<{data: ArticleConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ArticleConnectionQueryVariables, query: string}, ArticleConnectionQueryVariables>(ArticleConnectionDocument, variables, options);
+      },
+    religion(variables: ReligionQueryVariables, options?: C): Promise<{data: ReligionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ReligionQueryVariables, query: string}> {
+        return requester<{data: ReligionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ReligionQueryVariables, query: string}, ReligionQueryVariables>(ReligionDocument, variables, options);
+      },
+    religionConnection(variables?: ReligionConnectionQueryVariables, options?: C): Promise<{data: ReligionConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ReligionConnectionQueryVariables, query: string}> {
+        return requester<{data: ReligionConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ReligionConnectionQueryVariables, query: string}, ReligionConnectionQueryVariables>(ReligionConnectionDocument, variables, options);
       }
     };
   }

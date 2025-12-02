@@ -55,3 +55,20 @@ fragment ArticleParts on Article {
     }
   }
 }
+
+fragment ReligionParts on Religion {
+  __typename
+  name
+  color
+  icon
+  dimensions {
+    __typename
+    ritual
+    narrative
+    experiential
+    social
+    ethical
+    doctrinal
+    material
+  }
+}

@@ -1,0 +1,105 @@
+{
+    "name": "Kristendom",
+    "color": "#6366f1",
+    "icon": "",
+    "dimensions": {
+        "ritual": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Sentrale ritualer inkluderer dåp og nattverd. Gudstjenesten er det viktigste fellesritualet, ofte feiret på søndager."
+                        }
+                    ]
+                }
+            ]
+        },
+        "narrative": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Bibelen er den hellige boken, bestående av Det gamle og Det nye testamentet. Fortellingen om Jesus Kristus' liv, død og oppstandelse er kjernen."
+                        }
+                    ]
+                }
+            ]
+        },
+        "experiential": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Troen på en personlig relasjon til Gud, bønn, og opplevelsen av tilgivelse og nåde."
+                        }
+                    ]
+                }
+            ]
+        },
+        "social": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Organisert i kirkesamfunn (f.eks. katolsk, ortodoks, protestantisk). Menigheten er fellesskapet av troende."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ethical": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Nestekjærlighet ('Du skal elske din neste som deg selv') og De ti bud er sentrale etiske retningslinjer."
+                        }
+                    ]
+                }
+            ]
+        },
+        "doctrinal": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Treenighetslæren (Gud som Fader, Sønn og Hellig Ånd) og læren om frelse ved tro."
+                        }
+                    ]
+                }
+            ]
+        },
+        "material": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Kirkebygg, ikoner, krusifikser, og kunst som fremstiller bibelske motiver."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,4 +1,4 @@
-{
+﻿{
     "subjects": [
         {
             "id": "norsk",
@@ -562,7 +562,47 @@
         {
             "id": "krle",
             "title": "KRLE",
-            "topics": []
+            "tools": [
+                {
+                    "id": "compare-religions",
+                    "title": "Sammenlign Religioner",
+                    "description": "Se likheter og forskjeller side om side.",
+                    "link": "/krle/sammenlign",
+                    "icon": "columns"
+                }
+            ],
+            "topics": [
+                {
+                    "id": "religioner",
+                    "title": "Verdensreligioner",
+                    "description": "Utforsk de store verdensreligionene.",
+                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "kristendom",
+                            "title": "Kristendom",
+                            "description": "Verdens største religion.",
+                            "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                            "link": "/krle/religion/kristendom",
+                            "tags": [
+                                "religion",
+                                "kristendom"
+                            ]
+                        },
+                        {
+                            "id": "islam",
+                            "title": "Islam",
+                            "description": "Den nest største verdensreligionen.",
+                            "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                            "link": "/krle/religion/islam",
+                            "tags": [
+                                "religion",
+                                "islam"
+                            ]
+                        }
+                    ]
+                }
+            ]
         },
         {
             "id": "musikk",

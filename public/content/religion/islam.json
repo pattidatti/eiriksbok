@@ -1,0 +1,105 @@
+{
+    "name": "Islam",
+    "color": "#10b981",
+    "icon": "",
+    "dimensions": {
+        "ritual": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "De fem søylene: Trosbekjennelsen, bønnen (salah), veldedighet (zakat), fasten (ramadan), og pilegrimsreisen (hajj)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "narrative": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Koranen er Guds ord åpenbart for profeten Muhammed. Hadith-litteraturen forteller om profetens liv og sedvane."
+                        }
+                    ]
+                }
+            ]
+        },
+        "experiential": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Underkastelse under Guds vilje, opplevelsen av fellesskap under bønnen og hajj, sufi-mystikk."
+                        }
+                    ]
+                }
+            ]
+        },
+        "social": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Umma (det verdensvide fellesskapet). Moskeen som samlingspunkt. Ingen presteskap i samme forstand som kristendommen, men imamer leder bønn."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ethical": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Sharia (den islamske loven) gir veiledning for rett livsførsel. Halal (tillatt) og Haram (forbudt)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "doctrinal": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Tawhid (Guds enhet). Troen på profetene, bøkene, englene og dommens dag."
+                        }
+                    ]
+                }
+            ]
+        },
+        "material": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Moskeer med minareter, kalligrafi (bildeforbud av levende vesener i religiøs kontekst), bønnetepper."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

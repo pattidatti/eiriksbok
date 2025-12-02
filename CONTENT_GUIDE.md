@@ -1,14 +1,3 @@
-## 🗺️ Manifestet (`manifest.json`)
-
-Filen `public/content/manifest.json` er "hjernen" som styrer hva som vises på nettsiden.
-
-### Eksempel på struktur:
-```json
-{
-  "subjects": [
-    {
-      "id": "historie",
-      "title": "Historie",
       "topics": [
         {
           "id": "vikingtiden",
@@ -29,7 +18,16 @@ Filen `public/content/manifest.json` er "hjernen" som styrer hva som vises på n
 }
 ```
 
-## ➕ Legge til nytt innhold
+## 2. Styling & Theming (CRITICAL)
+**DO NOT use hardcoded colors** (e.g., `bg-slate-900`, `text-white`).
+ALWAYS use the defined CSS variables/Tailwind utilities to ensure support for Light/Dark mode and Dyslexia mode.
+
+*   **Backgrounds**: `bg-bg-main`, `bg-bg-card`
+*   **Text**: `text-text-main`, `text-text-muted`
+*   **Borders**: `border-border-main`
+*   **Primary Action**: `text-indigo-600`, `bg-indigo-600`
+
+## 3. Legge til nytt innhold
 
 ### 1. Opprett innholdsfilen
 Lag en ny JSON-fil for artikkelen din, f.eks. `public/content/historie/mitt-emne/min-artikkel.json`.

@@ -123,3 +123,18 @@ export interface InteractiveComponentProps {
     onComplete?: () => void;
     className?: string;
 }
+export interface Religion {
+    id: string;
+    name: string;
+    color?: string;
+    icon?: string;
+    dimensions: {
+        ritual?: any; // Tina Rich Text
+        narrative?: any;
+        experiential?: any;
+        social?: any;
+        ethical?: any;
+        doctrinal?: any;
+        material?: any;
+    };
+}

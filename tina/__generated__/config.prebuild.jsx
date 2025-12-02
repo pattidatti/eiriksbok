@@ -150,6 +150,34 @@ var config_default = defineConfig({
             ]
           }
         ]
+      },
+      {
+        name: "religion",
+        label: "Religioner",
+        path: "public/content/religion",
+        format: "json",
+        match: {
+          include: "**/*"
+        },
+        fields: [
+          { type: "string", name: "name", label: "Navn", isTitle: true, required: true },
+          { type: "string", name: "color", label: "Farge (Hex)", ui: { component: "color" } },
+          { type: "image", name: "icon", label: "Ikon/Symbol" },
+          {
+            type: "object",
+            name: "dimensions",
+            label: "De 7 Dimensjonene",
+            fields: [
+              { type: "rich-text", name: "ritual", label: "Ritualer og kult" },
+              { type: "rich-text", name: "narrative", label: "Fortellinger og myter" },
+              { type: "rich-text", name: "experiential", label: "Opplevelser og erfaringer" },
+              { type: "rich-text", name: "social", label: "Sosial organisering" },
+              { type: "rich-text", name: "ethical", label: "Etikk og moral" },
+              { type: "rich-text", name: "doctrinal", label: "L\xE6re og filosofi" },
+              { type: "rich-text", name: "material", label: "Materielle og estetiske uttrykk" }
+            ]
+          }
+        ]
       }
     ]
   }
