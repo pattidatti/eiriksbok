@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GlossaryText } from './GlossaryText';
+
 import { AuthorLinker } from './AuthorLinker';
 
 import type { ContentBlock } from '../types';
