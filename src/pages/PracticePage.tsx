@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Brain, HelpCircle, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+
 
 export const PracticePage: React.FC = () => {
     const modules = [
@@ -36,7 +36,7 @@ export const PracticePage: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    {modules.map((module, index) => (
+                    {modules.map((module) => (
                         <Link
                             key={module.id}
                             to={module.link}
