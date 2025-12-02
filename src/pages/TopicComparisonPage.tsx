@@ -14,13 +14,18 @@ export const TopicComparisonPage: React.FC = () => {
             if (!tag) return;
             setLoading(true);
             try {
+                console.log(`Fetching articles for tag: "${tag}"`);
                 // Fetch all articles and filter client-side for the tag
                 const res = await client.queries.articleConnection();
                 const allArticles = res.data.articleConnection.edges?.map(e => e?.node) || [];
+                console.log(`Found ${allArticles.length} total articles.`, allArticles);
 
-                const filtered = allArticles.filter((article: any) =>
-                    article?.comparison_tags?.includes(tag)
-                );
+                const filtered = allArticles.filter((article: any) => {
+                    const hasTag = article?.comparison_tags?.includes(tag);
+                    if (hasTag) console.log(`Match found: ${article.title}`);
+                    return hasTag;
+                });
+                console.log(`Filtered to ${filtered.length} articles.`);
 
                 setArticles(filtered);
             } catch (e) {

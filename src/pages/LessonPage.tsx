@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useManifest } from '../hooks/useManifest';
 import { useLesson } from '../hooks/useLesson';
 import type { ManifestLesson, ContentBlock } from '../types';
@@ -22,26 +22,11 @@ import { usePageTitle } from '../hooks/usePageTitle';
 
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
 import { Volume2, PauseCircle, PlayCircle } from 'lucide-react';
+import { cleanTextForSpeech } from '../utils/speechUtils';
 
 const getFirstTextContent = (blocks: ContentBlock[]): string | undefined => {
     const block = blocks.find((b): b is Extract<ContentBlock, { type: 'text' }> => b.type === 'text' && !!b.content);
     return block?.content;
-};
-
-// Helper to strip markdown/html for speech
-const cleanTextForSpeech = (blocks: ContentBlock[]): string => {
-    return blocks
-        .filter(b => b.type === 'text' && b.content)
-        .map(b => {
-            // Basic markdown stripping
-            let text = (b as any).content || '';
-            text = text.replace(/#{1,6}\s?/g, ''); // Headers
-            text = text.replace(/(\*\*|__)(.*?)\1/g, '$2'); // Bold
-            text = text.replace(/(\*|_)(.*?)\1/g, '$2'); // Italic
-            text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'); // Links
-            return text;
-        })
-        .join('. ');
 };
 
 export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOverride }) => {
@@ -329,6 +314,21 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                                 </>
                             )}
                         </button>
+                    </div>
+                )}
+
+                {/* Comparison Shortcuts */}
+                {lesson.comparison_tags && lesson.comparison_tags.length > 0 && (
+                    <div className="flex flex-wrap justify-center gap-3 mb-8">
+                        {lesson.comparison_tags.map(tag => (
+                            <Link
+                                key={tag}
+                                to={`/krle/sammenlign/tema/${tag}`}
+                                className="inline-flex items-center px-3 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-medium hover:bg-indigo-100 transition-colors border border-indigo-200"
+                            >
+                                <span className="mr-1">⚡</span> Sammenlign {tag}
+                            </Link>
+                        ))}
                     </div>
                 )}
 

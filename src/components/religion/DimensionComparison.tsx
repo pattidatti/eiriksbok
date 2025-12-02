@@ -108,7 +108,7 @@ export const DimensionComparison: React.FC<DimensionComparisonProps> = ({ religi
                                     </h4>
                                     <ul className="space-y-2">
                                         {linkedArticles[religion.id].map((article) => (
-                                            <li key={article.id}>
+                                            <li key={article.id} className="flex flex-col gap-1">
                                                 <Link
                                                     to={`/${article._sys.breadcrumbs.join('/')}`}
                                                     className="text-sm text-indigo-400 hover:text-indigo-300 flex items-center gap-1 group"
@@ -116,6 +116,22 @@ export const DimensionComparison: React.FC<DimensionComparisonProps> = ({ religi
                                                     <span className="group-hover:underline">{article.title}</span>
                                                     <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                                                 </Link>
+
+                                                {/* Comparison Tags Links */}
+                                                {article.comparison_tags && article.comparison_tags.length > 0 && (
+                                                    <div className="flex flex-wrap gap-1 ml-2">
+                                                        {article.comparison_tags.map((tag: string) => (
+                                                            <Link
+                                                                key={tag}
+                                                                to={`/krle/sammenlign/tema/${tag}`}
+                                                                className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20 transition-colors"
+                                                                title={`Sammenlign ${tag} på tvers av religioner`}
+                                                            >
+                                                                #{tag}
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                )}
                                             </li>
                                         ))}
                                     </ul>

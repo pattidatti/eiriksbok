@@ -141,6 +141,20 @@ export default defineConfig({
                                 ],
                             },
                             {
+                                name: "header",
+                                label: "Overskrift",
+                                fields: [
+                                    { type: "string", name: "text", label: "Tekst" },
+                                ],
+                            },
+                            {
+                                name: "list",
+                                label: "Liste",
+                                fields: [
+                                    { type: "string", name: "items", label: "Punkter", list: true },
+                                ],
+                            },
+                            {
                                 name: "component",
                                 label: "Komponent",
                                 fields: [
@@ -179,7 +193,7 @@ export default defineConfig({
             {
                 name: "religion",
                 label: "Religioner",
-                path: "public/content/religion",
+                path: "public/data/religion",
                 format: "json",
                 match: {
                     include: "**/*",

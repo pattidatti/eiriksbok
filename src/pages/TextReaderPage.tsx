@@ -1,10 +1,12 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, User, Tag } from 'lucide-react';
+import { ArrowLeft, BookOpen, User, Tag, Volume2, PauseCircle, PlayCircle } from 'lucide-react';
 import { textLibraryData } from '../data/textLibraryData';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { Tooltip } from '../components/Tooltip';
+import { useTextToSpeech } from '../hooks/useTextToSpeech';
+import { cleanMarkdown } from '../utils/speechUtils';
 
 export const TextReaderPage: React.FC = () => {
     const { textId } = useParams<{ textId: string }>();
@@ -37,6 +39,54 @@ export const TextReaderPage: React.FC = () => {
     }, [textEntry, currentLanguage]);
 
     usePageTitle(displayTitle || 'Les tekst');
+
+    const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();
+
+    // Calculate speech blocks and mapping
+    const speechData = useMemo(() => {
+        if (!displayContent) return { blocks: [], mapSpeechToContent: [], mapContentToSpeech: {} };
+
+        const blocks: string[] = [];
+        const mapSpeechToContent: number[] = [];
+        const mapContentToSpeech: Record<number, number> = {};
+
+        // Add title as first block
+        blocks.push(displayTitle);
+        mapSpeechToContent.push(-1); // -1 indicates title
+
+        displayContent.forEach((paragraph, index) => {
+            const cleanText = cleanMarkdown(paragraph);
+            if (cleanText) {
+                blocks.push(cleanText);
+                const speechIndex = blocks.length - 1;
+                mapSpeechToContent.push(index);
+                mapContentToSpeech[index] = speechIndex;
+            }
+        });
+
+        return { blocks, mapSpeechToContent, mapContentToSpeech };
+    }, [displayContent, displayTitle]);
+
+    // Stop speaking when leaving the page
+    useEffect(() => {
+        return () => {
+            cancel();
+        };
+    }, [cancel]);
+
+    const handleListenClick = () => {
+        if (isPlaying) {
+            if (isPaused) {
+                resume();
+            } else {
+                pause();
+            }
+        } else {
+            if (speechData.blocks.length > 0) {
+                speak(speechData.blocks);
+            }
+        }
+    };
 
     const renderParagraph = (text: string) => {
         if (!textEntry?.definitions) return text;
@@ -111,6 +161,35 @@ export const TextReaderPage: React.FC = () => {
                     <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">
                         {displayTitle}
                     </h1>
+
+                    {/* TTS Button */}
+                    {hasVoice && (
+                        <div className="flex justify-center mb-8">
+                            <button
+                                onClick={handleListenClick}
+                                className={`flex items-center px-4 py-2 rounded-full font-bold transition-all shadow-sm ${isPlaying
+                                    ? 'bg-indigo-600 text-white shadow-lg'
+                                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                                    }`}
+                            >
+                                {isPlaying ? (
+                                    isPaused ? (
+                                        <>
+                                            <PlayCircle className="w-5 h-5 mr-2" /> Fortsett
+                                        </>
+                                    ) : (
+                                        <>
+                                            <PauseCircle className="w-5 h-5 mr-2" /> Pause
+                                        </>
+                                    )
+                                ) : (
+                                    <>
+                                        <Volume2 className="w-5 h-5 mr-2" /> Lytt til tekst
+                                    </>
+                                )}
+                            </button>
+                        </div>
+                    )}
                     <div className="flex items-center justify-center gap-6 text-slate-600">
                         <button
                             onClick={() => navigate(`/norsk/bibliotek?search=${textEntry.author}`)}
@@ -189,11 +268,39 @@ export const TextReaderPage: React.FC = () => {
 
                 <div className="prose prose-lg prose-slate mx-auto font-serif">
                     {displayContent ? (
-                        displayContent.map((paragraph, index) => (
-                            <p key={index} className={`mb-6 leading-relaxed text-slate-800 ${textEntry.genre === 'Dikt' ? 'whitespace-pre-line' : ''}`}>
-                                {renderParagraph(paragraph)}
-                            </p>
-                        ))
+                        displayContent.map((paragraph, index) => {
+                            const isActive = activeBlockIndex !== -1 && speechData.mapSpeechToContent[activeBlockIndex] === index;
+                            const activeClass = isActive
+                                ? "bg-yellow-50 -mx-4 px-4 py-2 rounded-lg border-l-4 border-yellow-400 transition-all duration-300 ease-in-out shadow-sm relative"
+                                : "transition-all duration-300 ease-in-out border-l-4 border-transparent px-4 -mx-4 relative";
+
+                            return (
+                                <div
+                                    key={index}
+                                    className={`mb-6 leading-relaxed text-slate-800 ${textEntry.genre === 'Dikt' ? 'whitespace-pre-line' : ''} ${activeClass} cursor-pointer group`}
+                                    onClick={() => {
+                                        const speechIndex = speechData.mapContentToSpeech[index];
+                                        if (speechIndex !== undefined) playBlock(speechIndex);
+                                    }}
+                                >
+                                    {isActive && (
+                                        <div className="absolute -left-12 top-2 hidden md:flex items-center justify-center w-8 h-8">
+                                            <motion.div
+                                                animate={{ scale: [1, 1.2, 1] }}
+                                                transition={{
+                                                    duration: 1.5,
+                                                    repeat: Infinity,
+                                                    ease: "easeInOut"
+                                                }}
+                                            >
+                                                <Volume2 className="w-5 h-5 text-yellow-600" />
+                                            </motion.div>
+                                        </div>
+                                    )}
+                                    <p>{renderParagraph(paragraph)}</p>
+                                </div>
+                            );
+                        })
                     ) : (
                         <div className="text-center py-12 bg-slate-50 rounded-lg border border-slate-100 border-dashed">
                             <BookOpen className="mx-auto text-slate-300 mb-4" size={48} />

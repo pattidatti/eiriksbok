@@ -1,7 +1,6 @@
 {
     "name": "Islam",
     "color": "#10b981",
-    "icon": "",
     "dimensions": {
         "ritual": {
             "type": "root",
@@ -11,7 +10,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "De fem søylene: Trosbekjennelsen, bønnen (salah), veldedighet (zakat), fasten (ramadan), og pilegrimsreisen (hajj)."
+                            "text": "De fem søylene: Trosbekjennelsen, bønnen (salah), velferdsbidraget (zakah), fasten (ramadan) og pilegrimsreisen (hajj)."
                         }
                     ]
                 }
@@ -25,7 +24,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Koranen er Guds ord åpenbart for profeten Muhammed. Hadith-litteraturen forteller om profetens liv og sedvane."
+                            "text": "Koranen er Guds åpenbarte ord. Hadith-litteraturen forteller om profeten Muhammads liv og sedvane (sunna)."
                         }
                     ]
                 }
@@ -39,7 +38,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Underkastelse under Guds vilje, opplevelsen av fellesskap under bønnen og hajj, sufi-mystikk."
+                            "text": "Underkastelse under Guds vilje (islam betyr underkastelse). Opplevelsen av fellesskap under bønnen og hajj."
                         }
                     ]
                 }
@@ -53,7 +52,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Umma (det verdensvide fellesskapet). Moskeen som samlingspunkt. Ingen presteskap i samme forstand som kristendommen, men imamer leder bønn."
+                            "text": "Ummah (det muslimske fellesskapet). Ingen presteskap, men imamer leder bønnen."
                         }
                     ]
                 }
@@ -67,7 +66,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Sharia (den islamske loven) gir veiledning for rett livsførsel. Halal (tillatt) og Haram (forbudt)."
+                            "text": "Sharia (den islamske veien/loven) gir veiledning for rett livsførsel. Halal (tillatt) og haram (forbudt)."
                         }
                     ]
                 }
@@ -81,7 +80,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Tawhid (Guds enhet). Troen på profetene, bøkene, englene og dommens dag."
+                            "text": "Tawhid (Guds enhet). Muhammad er den siste profeten. Troen på dommens dag."
                         }
                     ]
                 }
@@ -95,7 +94,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Moskeer med minareter, kalligrafi (bildeforbud av levende vesener i religiøs kontekst), bønnetepper."
+                            "text": "Moskeer, kalligrafi (bildeforbud i religiøs kunst), Kaba i Mekka."
                         }
                     ]
                 }

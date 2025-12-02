@@ -2,7 +2,7 @@
     "title": "Bønn (Salah) i Islam",
     "subject": "KRLE",
     "topic": "Islam",
-    "religion": "content/religion/islam.json",
+    "religion": "islam.json",
     "dimension": "ritual",
     "comparison_tags": [
         "ritualer",

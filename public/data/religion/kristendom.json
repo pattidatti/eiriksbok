@@ -1,7 +1,6 @@
 {
     "name": "Kristendom",
     "color": "#6366f1",
-    "icon": "",
     "dimensions": {
         "ritual": {
             "type": "root",
@@ -11,7 +10,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Sentrale ritualer inkluderer dåp og nattverd. Gudstjenesten er det viktigste fellesritualet, ofte feiret på søndager."
+                            "text": "Dåp og nattverd er de viktigste ritualene (sakramentene). Gudstjenesten søndag formiddag er den sentrale samlingsformen."
                         }
                     ]
                 }
@@ -25,7 +24,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Bibelen er den hellige boken, bestående av Det gamle og Det nye testamentet. Fortellingen om Jesus Kristus' liv, død og oppstandelse er kjernen."
+                            "text": "Bibelen er den hellige boken, bestående av Det gamle og Det nye testamentet. Fortellingen om Jesu liv, død og oppstandelse er sentral."
                         }
                     ]
                 }
@@ -39,7 +38,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Troen på en personlig relasjon til Gud, bønn, og opplevelsen av tilgivelse og nåde."
+                            "text": "Bønn, lovsang og fellesskapserfaringer. Troen på Den hellige ånds nærvær."
                         }
                     ]
                 }
@@ -53,7 +52,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Organisert i kirkesamfunn (f.eks. katolsk, ortodoks, protestantisk). Menigheten er fellesskapet av troende."
+                            "text": "Organisert i kirkesamfunn (f.eks. Den katolske kirke, Den norske kirke). Prester, biskoper og paver (i katolisismen) har lederroller."
                         }
                     ]
                 }
@@ -67,7 +66,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Nestekjærlighet ('Du skal elske din neste som deg selv') og De ti bud er sentrale etiske retningslinjer."
+                            "text": "Nestekjærlighetsbudet og De ti bud. Fokus på tilgivelse og omsorg for svake."
                         }
                     ]
                 }
@@ -81,7 +80,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Treenighetslæren (Gud som Fader, Sønn og Hellig Ånd) og læren om frelse ved tro."
+                            "text": "Treenighetslæren (Gud er tre i én: Faderen, Sønnen og Den hellige ånd). Troen på Jesus som Guds sønn og frelser."
                         }
                     ]
                 }
@@ -95,7 +94,7 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Kirkebygg, ikoner, krusifikser, og kunst som fremstiller bibelske motiver."
+                            "text": "Kirkebygg, altertavler, ikoner, korset som symbol."
                         }
                     ]
                 }

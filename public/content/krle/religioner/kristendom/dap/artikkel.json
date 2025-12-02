@@ -2,7 +2,7 @@
     "title": "Dåp i Kristendommen",
     "subject": "KRLE",
     "topic": "Kristendom",
-    "religion": "content/religion/kristendom.json",
+    "religion": "kristendom.json",
     "dimension": "ritual",
     "comparison_tags": [
         "ritualer",

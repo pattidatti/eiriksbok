@@ -185,6 +185,14 @@ type ArticleContentImage {
   alt: String
 }
 
+type ArticleContentHeader {
+  text: String
+}
+
+type ArticleContentList {
+  items: [String]
+}
+
 type ArticleContentComponentPropsQuestions {
   question: String
   options: [String]
@@ -202,7 +210,7 @@ type ArticleContentComponent {
   props: ArticleContentComponentProps
 }
 
-union ArticleContent = ArticleContentText | ArticleContentImage | ArticleContentComponent
+union ArticleContent = ArticleContentText | ArticleContentImage | ArticleContentHeader | ArticleContentList | ArticleContentComponent
 
 type Article implements Node & Document {
   title: String
@@ -233,6 +241,14 @@ input ArticleContentImageFilter {
   alt: StringFilter
 }
 
+input ArticleContentHeaderFilter {
+  text: StringFilter
+}
+
+input ArticleContentListFilter {
+  items: StringFilter
+}
+
 input ArticleContentComponentPropsQuestionsFilter {
   question: StringFilter
   options: StringFilter
@@ -253,6 +269,8 @@ input ArticleContentComponentFilter {
 input ArticleContentFilter {
   text: ArticleContentTextFilter
   image: ArticleContentImageFilter
+  header: ArticleContentHeaderFilter
+  list: ArticleContentListFilter
   component: ArticleContentComponentFilter
 }
 
@@ -396,6 +414,14 @@ input ArticleContentImageMutation {
   alt: String
 }
 
+input ArticleContentHeaderMutation {
+  text: String
+}
+
+input ArticleContentListMutation {
+  items: [String]
+}
+
 input ArticleContentComponentPropsQuestionsMutation {
   question: String
   options: [String]
@@ -416,6 +442,8 @@ input ArticleContentComponentMutation {
 input ArticleContentMutation {
   text: ArticleContentTextMutation
   image: ArticleContentImageMutation
+  header: ArticleContentHeaderMutation
+  list: ArticleContentListMutation
   component: ArticleContentComponentMutation
 }
 

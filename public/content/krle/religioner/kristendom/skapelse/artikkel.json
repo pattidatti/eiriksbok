@@ -2,7 +2,7 @@
     "title": "Skapelsen i Bibelen",
     "subject": "KRLE",
     "topic": "Kristendom",
-    "religion": "content/religion/kristendom.json",
+    "religion": "kristendom.json",
     "dimension": "narrative",
     "comparison_tags": [
         "fortellinger",

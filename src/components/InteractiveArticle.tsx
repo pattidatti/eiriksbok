@@ -19,6 +19,8 @@ import { ArticleContent } from './ArticleContent';
 import { TimelineComponent } from './TimelineComponent';
 import type { ContentBlock } from '../types';
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
+import { cleanTextForSpeech } from '../utils/speechUtils';
+import { timelineData } from '../data/timelineData';
 
 // Generic Article Data Type
 export type ArticleData = {
@@ -102,8 +104,6 @@ const ExpandableSection = ({ title, children }: { title: string, children: React
     );
 };
 
-import { timelineData } from '../data/timelineData';
-
 // Helper to parse year strings into numeric range
 const parseYearRange = (yearStr: string): { start: number, end: number } => {
     // Remove "ca." and spaces
@@ -143,15 +143,6 @@ const parseYearRange = (yearStr: string): { start: number, end: number } => {
 
 const getOverlappingEvents = (currentEventId: string | number, currentYearStr: string, parentPath?: string) => {
     const currentRange = parseYearRange(currentYearStr);
-    // Add a buffer to context (e.g. +/- 50 years or 10% overlap?)
-    // For now, let's just find events that overlap or are very close.
-    // Let's say "context" means events that happened WITHIN the start/end of this event,
-    // OR if this event is a point in time, events around it.
-
-    // Actually, user said: "inkludere årstall og hendelser som ligger utenfor det artikkelen selv nevner, for å gi større kontekst."
-    // So maybe we just grab everything from timelineData that is somewhat relevant?
-    // Let's filter for events that overlap with the range [start - 50, end + 50] to give some context.
-
     const buffer = 50;
     const contextStart = currentRange.start - buffer;
     const contextEnd = currentRange.end + buffer;
@@ -169,22 +160,6 @@ const getOverlappingEvents = (currentEventId: string | number, currentYearStr: s
             description: e.description, // Use short description
             link: parentPath ? `${parentPath}/${e.id}` : `../${e.id}` // Use absolute path if available, else relative
         }));
-};
-
-// Helper to strip markdown/html for speech
-const cleanTextForSpeech = (blocks: ContentBlock[]): string => {
-    return blocks
-        .filter(b => b.type === 'text' && b.content)
-        .map(b => {
-            // Basic markdown stripping
-            let text = (b as any).content || '';
-            text = text.replace(/#{1,6}\s?/g, ''); // Headers
-            text = text.replace(/(\*\*|__)(.*?)\1/g, '$2'); // Bold
-            text = text.replace(/(\*|_)(.*?)\1/g, '$2'); // Italic
-            text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'); // Links
-            return text;
-        })
-        .join('. ');
 };
 
 export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, parentPath }) => {

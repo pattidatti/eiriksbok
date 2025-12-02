@@ -71,6 +71,12 @@ fragment ArticleParts on Article {
       caption
       alt
     }
+    ... on ArticleContentHeader {
+      text
+    }
+    ... on ArticleContentList {
+      items
+    }
     ... on ArticleContentComponent {
       name
       props {

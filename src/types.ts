@@ -62,6 +62,7 @@ export interface Lesson {
     fact?: string;
     mapData?: MapData;
     tags?: string[];
+    comparison_tags?: string[];
     relatedLink?: { text: string; url: string; };
 }
 

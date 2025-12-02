@@ -27,7 +27,7 @@
         },
         {
             "type": "header",
-            "content": "Bakgrunn og opprettelse"
+            "text": "Bakgrunn og opprettelse"
         },
         {
             "type": "text",
@@ -39,7 +39,7 @@
         },
         {
             "type": "header",
-            "content": "Ekspansjon og operasjonsområder"
+            "text": "Ekspansjon og operasjonsområder"
         },
         {
             "type": "text",
@@ -51,7 +51,7 @@
         },
         {
             "type": "header",
-            "content": "Varer og handelsruter"
+            "text": "Varer og handelsruter"
         },
         {
             "type": "text",
@@ -59,7 +59,7 @@
         },
         {
             "type": "list",
-            "content": [
+            "items": [
                 "Krydder: Ekstremt ettertraktede krydder som muskat, nellik, pepper og kanel fra øyene i Sørøst-Asia. VOC sikret seg monopol på mange av disse varene ved å kontrollere produksjonsområdene (for eksempel muskat på Banda-øyene).",
                 "Tekstiler og silke: Bomullsstoffer fra India og silke fra Kina og Japan. Opprinnelig byttet VOC til seg indiske tekstiler som betalingsmiddel for krydder i Indonesia, men etter hvert solgte de også tekstilene videre i Europa.",
                 "Te og kaffe: På 1700-tallet ble te og kaffe svært viktige varer. VOC importerte te fra Kina og etablerte egne kaffeplantasjer på Java og Sri Lanka, slik at kaffe fra Batavia og Ceylon kunne eksporteres i store mengder til Europa.",
@@ -72,7 +72,7 @@
         },
         {
             "type": "header",
-            "content": "Organisering og privilegier"
+            "text": "Organisering og privilegier"
         },
         {
             "type": "text",
@@ -84,7 +84,7 @@
         },
         {
             "type": "header",
-            "content": "Nedgang og avvikling"
+            "text": "Nedgang og avvikling"
         },
         {
             "type": "text",
@@ -92,7 +92,7 @@
         },
         {
             "type": "list",
-            "content": [
+            "items": [
                 "Korrupsjon: Internt slet VOC med utbredt korrupsjon. Mange ansatte (både ledere og mannskap) drev privat handel for egen vinning, noe som tappet selskapet for verdier og undergravde lønnsomheten.",
                 "Krigstap: VOC var involvert i en rekke kriger, noe som både var kostbart og ødela handelsvirksomheten. Spesielt den fjerde anglo-nederlandske krigen (1780–1784) mot Storbritannia gikk hardt utover VOC – den britiske marinen påførte nederlenderne store tap av skip og avbrøt viktige handelsruter.",
                 "Høye utgifter: Å opprettholde et privat imperium med soldater, skip og fort ble svært dyrt. De høye militærutgiftene og administrasjonskostnadene spiste opp mye av overskuddet mot slutten av 1700-tallet.",
