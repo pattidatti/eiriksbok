@@ -95,7 +95,7 @@ const definitions: Definition[] = [
         title: 'Representativt demokrati',
         category: 'Styringsform',
         description: 'Folket velger representanter (politikere) som styrer for dem.',
-        details: 'Den vanligste formen for demokrati i dag. Vi holder valg med jevne mellomrom.',
+        details: 'Dette er den vanligste formen for demokrati i dag. Vi holder valg med jevne mellomrom.',
         icon: GlobeAmericasIcon,
         color: 'text-green-600'
     },

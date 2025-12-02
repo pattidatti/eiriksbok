@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ImmersiveCard } from '../ImmersiveCard';
+import { Slider } from '../ui/Slider';
 
 const demoData: Record<number, { t: string; d: string; b: string; de: string; g: string; sh: string }> = {
     1: { t: "Fase 1: Det Førmoderne Samfunn", d: "<strong>Hvorfor?</strong> Man trenger mange barn til å jobbe, og mange dør. Befolkningen står stille.", b: "Høy", de: "Høy", g: "Lav", sh: "concave" },
@@ -53,14 +54,13 @@ export const DemographySection: React.FC = () => {
                         </div>
                         <div className="bg-glass-bg p-6 rounded-2xl border border-glass-border">
                             <label className="block text-sm font-bold text-purple-400 uppercase tracking-wider mb-4">Dra for å utforske fasene:</label>
-                            <input
-                                type="range"
-                                min="1"
-                                max="5"
+                            <Slider
+                                min={1}
+                                max={5}
                                 value={phase}
-                                step="1"
+                                step={1}
                                 onChange={(e) => setPhase(parseInt(e.target.value))}
-                                className="w-full h-2 bg-glass-border rounded-lg appearance-none cursor-pointer accent-purple-500"
+                                color="purple"
                             />
                             <div className="mt-6 transition-all duration-300">
                                 <h3 className="text-2xl font-display text-purple-400 mb-2">{data.t}</h3>

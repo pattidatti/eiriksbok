@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ImmersiveCard } from '../ImmersiveCard';
+import { Slider } from '../ui/Slider';
 
 export const InflationSection: React.FC = () => {
     const [rate, setRate] = useState(2);
@@ -28,14 +29,13 @@ export const InflationSection: React.FC = () => {
                             Inflasjon er ikke at varer blir dyrere, men at <strong>pengene dine blir mindre verdt</strong> fordi staten lager for mange av dem.
                         </p>
                         <label className="block text-sm font-bold text-text-muted mb-2">Årlig inflasjon: <span className="text-red-500 text-xl font-black">{rate}</span>%</label>
-                        <input
-                            type="range"
-                            min="0"
-                            max="15"
+                        <Slider
+                            min={0}
+                            max={15}
                             value={rate}
-                            step="0.5"
+                            step={0.5}
                             onChange={(e) => setRate(parseFloat(e.target.value))}
-                            className="w-full h-2 bg-glass-border rounded-lg appearance-none cursor-pointer accent-red-500"
+                            color="red"
                         />
                         <div className="mt-8 flex items-end justify-between h-40 gap-1">
                             {renderChart()}

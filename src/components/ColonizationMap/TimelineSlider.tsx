@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Play, Pause } from 'lucide-react';
+import { Slider } from '../ui/Slider';
 
 interface TimelineSliderProps {
     year: number;
@@ -42,13 +43,12 @@ const TimelineSlider: React.FC<TimelineSliderProps> = ({ year, setYear, minYear,
                     <span className="text-xl font-bold text-blue-800">{year}</span>
                     <span>{maxYear}</span>
                 </div>
-                <input
-                    type="range"
+                <Slider
                     min={minYear}
                     max={maxYear}
                     value={year}
                     onChange={(e) => setYear(Number(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                    color="blue"
                 />
             </div>
         </div>

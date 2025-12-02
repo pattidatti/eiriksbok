@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ImmersiveCard } from '../ImmersiveCard';
+import { Slider } from '../ui/Slider';
 
 const rosData: Record<number, { i: string; t: string; d: string; c: string }> = {
     1: { i: "🦶", t: "Fattigdom", d: "Du går barføtt. Mål: Kjøpe sko for å unngå sykdom.", c: "bg-red-900/20 border-red-500/30" },
@@ -45,14 +46,14 @@ export const RoslingSection: React.FC = () => {
                             <p className="text-center text-text-muted text-sm mt-2 px-4 italic">{data.d}</p>
                         </div>
 
-                        <input
-                            type="range"
-                            min="1"
-                            max="4"
+                        <Slider
+                            min={1}
+                            max={4}
                             value={wealthLevel}
-                            step="1"
+                            step={1}
                             onChange={(e) => setWealthLevel(parseInt(e.target.value))}
-                            className="mb-4 w-full h-2 bg-glass-border rounded-lg appearance-none cursor-pointer accent-cyan-500"
+                            className="mb-4"
+                            color="cyan"
                         />
                         <div className="flex justify-between text-xs font-bold text-cyan-400 uppercase tracking-wider">
                             <span>1. Sko</span>

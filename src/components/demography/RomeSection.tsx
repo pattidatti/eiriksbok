@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ImmersiveCard } from '../ImmersiveCard';
+import { Slider } from '../ui/Slider';
 
 export const RomeSection: React.FC = () => {
     const [copperAmount, setCopperAmount] = useState(0);
@@ -29,13 +30,13 @@ export const RomeSection: React.FC = () => {
                             </div>
 
                             <label className="text-sm font-bold text-text-muted uppercase mb-2 block tracking-widest text-center">Bland inn billig kobber</label>
-                            <input
-                                type="range"
-                                min="0"
-                                max="100"
+                            <Slider
+                                min={0}
+                                max={100}
                                 value={copperAmount}
                                 onChange={(e) => setCopperAmount(parseInt(e.target.value))}
-                                className="mb-6 w-full h-2 bg-glass-border rounded-lg appearance-none cursor-pointer accent-yellow-500"
+                                className="mb-6"
+                                color="yellow"
                             />
 
                             <div className="text-center bg-glass-highlight p-4 rounded-xl border border-glass-border shadow-inner">
