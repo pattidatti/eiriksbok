@@ -7,15 +7,20 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] En tidslinje inne på historie som heter alle hendelser nevnt i artiklene, ikke bare artiklene selv. 
 - [ ] En mulighet for å flette sammen egne artikler, slik at man kan lage en egen lærebok.
     interaktiv føydalisme, hre.
-- [ ] Et bibliotek i norskfaget med filter for tema og tekstsjanger. Da tenker jeg ikke på artikler skrevet av nettsideforfatter (meg), men eksterne, som brukes i opplæring. (novelle, roman, dikt, artikkel, debattinnlegg, etc.). 
-- [ ] Et emne på norskfaget med alle typer tekstsjanger (novelle, roman, dikt, artikkel, debattinnlegg, etc.). 
-- [ ] Et emne på norskfaget med skrivetips; Heroes journey osv, bør være koblet til tekstsjanger.  
-- [ ] Interaktive modeller på toppen/innsiden av hvert emne som fukuserer på helhetens nivå, repitisjoner osv. Det må basere seg på alt innholdet i emnet. 
-- [ ] En flashcard-app. Ruteark med fagbegreper. Trykke på dem og få definisjon og link til artikkel. Mulighet for filtre basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet og artiklene. 
+basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet og artiklene. 
 - [ ] Støtte for tegneserier/bildebok. f.eks. skylappjenta
+
+
+
+
 ## 📝 Gjøremål (Todo)
 - [ ] 
 
 ## ✅ Ferdig
 - [x] Opprettet denne filen
 - [x] Fikset hierarkiet for Litteraturhistorie (Nasjonalromantikken, Realismen, Nyromantikken, Nyrealismen)
+- [X] Et bibliotek i norskfaget med filter for tema og tekstsjanger. Da tenker jeg ikke på artikler skrevet av nettsideforfatter (meg), men eksterne, som brukes i opplæring. (novelle, roman, dikt, artikkel, debattinnlegg, etc.). 
+- [X] Et emne på norskfaget med alle typer tekstsjanger (novelle, roman, dikt, artikkel, debattinnlegg, etc.). 
+- [X] Et emne på norskfaget med skrivetips; Heroes journey osv, bør være koblet til tekstsjanger.  
+- [ ] Interaktive modeller på toppen/innsiden av hvert emne som fukuserer på helhetens nivå, repitisjoner osv. Det må basere seg på alt innholdet i emnet. 
+- [X] En flashcard-app. Ruteark med fagbegreper. Trykke på dem og få definisjon og link til artikkel. Mulighet for filtre 
