@@ -1,97 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PrefetchLink } from '../components/PrefetchLink';
-import { useManifest } from '../hooks/useManifest';
-import type { ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
 import { LessonCard } from '../components/LessonCard';
 import { usePageTitle } from '../hooks/usePageTitle';
-import { useUserHistory } from '../hooks/useUserHistory';
-
-import { textLibraryData } from '../data/textLibraryData';
+import { useManifestData } from '../hooks/useManifestData';
 import { PageSkeleton } from '../components/Skeleton';
+import { getSubjectUrl, getLessonUrl, ROUTES } from '../utils/routes';
 
 export const LandingPage: React.FC = () => {
-    const { data: manifest, isLoading } = useManifest();
-    const { history } = useUserHistory();
+    const { manifest, recentLessons, historyLessons, isLoading } = useManifestData();
     usePageTitle('Eiriks lærebok', true);
-
-    const [recentLessons, setRecentLessons] = React.useState<any[]>([]);
-    const [historyLessons, setHistoryLessons] = React.useState<any[]>([]);
-
-    React.useEffect(() => {
-        if (!manifest) return;
-
-        // Defer calculation to next tick to allow initial render
-        const timer = setTimeout(() => {
-            let lessons: (ManifestLesson & { topicId: string, subTopicId?: string, subjectId: string, topicTitle: string })[] = [];
-            manifest.subjects?.forEach((subject: any) => {
-                subject.topics?.forEach((topic: any) => {
-                    const processLessons = (lessonList: ManifestLesson[], subTopicId?: string) => {
-                        lessonList.forEach(l => {
-                            if (l.id) {
-                                lessons.push({
-                                    ...l,
-                                    subjectId: subject.id,
-                                    topicId: topic.id,
-                                    subTopicId,
-                                    topicTitle: topic.title
-                                });
-                            }
-                        });
-                    };
-
-                    if (topic.lessons) processLessons(topic.lessons);
-                    if (topic.subTopics) {
-                        topic.subTopics.forEach((st: any) => {
-                            if (st.lessons) processLessons(st.lessons, st.id);
-                        });
-                    }
-                });
-            });
-
-            // Add library texts
-            textLibraryData.forEach(text => {
-                lessons.push({
-                    id: text.id,
-                    title: text.title,
-                    description: `Av ${text.author}. ${text.genre}.`,
-                    subjectId: 'norsk',
-                    topicId: 'bibliotek',
-                    topicTitle: 'Bibliotek',
-                    createdDate: text.createdDate,
-                    image: undefined // Will use fallback
-                });
-            });
-
-            // Calculate derived state
-            const recent = [...lessons].sort((a, b) => {
-                const dateA = a.createdDate || a.date || '0000';
-                const dateB = b.createdDate || b.date || '0000';
-                return dateB.localeCompare(dateA);
-            }).slice(0, 3);
-
-            // Stage 1: Render Recent Lessons (non-urgent)
-            React.startTransition(() => {
-                setRecentLessons(recent);
-            });
-
-            // Stage 2: Render History Lessons (after a short delay)
-            setTimeout(() => {
-                const hist = history
-                    .map(h => lessons.find(l => l.id === h.id))
-                    .filter((l): l is NonNullable<typeof l> => !!l)
-                    .slice(0, 3);
-
-                React.startTransition(() => {
-                    setHistoryLessons(hist);
-                });
-            }, 100);
-
-        }, 50);
-
-        return () => clearTimeout(timer);
-    }, [manifest, history]);
 
     if (isLoading || !manifest) return <PageSkeleton />;
 
@@ -110,7 +29,7 @@ export const LandingPage: React.FC = () => {
                                 className="mb-8"
                             >
                                 <PrefetchLink
-                                    to={`/${subject.id}`}
+                                    to={getSubjectUrl(subject.id)}
                                     prefetchTarget="SubjectPage"
                                     className="group block"
                                 >
@@ -148,7 +67,7 @@ export const LandingPage: React.FC = () => {
                                 >
                                     <LessonCard
                                         lesson={lesson}
-                                        path={`/${lesson.subjectId}/${lesson.topicId}${lesson.subTopicId ? `/${lesson.subTopicId}` : ''}/${lesson.id}`}
+                                        path={getLessonUrl(lesson.subjectId, lesson.topicId, lesson.id, lesson.subTopicId)}
                                         topicTitle={lesson.topicTitle}
                                         badgeText="Fortsett"
                                     />
@@ -168,7 +87,7 @@ export const LandingPage: React.FC = () => {
                             <h3 className="text-xl font-display font-bold text-text-main">
                                 Nytt innhold
                             </h3>
-                            <Link to="/sok" className="text-sm font-medium text-text-muted hover:text-text-main transition-colors">
+                            <Link to={ROUTES.SEARCH} className="text-sm font-medium text-text-muted hover:text-text-main transition-colors">
                                 Se alle
                             </Link>
                         </div>
@@ -184,7 +103,7 @@ export const LandingPage: React.FC = () => {
                                 >
                                     <LessonCard
                                         lesson={lesson}
-                                        path={`/${lesson.subjectId}/${lesson.topicId}${lesson.subTopicId ? `/${lesson.subTopicId}` : ''}/${lesson.id}`}
+                                        path={getLessonUrl(lesson.subjectId, lesson.topicId, lesson.id, lesson.subTopicId)}
                                         topicTitle={lesson.topicTitle}
                                     />
                                 </motion.div>

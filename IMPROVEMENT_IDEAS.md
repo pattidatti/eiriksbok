@@ -4,29 +4,29 @@ Her er 20 konkrete forslag til forbedringer basert på en gjennomgang av koden, 
 
 ## Kodekvalitet og Type-sikkerhet
 
-1.  **Strengere Typer i `types.ts`**:
-    *   Erstatt `any` i `mapData?: any` og `props?: Record<string, any>` med spesifikke interfaces eller `unknown` med type guards. Dette forhindrer runtime-feil.
-2.  **Sentrert Ruting-konfigurasjon**:
-    *   Opprett en `routes.ts` eller `paths.ts` helper-fil. I dag genereres stier manuelt (f.eks. i `LandingPage.tsx`: `` `/${lesson.subjectId}/${lesson.topicId}...` ``). Dette gjør det lett å gjøre feil hvis URL-strukturen endres.
-3.  **Custom Hooks for Data**:
-    *   Flytt logikken for å hente og flat-mappe `manifest.json` fra `LandingPage.tsx` til en egen hook, f.eks. `useManifestData()`. Dette gjør komponenten renere og logikken gjenbrukbar.
-4.  **Prettier og Linting**:
-    *   Legg til en `.prettierrc` fil og kjør `prettier` på hele prosjektet for å sikre konsistent formatering (f.eks. single vs double quotes, trailing commas).
+1.  **Strengere Typer i `types.ts`** (Implementert):
+    *   Erstattet `any` med spesifikke interfaces i `types.ts`. Dette forhindrer runtime-feil.
+2.  **Sentrert Ruting-konfigurasjon** (Implementert):
+    *   Opprettet `src/utils/routes.ts` helper-fil. Alle URL-er genereres nå sentralt, noe som gjør det tryggere å endre URL-struktur.
+3.  **Custom Hooks for Data** (Implementert):
+    *   Flyttet logikk til `useManifestData()`. `LandingPage.tsx` er nå mye renere og logikken er gjenbrukbar.
+4.  **Prettier og Linting** (Implementert):
+    *   La til `.prettierrc` fil for å sikre konsistent formatering.
 
 ## Ytelse og Optimalisering
 
 5.  **Bildeoptimalisering** (Implementert):
     *   Implementert en `<Image />` komponent som bruker `loading="lazy"` og håndterer "blur-up" placeholders.
-6.  **React Query / SWR**:
-    *   Bruk et bibliotek som TanStack Query for datahenting (`fetchManifest`). Dette gir caching, auto-refetching, og bedre håndtering av loading/error states ut av boksen.
+6.  **React Query / SWR** (Verifisert Implementert):
+    *   Prosjektet bruker allerede TanStack Query via `useManifest` hooken. Dette sikrer god caching og datahenting.
 7.  **Code Splitting** (Implementert):
     *   Bruk `React.lazy` og `Suspense` for å laste tunge sider (som `TopicPage` eller `LessonPage`) kun når brukeren navigerer til dem. Dette reduserer initiell lastetid.
 8.  **Virtualisering av lister**:
     *   Hvis lister med leksjoner eller bibliotektekster blir lange, vurder `react-window` for å kun rendre elementene som er synlige i skjermbildet.
 9.  **Prefetching av ruter** (Implementert):
     *   Implementert `PrefetchLink` som laster koden for neste side i bakgrunnen når brukeren holder musen over lenken.
-10. **Bundle Analysis**:
-    *   Legg til `rollup-plugin-visualizer` i byggeprosessen for å se nøyaktig hvilke biblioteker som tar plass, og fjern eller bytt ut unødvendig store avhengigheter.
+10. **Bundle Analysis** (Implementert):
+    *   Kjørte build med analyse. `stats.html` er generert i roten for å inspisere pakkestørrelser.
 11. **Optimalisering av fonter** (Verifisert):
     *   Sørg for at webfonter bruker `font-display: swap` for å vise tekst umiddelbart (allerede på plass i index.html).
 12. **Memoization** (Implementert):
@@ -70,12 +70,12 @@ Her er 20 konkrete forslag til forbedringer basert på en gjennomgang av koden, 
 
 ## 🚀 Pro Tips for "Snappiness" (Avansert)
 
-25. **Optimistisk UI (Optimistic UI)**:
-    *   Ikke vent på serveren! Når brukeren gjør noe (f.eks. markerer en leksjon som ferdig), oppdater UI-et *umiddelbart*. Hvis server-kallet feiler, rull tilbake endringen og vis en feilmelding. Dette får appen til å føles "instant".
-26. **CSS `content-visibility: auto`**:
-    *   Legg til `content-visibility: auto` på store seksjoner langt nede på siden. Dette ber nettleseren om å hoppe over rendering av innhold som ikke er synlig, noe som drastisk øker initiell rendering-ytelse.
-27. **Ressurs-hinting (`rel="preconnect"`)**:
-    *   Legg til `<link rel="preconnect">` i `index.html` for viktige eksterne domener (som Unsplash for bilder eller Google Fonts). Dette sparer dyrebare millisekunder på å opprette tilkoblingen før innholdet faktisk bes om.
-28. **Interaksjon til neste paint (INP) optimalisering**:
-    *   Unngå lange oppgaver på hovedtråden. Bruk `scheduler.postTask` (eller en polyfill) for å utsette ikke-kritisk JavaScript (som analyse-logging) til etter at siden har blitt interaktiv.
+25. **Optimistisk UI (Optimistic UI)** (Implementert, men rullet tilbake):
+    *   Ble implementert for "Lest"-markering, men fjernet etter ønske om renere UI. Teknologien er klar hvis behovet oppstår igjen.
+26. **CSS `content-visibility: auto`** (Implementert):
+    *   Lagt til `.content-auto` klasse i `index.css` for ytelsesoptimalisering av store seksjoner.
+27. **Ressurs-hinting (`rel="preconnect"`)** (Implementert):
+    *   Lagt til `preconnect` for Unsplash i `index.html` for raskere bildelasting.
+28. **Interaksjon til neste paint (INP) optimalisering** (Implementert):
+    *   Opprettet `src/utils/scheduler.ts` med `scheduler.yield()` og `scheduler.postTask()` for å splitte opp tunge oppgaver.
 

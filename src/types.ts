@@ -21,11 +21,21 @@ export interface QuizQuestion {
     answer: string;
 }
 
+export interface MapData {
+    center: [number, number];
+    zoom: number;
+    markers?: Array<{
+        position: [number, number];
+        title: string;
+        description?: string;
+    }>;
+}
+
 export type ContentBlock =
     | { type: 'text'; content?: string; text?: string; title?: string }
     | { type: 'header'; content: string }
     | { type: 'image'; src: string; caption?: string; alt: string }
-    | { type: 'component'; name: string; props?: Record<string, any> }
+    | { type: 'component'; name: string; props?: Record<string, unknown> }
     | { type: 'section'; title?: string; content: ContentBlock[] }
     | { type: 'list'; items: string[] }
     | { type: 'link'; text: string; url: string; icon?: string };
@@ -50,7 +60,7 @@ export interface Lesson {
     quiz?: QuizQuestion[];
     timeline?: { year: string; title: string; description: string }[];
     fact?: string;
-    mapData?: any; // Placeholder for map data structure
+    mapData?: MapData;
     tags?: string[];
     relatedLink?: { text: string; url: string; };
 }
@@ -65,6 +75,8 @@ export interface ManifestLesson {
     image?: string;
     tags?: string[];
     definitions?: { term: string; definition: string }[];
+    content?: string;
+    mapData?: MapData;
 }
 
 export interface TopicTool {
@@ -87,8 +99,8 @@ export interface ManifestSubTopic {
 export interface ManifestTopic {
     id: string;
     title: string;
-    description?: string;
     image?: string;
+    description?: string;
     lessons?: ManifestLesson[];
     subTopics?: ManifestSubTopic[];
     tags?: string[];
@@ -104,4 +116,10 @@ export interface ManifestSubject {
 
 export interface Manifest {
     subjects: ManifestSubject[];
+}
+
+export interface InteractiveComponentProps {
+    data?: unknown;
+    onComplete?: () => void;
+    className?: string;
 }
