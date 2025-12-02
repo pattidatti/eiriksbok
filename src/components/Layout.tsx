@@ -24,8 +24,9 @@ export const Layout: React.FC = () => {
             {/* Navbar */}
             <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-white/70 border-b border-white/20 shadow-sm transition-all duration-300">
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-                    <Link to="/" className="text-xl font-display font-bold text-text-main no-underline tracking-tight">
-                        Eiriksbok
+                    <Link to="/" className="flex items-center gap-3 text-xl font-display font-bold text-text-main no-underline tracking-tight group">
+                        <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain transition-transform group-hover:scale-110" />
+                        <span>BOK.HAALAND.DE</span>
                     </Link>
 
                     <nav className="hidden md:flex items-center space-x-8">
