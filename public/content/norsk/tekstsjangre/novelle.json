@@ -8,31 +8,86 @@
     "content": [
         {
             "type": "text",
-            "content": "Novellen er en kort, oppdiktet fortelling. Handlingen er konsentrert om én eller få hendelser, og den utspiller seg over et kort tidsrom."
+            "content": "Novellen er en av de mest sentrale sjangrene i moderne litteratur. Ordet kommer fra italienske *novella*, som betyr «nyhet». En novelle er en kort, oppdiktet fortelling som kjennetegnes av fortetting og konsentrasjon. I motsetning til romanen, som kan bre seg ut over hundrevis av sider og følge mange karakterer gjennom et langt livsløp, fokuserer novellen gjerne på én enkelt hendelse, et avgjørende øyeblikk eller en kort tidsperiode i en eller få personers liv.\n\nDet sies ofte at en god novelle skal kunne leses i «én sitning». Den krever at leseren er oppmerksom, for i en novelle står det sjelden noe som er overflødig. Hvert ord veies nøye, og mye av handlingen og meningen ligger «mellom linjene». Forfatteren overlater mye til leserens fantasi og tolkningsevne."
+        },
+        {
+            "type": "section",
+            "title": "Historikk",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Sjangeren har røtter helt tilbake til middelalderen, med Giovanni Boccaccios *Dekameronen* (ca. 1350) som et tidlig høydepunkt. I Norge fikk novellen sitt store gjennombrudd på slutten av 1800-tallet, særlig med de realistiske forfatterne. Alexander Kielland regnes ofte som den norske novellens far, med sine *Novelletter*. Senere har forfattere som Cora Sandel, Tarjei Vesaas, Kjell Askildsen og i nyere tid Frode Grytten og Gunnhild Øyehaug, vært med på å forme og fornye sjangeren."
+                }
+            ]
         },
         {
             "type": "section",
             "title": "Kjennetegn",
             "content": [
                 {
+                    "type": "text",
+                    "content": "Selv om noveller kan være svært forskjellige, er det noen fellestrekk som ofte går igjen:"
+                },
+                {
                     "type": "list",
                     "items": [
-                        "Få personer",
-                        "Kort tidsrom",
-                        "In medias res (rett på sak)",
-                        "Konsentrert handling",
-                        "Overraskende slutt eller åpen slutt"
+                        "**In medias res:** Novellen starter ofte rett i handlingen, uten noen lang innledning. Vi kastes inn i en situasjon.",
+                        "**Få personer:** Det er sjelden plass til å bli kjent med mange karakterer. Ofte møter vi bare hovedpersonen og kanskje én eller to til som er viktige for konflikten.",
+                        "**Kort tidsrom:** Handlingen utspiller seg gjerne over noen timer, en dag eller noen få dager.",
+                        "**Enstrenget handling:** Det er sjelden sidehistorier. Alt som skjer bygger opp under hovedkonflikten eller temaet.",
+                        "**Konsentrasjon:** Det er lite «utenomsnakk». Beskrivelser av miljø og personer er knappe, men virkningsfulle.",
+                        "**Vendepunkt:** Handlingen bygger seg ofte opp mot en topp eller et vendepunkt, der noe avgjørende skjer som endrer situasjonen eller personens innsikt.",
+                        "**Overraskende eller åpen slutt:** Mange noveller slutter brått, gjerne med en overraskende vri. Andre har en åpen slutt der leseren selv må tenke seg til hva som skjer videre."
                     ]
                 }
             ]
         },
         {
             "type": "section",
-            "title": "Virkemidler",
+            "title": "Virkemidler i noveller",
             "content": [
                 {
                     "type": "text",
-                    "content": "I noveller brukes ofte symboler og metaforer for å si noe mer enn det som står direkte i teksten. Det kalles å lese mellom linjene."
+                    "content": "Fordi novellen er så kort, må forfatteren bruke språklige virkemidler effektivt for å skape stemning og mening."
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "**Show, don't tell:** I stedet for å skrive at en person er sint, beskriver forfatteren kanskje at personen smeller med dørene eller knytter nevene. Handlinger og replikker viser oss hvordan personene har det.",
+                        "**Symboler:** Gjenstander, vær eller handlinger kan bety noe mer enn det konkrete. En visnet blomst kan symbolisere tapt kjærlighet, en storm kan speile indre kaos.",
+                        "**Metaforer og sammenligninger:** Språklige bilder brukes for å skape tydelige forestillinger hos leseren på liten plass.",
+                        "**Synsvinkel:** Valg av synsvinkel (f.eks. førsteperson «jeg» eller tredjeperson «han/hun») er avgjørende for hvilken informasjon leseren får tilgang til."
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "Hvordan analysere en novelle?",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Når du skal analysere en novelle, bør du se etter *motivet* (det konkrete som skjer) og *temaet* (det teksten egentlig handler om på et dypere plan). Spør deg selv: Hva er konflikten? Hvordan utvikler hovedpersonen seg? Hva prøver forfatteren å si oss om det å være menneske? Se spesielt på tittelen – den gir ofte et hint om temaet."
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "Eksempler fra biblioteket",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "I biblioteket finner du flere klassiske og moderne noveller som illustrerer sjangeren godt:"
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "[En middag](/bibliotek/en-middag) av Alexander Kielland – En klassisk realistisk novelle med tydelig samfunnskritikk.",
+                        "[Faderen](/bibliotek/faderen) av Bjørnstjerne Bjørnson – En fortelling om en manns livsløp, fortalt gjennom noen få, avgjørende scener.",
+                        "[Karens jul](/bibliotek/karens-jul) av Amalie Skram – En naturalistisk novelle som skildrer fattigdom og urettferdighet.",
+                        "[Karen](/bibliotek/karen) av Alexander Kielland – En parallellhistorie der to handlinger speiler hverandre.",
+                        "[Twitter-noveller](/bibliotek/twitter-noveller) av Frode Grytten – Eksempler på svært korte korttekster som utfordrer sjangergrensene."
+                    ]
                 }
             ]
         }
@@ -40,7 +95,8 @@
     "tags": [
         "skjønnlitteratur",
         "fortelling",
-        "korthistorie"
+        "korthistorie",
+        "litterær analyse"
     ],
     "relatedLink": {
         "text": "Hvordan skrive novelle",

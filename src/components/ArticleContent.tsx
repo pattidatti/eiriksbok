@@ -16,6 +16,42 @@ interface ArticleContentProps {
 }
 
 export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
+    const renderWithMarkdown = (text: string) => {
+        return text.split(/(\[.*?\]\(.*?\)| \*\*.*?\*\*|\*[^*]+?\*)/g).map((part, i) => {
+            // Check for link
+            const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+            if (linkMatch) {
+                const [, linkText, url] = linkMatch;
+                const isExternal = url.startsWith('http');
+                const className = "text-indigo-600 hover:text-indigo-800 underline";
+                if (isExternal) {
+                    return (
+                        <a key={i} href={url} target="_blank" rel="noopener noreferrer" className={className}>
+                            {linkText}
+                        </a>
+                    );
+                }
+                return (
+                    <Link key={i} to={url} className={className}>
+                        {linkText}
+                    </Link>
+                );
+            }
+
+            // Check for bold
+            if (part.startsWith('**') && part.endsWith('**')) {
+                return <strong key={i}><GlossaryText content={part.slice(2, -2)} /></strong>;
+            }
+
+            // Check for italic
+            if (part.startsWith('*') && part.endsWith('*')) {
+                return <em key={i}><GlossaryText content={part.slice(1, -1)} /></em>;
+            }
+
+            return <GlossaryText key={i} content={part} />;
+        });
+    };
+
     return (
         <div className="article-content space-y-8">
             {content.map((block, index) => {
@@ -29,15 +65,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                                 )}
                                 {textContent.split('\n\n').map((paragraph: string, pIndex: number) => (
                                     <p key={pIndex} className="mb-4 text-slate-700 leading-relaxed">
-                                        {paragraph.split(/(\*\*.*?\*\*|\*[^*]+?\*)/g).map((part: string, i: number) => {
-                                            if (part.startsWith('**') && part.endsWith('**')) {
-                                                return <strong key={i}><GlossaryText content={part.slice(2, -2)} /></strong>;
-                                            }
-                                            if (part.startsWith('*') && part.endsWith('*')) {
-                                                return <em key={i}><GlossaryText content={part.slice(1, -1)} /></em>;
-                                            }
-                                            return <GlossaryText key={i} content={part} />;
-                                        })}
+                                        {renderWithMarkdown(paragraph)}
                                     </p>
                                 ))}
                             </div>
@@ -62,15 +90,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
                             <ul key={index} className="list-disc list-inside space-y-2 mb-8 text-slate-700">
                                 {block.items?.map((item: string, i: number) => (
                                     <li key={i} className="leading-relaxed">
-                                        {item.split(/(\*\*.*?\*\*|\*[^*]+?\*)/g).map((part: string, j: number) => {
-                                            if (part.startsWith('**') && part.endsWith('**')) {
-                                                return <strong key={j}><GlossaryText content={part.slice(2, -2)} /></strong>;
-                                            }
-                                            if (part.startsWith('*') && part.endsWith('*')) {
-                                                return <em key={j}><GlossaryText content={part.slice(1, -1)} /></em>;
-                                            }
-                                            return <GlossaryText key={j} content={part} />;
-                                        })}
+                                        {renderWithMarkdown(item)}
                                     </li>
                                 ))}
                             </ul>

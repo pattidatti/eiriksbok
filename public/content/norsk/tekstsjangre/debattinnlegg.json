@@ -8,7 +8,70 @@
     "content": [
         {
             "type": "text",
-            "content": "En debattartikkel er en kort tekst som gir informasjon, og som argumenterer for et syn i en sak. Den kan også tilbakevise påstander og argumenter andre har kommet med.\n\nAviser tar gjerne inn debattartikler om aktuelle saker. Lærer du deg å konsentrere deg om én sak, skrive saklig, argumentere godt og fatte deg i korthet, øker sjansen for at teksten din blir publisert.\n\nKjennetegn på et debattinnlegg:\n- Subjektiv (forfatterens mening kommer tydelig fram)\n- Argumenterende (prøver å overbevise leseren)\n- Tydelig hovedsyn (tese)\n- Appellerer ofte til følelser (patos) i tillegg til fornuft (logos)\n- Ofte en fengende overskrift"
+            "content": "Et debattinnlegg (eller leserinnlegg) er en argumenterende tekst der forfatteren uttrykker sin personlige mening om en sak. Målet er å overbevise leseren om at du har rett, eller å kaste lys over en sak fra ditt ståsted. Debattinnlegg finner vi i aviser, på nettdebatter og i sosiale medier. Det er en viktig del av demokratiet at alle kan komme til orde og si sin mening."
+        },
+        {
+            "type": "section",
+            "title": "Sjangerkjennetegn",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "I motsetning til fagartikkelen, er debattinnlegget sterkt *subjektivt*. Det er dine meninger som teller."
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "**Tydelig hovedsyn (tese):** Det må komme klart frem hva du mener. F.eks. «Vi må ha leksefri skole nå!»",
+                        "**Argumentasjon:** Du må begrunne *hvorfor* du mener det du mener. Gode argumenter er nøkkelen til å overbevise.",
+                        "**Personlig stemme:** Du kan bruke «jeg», vise engasjement og bruke språklige virkemidler for å fenge leseren.",
+                        "**Aktualitet:** Debattinnlegg tar ofte utgangspunkt i en aktuell hendelse eller diskusjon i samfunnet."
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "Retoriske appellformer",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "For å overbevise, bruker vi ofte de tre retoriske appellformene fra antikken:"
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "**Etos (troverdighet):** Du må fremstå som en man kan stole på. Vis at du har kunnskap om emnet, vær ærlig og redelig.",
+                        "**Logos (fornuft):** Bruk fakta, tall, forskning og logiske resonnementer. «Det er bevist at...», «Det er logisk fordi...».",
+                        "**Patos (følelser):** Spill på leserens følelser. Bruk sterke ord, personlige historier eller humor for å engasjere. «Tenk på de stakkars barna som...»"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "Oppbygging",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "Et godt debattinnlegg går ofte rett på sak:"
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "**Fengende overskrift:** Må vekke nysgjerrighet eller provosere.",
+                        "**Innledning:** Presenter saken og ditt hovedsyn (tesen) med en gang.",
+                        "**Hoveddel:** Presenter argumentene dine. Gjerne ett avsnitt per argument. Husk også å nevne motargumenter og tilbakevise dem (gendrivelse).",
+                        "**Avslutning:** Oppsummer kort og kom med en appell eller oppfordring til slutt. «Derfor må politikerne handle nå!»"
+                    ]
+                }
+            ]
         }
+    ],
+    "tags": [
+        "sakprosa",
+        "argumentasjon",
+        "mening",
+        "retorikk",
+        "demokrati"
     ]
 }
