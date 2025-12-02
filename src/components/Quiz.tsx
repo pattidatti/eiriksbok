@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { QuizQuestion } from '../types';
 import './Quiz.css';
 import { motion } from 'framer-motion';
@@ -13,6 +13,18 @@ export const Quiz: React.FC<QuizProps> = ({ questions }) => {
     const [showResult, setShowResult] = useState(false);
     const [score, setScore] = useState(0);
     const [isAnswered, setIsAnswered] = useState(false);
+    const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
+
+    useEffect(() => {
+        if (questions && questions[currentQuestion]) {
+            const options = [...questions[currentQuestion].options];
+            for (let i = options.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [options[i], options[j]] = [options[j], options[i]];
+            }
+            setShuffledOptions(options);
+        }
+    }, [currentQuestion, questions]);
 
     const handleOptionClick = (option: string) => {
         if (isAnswered) return;
@@ -56,7 +68,7 @@ export const Quiz: React.FC<QuizProps> = ({ questions }) => {
             <div className="question-card">
                 <p className="question-text">{question.question}</p>
                 <div className="options-grid">
-                    {question.options.map((option) => (
+                    {shuffledOptions.map((option) => (
                         <button
                             key={option}
                             className={`option-btn ${selectedOption === option ? 'selected' : ''} ${isAnswered && option === question.answer ? 'correct' : ''} ${isAnswered && selectedOption === option && option !== question.answer ? 'wrong' : ''}`}
