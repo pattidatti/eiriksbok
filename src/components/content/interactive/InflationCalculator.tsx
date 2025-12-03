@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, TrendingDown, DollarSign, ShoppingCart, PiggyBank } from 'lucide-react';
+import { TrendingUp, DollarSign, ShoppingCart, PiggyBank } from 'lucide-react';
 
 export const InflationCalculator: React.FC = () => {
     const [interestRate, setInterestRate] = useState(5);
