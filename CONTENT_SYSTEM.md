@@ -49,9 +49,14 @@ To add a new lesson (article):
     {
       "id": "my-new-lesson",
       "title": "My Lesson",
-      "content": [ ... ] // Rich text blocks
+      "content": [ 
+        { "type": "text", "content": "Intro text..." },
+        { "type": "header", "text": "Section Title" }, // Use header, NOT nested sections
+        { "type": "text", "content": "More text..." }
+      ] 
     }
     ```
+    **Important:** The `content` array must be **flat**. Do not use nested `section` blocks. Use `header` blocks to separate sections.
 
 ## 4. Feature Systems
 

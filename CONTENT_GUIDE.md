@@ -38,6 +38,11 @@ To make an article appear in the comparison tools:
     *   **`comparison_tags`**: A list of specific keywords for detailed comparison.
         *   Example: `["dåp", "livsfaser", "ritualer"]`
 
+3.  **Content Structure (CRITICAL)**:
+    *   The `content` field must be a **flat list** of blocks.
+    *   **DO NOT** use nested `section` blocks. Use `header` blocks to denote new sections.
+    *   Supported blocks: `text`, `image`, `header`, `list`, `component` (FactBox/Quiz).
+
 ## Comparison Features
 
 *   **Dimension Comparison**: `/krle/sammenlign`
@@ -50,5 +55,6 @@ To make an article appear in the comparison tools:
 
 ## Troubleshooting
 
-*   **"Unable to find record"**: Check that the `religion` field in the article matches the path to the religion file exactly (relative to `public/`), and that the file exists.
+*   **"Unable to find record"**: Ensure the `religion` field is just the ID (e.g., `"kristendom"`), NOT a file path. The system manually fetches `public/data/religion/[ID].json`.
+*   **"String cannot represent value"**: This usually means you have invalid content structure. Check for nested `section` blocks and flatten them.
 *   **No articles found**: Check that `comparison_tags` are identical (case-sensitive) across articles.
