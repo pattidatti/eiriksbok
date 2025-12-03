@@ -284,6 +284,17 @@
                                 "penger",
                                 "rente"
                             ]
+                        },
+                        {
+                            "id": "finanskriser",
+                            "title": "Finanskriser",
+                            "description": "Festen og bakrusen: Hvorfor krasjer økonomien?",
+                            "image": "https://images.unsplash.com/photo-1535320903710-d9cf113ebdb0?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "økonomi",
+                                "krise",
+                                "syklus"
+                            ]
                         }
                     ]
                 },

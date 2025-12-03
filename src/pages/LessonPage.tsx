@@ -346,6 +346,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             {lesson.content ? (
                 <ArticleContent
                     content={lesson.content}
+                    concepts={lesson.concepts}
                     activeBlockIndex={activeContentIndex}
                     onBlockClick={handleBlockClick}
                 />

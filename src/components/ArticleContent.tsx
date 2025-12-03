@@ -11,6 +11,8 @@ import { TimelineComponent } from './TimelineComponent';
 import { PlotGraph } from './PlotGraph';
 import { InflationCalculator } from './content/interactive/InflationCalculator';
 import { TimePreferenceModel } from './content/interactive/TimePreferenceModel';
+import { BusinessCycleModel } from './content/interactive/BusinessCycleModel';
+import { BusinessCycleGraph } from './content/interactive/BusinessCycleGraph';
 
 // Simple markdown renderer fallback
 const renderWithMarkdown = (text: string) => {
@@ -25,13 +27,54 @@ const renderWithMarkdown = (text: string) => {
     });
 };
 
+import { Tooltip } from './Tooltip';
+
+interface Concept {
+    title: string;
+    description: string;
+}
+
+// Enhanced renderer that handles both markdown and concepts
+const RichTextRenderer: React.FC<{ text: string; concepts?: Concept[] }> = ({ text, concepts = [] }) => {
+    if (!text) return null;
+
+    // 1. If no concepts, just do basic markdown
+    if (concepts.length === 0) {
+        return <>{renderWithMarkdown(text)}</>;
+    }
+
+    // 2. Create regex for concepts
+    // Sort by length to match longest first
+    const sortedConcepts = [...concepts].sort((a, b) => b.title.length - a.title.length);
+    const pattern = new RegExp(`\\b(${sortedConcepts.map(c => c.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`, 'gi');
+
+    const parts = text.split(pattern);
+
+    return (
+        <>
+            {parts.map((part, index) => {
+                const concept = sortedConcepts.find(c => c.title.toLowerCase() === part.toLowerCase());
+                if (concept) {
+                    return (
+                        <Tooltip key={index} text={concept.description}>
+                            {part}
+                        </Tooltip>
+                    );
+                }
+                return <span key={index}>{renderWithMarkdown(part)}</span>;
+            })}
+        </>
+    );
+};
+
 interface ArticleContentProps {
     content: any[];
+    concepts?: Concept[];
     activeBlockIndex?: number;
     onBlockClick?: (index: number) => void;
 }
 
-export const ArticleContent: React.FC<ArticleContentProps> = ({ content, activeBlockIndex, onBlockClick }) => {
+export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concepts, activeBlockIndex, onBlockClick }) => {
     if (!content || !Array.isArray(content)) return null;
 
     return (
@@ -67,7 +110,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, activeB
                                         </motion.div>
                                     </div>
                                 )}
-                                {renderWithMarkdown(block.content || block.value)}
+                                <RichTextRenderer text={block.content || block.value} concepts={concepts} />
                             </div>
                         );
 
@@ -156,6 +199,10 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, activeB
                                 return <InflationCalculator key={index} />;
                             case 'TimePreferenceModel':
                                 return <TimePreferenceModel key={index} />;
+                            case 'BusinessCycleModel':
+                                return <BusinessCycleModel key={index} />;
+                            case 'BusinessCycleGraph':
+                                return <BusinessCycleGraph key={index} />;
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">

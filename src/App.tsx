@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { PageSkeleton } from './components/Skeleton';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { routeFactories } from './routes';
+import { UpdatePrompt } from './components/UpdatePrompt';
 import './App.css';
 
 // Lazy load pages using centralized factories
@@ -32,6 +33,7 @@ function App() {
         v7_relativeSplatPath: true,
       }}
     >
+      <UpdatePrompt />
       <ErrorBoundary>
         <Suspense fallback={<PageSkeleton />}>
           <Routes>
