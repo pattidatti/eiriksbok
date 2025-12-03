@@ -96,10 +96,10 @@ var config_default = defineConfig({
           { type: "datetime", name: "createdDate", label: "Opprettet Dato" },
           { type: "datetime", name: "lastUpdated", label: "Sist Oppdatert" },
           {
-            type: "reference",
+            type: "string",
             name: "religion",
-            label: "Tilknyttet Religion",
-            collections: ["religion"]
+            label: "Tilknyttet Religion (ID)",
+            description: "F.eks. 'kristendom' eller 'islam'"
           },
           {
             type: "string",

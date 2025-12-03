@@ -11,44 +11,36 @@
             "content": "En novelle er en kort fortelling som ofte handler om en avgjørende hendelse i livet til en eller få personer. Her er noen tips til hvordan du kan skrive en god novelle."
         },
         {
-            "type": "section",
-            "title": "1. Start in medias res",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Ikke bruk tid på lange innledninger. Hopp rett inn i handlingen! La leseren lure på hva som skjer."
-                }
-            ]
+            "type": "header",
+            "text": "1. Start in medias res"
         },
         {
-            "type": "section",
-            "title": "2. Vis, ikke fortell",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "I stedet for å skrive 'Han var sint', skriv 'Han smalt døren igjen så hardt at bildene på veggen ristet'."
-                }
-            ]
+            "type": "text",
+            "content": "Ikke bruk tid på lange innledninger. Hopp rett inn i handlingen! La leseren lure på hva som skjer."
         },
         {
-            "type": "section",
-            "title": "3. Skap en vendepunkt",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Alle gode noveller har et vendepunkt hvor noe endres for hovedpersonen. Dette er ofte klimakset i fortellingen."
-                }
-            ]
+            "type": "header",
+            "text": "2. Vis, ikke fortell"
         },
         {
-            "type": "section",
-            "title": "4. Åpen slutt?",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Du trenger ikke å løse alle tråder. En åpen slutt kan få leseren til å tenke videre på historien din."
-                }
-            ]
+            "type": "text",
+            "content": "I stedet for å skrive 'Han var sint', skriv 'Han smalt døren igjen så hardt at bildene på veggen ristet'."
+        },
+        {
+            "type": "header",
+            "text": "3. Skap en vendepunkt"
+        },
+        {
+            "type": "text",
+            "content": "Alle gode noveller har et vendepunkt hvor noe endres for hovedpersonen. Dette er ofte klimakset i fortellingen."
+        },
+        {
+            "type": "header",
+            "text": "4. Åpen slutt?"
+        },
+        {
+            "type": "text",
+            "content": "Du trenger ikke å løse alle tråder. En åpen slutt kan få leseren til å tenke videre på historien din."
         }
     ],
     "tags": [

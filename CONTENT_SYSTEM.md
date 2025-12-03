@@ -116,11 +116,11 @@ The library contains short stories, poems, and excerpts.
 ### 4.4. Religion Comparison (KRLE)
 Allows side-by-side comparison of religions.
 
-*   **Source**: `public/content/religion/[religion].json` (Dimensions) AND Article JSONs.
+*   **Source**: `public/data/religion/[religion].json` (Dimensions) AND Article JSONs.
 *   **How to Link**: In your article JSON, add:
     ```json
     {
-      "religion": "content/religion/kristendom",
+      "religion": "kristendom",
       "dimension": "ritual", // Which dimension this covers
       "comparison_tags": ["dåp", "bønn"] // Specific topics
     }

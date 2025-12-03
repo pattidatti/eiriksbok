@@ -185,8 +185,6 @@ type ManifestConnection implements Connection {
   edges: [ManifestConnectionEdges]
 }
 
-union ArticleReligion = Religion
-
 type ArticleContentText {
   content: String
 }
@@ -230,7 +228,7 @@ type Article implements Node & Document {
   topic: String
   createdDate: String
   lastUpdated: String
-  religion: ArticleReligion
+  religion: String
   dimension: String
   comparison_tags: [String]
   fact: String
@@ -239,10 +237,6 @@ type Article implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-input ArticleReligionFilter {
-  religion: ReligionFilter
 }
 
 input ArticleContentTextFilter {
@@ -294,7 +288,7 @@ input ArticleFilter {
   topic: StringFilter
   createdDate: DatetimeFilter
   lastUpdated: DatetimeFilter
-  religion: ArticleReligionFilter
+  religion: StringFilter
   dimension: StringFilter
   comparison_tags: StringFilter
   fact: StringFilter

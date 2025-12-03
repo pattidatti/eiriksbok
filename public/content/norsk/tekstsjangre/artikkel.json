@@ -11,53 +11,47 @@
             "content": "En fagartikkel er en saktekst som har som hovedmål å informere, forklare eller drøfte et faglig emne. I motsetning til skjønnlitteraturen, som er oppdiktet, forholder fagartikkelen seg til virkeligheten. Den skal være sannferdig, etterprøvbar og saklig. Du møter fagartikler overalt: i lærebøker, i tidsskrifter, i aviser og på nettsteder som Store norske leksikon eller Wikipedia."
         },
         {
-            "type": "section",
-            "title": "Krav til en fagartikkel",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "For at en tekst skal fungere som en god fagartikkel, stilles det visse krav:"
-                },
-                {
-                    "type": "list",
-                    "items": [
-                        "**Objektivitet:** Forfatteren skal tre til side og la saken stå i sentrum. Egne meninger og følelser hører ikke hjemme her (i motsetning til i et leserinnlegg eller kåseri).",
-                        "**Faglig innhold:** Teksten skal bygge på fakta, forskning og sikker kunnskap. Påstander må kunne dokumenteres.",
-                        "**Kildebruk:** Det skal komme tydelig frem hvor informasjonen er hentet fra. Dette gjør teksten troverdig og gir leseren mulighet til å sjekke fakta.",
-                        "**Målgruppebevissthet:** Språket og innholdet må tilpasses den som skal lese teksten. En artikkel for eksperter ser annerledes ut enn en artikkel for skoleelever."
-                    ]
-                }
+            "type": "header",
+            "text": "Krav til en fagartikkel"
+        },
+        {
+            "type": "text",
+            "content": "For at en tekst skal fungere som en god fagartikkel, stilles det visse krav:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Objektivitet:** Forfatteren skal tre til side og la saken stå i sentrum. Egne meninger og følelser hører ikke hjemme her (i motsetning til i et leserinnlegg eller kåseri).",
+                "**Faglig innhold:** Teksten skal bygge på fakta, forskning og sikker kunnskap. Påstander må kunne dokumenteres.",
+                "**Kildebruk:** Det skal komme tydelig frem hvor informasjonen er hentet fra. Dette gjør teksten troverdig og gir leseren mulighet til å sjekke fakta.",
+                "**Målgruppebevissthet:** Språket og innholdet må tilpasses den som skal lese teksten. En artikkel for eksperter ser annerledes ut enn en artikkel for skoleelever."
             ]
         },
         {
-            "type": "section",
-            "title": "Oppbygging og struktur",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "En ryddig struktur er avgjørende for at leseren skal henge med. Den klassiske oppbyggingen er «fisken»:"
-                },
-                {
-                    "type": "list",
-                    "items": [
-                        "**Overskrift:** Skal være dekkende for innholdet og vekke interesse.",
-                        "**Ingress:** En kort innledning (fet skrift) som oppsummerer hovedsaken og gir leseren lyst til å lese videre.",
-                        "**Innledning:** Presenterer emnet og problemstillingen. Hva skal artikkelen handle om?",
-                        "**Hoveddel:** Her presenteres fagstoffet. Deles gjerne opp med mellomtitler for å skape luft og oversikt. Hvert avsnitt bør ha én hovedtanke (temasetning).",
-                        "**Avslutning:** Oppsummerer det viktigste, trekker en konklusjon eller peker fremover."
-                    ]
-                }
+            "type": "header",
+            "text": "Oppbygging og struktur"
+        },
+        {
+            "type": "text",
+            "content": "En ryddig struktur er avgjørende for at leseren skal henge med. Den klassiske oppbyggingen er «fisken»:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Overskrift:** Skal være dekkende for innholdet og vekke interesse.",
+                "**Ingress:** En kort innledning (fet skrift) som oppsummerer hovedsaken og gir leseren lyst til å lese videre.",
+                "**Innledning:** Presenterer emnet og problemstillingen. Hva skal artikkelen handle om?",
+                "**Hoveddel:** Her presenteres fagstoffet. Deles gjerne opp med mellomtitler for å skape luft og oversikt. Hvert avsnitt bør ha én hovedtanke (temasetning).",
+                "**Avslutning:** Oppsummerer det viktigste, trekker en konklusjon eller peker fremover."
             ]
         },
         {
-            "type": "section",
-            "title": "Språk og stil",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Språket i en fagartikkel skal være presist og klart. Bruk gjerne fagbegreper, men forklar dem hvis de er vanskelige. Unngå «jeg-form» med mindre det er helt nødvendig. Bruk heller passive former («Det hevdes at...») eller la saken være subjekt («Forskningen viser...»)."
-                }
-            ]
+            "type": "header",
+            "text": "Språk og stil"
+        },
+        {
+            "type": "text",
+            "content": "Språket i en fagartikkel skal være presist og klart. Bruk gjerne fagbegreper, men forklar dem hvis de er vanskelige. Unngå «jeg-form» med mindre det er helt nødvendig. Bruk heller passive former («Det hevdes at...») eller la saken være subjekt («Forskningen viser...»)."
         }
     ],
     "tags": [

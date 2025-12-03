@@ -5,103 +5,95 @@
     "content": [
         {
             "type": "text",
-            "text": "Nasjonalromantikken regnes ofte som den kulturelle gullalderen i norsk historie. I perioden mellom 1840 og 1860 opplevde landet en voldsom oppblomstring innen kunst, litteratur og musikk, drevet av en brennende optimisme og en nyvunnet selvfølelse. Det var ikke lenger nok å bare bo i Norge; man skulle definere hva det ville si å være norsk i en europeisk sammenheng. Det handlet om å bygge en nasjon fra grunnen av, stein for stein, myte for myte, og skape en stolthet som kunne binde folket sammen på tvers av geografi og stender."
+            "content": "Nasjonalromantikken regnes ofte som den kulturelle gullalderen i norsk historie. I perioden mellom 1840 og 1860 opplevde landet en voldsom oppblomstring innen kunst, litteratur og musikk, drevet av en brennende optimisme og en nyvunnet selvfølelse. Det var ikke lenger nok å bare bo i Norge; man skulle definere hva det ville si å være norsk i en europeisk sammenheng. Det handlet om å bygge en nasjon fra grunnen av, stein for stein, myte for myte, og skape en stolthet som kunne binde folket sammen på tvers av geografi og stender."
         },
         {
-            "type": "section",
-            "title": "En ny stat trenger en ny identitet",
-            "content": [
-                {
-                    "type": "text",
-                    "text": "Bakgrunnen for denne bevegelsen ligger i det politiske landskapet. Etter at Norge fikk sin egen grunnlov i 1814, sto landet i en særstilling. Vi var formelt sett en ny, selvstendig stat (riktignok i union med Sverige), men kulturelt sett var vi fortsatt sterkt preget av den lange unionstiden med Danmark – ofte omtalt som \"400-årsnatten\". Embetsmennene, borgerskapet og den kulturelle eliten i byene snakket og skrev dansk, leste danske bøker og hentet sine impulser fra København."
-                },
-                {
-                    "type": "text",
-                    "text": "Spørsmålet som meldte seg var derfor både eksistensielt og maktpåliggende: Hva er Norge og hva er egentlig norsk? Grunnloven hadde gitt landet et politisk skjelett, men det manglet kjøtt og blod. For å rettferdiggjøre nasjonens selvstendighet, måtte man bevise at nordmenn var et eget folk, vesensforskjellig fra både svensker og dansker. Man måtte finne en felles historie, et eget språk og en egen kultur som kunne knyttes direkte tilbake til storhetstiden i middelalderen, før unionstiden visket oss ut. Jakten på folkesjelen ble dermed et nasjonalt prestisjeprosjekt."
-                }
-            ]
+            "type": "header",
+            "text": "En ny stat trenger en ny identitet"
         },
         {
-            "type": "section",
-            "title": "Jakten på et norsk språk",
-            "content": [
-                {
-                    "type": "text",
-                    "text": "Tidsånden gjorde at det danske skriftspråket i økende grad føltes fremmed, stivt og \"unorsk\" for de som ønsket å uttrykke nasjonens egenart. En selvstendig nasjon måtte ha sitt eget mål for å kunne tenke og uttrykke seg fritt. Nasjonalromantikken ble dermed startskuddet for den opphetede norske språkdebatten som skulle forme landet i generasjoner. Dette resulterte i ulike syn på veien videre, som handlet om mer enn bare grammatikk – det handlet om nasjonal strategi:"
-                },
-                {
-                    "type": "image",
-                    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Ivar_Aasen_by_Mathilde_Dietrichson.jpg",
-                    "caption": "Ivar Aasen (1813–1896)"
-                },
-                {
-                    "type": "text",
-                    "text": "**Ivar Aasen** gikk til røttene. I tråd med nasjonalromantikkens dyrking av det opprinnelige, vandret han landet rundt – ofte til fots – for å lytte til \"almuens tale\". Han mente at det \"ekte\" norske språket levde i dialektene på bygdene, som hadde overlevd og utviklet seg fra norrøn tid, ubesudlet av dansk innflytelse. Han samlet disse systematisk til det som ble landsmål (senere nynorsk) – et demokratisk språkprosjekt bygget på folkets egen tunge, som skulle gi bonden verdighet."
-                },
-                {
-                    "type": "image",
-                    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Knudknudsen.jpg",
-                    "caption": "Knud Knudsen (1812–1895)"
-                },
-                {
-                    "type": "text",
-                    "text": "**Knud Knudsen** valgte en mer pragmatisk tilnærming. Han ville heller fornorske det danske skriftspråket gradvis (\"gradvishetens vei\"). Han tok utgangspunkt i \"den dannede dagligtale\" hos byborgerskapet og skuespillere, og ville endre stavemåten slik at den speilet norsk uttale (f.eks. innføring av harde konsonanter som p, t, k i stedet for de bløte b, d, g). Dette ble til riksmål (senere bokmål), og la grunnlaget for det skriftspråket flertallet bruker i dag."
-                },
-                {
-                    "type": "image",
-                    "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/P_A_Munch_photo.jpg",
-                    "caption": "P.A. Munch (1810–1863)"
-                },
-                {
-                    "type": "text",
-                    "text": "**P.A. Munch**, den ruvende historikeren, representerte et tredje, mer elitistisk syn. Han mente at dialektene var den eneste \"rene\" arven fra norrønt og dermed det mest edle. Selv om han ga Aasen rett i at dialektene var det egentlige norske språket, var han skeptisk til å konstruere et nytt, felles skriftspråk på det tidspunktet. Han fryktet at Knudsens fornorsking av dansken ville skape et \"vulgært\" blandingsspråk uten kulturell tyngde, og foretrakk paradoksalt nok at man beholdt det danske skriftspråket rent som et høykulturelt verktøy inntil videre."
-                }
-            ]
+            "type": "text",
+            "content": "Bakgrunnen for denne bevegelsen ligger i det politiske landskapet. Etter at Norge fikk sin egen grunnlov i 1814, sto landet i en særstilling. Vi var formelt sett en ny, selvstendig stat (riktignok i union med Sverige), men kulturelt sett var vi fortsatt sterkt preget av den lange unionstiden med Danmark – ofte omtalt som \"400-årsnatten\". Embetsmennene, borgerskapet og den kulturelle eliten i byene snakket og skrev dansk, leste danske bøker og hentet sine impulser fra København."
         },
         {
-            "type": "section",
-            "title": "Naturen, folket og det idylliske",
-            "content": [
-                {
-                    "type": "text",
-                    "text": "Der den europeiske romantikken ofte handlet om individuelle, melankolske følelser og lengsel etter det uoppnåelige, handlet den norske nasjonalromantikken om et kollektivt løft: å vise frem det ypperste, villeste og mest karakteristiske av nasjonen. Stilen er kjennetegnet av at “alt” er positivt, flott og elskverdig."
-                },
-                {
-                    "type": "text",
-                    "text": "Naturen spilte en hovedrolle, ikke bare som kulisse, men som en aktiv, formende kraft. De høye fjellene, de dype fjordene og de ville fossene ble ikke lenger sett på som farlige hindringer, stygge ujevnheter eller ufruktbar ødemark. I stedet ble de omtolket til vakre, sublime symboler på det norske lynne – hardført, stolt, dramatisk og urokkelig. Kunstnere begynte å oppsøke fjellet for å finne det \"sanne\" Norge."
-                },
-                {
-                    "type": "text",
-                    "text": "I denne naturen levde bonden, som ble løftet frem fra sin tidligere lave status til å bli bæreren av den \"ekte\" norske kulturen. Mens bykulturen var påvirket av Europa, ble bonden sett på som det levende bindeleddet tilbake til sagatiden og vikingkongene. I litteraturen og malerkunsten ble livet på bygda fremstilt som harmonisk, rent og moralsk opphøyet. Dette var en romantisk framstilling: Man malte et glansbilde hvor virkeligheten med fattigdom, sult, slit, sykdom og overtro ble visket vekk eller ufarliggjort. Tilbake sto søndagsklær, rikt utskårne stabbur, evig solskinn og en stolt odelsbonde som var konge på egen haug."
-                }
-            ]
+            "type": "text",
+            "content": "Spørsmålet som meldte seg var derfor både eksistensielt og maktpåliggende: Hva er Norge og hva er egentlig norsk? Grunnloven hadde gitt landet et politisk skjelett, men det manglet kjøtt og blod. For å rettferdiggjøre nasjonens selvstendighet, måtte man bevise at nordmenn var et eget folk, vesensforskjellig fra både svensker og dansker. Man måtte finne en felles historie, et eget språk og en egen kultur som kunne knyttes direkte tilbake til storhetstiden i middelalderen, før unionstiden visket oss ut. Jakten på folkesjelen ble dermed et nasjonalt prestisjeprosjekt."
         },
         {
-            "type": "section",
-            "title": "En litterær og kunstnerisk epoke",
-            "content": [
-                {
-                    "type": "text",
-                    "text": "Nasjonalromantikken kom til uttrykk som et tett samspill mellom alle kunstformer; dikterne skrev om det malerne malte, og komponistene satte toner til stemningen. Asbjørnsen og Moe samlet inn eventyr og sagn, ikke bare for underholdningens skyld, men som en vitenskapelig innsamling av nasjonalskatter. Disse fortellingene beviste for verden at Norge hadde en rik, muntlig fortellertradisjon og en folkefantasi på linje med Brødrene Grimms Tyskland."
-                },
-                {
-                    "type": "image",
-                    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Asbj%C3%B6rnsen_og_Moe-_Samlede_eventyr._Norske_kunstneres_billedutgave_%2830230393225%29.jpg",
-                    "caption": "Asbjørnsen og Moe"
-                },
-                {
-                    "type": "text",
-                    "text": "Innenfor litteraturen blomstret sjangrene:\n\n**Lyrikk:** Dikt som hyllet fedrelandet og naturen ble svært populære og fungerte som nasjonale hymner (f.eks. Welhaven og Wergeland i starten, og senere Aasmund Olavsson Vinje med sitt skarpe blikk for både naturens skjønnhet og dens dobbelthet).\n\n**Novelle og Roman:** Bjørnstjerne Bjørnson skapte og perfeksjonerte sjangeren \"bondefortellinger\". I verk som Synnøve Solbakken ga han bøndene en heroisk og dannet rolle, og historiene hadde ofte en pedagogisk, moralsk lærdom og en lykkelig slutt som bekreftet at det gode seiret i den norske idyllen."
-                },
-                {
-                    "type": "text",
-                    "text": "Også musikk og maleverk var sentralt i denne nasjonsbyggingen. Tidemand og Gude utfylte hverandre perfekt; Gude malte det dramatiske, storslåtte landskapet, mens Tidemand malte menneskene i det med stor detaljrikdom. Deres fellesverk, som det ikoniske Brudeferden i Hardanger, står som selve symbolet på perioden: Menneske og natur i harmonisk samspill. Samtidig løftet Ole Bull frem den lokale folkemusikeren Myllarguten opp på scenen, og Edvard Grieg tok tonene fra felespill og hallingkast og omformet dem til verdensberømt klassisk musikk, noe som ga Norge en unik kulturell stemme i Europa."
-                },
-                {
-                    "type": "text",
-                    "text": "Men selv ikke de vakreste brudeferder eller de mest heroiske bondefortellinger kunne i lengden skjule at Norge var i drastisk endring. Mot slutten av perioden begynte diktere og samfunnsdebattanter å se at glansbildet slo sprekker. Det stemte rett og slett ikke overens med virkeligheten i de voksende industribyene eller den faktiske nøden på bygdene som tvang folk til å emigrere til Amerika. Det nasjonale svermeriet måtte etter hvert vike for et krav om sannhet, problemer under debatt og samfunnskritikk. Slik la nasjonalromantikken, med sine høye idealer, paradoksalt nok grunnlaget for det som måtte komme: det brutale oppgjøret i realismen."
-                }
-            ]
+            "type": "header",
+            "text": "Jakten på et norsk språk"
+        },
+        {
+            "type": "text",
+            "content": "Tidsånden gjorde at det danske skriftspråket i økende grad føltes fremmed, stivt og \"unorsk\" for de som ønsket å uttrykke nasjonens egenart. En selvstendig nasjon måtte ha sitt eget mål for å kunne tenke og uttrykke seg fritt. Nasjonalromantikken ble dermed startskuddet for den opphetede norske språkdebatten som skulle forme landet i generasjoner. Dette resulterte i ulike syn på veien videre, som handlet om mer enn bare grammatikk – det handlet om nasjonal strategi:"
+        },
+        {
+            "type": "image",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Ivar_Aasen_by_Mathilde_Dietrichson.jpg",
+            "caption": "Ivar Aasen (1813–1896)"
+        },
+        {
+            "type": "text",
+            "content": "**Ivar Aasen** gikk til røttene. I tråd med nasjonalromantikkens dyrking av det opprinnelige, vandret han landet rundt – ofte til fots – for å lytte til \"almuens tale\". Han mente at det \"ekte\" norske språket levde i dialektene på bygdene, som hadde overlevd og utviklet seg fra norrøn tid, ubesudlet av dansk innflytelse. Han samlet disse systematisk til det som ble landsmål (senere nynorsk) – et demokratisk språkprosjekt bygget på folkets egen tunge, som skulle gi bonden verdighet."
+        },
+        {
+            "type": "image",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Knudknudsen.jpg",
+            "caption": "Knud Knudsen (1812–1895)"
+        },
+        {
+            "type": "text",
+            "content": "**Knud Knudsen** valgte en mer pragmatisk tilnærming. Han ville heller fornorske det danske skriftspråket gradvis (\"gradvishetens vei\"). Han tok utgangspunkt i \"den dannede dagligtale\" hos byborgerskapet og skuespillere, og ville endre stavemåten slik at den speilet norsk uttale (f.eks. innføring av harde konsonanter som p, t, k i stedet for de bløte b, d, g). Dette ble til riksmål (senere bokmål), og la grunnlaget for det skriftspråket flertallet bruker i dag."
+        },
+        {
+            "type": "image",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/5/52/P_A_Munch_photo.jpg",
+            "caption": "P.A. Munch (1810–1863)"
+        },
+        {
+            "type": "text",
+            "content": "**P.A. Munch**, den ruvende historikeren, representerte et tredje, mer elitistisk syn. Han mente at dialektene var den eneste \"rene\" arven fra norrønt og dermed det mest edle. Selv om han ga Aasen rett i at dialektene var det egentlige norske språket, var han skeptisk til å konstruere et nytt, felles skriftspråk på det tidspunktet. Han fryktet at Knudsens fornorsking av dansken ville skape et \"vulgært\" blandingsspråk uten kulturell tyngde, og foretrakk paradoksalt nok at man beholdt det danske skriftspråket rent som et høykulturelt verktøy inntil videre."
+        },
+        {
+            "type": "header",
+            "text": "Naturen, folket og det idylliske"
+        },
+        {
+            "type": "text",
+            "content": "Der den europeiske romantikken ofte handlet om individuelle, melankolske følelser og lengsel etter det uoppnåelige, handlet den norske nasjonalromantikken om et kollektivt løft: å vise frem det ypperste, villeste og mest karakteristiske av nasjonen. Stilen er kjennetegnet av at “alt” er positivt, flott og elskverdig."
+        },
+        {
+            "type": "text",
+            "content": "Naturen spilte en hovedrolle, ikke bare som kulisse, men som en aktiv, formende kraft. De høye fjellene, de dype fjordene og de ville fossene ble ikke lenger sett på som farlige hindringer, stygge ujevnheter eller ufruktbar ødemark. I stedet ble de omtolket til vakre, sublime symboler på det norske lynne – hardført, stolt, dramatisk og urokkelig. Kunstnere begynte å oppsøke fjellet for å finne det \"sanne\" Norge."
+        },
+        {
+            "type": "text",
+            "content": "I denne naturen levde bonden, som ble løftet frem fra sin tidligere lave status til å bli bæreren av den \"ekte\" norske kulturen. Mens bykulturen var påvirket av Europa, ble bonden sett på som det levende bindeleddet tilbake til sagatiden og vikingkongene. I litteraturen og malerkunsten ble livet på bygda fremstilt som harmonisk, rent og moralsk opphøyet. Dette var en romantisk framstilling: Man malte et glansbilde hvor virkeligheten med fattigdom, sult, slit, sykdom og overtro ble visket vekk eller ufarliggjort. Tilbake sto søndagsklær, rikt utskårne stabbur, evig solskinn og en stolt odelsbonde som var konge på egen haug."
+        },
+        {
+            "type": "header",
+            "text": "En litterær og kunstnerisk epoke"
+        },
+        {
+            "type": "text",
+            "content": "Nasjonalromantikken kom til uttrykk som et tett samspill mellom alle kunstformer; dikterne skrev om det malerne malte, og komponistene satte toner til stemningen. Asbjørnsen og Moe samlet inn eventyr og sagn, ikke bare for underholdningens skyld, men som en vitenskapelig innsamling av nasjonalskatter. Disse fortellingene beviste for verden at Norge hadde en rik, muntlig fortellertradisjon og en folkefantasi på linje med Brødrene Grimms Tyskland."
+        },
+        {
+            "type": "image",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Asbj%C3%B6rnsen_og_Moe-_Samlede_eventyr._Norske_kunstneres_billedutgave_%2830230393225%29.jpg",
+            "caption": "Asbjørnsen og Moe"
+        },
+        {
+            "type": "text",
+            "content": "Innenfor litteraturen blomstret sjangrene:\n\n**Lyrikk:** Dikt som hyllet fedrelandet og naturen ble svært populære og fungerte som nasjonale hymner (f.eks. Welhaven og Wergeland i starten, og senere Aasmund Olavsson Vinje med sitt skarpe blikk for både naturens skjønnhet og dens dobbelthet).\n\n**Novelle og Roman:** Bjørnstjerne Bjørnson skapte og perfeksjonerte sjangeren \"bondefortellinger\". I verk som Synnøve Solbakken ga han bøndene en heroisk og dannet rolle, og historiene hadde ofte en pedagogisk, moralsk lærdom og en lykkelig slutt som bekreftet at det gode seiret i den norske idyllen."
+        },
+        {
+            "type": "text",
+            "content": "Også musikk og maleverk var sentralt i denne nasjonsbyggingen. Tidemand og Gude utfylte hverandre perfekt; Gude malte det dramatiske, storslåtte landskapet, mens Tidemand malte menneskene i det med stor detaljrikdom. Deres fellesverk, som det ikoniske Brudeferden i Hardanger, står som selve symbolet på perioden: Menneske og natur i harmonisk samspill. Samtidig løftet Ole Bull frem den lokale folkemusikeren Myllarguten opp på scenen, og Edvard Grieg tok tonene fra felespill og hallingkast og omformet dem til verdensberømt klassisk musikk, noe som ga Norge en unik kulturell stemme i Europa."
+        },
+        {
+            "type": "text",
+            "content": "Men selv ikke de vakreste brudeferder eller de mest heroiske bondefortellinger kunne i lengden skjule at Norge var i drastisk endring. Mot slutten av perioden begynte diktere og samfunnsdebattanter å se at glansbildet slo sprekker. Det stemte rett og slett ikke overens med virkeligheten i de voksende industribyene eller den faktiske nøden på bygdene som tvang folk til å emigrere til Amerika. Det nasjonale svermeriet måtte etter hvert vike for et krav om sannhet, problemer under debatt og samfunnskritikk. Slik la nasjonalromantikken, med sine høye idealer, paradoksalt nok grunnlaget for det som måtte komme: det brutale oppgjøret i realismen."
         }
     ],
     "createdDate": "2023-01-01T12:00:00Z",

@@ -5,7 +5,7 @@ This guide explains how to add new content, specifically focusing on the Religio
 ## Adding a New Religion
 
 1.  **Create the Data File**:
-    *   Create a new JSON file in `public/content/religion/`.
+    *   Create a new JSON file in `public/data/religion/`.
     *   Filename should be lowercase, e.g., `buddhisme.json`.
     *   **Structure**:
         ```json
@@ -31,9 +31,9 @@ To make an article appear in the comparison tools:
     *   Place it in the correct folder structure: `public/content/krle/religioner/[religion]/[topic]/artikkel.json`.
 
 2.  **Add Metadata**:
-    *   **`religion`**: Reference the religion file *without* the `.json` extension.
-        *   ✅ Correct: `"religion": "content/religion/kristendom"`
-        *   ❌ Incorrect: `"religion": "content/religion/kristendom.json"`
+    *   **`religion`**: Reference the religion ID (filename without path).
+        *   ✅ Correct: `"religion": "kristendom"`
+        *   ❌ Incorrect: `"religion": "content/religion/kristendom"`
     *   **`dimension`**: One of the 7 dimensions (e.g., `ritual`, `narrative`).
     *   **`comparison_tags`**: A list of specific keywords for detailed comparison.
         *   Example: `["dåp", "livsfaser", "ritualer"]`

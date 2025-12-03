@@ -132,8 +132,18 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
     return (
         <div className="article-content max-w-5xl mx-auto">
             {content.map((block, index) => {
-                // Handle both 'type' (standard) and 'name' (TinaCMS sometimes)
-                const type = block.type || block.name;
+                // Handle 'type' (standard), 'name' (legacy), and '__typename' (GraphQL)
+                let type = block.type || block.name;
+
+                if (!type && block.__typename) {
+                    switch (block.__typename) {
+                        case 'ArticleContentText': type = 'text'; break;
+                        case 'ArticleContentImage': type = 'image'; break;
+                        case 'ArticleContentHeader': type = 'header'; break;
+                        case 'ArticleContentList': type = 'list'; break;
+                        case 'ArticleContentComponent': type = 'component'; break;
+                    }
+                }
 
                 // Check for active state if interactive
                 const isActive = activeBlockIndex === index;

@@ -11,44 +11,36 @@
             "content": "Eventyr er en sjanger med faste rammer og mye magi. Her er oppskriften på et godt eventyr."
         },
         {
-            "type": "section",
-            "title": "1. Starten",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Start alltid med 'Det var en gang'. Introduser helten (Askeladden?) og målet (prinsessen og halve kongeriket?)."
-                }
-            ]
+            "type": "header",
+            "text": "1. Starten"
         },
         {
-            "type": "section",
-            "title": "2. Prøvelsene",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Helten må gjennom tre prøvelser. De to første kan gå galt, eller brødrene feiler, men den tredje gangen lykkes helten."
-                }
-            ]
+            "type": "text",
+            "content": "Start alltid med 'Det var en gang'. Introduser helten (Askeladden?) og målet (prinsessen og halve kongeriket?)."
         },
         {
-            "type": "section",
-            "title": "3. Hjelpere",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Helten møter ofte en magisk hjelper. Det kan være en gammel kone eller et dyr som gir gode råd eller magiske gjenstander."
-                }
-            ]
+            "type": "header",
+            "text": "2. Prøvelsene"
         },
         {
-            "type": "section",
-            "title": "4. Slutten",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Det gode vinner alltid over det onde. Og de lever lykkelig alle sine dager."
-                }
-            ]
+            "type": "text",
+            "content": "Helten må gjennom tre prøvelser. De to første kan gå galt, eller brødrene feiler, men den tredje gangen lykkes helten."
+        },
+        {
+            "type": "header",
+            "text": "3. Hjelpere"
+        },
+        {
+            "type": "text",
+            "content": "Helten møter ofte en magisk hjelper. Det kan være en gammel kone eller et dyr som gir gode råd eller magiske gjenstander."
+        },
+        {
+            "type": "header",
+            "text": "4. Slutten"
+        },
+        {
+            "type": "text",
+            "content": "Det gode vinner alltid over det onde. Og de lever lykkelig alle sine dager."
         }
     ],
     "tags": [

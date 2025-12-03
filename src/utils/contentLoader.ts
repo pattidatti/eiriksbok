@@ -61,13 +61,16 @@ export async function fetchManifest(): Promise<Manifest | null> {
         return null;
     }
 }
-
 export async function fetchReligion(id: string): Promise<any | null> {
     try {
         const basePath = import.meta.env.BASE_URL.endsWith('/')
             ? import.meta.env.BASE_URL
             : `${import.meta.env.BASE_URL}/`;
-        const response = await fetch(`${basePath}content/religion/${id}.json`);
+
+        // Handle ID with or without .json extension, and strip path if present
+        // This handles "kristendom", "kristendom.json", and "data/religion/kristendom.json"
+        const cleanId = id.replace(/\.json$/, '').split('/').pop();
+        const response = await fetch(`${basePath}data/religion/${cleanId}.json`);
         if (!response.ok) {
             console.error(`Failed to fetch religion: ${response.status} ${response.statusText}`);
             return null;

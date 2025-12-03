@@ -31,36 +31,7 @@ fragment ArticleParts on Article {
   topic
   createdDate
   lastUpdated
-  religion {
-    ... on Religion {
-      __typename
-      name
-      color
-      icon
-      dimensions {
-        __typename
-        ritual
-        narrative
-        experiential
-        social
-        ethical
-        doctrinal
-        material
-      }
-    }
-    ... on Document {
-      _sys {
-        filename
-        basename
-        hasReferences
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-  }
+  religion
   dimension
   comparison_tags
   fact
