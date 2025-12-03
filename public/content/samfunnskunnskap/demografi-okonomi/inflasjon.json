@@ -30,19 +30,38 @@
         },
         {
             "type": "header",
-            "content": "Renten styrer pengemengden"
+            "content": "Tidspreferanse: Prisen på tid"
         },
         {
             "type": "text",
-            "content": "Renten er prisen på penger. I de fleste moderne økonomier lages nye penger når banker gir lån. Når du tar opp et boliglån, trykker ikke banken nye sedler, men de skriver inn tall på kontoen din. Dette er nye penger som ikke fantes før. Sentralbanken (Norges Bank) bruker styringsrenten for å kontrollere denne prosessen."
+            "content": "For å forstå rente, må vi først forstå **tidspreferanse**. Dette er et mål på vår tålmodighet. Hvis du fikk valget mellom 1000 kroner i dag eller 1000 kroner om et år, ville du valgt pengene i dag. Hvorfor? Fordi vi verdsetter ting i dag høyere enn ting i fremtiden."
         },
         {
             "type": "text",
-            "content": "Når renten er **lav**, er det billig å låne penger. Da vil flere privatpersoner og bedrifter ta opp lån for å kjøpe bolig, pusse opp eller investere. Dette fører til at det skapes mer penger i økonomien. Når det er mer penger som konkurrerer om de samme varene, går prisene opp. Dette skaper inflasjon."
+            "content": "For at du skal være villig til å vente, må du få en belønning. Hvis du får 1100 kroner om et år, er du kanskje villig til å vente. De ekstra 100 kronene er prisen på din tålmodighet. Dette er grunnlaget for all rente."
+        },
+        {
+            "type": "component",
+            "name": "TimePreferenceModel"
+        },
+        {
+            "type": "header",
+            "content": "Den naturlige renten vs. Styringsrenten"
         },
         {
             "type": "text",
-            "content": "Når renten er **høy**, blir det dyrt å låne penger. Samtidig lønner det seg mer å ha penger på sparekonto. Da vil færre ta opp lån, og flere vil betale ned på gjelden sin. Når lån betales ned, forsvinner disse pengene ut av sirkulasjon igjen. Dette bremser veksten i pengemengden og demper inflasjonen. Dette er grunnen til at Norges Bank setter opp renten når prisene stiger for raskt."
+            "content": "I et fritt marked ville renten blitt bestemt av samfunnets samlede tidspreferanse. Hvis folk sparer mye (er tålmodige), er det mye penger tilgjengelig for lån, og renten blir lav. Dette kalles **den naturlige renten**."
+        },
+        {
+            "type": "text",
+            "content": "Men i dagens økonomi blir renten overstyrt av sentralbanken (Norges Bank). De setter en **styringsrente** som alle banker må forholde seg til. Dette er en \"kunstig\" rente som ikke nødvendigvis gjenspeiler hvor mye folk faktisk sparer."
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Hvis styringsrenten settes lavere enn den naturlige renten:** Det blir kunstig billig å låne. Folk og bedrifter låner mer enn de egentlig har råd til basert på ekte sparing. Dette skaper nye penger ut av intet, som fører til inflasjon og bobler (f.eks. i boligmarkedet).",
+                "**Hvis styringsrenten settes høyere enn den naturlige renten:** Det blir kunstig dyrt å låne. Økonomien bremses mer enn nødvendig, og vi kan få arbeidsledighet."
+            ]
         },
         {
             "type": "header",
@@ -88,9 +107,19 @@
             "definition": "En økning av pengemengden som fører til at prisene stiger og pengene blir mindre verdt."
         },
         {
+            "id": "tidspreferanse",
+            "term": "Tidspreferanse",
+            "definition": "Hvor mye mer vi verdsetter goder i dag sammenlignet med i fremtiden. Lav tidspreferanse betyr at man er tålmodig."
+        },
+        {
+            "id": "naturlig-rente",
+            "term": "Naturlig rente",
+            "definition": "Den renten som ville oppstått i et fritt marked basert på samfunnets sparing og tidspreferanse."
+        },
+        {
             "id": "styringsrente",
             "term": "Styringsrente",
-            "definition": "Renten Norges Bank setter, som påvirker hva det koster for banker å låne penger."
+            "definition": "Renten Norges Bank setter, som overstyrer markedet og påvirker hva det koster for banker å låne penger."
         },
         {
             "id": "kpi",
@@ -116,45 +145,45 @@
     "quiz": [
         {
             "id": "q1",
-            "question": "Hva er hovedårsaken til inflasjon?",
+            "question": "Hva er tidspreferanse?",
             "options": [
-                "Økning i pengemengden",
-                "At butikkene blir grådige",
-                "At folk jobber for lite",
-                "At staten bruker for lite penger"
+                "Hvor tålmodig du er (verdi av nåtid vs fremtid)",
+                "Hvor mye tid du har til rådighet",
+                "Hvor lenge du sover om natten",
+                "Hvor fort du løper"
             ],
             "correctAnswer": 0
         },
         {
             "id": "q2",
+            "question": "Hva kalles renten som oppstår naturlig i et fritt marked?",
+            "options": [
+                "Den naturlige renten",
+                "Styringsrenten",
+                "Boliglånsrenten",
+                "Kredittkortrenten"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hva skjer hvis sentralbanken setter renten lavere enn den naturlige renten?",
+            "options": [
+                "Det skapes kunstig mye penger og inflasjon",
+                "Folk slutter å låne penger",
+                "Prisene går ned",
+                "Alle blir rikere"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
             "question": "Hvem tjener mest på høy inflasjon?",
             "options": [
                 "Folk med mye gjeld",
                 "Folk med mye penger i banken",
                 "Pensjonister",
                 "Studenter"
-            ],
-            "correctAnswer": 0
-        },
-        {
-            "id": "q3",
-            "question": "Hva gjør Norges Bank ofte for å dempe inflasjonen?",
-            "options": [
-                "Setter opp styringsrenten",
-                "Trykker mer penger",
-                "Senker skattene",
-                "Gir mer penger til bankene"
-            ],
-            "correctAnswer": 0
-        },
-        {
-            "id": "q4",
-            "question": "Hva beskriver Cantillon-effekten?",
-            "options": [
-                "At det betyr noe hvem som får de nye pengene først",
-                "At alle blir like mye rikere av inflasjon",
-                "At priser alltid stiger likt overalt",
-                "At penger ikke har noen verdi"
             ],
             "correctAnswer": 0
         }

@@ -9,7 +9,8 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
     interaktiv føydalisme, hre.
 basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet og artiklene. 
 - [ ] Støtte for tegneserier/bildebok. f.eks. skylappjenta
-
+- [ ] Fikse cash som henger, ikke oppdaterer seg. 
+- [ ] Legge til forklaring av realrente og at den er personlig. Interaktiv model som viser tidspreferanse personlig og realrente.. 
 
 
 

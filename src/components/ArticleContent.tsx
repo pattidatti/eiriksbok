@@ -10,6 +10,7 @@ import { FactBox } from './FactBox';
 import { TimelineComponent } from './TimelineComponent';
 import { PlotGraph } from './PlotGraph';
 import { InflationCalculator } from './content/interactive/InflationCalculator';
+import { TimePreferenceModel } from './content/interactive/TimePreferenceModel';
 
 // Simple markdown renderer fallback
 const renderWithMarkdown = (text: string) => {
@@ -153,6 +154,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, activeB
                                 );
                             case 'InflationCalculator':
                                 return <InflationCalculator key={index} />;
+                            case 'TimePreferenceModel':
+                                return <TimePreferenceModel key={index} />;
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">
@@ -191,6 +194,6 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, activeB
                         return null;
                 }
             })}
-        </div>
+        </div >
     );
 };
