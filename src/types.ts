@@ -2,7 +2,10 @@ export interface Concept {
     id: string;
     term: string;
     definition: string;
-    example: string;
+    example?: string;
+    // Compatibility fields for legacy/different formats
+    title?: string;
+    description?: string;
 }
 
 export interface Connection {

@@ -28,11 +28,7 @@ const renderWithMarkdown = (text: string) => {
 };
 
 import { Tooltip } from './Tooltip';
-
-interface Concept {
-    title: string;
-    description: string;
-}
+import type { Concept } from '../types';
 
 // Enhanced renderer that handles both markdown and concepts
 const RichTextRenderer: React.FC<{ text: string; concepts?: Concept[] }> = ({ text, concepts = [] }) => {
@@ -45,18 +41,21 @@ const RichTextRenderer: React.FC<{ text: string; concepts?: Concept[] }> = ({ te
 
     // 2. Create regex for concepts
     // Sort by length to match longest first
-    const sortedConcepts = [...concepts].sort((a, b) => b.title.length - a.title.length);
-    const pattern = new RegExp(`\\b(${sortedConcepts.map(c => c.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`, 'gi');
+    // Map 'term' or 'title' to the concept term
+    const sortedConcepts = [...concepts].sort((a, b) => (b.term || b.title || '').length - (a.term || a.title || '').length);
+
+    // Create pattern from terms
+    const pattern = new RegExp(`\\b(${sortedConcepts.map(c => (c.term || c.title || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`, 'gi');
 
     const parts = text.split(pattern);
 
     return (
         <>
             {parts.map((part, index) => {
-                const concept = sortedConcepts.find(c => c.title.toLowerCase() === part.toLowerCase());
+                const concept = sortedConcepts.find(c => (c.term || c.title || '').toLowerCase() === part.toLowerCase());
                 if (concept) {
                     return (
-                        <Tooltip key={index} text={concept.description}>
+                        <Tooltip key={index} text={concept.definition || concept.description || ''}>
                             {part}
                         </Tooltip>
                     );

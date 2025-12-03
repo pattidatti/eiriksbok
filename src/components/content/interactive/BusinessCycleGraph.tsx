@@ -11,7 +11,7 @@ import {
     Legend,
     Filler
 } from 'chart.js';
-import { TrendingUp, AlertTriangle, Info } from 'lucide-react';
+import { TrendingUp, Info } from 'lucide-react';
 
 // Register ChartJS components
 ChartJS.register(
