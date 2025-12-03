@@ -21,7 +21,10 @@ export interface Context {
 export interface QuizQuestion {
     question: string;
     options: string[];
-    answer: string;
+    answer?: string;
+    correctAnswer?: number; // Index of correct answer
+    sourceUrl?: string;
+    sourceTitle?: string;
 }
 
 export interface MapData {

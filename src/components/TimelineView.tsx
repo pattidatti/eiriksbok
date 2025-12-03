@@ -70,7 +70,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
             </div>
 
             {/* Vertical Timeline */}
-            <div className="relative max-w-4xl mx-auto w-full px-4">
+            <div className="relative max-w-6xl mx-auto w-full px-4">
                 {/* Center Line */}
                 <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 -translate-x-1/2 md:transform" />
 
@@ -101,9 +101,9 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                                 <div className="hidden md:block w-5/12" />
 
                                 {/* Center Year Marker */}
-                                <div className={`absolute left-4 md:left-1/2 -translate-x-1/2 flex flex-col items-center z-10 transition-transform duration-300 ${isHovered ? 'scale-110' : 'scale-100'}`}>
+                                <div className={`absolute left-4 md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center z-10 transition-transform duration-300 ${isHovered ? 'scale-110' : 'scale-100'}`}>
                                     <div className={`w-3 h-3 rounded-full border-2 border-white shadow-sm transition-all duration-300 ${colorClass.split(' ')[0]} ${isHovered ? 'w-4 h-4 ring-2 ring-indigo-100' : ''}`} />
-                                    <div className={`mt-1 bg-white px-1.5 py-0.5 rounded border shadow-sm text-[10px] font-bold whitespace-nowrap transition-colors duration-300 ${isHovered ? 'border-indigo-200 text-indigo-600' : 'border-slate-100 text-slate-500'}`}>
+                                    <div className={`mt-1 bg-white px-2.5 py-1 rounded-md border shadow-sm text-sm font-bold whitespace-nowrap transition-colors duration-300 ${isHovered ? 'border-indigo-200 text-indigo-600' : 'border-slate-100 text-slate-500'}`}>
                                         {event.displayDate}
                                     </div>
                                 </div>
@@ -117,26 +117,29 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                                         onMouseLeave={() => setHoveredEventId(null)}
                                     >
                                         {/* Connector Line */}
-                                        <div className={`absolute top-1.5 transition-all duration-300
-                                            ${isLeft ? 'hidden md:block -right-16 w-16' : 'hidden md:block -left-16 w-16'}
+                                        <div className={`absolute top-1/2 -translate-y-1/2 transition-all duration-300
+                                            ${isLeft
+                                                ? `hidden md:block ${isHovered ? '-right-40 w-40' : '-right-16 w-16'}`
+                                                : `hidden md:block ${isHovered ? '-left-40 w-40' : '-left-16 w-16'}`
+                                            }
                                             md:block hidden
                                             ${isHovered ? 'bg-indigo-300 h-0.5' : 'bg-slate-200 h-px'}`}
                                         />
-                                        <div className={`absolute left-4 top-1.5 w-8 transition-all duration-300 md:hidden ${isHovered ? 'bg-indigo-300 h-0.5' : 'bg-slate-200 h-px'}`} />
+                                        <div className={`absolute left-4 top-1/2 -translate-y-1/2 w-8 transition-all duration-300 md:hidden ${isHovered ? 'bg-indigo-300 h-0.5' : 'bg-slate-200 h-px'}`} />
 
-                                        <div className={`p-3 rounded-xl border shadow-sm transition-all duration-300 bg-white ${isHovered ? 'border-indigo-200 shadow-md ring-1 ring-indigo-50' : 'border-slate-100'}`}>
+                                        <div className={`p-4 rounded-xl border shadow-sm transition-all duration-300 bg-white ${isHovered ? 'border-indigo-200 shadow-md ring-1 ring-indigo-50' : 'border-slate-100'}`}>
                                             <div className={`flex flex-col ${isLeft ? 'md:items-end' : ''}`}>
-                                                <h3 className={`text-sm font-bold mb-0.5 transition-colors ${isHovered ? 'text-indigo-700' : 'text-slate-800'}`}>
+                                                <h3 className={`text-base font-bold mb-1 transition-colors ${isHovered ? 'text-indigo-700' : 'text-slate-800'}`}>
                                                     {event.title}
                                                 </h3>
 
                                                 {event.description && (
-                                                    <p className="text-slate-500 text-[11px] leading-relaxed line-clamp-2 mb-1.5">
+                                                    <p className="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-2">
                                                         {event.description}
                                                     </p>
                                                 )}
 
-                                                <div className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-wider text-slate-400">
+                                                <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">
                                                     <span className={`w-1.5 h-1.5 rounded-full ${colorClass.split(' ')[0]}`} />
                                                     {event.subjectId}
                                                 </div>

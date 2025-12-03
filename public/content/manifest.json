@@ -308,8 +308,8 @@
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
-                            "id": "inflasjon",
-                            "title": "Inflasjon",
+                            "id": "inflasjon-og-rente",
+                            "title": "Inflasjon og rente",
                             "description": "Hvorfor blir alt dyrere? Om penger, renter og priser.",
                             "image": "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80",
                             "tags": [
