@@ -9,6 +9,7 @@ import { EICSimulation } from './EICSimulation';
 import { FactBox } from './FactBox';
 import { TimelineComponent } from './TimelineComponent';
 import { PlotGraph } from './PlotGraph';
+import { InflationCalculator } from './content/interactive/InflationCalculator';
 
 // Simple markdown renderer fallback
 const renderWithMarkdown = (text: string) => {
@@ -33,7 +34,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, activeB
     if (!content || !Array.isArray(content)) return null;
 
     return (
-        <div className="article-content max-w-prose mx-auto">
+        <div className="article-content max-w-5xl mx-auto">
             {content.map((block, index) => {
                 // Handle both 'type' (standard) and 'name' (TinaCMS sometimes)
                 const type = block.type || block.name;
@@ -150,6 +151,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, activeB
                                         yAxisLabel={block.props?.yAxisLabel as string}
                                     />
                                 );
+                            case 'InflationCalculator':
+                                return <InflationCalculator key={index} />;
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">

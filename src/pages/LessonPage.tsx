@@ -147,7 +147,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     if (loading) return <div className="p-8 text-center">Laster leksjon...</div>;
 
     // Special handling for Demography module
-    if (topicId === 'demografi-okonomi') {
+    if (topicId === 'demografi-okonomi' && lessonId === 'intro') {
         return <DemographyPage />;
     }
 
@@ -275,7 +275,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     if (!lesson) return <div className="p-8 text-center">Fant ikke leksjonen.</div>;
 
     return (
-        <div className="lesson-page max-w-4xl mx-auto px-6 py-12">
+        <div className="lesson-page max-w-6xl mx-auto px-6 py-12">
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}

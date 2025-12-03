@@ -1,0 +1,162 @@
+{
+    "title": "Inflasjon",
+    "description": "Hvorfor blir alt dyrere?",
+    "image": "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80",
+    "tags": [
+        "økonomi",
+        "penger",
+        "samfunn"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Hva er inflasjon?"
+        },
+        {
+            "type": "text",
+            "content": "Inflasjon er en økning av pengemengden i et gitt samfunn eller økonomi. Den vanligste effekten dette gir er en varig økning i det generelle prisnivået på varer og tjenester. Enkelt forklart betyr det at pengene dine blir mindre verdt over tid. Det du kunne kjøpe for 100 kroner i fjor, koster kanskje 105 kroner i år."
+        },
+        {
+            "type": "header",
+            "content": "Hvorfor skjer dette?"
+        },
+        {
+            "type": "text",
+            "content": "Hovedårsaken til inflasjon er ofte en økning i pengemengden. Se for deg at alle i Norge plutselig fikk en million kroner hver inn på konto. Ville vi blitt rikere? Nei. Vi ville bare bydd over hverandre for å kjøpe de samme husene, bilene og varene som finnes. Resultatet ville blitt at prisene skjøt i været."
+        },
+        {
+            "type": "component",
+            "name": "InflationCalculator"
+        },
+        {
+            "type": "header",
+            "content": "Renten styrer pengemengden"
+        },
+        {
+            "type": "text",
+            "content": "Renten er prisen på penger. I de fleste moderne økonomier lages nye penger når banker gir lån. Når du tar opp et boliglån, trykker ikke banken nye sedler, men de skriver inn tall på kontoen din. Dette er nye penger som ikke fantes før. Sentralbanken (Norges Bank) bruker styringsrenten for å kontrollere denne prosessen."
+        },
+        {
+            "type": "text",
+            "content": "Når renten er **lav**, er det billig å låne penger. Da vil flere privatpersoner og bedrifter ta opp lån for å kjøpe bolig, pusse opp eller investere. Dette fører til at det skapes mer penger i økonomien. Når det er mer penger som konkurrerer om de samme varene, går prisene opp. Dette skaper inflasjon."
+        },
+        {
+            "type": "text",
+            "content": "Når renten er **høy**, blir det dyrt å låne penger. Samtidig lønner det seg mer å ha penger på sparekonto. Da vil færre ta opp lån, og flere vil betale ned på gjelden sin. Når lån betales ned, forsvinner disse pengene ut av sirkulasjon igjen. Dette bremser veksten i pengemengden og demper inflasjonen. Dette er grunnen til at Norges Bank setter opp renten når prisene stiger for raskt."
+        },
+        {
+            "type": "header",
+            "content": "Hvordan måler vi inflasjon?"
+        },
+        {
+            "type": "text",
+            "content": "Det kan være vanskelig å merke inflasjon fra dag til dag, men over tid er effekten stor. Økonomer bruker hovedsakelig to metoder for å måle dette:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Konsumprisindeksen (KPI):** Dette er den vanligste måleenheten. Statistisk Sentralbyrå (SSB) sjekker hver måned prisen på en fast \"handlekurv\" med varer og tjenester som en gjennomsnittlig husholdning kjøper. Denne kurven inneholder alt fra matvarer, strøm og bensin til klær, flyreiser og kinobilletter. Hvis den totale prisen for denne kurven stiger med 3% fra ett år til et annet, sier vi at inflasjonen er 3%.",
+                "**Pengemengde (M2):** Dette er et mål på hvor mye penger som finnes totalt i økonomien (sedler, mynter og bankinnskudd). Historisk sett har det vært en sterk sammenheng mellom økning i pengemengden og inflasjon. Hvis pengemengden øker raskere enn produksjonen av varer og tjenester, vil prisene som regel følge etter. Dette er ofte en tidlig indikator på fremtidig inflasjon."
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Vinnere og tapere"
+        },
+        {
+            "type": "text",
+            "content": "Inflasjon rammer ikke alle likt. Faktisk fører inflasjon til en omfordeling av verdier i samfunnet, ofte på måter som kan virke urettferdige:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Sparere taper:** De som har penger på bankkonto er de største taperne. Hvis du har 100 000 kroner på konto og inflasjonen er 5%, vil pengene dine i realiteten bare være verdt 95 000 kroner etter ett år. Selv om beløpet på kontoen er det samme, får du kjøpt mindre for dem. Hvis renten du får i banken er lavere enn inflasjonen, har du en *negativ realrente* – du betaler i praksis for å ha penger i banken.",
+                "**Låntakere vinner:** Inflasjon er godt nytt for de med mye gjeld. Hvis du har et boliglån på 3 millioner kroner, vil dette lånet bli \"mindre verdt\" i takt med at pengenes verdi faller. Over tid vil lønninger vanligvis stige i takt med prisene, noe som gjør at lånet utgjør en mindre del av inntekten din. Man sier ofte at inflasjon \"spiser opp\" gjelden.",
+                "**Bedrifter og planlegging:** Høy og uforutsigbar inflasjon er skadelig for næringslivet. Det gjør det vanskelig for bedrifter å vite hva råvarer vil koste i fremtiden, og hvilken pris de bør ta for varene sine. Dette skaper usikkerhet som kan føre til at bedrifter utsetter investeringer og ansettelser, noe som kan skade økonomien på sikt.",
+                "**Cantillon-effekten (Hvem får pengene først?):** Det betyr noe *hvor* de nye pengene kommer inn i økonomien. De som får de nye pengene først (ofte banker, investorer eller statlige leverandører) blir rikere, fordi de kan kjøpe varer og eiendeler til gamle, lave priser. Når de bruker pengene, stiger prisene. De som får pengene sist (vanlige lønnsmottakere og trygdede) taper, fordi de må betale de nye, høye prisene før inntekten deres har rukket å stige. Eksempel: Hvis staten trykker penger for å bygge en vei, blir entreprenøren rikere. Men når pengene til slutt når matbutikken din, har prisene allerede gått opp, uten at du har fått mer i lønn."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Spesielt sårbare er varer med **høy frekvens**, som mat og strøm. Prisene her kan endre seg raskt og skape store forstyrrelser i folks privatøkonomi, da dette er ting man *må* kjøpe uansett pris."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "inflasjon",
+            "term": "Inflasjon",
+            "definition": "En økning av pengemengden som fører til at prisene stiger og pengene blir mindre verdt."
+        },
+        {
+            "id": "styringsrente",
+            "term": "Styringsrente",
+            "definition": "Renten Norges Bank setter, som påvirker hva det koster for banker å låne penger."
+        },
+        {
+            "id": "kpi",
+            "term": "Konsumprisindeksen (KPI)",
+            "definition": "Et mål på prisutviklingen for varer og tjenester som vanlige husholdninger kjøper."
+        },
+        {
+            "id": "m2",
+            "term": "Pengemengde (M2)",
+            "definition": "Hvor mye penger (sedler, mynter, bankinnskudd) som finnes i økonomien."
+        },
+        {
+            "id": "realrente",
+            "term": "Realrente",
+            "definition": "Rente minus inflasjon. Forteller hva du faktisk tjener eller betaler på å ha penger i banken eller lån."
+        },
+        {
+            "id": "cantillon",
+            "term": "Cantillon-effekten",
+            "definition": "Effekten av at nye penger kommer inn i økonomien på et bestemt sted, slik at de første mottakerne tjener på det mens de siste taper."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva er hovedårsaken til inflasjon?",
+            "options": [
+                "Økning i pengemengden",
+                "At butikkene blir grådige",
+                "At folk jobber for lite",
+                "At staten bruker for lite penger"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hvem tjener mest på høy inflasjon?",
+            "options": [
+                "Folk med mye gjeld",
+                "Folk med mye penger i banken",
+                "Pensjonister",
+                "Studenter"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hva gjør Norges Bank ofte for å dempe inflasjonen?",
+            "options": [
+                "Setter opp styringsrenten",
+                "Trykker mer penger",
+                "Senker skattene",
+                "Gir mer penger til bankene"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Hva beskriver Cantillon-effekten?",
+            "options": [
+                "At det betyr noe hvem som får de nye pengene først",
+                "At alle blir like mye rikere av inflasjon",
+                "At priser alltid stiger likt overalt",
+                "At penger ikke har noen verdi"
+            ],
+            "correctAnswer": 0
+        }
+    ]
+}
