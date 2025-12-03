@@ -18,10 +18,10 @@ import { BusinessCycleGraph } from './content/interactive/BusinessCycleGraph';
 const renderWithMarkdown = (text: string) => {
     if (!text) return null;
 
-    let elements: (string | React.ReactNode)[] = [text];
+    let elements: React.ReactNode[] = [text];
 
     // 1. Bold
-    elements = elements.flatMap((el) => {
+    elements = elements.flatMap((el): React.ReactNode[] => {
         if (typeof el !== 'string') return [el];
         return el.split(/(\*\*.*?\*\*)/g).map((part, i) => {
             if (part.startsWith('**') && part.endsWith('**')) {
@@ -32,7 +32,7 @@ const renderWithMarkdown = (text: string) => {
     });
 
     // 2. Links
-    elements = elements.flatMap((el) => {
+    elements = elements.flatMap((el): React.ReactNode[] => {
         if (typeof el !== 'string') return [el];
         return el.split(/(\[.*?\]\(.*?\))/g).map((part, i) => {
             const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
@@ -67,7 +67,7 @@ const renderWithMarkdown = (text: string) => {
     });
 
     // 3. Italics
-    elements = elements.flatMap((el) => {
+    elements = elements.flatMap((el): React.ReactNode[] => {
         if (typeof el !== 'string') return [el];
         return el.split(/(\*.*?\*)/g).map((part, i) => {
             if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {

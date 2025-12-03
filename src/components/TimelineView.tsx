@@ -86,11 +86,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                                     event.subjectId === 'samfunnskunnskap' ? 'bg-blue-500 border-blue-500 text-blue-600' :
                                         'bg-slate-500 border-slate-500 text-slate-600';
 
-                        const bgClass =
-                            event.subjectId === 'historie' ? 'bg-amber-50' :
-                                event.subjectId === 'norsk' ? 'bg-red-50' :
-                                    event.subjectId === 'samfunnskunnskap' ? 'bg-blue-50' :
-                                        'bg-slate-50';
+
 
                         return (
                             <motion.div
