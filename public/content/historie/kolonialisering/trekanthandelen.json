@@ -1,5 +1,35 @@
 {
     "title": "Trekanthandelen",
     "fact": "Visste du at sukkerproduksjonen i Karibia var så krevende at gjennomsnittlig levealder for en slave på en sukkerplantasje var under 7 år?",
-    "description": "Trekanthandelen bandt sammen Europa, Afrika og Amerika i et brutalt handelssystem basert på slaveri, råvarer og ferdigvarer."
+    "description": "Trekanthandelen bandt sammen Europa, Afrika og Amerika i et brutalt handelssystem basert på slaveri, råvarer og ferdigvarer.",
+    "year": "1500-1850",
+    "timeline": [
+        {
+            "year": "1502",
+            "title": "Første slaver til Amerika",
+            "description": "De første afrikanske slavene ankommer Hispaniola."
+        },
+        {
+            "year": "1600",
+            "title": "Sukkerrevolusjonen",
+            "description": "Etterspørselen etter sukker driver slavehandelen kraftig opp."
+        },
+        {
+            "year": "1807",
+            "title": "Forbud mot slavehandel",
+            "description": "Storbritannia og USA forbyr transatlantisk slavehandel."
+        },
+        {
+            "year": "1833",
+            "title": "Slaveriet oppheves i britiske kolonier",
+            "description": "Slavery Abolition Act vedtas i Storbritannia."
+        },
+        {
+            "year": "1865",
+            "title": "Slaveriet oppheves i USA",
+            "description": "13. grunnlovstillegg etter borgerkrigen."
+        }
+    ],
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

@@ -4,6 +4,24 @@
     "subject": "Samfunnsfag",
     "topic": "Historie",
     "fact": "Før boktrykkerkunsten kunne en munk bruke et helt år på å kopiere én bibel for hånd.",
+    "year": "1450",
+    "timeline": [
+        {
+            "year": "1440",
+            "title": "Trykkpressen utvikles",
+            "description": "Gutenberg utvikler teknologien med løse typer (ca. årstall)."
+        },
+        {
+            "year": "1455",
+            "title": "Gutenbergbibelen",
+            "description": "Den første masseproduserte boken trykkes."
+        },
+        {
+            "year": "1517",
+            "title": "Reformasjonen",
+            "description": "Martin Luther bruker trykkekunsten til å spre sine teser."
+        }
+    ],
     "content": [
         {
             "type": "text",

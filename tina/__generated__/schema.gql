@@ -99,6 +99,8 @@ type ManifestSubjectsTopicsLessons {
   description: String
   image: String
   tags: [String]
+  createdDate: String
+  lastUpdated: String
 }
 
 type ManifestSubjectsTopics {
@@ -136,12 +138,22 @@ input ImageFilter {
   in: [String]
 }
 
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
 input ManifestSubjectsTopicsLessonsFilter {
   id: StringFilter
   title: StringFilter
   description: StringFilter
   image: ImageFilter
   tags: StringFilter
+  createdDate: DatetimeFilter
+  lastUpdated: DatetimeFilter
 }
 
 input ManifestSubjectsTopicsFilter {
@@ -216,6 +228,8 @@ type Article implements Node & Document {
   title: String
   subject: String
   topic: String
+  createdDate: String
+  lastUpdated: String
   religion: ArticleReligion
   dimension: String
   comparison_tags: [String]
@@ -278,6 +292,8 @@ input ArticleFilter {
   title: StringFilter
   subject: StringFilter
   topic: StringFilter
+  createdDate: DatetimeFilter
+  lastUpdated: DatetimeFilter
   religion: ArticleReligionFilter
   dimension: StringFilter
   comparison_tags: StringFilter
@@ -384,6 +400,8 @@ input ManifestSubjectsTopicsLessonsMutation {
   description: String
   image: String
   tags: [String]
+  createdDate: String
+  lastUpdated: String
 }
 
 input ManifestSubjectsTopicsMutation {
@@ -451,6 +469,8 @@ input ArticleMutation {
   title: String
   subject: String
   topic: String
+  createdDate: String
+  lastUpdated: String
   religion: String
   dimension: String
   comparison_tags: [String]

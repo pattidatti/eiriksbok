@@ -9,6 +9,7 @@ export interface TextEntry {
     content?: string[];
     publishedYear?: number;
     createdDate?: string;
+    lastUpdated?: string;
     definitions?: { term: string; definition: string }[];
     reflectionTasks?: string[];
     translations?: {
@@ -28,6 +29,7 @@ export const textLibraryData: TextEntry[] = [
         theme: ['Realisme', 'Generasjonskonflikt', 'Dobbeltmoral', 'Samfunnskritikk'],
         publishedYear: 1879,
         createdDate: '2025-12-02T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "grossereren", definition: "En kjøpmann som driver handel engros (i store partier)" },
             { term: "amtmannen", definition: "Embetsmann som styrte et amt (nå kalt fylke/statsforvalter)" },
@@ -111,6 +113,7 @@ export const textLibraryData: TextEntry[] = [
         theme: ['Fattigdom', 'Håp', 'Døden'],
         publishedYear: 1845,
         createdDate: '2025-12-01T14:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         content: [
             "Det var så gruelig kaldt. Det snødde, og det begynte å bli mørk aften. Det var også den siste aftenen i året, nyttårsaften. I denne kulda og i dette mørket gikk det på gata ei lita, fattig jente med bart hode og nakne føtter. Ja, hun hadde jo riktignok hatt tøfler på da hun dro hjemmefra. Men hva kunne det hjelpe! Det var ganske store tøfler, mora hennes hadde brukt dem sist, så store var de, og de mista den lille da hun skyndte seg over gata i det to vogner fór så fryktelig raskt forbi. Den ene tøffelen var ikke å finne, og den andre løp en gutt av gårde med. Han sa at den kunne han bruke til vugge, når han selv fikk barn.",
             "Der gikk nå den lille jenta på de nakne små føttene, som var røde og blåe av kulde. I et gammelt forkle holdt hun en mengde svovelstikker, og en bunt gikk hun med i hånda. Ingen hadde kjøpt av henne hele den dagen. Ingen hadde gitt henne en skilling. Sulten og forfrossen gikk hun og så så forkua ut, den stakkars lille! Snøfnuggene falt i det lange gule håret hennes, som krølla seg så pent om nakken, men den stasen tenkte hun riktignok ikke på. Ut fra alle vinduene skinte lysene, og i gata så lukta det så deilig av gåsesteik. Det var jo nyttårsaften, ja det tenkte hun på.",
@@ -153,6 +156,7 @@ export const textLibraryData: TextEntry[] = [
         theme: ['Døden', 'Livet'],
         publishedYear: 2011, // Estimated/Placeholder year, can be updated if known
         createdDate: '2025-12-01T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         content: [
             "Det er lenge til eg skal døy,\nhar eg bestemt.\nDet er mykje eg skal ha gjort\nfør den tid,\nmange jenter eg skal kysse\nog gifte meg med,\nmange land eg skal besøke\nog hav eg skal symje i.",
             "Og når døden ein dag kjem\ni den store svarte bilen sin,\nskal eg først be han inn\npå ein kopp svart kaffi\nfør vi set oss inn i bilen og kjører.",
@@ -178,6 +182,7 @@ export const textLibraryData: TextEntry[] = [
         theme: ['Farsrolle', 'Makt', 'Status'],
         publishedYear: 1860,
         createdDate: '2023-11-29T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "fader", definition: "far" },
             { term: "prestegjeld", definition: "område knyttet til en kirke" },
@@ -216,6 +221,7 @@ export const textLibraryData: TextEntry[] = [
         language: 'nn.',
         theme: ['Moderne kommunikasjon'],
         createdDate: '2023-11-28T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "altan", definition: "balkong" },
             { term: "brøytebil", definition: "bil som brukes til å fjerne snø fra veien" },
@@ -239,6 +245,7 @@ export const textLibraryData: TextEntry[] = [
         language: 'bm.',
         theme: ['Oppvekst'],
         createdDate: '2023-11-27T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "gre", definition: "å børste håret med kam" },
             { term: "kleskott", definition: "bod til å oppbevare klær i" },
@@ -284,6 +291,7 @@ export const textLibraryData: TextEntry[] = [
         theme: ['Flukt', 'Håp', 'Urettferdighet', 'Drømmer'],
         publishedYear: 2009,
         createdDate: '2023-11-26T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "barsakh", definition: "arabisk ord som kan bety hindring/barriere eller et mellomsted etter døden" },
             { term: "frakte", definition: "flytte, transportere" },
@@ -346,6 +354,7 @@ export const textLibraryData: TextEntry[] = [
         theme: ['Natur', 'Identitet', 'Eksistensialisme', 'Ensomhet'],
         publishedYear: 2008,
         createdDate: '2023-11-25T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "skogbryn", definition: "kanten av en skog" },
             { term: "vits", definition: "mening" },
@@ -375,6 +384,7 @@ export const textLibraryData: TextEntry[] = [
         theme: ['Ensomhet', 'Fremmedfølelse', 'Alderdom'],
         publishedYear: 1983,
         createdDate: '2023-11-24T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "veksle noen ord", definition: "ha en kort samtale" },
             { term: "sannelig", definition: "virkelig" },
@@ -404,6 +414,7 @@ export const textLibraryData: TextEntry[] = [
         language: 'bm.',
         theme: ['Relasjoner'],
         createdDate: '2023-11-23T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "unngå", definition: "prøve å ikke gjøre noe eller holde seg unna noe" },
             { term: "kikke", definition: "se på noe" },
@@ -440,6 +451,7 @@ export const textLibraryData: TextEntry[] = [
         language: 'bm.',
         theme: ['Ungdom'],
         createdDate: '2023-11-22T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "skikkelse", definition: "person" },
             { term: "sixpencelue", definition: "flat skyggelue/caps" },
@@ -483,6 +495,7 @@ export const textLibraryData: TextEntry[] = [
         theme: ['Skjebne', 'Tilfeldigheter', 'Døden', 'Ansvar'],
         publishedYear: 1948,
         createdDate: '2023-11-21T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "drepe", definition: "ta livet av" },
             { term: "slette", definition: "større flat landstrekning" },
@@ -554,6 +567,7 @@ export const textLibraryData: TextEntry[] = [
         language: 'bm.',
         theme: ['Krim', 'Spenning'],
         createdDate: '2023-11-20T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "buffet", definition: "spisestuemøbel for servise og dekketøy" },
             { term: "inderlig", definition: "oppriktig" },
@@ -762,6 +776,7 @@ export const textLibraryData: TextEntry[] = [
         theme: ['Fattigdom', 'Jul', 'Tragedie', 'Samfunnskritikk'],
         publishedYear: 1885,
         createdDate: '2025-11-30T20:15:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         content: [
             "På en av dampskipskaiene i Kristiania lå der for en del år siden et gråmalt trehus med flatt tak, uten skorsten, omtrent 4 alen langt og litt kortere på den annen lid. I begge tverrveggene var der et lite vindu, det ene like overfor det andre. Døren vendte mod sjøsiden og kunne lukkes både innvendig og utvendig med jernkroker, der ble hektet fast i kramper av samme metall.",
             "Hytten var opprinnelig blitt oppført til fergemennene, for at de skulle ha tak over hodet i regnvær og i vinterkulden når de satt og drev og ventet på at noen skulle komme og forlange båt. Senere, da smådamperne mer og mer slukte trafikken, var fergemennene trukket annet steds hen. Så ble huset kun benyttet leilighetsvis av hvem det kunne falle seg. De siste som hadde gjort bruk av det, var noen stenarbeidere, når de holdt sine måltider to av gangen, da de en sommer reparerte på kaistykket i nærheten.",
@@ -846,6 +861,7 @@ export const textLibraryData: TextEntry[] = [
         theme: ['Kjærlighet', 'Svik', 'Tragedie', 'Kvinneskjebne', 'Realisme'],
         publishedYear: 1882,
         createdDate: '2025-11-30T20:10:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         content: [
             "Det var en gang i Krarup Kro en pike, som het Karen. Hun var alene om oppvartningen; for Kromannens kone gikk nesten alltid omkring og lette efter sine nøkler. Og der kom mange i Krarup Kro; - både folk fra omegn, som samledes, når det mørknet om høstaftenen og satt i krostuen og drakk kaffepunsjer sådan i alminnelighet uten noen bestemt hensikt, men også reisende og veifarende, som kom trampende inn – blå og forblåste, for å få seg noe varmt, som kunne holde livet oppe til neste kro. Men Karen kunne allikevel klare det hele, skjønt hun gikk så stille og aldri syntes å ha hastverk.",
             "Hun var spinkel og liten – ganske ung, alvorlig og taus, så det var ingen morskap ved henne for de handelsreisende. Men skikkelige folk, som gikk i kroen for alvor, og som satte pris på at kaffen servertes hurtig og skåldende het, de holdt desto mer av Karen. Og når hun smøg seg frem mellom gjestene med sitt brett, vek de tunge vadmelskropper til side med en uvanlig fart, det ble gjort vei for henne, og samtalen sluknet for et øyeblikk, alle måtte se efter henne, hun var så nydelig.",
@@ -893,6 +909,7 @@ export const textLibraryData: TextEntry[] = [
         theme: ['Identitet', 'Omsorg', 'Følelser', 'Oppvekst'],
         publishedYear: 1962,
         createdDate: '2023-11-19T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         definitions: [
             { term: "parafinlampe", definition: "lampe som forbrenner parafin" },
             { term: "pepperriske", definition: "en type sopp" },
@@ -1076,6 +1093,7 @@ export const textLibraryData: TextEntry[] = [
         language: 'bm.',
         theme: ['Teknologi', 'Samfunn', 'Etikk', 'Utdanning'],
         createdDate: '2025-12-02T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
         content: [
             "Kunstig intelligens gjør oss dummere og dårligere.",
             "Fordi vi lar KI løse oppgavene, blir vi avhengige av teknologien og hjelpeløse når den svikter, skriver kronikkforfatteren.",

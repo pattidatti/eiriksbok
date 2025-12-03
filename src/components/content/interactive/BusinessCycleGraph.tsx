@@ -78,6 +78,7 @@ export const BusinessCycleGraph: React.FC = () => {
 
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: 'top' as const,
@@ -141,9 +142,14 @@ export const BusinessCycleGraph: React.FC = () => {
                 Konjunktursyklusen Visualisert
             </h3>
 
-            <p className="text-slate-600 mb-6">
-                Se hvordan renten påvirker svingningene i økonomien. Den stiplede linjen viser stabil, bærekraftig vekst basert på ekte sparing. Den helhetlige linjen viser den faktiske økonomien.
-            </p>
+            <div className="mb-6 space-y-4">
+                <p className="text-slate-600">
+                    Se hvordan renten påvirker svingningene i økonomien. Den stiplede linjen viser stabil, bærekraftig vekst basert på ekte sparing. Den helhetlige linjen viser den faktiske økonomien.
+                </p>
+                <p className="text-slate-600 text-sm bg-slate-50 p-3 rounded-lg border border-slate-100 italic">
+                    "På grunn av at sentralbanker overstyrer, er det egentlig umulig å vite om renten er for høy eller lav, for man har ikke tilgang på informasjon om den faktiske spareraten og tålmodigheten til samfunnet."
+                </p>
+            </div>
 
             {/* Controls */}
             <div className="mb-6 p-4 bg-slate-50 rounded-xl border border-slate-200">

@@ -62,6 +62,7 @@ export const useManifestData = () => {
                     topicId: 'bibliotek',
                     topicTitle: 'Bibliotek',
                     createdDate: text.createdDate,
+                    lastUpdated: text.lastUpdated,
                     image: undefined, // Will use fallback
                     tags: [text.genre, text.language].filter((t): t is string => !!t)
                 });
@@ -69,8 +70,9 @@ export const useManifestData = () => {
 
             // Calculate Recent Lessons
             const recent = [...lessons].sort((a, b) => {
-                const dateA = a.createdDate || a.date || '0000';
-                const dateB = b.createdDate || b.date || '0000';
+                // Use lastUpdated if available, otherwise createdDate, otherwise date, otherwise fallback
+                const dateA = a.lastUpdated || a.createdDate || a.date || '0000';
+                const dateB = b.lastUpdated || b.createdDate || b.date || '0000';
                 return dateB.localeCompare(dateA);
             }).slice(0, 3);
 

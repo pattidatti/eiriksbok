@@ -17,14 +17,67 @@ import { BusinessCycleGraph } from './content/interactive/BusinessCycleGraph';
 // Simple markdown renderer fallback
 const renderWithMarkdown = (text: string) => {
     if (!text) return null;
-    // Basic bold support
-    const parts = text.split(/(\*\*.*?\*\*)/g);
-    return parts.map((part, i) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-            return <strong key={i}>{part.slice(2, -2)}</strong>;
-        }
-        return part;
+
+    let elements: (string | React.ReactNode)[] = [text];
+
+    // 1. Bold
+    elements = elements.flatMap((el) => {
+        if (typeof el !== 'string') return [el];
+        return el.split(/(\*\*.*?\*\*)/g).map((part, i) => {
+            if (part.startsWith('**') && part.endsWith('**')) {
+                return <strong key={`b-${i}-${part.substring(0, 10)}`}>{part.slice(2, -2)}</strong>;
+            }
+            return part;
+        });
     });
+
+    // 2. Links
+    elements = elements.flatMap((el) => {
+        if (typeof el !== 'string') return [el];
+        return el.split(/(\[.*?\]\(.*?\))/g).map((part, i) => {
+            const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+            if (linkMatch) {
+                const [_, linkText, linkUrl] = linkMatch;
+                const isExternal = linkUrl.startsWith('http');
+                if (isExternal) {
+                    return (
+                        <a
+                            key={`l-${i}-${linkUrl.substring(0, 10)}`}
+                            href={linkUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline"
+                        >
+                            {linkText}
+                        </a>
+                    );
+                }
+                return (
+                    <Link
+                        key={`l-${i}-${linkUrl.substring(0, 10)}`}
+                        to={linkUrl}
+                        className="text-blue-600 hover:underline"
+                    >
+                        {linkText}
+                    </Link>
+                );
+            }
+            return part;
+        });
+    });
+
+    // 3. Italics
+    elements = elements.flatMap((el) => {
+        if (typeof el !== 'string') return [el];
+        return el.split(/(\*.*?\*)/g).map((part, i) => {
+            if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {
+                return <em key={`i-${i}-${part.substring(0, 10)}`}>{part.slice(1, -1)}</em>;
+            }
+            return part;
+        });
+    });
+
+    return <>{elements}</>;
 };
 
 import { Tooltip } from './Tooltip';

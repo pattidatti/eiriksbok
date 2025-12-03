@@ -75,6 +75,7 @@ export interface ManifestLesson {
     date?: string;
     createdDate?: string;
     updatedDate?: string;
+    lastUpdated?: string;
     description?: string;
     image?: string;
     tags?: string[];
@@ -141,4 +142,18 @@ export interface Religion {
         doctrinal?: any;
         material?: any;
     };
+}
+
+export interface GlobalTimelineEvent {
+    id: string;
+    title: string;
+    description?: string;
+    startDate: number;
+    endDate?: number | null;
+    displayDate: string;
+    type: 'lesson' | 'text' | 'event';
+    subjectId: string;
+    topicId?: string;
+    link: string;
+    tags?: string[];
 }

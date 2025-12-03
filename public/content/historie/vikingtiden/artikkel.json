@@ -10,6 +10,34 @@
         "krig",
         "handel"
     ],
+    "year": "793-1066",
+    "timeline": [
+        {
+            "year": "793",
+            "title": "Angrepet på Lindisfarne",
+            "description": "Starten på vikingtiden."
+        },
+        {
+            "year": "872",
+            "title": "Slaget i Hafrsfjord",
+            "description": "Norge samles til ett rike (tradisjonelt årstall)."
+        },
+        {
+            "year": "1000",
+            "title": "Leiv Eiriksson oppdager Amerika",
+            "description": "Vikingene når Vinland (Newfoundland)."
+        },
+        {
+            "year": "1030",
+            "title": "Slaget på Stiklestad",
+            "description": "Olav den Hellige faller, kristendommen styrkes."
+        },
+        {
+            "year": "1066",
+            "title": "Slaget ved Stamford Bridge",
+            "description": "Slutten på vikingtiden."
+        }
+    ],
     "content": [
         {
             "type": "text",
@@ -60,5 +88,7 @@
                 ]
             }
         }
-    ]
+    ],
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

@@ -17,6 +17,8 @@ fragment ManifestParts on Manifest {
         description
         image
         tags
+        createdDate
+        lastUpdated
       }
     }
   }
@@ -27,6 +29,8 @@ fragment ArticleParts on Article {
   title
   subject
   topic
+  createdDate
+  lastUpdated
   religion {
     ... on Religion {
       __typename

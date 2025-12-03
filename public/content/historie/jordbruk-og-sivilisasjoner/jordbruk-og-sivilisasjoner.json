@@ -4,12 +4,34 @@
     "subject": "Samfunnsfag",
     "topic": "Historie",
     "fact": "Visste du at overgangen til jordbruk førte til at menneskene ble lavere og fikk dårligere tenner sammenlignet med jegere og sankere?",
-    "year": "12 000 – 4000 fvt.",
+    "year": "12000 fvt - 4000 fvt",
     "tags": [
         "jordbruk",
         "steinalder",
         "sivilisasjon",
         "teknologi"
+    ],
+    "timeline": [
+        {
+            "year": "10000 fvt",
+            "title": "Jordbruket oppstår",
+            "description": "Mennesker i 'Den fruktbare halvmåne' begynner å dyrke jorden."
+        },
+        {
+            "year": "4000 fvt",
+            "title": "Elvedalssivilisasjoner",
+            "description": "De første store sivilisasjonene oppstår i Mesopotamia og Egypt."
+        },
+        {
+            "year": "4000 fvt",
+            "title": "Jordbruk i Norge",
+            "description": "De første bøndene etablerer seg på Østlandet."
+        },
+        {
+            "year": "2500 fvt",
+            "title": "Stridsøksfolket",
+            "description": "Nye folkegrupper kommer til Norge."
+        }
     ],
     "content": [
         {
@@ -50,5 +72,7 @@
                 ]
             }
         }
-    ]
+    ],
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }
