@@ -5,7 +5,6 @@ import {
     Sword,
     Anchor,
     Skull,
-    BookOpen,
     Hammer
 } from 'lucide-react';
 import type { ContentBlock } from '../types';
@@ -327,6 +326,39 @@ export const timelineData: TimelineEvent[] = [
                 title: "VOC Konkurs",
                 description: "Selskapet oppløses etter nesten 200 år.",
             }
+        ]
+    },
+    {
+        id: "norge-for-vikingene",
+        year: "9300 fvt. – 550 evt.",
+        title: "Norge før vikingene",
+        description: "Fra de første pionerene til slutten på gullalderen.",
+        content: [
+            { type: 'text', content: "Etter istiden (ca. 9300 fvt.) bosatte de første menneskene seg langs norskekysten (Komsakulturen). De var fangstfolk som levde av havets ressurser. Rundt 4000 fvt. begynte jordbruket så vidt å etablere seg i Oslofjordområdet, men det tok lang tid før det ble hovednæringen." },
+            { type: 'text', content: "Rundt 2500 fvt. kom Stridsøksfolket, sannsynligvis indoeuropeiske innvandrere, som brakte med seg nye skikker og språk. I bronsealderen (1700–500 fvt.) oppstod et høvdingsamfunn med sterke bånd til Europa, basert på handel med metaller." },
+            { type: 'text', content: "Jernalderen (fra 500 fvt.) gjorde metall tilgjengelig for flere (myrmalm). I folkevandringstiden (400–550 evt.) blomstret en 'gullalder' med rike funn og bygdeborger, før en klimakatastrofe (Fimbulvinteren) i 536 evt. førte til samfunnskollaps." }
+        ],
+        details: [
+            "Pionertid: Komsakulturen i Finnmark (9300 fvt.).",
+            "Jordbruk: Startet ca. 4000 fvt., hovednæring fra 2400 fvt.",
+            "Bronsealder: Høvdingdømmer og handel med Europa.",
+            "Kollaps: Fimbulvinteren og pest rundt 536–550 evt."
+        ],
+        icon: <Hammer className="w-8 h-8 text-stone-400" />,
+        category: 'Norge',
+        url: "/historie/norgeshistorie/norge-for-vikingene",
+        readTime: "10 min lesning",
+        tags: ["Historie", "Norge", "Forhistorie"],
+        timeline: [
+            { year: "9300 fvt.", title: "Pionertiden", description: "Komsakulturen etableres i Finnmark." },
+            { year: "4000 fvt.", title: "Jordbruksrevolusjonen", description: "Første spor etter jordbruk i Oslofjordområdet." },
+            { year: "2500 fvt.", title: "Stridsøksfolket", description: "Indoeuropeisk innvandring og nye gravskikker." },
+            { year: "1700 fvt.", title: "Bronsealderen", description: "Starten på bronsealderen og høvdingdømmer." },
+            { year: "500 fvt.", title: "Jernalderen", description: "Jernutvinning fra myrmalm starter." },
+            { year: "0", title: "Romersk jernalder", description: "Sterk kulturell påvirkning fra Romerriket." },
+            { year: "400 evt.", title: "Folkevandringstiden", description: "Gullalder og bygdeborger." },
+            { year: "536 evt.", title: "Fimbulvinteren", description: "Vulkanutbrudd fører til klimasjokk og uår." },
+            { year: "550 evt.", title: "Samfunnskollaps", description: "Slutten på gullalderen og bruk av bygdeborger." }
         ]
     }
 ];

@@ -15,7 +15,7 @@ import { BusinessCycleModel } from './content/interactive/BusinessCycleModel';
 import { BusinessCycleGraph } from './content/interactive/BusinessCycleGraph';
 
 // Simple markdown renderer fallback
-const renderWithMarkdown = (text: string) => {
+const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
     if (!text) return null;
 
     // Split by double newlines for paragraphs
@@ -33,7 +33,7 @@ const renderWithMarkdown = (text: string) => {
 
                     return (
                         <HeaderTag key={pIndex} className={`font-bold text-slate-800 mb-4 mt-6 ${level === 1 ? 'text-2xl' : level === 2 ? 'text-xl' : 'text-lg'}`}>
-                            {renderInlineMarkdown(content)}
+                            {renderInlineMarkdown(content, concepts)}
                         </HeaderTag>
                     );
                 }
@@ -41,7 +41,7 @@ const renderWithMarkdown = (text: string) => {
                 // Standard paragraph
                 return (
                     <p key={pIndex} className="mb-4 leading-relaxed">
-                        {renderInlineMarkdown(paragraph)}
+                        {renderInlineMarkdown(paragraph, concepts)}
                     </p>
                 );
             })}
@@ -49,7 +49,7 @@ const renderWithMarkdown = (text: string) => {
     );
 };
 
-const renderInlineMarkdown = (text: string) => {
+const renderInlineMarkdown = (text: string, concepts?: Concept[]) => {
     let elements: React.ReactNode[] = [text];
 
     // 1. Bold
@@ -109,47 +109,35 @@ const renderInlineMarkdown = (text: string) => {
         });
     });
 
+    if (concepts && concepts.length > 0) {
+        const sortedConcepts = [...concepts].sort((a, b) => (b.term || b.title || '').length - (a.term || a.title || '').length);
+        const pattern = new RegExp(`\\b(${sortedConcepts.map(c => (c.term || c.title || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`, 'gi');
+
+        elements = elements.flatMap((el): React.ReactNode[] => {
+            if (typeof el !== 'string') return [el];
+
+            // Use split with capturing group to keep delimiters (the concepts)
+            return el.split(pattern).map((part, i) => {
+                const concept = sortedConcepts.find(c => (c.term || c.title || '').toLowerCase() === part.toLowerCase());
+                if (concept) {
+                    return (
+                        <Tooltip key={`c-${i}-${part.substring(0, 10)}`} text={concept.definition || concept.description || ''}>
+                            <span className="concept-highlight cursor-help border-b-2 border-neon-accent/30 hover:border-neon-accent transition-colors">
+                                {part}
+                            </span>
+                        </Tooltip>
+                    );
+                }
+                return part;
+            });
+        });
+    }
+
     return <>{elements}</>;
 };
 
 import { Tooltip } from './Tooltip';
-import type { Concept } from '../types';
-
-// Enhanced renderer that handles both markdown and concepts
-const RichTextRenderer: React.FC<{ text: string; concepts?: Concept[] }> = ({ text, concepts = [] }) => {
-    if (!text) return null;
-
-    // 1. If no concepts, just do basic markdown
-    if (concepts.length === 0) {
-        return <>{renderWithMarkdown(text)}</>;
-    }
-
-    // 2. Create regex for concepts
-    // Sort by length to match longest first
-    // Map 'term' or 'title' to the concept term
-    const sortedConcepts = [...concepts].sort((a, b) => (b.term || b.title || '').length - (a.term || a.title || '').length);
-
-    // Create pattern from terms
-    const pattern = new RegExp(`\\b(${sortedConcepts.map(c => (c.term || c.title || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`, 'gi');
-
-    const parts = text.split(pattern);
-
-    return (
-        <>
-            {parts.map((part, index) => {
-                const concept = sortedConcepts.find(c => (c.term || c.title || '').toLowerCase() === part.toLowerCase());
-                if (concept) {
-                    return (
-                        <Tooltip key={index} text={concept.definition || concept.description || ''}>
-                            {part}
-                        </Tooltip>
-                    );
-                }
-                return <span key={index}>{renderWithMarkdown(part)}</span>;
-            })}
-        </>
-    );
-};
+import type { Concept, ContentBlock } from '../types';
 
 interface ArticleContentProps {
     content: any[];
@@ -160,10 +148,27 @@ interface ArticleContentProps {
 
 export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concepts, activeBlockIndex, onBlockClick }) => {
     if (!content || !Array.isArray(content)) return null;
+    // DEBUG: Fallback fetch if content is truncated
+    const [fullContent, setFullContent] = React.useState<ContentBlock[] | null>(null);
+
+    React.useEffect(() => {
+        if (content.length < 10 && !fullContent) {
+            console.log('ArticleContent: Content truncated, fetching full content...');
+            fetch('http://localhost:5173/content/historie/norgeshistorie/norge-for-vikingene/artikkel.json?t=' + Date.now())
+                .then(res => res.json())
+                .then(data => {
+                    console.log('ArticleContent: Fetched full content, length:', data.content.length);
+                    setFullContent(data.content);
+                })
+                .catch(err => console.error('ArticleContent: Fetch failed', err));
+        }
+    }, [content]);
+
+    const displayContent = fullContent || content;
 
     return (
         <div className="article-content max-w-5xl mx-auto">
-            {content.map((block, index) => {
+            {displayContent.map((block, index) => {
                 // Handle 'type' (standard), 'name' (legacy), and '__typename' (GraphQL)
                 let type = block.type || block.name;
 
@@ -204,7 +209,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                         </motion.div>
                                     </div>
                                 )}
-                                <RichTextRenderer text={block.content || block.text || block.value} concepts={concepts} />
+                                <div className="text-xs text-red-500 mb-2">Debug: Content length: {(block.content || block.text || block.value || '').length}</div>
+                                {renderWithMarkdown(block.content || block.text || block.value, concepts)}
                             </div>
                         );
 
@@ -328,7 +334,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                         if (block.content && typeof block.content === 'string') {
                             return (
                                 <div key={index} className="mb-4 text-slate-700">
-                                    {renderWithMarkdown(block.content)}
+                                    {renderWithMarkdown(block.content, concepts)}
                                 </div>
                             );
                         }

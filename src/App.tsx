@@ -12,6 +12,7 @@ const LandingPage = React.lazy(routeFactories.LandingPage);
 const SubjectPage = React.lazy(routeFactories.SubjectPage);
 const TopicPage = React.lazy(routeFactories.TopicPage);
 const LessonPage = React.lazy(routeFactories.LessonPage);
+// const LessonPage = React.lazy(() => import('./pages/LessonPageDebug').then(module => ({ default: module.LessonPage })));
 const SearchPage = React.lazy(routeFactories.SearchPage);
 const TextLibraryPage = React.lazy(routeFactories.TextLibraryPage);
 const TextReaderPage = React.lazy(routeFactories.TextReaderPage);

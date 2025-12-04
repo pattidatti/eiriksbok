@@ -304,6 +304,11 @@
             "description": "Indoeuropeisk migrasjon og nye skikker."
         },
         {
+            "year": "2400 fvt.",
+            "title": "Bondesamfunnet",
+            "description": "Jordbruket blir hovednæring i Sør-Norge."
+        },
+        {
             "year": "1700 fvt.",
             "title": "Bronsealderen",
             "description": "Starten på bronsealderen i Norge."
@@ -327,6 +332,16 @@
             "year": "536 evt.",
             "title": "Fimbulvinteren",
             "description": "Klimasjokket som rammet Norden."
+        },
+        {
+            "year": "541 evt.",
+            "title": "Justinianske pest",
+            "description": "Pesten når Europa og Norge."
+        },
+        {
+            "year": "550 evt.",
+            "title": "Slutt på gullalderen",
+            "description": "Bygdeborgene går ut av bruk."
         }
     ],
     "flashcards": [
@@ -354,27 +369,27 @@
     "concepts": [
         {
             "id": "neolittisk",
-            "term": "Neolittisk",
+            "term": "neolittiske",
             "definition": "Yngre steinalder, perioden da jordbruket ble innført."
         },
         {
             "id": "postglasial",
-            "term": "Postglasial",
+            "term": "postglasiale",
             "definition": "Tiden etter istiden."
         },
         {
             "id": "stratifisering",
-            "term": "Stratifisering",
+            "term": "stratifisering",
             "definition": "Lagdeling av samfunnet i ulike klasser eller stender."
         },
         {
             "id": "myrmalm",
-            "term": "Myrmalm",
+            "term": "myrmalm",
             "definition": "Jernmalm som finnes i myrer, viktig for jernproduksjon i Norge."
         },
         {
             "id": "solidi",
-            "term": "Solidi",
+            "term": "solidi",
             "definition": "Romerske gullmynter."
         }
     ],
