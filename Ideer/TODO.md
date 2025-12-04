@@ -10,8 +10,23 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet og artiklene. 
 - [ ] Støtte for tegneserier/bildebok. f.eks. skylappjenta
 - [ ] Fikse cash som henger, ikke oppdaterer seg. 
-- [ ] Legge til forklaring av realrente og at den er personlig. Interaktiv model som viser tidspreferanse personlig og realrente.. 
 
+- [ ] Skjekke om den globale tidslinjen er implementert i artiklene som bruker tidslinje. 
+
+## content
+
+### Historie
+- [ ] Artikler om kolonier gjennom tidene, fra Hellas, Romer, til moderne kolonier. I samme artikkel; hvordan dette ofte er en del av imperialismen. Ingen av disse konseptene er verken nye eller europeiske. Lage passende interaktive modeller som understreker konseptene og eksemplifiserer hendelser. 
+- [ ] Artikkel om 30-årskrigen
+- [ ] Artikkel om store folkevandringer gjennom historien, knytte dette til migrasjonsteorien i samfunnskunnskap. 
+
+### KRLE
+- [ ] Opprette budhisme, jødedom, hinduisme, bahai, Mormonism, jehovas. 
+- [ ] Etikk og filosofi-emne. 
+- [ ] Artikkel om sekularisering
+
+### Musikk
+- [ ] Implementere https://sites.google.com/bergensskolen.com/musikk/start og lage en logisk struktur på emnet. 
 
 
 ## 📝 Gjøremål (Todo)
