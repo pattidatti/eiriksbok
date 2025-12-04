@@ -70,12 +70,14 @@ export interface Lesson {
     tags?: string[];
     comparison_tags?: string[];
     relatedLink?: { text: string; url: string; };
-    quote?: {
-        text: string;
-        source?: string;
-        reference?: string;
-    };
+    quote?: Quote;
     flashcards?: { front: string; back: string }[];
+}
+
+export interface Quote {
+    text: string;
+    source?: string;
+    reference?: string;
 }
 
 export interface ManifestLesson {

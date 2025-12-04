@@ -22,6 +22,7 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 - [ ] Arikkeler om 1054 skisma, hypotesen at vikingtiden er krig mot frankrike. 
 - [ ] Den kalde krigen emne. En hovedartikkel, og flere subartikler om spesifikke hendelser. 
 - [ ] Artikler om mange av sentrale hendelsene i midtøsten. 
+- [ ] Husk å skanne norge før vikingene til tidslinjen. Og legge til hover på vanskelige ord og fagbegreper i artikelen.
 ### KRLE
 
 - [ ] Finne en logisk måte å skille retninger innen kristendom og islam. 

@@ -18,6 +18,38 @@ import { BusinessCycleGraph } from './content/interactive/BusinessCycleGraph';
 const renderWithMarkdown = (text: string) => {
     if (!text) return null;
 
+    // Split by double newlines for paragraphs
+    const paragraphs = text.split(/\n\n+/);
+
+    return (
+        <>
+            {paragraphs.map((paragraph, pIndex) => {
+                // Check for headers
+                if (paragraph.startsWith('#')) {
+                    const level = paragraph.match(/^#+/)?.[0].length || 0;
+                    const content = paragraph.replace(/^#+\s*/, '');
+
+                    const HeaderTag = `h${Math.min(level + 1, 6)}` as React.ElementType; // Shift down one level (h1 -> h2)
+
+                    return (
+                        <HeaderTag key={pIndex} className={`font-bold text-slate-800 mb-4 mt-6 ${level === 1 ? 'text-2xl' : level === 2 ? 'text-xl' : 'text-lg'}`}>
+                            {renderInlineMarkdown(content)}
+                        </HeaderTag>
+                    );
+                }
+
+                // Standard paragraph
+                return (
+                    <p key={pIndex} className="mb-4 leading-relaxed">
+                        {renderInlineMarkdown(paragraph)}
+                    </p>
+                );
+            })}
+        </>
+    );
+};
+
+const renderInlineMarkdown = (text: string) => {
     let elements: React.ReactNode[] = [text];
 
     // 1. Bold
@@ -172,14 +204,14 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                         </motion.div>
                                     </div>
                                 )}
-                                <RichTextRenderer text={block.content || block.value} concepts={concepts} />
+                                <RichTextRenderer text={block.content || block.text || block.value} concepts={concepts} />
                             </div>
                         );
 
                     case 'header':
                         return (
                             <h2 key={index} className="text-2xl font-bold text-slate-800 mb-4 mt-8">
-                                {block.content || block.value}
+                                {block.content || block.text || block.value}
                             </h2>
                         );
 

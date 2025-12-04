@@ -26,8 +26,8 @@ import { cleanTextForSpeech } from '../utils/speechUtils';
 import { LessonSidebar } from '../components/LessonSidebar';
 
 const getFirstTextContent = (blocks: ContentBlock[]): string | undefined => {
-    const block = blocks.find((b): b is Extract<ContentBlock, { type: 'text' }> => b.type === 'text' && !!b.content);
-    return block?.content;
+    const block = blocks.find((b): b is Extract<ContentBlock, { type: 'text' }> => b.type === 'text' && !!(b.content || b.text));
+    return block?.content || block?.text;
 };
 
 export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOverride }) => {

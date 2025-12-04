@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Concept, Quote } from '../types';
+import type { Concept, Quote } from '../types';
 import { ConceptCard } from './ConceptCard';
 
 interface LessonSidebarProps {
