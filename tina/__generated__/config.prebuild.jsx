@@ -61,7 +61,9 @@ var config_default = defineConfig({
                       { type: "string", name: "title", label: "Tittel" },
                       { type: "string", name: "description", label: "Beskrivelse" },
                       { type: "image", name: "image", label: "Bilde" },
-                      { type: "string", name: "tags", label: "Tags", list: true }
+                      { type: "string", name: "tags", label: "Tags", list: true },
+                      { type: "datetime", name: "createdDate", label: "Opprettet Dato" },
+                      { type: "datetime", name: "lastUpdated", label: "Sist Oppdatert" }
                     ]
                   }
                 ]
@@ -91,11 +93,13 @@ var config_default = defineConfig({
           { type: "string", name: "title", label: "Tittel" },
           { type: "string", name: "subject", label: "Fag" },
           { type: "string", name: "topic", label: "Emne" },
+          { type: "datetime", name: "createdDate", label: "Opprettet Dato" },
+          { type: "datetime", name: "lastUpdated", label: "Sist Oppdatert" },
           {
-            type: "reference",
+            type: "string",
             name: "religion",
-            label: "Tilknyttet Religion",
-            collections: ["religion"]
+            label: "Tilknyttet Religion (ID)",
+            description: "F.eks. 'kristendom' eller 'islam'"
           },
           {
             type: "string",

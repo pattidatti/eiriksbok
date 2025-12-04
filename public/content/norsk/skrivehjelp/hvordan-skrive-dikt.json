@@ -11,44 +11,36 @@
             "content": "Å skrive dikt handler om å male bilder med ord. Det er ingen faste regler, men her er noen tips for å komme i gang."
         },
         {
-            "type": "section",
-            "title": "1. Finn et tema",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Hva vil du si? Handler det om kjærlighet, natur, sorg eller glede? Konsentrer deg om én følelse eller tanke."
-                }
-            ]
+            "type": "header",
+            "text": "1. Finn et tema"
         },
         {
-            "type": "section",
-            "title": "2. Lek med ordene",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Smak på ordene. Bruk allitterasjon (bokstavrim) som 'sus og dus'. Prøv å finne nye måter å beskrive ting på."
-                }
-            ]
+            "type": "text",
+            "content": "Hva vil du si? Handler det om kjærlighet, natur, sorg eller glede? Konsentrer deg om én følelse eller tanke."
         },
         {
-            "type": "section",
-            "title": "3. Bruk sansene",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Ikke bare fortell hva som skjer. Beskriv lukter, lyder og farger. 'Solen var gul' er kjedelig. 'Solen stekte som en sint veps' er bedre."
-                }
-            ]
+            "type": "header",
+            "text": "2. Lek med ordene"
         },
         {
-            "type": "section",
-            "title": "4. Bryt reglene",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Du trenger ikke rim. Du trenger ikke store bokstaver. Du bestemmer formen."
-                }
-            ]
+            "type": "text",
+            "content": "Smak på ordene. Bruk allitterasjon (bokstavrim) som 'sus og dus'. Prøv å finne nye måter å beskrive ting på."
+        },
+        {
+            "type": "header",
+            "text": "3. Bruk sansene"
+        },
+        {
+            "type": "text",
+            "content": "Ikke bare fortell hva som skjer. Beskriv lukter, lyder og farger. 'Solen var gul' er kjedelig. 'Solen stekte som en sint veps' er bedre."
+        },
+        {
+            "type": "header",
+            "text": "4. Bryt reglene"
+        },
+        {
+            "type": "text",
+            "content": "Du trenger ikke rim. Du trenger ikke store bokstaver. Du bestemmer formen."
         }
     ],
     "tags": [
@@ -58,5 +50,7 @@
     "relatedLink": {
         "text": "Les om sjangeren Dikt",
         "url": "/norsk/tekstsjangre/dikt"
-    }
+    },
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

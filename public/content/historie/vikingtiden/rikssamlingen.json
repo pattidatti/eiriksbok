@@ -4,6 +4,29 @@
     "subject": "Samfunnsfag",
     "topic": "Historie",
     "fact": "Visste du at slaget ved Hafrsfjord sannsynligvis ikke var det ene avgjørende slaget som samlet Norge, men heller en del av en lang prosess?",
+    "year": "865-933",
+    "timeline": [
+        {
+            "year": "865",
+            "title": "Harald Hårfagre blir konge",
+            "description": "Tar over styringen etter Halvdan Svarte (ca. årstall)."
+        },
+        {
+            "year": "872",
+            "title": "Slaget i Hafrsfjord",
+            "description": "Harald Hårfagre vinner og samler Norge til ett rike."
+        },
+        {
+            "year": "930",
+            "title": "Eirik Blodøks",
+            "description": "Haralds sønn tar over makten (ca. årstall)."
+        },
+        {
+            "year": "933",
+            "title": "Harald Hårfagre dør",
+            "description": "Rikssamleren dør, og maktkampen fortsetter."
+        }
+    ],
     "content": [
         {
             "type": "text",
@@ -24,5 +47,7 @@
                 "content": "Slaget i Hafrsfjord i 872 regnes som tidspunktet da Norge ble samlet til ett rike."
             }
         }
-    ]
+    ],
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

@@ -16,13 +16,13 @@ const SearchPage = React.lazy(routeFactories.SearchPage);
 const TextLibraryPage = React.lazy(routeFactories.TextLibraryPage);
 const TextReaderPage = React.lazy(routeFactories.TextReaderPage);
 const NotFoundPage = React.lazy(routeFactories.NotFoundPage);
-const ColonizationMap = React.lazy(routeFactories.ColonizationMap);
 const FlashcardPage = React.lazy(routeFactories.FlashcardPage);
 const PracticePage = React.lazy(routeFactories.PracticePage);
 const QuizPage = React.lazy(routeFactories.QuizPage);
 const ReligionPage = React.lazy(routeFactories.ReligionPage);
 const ReligionComparisonPage = React.lazy(routeFactories.ReligionComparisonPage);
 const TopicComparisonPage = React.lazy(routeFactories.TopicComparisonPage);
+const GlobalTimelinePage = React.lazy(routeFactories.GlobalTimelinePage);
 
 function App() {
   return (
@@ -42,6 +42,7 @@ function App() {
               <Route path="sok" element={<SearchPage />} />
               <Route path="norsk/bibliotek" element={<TextLibraryPage />} />
               <Route path="norsk/bibliotek/:textId" element={<TextReaderPage />} />
+              <Route path="tidslinje" element={<GlobalTimelinePage />} />
 
               {/* Static routes must come before dynamic :subjectId routes */}
               <Route path="oving" element={<PracticePage />} />
@@ -60,7 +61,6 @@ function App() {
 
               {/* Backward compatibility / direct access */}
               <Route path="flashcards" element={<FlashcardPage />} />
-              <Route path="colonization" element={<ColonizationMap />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>

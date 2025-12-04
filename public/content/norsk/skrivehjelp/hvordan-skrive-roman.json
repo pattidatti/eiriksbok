@@ -11,44 +11,36 @@
             "content": "Å skrive en roman er et maraton, ikke en sprint. Det krever planlegging og utholdenhet."
         },
         {
-            "type": "section",
-            "title": "1. Planlegging",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Lag en disposisjon. Hvem er hovedpersonen? Hva er konflikten? Hvordan skal det ende? Det hjelper å ha et kart før du begynner å gå."
-                }
-            ]
+            "type": "header",
+            "text": "1. Planlegging"
         },
         {
-            "type": "section",
-            "title": "2. Karakterutvikling",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Bli kjent med karakterene dine. Hva er deres sterke og svake sider? Hva drømmer de om? Hva er de redde for?"
-                }
-            ]
+            "type": "text",
+            "content": "Lag en disposisjon. Hvem er hovedpersonen? Hva er konflikten? Hvordan skal det ende? Det hjelper å ha et kart før du begynner å gå."
         },
         {
-            "type": "section",
-            "title": "3. Skriv hver dag",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Sett deg et mål, for eksempel 500 ord om dagen. Det viktigste er å få teksten ned på papiret. Du kan redigere senere."
-                }
-            ]
+            "type": "header",
+            "text": "2. Karakterutvikling"
         },
         {
-            "type": "section",
-            "title": "4. Show, don't tell",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Vis handling gjennom dialog og handlinger, ikke bare beskriv hva som skjer."
-                }
-            ]
+            "type": "text",
+            "content": "Bli kjent med karakterene dine. Hva er deres sterke og svake sider? Hva drømmer de om? Hva er de redde for?"
+        },
+        {
+            "type": "header",
+            "text": "3. Skriv hver dag"
+        },
+        {
+            "type": "text",
+            "content": "Sett deg et mål, for eksempel 500 ord om dagen. Det viktigste er å få teksten ned på papiret. Du kan redigere senere."
+        },
+        {
+            "type": "header",
+            "text": "4. Show, don't tell"
+        },
+        {
+            "type": "text",
+            "content": "Vis handling gjennom dialog og handlinger, ikke bare beskriv hva som skjer."
         }
     ],
     "tags": [
@@ -58,5 +50,7 @@
     "relatedLink": {
         "text": "Les om sjangeren Roman",
         "url": "/norsk/tekstsjangre/roman"
-    }
+    },
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

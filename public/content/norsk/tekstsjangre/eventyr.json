@@ -11,61 +11,53 @@
             "content": "Eventyr er en av de eldste fortellerformene vi har. Lenge før vi fikk et skriftspråk, satt folk rundt leirbålene og fortalte hverandre historier om troll, prinsesser, helter og magiske hjelpere. Ordet eventyr kommer fra latin *adventura*, som betyr «hendelse» eller «opplevelse». Eventyrene er fantastiske fortellinger som ikke utgir seg for å være sanne, men som likevel ofte forteller oss noe sant om livet, om moral og om det å være menneske."
         },
         {
-            "type": "section",
-            "title": "Folkeeventyr vs. Kunsteventyr",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Vi skiller vanligvis mellom to hovedtyper eventyr:\n\n**Folkeeventyr** har ingen kjent forfatter. De har levd på folkemunne i generasjoner, og blitt fortalt videre fra foreldre til barn. Derfor finnes de ofte i mange ulike varianter. I Norge reiste Peter Christen Asbjørnsen og Jørgen Moe rundt på 1800-tallet og samlet inn disse fortellingene, som vi i dag kjenner som *Asbjørnsen og Moes norske folkeeventyr*.\n\n**Kunsteventyr** har en navngitt forfatter. H.C. Andersen er kanskje verdens mest kjente eventyrforfatter. Kunsteventyr bruker ofte mange av de samme trekkene som folkeeventyrene, men de kan være mer personlige, ha et mer komplisert språk, og de ender ikke alltid lykkelig."
-                }
+            "type": "header",
+            "text": "Folkeeventyr vs. Kunsteventyr"
+        },
+        {
+            "type": "text",
+            "content": "Vi skiller vanligvis mellom to hovedtyper eventyr:\n\n**Folkeeventyr** har ingen kjent forfatter. De har levd på folkemunne i generasjoner, og blitt fortalt videre fra foreldre til barn. Derfor finnes de ofte i mange ulike varianter. I Norge reiste Peter Christen Asbjørnsen og Jørgen Moe rundt på 1800-tallet og samlet inn disse fortellingene, som vi i dag kjenner som *Asbjørnsen og Moes norske folkeeventyr*.\n\n**Kunsteventyr** har en navngitt forfatter. H.C. Andersen er kanskje verdens mest kjente eventyrforfatter. Kunsteventyr bruker ofte mange av de samme trekkene som folkeeventyrene, men de kan være mer personlige, ha et mer komplisert språk, og de ender ikke alltid lykkelig."
+        },
+        {
+            "type": "header",
+            "text": "Kjennetegn og oppbygging"
+        },
+        {
+            "type": "text",
+            "content": "Eventyr følger ofte faste mønstre og regler. Dette gjorde dem lettere å huske for de som skulle fortelle dem videre."
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Innledning og avslutning:** De fleste starter med «Det var en gang...» og slutter med «...og så levde de lykkelig alle sine dager» eller «snipp, snapp, snute, så er eventyret ute».",
+                "**Tid og sted:** Handlingen skjer i en ubestemt tid («i gamle dager») og på et ubestemt sted («i et land langt, langt borte», «øst for sol og vest for måne»).",
+                "**Tretallsloven:** Ting skjer ofte tre ganger. Helten må gjennom tre prøver, det er tre brødre, eller tre troll.",
+                "**Magiske tall:** I tillegg til 3, går tallene 7 (de syv hjelpere, sjuende far i huset) og 12 igjen.",
+                "**Typetegning:** Personene er ikke individer med sammensatte følelser, men typer. De er enten gode eller onde, dumme eller smarte, vakre eller stygge. Helten (ofte Askeladden) er god, hjelpsom og smart.",
+                "**Det overnaturlige:** Troll, hekser, drager, snakkende dyr og magiske gjenstander er en naturlig del av eventyrverdenen.",
+                "**Moral:** Det gode seirer alltid til slutt, og det onde får sin straff. Den som er snill og hjelpsom, vinner prinsessen og halve kongeriket."
             ]
         },
         {
-            "type": "section",
-            "title": "Kjennetegn og oppbygging",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Eventyr følger ofte faste mønstre og regler. Dette gjorde dem lettere å huske for de som skulle fortelle dem videre."
-                },
-                {
-                    "type": "list",
-                    "items": [
-                        "**Innledning og avslutning:** De fleste starter med «Det var en gang...» og slutter med «...og så levde de lykkelig alle sine dager» eller «snipp, snapp, snute, så er eventyret ute».",
-                        "**Tid og sted:** Handlingen skjer i en ubestemt tid («i gamle dager») og på et ubestemt sted («i et land langt, langt borte», «øst for sol og vest for måne»).",
-                        "**Tretallsloven:** Ting skjer ofte tre ganger. Helten må gjennom tre prøver, det er tre brødre, eller tre troll.",
-                        "**Magiske tall:** I tillegg til 3, går tallene 7 (de syv hjelpere, sjuende far i huset) og 12 igjen.",
-                        "**Typetegning:** Personene er ikke individer med sammensatte følelser, men typer. De er enten gode eller onde, dumme eller smarte, vakre eller stygge. Helten (ofte Askeladden) er god, hjelpsom og smart.",
-                        "**Det overnaturlige:** Troll, hekser, drager, snakkende dyr og magiske gjenstander er en naturlig del av eventyrverdenen.",
-                        "**Moral:** Det gode seirer alltid til slutt, og det onde får sin straff. Den som er snill og hjelpsom, vinner prinsessen og halve kongeriket."
-                    ]
-                }
-            ]
+            "type": "header",
+            "text": "Hva handler eventyrene egentlig om?"
         },
         {
-            "type": "section",
-            "title": "Hva handler eventyrene egentlig om?",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Selv om eventyrene er fulle av magi, handler de ofte om virkelige problemer. Mange eventyr er *dannelsesreiser*: En ung gutt eller jente må dra hjemmefra, overvinne farer og vanskeligheter (troll og monstre), for å bli voksen og selvstendig (vinne prinsessen/kongeriket). Trollene kan sees som symboler på de mørke kreftene i naturen, eller i menneskesinnet, som må overvinnes."
-                }
-            ]
+            "type": "text",
+            "content": "Selv om eventyrene er fulle av magi, handler de ofte om virkelige problemer. Mange eventyr er *dannelsesreiser*: En ung gutt eller jente må dra hjemmefra, overvinne farer og vanskeligheter (troll og monstre), for å bli voksen og selvstendig (vinne prinsessen/kongeriket). Trollene kan sees som symboler på de mørke kreftene i naturen, eller i menneskesinnet, som må overvinnes."
         },
         {
-            "type": "section",
-            "title": "Eksempler fra biblioteket",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "I biblioteket kan du lese et av verdens mest kjente kunsteventyr:"
-                },
-                {
-                    "type": "list",
-                    "items": [
-                        "[Piken med svovelstikkene](/norsk/bibliotek/piken-med-svovelstikkene) av H.C. Andersen – Et rørende kunsteventyr som skiller seg fra folkeeventyrene ved sin tragiske slutt og sosiale realisme."
-                    ]
-                }
+            "type": "header",
+            "text": "Eksempler fra biblioteket"
+        },
+        {
+            "type": "text",
+            "content": "I biblioteket kan du lese et av verdens mest kjente kunsteventyr:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "[Piken med svovelstikkene](/norsk/bibliotek/piken-med-svovelstikkene) av H.C. Andersen – Et rørende kunsteventyr som skiller seg fra folkeeventyrene ved sin tragiske slutt og sosiale realisme."
             ]
         }
     ],
@@ -78,5 +70,7 @@
     "relatedLink": {
         "text": "Hvordan skrive eventyr",
         "url": "/norsk/skrivehjelp/hvordan-skrive-eventyr"
-    }
+    },
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

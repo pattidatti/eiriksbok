@@ -75,13 +75,25 @@ export const QuizPage: React.FC = () => {
             // There are only ~30 lessons total, so fetching all is fine.
 
             const results = await Promise.all(
-                lessonsToFetch.map(l => fetchLesson(l.subjectId, l.topicId, l.lessonId, l.subTopicId))
+                lessonsToFetch.map(async (l) => {
+                    const lesson = await fetchLesson(l.subjectId, l.topicId, l.lessonId, l.subTopicId);
+                    if (lesson) {
+                        return { ...lesson, subject: l.subjectId, topic: l.topicId };
+                    }
+                    return null;
+                })
             );
 
             const allQuestions: QuizQuestion[] = [];
             results.forEach(lesson => {
                 if (lesson && lesson.quiz) {
-                    allQuestions.push(...lesson.quiz);
+                    const lessonUrl = `/${lesson.subject}/${lesson.topic}/${lesson.id}`;
+                    const enrichedQuestions = lesson.quiz.map(q => ({
+                        ...q,
+                        sourceUrl: lessonUrl,
+                        sourceTitle: lesson.title
+                    }));
+                    allQuestions.push(...enrichedQuestions);
                 }
             });
 

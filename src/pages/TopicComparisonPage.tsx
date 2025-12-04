@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { client } from '../../tina/__generated__/client';
 import { PageSkeleton } from '../components/Skeleton';
+import { ArticleContent } from '../components/ArticleContent';
+import { fetchReligion } from '../utils/contentLoader';
 
 export const TopicComparisonPage: React.FC = () => {
     const { tag } = useParams<{ tag: string }>();
@@ -16,18 +18,23 @@ export const TopicComparisonPage: React.FC = () => {
             try {
                 console.log(`Fetching articles for tag: "${tag}"`);
                 // Fetch all articles and filter client-side for the tag
-                const res = await client.queries.articleConnection();
+                const res = await client.queries.articleConnection({ first: 100 });
                 const allArticles = res.data.articleConnection.edges?.map(e => e?.node) || [];
-                console.log(`Found ${allArticles.length} total articles.`, allArticles);
 
                 const filtered = allArticles.filter((article: any) => {
-                    const hasTag = article?.comparison_tags?.includes(tag);
-                    if (hasTag) console.log(`Match found: ${article.title}`);
-                    return hasTag;
+                    return article?.comparison_tags?.includes(tag);
                 });
-                console.log(`Filtered to ${filtered.length} articles.`);
 
-                setArticles(filtered);
+                // Enrich articles with religion data
+                const enrichedArticles = await Promise.all(filtered.map(async (article: any) => {
+                    if (article.religion) {
+                        const religionData = await fetchReligion(article.religion);
+                        return { ...article, religionData };
+                    }
+                    return article;
+                }));
+
+                setArticles(enrichedArticles);
             } catch (e) {
                 console.error("Error fetching topic articles", e);
             } finally {
@@ -65,26 +72,34 @@ export const TopicComparisonPage: React.FC = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         className="bg-bg-card border border-border-main rounded-2xl overflow-hidden flex flex-col shadow-sm"
                     >
-                        <div className="p-4 border-b border-border-main bg-bg-subtle">
+                        <div
+                            className="p-4 border-b border-border-main bg-bg-subtle flex items-center gap-3"
+                            style={{ borderLeft: article.religionData?.color ? `4px solid ${article.religionData.color}` : undefined }}
+                        >
+                            {article.religionData?.icon && (
+                                <img src={article.religionData.icon} alt="" className="w-6 h-6 object-contain" />
+                            )}
                             <h3 className="font-display font-bold text-lg text-text-main capitalize">
-                                {article.religion ? (
-                                    // Extract filename as ID if it's a reference string or object
-                                    (typeof article.religion === 'string'
-                                        ? article.religion.split('/').pop()?.replace('.json', '')
-                                        : article.religion._sys.filename) || "Religion"
-                                ) : (
-                                    "Ukjent Religion"
-                                )}
+                                {article.religionData?.name || article.religion || "Ukjent Religion"}
                             </h3>
                         </div>
                         <div className="p-6 flex flex-col h-full">
                             <h4 className="text-xl font-bold mb-4 text-text-main">{article.title}</h4>
-                            <div className="mt-auto">
+
+                            <div className="flex-grow prose prose-indigo max-w-none mb-6">
+                                {article.content ? (
+                                    <ArticleContent content={article.content} />
+                                ) : (
+                                    <p className="text-text-muted italic">Ingen innhold tilgjengelig.</p>
+                                )}
+                            </div>
+
+                            <div className="mt-auto pt-4 border-t border-border-subtle">
                                 <Link
                                     to={`/${article._sys.breadcrumbs.join('/')}`}
-                                    className="inline-flex items-center justify-center px-4 py-2 bg-indigo-600 text-white rounded-full text-sm font-medium hover:bg-indigo-700 transition-colors w-full"
+                                    className="text-sm text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-1"
                                 >
-                                    Les artikkel
+                                    Gå til full artikkel →
                                 </Link>
                             </div>
                         </div>

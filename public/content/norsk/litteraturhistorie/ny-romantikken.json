@@ -9,33 +9,31 @@
             "content": "Etter to tiår med realisme og debatt, kom en motreaksjon. Knut Hamsun reiste rundt og holdt foredrag der han kjeftet på de 'fire store' (Ibsen, Bjørnson, Kielland og Lie). Han mente de skrev kjedelig om samfunnsproblemer og 'typer' i stedet for virkelige, sammensatte mennesker.\n\nNyromantikken handlet om 'det ubevisste sjeleliv'. Forfatterne var opptatt av drømmer, angst, forelskelse og de små, rare følelsene vi ikke helt kan sette ord på. Naturen ble også viktig igjen, men nå var den ikke bare nasjonal og stolt – den var mystisk, levende og speilet menneskets følelser."
         },
         {
-            "type": "section",
-            "title": "Viktige kjennetegn",
-            "content": [
-                {
-                    "type": "list",
-                    "items": [
-                        "**Jeg-et i sentrum:** Mange bøker ble skrevet i jeg-form for å komme tett på hovedpersonens tanker.",
-                        "**Lyrikk:** Diktet fikk en renessanse. Det var den beste formen for å uttrykke stemninger.",
-                        "**Det irrasjonelle:** Man var opptatt av det som ikke kunne forklares med fornuft.",
-                        "**Byen som fremmedgjørende:** Mens realistene så på byen som et sted for fremskritt (eller fattigdom), følte nyromantikerne seg ofte ensomme og fremmede i de store byene."
-                    ]
-                }
+            "type": "header",
+            "text": "Viktige kjennetegn"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Jeg-et i sentrum:** Mange bøker ble skrevet i jeg-form for å komme tett på hovedpersonens tanker.",
+                "**Lyrikk:** Diktet fikk en renessanse. Det var den beste formen for å uttrykke stemninger.",
+                "**Det irrasjonelle:** Man var opptatt av det som ikke kunne forklares med fornuft.",
+                "**Byen som fremmedgjørende:** Mens realistene så på byen som et sted for fremskritt (eller fattigdom), følte nyromantikerne seg ofte ensomme og fremmede i de store byene."
             ]
         },
         {
-            "type": "section",
-            "title": "Sentrale forfattere",
-            "content": [
-                {
-                    "type": "list",
-                    "items": [
-                        "**Knut Hamsun:** Gjennombruddet kom med romanen *Sult* (1890). Den handler om en ung, fattig forfatter som vandrer rundt i Kristiania (Oslo) og sulter. Det skjer egentlig ikke så mye ytre handling, men vi får være med på alle de rare, hallusinerende tankene hans. I *Pan* (1894) møter vi løytnant Glahn og hans kompliserte kjærlighet til Edvarda i den nordnorske naturen.",
-                        "**Sigbjørn Obstfelder:** Han skrev dikt som ikke rimte, noe som var veldig uvanlig på den tiden. Hans mest kjente dikt er «Jeg ser», der han føler at han har havnet på feil klode. Han beskriver følelsen av angst og fremmedfølelse i den moderne verden.",
-                        "**Vilhelm Krag:** Det var han som egentlig 'startet' nyromantikken med diktet «Fandango» som han leste opp i Studentersamfundet i 1890."
-                    ]
-                }
+            "type": "header",
+            "text": "Sentrale forfattere"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Knut Hamsun:** Gjennombruddet kom med romanen *Sult* (1890). Den handler om en ung, fattig forfatter som vandrer rundt i Kristiania (Oslo) og sulter. Det skjer egentlig ikke så mye ytre handling, men vi får være med på alle de rare, hallusinerende tankene hans. I *Pan* (1894) møter vi løytnant Glahn og hans kompliserte kjærlighet til Edvarda i den nordnorske naturen.",
+                "**Sigbjørn Obstfelder:** Han skrev dikt som ikke rimte, noe som var veldig uvanlig på den tiden. Hans mest kjente dikt er «Jeg ser», der han føler at han har havnet på feil klode. Han beskriver følelsen av angst og fremmedfølelse i den moderne verden.",
+                "**Vilhelm Krag:** Det var han som egentlig 'startet' nyromantikken med diktet «Fandango» som han leste opp i Studentersamfundet i 1890."
             ]
         }
-    ]
+    ],
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

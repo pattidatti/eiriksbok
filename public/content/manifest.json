@@ -27,7 +27,9 @@
                             "tags": [
                                 "skjønnlitteratur",
                                 "fortelling"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -46,7 +48,9 @@
                                 "skjønnlitteratur",
                                 "fortelling",
                                 "korthistorie"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "eventyr",
@@ -57,7 +61,9 @@
                                 "skjønnlitteratur",
                                 "eventyr",
                                 "folkediktning"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "roman",
@@ -68,7 +74,9 @@
                                 "skjønnlitteratur",
                                 "fortelling",
                                 "bok"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "dikt",
@@ -79,7 +87,9 @@
                                 "skjønnlitteratur",
                                 "lyrikk",
                                 "poesi"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "artikkel",
@@ -90,7 +100,9 @@
                                 "sakprosa",
                                 "fakta",
                                 "informasjon"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "debattinnlegg",
@@ -101,7 +113,9 @@
                                 "sakprosa",
                                 "mening",
                                 "argumentasjon"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "kommentar",
@@ -112,7 +126,9 @@
                                 "sakprosa",
                                 "mening",
                                 "analyse"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -131,7 +147,9 @@
                                 "retorikk",
                                 "språk",
                                 "kommunikasjon"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -151,7 +169,8 @@
                                 "litteraturhistorie",
                                 "nasjonsbygging",
                                 "eventyr"
-                            ]
+                            ],
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "realismen",
@@ -163,7 +182,8 @@
                                 "litteraturhistorie",
                                 "ibsen",
                                 "samfunnskritikk"
-                            ]
+                            ],
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "ny-romantikken",
@@ -175,7 +195,8 @@
                                 "litteraturhistorie",
                                 "hamsun",
                                 "sult"
-                            ]
+                            ],
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "ny-realismen",
@@ -187,7 +208,8 @@
                                 "litteraturhistorie",
                                 "undset",
                                 "historie"
-                            ]
+                            ],
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -205,7 +227,9 @@
                             "tags": [
                                 "skrivehjelp",
                                 "novelle"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "hvordan-skrive-eventyr",
@@ -215,7 +239,9 @@
                             "tags": [
                                 "skrivehjelp",
                                 "eventyr"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "hvordan-skrive-dikt",
@@ -225,7 +251,9 @@
                             "tags": [
                                 "skrivehjelp",
                                 "dikt"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "hvordan-skrive-roman",
@@ -235,7 +263,9 @@
                             "tags": [
                                 "skrivehjelp",
                                 "roman"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "7-vanlige-plot",
@@ -246,7 +276,9 @@
                                 "skrivehjelp",
                                 "plot",
                                 "fortelleteknikk"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 }
@@ -271,11 +303,13 @@
                                 "økonomi",
                                 "samfunn",
                                 "befolkning"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
-                            "id": "inflasjon",
-                            "title": "Inflasjon",
+                            "id": "inflasjon-og-rente",
+                            "title": "Inflasjon og rente",
                             "description": "Hvorfor blir alt dyrere? Om penger, renter og priser.",
                             "image": "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80",
                             "tags": [
@@ -283,7 +317,9 @@
                                 "inflasjon",
                                 "penger",
                                 "rente"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "finanskriser",
@@ -294,7 +330,9 @@
                                 "økonomi",
                                 "krise",
                                 "syklus"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -313,7 +351,9 @@
                                 "demokrati",
                                 "diktatur",
                                 "styresett"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 }
@@ -338,7 +378,9 @@
                                 "historie",
                                 "konflikt"
                             ],
-                            "image": "https://images.unsplash.com/photo-1580130732478-7f14d4255091?auto=format&fit=crop&q=80"
+                            "image": "https://images.unsplash.com/photo-1580130732478-7f14d4255091?auto=format&fit=crop&q=80",
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -372,7 +414,9 @@
                                 "handel",
                                 "middelalderen",
                                 "silkeveien"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "voc",
@@ -385,7 +429,8 @@
                                 "nederland",
                                 "økonomi"
                             ],
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/A_View_of_the_Port_of_Batavia%2C_c._1665.jpg/1280px-A_View_of_the_Port_of_Batavia%2C_c._1665.jpg"
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/A_View_of_the_Port_of_Batavia%2C_c._1665.jpg/1280px-A_View_of_the_Port_of_Batavia%2C_c._1665.jpg",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "eic",
@@ -397,7 +442,9 @@
                                 "india",
                                 "storbritannia"
                             ],
-                            "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80"
+                            "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80",
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -417,7 +464,9 @@
                                 "mennesket",
                                 "evolusjon",
                                 "afrika"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -439,7 +488,9 @@
                                 "steinalder",
                                 "sivilisasjon",
                                 "teknologi"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -459,7 +510,9 @@
                                 "midtøsten",
                                 "imperier",
                                 "krig"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -479,7 +532,9 @@
                                 "roma",
                                 "imperium",
                                 "europa"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -500,7 +555,9 @@
                                 "norge",
                                 "krig",
                                 "handel"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
                             "id": "rikssamlingen",
@@ -512,7 +569,9 @@
                                 "norge",
                                 "konger",
                                 "middelalder"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -532,7 +591,9 @@
                                 "middelalder",
                                 "norge",
                                 "sykdom"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -552,7 +613,9 @@
                                 "teknologi",
                                 "renessansen",
                                 "bøker"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -576,7 +639,9 @@
                             "tags": [
                                 "demo",
                                 "layout"
-                            ]
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 }
@@ -616,7 +681,9 @@
                                     "tags": [
                                         "ritual",
                                         "kristendom"
-                                    ]
+                                    ],
+                                    "createdDate": "2023-01-01T12:00:00Z",
+                                    "lastUpdated": "2025-12-03T17:25:16.499Z"
                                 },
                                 {
                                     "id": "skapelse",
@@ -626,7 +693,9 @@
                                     "tags": [
                                         "narrative",
                                         "kristendom"
-                                    ]
+                                    ],
+                                    "createdDate": "2023-01-01T12:00:00Z",
+                                    "lastUpdated": "2025-12-03T17:25:16.499Z"
                                 }
                             ]
                         },
@@ -645,7 +714,9 @@
                                     "tags": [
                                         "ritual",
                                         "islam"
-                                    ]
+                                    ],
+                                    "createdDate": "2023-01-01T12:00:00Z",
+                                    "lastUpdated": "2025-12-03T17:25:16.499Z"
                                 },
                                 {
                                     "id": "skapelse",
@@ -655,7 +726,9 @@
                                     "tags": [
                                         "narrative",
                                         "islam"
-                                    ]
+                                    ],
+                                    "createdDate": "2023-01-01T12:00:00Z",
+                                    "lastUpdated": "2025-12-03T17:25:16.499Z"
                                 }
                             ]
                         }

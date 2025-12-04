@@ -11,54 +11,48 @@
             "content": "En kommentar er en sjanger innen journalistikken der skribenten analyserer, tolker og uttrykker sin mening om en aktuell sak. I motsetning til en nyhetsartikkel, som skal være objektiv, er kommentaren subjektiv. Målet er å gi leseren innsikt, bakgrunn og forståelse for en sak, ofte ved å sette den inn i en større sammenheng."
         },
         {
-            "type": "section",
-            "title": "Kjennetegn",
-            "content": [
-                {
-                    "type": "list",
-                    "items": [
-                        "**Subjektiv:** Skribenten uttrykker egne meninger og vurderinger.",
-                        "**Analyserende:** Teksten går i dybden og forklarer *hvorfor* noe skjer, ikke bare *hva* som har skjedd.",
-                        "**Kunnskapsbasert:** Meningene er bygget på fakta, kunnskap og logiske resonnementer, ikke bare løse påstander.",
-                        "**Aktuell:** Kommentaren tar ofte utgangspunkt i en nyhetssak eller en pågående debatt.",
-                        "**Personlig stemme:** Skribenten har ofte en tydelig stemme og stil."
-                    ]
-                }
+            "type": "header",
+            "text": "Kjennetegn"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Subjektiv:** Skribenten uttrykker egne meninger og vurderinger.",
+                "**Analyserende:** Teksten går i dybden og forklarer *hvorfor* noe skjer, ikke bare *hva* som har skjedd.",
+                "**Kunnskapsbasert:** Meningene er bygget på fakta, kunnskap og logiske resonnementer, ikke bare løse påstander.",
+                "**Aktuell:** Kommentaren tar ofte utgangspunkt i en nyhetssak eller en pågående debatt.",
+                "**Personlig stemme:** Skribenten har ofte en tydelig stemme og stil."
             ]
         },
         {
-            "type": "section",
-            "title": "Oppbygging",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "En kommentar har ofte en friere form enn en nyhetsartikkel, men følger gjerne denne strukturen:"
-                },
-                {
-                    "type": "list",
-                    "items": [
-                        "**Tittel:** Fengende og dekkende for innholdet.",
-                        "**Ingress:** Kort oppsummering av saken og hovedpoenget.",
-                        "**Hoveddel:** Presentasjon av saken, analyse, argumentasjon og drøfting. Her bruker skribenten sin kunnskap til å belyse saken fra flere sider.",
-                        "**Avslutning:** Konklusjon eller oppsummering av skribentens synspunkt, gjerne med et blikk fremover."
-                    ]
-                }
+            "type": "header",
+            "text": "Oppbygging"
+        },
+        {
+            "type": "text",
+            "content": "En kommentar har ofte en friere form enn en nyhetsartikkel, men følger gjerne denne strukturen:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Tittel:** Fengende og dekkende for innholdet.",
+                "**Ingress:** Kort oppsummering av saken og hovedpoenget.",
+                "**Hoveddel:** Presentasjon av saken, analyse, argumentasjon og drøfting. Her bruker skribenten sin kunnskap til å belyse saken fra flere sider.",
+                "**Avslutning:** Konklusjon eller oppsummering av skribentens synspunkt, gjerne med et blikk fremover."
             ]
         },
         {
-            "type": "section",
-            "title": "Eksempel",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Les en kommentar om kunstig intelligens:"
-                },
-                {
-                    "type": "link",
-                    "url": "/norsk/bibliotek/fordummende-intelligent-teknologi",
-                    "text": "Fordummende intelligent teknologi"
-                }
-            ]
+            "type": "header",
+            "text": "Eksempel"
+        },
+        {
+            "type": "text",
+            "content": "Les en kommentar om kunstig intelligens:"
+        },
+        {
+            "type": "link",
+            "url": "/norsk/bibliotek/fordummende-intelligent-teknologi",
+            "text": "Fordummende intelligent teknologi"
         }
     ],
     "tags": [
@@ -66,5 +60,7 @@
         "mening",
         "analyse",
         "journalistikk"
-    ]
+    ],
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

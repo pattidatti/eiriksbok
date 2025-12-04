@@ -22,4 +22,5 @@ export const routeFactories: Record<string, PageFactory> = {
     ReligionPage: () => import('./pages/ReligionPage').then(module => ({ default: module.ReligionPage })),
     ReligionComparisonPage: () => import('./pages/ReligionComparisonPage').then(module => ({ default: module.ReligionComparisonPage })),
     TopicComparisonPage: () => import('./pages/TopicComparisonPage').then(module => ({ default: module.TopicComparisonPage })),
+    GlobalTimelinePage: () => import('./pages/GlobalTimelinePage'),
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, ArrowRight } from 'lucide-react';
+import { Brain, HelpCircle, ArrowRight, Clock } from 'lucide-react';
 
 
 export const PracticePage: React.FC = () => {
@@ -20,6 +20,14 @@ export const PracticePage: React.FC = () => {
             icon: HelpCircle,
             color: 'bg-purple-500',
             link: '/oving/quiz'
+        },
+        {
+            id: 'timeline',
+            title: 'Tidslinje',
+            description: 'Utforsk historien på tvers av fag og tidsepoker.',
+            icon: Clock,
+            color: 'bg-amber-500',
+            link: '/tidslinje'
         }
     ];
 

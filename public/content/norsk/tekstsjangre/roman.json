@@ -11,65 +11,57 @@
             "content": "Romanen er den «store» fortellingen i litteraturen. Mens novellen er et øyeblikksbilde, er romanen et panorama. Her har forfatteren plass til å brette ut store historier, følge karakterer gjennom hele livsløp, skildre komplekse samfunn og dykke dypt ned i menneskesinnet. Romanen er i dag den mest populære litterære sjangeren, og den kommer i utallige former – fra krim og fantasy til historiske dramaer og psykologiske studier."
         },
         {
-            "type": "section",
-            "title": "Romanens utvikling",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Ordet roman kommer av *romanz*, som opprinnelig betegnet fortellinger skrevet på folkespråket (romansk) i stedet for latin. Den moderne romanen, slik vi kjenner den, vokste frem på 1700- og 1800-tallet. I Norge fikk vi de store realistiske samfunnsromanene på slutten av 1800-tallet med «de fire store» (Ibsen, Bjørnson, Kielland, Lie), selv om Ibsen skrev drama. Senere kom modernismen med fokus på indre sjeleliv (f.eks. Knut Hamsun), og i dag er sjangeren mer variert enn noen gang."
-                }
+            "type": "header",
+            "text": "Romanens utvikling"
+        },
+        {
+            "type": "text",
+            "content": "Ordet roman kommer av *romanz*, som opprinnelig betegnet fortellinger skrevet på folkespråket (romansk) i stedet for latin. Den moderne romanen, slik vi kjenner den, vokste frem på 1700- og 1800-tallet. I Norge fikk vi de store realistiske samfunnsromanene på slutten av 1800-tallet med «de fire store» (Ibsen, Bjørnson, Kielland, Lie), selv om Ibsen skrev drama. Senere kom modernismen med fokus på indre sjeleliv (f.eks. Knut Hamsun), og i dag er sjangeren mer variert enn noen gang."
+        },
+        {
+            "type": "header",
+            "text": "Kjennetegn"
+        },
+        {
+            "type": "text",
+            "content": "Det som først og fremst skiller romanen fra andre sjangre, er omfanget og kompleksiteten:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Lengde:** En roman er en lang tekst, ofte på flere hundre sider. Dette gir rom for fordypning.",
+                "**Mange karakterer:** Vi møter ofte et stort persongalleri. Hovedpersonene er gjerne *sammensatte* individer som utvikler seg gjennom boka (dynamiske karakterer).",
+                "**Parallelle handlinger:** Romanen kan ha flere historier som løper samtidig, og som kanskje flettes sammen til slutt.",
+                "**Miljøskildringer:** Forfatteren bruker god plass på å beskrive steder, samfunn og atmosfære.",
+                "**Tid:** Handlingen kan strekke seg over år, tiår eller generasjoner. Forfatteren kan hoppe frem og tilbake i tid (retrospektiv teknikk)."
             ]
         },
         {
-            "type": "section",
-            "title": "Kjennetegn",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Det som først og fremst skiller romanen fra andre sjangre, er omfanget og kompleksiteten:"
-                },
-                {
-                    "type": "list",
-                    "items": [
-                        "**Lengde:** En roman er en lang tekst, ofte på flere hundre sider. Dette gir rom for fordypning.",
-                        "**Mange karakterer:** Vi møter ofte et stort persongalleri. Hovedpersonene er gjerne *sammensatte* individer som utvikler seg gjennom boka (dynamiske karakterer).",
-                        "**Parallelle handlinger:** Romanen kan ha flere historier som løper samtidig, og som kanskje flettes sammen til slutt.",
-                        "**Miljøskildringer:** Forfatteren bruker god plass på å beskrive steder, samfunn og atmosfære.",
-                        "**Tid:** Handlingen kan strekke seg over år, tiår eller generasjoner. Forfatteren kan hoppe frem og tilbake i tid (retrospektiv teknikk)."
-                    ]
-                }
+            "type": "header",
+            "text": "Ulike typer romaner"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Utviklingsroman:** Følger en hovedperson fra barndom til voksen alder, med fokus på personlig vekst og dannelse.",
+                "**Kollektivroman:** Har ingen tydelig hovedperson, men skildrer en gruppe mennesker eller et lokalsamfunn.",
+                "**Historisk roman:** Handlingen er lagt til en bestemt historisk epoke, ofte med en blanding av oppdiktede og virkelige personer.",
+                "**Sjangerromaner:** Krim, fantasy, science fiction og kjærlighetsromaner er eksempler på populære undersjangre med sine egne regler og forventninger."
             ]
         },
         {
-            "type": "section",
-            "title": "Ulike typer romaner",
-            "content": [
-                {
-                    "type": "list",
-                    "items": [
-                        "**Utviklingsroman:** Følger en hovedperson fra barndom til voksen alder, med fokus på personlig vekst og dannelse.",
-                        "**Kollektivroman:** Har ingen tydelig hovedperson, men skildrer en gruppe mennesker eller et lokalsamfunn.",
-                        "**Historisk roman:** Handlingen er lagt til en bestemt historisk epoke, ofte med en blanding av oppdiktede og virkelige personer.",
-                        "**Sjangerromaner:** Krim, fantasy, science fiction og kjærlighetsromaner er eksempler på populære undersjangre med sine egne regler og forventninger."
-                    ]
-                }
-            ]
+            "type": "header",
+            "text": "Eksempler fra biblioteket"
         },
         {
-            "type": "section",
-            "title": "Eksempler fra biblioteket",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Selv om vi ikke har hele romaner i biblioteket, har vi utdrag som viser sjangerens bredde:"
-                },
-                {
-                    "type": "list",
-                    "items": [
-                        "[Små nøkler, store rom](/norsk/bibliotek/sma-nokler-store-rom) av Bjørg Vik – Et utdrag fra en oppvekstskildring som viser hvordan en roman kan fange barnets perspektiv.",
-                        "[Barsakh](/norsk/bibliotek/barsakh) av Simon Stranger – Et utdrag fra en ungdomsroman som tar opp aktuelle og alvorlige temaer som flukt og urettferdighet."
-                    ]
-                }
+            "type": "text",
+            "content": "Selv om vi ikke har hele romaner i biblioteket, har vi utdrag som viser sjangerens bredde:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "[Små nøkler, store rom](/norsk/bibliotek/sma-nokler-store-rom) av Bjørg Vik – Et utdrag fra en oppvekstskildring som viser hvordan en roman kan fange barnets perspektiv.",
+                "[Barsakh](/norsk/bibliotek/barsakh) av Simon Stranger – Et utdrag fra en ungdomsroman som tar opp aktuelle og alvorlige temaer som flukt og urettferdighet."
             ]
         }
     ],
@@ -82,5 +74,7 @@
     "relatedLink": {
         "text": "Hvordan skrive roman",
         "url": "/norsk/skrivehjelp/hvordan-skrive-roman"
-    }
+    },
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

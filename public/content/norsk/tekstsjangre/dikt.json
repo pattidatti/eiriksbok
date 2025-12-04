@@ -11,61 +11,53 @@
             "content": "Lyrikk, eller dikt, er kanskje den mest konsentrerte litterære sjangeren vi har. Mens en roman trenger mange sider for å bygge opp en stemning, kan et dikt gjøre det samme på noen få linjer. Ordet lyrikk kommer fra det greske instrumentet *lyre*, noe som minner oss om at dikt opprinnelig ble sunget eller fremført til musikk. Dikt handler ofte mer om å formidle en opplevelse, en følelse eller en stemning, enn å fortelle en konkret historie fra A til Å."
         },
         {
-            "type": "section",
-            "title": "Tradisjonelle vs. Modernistiske dikt",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Vi deler gjerne dikt inn i to hovedformer:\n\n**Tradisjonelle dikt** følger ofte faste mønstre. De har gjerne:\n*   Fast rytme (takt)\n*   Ende-rim (f.eks. hjerte/smerte)\n*   Like lange strofer (vers)\n*   Et forståelig og klart språk\n\n**Modernistiske (frie) dikt** bryter med disse reglene. De oppstod for alvor på 1900-tallet som en reaksjon på en mer kaotisk og fragmentert verden. De kjennetegnes ved:\n*   Ingen fast rytme eller rim (frie vers)\n*   Ulik lengde på strofene\n*   Brutte setninger og uventede linjedelinger\n*   Et mer komplekst, ofte symboltungt språk"
-                }
+            "type": "header",
+            "text": "Tradisjonelle vs. Modernistiske dikt"
+        },
+        {
+            "type": "text",
+            "content": "Vi deler gjerne dikt inn i to hovedformer:\n\n**Tradisjonelle dikt** følger ofte faste mønstre. De har gjerne:\n*   Fast rytme (takt)\n*   Ende-rim (f.eks. hjerte/smerte)\n*   Like lange strofer (vers)\n*   Et forståelig og klart språk\n\n**Modernistiske (frie) dikt** bryter med disse reglene. De oppstod for alvor på 1900-tallet som en reaksjon på en mer kaotisk og fragmentert verden. De kjennetegnes ved:\n*   Ingen fast rytme eller rim (frie vers)\n*   Ulik lengde på strofene\n*   Brutte setninger og uventede linjedelinger\n*   Et mer komplekst, ofte symboltungt språk"
+        },
+        {
+            "type": "header",
+            "text": "Lyriske virkemidler"
+        },
+        {
+            "type": "text",
+            "content": "Diktet er «språk på tomgang» – hvert ord må jobbe hardt. Her er noen av de viktigste verktøyene dikteren bruker:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Metafor:** Et språklig bilde der man sier at noe *er* noe annet (uten å bruke 'som'). F.eks. «Du er en rose».",
+                "**Sammenligning:** Et bilde der man sammenligner noe med noe annet ved å bruke 'som' eller 'lik'. F.eks. «Du er som en rose».",
+                "**Besjeling:** Når konkrete ting eller naturen får menneskelige egenskaper. F.eks. «Vinden hvisker», «Månen smiler».",
+                "**Symbol:** En gjenstand eller et fenomen som representerer noe annet og mer abstrakt. En due kan symbolisere fred, fargen rød kan symbolisere kjærlighet eller fare.",
+                "**Kontrast:** Å sette motsetninger opp mot hverandre for å forsterke budskapet (lys/mørke, liv/død, varm/kald).",
+                "**Gjentakelse:** Å gjenta ord, setninger eller lyder for å skape rytme og understreke noe viktig.",
+                "**Allitterasjon (bokstavrim):** Når flere ord som følger hverandre begynner på samme lyd (f.eks. «Sus og dus», «Vind og vær»)."
             ]
         },
         {
-            "type": "section",
-            "title": "Lyriske virkemidler",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Diktet er «språk på tomgang» – hvert ord må jobbe hardt. Her er noen av de viktigste verktøyene dikteren bruker:"
-                },
-                {
-                    "type": "list",
-                    "items": [
-                        "**Metafor:** Et språklig bilde der man sier at noe *er* noe annet (uten å bruke 'som'). F.eks. «Du er en rose».",
-                        "**Sammenligning:** Et bilde der man sammenligner noe med noe annet ved å bruke 'som' eller 'lik'. F.eks. «Du er som en rose».",
-                        "**Besjeling:** Når konkrete ting eller naturen får menneskelige egenskaper. F.eks. «Vinden hvisker», «Månen smiler».",
-                        "**Symbol:** En gjenstand eller et fenomen som representerer noe annet og mer abstrakt. En due kan symbolisere fred, fargen rød kan symbolisere kjærlighet eller fare.",
-                        "**Kontrast:** Å sette motsetninger opp mot hverandre for å forsterke budskapet (lys/mørke, liv/død, varm/kald).",
-                        "**Gjentakelse:** Å gjenta ord, setninger eller lyder for å skape rytme og understreke noe viktig.",
-                        "**Allitterasjon (bokstavrim):** Når flere ord som følger hverandre begynner på samme lyd (f.eks. «Sus og dus», «Vind og vær»)."
-                    ]
-                }
-            ]
+            "type": "header",
+            "text": "Hvordan lese dikt?"
         },
         {
-            "type": "section",
-            "title": "Hvordan lese dikt?",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Mange synes dikt er vanskelige å forstå. Et tips er å ikke lete etter en «fasit» med en gang. Les diktet høyt for deg selv. Smak på ordene. Hvilke bilder skaper de i hodet ditt? Hvilken stemning får du? Dikt skal ofte *oppleves* før de *forstås*. Prøv å sette ord på hva diktet får deg til å føle, før du begynner å analysere virkemidlene."
-                }
-            ]
+            "type": "text",
+            "content": "Mange synes dikt er vanskelige å forstå. Et tips er å ikke lete etter en «fasit» med en gang. Les diktet høyt for deg selv. Smak på ordene. Hvilke bilder skaper de i hodet ditt? Hvilken stemning får du? Dikt skal ofte *oppleves* før de *forstås*. Prøv å sette ord på hva diktet får deg til å føle, før du begynner å analysere virkemidlene."
         },
         {
-            "type": "section",
-            "title": "Eksempler fra biblioteket",
-            "content": [
-                {
-                    "type": "text",
-                    "content": "I biblioteket finner du eksempler på lyrikk:"
-                },
-                {
-                    "type": "list",
-                    "items": [
-                        "[Døden](/norsk/bibliotek/doden) av Ragnar Hovland – Et moderne dikt som tar opp et alvorlig tema på en naivistisk og undrende måte."
-                    ]
-                }
+            "type": "header",
+            "text": "Eksempler fra biblioteket"
+        },
+        {
+            "type": "text",
+            "content": "I biblioteket finner du eksempler på lyrikk:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "[Døden](/norsk/bibliotek/doden) av Ragnar Hovland – Et moderne dikt som tar opp et alvorlig tema på en naivistisk og undrende måte."
             ]
         }
     ],
@@ -78,5 +70,7 @@
     "relatedLink": {
         "text": "Hvordan skrive dikt",
         "url": "/norsk/skrivehjelp/hvordan-skrive-dikt"
-    }
+    },
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

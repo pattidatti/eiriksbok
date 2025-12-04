@@ -21,7 +21,10 @@ export interface Context {
 export interface QuizQuestion {
     question: string;
     options: string[];
-    answer: string;
+    answer?: string;
+    correctAnswer?: number; // Index of correct answer
+    sourceUrl?: string;
+    sourceTitle?: string;
 }
 
 export interface MapData {
@@ -75,6 +78,7 @@ export interface ManifestLesson {
     date?: string;
     createdDate?: string;
     updatedDate?: string;
+    lastUpdated?: string;
     description?: string;
     image?: string;
     tags?: string[];
@@ -141,4 +145,18 @@ export interface Religion {
         doctrinal?: any;
         material?: any;
     };
+}
+
+export interface GlobalTimelineEvent {
+    id: string;
+    title: string;
+    description?: string;
+    startDate: number;
+    endDate?: number | null;
+    displayDate: string;
+    type: 'lesson' | 'text' | 'event';
+    subjectId: string;
+    topicId?: string;
+    link: string;
+    tags?: string[];
 }

@@ -57,6 +57,10 @@
             "content": "Dette skaper en Kredittekspansjon. Det ser ut som om det finnes masse sparing (billige penger), men i virkeligheten har ikke folk spart mer. Mengden fysiske ressurser (stål, betong, arbeidskraft) er den samme som før."
         },
         {
+            "type": "text",
+            "content": "På grunn av at sentralbanker overstyrer markedet, er det egentlig umulig å vite om renten er for høy eller lav. Man har ikke tilgang på informasjon om den faktiske spareraten og tålmodigheten til samfunnet."
+        },
+        {
             "type": "header",
             "content": "Historien om Byggmesteren: Del 2"
         },
@@ -131,6 +135,12 @@
         {
             "type": "text",
             "content": "Da renten til slutt måtte opp, sprakk boblen. Prisene kollapset, og bankene som hadde lånt ut pengene havnet i store problemer. Men forsøkene på å redde økonomien ved å trykke enda mer penger, har ifølge kritikerne bare blåst opp nye bobler andre steder."
+        },
+        {
+            "type": "image",
+            "src": "/content/samfunnskunnskap/demografi-okonomi/assets/spania-boligkrise-2012.jpg",
+            "alt": "Uferdige boliger i Spania",
+            "caption": "Bilde fra 2012 utenfor Madrid hvor tusenvis av boliger stod uferdig. På det meste var det 800.000 uferdige boliger i Spania etter finanskrisen."
         },
         {
             "type": "header",
@@ -228,5 +238,7 @@
             ],
             "correctAnswer": 0
         }
-    ]
+    ],
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

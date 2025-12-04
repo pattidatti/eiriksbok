@@ -12,6 +12,7 @@ export const Quiz: React.FC<QuizProps> = ({ questions }) => {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [showResult, setShowResult] = useState(false);
     const [score, setScore] = useState(0);
+    const [streak, setStreak] = useState(0);
     const [isAnswered, setIsAnswered] = useState(false);
     const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
 
@@ -31,10 +32,22 @@ export const Quiz: React.FC<QuizProps> = ({ questions }) => {
         setSelectedOption(option);
     };
 
+    const getCorrectAnswer = (q: QuizQuestion) => {
+        if (typeof q.correctAnswer === 'number') {
+            return q.options[q.correctAnswer];
+        }
+        return q.answer || '';
+    };
+
     const submitAnswer = () => {
         setIsAnswered(true);
-        if (selectedOption === questions[currentQuestion].answer) {
+        const correct = getCorrectAnswer(questions[currentQuestion]);
+        if (selectedOption === correct) {
             setScore(score + 1);
+            setStreak(streak + 1);
+        } else {
+            setScore(score - 1);
+            setStreak(0);
         }
     };
 
@@ -52,7 +65,7 @@ export const Quiz: React.FC<QuizProps> = ({ questions }) => {
         return (
             <div className="quiz-container quiz-result">
                 <h3>Quiz Fullført!</h3>
-                <p>Du fikk {score} av {questions.length} riktige.</p>
+                <p>Du fikk {score} poeng totalt.</p>
                 <button className="next-btn" onClick={() => window.location.reload()}>Start på nytt</button>
             </div>
         )
@@ -61,17 +74,61 @@ export const Quiz: React.FC<QuizProps> = ({ questions }) => {
     if (!questions || questions.length === 0) return null;
 
     const question = questions[currentQuestion];
+    const correctAnswer = getCorrectAnswer(question);
 
     return (
         <div className="quiz-container">
-            <h3>Quiz: Sjekk hva du kan</h3>
+            {/* Gamification Header */}
+            <div className="flex justify-between items-center mb-6 px-4">
+                {/* Streak */}
+                <div className="flex items-center gap-2">
+                    <motion.div
+                        key={streak}
+                        initial={{ scale: 1 }}
+                        animate={streak > 0 ? { scale: [1, 1.5, 1], rotate: [0, 10, -10, 0] } : { scale: [1, 0.8, 1], x: [0, -5, 5, 0] }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        {streak > 0 ? (
+                            <span className="text-2xl">⭐</span>
+                        ) : (
+                            <span className="text-2xl grayscale opacity-50">⭐</span>
+                        )}
+                    </motion.div>
+                    <div className="flex flex-col">
+                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Streak</span>
+                        <span className={`text-xl font-bold ${streak > 2 ? 'text-amber-500' : 'text-slate-700'}`}>{streak}</span>
+                    </div>
+                </div>
+
+                {/* Score */}
+                <div className="flex flex-col items-end">
+                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Poeng</span>
+                    <span className={`text-xl font-bold ${score >= 0 ? 'text-indigo-600' : 'text-red-500'}`}>{score}</span>
+                </div>
+            </div>
+
             <div className="question-card">
                 <p className="question-text">{question.question}</p>
+
+                {question.sourceUrl && (
+                    <div className="text-center mb-6">
+                        <a
+                            href={question.sourceUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-indigo-600 hover:text-indigo-800 hover:underline font-medium flex items-center justify-center gap-1"
+                        >
+                            <span>Les om dette i: {question.sourceTitle || 'artikkelen'}</span>
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                )}
+
                 <div className="options-grid">
                     {shuffledOptions.map((option) => (
                         <button
                             key={option}
-                            className={`option-btn ${selectedOption === option ? 'selected' : ''} ${isAnswered && option === question.answer ? 'correct' : ''} ${isAnswered && selectedOption === option && option !== question.answer ? 'wrong' : ''}`}
+                            className={`option-btn ${selectedOption === option ? 'selected' : ''} ${isAnswered && option === correctAnswer ? 'correct' : ''} ${isAnswered && selectedOption === option && option !== correctAnswer ? 'wrong' : ''}`}
                             onClick={() => handleOptionClick(option)}
                             disabled={isAnswered}
                         >
@@ -90,14 +147,16 @@ export const Quiz: React.FC<QuizProps> = ({ questions }) => {
                     </motion.button>
                 )}
                 {isAnswered && (
-                    <motion.button
-                        className="next-btn"
-                        onClick={nextQuestion}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                    >
-                        {currentQuestion < questions.length - 1 ? 'Neste' : 'Se resultat'}
-                    </motion.button>
+                    <div className="flex flex-col gap-4">
+                        <motion.button
+                            className="next-btn"
+                            onClick={nextQuestion}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                        >
+                            {currentQuestion < questions.length - 1 ? 'Neste' : 'Se resultat'}
+                        </motion.button>
+                    </div>
                 )}
             </div>
         </div>

@@ -99,6 +99,8 @@ type ManifestSubjectsTopicsLessons {
   description: String
   image: String
   tags: [String]
+  createdDate: String
+  lastUpdated: String
 }
 
 type ManifestSubjectsTopics {
@@ -136,12 +138,22 @@ input ImageFilter {
   in: [String]
 }
 
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
 input ManifestSubjectsTopicsLessonsFilter {
   id: StringFilter
   title: StringFilter
   description: StringFilter
   image: ImageFilter
   tags: StringFilter
+  createdDate: DatetimeFilter
+  lastUpdated: DatetimeFilter
 }
 
 input ManifestSubjectsTopicsFilter {
@@ -172,8 +184,6 @@ type ManifestConnection implements Connection {
   totalCount: Float!
   edges: [ManifestConnectionEdges]
 }
-
-union ArticleReligion = Religion
 
 type ArticleContentText {
   content: String
@@ -216,7 +226,9 @@ type Article implements Node & Document {
   title: String
   subject: String
   topic: String
-  religion: ArticleReligion
+  createdDate: String
+  lastUpdated: String
+  religion: String
   dimension: String
   comparison_tags: [String]
   fact: String
@@ -225,10 +237,6 @@ type Article implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-input ArticleReligionFilter {
-  religion: ReligionFilter
 }
 
 input ArticleContentTextFilter {
@@ -278,7 +286,9 @@ input ArticleFilter {
   title: StringFilter
   subject: StringFilter
   topic: StringFilter
-  religion: ArticleReligionFilter
+  createdDate: DatetimeFilter
+  lastUpdated: DatetimeFilter
+  religion: StringFilter
   dimension: StringFilter
   comparison_tags: StringFilter
   fact: StringFilter
@@ -384,6 +394,8 @@ input ManifestSubjectsTopicsLessonsMutation {
   description: String
   image: String
   tags: [String]
+  createdDate: String
+  lastUpdated: String
 }
 
 input ManifestSubjectsTopicsMutation {
@@ -451,6 +463,8 @@ input ArticleMutation {
   title: String
   subject: String
   topic: String
+  createdDate: String
+  lastUpdated: String
   religion: String
   dimension: String
   comparison_tags: [String]

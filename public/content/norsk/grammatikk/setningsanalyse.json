@@ -1,66 +1,68 @@
 {
-  "id": "setningsanalyse",
-  "title": "Setningsanalyse",
-  "subject": "Norsk",
-  "topic": "Grammatikk",
-  "layout": "rich",
-  "year": "Språk",
-  "category": "Grammatikk",
-  "readTime": "3 min lesning",
-  "heroImage": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
-  "externalUrl": "https://snl.no/syntaks",
-  "details": [
-    "Verbal: Handlingen (hva skjer?)",
-    "Subjekt: Den som handler (hvem gjør det?)",
-    "Objekt: Den det går ut over (hvem/hva handles det mot?)"
-  ],
-  "content": [
-    {
-      "type": "text",
-      "content": "Setningsanalyse handler om å forstå hvordan en setning er bygget opp. Ved å dele setningen inn i ulike ledd, kan vi se hvilken funksjon de forskjellige ordene har. De tre viktigste setningsleddene vi starter med er verbal, subjekt og objekt."
-    },
-    {
-      "type": "text",
-      "content": "**Verbalet** er selve kjernen i setningen. Det forteller oss hva som skjer eller hva som gjøres. Verbalet er alltid et verb. For å finne verbalet kan du spørre: 'Hva er det som skjer?'. I setningen 'Hunden løper', er 'løper' verbalet."
-    },
-    {
-      "type": "text",
-      "content": "**Subjektet** er den eller det som utfører handlingen i setningen. Når du har funnet verbalet, kan du finne subjektet ved å spørre: 'Hvem eller hva er det som [verbal]?'. I setningen 'Hunden løper', spør vi 'Hvem er det som løper?'. Svaret er 'Hunden', som da er subjektet."
-    },
-    {
-      "type": "text",
-      "content": "**Objektet** er det leddet handlingen retter seg mot eller går ut over. Ikke alle setninger har objekt. Du finner det ved å spørre: 'Hva [verbal] [subjekt]?'. I setningen 'Jeg spiser eplet', er 'spiser' verbal og 'Jeg' subjekt. Da spør vi: 'Hva spiser jeg?'. Svaret er 'eplet', som dermed er objektet."
-    }
-  ],
-  "concepts": [
-    {
-      "id": "subjekt",
-      "term": "Subjekt",
-      "definition": "Den eller det som utfører handlingen i setningen.",
-      "example": "I setningen 'Hunden løper', er 'Hunden' subjektet."
-    },
-    {
-      "id": "verbal",
-      "term": "Verbal",
-      "definition": "Handlingen i setningen. Forteller hva som skjer.",
-      "example": "I setningen 'Hunden løper', er 'løper' verbalet."
-    },
-    {
-      "id": "objekt",
-      "term": "Objekt",
-      "definition": "Den eller det handlingen går ut over.",
-      "example": "I setningen 'Jeg spiser eplet', er 'eplet' objektet."
-    }
-  ],
-  "quiz": [
-    {
-      "question": "Hva er verbalet i setningen 'Bilen kjører fort'?",
-      "options": [
-        "Bilen",
-        "Kjører",
-        "Fort"
-      ],
-      "answer": "Kjører"
-    }
-  ]
+    "id": "setningsanalyse",
+    "title": "Setningsanalyse",
+    "subject": "Norsk",
+    "topic": "Grammatikk",
+    "layout": "rich",
+    "year": "Språk",
+    "category": "Grammatikk",
+    "readTime": "3 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
+    "externalUrl": "https://snl.no/syntaks",
+    "details": [
+        "Verbal: Handlingen (hva skjer?)",
+        "Subjekt: Den som handler (hvem gjør det?)",
+        "Objekt: Den det går ut over (hvem/hva handles det mot?)"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Setningsanalyse handler om å forstå hvordan en setning er bygget opp. Ved å dele setningen inn i ulike ledd, kan vi se hvilken funksjon de forskjellige ordene har. De tre viktigste setningsleddene vi starter med er verbal, subjekt og objekt."
+        },
+        {
+            "type": "text",
+            "content": "**Verbalet** er selve kjernen i setningen. Det forteller oss hva som skjer eller hva som gjøres. Verbalet er alltid et verb. For å finne verbalet kan du spørre: 'Hva er det som skjer?'. I setningen 'Hunden løper', er 'løper' verbalet."
+        },
+        {
+            "type": "text",
+            "content": "**Subjektet** er den eller det som utfører handlingen i setningen. Når du har funnet verbalet, kan du finne subjektet ved å spørre: 'Hvem eller hva er det som [verbal]?'. I setningen 'Hunden løper', spør vi 'Hvem er det som løper?'. Svaret er 'Hunden', som da er subjektet."
+        },
+        {
+            "type": "text",
+            "content": "**Objektet** er det leddet handlingen retter seg mot eller går ut over. Ikke alle setninger har objekt. Du finner det ved å spørre: 'Hva [verbal] [subjekt]?'. I setningen 'Jeg spiser eplet', er 'spiser' verbal og 'Jeg' subjekt. Da spør vi: 'Hva spiser jeg?'. Svaret er 'eplet', som dermed er objektet."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "subjekt",
+            "term": "Subjekt",
+            "definition": "Den eller det som utfører handlingen i setningen.",
+            "example": "I setningen 'Hunden løper', er 'Hunden' subjektet."
+        },
+        {
+            "id": "verbal",
+            "term": "Verbal",
+            "definition": "Handlingen i setningen. Forteller hva som skjer.",
+            "example": "I setningen 'Hunden løper', er 'løper' verbalet."
+        },
+        {
+            "id": "objekt",
+            "term": "Objekt",
+            "definition": "Den eller det handlingen går ut over.",
+            "example": "I setningen 'Jeg spiser eplet', er 'eplet' objektet."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er verbalet i setningen 'Bilen kjører fort'?",
+            "options": [
+                "Bilen",
+                "Kjører",
+                "Fort"
+            ],
+            "answer": "Kjører"
+        }
+    ],
+    "createdDate": "2023-01-01T12:00:00Z",
+    "lastUpdated": "2025-12-03T17:25:16.499Z"
 }
