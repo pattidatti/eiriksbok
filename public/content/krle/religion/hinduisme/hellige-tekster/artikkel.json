@@ -1,0 +1,91 @@
+{
+    "id": "hellige-tekster",
+    "title": "Vedaene og Bhagavad Gita",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "hinduisme",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "hellige-tekster",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Vedaene"
+        },
+        {
+            "type": "text",
+            "content": "Vedaene er de eldste hellige skriftene i hinduismen. De inneholder hymner til gudene, offerformler og filosofiske tekster (Upanishadene)."
+        },
+        {
+            "type": "header",
+            "text": "Bhagavad Gita"
+        },
+        {
+            "type": "text",
+            "content": "Bhagavad Gita ('Herrens sang') er en svært populær tekst. Den handler om guden Krishna som underviser krigeren Arjuna om plikt (dharma), handling og hengivelse."
+        },
+        {
+            "type": "header",
+            "text": "Ramayana og Mahabharata"
+        },
+        {
+            "type": "text",
+            "content": "Disse to store eposene forteller spennende historier om guder og helter, og lærer hinduer om rett og galt."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "vedaene",
+            "term": "Vedaene",
+            "definition": "De eldste og helligste skriftene i hinduismen. Betyr 'viten'."
+        },
+        {
+            "id": "bhagavad-gita",
+            "term": "Bhagavad Gita",
+            "definition": "En viktig hellig tekst som lærer om plikt og hengivelse til Gud."
+        },
+        {
+            "id": "sanskrit",
+            "term": "Sanskrit",
+            "definition": "Det hellige språket som hinduismens tekster er skrevet på."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr ordet Veda?",
+            "options": [
+                "Gud",
+                "Viten",
+                "Lov"
+            ],
+            "answer": "Viten"
+        },
+        {
+            "question": "Hvem er hovedpersonen i Bhagavad Gita?",
+            "options": [
+                "Krishna og Arjuna",
+                "Shiva og Parvati",
+                "Brahma"
+            ],
+            "answer": "Krishna og Arjuna"
+        },
+        {
+            "question": "Hva er Ramayana?",
+            "options": [
+                "En lovbok",
+                "Et stort epos (fortelling)",
+                "En type mat"
+            ],
+            "answer": "Et stort epos (fortelling)"
+        }
+    ],
+    "quote": {
+        "text": "Gjør din plikt uten tanke på handlingens frukt.",
+        "source": "Bhagavad Gita",
+        "reference": "Kapittel 2:47"
+    }
+}

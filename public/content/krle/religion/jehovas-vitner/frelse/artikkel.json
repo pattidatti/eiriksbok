@@ -1,0 +1,91 @@
+{
+    "id": "frelse",
+    "title": "Paradis på jord",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jehovas-vitner",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "frelse",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Guds rike"
+        },
+        {
+            "type": "text",
+            "content": "Jehovas vitner forkynner om Guds rike, en himmelsk regjering som skal fjerne all ondskap på jorden."
+        },
+        {
+            "type": "header",
+            "text": "Evig liv på jorden"
+        },
+        {
+            "type": "text",
+            "content": "De fleste troende har håp om å leve evig på en paradisisk jord, ikke i himmelen. Bare en liten gruppe (144 000) skal til himmelen for å styre sammen med Jesus."
+        },
+        {
+            "type": "header",
+            "text": "Ingen helvete"
+        },
+        {
+            "type": "text",
+            "content": "De tror ikke på et brennende helvete. De døde er uten bevissthet, men Gud kan gi dem livet tilbake i oppstandelsen."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "guds-rike",
+            "term": "Guds rike",
+            "definition": "En virkelig regjering i himmelen som skal styre jorden."
+        },
+        {
+            "id": "paradis",
+            "term": "Paradis",
+            "definition": "Jorden når den er blitt renset og gjort vakker igjen."
+        },
+        {
+            "id": "armageddon",
+            "term": "Armageddon",
+            "definition": "Guds krig for å fjerne ondskapen."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvor skal de fleste leve evig?",
+            "options": [
+                "I himmelen",
+                "På jorden",
+                "På Mars"
+            ],
+            "answer": "På jorden"
+        },
+        {
+            "question": "Hva er Guds rike?",
+            "options": [
+                "En følelse",
+                "En regjering",
+                "En kirke"
+            ],
+            "answer": "En regjering"
+        },
+        {
+            "question": "Tror de på helvete?",
+            "options": [
+                "Ja, veldig sterkt",
+                "Nei, døden er som søvn",
+                "Ja, for slemme barn"
+            ],
+            "answer": "Nei, døden er som søvn"
+        }
+    ],
+    "quote": {
+        "text": "De rettferdige skal arve jorden, og de skal bo på den for evig.",
+        "source": "Ny verden-oversettelsen",
+        "reference": "Salme 37:29"
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "id": "hellige-tekster",
+    "title": "Kitáb-i-Aqdas",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "bahai",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "hellige-tekster",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Den helligste bok"
+        },
+        {
+            "type": "text",
+            "content": "Kitáb-i-Aqdas ('Den helligste bok') er den viktigste boken i bahá'í-troen. Den ble skrevet av grunnleggeren Bahá'u'lláh og inneholder lovene for bahá'í-samfunnet."
+        },
+        {
+            "type": "header",
+            "text": "Andre skrifter"
+        },
+        {
+            "type": "text",
+            "content": "Bahá'u'lláh skrev over 100 bind med tekster. Andre kjente bøker er 'De skjulte ord' og 'Visshetens bok' (Kitáb-i-Íqán)."
+        },
+        {
+            "type": "header",
+            "text": "Respekt for andre religioner"
+        },
+        {
+            "type": "text",
+            "content": "Bahá'íer leser også hellige tekster fra andre religioner, som Bibelen og Koranen, og ser på dem som inspirert av den samme Gud."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "kitab-i-aqdas",
+            "term": "Kitáb-i-Aqdas",
+            "definition": "Den helligste bok. Bahá'í-troens lovbok."
+        },
+        {
+            "id": "de-skjulte-ord",
+            "term": "De skjulte ord",
+            "definition": "En samling korte, poetiske tekster om etikk og åndelighet."
+        },
+        {
+            "id": "bahaullah",
+            "term": "Bahá'u'lláh",
+            "definition": "Forfatteren av bahá'í-troens hellige skrifter."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr Kitáb-i-Aqdas?",
+            "options": [
+                "Den store boken",
+                "Den helligste bok",
+                "Guds ord"
+            ],
+            "answer": "Den helligste bok"
+        },
+        {
+            "question": "Hvem skrev Kitáb-i-Aqdas?",
+            "options": [
+                "Muhammad",
+                "Bahá'u'lláh",
+                "Jesus"
+            ],
+            "answer": "Bahá'u'lláh"
+        },
+        {
+            "question": "Leser bahá'íer andre religioners tekster?",
+            "options": [
+                "Ja, de respekterer dem",
+                "Nei, det er forbudt",
+                "Bare på søndager"
+            ],
+            "answer": "Ja, de respekterer dem"
+        }
+    ],
+    "quote": {
+        "text": "Fordyp dere i havet av Mine ord, så dere kan dykke ned i dets hemmeligheter og oppdage alle perlene av visdom som ligger skjult der.",
+        "source": "Kitáb-i-Aqdas",
+        "reference": "Vers 182"
+    }
+}

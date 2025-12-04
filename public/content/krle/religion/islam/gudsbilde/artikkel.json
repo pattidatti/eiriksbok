@@ -1,0 +1,91 @@
+{
+    "id": "gudsbilde",
+    "title": "Tawhid: Guds enhet",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "islam",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "gudsbilde",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Ingen gud utenom Allah"
+        },
+        {
+            "type": "text",
+            "content": "Det viktigste dogmet i islam er Tawhid – troen på Guds absolutte enhet. Gud (Allah) har ingen partnere, ingen sønn og ingen like."
+        },
+        {
+            "type": "header",
+            "text": "Shirk"
+        },
+        {
+            "type": "text",
+            "content": "Det motsatte av Tawhid er Shirk – å sette noe ved siden av Gud. Dette regnes som den største synden i islam."
+        },
+        {
+            "type": "header",
+            "text": "Allahs egenskaper"
+        },
+        {
+            "type": "text",
+            "content": "Gud har 99 vakre navn som beskriver hans egenskaper, som Den Barmhjertige, Den Nåderike, Skaperen og Dommeren."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "tawhid",
+            "term": "Tawhid",
+            "definition": "Læren om Guds enhet. Det finnes bare én Gud."
+        },
+        {
+            "id": "allah",
+            "term": "Allah",
+            "definition": "Det arabiske ordet for Gud."
+        },
+        {
+            "id": "shirk",
+            "term": "Shirk",
+            "definition": "Avgudsdyrkelse. Å sidestille noe med Gud."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr Tawhid?",
+            "options": [
+                "Hellig krig",
+                "Guds enhet",
+                "Bønn"
+            ],
+            "answer": "Guds enhet"
+        },
+        {
+            "question": "Hva er den største synden i islam?",
+            "options": [
+                "Å stjele",
+                "Shirk (avgudsdyrkelse)",
+                "Å lyve"
+            ],
+            "answer": "Shirk (avgudsdyrkelse)"
+        },
+        {
+            "question": "Hvor mange navn har Gud i islam?",
+            "options": [
+                "1",
+                "10",
+                "99"
+            ],
+            "answer": "99"
+        }
+    ],
+    "quote": {
+        "text": "Si: Han er Allah, Én. Allah, den Evige. Han har ikke avlet, og Han er ikke avlet, og ingen er Hans like.",
+        "source": "Koranen",
+        "reference": "Sure 112"
+    }
+}

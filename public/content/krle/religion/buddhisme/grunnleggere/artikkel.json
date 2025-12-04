@@ -1,0 +1,91 @@
+{
+    "id": "grunnleggere",
+    "title": "Siddhartha Gautama (Buddha)",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "buddhisme",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "grunnleggere",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Prinsen som forlot slottet"
+        },
+        {
+            "type": "text",
+            "content": "Siddhartha Gautama ble født som prins i Nord-India (i dagens Nepal) for ca. 2500 år siden. Han levde et luksusliv, men forlot slottet da han så alderdom, sykdom og død."
+        },
+        {
+            "type": "header",
+            "text": "Oppvåkningen"
+        },
+        {
+            "type": "text",
+            "content": "Etter å ha levd som asket i mange år, satte han seg under et Bodhi-tre for å meditere. Der forsto han sannheten om livet og ble Buddha – 'Den oppvåknede'."
+        },
+        {
+            "type": "header",
+            "text": "Læren spres"
+        },
+        {
+            "type": "text",
+            "content": "Buddha brukte resten av livet sitt (45 år) på å vandre rundt og undervise andre om hvordan de kunne bli fri fra lidelse."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "buddha",
+            "term": "Buddha",
+            "definition": "Den oppvåknede. En tittel, ikke et navn."
+        },
+        {
+            "id": "asket",
+            "term": "Asket",
+            "definition": "En som lever enkelt og avstår fra nytelse for å søke åndelig innsikt."
+        },
+        {
+            "id": "bodhi-tre",
+            "term": "Bodhi-tre",
+            "definition": "Treet der Buddha oppnådde opplysning."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr ordet Buddha?",
+            "options": [
+                "Gud",
+                "Den oppvåknede",
+                "Kongen"
+            ],
+            "answer": "Den oppvåknede"
+        },
+        {
+            "question": "Hva var Siddhartha før han ble Buddha?",
+            "options": [
+                "En fattig bonde",
+                "En prins",
+                "En soldat"
+            ],
+            "answer": "En prins"
+        },
+        {
+            "question": "Hvor oppnådde Buddha opplysning?",
+            "options": [
+                "I et tempel",
+                "Under et Bodhi-tre",
+                "På et fjell"
+            ],
+            "answer": "Under et Bodhi-tre"
+        }
+    ],
+    "quote": {
+        "text": "Jeg lærer kun én ting: Lidelsen og lidelsens opphør.",
+        "source": "Buddha",
+        "reference": "Muntlig overlevering"
+    }
+}

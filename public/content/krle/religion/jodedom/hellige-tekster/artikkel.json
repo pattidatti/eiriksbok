@@ -1,0 +1,91 @@
+{
+    "id": "hellige-tekster",
+    "title": "Tanakh og Talmud",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jodedom",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "hellige-tekster",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Tanakh: Den hebraiske bibelen"
+        },
+        {
+            "type": "text",
+            "content": "Tanakh er jødedommens hellige skrift. Navnet er et akronym for de tre delene: Toraen (Loven), Neviim (Profetene) og Ketuvim (Skriftene). For kristne tilsvarer dette Det gamle testamentet."
+        },
+        {
+            "type": "header",
+            "text": "Toraen"
+        },
+        {
+            "type": "text",
+            "content": "Toraen er den aller helligste delen og består av de fem Mosebøkene. Her finner man lovene, inkludert De ti bud, og historien fra skapelsen til Moses' død."
+        },
+        {
+            "type": "header",
+            "text": "Talmud"
+        },
+        {
+            "type": "text",
+            "content": "Talmud er den muntlige Toraen som ble skrevet ned. Den inneholder diskusjoner og tolkninger av lovene, og er svært viktig for jødisk praksis og etikk."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "tanakh",
+            "term": "Tanakh",
+            "definition": "Den hebraiske bibelen, bestående av Toraen, Profetene og Skriftene."
+        },
+        {
+            "id": "toraen",
+            "term": "Toraen",
+            "definition": "Loven eller læren. De fem Mosebøkene. Den helligste delen av Tanakh."
+        },
+        {
+            "id": "talmud",
+            "term": "Talmud",
+            "definition": "Den muntlige loven, nedskrevet med tolkninger og diskusjoner."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva står T-en i Tanakh for?",
+            "options": [
+                "Talmud",
+                "Toraen",
+                "Tempel"
+            ],
+            "answer": "Toraen"
+        },
+        {
+            "question": "Hva inneholder Toraen?",
+            "options": [
+                "Bare sanger",
+                "Lovene og de fem Mosebøkene",
+                "Historien om Jesus"
+            ],
+            "answer": "Lovene og de fem Mosebøkene"
+        },
+        {
+            "question": "Hva er Talmud?",
+            "options": [
+                "En bønnebok",
+                "Tolkninger av loven",
+                "En høytid"
+            ],
+            "answer": "Tolkninger av loven"
+        }
+    ],
+    "quote": {
+        "text": "Ditt ord er en lykt for min fot og et lys for min sti.",
+        "source": "Tanakh",
+        "reference": "Salme 119:105"
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "id": "grunnleggere",
+    "title": "Jesus Kristus",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "kristendom",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "grunnleggere",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Jesus fra Nasaret"
+        },
+        {
+            "type": "text",
+            "content": "Jesus ble født i Betlehem for ca. 2000 år siden. Han vokste opp i Nasaret og virket som predikant og helbreder i tre år før han ble korsfestet i Jerusalem."
+        },
+        {
+            "type": "header",
+            "text": "Messias"
+        },
+        {
+            "type": "text",
+            "content": "Kristus er gresk for Messias (den salvede). Kristne tror Jesus var den frelseren som profetene i Det gamle testamentet hadde lovet."
+        },
+        {
+            "type": "header",
+            "text": "Disiplene"
+        },
+        {
+            "type": "text",
+            "content": "Jesus valgte ut 12 disipler (apostler) som skulle føre læren hans videre. Peter og Paulus ble de viktigste lederne i den tidlige kirken."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "messias",
+            "term": "Messias",
+            "definition": "Den salvede. En frelseskongen som jødene ventet på. Kristne tror Jesus er Messias."
+        },
+        {
+            "id": "disippel",
+            "term": "Disippel",
+            "definition": "Elev eller etterfølger. Jesus hadde 12 nære disipler."
+        },
+        {
+            "id": "apostel",
+            "term": "Apostel",
+            "definition": "Utsending. De som ble sendt ut for å forkynne om Jesus."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr navnet Kristus?",
+            "options": [
+                "Guds sønn",
+                "Den salvede (Messias)",
+                "Kongen"
+            ],
+            "answer": "Den salvede (Messias)"
+        },
+        {
+            "question": "Hvor ble Jesus født?",
+            "options": [
+                "Nasaret",
+                "Jerusalem",
+                "Betlehem"
+            ],
+            "answer": "Betlehem"
+        },
+        {
+            "question": "Hvor mange disipler valgte Jesus ut?",
+            "options": [
+                "3",
+                "10",
+                "12"
+            ],
+            "answer": "12"
+        }
+    ],
+    "quote": {
+        "text": "Jeg er veien, sannheten og livet. Ingen kommer til Faderen uten ved meg.",
+        "source": "Bibelen",
+        "reference": "Johannes 14:6"
+    }
+}

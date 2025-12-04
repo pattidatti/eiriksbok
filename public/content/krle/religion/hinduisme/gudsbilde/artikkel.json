@@ -1,0 +1,91 @@
+{
+    "id": "gudsbilde",
+    "title": "Brahman og guder",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "hinduisme",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "gudsbilde",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Mange guder, én kraft"
+        },
+        {
+            "type": "text",
+            "content": "Hinduismen har millioner av guder, men mange hinduer mener at alle disse bare er ulike former av den ene, upersonlige verdenssjelen: Brahman."
+        },
+        {
+            "type": "header",
+            "text": "Trimurti"
+        },
+        {
+            "type": "text",
+            "content": "Tre guder er spesielt viktige: Brahma (skaperen), Vishnu (opprettholderen) og Shiva (ødeleggeren). De representerer livets syklus."
+        },
+        {
+            "type": "header",
+            "text": "Avatarer"
+        },
+        {
+            "type": "text",
+            "content": "Guden Vishnu stiger av og til ned på jorden i en kropp for å redde verden. Disse kalles avatarer. Krishna og Rama er kjente avatarer."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "brahman",
+            "term": "Brahman",
+            "definition": "Verdenssjelen. Den guddommelige kraften som finnes i alt."
+        },
+        {
+            "id": "atman",
+            "term": "Atman",
+            "definition": "Menneskets sjel, som er en del av Brahman."
+        },
+        {
+            "id": "avatar",
+            "term": "Avatar",
+            "definition": "En gud som stiger ned på jorden i en kropp."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvem er ødeleggeren i hinduismen?",
+            "options": [
+                "Brahma",
+                "Vishnu",
+                "Shiva"
+            ],
+            "answer": "Shiva"
+        },
+        {
+            "question": "Hva er en avatar?",
+            "options": [
+                "En blå filmfigur",
+                "En gud på jorden",
+                "En prest"
+            ],
+            "answer": "En gud på jorden"
+        },
+        {
+            "question": "Hva er Brahman?",
+            "options": [
+                "En prestekaste",
+                "Verdenssjelen",
+                "En hellig bok"
+            ],
+            "answer": "Verdenssjelen"
+        }
+    ],
+    "quote": {
+        "text": "Sannheten er én, men de vise kaller den ved mange navn.",
+        "source": "Rigveda",
+        "reference": "1.164.46"
+    }
+}

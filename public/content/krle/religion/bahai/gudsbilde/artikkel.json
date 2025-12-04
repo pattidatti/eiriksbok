@@ -1,0 +1,91 @@
+{
+    "id": "gudsbilde",
+    "title": "En ukjennbar Gud",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "bahai",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "gudsbilde",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Gud er én"
+        },
+        {
+            "type": "text",
+            "content": "Bahá'í-troen lærer at det finnes bare én Gud, som er skaperen av hele universet. Gud er evig, allvitende og allmektig."
+        },
+        {
+            "type": "header",
+            "text": "Ukjennbar"
+        },
+        {
+            "type": "text",
+            "content": "Gud er så stor at menneskene aldri kan forstå ham fullt ut. Vi kan bare kjenne Gud gjennom hans sendebud (manifestasjoner), som Jesus, Muhammad og Bahá'u'lláh."
+        },
+        {
+            "type": "header",
+            "text": "Alle ber til samme Gud"
+        },
+        {
+            "type": "text",
+            "content": "Bahá'íer mener at alle religioner ber til den samme Gud, selv om de bruker forskjellige navn (Gud, Allah, Jehova, Brahman)."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "guds-enhet",
+            "term": "Guds enhet",
+            "definition": "Troen på at det bare finnes én Gud for alle mennesker."
+        },
+        {
+            "id": "ukjennbar",
+            "term": "Ukjennbar",
+            "definition": "At noe ikke kan forstås fullt ut av mennesker."
+        },
+        {
+            "id": "manifestasjon",
+            "term": "Guds manifestasjon",
+            "definition": "En person som viser hvem Gud er (f.eks. Jesus, Buddha, Bahá'u'lláh)."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvor mange guder finnes det ifølge bahá'í-troen?",
+            "options": [
+                "Mange",
+                "To",
+                "Én"
+            ],
+            "answer": "Én"
+        },
+        {
+            "question": "Kan mennesker forstå Gud fullt ut?",
+            "options": [
+                "Ja, hvis de leser mye",
+                "Nei, Gud er ukjennbar",
+                "Ja, hvis de ber"
+            ],
+            "answer": "Nei, Gud er ukjennbar"
+        },
+        {
+            "question": "Hva mener bahá'íer om andre religioners guder?",
+            "options": [
+                "At de er falske",
+                "At det er den samme Gud med ulike navn",
+                "At de er demoner"
+            ],
+            "answer": "At det er den samme Gud med ulike navn"
+        }
+    ],
+    "quote": {
+        "text": "Vit du at Gud er én, at Han i seg selv er udelt og at Han i sitt vesen er hevet over alle ting.",
+        "source": "Glimt fra Bahá'u'lláhs skrifter",
+        "reference": "LXXXIV"
+    }
+}

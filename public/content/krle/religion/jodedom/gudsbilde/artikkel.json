@@ -1,0 +1,91 @@
+{
+    "id": "gudsbilde",
+    "title": "Monoteisme: Troen på én Gud",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jodedom",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "gudsbilde",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Én Gud"
+        },
+        {
+            "type": "text",
+            "content": "Jødedommen er strengt monoteistisk. Det finnes bare én Gud, som er skaperen av alt. Gud er evig, allmektig og rettferdig, men også barmhjertig."
+        },
+        {
+            "type": "header",
+            "text": "Guds navn"
+        },
+        {
+            "type": "text",
+            "content": "Guds navn, JHWH (Jahve), er så hellig at det tradisjonelt ikke uttales. I stedet sier man 'Adonai' (Herren) eller 'HaShem' (Navnet)."
+        },
+        {
+            "type": "header",
+            "text": "Bildeforbudet"
+        },
+        {
+            "type": "text",
+            "content": "Det er forbudt å lage bilder av Gud. Gud er ånd og kan ikke begrenses til en form."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "monoteisme",
+            "term": "Monoteisme",
+            "definition": "Troen på at det bare finnes én Gud."
+        },
+        {
+            "id": "shema",
+            "term": "Shema",
+            "definition": "Den jødiske trosbekjennelsen: 'Hør Israel! Herren er vår Gud, Herren er én.'"
+        },
+        {
+            "id": "jhwh",
+            "term": "JHWH",
+            "definition": "Guds hellige navn. Uttales vanligvis som Adonai."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr monoteisme?",
+            "options": [
+                "Troen på mange guder",
+                "Troen på én Gud",
+                "Troen på naturen"
+            ],
+            "answer": "Troen på én Gud"
+        },
+        {
+            "question": "Hvorfor lager ikke jøder bilder av Gud?",
+            "options": [
+                "Fordi Gud er usynlig",
+                "Pga. bildeforbudet",
+                "De har ikke maling"
+            ],
+            "answer": "Pga. bildeforbudet"
+        },
+        {
+            "question": "Hva sier man i stedet for Guds navn?",
+            "options": [
+                "Jesus",
+                "Adonai",
+                "Buddha"
+            ],
+            "answer": "Adonai"
+        }
+    ],
+    "quote": {
+        "text": "Hør, Israel! Herren er vår Gud, Herren er én.",
+        "source": "Toraen",
+        "reference": "5. Mosebok 6:4"
+    }
+}

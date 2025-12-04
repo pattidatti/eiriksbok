@@ -1,0 +1,91 @@
+{
+    "id": "gudsbilde",
+    "title": "Jehova",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jehovas-vitner",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "gudsbilde",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Den eneste sanne Gud"
+        },
+        {
+            "type": "text",
+            "content": "Jehovas vitner tror at det bare finnes én allmektig Gud, og hans navn er Jehova. De avviser treenighetslæren."
+        },
+        {
+            "type": "header",
+            "text": "Jesus er Guds sønn"
+        },
+        {
+            "type": "text",
+            "content": "De tror at Jesus er Guds sønn og hans første skapning, men at han ikke er Gud selv. Den hellige ånd er Guds virksomme kraft, ikke en person."
+        },
+        {
+            "type": "header",
+            "text": "Kjærlighet"
+        },
+        {
+            "type": "text",
+            "content": "Guds fremste egenskap er kjærlighet. Han ønsker at alle mennesker skal lære sannheten å kjenne."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "jehova",
+            "term": "Jehova",
+            "definition": "Navnet på den eneste sanne Gud."
+        },
+        {
+            "id": "treenigheten",
+            "term": "Treenigheten",
+            "definition": "En lære som Jehovas vitner avviser som ubibelsk."
+        },
+        {
+            "id": "den-hellige-and",
+            "term": "Den hellige ånd",
+            "definition": "Guds virksomme kraft (ikke en person)."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er Guds navn ifølge Jehovas vitner?",
+            "options": [
+                "Herren",
+                "Jehova",
+                "Gud"
+            ],
+            "answer": "Jehova"
+        },
+        {
+            "question": "Tror de på treenigheten?",
+            "options": [
+                "Ja",
+                "Nei",
+                "Vet ikke"
+            ],
+            "answer": "Nei"
+        },
+        {
+            "question": "Hvem er Jesus?",
+            "options": [
+                "Gud selv",
+                "Guds sønn",
+                "En engel"
+            ],
+            "answer": "Guds sønn"
+        }
+    ],
+    "quote": {
+        "text": "Du, som har navnet Jehova, du alene er Den Høyeste over hele jorden.",
+        "source": "Ny verden-oversettelsen",
+        "reference": "Salme 83:18"
+    }
+}

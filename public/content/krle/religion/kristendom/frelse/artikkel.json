@@ -1,0 +1,91 @@
+{
+    "id": "frelse",
+    "title": "Frelse og nåde",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "kristendom",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "frelse",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Synd og tilgivelse"
+        },
+        {
+            "type": "text",
+            "content": "Kristendommen lærer at mennesket synder (gjør feil) og kommer bort fra Gud. Men Gud tilgir synd på grunn av Jesu død på korset."
+        },
+        {
+            "type": "header",
+            "text": "Nåde"
+        },
+        {
+            "type": "text",
+            "content": "Frelse er en gave fra Gud, ikke noe man kan gjøre seg fortjent til. Dette kalles nåde. Man blir frelst ved å tro på Jesus."
+        },
+        {
+            "type": "header",
+            "text": "Oppstandelse og evig liv"
+        },
+        {
+            "type": "text",
+            "content": "Kristne tror at Jesus sto opp fra de døde, og at de som tror på ham, skal få evig liv etter døden."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "nade",
+            "term": "Nåde",
+            "definition": "Guds ufortjente kjærlighet og tilgivelse."
+        },
+        {
+            "id": "frelse",
+            "term": "Frelse",
+            "definition": "Å bli reddet fra synd og død til evig liv."
+        },
+        {
+            "id": "synd",
+            "term": "Synd",
+            "definition": "Handlinger eller tanker som skiller mennesket fra Gud."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr nåde?",
+            "options": [
+                "At man må være snill",
+                "Guds ufortjente gave",
+                "En type bønn"
+            ],
+            "answer": "Guds ufortjente gave"
+        },
+        {
+            "question": "Hvordan blir man frelst i kristendommen?",
+            "options": [
+                "Ved å følge alle regler",
+                "Ved å betale penger",
+                "Ved tro på Jesus"
+            ],
+            "answer": "Ved tro på Jesus"
+        },
+        {
+            "question": "Hva feirer kristne i påsken?",
+            "options": [
+                "Jesu fødsel",
+                "Jesu død og oppstandelse",
+                "Jesu dåp"
+            ],
+            "answer": "Jesu død og oppstandelse"
+        }
+    ],
+    "quote": {
+        "text": "For av nåde er dere frelst, ved tro. Det er ikke deres eget verk, men Guds gave.",
+        "source": "Bibelen",
+        "reference": "Efeserne 2:8"
+    }
+}

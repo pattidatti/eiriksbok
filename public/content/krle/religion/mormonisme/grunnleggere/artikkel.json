@@ -1,0 +1,91 @@
+{
+    "id": "grunnleggere",
+    "title": "Joseph Smith",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "mormonisme",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "grunnleggere",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Det første synet"
+        },
+        {
+            "type": "text",
+            "content": "I 1820, da Joseph Smith var 14 år, ba han til Gud for å vite hvilken kirke som var sann. Han fortalte at Gud Faderen og Jesus Kristus viste seg for ham og sa at han ikke skulle slutte seg til noen av dem."
+        },
+        {
+            "type": "header",
+            "text": "Gjenopprettelsen"
+        },
+        {
+            "type": "text",
+            "content": "Mormonere tror at den opprinnelige kirken som Jesus grunnla, gikk tapt, og at Gud kalte Joseph Smith til å være profet for å gjenopprette den sanne kirken på jorden."
+        },
+        {
+            "type": "header",
+            "text": "Martyrdød"
+        },
+        {
+            "type": "text",
+            "content": "Joseph Smith fikk mange tilhengere, men også mange fiender. Han ble drept av en mobb i 1844."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "joseph-smith",
+            "term": "Joseph Smith",
+            "definition": "Profeten som grunnla mormonkirken i 1830."
+        },
+        {
+            "id": "gjenopprettelsen",
+            "term": "Gjenopprettelsen",
+            "definition": "At den sanne kirken ble brakt tilbake til jorden."
+        },
+        {
+            "id": "profet",
+            "term": "Profet",
+            "definition": "Lederen av kirken kalles profet, seer og åpenbarer."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvem viste seg for Joseph Smith i 1820?",
+            "options": [
+                "En engel",
+                "Gud Faderen og Jesus",
+                "Moses"
+            ],
+            "answer": "Gud Faderen og Jesus"
+        },
+        {
+            "question": "Hva gjorde Joseph Smith?",
+            "options": [
+                "Oppdaget Amerika",
+                "Gjenopprettet kirken",
+                "Skrev Bibelen"
+            ],
+            "answer": "Gjenopprettet kirken"
+        },
+        {
+            "question": "Hvordan døde Joseph Smith?",
+            "options": [
+                "Av alderdom",
+                "Han ble drept",
+                "I en ulykke"
+            ],
+            "answer": "Han ble drept"
+        }
+    ],
+    "quote": {
+        "text": "Jeg så to personer hvis glans og herlighet overgår enhver beskrivelse, stående over meg i luften.",
+        "source": "Joseph Smith - Historie",
+        "reference": "Vers 17"
+    }
+}

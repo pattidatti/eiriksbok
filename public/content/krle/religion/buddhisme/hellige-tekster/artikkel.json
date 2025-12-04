@@ -1,0 +1,91 @@
+{
+    "id": "hellige-tekster",
+    "title": "Tripitaka: De tre kurver",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "buddhisme",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "hellige-tekster",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "De tre kurver"
+        },
+        {
+            "type": "text",
+            "content": "Buddhismens hellige skrifter kalles Tripitaka (pali) eller Tipitaka. Navnet betyr 'de tre kurver', fordi tekstene opprinnelig ble sortert i tre kurver."
+        },
+        {
+            "type": "header",
+            "text": "Innholdet"
+        },
+        {
+            "type": "text",
+            "content": "1. Vinaya Pitaka: Regler for munker og nonner.\n2. Sutta Pitaka: Buddhas taler og lære.\n3. Abhidhamma Pitaka: Filosofiske forklaringer av læren."
+        },
+        {
+            "type": "header",
+            "text": "Muntlig overlevering"
+        },
+        {
+            "type": "text",
+            "content": "Tekstene ble overlevert muntlig i flere hundre år før de ble skrevet ned på palmeblader på Sri Lanka."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "tripitaka",
+            "term": "Tripitaka",
+            "definition": "De tre kurver. Buddhismens hellige skrifter."
+        },
+        {
+            "id": "sutta",
+            "term": "Sutta",
+            "definition": "En tale eller preken av Buddha."
+        },
+        {
+            "id": "pali",
+            "term": "Pali",
+            "definition": "Språket som de eldste buddhistiske tekstene er skrevet på."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr Tripitaka?",
+            "options": [
+                "De tre juveler",
+                "De tre kurver",
+                "De tre guder"
+            ],
+            "answer": "De tre kurver"
+        },
+        {
+            "question": "Hva inneholder Vinaya Pitaka?",
+            "options": [
+                "Sanger",
+                "Regler for munker og nonner",
+                "Historier om guder"
+            ],
+            "answer": "Regler for munker og nonner"
+        },
+        {
+            "question": "Hvordan ble tekstene først overlevert?",
+            "options": [
+                "På internett",
+                "Muntlig",
+                "I bøker"
+            ],
+            "answer": "Muntlig"
+        }
+    ],
+    "quote": {
+        "text": "Gjør ikke noe ondt, gjør bare godt, rens ditt sinn. Dette er alle Buddhaers lære.",
+        "source": "Dhammapada",
+        "reference": "Vers 183"
+    }
+}

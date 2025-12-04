@@ -1,0 +1,91 @@
+{
+    "id": "grunnleggere",
+    "title": "Charles Taze Russell",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jehovas-vitner",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "grunnleggere",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Bibelstudentene"
+        },
+        {
+            "type": "text",
+            "content": "På 1870-tallet startet Charles Taze Russell en bibelstudiegruppe i USA. De kalte seg Bibelstudentene. De ville finne tilbake til den opprinnelige kristendommen."
+        },
+        {
+            "type": "header",
+            "text": "Vakttårnet"
+        },
+        {
+            "type": "text",
+            "content": "Russell begynte å utgi bladet Vakttårnet i 1879 for å spre bibelske sannheter."
+        },
+        {
+            "type": "header",
+            "text": "Navnet"
+        },
+        {
+            "type": "text",
+            "content": "Navnet Jehovas vitner ble tatt i bruk i 1931 for å skille dem fra andre kristne grupper og vise at de vitner om Jehova."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "charles-taze-russell",
+            "term": "Charles Taze Russell",
+            "definition": "Grunnleggeren av bevegelsen som ble til Jehovas vitner."
+        },
+        {
+            "id": "bibelstudentene",
+            "term": "Bibelstudentene",
+            "definition": "Det opprinnelige navnet på gruppen."
+        },
+        {
+            "id": "forkynnelse",
+            "term": "Forkynnelse",
+            "definition": "Å gå ut og fortelle andre om Guds rike."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvem startet bevegelsen?",
+            "options": [
+                "Joseph Smith",
+                "Charles Taze Russell",
+                "Martin Luther"
+            ],
+            "answer": "Charles Taze Russell"
+        },
+        {
+            "question": "Hva het gruppen først?",
+            "options": [
+                "Mormonere",
+                "Bibelstudentene",
+                "Guds barn"
+            ],
+            "answer": "Bibelstudentene"
+        },
+        {
+            "question": "Når fikk de navnet Jehovas vitner?",
+            "options": [
+                "1879",
+                "1931",
+                "2000"
+            ],
+            "answer": "1931"
+        }
+    ],
+    "quote": {
+        "text": "Dere er mine vitner, sier Jehova.",
+        "source": "Ny verden-oversettelsen",
+        "reference": "Jesaja 43:10"
+    }
+}

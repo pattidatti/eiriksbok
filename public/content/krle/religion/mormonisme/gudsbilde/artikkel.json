@@ -1,0 +1,91 @@
+{
+    "id": "gudsbilde",
+    "title": "Guddommen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "mormonisme",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "gudsbilde",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Tre separate vesener"
+        },
+        {
+            "type": "text",
+            "content": "I motsetning til den tradisjonelle treenighetslæren, tror mormonere at Faderen, Sønnen og Den hellige ånd er tre helt separate vesener, men at de er ett i hensikt."
+        },
+        {
+            "type": "header",
+            "text": "Gud har en kropp"
+        },
+        {
+            "type": "text",
+            "content": "De tror at Gud Faderen og Jesus Kristus har fysiske kropper av kjøtt og ben, men at de er herliggjorte og udødelige. Den hellige ånd er en åndeperson."
+        },
+        {
+            "type": "header",
+            "text": "Vi er Guds barn"
+        },
+        {
+            "type": "text",
+            "content": "Mormonere lærer at alle mennesker er Guds åndelige barn, og at vi bodde hos ham før vi ble født på jorden."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "guddommen",
+            "term": "Guddommen",
+            "definition": "Faderen, Sønnen og Den hellige ånd som tre separate guder."
+        },
+        {
+            "id": "himmelske-foreldre",
+            "term": "Himmelske foreldre",
+            "definition": "Troen på at vi har både en Himmelsk Fader og en Himmelsk Mor."
+        },
+        {
+            "id": "foruttilvaerelse",
+            "term": "Foruttilværelse",
+            "definition": "Livet som ånder hos Gud før vi ble født."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvordan ser Gud ut ifølge mormonismen?",
+            "options": [
+                "Han er en usynlig kraft",
+                "Han har en fysisk kropp",
+                "Han er et lys"
+            ],
+            "answer": "Han har en fysisk kropp"
+        },
+        {
+            "question": "Er Faderen, Sønnen og Ånden én person?",
+            "options": [
+                "Ja, treenigheten",
+                "Nei, tre separate vesener",
+                "Vet ikke"
+            ],
+            "answer": "Nei, tre separate vesener"
+        },
+        {
+            "question": "Hvor var vi før vi ble født?",
+            "options": [
+                "Vi fantes ikke",
+                "Hos Gud som ånder",
+                "I magen"
+            ],
+            "answer": "Hos Gud som ånder"
+        }
+    ],
+    "quote": {
+        "text": "Faderen har et legeme av kjøtt og ben like følbart som menneskets, Sønnen likeså.",
+        "source": "Lære og pakter",
+        "reference": "130:22"
+    }
+}

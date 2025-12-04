@@ -1,0 +1,91 @@
+{
+    "id": "hellige-tekster",
+    "title": "Koranen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "islam",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "hellige-tekster",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Guds ord"
+        },
+        {
+            "type": "text",
+            "content": "Koranen er islams hellige bok. Muslimer tror den er Guds (Allahs) direkte ord, åpenbart for profeten Muhammad via engelen Gabriel. Den er skrevet på arabisk."
+        },
+        {
+            "type": "header",
+            "text": "Surer"
+        },
+        {
+            "type": "text",
+            "content": "Koranen er delt inn i 114 kapitler som kalles surer. De er ordnet etter lengde, fra de lengste til de korteste (unntatt den første)."
+        },
+        {
+            "type": "header",
+            "text": "Hadith"
+        },
+        {
+            "type": "text",
+            "content": "I tillegg til Koranen er Hadith-litteraturen viktig. Den forteller om hva Muhammad sa og gjorde (Sunna), og fungerer som et forbilde for muslimer."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "koranen",
+            "term": "Koranen",
+            "definition": "Islams hellige bok. Guds ord."
+        },
+        {
+            "id": "sure",
+            "term": "Sure",
+            "definition": "Kapittel i Koranen."
+        },
+        {
+            "id": "hadith",
+            "term": "Hadith",
+            "definition": "Fortellinger om profeten Muhammads liv og lære."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvilket språk er Koranen skrevet på?",
+            "options": [
+                "Norsk",
+                "Arabisk",
+                "Engelsk"
+            ],
+            "answer": "Arabisk"
+        },
+        {
+            "question": "Hvem åpenbarte Koranen for Muhammad?",
+            "options": [
+                "Engelen Gabriel",
+                "Jesus",
+                "Moses"
+            ],
+            "answer": "Engelen Gabriel"
+        },
+        {
+            "question": "Hva kalles kapitlene i Koranen?",
+            "options": [
+                "Vers",
+                "Surer",
+                "Bøker"
+            ],
+            "answer": "Surer"
+        }
+    ],
+    "quote": {
+        "text": "Dette er Boken, tvil har ingen plass i den. En ledelse for de gudfryktige.",
+        "source": "Koranen",
+        "reference": "Sure 2:2"
+    }
+}

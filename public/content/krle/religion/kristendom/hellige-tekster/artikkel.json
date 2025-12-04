@@ -1,0 +1,91 @@
+{
+    "id": "hellige-tekster",
+    "title": "Bibelen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "kristendom",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "hellige-tekster",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Det gamle og Det nye testamentet"
+        },
+        {
+            "type": "text",
+            "content": "Bibelen er kristendommens hellige bok. Den består av to deler: Det gamle testamentet (som de deler med jødene) og Det nye testamentet (som handler om Jesus og de første kristne)."
+        },
+        {
+            "type": "header",
+            "text": "Evangeliene"
+        },
+        {
+            "type": "text",
+            "content": "De fire evangeliene (Matteus, Markus, Lukas og Johannes) er de viktigste tekstene for kristne. De forteller om Jesu liv, død og oppstandelse."
+        },
+        {
+            "type": "header",
+            "text": "Paulus' brev"
+        },
+        {
+            "type": "text",
+            "content": "Mange av bøkene i Det nye testamentet er brev skrevet av apostelen Paulus til de første kristne menighetene. De forklarer hva kristen tro går ut på."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "bibelen",
+            "term": "Bibelen",
+            "definition": "Kristendommens hellige skrift, bestående av Det gamle og Det nye testamentet."
+        },
+        {
+            "id": "evangelium",
+            "term": "Evangelium",
+            "definition": "Betyr 'godt budskap'. Fortellingene om Jesu liv."
+        },
+        {
+            "id": "testamente",
+            "term": "Testamente",
+            "definition": "Betyr 'pakt' eller 'avtale'."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr ordet evangelium?",
+            "options": [
+                "Hellig bok",
+                "Godt budskap",
+                "Lovsamling"
+            ],
+            "answer": "Godt budskap"
+        },
+        {
+            "question": "Hvem skrev mange av brevene i Det nye testamentet?",
+            "options": [
+                "Jesus",
+                "Moses",
+                "Paulus"
+            ],
+            "answer": "Paulus"
+        },
+        {
+            "question": "Hvilken del av Bibelen deler kristne med jøder?",
+            "options": [
+                "Koranen",
+                "Det nye testamentet",
+                "Det gamle testamentet"
+            ],
+            "answer": "Det gamle testamentet"
+        }
+    ],
+    "quote": {
+        "text": "For så høyt har Gud elsket verden at han ga sin Sønn, den enbårne, for at hver den som tror på ham, ikke skal gå fortapt, men ha evig liv.",
+        "source": "Bibelen",
+        "reference": "Johannes 3:16"
+    }
+}

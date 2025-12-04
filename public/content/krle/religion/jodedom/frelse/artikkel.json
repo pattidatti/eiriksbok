@@ -1,0 +1,91 @@
+{
+    "id": "frelse",
+    "title": "Livet her og nå",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jodedom",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "frelse",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Fokus på dette livet"
+        },
+        {
+            "type": "text",
+            "content": "Jødedommen er mer opptatt av livet her og nå enn av hva som skjer etter døden. Målet er å leve et godt og rettferdig liv i tråd med Guds vilje."
+        },
+        {
+            "type": "header",
+            "text": "Etterlivet"
+        },
+        {
+            "type": "text",
+            "content": "Det finnes ulike tanker om etterlivet (Olam Ha-Ba), men det er ingen fastlagt dogme om himmel og helvete slik som i kristendommen. Noen tror på sjelens udødelighet, andre på en fremtidig oppstandelse."
+        },
+        {
+            "type": "header",
+            "text": "Frelse"
+        },
+        {
+            "type": "text",
+            "content": "Frelse handler ikke om å bli reddet fra synd, men om å bidra til å gjøre verden hellig gjennom å følge budene (Mitzvot)."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "olam-ha-ba",
+            "term": "Olam Ha-Ba",
+            "definition": "Den kommende verden. Jødedommens begrep om etterlivet."
+        },
+        {
+            "id": "mitzvot",
+            "term": "Mitzvot",
+            "definition": "Budene. Handlinger som Gud ønsker at menneskene skal gjøre."
+        },
+        {
+            "id": "pikuach-nefesh",
+            "term": "Pikuach Nefesh",
+            "definition": "Prinsippet om at å redde liv går foran alle andre religiøse lover."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er viktigst i jødedommen?",
+            "options": [
+                "Livet etter døden",
+                "Livet her og nå",
+                "Å konvertere andre"
+            ],
+            "answer": "Livet her og nå"
+        },
+        {
+            "question": "Har jødedommen en klar lære om helvete?",
+            "options": [
+                "Ja, veldig detaljert",
+                "Nei, det varierer",
+                "Ja, det er et sted med ild"
+            ],
+            "answer": "Nei, det varierer"
+        },
+        {
+            "question": "Hva betyr Pikuach Nefesh?",
+            "options": [
+                "Å be tre ganger daglig",
+                "Å redde liv er viktigst",
+                "Å spise kosher"
+            ],
+            "answer": "Å redde liv er viktigst"
+        }
+    ],
+    "quote": {
+        "text": "Den som redder ett liv, redder hele verden.",
+        "source": "Talmud",
+        "reference": "Sanhedrin 4:5"
+    }
+}

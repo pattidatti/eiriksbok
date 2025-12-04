@@ -1,0 +1,91 @@
+{
+    "id": "frelse",
+    "title": "Åndelig utvikling",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "bahai",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "frelse",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Sjelens reise"
+        },
+        {
+            "type": "text",
+            "content": "Bahá'íer tror at livet på jorden er som en skole der sjelen skal utvikle gode egenskaper (dyder) som kjærlighet, ærlighet og tålmodighet."
+        },
+        {
+            "type": "header",
+            "text": "Livet etter døden"
+        },
+        {
+            "type": "text",
+            "content": "Når kroppen dør, lever sjelen videre i en åndelig verden. Der fortsetter den å utvikle seg og komme nærmere Gud. Det er ingen fysisk himmel eller helvete."
+        },
+        {
+            "type": "header",
+            "text": "Tjeneste"
+        },
+        {
+            "type": "text",
+            "content": "En viktig del av den åndelige utviklingen er å tjene andre mennesker og arbeide for fred og rettferdighet i verden."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "sjel",
+            "term": "Sjel",
+            "definition": "Menneskets åndelige del som lever videre etter døden."
+        },
+        {
+            "id": "dyder",
+            "term": "Dyder",
+            "definition": "Gode egenskaper som ærlighet, mot og vennlighet."
+        },
+        {
+            "id": "tjeneste",
+            "term": "Tjeneste",
+            "definition": "Å hjelpe andre og bidra til samfunnet."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er meningen med livet ifølge bahá'í-troen?",
+            "options": [
+                "Å bli rik",
+                "Å utvikle gode egenskaper",
+                "Å vinne kriger"
+            ],
+            "answer": "Å utvikle gode egenskaper"
+        },
+        {
+            "question": "Hva skjer med sjelen etter døden?",
+            "options": [
+                "Den dør med kroppen",
+                "Den blir gjenfødt som dyr",
+                "Den lever videre og utvikler seg"
+            ],
+            "answer": "Den lever videre og utvikler seg"
+        },
+        {
+            "question": "Finnes det et fysisk helvete i bahá'í-troen?",
+            "options": [
+                "Ja, med ild",
+                "Nei, helvete er avstand fra Gud",
+                "Ja, under jorden"
+            ],
+            "answer": "Nei, helvete er avstand fra Gud"
+        }
+    ],
+    "quote": {
+        "text": "Edle har Jeg skapt dere, hvorfor har dere fornedret dere selv?",
+        "source": "De skjulte ord",
+        "reference": "Arabisk nr. 13"
+    }
+}

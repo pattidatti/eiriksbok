@@ -1,0 +1,91 @@
+{
+    "id": "hellige-tekster",
+    "title": "Mormons bok",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "mormonisme",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "hellige-tekster",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Et annet testamente"
+        },
+        {
+            "type": "text",
+            "content": "Mormons bok er hellig skrift for mormonere, sidestilt med Bibelen. Den kalles 'Et annet testamente om Jesus Kristus'."
+        },
+        {
+            "type": "header",
+            "text": "Gullplatene"
+        },
+        {
+            "type": "text",
+            "content": "Joseph Smith fortalte at han fant boken skrevet på gullplater, og at han oversatte den ved Guds kraft. Den handler om folk som reiste fra Jerusalem til Amerika i oldtiden."
+        },
+        {
+            "type": "header",
+            "text": "Lære og pakter"
+        },
+        {
+            "type": "text",
+            "content": "I tillegg til Bibelen og Mormons bok, har kirken to andre hellige bøker: 'Lære og pakter' (åpenbaringer til Joseph Smith og andre profeter) og 'Den kostelige perle'."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "mormons-bok",
+            "term": "Mormons bok",
+            "definition": "En hellig bok som forteller om Guds handlinger med folk i det gamle Amerika."
+        },
+        {
+            "id": "gullplater",
+            "term": "Gullplater",
+            "definition": "Platene som Joseph Smith oversatte Mormons bok fra."
+        },
+        {
+            "id": "bibelen",
+            "term": "Bibelen",
+            "definition": "Mormonere tror på Bibelen 'så langt den er riktig oversatt'."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er Mormons bok?",
+            "options": [
+                "En kokebok",
+                "Et annet testamente om Jesus",
+                "En historiebok om Norge"
+            ],
+            "answer": "Et annet testamente om Jesus"
+        },
+        {
+            "question": "Hva var boken skrevet på?",
+            "options": [
+                "Papir",
+                "Gullplater",
+                "Stein"
+            ],
+            "answer": "Gullplater"
+        },
+        {
+            "question": "Tror mormonere på Bibelen?",
+            "options": [
+                "Nei, bare Mormons bok",
+                "Ja, sammen med andre skrifter",
+                "Aldri hørt om den"
+            ],
+            "answer": "Ja, sammen med andre skrifter"
+        }
+    ],
+    "quote": {
+        "text": "Og når dere mottar dette, vil jeg formane dere til å spørre Gud, den evige Fader, i Kristi navn om ikke disse ting er sanne.",
+        "source": "Mormons bok",
+        "reference": "Moroni 10:4"
+    }
+}

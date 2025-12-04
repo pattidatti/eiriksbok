@@ -1,0 +1,91 @@
+{
+    "id": "frelse",
+    "title": "Moksha: Frigjøring",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "hinduisme",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "frelse",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Samsara"
+        },
+        {
+            "type": "text",
+            "content": "Hinduer tror på gjenfødelse (reinkarnasjon). Livet er en evig sirkel av fødsel, død og ny fødsel. Denne sirkelen kalles Samsara."
+        },
+        {
+            "type": "header",
+            "text": "Karma"
+        },
+        {
+            "type": "text",
+            "content": "Karma er loven om handling og konsekvens. Gode handlinger gir god karma og et bedre neste liv, mens dårlige handlinger gir dårlig karma."
+        },
+        {
+            "type": "header",
+            "text": "Moksha"
+        },
+        {
+            "type": "text",
+            "content": "Målet for en hindu er å bryte ut av Samsara. Denne frigjøringen kalles Moksha. Da blir sjelen (Atman) ett med verdenssjelen (Brahman)."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "samsara",
+            "term": "Samsara",
+            "definition": "Rekken av gjenfødsler. Livets sirkel."
+        },
+        {
+            "id": "karma",
+            "term": "Karma",
+            "definition": "Loven om at handlinger får konsekvenser for dette og neste liv."
+        },
+        {
+            "id": "moksha",
+            "term": "Moksha",
+            "definition": "Frigjøring fra gjenfødelse. Frelse i hinduismen."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er målet i hinduismen?",
+            "options": [
+                "Å bli rik",
+                "Å oppnå Moksha",
+                "Å leve evig på jorden"
+            ],
+            "answer": "Å oppnå Moksha"
+        },
+        {
+            "question": "Hva bestemmer hva du blir i neste liv?",
+            "options": [
+                "Guds humør",
+                "Karma",
+                "Tilfeldigheter"
+            ],
+            "answer": "Karma"
+        },
+        {
+            "question": "Hva skjer når man oppnår Moksha?",
+            "options": [
+                "Man slutter å bli gjenfødt",
+                "Man blir en konge",
+                "Man blir til en stjerne"
+            ],
+            "answer": "Man slutter å bli gjenfødt"
+        }
+    ],
+    "quote": {
+        "text": "Som en mann kaster gamle klær og tar på seg nye, slik kaster sjelen gamle kropper og går inn i nye.",
+        "source": "Bhagavad Gita",
+        "reference": "Kapittel 2:22"
+    }
+}

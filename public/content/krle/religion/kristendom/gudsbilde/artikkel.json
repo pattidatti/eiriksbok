@@ -1,0 +1,91 @@
+{
+    "id": "gudsbilde",
+    "title": "Treenigheten",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "kristendom",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "gudsbilde",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Én Gud i tre personer"
+        },
+        {
+            "type": "text",
+            "content": "Kristne tror på én Gud, men at Gud viser seg som tre personer: Faderen (Skaperen), Sønnen (Frelseren) og Den hellige ånd (Livgiveren). Dette kalles treenigheten."
+        },
+        {
+            "type": "header",
+            "text": "Jesus som Gud og menneske"
+        },
+        {
+            "type": "text",
+            "content": "Et sentralt dogme er at Jesus var både fullt ut menneske og fullt ut Gud. Han viste hvem Gud er gjennom sitt liv på jorden."
+        },
+        {
+            "type": "header",
+            "text": "Skaperen"
+        },
+        {
+            "type": "text",
+            "content": "Gud har skapt verden og opprettholder den. Gud er kjærlig og ønsker fellesskap med menneskene."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "treenighet",
+            "term": "Treenighet",
+            "definition": "Læren om at Gud er én, men tre personer: Faderen, Sønnen og Den hellige ånd."
+        },
+        {
+            "id": "inkarnasjon",
+            "term": "Inkarnasjon",
+            "definition": "At Gud ble menneske i Jesus Kristus."
+        },
+        {
+            "id": "den-hellige-and",
+            "term": "Den hellige ånd",
+            "definition": "Guds nærvær i verden og i de troende."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er treenigheten?",
+            "options": [
+                "Tre guder",
+                "Gud, Jesus og Maria",
+                "Faderen, Sønnen og Den hellige ånd"
+            ],
+            "answer": "Faderen, Sønnen og Den hellige ånd"
+        },
+        {
+            "question": "Hva betyr det at Jesus er Guds sønn?",
+            "options": [
+                "At han var en engel",
+                "At Gud ble menneske",
+                "At han var en vanlig profet"
+            ],
+            "answer": "At Gud ble menneske"
+        },
+        {
+            "question": "Hvem er Skaperen i kristen tro?",
+            "options": [
+                "Faderen",
+                "Paulus",
+                "Paven"
+            ],
+            "answer": "Faderen"
+        }
+    ],
+    "quote": {
+        "text": "Gå derfor og gjør alle folkeslag til disipler: Døp dem til Faderens og Sønnens og Den hellige ånds navn.",
+        "source": "Bibelen",
+        "reference": "Matteus 28:19"
+    }
+}

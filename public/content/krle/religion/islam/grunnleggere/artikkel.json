@@ -1,0 +1,91 @@
+{
+    "id": "grunnleggere",
+    "title": "Profeten Muhammad",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "islam",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "grunnleggere",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Den siste profeten"
+        },
+        {
+            "type": "text",
+            "content": "Muhammad (født ca. 570 e.Kr. i Mekka) regnes som den siste og viktigste profeten i islam. Han kalles 'Profetenes segl'."
+        },
+        {
+            "type": "header",
+            "text": "Åpenbaringen"
+        },
+        {
+            "type": "text",
+            "content": "Da han var 40 år gammel, fikk han sin første åpenbaring fra Gud i hulen Hira. Han begynte å forkynne om én Gud i Mekka, men møtte motstand."
+        },
+        {
+            "type": "header",
+            "text": "Hijra"
+        },
+        {
+            "type": "text",
+            "content": "I år 622 flyktet Muhammad og hans følgesvenner fra Mekka til Medina. Denne flukten kalles Hijra og markerer starten på den muslimske tidsregningen."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "muhammad",
+            "term": "Muhammad",
+            "definition": "Guds sendebud og islams siste profet."
+        },
+        {
+            "id": "profet",
+            "term": "Profet",
+            "definition": "En person som mottar og formidler budskap fra Gud."
+        },
+        {
+            "id": "hijra",
+            "term": "Hijra",
+            "definition": "Muhammads flukt fra Mekka til Medina i år 622."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva kalles Muhammad i islam?",
+            "options": [
+                "Guds sønn",
+                "Profetenes segl",
+                "Kongen av Arabia"
+            ],
+            "answer": "Profetenes segl"
+        },
+        {
+            "question": "Hvor ble Muhammad født?",
+            "options": [
+                "Medina",
+                "Jerusalem",
+                "Mekka"
+            ],
+            "answer": "Mekka"
+        },
+        {
+            "question": "Hva skjedde i år 622?",
+            "options": [
+                "Muhammad døde",
+                "Hijra (flukten til Medina)",
+                "Koranen ble ferdig"
+            ],
+            "answer": "Hijra (flukten til Medina)"
+        }
+    ],
+    "quote": {
+        "text": "Muhammad er ikke far til noen av deres menn, men han er Guds sendebud og profetenes segl.",
+        "source": "Koranen",
+        "reference": "Sure 33:40"
+    }
+}

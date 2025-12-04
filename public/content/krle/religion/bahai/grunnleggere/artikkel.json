@@ -1,0 +1,91 @@
+{
+    "id": "grunnleggere",
+    "title": "Bahá'u'lláh",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "bahai",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "grunnleggere",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Guds herlighet"
+        },
+        {
+            "type": "text",
+            "content": "Bahá'u'lláh (1817–1892) er grunnleggeren av bahá'í-troen. Navnet betyr 'Guds herlighet'. Han ble født i Persia (Iran)."
+        },
+        {
+            "type": "header",
+            "text": "Forfølgelse og eksil"
+        },
+        {
+            "type": "text",
+            "content": "Fordi han forkynte en ny religion, ble han fengslet og landsforvist. Han tilbrakte 40 år i fengsel og eksil, til slutt i Akka i dagens Israel."
+        },
+        {
+            "type": "header",
+            "text": "Budskapet"
+        },
+        {
+            "type": "text",
+            "content": "Bahá'u'lláh lærte at tiden er inne for at hele menneskeheten skal forenes i ett verdenssamfunn med fred og rettferdighet."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "bahaullah",
+            "term": "Bahá'u'lláh",
+            "definition": "Grunnleggeren av bahá'í-troen. Betyr 'Guds herlighet'."
+        },
+        {
+            "id": "bab",
+            "term": "Báb",
+            "definition": "Forløperen til Bahá'u'lláh. Betyr 'Porten'."
+        },
+        {
+            "id": "abdul-baha",
+            "term": "'Abdu'l-Bahá",
+            "definition": "Bahá'u'lláhs sønn og etterfølger."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr navnet Bahá'u'lláh?",
+            "options": [
+                "Guds lys",
+                "Guds herlighet",
+                "Guds tjener"
+            ],
+            "answer": "Guds herlighet"
+        },
+        {
+            "question": "Hvor kom Bahá'u'lláh fra?",
+            "options": [
+                "Norge",
+                "USA",
+                "Persia (Iran)"
+            ],
+            "answer": "Persia (Iran)"
+        },
+        {
+            "question": "Hva var Bahá'u'lláhs hovedbudskap?",
+            "options": [
+                "Krig mot vantro",
+                "Menneskehetens enhet og fred",
+                "At man skal bo i skogen"
+            ],
+            "answer": "Menneskehetens enhet og fred"
+        }
+    ],
+    "quote": {
+        "text": "Jorden er kun ett land, og menneskeheten dets innbyggere.",
+        "source": "Bahá'u'lláh",
+        "reference": "Tavler"
+    }
+}

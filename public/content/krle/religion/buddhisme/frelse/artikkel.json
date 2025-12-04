@@ -1,0 +1,91 @@
+{
+    "id": "frelse",
+    "title": "Nirvana: Utslukning",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "buddhisme",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "frelse",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Lidelse og begjær"
+        },
+        {
+            "type": "text",
+            "content": "Buddha lærte at livet er preget av lidelse (dukkha) fordi vi alltid ønsker oss noe mer (begjær). Vi blir gjenfødt gang på gang i Samsara."
+        },
+        {
+            "type": "header",
+            "text": "Nirvana"
+        },
+        {
+            "type": "text",
+            "content": "Målet er å slukke begjæret og dermed stoppe lidelsen. Denne tilstanden kalles Nirvana ('utslukning'). Da brytes sirkelen av gjenfødsler."
+        },
+        {
+            "type": "header",
+            "text": "Den åttedelte vei"
+        },
+        {
+            "type": "text",
+            "content": "Veien til Nirvana går gjennom Den åttedelte vei, som handler om rett innsikt, rett moral og rett meditasjon."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "nirvana",
+            "term": "Nirvana",
+            "definition": "Utslukning av begjær, hat og uvitenhet. Frigjøring fra gjenfødelse."
+        },
+        {
+            "id": "dukkha",
+            "term": "Dukkha",
+            "definition": "Lidelse eller utilfredshet. Alt er forgjengelig."
+        },
+        {
+            "id": "den-attedelte-vei",
+            "term": "Den åttedelte vei",
+            "definition": "Metoden for å oppnå Nirvana (symbolisert ved et hjul med åtte eiker)."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr ordet Nirvana?",
+            "options": [
+                "Himmelen",
+                "Utslukning",
+                "Evig liv"
+            ],
+            "answer": "Utslukning"
+        },
+        {
+            "question": "Hva er årsaken til lidelse ifølge Buddha?",
+            "options": [
+                "Guds straff",
+                "Begjær (tørst etter livet)",
+                "Uflaks"
+            ],
+            "answer": "Begjær (tørst etter livet)"
+        },
+        {
+            "question": "Hva må man følge for å nå Nirvana?",
+            "options": [
+                "Den åttedelte vei",
+                "De ti bud",
+                "Sharia"
+            ],
+            "answer": "Den åttedelte vei"
+        }
+    ],
+    "quote": {
+        "text": "Det finnes en ufødt, en ikke-blitt, en ikke-skapt, en ikke-formet. Hvis det ikke var slik, ville det ikke være noen utvei fra det fødte, det blitte, det skapte, det formede.",
+        "source": "Udana",
+        "reference": "8.3"
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "id": "hellige-tekster",
+    "title": "Ny verden-oversettelsen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jehovas-vitner",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "hellige-tekster",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "En nøyaktig oversettelse"
+        },
+        {
+            "type": "text",
+            "content": "Jehovas vitner bruker sin egen bibeloversettelse, kalt 'Ny verden-oversettelsen av De hellige skrifter'. De mener den gjengir grunntekstene mer nøyaktig enn andre oversettelser."
+        },
+        {
+            "type": "header",
+            "text": "Guds navn"
+        },
+        {
+            "type": "text",
+            "content": "En viktig forskjell er at de har gjeninnført Guds navn, Jehova, over 7000 steder i teksten, der andre bibler ofte skriver 'Herren'."
+        },
+        {
+            "type": "header",
+            "text": "Bibelstudium"
+        },
+        {
+            "type": "text",
+            "content": "Vitnene legger stor vekt på å studere Bibelen grundig, ofte ved hjelp av bladet Vakttårnet og andre publikasjoner."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "ny-verden-oversettelsen",
+            "term": "Ny verden-oversettelsen",
+            "definition": "Jehovas vitners egen bibeloversettelse."
+        },
+        {
+            "id": "vakttarnet",
+            "term": "Vakttårnet",
+            "definition": "Et blad som brukes til å studere Bibelen."
+        },
+        {
+            "id": "jehova",
+            "term": "Jehova",
+            "definition": "Guds personlige navn."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva heter Jehovas vitners bibel?",
+            "options": [
+                "King James",
+                "Ny verden-oversettelsen",
+                "Den norske bibel"
+            ],
+            "answer": "Ny verden-oversettelsen"
+        },
+        {
+            "question": "Hvilket navn har de satt inn i Bibelen?",
+            "options": [
+                "Jesus",
+                "Jehova",
+                "Allah"
+            ],
+            "answer": "Jehova"
+        },
+        {
+            "question": "Hva bruker de for å studere Bibelen?",
+            "options": [
+                "Avisen",
+                "Bladet Vakttårnet",
+                "Tegneserier"
+            ],
+            "answer": "Bladet Vakttårnet"
+        }
+    ],
+    "quote": {
+        "text": "Hele Skriften er inspirert av Gud og nyttig til undervisning.",
+        "source": "Ny verden-oversettelsen",
+        "reference": "2. Timoteus 3:16"
+    }
+}

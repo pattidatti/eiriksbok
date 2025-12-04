@@ -1,0 +1,91 @@
+{
+    "id": "grunnleggere",
+    "title": "Abraham og Moses",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jodedom",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "grunnleggere",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Abraham: Stamfaren"
+        },
+        {
+            "type": "text",
+            "content": "Abraham regnes som stamfaren til jødedommen (og kristendom og islam). Han inngikk en pakt med Gud: Gud lovet ham land og mange etterkommere, mot at Abraham trodde på den ene Gud."
+        },
+        {
+            "type": "header",
+            "text": "Moses: Lovgiveren"
+        },
+        {
+            "type": "text",
+            "content": "Moses er den viktigste profeten. Han ledet folket ut av slaveriet i Egypt og mottok Toraen (inkludert De ti bud) fra Gud på Sinaifjellet."
+        },
+        {
+            "type": "header",
+            "text": "Pakten"
+        },
+        {
+            "type": "text",
+            "content": "Forholdet mellom Gud og folket er basert på en pakt (avtale). Jødene er Guds utvalgte folk med et spesielt ansvar for å følge Guds lov."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "pakt",
+            "term": "Pakt",
+            "definition": "En høytidelig avtale mellom Gud og menneskene."
+        },
+        {
+            "id": "abraham",
+            "term": "Abraham",
+            "definition": "Stamfaren til jødene. Den første som trodde på én Gud."
+        },
+        {
+            "id": "moses",
+            "term": "Moses",
+            "definition": "Den største profeten. Han mottok Toraen og ledet folket ut av Egypt."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvem regnes som stamfaren til jødene?",
+            "options": [
+                "Moses",
+                "Abraham",
+                "David"
+            ],
+            "answer": "Abraham"
+        },
+        {
+            "question": "Hva mottok Moses på Sinaifjellet?",
+            "options": [
+                "Gull",
+                "Toraen og De ti bud",
+                "Et kart"
+            ],
+            "answer": "Toraen og De ti bud"
+        },
+        {
+            "question": "Hva er en pakt?",
+            "options": [
+                "En krig",
+                "En avtale med Gud",
+                "En fest"
+            ],
+            "answer": "En avtale med Gud"
+        }
+    ],
+    "quote": {
+        "text": "Jeg vil gjøre deg til et stort folk. Jeg vil velsigne deg og gjøre navnet ditt stort.",
+        "source": "Toraen",
+        "reference": "1. Mosebok 12:2"
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "id": "frelse",
+    "title": "Evig progresjon",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "mormonisme",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "frelse",
+        "doctrinal"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Bli lik Gud"
+        },
+        {
+            "type": "text",
+            "content": "Målet for mormonere er ikke bare å komme til himmelen, men å fortsette å utvikle seg til man blir lik Gud. Dette kalles evig progresjon eller opphøyelse."
+        },
+        {
+            "type": "header",
+            "text": "Tre herlighetsriker"
+        },
+        {
+            "type": "text",
+            "content": "Etter dommedag havner nesten alle mennesker i et av tre riker: Det celestiale (høyeste), det terrestriale eller det telestiale riket. Bare de aller ondeste går fortapt."
+        },
+        {
+            "type": "header",
+            "text": "Evige familier"
+        },
+        {
+            "type": "text",
+            "content": "Familier kan være sammen for evig hvis de blir beseglet (viet) i tempelet. Dette er en viktig del av frelsen."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "opphoyelse",
+            "term": "Opphøyelse",
+            "definition": "Å bli lik Gud og leve i Guds nærvær for alltid."
+        },
+        {
+            "id": "besegling",
+            "term": "Besegling",
+            "definition": "Et ritual i tempelet som binder familier sammen for evigheten."
+        },
+        {
+            "id": "frelsesplanen",
+            "term": "Frelsesplanen",
+            "definition": "Guds plan for menneskenes lykke og utvikling."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er det høyeste målet i mormonismen?",
+            "options": [
+                "Å bli en engel",
+                "Å bli lik Gud (opphøyelse)",
+                "Å sove"
+            ],
+            "answer": "Å bli lik Gud (opphøyelse)"
+        },
+        {
+            "question": "Hva skjer med familier i tempelet?",
+            "options": [
+                "De spiser middag",
+                "De blir beseglet for evigheten",
+                "De synger"
+            ],
+            "answer": "De blir beseglet for evigheten"
+        },
+        {
+            "question": "Hvor mange herlighetsriker finnes det?",
+            "options": [
+                "1",
+                "2",
+                "3"
+            ],
+            "answer": "3"
+        }
+    ],
+    "quote": {
+        "text": "Slik mennesket er, har Gud engang vært. Slik Gud er, kan mennesket bli.",
+        "source": "Lorenzo Snow",
+        "reference": "Tidligere kirkepresident"
+    }
+}

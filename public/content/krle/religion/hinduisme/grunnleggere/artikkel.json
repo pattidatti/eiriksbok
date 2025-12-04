@@ -1,0 +1,91 @@
+{
+    "id": "grunnleggere",
+    "title": "Ingen enkelt grunnlegger",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "hinduisme",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "grunnleggere",
+        "narrative"
+    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2025-12-04T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "En eldgammel tradisjon"
+        },
+        {
+            "type": "text",
+            "content": "Hinduismen har ingen enkelt grunnlegger, slik som Jesus i kristendommen eller Buddha i buddhismen. Den har utviklet seg over tusenvis av år i India."
+        },
+        {
+            "type": "header",
+            "text": "Sanatana Dharma"
+        },
+        {
+            "type": "text",
+            "content": "Hinduer kaller ofte religionen sin for Sanatana Dharma, som betyr 'den evige orden' eller 'den evige lære'. De mener sannhetene i religionen alltid har eksistert."
+        },
+        {
+            "type": "header",
+            "text": "Guruer"
+        },
+        {
+            "type": "text",
+            "content": "Selv om det ikke er én grunnlegger, har mange hellige lærere (guruer) og vismenn (rishier) vært viktige for å forme og videreføre religionen."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "sanatana-dharma",
+            "term": "Sanatana Dharma",
+            "definition": "Den evige lære. Hinduers eget navn på religionen."
+        },
+        {
+            "id": "guru",
+            "term": "Guru",
+            "definition": "En åndelig lærer som veileder elever."
+        },
+        {
+            "id": "rishi",
+            "term": "Rishi",
+            "definition": "En vismann eller seer som mottok de hellige tekstene."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvem grunnla hinduismen?",
+            "options": [
+                "Buddha",
+                "Ingen enkelt person",
+                "Gandhi"
+            ],
+            "answer": "Ingen enkelt person"
+        },
+        {
+            "question": "Hva betyr Sanatana Dharma?",
+            "options": [
+                "Den evige lære",
+                "De mange guder",
+                "Det hellige land"
+            ],
+            "answer": "Den evige lære"
+        },
+        {
+            "question": "Hva er en guru?",
+            "options": [
+                "En gud",
+                "En åndelig lærer",
+                "En type mat"
+            ],
+            "answer": "En åndelig lærer"
+        }
+    ],
+    "quote": {
+        "text": "Led meg fra det uvirkelige til det virkelige, fra mørke til lys, fra død til udødelighet.",
+        "source": "Upanishadene",
+        "reference": "Brihadaranyaka Upanishad 1.3.28"
+    }
+}
