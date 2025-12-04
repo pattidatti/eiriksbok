@@ -23,10 +23,11 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 - [ ] Den kalde krigen emne. En hovedartikkel, og flere subartikler om spesifikke hendelser. 
 - [ ] Artikler om mange av sentrale hendelsene i midtøsten. 
 ### KRLE
-- [ ] Opprette budhisme, jødedom, hinduisme, bahai, Mormonism, jehovas. 
+- [ ] Opprette emner for budhisme, jødedom, hinduisme, bahai, Mormonism, jehovas i verdensreligioner. 
 - [ ] Finne en logisk måte å skille retninger innen kristendom og islam. 
 - [ ] Etikk og filosofi-emne. 
 - [ ] Artikkel om sekularisering
+- [ ] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsequentialistisk, etc. 
 
 ### Musikk
 - [ ] Implementere https://sites.google.com/bergensskolen.com/musikk/start og lage en logisk struktur på emnet. 

@@ -1,0 +1,11 @@
+{
+    "id": "intro",
+    "title": "Introduksjon til Jødedom",
+    "ingress": "Den eldste av de tre store monoteistiske verdensreligionene.",
+    "body": [
+        {
+            "type": "text",
+            "content": "Jødedommen er det jødiske folkets religion og kultur. Den har sine røtter i Midtøsten for over 3000 år siden."
+        }
+    ]
+}

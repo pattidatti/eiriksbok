@@ -1,0 +1,11 @@
+{
+    "id": "intro",
+    "title": "Introduksjon til Bahá'í",
+    "ingress": "En ung verdensreligion som vektlegger menneskehetens enhet.",
+    "body": [
+        {
+            "type": "text",
+            "content": "Bahá'í-troen ble grunnlagt i Iran på midten av 1800-tallet av Bahá'u'lláh. Sentralt i troen er tanken om at alle mennesker er likeverdige og at alle religioner har samme guddommelige opphav."
+        }
+    ]
+}

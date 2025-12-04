@@ -1,0 +1,11 @@
+{
+    "id": "intro",
+    "title": "Introduksjon til Hinduisme",
+    "ingress": "En mangfoldig religion med røtter i India.",
+    "body": [
+        {
+            "type": "text",
+            "content": "Hinduismen regnes ofte som verdens eldste nålevende religion. Den har ingen enkelt grunnlegger, men er et resultat av en lang historisk utvikling i India."
+        }
+    ]
+}
