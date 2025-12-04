@@ -17,7 +17,6 @@ export const TopicComparisonPage: React.FC = () => {
             setLoading(true);
 
             let allArticles: any[] = [];
-            let error: any = null;
 
             // Attempt 1: Try Tina Client
             try {
@@ -25,23 +24,14 @@ export const TopicComparisonPage: React.FC = () => {
                 allArticles = res.data.articleConnection.edges?.map(e => e?.node) || [];
             } catch (e: any) {
                 console.warn("Tina client failed, falling back to manual fetch", e);
-                error = e;
             }
 
-            // Attempt 2: Fallback to manual fetch if Tina failed or returned nothing (which might be due to connection error masked as empty)
+            // Attempt 2: Fallback to manual fetch if Tina failed or returned nothing
             if (allArticles.length === 0) {
                 try {
-                    // We need to discover articles. Since we don't have a full index, we'll use the manifest 
-                    // to find where articles *might* be, and also check common locations.
-                    // Ideally, we'd have a generated index.json, but for now we'll iterate known religions.
-
                     const religions = ['kristendom', 'islam', 'jodedom', 'buddhisme', 'hinduisme', 'sikhisme', 'bahai', 'jehovas-vitner', 'mormonisme'];
                     const potentialArticles: any[] = [];
-
-                    // Fetch manifest to get structure if possible, but for now let's brute force common paths for this tag
-                    // The tag "sentrale_trekk" usually corresponds to "sentrale-trekk/artikkel.json"
-
-                    const tagSlug = tag.replace(/_/g, '-'); // sentrale_trekk -> sentrale-trekk
+                    const tagSlug = tag.replace(/_/g, '-');
 
                     await Promise.all(religions.map(async (religion) => {
                         try {
@@ -50,17 +40,15 @@ export const TopicComparisonPage: React.FC = () => {
                             const res = await fetch(`${basePath}${path}`);
                             if (res.ok) {
                                 const data = await res.json();
-                                // Add _sys structure to match Tina shape
                                 data._sys = { breadcrumbs: ['krle', 'religion', religion, tagSlug, 'artikkel'] };
                                 potentialArticles.push(data);
                             }
                         } catch (err) {
-                            // Ignore missing files
+                            // Ignore
                         }
                     }));
 
                     allArticles = potentialArticles;
-
                 } catch (fallbackError: any) {
                     console.error("Fallback fetch failed", fallbackError);
                 }
@@ -111,9 +99,9 @@ export const TopicComparisonPage: React.FC = () => {
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {articles.map((article) => (
+                {articles.map((article, index) => (
                     <motion.div
-                        key={article.id}
+                        key={`${article.id}-${article.religion || index}`}
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         className="bg-bg-card border border-border-main rounded-2xl overflow-hidden flex flex-col shadow-sm"
