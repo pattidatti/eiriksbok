@@ -45,5 +45,56 @@
             "type": "text",
             "content": "Døden er overgangen til et nytt liv. Begravelsesritualene er viktige for å hjelpe den døde til en god gjenfødsel. Munker resiterer tekster, og kremasjon er vanlig."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "munk",
+            "term": "Munk",
+            "definition": "En mann som har viet livet sitt til religionen og lever etter strenge regler i et kloster."
+        },
+        {
+            "id": "gjenfodsel",
+            "term": "Gjenfødsel",
+            "definition": "Troen på at bevisstheten går videre til et nytt liv etter døden."
+        },
+        {
+            "id": "karma",
+            "term": "Karma",
+            "definition": "Handlinger og deres konsekvenser. God karma gir bedre gjenfødsel."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er vanlig for unge gutter i land som Thailand?",
+            "options": [
+                "Å leve som munker en periode",
+                "Å gifte seg tidlig",
+                "Å reise jorden rundt"
+            ],
+            "answer": "Å leve som munker en periode"
+        },
+        {
+            "question": "Er ekteskap et religiøst sakrament i buddhismen?",
+            "options": [
+                "Ja, alltid",
+                "Nei, det er en borgerlig sak",
+                "Bare for munker"
+            ],
+            "answer": "Nei, det er en borgerlig sak"
+        },
+        {
+            "question": "Hva skjer ofte med den døde i buddhismen?",
+            "options": [
+                "Begraves i havet",
+                "Kremeres",
+                "Fryses ned"
+            ],
+            "answer": "Kremeres"
+        }
+    ],
+    "quote": {
+        "text": "Alt som er skapt, er foranderlig. Arbeid flittig for deres egen frelse.",
+        "source": "Buddhas siste ord",
+        "reference": "Mahaparinibbana Sutta"
+    }
 }

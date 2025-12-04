@@ -45,5 +45,56 @@
             "type": "text",
             "content": "Begravelsen er en enkel minnestund i Rikets sal med fokus på håpet om oppstandelse til liv på en paradisisk jord."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "voksendap",
+            "term": "Voksendåp",
+            "definition": "Dåp ved full neddykking etter at man selv har valgt å tjene Jehova."
+        },
+        {
+            "id": "innvielse",
+            "term": "Innvielse",
+            "definition": "Et løfte man gir til Jehova i bønn om å tjene ham for alltid, før man blir døpt."
+        },
+        {
+            "id": "oppstandelse",
+            "term": "Oppstandelse",
+            "definition": "Håpet om at døde skal få livet tilbake på en paradisisk jord."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Praktiserer Jehovas vitner barnedåp?",
+            "options": [
+                "Ja",
+                "Nei",
+                "Noen ganger"
+            ],
+            "answer": "Nei"
+        },
+        {
+            "question": "Hvordan foregår dåpen?",
+            "options": [
+                "Litt vann på hodet",
+                "Full neddykking i vann",
+                "Med olje"
+            ],
+            "answer": "Full neddykking i vann"
+        },
+        {
+            "question": "Hva er håpet ved døden?",
+            "options": [
+                "Å bli en engel",
+                "Oppstandelse på jorden",
+                "Å bli gjenfødt som dyr"
+            ],
+            "answer": "Oppstandelse på jorden"
+        }
+    ],
+    "quote": {
+        "text": "Gå derfor og gjør mennesker fra alle nasjoner til disipler, idet dere døper dem.",
+        "source": "Bibelen (NWT)",
+        "reference": "Matteus 28:19"
+    }
 }

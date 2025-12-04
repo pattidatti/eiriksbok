@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Troen på én Gud er absolutt. Gud er skaperen, lovgiveren og dommeren, men også barmhjertig og rettferdig."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "mitzvot",
+            "term": "Mitzvot",
+            "definition": "De 613 budene og reglene som jødene skal leve etter."
+        },
+        {
+            "id": "tikkun-olam",
+            "term": "Tikkun Olam",
+            "definition": "'Å reparere verden'. Menneskets oppgave å gjøre verden til et bedre sted."
+        },
+        {
+            "id": "messias",
+            "term": "Messias",
+            "definition": "En fremtidig konge av Davids ætt som skal skape fred på jorden."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er Tikkun Olam?",
+            "options": [
+                "En jødisk matrett",
+                "Å reparere verden",
+                "En bønn"
+            ],
+            "answer": "Å reparere verden"
+        },
+        {
+            "question": "Hvem er Messias i jødedommen?",
+            "options": [
+                "Jesus",
+                "En fremtidig konge",
+                "Moses"
+            ],
+            "answer": "En fremtidig konge"
+        },
+        {
+            "question": "Hva er Mitzvot?",
+            "options": [
+                "Guds bud",
+                "En høytid",
+                "En by i Israel"
+            ],
+            "answer": "Guds bud"
+        }
+    ],
+    "quote": {
+        "text": "Du skal elske din neste som deg selv.",
+        "source": "Toraen",
+        "reference": "3. Mosebok 19:18"
+    }
 }

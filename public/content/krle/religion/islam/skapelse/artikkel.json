@@ -27,6 +27,57 @@
             "alt": "Universet"
         }
     ],
+    "concepts": [
+        {
+            "id": "allah",
+            "term": "Allah",
+            "definition": "Det arabiske ordet for Gud. Skaperen av alt."
+        },
+        {
+            "id": "adam",
+            "term": "Adam",
+            "definition": "Det første mennesket, skapt av leire. Også den første profeten i islam."
+        },
+        {
+            "id": "khalifa",
+            "term": "Khalifa",
+            "definition": "Stedsfortreder eller forvalter. Menneskets rolle på jorden."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva ble det første mennesket skapt av ifølge Koranen?",
+            "options": [
+                "Lys",
+                "Ild",
+                "Leire"
+            ],
+            "answer": "Leire"
+        },
+        {
+            "question": "Hvilte Allah etter skapelsen?",
+            "options": [
+                "Ja, på den syvende dagen",
+                "Nei, Allah blir aldri trett",
+                "Koranen sier ingenting om det"
+            ],
+            "answer": "Nei, Allah blir aldri trett"
+        },
+        {
+            "question": "Hva er menneskets oppgave på jorden?",
+            "options": [
+                "Å være Guds forvalter",
+                "Å gjøre som man vil",
+                "Å herske over andre"
+            ],
+            "answer": "Å være Guds forvalter"
+        }
+    ],
+    "quote": {
+        "text": "Han er himlenes og jordens Skaper. Når Han bestemmer en sak, sier Han bare til den: 'Bli!', og den blir.",
+        "source": "Koranen",
+        "reference": "Sura 2:117"
+    }
     "createdDate": "2023-01-01T12:00:00Z",
     "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

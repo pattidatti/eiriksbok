@@ -27,6 +27,57 @@
             "alt": "Jorden"
         }
     ],
+    "concepts": [
+        {
+            "id": "skaperverket",
+            "term": "Skaperverket",
+            "definition": "Alt som Gud har skapt; universet, jorden, planter, dyr og mennesker."
+        },
+        {
+            "id": "forvalteransvar",
+            "term": "Forvalteransvar",
+            "definition": "Menneskets oppgave å ta vare på jorden og alt som lever der."
+        },
+        {
+            "id": "guds-bilde",
+            "term": "Guds bilde",
+            "definition": "Tanken om at mennesket er skapt likt Gud, med evne til å tenke, elske og skape."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvor mange dager brukte Gud på å skape verden ifølge Bibelen?",
+            "options": [
+                "3 dager",
+                "6 dager",
+                "10 dager"
+            ],
+            "answer": "6 dager"
+        },
+        {
+            "question": "Hva gjorde Gud på den syvende dagen?",
+            "options": [
+                "Skapte mennesket",
+                "Hvilte",
+                "Skapte dyrene"
+            ],
+            "answer": "Hvilte"
+        },
+        {
+            "question": "Hva er menneskets oppgave i skaperverket?",
+            "options": [
+                "Å herske over andre",
+                "Å forvalte og ta vare på det",
+                "Å ødelegge det"
+            ],
+            "answer": "Å forvalte og ta vare på det"
+        }
+    ],
+    "quote": {
+        "text": "I begynnelsen skapte Gud himmelen og jorden.",
+        "source": "Bibelen",
+        "reference": "1. Mosebok 1:1"
+    }
     "createdDate": "2023-01-01T12:00:00Z",
     "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

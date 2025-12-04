@@ -36,5 +36,56 @@
             "type": "text",
             "content": "De legger stor vekt på å følge Bibelen nøye og holder seg unna skikker de mener har hedensk opprinnelse (f.eks. jul og bursdager)."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "guds-rike",
+            "term": "Guds rike",
+            "definition": "En himmelsk regjering med Jesus som konge som skal styre over jorden."
+        },
+        {
+            "id": "harmageddon",
+            "term": "Harmageddon",
+            "definition": "Guds krig for å fjerne ondskapen på jorden."
+        },
+        {
+            "id": "paradis",
+            "term": "Paradis",
+            "definition": "Tilstanden jorden skal bli i etter Harmageddon, der mennesker skal leve evig i fred."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er Guds rike ifølge Jehovas vitner?",
+            "options": [
+                "En følelse i hjertet",
+                "En himmelsk regjering",
+                "Den norske kirke"
+            ],
+            "answer": "En himmelsk regjering"
+        },
+        {
+            "question": "Hva skal skje i Harmageddon?",
+            "options": [
+                "Jorden går under",
+                "Ondskapen fjernes",
+                "Alle dør"
+            ],
+            "answer": "Ondskapen fjernes"
+        },
+        {
+            "question": "Feirer Jehovas vitner jul?",
+            "options": [
+                "Ja, alltid",
+                "Nei, pga. hedensk opprinnelse",
+                "Bare gavene"
+            ],
+            "answer": "Nei, pga. hedensk opprinnelse"
+        }
+    ],
+    "quote": {
+        "text": "De rettferdige skal arve jorden, og de skal bo på den for evig.",
+        "source": "Bibelen (NWT)",
+        "reference": "Salme 37:29"
+    }
 }

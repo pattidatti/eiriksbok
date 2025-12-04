@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Gud forstås som én, men åpenbarer seg i tre personer: Faderen (skaperen), Sønnen (frelseren) og Den hellige ånd (livgiveren)."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "messias",
+            "term": "Messias",
+            "definition": "Betyr 'den salvede'. I kristendommen er Jesus Messias, Guds sønn og verdens frelser."
+        },
+        {
+            "id": "nade",
+            "term": "Nåde",
+            "definition": "Guds ufortjente kjærlighet og tilgivelse. Frelse gis ved nåde, ikke ved egne gjerninger."
+        },
+        {
+            "id": "treenigheten",
+            "term": "Treenigheten",
+            "definition": "Læren om at Gud er én, men tre personer: Faderen, Sønnen og Den hellige ånd."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvem er Jesus ifølge kristendommen?",
+            "options": [
+                "En profet",
+                "Guds sønn og frelser",
+                "En engel"
+            ],
+            "answer": "Guds sønn og frelser"
+        },
+        {
+            "question": "Hva betyr frelse i kristendommen?",
+            "options": [
+                "Å bli rik",
+                "Redning fra synd og død",
+                "Å leve evig på jorden"
+            ],
+            "answer": "Redning fra synd og død"
+        },
+        {
+            "question": "Hva består treenigheten av?",
+            "options": [
+                "Jesus, Maria og Josef",
+                "Faderen, Sønnen og Den hellige ånd",
+                "Abraham, Isak og Jakob"
+            ],
+            "answer": "Faderen, Sønnen og Den hellige ånd"
+        }
+    ],
+    "quote": {
+        "text": "For så høyt har Gud elsket verden at han ga sin Sønn, den enbårne, for at hver den som tror på ham, ikke skal gå fortapt, men ha evig liv.",
+        "source": "Bibelen",
+        "reference": "Johannes 3:16"
+    }
 }

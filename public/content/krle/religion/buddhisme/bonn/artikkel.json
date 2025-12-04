@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Mange buddhister resiterer mantraer (hellige lyder), som 'Om mani padme hum', for å fokusere sinnet og opparbeide god karma."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "meditasjon",
+            "term": "Meditasjon",
+            "definition": "Øvelser for å trene sinnet, oppnå ro og innsikt."
+        },
+        {
+            "id": "puja",
+            "term": "Puja",
+            "definition": "En seremoni for å vise respekt for Buddha og hans lære."
+        },
+        {
+            "id": "mantra",
+            "term": "Mantra",
+            "definition": "Hellige lyder eller setninger som gjentas for å fokusere sinnet."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvorfor mediterer buddhister?",
+            "options": [
+                "For å sove bedre",
+                "For å trene sinnet og få innsikt",
+                "For å bli sterke"
+            ],
+            "answer": "For å trene sinnet og få innsikt"
+        },
+        {
+            "question": "Hva er Puja i buddhismen?",
+            "options": [
+                "En fest",
+                "En tilbedelsesseremoni",
+                "En type mat"
+            ],
+            "answer": "En tilbedelsesseremoni"
+        },
+        {
+            "question": "Hva er et mantra?",
+            "options": [
+                "En hellig lyd",
+                "En prest",
+                "Et tempel"
+            ],
+            "answer": "En hellig lyd"
+        }
+    ],
+    "quote": {
+        "text": "Du må selv gjøre arbeidet. Buddhaene peker bare ut veien.",
+        "source": "Dhammapada",
+        "reference": "Vers 276"
+    }
 }

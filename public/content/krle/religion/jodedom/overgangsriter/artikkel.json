@@ -45,5 +45,56 @@
             "type": "text",
             "content": "Begravelsen skjer raskt. Familien sitter 'Shivah' (sju dager) i sorg i hjemmet, hvor de får besøk og trøst."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "brit-mila",
+            "term": "Brit Mila",
+            "definition": "Omskjæring av gutter på den åttende dagen. Et tegn på pakten med Gud."
+        },
+        {
+            "id": "bar-mitzvah",
+            "term": "Bar Mitzvah",
+            "definition": "'Budets sønn'. Feiringen når en gutt blir religiøst myndig som 13-åring."
+        },
+        {
+            "id": "chuppah",
+            "term": "Chuppah",
+            "definition": "Baldakinen som brudeparet står under under vielsen. Symboliserer hjemmet."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Når blir en jødisk gutt omskåret?",
+            "options": [
+                "Ved fødselen",
+                "På den åttende dagen",
+                "Når han er 13 år"
+            ],
+            "answer": "På den åttende dagen"
+        },
+        {
+            "question": "Hva betyr Bar Mitzvah?",
+            "options": [
+                "Voksen mann",
+                "Budets sønn",
+                "Guds tjener"
+            ],
+            "answer": "Budets sønn"
+        },
+        {
+            "question": "Hvor lenge varer sørgeperioden 'Shivah'?",
+            "options": [
+                "3 dager",
+                "7 dager",
+                "30 dager"
+            ],
+            "answer": "7 dager"
+        }
+    ],
+    "quote": {
+        "text": "Lær barnet den veien det skal gå, så forlater det den ikke når det blir gammelt.",
+        "source": "Tanakh",
+        "reference": "Ordspråkene 22:6"
+    }
 }

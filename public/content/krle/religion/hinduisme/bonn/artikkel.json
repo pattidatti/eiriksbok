@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Helliglyden 'Om' er det viktigste mantraet og brukes i bønn og meditasjon for å komme i kontakt med det guddommelige."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "puja",
+            "term": "Puja",
+            "definition": "Et ritual der man tilber gudene med ofringer av lys, røkelse, blomster og mat."
+        },
+        {
+            "id": "murti",
+            "term": "Murti",
+            "definition": "En innviet gudestatue som guden er til stede i."
+        },
+        {
+            "id": "darshan",
+            "term": "Darshan",
+            "definition": "Å se guden og bli sett av guden. Målet med tempelbesøk."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er Puja?",
+            "options": [
+                "En type yoga",
+                "Et tilbedelsesritual",
+                "En hellig bok"
+            ],
+            "answer": "Et tilbedelsesritual"
+        },
+        {
+            "question": "Hva er en Murti?",
+            "options": [
+                "En prest",
+                "En gudestatue",
+                "Et tempel"
+            ],
+            "answer": "En gudestatue"
+        },
+        {
+            "question": "Hva er det viktigste mantraet i hinduismen?",
+            "options": [
+                "Amen",
+                "Om",
+                "Halleluja"
+            ],
+            "answer": "Om"
+        }
+    ],
+    "quote": {
+        "text": "Den som ofrer et blad, en blomst, en frukt eller vann til meg med kjærlighet, den gaven tar jeg imot.",
+        "source": "Bhagavadgita",
+        "reference": "9:26"
+    }
 }

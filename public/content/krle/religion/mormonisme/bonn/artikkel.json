@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Det er vanlig å be en bordbønn før hvert måltid for å takke Gud for maten."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "familiebonn",
+            "term": "Familiebønn",
+            "definition": "Daglig bønn der hele familien samles for å be sammen."
+        },
+        {
+            "id": "bordbonn",
+            "term": "Bordbønn",
+            "definition": "Bønn før hvert måltid for å takke Gud for maten."
+        },
+        {
+            "id": "jesu-navn",
+            "term": "Jesu navn",
+            "definition": "Alle bønner avsluttes 'i Jesu Kristi navn'."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvem ber man til i mormonismen?",
+            "options": [
+                "Joseph Smith",
+                "Vår himmelske Fader",
+                "Engelen Moroni"
+            ],
+            "answer": "Vår himmelske Fader"
+        },
+        {
+            "question": "Hva er en viktig tradisjon i mormonske familier?",
+            "options": [
+                "Å se på TV",
+                "Daglig familiebønn",
+                "Å spise pizza"
+            ],
+            "answer": "Daglig familiebønn"
+        },
+        {
+            "question": "Hvordan avsluttes en bønn?",
+            "options": [
+                "Amen",
+                "I Jesu Kristi navn, amen",
+                "Takk for i dag"
+            ],
+            "answer": "I Jesu Kristi navn, amen"
+        }
+    ],
+    "quote": {
+        "text": "Rådfør deg med Herren i alle dine gjerninger, og han skal lede deg til det gode.",
+        "source": "Mormons bok",
+        "reference": "Alma 37:37"
+    }
 }

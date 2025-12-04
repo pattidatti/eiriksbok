@@ -53,5 +53,56 @@
             "type": "text",
             "content": "Liket brennes på et bål (Antyesti), helst ved bredden av Ganges. Asken spres i elven. Dette hjelper sjelen videre til neste liv eller til frigjøring (Moksha)."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "samskaras",
+            "term": "Samskaras",
+            "definition": "Overgangsriter som skal rense og foredle mennesket gjennom livet."
+        },
+        {
+            "id": "antyesti",
+            "term": "Antyesti",
+            "definition": "Det siste offeret. Kremasjon av den døde."
+        },
+        {
+            "id": "moksha",
+            "term": "Moksha",
+            "definition": "Frigjøring fra gjenfødsel. Målet i hinduismen."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva skjer med den døde i hinduismen?",
+            "options": [
+                "Begraves i jord",
+                "Kremeres (brennes)",
+                "Legges i en hule"
+            ],
+            "answer": "Kremeres (brennes)"
+        },
+        {
+            "question": "Hva er Samskaras?",
+            "options": [
+                "Hellige tekster",
+                "Overgangsriter",
+                "Guder"
+            ],
+            "answer": "Overgangsriter"
+        },
+        {
+            "question": "Hva gjør brudeparet under bryllupet?",
+            "options": [
+                "Går rundt en hellig ild",
+                "Svømmer i Ganges",
+                "Klipper håret"
+            ],
+            "answer": "Går rundt en hellig ild"
+        }
+    ],
+    "quote": {
+        "text": "Som en mann kaster gamle klær og tar på seg nye, slik kaster sjelen de gamle legemene og går inn i nye.",
+        "source": "Bhagavadgita",
+        "reference": "2:22"
+    }
 }

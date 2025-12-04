@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Målet er å skape fred og harmoni på jorden gjennom å avskaffe fordommer, fremme likestilling og utdanning, og forene vitenskap og religion."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "enhet",
+            "term": "Enhet",
+            "definition": "Tanken om at Gud, religionene og menneskeheten er én."
+        },
+        {
+            "id": "progressiv-apenbaring",
+            "term": "Progressiv åpenbaring",
+            "definition": "Gud sender nye budbringere til hver tidsalder for å veilede menneskene videre."
+        },
+        {
+            "id": "bahaullah",
+            "term": "Bahá'u'lláh",
+            "definition": "Grunnleggeren av bahá'í-troen. Regnes som Guds budbringer for vår tid."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er kjernen i bahá'í-troen?",
+            "options": [
+                "Enhet",
+                "Krig",
+                "Rikdom"
+            ],
+            "answer": "Enhet"
+        },
+        {
+            "question": "Hvem er Bahá'u'lláh?",
+            "options": [
+                "En konge",
+                "Guds budbringer for vår tid",
+                "En engel"
+            ],
+            "answer": "Guds budbringer for vår tid"
+        },
+        {
+            "question": "Hva er målet for verden ifølge bahá'í?",
+            "options": [
+                "At alle blir like",
+                "Fred og harmoni",
+                "At alle bor i Israel"
+            ],
+            "answer": "Fred og harmoni"
+        }
+    ],
+    "quote": {
+        "text": "Jorden er kun ett land, og menneskeheten dets innbyggere.",
+        "source": "Gleanings",
+        "reference": "Bahá'u'lláh"
+    }
 }

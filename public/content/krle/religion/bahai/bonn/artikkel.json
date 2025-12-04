@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Under den obligatoriske bønnen vender man seg mot Qiblih, som er Bahá'u'lláhs gravsted i nærheten av Akko i Israel."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "obligatorisk-bonn",
+            "term": "Obligatorisk bønn",
+            "definition": "Bønn som må sies hver dag. Bahá'íer kan velge mellom tre ulike."
+        },
+        {
+            "id": "qiblih",
+            "term": "Qiblih",
+            "definition": "Bønneretningen. Bahá'íer vender seg mot Bahá'u'lláhs gravsted i Israel."
+        },
+        {
+            "id": "andakt",
+            "term": "Andakt",
+            "definition": "Enkle samlinger der man leser bønner og hellige tekster sammen."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvor mange obligatoriske bønner kan en bahá'í velge mellom?",
+            "options": [
+                "En",
+                "Tre",
+                "Fem"
+            ],
+            "answer": "Tre"
+        },
+        {
+            "question": "Hvor vender bahá'íer seg når de ber den obligatoriske bønnen?",
+            "options": [
+                "Mot Mekka",
+                "Mot Qiblih (Bahá'u'lláhs grav)",
+                "Mot øst"
+            ],
+            "answer": "Mot Qiblih (Bahá'u'lláhs grav)"
+        },
+        {
+            "question": "Har bahá'í-troen prester?",
+            "options": [
+                "Ja, mange",
+                "Nei, ingen prester",
+                "Bare for spesielle anledninger"
+            ],
+            "answer": "Nei, ingen prester"
+        }
+    ],
+    "quote": {
+        "text": "Intet annet enn minne om Meg kan noensinne tilfredsstille dere, ei heller kan noe annet enn kjærlighet til Meg gi dere ro.",
+        "source": "Kitáb-i-Aqdas",
+        "reference": "Bahá'u'lláh"
+    }
 }

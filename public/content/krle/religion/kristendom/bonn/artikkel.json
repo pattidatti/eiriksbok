@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Bønn er en sentral del av gudstjenesten søndag formiddag. Her ber menigheten i fellesskap, ofte ledet av en prest eller liturg."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "bonn",
+            "term": "Bønn",
+            "definition": "En personlig samtale med Gud. Kan være takk, lovprisning, bekjennelse eller ønske om hjelp."
+        },
+        {
+            "id": "fader-var",
+            "term": "Fader vår",
+            "definition": "Den mest kjente bønnen i kristendommen, som Jesus lærte disiplene sine."
+        },
+        {
+            "id": "liturg",
+            "term": "Liturg",
+            "definition": "Den som leder gudstjenesten, ofte en prest."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er bønn i kristendommen?",
+            "options": [
+                "En samtale med Gud",
+                "En sang",
+                "En tale av presten"
+            ],
+            "answer": "En samtale med Gud"
+        },
+        {
+            "question": "Hvem lærte disiplene bønnen 'Fader vår'?",
+            "options": [
+                "Moses",
+                "Jesus",
+                "Paulus"
+            ],
+            "answer": "Jesus"
+        },
+        {
+            "question": "Når ber menigheten ofte i fellesskap?",
+            "options": [
+                "På julaften",
+                "I gudstjenesten",
+                "Hjemme før middag"
+            ],
+            "answer": "I gudstjenesten"
+        }
+    ],
+    "quote": {
+        "text": "Vår Far i himmelen! La navnet ditt helliges. La riket ditt komme. La viljen din skje på jorden slik som i himmelen.",
+        "source": "Bibelen",
+        "reference": "Matteus 6:9-10"
+    }
 }

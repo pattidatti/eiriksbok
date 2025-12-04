@@ -318,20 +318,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                     </div>
                 )}
 
-                {/* Comparison Shortcuts */}
-                {lesson.comparison_tags && lesson.comparison_tags.length > 0 && (
-                    <div className="flex flex-wrap justify-center gap-3 mb-8">
-                        {lesson.comparison_tags.map(tag => (
-                            <Link
-                                key={tag}
-                                to={`/krle/sammenlign/tema/${tag}`}
-                                className="inline-flex items-center px-3 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-medium hover:bg-indigo-100 transition-colors border border-indigo-200"
-                            >
-                                <span className="mr-1">⚡</span> Sammenlign {tag}
-                            </Link>
-                        ))}
-                    </div>
-                )}
+
 
                 <div className="w-full h-64 md:h-96 rounded-3xl overflow-hidden shadow-lg mb-12 border border-slate-200">
                     <ImageWithFallback

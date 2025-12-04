@@ -45,5 +45,56 @@
             "type": "text",
             "content": "Den døde vaskes, svøpes i hvite kleder og begraves så raskt som mulig, vendt mot Mekka. Det holdes en egen begravelsesbønn (Janazah)."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "aqiqah",
+            "term": "Aqiqah",
+            "definition": "Navnefest som holdes sju dager etter fødselen. Barnet får navn og håret klippes."
+        },
+        {
+            "id": "omskjaring",
+            "term": "Omskjæring",
+            "definition": "Et ritual for gutter som markerer tilhørighet til det muslimske fellesskapet."
+        },
+        {
+            "id": "nikah",
+            "term": "Nikah",
+            "definition": "Den islamske ekteskapskontrakten."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva skjer under Aqiqah?",
+            "options": [
+                "Barnet får navn",
+                "Barnet begynner på skolen",
+                "Barnet gifter seg"
+            ],
+            "answer": "Barnet får navn"
+        },
+        {
+            "question": "Hvem blir omskåret i islam?",
+            "options": [
+                "Både gutter og jenter",
+                "Bare gutter",
+                "Ingen"
+            ],
+            "answer": "Bare gutter"
+        },
+        {
+            "question": "Hva er Nikah?",
+            "options": [
+                "En type mat",
+                "Ekteskapskontrakten",
+                "En bønn"
+            ],
+            "answer": "Ekteskapskontrakten"
+        }
+    ],
+    "quote": {
+        "text": "Og blant Hans tegn er at Han skapte for dere ektefeller av deres egen art, for at dere skal finne ro hos dem.",
+        "source": "Koranen",
+        "reference": "Sura 30:21"
+    }
 }

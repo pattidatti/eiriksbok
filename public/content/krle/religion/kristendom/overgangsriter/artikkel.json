@@ -45,5 +45,56 @@
             "type": "text",
             "content": "Ved døden holdes en begravelse eller bisettelse. Man tar avskjed med den døde og minnes håpet om oppstandelse og evig liv."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "overgangsrite",
+            "term": "Overgangsrite",
+            "definition": "Et ritual som markerer overgangen fra en livsfase til en annen, for eksempel fra barn til voksen."
+        },
+        {
+            "id": "konfirmasjon",
+            "term": "Konfirmasjon",
+            "definition": "En bekreftelse på dåpen og en markering av overgangen fra barn til ungdom."
+        },
+        {
+            "id": "begravelse",
+            "term": "Begravelse",
+            "definition": "En seremoni for å ta avskjed med en død person og overgi dem til Gud."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva markerer konfirmasjonen?",
+            "options": [
+                "Overgangen til voksenlivet",
+                "At man er ferdig på skolen",
+                "At man kan kjøre bil"
+            ],
+            "answer": "Overgangen til voksenlivet"
+        },
+        {
+            "question": "Hva er et ekteskap i kirken?",
+            "options": [
+                "En kontrakt",
+                "En hellig handling",
+                "En fest"
+            ],
+            "answer": "En hellig handling"
+        },
+        {
+            "question": "Hva er håpet i en kristen begravelse?",
+            "options": [
+                "At man blir rik",
+                "Oppstandelse og evig liv",
+                "At man blir glemt"
+            ],
+            "answer": "Oppstandelse og evig liv"
+        }
+    ],
+    "quote": {
+        "text": "Jeg er oppstandelsen og livet. Den som tror på meg, skal leve om han enn dør.",
+        "source": "Bibelen",
+        "reference": "Johannes 11:25"
+    }
 }

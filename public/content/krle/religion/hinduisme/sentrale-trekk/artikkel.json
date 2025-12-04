@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Livet styres av Dharma (den evige verdensorden og pliktene) og Karma (loven om handling og konsekvens). Gode handlinger gir god karma og bedre gjenfødsel."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "karma",
+            "term": "Karma",
+            "definition": "Loven om handling og konsekvens. Gode handlinger gir god karma, dårlige handlinger gir dårlig karma."
+        },
+        {
+            "id": "dharma",
+            "term": "Dharma",
+            "definition": "Den evige verdensorden. Også pliktene hvert menneske har."
+        },
+        {
+            "id": "samsara",
+            "term": "Samsara",
+            "definition": "Rekken av gjenfødsler. Livet ses på som en sirkel av fødsel, død og ny fødsel."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er Karma?",
+            "options": [
+                "En indisk matrett",
+                "Loven om handling og konsekvens",
+                "En gud"
+            ],
+            "answer": "Loven om handling og konsekvens"
+        },
+        {
+            "question": "Hva er målet med livet i hinduismen?",
+            "options": [
+                "Å bli rik",
+                "Å få god karma og oppnå Moksha",
+                "Å leve evig på jorden"
+            ],
+            "answer": "Å få god karma og oppnå Moksha"
+        },
+        {
+            "question": "Hva er Dharma?",
+            "options": [
+                "Verdensorden og plikter",
+                "En elv",
+                "En høytid"
+            ],
+            "answer": "Verdensorden og plikter"
+        }
+    ],
+    "quote": {
+        "text": "Man blir hva man gjør. Gjør man det gode, blir man god. Gjør man det onde, blir man ond.",
+        "source": "Upanishadene",
+        "reference": "Brihadaranyaka Upanishad 4.4.5"
+    }
 }

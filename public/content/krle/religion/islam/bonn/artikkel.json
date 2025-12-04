@@ -27,6 +27,57 @@
             "alt": "Bønn"
         }
     ],
+    "concepts": [
+        {
+            "id": "salah",
+            "term": "Salah",
+            "definition": "Den rituelle bønnen som utføres fem ganger daglig. En av de fem søylene."
+        },
+        {
+            "id": "wudu",
+            "term": "Wudu",
+            "definition": "Den rituelle vasken som må utføres før bønnen for å være ren."
+        },
+        {
+            "id": "mekka",
+            "term": "Mekka",
+            "definition": "Islams helligste by. Muslimer vender seg mot Mekka når de ber."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvor mange ganger om dagen ber muslimer?",
+            "options": [
+                "Tre ganger",
+                "Fem ganger",
+                "Sju ganger"
+            ],
+            "answer": "Fem ganger"
+        },
+        {
+            "question": "Hva må man gjøre før man ber?",
+            "options": [
+                "Spise",
+                "Vaske seg (wudu)",
+                "Sove"
+            ],
+            "answer": "Vaske seg (wudu)"
+        },
+        {
+            "question": "Hvilken vei vender muslimer seg når de ber?",
+            "options": [
+                "Mot Jerusalem",
+                "Mot Mekka",
+                "Mot øst"
+            ],
+            "answer": "Mot Mekka"
+        }
+    ],
+    "quote": {
+        "text": "Sannelig, bønnen er pålagt de troende til bestemte tider.",
+        "source": "Koranen",
+        "reference": "Sura 4:103"
+    }
     "createdDate": "2023-01-01T12:00:00Z",
     "lastUpdated": "2025-12-03T17:25:16.499Z"
 }

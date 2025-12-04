@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Under morgenbønnen bruker menn bønnesjal (Tallit) og bønneremmer (Tefillin). Man dekker også hodet med en Kippah i respekt for Gud."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "tefillah",
+            "term": "Tefillah",
+            "definition": "Det hebraiske ordet for bønn."
+        },
+        {
+            "id": "shema",
+            "term": "Shema",
+            "definition": "Jødedommens trosbekjennelse: 'Hør Israel, Herren er vår Gud, Herren er én'."
+        },
+        {
+            "id": "kippah",
+            "term": "Kippah",
+            "definition": "En liten kalott som menn bruker for å dekke hodet i respekt for Gud."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvor mange ganger om dagen ber ortodokse jødiske menn?",
+            "options": [
+                "En gang",
+                "Tre ganger",
+                "Fem ganger"
+            ],
+            "answer": "Tre ganger"
+        },
+        {
+            "question": "Hva er Shema?",
+            "options": [
+                "En matrett",
+                "Trosbekjennelsen",
+                "En høytid"
+            ],
+            "answer": "Trosbekjennelsen"
+        },
+        {
+            "question": "Hvorfor bruker menn Kippah?",
+            "options": [
+                "For å holde varmen",
+                "I respekt for Gud",
+                "Fordi det er mote"
+            ],
+            "answer": "I respekt for Gud"
+        }
+    ],
+    "quote": {
+        "text": "Hør, Israel! Herren er vår Gud, Herren er én.",
+        "source": "Toraen",
+        "reference": "5. Mosebok 6:4"
+    }
 }

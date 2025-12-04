@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Alle møter i Rikets sal åpnes og avsluttes med bønn. Det er også vanlig å be før man studerer Bibelen eller spiser."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "jehova",
+            "term": "Jehova",
+            "definition": "Guds navn ifølge Jehovas vitner. Bønn rettes kun til ham."
+        },
+        {
+            "id": "rikets-sal",
+            "term": "Rikets sal",
+            "definition": "Jehovas vitners forsamlingslokale."
+        },
+        {
+            "id": "amen",
+            "term": "Amen",
+            "definition": "Betyr 'la det skje'. Sies i slutten av en bønn for å vise enighet."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvem ber Jehovas vitner til?",
+            "options": [
+                "Jesus",
+                "Maria",
+                "Jehova"
+            ],
+            "answer": "Jehova"
+        },
+        {
+            "question": "Hvor holdes møtene til Jehovas vitner?",
+            "options": [
+                "I en kirke",
+                "I Rikets sal",
+                "I en moské"
+            ],
+            "answer": "I Rikets sal"
+        },
+        {
+            "question": "Hva bør en bønn komme fra?",
+            "options": [
+                "En bok",
+                "Hjertet",
+                "En prest"
+            ],
+            "answer": "Hjertet"
+        }
+    ],
+    "quote": {
+        "text": "Du som hører bønner, til deg skal alle slags mennesker komme.",
+        "source": "Bibelen (NWT)",
+        "reference": "Salme 65:2"
+    }
 }

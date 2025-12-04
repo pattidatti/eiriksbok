@@ -45,5 +45,56 @@
             "type": "text",
             "content": "Den døde vaskes og svøpes i bomull eller silke. Det leses en spesiell begravelsesbønn før kisten senkes i jorden. Kremasjon er ikke tillatt."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "andelig-modenhet",
+            "term": "Åndelig modenhet",
+            "definition": "Når man fyller 15 år og begynner å følge religiøse lover som faste og bønn."
+        },
+        {
+            "id": "samtykke",
+            "term": "Samtykke",
+            "definition": "I ekteskap må både paret og alle fire foreldre gi sitt samtykke."
+        },
+        {
+            "id": "begravelsesbonn",
+            "term": "Begravelsesbønn",
+            "definition": "Den eneste bønnen som bes i fellesskap (korsang er ikke tillatt)."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Når regnes man som åndelig moden i bahá'í-troen?",
+            "options": [
+                "Ved 12 år",
+                "Ved 15 år",
+                "Ved 18 år"
+            ],
+            "answer": "Ved 15 år"
+        },
+        {
+            "question": "Hvem må godkjenne et ekteskap?",
+            "options": [
+                "Bare paret selv",
+                "Paret og alle fire foreldre",
+                "Presten"
+            ],
+            "answer": "Paret og alle fire foreldre"
+        },
+        {
+            "question": "Er kremasjon tillatt i bahá'í-troen?",
+            "options": [
+                "Ja",
+                "Nei",
+                "Bare hvis man vil"
+            ],
+            "answer": "Nei"
+        }
+    ],
+    "quote": {
+        "text": "Dere er fruktene av ett tre og bladene på én gren.",
+        "source": "Gleanings",
+        "reference": "Bahá'u'lláh"
+    }
 }

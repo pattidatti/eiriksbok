@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Handlinger (karma) har konsekvenser og binder mennesket til hjulet av gjenfødsler (Samsara). Målet er å bryte ut av dette kretsløpet."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "nirvana",
+            "term": "Nirvana",
+            "definition": "Målet i buddhismen. En tilstand av total frihet fra lidelse og gjenfødsel."
+        },
+        {
+            "id": "den-attedelte-vei",
+            "term": "Den åttedelte vei",
+            "definition": "Veien til Nirvana. Inkluderer rett innsikt, rett tale, rett handling og rett meditasjon."
+        },
+        {
+            "id": "anatta",
+            "term": "Anatta",
+            "definition": "Ikke-jeg. Læren om at det ikke finnes noen fast, uforanderlig sjel."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er Nirvana?",
+            "options": [
+                "En himmel",
+                "Frihet fra lidelse og gjenfødsel",
+                "En gud"
+            ],
+            "answer": "Frihet fra lidelse og gjenfødsel"
+        },
+        {
+            "question": "Hva er den første av de fire edle sannheter?",
+            "options": [
+                "Alt er lidelse",
+                "Gud finnes",
+                "Livet er en fest"
+            ],
+            "answer": "Alt er lidelse"
+        },
+        {
+            "question": "Hva betyr Anatta?",
+            "options": [
+                "Evig sjel",
+                "Ikke-jeg",
+                "Gud"
+            ],
+            "answer": "Ikke-jeg"
+        }
+    ],
+    "quote": {
+        "text": "Lidelse finnes, men ingen som lider. Gjerninger finnes, men ingen som gjør dem.",
+        "source": "Visuddhimagga",
+        "reference": "Buddhaghosa"
+    }
 }

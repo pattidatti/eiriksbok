@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Mennesket er Guds åndebarn og har potensial til å bli som Gud gjennom evig utvikling."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "gjenopprettelsen",
+            "term": "Gjenopprettelsen",
+            "definition": "Troen på at den sanne kirken ble gjenopprettet gjennom Joseph Smith."
+        },
+        {
+            "id": "opphoyelse",
+            "term": "Opphøyelse",
+            "definition": "Målet om å bli lik Gud og leve evig med familien i det høyeste himmelriket."
+        },
+        {
+            "id": "evig-progresjon",
+            "term": "Evig progresjon",
+            "definition": "Tanken om at mennesket kan utvikle seg evig og bli som Gud."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvem gjenopprettet kirken ifølge mormonismen?",
+            "options": [
+                "Martin Luther",
+                "Joseph Smith",
+                "Paven"
+            ],
+            "answer": "Joseph Smith"
+        },
+        {
+            "question": "Hva er målet med livet?",
+            "options": [
+                "Å bli rik",
+                "Opphøyelse og evig liv med familien",
+                "Å bli berømt"
+            ],
+            "answer": "Opphøyelse og evig liv med familien"
+        },
+        {
+            "question": "Hva tror mormonere om mennesket?",
+            "options": [
+                "At vi er syndige av natur",
+                "At vi er Guds åndebarn med guddommelig potensial",
+                "At vi er tilfeldig utviklet"
+            ],
+            "answer": "At vi er Guds åndebarn med guddommelig potensial"
+        }
+    ],
+    "quote": {
+        "text": "Adam falt for at menneskene kunne bli til, og menneskene er til for at de kan ha glede.",
+        "source": "Mormons bok",
+        "reference": "2. Nephi 2:25"
+    }
 }

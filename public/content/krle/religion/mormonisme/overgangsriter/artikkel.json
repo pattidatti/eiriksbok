@@ -45,5 +45,56 @@
             "type": "text",
             "content": "Mange unge menn (og kvinner) reiser ut som misjonærer i 18-20 års alderen i to år. Dette er en viktig modningsprosess."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "dap",
+            "term": "Dåp",
+            "definition": "Skjer ved 8 års alder ved full neddykking. Man inngår en pakt med Gud."
+        },
+        {
+            "id": "tempelbesegling",
+            "term": "Tempelbesegling",
+            "definition": "Ekteskap inngått i tempelet som varer for 'tid og evighet'."
+        },
+        {
+            "id": "misjon",
+            "term": "Misjon",
+            "definition": "En periode på 18-24 måneder der unge voksne reiser ut for å forkynne evangeliet."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Når blir barn døpt i mormonismen?",
+            "options": [
+                "Som spedbarn",
+                "Når de er 8 år",
+                "Når de er 18 år"
+            ],
+            "answer": "Når de er 8 år"
+        },
+        {
+            "question": "Hva betyr det at et ekteskap er beseglet?",
+            "options": [
+                "At det er godkjent av staten",
+                "At det varer evig",
+                "At man får ring"
+            ],
+            "answer": "At det varer evig"
+        },
+        {
+            "question": "Hva gjør mange unge mormonere?",
+            "options": [
+                "Reiser på misjon",
+                "Går i kloster",
+                "Lever som eremitter"
+            ],
+            "answer": "Reiser på misjon"
+        }
+    ],
+    "quote": {
+        "text": "Og når dere mottar dette, vil jeg formane dere til å spørre Gud, den evige Fader, i Jesu Kristi navn om ikke disse ting er sanne.",
+        "source": "Mormons bok",
+        "reference": "Moroni 10:4"
+    }
 }

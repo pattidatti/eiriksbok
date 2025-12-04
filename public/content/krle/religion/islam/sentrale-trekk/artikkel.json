@@ -36,5 +36,56 @@
             "type": "text",
             "content": "Mennesket er Guds forvalter på jorden og har ansvar for sine handlinger. På Dommens dag vil alle bli dømt etter sine gjerninger, men Guds barmhjertighet er avgjørende."
         }
-    ]
+    ],
+    "concepts": [
+        {
+            "id": "tawhid",
+            "term": "Tawhid",
+            "definition": "Læren om Guds enhet. Det finnes ingen gud utenom Allah."
+        },
+        {
+            "id": "koranen",
+            "term": "Koranen",
+            "definition": "Islams hellige bok, som muslimer tror er Guds ord åpenbart for Muhammed."
+        },
+        {
+            "id": "dommens-dag",
+            "term": "Dommens dag",
+            "definition": "Dagen da alle mennesker skal dømmes etter sine gjerninger."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr ordet 'Islam'?",
+            "options": [
+                "Fred",
+                "Underkastelse",
+                "Kjærlighet"
+            ],
+            "answer": "Underkastelse"
+        },
+        {
+            "question": "Hvem er den siste profeten i islam?",
+            "options": [
+                "Jesus",
+                "Moses",
+                "Muhammed"
+            ],
+            "answer": "Muhammed"
+        },
+        {
+            "question": "Hva er målet for en muslim etter døden?",
+            "options": [
+                "Å bli gjenfødt",
+                "Å komme til Paradis (Jannah)",
+                "Å bli en stjerne"
+            ],
+            "answer": "Å komme til Paradis (Jannah)"
+        }
+    ],
+    "quote": {
+        "text": "Si: Han er Allah, den Ene. Allah, den Evige.",
+        "source": "Koranen",
+        "reference": "Sura 112:1-2"
+    }
 }
