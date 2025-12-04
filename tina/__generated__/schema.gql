@@ -185,6 +185,12 @@ type ManifestConnection implements Connection {
   edges: [ManifestConnectionEdges]
 }
 
+type ArticleQuote {
+  text: String
+  source: String
+  reference: String
+}
+
 type ArticleContentText {
   content: String
 }
@@ -231,12 +237,19 @@ type Article implements Node & Document {
   religion: String
   dimension: String
   comparison_tags: [String]
+  quote: ArticleQuote
   fact: String
   tags: [String]
   content: [ArticleContent]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input ArticleQuoteFilter {
+  text: StringFilter
+  source: StringFilter
+  reference: StringFilter
 }
 
 input ArticleContentTextFilter {
@@ -291,6 +304,7 @@ input ArticleFilter {
   religion: StringFilter
   dimension: StringFilter
   comparison_tags: StringFilter
+  quote: ArticleQuoteFilter
   fact: StringFilter
   tags: StringFilter
   content: ArticleContentFilter
@@ -416,6 +430,12 @@ input ManifestMutation {
   subjects: [ManifestSubjectsMutation]
 }
 
+input ArticleQuoteMutation {
+  text: String
+  source: String
+  reference: String
+}
+
 input ArticleContentTextMutation {
   content: String
 }
@@ -468,6 +488,7 @@ input ArticleMutation {
   religion: String
   dimension: String
   comparison_tags: [String]
+  quote: ArticleQuoteMutation
   fact: String
   tags: [String]
   content: [ArticleContentMutation]

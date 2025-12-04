@@ -16,7 +16,7 @@
                 {
                     "id": "grammatikk",
                     "title": "Grammatikk",
-                    "description": "Lær om språkets oppbygning.",
+                    "description": "L\u00e6r om spr\u00e5kets oppbygning.",
                     "image": "/Eiriksbok/images/topics/grammatikk.png",
                     "lessons": [
                         {
@@ -25,7 +25,7 @@
                             "description": "Hvordan analysere setninger.",
                             "image": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skjønnlitteratur",
+                                "skj\u00f8nnlitteratur",
                                 "fortelling"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
@@ -36,7 +36,7 @@
                 {
                     "id": "tekstsjangre",
                     "title": "Tekstsjangre",
-                    "description": "Lær om ulike typer tekster.",
+                    "description": "L\u00e6r om ulike typer tekster.",
                     "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
@@ -45,7 +45,7 @@
                             "description": "Korte fortellinger med en tydelig konflikt.",
                             "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skjønnlitteratur",
+                                "skj\u00f8nnlitteratur",
                                 "fortelling",
                                 "korthistorie"
                             ],
@@ -58,7 +58,7 @@
                             "description": "Folkediktning full av magi og overnaturlige vesener.",
                             "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skjønnlitteratur",
+                                "skj\u00f8nnlitteratur",
                                 "eventyr",
                                 "folkediktning"
                             ],
@@ -71,7 +71,7 @@
                             "description": "Lengre fortellinger som gir rom for fordypning.",
                             "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skjønnlitteratur",
+                                "skj\u00f8nnlitteratur",
                                 "fortelling",
                                 "bok"
                             ],
@@ -81,10 +81,10 @@
                         {
                             "id": "dikt",
                             "title": "Dikt (Lyrikk)",
-                            "description": "Tekster som uttrykker stemninger og følelser.",
+                            "description": "Tekster som uttrykker stemninger og f\u00f8lelser.",
                             "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skjønnlitteratur",
+                                "skj\u00f8nnlitteratur",
                                 "lyrikk",
                                 "poesi"
                             ],
@@ -135,17 +135,17 @@
                 {
                     "id": "retorikk",
                     "title": "Retorikk",
-                    "description": "Læren om talekunst og overbevisning.",
+                    "description": "L\u00e6ren om talekunst og overbevisning.",
                     "image": "https://images.unsplash.com/photo-1560130958-02f95cc2e330?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "lessons": [
                         {
                             "id": "grunnleggende-retorikk",
                             "title": "Hva er retorikk?",
-                            "description": "En innføring i etos, patos og logos.",
+                            "description": "En innf\u00f8ring i etos, patos og logos.",
                             "image": "https://images.unsplash.com/photo-1560130958-02f95cc2e330?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "tags": [
                                 "retorikk",
-                                "språk",
+                                "spr\u00e5k",
                                 "kommunikasjon"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
@@ -162,7 +162,7 @@
                         {
                             "id": "nasjonalromantikken",
                             "title": "Nasjonalromantikken",
-                            "description": "Da Norge fant sin sjel: Bønder, natur og eventyr.",
+                            "description": "Da Norge fant sin sjel: B\u00f8nder, natur og eventyr.",
                             "image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Brudeferden_by_Adolph_Tidemand_and_Hans_Gude.jpg",
                             "createdDate": "2025-11-30T21:00:00",
                             "tags": [
@@ -188,7 +188,7 @@
                         {
                             "id": "ny-romantikken",
                             "title": "Nyromantikken",
-                            "description": "Følelser og mystikk: Det ubevisste sjeleliv.",
+                            "description": "F\u00f8lelser og mystikk: Det ubevisste sjeleliv.",
                             "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80",
                             "createdDate": "2025-11-30T21:20:00",
                             "tags": [
@@ -216,13 +216,13 @@
                 {
                     "id": "skrivehjelp",
                     "title": "Skrivehjelp",
-                    "description": "Tips og triks for å skrive bedre.",
+                    "description": "Tips og triks for \u00e5 skrive bedre.",
                     "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
                             "id": "hvordan-skrive-novelle",
                             "title": "Hvordan skrive novelle",
-                            "description": "Tips og triks for å skrive gode noveller.",
+                            "description": "Tips og triks for \u00e5 skrive gode noveller.",
                             "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -234,7 +234,7 @@
                         {
                             "id": "hvordan-skrive-eventyr",
                             "title": "Hvordan skrive eventyr",
-                            "description": "Lær å skrive eventyr med magi og moral.",
+                            "description": "L\u00e6r \u00e5 skrive eventyr med magi og moral.",
                             "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -246,7 +246,7 @@
                         {
                             "id": "hvordan-skrive-dikt",
                             "title": "Hvordan skrive dikt",
-                            "description": "Slipp løs kreativiteten med lyrikk.",
+                            "description": "Slipp l\u00f8s kreativiteten med lyrikk.",
                             "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -258,7 +258,7 @@
                         {
                             "id": "hvordan-skrive-roman",
                             "title": "Hvordan skrive roman",
-                            "description": "Tips for å planlegge og skrive lengre fortellinger.",
+                            "description": "Tips for \u00e5 planlegge og skrive lengre fortellinger.",
                             "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -270,7 +270,7 @@
                         {
                             "id": "7-vanlige-plot",
                             "title": "7 vanlige plot",
-                            "description": "De syv grunnleggende historiene som alle fortellinger bygger på.",
+                            "description": "De syv grunnleggende historiene som alle fortellinger bygger p\u00e5.",
                             "image": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -290,17 +290,17 @@
             "topics": [
                 {
                     "id": "demografi-okonomi",
-                    "title": "Demografi & Økonomi",
-                    "description": "Befolkningsutvikling og økonomiske systemer.",
+                    "title": "Demografi & \u00d8konomi",
+                    "description": "Befolkningsutvikling og \u00f8konomiske systemer.",
                     "image": "/Eiriksbok/images/topics/demografi-okonomi.png",
                     "lessons": [
                         {
                             "id": "intro",
                             "title": "Introduksjon",
-                            "description": "Grunnleggende om befolkning og økonomi.",
+                            "description": "Grunnleggende om befolkning og \u00f8konomi.",
                             "tags": [
                                 "demografi",
-                                "økonomi",
+                                "\u00f8konomi",
                                 "samfunn",
                                 "befolkning"
                             ],
@@ -313,7 +313,7 @@
                             "description": "Hvorfor blir alt dyrere? Om penger, renter og priser.",
                             "image": "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80",
                             "tags": [
-                                "økonomi",
+                                "\u00f8konomi",
                                 "inflasjon",
                                 "penger",
                                 "rente"
@@ -324,10 +324,10 @@
                         {
                             "id": "finanskriser",
                             "title": "Finanskriser",
-                            "description": "Festen og bakrusen: Hvorfor krasjer økonomien?",
+                            "description": "Festen og bakrusen: Hvorfor krasjer \u00f8konomien?",
                             "image": "https://images.unsplash.com/photo-1535320903710-d9cf113ebdb0?auto=format&fit=crop&q=80",
                             "tags": [
-                                "økonomi",
+                                "\u00f8konomi",
                                 "krise",
                                 "syklus"
                             ],
@@ -345,7 +345,7 @@
                         {
                             "id": "utforsk",
                             "title": "Utforsk Styringsformer",
-                            "description": "Sammenlign ulike måter å styre et land på.",
+                            "description": "Sammenlign ulike m\u00e5ter \u00e5 styre et land p\u00e5.",
                             "tags": [
                                 "politikk",
                                 "demokrati",
@@ -408,8 +408,8 @@
                     "lessons": [
                         {
                             "id": "verdenshandel-for-oppdagelsesreisene",
-                            "title": "Verdenshandel før oppdagelsesreisene",
-                            "description": "Handel med krydder og luksusvarer før 1500.",
+                            "title": "Verdenshandel f\u00f8r oppdagelsesreisene",
+                            "description": "Handel med krydder og luksusvarer f\u00f8r 1500.",
                             "tags": [
                                 "handel",
                                 "middelalderen",
@@ -421,13 +421,13 @@
                         {
                             "id": "voc",
                             "title": "Det nederlandske ostindiske kompani (VOC)",
-                            "description": "Verdens første aksjeselskap og et globalt handelsimperium.",
+                            "description": "Verdens f\u00f8rste aksjeselskap og et globalt handelsimperium.",
                             "createdDate": "2023-11-20T12:00:00",
                             "tags": [
                                 "handel",
                                 "kolonialisme",
                                 "nederland",
-                                "økonomi"
+                                "\u00f8konomi"
                             ],
                             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/A_View_of_the_Port_of_Batavia%2C_c._1665.jpg/1280px-A_View_of_the_Port_of_Batavia%2C_c._1665.jpg",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
@@ -457,7 +457,7 @@
                         {
                             "id": "menneskets-tidlige-historie",
                             "title": "Menneskets tidlige historie",
-                            "description": "Vår felles opprinnelse.",
+                            "description": "V\u00e5r felles opprinnelse.",
                             "image": "https://images.unsplash.com/photo-1564429247506-322ee8fc5190?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "tags": [
                                 "forhistorie",
@@ -473,7 +473,7 @@
                 {
                     "id": "jordbruk-og-sivilisasjoner",
                     "title": "Jordbruk og Sivilisasjoner",
-                    "description": "Mennesket slår seg til ro: Fra nomade til fastboende med husdyr.",
+                    "description": "Mennesket sl\u00e5r seg til ro: Fra nomade til fastboende med husdyr.",
                     "image": "/Eiriksbok/images/lessons/jordbruk.png",
                     "createdDate": "2023-11-15T12:00:00",
                     "updatedDate": "2023-11-29T12:00:00",
@@ -497,17 +497,17 @@
                 {
                     "id": "perserriket",
                     "title": "Perserriket",
-                    "description": "Det første verdensriket, fra Kyros den store til Aleksander den store.",
+                    "description": "Det f\u00f8rste verdensriket, fra Kyros den store til Aleksander den store.",
                     "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
                             "id": "artikkel",
                             "title": "Perserriket",
-                            "description": "Det første verdensriket.",
+                            "description": "Det f\u00f8rste verdensriket.",
                             "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
                             "tags": [
                                 "antikken",
-                                "midtøsten",
+                                "midt\u00f8sten",
                                 "imperier",
                                 "krig"
                             ],
@@ -519,7 +519,7 @@
                 {
                     "id": "romerriket",
                     "title": "Romerriket",
-                    "description": "Et av historiens første store imperier som spredte kristendom og veier.",
+                    "description": "Et av historiens f\u00f8rste store imperier som spredte kristendom og veier.",
                     "image": "https://images.unsplash.com/photo-1679161058715-201f70bbb2f4?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "lessons": [
                         {
@@ -541,7 +541,7 @@
                 {
                     "id": "vikingtiden",
                     "title": "Vikingtiden",
-                    "description": "Hvorfor dro bønder fra nord ut for å plyndre og handle?",
+                    "description": "Hvorfor dro b\u00f8nder fra nord ut for \u00e5 plyndre og handle?",
                     "image": "/Eiriksbok/images/lessons/vikingtiden.png",
                     "createdDate": "2023-10-01T12:00:00",
                     "lessons": [
@@ -562,7 +562,7 @@
                         {
                             "id": "rikssamlingen",
                             "title": "Rikssamlingen",
-                            "description": "Harald Hårfagre samler Norge – for kjærlighet eller makt?",
+                            "description": "Harald H\u00e5rfagre samler Norge \u2013 for kj\u00e6rlighet eller makt?",
                             "image": "/Eiriksbok/images/lessons/rikssamlingen.png",
                             "tags": [
                                 "rikssamlingen",
@@ -612,7 +612,7 @@
                                 "oppfinnelser",
                                 "teknologi",
                                 "renessansen",
-                                "bøker"
+                                "b\u00f8ker"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
@@ -661,7 +661,7 @@
             ],
             "topics": [
                 {
-                    "id": "religioner",
+                    "id": "religion",
                     "title": "Verdensreligioner",
                     "description": "Utforsk de store verdensreligionene.",
                     "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
@@ -669,30 +669,108 @@
                         {
                             "id": "kristendom",
                             "title": "Kristendom",
-                            "description": "Verdens største religion.",
+                            "description": "Verdens st\u00f8rste religion.",
                             "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/kristendom",
                             "lessons": [
                                 {
-                                    "id": "dap",
-                                    "title": "Dåp",
-                                    "description": "Det kristne initieringsritualet.",
-                                    "image": "https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&q=80",
+                                    "id": "sentrale-trekk",
+                                    "title": "Sentrale trekk",
+                                    "description": "Kjernen i kristendommen: Frelse, treenighet og nestekj\u00e6rlighet.",
+                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
-                                        "ritual",
-                                        "kristendom"
+                                        "kristendom",
+                                        "sentrale_trekk"
                                     ],
-                                    "createdDate": "2023-01-01T12:00:00Z",
-                                    "lastUpdated": "2025-12-03T17:25:16.499Z"
+                                    "createdDate": "2025-12-04T10:00:00Z",
+                                    "lastUpdated": "2025-12-04T10:00:00Z"
                                 },
                                 {
-                                    "id": "skapelse",
-                                    "title": "Skapelsen",
-                                    "description": "Bibelens fortelling om verdens begynnelse.",
-                                    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
+                                    "id": "bonn",
+                                    "title": "B\u00f8nn",
+                                    "description": "B\u00f8nn i kristendommen.",
+                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
-                                        "narrative",
-                                        "kristendom"
+                                        "kristendom",
+                                        "b\u00f8nn",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "overgangsriter",
+                                    "title": "Overgangsriter",
+                                    "description": "D\u00e5p, konfirmasjon, bryllup og begravelse.",
+                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "kristendom",
+                                        "overgangsriter",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "grunnleggere",
+                                    "title": "Jesus",
+                                    "description": "Jesus fra Nasaret - kristendommens grunnlegger.",
+                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "kristendom",
+                                        "grunnleggere",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "hellige-tekster",
+                                    "title": "Bibelen",
+                                    "description": "Kristendommens hellige skrift.",
+                                    "image": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "kristendom",
+                                        "hellige-tekster",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "gudsbilde",
+                                    "title": "Treenigheten",
+                                    "description": "Gud som Fader, S\u00f8nn og Hellig \u00c5nd.",
+                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "kristendom",
+                                        "gudsbilde",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
+                                    "id": "frelse",
+                                    "title": "Frelse og n\u00e5de",
+                                    "description": "Frelse gjennom tro p\u00e5 Jesus.",
+                                    "image": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "kristendom",
+                                        "frelse",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
+                                    "id": "intro",
+                                    "title": "Introduksjon",
+                                    "description": "Grunnleggende om kristendommen.",
+                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "kristendom",
+                                        "intro"
                                     ],
                                     "createdDate": "2023-01-01T12:00:00Z",
                                     "lastUpdated": "2025-12-03T17:25:16.499Z"
@@ -702,30 +780,108 @@
                         {
                             "id": "islam",
                             "title": "Islam",
-                            "description": "Den nest største verdensreligionen.",
+                            "description": "Den nest st\u00f8rste verdensreligionen.",
                             "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/islam",
                             "lessons": [
                                 {
-                                    "id": "bonn",
-                                    "title": "Bønn (Salah)",
-                                    "description": "Den rituelle bønnen i islam.",
+                                    "id": "sentrale-trekk",
+                                    "title": "Sentrale trekk",
+                                    "description": "Kjernen i islam: Underkastelse, Tawhid og de fem s\u00f8yler.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
-                                        "ritual",
-                                        "islam"
+                                        "islam",
+                                        "sentrale_trekk"
+                                    ],
+                                    "createdDate": "2025-12-04T10:00:00Z",
+                                    "lastUpdated": "2025-12-04T10:00:00Z"
+                                },
+                                {
+                                    "id": "bonn",
+                                    "title": "B\u00f8nn (Salah)",
+                                    "description": "Den rituelle b\u00f8nnen i islam.",
+                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "islam",
+                                        "b\u00f8nn",
+                                        "ritual"
                                     ],
                                     "createdDate": "2023-01-01T12:00:00Z",
                                     "lastUpdated": "2025-12-03T17:25:16.499Z"
                                 },
                                 {
-                                    "id": "skapelse",
-                                    "title": "Skapelsen",
-                                    "description": "Koranens fortelling om skapelsen.",
-                                    "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80",
+                                    "id": "overgangsriter",
+                                    "title": "Overgangsriter",
+                                    "description": "F\u00f8dsel, ekteskap og d\u00f8d.",
+                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
-                                        "narrative",
-                                        "islam"
+                                        "islam",
+                                        "overgangsriter",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "grunnleggere",
+                                    "title": "Muhammad",
+                                    "description": "Profeten Muhammad - islams siste profet.",
+                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "islam",
+                                        "grunnleggere",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "hellige-tekster",
+                                    "title": "Koranen",
+                                    "description": "Islams hellige bok.",
+                                    "image": "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "islam",
+                                        "hellige-tekster",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "gudsbilde",
+                                    "title": "Tawhid",
+                                    "description": "Troen p\u00e5 Guds enhet.",
+                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "islam",
+                                        "gudsbilde",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
+                                    "id": "frelse",
+                                    "title": "Dommens dag",
+                                    "description": "Regnskapets time og livet etter d\u00f8den.",
+                                    "image": "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "islam",
+                                        "frelse",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
+                                    "id": "intro",
+                                    "title": "Introduksjon",
+                                    "description": "Grunnleggende om islam.",
+                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "islam",
+                                        "intro"
                                     ],
                                     "createdDate": "2023-01-01T12:00:00Z",
                                     "lastUpdated": "2025-12-03T17:25:16.499Z"
@@ -739,6 +895,96 @@
                             "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/buddhisme",
                             "lessons": [
+                                {
+                                    "id": "sentrale-trekk",
+                                    "title": "Sentrale trekk",
+                                    "description": "Kjernen i buddhismen: Nirvana, de fire edle sannheter og den \u00e5ttedelte vei.",
+                                    "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "buddhisme",
+                                        "sentrale_trekk"
+                                    ],
+                                    "createdDate": "2025-12-04T10:00:00Z",
+                                    "lastUpdated": "2025-12-04T10:00:00Z"
+                                },
+                                {
+                                    "id": "bonn",
+                                    "title": "B\u00f8nn og meditasjon",
+                                    "description": "B\u00f8nn og meditasjon i buddhismen.",
+                                    "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "buddhisme",
+                                        "b\u00f8nn",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "overgangsriter",
+                                    "title": "Overgangsriter",
+                                    "description": "F\u00f8dsel, munkeinnvielse og d\u00f8d.",
+                                    "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "buddhisme",
+                                        "overgangsriter",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "grunnleggere",
+                                    "title": "Buddha",
+                                    "description": "Siddhartha Gautama - den oppv\u00e5knede.",
+                                    "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "buddhisme",
+                                        "grunnleggere",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "hellige-tekster",
+                                    "title": "Tripitaka",
+                                    "description": "De tre kurver - buddhismens hellige skrifter.",
+                                    "image": "https://images.unsplash.com/photo-1606293926075-69a00febf280?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "buddhisme",
+                                        "hellige-tekster",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "gudsbilde",
+                                    "title": "Ingen skapergud",
+                                    "description": "En ikke-teistisk religion.",
+                                    "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "buddhisme",
+                                        "gudsbilde",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
+                                    "id": "frelse",
+                                    "title": "Nirvana",
+                                    "description": "Frigj\u00f8ring fra lidelse og gjenf\u00f8delse.",
+                                    "image": "https://images.unsplash.com/photo-1606293926075-69a00febf280?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "buddhisme",
+                                        "frelse",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
                                 {
                                     "id": "intro",
                                     "title": "Introduksjon",
@@ -755,18 +1001,108 @@
                         },
                         {
                             "id": "jodedom",
-                            "title": "Jødedom",
+                            "title": "J\u00f8dedom",
                             "description": "Den eldste monoteistiske religionen.",
                             "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/jodedom",
                             "lessons": [
                                 {
-                                    "id": "intro",
-                                    "title": "Introduksjon",
-                                    "description": "Grunnleggende om jødedommen.",
+                                    "id": "sentrale-trekk",
+                                    "title": "Sentrale trekk",
+                                    "description": "Kjernen i j\u00f8dedommen: Pakten, Toraen og livet her og n\u00e5.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
-                                        "jødedom",
+                                        "jodedom",
+                                        "sentrale_trekk"
+                                    ],
+                                    "createdDate": "2025-12-04T10:00:00Z",
+                                    "lastUpdated": "2025-12-04T10:00:00Z"
+                                },
+                                {
+                                    "id": "bonn",
+                                    "title": "B\u00f8nn",
+                                    "description": "B\u00f8nn i j\u00f8dedommen.",
+                                    "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jodedom",
+                                        "b\u00f8nn",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "overgangsriter",
+                                    "title": "Overgangsriter",
+                                    "description": "Omskj\u00e6ring, Bar/Bat Mitzvah og ekteskap.",
+                                    "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jodedom",
+                                        "overgangsriter",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "grunnleggere",
+                                    "title": "Abraham og Moses",
+                                    "description": "Stamfaren og lovgiveren.",
+                                    "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jodedom",
+                                        "grunnleggere",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "hellige-tekster",
+                                    "title": "Tanakh",
+                                    "description": "Den hebraiske bibelen.",
+                                    "image": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jodedom",
+                                        "hellige-tekster",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "gudsbilde",
+                                    "title": "Monoteisme",
+                                    "description": "Troen p\u00e5 \u00e9n Gud - Jahve.",
+                                    "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jodedom",
+                                        "gudsbilde",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
+                                    "id": "frelse",
+                                    "title": "Livet her og n\u00e5",
+                                    "description": "Fokus p\u00e5 \u00e5 leve et rettferdig liv.",
+                                    "image": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jodedom",
+                                        "frelse",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
+                                    "id": "intro",
+                                    "title": "Introduksjon",
+                                    "description": "Grunnleggende om j\u00f8dedommen.",
+                                    "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "j\u00f8dedom",
                                         "intro"
                                     ],
                                     "createdDate": "2023-01-01T12:00:00Z",
@@ -777,10 +1113,100 @@
                         {
                             "id": "hinduisme",
                             "title": "Hinduisme",
-                            "description": "Verdens eldste nålevende religion.",
+                            "description": "Verdens eldste n\u00e5levende religion.",
                             "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/hinduisme",
                             "lessons": [
+                                {
+                                    "id": "sentrale-trekk",
+                                    "title": "Sentrale trekk",
+                                    "description": "Kjernen i hinduismen: Moksha, Dharma og Karma.",
+                                    "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "hinduisme",
+                                        "sentrale_trekk"
+                                    ],
+                                    "createdDate": "2025-12-04T10:00:00Z",
+                                    "lastUpdated": "2025-12-04T10:00:00Z"
+                                },
+                                {
+                                    "id": "bonn",
+                                    "title": "B\u00f8nn (Puja)",
+                                    "description": "B\u00f8nn og tilbedelse i hinduismen.",
+                                    "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "hinduisme",
+                                        "b\u00f8nn",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "overgangsriter",
+                                    "title": "Overgangsriter",
+                                    "description": "Samskaras - livets overgangsriter.",
+                                    "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "hinduisme",
+                                        "overgangsriter",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "grunnleggere",
+                                    "title": "Ingen enkelt grunnlegger",
+                                    "description": "En religion uten en enkelt stifter.",
+                                    "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "hinduisme",
+                                        "grunnleggere",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "hellige-tekster",
+                                    "title": "Vedaene og Bhagavad Gita",
+                                    "description": "Hinduismens hellige skrifter.",
+                                    "image": "https://images.unsplash.com/photo-1621827979802-6d778e170a64?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "hinduisme",
+                                        "hellige-tekster",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "gudsbilde",
+                                    "title": "Brahman og guder",
+                                    "description": "\u00c9n guddommelig kraft i mange former.",
+                                    "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "hinduisme",
+                                        "gudsbilde",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
+                                    "id": "frelse",
+                                    "title": "Moksha",
+                                    "description": "Frigj\u00f8ring fra samsara.",
+                                    "image": "https://images.unsplash.com/photo-1621827979802-6d778e170a64?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "hinduisme",
+                                        "frelse",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
                                 {
                                     "id": "intro",
                                     "title": "Introduksjon",
@@ -797,15 +1223,105 @@
                         },
                         {
                             "id": "bahai",
-                            "title": "Bahá'í",
-                            "description": "Troen på menneskehetens enhet.",
+                            "title": "Bah\u00e1'\u00ed",
+                            "description": "Troen p\u00e5 menneskehetens enhet.",
                             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                             "link": "/krle/religion/bahai",
                             "lessons": [
                                 {
+                                    "id": "sentrale-trekk",
+                                    "title": "Sentrale trekk",
+                                    "description": "Kjernen i bah\u00e1'\u00ed: Enhet mellom Gud, religion og menneskehet.",
+                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "tags": [
+                                        "bahai",
+                                        "sentrale_trekk"
+                                    ],
+                                    "createdDate": "2025-12-04T10:00:00Z",
+                                    "lastUpdated": "2025-12-04T10:00:00Z"
+                                },
+                                {
+                                    "id": "bonn",
+                                    "title": "B\u00f8nn",
+                                    "description": "B\u00f8nn i bah\u00e1'\u00ed.",
+                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "tags": [
+                                        "bahai",
+                                        "b\u00f8nn",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "overgangsriter",
+                                    "title": "Overgangsriter",
+                                    "description": "Ingen faste ritualer, men markering av livshendelser.",
+                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "tags": [
+                                        "bahai",
+                                        "overgangsriter",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "grunnleggere",
+                                    "title": "Bah\u00e1'u'll\u00e1h",
+                                    "description": "Grunnleggeren av bah\u00e1'\u00ed-troen.",
+                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "tags": [
+                                        "bahai",
+                                        "grunnleggere",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "hellige-tekster",
+                                    "title": "Kit\u00e1b-i-Aqdas",
+                                    "description": "Den helligste boken i bah\u00e1'\u00ed.",
+                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "tags": [
+                                        "bahai",
+                                        "hellige-tekster",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "gudsbilde",
+                                    "title": "En ukjennbar Gud",
+                                    "description": "Gud er \u00e9n og utenfor menneskelig fatteevne.",
+                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "tags": [
+                                        "bahai",
+                                        "gudsbilde",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
+                                    "id": "frelse",
+                                    "title": "\u00c5ndelig utvikling",
+                                    "description": "Sjelens reise mot Gud.",
+                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "tags": [
+                                        "bahai",
+                                        "frelse",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
                                     "id": "intro",
                                     "title": "Introduksjon",
-                                    "description": "Grunnleggende om bahá'í.",
+                                    "description": "Grunnleggende om bah\u00e1'\u00ed.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -823,6 +1339,96 @@
                             "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/mormonisme",
                             "lessons": [
+                                {
+                                    "id": "sentrale-trekk",
+                                    "title": "Sentrale trekk",
+                                    "description": "Kjernen i mormonismen: Gjenopprettelsen og evig progresjon.",
+                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "mormonisme",
+                                        "sentrale_trekk"
+                                    ],
+                                    "createdDate": "2025-12-04T10:00:00Z",
+                                    "lastUpdated": "2025-12-04T10:00:00Z"
+                                },
+                                {
+                                    "id": "bonn",
+                                    "title": "B\u00f8nn",
+                                    "description": "B\u00f8nn i mormonismen.",
+                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "mormonisme",
+                                        "b\u00f8nn",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "overgangsriter",
+                                    "title": "Overgangsriter",
+                                    "description": "D\u00e5p, konfirmasjon og tempelbesegling.",
+                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "mormonisme",
+                                        "overgangsriter",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "grunnleggere",
+                                    "title": "Joseph Smith",
+                                    "description": "Profeten som gjenopprettet kirken.",
+                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "mormonisme",
+                                        "grunnleggere",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "hellige-tekster",
+                                    "title": "Mormons bok",
+                                    "description": "Et annet testamente om Jesus Kristus.",
+                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "mormonisme",
+                                        "hellige-tekster",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "gudsbilde",
+                                    "title": "Guddommen",
+                                    "description": "Faderen, S\u00f8nnen og Den hellige \u00e5nd er tre separate vesener.",
+                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "mormonisme",
+                                        "gudsbilde",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
+                                    "id": "frelse",
+                                    "title": "Evig progresjon",
+                                    "description": "Muligheten til \u00e5 bli lik Gud.",
+                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "mormonisme",
+                                        "frelse",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
                                 {
                                     "id": "intro",
                                     "title": "Introduksjon",
@@ -845,6 +1451,96 @@
                             "link": "/krle/religion/jehovas-vitner",
                             "lessons": [
                                 {
+                                    "id": "sentrale-trekk",
+                                    "title": "Sentrale trekk",
+                                    "description": "Kjernen i Jehovas vitner: Guds rike og paradis p\u00e5 jord.",
+                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jehovas-vitner",
+                                        "sentrale_trekk"
+                                    ],
+                                    "createdDate": "2025-12-04T10:00:00Z",
+                                    "lastUpdated": "2025-12-04T10:00:00Z"
+                                },
+                                {
+                                    "id": "bonn",
+                                    "title": "B\u00f8nn",
+                                    "description": "B\u00f8nn i Jehovas vitner.",
+                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jehovas-vitner",
+                                        "b\u00f8nn",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "overgangsriter",
+                                    "title": "Overgangsriter",
+                                    "description": "D\u00e5p og ekteskap.",
+                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jehovas-vitner",
+                                        "overgangsriter",
+                                        "ritual"
+                                    ],
+                                    "createdDate": "2025-12-04T11:00:00Z",
+                                    "lastUpdated": "2025-12-04T11:00:00Z"
+                                },
+                                {
+                                    "id": "grunnleggere",
+                                    "title": "Charles Taze Russell",
+                                    "description": "Grunnleggeren av Bibelstudentene.",
+                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jehovas-vitner",
+                                        "grunnleggere",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "hellige-tekster",
+                                    "title": "Ny verden-oversettelsen",
+                                    "description": "Jehovas vitners bibeloversettelse.",
+                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jehovas-vitner",
+                                        "hellige-tekster",
+                                        "narrative"
+                                    ],
+                                    "createdDate": "2025-12-04T10:17:18.543979Z",
+                                    "lastUpdated": "2025-12-04T10:17:18.543979Z"
+                                },
+                                {
+                                    "id": "gudsbilde",
+                                    "title": "Jehova",
+                                    "description": "Guds personlige navn.",
+                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jehovas-vitner",
+                                        "gudsbilde",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
+                                    "id": "frelse",
+                                    "title": "Paradis p\u00e5 jord",
+                                    "description": "H\u00e5pet om evig liv p\u00e5 en paradisisk jord.",
+                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "tags": [
+                                        "jehovas-vitner",
+                                        "frelse",
+                                        "doctrinal"
+                                    ],
+                                    "createdDate": "2025-12-04T10:19:50.480856Z",
+                                    "lastUpdated": "2025-12-04T10:19:50.480856Z"
+                                },
+                                {
                                     "id": "intro",
                                     "title": "Introduksjon",
                                     "description": "Grunnleggende om Jehovas vitner.",
@@ -859,13 +1555,13 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "musikk",
+                    "title": "Musikk",
+                    "topics": []
                 }
             ]
-        },
-        {
-            "id": "musikk",
-            "title": "Musikk",
-            "topics": []
         }
     ]
 }

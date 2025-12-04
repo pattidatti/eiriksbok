@@ -1,0 +1,49 @@
+{
+    "id": "overgangsriter",
+    "title": "Overgangsriter i Buddhismen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "buddhisme",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "overgangsriter",
+        "ritual",
+        "døden"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Fødsel"
+        },
+        {
+            "type": "text",
+            "content": "Det er ingen universelle fødselsritualer, men mange tar med barnet til tempelet for å bli velsignet av munker."
+        },
+        {
+            "type": "header",
+            "text": "Munkinnvielse"
+        },
+        {
+            "type": "text",
+            "content": "I noen land (som Thailand) er det vanlig at unge gutter lever som munker i en periode. Dette regnes som en viktig overgang og gir god karma til familien."
+        },
+        {
+            "type": "header",
+            "text": "Ekteskap"
+        },
+        {
+            "type": "text",
+            "content": "Ekteskapet er en borgerlig sak, ikke et religiøst sakrament. Munker deltar vanligvis ikke i selve vielsen, men kan velsigne paret etterpå."
+        },
+        {
+            "type": "header",
+            "text": "Død og Begravelse"
+        },
+        {
+            "type": "text",
+            "content": "Døden er overgangen til et nytt liv. Begravelsesritualene er viktige for å hjelpe den døde til en god gjenfødsel. Munker resiterer tekster, og kremasjon er vanlig."
+        }
+    ]
+}

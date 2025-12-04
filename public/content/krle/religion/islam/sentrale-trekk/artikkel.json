@@ -1,0 +1,40 @@
+{
+    "id": "sentrale-trekk",
+    "title": "Sentrale trekk i Islam",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "islam",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "sentrale_trekk",
+        "frelse_og_mal"
+    ],
+    "createdDate": "2025-12-04T10:00:00Z",
+    "lastUpdated": "2025-12-04T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Underkastelse under Allah"
+        },
+        {
+            "type": "text",
+            "content": "Islam betyr 'underkastelse' eller 'hengivelse' til Gud (Allah). Kjernen er troen på én Gud (Tawhid) og at Muhammed er hans siste profet. Livet handler om å leve i tråd med Guds vilje slik den er åpenbart i Koranen."
+        },
+        {
+            "type": "header",
+            "text": "Målet: Paradis"
+        },
+        {
+            "type": "text",
+            "content": "Målet for en muslim er å komme til Paradis (Jannah) etter døden. Dette oppnås gjennom å tro på Allah og gjøre gode gjerninger, samt å følge de fem søyler: Trosbekjennelsen, bønnen, fasten, velferdsbidraget og pilegrimsreisen."
+        },
+        {
+            "type": "header",
+            "text": "Ansvar og Dom"
+        },
+        {
+            "type": "text",
+            "content": "Mennesket er Guds forvalter på jorden og har ansvar for sine handlinger. På Dommens dag vil alle bli dømt etter sine gjerninger, men Guds barmhjertighet er avgjørende."
+        }
+    ]
+}

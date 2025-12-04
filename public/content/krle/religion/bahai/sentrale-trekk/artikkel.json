@@ -1,0 +1,40 @@
+{
+    "id": "sentrale-trekk",
+    "title": "Sentrale trekk i Bahá'í",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "bahai",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "sentrale_trekk",
+        "frelse_og_mal"
+    ],
+    "createdDate": "2025-12-04T10:00:00Z",
+    "lastUpdated": "2025-12-04T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Enhet som kjerne"
+        },
+        {
+            "type": "text",
+            "content": "Kjernen i Bahá'í-troen er enhet: Guds enhet (det finnes bare én Gud), religionsenhet (alle store religioner kommer fra samme kilde) og menneskehetens enhet (alle mennesker er likeverdige)."
+        },
+        {
+            "type": "header",
+            "text": "Progressiv åpenbaring"
+        },
+        {
+            "type": "text",
+            "content": "Gud har sendt budbringere (som Moses, Jesus, Muhammed, Buddha) gjennom historien for å veilede menneskeheten. Bahá'u'lláh regnes som den nyeste av disse for vår tid."
+        },
+        {
+            "type": "header",
+            "text": "Målet: En forent verden"
+        },
+        {
+            "type": "text",
+            "content": "Målet er å skape fred og harmoni på jorden gjennom å avskaffe fordommer, fremme likestilling og utdanning, og forene vitenskap og religion."
+        }
+    ]
+}

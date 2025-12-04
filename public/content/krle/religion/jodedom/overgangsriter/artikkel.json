@@ -1,0 +1,49 @@
+{
+    "id": "overgangsriter",
+    "title": "Overgangsriter i Jødedommen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jodedom",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "overgangsriter",
+        "ritual",
+        "døden"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Brit Mila (Omskjæring)"
+        },
+        {
+            "type": "text",
+            "content": "Gutter omskjæres på den åttende dagen etter fødselen som tegn på pakten med Gud. Jenter får navn i synagogen."
+        },
+        {
+            "type": "header",
+            "text": "Bar og Bat Mitzvah"
+        },
+        {
+            "type": "text",
+            "content": "Når gutter blir 13 år (Bar Mitzvah) og jenter 12 år (Bat Mitzvah), blir de religiøst myndige og ansvarlige for å følge budene."
+        },
+        {
+            "type": "header",
+            "text": "Ekteskap"
+        },
+        {
+            "type": "text",
+            "content": "Vielsen skjer under en baldakin (Chuppah), som symboliserer hjemmet paret skal bygge sammen. Brudgommen knuser et glass til minne om tempelets ødeleggelse."
+        },
+        {
+            "type": "header",
+            "text": "Død og Sorg"
+        },
+        {
+            "type": "text",
+            "content": "Begravelsen skjer raskt. Familien sitter 'Shivah' (sju dager) i sorg i hjemmet, hvor de får besøk og trøst."
+        }
+    ]
+}

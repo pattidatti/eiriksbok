@@ -1,0 +1,40 @@
+{
+    "id": "bonn",
+    "title": "Bønn i Bahá'í",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "bahai",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "bønn",
+        "ritual"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Obligatorisk bønn"
+        },
+        {
+            "type": "text",
+            "content": "Bahá'íer har tre obligatoriske bønner de kan velge mellom hver dag. Den korteste skal sies en gang i døgnet mellom middag og solnedgang."
+        },
+        {
+            "type": "header",
+            "text": "Privat og felles bønn"
+        },
+        {
+            "type": "text",
+            "content": "I tillegg til de obligatoriske bønnene, oppfordres det til å be og lese hellige tekster morgen og kveld. Det finnes ingen fast liturgi eller prester, så felles andakter er enkle samlinger der man leser bønner og tekster."
+        },
+        {
+            "type": "header",
+            "text": "Qiblih"
+        },
+        {
+            "type": "text",
+            "content": "Under den obligatoriske bønnen vender man seg mot Qiblih, som er Bahá'u'lláhs gravsted i nærheten av Akko i Israel."
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "id": "bonn",
+    "title": "Bønn i Mormonismen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "mormonisme",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "bønn",
+        "ritual"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Personlig bønn"
+        },
+        {
+            "type": "text",
+            "content": "Bønn er en samtale med 'Vår himmelske Fader'. Man ber i Jesu Kristi navn. Det oppfordres til å be morgen og kveld, både alene og sammen med familien."
+        },
+        {
+            "type": "header",
+            "text": "Familiebønn"
+        },
+        {
+            "type": "text",
+            "content": "Familien står sentralt, og daglig familiebønn er en viktig tradisjon for å styrke samholdet og troen."
+        },
+        {
+            "type": "header",
+            "text": "Velsignelse av maten"
+        },
+        {
+            "type": "text",
+            "content": "Det er vanlig å be en bordbønn før hvert måltid for å takke Gud for maten."
+        }
+    ]
+}

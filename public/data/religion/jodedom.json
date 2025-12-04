@@ -1,0 +1,104 @@
+{
+    "name": "Jødedom",
+    "color": "#3b82f6",
+    "dimensions": {
+        "ritual": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Sabbat, omskjæring (Brit Mila), Bar/Bat Mitzvah, bønn og matregler (Kosher)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "narrative": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Torah (Mosebøkene) med fortellinger om skapelsen, patriarkene (Abraham, Isak, Jakob) og utgangen fra Egypt."
+                        }
+                    ]
+                }
+            ]
+        },
+        "experiential": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Opplevelse av Guds nærvær (Shekhinah), tilhørighet til folket og historien."
+                        }
+                    ]
+                }
+            ]
+        },
+        "social": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Synagogen som samlingssted. Rabbinere som lærere. Sterkt fokus på familien og menigheten."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ethical": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "De ti ord (Dekalogen), Mitzvot (budene i Toraen), rettferdighet og veldedighet (Tzedakah)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "doctrinal": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Streng monoteisme (Shema: Hør Israel, Herren er vår Gud, Herren er én). Pakten mellom Gud og Israel."
+                        }
+                    ]
+                }
+            ]
+        },
+        "material": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Synagoger, Toraruller, Menorah, Kippah, Tallit og Tefillin."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

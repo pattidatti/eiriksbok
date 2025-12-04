@@ -1,0 +1,40 @@
+{
+    "id": "bonn",
+    "title": "Meditasjon og Puja i Buddhismen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "buddhisme",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "bønn",
+        "ritual"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Ikke bønn til en skaper"
+        },
+        {
+            "type": "text",
+            "content": "Siden buddhismen ikke har en skapergud, ber man ikke på samme måte som i monoteistiske religioner. I stedet fokuserer man på meditasjon og resitasjon."
+        },
+        {
+            "type": "header",
+            "text": "Puja"
+        },
+        {
+            "type": "text",
+            "content": "Puja er en tilbedelsesseremoni foran en Buddha-statue. Man tenner lys og røkelse, ofrer blomster og bøyer seg i respekt for Buddhas lære."
+        },
+        {
+            "type": "header",
+            "text": "Mantraer"
+        },
+        {
+            "type": "text",
+            "content": "Mange buddhister resiterer mantraer (hellige lyder), som 'Om mani padme hum', for å fokusere sinnet og opparbeide god karma."
+        }
+    ]
+}

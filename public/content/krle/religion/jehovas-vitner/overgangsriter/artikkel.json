@@ -1,0 +1,49 @@
+{
+    "id": "overgangsriter",
+    "title": "Overgangsriter i Jehovas vitner",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jehovas-vitner",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "overgangsriter",
+        "ritual",
+        "døden"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Ingen barnedåp"
+        },
+        {
+            "type": "text",
+            "content": "Jehovas vitner praktiserer ikke barnedåp. Dåpen er et bevisst valg man tar når man har forstått troen, ofte i tenårene eller som voksen."
+        },
+        {
+            "type": "header",
+            "text": "Dåp"
+        },
+        {
+            "type": "text",
+            "content": "Dåpen skjer ved full neddykking i vann og markerer innvielse til Jehova."
+        },
+        {
+            "type": "header",
+            "text": "Ekteskap"
+        },
+        {
+            "type": "text",
+            "content": "Vielsen foregår ofte i Rikets sal. Det er en enkel seremoni med en bibelsk tale om ekteskapet."
+        },
+        {
+            "type": "header",
+            "text": "Begravelse"
+        },
+        {
+            "type": "text",
+            "content": "Begravelsen er en enkel minnestund i Rikets sal med fokus på håpet om oppstandelse til liv på en paradisisk jord."
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "id": "sentrale-trekk",
+    "title": "Sentrale trekk i Kristendommen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "kristendom",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "sentrale_trekk",
+        "frelse_og_mal"
+    ],
+    "createdDate": "2025-12-04T10:00:00Z",
+    "lastUpdated": "2025-12-04T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Kjernen i troen"
+        },
+        {
+            "type": "text",
+            "content": "Kristendommen bygger på troen på at Jesus fra Nasaret er Guds sønn og verdens frelser (Messias). Kjernen i budskapet er at Gud elsker menneskene så høyt at han ble menneske i Jesus for å gjenopprette forholdet mellom Gud og mennesker."
+        },
+        {
+            "type": "header",
+            "text": "Frelse ved nåde"
+        },
+        {
+            "type": "text",
+            "content": "Målet i kristendommen er frelse, som betyr redning fra synd og død, og evig liv sammen med Gud. Dette oppnås ikke gjennom egne gjerninger, men ved Guds nåde gjennom troen på Jesu død og oppstandelse."
+        },
+        {
+            "type": "header",
+            "text": "Treenigheten"
+        },
+        {
+            "type": "text",
+            "content": "Gud forstås som én, men åpenbarer seg i tre personer: Faderen (skaperen), Sønnen (frelseren) og Den hellige ånd (livgiveren)."
+        }
+    ]
+}

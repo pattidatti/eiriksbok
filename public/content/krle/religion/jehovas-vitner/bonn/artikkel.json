@@ -1,0 +1,40 @@
+{
+    "id": "bonn",
+    "title": "Bønn i Jehovas vitner",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jehovas-vitner",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "bønn",
+        "ritual"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Bønn til Jehova"
+        },
+        {
+            "type": "text",
+            "content": "Bønn rettes kun til Jehova Gud, gjennom Jesus Kristus. Man kan be når som helst og hvor som helst, inni seg eller høyt."
+        },
+        {
+            "type": "header",
+            "text": "Innhold i bønnen"
+        },
+        {
+            "type": "text",
+            "content": "Bønnen kan inneholde lovprisning, takk, og bønner om tilgivelse og hjelp. Det er viktig at bønnen kommer fra hjertet og ikke er en ramse."
+        },
+        {
+            "type": "header",
+            "text": "Møter og studier"
+        },
+        {
+            "type": "text",
+            "content": "Alle møter i Rikets sal åpnes og avsluttes med bønn. Det er også vanlig å be før man studerer Bibelen eller spiser."
+        }
+    ]
+}

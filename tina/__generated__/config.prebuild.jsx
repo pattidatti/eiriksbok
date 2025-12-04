@@ -122,6 +122,16 @@ var config_default = defineConfig({
             list: true,
             description: "F.eks. 'skapelsesmyte', 'b\xF8nn', 'd\xF8den'"
           },
+          {
+            type: "object",
+            name: "quote",
+            label: "Sitat",
+            fields: [
+              { type: "string", name: "text", label: "Tekst", ui: { component: "textarea" } },
+              { type: "string", name: "source", label: "Kilde" },
+              { type: "string", name: "reference", label: "Referanse (f.eks. vers)" }
+            ]
+          },
           { type: "string", name: "fact", label: "Fakta", ui: { component: "textarea" } },
           { type: "string", name: "tags", label: "Tags", list: true },
           {

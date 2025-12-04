@@ -1,0 +1,40 @@
+{
+    "id": "sentrale-trekk",
+    "title": "Sentrale trekk i Hinduismen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "hinduisme",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "sentrale_trekk",
+        "frelse_og_mal"
+    ],
+    "createdDate": "2025-12-04T10:00:00Z",
+    "lastUpdated": "2025-12-04T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Moksha: Frigjøring"
+        },
+        {
+            "type": "text",
+            "content": "Det endelige målet i hinduismen er Moksha, frigjøring fra rekken av gjenfødsler (Samsara). Dette innebærer at sjelen (Atman) forenes med verdenssjelen (Brahman) eller kommer til en guds himmel."
+        },
+        {
+            "type": "header",
+            "text": "Veier til frelse"
+        },
+        {
+            "type": "text",
+            "content": "Det finnes flere veier til målet: Handlingens vei (gjøre sine plikter uten tanke på belønning), Kunnskapens vei (innsikt gjennom meditasjon) og Kjærlighetens vei (hengivelse til en gud)."
+        },
+        {
+            "type": "header",
+            "text": "Dharma og Karma"
+        },
+        {
+            "type": "text",
+            "content": "Livet styres av Dharma (den evige verdensorden og pliktene) og Karma (loven om handling og konsekvens). Gode handlinger gir god karma og bedre gjenfødsel."
+        }
+    ]
+}

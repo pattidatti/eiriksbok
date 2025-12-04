@@ -1,0 +1,104 @@
+{
+    "name": "Jehovas vitner",
+    "color": "#0ea5e9",
+    "dimensions": {
+        "ritual": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Møter i Rikets sal, forkynnelse (dør-til-dør), dåp (voksendåp), minnehøytiden (nattverd en gang i året)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "narrative": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Bibelen (Ny verden-oversettelsen). Fokus på Guds rike og Harmageddon."
+                        }
+                    ]
+                }
+            ]
+        },
+        "experiential": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Følelse av å være utvalgt, samhold i menigheten, håp om paradis på jorden."
+                        }
+                    ]
+                }
+            ]
+        },
+        "social": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Styrt av Det styrende råd. Eldste i menighetene. Sterkt indre samhold, adskillelse fra 'verden'."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ethical": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Avholdenhet fra blod (blodoverføring), nøytralitet i politikk og krig, høy moral, ingen feiring av jul eller bursdager."
+                        }
+                    ]
+                }
+            ]
+        },
+        "doctrinal": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Jehova er den eneste sanne Gud. Jesus er Guds sønn (ikke Gud). Ingen helvete (utslettelse). 144 000 til himmelen, resten på en paradisisk jord."
+                        }
+                    ]
+                }
+            ]
+        },
+        "material": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Rikets sal (enkle møtelokaler), litteratur (Vakttårnet)."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

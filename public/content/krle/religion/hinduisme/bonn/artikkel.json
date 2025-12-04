@@ -1,0 +1,40 @@
+{
+    "id": "bonn",
+    "title": "Puja og Bønn i Hinduismen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "hinduisme",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "bønn",
+        "ritual"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Puja"
+        },
+        {
+            "type": "text",
+            "content": "Det viktigste ritualet er Puja, som utføres både i hjemmet og i tempelet. Man inviterer guden som en gjest, vasker gudestatuen (Murti), pynter den og ofrer mat, lys og røkelse."
+        },
+        {
+            "type": "header",
+            "text": "Darshan"
+        },
+        {
+            "type": "text",
+            "content": "Målet med tempelbesøk er ofte Darshan – å se guden og bli sett av guden. Øyekontakten med gudestatuen regnes som en velsignelse."
+        },
+        {
+            "type": "header",
+            "text": "Mantraer"
+        },
+        {
+            "type": "text",
+            "content": "Helliglyden 'Om' er det viktigste mantraet og brukes i bønn og meditasjon for å komme i kontakt med det guddommelige."
+        }
+    ]
+}

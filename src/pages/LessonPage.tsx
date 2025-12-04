@@ -23,6 +23,7 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
 import { Volume2, PauseCircle, PlayCircle } from 'lucide-react';
 import { cleanTextForSpeech } from '../utils/speechUtils';
+import { LessonSidebar } from '../components/LessonSidebar';
 
 const getFirstTextContent = (blocks: ContentBlock[]): string | undefined => {
     const block = blocks.find((b): b is Extract<ContentBlock, { type: 'text' }> => b.type === 'text' && !!b.content);
@@ -344,12 +345,55 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
             {/* New Flexible Content Renderer */}
             {lesson.content ? (
-                <ArticleContent
-                    content={lesson.content}
-                    concepts={lesson.concepts}
-                    activeBlockIndex={activeContentIndex}
-                    onBlockClick={handleBlockClick}
-                />
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    {/* Main Content */}
+                    <div className="lg:col-span-8">
+                        <ArticleContent
+                            content={lesson.content}
+                            concepts={lesson.concepts}
+                            activeBlockIndex={activeContentIndex}
+                            onBlockClick={handleBlockClick}
+                        />
+                    </div>
+
+                    {/* Sidebar */}
+                    <div className="lg:col-span-4 hidden lg:block">
+                        <LessonSidebar
+                            concepts={lesson.concepts}
+                            comparisonTags={lesson.comparison_tags}
+                            quote={lesson.quote}
+                        />
+                    </div>
+
+                    {/* Mobile Sidebar Content (stacked below) */}
+                    <div className="lg:hidden space-y-8 mt-12">
+                        {lesson.concepts && lesson.concepts.length > 0 && (
+                            <section>
+                                <h2 className="text-2xl font-display font-bold text-text-main mb-6 border-l-4 border-neon-accent pl-4">
+                                    Begreper
+                                </h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {lesson.concepts.map((concept: any) => (
+                                        <ConceptCard key={concept.id} concept={concept} />
+                                    ))}
+                                </div>
+                            </section>
+                        )}
+                        {lesson.quote && (
+                            <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800">
+                                <blockquote className="text-lg font-serif italic text-slate-800 dark:text-slate-200 mb-4">
+                                    "{lesson.quote.text}"
+                                </blockquote>
+                                {(lesson.quote.source || lesson.quote.reference) && (
+                                    <div className="text-sm text-slate-500 dark:text-slate-400 text-right">
+                                        {lesson.quote.source && <span className="font-bold block">{lesson.quote.source}</span>}
+                                        {lesson.quote.reference && <span>{lesson.quote.reference}</span>}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                </div>
             ) : (
                 /* Legacy Rendering Fallback */
                 <>

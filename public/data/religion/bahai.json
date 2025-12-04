@@ -1,0 +1,104 @@
+{
+    "name": "Bahai",
+    "color": "#14b8a6",
+    "dimensions": {
+        "ritual": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Obligatorisk bønn, faste (19 dager), 19-dagersfesten og pilegrimsreise (Haifa/Akko)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "narrative": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Historien om Báb og Bahá'u'lláh, deres åpenbaringer, forfølgelse og eksil."
+                        }
+                    ]
+                }
+            ]
+        },
+        "experiential": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Opplevelse av enhet med hele menneskeheten, tjeneste for andre som tilbedelse."
+                        }
+                    ]
+                }
+            ]
+        },
+        "social": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Ingen presteskap. Valgte råd (Lokalt og Nasjonalt Åndelig Råd, Det Universelle Rettferdighetens Hus)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ethical": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Enhet mellom alle mennesker, likestilling mellom kjønnene, harmoni mellom vitenskap og religion, avskaffelse av fordommer."
+                        }
+                    ]
+                }
+            ]
+        },
+        "doctrinal": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Guds enhet, religionsenhet (alle store religioner kommer fra samme kilde) og menneskehetens enhet. Progressiv åpenbaring."
+                        }
+                    ]
+                }
+            ]
+        },
+        "material": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Bahá'í-templer (med ni innganger), helligdommene i Haifa og Akko (hagene)."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

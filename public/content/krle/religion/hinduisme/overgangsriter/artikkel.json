@@ -1,0 +1,57 @@
+{
+    "id": "overgangsriter",
+    "title": "Overgangsriter i Hinduismen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "hinduisme",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "overgangsriter",
+        "ritual",
+        "døden"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Samskaras"
+        },
+        {
+            "type": "text",
+            "content": "Hinduismen har mange overgangsriter, kalt Samskaras. De markerer viktige stadier i livet fra før fødselen til etter døden."
+        },
+        {
+            "type": "header",
+            "text": "Fødsel og Barndom"
+        },
+        {
+            "type": "text",
+            "content": "Viktige riter inkluderer navngiving, første gang barnet spiser fast føde, og første hårklipp (for gutter)."
+        },
+        {
+            "type": "header",
+            "text": "Den hellige tråd"
+        },
+        {
+            "type": "text",
+            "content": "For gutter i de øverste kastene markerer tildelingen av den hellige tråd (Upanayana) starten på stadiet som student, der de skal lære om de hellige tekstene."
+        },
+        {
+            "type": "header",
+            "text": "Ekteskap"
+        },
+        {
+            "type": "text",
+            "content": "Bryllupet er en stor og fargerik fest som varer i flere dager. Paret går sju skritt rundt en hellig ild mens de lover hverandre troskap."
+        },
+        {
+            "type": "header",
+            "text": "Død og Kremasjon"
+        },
+        {
+            "type": "text",
+            "content": "Liket brennes på et bål (Antyesti), helst ved bredden av Ganges. Asken spres i elven. Dette hjelper sjelen videre til neste liv eller til frigjøring (Moksha)."
+        }
+    ]
+}

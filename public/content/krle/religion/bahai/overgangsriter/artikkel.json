@@ -1,0 +1,49 @@
+{
+    "id": "overgangsriter",
+    "title": "Overgangsriter i Bahá'í",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "bahai",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "overgangsriter",
+        "ritual",
+        "døden"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Enkle ritualer"
+        },
+        {
+            "type": "text",
+            "content": "Bahá'í-troen har få faste ritualer. Fokus er på bønn og lesning av hellige tekster."
+        },
+        {
+            "type": "header",
+            "text": "Religiøs myndighet"
+        },
+        {
+            "type": "text",
+            "content": "Barn regnes som åndelig modne ved 15 års alder. Da begynner de å følge de religiøse lovene, som faste og obligatorisk bønn."
+        },
+        {
+            "type": "header",
+            "text": "Ekteskap"
+        },
+        {
+            "type": "text",
+            "content": "Ekteskapet krever samtykke fra paret selv og alle fire foreldre. Målet er å skape enhet og harmoni."
+        },
+        {
+            "type": "header",
+            "text": "Begravelse"
+        },
+        {
+            "type": "text",
+            "content": "Den døde vaskes og svøpes i bomull eller silke. Det leses en spesiell begravelsesbønn før kisten senkes i jorden. Kremasjon er ikke tillatt."
+        }
+    ]
+}

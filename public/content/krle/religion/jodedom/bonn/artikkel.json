@@ -1,0 +1,40 @@
+{
+    "id": "bonn",
+    "title": "Bønn i Jødedommen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jodedom",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "bønn",
+        "ritual"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Tefillah"
+        },
+        {
+            "type": "text",
+            "content": "Jødisk bønn kalles Tefillah. Ortodokse jødiske menn ber tre ganger daglig: morgen (Shacharit), ettermiddag (Mincha) og kveld (Ma'ariv)."
+        },
+        {
+            "type": "header",
+            "text": "Shema og Amidah"
+        },
+        {
+            "type": "text",
+            "content": "De viktigste bønnene er Shema ('Hør Israel...') som er trosbekjennelsen, og Amidah (Atten-bønnen) som bes stående."
+        },
+        {
+            "type": "header",
+            "text": "Bønneustyr"
+        },
+        {
+            "type": "text",
+            "content": "Under morgenbønnen bruker menn bønnesjal (Tallit) og bønneremmer (Tefillin). Man dekker også hodet med en Kippah i respekt for Gud."
+        }
+    ]
+}

@@ -23,7 +23,7 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 - [ ] Den kalde krigen emne. En hovedartikkel, og flere subartikler om spesifikke hendelser. 
 - [ ] Artikler om mange av sentrale hendelsene i midtøsten. 
 ### KRLE
-- [ ] Opprette emner for budhisme, jødedom, hinduisme, bahai, Mormonism, jehovas i verdensreligioner. 
+
 - [ ] Finne en logisk måte å skille retninger innen kristendom og islam. 
 - [ ] Etikk og filosofi-emne. 
 - [ ] Artikkel om sekularisering
@@ -44,3 +44,4 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 - [X] Et emne på norskfaget med skrivetips; Heroes journey osv, bør være koblet til tekstsjanger.  
 - [ ] Interaktive modeller på toppen/innsiden av hvert emne som fukuserer på helhetens nivå, repitisjoner osv. Det må basere seg på alt innholdet i emnet. 
 - [X] En flashcard-app. Ruteark med fagbegreper. Trykke på dem og få definisjon og link til artikkel. Mulighet for filtre 
+- [x] Opprette emner for budhisme, jødedom, hinduisme, bahai, Mormonism, jehovas i verdensreligioner. 

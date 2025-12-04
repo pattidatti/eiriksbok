@@ -1,0 +1,40 @@
+{
+    "id": "bonn",
+    "title": "Bønn i Kristendommen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "kristendom",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "bønn",
+        "ritual"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Samtale med Gud"
+        },
+        {
+            "type": "text",
+            "content": "I kristendommen er bønn en personlig samtale med Gud. Man kan be med egne ord eller bruke faste bønner. Bønnen kan være takk, lovprisning, bekjennelse eller ønske om hjelp."
+        },
+        {
+            "type": "header",
+            "text": "Vår Far"
+        },
+        {
+            "type": "text",
+            "content": "Den mest kjente bønnen er 'Vår Far' (Fader vår), som Jesus lærte disiplene sine. Den brukes i nesten alle kirkesamfunn."
+        },
+        {
+            "type": "header",
+            "text": "Gudstjenesten"
+        },
+        {
+            "type": "text",
+            "content": "Bønn er en sentral del av gudstjenesten søndag formiddag. Her ber menigheten i fellesskap, ofte ledet av en prest eller liturg."
+        }
+    ]
+}

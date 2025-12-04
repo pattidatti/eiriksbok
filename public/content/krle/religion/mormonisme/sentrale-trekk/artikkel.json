@@ -1,0 +1,40 @@
+{
+    "id": "sentrale-trekk",
+    "title": "Sentrale trekk i Mormonismen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "mormonisme",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "sentrale_trekk",
+        "frelse_og_mal"
+    ],
+    "createdDate": "2025-12-04T10:00:00Z",
+    "lastUpdated": "2025-12-04T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Gjenopprettelsen"
+        },
+        {
+            "type": "text",
+            "content": "Jesu Kristi Kirke av Siste Dagers Hellige tror at den opprinnelige kirken Jesus grunnla gikk tapt, men ble gjenopprettet gjennom profeten Joseph Smith på 1800-tallet."
+        },
+        {
+            "type": "header",
+            "text": "Frelse og Opphøyelse"
+        },
+        {
+            "type": "text",
+            "content": "Gjennom tro på Jesus Kristus, omvendelse, dåp og mottakelse av Den hellige ånd kan mennesker bli frelst. Målet er 'opphøyelse', å leve evig sammen med Gud og familien i det høyeste himmelriket."
+        },
+        {
+            "type": "header",
+            "text": "Evig progresjon"
+        },
+        {
+            "type": "text",
+            "content": "Mennesket er Guds åndebarn og har potensial til å bli som Gud gjennom evig utvikling."
+        }
+    ]
+}

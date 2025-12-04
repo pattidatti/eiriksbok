@@ -1,0 +1,104 @@
+{
+    "name": "Mormonisme",
+    "color": "#8b5cf6",
+    "dimensions": {
+        "ritual": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Dåp (også for døde), nattverd, tempelritualer (besegling av ekteskap for evigheten)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "narrative": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Bibelen og Mormons bok (om jødiske utvandrere til Amerika og Jesu besøk der). Joseph Smiths syn."
+                        }
+                    ]
+                }
+            ]
+        },
+        "experiential": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Personlig åpenbaring, vitnesbyrd om sannheten ved Den hellige ånd."
+                        }
+                    ]
+                }
+            ]
+        },
+        "social": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Hierarkisk ledelse med en profet (president) og tolv apostler. Legmannspresteskap (alle verdige menn)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ethical": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Visdomsordet (avholdenhet fra alkohol, tobakk, kaffe, te), kyskhetsloven, tiende."
+                        }
+                    ]
+                }
+            ]
+        },
+        "doctrinal": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Troen på Jesus Kristus, gjenopprettelsen av den sanne kirke, prestedømmet, evig progresjon (mennesker kan bli som Gud)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "material": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Templer (kun for medlemmer), møtehus (kapeller), slektsforskningssentre."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

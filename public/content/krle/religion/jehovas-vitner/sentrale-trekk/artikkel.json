@@ -1,0 +1,40 @@
+{
+    "id": "sentrale-trekk",
+    "title": "Sentrale trekk i Jehovas vitner",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jehovas-vitner",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "sentrale_trekk",
+        "frelse_og_mal"
+    ],
+    "createdDate": "2025-12-04T10:00:00Z",
+    "lastUpdated": "2025-12-04T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Jehova og Guds rike"
+        },
+        {
+            "type": "text",
+            "content": "Jehovas vitner tror at Jehova er den eneste sanne Gud. De forkynner at Guds rike, en himmelsk regjering med Jesus som konge, snart skal gripe inn og fjerne ondskapen på jorden (Harmageddon)."
+        },
+        {
+            "type": "header",
+            "text": "Paradis på jorden"
+        },
+        {
+            "type": "text",
+            "content": "Målet er å overleve Harmageddon og leve evig på en paradisisk jord. En liten gruppe (144 000) skal til himmelen for å regjere med Jesus, mens de fleste troende skal leve på jorden."
+        },
+        {
+            "type": "header",
+            "text": "Bibeltroskap"
+        },
+        {
+            "type": "text",
+            "content": "De legger stor vekt på å følge Bibelen nøye og holder seg unna skikker de mener har hedensk opprinnelse (f.eks. jul og bursdager)."
+        }
+    ]
+}

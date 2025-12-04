@@ -1,0 +1,49 @@
+{
+    "id": "overgangsriter",
+    "title": "Overgangsriter i Mormonismen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "mormonisme",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "overgangsriter",
+        "ritual",
+        "døden"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Velsignelse av barn"
+        },
+        {
+            "type": "text",
+            "content": "Spedbarn velsignes og får navn i kirken, men de døpes ikke før de er 8 år gamle (når de regnes som ansvarlige)."
+        },
+        {
+            "type": "header",
+            "text": "Dåp og Konfirmasjon"
+        },
+        {
+            "type": "text",
+            "content": "Dåp skjer ved full neddykking ved 8 års alder. Etter dåpen blir man konfirmert og mottar Den hellige ånd ved håndspåleggelse."
+        },
+        {
+            "type": "header",
+            "text": "Tempelbesegling"
+        },
+        {
+            "type": "text",
+            "content": "Ekteskap inngått i tempelet gjelder for 'tid og evighet', ikke bare 'til døden skiller dere ad'. Dette kalles besegling."
+        },
+        {
+            "type": "header",
+            "text": "Misjon"
+        },
+        {
+            "type": "text",
+            "content": "Mange unge menn (og kvinner) reiser ut som misjonærer i 18-20 års alderen i to år. Dette er en viktig modningsprosess."
+        }
+    ]
+}

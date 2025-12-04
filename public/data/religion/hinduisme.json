@@ -1,0 +1,104 @@
+{
+    "name": "Hinduisme",
+    "color": "#ec4899",
+    "dimensions": {
+        "ritual": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Puja (tilbedelse hjemme eller i tempel), ofringer, yoga, meditasjon og pilegrimsreiser (f.eks. til Ganges)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "narrative": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Store epos som Mahabharata (med Bhagavadgita) og Ramayana. Myter om guder som Shiva, Vishnu og Devi."
+                        }
+                    ]
+                }
+            ]
+        },
+        "experiential": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Moksha (frigjøring), enhet med Brahman, bhakti (hengivelse) og mystiske opplevelser gjennom yoga."
+                        }
+                    ]
+                }
+            ]
+        },
+        "social": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Kastesystemet (tradisjonelt), familien som rituell enhet, guruer og asketer (sadhu)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ethical": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Dharma (plikter knyttet til kaste og livsstadium), karma (handling og konsekvens), ahimsa (ikke-vold)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "doctrinal": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Samsara (gjenfødsel), Karma, Brahman (verdenssjelen) og Atman (individets sjel)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "material": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Templer (Mandir), gudestatuer (Murti), hellige elver (Ganges), kuer, fargerike festivaler."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

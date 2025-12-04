@@ -299,6 +299,13 @@ export type ManifestConnection = Connection & {
   edges?: Maybe<Array<Maybe<ManifestConnectionEdges>>>;
 };
 
+export type ArticleQuote = {
+  __typename?: 'ArticleQuote';
+  text?: Maybe<Scalars['String']['output']>;
+  source?: Maybe<Scalars['String']['output']>;
+  reference?: Maybe<Scalars['String']['output']>;
+};
+
 export type ArticleContentText = {
   __typename?: 'ArticleContentText';
   content?: Maybe<Scalars['String']['output']>;
@@ -353,12 +360,19 @@ export type Article = Node & Document & {
   religion?: Maybe<Scalars['String']['output']>;
   dimension?: Maybe<Scalars['String']['output']>;
   comparison_tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  quote?: Maybe<ArticleQuote>;
   fact?: Maybe<Scalars['String']['output']>;
   tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   content?: Maybe<Array<Maybe<ArticleContent>>>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
+};
+
+export type ArticleQuoteFilter = {
+  text?: InputMaybe<StringFilter>;
+  source?: InputMaybe<StringFilter>;
+  reference?: InputMaybe<StringFilter>;
 };
 
 export type ArticleContentTextFilter = {
@@ -413,6 +427,7 @@ export type ArticleFilter = {
   religion?: InputMaybe<StringFilter>;
   dimension?: InputMaybe<StringFilter>;
   comparison_tags?: InputMaybe<StringFilter>;
+  quote?: InputMaybe<ArticleQuoteFilter>;
   fact?: InputMaybe<StringFilter>;
   tags?: InputMaybe<StringFilter>;
   content?: InputMaybe<ArticleContentFilter>;
@@ -614,6 +629,12 @@ export type ManifestMutation = {
   subjects?: InputMaybe<Array<InputMaybe<ManifestSubjectsMutation>>>;
 };
 
+export type ArticleQuoteMutation = {
+  text?: InputMaybe<Scalars['String']['input']>;
+  source?: InputMaybe<Scalars['String']['input']>;
+  reference?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ArticleContentTextMutation = {
   content?: InputMaybe<Scalars['String']['input']>;
 };
@@ -666,6 +687,7 @@ export type ArticleMutation = {
   religion?: InputMaybe<Scalars['String']['input']>;
   dimension?: InputMaybe<Scalars['String']['input']>;
   comparison_tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  quote?: InputMaybe<ArticleQuoteMutation>;
   fact?: InputMaybe<Scalars['String']['input']>;
   tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   content?: InputMaybe<Array<InputMaybe<ArticleContentMutation>>>;
@@ -690,7 +712,7 @@ export type ReligionMutation = {
 
 export type ManifestPartsFragment = { __typename: 'Manifest', subjects?: Array<{ __typename: 'ManifestSubjects', id?: string | null, title?: string | null, topics?: Array<{ __typename: 'ManifestSubjectsTopics', id?: string | null, title?: string | null, description?: string | null, image?: string | null, lessons?: Array<{ __typename: 'ManifestSubjectsTopicsLessons', id?: string | null, title?: string | null, description?: string | null, image?: string | null, tags?: Array<string | null> | null, createdDate?: string | null, lastUpdated?: string | null } | null> | null } | null> | null } | null> | null };
 
-export type ArticlePartsFragment = { __typename: 'Article', title?: string | null, subject?: string | null, topic?: string | null, createdDate?: string | null, lastUpdated?: string | null, religion?: string | null, dimension?: string | null, comparison_tags?: Array<string | null> | null, fact?: string | null, tags?: Array<string | null> | null, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentHeader', text?: string | null } | { __typename: 'ArticleContentList', items?: Array<string | null> | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null };
+export type ArticlePartsFragment = { __typename: 'Article', title?: string | null, subject?: string | null, topic?: string | null, createdDate?: string | null, lastUpdated?: string | null, religion?: string | null, dimension?: string | null, comparison_tags?: Array<string | null> | null, fact?: string | null, tags?: Array<string | null> | null, quote?: { __typename: 'ArticleQuote', text?: string | null, source?: string | null, reference?: string | null } | null, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentHeader', text?: string | null } | { __typename: 'ArticleContentList', items?: Array<string | null> | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null };
 
 export type ReligionPartsFragment = { __typename: 'Religion', name: string, color?: string | null, icon?: string | null, dimensions?: { __typename: 'ReligionDimensions', ritual?: any | null, narrative?: any | null, experiential?: any | null, social?: any | null, ethical?: any | null, doctrinal?: any | null, material?: any | null } | null };
 
@@ -718,7 +740,7 @@ export type ArticleQueryVariables = Exact<{
 }>;
 
 
-export type ArticleQuery = { __typename?: 'Query', article: { __typename: 'Article', id: string, title?: string | null, subject?: string | null, topic?: string | null, createdDate?: string | null, lastUpdated?: string | null, religion?: string | null, dimension?: string | null, comparison_tags?: Array<string | null> | null, fact?: string | null, tags?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentHeader', text?: string | null } | { __typename: 'ArticleContentList', items?: Array<string | null> | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null } };
+export type ArticleQuery = { __typename?: 'Query', article: { __typename: 'Article', id: string, title?: string | null, subject?: string | null, topic?: string | null, createdDate?: string | null, lastUpdated?: string | null, religion?: string | null, dimension?: string | null, comparison_tags?: Array<string | null> | null, fact?: string | null, tags?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, quote?: { __typename: 'ArticleQuote', text?: string | null, source?: string | null, reference?: string | null } | null, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentHeader', text?: string | null } | { __typename: 'ArticleContentList', items?: Array<string | null> | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null } };
 
 export type ArticleConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -730,7 +752,7 @@ export type ArticleConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ArticleConnectionQuery = { __typename?: 'Query', articleConnection: { __typename?: 'ArticleConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ArticleConnectionEdges', cursor: string, node?: { __typename: 'Article', id: string, title?: string | null, subject?: string | null, topic?: string | null, createdDate?: string | null, lastUpdated?: string | null, religion?: string | null, dimension?: string | null, comparison_tags?: Array<string | null> | null, fact?: string | null, tags?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentHeader', text?: string | null } | { __typename: 'ArticleContentList', items?: Array<string | null> | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null } | null } | null> | null } };
+export type ArticleConnectionQuery = { __typename?: 'Query', articleConnection: { __typename?: 'ArticleConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ArticleConnectionEdges', cursor: string, node?: { __typename: 'Article', id: string, title?: string | null, subject?: string | null, topic?: string | null, createdDate?: string | null, lastUpdated?: string | null, religion?: string | null, dimension?: string | null, comparison_tags?: Array<string | null> | null, fact?: string | null, tags?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, quote?: { __typename: 'ArticleQuote', text?: string | null, source?: string | null, reference?: string | null } | null, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentHeader', text?: string | null } | { __typename: 'ArticleContentList', items?: Array<string | null> | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null } | null } | null> | null } };
 
 export type ReligionQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -789,6 +811,12 @@ export const ArticlePartsFragmentDoc = gql`
   religion
   dimension
   comparison_tags
+  quote {
+    __typename
+    text
+    source
+    reference
+  }
   fact
   tags
   content {

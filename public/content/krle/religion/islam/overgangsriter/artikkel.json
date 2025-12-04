@@ -1,0 +1,49 @@
+{
+    "id": "overgangsriter",
+    "title": "Overgangsriter i Islam",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "islam",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "overgangsriter",
+        "ritual",
+        "døden"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Fødsel og Navngiving"
+        },
+        {
+            "type": "text",
+            "content": "Når et barn blir født, hviskes bønneropet (Adhan) i barnets øre. Etter sju dager holdes en navnefest (Aqiqah) hvor barnet får navn og håret klippes."
+        },
+        {
+            "type": "header",
+            "text": "Omskjæring"
+        },
+        {
+            "type": "text",
+            "content": "Gutter omskjæres, ofte i ung alder. Dette er et tegn på tilhørighet til det muslimske fellesskapet."
+        },
+        {
+            "type": "header",
+            "text": "Ekteskap (Nikah)"
+        },
+        {
+            "type": "text",
+            "content": "Ekteskapet er en kontrakt mellom mann og kvinne. Det er en viktig religiøs plikt og grunnlaget for familien."
+        },
+        {
+            "type": "header",
+            "text": "Død og Begravelse"
+        },
+        {
+            "type": "text",
+            "content": "Den døde vaskes, svøpes i hvite kleder og begraves så raskt som mulig, vendt mot Mekka. Det holdes en egen begravelsesbønn (Janazah)."
+        }
+    ]
+}

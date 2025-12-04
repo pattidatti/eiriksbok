@@ -1,0 +1,49 @@
+{
+    "id": "overgangsriter",
+    "title": "Overgangsriter i Kristendommen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "kristendom",
+    "dimension": "ritual",
+    "comparison_tags": [
+        "overgangsriter",
+        "ritual",
+        "døden"
+    ],
+    "createdDate": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2025-12-04T11:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Dåp"
+        },
+        {
+            "type": "text",
+            "content": "Dåpen er inngangen til livet i kirken. Barnet (eller den voksne) døpes med vann 'i Faderens, Sønnens og Den hellige ånds navn'."
+        },
+        {
+            "type": "header",
+            "text": "Konfirmasjon"
+        },
+        {
+            "type": "text",
+            "content": "Konfirmasjon er en bekreftelse på dåpen og markerer overgangen fra barn til ungdom. Det innebærer ofte undervisning i kristen tro."
+        },
+        {
+            "type": "header",
+            "text": "Ekteskap"
+        },
+        {
+            "type": "text",
+            "content": "Ekteskapet inngås i kirken som en hellig handling der paret lover hverandre troskap foran Gud og vitner."
+        },
+        {
+            "type": "header",
+            "text": "Begravelse"
+        },
+        {
+            "type": "text",
+            "content": "Ved døden holdes en begravelse eller bisettelse. Man tar avskjed med den døde og minnes håpet om oppstandelse og evig liv."
+        }
+    ]
+}

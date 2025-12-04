@@ -80,7 +80,10 @@ export const DimensionComparison: React.FC<DimensionComparisonProps> = ({ religi
                 {religions.map((religion) => (
                     <motion.div
                         key={religion.id}
-                        layoutId={`card-${religion.id}`}
+                        key={religion.id}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3 }}
                         className="bg-bg-card border border-border-main rounded-2xl overflow-hidden flex flex-col shadow-sm"
                     >
                         <div

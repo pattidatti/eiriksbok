@@ -36,7 +36,7 @@ export const DimensionWheel: React.FC<DimensionWheelProps> = ({ religion }) => {
     };
 
     return (
-        <div className="flex flex-col md:flex-row items-center gap-8 p-8 bg-slate-900/50 rounded-3xl backdrop-blur-sm border border-slate-800">
+        <div className="flex flex-col md:flex-row items-center gap-8 p-8 bg-white/50 rounded-3xl backdrop-blur-md border border-white/20 shadow-sm">
             {/* The Wheel */}
             <div className="relative w-[320px] h-[320px] flex-shrink-0">
                 <svg width="320" height="320" viewBox="0 0 320 320" className="transform -rotate-90">
@@ -49,12 +49,12 @@ export const DimensionWheel: React.FC<DimensionWheelProps> = ({ religion }) => {
                             <motion.path
                                 key={dim.key}
                                 d={createWedge(startAngle, endAngle)}
-                                fill={isSelected ? (religion.color || '#6366f1') : '#1e293b'}
-                                stroke="#0f172a"
+                                fill={isSelected ? (religion.color || '#6366f1') : 'var(--bg-card)'}
+                                stroke="var(--border)"
                                 strokeWidth="2"
                                 whileHover={{ scale: 1.05, originX: 0.5, originY: 0.5 }}
                                 onClick={() => setSelectedDim(dim.key)}
-                                className="cursor-pointer transition-colors duration-300 hover:fill-indigo-500/50"
+                                className="cursor-pointer transition-colors duration-300 hover:fill-indigo-500/20"
                                 style={{
                                     fill: isSelected ? (religion.color || '#6366f1') : undefined
                                 }}
@@ -62,7 +62,7 @@ export const DimensionWheel: React.FC<DimensionWheelProps> = ({ religion }) => {
                         );
                     })}
                     {/* Center Circle */}
-                    <circle cx={center} cy={center} r="40" fill="#0f172a" stroke="#334155" strokeWidth="2" />
+                    <circle cx={center} cy={center} r="40" fill="var(--bg-main)" stroke="var(--border)" strokeWidth="2" />
                 </svg>
 
                 {/* Labels positioned around */}
@@ -76,7 +76,7 @@ export const DimensionWheel: React.FC<DimensionWheelProps> = ({ religion }) => {
                     return (
                         <div
                             key={dim.key}
-                            className="absolute text-xs font-bold text-center pointer-events-none text-white drop-shadow-md"
+                            className="absolute text-xs font-bold text-center pointer-events-none text-slate-700 drop-shadow-sm"
                             style={{
                                 left: x,
                                 top: y,
@@ -91,7 +91,7 @@ export const DimensionWheel: React.FC<DimensionWheelProps> = ({ religion }) => {
 
                 {/* Center Text */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
                         {religion.name}
                     </span>
                 </div>
@@ -106,16 +106,16 @@ export const DimensionWheel: React.FC<DimensionWheelProps> = ({ religion }) => {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
-                            className="bg-slate-800 p-6 rounded-2xl border border-slate-700 h-full"
+                            className="bg-white/80 p-6 rounded-2xl border border-white/50 h-full shadow-sm"
                         >
-                            <h3 className="text-2xl font-display font-bold text-white mb-4 border-b border-slate-700 pb-2">
+                            <h3 className="text-2xl font-display font-bold text-slate-900 mb-4 border-b border-slate-200 pb-2">
                                 {DIMENSIONS.find(d => d.key === selectedDim)?.label}
                             </h3>
-                            <div className="prose prose-invert max-w-none">
+                            <div className="prose prose-slate max-w-none">
                                 {religion.dimensions[selectedDim] ? (
                                     <TinaMarkdown content={religion.dimensions[selectedDim]} />
                                 ) : (
-                                    <p className="text-slate-400 italic">Ingen beskrivelse lagt til ennå.</p>
+                                    <p className="text-slate-500 italic">Ingen beskrivelse lagt til ennå.</p>
                                 )}
                             </div>
                         </motion.div>
@@ -123,7 +123,7 @@ export const DimensionWheel: React.FC<DimensionWheelProps> = ({ religion }) => {
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="flex items-center justify-center h-full text-slate-500 italic text-center p-8 border-2 border-dashed border-slate-800 rounded-2xl"
+                            className="flex items-center justify-center h-full text-slate-500 italic text-center p-8 border-2 border-dashed border-slate-300 rounded-2xl"
                         >
                             Klikk på en del av hjulet for å utforske de 7 dimensjonene.
                         </motion.div>

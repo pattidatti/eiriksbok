@@ -1,0 +1,40 @@
+{
+    "id": "sentrale-trekk",
+    "title": "Sentrale trekk i Buddhismen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "buddhisme",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "sentrale_trekk",
+        "frelse_og_mal"
+    ],
+    "createdDate": "2025-12-04T10:00:00Z",
+    "lastUpdated": "2025-12-04T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Nirvana: Frigjøring fra lidelse"
+        },
+        {
+            "type": "text",
+            "content": "Målet i buddhismen er å oppnå Nirvana, en tilstand av total frihet fra lidelse, begjær og gjenfødsel. Dette oppnås ved å innse at alt er foranderlig og at det ikke finnes noe fast 'jeg' (anatta)."
+        },
+        {
+            "type": "header",
+            "text": "De fire edle sannheter"
+        },
+        {
+            "type": "text",
+            "content": "Buddhas lære oppsummeres i de fire edle sannheter: 1) Alt er lidelse (utilfredshet), 2) Lidelsens årsak er begjær, 3) Lidelsen kan opphøre (Nirvana), 4) Veien til lidelsens opphør er Den åttedelte vei."
+        },
+        {
+            "type": "header",
+            "text": "Karma og Gjenfødsel"
+        },
+        {
+            "type": "text",
+            "content": "Handlinger (karma) har konsekvenser og binder mennesket til hjulet av gjenfødsler (Samsara). Målet er å bryte ut av dette kretsløpet."
+        }
+    ]
+}

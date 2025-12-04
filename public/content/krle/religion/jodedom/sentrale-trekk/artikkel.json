@@ -1,0 +1,40 @@
+{
+    "id": "sentrale-trekk",
+    "title": "Sentrale trekk i Jødedommen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "jodedom",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "sentrale_trekk",
+        "frelse_og_mal"
+    ],
+    "createdDate": "2025-12-04T10:00:00Z",
+    "lastUpdated": "2025-12-04T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Livet her og nå"
+        },
+        {
+            "type": "text",
+            "content": "Jødedommen fokuserer mer på livet her og nå enn på livet etter døden. Målet er å leve et hellig liv i samsvar med Guds vilje (Mitzvot) og dermed være med på å reparere verden (Tikkun Olam)."
+        },
+        {
+            "type": "header",
+            "text": "Pakten og Messias"
+        },
+        {
+            "type": "text",
+            "content": "Jødene ser på seg selv som Guds utvalgte folk, knyttet til Gud gjennom en pakt. De venter på Messias, en menneskelig konge av Davids ætt, som skal skape fred og rettferdighet på jorden og gjenoppbygge tempelet i Jerusalem."
+        },
+        {
+            "type": "header",
+            "text": "Monoteisme"
+        },
+        {
+            "type": "text",
+            "content": "Troen på én Gud er absolutt. Gud er skaperen, lovgiveren og dommeren, men også barmhjertig og rettferdig."
+        }
+    ]
+}

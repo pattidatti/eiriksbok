@@ -70,6 +70,11 @@ export interface Lesson {
     tags?: string[];
     comparison_tags?: string[];
     relatedLink?: { text: string; url: string; };
+    quote?: {
+        text: string;
+        source?: string;
+        reference?: string;
+    };
 }
 
 export interface ManifestLesson {

@@ -1,0 +1,104 @@
+{
+    "name": "Buddhisme",
+    "color": "#f59e0b",
+    "dimensions": {
+        "ritual": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Meditasjon, puja (tilbedelse), resitasjon av mantraer og pilegrimsreiser."
+                        }
+                    ]
+                }
+            ]
+        },
+        "narrative": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Fortellinger om Buddhas liv (Siddharta Gautama), hans oppvåkning og tidligere liv (Jataka-fortellingene)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "experiential": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Opplysning (Nirvana), ro, innsikt gjennom meditasjon."
+                        }
+                    ]
+                }
+            ]
+        },
+        "social": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Sangha (munkefellesskapet) og lekfolk. Ingen sentral leder som en pave."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ethical": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Den åttedelte vei, de fem forbud (ikke drepe, stjele, lyve, etc.), karma og medfølelse."
+                        }
+                    ]
+                }
+            ]
+        },
+        "doctrinal": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "De fire edle sannheter, læren om ikke-jeg (anatta), gjenfødsel og karma."
+                        }
+                    ]
+                }
+            ]
+        },
+        "material": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Stupaer, templer, statuer av Buddha, bønnehjul og bønneflagg."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
