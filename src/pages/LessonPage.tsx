@@ -379,6 +379,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                                 )}
                             </div>
                         )}
+
                     </div>
                 </div>
             ) : (
@@ -413,7 +414,8 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                         </section>
                     )}
                 </>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 };

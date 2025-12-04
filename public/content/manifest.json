@@ -364,6 +364,28 @@
             "title": "Historie",
             "topics": [
                 {
+                    "id": "norgeshistorie",
+                    "title": "Norgeshistorie",
+                    "description": "Fra istid til oljealder.",
+                    "image": "https://images.unsplash.com/photo-1506701169837-036f75628587?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "norge-for-vikingene",
+                            "title": "Norge før vikingene",
+                            "description": "Fra pionerbosetning til folkevandringstid.",
+                            "image": "https://images.unsplash.com/photo-1518990167611-66380e77406d?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "historie",
+                                "norge",
+                                "steinalder",
+                                "jernalder"
+                            ],
+                            "createdDate": "2025-12-04T12:00:00Z",
+                            "lastUpdated": "2025-12-04T12:00:00Z"
+                        }
+                    ]
+                },
+                {
                     "id": "andre-verdenskrig",
                     "title": "Andre Verdenskrig",
                     "image": "https://images.unsplash.com/photo-1654359569921-8356a96a9808?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
@@ -615,7 +637,33 @@
                                 "b\u00f8ker"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                            "lastUpdated": "2025-12-03T17:25:16.499Z",
+                            "definitions": [
+                                {
+                                    "term": "Mainz",
+                                    "definition": "En tysk by hvor Gutenberg utviklet trykkpressen."
+                                },
+                                {
+                                    "term": "Scriptorier",
+                                    "definition": "Skrivestuer i klostre hvor munker kopierte bøker for hånd."
+                                },
+                                {
+                                    "term": "Løse typer",
+                                    "definition": "Enkeltbokstaver støpt i metall som kunne settes sammen til ord og sider, og brukes om igjen."
+                                },
+                                {
+                                    "term": "Legering",
+                                    "definition": "En blanding av to eller flere metaller (her bly, tinn og antimon)."
+                                },
+                                {
+                                    "term": "Reformasjonen",
+                                    "definition": "En religiøs omveltning på 1500-tallet startet av Martin Luther, som førte til dannelsen av protestantiske kirker."
+                                },
+                                {
+                                    "term": "Blokktrykk",
+                                    "definition": "En trykketeknikk hvor hele sider skjæres ut i treplater."
+                                }
+                            ]
                         }
                     ]
                 },

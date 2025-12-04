@@ -256,33 +256,7 @@ export const timelineData: TimelineEvent[] = [
             { year: "1349", title: "Pesten i Norge", description: "Svartedauden kommer til Bergen." }
         ]
     },
-    {
-        id: 7,
-        year: "1440 evt.",
-        title: "Boktrykkerkunsten",
-        description: "En informasjonsrevolusjon startet av Gutenberg (og kineserne).",
-        content: [
-            { type: 'text', content: "I 1440 'oppfant' gullsmeden Johannes Gutenberg boktrykkerkunsten i Tyskland. Han utviklet en metode med løse typer som gjorde det mulig å masseprodusere bøker. Men det er verdt å merke seg at kineserne hadde utviklet lignende teknologi allerede rundt år 700." },
-            { type: 'text', content: "Før trykkpressen måtte bøker skrives for hånd, noe som var dyrt og tidkrevende. Med den nye teknologien eksploderte antall bøker: Rundt år 1500 fantes det over 20 millioner bøker i Europa." },
-            { type: 'text', content: "Dette førte til en enorm spredning av kunnskap, ideer og kritikk mot makthaverne (som kirken). Det ble vanskeligere å holde informasjon hemmelig, og flere lærte å lese." }
-        ],
-        details: [
-            "Gutenberg utviklet trykkpressen ca. 1440.",
-            "Kineserne hadde teknologien mye tidligere (år 700).",
-            "Førte til 20 millioner bøker innen år 1500.",
-            "Gjorde kunnskap tilgjengelig for massene."
-        ],
-        icon: <BookOpen className="w-8 h-8 text-purple-400" />,
-        category: 'Verden',
-        url: "https://snl.no/Johann_Gutenberg",
-        readTime: "2 min lesning",
-        tags: ["Historie", "Verden", "Teknologi"],
-        timeline: [
-            { year: "700", title: "Kinesisk trykking", description: "Kineserne utvikler trykketeknologi." },
-            { year: "1440", title: "Gutenberg", description: "Johannes Gutenberg oppfinner trykkpressen i Europa." },
-            { year: "1500", title: "Bokeksplosjon", description: "Over 20 millioner bøker i Europa." }
-        ]
-    },
+
     {
         id: 8,
         year: "ca. 1840 evt.",

@@ -75,6 +75,7 @@ export interface Lesson {
         source?: string;
         reference?: string;
     };
+    flashcards?: { front: string; back: string }[];
 }
 
 export interface ManifestLesson {
