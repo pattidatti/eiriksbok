@@ -15,12 +15,58 @@ export const TopicComparisonPage: React.FC = () => {
         const fetchArticles = async () => {
             if (!tag) return;
             setLoading(true);
-            try {
-                console.log(`Fetching articles for tag: "${tag}"`);
-                // Fetch all articles and filter client-side for the tag
-                const res = await client.queries.articleConnection({ first: 100 });
-                const allArticles = res.data.articleConnection.edges?.map(e => e?.node) || [];
 
+            let allArticles: any[] = [];
+            let error: any = null;
+
+            // Attempt 1: Try Tina Client
+            try {
+                const res = await client.queries.articleConnection({ first: 100 });
+                allArticles = res.data.articleConnection.edges?.map(e => e?.node) || [];
+            } catch (e: any) {
+                console.warn("Tina client failed, falling back to manual fetch", e);
+                error = e;
+            }
+
+            // Attempt 2: Fallback to manual fetch if Tina failed or returned nothing (which might be due to connection error masked as empty)
+            if (allArticles.length === 0) {
+                try {
+                    // We need to discover articles. Since we don't have a full index, we'll use the manifest 
+                    // to find where articles *might* be, and also check common locations.
+                    // Ideally, we'd have a generated index.json, but for now we'll iterate known religions.
+
+                    const religions = ['kristendom', 'islam', 'jodedom', 'buddhisme', 'hinduisme', 'sikhisme', 'bahai', 'jehovas-vitner', 'mormonisme'];
+                    const potentialArticles: any[] = [];
+
+                    // Fetch manifest to get structure if possible, but for now let's brute force common paths for this tag
+                    // The tag "sentrale_trekk" usually corresponds to "sentrale-trekk/artikkel.json"
+
+                    const tagSlug = tag.replace(/_/g, '-'); // sentrale_trekk -> sentrale-trekk
+
+                    await Promise.all(religions.map(async (religion) => {
+                        try {
+                            const path = `content/krle/religion/${religion}/${tagSlug}/artikkel.json`;
+                            const basePath = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+                            const res = await fetch(`${basePath}${path}`);
+                            if (res.ok) {
+                                const data = await res.json();
+                                // Add _sys structure to match Tina shape
+                                data._sys = { breadcrumbs: ['krle', 'religion', religion, tagSlug, 'artikkel'] };
+                                potentialArticles.push(data);
+                            }
+                        } catch (err) {
+                            // Ignore missing files
+                        }
+                    }));
+
+                    allArticles = potentialArticles;
+
+                } catch (fallbackError: any) {
+                    console.error("Fallback fetch failed", fallbackError);
+                }
+            }
+
+            try {
                 const filtered = allArticles.filter((article: any) => {
                     return article?.comparison_tags?.includes(tag);
                 });
@@ -35,8 +81,8 @@ export const TopicComparisonPage: React.FC = () => {
                 }));
 
                 setArticles(enrichedArticles);
-            } catch (e) {
-                console.error("Error fetching topic articles", e);
+            } catch (e: any) {
+                console.error("Error processing articles", e);
             } finally {
                 setLoading(false);
             }
