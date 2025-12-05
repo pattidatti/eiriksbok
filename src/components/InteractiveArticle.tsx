@@ -47,6 +47,7 @@ interface InteractiveArticleProps {
     event: ArticleData;
     onClose: () => void;
     parentPath?: string;
+    fallbackUrl?: string;
 }
 
 const InteractiveMapPlaceholder = () => (
@@ -164,7 +165,7 @@ const getOverlappingEvents = (currentEventId: string | number, currentYearStr: s
         }));
 };
 
-export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, parentPath }) => {
+export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, parentPath, fallbackUrl }) => {
     const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();
 
     // Calculate speech blocks and mapping
@@ -345,6 +346,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                                 concepts={event.concepts}
                                 activeBlockIndex={activeContentIndex}
                                 onBlockClick={handleBlockClick}
+                                fallbackUrl={fallbackUrl}
                             />
 
                             {event.fact && <FactBox content={event.fact} />}

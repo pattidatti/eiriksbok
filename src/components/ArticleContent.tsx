@@ -144,17 +144,17 @@ interface ArticleContentProps {
     concepts?: Concept[];
     activeBlockIndex?: number;
     onBlockClick?: (index: number) => void;
+    fallbackUrl?: string;
 }
 
-export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concepts, activeBlockIndex, onBlockClick }) => {
+export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concepts, activeBlockIndex, onBlockClick, fallbackUrl }) => {
     if (!content || !Array.isArray(content)) return null;
     // DEBUG: Fallback fetch if content is truncated
     const [fullContent, setFullContent] = React.useState<ContentBlock[] | null>(null);
 
     React.useEffect(() => {
-        if (content.length < 10 && !fullContent) {
-            console.log('ArticleContent: Content truncated, fetching full content...');
-            fetch('http://localhost:5173/content/historie/norgeshistorie/norge-for-vikingene/artikkel.json?t=' + Date.now())
+        if (content.length < 25 && !fullContent && fallbackUrl) {
+            fetch(fallbackUrl + '?t=' + Date.now())
                 .then(res => res.json())
                 .then(data => {
                     console.log('ArticleContent: Fetched full content, length:', data.content.length);
@@ -162,7 +162,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                 })
                 .catch(err => console.error('ArticleContent: Fetch failed', err));
         }
-    }, [content]);
+    }, [content, fallbackUrl]);
 
     const displayContent = fullContent || content;
 
@@ -209,7 +209,6 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                         </motion.div>
                                     </div>
                                 )}
-                                <div className="text-xs text-red-500 mb-2">Debug: Content length: {(block.content || block.text || block.value || '').length}</div>
                                 {renderWithMarkdown(block.content || block.text || block.value, concepts)}
                             </div>
                         );

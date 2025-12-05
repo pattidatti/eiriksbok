@@ -163,6 +163,9 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         e.id.toString() === lessonId
     ) : null;
 
+    // Construct fallback URL for ArticleContent
+    const fallbackUrl = `http://localhost:5173/content/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}/${lessonId}/artikkel.json`;
+
     if (timelineEvent) {
         return (
             <ErrorBoundary>
@@ -170,6 +173,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                     event={timelineEvent}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
                     parentPath={`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`}
+                    fallbackUrl={fallbackUrl}
                 />
             </ErrorBoundary>
         );
@@ -191,6 +195,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                 <NorskArticleLayout
                     article={articleData}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
+                    fallbackUrl={fallbackUrl}
                 />
             </ErrorBoundary>
         );
@@ -260,6 +265,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                     event={articleData}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
                     parentPath={`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`}
+                    fallbackUrl={fallbackUrl}
                 />
             </ErrorBoundary>
         );
@@ -340,6 +346,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                             concepts={lesson.concepts}
                             activeBlockIndex={activeContentIndex}
                             onBlockClick={handleBlockClick}
+                            fallbackUrl={fallbackUrl}
                         />
                     </div>
 

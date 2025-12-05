@@ -60,7 +60,9 @@ export const TopicPage: React.FC = () => {
     ) : null;
 
     if (timelineEvent) {
-        return <ErrorBoundary><InteractiveArticle event={timelineEvent} onClose={() => navigate(`/${subjectId}/${topicId}`)} parentPath={`/${subjectId}/${topicId}`} /></ErrorBoundary>;
+        // Construct fallback URL for ArticleContent
+        const fallbackUrl = `http://localhost:5173/content/${subjectId}/${topicId}/${subTopicId}/artikkel.json`;
+        return <ErrorBoundary><InteractiveArticle event={timelineEvent} onClose={() => navigate(`/${subjectId}/${topicId}`)} parentPath={`/${subjectId}/${topicId}`} fallbackUrl={fallbackUrl} /></ErrorBoundary>;
     }
 
     const lessonInTopic = currentTopic?.lessons?.find(l => l.id === subTopicId);
