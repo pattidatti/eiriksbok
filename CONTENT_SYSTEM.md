@@ -61,10 +61,15 @@ To add a new lesson (article):
 ## 4. Feature Systems
 
 ### 4.1. Global Timeline
-The timeline aggregates events from all history articles.
+The timeline aggregates events from all history articles AND manual entries.
 
-*   **Source**: Individual article JSON files.
-*   **How to Add**: Add a `timeline` array to your article JSON.
+*   **Dual Source Architecture**:
+    1.  **CMS/Manifest**: Generated via `scripts/generate-timeline.js` into `global-timeline.json`.
+    2.  **Manual Entries**: Hardcoded in `src/data/timelineData.tsx` (for events needing custom React icons).
+*   **Unified Access**: The `useGlobalTimeline` hook merges these two sources on the client-side.
+*   **How to Add**:
+    *   **CMS**: Add a `timeline` array to your article JSON (as seen below).
+    *   **Manual**: Add entry to `src/data/timelineData.tsx` if you need custom icons/hardcoded behavior.
     ```json
     // in vikingtiden.json
     {
@@ -74,17 +79,12 @@ The timeline aggregates events from all history articles.
           "year": "793",
           "title": "Angrepet på Lindisfarne",
           "description": "Vikingtiden starter."
-        },
-        {
-          "year": "1030",
-          "title": "Slaget på Stiklestad",
-          "description": "Olav den Hellige faller."
         }
       ]
     }
     ```
-*   **Build**: Run `node scripts/generate-timeline.js` to update `global-timeline.json`.
-*   **Note**: Supports "fvt" (BC) dates (e.g., "500 fvt").
+*   **Build**: Run `node scripts/generate-timeline.js` to update the CMS portion (`global-timeline.json`).
+*   **Note**: Supports multiple date formats and automatically deduplicates events.
 
 ### 4.2. Flashcards (Fagbegreper)
 Flashcards are global concepts used for practice.

@@ -51,7 +51,7 @@ export const timelineData: TimelineEvent[] = [
         ],
         icon: <Anchor className="w-8 h-8 text-teal-400" />,
         category: 'Verden',
-        url: "https://snl.no/oppdagelsesreisene",
+        url: "/historie/kolonialisering/verdenshandel-for-oppdagelsesreisene",
         readTime: "5 min lesning",
         tags: ["Historie", "Verden", "Handel"],
         timeline: [
