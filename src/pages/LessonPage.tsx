@@ -164,7 +164,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     ) : null;
 
     // Construct fallback URL for ArticleContent
-    const fallbackUrl = `http://localhost:5173/content/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}/${lessonId}/artikkel.json`;
+    const fallbackUrl = `${window.location.origin}/content/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}/${lessonId}/artikkel.json`;
 
     if (timelineEvent) {
         return (
