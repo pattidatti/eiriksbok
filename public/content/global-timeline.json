@@ -1114,5 +1114,174 @@
       "demo",
       "layout"
     ]
+  },
+  {
+    "id": "knut-alvsson",
+    "title": "Knut Alvsson – ridderen som trosset kong Hans",
+    "description": "Historien om Knut Alvsson, en norsk adelsmann som ledet et opprør mot dansk styre under Kalmarunionen.",
+    "startDate": 1455,
+    "endDate": 1502,
+    "displayDate": "1455-1502",
+    "type": "lesson",
+    "subjectId": "historie",
+    "topicId": "norgeshistorie",
+    "link": "/historie/norgeshistorie/knut-alvsson",
+    "tags": [
+      "historie",
+      "norge",
+      "kalmarunionen",
+      "middelalder",
+      "opprør"
+    ]
+  },
+  {
+    "id": "knut-alvsson-sub-0",
+    "title": "Utnevnt til høvedsmann",
+    "description": "Knut Alvsson utnevnes til høvedsmann på Akershus festning.",
+    "startDate": 1497,
+    "endDate": null,
+    "displayDate": "1497",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "norgeshistorie",
+    "link": "/historie/norgeshistorie/knut-alvsson",
+    "tags": [
+      "knut alvsson"
+    ]
+  },
+  {
+    "id": "knut-alvsson-sub-1",
+    "title": "Bondeopprør på Romerike",
+    "description": "Opprøret mot fogden Lasse Skjold bryter ut.",
+    "startDate": 1497,
+    "endDate": null,
+    "displayDate": "1497",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "norgeshistorie",
+    "link": "/historie/norgeshistorie/knut-alvsson",
+    "tags": [
+      "knut alvsson"
+    ]
+  },
+  {
+    "id": "knut-alvsson-sub-2",
+    "title": "Avsatt og i eksil",
+    "description": "Knut Alvsson mister sin stilling og flykter til Sverige.",
+    "startDate": 1499,
+    "endDate": null,
+    "displayDate": "1499",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "norgeshistorie",
+    "link": "/historie/norgeshistorie/knut-alvsson",
+    "tags": [
+      "knut alvsson"
+    ]
+  },
+  {
+    "id": "knut-alvsson-sub-3",
+    "title": "Knut Alvsson vender tilbake",
+    "description": "Knut kommer tilbake til Norge med fornyet besluttsomhet.",
+    "startDate": 1500,
+    "endDate": null,
+    "displayDate": "1500",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "norgeshistorie",
+    "link": "/historie/norgeshistorie/knut-alvsson",
+    "tags": [
+      "knut alvsson"
+    ]
+  },
+  {
+    "id": "knut-alvsson-sub-4",
+    "title": "Oppsigelsesbrevet",
+    "description": "Knut og hans allierte sender oppsigelsesbrev til kong Hans.",
+    "startDate": 1501,
+    "endDate": null,
+    "displayDate": "1501",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "norgeshistorie",
+    "link": "/historie/norgeshistorie/knut-alvsson",
+    "tags": [
+      "knut alvsson"
+    ]
+  },
+  {
+    "id": "knut-alvsson-sub-5",
+    "title": "Folkeopprør bryter ut",
+    "description": "Opprøret starter på Vestlandet og sprer seg over Sør-Norge.",
+    "startDate": 1501,
+    "endDate": null,
+    "displayDate": "1501",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "norgeshistorie",
+    "link": "/historie/norgeshistorie/knut-alvsson",
+    "tags": [
+      "knut alvsson"
+    ]
+  },
+  {
+    "id": "knut-alvsson-sub-6",
+    "title": "Erobring av festninger",
+    "description": "Knut Alvsson inntar Akershus og Tunsberghus festninger.",
+    "startDate": 1502,
+    "endDate": null,
+    "displayDate": "1502",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "norgeshistorie",
+    "link": "/historie/norgeshistorie/knut-alvsson",
+    "tags": [
+      "knut alvsson"
+    ]
+  },
+  {
+    "id": "knut-alvsson-sub-7",
+    "title": "Inntar Bergen Kongsgård",
+    "description": "Opprørerne tar kontroll over kongsgården i Bergen i juni.",
+    "startDate": 1502,
+    "endDate": null,
+    "displayDate": "1502",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "norgeshistorie",
+    "link": "/historie/norgeshistorie/knut-alvsson",
+    "tags": [
+      "knut alvsson"
+    ]
+  },
+  {
+    "id": "knut-alvsson-sub-8",
+    "title": "Store tap for opprørerne",
+    "description": "Henrik Krummedige gjenerobrer Tunsberghus og beleirer Akershus.",
+    "startDate": 1502,
+    "endDate": null,
+    "displayDate": "1502",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "norgeshistorie",
+    "link": "/historie/norgeshistorie/knut-alvsson",
+    "tags": [
+      "knut alvsson"
+    ]
+  },
+  {
+    "id": "knut-alvsson-sub-9",
+    "title": "Drapet på Knut Alvsson",
+    "description": "Knut Alvsson blir drept 18. august under forhandlinger på Henrik Krummediges skip.",
+    "startDate": 1502,
+    "endDate": null,
+    "displayDate": "1502",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "norgeshistorie",
+    "link": "/historie/norgeshistorie/knut-alvsson",
+    "tags": [
+      "knut alvsson"
+    ]
   }
 ]

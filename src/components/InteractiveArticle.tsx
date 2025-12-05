@@ -47,70 +47,10 @@ export type ArticleData = {
 interface InteractiveArticleProps {
     event: ArticleData;
     onClose: () => void;
-    parentPath?: string;
     fallbackUrl?: string;
 }
 
-const InteractiveMapPlaceholder = () => (
-    <div className="relative w-full h-64 bg-slate-100 rounded-xl overflow-hidden border border-slate-200 group cursor-pointer shadow-sm">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-60 group-hover:opacity-80 transition-opacity" />
-        <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full border border-slate-200 flex items-center space-x-2 group-hover:scale-105 transition-transform shadow-md">
-                <Map className="w-5 h-5 text-indigo-600" />
-                <span className="text-slate-900 font-bold text-sm">Utforsk Kartet</span>
-            </div>
-        </div>
-    </div>
-);
-
-const FactBox = ({ content }: { content: string }) => {
-    if (!content) return null;
-
-    return (
-        <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
-            <h4 className="text-indigo-700 font-bold text-sm uppercase mb-2 flex items-center tracking-wider">
-                <Info className="w-4 h-4 mr-2" /> Visste du at?
-            </h4>
-            <p className="text-slate-700 text-base leading-relaxed italic">
-                {content}
-            </p>
-        </div>
-    );
-};
-
-const ExpandableSection = ({ title, children }: { title: string, children: React.ReactNode }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <div className="border border-slate-200 rounded-xl overflow-hidden bg-white mb-4 shadow-sm">
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-4 hover:bg-slate-50 transition-colors"
-            >
-                <span className="font-bold text-slate-800">{title}</span>
-                {isOpen ? <ChevronUp className="w-5 h-5 text-slate-500" /> : <ChevronDown className="w-5 h-5 text-slate-500" />}
-            </button>
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden"
-                    >
-                        <div className="p-4 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
-                            {children}
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    );
-};
-
-
-
-export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, parentPath, fallbackUrl }) => {
+export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, fallbackUrl }) => {
     const { events: globalEvents } = useGlobalTimeline();
     const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();
 

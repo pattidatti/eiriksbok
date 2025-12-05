@@ -185,7 +185,6 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                         readTime: timelineEvent.readTime || '3 min',
                     } as any}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
-                    parentPath={`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`}
                     fallbackUrl={fallbackUrl}
                 />
             </ErrorBoundary>
@@ -233,62 +232,13 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             tags: lesson.tags
         };
 
-        // If no explicit timeline is provided, try to generate one from global timelineData
-        if ((!articleData.timeline || articleData.timeline.length === 0) && articleData.year) {
-            const parseYear = (y: string) => {
-                // Remove spaces and handle fvt/f.kr
-                const cleanY = y.toLowerCase().replace(/\s+/g, '');
-                const isBCE = cleanY.includes('fvt') || cleanY.includes('f.kr');
-                const match = cleanY.match(/(\d+)/);
-                if (!match) return 0;
 
-                let year = parseInt(match[1], 10);
-                return isBCE ? -year : year;
-            };
-
-            const currentYear = parseYear(articleData.year);
-            // Only generate timeline if we have a valid year (not 0, unless it's year 0 which is rare)
-            if (currentYear !== 0) {
-                // Find events within +/- 1000 years (increased range for ancient history)
-                // Let's make it dynamic: 10% of the year value or min 100 years.
-                const range = Math.max(100, Math.abs(currentYear) * 0.2);
-
-                const relatedEvents = globalTimelineEvents
-                    .filter(e => {
-                        // Skip if it's the same event
-                        if (e.title === articleData.title || e.id === articleData.id) return false;
-
-                        // Parse event year (handle range or single year)
-                        let eYear = 0;
-                        if (typeof e.startDate === 'number') {
-                            eYear = e.startDate;
-                        } else {
-                            // Try parsing displayDate or year string if available
-                            eYear = e.displayDate ? parseYear(e.displayDate) : 0;
-                        }
-
-                        // Check range
-                        return Math.abs(eYear - currentYear) < range;
-                    })
-                    .map(e => ({
-                        year: e.displayDate || e.startDate.toString(),
-                        title: e.title,
-                        description: e.description || ''
-                    }))
-                    .slice(0, 3); // Limit to 3 events
-
-                if (relatedEvents.length > 0) {
-                    articleData.timeline = relatedEvents;
-                }
-            }
-        }
 
         return (
             <ErrorBoundary>
                 <InteractiveArticle
                     event={articleData}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
-                    parentPath={`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`}
                     fallbackUrl={fallbackUrl}
                 />
             </ErrorBoundary>

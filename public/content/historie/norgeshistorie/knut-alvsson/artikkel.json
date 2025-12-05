@@ -6,69 +6,6 @@
     "tags": [
         "historie",
         "norge",
-        "kalmarunionen",
-        "middelalder",
-        "opprør"
-    ],
-    "layout": "rich",
-    "year": "1455-1502",
-    "timeline": [
-        {
-            "year": "1497",
-            "title": "Utnevnt til høvedsmann",
-            "description": "Knut Alvsson utnevnes til høvedsmann på Akershus festning."
-        },
-        {
-            "year": "1497",
-            "title": "Bondeopprør på Romerike",
-            "description": "Opprøret mot fogden Lasse Skjold bryter ut."
-        },
-        {
-            "year": "1499",
-            "title": "Avsatt og i eksil",
-            "description": "Knut Alvsson mister sin stilling og flykter til Sverige."
-        },
-        {
-            "year": "1500",
-            "title": "Knut Alvsson vender tilbake",
-            "description": "Knut kommer tilbake til Norge med fornyet besluttsomhet."
-        },
-        {
-            "year": "1501",
-            "title": "Oppsigelsesbrevet",
-            "description": "Knut og hans allierte sender oppsigelsesbrev til kong Hans."
-        },
-        {
-            "year": "1501",
-            "title": "Folkeopprør bryter ut",
-            "description": "Opprøret starter på Vestlandet og sprer seg over Sør-Norge."
-        },
-        {
-            "year": "1502",
-            "title": "Erobring av festninger",
-            "description": "Knut Alvsson inntar Akershus og Tunsberghus festninger."
-        },
-        {
-            "year": "1502",
-            "title": "Inntar Bergen Kongsgård",
-            "description": "Opprørerne tar kontroll over kongsgården i Bergen i juni."
-        },
-        {
-            "year": "1502",
-            "title": "Store tap for opprørerne",
-            "description": "Henrik Krummedige gjenerobrer Tunsberghus og beleirer Akershus."
-        },
-        {
-            "year": "1502",
-            "title": "Drapet på Knut Alvsson",
-            "description": "Knut Alvsson blir drept 18. august under forhandlinger på Henrik Krummediges skip."
-        }
-    ],
-    "content": [
-        {
-            "type": "text",
-            "content": "Knut Alvsson (ca. 1455–1502) var en norsk adelsmann og ridder som ledet et dramatisk opprør mot dansk styre i senmiddelalderen. Han levde i en tid da Norge var underlagt Kalmarunionen, en union der Danmark, Norge og Sverige hadde felles konge. Knut Alvsson ble en av de fremste forkjemperne for norsk selvstyre: han samlet bønder og allierte seg med svenske opprørere for å kaste den danske kongen ut av Norge. Historien om Knut Alvsson handler om maktkamp, folkelig opprør og et svik som skulle koste ham livet i 1502."
-        },
         {
             "type": "header",
             "text": "Bakgrunn: Norge under Kalmarunionen"
