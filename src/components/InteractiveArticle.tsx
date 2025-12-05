@@ -50,6 +50,63 @@ interface InteractiveArticleProps {
     fallbackUrl?: string;
 }
 
+
+// Helper Components
+const FactBox: React.FC<{ content: string }> = ({ content }) => (
+    <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
+        <h3 className="font-bold text-indigo-900 mb-2 flex items-center">
+            <Info className="w-5 h-5 mr-2 text-indigo-600" />
+            Visste du at?
+        </h3>
+        <p className="text-indigo-800 leading-relaxed">
+            {content}
+        </p>
+    </div>
+);
+
+const InteractiveMapPlaceholder: React.FC = () => (
+    <div className="bg-slate-100 rounded-2xl p-4 border border-slate-200 aspect-video flex flex-col items-center justify-center text-slate-500 mb-8">
+        <Map className="w-8 h-8 mb-2 opacity-50" />
+        <span className="text-sm font-medium">Interaktivt kart kommer</span>
+    </div>
+);
+
+const ExpandableSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div className="border-b border-slate-100 last:border-0">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex items-center justify-between w-full py-3 text-left group"
+            >
+                <span className="font-medium text-slate-700 group-hover:text-indigo-600 transition-colors">
+                    {title}
+                </span>
+                {isOpen ? (
+                    <ChevronUp className="w-4 h-4 text-slate-400 group-hover:text-indigo-600" />
+                ) : (
+                    <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-indigo-600" />
+                )}
+            </button>
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
+                    >
+                        <div className="pb-4 text-sm text-slate-600">
+                            {children}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+};
+
 export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, fallbackUrl }) => {
     const { events: globalEvents } = useGlobalTimeline();
     const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();
