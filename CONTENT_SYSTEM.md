@@ -122,21 +122,71 @@ The library contains short stories, poems, and excerpts.
 Allows side-by-side comparison of religions.
 
 *   **Source**: `public/data/religion/[religion].json` (Dimensions) AND Article JSONs.
-*   **How to Link**: In your article JSON, add:
+*   **How to Add a New Religion**:
+    1.  Create `public/data/religion/[id].json` (e.g. `buddhisme.json`).
+    2.  Structure:
+        ```json
+        {
+          "name": "Buddhisme",
+          "color": "#f59e0b",
+          "dimensions": {
+            "ritual": { "type": "root", "children": [...] },
+            // ... all 7 dimensions
+          }
+        }
+        ```
+    3.  Add entry to `manifest.json`.
+
+*   **How to Link an Article**:
+    In your article JSON (usually `public/content/krle/religioner/[religion]/[topic]/artikkel.json`), add:
     ```json
     {
-      "religion": "kristendom",
+      "religion": "kristendom", // ID only (e.g "kristendom"), NOT "content/religion/..."
       "dimension": "ritual", // Which dimension this covers
-      "comparison_tags": ["dåp", "bønn"] // Specific topics
+      "comparison_tags": ["dåp", "bønn"] // Specific topics for detailed comparison
     }
     ```
+
+## 4.5. Artikkel-Layouts
+
+Alle artikkelsider deler samme grunnoppsett for innholdsvisning, men skilles hovedsakelig av **sidebaren** og dens funksjonalitet.
+
+### 1. Standard Leksjon (Standard Sidebar)
+*   **Trigger:** Ingen spesiell konfigurasjon (standard).
+*   **Sidebar:** `LessonSidebar.tsx`.
+*   **Innhold:** Viser begreper, sitater og relevante lenker.
+    *   **KRLE-variant:** Hvis `comparison_tags` er definert (f.eks. "bønn"), viser sidebaren lenker til "Sammenlign Religioner"-verktøyet for disse temaene.
+
+### 2. Rich Layout (Interactive Sidebar)
+En mer avansert layout for dybdeartikler i historie og samfunnsfag.
+*   **Trigger:** `"layout": "rich"` i leksjonens JSON-fil.
+*   **Sidebar:** Integrert tidslinje, kart, og dynamisk innholdsfortegnelse (TOC).
+*   **Funksjon:** Lar brukeren hoppe i tid og sted mens de leser.
+
+### 3. Norsk Fagartikkel (Literature Sidebar)
+Tilpasning av Rich Layout for norskfaget.
+*   **Trigger:** `subject: "norsk"` OG `"layout": "rich"`.
+*   **Sidebar:** Fokus på sjangerinformasjon ("Om sjangeren").
+*   **Annet:** Har en fremhevet knapp for "Relaterte lenker" (f.eks. til biblioteksteksten) under hovedbildet.
+
+### 4. Tekstbibliotek (Reader Sidebar)
+Layout for primærkilder.
+*   **Trigger:** Rute `/norsk/bibliotek/:textId`.
+*   **Sidebar:** Ingen sidebar (fokusmodus), men verktøylinje for oversettelse og tekststørrelse.
+
+### 5. Interaktive Modeller
+Spesialsider med egne kontroller og paneler. (F.eks. `demografi-okonomi/intro`).
+
+## 4.6. Troubleshooting / Feilsøking
+
+*   **"Unable to find record"**: `religion`-feltet må være en ID (f.eks. `"kristendom"`), ikke filsti.
+*   **"String cannot represent value"**: Sjekk for nestede `section`-blokker. Strukturen skal være flat.
+*   **Ingen artikler i sammenligning**: Sjekk at `comparison_tags` er identiske (case-sensitive).
 
 ## 5. Automation & Maintenance
 
 ### Scripts
-*   `node scripts/generate-timeline.js`: **CRITICAL**. Must be run whenever you add `timeline` data to an article. It scans all content files and rebuilds the master timeline.
-
-### Best Practices
-1.  **Always Tag**: Use consistent tags in `manifest.json`. These drive "Related Content" and search.
-2.  **Images**: Use Unsplash URLs or local images in `public/images`.
-3.  **Dates**: Use ISO format (`YYYY-MM-DD`) for `createdDate` in manifest to ensure correct sorting in "New Content".
+*   `node scripts/generate-timeline.js`: **CRITICAL**. Kjøres etter endringer i timeline-data.
+*   **Best Practices**:
+    1.  **Tags**: Bruk konsistente tags.
+    2.  **Datoer**: Bruk ISO-format (`YYYY-MM-DD`).
