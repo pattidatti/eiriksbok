@@ -382,6 +382,55 @@
                             ],
                             "createdDate": "2025-12-04T12:00:00Z",
                             "lastUpdated": "2025-12-04T12:00:00Z"
+                        },
+                        {
+                            "id": "klimakrisen-536",
+                            "layout": "rich",
+                            "title": "536 - Året da solen forsvant",
+                            "description": "Klimakrisen som kan være virkelighetens Fimbulvinter.",
+                            "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80",
+                            "year": "536",
+                            "tags": [
+                                "historie",
+                                "norge",
+                                "klima",
+                                "folkevandring",
+                                "fimbulvinter"
+                            ],
+                            "createdDate": "2025-12-05T19:00:00Z",
+                            "lastUpdated": "2025-12-05T19:00:00Z",
+                            "definitions": [
+                                {
+                                    "term": "Fimbulvinter",
+                                    "definition": "Tre vintre på rad uten sommer, som varsler Ragnarok (og trolig refererer til klimakrisen i 536)."
+                                },
+                                {
+                                    "term": "Justinianerpesten",
+                                    "definition": "En dødelig pandemi (byllepest) som rammet Europa og Midtøsten fra 541 e.Kr."
+                                },
+                                {
+                                    "term": "Dendrokronologi",
+                                    "definition": "En metode for å datere treverk og klima ved å studere årringer i trær."
+                                },
+                                {
+                                    "term": "Senantikken",
+                                    "definition": "Perioden som markerer overgangen fra antikken til middelalderen (ca. 300–600 e.Kr.)."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "knut-alvsson",
+                            "title": "Knut Alvsson",
+                            "description": "Ridderen som trosset kong Hans.",
+                            "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "historie",
+                                "norge",
+                                "kalmarunionen",
+                                "middelalder"
+                            ],
+                            "createdDate": "2025-12-05T20:00:00Z",
+                            "lastUpdated": "2025-12-05T20:00:00Z"
                         }
                     ]
                 },

@@ -209,7 +209,8 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             title: lesson.title,
             description: getFirstTextContent(lesson.content || [])?.substring(0, 150) + '...' || '',
             content: lesson.content || [],
-            details: lesson.details || [],
+
+            details: lesson.details || lesson.concepts?.map(c => `${c.term}: ${c.definition}`) || [],
             category: lesson.category || lesson.topic,
             readTime: lesson.readTime || '5 min lesning',
             heroImage: lesson.heroImage || lessonImage,
