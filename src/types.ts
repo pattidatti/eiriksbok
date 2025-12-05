@@ -167,4 +167,15 @@ export interface GlobalTimelineEvent {
     topicId?: string;
     link: string;
     tags?: string[];
+    // Extended fields for compatibility with InteractiveArticle
+    content?: ContentBlock[];
+    year?: string;
+    details?: string[];
+    category?: string;
+    readTime?: string;
+    heroImage?: string;
+    url?: string;
+    timeline?: { year: string; title: string; description: string }[];
+    fact?: string;
+    mapData?: MapData;
 }

@@ -14,11 +14,12 @@ import { ArticleContent } from '../components/ArticleContent';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { InteractiveArticle } from '../components/InteractiveArticle';
 import { NorskArticleLayout } from '../components/NorskArticleLayout';
-import { timelineData } from '../data/timelineData';
+
 import { useNavigate } from 'react-router-dom';
 import { ImageWithFallback } from '../components/ImageWithFallback';
 import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
 
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
 import { Volume2, PauseCircle, PlayCircle } from 'lucide-react';
@@ -50,6 +51,9 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();
 
     usePageTitle(lesson?.title || 'Leksjon', !!lesson);
+
+    // Global Timeline Hook
+    const { events: globalTimelineEvents } = useGlobalTimeline();
 
     // Calculate speech blocks and mapping
     const speechData = React.useMemo(() => {
@@ -156,21 +160,30 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         return <GovernmentExplorer />;
     }
 
+
+
     // Check if this is a timeline event (regardless of subtopic)
-    const timelineEvent = lessonId ? timelineData.find(e =>
-        e.title.toLowerCase().replace(/\s+/g, '-') === lessonId.toLowerCase() ||
-        e.title.toLowerCase() === lessonId.toLowerCase() ||
+    const timelineEvent = lessonId ? globalTimelineEvents.find(e =>
+        e.title?.toLowerCase().replace(/\s+/g, '-') === lessonId.toLowerCase() ||
+        e.title?.toLowerCase() === lessonId.toLowerCase() ||
         e.id.toString() === lessonId
     ) : null;
 
     // Construct fallback URL for ArticleContent
     const fallbackUrl = `${window.location.origin}/content/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}/${lessonId}/artikkel.json`;
 
-    if (timelineEvent) {
+    if (timelineEvent && timelineEvent.type !== 'lesson') {
         return (
             <ErrorBoundary>
                 <InteractiveArticle
-                    event={timelineEvent}
+                    event={{
+                        ...timelineEvent,
+                        year: timelineEvent.year || timelineEvent.displayDate || '',
+                        content: timelineEvent.content || [],
+                        details: timelineEvent.details || [],
+                        category: timelineEvent.category || 'Historie',
+                        readTime: timelineEvent.readTime || '3 min',
+                    } as any}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
                     parentPath={`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`}
                     fallbackUrl={fallbackUrl}
@@ -209,7 +222,6 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             title: lesson.title,
             description: getFirstTextContent(lesson.content || [])?.substring(0, 150) + '...' || '',
             content: lesson.content || [],
-
             details: lesson.details || lesson.concepts?.map(c => `${c.term}: ${c.definition}`) || [],
             category: lesson.category || lesson.topic,
             readTime: lesson.readTime || '5 min lesning',
@@ -238,19 +250,30 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             // Only generate timeline if we have a valid year (not 0, unless it's year 0 which is rare)
             if (currentYear !== 0) {
                 // Find events within +/- 1000 years (increased range for ancient history)
-                // For ancient history (e.g. 10000 BCE), a 100 year range is too small.
                 // Let's make it dynamic: 10% of the year value or min 100 years.
                 const range = Math.max(100, Math.abs(currentYear) * 0.2);
 
-                const relatedEvents = timelineData
+                const relatedEvents = globalTimelineEvents
                     .filter(e => {
-                        const eYear = parseYear(e.year);
-                        return Math.abs(eYear - currentYear) < range && e.title !== articleData.title;
+                        // Skip if it's the same event
+                        if (e.title === articleData.title || e.id === articleData.id) return false;
+
+                        // Parse event year (handle range or single year)
+                        let eYear = 0;
+                        if (typeof e.startDate === 'number') {
+                            eYear = e.startDate;
+                        } else {
+                            // Try parsing displayDate or year string if available
+                            eYear = e.displayDate ? parseYear(e.displayDate) : 0;
+                        }
+
+                        // Check range
+                        return Math.abs(eYear - currentYear) < range;
                     })
                     .map(e => ({
-                        year: e.year,
+                        year: e.displayDate || e.startDate.toString(),
                         title: e.title,
-                        description: e.description
+                        description: e.description || ''
                     }))
                     .slice(0, 3); // Limit to 3 events
 
@@ -295,6 +318,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                 <h1 className="text-4xl md:text-5xl font-display font-bold text-text-main mb-8">
                     {lesson.title}
                 </h1>
+
 
                 {/* TTS Button */}
                 {hasVoice && (

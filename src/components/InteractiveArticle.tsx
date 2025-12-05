@@ -333,15 +333,17 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                                             </li>
                                         ))}
                                     </ul>
-                                </div>
 
-                                {combinedTimeline.length > 0 && (
-                                    <TimelineComponent
-                                        events={combinedTimeline}
-                                        title="Tidslinje"
-                                        compact={true}
-                                    />
-                                )}
+                                    {combinedTimeline.length > 0 && (
+                                        <div className="mt-6 pt-6 border-t border-slate-200">
+                                            <TimelineComponent
+                                                events={combinedTimeline}
+                                                title="Tidslinje"
+                                                compact={true}
+                                            />
+                                        </div>
+                                    )}
+                                </div>
 
                                 {event.mapData && <InteractiveMapPlaceholder />}
 

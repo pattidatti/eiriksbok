@@ -11,7 +11,7 @@
         },
         {
             "type": "image",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Ilopango_caldera.jpg",
+            "src": "/images/lessons/ilopango_v2.jpg",
             "caption": "Satellittfoto av Lake Ilopango i El Salvador. Dette krateret er restene av vulkanen Ilopango, som hadde et gigantisk utbrudd på 500-tallet.",
             "alt": "Satellittbilde av vulkankrateret llopango"
         },
@@ -68,6 +68,28 @@
             "type": "text",
             "title": "Avslutning",
             "content": "Klimakrisen i år 536 er et skremmende eksempel på hvordan naturen brått kan endre historien. Et voldsomt vulkanutbrudd (eller flere på rad) førte til en global klimaendring: solen forsvant bak et slør, temperaturer stupte, og resultatet var år med nød. Denne 'mørke tiden' utløste sultkatastrofer og bidro til pestutbrudd og folkevandringer. Samfunn brøt sammen, og millioner av mennesker døde. Sporene etter krisen ser vi både i historiske tekster, i trærnes årringer og isens lag, og i myter som Fimbulvinteren i norrøn tradisjon. For ungdom i dag kan det være fascinerende – og litt skremmende – å tenke på at 536 e.Kr. var et år da himmelen virkelig falt ned i hodene på folk. Heldigvis er slike katastrofale klimahendelser ekstremt sjeldne, men historien om 536 minner oss om hvor sårbart menneskelig samfunn kan være når klimaet plutselig forandrer seg."
+        }
+    ],
+    "timeline": [
+        {
+            "year": "536",
+            "title": "Solen forsvinner",
+            "description": "Et mystisk tåketeppe dekker jorden og blokkerer sollyset."
+        },
+        {
+            "year": "540",
+            "title": "Nytt vulkanutbrudd",
+            "description": "Enda et stort vulkanutbrudd forverrer nedkjølingen."
+        },
+        {
+            "year": "541",
+            "title": "Justinianerpesten",
+            "description": "Den første bølgen av byllepest rammer Middelhavsområdet."
+        },
+        {
+            "year": "568",
+            "title": "Langobardene invaderer",
+            "description": "Langobardene inntar Italia, muligens drevet av uår og sult."
         }
     ],
     "quiz": [
