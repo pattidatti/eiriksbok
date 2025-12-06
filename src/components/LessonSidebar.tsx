@@ -14,12 +14,12 @@ export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparis
         <div className="space-y-8">
             {/* Quote */}
             {quote && (
-                <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800">
-                    <blockquote className="text-lg font-serif italic text-slate-800 dark:text-slate-200 mb-4">
+                <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
+                    <blockquote className="text-lg font-serif italic text-slate-900 mb-4">
                         "{quote.text}"
                     </blockquote>
                     {(quote.source || quote.reference) && (
-                        <div className="text-sm text-slate-500 dark:text-slate-400 text-right">
+                        <div className="text-sm text-slate-600 text-right">
                             {quote.source && <span className="font-bold block">{quote.source}</span>}
                             {quote.reference && <span>{quote.reference}</span>}
                         </div>

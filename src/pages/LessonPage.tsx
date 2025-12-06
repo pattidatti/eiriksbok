@@ -316,13 +316,15 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     {/* Main Content */}
                     <div className="lg:col-span-8">
-                        <ArticleContent
-                            content={lesson.content}
-                            concepts={lesson.concepts}
-                            activeBlockIndex={activeContentIndex}
-                            onBlockClick={handleBlockClick}
-                            fallbackUrl={fallbackUrl}
-                        />
+                        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100">
+                            <ArticleContent
+                                content={lesson.content}
+                                concepts={lesson.concepts}
+                                activeBlockIndex={activeContentIndex}
+                                onBlockClick={handleBlockClick}
+                                fallbackUrl={fallbackUrl}
+                            />
+                        </div>
                     </div>
 
                     {/* Sidebar */}
@@ -349,12 +351,12 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                             </section>
                         )}
                         {lesson.quote && (
-                            <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800">
-                                <blockquote className="text-lg font-serif italic text-slate-800 dark:text-slate-200 mb-4">
+                            <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
+                                <blockquote className="text-lg font-serif italic text-slate-900 mb-4">
                                     "{lesson.quote.text}"
                                 </blockquote>
                                 {(lesson.quote.source || lesson.quote.reference) && (
-                                    <div className="text-sm text-slate-500 dark:text-slate-400 text-right">
+                                    <div className="text-sm text-slate-600 text-right">
                                         {lesson.quote.source && <span className="font-bold block">{lesson.quote.source}</span>}
                                         {lesson.quote.reference && <span>{lesson.quote.reference}</span>}
                                     </div>

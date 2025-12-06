@@ -42,17 +42,4 @@
     transform: translateY(0);
 }
 
-@media (prefers-color-scheme: dark) {
-    .scroll-to-top button {
-        background-color: rgba(30, 30, 30, 0.8);
-        border-color: rgba(255, 255, 255, 0.1);
-        color: #e0e0e0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
 
-    .scroll-to-top button:hover {
-        background-color: #2a2a2a;
-        color: #fff;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-    }
-}

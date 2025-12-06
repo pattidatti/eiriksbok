@@ -99,8 +99,8 @@ export const ReligionPage: React.FC = () => {
                             </motion.div>
                         ))}
                         {lessons.length === 0 && (
-                            <div className="col-span-full text-center py-12 bg-slate-50 dark:bg-slate-800/30 rounded-2xl border border-slate-100 dark:border-slate-700">
-                                <p className="text-slate-500 dark:text-slate-400 italic">Ingen leksjoner funnet.</p>
+                            <div className="col-span-full text-center py-12 bg-slate-50 rounded-2xl border border-slate-100">
+                                <p className="text-slate-500 italic">Ingen leksjoner funnet.</p>
                             </div>
                         )}
                     </div>
