@@ -188,7 +188,12 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                 title: e.title,
                 description: e.description || '',
                 link: e.link
-            }));
+            }))
+            // Deduplicate: Remove events that are already in the internal timeline
+            .filter(e => !event.timeline?.some(internal =>
+                (internal.title === e.title) ||
+                (internal.year === e.year && internal.description === e.description)
+            ));
     }, [event, globalEvents]);
     const internalEvents = event.timeline || [];
 

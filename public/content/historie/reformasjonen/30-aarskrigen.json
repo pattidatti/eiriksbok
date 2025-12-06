@@ -1,0 +1,97 @@
+{
+    "id": "30-aarskrigen",
+    "title": "30-årskrigen",
+    "description": "Den store katastrofen: Da religion og maktkamp rev Europa i fillebiter.",
+    "heroImage": "/images/lessons/lutzen.jpg",
+    "year": "1618-1648",
+    "layout": "rich",
+    "timeline": [
+        {
+            "year": "1618",
+            "title": "Defenestrasjonen i Praha",
+            "description": "Protestantiske adelsmenn kaster keiserens utsendinger ut av et vindu i Praha. Startskuddet for krigen."
+        },
+        {
+            "year": "1631",
+            "title": "Magdeburgs fall",
+            "description": "En av krigens verste grusomheter. Byen plyndres og brennes; 20 000 mennesker massakreres."
+        },
+        {
+            "year": "1632",
+            "title": "Slaget ved Lützen",
+            "description": "Svenskekongen Gustav II Adolf faller i kamp, men protestantene vinner slaget."
+        },
+        {
+            "year": "1648",
+            "title": "Freden i Westfalen",
+            "description": "Krigen avsluttes. Prinsippet om statsuavhengighet etableres."
+        }
+    ],
+    "definitions": [
+        {
+            "term": "Defenestrasjon",
+            "definition": "Handlingen å kaste noen ut av et vindu."
+        },
+        {
+            "term": "Leiesoldater",
+            "definition": "Soldater som kjemper for betaling, ikke for et land eller en sak. Ofte brutale mot sivilbefolkningen."
+        },
+        {
+            "term": "Habsburgerne",
+            "definition": "Det mektige kongehuset som styrte Det tysk-romerske riket, Spania og Østerrike."
+        },
+        {
+            "term": "Suverenitetsprinsippet",
+            "definition": "Ideen om at en stat bestemmer over seg selv, uten innblanding fra andre stater eller paven."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg en krig så brutal at den drepte en tredjedel av befolkningen i Tyskland. En krig hvor soldater ikke fikk lønn, men beskjed om å **\"ta det de trengte\"** fra bøndene. Dette var 30-årskrigen – en konflikt som startet som en krangel om religion, men endte som en brutal maktkamp om Europas fremtid."
+        },
+        {
+            "type": "header",
+            "text": "Hvordan startet det hele?"
+        },
+        {
+            "type": "text",
+            "content": "Året er 1618. Europa er splittet. Siden reformasjonen har katolikker og protestanter levd i en spent ro, men nå koker det over. I Böhmen (dagens Tsjekkia) er de protestantiske adelsmennene rasende på den katolske keiseren som innskrenker rettighetene deres. I sinne marsjerer de inn på slottet i Praha og kaster keiserens utsendinger rett ut av vinduet.\n\nDette, kjent som «defenestrasjonen i Praha», var gnisten som tente bålet. Det som fulgte var ikke én lang krig, men en serie konflikter som dro inn nesten hele Europa: Danmark-Norge, Sverige, Frankrike, Spania og Det tysk-romerske riket."
+        },
+        {
+            "type": "image",
+            "src": "/images/lessons/defenestrasjon.png",
+            "alt": "Defenestrasjonen i Praha 1618",
+            "caption": "Defenestrasjonen i Praha (1618): Protestantiske opprørere kaster katolske embetsmenn ut av vinduet. Dette markerte starten på krigen."
+        },
+        {
+            "type": "header",
+            "text": "Religion eller makt?"
+        },
+        {
+            "type": "text",
+            "content": "I starten handlet det om tro. Keiseren og habsburgerne ville knuse protestantismen og gjeninnføre katolisismen i hele riket. Men etter hvert ble det tydelig at dette handlet om makt.\n\nTa Frankrike som eksempel: Frankrike var et katolsk land, men de støttet protestantene med penger og våpen. Hvorfor? Fordi de fryktet habsburgerne (som styrte både Spania og Tyskland) mer enn de fryktet protestantismen. Stormaktene brukte religionskrigen som et sjakkbrett for å sikre sin egen posisjon."
+        },
+        {
+            "type": "header",
+            "text": "Sverige stormer inn"
+        },
+        {
+            "type": "text",
+            "content": "Danmark-Norge (under Christian 4.) prøvde seg i krigen, men fikk bank og måtte trekke seg ut. Da så det mørkt ut for protestantene. Hvem skulle redde dem?\n\nInn fra nord kom \"Løven fra Norden\": **Gustav II Adolf** av Sverige. Med en moderne, disiplinert hær (og franske penger i ryggen) snudde han krigslykken. Svenskene herjet dypt inne i Tyskland og ble en stormakt å regne med. Men prisen var høy – kongen selv døde i tåkehavet under slaget ved Lützen i 1632."
+        },
+        {
+            "type": "callout",
+            "title": "Krigens sanne ofre",
+            "text": "Det var sivilbefolkningen som led mest. Hærene besto ofte av leiesoldater som plyndret for å overleve. Byer som Magdeburg ble jevnet med jorden. Sult og pest fulgte i soldatenes fotspor. I noen områder forsvant opp mot 60% av befolkningen. Det skulle ta 100 år før befolkningstallet var tilbake på samme nivå."
+        },
+        {
+            "type": "header",
+            "text": "Freden i Westfalen (1648): Det moderne Europa fødes"
+        },
+        {
+            "type": "text",
+            "content": "Etter 30 år var alle utslitt. Ingen kunne vinne totalt. I 1648 møttes partene i Westfalen for å tegne et nytt Europa-kart. Fredsavtalen er en av de viktigste i historien, ikke fordi krigen sluttet, men på grunn av **hva de ble enige om**:\n\n1.  **Religionsfrihet (for fyrstene):** Hver fyrste fikk bestemme religionen i sitt eget land. Keiseren kunne ikke lenger tvinge alle til å være katolikker.\n2.  **Statsuavhengighet (Suverenitet):** Dette er kanskje det viktigste. Man ble enige om at en stat er suveren \"innenfor sine egne grenser\". Andre land (eller Paven) har ikke rett til å blande seg inn i interne saker.\n\nDette prinsippet danner grunnlaget for hvordan verden fungerer i dag. Før 1648 tenkte man i imperier og religiøs tilhørighet. Etter 1648 begynte man å tenke i **nasjonalstater**."
+        }
+    ]
+}

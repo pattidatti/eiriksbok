@@ -724,6 +724,28 @@
                     "lessons": []
                 },
                 {
+                    "id": "reformasjonen",
+                    "title": "Reformasjonen og Religionskrig",
+                    "description": "Europa i endring: Tro, makt og 30-årskrigen.",
+                    "image": "/images/lessons/lutzen.jpg",
+                    "lessons": [
+                        {
+                            "id": "30-aarskrigen",
+                            "title": "30-årskrigen",
+                            "description": "Den store katastrofen som formet det moderne Europa.",
+                            "image": "/images/lessons/lutzen.jpg",
+                            "tags": [
+                                "historie",
+                                "krig",
+                                "europa",
+                                "reformasjonen"
+                            ],
+                            "createdDate": "2025-12-06T12:00:00Z",
+                            "lastUpdated": "2025-12-06T12:00:00Z"
+                        }
+                    ]
+                },
+                {
                     "id": "demo-artikkel",
                     "title": "Demo Artikkel",
                     "description": "En demonstrasjon av standardisert artikkellayout.",

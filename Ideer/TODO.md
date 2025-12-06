@@ -17,7 +17,7 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 
 ### Historie
 - [ ] Artikler om kolonier gjennom tidene, fra Hellas, Romer, til moderne kolonier. I samme artikkel; hvordan dette ofte er en del av imperialismen. Ingen av disse konseptene er verken nye eller europeiske. Lage passende interaktive modeller som understreker konseptene og eksemplifiserer hendelser. 
-- [ ] Artikkel om 30-årskrigen
+- [x] Artikkel om 30-årskrigen
 - [ ] Artikkel om store folkevandringer gjennom historien, knytte dette til migrasjonsteorien i samfunnskunnskap. 
 - [ ] Arikkeler om 1054 skisma, hypotesen at vikingtiden er krig mot frankrike. 
 - [ ] Den kalde krigen emne. En hovedartikkel, og flere subartikler om spesifikke hendelser. 
@@ -28,7 +28,7 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 - [ ] Finne en logisk måte å skille retninger innen kristendom og islam. 
 - [ ] Etikk og filosofi-emne. 
 - [ ] Artikkel om sekularisering
-- [ ] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsequentialistisk, etc. 
+- [ ] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
 
 ### Musikk
 - [ ] Implementere https://sites.google.com/bergensskolen.com/musikk/start og lage en logisk struktur på emnet. 
