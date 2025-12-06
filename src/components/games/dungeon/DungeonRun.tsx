@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Zap } from 'lucide-react';
-import type { HeroStats, Monster } from './types';
 
 // Constants
 const GRAVITY = 0.8;
-const JUMP_FORCE = -20; // Stronger jump for bigger resolution
-const GROUND_Y = 620; // Lowered further down (Visual floor)
-const SCROLL_SPEED = 5;
+const JUMP_FORCE = -20;
+const GROUND_Y = 620;
 const HERO_SPEED = 6;
-// We scale the visual sprite to this size, so hitbox matches (2x zoom from 64px)
+// SCROLL_SPEED unused for now, removed
+// const SCROLL_SPEED = 5;
+
 const HERO_SIZE = 128;
 
 interface DungeonRunProps {
@@ -19,9 +18,14 @@ interface DungeonRunProps {
 }
 
 export const DungeonRun: React.FC<DungeonRunProps> = ({ subjectId, topicId, onExit }) => {
-    // Game Loop Ref
-    const requestRef = useRef<number>();
-    const previousTimeRef = useRef<number>();
+    // Suppress unused warning for now by logging or ignored
+    useEffect(() => {
+        console.log("Loading Dungeon:", subjectId, topicId);
+    }, [subjectId, topicId]);
+
+    // Game Loop Ref - Initialize with null
+    const requestRef = useRef<number | null>(null);
+    const previousTimeRef = useRef<number | null>(null);
 
     // Input Ref
     const keys = useRef<{ [key: string]: boolean }>({});
@@ -29,7 +33,7 @@ export const DungeonRun: React.FC<DungeonRunProps> = ({ subjectId, topicId, onEx
     // Hero Ref
     const heroRef = useRef({
         x: 100,
-        y: GROUND_Y - HERO_SIZE, // Start ON the ground
+        y: GROUND_Y - HERO_SIZE,
         vx: 0,
         vy: 0,
         facingRight: true,
@@ -45,8 +49,8 @@ export const DungeonRun: React.FC<DungeonRunProps> = ({ subjectId, topicId, onEx
     // Background Ref
     const bgRef = useRef({ x: 0 });
 
-    // React State for UI
-    const [uiState, setUiState] = useState({
+    // React State for UI - unused setUiState removed
+    const [uiState] = useState({
         hp: 100, maxHp: 100, mana: 50, level: 1
     });
 
@@ -72,7 +76,7 @@ export const DungeonRun: React.FC<DungeonRunProps> = ({ subjectId, topicId, onEx
 
     // Game Loop
     const animate = (time: number) => {
-        if (previousTimeRef.current !== undefined) {
+        if (previousTimeRef.current !== null) {
             const deltaTime = time - previousTimeRef.current;
             update(deltaTime);
         }
@@ -82,7 +86,9 @@ export const DungeonRun: React.FC<DungeonRunProps> = ({ subjectId, topicId, onEx
 
     useEffect(() => {
         requestRef.current = requestAnimationFrame(animate);
-        return () => cancelAnimationFrame(requestRef.current!);
+        return () => {
+            if (requestRef.current) cancelAnimationFrame(requestRef.current);
+        };
     }, []);
 
 

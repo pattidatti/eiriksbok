@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChronoCard, type TimelineEvent } from './ChronoCard';
-import { motion, AnimatePresence, useDragControls, type PanInfo } from 'framer-motion';
+import { motion, AnimatePresence, type PanInfo } from 'framer-motion';
 
 interface ChronoBoardProps {
     events: TimelineEvent[];
@@ -8,6 +8,7 @@ interface ChronoBoardProps {
 }
 
 export const ChronoBoard: React.FC<ChronoBoardProps> = ({ events, onGameOver }) => {
+    // ... (state vars same)
     const [deck, setDeck] = useState<TimelineEvent[]>([]);
     const [hand, setHand] = useState<TimelineEvent | null>(null);
     const [placedCards, setPlacedCards] = useState<TimelineEvent[]>([]);
@@ -68,7 +69,8 @@ export const ChronoBoard: React.FC<ChronoBoardProps> = ({ events, onGameOver }) 
         setActiveDropZone(foundZone);
     };
 
-    const handleDragEnd = (info: PanInfo) => {
+    // Removed unused 'info' parameter
+    const handleDragEnd = () => {
         if (activeDropZone !== null) {
             handlePlaceCard(activeDropZone);
         }
