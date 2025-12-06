@@ -10,6 +10,11 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet og artiklene. 
 - [ ] Støtte for tegneserier/bildebok. f.eks. skylappjenta
 - [ ] Fikse cash som henger, ikke oppdaterer seg. 
+- [ ] **Forbedret søk:** Implementere fuzzy search og vise tags i resultater.
+- [ ] **Analytics:** Legge inn personvernvennlig sporing for å se hva som blir lest.
+- [ ] **Animerte overganger:** Bruke framer-motion for mykere sidebytter.
+- [ ] **Dagens Faktum:** Widget på forsiden med roterende innhold.
+- [ ] **Quiz Battle:** Utforske flerspiller-løsning med admin og gruppemodus.
 
 - [ ] Skjekke om den globale tidslinjen er implementert i artiklene som bruker tidslinje. Sørge for at den lokale varianten er fjernet totalt, at det bare er henvisningern til den globale . 
 

@@ -23,4 +23,10 @@ export const routeFactories: Record<string, PageFactory> = {
     ReligionComparisonPage: () => import('./pages/ReligionComparisonPage').then(module => ({ default: module.ReligionComparisonPage })),
     TopicComparisonPage: () => import('./pages/TopicComparisonPage').then(module => ({ default: module.TopicComparisonPage })),
     GlobalTimelinePage: () => import('./pages/GlobalTimelinePage'),
+    QuizAdmin: () => import('./pages/quiz/QuizAdmin').then(module => ({ default: module.QuizAdmin })),
+    QuizLobby: () => import('./pages/quiz/QuizLobby').then(module => ({ default: module.QuizLobby })),
+    QuizHost: () => import('./pages/quiz/QuizHost').then(module => ({ default: module.QuizHost })),
+    QuizPlayer: () => import('./pages/quiz/QuizPlayer').then(module => ({ default: module.QuizPlayer })),
+    ChronoGamePage: () => import('./pages/ChronoGamePage'),
+    DungeonGamePage: () => import('./pages/DungeonGamePage'),
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, ArrowRight, Clock } from 'lucide-react';
+import { Brain, HelpCircle, ArrowRight, Clock, History, Gamepad2 } from 'lucide-react';
 
 
 export const PracticePage: React.FC = () => {
@@ -28,6 +28,22 @@ export const PracticePage: React.FC = () => {
             icon: Clock,
             color: 'bg-amber-500',
             link: '/tidslinje'
+        },
+        {
+            id: 'chrono',
+            title: 'Chrono Cards',
+            description: 'Plasser historiske hendelser riktig på tidslinjen.',
+            icon: History,
+            color: 'bg-teal-500',
+            link: '/oving/chrono'
+        },
+        {
+            id: 'quiz-battle',
+            title: 'Quiz Battle',
+            description: 'Konkurrer mot andre i sanntid!',
+            icon: Gamepad2,
+            color: 'bg-rose-500',
+            link: '/quiz-battle'
         }
     ];
 
@@ -43,7 +59,7 @@ export const PracticePage: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     {modules.map((module) => (
                         <Link
                             key={module.id}

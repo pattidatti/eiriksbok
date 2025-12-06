@@ -20,10 +20,16 @@ const NotFoundPage = React.lazy(routeFactories.NotFoundPage);
 const FlashcardPage = React.lazy(routeFactories.FlashcardPage);
 const PracticePage = React.lazy(routeFactories.PracticePage);
 const QuizPage = React.lazy(routeFactories.QuizPage);
+const QuizAdmin = React.lazy(routeFactories.QuizAdmin);
+const QuizLobby = React.lazy(routeFactories.QuizLobby);
+const QuizHost = React.lazy(routeFactories.QuizHost);
+const QuizPlayer = React.lazy(routeFactories.QuizPlayer);
 const ReligionPage = React.lazy(routeFactories.ReligionPage);
 const ReligionComparisonPage = React.lazy(routeFactories.ReligionComparisonPage);
 const TopicComparisonPage = React.lazy(routeFactories.TopicComparisonPage);
 const GlobalTimelinePage = React.lazy(routeFactories.GlobalTimelinePage);
+const ChronoGamePage = React.lazy(routeFactories.ChronoGamePage);
+const DungeonGamePage = React.lazy(routeFactories.DungeonGamePage);
 
 function App() {
   return (
@@ -49,6 +55,14 @@ function App() {
               <Route path="oving" element={<PracticePage />} />
               <Route path="oving/flashcards" element={<FlashcardPage />} />
               <Route path="oving/quiz" element={<QuizPage />} />
+              <Route path="oving/chrono" element={<ChronoGamePage />} />
+              <Route path="oving/dungeon" element={<DungeonGamePage />} />
+
+              {/* Quiz Battle Routes */}
+              <Route path="quiz-battle" element={<QuizLobby />} />
+              <Route path="quiz-battle/admin-999" element={<QuizAdmin />} /> {/* "Secret" url for now */}
+              <Route path="quiz-battle/host/:pin" element={<QuizHost />} />
+              <Route path="quiz-battle/play/:pin" element={<QuizPlayer />} />
 
               <Route path="krle/sammenlign" element={<ReligionComparisonPage />} />
               <Route path="krle/sammenlign/tema/:tag" element={<TopicComparisonPage />} />
