@@ -45,7 +45,7 @@ export const DungeonSelect: React.FC<DungeonSelectProps> = ({ onSelect }) => {
                 <div className="inline-block p-4 rounded-full bg-slate-800 mb-6 shadow-2xl shadow-indigo-500/20 border border-slate-700">
                     <Sword className="w-12 h-12 text-indigo-400" />
                 </div>
-                <h1 className="text-5xl md:text-7xl font-black bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-6 tracking-tight">
+                <h1 className="text-5xl md:text-7xl font-black bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-6 tracking-tight pb-4">
                     Dungeon Run
                 </h1>
                 <p className="text-xl text-slate-400 max-w-lg mx-auto leading-relaxed">

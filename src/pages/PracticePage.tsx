@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, ArrowRight, Clock, History, Gamepad2 } from 'lucide-react';
+import { Brain, HelpCircle, ArrowRight, Clock, History, Gamepad2, Sword } from 'lucide-react';
 
 
 export const PracticePage: React.FC = () => {
@@ -44,6 +44,14 @@ export const PracticePage: React.FC = () => {
             icon: Gamepad2,
             color: 'bg-rose-500',
             link: '/quiz-battle'
+        },
+        {
+            id: 'dungeon',
+            title: 'Dungeon Run',
+            description: 'Kjemp deg gjennom monstre med kunnskap!',
+            icon: Sword,
+            color: 'bg-purple-600',
+            link: '/oving/dungeon'
         }
     ];
 

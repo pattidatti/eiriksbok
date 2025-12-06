@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Heart, Zap, Shield, Sword, Target, Sparkles, Skull } from 'lucide-react';
-import { HeroStats, Monster, CombatAction } from './types';
-import { fetchLesson } from '../../../utils/contentLoader'; // Re-use existing loader
-import { Quiz } from '../../../components/Quiz'; // We might need a custom Quiz renderer, but let's try to adapt or build a mini one.
-// Actually, for RPG integration, we need a custom "QuestionCard" that calls back onAnswer.
-// The existing Quiz component manages its own state too much.
+import { ArrowLeft, Zap } from 'lucide-react';
+import type { HeroStats, Monster } from './types';
+
+// Constants
+const GRAVITY = 0.8;
+const JUMP_FORCE = -20; // Stronger jump for bigger resolution
+const GROUND_Y = 620; // Lowered further down (Visual floor)
+const SCROLL_SPEED = 5;
+const HERO_SPEED = 6;
+// We scale the visual sprite to this size, so hitbox matches (2x zoom from 64px)
+const HERO_SIZE = 128;
 
 interface DungeonRunProps {
     subjectId: string;
@@ -13,425 +18,317 @@ interface DungeonRunProps {
     onExit: () => void;
 }
 
-// Mock Monsters for now
-const MONSTERS: Partial<Monster>[] = [
-    { name: 'Slime', emoji: '🟢', maxHp: 30, damage: 5, xpReward: 10 },
-    { name: 'Goblin', emoji: '👺', maxHp: 50, damage: 8, xpReward: 20 },
-    { name: 'Skeleton', emoji: '💀', maxHp: 40, damage: 12, xpReward: 25 },
-    { name: 'Orc', emoji: '👹', maxHp: 80, damage: 15, xpReward: 40 },
-    { name: 'Dragon', emoji: '🐉', maxHp: 200, damage: 25, xpReward: 100 },
-];
-
 export const DungeonRun: React.FC<DungeonRunProps> = ({ subjectId, topicId, onExit }) => {
-    // Game State
-    const [hero, setHero] = useState<HeroStats>({
-        maxHp: 100,
-        currentHp: 100,
-        xp: 0,
-        level: 1,
-        mana: 3,
-        maxMana: 5
+    // Game Loop Ref
+    const requestRef = useRef<number>();
+    const previousTimeRef = useRef<number>();
+
+    // Input Ref
+    const keys = useRef<{ [key: string]: boolean }>({});
+
+    // Hero Ref
+    const heroRef = useRef({
+        x: 100,
+        y: GROUND_Y - HERO_SIZE, // Start ON the ground
+        vx: 0,
+        vy: 0,
+        facingRight: true,
+        state: 'IDLE' as 'IDLE' | 'RUN' | 'ATTACK' | 'JUMP',
+        frame: 0,
+        frameTimer: 0,
+        health: 100,
+        maxHealth: 100,
+        mana: 50,
+        level: 1
     });
 
-    const [monster, setMonster] = useState<Monster | null>(null);
-    const [combatLog, setCombatLog] = useState<string[]>([]);
-    const [selectedAction, setSelectedAction] = useState<CombatAction | null>(null);
+    // Background Ref
+    const bgRef = useRef({ x: 0 });
 
-    // Quiz State
-    const [questions, setQuestions] = useState<any[]>([]);
-    const [currentQuestion, setCurrentQuestion] = useState<any | null>(null);
-    const [loading, setLoading] = useState(true);
+    // React State for UI
+    const [uiState, setUiState] = useState({
+        hp: 100, maxHp: 100, mana: 50, level: 1
+    });
 
-    // Visual State
-    const [shake, setShake] = useState(0);
-    const [flash, setFlash] = useState(false);
-    const [damageNumber, setDamageNumber] = useState<{ val: number, type: 'hero' | 'monster', id: number } | null>(null);
-
-    // Initial Load
+    // Effect: Input Listeners
     useEffect(() => {
-        loadQuestions();
-    }, [subjectId, topicId]);
+        const handleKeyDown = (e: KeyboardEvent) => {
+            // Prevent scrolling for game keys
+            if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Space"].includes(e.code)) {
+                e.preventDefault();
+            }
+            keys.current[e.code] = true;
+        };
+        const handleKeyUp = (e: KeyboardEvent) => { keys.current[e.code] = false; };
 
-    // Spawn Monster if none
-    useEffect(() => {
-        if (!monster && !loading && questions.length > 0) {
-            spawnMonster();
+        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('keyup', handleKeyUp);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('keyup', handleKeyUp);
+        };
+    }, []);
+
+    // Game Loop
+    const animate = (time: number) => {
+        if (previousTimeRef.current !== undefined) {
+            const deltaTime = time - previousTimeRef.current;
+            update(deltaTime);
         }
-    }, [monster, loading, questions]);
-
-    const loadQuestions = async () => {
-        // Mocking question loading or using a simple fetch loop for MVP
-        // In a real implementation we would fetch all lessons for the topic.
-        setLoading(true);
-        // For now, we simulate loading
-        setTimeout(() => {
-            // Mock questions
-            const mocks = [
-                { question: "Hva er hovedstaden i Norge?", options: ["Oslo", "Bergen", "Trondheim"], correct: 0 },
-                { question: "Hvem malte Skrik?", options: ["Munch", "Tidemand", "Gude"], correct: 0 },
-                { question: "Når startet 2. verdenskrig?", options: ["1939", "1940", "1945"], correct: 0 },
-                { question: "Hva er 2 + 2?", options: ["4", "5", "3"], correct: 0 },
-                { question: "Hvilket årstall ble grunnloven underskrevet?", options: ["1814", "1905", "1884"], correct: 0 },
-            ];
-            setQuestions(mocks);
-            setLoading(false);
-        }, 1000);
+        previousTimeRef.current = time;
+        requestRef.current = requestAnimationFrame(animate);
     };
 
-    const spawnMonster = () => {
-        const template = MONSTERS[Math.floor(Math.random() * MONSTERS.length)];
-        // Scale with level
-        const scale = 1 + (hero.level - 1) * 0.2;
+    useEffect(() => {
+        requestRef.current = requestAnimationFrame(animate);
+        return () => cancelAnimationFrame(requestRef.current!);
+    }, []);
 
-        setMonster({
-            id: Math.random().toString(),
-            name: template.name!,
-            emoji: template.emoji!,
-            maxHp: Math.floor(template.maxHp! * scale),
-            currentHp: Math.floor(template.maxHp! * scale),
-            damage: Math.floor(template.damage! * scale),
-            xpReward: Math.floor(template.xpReward! * scale),
-            level: hero.level
-        });
 
-        // Pick new question
-        setCurrentQuestion(questions[Math.floor(Math.random() * questions.length)]);
-        setSelectedAction(null);
-    };
+    // --- UPDATE LOGIC ---
+    const update = (dt: number) => {
+        const hero = heroRef.current;
+        const input = keys.current;
 
-    const handleActionSelect = (action: CombatAction) => {
-        setSelectedAction(action);
-    };
-
-    const handleAnswer = (index: number) => {
-        if (!monster || !currentQuestion || !selectedAction) return;
-
-        const isCorrect = index === currentQuestion.correct;
-
-        if (isCorrect) {
-            // Player Attack
-            let damage = 20; // Base sword
-            if (selectedAction === 'BOW') {
-                // Bow logic: 50% crit chance for 2x damage
-                if (Math.random() > 0.5) {
-                    damage = 40;
-                    log("Fulltreffer med buen! (Kritisk treff)");
-                } else {
-                    damage = 15;
-                    log("Pil traff, men ikke perfekt.");
-                }
-            } else if (selectedAction === 'MAGIC') {
-                damage = 50; // High damage
-                log("Magien dine treffer hardt!");
-            } else {
-                log("Du hugger til med sverdet!");
-            }
-
-            // Apply Damage to Monster
-            const newHp = Math.max(0, monster.currentHp - damage);
-            setMonster(prev => prev ? ({ ...prev, currentHp: newHp }) : null);
-            showDamage(damage, 'monster');
-
-            // Check Death
-            if (newHp <= 0) {
-                setTimeout(() => handleMonsterDeath(monster), 1000);
-            } else {
-                // Monster survived, prep next turn
-                // Maybe small heal or mana gain?
-                if (hero.mana < hero.maxMana) setHero(h => ({ ...h, mana: h.mana + 1 }));
-
-                // New question
-                setTimeout(() => {
-                    setCurrentQuestion(questions[Math.floor(Math.random() * questions.length)]);
-                    setSelectedAction(null);
-                }, 1500);
-            }
-
+        // 1. Movement
+        hero.vx = 0;
+        if (input['ArrowRight'] || input['KeyD']) {
+            hero.vx = HERO_SPEED;
+            hero.facingRight = true;
+            hero.state = 'RUN';
+        } else if (input['ArrowLeft'] || input['KeyA']) {
+            hero.vx = -HERO_SPEED;
+            hero.facingRight = false;
+            hero.state = 'RUN';
         } else {
-            // Wrong Aswer - Monster Attacks
-            let damageTaken = monster.damage;
+            hero.state = 'IDLE';
+        }
 
-            // Magic Risk
-            if (selectedAction === 'MAGIC') {
-                damageTaken = Math.floor(damageTaken * 1.5);
-                log("Magien slo feil tilbake på deg! (Ekstra skade)");
-            } else {
-                log(`${monster.name} angriper deg!`);
-            }
+        // Jump Logic
+        // Check if on ground (with small tolerance)
+        const onGround = hero.y + HERO_SIZE >= GROUND_Y - 1;
 
-            const newHeroHp = Math.max(0, hero.currentHp - damageTaken);
-            setHero(prev => ({ ...prev, currentHp: newHeroHp }));
-            showDamage(damageTaken, 'hero');
-            triggerShake();
+        if (input['Space'] && onGround) {
+            hero.vy = JUMP_FORCE;
+            hero.state = 'JUMP';
+        }
 
-            if (newHeroHp <= 0) {
-                // Game Over
-            } else {
-                // New question
-                setTimeout(() => {
-                    setCurrentQuestion(questions[Math.floor(Math.random() * questions.length)]);
-                    setSelectedAction(null);
-                }, 1500);
-            }
+        // Apply Physics
+        hero.vy += GRAVITY;
+        hero.x += hero.vx;
+        hero.y += hero.vy;
+
+        // Ground Collision
+        if (hero.y + HERO_SIZE > GROUND_Y) {
+            hero.y = GROUND_Y - HERO_SIZE; // Snap feet to ground
+            hero.vy = 0;
+            if (hero.state === 'JUMP') hero.state = 'IDLE';
+        }
+
+        // Screen Boundaries & Scrolling
+        // Lock hero at center of screen (400px) when moving right
+        if (hero.x > 600 && hero.vx > 0) {
+            bgRef.current.x -= hero.vx;
+            hero.x = 600;
+        }
+        // Wall Left
+        if (hero.x < 50) hero.x = 50;
+
+        // Animation Frame Logic
+        hero.frameTimer += dt;
+        if (hero.frameTimer > 100) { // 10fps animation speed
+            hero.frame++; // Modulo handled in render
+            hero.frameTimer = 0;
         }
     };
 
-    const handleMonsterDeath = (m: Monster) => {
-        log(`Du beseiret ${m.name}! +${m.xpReward} XP`);
+    // --- RENDER ---
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const heroSpriteRef = useRef<HTMLCanvasElement | null>(null);
+    const bgImageRef = useRef<HTMLImageElement>(new Image());
 
-        setHero(prev => {
-            const newXp = prev.xp + m.xpReward;
-            const nextLevelXp = prev.level * 100;
-            if (newXp >= nextLevelXp) {
-                log("LEVEL UP!");
-                return {
-                    ...prev,
-                    xp: newXp - nextLevelXp,
-                    level: prev.level + 1,
-                    maxHp: prev.maxHp + 20,
-                    currentHp: prev.maxHp + 20, // Full heal on level up
-                };
+    useEffect(() => {
+        // Load BG
+        bgImageRef.current.src = '/assets/dungeon/bg.png';
+
+        // Load Hero & Chroma Key
+        const rawHero = new Image();
+        rawHero.src = '/assets/dungeon/hero.png';
+        rawHero.onload = () => {
+            const c = document.createElement('canvas');
+            c.width = rawHero.width;
+            c.height = rawHero.height;
+            const ctx = c.getContext('2d');
+            if (ctx) {
+                ctx.drawImage(rawHero, 0, 0);
+                const imageData = ctx.getImageData(0, 0, c.width, c.height);
+                const data = imageData.data;
+                for (let i = 0; i < data.length; i += 4) {
+                    // Chroma Key Magenta #FF00FF
+                    if (data[i] > 200 && data[i + 1] < 50 && data[i + 2] > 200) {
+                        data[i + 3] = 0; // Alpha 0
+                    }
+                }
+                ctx.putImageData(imageData, 0, 0);
+                heroSpriteRef.current = c;
             }
-            return { ...prev, xp: newXp };
-        });
+        };
+    }, []);
 
-        setMonster(null); // Will trigger spawn effect
-    };
+    // Canvas Render Loop
+    useEffect(() => {
+        const ctx = canvasRef.current?.getContext('2d');
+        if (!ctx) return;
 
-    const log = (msg: string) => {
-        setCombatLog(prev => [msg, ...prev].slice(0, 3));
-    };
+        ctx.imageSmoothingEnabled = false;
 
-    const showDamage = (val: number, type: 'hero' | 'monster') => {
-        setDamageNumber({ val, type, id: Math.random() });
-        setTimeout(() => setDamageNumber(null), 1000);
-    };
+        const render = () => {
+            const h = heroRef.current;
 
-    const triggerShake = () => {
-        setShake(Date.now());
-    };
+            // Clear
+            ctx.clearRect(0, 0, 1280, 720);
 
-    if (hero.currentHp <= 0) {
-        return (
-            <div className="h-screen flex flex-col items-center justify-center bg-black/90 text-white z-50">
-                <h1 className="text-6xl font-black text-red-600 mb-4">GAME OVER</h1>
-                <p className="text-2xl mb-8">Du nådde Level {hero.level}</p>
-                <button
-                    onClick={onExit}
-                    className="bg-white text-black px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform"
-                >
-                    Tilbake til menyen
-                </button>
-            </div>
-        );
-    }
+            // Draw Background (Parallax)
+            const bgX = bgRef.current.x % 1280;
+            if (bgImageRef.current.complete) {
+                ctx.drawImage(bgImageRef.current, bgX - 1280, 0, 1280, 720);
+                ctx.drawImage(bgImageRef.current, bgX, 0, 1280, 720);
+                ctx.drawImage(bgImageRef.current, bgX + 1280, 0, 1280, 720);
+            } else {
+                ctx.fillStyle = '#1e1b4b';
+                ctx.fillRect(0, 0, 1280, 720);
+            }
+
+            // --- DEBUG VISUALS ---
+            // Ground Line (Visual Guide)
+            ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(0, GROUND_Y);
+            ctx.lineTo(1280, GROUND_Y);
+            ctx.stroke();
+
+            // Shadow
+            ctx.fillStyle = 'rgba(0,0,0,0.4)';
+            ctx.beginPath();
+            // Shadow under feet
+            ctx.ellipse(h.x + HERO_SIZE / 2, Math.min(h.y + HERO_SIZE, GROUND_Y), 30, 8, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw Hero Structure
+            let row = 0; // IDLE default
+            if (h.state === 'RUN') row = 1;
+
+            ctx.save();
+            const centerX = h.x + HERO_SIZE / 2;
+
+            // Flip
+            if (!h.facingRight) {
+                ctx.translate(centerX, h.y);
+                ctx.scale(-1, 1);
+                ctx.translate(-(centerX), -h.y);
+            }
+
+            if (heroSpriteRef.current) {
+                // Determine Source Frame dimensions dynamically
+                const imgW = heroSpriteRef.current.width;
+                const imgH = heroSpriteRef.current.height;
+
+                // Assume 4 frames horizontal
+                const numFrames = 4;
+                const frameW = imgW / numFrames;
+
+                // If the sprite sheet is just a strip (height approx frameW), ignore "row" calculations
+                // If sprite sheet is a grid (height >> frameW), use row
+                // For safety, let's assume if height < 96 (so mostly 64px), it's a strip.
+                const isStrip = imgH < 96;
+
+                const frameH = isStrip ? imgH : frameW;
+                const sy = isStrip ? 0 : row * frameH;
+                const sx = (h.frame % numFrames) * frameW;
+
+                ctx.drawImage(
+                    heroSpriteRef.current,
+                    sx, sy,             // Source X, Y
+                    frameW, frameH,     // Source W, H
+                    h.x,                // Dest X
+                    h.y,                // Dest Y (Top-left)
+                    HERO_SIZE, HERO_SIZE // Dest W, H (128x128)
+                );
+
+                // Debug Box (Matches Sprite Rect)
+                ctx.strokeStyle = 'lime';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(h.x, h.y, HERO_SIZE, HERO_SIZE);
+
+            } else {
+                // Fallback Box
+                ctx.fillStyle = h.facingRight ? '#4f46e5' : '#818cf8';
+                ctx.fillRect(h.x, h.y, HERO_SIZE, HERO_SIZE);
+            }
+
+            ctx.restore();
+
+            // Debug Text
+            ctx.fillStyle = 'white';
+            ctx.font = '16px monospace';
+            ctx.fillText(`GROUND_Y: ${GROUND_Y}`, 20, 30);
+            ctx.fillText(`HERO: ${Math.round(h.x)}, ${Math.round(h.y)}`, 20, 50);
+
+            requestAnimationFrame(render);
+        };
+        render();
+    }, []);
 
     return (
-        <div className={`relative w-full h-full flex flex-col p-4 max-w-5xl mx-auto ${shake ? 'animate-shake' : ''}`}>
+        <div className="relative w-full h-[calc(100vh-64px)] bg-slate-900 flex items-center justify-center overflow-hidden">
+            {/* Game Canvas */}
+            <canvas
+                ref={canvasRef}
+                width={1280}
+                height={720}
+                className="w-full h-full object-contain bg-black shadow-2xl image-pixelated"
+            />
+
+            {/* CSS for pixel art scaling */}
             <style>{`
-                @keyframes shake {
-                    0%, 100% { transform: translateX(0); }
-                    25% { transform: translateX(-5px); }
-                    75% { transform: translateX(5px); }
+                .image-pixelated {
+                    image-rendering: pixelated; 
                 }
-                .animate-shake { animation: shake 0.2s ease-in-out 3; }
             `}</style>
 
-            {/* Top Bar: Hero Stats */}
-            <div className="flex items-center justify-between bg-slate-800/80 backdrop-blur-md p-4 rounded-2xl border border-slate-700 mb-8 shadow-xl">
-                <div className="flex items-center gap-6">
-                    {/* Level */}
-                    <div className="relative">
-                        <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center font-black text-xl border-4 border-slate-900 shadow-lg z-10 relative">
-                            {hero.level}
-                        </div>
-                        <div className="absolute -bottom-2 w-full text-center text-[10px] font-bold uppercase tracking-wider text-indigo-400">Lvl</div>
+            {/* UI Overlay */}
+            <div className="absolute top-4 left-4 flex gap-4 pointer-events-none">
+                <div className="bg-slate-800/90 p-4 rounded-xl border-2 border-slate-600 text-white w-64 shadow-lg">
+                    <div className="flex justify-between items-center mb-1">
+                        <span className="font-black text-sm text-slate-300 uppercase tracking-widest">Health</span>
+                        <span className="font-mono text-sm">{uiState.hp}/{uiState.maxHp}</span>
                     </div>
-
-                    {/* HP Bar */}
-                    <div className="w-48">
-                        <div className="flex justify-between text-xs font-bold uppercase mb-1 text-slate-400">
-                            <span>Health</span>
-                            <span>{hero.currentHp}/{hero.maxHp}</span>
-                        </div>
-                        <div className="h-3 bg-slate-900 rounded-full overflow-hidden border border-slate-700">
-                            <motion.div
-                                initial={{ width: '100%' }}
-                                animate={{ width: \`\${(hero.currentHp / hero.maxHp) * 100}%\` }}
-                            className="h-full bg-gradient-to-r from-red-600 to-red-400"
-                            />
-                        </div>
-                    </div>
-
-                    {/* XP Bar */}
-                    <div className="w-32 hidden sm:block">
-                        <div className="flex justify-between text-xs font-bold uppercase mb-1 text-slate-400">
-                            <span>XP</span>
-                        </div>
-                        <div className="h-2 bg-slate-900 rounded-full overflow-hidden border border-slate-700">
-                            <motion.div
-                                initial={{ width: '0%' }}
-                                animate={{ width: \`\${(hero.xp / (hero.level * 100)) * 100}%\` }}
-                            className="h-full bg-indigo-500"
-                            />
-                        </div>
+                    <div className="h-4 bg-slate-900 rounded-full overflow-hidden border border-slate-700">
+                        <div className="h-full bg-gradient-to-r from-red-600 to-red-500 w-full" />
                     </div>
                 </div>
 
-                <div className="flex items-center gap-2">
-                    <button onClick={onExit} className="p-2 hover:bg-slate-700 rounded-full transition-colors text-slate-400">
-                        <ArrowLeft className="w-5 h-5" />
-                    </button>
+                <div className="bg-slate-800/90 p-4 rounded-xl border-2 border-slate-600 text-white w-48 shadow-lg">
+                    <div className="flex justify-between items-center mb-1">
+                        <span className="font-black text-sm text-slate-300 flex items-center gap-2 uppercase tracking-widest"><Zap className="w-4 h-4 text-sky-400 fill-sky-400" /> Mana</span>
+                        <span className="font-mono text-sm">{uiState.mana}</span>
+                    </div>
+                    <div className="h-4 bg-slate-900 rounded-full overflow-hidden border border-slate-700">
+                        <div className="h-full bg-gradient-to-r from-sky-600 to-sky-400 w-1/2" />
+                    </div>
                 </div>
             </div>
 
-            {/* Main Stage */}
-            <div className="flex-1 flex flex-col items-center justify-center relative min-h-[300px]">
-
-                {/* Damage Numbers */}
-                <AnimatePresence>
-                    {damageNumber && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 0, scale: 0.5 }}
-                            animate={{ opacity: 1, y: -50, scale: 1.5 }}
-                            exit={{ opacity: 0 }}
-                            className={`absolute font-black text-6xl z-50 drop-shadow-lg ${damageNumber.type === 'hero' ? 'text-red-500 top-1/2' : 'text-white top-1/4'}`}
-                        >
-                            -{damageNumber.val}
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-
-                {/* Monster */}
-                <AnimatePresence mode="wait">
-                    {monster ? (
-                        <motion.div
-                            key={monster.id}
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0, opacity: 0, rotate: 20 }}
-                            transition={{ type: "spring", bounce: 0.5 }}
-                            className="flex flex-col items-center"
-                        >
-                            {/* Monster HP */}
-                            <div className="w-32 h-2 bg-slate-700 rounded-full mb-4 overflow-hidden">
-                                <motion.div
-                                    animate={{ width: \`\${(monster.currentHp / monster.maxHp) * 100}%\` }}
-                                className="h-full bg-red-500"
-                                />
-                            </div>
-
-                            <div className="text-[150px] leading-none filter drop-shadow-2xl animate-bounce-slow">
-                                {monster.emoji}
-                            </div>
-
-                            <h2 className="text-2xl font-black text-white mt-4 flex items-center gap-2">
-                                {monster.name}
-                                <span className="text-sm bg-slate-700 px-2 py-1 rounded text-slate-300">Lvl {monster.level}</span>
-                            </h2>
-                        </motion.div>
-                    ) : (
-                        <div className="text-slate-500 animate-pulse">Søker etter fiende...</div>
-                    )}
-                </AnimatePresence>
+            {/* Controls Helper */}
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-white/50 text-sm font-mono font-bold tracking-widest uppercase bg-black/50 px-6 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                WASD / Arrows to Move • Space to Jump
             </div>
 
-            {/* Combat Controls */}
-            <div className="mt-8 relative z-20">
-                {/* Select Action Phase */}
-                {!selectedAction && monster && (
-                    <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-                        <ActionCard
-                            icon={Sword}
-                            title="Sverd"
-                            desc="Standard angrep"
-                            color="from-blue-500 to-blue-600"
-                            onClick={() => handleActionSelect('SWORD')}
-                        />
-                        <ActionCard
-                            icon={Target}
-                            title="Bue"
-                            desc="Høy sjanse for kritisk treff"
-                            color="from-green-500 to-green-600"
-                            onClick={() => handleActionSelect('BOW')}
-                        />
-                        <ActionCard
-                            icon={Zap}
-                            title="Magi"
-                            desc="Høy skade, men risikabelt!"
-                            color="from-purple-500 to-purple-600"
-                            onClick={() => handleActionSelect('MAGIC')}
-                        />
-                    </div>
-                )}
-
-                {/* Question Phase */}
-                {selectedAction && currentQuestion && (
-                    <motion.div
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        className="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl max-w-2xl mx-auto"
-                    >
-                        <div className="flex justify-between items-center mb-6">
-                            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider">
-                                {selectedAction} angrep valgt
-                            </h3>
-                            <div className="text-xs text-slate-500">Svar riktig for å angripe!</div>
-                        </div>
-
-                        <h2 className="text-xl font-bold text-white mb-8 text-center leading-relaxed">
-                            {currentQuestion.question}
-                        </h2>
-
-                        <div className="grid grid-cols-1 gap-3">
-                            {currentQuestion.options.map((opt: string, i: number) => (
-                                <button
-                                    key={i}
-                                    onClick={() => handleAnswer(i)}
-                                    className="p-4 rounded-xl bg-slate-700 hover:bg-indigo-600 text-slate-200 hover:text-white font-medium transition-all text-left border border-slate-600 hover:border-indigo-400"
-                                >
-                                    {opt}
-                                </button>
-                            ))}
-                        </div>
-                    </motion.div>
-                )}
-            </div>
-
-            {/* Log */}
-            <div className="fixed bottom-4 right-4 w-64 pointer-events-none">
-                <AnimatePresence>
-                    {combatLog.map((entry, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0 }}
-                            className="bg-black/50 text-white text-xs p-2 rounded mb-1 backdrop-blur-sm"
-                        >
-                            {entry}
-                        </motion.div>
-                    ))}
-                </AnimatePresence>
-            </div>
+            <button onClick={onExit} className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors bg-black/20 hover:bg-black/50 p-3 rounded-full pointer-events-auto">
+                <ArrowLeft className="w-8 h-8" />
+            </button>
         </div>
     );
 };
-
-const ActionCard = ({ icon: Icon, title, desc, color, onClick }: any) => (
-    <button
-        onClick={onClick}
-        className={`relative overflow-hidden group p-6 rounded-2xl bg-gradient-to-br ${color} text-white shadow-lg hover:scale-105 transition-transform text-left border border-white/10`}
-    >
-        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-125 transition-transform origin-top-right">
-            <Icon className="w-24 h-24" />
-        </div>
-        <div className="relative z-10 flex flex-col h-full justify-between gap-4">
-            <Icon className="w-8 h-8" />
-            <div>
-                <div className="font-black text-xl uppercase italic">{title}</div>
-                <div className="text-xs text-white/80 font-medium">{desc}</div>
-            </div>
-        </div>
-    </button>
-);
