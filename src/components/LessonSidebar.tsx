@@ -12,20 +12,6 @@ interface LessonSidebarProps {
 export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparisonTags, quote }) => {
     return (
         <div className="space-y-8">
-            {/* Concepts */}
-            {concepts && concepts.length > 0 && (
-                <section>
-                    <h2 className="text-2xl font-display font-bold text-text-main mb-6 border-l-4 border-neon-accent pl-4">
-                        Begreper
-                    </h2>
-                    <div className="space-y-4">
-                        {concepts.map(concept => (
-                            <ConceptCard key={concept.id} concept={concept} />
-                        ))}
-                    </div>
-                </section>
-            )}
-
             {/* Quote */}
             {quote && (
                 <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800">
@@ -39,6 +25,20 @@ export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparis
                         </div>
                     )}
                 </div>
+            )}
+
+            {/* Concepts */}
+            {concepts && concepts.length > 0 && (
+                <section>
+                    <h2 className="text-2xl font-display font-bold text-text-main mb-6 border-l-4 border-neon-accent pl-4">
+                        Begreper
+                    </h2>
+                    <div className="space-y-4">
+                        {concepts.map(concept => (
+                            <ConceptCard key={concept.id} concept={concept} />
+                        ))}
+                    </div>
+                </section>
             )}
 
             {/* Comparison Tags */}

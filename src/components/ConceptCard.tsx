@@ -13,9 +13,7 @@ export const ConceptCard: React.FC<ConceptCardProps> = ({ concept }) => {
             <div className="card-content">
                 <h3 className="card-term">{concept.term}</h3>
                 <p className="card-definition">{concept.definition}</p>
-                <div className="card-example">
-                    <strong>Eksempel:</strong> {concept.example}
-                </div>
+
             </div>
         </ImmersiveCard>
     );
