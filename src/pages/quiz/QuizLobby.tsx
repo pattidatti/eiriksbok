@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { db } from '../../lib/firebase';
 import { ref, get, set, child } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-import { Gamepad2 } from 'lucide-react';
 
 export const QuizLobby: React.FC = () => {
     const [pin, setPin] = useState('');

@@ -215,7 +215,7 @@ export const ChronoBoard: React.FC<ChronoBoardProps> = ({ events, onGameOver }) 
                                     drag
                                     dragSnapToOrigin
                                     onDrag={(_, info) => handleDrag(info)}
-                                    onDragEnd={(_, info) => handleDragEnd(info)}
+                                    onDragEnd={() => handleDragEnd()}
                                     whileDrag={{ scale: 1.1, rotate: 5, zIndex: 100 }}
                                     className="touch-none"
                                 >

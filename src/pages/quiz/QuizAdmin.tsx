@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../lib/firebase';
-import { ref, set, onValue, push, remove } from 'firebase/database';
+import { ref, set, onValue, remove } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-import { Users, Play, Trash2, Copy } from 'lucide-react';
+import { Users, Play, Trash2 } from 'lucide-react';
 
 export const QuizAdmin: React.FC = () => {
     const [rooms, setRooms] = useState<any[]>([]);
