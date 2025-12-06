@@ -41,6 +41,64 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
         }
 
         const data = await response.json();
+
+        // Fetch manifest to get definitions and layout if present
+        try {
+            const manifestResponse = await fetch(`${basePath}content/manifest.json`);
+            if (manifestResponse.ok) {
+                const manifest = await manifestResponse.json() as Manifest;
+                let manifestLesson: any;
+
+                // Helper to find lesson in manifest
+                const findLesson = (nodes: any[]): any => {
+                    for (const node of nodes) {
+                        if (node.id === lessonId) return node;
+                        if (node.lessons) {
+                            const found = findLesson(node.lessons);
+                            if (found) return found;
+                        }
+                        if (node.topics) {
+                            const found = findLesson(node.topics);
+                            if (found) return found;
+                        }
+                        if (node.subTopics) {
+                            const found = findLesson(node.subTopics);
+                            if (found) return found;
+                        }
+                        if (node.subjects) {
+                            const found = findLesson(node.subjects);
+                            if (found) return found;
+                        }
+                    }
+                    return null;
+                };
+
+                manifestLesson = findLesson(manifest.subjects);
+
+                if (manifestLesson) {
+                    // Merge definitions into concepts
+                    if (manifestLesson.definitions) {
+                        const newConcepts = manifestLesson.definitions.map((def: any, index: number) => ({
+                            id: `concept-${index}`,
+                            term: def.term,
+                            definition: def.definition
+                        }));
+                        data.concepts = [...(data.concepts || []), ...newConcepts];
+                    }
+
+                    // Merge other metadata
+                    if (manifestLesson.layout) data.layout = manifestLesson.layout;
+                    if (manifestLesson.year) data.year = manifestLesson.year;
+                    if (manifestLesson.tags) {
+                        // Merge tags without duplicates
+                        data.tags = [...new Set([...(data.tags || []), ...(manifestLesson.tags || [])])];
+                    }
+                }
+            }
+        } catch (e) {
+            console.warn("Failed to merge manifest data:", e);
+        }
+
         return data as Lesson;
     } catch (error) {
         console.error("Error loading lesson:", error);
@@ -61,6 +119,7 @@ export async function fetchManifest(): Promise<Manifest | null> {
         return null;
     }
 }
+
 export async function fetchReligion(id: string): Promise<any | null> {
     try {
         const basePath = import.meta.env.BASE_URL.endsWith('/')

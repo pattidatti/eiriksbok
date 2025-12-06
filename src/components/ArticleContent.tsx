@@ -195,6 +195,11 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 className={`mb-6 text-lg text-slate-700 leading-relaxed group ${interactiveClass} ${activeClass}`}
                                 onClick={() => onBlockClick?.(index)}
                             >
+                                {block.title && (
+                                    <h3 className="text-2xl font-bold text-slate-800 mb-4 block">
+                                        {block.title}
+                                    </h3>
+                                )}
                                 {isActive && (
                                     <div className="absolute -left-12 top-2 hidden md:flex items-center justify-center w-8 h-8">
                                         <motion.div

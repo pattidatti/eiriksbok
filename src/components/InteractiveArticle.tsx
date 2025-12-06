@@ -20,7 +20,8 @@ import { TimelineComponent } from './TimelineComponent';
 import type { ContentBlock } from '../types';
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
 import { cleanTextForSpeech } from '../utils/speechUtils';
-import { timelineData } from '../data/timelineData';
+import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
+import { parseYearRange } from '../utils/dateUtils';
 import { ImageWithFallback } from './ImageWithFallback';
 
 // Generic Article Data Type
@@ -46,58 +47,57 @@ export type ArticleData = {
 interface InteractiveArticleProps {
     event: ArticleData;
     onClose: () => void;
-    parentPath?: string;
     fallbackUrl?: string;
 }
 
-const InteractiveMapPlaceholder = () => (
-    <div className="relative w-full h-64 bg-slate-100 rounded-xl overflow-hidden border border-slate-200 group cursor-pointer shadow-sm">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-60 group-hover:opacity-80 transition-opacity" />
-        <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full border border-slate-200 flex items-center space-x-2 group-hover:scale-105 transition-transform shadow-md">
-                <Map className="w-5 h-5 text-indigo-600" />
-                <span className="text-slate-900 font-bold text-sm">Utforsk Kartet</span>
-            </div>
-        </div>
+
+// Helper Components
+const FactBox: React.FC<{ content: string }> = ({ content }) => (
+    <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
+        <h3 className="font-bold text-indigo-900 mb-2 flex items-center">
+            <Info className="w-5 h-5 mr-2 text-indigo-600" />
+            Visste du at?
+        </h3>
+        <p className="text-indigo-800 leading-relaxed">
+            {content}
+        </p>
     </div>
 );
 
-const FactBox = ({ content }: { content: string }) => {
-    if (!content) return null;
+const InteractiveMapPlaceholder: React.FC = () => (
+    <div className="bg-slate-100 rounded-2xl p-4 border border-slate-200 aspect-video flex flex-col items-center justify-center text-slate-500 mb-8">
+        <Map className="w-8 h-8 mb-2 opacity-50" />
+        <span className="text-sm font-medium">Interaktivt kart kommer</span>
+    </div>
+);
 
-    return (
-        <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl my-8">
-            <h4 className="text-indigo-700 font-bold text-sm uppercase mb-2 flex items-center tracking-wider">
-                <Info className="w-4 h-4 mr-2" /> Visste du at?
-            </h4>
-            <p className="text-slate-700 text-base leading-relaxed italic">
-                {content}
-            </p>
-        </div>
-    );
-};
-
-const ExpandableSection = ({ title, children }: { title: string, children: React.ReactNode }) => {
+const ExpandableSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border border-slate-200 rounded-xl overflow-hidden bg-white mb-4 shadow-sm">
+        <div className="border-b border-slate-100 last:border-0">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-4 hover:bg-slate-50 transition-colors"
+                className="flex items-center justify-between w-full py-3 text-left group"
             >
-                <span className="font-bold text-slate-800">{title}</span>
-                {isOpen ? <ChevronUp className="w-5 h-5 text-slate-500" /> : <ChevronDown className="w-5 h-5 text-slate-500" />}
+                <span className="font-medium text-slate-700 group-hover:text-indigo-600 transition-colors">
+                    {title}
+                </span>
+                {isOpen ? (
+                    <ChevronUp className="w-4 h-4 text-slate-400 group-hover:text-indigo-600" />
+                ) : (
+                    <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-indigo-600" />
+                )}
             </button>
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
+                        animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         className="overflow-hidden"
                     >
-                        <div className="p-4 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
+                        <div className="pb-4 text-sm text-slate-600">
                             {children}
                         </div>
                     </motion.div>
@@ -107,65 +107,8 @@ const ExpandableSection = ({ title, children }: { title: string, children: React
     );
 };
 
-// Helper to parse year strings into numeric range
-const parseYearRange = (yearStr: string): { start: number, end: number } => {
-    // Remove "ca." and spaces
-    const cleanStr = yearStr.replace(/ca\.?/i, '').replace(/\s+/g, '');
-
-    // Check for "fvt." (BC)
-    const isBC = cleanStr.toLowerCase().includes('fvt');
-    const multiplier = isBC ? -1 : 1;
-
-    // Remove text suffix
-    const numStr = cleanStr.replace(/fvt\.?|evt\.?/i, '');
-
-    // Handle ranges "1400-1500"
-    if (numStr.includes('–') || numStr.includes('-')) {
-        const parts = numStr.split(/[–-]/);
-        if (parts.length === 2) {
-            let start = parseInt(parts[0]);
-            let end = parseInt(parts[1]);
-
-            if (isNaN(start)) start = 0;
-            if (isNaN(end)) end = 0;
-
-            // If BC, the larger number is actually smaller (older), but usually written "12000-4000 fvt"
-            // So 12000 BC is start (-12000), 4000 BC is end (-4000)
-            if (isBC) {
-                return { start: start * multiplier, end: end * multiplier };
-            }
-            return { start, end };
-        }
-    }
-
-    // Single year
-    const year = parseInt(numStr);
-    if (isNaN(year)) return { start: 0, end: 0 };
-    return { start: year * multiplier, end: year * multiplier };
-};
-
-const getOverlappingEvents = (currentEventId: string | number, currentYearStr: string, parentPath?: string) => {
-    const currentRange = parseYearRange(currentYearStr);
-    const buffer = 50;
-    const contextStart = currentRange.start - buffer;
-    const contextEnd = currentRange.end + buffer;
-
-    return timelineData
-        .filter(e => e.id !== currentEventId)
-        .filter(e => {
-            const eRange = parseYearRange(e.year);
-            // Check overlap
-            return (eRange.start <= contextEnd && eRange.end >= contextStart);
-        })
-        .map(e => ({
-            year: e.year,
-            title: e.title,
-            description: e.description, // Use short description
-            link: parentPath ? `${parentPath}/${e.id}` : `../${e.id}` // Use absolute path if available, else relative
-        }));
-};
-
-export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, parentPath, fallbackUrl }) => {
+export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, fallbackUrl }) => {
+    const { events: globalEvents } = useGlobalTimeline();
     const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();
 
     // Calculate speech blocks and mapping
@@ -227,7 +170,26 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
     const activeContentIndex = activeBlockIndex !== -1 ? speechData.mapSpeechToContent[activeBlockIndex] : undefined;
 
     // Merge internal timeline events with external context events
-    const contextEvents = getOverlappingEvents(event.id, event.year, parentPath);
+    const contextEvents = React.useMemo(() => {
+        const currentRange = parseYearRange(event.year);
+        const buffer = 50;
+        const contextStart = currentRange.start - buffer;
+        const contextEnd = currentRange.end + buffer;
+
+        return globalEvents
+            .filter(e => e.id !== event.id.toString())
+            .filter(e => {
+                const eStart = e.startDate;
+                const eEnd = e.endDate || e.startDate;
+                return (eStart <= contextEnd && eEnd >= contextStart);
+            })
+            .map(e => ({
+                year: e.displayDate,
+                title: e.title,
+                description: e.description || '',
+                link: e.link
+            }));
+    }, [event, globalEvents]);
     const internalEvents = event.timeline || [];
 
     // Combine and sort by year
@@ -368,15 +330,17 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                                             </li>
                                         ))}
                                     </ul>
-                                </div>
 
-                                {combinedTimeline.length > 0 && (
-                                    <TimelineComponent
-                                        events={combinedTimeline}
-                                        title="Tidslinje"
-                                        compact={true}
-                                    />
-                                )}
+                                    {combinedTimeline.length > 0 && (
+                                        <div className="mt-6 pt-6 border-t border-slate-200">
+                                            <TimelineComponent
+                                                events={combinedTimeline}
+                                                title="Tidslinje"
+                                                compact={true}
+                                            />
+                                        </div>
+                                    )}
+                                </div>
 
                                 {event.mapData && <InteractiveMapPlaceholder />}
 

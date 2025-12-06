@@ -11,7 +11,7 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 - [ ] Støtte for tegneserier/bildebok. f.eks. skylappjenta
 - [ ] Fikse cash som henger, ikke oppdaterer seg. 
 
-- [ ] Skjekke om den globale tidslinjen er implementert i artiklene som bruker tidslinje. 
+- [ ] Skjekke om den globale tidslinjen er implementert i artiklene som bruker tidslinje. Sørge for at den lokale varianten er fjernet totalt, at det bare er henvisningern til den globale . 
 
 ## content
 
