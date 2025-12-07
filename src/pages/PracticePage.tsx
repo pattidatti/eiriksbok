@@ -52,6 +52,14 @@ export const PracticePage: React.FC = () => {
             icon: Sword,
             color: 'bg-purple-600',
             link: '/oving/dungeon'
+        },
+        {
+            id: 'hangman',
+            title: 'Hengemann',
+            description: 'Gjett fagbegrepene før det er for sent!',
+            icon: Brain,
+            color: 'bg-pink-500',
+            link: '/oving/hengemann'
         }
     ];
 

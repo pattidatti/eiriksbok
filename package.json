@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "tina-dev": "tinacms dev -c \"vite\"",
-    "tina-build": "tinacms build && vite build"
+    "tina-build": "tinacms build && vite build",
+    "scan:concepts": "node scripts/scan-concepts.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

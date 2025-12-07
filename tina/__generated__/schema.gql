@@ -60,12 +60,18 @@ type Query {
   articleConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ArticleFilter): ArticleConnection!
   religion(relativePath: String): Religion!
   religionConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ReligionFilter): ReligionConnection!
+  concepts(relativePath: String): Concepts!
+  conceptsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ConceptsFilter): ConceptsConnection!
+  scannerConfig(relativePath: String): ScannerConfig!
+  scannerConfigConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ScannerConfigFilter): ScannerConfigConnection!
 }
 
 input DocumentFilter {
   manifest: ManifestFilter
   article: ArticleFilter
   religion: ReligionFilter
+  concepts: ConceptsFilter
+  scannerConfig: ScannerConfigFilter
 }
 
 type DocumentConnectionEdges {
@@ -91,7 +97,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Manifest | Article | Religion | Folder
+union DocumentNode = Manifest | Article | Religion | Concepts | ScannerConfig | Folder
 
 type ManifestSubjectsTopicsLessons {
   id: String
@@ -375,6 +381,66 @@ type ReligionConnection implements Connection {
   edges: [ReligionConnectionEdges]
 }
 
+union ConceptsRelatedArticle = Article
+
+type Concepts implements Node & Document {
+  term: String!
+  definition: String!
+  subject: String
+  topic: String
+  relatedArticle: ConceptsRelatedArticle
+  tags: [String]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input ConceptsRelatedArticleFilter {
+  article: ArticleFilter
+}
+
+input ConceptsFilter {
+  term: StringFilter
+  definition: StringFilter
+  subject: StringFilter
+  topic: StringFilter
+  relatedArticle: ConceptsRelatedArticleFilter
+  tags: StringFilter
+}
+
+type ConceptsConnectionEdges {
+  cursor: String!
+  node: Concepts
+}
+
+type ConceptsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ConceptsConnectionEdges]
+}
+
+type ScannerConfig implements Node & Document {
+  ignoredTerms: [String]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input ScannerConfigFilter {
+  ignoredTerms: StringFilter
+}
+
+type ScannerConfigConnectionEdges {
+  cursor: String!
+  node: ScannerConfig
+}
+
+type ScannerConfigConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ScannerConfigConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
@@ -387,12 +453,18 @@ type Mutation {
   createArticle(relativePath: String!, params: ArticleMutation!): Article!
   updateReligion(relativePath: String!, params: ReligionMutation!): Religion!
   createReligion(relativePath: String!, params: ReligionMutation!): Religion!
+  updateConcepts(relativePath: String!, params: ConceptsMutation!): Concepts!
+  createConcepts(relativePath: String!, params: ConceptsMutation!): Concepts!
+  updateScannerConfig(relativePath: String!, params: ScannerConfigMutation!): ScannerConfig!
+  createScannerConfig(relativePath: String!, params: ScannerConfigMutation!): ScannerConfig!
 }
 
 input DocumentUpdateMutation {
   manifest: ManifestMutation
   article: ArticleMutation
   religion: ReligionMutation
+  concepts: ConceptsMutation
+  scannerConfig: ScannerConfigMutation
   relativePath: String
 }
 
@@ -400,6 +472,8 @@ input DocumentMutation {
   manifest: ManifestMutation
   article: ArticleMutation
   religion: ReligionMutation
+  concepts: ConceptsMutation
+  scannerConfig: ScannerConfigMutation
 }
 
 input ManifestSubjectsTopicsLessonsMutation {
@@ -509,6 +583,19 @@ input ReligionMutation {
   color: String
   icon: String
   dimensions: ReligionDimensionsMutation
+}
+
+input ConceptsMutation {
+  term: String
+  definition: String
+  subject: String
+  topic: String
+  relatedArticle: String
+  tags: [String]
+}
+
+input ScannerConfigMutation {
+  ignoredTerms: [String]
 }
 
 schema {

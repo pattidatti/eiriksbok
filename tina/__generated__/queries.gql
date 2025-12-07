@@ -162,3 +162,113 @@ query religionConnection($before: String, $after: String, $first: Float, $last: 
     }
   }
 }
+
+query concepts($relativePath: String!) {
+  concepts(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ConceptsParts
+  }
+}
+
+query conceptsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ConceptsFilter) {
+  conceptsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ConceptsParts
+      }
+    }
+  }
+}
+
+query scannerConfig($relativePath: String!) {
+  scannerConfig(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ScannerConfigParts
+  }
+}
+
+query scannerConfigConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ScannerConfigFilter) {
+  scannerConfigConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ScannerConfigParts
+      }
+    }
+  }
+}

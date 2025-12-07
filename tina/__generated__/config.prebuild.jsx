@@ -233,6 +233,57 @@ var config_default = defineConfig({
             ]
           }
         ]
+      },
+      {
+        name: "concepts",
+        label: "Fagbegreper",
+        path: "public/content/concepts",
+        format: "json",
+        match: {
+          include: "**/*"
+        },
+        fields: [
+          { type: "string", name: "term", label: "Begrep", isTitle: true, required: true },
+          { type: "string", name: "definition", label: "Definisjon", ui: { component: "textarea" }, required: true },
+          {
+            type: "string",
+            name: "subject",
+            label: "Fag",
+            options: ["historie", "samfunnskunnskap", "krle", "norsk", "naturfag"]
+          },
+          { type: "string", name: "topic", label: "Emne (ID)" },
+          {
+            type: "reference",
+            name: "relatedArticle",
+            label: "Tilknyttet Artikkel",
+            collections: ["article"]
+          },
+          { type: "string", name: "tags", label: "Tags", list: true }
+        ]
+      },
+      {
+        name: "scannerConfig",
+        label: "Scanner Innstillinger",
+        path: "public/content/config",
+        format: "json",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false
+          }
+        },
+        match: {
+          include: "scanner-config"
+        },
+        fields: [
+          {
+            type: "string",
+            name: "ignoredTerms",
+            label: "Ignorerte Ord",
+            list: true,
+            description: "Ord som skal ignoreres av begreps-scanneren."
+          }
+        ]
       }
     ]
   }

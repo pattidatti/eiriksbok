@@ -1,0 +1,234 @@
+[
+  {
+    "id": "aksjeselskap",
+    "term": "aksjeselskap",
+    "definition": "En selskapsform der eierne har fordelt eierskapet gjennom aksjer. Man risikerer bare å tape pengene man har betalt for aksjene.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "anarki",
+    "term": "anarki",
+    "definition": "Ingen stat eller hersker. Et samfunn uten formell styring. Ordet betyr \"uten hersker\". Det finnes ingen stat, skatt eller voldsmonopol.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "anarko-kapitalisme",
+    "term": "anarko-kapitalisme",
+    "definition": "Et samfunn uten stat, hvor alt styres av det frie markedet. Ingen stat, bare privat eiendom. Alt, inkludert politi og veier, kjøpes og selges.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "anarko-kommunisme",
+    "term": "anarko-kommunisme",
+    "definition": "Et samfunn uten stat og penger, hvor alt eies i fellesskap. Ingen stat, ingen privat eiendom. Alle bidrar etter evne og får etter behov.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "autoritaert-diktatur",
+    "term": "autoritært diktatur",
+    "definition": "Folket får ikke være med å bestemme, men kan til en viss grad mene ting. Staten kontrollerer politikken, men lar folk leve livene sine relativt fritt ellers.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "diktatur",
+    "term": "diktatur",
+    "definition": "All makt er samlet hos én person eller en liten gruppe. Makten er ofte tatt med vold (kupp). Befolkningen har liten eller ingen mulighet til å påvirke styret.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "direkte-demokrati",
+    "term": "direkte demokrati",
+    "definition": "Folket stemmer direkte på hver enkelt sak. Alle er med å bestemme alt. Brukes sjelden for hele land, men av og til i folkeavstemninger.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "dronning-elizabeth-i",
+    "term": "dronning elizabeth i",
+    "definition": "Dronning av England fra 1558 til 1603. Hun ga EIC monopol på handel med Østen.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "imperialisme",
+    "term": "imperialisme",
+    "definition": "En politikk der en stat forsøker å skaffe seg politisk, kulturell, økonomisk eller militært herredømme utover sine egne grenser.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "kapitalisme",
+    "term": "kapitalisme",
+    "definition": "Markedsøkonomi. Produksjon er privat eiendom. Styres av tilbud og etterspørsel (profitt og tap). Kundene \"bestemmer\" hva som lages.",
+    "subject": "samfunnskunnskap",
+    "topic": "demografi-okonomi",
+    "tags": []
+  },
+  {
+    "id": "koloni",
+    "term": "koloni",
+    "definition": "Et område som ligger utenfor moderlandet, men som styres av det.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "kommunisme",
+    "term": "kommunisme",
+    "definition": "Et klasseløst samfunn der all eiendom er felles. I teorien statsløst (som anarko-kommunisme), men i praksis ofte brukt om stater med streng planøkonomi.",
+    "subject": "samfunnskunnskap",
+    "topic": "demografi-okonomi",
+    "tags": []
+  },
+  {
+    "id": "merkantilisme",
+    "term": "merkantilisme",
+    "definition": "En økonomisk politikk der målet var å samle mest mulig gull og sølv i statskassen ved å eksportere mer enn man importerte.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "monarki",
+    "term": "monarki",
+    "definition": "En konge, dronning, fyrste eller greve er statsoverhode. Makten går som regel i arv. I dag har vi ofte konstitusjonelt monarki hvor kongen har liten makt, men historisk var det ofte enevelde.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "monopol",
+    "term": "monopol",
+    "definition": "Enerett til å drive handel eller virksomhet. Ingen andre får lov til å konkurrere.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "oligarki",
+    "term": "oligarki",
+    "definition": "En liten gruppe mennesker (fåmannsvelde) har all makten. Ofte er dette de rikeste i samfunnet, eller en militærjunta.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "opium",
+    "term": "opium",
+    "definition": "Et sterkt vanedannende rusmiddel laget av valmuer. EIC solgte dette til Kina for å betale for te.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "parlamentarisk-republikk",
+    "term": "parlamentarisk republikk",
+    "definition": "Republikk der parlamentet har mest makt. Presidenten har ofte en seremoniell rolle. Eksempel: Island eller Tyskland. Regjeringen utgår fra parlamentet.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "parlamentarisk-stat",
+    "term": "parlamentarisk stat",
+    "definition": "Et system der regjeringen må ha tillit fra parlamentet (Stortinget). Gjelder både monarkier (Norge) og republikker. Hvis Stortinget sier nei, må regjeringen gå.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "president-republikk",
+    "term": "president-republikk",
+    "definition": "Demokrati der presidenten har mye makt og velges uavhengig av parlamentet. Eksempel: USA. Presidenten leder regjeringen og kan ikke enkelt kastes av kongressen.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "representativt-demokrati",
+    "term": "representativt demokrati",
+    "definition": "Folket velger representanter (politikere) som styrer for dem. Den vanligste formen for demokrati i dag. Vi holder valg med jevne mellomrom.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "republikk",
+    "term": "republikk",
+    "definition": "En stat hvor statsoverhodet ikke er en monark (konge/dronning). Lederen kalles som regel president. Kan være både demokratisk og udemokratisk.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "sepoy",
+    "term": "sepoy",
+    "definition": "Indisk soldat i tjeneste for en europeisk makt, spesielt Storbritannia.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "sosialisme",
+    "term": "sosialisme",
+    "definition": "Produksjonsmidlene eies eller kontrolleres av fellesskapet (staten). Politisk bestemt hva som skal produseres (Planøkonomi). Målet er likere fordeling.",
+    "subject": "samfunnskunnskap",
+    "topic": "demografi-okonomi",
+    "tags": []
+  },
+  {
+    "id": "te",
+    "term": "te",
+    "definition": "En drikk laget av blader fra tebusken. Ble ekstremt populært i Storbritannia på 1700-tallet.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "teknokrati",
+    "term": "teknokrati",
+    "definition": "Eksperter og vitenskapsfolk styrer basert på kunnskap. Ideen er at eksperter (f.eks. ingeniører, økonomer) tar bedre beslutninger enn valgte politikere.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "tekstil",
+    "term": "tekstil",
+    "definition": "Stoffer og klær. Bomullstekstiler fra India var svært ettertraktet i Europa.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "teokrati",
+    "term": "teokrati",
+    "definition": "Gud eller religiøse ledere styrer samfunnet basert på hellige skrifter. Lovene i landet er basert på religionen. Eksempler er Vatikanstaten eller Iran.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "totalitaert-diktatur",
+    "term": "totalitært diktatur",
+    "definition": "Staten kontrollerer absolutt alt, inkludert hva folk tenker og mener. Ingen frihet. Ekstrem overvåkning og propaganda. Eksempel: Nord-Korea.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": []
+  }
+]

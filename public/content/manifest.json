@@ -430,7 +430,33 @@
                                 "middelalder"
                             ],
                             "createdDate": "2025-12-05T20:00:00Z",
-                            "lastUpdated": "2025-12-05T20:00:00Z"
+                            "lastUpdated": "2025-12-05T20:00:00Z",
+                            "definitions": [
+                                {
+                                    "term": "Senmiddelalderen",
+                                    "definition": "Perioden i europeisk historie fra ca. 1300 til 1500, preget av pest, kriser, men også politisk sentralisering."
+                                },
+                                {
+                                    "term": "Kalmarunionen",
+                                    "definition": "En personalunion mellom Danmark, Norge og Sverige (1397–1523) styrt av en felles monark."
+                                },
+                                {
+                                    "term": "Adel",
+                                    "definition": "En samfunnsklasse med særskilte privilegier (som skattefritak) og makt, ofte knyttet til jordeie og krigstjeneste."
+                                },
+                                {
+                                    "term": "Folkeopprøret i 1501",
+                                    "definition": "Et bredt opprør i Norge ledet av Knut Alvsson mot det danske styret og kong Hans."
+                                },
+                                {
+                                    "term": "Festning",
+                                    "definition": "Et militært forsvarsverk (borg) bygget for å kontrollere et område og tåle beleiring, som Akershus festning."
+                                },
+                                {
+                                    "term": "Knut Alvsson",
+                                    "definition": "Norsk adelsmann og leder av opprøret mot kong Hans. Drapet på ham i 1502 markerte slutten på norsk selvstendighet i senmiddelalderen."
+                                }
+                            ]
                         }
                     ]
                 },

@@ -1,0 +1,4 @@
+
+export const stopWords = new Set([
+    "i", "og", "det", "som", "er", "til", "en", "av", "på", "for", "at", "å", "med", "de", "har", "den", "ikke", "et", "om", "fra", "var", "han", "seg", "vil", "kan", "skal", "men", "da", "ble", "ut", "så", "etter", "ved", "hvor", "hva", "når", "hvis", "både", "eller", "enn", "ingen", "alle", "noen", "denne", "dette", "disse", "der", "her", "oss", "din", "min", "sin", "ham", "henne", "vi", "dere", "meg", "deg", "dem", "hvem", "hvilken", "hvilke", "mange", "mye", "flere", "mest", "minst", "vært", "ville", "kunne", "skulle", "måtte", "burde", "få", "fikk", "ha", "hatt", "hos", "under", "over", "mellom", "mot", "uten", "gjennom", "rundt", "bare", "nok", "alt", "selv", "siden", "fordi", "slik", "derfor", "også", "vel", "nå", "før", "mens", "sammen", "tilbake", "igjen", "opp", "ned", "inn", "ut", "fram", "bak"
+]);

@@ -31,10 +31,12 @@ const TopicComparisonPage = React.lazy(routeFactories.TopicComparisonPage);
 const GlobalTimelinePage = React.lazy(routeFactories.GlobalTimelinePage);
 const ChronoGamePage = React.lazy(routeFactories.ChronoGamePage);
 const DungeonGamePage = React.lazy(routeFactories.DungeonGamePage);
+const HangmanPage = React.lazy(routeFactories.HangmanPage);
 const StatsPage = React.lazy(routeFactories.StatsPage);
 const AdminDashboard = React.lazy(routeFactories.AdminDashboard);
 const ContentInventory = React.lazy(routeFactories.ContentInventory);
 const LinkChecker = React.lazy(routeFactories.LinkChecker);
+const ScannerPage = React.lazy(routeFactories.ScannerPage);
 
 function App() {
   return (
@@ -62,11 +64,13 @@ function App() {
               <Route path="oving/quiz" element={<QuizPage />} />
               <Route path="oving/chrono" element={<ChronoGamePage />} />
               <Route path="oving/dungeon" element={<DungeonGamePage />} />
+              <Route path="oving/hengemann" element={<HangmanPage />} />
 
               <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
               <Route path="admin/stats" element={<AdminGuard><StatsPage /></AdminGuard>} />
               <Route path="admin/inventory" element={<AdminGuard><ContentInventory /></AdminGuard>} />
               <Route path="admin/links" element={<AdminGuard><LinkChecker /></AdminGuard>} />
+              <Route path="admin/scanner" element={<AdminGuard><ScannerPage /></AdminGuard>} />
 
               {/* Quiz Battle Routes */}
               <Route path="quiz-battle" element={<QuizLobby />} />

@@ -32,7 +32,9 @@ Hver leksjon eller modul kan settes sammen av ulike byggeklosser for å formidle
 ### Begreper (Concepts)
 Kortfattede definisjoner av nøkkelord.
 *   **Funksjon**: Gir eleven rask tilgang til definisjoner og eksempler.
-*   **Visning**: Vises ofte som "Immersive Cards" eller i en liste.
+*   **Visning**: Vises som interactive cards i artikler ("Fagbegreper") eller i den globale ordlisten.
+*   **Teknisk**: Lagres globalt i TinaCMS (`content/concepts`) eller lokalt i leksjoner.
+
 
 ### Kontekst (Context)
 Viser sammenhenger mellom begreper eller hendelser.

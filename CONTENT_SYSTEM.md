@@ -91,19 +91,28 @@ The timeline aggregates events from all history articles.
 ### 4.2. Flashcards (Fagbegreper)
 Flashcards are global concepts used for practice.
 
-*   **Source**: `src/data/glossary.ts`.
-*   **How to Add**: Add a new object to the `glossaryTerms` array.
-    ```typescript
-    {
-        term: "Monopol",
-        definition: "Enerett til å drive handel...",
-        subjectId: "historie",
-        topicId: "kolonialisering"
-    }
-    ```
-*   **Integration**: These terms automatically appear in the "Fagbegreper" page and can be filtered by subject/topic.
+*   **Source**: `public/content/concepts/*.json` (TinaCMS Collection: "Fagbegreper").
+*   **How to Add**: 
+    1.  Use the TinaCMS admin interface to add new concepts.
+    2.  Or run the migration script if you have terms in legacy formats.
+*   **Scanning Tool**:
+    *   Command: `npm run scan:concepts`
+    *   Purpose: Scans all articles for bold text (potential candidates) and mentions of existing concepts.
+    *   Output: Lists suggestions for new concepts to add to the DB.
+*   **Integration**: These terms are aggregated into `public/data/concepts.json` at build time or when running the dev server.
 
-### 4.3. Text Library (Norsk)
+### 4.3. Checklist: Adding a New Lesson
+When creating a new article, follow this checklist to ensure complete integration:
+
+1.  [ ] **Create Content**: Write the JSON file in `public/content/...`.
+2.  [ ] **Update Manifest**: Add entry to `manifest.json`.
+3.  [ ] **Scan for Concepts**: Run `npm run scan:concepts`.
+    *   Review the "Potential New Concepts" list. Are there terms here that should be in the global database? If so, add them in TinaCMS.
+    *   Review the "Mentions" list. Does your article mention existing concepts? If `useConcepts` is working correctly, these should be picked up automatically, but you can also tag them manually if needed.
+4.  [ ] **Check Timeline**: If history article, ensure relevant events are added to `global-timeline.json`.
+5.  [ ] **Verify**: Start dev server and check that the article loads, concepts appear in sidebar/glossary, and timeline events show up.
+
+### 4.4. Text Library (Norsk)
 The library contains short stories, poems, and excerpts.
 
 *   **Source**: `src/data/textLibraryData.ts`.

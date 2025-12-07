@@ -1,28 +1,60 @@
-import { useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useManifest } from './useManifest';
 import { textLibraryData } from '../data/textLibraryData';
-import { glossaryTerms } from '../data/glossary';
 
 export interface ConceptItem {
     id: string;
     term: string;
     definition: string;
-    sourceType: 'lesson' | 'library';
+    sourceType: 'lesson' | 'library' | 'global';
     subjectId?: string;
     topicId?: string;
     lessonId?: string;
     lessonTitle?: string;
     libraryId?: string;
     libraryTitle?: string;
+    tags?: string[];
 }
 
 export const useConcepts = () => {
     const { data: manifest } = useManifest();
+    const [globalConcepts, setGlobalConcepts] = useState<ConceptItem[]>([]);
+
+    useEffect(() => {
+        const fetchGlobalConcepts = async () => {
+            try {
+                const basePath = import.meta.env.BASE_URL.endsWith('/')
+                    ? import.meta.env.BASE_URL
+                    : `${import.meta.env.BASE_URL}/`;
+
+                const response = await fetch(`${basePath}data/concepts.json?t=${new Date().getTime()}`);
+                if (response.ok) {
+                    const data = await response.json();
+
+                    const formatted = data.map((item: any) => ({
+                        id: item.id || `global-${item.term}`,
+                        term: item.term,
+                        definition: item.definition,
+                        sourceType: 'global',
+                        subjectId: item.subject,
+                        topicId: item.topic,
+                        tags: item.tags
+                    }));
+
+                    setGlobalConcepts(formatted);
+                }
+            } catch (error) {
+                console.error("Failed to load global concepts:", error);
+            }
+        };
+
+        fetchGlobalConcepts();
+    }, []);
 
     const concepts = useMemo(() => {
-        if (!manifest) return [];
+        const allConcepts: ConceptItem[] = [...globalConcepts];
 
-        const allConcepts: ConceptItem[] = [];
+        if (!manifest) return allConcepts;
 
         // 1. Extract from Manifest (Lessons)
         manifest.subjects.forEach(subject => {
@@ -67,19 +99,7 @@ export const useConcepts = () => {
             });
         });
 
-        // 2. Extract from Glossary (Global Terms)
-        glossaryTerms.forEach((item, index) => {
-            allConcepts.push({
-                id: `glossary-${index}`,
-                term: item.term,
-                definition: item.definition,
-                sourceType: 'library', // Treating glossary as library content for now
-                subjectId: item.subjectId,
-                topicId: item.topicId
-            });
-        });
-
-        // 3. Extract from Text Library (if needed in future)
+        // 2. Extract from Text Library (if needed in future)
         textLibraryData.forEach(text => {
             if ((text as any).definitions) {
                 (text as any).definitions.forEach((def: any, index: number) => {
@@ -96,7 +116,7 @@ export const useConcepts = () => {
         });
 
         return allConcepts;
-    }, [manifest]);
+    }, [manifest, globalConcepts]);
 
     return concepts;
 };

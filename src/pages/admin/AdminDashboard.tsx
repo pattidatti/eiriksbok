@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BarChart, FileText, Link as LinkIcon, Shield, Gamepad2 } from 'lucide-react';
+import { BarChart, FileText, Link as LinkIcon, Shield, Gamepad2, Edit } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const AdminCard: React.FC<{
@@ -8,9 +8,10 @@ const AdminCard: React.FC<{
     description: string;
     icon: React.ReactNode;
     to: string;
-    color: string
-}> = ({ title, description, icon, to, color }) => (
-    <Link to={to} className="block h-full">
+    color: string;
+    external?: boolean;
+}> = ({ title, description, icon, to, color, external }) => {
+    const Content = (
         <motion.div
             whileHover={{ y: -5 }}
             className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-full hover:shadow-md transition-shadow"
@@ -21,8 +22,18 @@ const AdminCard: React.FC<{
             <h3 className="text-xl font-bold text-slate-900 mb-2">{title}</h3>
             <p className="text-slate-500 text-sm leading-relaxed">{description}</p>
         </motion.div>
-    </Link>
-);
+    );
+
+    if (external) {
+        return <a href={to} className="block h-full">{Content}</a>;
+    }
+
+    return (
+        <Link to={to} className="block h-full">
+            {Content}
+        </Link>
+    );
+};
 
 export const AdminDashboard: React.FC = () => {
     return (
@@ -69,6 +80,23 @@ export const AdminDashboard: React.FC = () => {
                         icon={<Gamepad2 className="w-6 h-6 text-purple-600" />}
                         to="/quiz-battle/admin-999"
                         color="bg-purple-50"
+                    />
+
+                    <AdminCard
+                        title="Begreps-Scanner"
+                        description="Scan innhold for nye fagbegreper som bør legges til i ordlisten."
+                        icon={<FileText className="w-6 h-6 text-orange-600" />}
+                        to="/admin/scanner"
+                        color="bg-orange-50"
+                    />
+
+                    <AdminCard
+                        title="CMS Redigering"
+                        description="Gå til TinaCMS for å redigere innholdet."
+                        icon={<Edit className="w-6 h-6 text-pink-600" />}
+                        to="/admin/index.html"
+                        color="bg-pink-50"
+                        external
                     />
                 </div>
             </div>

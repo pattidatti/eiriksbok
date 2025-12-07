@@ -88,6 +88,10 @@ export type Query = {
   articleConnection: ArticleConnection;
   religion: Religion;
   religionConnection: ReligionConnection;
+  concepts: Concepts;
+  conceptsConnection: ConceptsConnection;
+  scannerConfig: ScannerConfig;
+  scannerConfigConnection: ScannerConfigConnection;
 };
 
 
@@ -156,10 +160,42 @@ export type QueryReligionConnectionArgs = {
   filter?: InputMaybe<ReligionFilter>;
 };
 
+
+export type QueryConceptsArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryConceptsConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<ConceptsFilter>;
+};
+
+
+export type QueryScannerConfigArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryScannerConfigConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<ScannerConfigFilter>;
+};
+
 export type DocumentFilter = {
   manifest?: InputMaybe<ManifestFilter>;
   article?: InputMaybe<ArticleFilter>;
   religion?: InputMaybe<ReligionFilter>;
+  concepts?: InputMaybe<ConceptsFilter>;
+  scannerConfig?: InputMaybe<ScannerConfigFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -199,7 +235,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Manifest | Article | Religion | Folder;
+export type DocumentNode = Manifest | Article | Religion | Concepts | ScannerConfig | Folder;
 
 export type ManifestSubjectsTopicsLessons = {
   __typename?: 'ManifestSubjectsTopicsLessons';
@@ -504,6 +540,72 @@ export type ReligionConnection = Connection & {
   edges?: Maybe<Array<Maybe<ReligionConnectionEdges>>>;
 };
 
+export type ConceptsRelatedArticle = Article;
+
+export type Concepts = Node & Document & {
+  __typename?: 'Concepts';
+  term: Scalars['String']['output'];
+  definition: Scalars['String']['output'];
+  subject?: Maybe<Scalars['String']['output']>;
+  topic?: Maybe<Scalars['String']['output']>;
+  relatedArticle?: Maybe<ConceptsRelatedArticle>;
+  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type ConceptsRelatedArticleFilter = {
+  article?: InputMaybe<ArticleFilter>;
+};
+
+export type ConceptsFilter = {
+  term?: InputMaybe<StringFilter>;
+  definition?: InputMaybe<StringFilter>;
+  subject?: InputMaybe<StringFilter>;
+  topic?: InputMaybe<StringFilter>;
+  relatedArticle?: InputMaybe<ConceptsRelatedArticleFilter>;
+  tags?: InputMaybe<StringFilter>;
+};
+
+export type ConceptsConnectionEdges = {
+  __typename?: 'ConceptsConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Concepts>;
+};
+
+export type ConceptsConnection = Connection & {
+  __typename?: 'ConceptsConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<ConceptsConnectionEdges>>>;
+};
+
+export type ScannerConfig = Node & Document & {
+  __typename?: 'ScannerConfig';
+  ignoredTerms?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type ScannerConfigFilter = {
+  ignoredTerms?: InputMaybe<StringFilter>;
+};
+
+export type ScannerConfigConnectionEdges = {
+  __typename?: 'ScannerConfigConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<ScannerConfig>;
+};
+
+export type ScannerConfigConnection = Connection & {
+  __typename?: 'ScannerConfigConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<ScannerConfigConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -517,6 +619,10 @@ export type Mutation = {
   createArticle: Article;
   updateReligion: Religion;
   createReligion: Religion;
+  updateConcepts: Concepts;
+  createConcepts: Concepts;
+  updateScannerConfig: ScannerConfig;
+  createScannerConfig: ScannerConfig;
 };
 
 
@@ -588,10 +694,36 @@ export type MutationCreateReligionArgs = {
   params: ReligionMutation;
 };
 
+
+export type MutationUpdateConceptsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: ConceptsMutation;
+};
+
+
+export type MutationCreateConceptsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: ConceptsMutation;
+};
+
+
+export type MutationUpdateScannerConfigArgs = {
+  relativePath: Scalars['String']['input'];
+  params: ScannerConfigMutation;
+};
+
+
+export type MutationCreateScannerConfigArgs = {
+  relativePath: Scalars['String']['input'];
+  params: ScannerConfigMutation;
+};
+
 export type DocumentUpdateMutation = {
   manifest?: InputMaybe<ManifestMutation>;
   article?: InputMaybe<ArticleMutation>;
   religion?: InputMaybe<ReligionMutation>;
+  concepts?: InputMaybe<ConceptsMutation>;
+  scannerConfig?: InputMaybe<ScannerConfigMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -599,6 +731,8 @@ export type DocumentMutation = {
   manifest?: InputMaybe<ManifestMutation>;
   article?: InputMaybe<ArticleMutation>;
   religion?: InputMaybe<ReligionMutation>;
+  concepts?: InputMaybe<ConceptsMutation>;
+  scannerConfig?: InputMaybe<ScannerConfigMutation>;
 };
 
 export type ManifestSubjectsTopicsLessonsMutation = {
@@ -710,11 +844,28 @@ export type ReligionMutation = {
   dimensions?: InputMaybe<ReligionDimensionsMutation>;
 };
 
+export type ConceptsMutation = {
+  term?: InputMaybe<Scalars['String']['input']>;
+  definition?: InputMaybe<Scalars['String']['input']>;
+  subject?: InputMaybe<Scalars['String']['input']>;
+  topic?: InputMaybe<Scalars['String']['input']>;
+  relatedArticle?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ScannerConfigMutation = {
+  ignoredTerms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type ManifestPartsFragment = { __typename: 'Manifest', subjects?: Array<{ __typename: 'ManifestSubjects', id?: string | null, title?: string | null, topics?: Array<{ __typename: 'ManifestSubjectsTopics', id?: string | null, title?: string | null, description?: string | null, image?: string | null, lessons?: Array<{ __typename: 'ManifestSubjectsTopicsLessons', id?: string | null, title?: string | null, description?: string | null, image?: string | null, tags?: Array<string | null> | null, createdDate?: string | null, lastUpdated?: string | null } | null> | null } | null> | null } | null> | null };
 
 export type ArticlePartsFragment = { __typename: 'Article', title?: string | null, subject?: string | null, topic?: string | null, createdDate?: string | null, lastUpdated?: string | null, religion?: string | null, dimension?: string | null, comparison_tags?: Array<string | null> | null, fact?: string | null, tags?: Array<string | null> | null, quote?: { __typename: 'ArticleQuote', text?: string | null, source?: string | null, reference?: string | null } | null, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentHeader', text?: string | null } | { __typename: 'ArticleContentList', items?: Array<string | null> | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null };
 
 export type ReligionPartsFragment = { __typename: 'Religion', name: string, color?: string | null, icon?: string | null, dimensions?: { __typename: 'ReligionDimensions', ritual?: any | null, narrative?: any | null, experiential?: any | null, social?: any | null, ethical?: any | null, doctrinal?: any | null, material?: any | null } | null };
+
+export type ConceptsPartsFragment = { __typename: 'Concepts', term: string, definition: string, subject?: string | null, topic?: string | null, tags?: Array<string | null> | null, relatedArticle?: { __typename: 'Article', title?: string | null, subject?: string | null, topic?: string | null, createdDate?: string | null, lastUpdated?: string | null, religion?: string | null, dimension?: string | null, comparison_tags?: Array<string | null> | null, fact?: string | null, tags?: Array<string | null> | null, id: string, quote?: { __typename: 'ArticleQuote', text?: string | null, source?: string | null, reference?: string | null } | null, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentHeader', text?: string | null } | { __typename: 'ArticleContentList', items?: Array<string | null> | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null };
+
+export type ScannerConfigPartsFragment = { __typename: 'ScannerConfig', ignoredTerms?: Array<string | null> | null };
 
 export type ManifestQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -772,6 +923,44 @@ export type ReligionConnectionQueryVariables = Exact<{
 
 
 export type ReligionConnectionQuery = { __typename?: 'Query', religionConnection: { __typename?: 'ReligionConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ReligionConnectionEdges', cursor: string, node?: { __typename: 'Religion', id: string, name: string, color?: string | null, icon?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, dimensions?: { __typename: 'ReligionDimensions', ritual?: any | null, narrative?: any | null, experiential?: any | null, social?: any | null, ethical?: any | null, doctrinal?: any | null, material?: any | null } | null } | null } | null> | null } };
+
+export type ConceptsQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type ConceptsQuery = { __typename?: 'Query', concepts: { __typename: 'Concepts', id: string, term: string, definition: string, subject?: string | null, topic?: string | null, tags?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, relatedArticle?: { __typename: 'Article', title?: string | null, subject?: string | null, topic?: string | null, createdDate?: string | null, lastUpdated?: string | null, religion?: string | null, dimension?: string | null, comparison_tags?: Array<string | null> | null, fact?: string | null, tags?: Array<string | null> | null, id: string, quote?: { __typename: 'ArticleQuote', text?: string | null, source?: string | null, reference?: string | null } | null, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentHeader', text?: string | null } | { __typename: 'ArticleContentList', items?: Array<string | null> | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } };
+
+export type ConceptsConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<ConceptsFilter>;
+}>;
+
+
+export type ConceptsConnectionQuery = { __typename?: 'Query', conceptsConnection: { __typename?: 'ConceptsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ConceptsConnectionEdges', cursor: string, node?: { __typename: 'Concepts', id: string, term: string, definition: string, subject?: string | null, topic?: string | null, tags?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, relatedArticle?: { __typename: 'Article', title?: string | null, subject?: string | null, topic?: string | null, createdDate?: string | null, lastUpdated?: string | null, religion?: string | null, dimension?: string | null, comparison_tags?: Array<string | null> | null, fact?: string | null, tags?: Array<string | null> | null, id: string, quote?: { __typename: 'ArticleQuote', text?: string | null, source?: string | null, reference?: string | null } | null, content?: Array<{ __typename: 'ArticleContentText', content?: string | null } | { __typename: 'ArticleContentImage', src?: string | null, caption?: string | null, alt?: string | null } | { __typename: 'ArticleContentHeader', text?: string | null } | { __typename: 'ArticleContentList', items?: Array<string | null> | null } | { __typename: 'ArticleContentComponent', name?: string | null, props?: { __typename: 'ArticleContentComponentProps', content?: string | null, questions?: Array<{ __typename: 'ArticleContentComponentPropsQuestions', question?: string | null, options?: Array<string | null> | null, answer?: string | null, explanation?: string | null } | null> | null } | null } | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null } | null> | null } };
+
+export type ScannerConfigQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type ScannerConfigQuery = { __typename?: 'Query', scannerConfig: { __typename: 'ScannerConfig', id: string, ignoredTerms?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type ScannerConfigConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<ScannerConfigFilter>;
+}>;
+
+
+export type ScannerConfigConnectionQuery = { __typename?: 'Query', scannerConfigConnection: { __typename?: 'ScannerConfigConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ScannerConfigConnectionEdges', cursor: string, node?: { __typename: 'ScannerConfig', id: string, ignoredTerms?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export const ManifestPartsFragmentDoc = gql`
     fragment ManifestParts on Manifest {
@@ -868,6 +1057,86 @@ export const ReligionPartsFragmentDoc = gql`
     doctrinal
     material
   }
+}
+    `;
+export const ConceptsPartsFragmentDoc = gql`
+    fragment ConceptsParts on Concepts {
+  __typename
+  term
+  definition
+  subject
+  topic
+  relatedArticle {
+    ... on Article {
+      __typename
+      title
+      subject
+      topic
+      createdDate
+      lastUpdated
+      religion
+      dimension
+      comparison_tags
+      quote {
+        __typename
+        text
+        source
+        reference
+      }
+      fact
+      tags
+      content {
+        __typename
+        ... on ArticleContentText {
+          content
+        }
+        ... on ArticleContentImage {
+          src
+          caption
+          alt
+        }
+        ... on ArticleContentHeader {
+          text
+        }
+        ... on ArticleContentList {
+          items
+        }
+        ... on ArticleContentComponent {
+          name
+          props {
+            __typename
+            content
+            questions {
+              __typename
+              question
+              options
+              answer
+              explanation
+            }
+          }
+        }
+      }
+    }
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+  }
+  tags
+}
+    `;
+export const ScannerConfigPartsFragmentDoc = gql`
+    fragment ScannerConfigParts on ScannerConfig {
+  __typename
+  ignoredTerms
 }
     `;
 export const ManifestDocument = gql`
@@ -1041,6 +1310,120 @@ export const ReligionConnectionDocument = gql`
   }
 }
     ${ReligionPartsFragmentDoc}`;
+export const ConceptsDocument = gql`
+    query concepts($relativePath: String!) {
+  concepts(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ConceptsParts
+  }
+}
+    ${ConceptsPartsFragmentDoc}`;
+export const ConceptsConnectionDocument = gql`
+    query conceptsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ConceptsFilter) {
+  conceptsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ConceptsParts
+      }
+    }
+  }
+}
+    ${ConceptsPartsFragmentDoc}`;
+export const ScannerConfigDocument = gql`
+    query scannerConfig($relativePath: String!) {
+  scannerConfig(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ScannerConfigParts
+  }
+}
+    ${ScannerConfigPartsFragmentDoc}`;
+export const ScannerConfigConnectionDocument = gql`
+    query scannerConfigConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ScannerConfigFilter) {
+  scannerConfigConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ScannerConfigParts
+      }
+    }
+  }
+}
+    ${ScannerConfigPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -1061,6 +1444,18 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     religionConnection(variables?: ReligionConnectionQueryVariables, options?: C): Promise<{data: ReligionConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ReligionConnectionQueryVariables, query: string}> {
         return requester<{data: ReligionConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ReligionConnectionQueryVariables, query: string}, ReligionConnectionQueryVariables>(ReligionConnectionDocument, variables, options);
+      },
+    concepts(variables: ConceptsQueryVariables, options?: C): Promise<{data: ConceptsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ConceptsQueryVariables, query: string}> {
+        return requester<{data: ConceptsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ConceptsQueryVariables, query: string}, ConceptsQueryVariables>(ConceptsDocument, variables, options);
+      },
+    conceptsConnection(variables?: ConceptsConnectionQueryVariables, options?: C): Promise<{data: ConceptsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ConceptsConnectionQueryVariables, query: string}> {
+        return requester<{data: ConceptsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ConceptsConnectionQueryVariables, query: string}, ConceptsConnectionQueryVariables>(ConceptsConnectionDocument, variables, options);
+      },
+    scannerConfig(variables: ScannerConfigQueryVariables, options?: C): Promise<{data: ScannerConfigQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ScannerConfigQueryVariables, query: string}> {
+        return requester<{data: ScannerConfigQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ScannerConfigQueryVariables, query: string}, ScannerConfigQueryVariables>(ScannerConfigDocument, variables, options);
+      },
+    scannerConfigConnection(variables?: ScannerConfigConnectionQueryVariables, options?: C): Promise<{data: ScannerConfigConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ScannerConfigConnectionQueryVariables, query: string}> {
+        return requester<{data: ScannerConfigConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ScannerConfigConnectionQueryVariables, query: string}, ScannerConfigConnectionQueryVariables>(ScannerConfigConnectionDocument, variables, options);
       }
     };
   }

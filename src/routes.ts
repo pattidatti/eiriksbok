@@ -33,4 +33,6 @@ export const routeFactories: Record<string, PageFactory> = {
     AdminDashboard: () => import('./pages/admin/AdminDashboard').then(module => ({ default: module.AdminDashboard })),
     ContentInventory: () => import('./pages/admin/ContentInventory').then(module => ({ default: module.ContentInventory })),
     LinkChecker: () => import('./pages/admin/LinkChecker').then(module => ({ default: module.LinkChecker })),
+    ScannerPage: () => import('./pages/admin/ScannerPage').then(module => ({ default: module.ScannerPage })),
+    HangmanPage: () => import('./pages/HangmanPage').then(module => ({ default: module.HangmanPage })),
 };
