@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Color } from 'three';
+
 import { useGameStore } from '../store';
 
 function MovingGrid() {

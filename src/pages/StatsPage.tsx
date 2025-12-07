@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ref, onValue } from 'firebase/database';
 import { db } from '../lib/firebase';
-import { motion } from 'framer-motion';
+
 import { BarChart, Activity, BookOpen, Users, Globe, Search, Clock, Gamepad2, Trophy } from 'lucide-react';
 
 interface ViewData {
