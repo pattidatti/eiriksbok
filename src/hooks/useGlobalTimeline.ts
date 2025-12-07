@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { GlobalTimelineEvent } from '../types';
 
-import { parseYearRange } from '../utils/dateUtils';
+
 
 export const useGlobalTimeline = () => {
     const [events, setEvents] = useState<GlobalTimelineEvent[]>([]);

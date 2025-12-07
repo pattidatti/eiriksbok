@@ -64,6 +64,12 @@
             "content": "For å overføre disse typene til papir, bygget han om vinpresser fra Rhindalen. Ved å bruke en enorm treskrue kunne han presse papiret mot de svertede metalltypene med stor kraft. Kombinert med hans egenutviklede, oljebaserte trykksverte – som festet seg til metall uten å renne – kunne han nå produsere sider med perfekt presisjon, gang på gang. Mens en munk klarte noen få sider om dagen, kunne en trykkpresse etter hvert produsere 3600 sider daglig."
         },
         {
+            "type": "image",
+            "src": "/images/topics/boktrykkerkunsten.jpg",
+            "alt": "Gutenbergs trykkpresse",
+            "caption": "Illustrasjon av en trykkpresse fra Gutenbergs tid."
+        },
+        {
             "type": "header",
             "content": "Et politisk jordskjelv"
         },
