@@ -30,6 +30,7 @@ const TopicComparisonPage = React.lazy(routeFactories.TopicComparisonPage);
 const GlobalTimelinePage = React.lazy(routeFactories.GlobalTimelinePage);
 const ChronoGamePage = React.lazy(routeFactories.ChronoGamePage);
 const DungeonGamePage = React.lazy(routeFactories.DungeonGamePage);
+const StatsPage = React.lazy(routeFactories.StatsPage);
 
 function App() {
   return (
@@ -57,6 +58,8 @@ function App() {
               <Route path="oving/quiz" element={<QuizPage />} />
               <Route path="oving/chrono" element={<ChronoGamePage />} />
               <Route path="oving/dungeon" element={<DungeonGamePage />} />
+
+              <Route path="admin/stats" element={<StatsPage />} />
 
               {/* Quiz Battle Routes */}
               <Route path="quiz-battle" element={<QuizLobby />} />

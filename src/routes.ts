@@ -29,4 +29,5 @@ export const routeFactories: Record<string, PageFactory> = {
     QuizPlayer: () => import('./pages/quiz/QuizPlayer').then(module => ({ default: module.QuizPlayer })),
     ChronoGamePage: () => import('./pages/ChronoGamePage'),
     DungeonGamePage: () => import('./pages/DungeonGamePage'),
+    StatsPage: () => import('./pages/StatsPage').then(module => ({ default: module.StatsPage })),
 };
