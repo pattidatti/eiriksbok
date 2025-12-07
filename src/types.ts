@@ -64,7 +64,7 @@ export interface Lesson {
     concepts?: Concept[];
     context?: Context;
     quiz?: QuizQuestion[];
-    timeline?: { year: string; title: string; description: string }[];
+
     fact?: string;
     mapData?: MapData;
     tags?: string[];
@@ -175,7 +175,7 @@ export interface GlobalTimelineEvent {
     readTime?: string;
     heroImage?: string;
     url?: string;
-    timeline?: { year: string; title: string; description: string }[];
+
     fact?: string;
     mapData?: MapData;
 }

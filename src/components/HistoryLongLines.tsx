@@ -13,10 +13,8 @@ import {
     AlignLeft,
     Info
 } from 'lucide-react';
-
-// --- Types & Data ---
-
-import { timelineData, type TimelineEvent } from '../data/timelineData';
+import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
+import type { GlobalTimelineEvent } from '../types';
 
 type QuizQuestion = {
     id: number;
@@ -79,24 +77,21 @@ const quizData: QuizQuestion[] = [
 
 // --- Utils ---
 
-const parseYear = (yearStr: string): number => {
-    const cleanStr = yearStr.toLowerCase().replace(/ca\.?\s*/, '').replace(/\s+/g, '');
-    const isFvt = cleanStr.includes('fvt') || cleanStr.includes('f.kr');
-    const match = cleanStr.match(/(\d+)/);
-    if (!match) return 0;
-    let year = parseInt(match[1], 10);
-    if (isFvt) year = -year;
-    return year;
-};
-
-const formatYear = (year: number): string => {
-    if (year < 0) return `${Math.abs(year)} FVT`;
-    return `${year}`;
+const formatYear = (yearStr: string | number): string => {
+    // If it's a number (timestamp or straight year)
+    if (typeof yearStr === 'number') {
+        if (yearStr < 0) return `${Math.abs(yearStr)} FVT`;
+        return `${yearStr}`;
+    }
+    // If string, return as is or parse
+    return yearStr;
 };
 
 // --- Components ---
 
-const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => void }) => {
+const ArticleCard = ({ event, onClick }: { event: GlobalTimelineEvent; onClick: () => void }) => {
+    const category = event.subjectId === 'historie' ? 'Historie' : (event.category || 'Generelt');
+
     return (
         <motion.article
             layoutId={`article-${event.id}`}
@@ -112,14 +107,14 @@ const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => 
                 {/* Left: Icon & Category */}
                 <div className="md:w-1/4 bg-slate-50 p-6 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-slate-200">
                     <div className="p-4 bg-white rounded-2xl border border-slate-200 shadow-sm mb-4 group-hover:scale-110 transition-transform duration-500">
-                        {event.icon}
+                        <BookOpen className="w-8 h-8 text-indigo-500" />
                     </div>
-                    <span className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold border ${event.category === 'Norge'
-                        ? 'bg-red-100 text-red-700 border-red-200'
-                        : 'bg-blue-100 text-blue-700 border-blue-200'
+                    <span className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold border ${category === 'Historie'
+                        ? 'bg-blue-100 text-blue-700 border-blue-200'
+                        : 'bg-indigo-100 text-indigo-700 border-indigo-200'
                         }`}>
                         <Tag className="w-3 h-3 mr-1.5" />
-                        {event.category}
+                        {category}
                     </span>
                 </div>
 
@@ -128,7 +123,7 @@ const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => 
                     <div className="mb-4">
                         <div className="flex items-center space-x-2 text-slate-400 text-xs font-mono mb-2 uppercase tracking-wider">
                             <Calendar className="w-3 h-3" />
-                            <span>{event.year}</span>
+                            <span>{event.displayDate}</span>
                         </div>
                         <h3 className="text-2xl font-display font-bold text-slate-900 group-hover:text-indigo-700 mb-2 leading-tight">
                             {event.title}
@@ -141,7 +136,7 @@ const ArticleCard = ({ event, onClick }: { event: TimelineEvent; onClick: () => 
                     <div className="mt-auto flex items-center justify-between pt-4 border-t border-slate-100">
                         <div className="flex items-center text-xs text-slate-500 font-mono">
                             <Clock className="w-3 h-3 mr-2" />
-                            {event.readTime}
+                            {event.readTime || '5 min'}
                         </div>
 
                         <div className="flex items-center text-sm font-bold text-indigo-600 group-hover:text-indigo-500 transition-colors group-hover:translate-x-1 duration-300">
@@ -294,11 +289,22 @@ const QuizModule = () => {
 export const HistoryLongLines: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'artikler' | 'quiz'>('artikler');
     const navigate = useNavigate();
+    const { events: timelineData, loading } = useGlobalTimeline();
 
-    const handleArticleClick = (event: TimelineEvent) => {
-        const slug = event.title.toLowerCase().replace(/\s+/g, '-');
-        navigate(slug);
+    const handleArticleClick = (event: GlobalTimelineEvent) => {
+        // Use the link from the event, or fallback to construction
+        if (event.link && event.link.startsWith('/')) {
+            navigate(event.link);
+        } else {
+            // Fallback for events without proper links (should ideally not happen with global timeline)
+            // navigate(`/historie/${event.topicId || 'generelt'}/${event.id}`);
+            console.warn("Event missing link:", event);
+        }
     };
+
+    // Sort events by date ascending for "Long Lines" view? Or descending? 
+    // Usually chronological for history lines.
+    const sortedEvents = [...timelineData].sort((a, b) => a.startDate - b.startDate);
 
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-indigo-500/30 overflow-x-hidden">
@@ -389,29 +395,32 @@ export const HistoryLongLines: React.FC = () => {
                                     </span>
                                 </div>
 
-                                <div className="relative pl-4 md:pl-8">
-                                    {/* Vertical Timeline Line */}
-                                    <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-slate-300" />
+                                {loading ? (
+                                    <div className="text-center py-12 text-slate-500">Laster tidslinje...</div>
+                                ) : (
+                                    <div className="relative pl-4 md:pl-8">
+                                        {/* Vertical Timeline Line */}
+                                        <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-slate-300" />
 
-                                    {timelineData.map((event) => {
-                                        const yearNum = parseYear(event.year);
-                                        const yearDisplay = formatYear(yearNum);
+                                        {sortedEvents.map((event) => {
+                                            const yearDisplay = formatYear(event.displayDate);
 
-                                        return (
-                                            <div key={event.id} className="relative pl-12 md:pl-20 py-6">
-                                                {/* Year Marker */}
-                                                <div className="absolute left-0 md:left-4 top-12 -translate-x-1/2 flex flex-col items-center z-10">
-                                                    <div className="bg-indigo-600 text-white font-bold py-2 px-3 rounded-xl text-xs md:text-sm shadow-lg border-4 border-slate-50 min-w-[80px] text-center">
-                                                        {yearDisplay}
+                                            return (
+                                                <div key={event.id} className="relative pl-12 md:pl-20 py-6">
+                                                    {/* Year Marker */}
+                                                    <div className="absolute left-0 md:left-4 top-12 -translate-x-1/2 flex flex-col items-center z-10">
+                                                        <div className="bg-indigo-600 text-white font-bold py-2 px-3 rounded-xl text-xs md:text-sm shadow-lg border-4 border-slate-50 min-w-[80px] text-center">
+                                                            {yearDisplay}
+                                                        </div>
+                                                        <div className="w-0.5 h-full bg-indigo-200/50 mt-1" />
                                                     </div>
-                                                    <div className="w-0.5 h-full bg-indigo-200/50 mt-1" />
-                                                </div>
 
-                                                <ArticleCard event={event} onClick={() => handleArticleClick(event)} />
-                                            </div>
-                                        );
-                                    })}
-                                </div>
+                                                    <ArticleCard event={event} onClick={() => handleArticleClick(event)} />
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                )}
 
                                 <div className="text-center pt-16 pb-8">
                                     <p className="text-slate-400 text-sm font-mono">

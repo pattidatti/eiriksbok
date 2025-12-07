@@ -11,33 +11,7 @@
         "afrika"
     ],
     "year": "200000 fvt - 9300 fvt",
-    "timeline": [
-        {
-            "year": "200000 fvt",
-            "title": "Homo sapiens oppstår",
-            "description": "Det moderne mennesket utvikler seg i Afrika."
-        },
-        {
-            "year": "70000 fvt",
-            "title": "Utvandringen fra Afrika",
-            "description": "Mennesker begynner å spre seg til Asia og resten av verden."
-        },
-        {
-            "year": "40000 fvt",
-            "title": "Ankomst til Europa",
-            "description": "Homo sapiens når Europa og møter neanderthalerne."
-        },
-        {
-            "year": "13000 fvt",
-            "title": "Ankomst til Amerika",
-            "description": "Mennesker krysser Beringstredet og bosetter seg i Amerika (ca. 15 000 år siden)."
-        },
-        {
-            "year": "9300 fvt",
-            "title": "De første nordmenn",
-            "description": "Isen trekker seg tilbake, og folk bosetter seg i Finnmark."
-        }
-    ],
+    "timeline": [],
     "content": [
         {
             "type": "text",

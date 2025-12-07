@@ -19,23 +19,7 @@
         "norge",
         "sykdom"
     ],
-    "timeline": [
-        {
-            "year": "1346",
-            "title": "Pesten bryter ut",
-            "description": "Svartedauden starter i Asia/Europa."
-        },
-        {
-            "year": "1349",
-            "title": "Pesten kommer til Norge",
-            "description": "Svartedauden ankommer Bergen med et skip."
-        },
-        {
-            "year": "1350",
-            "title": "Pesten herjer",
-            "description": "Halvparten av Norges befolkning dør."
-        }
-    ],
+    "timeline": [],
     "content": [
         {
             "type": "text",

@@ -20,33 +20,7 @@
         "Monopol på handel i Asia",
         "Oppløst i 1799"
     ],
-    "timeline": [
-        {
-            "year": "1602",
-            "title": "VOC grunnlegges",
-            "description": "Det nederlandske ostindiske kompani stiftes."
-        },
-        {
-            "year": "1619",
-            "title": "Batavia grunnlegges",
-            "description": "Hovedkvarteret etableres på Java (dagens Jakarta)."
-        },
-        {
-            "year": "1641",
-            "title": "Erobringen av Malakka",
-            "description": "VOC driver portugiserne ut av viktig handelsby."
-        },
-        {
-            "year": "1652",
-            "title": "Kappstaden grunnlegges",
-            "description": "Koloni på sørspissen av Afrika etableres."
-        },
-        {
-            "year": "1799",
-            "title": "VOC oppløses",
-            "description": "Selskapet går konkurs og staten tar over."
-        }
-    ],
+    "timeline": [],
     "content": [
         {
             "type": "text",

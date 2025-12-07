@@ -5,28 +5,7 @@
     "heroImage": "/images/lessons/lutzen.jpg",
     "year": "1618-1648",
     "layout": "rich",
-    "timeline": [
-        {
-            "year": "1618",
-            "title": "Defenestrasjonen i Praha",
-            "description": "Protestantiske adelsmenn kaster keiserens utsendinger ut av et vindu i Praha. Startskuddet for krigen."
-        },
-        {
-            "year": "1631",
-            "title": "Magdeburgs fall",
-            "description": "En av krigens verste grusomheter. Byen plyndres og brennes; 20 000 mennesker massakreres."
-        },
-        {
-            "year": "1632",
-            "title": "Slaget ved Lützen",
-            "description": "Svenskekongen Gustav II Adolf faller i kamp, men protestantene vinner slaget."
-        },
-        {
-            "year": "1648",
-            "title": "Freden i Westfalen",
-            "description": "Krigen avsluttes. Prinsippet om statsuavhengighet etableres."
-        }
-    ],
+    "timeline": [],
     "definitions": [
         {
             "term": "Defenestrasjon",

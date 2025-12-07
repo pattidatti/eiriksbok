@@ -16,33 +16,7 @@
         "Vestmaktene var for ettergivende.",
         "Invasjonen av Polen startet krigen."
     ],
-    "timeline": [
-        {
-            "year": "1919",
-            "title": "Versailles-traktaten",
-            "description": "Fredsavtalen som la skylden på Tyskland."
-        },
-        {
-            "year": "1929",
-            "title": "Børskrakket",
-            "description": "Starten på den store depresjonen."
-        },
-        {
-            "year": "1933",
-            "title": "Hitler blir rikskansler",
-            "description": "Nazistene tar makten i Tyskland."
-        },
-        {
-            "year": "1938",
-            "title": "Münchenavtalen",
-            "description": "Chamberlain erklærer 'Peace for our time'."
-        },
-        {
-            "year": "1939",
-            "title": "Invasjonen av Polen",
-            "description": "Starten på andre verdenskrig (1. september)."
-        }
-    ],
+    "timeline": [],
     "content": [
         {
             "type": "text",

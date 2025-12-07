@@ -11,28 +11,7 @@
         "europa"
     ],
     "year": "-500-476",
-    "timeline": [
-        {
-            "year": "-500",
-            "title": "Romerriket grunnlegges",
-            "description": "Den romerske republikken oppstår (ca. årstall)."
-        },
-        {
-            "year": "313",
-            "title": "Kristendommen tillates",
-            "description": "Konstantin den store tillater kristendom."
-        },
-        {
-            "year": "395",
-            "title": "Riket deles",
-            "description": "Romerriket deles i Vest- og Østromerriket."
-        },
-        {
-            "year": "476",
-            "title": "Vestromerrikets fall",
-            "description": "Den siste vestromerske keiseren avsettes."
-        }
-    ],
+    "timeline": [],
     "content": [
         {
             "type": "text",

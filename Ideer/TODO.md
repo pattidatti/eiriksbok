@@ -16,7 +16,7 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 - [ ] **Dagens Faktum:** Widget på forsiden med roterende innhold.
 - [x] **Quiz Battle:** Utforske flerspiller-løsning med admin og gruppemodus.
 
-- [ ] Skjekke om den globale tidslinjen er implementert i artiklene som bruker tidslinje. Sørge for at den lokale varianten er fjernet totalt, at det bare er henvisningern til den globale . 
+- [x] Skjekke om den globale tidslinjen er implementert i artiklene som bruker tidslinje. Sørge for at den lokale varianten er fjernet totalt, at det bare er henvisningern til den globale . 
 
 ## content
 

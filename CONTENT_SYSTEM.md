@@ -61,30 +61,32 @@ To add a new lesson (article):
 ## 4. Feature Systems
 
 ### 4.1. Global Timeline
-The timeline aggregates events from all history articles AND manual entries.
+The timeline aggregates events from all history articles.
 
-*   **Dual Source Architecture**:
-    1.  **CMS/Manifest**: Generated via `scripts/generate-timeline.js` into `global-timeline.json`.
-    2.  **Manual Entries**: Hardcoded in `src/data/timelineData.tsx` (for events needing custom React icons).
-*   **Unified Access**: The `useGlobalTimeline` hook merges these two sources on the client-side.
+*   **Single Source Architecture**:
+    *   **Public Content**: All timeline events are now stored in `public/content/global-timeline.json`.
+    *   **Maintenance**: This file should be treated as the single source of truth.
+*   **Unified Access**: The `useGlobalTimeline` hook fetches events from this file.
 *   **How to Add**:
-    *   **CMS**: Add a `timeline` array to your article JSON (as seen below).
-    *   **Manual**: Add entry to `src/data/timelineData.tsx` if you need custom icons/hardcoded behavior.
+    1.  **Direct Edit**: Add new events directly to `public/content/global-timeline.json`.
+    2.  **Migration**: If refactoring old content, move `timeline` arrays from individual article JSONs to the global file.
+*   **Event Structure**:
     ```json
-    // in vikingtiden.json
     {
-      "year": "793-1066", // Main range for the article
-      "timeline": [
-        {
-          "year": "793",
-          "title": "Angrepet på Lindisfarne",
-          "description": "Vikingtiden starter."
-        }
-      ]
+      "id": "event-id",
+      "title": "Tittel",
+      "description": "Beskrivelse",
+      "startDate": 1940,
+      "endDate": 1945,
+      "displayDate": "1940-1945",
+      "type": "event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/artikkel",
+      "tags": ["krig", "norge"]
     }
     ```
-*   **Build**: Run `node scripts/generate-timeline.js` to update the CMS portion (`global-timeline.json`).
-*   **Note**: Supports multiple date formats and automatically deduplicates events.
+*   **Note**: All local `timeline` arrays in article JSON files should be empty `[]` to enforce usage of the global timeline.
 
 ### 4.2. Flashcards (Fagbegreper)
 Flashcards are global concepts used for practice.

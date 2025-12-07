@@ -37,7 +37,7 @@ export type ArticleData = {
     url?: string;
     readTime: string;
     heroImage?: string;
-    timeline?: { year: string; title: string; description: string; link?: string }[];
+
     fact?: string;
     mapData?: any;
     tags?: string[];
@@ -188,17 +188,11 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                 title: e.title,
                 description: e.description || '',
                 link: e.link
-            }))
-            // Deduplicate: Remove events that are already in the internal timeline
-            .filter(e => !event.timeline?.some(internal =>
-                (internal.title === e.title) ||
-                (internal.year === e.year && internal.description === e.description)
-            ));
+            }));
     }, [event, globalEvents]);
-    const internalEvents = event.timeline || [];
 
     // Combine and sort by year
-    const combinedTimeline = [...internalEvents, ...contextEvents].sort((a, b) => {
+    const combinedTimeline = [...contextEvents].sort((a, b) => {
         const rangeA = parseYearRange(a.year);
         const rangeB = parseYearRange(b.year);
         return rangeA.start - rangeB.start;

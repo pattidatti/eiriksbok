@@ -8,8 +8,6 @@ import { TopicCard } from '../components/TopicCard';
 import { ChevronRight, Grid, List, ArrowDownAZ, Calendar, Clock, Map } from 'lucide-react';
 import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ErrorBoundary } from '../components/ErrorBoundary';
-import { timelineData } from '../data/timelineData';
-import { InteractiveArticle } from '../components/InteractiveArticle';
 import { TopicInteractiveModel } from '../components/TopicInteractiveModel';
 import { LessonPage } from './LessonPage';
 import { useUserHistory } from '../hooks/useUserHistory';
@@ -53,17 +51,7 @@ export const TopicPage: React.FC = () => {
         return <ErrorBoundary><HistoryLongLines /></ErrorBoundary>;
     }
 
-    const timelineEvent = subTopicId ? timelineData.find(e =>
-        e.title.toLowerCase().replace(/\s+/g, '-') === subTopicId.toLowerCase() ||
-        e.title.toLowerCase() === subTopicId.toLowerCase() ||
-        e.id.toString() === subTopicId
-    ) : null;
 
-    if (timelineEvent) {
-        // Construct fallback URL for ArticleContent
-        const fallbackUrl = `${window.location.origin}/content/${subjectId}/${topicId}/${subTopicId}/artikkel.json`;
-        return <ErrorBoundary><InteractiveArticle key={timelineEvent.id} event={timelineEvent} onClose={() => navigate(`/${subjectId}/${topicId}`)} fallbackUrl={fallbackUrl} /></ErrorBoundary>;
-    }
 
     const lessonInTopic = currentTopic?.lessons?.find(l => l.id === subTopicId);
     if (lessonInTopic) {
