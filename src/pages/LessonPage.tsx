@@ -20,6 +20,7 @@ import { ImageWithFallback } from '../components/ImageWithFallback';
 import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
 import { Volume2, PauseCircle, PlayCircle } from 'lucide-react';
@@ -54,6 +55,10 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
     // Global Timeline Hook
     const { events: globalTimelineEvents } = useGlobalTimeline();
+
+    // Analytics: Track view
+    const analyticsPath = `${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}/${lessonId}`;
+    useAnalytics(lessonId ? analyticsPath : undefined);
 
     // Calculate speech blocks and mapping
     const speechData = React.useMemo(() => {

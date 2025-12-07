@@ -13,6 +13,7 @@ import { LessonPage } from './LessonPage';
 import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { PageSkeleton } from '../components/Skeleton';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 type ViewMode = 'grid' | 'list';
 type SortMode = 'alphabetical' | 'year' | 'newest';
@@ -43,6 +44,10 @@ export const TopicPage: React.FC = () => {
             });
         }
     }, [currentTopic, subTopicId, subjectId]);
+
+    // Analytics: Track topic view
+    const analyticsPath = `${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`;
+    useAnalytics(topicId ? analyticsPath : undefined);
 
     if (isLoading) return <PageSkeleton />;
     if (!subjectData || !currentTopic) return <div className="p-8 text-center text-text-muted">Laster emne...</div>;

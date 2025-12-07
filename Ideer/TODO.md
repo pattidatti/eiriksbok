@@ -11,7 +11,7 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 - [ ] Støtte for tegneserier/bildebok. f.eks. skylappjenta
 - [ ] Fikse cash som henger, ikke oppdaterer seg. 
 - [x] **Forbedret søk:** Implementere fuzzy search og vise tags i resultater.
-- [ ] **Analytics:** Legge inn personvernvennlig sporing for å se hva som blir lest.
+- [x] **Analytics:** Legge inn personvernvennlig sporing for å se hva som blir lest.
 - [x] **Animerte overganger:** Bruke framer-motion for mykere sidebytter.
 - [ ] **Dagens Faktum:** Widget på forsiden med roterende innhold.
 - [x] **Quiz Battle:** Utforske flerspiller-løsning med admin og gruppemodus.
