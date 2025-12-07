@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Outlet, Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useOutlet } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { PrefetchLink } from './PrefetchLink';
 import { SearchOverlay } from './SearchOverlay';
 import { Breadcrumbs } from './Breadcrumbs';
@@ -8,6 +9,7 @@ import { useSettings } from '../hooks/useSettings';
 
 export const Layout: React.FC = () => {
     const location = useLocation();
+    const outlet = useOutlet();
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const { settings, toggleDyslexicMode } = useSettings();
 
@@ -71,7 +73,17 @@ export const Layout: React.FC = () => {
             <main className="relative z-10 pt-8">
                 <div className="max-w-7xl mx-auto px-6">
                     <Breadcrumbs />
-                    <Outlet />
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={location.pathname}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                        >
+                            {outlet}
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
             </main>
 
