@@ -18,6 +18,7 @@ export const Image: React.FC<ImageProps> = ({
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(false);
     const [currentSrc, setCurrentSrc] = useState<string | undefined>(src);
+    const imgRef = React.useRef<HTMLImageElement>(null);
 
     useEffect(() => {
         // Reset state when src changes
@@ -25,6 +26,15 @@ export const Image: React.FC<ImageProps> = ({
         setError(false);
         setCurrentSrc(src);
     }, [src]);
+
+    useEffect(() => {
+        // Check if image is already loaded (e.g. from cache)
+        if (imgRef.current && imgRef.current.complete) {
+            if (imgRef.current.naturalWidth > 0) {
+                setIsLoaded(true);
+            }
+        }
+    }, [currentSrc]);
 
     const handleLoad = () => {
         setIsLoaded(true);
@@ -52,6 +62,7 @@ export const Image: React.FC<ImageProps> = ({
             )}
 
             <img
+                ref={imgRef}
                 src={currentSrc}
                 alt={alt}
                 loading="lazy"
