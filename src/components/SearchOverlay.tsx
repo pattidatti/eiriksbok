@@ -5,6 +5,7 @@ import type { ManifestLesson } from '../types';
 import { Search, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { textLibraryData } from '../data/textLibraryData';
+import Fuse from 'fuse.js';
 
 interface SearchOverlayProps {
     isOpen: boolean;
@@ -16,6 +17,7 @@ interface SearchResult {
     title: string;
     path: string;
     description?: string;
+    tags?: string[];
 }
 
 export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
@@ -29,7 +31,6 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
             inputRef.current.focus();
         }
 
-        // Keyboard shortcut to close
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') onClose();
         };
@@ -41,71 +42,99 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
     }, [isOpen, onClose]);
 
     useEffect(() => {
-        if (!query.trim() || !manifest) {
+        if (!manifest) {
             setResults([]);
             return;
         }
 
-        const searchResults: SearchResult[] = [];
-        const lowerQuery = query.toLowerCase();
+        const allItems: SearchResult[] = [];
 
-        // Search Manifest (Subjects, Topics, Lessons)
+        // Collect all searchable items
+
+        // 1. Manifest Content
         manifest.subjects.forEach(subject => {
             subject.topics.forEach(topic => {
-                // Search Topics
-                if (topic.title.toLowerCase().includes(lowerQuery)) {
-                    searchResults.push({
-                        type: 'topic',
-                        title: topic.title,
-                        path: `/${subject.id}`,
-                        description: `Emne i ${subject.title}`
-                    });
-                }
+                // Add Topic
+                allItems.push({
+                    type: 'topic',
+                    title: topic.title,
+                    path: `/${subject.id}`,
+                    description: `Emne i ${subject.title}`,
+                    tags: []
+                });
 
-                const processLesson = (lesson: ManifestLesson, path: string) => {
-                    if (lesson.title.toLowerCase().includes(lowerQuery) ||
-                        lesson.tags?.some(tag => tag.toLowerCase().includes(lowerQuery))) {
-                        searchResults.push({
-                            type: 'lesson',
-                            title: lesson.title,
-                            path: path,
-                            description: `Leksjon i ${topic.title}`
-                        });
-                    }
+                const processLesson = (lesson: ManifestLesson, path: string, contextTitle: string) => {
+                    // List of generic titles that need context
+                    const genericTitles = [
+                        'Bønn', 'Sentrale trekk', 'Introduksjon', 'Overgangsriter',
+                        'Gudsbilde', 'Frelse', 'Hellige tekster', 'Grunnleggere',
+                        'Etikk', 'Arkitektur', 'Kunst', 'Bakgrunn'
+                    ];
+
+                    // Check if title is generic or contains generic terms like "Bønn" but isn't specific enough
+                    // e.g. "Bønn (Puja)" is specific enough? Maybe not for a global search.
+                    // Let's stick to the list for now, but also check for exact match of "Bønn"
+                    const shouldAppendContext = genericTitles.includes(lesson.title) ||
+                        (lesson.title.startsWith('Bønn') && lesson.title.length < 20);
+
+                    const displayTitle = shouldAppendContext
+                        ? `${lesson.title} - ${contextTitle}`
+                        : lesson.title;
+
+                    allItems.push({
+                        type: 'lesson',
+                        title: displayTitle,
+                        path: path,
+                        description: `Leksjon i ${contextTitle}`,
+                        tags: lesson.tags || []
+                    });
                 };
 
                 if (topic.subTopics) {
                     topic.subTopics.forEach(subTopic => {
                         subTopic.lessons.forEach(lesson => {
-                            processLesson(lesson, `/${subject.id}/${topic.id}/${subTopic.id}/${lesson.id}`);
+                            processLesson(lesson, `/${subject.id}/${topic.id}/${subTopic.id}/${lesson.id}`, subTopic.title);
                         });
                     });
                 } else if (topic.lessons) {
                     topic.lessons.forEach((lesson: any) => {
-                        processLesson(lesson, `/${subject.id}/${topic.id}/${lesson.id}`);
+                        processLesson(lesson, `/${subject.id}/${topic.id}/${lesson.id}`, topic.title);
                     });
                 }
             });
         });
 
-        // Search Text Library
+        // 2. Library Texts
         textLibraryData.forEach(text => {
-            if (
-                text.title.toLowerCase().includes(lowerQuery) ||
-                text.author.toLowerCase().includes(lowerQuery) ||
-                text.genre.toLowerCase().includes(lowerQuery) ||
-                text.theme?.some(t => t.toLowerCase().includes(lowerQuery))
-            ) {
-                searchResults.push({
-                    type: 'library',
-                    title: text.title,
-                    path: `/norsk/bibliotek/${text.id}`,
-                    description: `Av ${text.author} • ${text.genre}`
-                });
-            }
+            const tags = [text.genre, ...(text.theme || []), text.author];
+            allItems.push({
+                type: 'library',
+                title: text.title,
+                path: `/norsk/bibliotek/${text.id}`,
+                description: `Av ${text.author}`,
+                tags: tags.filter(Boolean) as string[]
+            });
         });
 
-        setResults(searchResults);
+        if (!query.trim()) {
+            setResults([]);
+            return;
+        }
+
+        // Configure Fuse
+        const fuse = new Fuse(allItems, {
+            keys: [
+                { name: 'title', weight: 0.7 },
+                { name: 'tags', weight: 0.5 },
+                { name: 'description', weight: 0.3 }
+            ],
+            threshold: 0.3, // 0.0 = perfect match, 1.0 = match anything
+            includeScore: true
+        });
+
+        const searchResults = fuse.search(query);
+        setResults(searchResults.map(result => result.item).slice(0, 50)); // Limit to 50 results
+
     }, [query, manifest]);
 
     return (
@@ -157,15 +186,29 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                                         transition={{ delay: index * 0.05 }}
                                         className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 flex justify-between items-center transition-all group"
                                     >
-                                        <div>
-                                            <div className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">
+                                        <div className="flex-1 min-w-0 mr-4">
+                                            <div className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors truncate">
                                                 {result.title}
                                             </div>
-                                            <div className="text-sm text-slate-400">
+                                            <div className="text-sm text-slate-400 truncate">
                                                 {result.description}
                                             </div>
+                                            {result.tags && result.tags.length > 0 && (
+                                                <div className="flex flex-wrap gap-2 mt-2">
+                                                    {result.tags.slice(0, 3).map((tag, i) => (
+                                                        <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-slate-700/50 text-slate-300 border border-slate-600/50">
+                                                            {tag}
+                                                        </span>
+                                                    ))}
+                                                    {result.tags.length > 3 && (
+                                                        <span className="text-xs px-2 py-0.5 text-slate-500">
+                                                            +{result.tags.length - 3}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            )}
                                         </div>
-                                        <div className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-white/10 text-slate-300">
+                                        <div className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-white/10 text-slate-300 whitespace-nowrap">
                                             {result.type === 'library' ? 'bibliotek' : result.type}
                                         </div>
                                     </motion.div>
