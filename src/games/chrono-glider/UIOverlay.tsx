@@ -1,8 +1,8 @@
 import { useGameStore } from './store';
-import React, { useEffect } from 'react';
+
 
 export function UIOverlay() {
-    const { score, lives, gameState, currentEventIndex, events, startGame, resetGame, speed } = useGameStore();
+    const { score, lives, gameState, currentEventIndex, events, startGame, resetGame } = useGameStore();
 
     const currentEvent = events[currentEventIndex];
 

@@ -29,7 +29,7 @@ const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
                     const level = paragraph.match(/^#+/)?.[0].length || 0;
                     const content = paragraph.replace(/^#+\s*/, '');
 
-                    const HeaderTag = `h${Math.min(level + 1, 6)}` as React.ElementType; // Shift down one level (h1 -> h2)
+                    const HeaderTag = `h${Math.min(level + 1, 6)}` as any; // Shift down one level (h1 -> h2)
 
                     return (
                         <HeaderTag key={pIndex} className={`font-bold text-slate-800 mb-4 mt-6 ${level === 1 ? 'text-2xl' : level === 2 ? 'text-xl' : 'text-lg'}`}>

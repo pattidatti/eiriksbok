@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane } from 'lucide-react';
+import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane, History } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
@@ -59,6 +59,14 @@ export const PracticePage: React.FC = () => {
             icon: Plane,
             color: 'bg-cyan-500',
             link: '/oving/chrono-glider'
+        },
+        {
+            id: 'chrono',
+            title: 'Chrono Cards',
+            description: 'Plasser hendelsene i riktig rekkefølge!',
+            icon: History,
+            color: 'bg-emerald-500',
+            link: '/oving/chrono'
         }
     ];
 

@@ -30,7 +30,7 @@ interface Definition {
     category: Category;
     description: string;
     details?: string;
-    icon: React.ElementType;
+    icon: React.ComponentType<any>;
     color: string;
 }
 
@@ -225,7 +225,7 @@ const ChoiceButton = ({
     selected: boolean;
     onClick: () => void;
     label: string;
-    icon?: React.ElementType;
+    icon?: React.ComponentType<any>;
     subtext?: string;
 }) => (
     <button
