@@ -135,6 +135,25 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
         const searchResults = fuse.search(query);
         setResults(searchResults.map(result => result.item).slice(0, 50)); // Limit to 50 results
 
+        // Log search to Firebase (Debounced)
+        const logTimer = setTimeout(() => {
+            if (query.length > 2) { // Only log if length > 2
+                import('../lib/firebase').then(({ db }) => {
+                    import('firebase/database').then(({ ref, push, serverTimestamp }) => {
+                        const searchRef = ref(db, 'analytics/searches');
+                        push(searchRef, {
+                            query: query,
+                            type: 'text',
+                            timestamp: serverTimestamp(),
+                            resultsCount: searchResults.length
+                        });
+                    });
+                });
+            }
+        }, 2000); // 2 second debounce
+
+        return () => clearTimeout(logTimer);
+
     }, [query, manifest]);
 
     return (
@@ -226,8 +245,8 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                             )}
                         </div>
                     </motion.div>
-                </motion.div>
+                </motion.div >
             )}
-        </AnimatePresence>
+        </AnimatePresence >
     );
 };

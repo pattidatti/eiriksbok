@@ -21,6 +21,7 @@ import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
 import { useAnalytics } from '../hooks/useAnalytics';
+import { useReadingTime } from '../hooks/useReadingTime';
 
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
 import { Volume2, PauseCircle, PlayCircle } from 'lucide-react';
@@ -59,6 +60,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     // Analytics: Track view
     const analyticsPath = `${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}/${lessonId}`;
     useAnalytics(lessonId ? analyticsPath : undefined);
+    useReadingTime();
 
     // Calculate speech blocks and mapping
     const speechData = React.useMemo(() => {

@@ -15,9 +15,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.2",
     "@tanstack/react-query": "^5.90.11",
     "@types/d3-geo": "^3.1.0",
     "@types/d3-scale": "^4.0.9",
+    "@types/three": "^0.181.0",
     "@types/topojson-client": "^3.1.5",
     "chart.js": "^4.5.1",
     "clsx": "^2.1.1",
@@ -32,8 +35,10 @@
     "react-dom": "^19.2.0",
     "react-router-dom": "^6.28.0",
     "react-tooltip": "^5.30.0",
+    "three": "^0.181.2",
     "tinacms": "^2.2.0",
-    "topojson-client": "^3.1.0"
+    "topojson-client": "^3.1.0",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

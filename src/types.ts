@@ -179,3 +179,27 @@ export interface GlobalTimelineEvent {
     fact?: string;
     mapData?: MapData;
 }
+
+// Text Analysis Game Types
+export interface TextAnalysisCategory {
+    id: string; // e.g., 'etos'
+    label: string; // e.g., 'Etos'
+    color: string; // e.g., 'blue-500' - standard Tailwind colors
+    description: string; // Tooltip info
+}
+
+export interface TextAnalysisSpan {
+    id: string;
+    start: number; // Character index start
+    end: number;   // Character index end
+    categoryId: string; // e.g. 'etos'
+    explanation: string; // Shown after discovery
+}
+
+export interface TextAnalysisGameData {
+    id: string;
+    title: string;
+    text: string; // The full text content
+    categories: TextAnalysisCategory[];
+    solutions: TextAnalysisSpan[];
+}

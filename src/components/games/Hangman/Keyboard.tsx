@@ -36,8 +36,8 @@ export const Keyboard = ({
                         className={clsx(
                             "w-10 h-12 sm:w-12 sm:h-14 rounded-lg font-bold text-lg sm:text-xl transition-colors shadow-md",
                             isActive && "bg-green-500 text-white border-green-600",
-                            isInactive && "bg-slate-300 dark:bg-slate-700 text-slate-500 cursor-not-allowed opacity-50",
-                            !isActive && !isInactive && "bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 hover:bg-sky-50 dark:hover:bg-sky-900/30 hover:border-sky-300"
+                            isInactive && "bg-slate-300 text-slate-500 cursor-not-allowed opacity-50",
+                            !isActive && !isInactive && "bg-white text-slate-900 border border-slate-200 hover:bg-sky-50 hover:border-sky-300"
                         )}
                     >
                         {key}

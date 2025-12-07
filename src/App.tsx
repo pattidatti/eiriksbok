@@ -31,12 +31,16 @@ const TopicComparisonPage = React.lazy(routeFactories.TopicComparisonPage);
 const GlobalTimelinePage = React.lazy(routeFactories.GlobalTimelinePage);
 const ChronoGamePage = React.lazy(routeFactories.ChronoGamePage);
 const DungeonGamePage = React.lazy(routeFactories.DungeonGamePage);
+const RhetoricGamePage = React.lazy(routeFactories.RhetoricGamePage);
 const HangmanPage = React.lazy(routeFactories.HangmanPage);
+const ChronoGliderPage = React.lazy(routeFactories.ChronoGliderPage);
 const StatsPage = React.lazy(routeFactories.StatsPage);
 const AdminDashboard = React.lazy(routeFactories.AdminDashboard);
 const ContentInventory = React.lazy(routeFactories.ContentInventory);
 const LinkChecker = React.lazy(routeFactories.LinkChecker);
 const ScannerPage = React.lazy(routeFactories.ScannerPage);
+
+import { usePresence } from './hooks/usePresence';
 
 function App() {
   return (
@@ -47,6 +51,16 @@ function App() {
         v7_relativeSplatPath: true,
       }}
     >
+      <AppContent />
+    </BrowserRouter>
+  );
+}
+
+function AppContent() {
+  usePresence(); // Initialize global presence tracking
+
+  return (
+    <>
       <UpdatePrompt />
       <ErrorBoundary>
         <Suspense fallback={<PageSkeleton />}>
@@ -64,7 +78,9 @@ function App() {
               <Route path="oving/quiz" element={<QuizPage />} />
               <Route path="oving/chrono" element={<ChronoGamePage />} />
               <Route path="oving/dungeon" element={<DungeonGamePage />} />
+              <Route path="oving/retorikk" element={<RhetoricGamePage />} />
               <Route path="oving/hengemann" element={<HangmanPage />} />
+              <Route path="oving/chrono-glider" element={<ChronoGliderPage />} />
 
               <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
               <Route path="admin/stats" element={<AdminGuard><StatsPage /></AdminGuard>} />
@@ -95,7 +111,7 @@ function App() {
           </Routes>
         </Suspense>
       </ErrorBoundary>
-    </BrowserRouter>
+    </>
   );
 }
 

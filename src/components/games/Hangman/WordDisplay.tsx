@@ -24,8 +24,8 @@ export const WordDisplay = ({ wordToGuess, guessedLetters, reveal = false }: Wor
                         <span
                             className={clsx(
                                 "w-8 h-12 sm:w-12 sm:h-16 border-b-4 flex items-center justify-center text-2xl sm:text-4xl font-bold transition-colors",
-                                (isGuessed || isSpecial) ? "border-slate-800 dark:border-slate-200 text-slate-900 dark:text-white" :
-                                    reveal ? "border-red-500 text-red-500" : "border-slate-400 dark:border-slate-600 text-transparent"
+                                (isGuessed || isSpecial) ? "border-slate-800 text-slate-900" :
+                                    reveal ? "border-red-500 text-red-500" : "border-slate-400 text-transparent"
                             )}
                         >
                             <motion.span

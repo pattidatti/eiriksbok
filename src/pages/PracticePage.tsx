@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, ArrowRight, Clock, History, Gamepad2, Sword } from 'lucide-react';
-
+import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
@@ -30,36 +29,36 @@ export const PracticePage: React.FC = () => {
             link: '/tidslinje'
         },
         {
-            id: 'chrono',
-            title: 'Chrono Cards',
-            description: 'Plasser historiske hendelser riktig på tidslinjen.',
-            icon: History,
-            color: 'bg-teal-500',
-            link: '/oving/chrono'
-        },
-        {
-            id: 'quiz-battle',
-            title: 'Quiz Battle',
-            description: 'Konkurrer mot andre i sanntid!',
-            icon: Gamepad2,
-            color: 'bg-rose-500',
-            link: '/quiz-battle'
-        },
-        {
             id: 'dungeon',
-            title: 'Dungeon Run',
-            description: 'Kjemp deg gjennom monstre med kunnskap!',
+            title: 'Fangehull-spillet',
+            description: 'Utforsk fangehullet og løs oppgaver for å overleve.',
             icon: Sword,
-            color: 'bg-purple-600',
+            color: 'bg-red-600',
             link: '/oving/dungeon'
+        },
+        {
+            id: 'rhetoric',
+            title: 'Retorikk-spillet',
+            description: 'Mestre etos, patos og logos i dette spillet.',
+            icon: MessageCircle,
+            color: 'bg-blue-500',
+            link: '/oving/retorikk'
         },
         {
             id: 'hangman',
             title: 'Hengemann',
-            description: 'Gjett fagbegrepene før det er for sent!',
-            icon: Brain,
+            description: 'Gjett ordet før det er for sent!',
+            icon: Gamepad2,
             color: 'bg-pink-500',
             link: '/oving/hengemann'
+        },
+        {
+            id: 'chrono-glider',
+            title: 'Chrono Glider',
+            description: 'Fly gjennom historien og sikt på årstallene.',
+            icon: Plane,
+            color: 'bg-cyan-500',
+            link: '/oving/chrono-glider'
         }
     ];
 
@@ -75,7 +74,7 @@ export const PracticePage: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     {modules.map((module) => (
                         <Link
                             key={module.id}

@@ -5,6 +5,7 @@ import { LessonCard } from '../components/LessonCard';
 import type { ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
 import { textLibraryData } from '../data/textLibraryData';
+import { db } from '../lib/firebase';
 
 interface SearchResult {
     lesson: ManifestLesson;
@@ -128,7 +129,29 @@ export const SearchPage: React.FC = () => {
         };
 
         loadResults();
+        loadResults();
     }, [tag]);
+
+    // Log search to Firebase
+    useEffect(() => {
+        if (!tag) return;
+
+        // Debounce logging slightly to avoid duplicates on quick nav
+        const timer = setTimeout(() => {
+            import('firebase/database').then(({ ref, push, serverTimestamp }) => {
+                const searchRef = ref(db, 'analytics/searches');
+                push(searchRef, {
+                    query: tag,
+                    type: 'tag',
+                    timestamp: serverTimestamp(),
+                    resultsCount: results.length
+                });
+            });
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [tag, results.length]);
+
 
     if (loading) {
         return <div className="p-8 text-center">Laster innhold...</div>;

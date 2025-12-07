@@ -661,6 +661,7 @@
                             "title": "Vikingtiden",
                             "description": "Krigerne fra nord.",
                             "image": "/Eiriksbok/images/lessons/vikingtiden.png",
+                            "layout": "rich",
                             "tags": [
                                 "vikingtiden",
                                 "norge",
@@ -675,6 +676,7 @@
                             "title": "Rikssamlingen",
                             "description": "Harald H\u00e5rfagre samler Norge \u2013 for kj\u00e6rlighet eller makt?",
                             "image": "/Eiriksbok/images/lessons/rikssamlingen.png",
+                            "layout": "rich",
                             "tags": [
                                 "rikssamlingen",
                                 "norge",
@@ -697,6 +699,7 @@
                             "title": "Svartedauden",
                             "description": "Pesten som endret Norge.",
                             "image": "/images/lessons/svartedauden.png",
+                            "layout": "rich",
                             "tags": [
                                 "pest",
                                 "middelalder",
@@ -774,6 +777,7 @@
                             "title": "30-årskrigen",
                             "description": "Den store katastrofen som formet det moderne Europa.",
                             "image": "/images/lessons/lutzen.jpg",
+                            "layout": "rich",
                             "tags": [
                                 "historie",
                                 "krig",

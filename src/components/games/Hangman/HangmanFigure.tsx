@@ -80,7 +80,7 @@ export const HangmanFigure = ({ wrongGuesses }: HangmanFigureProps) => {
     ];
 
     return (
-        <div className="relative w-64 h-64 mx-auto text-slate-800 dark:text-slate-200">
+        <div className="relative w-64 h-64 mx-auto text-slate-800">
             <svg viewBox="0 0 300 300" className="w-full h-full overflow-visible">
                 {parts.slice(0, wrongGuesses)}
             </svg>

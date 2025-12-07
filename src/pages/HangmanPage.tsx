@@ -49,13 +49,13 @@ export const HangmanPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 py-12 px-4">
+        <div className="min-h-screen bg-slate-50 text-slate-900 py-12 px-4">
             <div className="max-w-6xl mx-auto">
                 <header className="text-center mb-12">
                     <h1 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                         Hengemann
                     </h1>
-                    <p className="text-xl text-slate-600 dark:text-slate-400">
+                    <p className="text-xl text-slate-600">
                         Gjett fagbegrepene før det er for sent!
                     </p>
                 </header>
@@ -87,10 +87,10 @@ export const HangmanPage = () => {
                                         setSelectedSubject(subject.id);
                                         setIsPlaying(true);
                                     }}
-                                    className="p-8 rounded-2xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl border border-slate-200 dark:border-slate-700 transform hover:-translate-y-1 transition-all text-left"
+                                    className="p-8 rounded-2xl bg-white shadow-lg hover:shadow-xl border border-slate-200 transform hover:-translate-y-1 transition-all text-left"
                                 >
-                                    <h3 className="text-2xl font-bold mb-2 text-slate-800 dark:text-white capitalize">{subject.title}</h3>
-                                    <p className="text-slate-500 dark:text-slate-400">{count} ord</p>
+                                    <h3 className="text-2xl font-bold mb-2 text-slate-800 capitalize">{subject.title}</h3>
+                                    <p className="text-slate-500">{count} ord</p>
                                 </button>
                             );
                         })}

@@ -34,5 +34,7 @@ export const routeFactories: Record<string, PageFactory> = {
     ContentInventory: () => import('./pages/admin/ContentInventory').then(module => ({ default: module.ContentInventory })),
     LinkChecker: () => import('./pages/admin/LinkChecker').then(module => ({ default: module.LinkChecker })),
     ScannerPage: () => import('./pages/admin/ScannerPage').then(module => ({ default: module.ScannerPage })),
+    RhetoricGamePage: () => import('./pages/RhetoricGamePage').then(module => ({ default: module.RhetoricGamePage })),
     HangmanPage: () => import('./pages/HangmanPage').then(module => ({ default: module.HangmanPage })),
+    ChronoGliderPage: () => import('./games/chrono-glider/ChronoGliderPage'),
 };

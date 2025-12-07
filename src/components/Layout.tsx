@@ -70,8 +70,8 @@ export const Layout: React.FC = () => {
 
             <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
-            <main className="relative z-10 pt-8">
-                <div className="max-w-7xl mx-auto px-6">
+            <main className={`relative z-10 ${location.pathname.includes('/oving/chrono-glider') ? '' : 'pt-8'}`}>
+                <div className={location.pathname.includes('/oving/chrono-glider') ? '' : 'max-w-7xl mx-auto px-6'}>
                     <Breadcrumbs />
                     <AnimatePresence mode="wait">
                         <motion.div

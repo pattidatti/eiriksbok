@@ -35,6 +35,8 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 - [ ] Artikkel om sekularisering
 - [ ] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
 
+### Norsk
+- [ ] Artikler i norskfaget-litteraturhistorie mangler sidebar. 
 ### Musikk
 - [ ] Implementere https://sites.google.com/bergensskolen.com/musikk/start og lage en logisk struktur på emnet. 
 

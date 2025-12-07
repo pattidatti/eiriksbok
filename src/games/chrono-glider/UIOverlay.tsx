@@ -1,0 +1,92 @@
+import { useGameStore } from './store';
+import React, { useEffect } from 'react';
+
+export function UIOverlay() {
+    const { score, lives, gameState, currentEventIndex, events, startGame, resetGame, speed } = useGameStore();
+
+    const currentEvent = events[currentEventIndex];
+
+    if (gameState === 'menu') {
+        return (
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm text-white z-50">
+                <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600 mb-8 drop-shadow-lg">
+                    Chrono-Glider
+                </h1>
+                <p className="mb-8 text-xl text-gray-200 max-w-md text-center">
+                    Fly through the correct years to repair the timeline.
+                    Watch out for false dates!
+                </p>
+                <button
+                    onClick={startGame}
+                    className="px-8 py-3 bg-cyan-600 hover:bg-cyan-500 rounded-full text-xl font-bold transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(8,145,178,0.5)]"
+                >
+                    START MISSION
+                </button>
+            </div>
+        );
+    }
+
+    if (gameState === 'gameover') {
+        return (
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-red-900/80 backdrop-blur-md text-white z-50">
+                <h1 className="text-6xl font-bold mb-4">MISSION FAILED</h1>
+                <p className="text-2xl mb-8">Score: {score}</p>
+                <button
+                    onClick={resetGame}
+                    className="px-8 py-3 bg-white text-red-900 hover:bg-gray-200 rounded-full text-xl font-bold"
+                >
+                    TRY AGAIN
+                </button>
+            </div>
+        );
+    }
+
+    if (gameState === 'won') {
+        return (
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-green-900/80 backdrop-blur-md text-white z-50">
+                <h1 className="text-6xl font-bold mb-4">TIMELINE RESTORED</h1>
+                <p className="text-2xl mb-8">Final Score: {score}</p>
+                <button
+                    onClick={resetGame}
+                    className="px-8 py-3 bg-white text-green-900 hover:bg-gray-200 rounded-full text-xl font-bold"
+                >
+                    PLAY AGAIN
+                </button>
+            </div>
+        );
+    }
+
+    return (
+        <div className="absolute inset-0 pointer-events-none p-8 flex flex-col justify-between z-40">
+            {/* Top Bar */}
+            <div className="flex justify-between items-start">
+                <div className="flex flex-col">
+                    <span className="text-cyan-400 font-bold uppercase tracking-widest text-sm">Score</span>
+                    <span className="text-3xl font-mono text-white font-bold">{score.toString().padStart(6, '0')}</span>
+                </div>
+
+                {/* Target Event - Centered */}
+                <div className={`flex flex-col items-center transition-all duration-500 transform ${currentEvent ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
+                    {currentEvent && (
+                        <div className="bg-black/40 backdrop-blur-md px-6 py-4 rounded-xl border border-white/10 text-center max-w-xl">
+                            <span className="text-cyan-400 font-bold uppercase tracking-widest text-xs mb-1 block">Target Event</span>
+                            <h2 className="text-2xl text-white font-bold mb-1 shadow-black drop-shadow-md">{currentEvent.title}</h2>
+                            {/* <p className="text-sm text-gray-300">{currentEvent.description}</p> */}
+                        </div>
+                    )}
+                </div>
+
+                <div className="flex flex-col items-end">
+                    <span className="text-red-400 font-bold uppercase tracking-widest text-sm">Integrity</span>
+                    <div className="flex gap-1 mt-1">
+                        {[...Array(3)].map((_, i) => (
+                            <div key={i} className={`w-8 h-2 rounded-full ${i < lives ? 'bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.8)]' : 'bg-red-900/30'}`} />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Speed Indicator / Progress? maybe overkill */}
+        </div>
+    );
+}

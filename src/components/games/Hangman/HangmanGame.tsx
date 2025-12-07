@@ -61,6 +61,22 @@ export const HangmanGame = ({ words, onExit }: HangmanGameProps) => {
         }
     }, [guessedLetters, wrongGuesses, isWinner, gameStatus, wordToGuess]);
 
+    // Log Game Result
+    useEffect(() => {
+        if (gameStatus === 'won' || gameStatus === 'lost') {
+            import('../../../lib/firebase').then(({ db }) => {
+                import('firebase/database').then(({ ref, push, serverTimestamp }) => {
+                    const gameRef = ref(db, 'analytics/games/hangman');
+                    push(gameRef, {
+                        outcome: gameStatus,
+                        timestamp: serverTimestamp(),
+                        word: wordToGuess
+                    });
+                });
+            });
+        }
+    }, [gameStatus, wordToGuess]);
+
     const handleGuess = useCallback((letter: string) => {
         if (gameStatus !== 'playing' || guessedLetters.includes(letter)) return;
         setGuessedLetters(prev => [...prev, letter]);
@@ -96,7 +112,7 @@ export const HangmanGame = ({ words, onExit }: HangmanGameProps) => {
             <div className="flex justify-between w-full mb-4">
                 <button
                     onClick={onExit}
-                    className="px-4 py-2 text-sm font-bold text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+                    className="px-4 py-2 text-sm font-bold text-slate-500 hover:text-slate-800 transition-colors"
                 >
                     ← Tilbake til meny
                 </button>
@@ -120,12 +136,12 @@ export const HangmanGame = ({ words, onExit }: HangmanGameProps) => {
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="mt-4 p-6 bg-slate-100 dark:bg-slate-800 rounded-xl max-w-lg text-center shadow-lg border-2 border-slate-200 dark:border-slate-700"
+                                className="mt-4 p-6 bg-slate-100 rounded-xl max-w-lg text-center shadow-lg border-2 border-slate-200"
                             >
                                 <h3 className={clsx("text-2xl font-bold mb-2", gameStatus === 'won' ? "text-green-600" : "text-red-500")}>
                                     {gameStatus === 'won' ? "Riktig!" : "Beklager, du tapte."}
                                 </h3>
-                                <p className="text-lg text-slate-700 dark:text-slate-300 mb-4 italic">
+                                <p className="text-lg text-slate-700 mb-4 italic">
                                     "{currentWordData.definition}"
                                 </p>
                                 <button
