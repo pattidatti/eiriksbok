@@ -30,4 +30,7 @@ export const routeFactories: Record<string, PageFactory> = {
     ChronoGamePage: () => import('./pages/ChronoGamePage'),
     DungeonGamePage: () => import('./pages/DungeonGamePage'),
     StatsPage: () => import('./pages/StatsPage').then(module => ({ default: module.StatsPage })),
+    AdminDashboard: () => import('./pages/admin/AdminDashboard').then(module => ({ default: module.AdminDashboard })),
+    ContentInventory: () => import('./pages/admin/ContentInventory').then(module => ({ default: module.ContentInventory })),
+    LinkChecker: () => import('./pages/admin/LinkChecker').then(module => ({ default: module.LinkChecker })),
 };

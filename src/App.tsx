@@ -5,6 +5,7 @@ import { PageSkeleton } from './components/Skeleton';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { routeFactories } from './routes';
 import { UpdatePrompt } from './components/UpdatePrompt';
+import { AdminGuard } from './components/AdminGuard';
 import './App.css';
 
 // Lazy load pages using centralized factories
@@ -31,6 +32,9 @@ const GlobalTimelinePage = React.lazy(routeFactories.GlobalTimelinePage);
 const ChronoGamePage = React.lazy(routeFactories.ChronoGamePage);
 const DungeonGamePage = React.lazy(routeFactories.DungeonGamePage);
 const StatsPage = React.lazy(routeFactories.StatsPage);
+const AdminDashboard = React.lazy(routeFactories.AdminDashboard);
+const ContentInventory = React.lazy(routeFactories.ContentInventory);
+const LinkChecker = React.lazy(routeFactories.LinkChecker);
 
 function App() {
   return (
@@ -59,7 +63,10 @@ function App() {
               <Route path="oving/chrono" element={<ChronoGamePage />} />
               <Route path="oving/dungeon" element={<DungeonGamePage />} />
 
-              <Route path="admin/stats" element={<StatsPage />} />
+              <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
+              <Route path="admin/stats" element={<AdminGuard><StatsPage /></AdminGuard>} />
+              <Route path="admin/inventory" element={<AdminGuard><ContentInventory /></AdminGuard>} />
+              <Route path="admin/links" element={<AdminGuard><LinkChecker /></AdminGuard>} />
 
               {/* Quiz Battle Routes */}
               <Route path="quiz-battle" element={<QuizLobby />} />
