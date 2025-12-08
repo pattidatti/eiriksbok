@@ -37,4 +37,5 @@ export const routeFactories: Record<string, PageFactory> = {
     RhetoricGamePage: () => import('./pages/RhetoricGamePage').then(module => ({ default: module.RhetoricGamePage })),
     HangmanPage: () => import('./pages/HangmanPage').then(module => ({ default: module.HangmanPage })),
     ChronoGliderPage: () => import('./games/chrono-glider/ChronoGliderPage'),
+    TimelineTDPage: () => import('./pages/TimelineTDPage'),
 };

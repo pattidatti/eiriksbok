@@ -67,6 +67,14 @@ export const PracticePage: React.FC = () => {
             icon: History,
             color: 'bg-emerald-500',
             link: '/oving/chrono'
+        },
+        {
+            id: 'timeline-td',
+            title: 'Tidslinje Forsvar',
+            description: 'Forsvar historien mot angrep i dette Tårnforsvar-spillet!',
+            icon: Sword, // Reusing Sword or could use Shield if imported
+            color: 'bg-rose-500',
+            link: '/oving/tidslinje-td'
         }
     ];
 

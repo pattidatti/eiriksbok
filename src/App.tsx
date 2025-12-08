@@ -34,6 +34,7 @@ const DungeonGamePage = React.lazy(routeFactories.DungeonGamePage);
 const RhetoricGamePage = React.lazy(routeFactories.RhetoricGamePage);
 const HangmanPage = React.lazy(routeFactories.HangmanPage);
 const ChronoGliderPage = React.lazy(routeFactories.ChronoGliderPage);
+const TimelineTDPage = React.lazy(routeFactories.TimelineTDPage);
 const StatsPage = React.lazy(routeFactories.StatsPage);
 const AdminDashboard = React.lazy(routeFactories.AdminDashboard);
 const ContentInventory = React.lazy(routeFactories.ContentInventory);
@@ -81,6 +82,7 @@ function AppContent() {
               <Route path="oving/retorikk" element={<RhetoricGamePage />} />
               <Route path="oving/hengemann" element={<HangmanPage />} />
               <Route path="oving/chrono-glider" element={<ChronoGliderPage />} />
+              <Route path="oving/tidslinje-td" element={<TimelineTDPage />} />
 
               <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
               <Route path="admin/stats" element={<AdminGuard><StatsPage /></AdminGuard>} />
