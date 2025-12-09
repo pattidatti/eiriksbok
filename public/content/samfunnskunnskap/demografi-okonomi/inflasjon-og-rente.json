@@ -230,6 +230,17 @@
                 "Prisen på gull og råvarer"
             ],
             "correctAnswer": 0
+        },
+        {
+            "id": "q9",
+            "question": "Hva er inflasjon?",
+            "options": [
+                "En økning i pengemengden som gjør at prisene stiger",
+                "Når prisene på varer synker",
+                "Når staten betaler ned gjeld",
+                "En plutselig økning i arbeidsledighet"
+            ],
+            "correctAnswer": 0
         }
     ],
     "createdDate": "2023-01-01T12:00:00Z",

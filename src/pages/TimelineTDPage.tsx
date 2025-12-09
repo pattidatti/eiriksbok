@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { GameCanvas } from '../features/timeline-td/components/GameCanvas';
 import { useGameStore } from '../features/timeline-td/store/gameStore';
-import type { TowerType } from '../features/timeline-td/store/gameStore';
+import type { TowerType } from '../features/timeline-td/types';
 import { useGameEngine } from '../features/timeline-td/hooks/useGameEngine';
-import { TOWER_TYPES, TowerSelector } from '../features/timeline-td/components/TowerSelector';
+import { TowerSelector } from '../features/timeline-td/components/TowerSelector';
 import { TOWER_STATS } from '../features/timeline-td/data/gameData';
 import { ArrowLeft, Pause, Play, RefreshCw, Coins, Heart, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -18,7 +18,6 @@ const TimelineTDPage: React.FC = () => {
         enemies,
         setStatus,
         resetGame,
-        spawnEnemy,
         addTower,
         updateMoney,
         startNextWave
@@ -39,20 +38,6 @@ const TimelineTDPage: React.FC = () => {
         } else {
             setStatus('PAUSED');
         }
-    };
-
-    // Debug button to test spawn
-    const handleSpawnDebug = () => {
-        spawnEnemy({
-            id: Math.random().toString(),
-            type: 'IGNORANCE',
-            position: { x: 0, y: 300 }, // Start of path
-            health: 100,
-            maxHealth: 100,
-            speed: 2,
-            pathIndex: 0,
-            isFrozen: false
-        });
     };
 
     return (

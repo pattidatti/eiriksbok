@@ -1,4 +1,4 @@
-import type { EnemyType, TowerType } from "../store/gameStore";
+import type { EnemyType, TowerType } from "../types";
 
 export type WaveEnemy = {
     type: EnemyType;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGameStore } from '../store/gameStore';
-import type { TowerType } from '../store/gameStore';
+import type { TowerType } from '../types';
 
 type TowerDefinition = {
     type: TowerType;

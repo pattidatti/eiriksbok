@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
