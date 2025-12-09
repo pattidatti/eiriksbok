@@ -1,69 +1,79 @@
 {
     "id": "veien-mot-ost",
-    "title": "Veien mot Øst: Gardarike og Miklagard",
-    "subject": "Samfunnsfag",
-    "topic": "Historie",
-    "fact": "Vikingene kalte Konstantinopel (Istanbul) for Miklagard – 'Den store byen'. Det var verdens største by på den tiden.",
+    "title": "Veien mot Øst: Guder, Slaver og Keisere",
+    "description": "Mens norske og danske vikinger dro vestover, dro svenskene østover. De grunnla Russland.",
+    "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
     "tags": [
-        "vikingtiden",
         "øst",
         "handel",
-        "bysants"
+        "bysants",
+        "rus",
+        "væringer"
     ],
-    "year": "800-1050",
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:55:00Z",
+    "layout": "rich",
     "content": [
         {
             "type": "text",
-            "content": "Mens nordmenn og daner dro vestover, dro svensker (kalt 'Rus') østover. De seilte ned de store russiske elvene Dnepr og Volga. De grunnla byer som Novgorod (Holmgard) og Kiev (Kønugard), og la grunnlaget for det russiske riket."
+            "title": "De som ror (Rus)",
+            "content": "Fra Østersjøen åpner det seg enorme elver som renner dypt inn i det europeiske kontinentet: Volga, Dnjepr og Don. Svenske vikinger (og noen få nordmenn) så ikke bare skog og sletter, men en motorvei av vann. De kalte seg Rus – sannsynligvis fra finsk 'ruotsi' som betyr 'de som ror'. Dette navnet ga senere opphavet til landet Russland og Hviterussland.\n\nI motsetning til i vest, handlet øst-ferdene mer om handel enn plyndring – i starten. Men det var en brutal handel. De viktigste varene var pels, honning, voks og, mest verdifullt av alt: mennesker (slaver). Ordet 'slave' kommer faktisk fra ordet 'slaver' (folkeslaget), fordi så mange av dem ble fanget og solgt av vikingene."
+        },
+        {
+            "type": "component",
+            "name": "TradeRouteMap"
         },
         {
             "type": "text",
-            "content": "Målet for reisen var ofte det rike Bysants og hovedstaden Konstantinopel. Her handlet de pels, voks og slaver i bytte mot sølv, silke og krydder. Mange vikinger tok også tjeneste hos Keiseren som elitesoldater i 'Væringgarden'. De var keiserens livvakter og kjent for sin lojalitet og styrke."
+            "title": "Gardarike: Riket med borgene",
+            "content": "Langs elvene bygde vikingene befestede handelsbyer. De to viktigste var Holmgard (Novgorod) i nord og Kønugard (Kiev) i sør. Vikingene kalte riket for Gardarike (riket med borgene/gårdene).\n\nIfølge 'Nestors krønike' (en gammel russisk historiebok) inviterte de slaviske stammene vikinghøvdingen Rurik til å komme og styre over dem i år 862, fordi det var så mye kaos og krig. 'Landet vårt er stort og rikt, men det er ingen orden i det. Kom og regjer over oss.' Rurik grunnla et dynasti som skulle styre Russland i over 700 år, helt frem til Ivan den Grusomme."
         },
         {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "content": "Harald Hardråde var sjef for Væringgarden før han kom hjem og ble konge i Norge. Han kom hjem med enorme mengder gull."
-            }
+            "type": "text",
+            "title": "Miklagard: Den store byen",
+            "content": "Målet for alle reisene var byen over alle byer: Konstantinopel (Istanbul). Vikingene kalte den bare Miklagard – 'Den store byen'. Med 500 000 innbyggere, gater av marmor og kupler av gull, var den en annen planet for vikinger som var vant til langhus av tre og gjørme.\n\nVikingene angrep Miklagard flere ganger med store flåter, men byens murer var uinntagelige, og bysantinerne hadde et hemmelig våpen: Gresk ild (en slags napalm som brant på vann). Da vikingene skjønte at de ikke kunne ta byen, begynte de å handle med den – eller jobbe for den."
         },
         {
-            "type": "component",
-            "name": "TradeRouteMap",
-            "props": {
-                "description": "Kart som viser vannveiene fra Østersjøen til Svartehavet."
-            }
+            "type": "text",
+            "title": "Væringene: Keiserens livvakt",
+            "content": "Keisere i Bysants stolte ikke på sine egne folk (det var for mange palassrevolusjoner). Men de stolte på de store, blonde kjempene fra nord som holdt ord så lenge de fikk godt betalt. Slik oppsto Væringgarden (Varangian Guard) – keiserens elitestyrke av vikingsoldater.\n\nÅ være væring var den raskeste måten å bli rik på. Harald Hardråde er den mest kjente. Han tjente som leder for væringgarden i mange år, kjempet i Afrika, Sicilia og Bulgaria, og kom hjem til Norge med så mye gull at 'ingen hadde sett maken'. Gullet brukte han til å kjøpe seg kongemakt i Norge."
         },
         {
-            "type": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hva kalte vikingene byen Konstantinopel?",
-                        "options": [
-                            "Roma",
-                            "Miklagard",
-                            "Jorvik",
-                            "Utgard"
-                        ],
-                        "answer": "Miklagard",
-                        "explanation": "Miklagard betyr 'Den store byen' på norrønt."
-                    },
-                    {
-                        "question": "Hva var Væringgarden?",
-                        "options": [
-                            "En hage i Sverige",
-                            "Keiserens nordiske livvaktstyrke i Bysants",
-                            "En handelsplass i Kiev",
-                            "Et skip"
-                        ],
-                        "answer": "Keiserens nordiske livvaktstyrke i Bysants",
-                        "explanation": "Keiseren i Bysants stolte ikke på sine egne, så han leide inn vikinger som livvakter."
-                    }
-                ]
-            }
+            "type": "image",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Varangian_Guard.jpg",
+            "caption": "En væring (viking) med øks i tjeneste hos keiseren i Miklagard. De var fryktet og elsket.",
+            "alt": "Illustrasjon av væring"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Svenske vikinger (Rus) reiste på elvene gjennom Russland.",
+                "De grunnla byene Novgorod og Kiev (starten på Russland).",
+                "Hovedhandelsvarer: Pels og slaver.",
+                "Mange tjente som leiesoldater (væringer) i Konstantinopel."
+            ]
         }
     ],
-    "createdDate": "2025-12-09T23:00:00Z",
-    "lastUpdated": "2025-12-09T23:00:00Z"
+    "concepts": [
+        {
+            "id": "rus",
+            "term": "Rus / Rusere",
+            "definition": "Navnet på de svenske vikingene som reiste i østerled."
+        },
+        {
+            "id": "miklagard",
+            "term": "Miklagard",
+            "definition": "Vikingenes navn på Konstantinopel (Istanbul)."
+        },
+        {
+            "id": "vaering",
+            "term": "Væring",
+            "definition": "Leiesoldat fra Norden i tjeneste hos den bysantinske keiseren."
+        },
+        {
+            "id": "gresk-ild",
+            "term": "Gresk ild",
+            "definition": "Bysantinsk flammekaster-våpen som kunne brenne på vann."
+        }
+    ]
 }

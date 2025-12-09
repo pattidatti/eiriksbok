@@ -1,73 +1,74 @@
 {
     "id": "kristningen-av-norge",
-    "title": "Kristningen: En borgerkrig om tro",
-    "subject": "Samfunnsfag",
-    "topic": "Historie",
-    "fact": "Kristningen handlet ikke bare om tro, men om makt. Kongen ville bruke kristendommen til å samle riket under én lov og én gud (seg selv som Guds representant).",
+    "title": "Kristningen: Dåp eller Død",
+    "description": "Hvordan Norge gikk fra å blot til Odin til å bygge stavkirker – med sverd i hånd.",
+    "image": "https://images.unsplash.com/photo-1548625361-bd8856cb3e6e?auto=format&fit=crop&q=80",
     "tags": [
-        "vikingtiden",
-        "kristendom",
-        "maktkamp",
-        "nasjonsbygging"
+        "religion",
+        "norge",
+        "olav-den-hellige",
+        "stiklestad",
+        "kirken"
     ],
-    "year": "930-1030",
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:59:00Z",
+    "layout": "rich",
     "content": [
         {
             "type": "text",
-            "content": "Kristningen av Norge skjedde ikke over natten. Det var en lang prosess preget av konflikt. Olav Tryggvason brukte sverd og tvang. Han ødela gudehov og drepte de som nektet å la seg døpe."
-        },
-        {
-            "type": "text",
-            "content": "Olav Haraldsson (den Hellige) fortsatte arbeidet, men da med loven i hånd ($Kristenretten på Moster, 1024$). Han gjorde kristendommen til landets offisielle lov, noe som provoserte bøndene og høvdingene. Dette førte til slaget på Stiklestad i 1030, hvor Olav ble drept."
+            "title": "En langsom revolusjon",
+            "content": "Vi lærer ofte at kristningen skjedde med et sverdslag på Stiklestad i 1030. Sannheten er mer komplisert. Kristningen av Norge var en prosess som tok flere hundre år. Det startet med fredelig handel. Vikinger som reiste ut, så at de kristne landene var rikere og mer organiserte. Mange lot seg 'primsigne' (en slags prøve-dåp) bare for å kunne handle med kristne kjøpmenn.\n\nMen den virkelige endringen kom med kongene. Håkon den Gode, Olav Tryggvason og Olav Haraldsson (den Hellige) hadde alle vært i utlandet og sett hvordan kristendommen kunne brukes til å bygge en sterk stat. I den gamle skikken var kongen bare en 'første blant likemenn'. I kristendommen var kongen Guds utvalgte."
         },
         {
             "type": "component",
-            "name": "FactBox",
-            "props": {
-                "content": "Selv om Olav tapte slaget på Stiklestad, vant kristendommen. Etter hans død skjedde det 'mirakler' ved graven hans, og han ble kåret til helgen. Dette samlet Norge religiøst."
-            }
+            "name": "TimelineSlider"
         },
         {
             "type": "text",
-            "content": "Overgangen endret samfunnet totalt: Fra å sette barn ut i skogen til å døpe dem, fra hevn til tilgivelse (i teorien), og fra trelldom til frihet. Stavkirker erstattet gudehovene."
+            "title": "Olav Tryggvason: Misjonæren med øksa",
+            "content": "Olav Tryggvason var ingen mild prest. Han gikk hardt til verks. Sagaen forteller at han reiste rundt i landet og ga folk et enkelt valg: 'La deg døpe, eller slåss mot meg.' Siden Olav var Norges beste kriger (han kunne sjonglere sverd og løpe på årene mens skipet rodde!), valgte de fleste dåpen.\n\nDe som nektet, fikk en brutal skjebne. Seidmenn (trollmenn) ble bundet til skjær ved lavvann for å drukne når tidevannet kom. Sta høvdinger fikk glødende kull i halsen. Dette var ikke 'nestekjærlighet', men brutal maktpolitikk. Kristendommen var verktøyet for å knuse de gamle høvdingenes makt og samle Norge under én konge."
         },
         {
-            "type": "component",
-            "name": "TimelineSlider",
-            "props": {
-                "description": "Tidslinje som viser endring i lover og skikker fra 930 til 1200."
-            }
+            "type": "text",
+            "title": "Slaget på Stiklestad 1030",
+            "content": "Olav Haraldsson (den Hellige) fortsatte der Tryggvason slapp. Han innførte Kristenretten på Mostertinget i 1024. Dette forandret alt: Det ble forbudt å sette ut barn i skogen, forbudt å blote, og obligatorisk å begrave døde på kirkegården. Dette provoserte bøndene enormt. De så på det som et brudd på gamle tradisjoner og frihet.\n\nDerfor møtte de ham med en enorm hær på Stiklestad i 1030. Olav tapte så det sang og ble drept. Men i døden vant han. Det skjedde mirakler rundt liket hans (solformørkelse, helbredelser), og snart angret bøndene. Han ble kåret til helgen, og Nidarosdomen ble bygget over graven hans. Plutselig var 'Vikingkongen' blitt 'Norges Evige Konge'."
         },
         {
-            "type": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hvorfor ville kongene innføre kristendommen?",
-                        "options": [
-                            "De likte kirkene",
-                            "For å styrke sin egen makt og samle riket",
-                            "Paven tvang dem",
-                            "Det var billigere"
-                        ],
-                        "answer": "For å styrke sin egen makt og samle riket",
-                        "explanation": "Kristendommen ga kongen en guddommelig rett til å styre og et sentralisert system som erstattet de lokale høvdingene."
-                    },
-                    {
-                        "question": "Hva skjedde på Stiklestad i 1030?",
-                        "options": [
-                            "Norge ble frigjort fra Danmark",
-                            "Olav Haraldsson ble drept i et slag mot bøndene",
-                            "Vikingtiden startet",
-                            "Harald Hårfagre samlet Norge"
-                        ],
-                        "answer": "Olav Haraldsson ble drept i et slag mot bøndene",
-                        "explanation": "Slaget på Stiklestad var det avgjørende oppgjøret mellom den kristne kongemakten og det gamle bondesamfunnet."
-                    }
-                ]
-            }
+            "type": "text",
+            "title": "Hva forandret seg egentlig?",
+            "content": "Kristningen endret det norske samfunnet totalt:\n\n1.  Slutten på slaveriet (trelledom): Kirken likte ikke at kristne eide andre kristne. Det tok tid, men slaveriet forsvant gradvis.\n2.  Skriftkultur: Med prester kom bøker og latin. Norge ble en del av den europeiske bokkulturen.\n3.  Kvinners rettigheter: Dette gikk faktisk nedover. I vikingtiden kunne kvinner skille seg og eie land. Kirken innførte et strengere patriarkat hvor kvinnen skulle tie i forsamlingen.\n4.  En sterk stat: Kirken støttet kongen, og kongen støttet kirken. Sammen var de uovervinnelige."
+        },
+        {
+            "type": "image",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Olav_den_helliges_d%C3%B8d.jpg",
+            "caption": "Olav den Helliges død på Stiklestad. Et militært tap, men en religiøs og politisk seier.",
+            "alt": "Maleri av slaget på stiklestad"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Startet fredelig med handel, avsluttet med tvang og sverd.",
+                "Olav Tryggvason og Olav den Hellige brukte kristendommen til å samle makt.",
+                "Stiklestad 1030 var vendepunktet hvor kirken fikk fotfeste.",
+                "Samfunnet ble mer europeisk: Skrift, kirker og sentral kongemakt."
+            ]
         }
     ],
-    "createdDate": "2025-12-09T23:00:00Z",
-    "lastUpdated": "2025-12-09T23:00:00Z"
+    "concepts": [
+        {
+            "id": "primsigne",
+            "term": "Primsigne",
+            "definition": "En foreløpig velsignelse som gjorde at hedninger kunne handle med kristne."
+        },
+        {
+            "id": "kristenretten",
+            "term": "Kristenretten",
+            "definition": "Lovene som innførte kristendommen som Norges eneste lovlige religion (1024)."
+        },
+        {
+            "id": "helgen",
+            "term": "Helgen",
+            "definition": "En død person som har utført mirakler og er hellig (St. Olav)."
+        }
+    ]
 }

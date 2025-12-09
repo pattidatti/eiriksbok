@@ -8,7 +8,6 @@ import {
     Info,
     ChevronDown,
     ChevronUp,
-    ExternalLink,
     Volume2,
     PauseCircle,
     PlayCircle,
@@ -42,6 +41,8 @@ export type ArticleData = {
     mapData?: any;
     tags?: string[];
     concepts?: any[];
+    topicId?: string;
+    subjectId?: string;
 };
 
 interface InteractiveArticleProps {
@@ -71,8 +72,8 @@ const InteractiveMapPlaceholder: React.FC = () => (
     </div>
 );
 
-const ExpandableSection: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const ExpandableSection: React.FC<{ title: string; children: React.ReactNode; defaultOpen?: boolean }> = ({ title, children, defaultOpen = false }) => {
+    const [isOpen, setIsOpen] = useState(defaultOpen);
 
     return (
         <div className="border-b border-slate-100 last:border-0">
@@ -177,7 +178,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
         const contextEnd = currentRange.end + buffer;
 
         return globalEvents
-            .filter(e => e.id !== event.id.toString())
+            .filter(e => e.id.toString() !== event.id.toString())
             .filter(e => {
                 const eStart = e.startDate;
                 const eEnd = e.endDate || e.startDate;
@@ -197,6 +198,25 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
         const rangeB = parseYearRange(b.year);
         return rangeA.start - rangeB.start;
     });
+
+    // Find related articles in the same topic or subject
+    const relatedArticles = React.useMemo(() => {
+        if (!globalEvents || globalEvents.length === 0) return [];
+
+        return globalEvents.filter(e => {
+            if (e.id.toString() === event.id.toString()) return false;
+
+            // Priority 1: Same Topic
+            if (event.topicId && e.topicId === event.topicId) return true;
+
+            // Priority 2: Same Subject (if no topic defined for article) - optional, maybe just restrict to Topic
+            // For now, let's stick to valid topic/category association if possible.
+            // If topicId is missing, falling back to same category if useful
+            if (!event.topicId && event.category && e.category === event.category) return true;
+
+            return false;
+        }).slice(0, 5); // Limit to 5 related articles
+    }, [event, globalEvents]);
 
     return (
         <div className="min-h-screen pb-20 relative z-20">
@@ -345,13 +365,28 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
 
                                 <div className="mt-8">
                                     <h3 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wider">Fordypning</h3>
-                                    <ExpandableSection title="Kilder og Litteratur">
-                                        <ul className="list-disc pl-4 space-y-2">
-                                            <li>Historisk Tidsskrift, 2023</li>
-                                            <li>Norgeshistorie.no</li>
-                                            <li>Store Norske Leksikon</li>
-                                        </ul>
-                                    </ExpandableSection>
+
+                                    {relatedArticles.length > 0 && (
+                                        <ExpandableSection title="Les mer i samme emne">
+                                            <div className="space-y-2">
+                                                {relatedArticles.map(article => (
+                                                    <Link
+                                                        key={article.id}
+                                                        to={article.link}
+                                                        className="block p-2 rounded-lg hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all text-sm group"
+                                                    >
+                                                        <span className="block font-medium text-slate-700 group-hover:text-indigo-700">
+                                                            {article.title}
+                                                        </span>
+                                                        <span className="text-xs text-slate-400">
+                                                            {article.displayDate}
+                                                        </span>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </ExpandableSection>
+                                    )}
+
                                     {event.tags && event.tags.length > 0 && (
                                         <ExpandableSection title="Relaterte Emner">
                                             <div className="flex flex-wrap gap-2">
@@ -368,16 +403,6 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                                         </ExpandableSection>
                                     )}
                                 </div>
-
-                                <a
-                                    href={event.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center justify-center w-full p-4 mt-8 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl group"
-                                >
-                                    <ExternalLink className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                                    Les mer på SNL
-                                </a>
                             </div>
                         </div>
                     </div>

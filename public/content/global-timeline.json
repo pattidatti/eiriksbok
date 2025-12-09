@@ -984,24 +984,6 @@
     ]
   },
   {
-    "id": "rikssamlingen",
-    "title": "Rikssamlingen",
-    "description": "Harald Hårfagre samler Norge – for kjærlighet eller makt?",
-    "startDate": 865,
-    "endDate": 933,
-    "displayDate": "865-933",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "vikingtiden",
-    "link": "/historie/vikingtiden/rikssamlingen",
-    "tags": [
-      "rikssamlingen",
-      "norge",
-      "konger",
-      "middelalder"
-    ]
-  },
-  {
     "id": "rikssamlingen-sub-0",
     "title": "Harald Hårfagre blir konge",
     "description": "Tar over styringen etter Halvdan Svarte (ca. årstall).",

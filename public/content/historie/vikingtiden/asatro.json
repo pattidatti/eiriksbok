@@ -1,73 +1,80 @@
 {
     "id": "asatro",
-    "title": "Åsatru og Verdensbilde",
-    "subject": "Samfunnsfag",
-    "topic": "Historie",
-    "fact": "Vikingene kalte ikke religionen sin 'Åsatru'. De kalte det 'Den gamle sed' (skikken).",
+    "title": "Åsatru: En verden av lureri og skjebne",
+    "description": "Vikingenes religion handlet ikke om å være snill, men om å overleve i en farlig verden.",
+    "image": "https://images.unsplash.com/photo-1505506874110-6a7a69069a08?auto=format&fit=crop&q=80",
     "tags": [
-        "vikingtiden",
         "religion",
         "mytologi",
-        "kultur"
+        "vikingtiden",
+        "guder",
+        "odin",
+        "tor"
     ],
-    "year": "Før 1000",
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:40:00Z",
+    "layout": "rich",
     "content": [
         {
             "type": "text",
-            "content": "For mennesker i vikingtiden var ikke religion noe man 'trodde på' søndag formiddag. Det var en integrert del av hverdagen. Verden var fylt av vesener: Guder (Æser og Vaner), men også jotner, dverger, alver og landvetter."
-        },
-        {
-            "type": "text",
-            "content": "Sentrale begreper var **Skjebne** (Wyrd/Urd) og **Ære**. Nornene spant livstråden din ved fødselen, og dagen for din død var bestemt. Det eneste du kunne påvirke, var *hvordan* du levde og døde – ditt ettermæle. 'Fe dør, frender dør, man selv dør. Ett vet jeg som aldri dør: Dommen over hver en død.'"
+            "title": "Ikke en 'religion' slik vi kjenner det",
+            "content": "Når vi tenker på religion i dag, tenker vi ofte på hellige bøker, templer, prester og regler for hvem som er 'syndig'. Åsatrua hadde ingenting av dette. De hadde ingen bibel, ingen pave, og ingen 'Ti bud'. Vikingene kalte det ikke engang en religion, men 'Den gamle sed' (skikken).\n\nDet var en praksisbasert tro. Det handlet om å gjøre avtaler med maktene. Du ga noe (et blot, et offer) for å få noe tilbake (god avling, seier i krig, trygg seilas). Gudene var ikke allmektige eller 'gode'. De var mektige, ja, men også lunefulle, farlige og veldig menneskelige. Du tilba dem ikke av kjærlighet, men av respekt – og litt frykt."
         },
         {
             "type": "component",
-            "name": "FactBox",
-            "props": {
-                "content": "Odin ofret seg selv til seg selv ved å henge i verdenstreet Yggdrasil i ni dager for å få visdom om runene."
-            }
+            "name": "PantheonExplorer"
         },
         {
             "type": "text",
-            "content": "I motsetning til kristendommen, som har én allmektig Gud og strenge dogmer, var den gamle seden desentralisert. Det fantes ingen Bibel eller Pave. Hver gård hadde sine egne ritualer (blot) for å sikre god avling og fred."
+            "title": "Yggdrasil og de ni verdener",
+            "content": "I sentrum av alt sto treet Yggdrasil. Dets greiner strakte seg over hele universet. Verden var delt inn i ulike riker:\n\n-   Åsgard: Gudenes hjem, hvor Odin og Tor bodde.\n-   Midgard: Menneskenes verden (vår verden), beskyttet av en mur (laget av Ymes øyevipper!) mot kaoskreftene.\n-   Utgard/Jotunheim: Hjemmet til jotnene (kjempene), kaoskreftene som alltid truet med å ødelegge verden.\n-   Helheim: Dødsriket, styrt av gudinnen Hel.\n\nHele vikingenes verdensbilde handlet om balanse. Gudene var ordenens voktere. Jotnene var kaos. Menneskene levde midt imellom. Hvis balansen tippet, ville Ragnarok – verdens undergang – komme. Derfor var det menneskenes jobb å hjelpe gudene ved å ofre til dem."
         },
         {
-            "type": "component",
-            "name": "PantheonExplorer",
-            "props": {
-                "description": "Utforsk gudene Odin, Tor, Frøya og Loke."
-            }
+            "type": "text",
+            "title": "Skjebnen er sjefen",
+            "content": "Det kanskje viktigste begrepet i norrøn tid var skjebne. Vikingene trodde at tre kvinner – Nornene (Urd, Verdande og Skuld) – satt ved Yggdrasils rot og spant livstråden til hvert eneste menneske. Den dagen du ble født, var dagen du skulle dø allerede bestemt. Ingen gud, ikke engang Odin, kunne endre dette.\n\nDette ga vikingene en enorm dødsforakt. Hvorfor være redd i kamp? Hvis det er din dag å dø, dør du uansett om du gjemmer deg under senga eller stormer fremst i krigen. Da er det bedre å dø stående med ære, for ettermælet (hva folk sier om deg etterpå) er det eneste som lever evig.\n\n> «Fe dør, frender dør, en selv dør på samme vis; men ordets glans skal aldri dø i et ærefullt ettermæle.» (Håvamål)"
         },
         {
-            "type": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hva var viktigst for en viking?",
-                        "options": [
-                            "Å bli rik",
-                            "Ettermælet (hvordan man blir husket)",
-                            "Å leve lengst mulig",
-                            "Å lære å lese"
-                        ],
-                        "answer": "Ettermælet (hvordan man blir husket)",
-                        "explanation": "Fordi døden var uunngåelig, var det viktigste å dø med ære slik at man ble husket godt."
-                    },
-                    {
-                        "question": "Hva het verdenstreet i norrøn mytologi?",
-                        "options": [
-                            "Bøk",
-                            "Yggdrasil",
-                            "Askepott",
-                            "Midgard"
-                        ],
-                        "answer": "Yggdrasil",
-                        "explanation": "Yggdrasil var asketreet som holdt hele universet sammen."
-                    }
-                ]
-            }
+            "type": "text",
+            "title": "Blot og hverdagstro",
+            "content": "Religionen var en del av hverdagen. Man blotet (ofret) til alvene under dørstokken for å beskytte huset. Man helte øl på ilden til ørnene. Store offringer skjedde ved jevndøgn og solverv (jul). Et blot var en fest hvor man drepte dyr og spiste kjøttet sammen med gudene (symbolsk). Blodet ble stenket på deltakerne for å gi dem styrke.\n\nDa kristendommen kom med sine kirker, prester og forbud mot hestekjøtt, var det et kultursjokk. Kristendommen krevde underkastelse og ydmykhet. Åsatru krevde mot og handling. Det var to fundamentalt forskjellige måter å være menneske på."
+        },
+        {
+            "type": "image",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/9/90/Odin%2C_den_blindene_oned.jpg",
+            "caption": "Odin ofret sitt eget øye for visdom. Kunnskap kostet alltid noe i den norrøne verden.",
+            "alt": "Tegning av Odin"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Ingen hellige bøker eller dogmer, men 'skikker' og handlinger.",
+                "Polyteistisk: Mange guder med ulike oppgaver.",
+                "Skjebnetro: Dødsdagen er bestemt ved fødselen.",
+                "Balanse mellom Orden (Guder) og Kaos (Jotner)."
+            ]
         }
     ],
-    "createdDate": "2025-12-09T23:00:00Z",
-    "lastUpdated": "2025-12-09T23:00:00Z"
+    "concepts": [
+        {
+            "id": "blot",
+            "term": "Blot",
+            "definition": "Offergave eller fest for å blidgjøre gudene."
+        },
+        {
+            "id": "nornene",
+            "term": "Nornene",
+            "definition": "De tre skjebnegudinnene som spinner livstråden."
+        },
+        {
+            "id": "ragnarok",
+            "term": "Ragnarok",
+            "definition": "Verdens undergang, kampen mellom guder og jotner."
+        },
+        {
+            "id": "ettermale",
+            "term": "Ettermæle",
+            "definition": "Ryktet ditt som lever videre etter at du er død."
+        }
+    ]
 }

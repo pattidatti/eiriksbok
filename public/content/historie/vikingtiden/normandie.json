@@ -1,66 +1,70 @@
 {
     "id": "normandie",
-    "title": "Normandie: Fra Viking til Ridder",
-    "subject": "Samfunnsfag",
-    "topic": "Historie",
-    "fact": "Wilhelm Erobreren, som erobret England i 1066, var direkte etterkommer av vikinghøvdingen Rollo.",
+    "title": "Normandie: Fra Vikinger til Riddere",
+    "description": "Hvordan en gjeng norske og danske vikinger ble Europas mektigste riddere.",
+    "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
     "tags": [
-        "vikingtiden",
         "frankrike",
-        "normandie",
-        "assimilerering"
+        "vikingtiden",
+        "riddere",
+        "rollo",
+        "erobring"
     ],
-    "year": "911",
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:50:00Z",
+    "layout": "rich",
     "content": [
         {
             "type": "text",
-            "content": "Vikingene herjet Frankerriket brutalt og beleiret Paris flere ganger. Den franske kongen, Karl den Enfoldige, så ingen annen utvei enn å inngå en handel med vikinghøvdingen Rollo (som kanskje var norske Gange-Rolv)."
+            "title": "Høvdingen som ikke ville knele",
+            "content": "I 911 var den frankiske kongen Karl den Enfoldige (et kallenavn han kanskje fortjente) desperat. Vikinger herjet opp og ned elven Seinen og truet Paris stadig vekk. Høvdingen deres var en gigant ved navn Rollo (Gange-Rolv). Han var så stor at ingen hest kunne bære ham, så han måtte gå – derav navnet.\n\nKongen gjorde en avtale med Rollo: 'Hvis du beskytter munningen av Seinen mot andre vikinger, skal du få landet der og min datter til kone.' Rollo sa ja. Men da seremonien skulle utføres, krevde skikken at Rollo skulle kysse kongens fot. Rollo nektet å bøye seg. I stedet beordret han en av sine menn til å gjøre det. Mannen grep kongens fot og løftet den opp til munnen sin – så kongen veltet bakover! Det var en tydelig beskjed: Vi er her på våre egne vilkår."
         },
         {
             "type": "text",
-            "content": "I 911 ble avtalen inngått ved Saint-Clair-sur-Epte: Rollo fikk et stort landområde ved kysten mot at han lot seg døpe og beskyttet Frankrike mot *andre* vikinger. Dette området ble kalt 'Nordmennenes land' – Normandie."
+            "title": "Verdens raskeste integrering",
+            "content": "Landet Rollo fikk ble kalt Normandie – 'Nordmennenes land'. Det som skjedde videre er nesten utrolig. I løpet av bare et par generasjoner sluttet vikingene å snakke norrønt. De lærte seg fransk, ble kristne, og begynte å bygge steinslott og kirker i stedet for trehus.\n\nMen de beholdt vikingenes krigerånd og eventyrlyst. De kombinerte vikingenes brutalitet og dristighet med frankernes hestekrigføring (kavaleri). Resultatet ble ridderen. Normannerne utviklet den taktikken som skulle dominere europeisk krigføring i 500 år: Det tunge sjokkangrepet med lanse til hest."
         },
         {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "content": "På bare noen få generasjoner glemte normannerne det norrøne språket og ble franske. De byttet ut skip med hester og ble middelalderens fremste riddere."
-            }
+            "type": "image",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Rollo_statue_Rouen.jpg",
+            "caption": "Statue av Gange-Rolv (Rollo) i Rouen. Grunnleggeren av Normandie.",
+            "alt": "Statue av Rollo"
         },
         {
             "type": "text",
-            "content": "I 1066, over hundre år senere, krysset Rollos tippoldebarn Wilhelm Kanalen og erobret England. Slik endte vikingtiden paradoksalt nok med at 'franske vikinger' tok makten i England."
+            "title": "Erobrerne av verden",
+            "content": "Normannerne satt ikke stille i Frankrike. De var kanskje blitt kristne og snakket fransk, men de var fortsatt vikinger i hjertet. De ville ha mer.\n\n-   1066: Vilhelm Erobreren (Rollos tipp-tipp-oldebarn) invaderte England, drepte kongen og erstattet hele den engelske adelen med normannere. Fransk ble overklassespråket i England i 300 år.\n-   Italia og Sicilia: Andre normannere dro til Middelhavet. Der slåss de mot arabere og bysantinere og grunnla sitt eget kongerike på Sicilia. De var fryktet i hele Middelhavet.\n-   Korstogene: Da korstogene startet, var det ofte normanniske riddere som ledet an i fronten.\n\nIronisk nok var det etterkommere av vikinger (normannerne) som til slutt knuste vikingtiden ved Stamford Bridge og Hastings i 1066."
         },
         {
-            "type": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hva måtte Rollo gjøre for å få Normandie?",
-                        "options": [
-                            "Betale masse gull",
-                            "La seg døpe og beskytte Frankrike",
-                            "Gi fra seg sverdene sine",
-                            "Lære å lage vin"
-                        ],
-                        "answer": "La seg døpe og beskytte Frankrike",
-                        "explanation": "Avtalen var land mot beskyttelse og konvertering til kristendommen."
-                    },
-                    {
-                        "question": "Hvem var Wilhelm Erobreren?",
-                        "options": [
-                            "En engelsk konge",
-                            "Rollos etterkommer som erobret England i 1066",
-                            "En tysk keiser",
-                            "Oppdageren av Amerika"
-                        ],
-                        "answer": "Rollos etterkommer som erobret England i 1066",
-                        "explanation": "Wilhelm var hertug av Normandie og etterkommer av vikingene som bosatte seg der."
-                    }
-                ]
-            }
+            "type": "text",
+            "title": "Arven etter Normandie",
+            "content": "Normandie viser hvor tilpasningsdyktige vikingene var. De var ikke bare ødeleggere, men statsbyggere. De tok det beste fra kulturene de møtte og gjorde det til sitt eget. Engelske slott, det engelske språket (som er en miks av tysk/norsk og fransk), og hele ridderkulturen har røtter tilbake til Rollo og hans menn som slo seg ned ved Seinens munning."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Rollo fikk Normandie i 911 mot å beskytte Paris.",
+                "Vikingene ble super-integrert: Ble franske og kristne på rekordtid.",
+                "Utviklet ridderkulturen og tungt kavaleri.",
+                "Erobret England i 1066 og Sicilia senere."
+            ]
         }
     ],
-    "createdDate": "2025-12-09T23:00:00Z",
-    "lastUpdated": "2025-12-09T23:00:00Z"
+    "concepts": [
+        {
+            "id": "normanner",
+            "term": "Normanner",
+            "definition": "Etterkommere av vikinger som bosatte seg i Nord-Frankrike."
+        },
+        {
+            "id": "kavaleri",
+            "term": "Kavaleri",
+            "definition": "Soldater som kjemper til hest (riddere)."
+        },
+        {
+            "id": "vilhelm-erobreren",
+            "term": "Vilhelm Erobreren",
+            "definition": "Hertugen av Normandie som ble konge av England i 1066."
+        }
+    ]
 }

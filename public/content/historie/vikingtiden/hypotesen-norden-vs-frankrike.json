@@ -1,73 +1,84 @@
 {
     "id": "hypotesen-norden-vs-frankrike",
-    "title": "Hypotesen: Norden vs Frankrike",
-    "subject": "Samfunnsfag",
-    "topic": "Historie",
-    "fact": "Visste du at Karl den Store massakrerte 4500 saksere ved Verden i 782 fordi de nektet å la seg kristne?",
+    "title": "Hypotesen: Norden vs. Frankrike",
+    "description": "Var vikingtiden et desperat selvforsvar mot en kristen supermakt?",
+    "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
     "tags": [
         "vikingtiden",
+        "hypotese",
         "krig",
-        "politikk",
-        "kristendom"
+        "karl-den-store",
+        "dannevirke"
     ],
-    "year": "772-814",
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:30:00Z",
+    "layout": "rich",
     "content": [
         {
             "type": "text",
-            "content": "Tradisjonelt har vi lært at vikingtiden startet som et plutselig 'utbrudd' av rovdyr fra nord som angrep uskyldige klostre. Men moderne historikere (som Torgrim Titlestad) kaster lys over en annen mulighet: Var vikingtoktene egentlig et preventivt selvforsvar?"
-        },
-        {
-            "type": "text",
-            "content": "På 700-tallet utvidet Frankerriket seg voldsomt under Karl den Store. Han førte en brutal krig mot sakserne (naboene til danene i sør) i over 30 år. Målet var total underkastelse og tvangskristning. Flyktninger strømmet nordover med skrekkhistorier om 'Hvitekrist' som en krigsgud som krevde total lydighet."
+            "title": "En brutal start på en ny æra",
+            "content": "Året er 793. Munker på den hellige øya Lindisfarne løper for livet mens langskip glir opp i fjæresteinene. Dette angrepet markerer starten på vikingtiden i historiebøkene våre. Men hvorfor skjedde det akkurat da? Var det bare fordi nordboerne plutselig fant ut at de likte gull og slaver? Eller lå det noe mørkere og mer politisk bak?\n\nHistorikere har lenge forklart vikingtiden med befolkningsvekst, bedre skipsteknologi (kjølen gjorde havseilas mulig) og eventyrlyst. Men en nyere – og ganske provoserende – hypotese snur hele bildet på hodet: Vikingangrepene kan ha vært preventiv krigføring. Et desperat selvforsvar mot en aggressiv, kristen supermakt i sør som truet med å utslette hele den norrøne levemåten."
         },
         {
             "type": "component",
-            "name": "FactBox",
-            "props": {
-                "content": "Danske kong Godfred bygget 'Dannevirke' – en enorm forsvarsvoll tvers over Jylland – nettopp for å stoppe Frankerne."
-            }
+            "name": "ConflictMap"
         },
         {
             "type": "text",
-            "content": "I dette lyset kan angrepet på Lindisfarne (793) og andre klostre sees som strategiske angrep. Klostrene var ikke bare hellige steder, men bankhvelv som finansierte Karl den Stores hærer. Ved å angripe dem, rammet vikingene fiendens lommebok. Det var en sivilisasjonskrig: 'Røde Tor' mot 'Hvitekrist'."
+            "title": "Karl den Store: Guds kriger",
+            "content": "For å forstå vikingene, må vi se på hva som skjedde sør for Danmark. På slutten av 700-tallet hadde Karl den Store (Charlemagne) samlet store deler av Europa under Frankerriket. Han hadde ett klart mål: Et kristent imperium styrt av Guds lover. Og han hadde null toleranse for hedninger.\n\nSaksere, et germansk folk som bodde i dagens Nord-Tyskland (rett sør for Danmark), nektet å la seg kristne. Karls respons var nådeløs. Gjennom 30 år med blodig krigføring drepte, tvangskristnet og deporterte han saksere. Det hele kulminerte i Massakren i Verden i 782, hvor 4500 saksiske krigere ble halshugget på én dag fordi de nektet å overgi seg til Kristus."
         },
         {
-            "type": "component",
-            "name": "ConflictMap",
-            "props": {
-                "description": "Kart som viser Frankerrikets ekspansjon og den danske forsvarslinjen."
-            }
+            "type": "text",
+            "title": "Sjokkbølger mot nord",
+            "content": "Tenk deg at du er en dansk høvding. Du hører rykter om at naboene dine i sør blir slaktet ned for sin tro. Flyktninger strømmer over grensen med skrekkhistorier om 'Hvitekrist' og hans sverd. For nordboerne var dette neppe en 'kjærlighetsreligion'. Det var en ideologisk krigserklæring.\n\nKong Godfred av Danmark forsto tegningen. Han visste at Norden var neste mann på listen. Frankerne hadde allerede begynt å sende misjonærer nordover – ofte som spioner. Godfred svarte med å bygge ut Dannevirke, en enorm forsvarsvoll tvers over Jylland. Dette var ikke et lite gjerde, men Nordens største byggverk, konstruert for å stoppe en hær."
         },
         {
-            "type": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hva var hovedgrunnen til Karl den Stores krig mot sakserne?",
-                        "options": [
-                            "Han ville ha gullet deres",
-                            "Han ville tvinge dem til å bli kristne og en del av riket",
-                            "De hadde stjålet hestene hans",
-                            "Han ville lære dem å lese"
-                        ],
-                        "answer": "Han ville tvinge dem til å bli kristne og en del av riket",
-                        "explanation": "Det var en ideologisk krig for å utvide kristendommen og Frankerrikets makt."
-                    },
-                    {
-                        "question": "Hva kan ha vært en strategisk grunn til å angripe klostre?",
-                        "options": [
-                            "De hadde best øl",
-                            "Munkene var gode krigere",
-                            "De finansierte fiendens (Frankerrikets) krigføring",
-                            "Vikingene likte arkitekturen"
-                        ],
-                        "answer": "De finansierte fiendens (Frankerrikets) krigføring",
-                        "explanation": "Klostrene var svært rike og fungerte som logistikksentre for kristningsprosjektet."
-                    }
-                ]
-            }
+            "type": "image",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Danevirke_drawing.jpg",
+            "caption": "Dannevirke: Nordens 'kinesiske mur' mot sør. Bygget for å holde frankerne ute.",
+            "alt": "Tegning av Dannevirke festningsverk"
+        },
+        {
+            "type": "text",
+            "title": "Angrep er det beste forsvar",
+            "content": "Ifølge denne hypotesen var ikke angrepet på Lindisfarne et tilfeldig ran. Det var et strategisk nålestikk mot kristendommens hjerte. Ved å angripe klostre (som var ubeskyttede 'penbinger' fulle av rikdom, men også ideologiske sentre), sendte vikingene en tydelig beskjed: 'Guden deres kan ikke beskytte dere.'\n\nNår vikingene seilte opp Seinen og truet Paris, eller herjet kysten av England, tvang de de kristne kongene til å bruke ressurser på forsvar hjemme, i stedet for å marsjere nordover. Det var en klassisk geriljakrig. Vikingene kunne slå til hvor som helst, når som helst, og forsvinne før den tunge frankiske hæren (kavaleri med rustninger) rakk å reagere."
+        },
+        {
+            "type": "text",
+            "title": "Var det organisert?",
+            "content": "Tradisjonelt har vi sett på vikinger som smågrupper som handlet uavhengig. Men koordineringen av store flåter – som 'Den store hedenske hæren' som invaderte England i 865 – tyder på en sentral ledelse og politisk vilje.\n\nArkeologiske funn som Kanhave-kanalen på Samsø (bygget i 726) viser at nordboerne var i stand til å organisere enorme prosjekter lenge før Lindisfarne. Dette krever en konge eller sterk sentralmakt. Hypotesen antyder at 'vikingtiden' var en statlig eller halv-statlig militærrespons på en eksistensiell trussel."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Frankerrikets ekspansjon presset grensene mot Danmark.",
+                "Massakren av saksere skapte frykt og hat mot kristendommen.",
+                "Dannevirke ble forsterket som et direkte forsvar mot sør.",
+                "Vikingtoktene fungerte som avskrekking og 'mot-terror'."
+            ]
+        },
+        {
+            "type": "text",
+            "title": "Hvorfor er dette viktig?",
+            "content": "Denne måten å se vikingtiden på endrer vikingene fra å være 'primitive barbarer' til å bli rasjonelle, politiske aktører som kjempet for sin overlevelse. Det setter også vikingtiden inn i en større europeisk sammenheng: Det var et sammenstøt mellom to sivilisasjoner – det gamle, desentraliserte stammesamfunnet i nord mot det nye, sentraliserte føydalriket i sør.\n\nTapte de til slutt? Ja. Men de holdt stand i 250 år, og i prosessen endret de Europa for alltid."
         }
     ],
-    "createdDate": "2025-12-09T23:00:00Z",
-    "lastUpdated": "2025-12-09T23:00:00Z"
+    "concepts": [
+        {
+            "id": "preventiv-krig",
+            "term": "Preventiv krig",
+            "definition": "Krigshandling utført for å komme et forventet angrep i forkjøpet."
+        },
+        {
+            "id": "saksere",
+            "term": "Saksere",
+            "definition": "Germansk folkegruppe sør for Danmark som kjempet mot Karl den Store."
+        },
+        {
+            "id": "dannevirke",
+            "term": "Dannevirke",
+            "definition": "Forsvarsvoll i Sør-Jylland."
+        }
+    ]
 }

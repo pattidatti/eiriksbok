@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import type { Concept, Quote } from '../types';
+import { ArrowRight } from 'lucide-react';
+import type { Concept, Quote, GlobalTimelineEvent } from '../types';
 import { ConceptCard } from './ConceptCard';
 
 interface LessonSidebarProps {
@@ -9,9 +10,10 @@ interface LessonSidebarProps {
     quote?: Quote;
     relatedLessons?: { title: string; url: string }[];
     relatedTitle?: string;
+    timelineEvents?: GlobalTimelineEvent[];
 }
 
-export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparisonTags, quote, relatedLessons, relatedTitle }) => {
+export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparisonTags, quote, relatedLessons, relatedTitle, timelineEvents }) => {
     return (
         <div className="space-y-8">
             {/* Quote */}
@@ -83,6 +85,39 @@ export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparis
                             </li>
                         ))}
                     </ul>
+                </div>
+            )}
+
+            {/* Timeline Context - Moved to bottom */}
+            {timelineEvents && timelineEvents.length > 0 && (
+                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 relative overflow-hidden">
+                    {/* Decorative line */}
+                    <div className="absolute top-0 bottom-0 left-9 w-0.5 bg-slate-200" />
+
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-6 pl-1 relative z-10 bg-slate-50 w-full">
+                        Tidslinje
+                    </h3>
+
+                    <div className="space-y-6 relative z-10">
+                        {timelineEvents.map((event, i) => (
+                            <div key={event.id} className="flex gap-4 group cursor-default">
+                                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-[10px] font-bold text-slate-500 mt-1 shadow-sm group-hover:border-indigo-400 group-hover:text-indigo-600 transition-colors">
+                                    {i + 1}
+                                </div>
+                                <div>
+                                    <span className="text-xs font-bold text-slate-400 block mb-0.5">{event.displayDate}</span>
+                                    <h4 className="text-sm font-bold text-slate-700 leading-tight group-hover:text-indigo-700 transition-colors">
+                                        {event.title}
+                                    </h4>
+                                    {event.link && (
+                                        <Link to={event.link} className="text-[10px] text-indigo-500 flex items-center gap-1 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            Les mer <ArrowRight size={10} />
+                                        </Link>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             )}
         </div>

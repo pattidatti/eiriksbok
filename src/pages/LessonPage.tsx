@@ -348,6 +348,26 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                             concepts={lesson.concepts}
                             comparisonTags={lesson.comparison_tags}
                             quote={lesson.quote}
+                            timelineEvents={globalTimelineEvents
+                                .filter(e => {
+                                    // Normalize topicId to handle case sensitivity in URLs
+                                    const currentTopic = topicId?.toLowerCase();
+
+                                    // Special override for Viking Age to show full context (500-1100)
+                                    if (currentTopic === 'vikingtiden') {
+                                        return e.startDate >= 500 && e.startDate <= 1100;
+                                    }
+
+                                    // Default filtering logic
+                                    // Match by subject AND (same topic OR sharing tags)
+                                    return e.subjectId === subjectId && (
+                                        e.topicId === topicId ||
+                                        (lesson.tags && e.tags?.some(t => lesson.tags?.includes(t)))
+                                    );
+                                })
+                                .sort((a, b) => a.startDate - b.startDate)
+                                .slice(0, 10) // Increased limit to show full eras
+                            }
                             relatedLessons={manifest?.subjects
                                 .find(s => s.id === subjectId)
                                 ?.topics.find(t => t.id === topicId)

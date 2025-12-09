@@ -1,66 +1,79 @@
 {
     "id": "karl-den-store",
-    "title": "Karl den Store",
-    "subject": "Samfunnsfag",
-    "topic": "Historie",
-    "fact": "Karl den Store (Charlemagne) kalles ofte 'Europas far' fordi han samlet store deler av Vest-Europa.",
+    "title": "Karl den Store: Europas Far",
+    "description": "Mannen som formet middelalderens Europa og ble vikingenes erkefiende.",
+    "image": "https://images.unsplash.com/photo-1549144889-1052d9a609d5?auto=format&fit=crop&q=80",
     "tags": [
-        "middelalder",
+        "historie",
         "frankerriket",
-        "politikk",
-        "keiser"
+        "middelalder",
+        "keiser",
+        "krig"
     ],
-    "year": "742-814",
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:35:00Z",
+    "layout": "rich",
     "content": [
         {
             "type": "text",
-            "content": "Karl den Store var konge av Frankerne og ble kronet til Keiser av Romerne i år 800. Han var en gigant både fysisk og politisk, og hans visjon var å gjenskape Romerrikets storhet, men som et kristent imperium."
-        },
-        {
-            "type": "text",
-            "content": "Han innførte **føydalisme**, et pyramideformet samfunnssystem der kongen eide alt land og delte det ut til lojale grever og hertuger i bytte mot soldater. Dette stod i sterk kontrast til den nordiske modellen, hvor frie bønder eide sin egen jord og møttes på Tinget for å dømme."
-        },
-        {
-            "type": "text",
-            "content": "For nordboerne representerte Karl den Store en eksistensiell trussel. Han respekterte ikke gamle skikker eller religionsfrihet. Valget han ga sine naboer var ofte: 'La deg døpe, eller dø'. Dette skapte en dyp frykt og aggresjon i Norden, som kan ha utløst vikingtiden."
+            "title": "Keiseren av Vesten",
+            "content": "Første juledag, år 800, knelte kong Karl (Charlemagne) i Peterskirken i Roma. Da han reiste seg, plasserte paven en krone på hodet hans og utropte ham til Keiser. Det var et sjokk for verden. Det hadde ikke vært en keiser i vesten siden Romerriket falt 300 år tidligere.\n\nKarl den Store styrte Frankerriket, et enormt område som dekket dagens Frankrike, Tyskland, Italia, Belgia og Nederland. Han var en gigant, både bokstavelig talt (han var uvanlig høy for sin tid) og historisk. Han innførte felles lover, felles valuta (sølvpund, som vikingene kopierte), og fremmet utdanning gjennom 'den karolingiske renessanse'. Men for sine naboer var han en marerittaktig erobrer."
         },
         {
             "type": "component",
-            "name": "FeudalPyramid",
-            "props": {
-                "description": "Interaktiv pyramide som viser føydalsystemet vs. tingsystemet."
-            }
+            "name": "FeudalPyramid"
         },
         {
-            "type": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hvilket system innførte Karl den Store?",
-                        "options": [
-                            "Demokrati",
-                            "Føydalisme",
-                            "Kommunisme",
-                            "Anarki"
-                        ],
-                        "answer": "Føydalisme",
-                        "explanation": "Føydalismen var et hierarkisk system basert på landeierskap og lojalitet."
-                    },
-                    {
-                        "question": "Hvorfor fryktet vikingene Karl den Store?",
-                        "options": [
-                            "Han var veldig høy",
-                            "Han ville ta fra dem jorda og friheten (og religionen)",
-                            "Han stjal skipene deres",
-                            "Han laget dårlig mat"
-                        ],
-                        "answer": "Han ville ta fra dem jorda og friheten (og religionen)",
-                        "explanation": "Karl den Stores ekspansjon truet både bøndenes eiendomsrett og deres gamle tro."
-                    }
-                ]
-            }
+            "type": "text",
+            "title": "Føydalismen: En pyramide av makt",
+            "content": "Karl trengte en måte å styre sitt enorme rike på uten moderne kommunikasjon. Løsningen ble føydalismen. Systemet var enkelt, men strengt:\n\n1.  Gud var på toppen.\n2.  Keiseren fikk sin makt direkte fra Gud.\n3.  Adelen (Hertuger og Grever) fikk landområder av keiseren. Til gjengjeld måtte de sverge troskap og stille med soldater (riddere) når det var krig.\n4.  Bøndene var nederst. De fleste var livegne – de eide ikke sin egen kropp engang, men fulgte jorda. De jobbet gratis for adelen i bytte mot 'beskyttelse'.\n\nDette systemet var ekstremt effektivt for krigføring. Karl kunne mobilisere store hærer av pansrede ryttere (forløperen til ridderen) raskt. For vikingene i nord, hvor 'alle frie menn' hadde rett til å si sin mening på Tinget, var dette systemet helt fremmed og skremmende. Det representerte slaveri."
+        },
+        {
+            "type": "text",
+            "title": "Sverdet og Korset",
+            "content": "Karls utenrikspolitikk var enkel: Konverter eller dø. Han så det som sin gudgitte oppgave å kristne hedningene. Hans kriger mot sakserne (772–804) var spesielt brutale. Han forbød hedenske skikker, brente hellige trær (som Irminsul, saksernes versjon av Yggdrasil), og innførte dødsstraff for å spise kjøtt i fasten eller kremere døde.\n\nDet var denne brutaliteten som nådde ørene til de norrøne høvdingene. Da Karls rike til slutt nådde elven Eider (grensen til Danmark), sto to verdener ansikt til ansikt. Det var ikke bare en grense mellom to land, men mellom to tidsaldre og to virkelighetsoppfatninger."
+        },
+        {
+            "type": "image",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Charlemagne_and_Pope_Adrian_I.jpg",
+            "caption": "Karl den Store og Paven. En allianse mellom sverd og kors som dominerte Europa.",
+            "alt": "Maleri av Karl den Store"
+        },
+        {
+            "type": "text",
+            "title": "Arven etter Karl",
+            "content": "Karl døde i 814. Sønnen Ludvig den Fromme arvet riket, men klarte ikke å holde det samlet. Etter Ludvigs død ble riket delt i tre: Det som skulle bli Frankrike i vest, Tyskland i øst, og en midtrems som alle kriget om.\n\nDenne splittelsen var gull verdt for vikingene. I stedet for å møte en samlet supermakt, kunne de nå spille de frankiske brødrene ut mot hverandre. De tok betalt av den ene kongen for å ikke angripe ham, men angripe broren i stedet. Dette ble kimen til de enorme summene med Danegeld (beskyttelsespenger) som fløt nordover."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Samlet Vest-Europa for første gang siden Romerriket.",
+                "Innførte føydalismen som samfunnssystem.",
+                "Kristnet sakserne med ekstrem vold.",
+                "Hans død i 814 åpnet døren for de store vikingangrepene."
+            ]
         }
     ],
-    "createdDate": "2025-12-09T23:00:00Z",
-    "lastUpdated": "2025-12-09T23:00:00Z"
+    "concepts": [
+        {
+            "id": "foydalisme",
+            "term": "Føydalisme",
+            "definition": "Samfunnssystem basert på å bytte land mot militærtjeneste."
+        },
+        {
+            "id": "keiser",
+            "term": "Keiser",
+            "definition": "Eneeveldig hersker over et imperium. Rang over konge."
+        },
+        {
+            "id": "danegeld",
+            "term": "Danegeld",
+            "definition": "Penger betalt til vikinger for at de ikke skal angripe."
+        },
+        {
+            "id": "livegen",
+            "term": "Livegen",
+            "definition": "Bonde som ikke eier seg selv, men følger jorden."
+        }
+    ]
 }

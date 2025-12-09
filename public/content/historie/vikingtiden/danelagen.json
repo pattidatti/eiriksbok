@@ -1,73 +1,74 @@
 {
     "id": "danelagen",
-    "title": "Danelagen: Vikingene i England",
-    "subject": "Samfunnsfag",
-    "topic": "Historie",
-    "fact": "Mange engelske bynavn som slutter på -by (som Derby og Whitby) kommer fra norrønt og betyr 'gård' eller 'landsby'.",
+    "title": "Danelagen: Da England var norsk",
+    "description": "Historien om hvordan vikingene erobret halve England og nesten vant alt.",
+    "image": "https://images.unsplash.com/photo-1455620611406-966dd68cfd5d?auto=format&fit=crop&q=80",
     "tags": [
-        "vikingtiden",
         "england",
         "krig",
-        "kultur"
+        "vikingtiden",
+        "språk",
+        "alfred-den-store"
     ],
-    "year": "865-954",
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:45:00Z",
+    "layout": "rich",
     "content": [
         {
             "type": "text",
-            "content": "I 865 kom 'Den store hedningehæren' til England. Dette var ikke bare et tokt, men en invasjon for å erobre land. De inntok York (Jorvik) og la under seg store deler av Nord- og Øst-England."
+            "title": "Den store hedenske hæren",
+            "content": "I 865 skjedde det noe nytt. Vikingene kom ikke lenger bare for å plyndre og dra hjem. De kom for å bli. En enorm flåte, kjent i engelske krøniker som 'The Great Heathen Army', landet i East Anglia. De var ledet av brødrene Ivar Beinlause, Halvdan og Ubbe – angivelig sønner av legenden Ragnar Lodbrok.\n\nI løpet av ti år knuste de kongerikene Northumbria, East Anglia og Mercia. Kongene ble drept (noen sier med den forferdelige 'blodørn'-metoden, selv om historikere er usikre på om den er ekte). Bare ett kongerike sto igjen: Wessex, helt sør i England."
         },
         {
             "type": "text",
-            "content": "Den eneste kongen som klarte å stå imot, var Alfred den Store av Wessex. Etter harde kamper inngikk han en avtale med vikingkongen Guthrum. England ble delt i to: Alfreds rike i sør, og 'Danelagen' i nordøst, hvor vikingenes lover gjaldt."
+            "title": "Alfred den Store og delingen av England",
+            "content": "Kongen av Wessex, Alfred, var nær ved å tape alt. Han måtte en periode gjemme seg i myrene spiste brente kaker (ifølge legenden). Men han klarte å samle troppene og vinne et avgjørende slag ved Edington i 878. Vikinghøvdingen Guthrum måtte overgi seg og la seg døpe.\n\nResultatet ble en fredsavtale som delte England i to:\n1.  Wessex i sør-vest (styrt av engelskmennene).\n2.  Danelagen (The Danelaw) i nord-øst (styrt av vikingene/danene).\n\nI Danelagen gjaldt vikingenes lover. Her bosatte tusenvis av skandinaver seg. De var ikke bare krigere, men bønder, handelsmenn og håndverkere. Byen Jorvik (York) vokste til å bli en av Europas største og rikeste handelsbyer under vikingstyre."
         },
         {
             "type": "component",
-            "name": "FactBox",
-            "props": {
-                "content": "Vikingtiden i England endte med Knut den Mektige, som var konge over både England, Danmark og Norge (Nordsjøriket)."
-            }
+            "name": "LanguageMixer"
         },
         {
             "type": "text",
-            "content": "Vikingene påvirket det engelske språket enormt. De tok med seg dagligdagse ord som gjør at engelsk og norsk fortsatt ligner. Ordene for 'egg', 'kniv', 'vindu', 'søster' og 'ta' (take) kommer fra norrønt."
+            "title": "Sproget ditt er fra vikingtiden",
+            "content": "Vikingenes største arv i England er ikke brente klostre, men sproget. Fordi angelsaksisk (gammelengelsk) og norrønt var ganske like språk, smeltet de sammen i Danelagen. Engelskmennene begynte å bruke de enkle norrøne ordene fordi de var lettere.\n\nOrdene forteller oss hva vikingene drev med:\n-   Krig: Gun, slaughter, berserk.\n-   Samfunn: Law, by-law, husting, outlaw.\n-   Hverdag: Egg, knife, vindauge (window), husband, sister, take, give, die.\n\nSelv pronomenet 'they' (de) er lånt fra norrønt! Uten vikingene ville engelsk hørtes veldig annerledes ut – mye mer som tysk."
         },
         {
-            "type": "component",
-            "name": "LanguageMixer",
-            "props": {
-                "description": "Interaktiv modul som viser engelske ord med norrønt opphav."
-            }
+            "type": "image",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/a/ae/England_878.jpg",
+            "caption": "England i 878. Det lilla området er Danelagen, styrt av vikingene.",
+            "alt": "Kart over England i 878"
         },
         {
-            "type": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hva var Danelagen?",
-                        "options": [
-                            "En type mjød",
-                            "Området i England hvor vikingenes lover gjaldt",
-                            "Navnet på vikingenes skip",
-                            "En fest på Tinget"
-                        ],
-                        "answer": "Området i England hvor vikingenes lover gjaldt",
-                        "explanation": "Danelagen var den delen av England som ble styrt av danene (vikingene) etter avtalen med kong Alfred."
-                    },
-                    {
-                        "question": "Hvilket av disse ordene på engelsk kommer fra norrønt?",
-                        "options": [
-                            "Computer",
-                            "Window (Vind-øye)",
-                            "Table",
-                            "Car"
-                        ],
-                        "answer": "Window (Vind-øye)",
-                        "explanation": "Window kommer fra norrønt 'vindauga' (vind-øye)."
-                    }
-                ]
-            }
+            "type": "text",
+            "title": "Slutten på Danelagen",
+            "content": "Selv om engelske konger gradvis gjenerobret Danelagen på 900-tallet, beholdt området sitt særpreg lenge. Folk fortsatte å ha norrøne navn og følge norrøne skikker. Og vikingene kom tilbake. Tidlig på 1000-tallet erobret danske konger (Svein Tjugeskjegg og Knut den Mektige) hele England.\n\nKnut den Mektige styrte et 'Nordsjø-imperium' som besto av England, Danmark og Norge. I en kort periode var England midtpunktet i et skandinavisk storrike. Det endte definitivt i 1066, da Harald Hardråde tapte ved Stamford Bridge – bare dager før de 'franske vikingene' (normannerne) erobret England for godt."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Vikingene gikk fra plyndring til erobring og bosetting.",
+                "England ble delt i to: Wessex og Danelagen.",
+                "York (Jorvik) ble en vikingmetropol.",
+                "Engelsk språk er stappfullt av norrøne låneord."
+            ]
         }
     ],
-    "createdDate": "2025-12-09T23:00:00Z",
-    "lastUpdated": "2025-12-09T23:00:00Z"
+    "concepts": [
+        {
+            "id": "danelagen",
+            "term": "Danelagen",
+            "definition": "Området i Nord- og Øst-England hvor vikingenes lover gjaldt."
+        },
+        {
+            "id": "angelsaksere",
+            "term": "Angelsaksere",
+            "definition": "Folkegruppen som bodde i England før vikingene kom."
+        },
+        {
+            "id": "nordsjoimperiet",
+            "term": "Nordsjøimperiet",
+            "definition": "Riket til Knut den Mektige (England, Danmark, Norge)."
+        }
+    ]
 }

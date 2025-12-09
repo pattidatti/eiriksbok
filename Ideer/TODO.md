@@ -50,6 +50,9 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 - [x] Global timeline. Sjekke duplikater og fjerne dem. 
 - [ ] Øving: retorikk. Hvordan unlocke lvl 2 etc? Legge til flere eksempler. 
 - [ ] Admin inventory: Skjekke om artikkelen har quiz tilknyttet seg. Skjekke hvorfor f.eks. 30-årskrigen er betegnet med 0 ord
+- [ ] Vikingtiden: Fikse timeline sidebar. 
+- [ ] Vikingtiden: Avsnitt med siffer inni seg bør være nummererte lister i stedet. 
+- [ ] Relaterte artikler i sidebar fra samme emne (I alle emner, eller krasjer det med noe? Undersøk og lag plan. Sidebards og layouts bør planlegges og utvikles skikkelig). 
 ## ✅ Ferdig
 - [x] Opprettet denne filen
 - [x] Fikset hierarkiet for Litteraturhistorie (Nasjonalromantikken, Realismen, Nyromantikken, Nyrealismen)
