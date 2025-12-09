@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { AudioManager } from './systems/AudioManager';
 
 export type GameState = 'menu' | 'playing' | 'gameover' | 'won';
 
