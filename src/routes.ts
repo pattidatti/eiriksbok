@@ -38,4 +38,5 @@ export const routeFactories: Record<string, PageFactory> = {
     HangmanPage: () => import('./pages/HangmanPage').then(module => ({ default: module.HangmanPage })),
     ChronoGliderPage: () => import('./games/chrono-glider/ChronoGliderPage'),
     TimelineTDPage: () => import('./pages/TimelineTDPage'),
+    WordSorterGame: () => import('./games/word-sorter/WordSorterGame'),
 };

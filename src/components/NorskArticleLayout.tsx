@@ -15,11 +15,12 @@ interface NorskArticleLayoutProps {
         tags?: string[];
         relatedLink?: { text: string; url: string; };
     };
+    relatedLessons?: { title: string; url: string }[];
     onClose: () => void;
     fallbackUrl?: string;
 }
 
-export const NorskArticleLayout: React.FC<NorskArticleLayoutProps> = ({ article, onClose, fallbackUrl }) => {
+export const NorskArticleLayout: React.FC<NorskArticleLayoutProps> = ({ article, relatedLessons, onClose, fallbackUrl }) => {
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -27,7 +28,7 @@ export const NorskArticleLayout: React.FC<NorskArticleLayoutProps> = ({ article,
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-white overflow-y-auto"
         >
-            {/* Navigation Bar */}
+            {/* ... navigation ... */}
             <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-100 px-6 py-4 flex justify-between items-center">
                 <div className="flex items-center gap-3 text-slate-600">
                     <BookOpen size={20} className="text-indigo-600" />
@@ -44,7 +45,7 @@ export const NorskArticleLayout: React.FC<NorskArticleLayoutProps> = ({ article,
             </div>
 
             <div className="max-w-4xl mx-auto px-6 py-12">
-                {/* Header Section */}
+                {/* ... header ... */}
                 <header className="mb-12 text-center">
                     {article.tags && (
                         <div className="flex justify-center gap-2 mb-6">
@@ -100,7 +101,29 @@ export const NorskArticleLayout: React.FC<NorskArticleLayoutProps> = ({ article,
 
                     {/* Sidebar / Metadata */}
                     <aside className="lg:col-span-4 space-y-8">
-                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 sticky top-24">
+
+                        {/* Related Lessons Sidebar */}
+                        {relatedLessons && relatedLessons.length > 0 && (
+                            <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 sticky top-24">
+                                <h3 className="font-bold text-slate-900 mb-4 uppercase tracking-wider text-sm">
+                                    Andre emner
+                                </h3>
+                                <ul className="space-y-3">
+                                    {relatedLessons.map(lesson => (
+                                        <li key={lesson.url}>
+                                            <Link
+                                                to={lesson.url}
+                                                className="block p-2 rounded-lg hover:bg-white hover:shadow-sm transition-all text-slate-600 hover:text-indigo-600"
+                                            >
+                                                {lesson.title}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+
+                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
                             <h3 className="font-bold text-slate-900 mb-4 uppercase tracking-wider text-sm">
                                 Om sjangeren
                             </h3>

@@ -1,0 +1,88 @@
+{
+    "id": "niva-1-grunnmuren",
+    "title": "Nivå 1: Grunnmuren (S-V)",
+    "description": "Subjekt og Verbal: Selve skjelettet i setningen.",
+    "content": [
+        {
+            "type": "header",
+            "content": "Grunnmuren i alle setninger"
+        },
+        {
+            "type": "text",
+            "content": "For at en samling med ord skal kunne kalles en **setning**, må den inneholde to ting:\n\n1.  **Verbal** (Hva som skjer) \n2.  **Subjekt** (Hvem som gjør det)\n\nDette kaller vi setningens **grunnmur**. Uten disse faller setningen sammen."
+        },
+        {
+            "type": "component",
+            "component": "GrammarRuleCard",
+            "props": {
+                "title": "Grunnregelen",
+                "rule": "En fullstendig setning må ha minst ett Verbal og ett Subjekt.",
+                "examples": [
+                    {
+                        "text": "Jens spiser."
+                    },
+                    {
+                        "text": "Bilen kjører."
+                    },
+                    {
+                        "text": "Hunden bjeffer."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Hvordan finner vi dem?"
+        },
+        {
+            "type": "text",
+            "content": "For å analysere en setning, starter vi alltid med å finne **Verbalet**.\n\n*   **Verbal (V)**: Forteller hva som skjer eller gjøres. Det er alltid et verb.\n*   **Subjekt (S)**: Den, det eller de som utfører handlingen. Vi finner det ved å spørre: *\"Hvem eller hva + verbal?\"*"
+        },
+        {
+            "type": "header",
+            "content": "Prøv selv!"
+        },
+        {
+            "type": "text",
+            "content": "Marker **Subjektet** (den som gjør noe) med grønn farge, og **Verbalet** (det som skjer) med rød farge."
+        },
+        {
+            "type": "component",
+            "component": "TextHighlighter",
+            "props": {
+                "text": "Ola spiser matpakka si. Katten sover i sofaen. Solen skinner på himmelen.",
+                "instruction": "Finn Verbal (handling) og Subjekt (hvem).",
+                "correctWords": [
+                    {
+                        "word": "Ola",
+                        "category": "subject"
+                    },
+                    {
+                        "word": "spiser",
+                        "category": "verbal"
+                    },
+                    {
+                        "word": "Katten",
+                        "category": "subject"
+                    },
+                    {
+                        "word": "sover",
+                        "category": "verbal"
+                    },
+                    {
+                        "word": "Solen",
+                        "category": "subject"
+                    },
+                    {
+                        "word": "skinner",
+                        "category": "verbal"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "Når vi har S og V på plass, har vi en **helsetning**. Det er den minste byggeklossen i språket vårt. Men ofte vil vi si mer enn bare hvem som gjør noe. Da må vi utvide setningen i neste nivå!"
+        }
+    ]
+}

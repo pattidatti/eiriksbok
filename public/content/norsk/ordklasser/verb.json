@@ -1,0 +1,110 @@
+{
+    "id": "verb",
+    "title": "Verb",
+    "description": "Tider, sterke/svake verb og V2-regelen.",
+    "layout": "rich",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
+    "tags": [
+        "grammatikk",
+        "verb",
+        "ordklasser"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Hva er et verb?"
+        },
+        {
+            "type": "text",
+            "content": "Verb er **Gjøre-ord**. Det er ord som forteller hva som skjer. Å løpe, å sove, å game, å tenke. Uten verbet står setningen helt stille - ingenting skjer!"
+        },
+        {
+            "type": "component",
+            "name": "TextHighlighter",
+            "props": {
+                "text": "Han gamer mens søsteren leser en bok",
+                "correctWords": [
+                    "gamer",
+                    "leser"
+                ],
+                "instruction": "Klikk på 'gjøre-ordene' (verbene) i setningen:"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Den viktigste regelen: V2!"
+        },
+        {
+            "type": "text",
+            "content": "I norske setninger er verbet sjefen. Verbet bestemmer at det **ALLTID** skal stå på plass nummer 2. Ikke ord nr 2, men *ledd* nr 2. Dette er superviktig for å skrive godt norsk."
+        },
+        {
+            "type": "component",
+            "name": "GrammarRuleCard",
+            "props": {
+                "title": "V2-regelen",
+                "rule": "I en vanlig setning skal verbet alltid komme på andre plass.",
+                "examples": [
+                    "Jeg (1) SPISER (2) is. (Riktig)",
+                    "I dag (1) SPISER (2) jeg is. (Riktig)",
+                    "I dag jeg spiser is. (FEIL! Her er verbet på plass 3)"
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "SentenceBuilder",
+            "props": {
+                "segments": [
+                    "spiser",
+                    "I dag",
+                    "jeg",
+                    "is"
+                ],
+                "correctOrder": [
+                    "I dag",
+                    "spiser",
+                    "jeg",
+                    "is"
+                ],
+                "instruction": "Start setningen med 'I dag'. Husk hvor verbet 'spiser' må stå!"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Når skjer det? (Tider)"
+        },
+        {
+            "type": "text",
+            "content": "Vi bøyer verbet for å fortelle *når* noe skjer."
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Presens (Nåtid):** Det skjer NÅ. (Jeg *gamer*)",
+                "**Preteritum (Fortid):** Det skjedde I GÅR. (Jeg *gamet*)",
+                "**Presens Perfektum (Før-nåtid):** Jeg HAR gjort det. (Jeg *har gamet*)"
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Hjelpeverb: Ord som hjelper til"
+        },
+        {
+            "type": "text",
+            "content": "Noen verb forteller ikke om en handling alene, men hjelper oss å si noe om *hvordan* vi gjør det. Disse kaller vi modale hjelpeverb."
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Skal:** Noe du har tenkt å gjøre.",
+                "**Vil:** Noe du ønsker å gjøre.",
+                "**Må:** Noe du er nødt til å gjøre.",
+                "**Kan:** Noe du får til.",
+                "**Bør:** Noe som er lurt å gjøre."
+            ]
+        }
+    ],
+    "createdDate": "2023-12-09T14:00:00Z",
+    "lastUpdated": "2025-12-09T16:05:00Z"
+}

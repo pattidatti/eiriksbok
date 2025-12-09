@@ -1,0 +1,66 @@
+{
+    "id": "preposisjoner",
+    "title": "Preposisjoner",
+    "description": "Små ord som forteller hvor og når.",
+    "layout": "rich",
+    "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
+    "tags": [
+        "grammatikk",
+        "preposisjoner",
+        "ordklasser"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Hva er en preposisjon?"
+        },
+        {
+            "type": "text",
+            "content": "Dette er GPS-ordene i språket! De forteller oss hvor noe er (på, i, under, over) eller når noe skjer (før, etter, klokka). De står nesten alltid rett *før* det de styrer."
+        },
+        {
+            "type": "component",
+            "name": "TextHighlighter",
+            "props": {
+                "text": "Mobilen ligger på bordet under boka",
+                "correctWords": [
+                    "på",
+                    "under"
+                ],
+                "instruction": "Finn 'GPS-ordene' (preposisjonene):"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Hvor, Når eller Hvordan?"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Sted:** Han bor *i* Spania. Katten er *bak* sofaen.",
+                "**Tid:** Vi slutter *om* ti minutter. Kom *etter* skolen.",
+                "**Måte:** Han snakker *med* tullestemme."
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Faste uttrykk: Bare pugg dem!"
+        },
+        {
+            "type": "text",
+            "content": "Noen ganger gir ikke preposisjonen mening. Hvorfor heter det 'forelsket **i**' men 'sint **på**'? Det er bare sånn det er. Disse må du nesten bare lære deg utenat."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Glad **i** deg (Ikke glad på deg)",
+                "Sint **på** deg (Ikke sint i deg)",
+                "Lyst **på** is (Ikke lyst av is)",
+                "På grunn **av** (Alltid sammen)",
+                "Forhold **til**"
+            ]
+        }
+    ],
+    "createdDate": "2023-12-09T14:00:00Z",
+    "lastUpdated": "2025-12-09T16:20:00Z"
+}

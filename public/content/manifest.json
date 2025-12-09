@@ -14,9 +14,117 @@
             ],
             "topics": [
                 {
+                    "id": "ordklasser",
+                    "title": "Ordklasser",
+                    "description": "Lær om de ulike ordklassene: Substantiv, verb, adjektiv og mer.",
+                    "image": "/Eiriksbok/images/topics/grammatikk.png",
+                    "tools": [
+                        {
+                            "id": "word-sorter",
+                            "title": "Ordklasse-sortering",
+                            "description": "Spill der du skal sortere ord i riktige bokser. Klarer du å skille mellom verb og substantiv?",
+                            "link": "/norsk/ordklasser/sortering"
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "substantiv",
+                            "title": "Substantiv",
+                            "description": "Konkret vs. abstrakt, kjønn og bøying.",
+                            "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "grammatikk",
+                                "substantiv",
+                                "ordklasser"
+                            ],
+                            "createdDate": "2023-12-09T14:00:00Z",
+                            "lastUpdated": "2023-12-09T14:00:00Z"
+                        },
+                        {
+                            "id": "verb",
+                            "title": "Verb",
+                            "description": "Tider, sterke/svake verb og hjelpeverb.",
+                            "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "grammatikk",
+                                "verb",
+                                "ordklasser"
+                            ],
+                            "createdDate": "2023-12-09T14:00:00Z",
+                            "lastUpdated": "2023-12-09T14:00:00Z"
+                        },
+                        {
+                            "id": "adjektiv",
+                            "title": "Adjektiv",
+                            "description": "Samsvarsbøying og gradbøying.",
+                            "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "grammatikk",
+                                "adjektiv",
+                                "ordklasser"
+                            ],
+                            "createdDate": "2023-12-09T14:00:00Z",
+                            "lastUpdated": "2023-12-09T14:00:00Z"
+                        },
+                        {
+                            "id": "pronomen",
+                            "title": "Pronomen",
+                            "description": "Personlige, eiendoms- og spørrepronomen.",
+                            "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "grammatikk",
+                                "pronomen",
+                                "ordklasser"
+                            ],
+                            "createdDate": "2023-12-09T14:00:00Z",
+                            "lastUpdated": "2023-12-09T14:00:00Z"
+                        },
+                        {
+                            "id": "preposisjoner",
+                            "title": "Preposisjoner",
+                            "description": "Sted, tid og faste uttrykk.",
+                            "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "grammatikk",
+                                "preposisjoner",
+                                "ordklasser"
+                            ],
+                            "createdDate": "2023-12-09T14:00:00Z",
+                            "lastUpdated": "2023-12-09T14:00:00Z"
+                        },
+                        {
+                            "id": "adverb",
+                            "title": "Adverb",
+                            "description": "Tidsadverb, stedsadverb og måtesadverb.",
+                            "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "grammatikk",
+                                "adverb",
+                                "ordklasser"
+                            ],
+                            "createdDate": "2023-12-09T14:00:00Z",
+                            "lastUpdated": "2023-12-09T14:00:00Z"
+                        },
+                        {
+                            "id": "konjunksjoner-subjunksjoner",
+                            "title": "Konjunksjoner og Subjunksjoner",
+                            "description": "Bindeord og ord som innleder leddsetninger.",
+                            "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "grammatikk",
+                                "konjunksjoner",
+                                "subjunksjoner",
+                                "ordklasser"
+                            ],
+                            "createdDate": "2023-12-09T14:00:00Z",
+                            "lastUpdated": "2023-12-09T14:00:00Z"
+                        }
+                    ]
+                },
+                {
                     "id": "grammatikk",
                     "title": "Grammatikk",
-                    "description": "L\u00e6r om spr\u00e5kets oppbygning.",
+                    "description": "Lær om språkets oppbygning.",
                     "image": "/Eiriksbok/images/topics/grammatikk.png",
                     "lessons": [
                         {
@@ -25,11 +133,75 @@
                             "description": "Hvordan analysere setninger.",
                             "image": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skj\u00f8nnlitteratur",
+                                "skjønnlitteratur",
                                 "fortelling"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "setningsoppbygging",
+                    "title": "Setningsoppbygging",
+                    "description": "Bygg forståelse stein for stein. Fra S-V til komplekse leddsetninger.",
+                    "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "niva-1-grunnmuren",
+                            "title": "Nivå 1: Grunnmuren (S-V)",
+                            "description": "Subjekt og Verbal: Selve skjelettet i setningen.",
+                            "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "grammatikk",
+                                "syntaks",
+                                "subjekt",
+                                "verbal"
+                            ],
+                            "createdDate": "2023-12-09T15:00:00Z",
+                            "lastUpdated": "2023-12-09T15:00:00Z"
+                        },
+                        {
+                            "id": "niva-2-utvidet",
+                            "title": "Nivå 2: Objekt og Adverbial",
+                            "description": "Utvid setningene med hvem som rammes og hvor det skjer.",
+                            "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "grammatikk",
+                                "syntaks",
+                                "objekt",
+                                "adverbial"
+                            ],
+                            "createdDate": "2023-12-09T15:00:00Z",
+                            "lastUpdated": "2023-12-09T15:00:00Z"
+                        },
+                        {
+                            "id": "niva-3-v2-regelen",
+                            "title": "Nivå 3: V2-Regelen",
+                            "description": "Den viktigste regelen i norsk: Verbet skal alltid stå på plass nummer to!",
+                            "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "grammatikk",
+                                "syntaks",
+                                "v2-regelen",
+                                "inversjon"
+                            ],
+                            "createdDate": "2023-12-09T15:00:00Z",
+                            "lastUpdated": "2023-12-09T15:00:00Z"
+                        },
+                        {
+                            "id": "niva-4-leddsetninger",
+                            "title": "Nivå 4: Leddsetninger",
+                            "description": "Helsetninger vs. leddsetninger og 'ikke'-plassering.",
+                            "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "grammatikk",
+                                "syntaks",
+                                "leddsetninger",
+                                "ikke"
+                            ],
+                            "createdDate": "2023-12-09T15:00:00Z",
+                            "lastUpdated": "2023-12-09T15:00:00Z"
                         }
                     ]
                 },

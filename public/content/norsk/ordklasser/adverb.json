@@ -1,0 +1,72 @@
+{
+    "id": "adverb",
+    "title": "Adverb",
+    "description": "Krydderet i språket. Forskjellen på pent og pen.",
+    "layout": "rich",
+    "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
+    "tags": [
+        "grammatikk",
+        "adverb",
+        "ordklasser"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Hva er et adverb?"
+        },
+        {
+            "type": "text",
+            "content": "Adverb er ord som forteller oss *hvordan*, *når* eller *hvor* noe skjer. De beskriver ofte verbet (handlingen). Tenk på dem som krydder i setningen."
+        },
+        {
+            "type": "component",
+            "name": "TextHighlighter",
+            "props": {
+                "text": "Han løper fort hjem nå",
+                "correctWords": [
+                    "fort",
+                    "hjem",
+                    "nå"
+                ],
+                "instruction": "Finn ordene som sier noe om løpingen (Hvordan? Hvor? Når?):"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Er det Adjektiv eller Adverb?"
+        },
+        {
+            "type": "text",
+            "content": "Mange blander disse. Forskjellen er hva de beskriver! Beskriver du tingen (substantivet) er det adjektiv. Beskriver du handlingen (verbet) er det adverb."
+        },
+        {
+            "type": "component",
+            "name": "GrammarRuleCard",
+            "props": {
+                "title": "T-regelen for adverb",
+                "rule": "Hvis ordet beskriver måten noe gjøres på, får det ofte en T til slutt.",
+                "examples": [
+                    "Bilen er fin (Adjektiv - beskriver bilen)",
+                    "Bilen kjører fin**t** (Adverb - beskriver kjøringen)",
+                    "Han er rask (Adjektiv)",
+                    "Han løper rask**t** (Adverb)"
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Typer adverb"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Tidsadverb:** Forteller NÅR. (Nå, da, aldri, ofte, alltid)",
+                "**Stedsadverb:** Forteller HVOR. (Her, der, hjem, ute)",
+                "**Måtesadverb:** Forteller HVORDAN. (Fort, sakte, pent)",
+                "**Gradsadverb:** Forteller HVOR MYE. (Veldig, ganske, litt)"
+            ]
+        }
+    ],
+    "createdDate": "2023-12-09T14:00:00Z",
+    "lastUpdated": "2025-12-09T16:30:00Z"
+}

@@ -40,6 +40,7 @@ const AdminDashboard = React.lazy(routeFactories.AdminDashboard);
 const ContentInventory = React.lazy(routeFactories.ContentInventory);
 const LinkChecker = React.lazy(routeFactories.LinkChecker);
 const ScannerPage = React.lazy(routeFactories.ScannerPage);
+const WordSorterGame = React.lazy(routeFactories.WordSorterGame);
 
 import { usePresence } from './hooks/usePresence';
 
@@ -104,6 +105,7 @@ function AppContent() {
               <Route path=":subjectId/:topicId" element={<TopicPage />} />
               <Route path=":subjectId/:topicId/:subTopicId" element={<TopicPage />} />
               <Route path=":subjectId/:topicId/:subTopicId/:lessonId" element={<LessonPage />} />
+              <Route path="/norsk/ordklasser/sortering" element={<WordSorterGame />} />
               <Route path=":subjectId/:topicId/:lessonId" element={<LessonPage />} />
 
               {/* Backward compatibility / direct access */}

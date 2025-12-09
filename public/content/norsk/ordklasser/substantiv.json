@@ -1,0 +1,119 @@
+{
+    "id": "substantiv",
+    "title": "Substantiv",
+    "description": "Konkret vs. abstrakt, kjønn og bøying - og rollen i setningen.",
+    "layout": "rich",
+    "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
+    "tags": [
+        "grammatikk",
+        "substantiv",
+        "ordklasser"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Hva er et substantiv?"
+        },
+        {
+            "type": "text",
+            "content": "Substantiver er rett og slett navn på ting, personer, steder eller følelser. Hvis du kan sette 'en', 'ei' eller 'et' foran det, er det mest sannsynlig et substantiv. Tenk på dem som byggeklossene i språket vårt."
+        },
+        {
+            "type": "component",
+            "name": "TextHighlighter",
+            "props": {
+                "text": "Læreren spiste en stor pizza på skolen",
+                "correctWords": [
+                    "Læreren",
+                    "pizza",
+                    "skolen"
+                ],
+                "instruction": "Prøv selv! Klikk på alle substantivene (ting/personer) i setningen:"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Konkret eller Abstrakt?"
+        },
+        {
+            "type": "text",
+            "content": "Vi deler substantiver inn i to hovedgrupper:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Konkret:** Ting du kan ta på, se eller lukte. Som en *telefon*, en *hund* eller en *burger*.",
+                "**Abstrakt:** Ting du ikke kan ta på, men som du kan føle eller tenke på. Som *kjærlighet*, *vennskap* eller *gaming-glede*."
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Grammatikk-hack: De tre kjønnene"
+        },
+        {
+            "type": "text",
+            "content": "På norsk har ordene kjønn! Det er litt rart, men vi må vite kjønnet for å bøye ordet riktig. Artikkelen (det lille ordet foran) avslører kjønnet."
+        },
+        {
+            "type": "component",
+            "name": "GrammarRuleCard",
+            "props": {
+                "title": "Huskeregel for kjønn",
+                "rule": "Artikkelen bestemmer endelsen på ordet.",
+                "examples": [
+                    "Hankjønn (EN): En bil -> BilEN",
+                    "Hunkjønn (EI): Ei jente -> JentA",
+                    "Intetkjønn (ET): Et hus -> HusET"
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Jobben i setningen"
+        },
+        {
+            "type": "text",
+            "content": "Substantivet har ofte hovedrollen i setningen. Det er som regel substantivet som enten gjør noe (**Subjekt**) eller som det skjer noe med (**Objekt**)."
+        },
+        {
+            "type": "component",
+            "name": "SentenceBuilder",
+            "props": {
+                "segments": [
+                    "spiser",
+                    "Gutten",
+                    "eplet"
+                ],
+                "correctOrder": [
+                    "Gutten",
+                    "spiser",
+                    "eplet"
+                ],
+                "instruction": "Lag en setning hvor 'Gutten' er den som spiser (Subjekt):"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Bøying: En eller flere?"
+        },
+        {
+            "type": "text",
+            "content": "De fleste ord følger et fast system når vi går fra én til mange. Systemet er: EN - EN - ER - ENE."
+        },
+        {
+            "type": "component",
+            "name": "GrammarRuleCard",
+            "props": {
+                "title": "Bøyingsmønsteret",
+                "rule": "Vi legger nesten alltid til -ER og -ENE i flertall.",
+                "examples": [
+                    "En gutt -> guten -> guttER -> guttENE",
+                    "En bil -> bilen -> bilER -> bilENE",
+                    "Unntak: Et barn -> barnet -> BARN -> barna (korte intetkjønnsord)"
+                ]
+            }
+        }
+    ],
+    "createdDate": "2023-12-09T14:00:00Z",
+    "lastUpdated": "2025-12-09T16:00:00Z"
+}

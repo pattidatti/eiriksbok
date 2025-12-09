@@ -1,0 +1,90 @@
+{
+    "id": "niva-4-leddsetninger",
+    "title": "Nivå 4: Leddsetninger",
+    "description": "Helsetninger vs. leddsetninger og 'ikke'-plassering.",
+    "content": [
+        {
+            "type": "header",
+            "content": "Helsetning eller Leddsetning?"
+        },
+        {
+            "type": "text",
+            "content": "En **helsetning** kan stå alene og gi mening. \n*   Ex: *\"Jeg er sulten.\"*\n\nEn **leddsetning** gir ikke mening alene. Den må \"lene seg\" på en helsetning. Den starter ofte med ord som *fordi, at, om, når, hvis*.\n*   Ex: *\"...fordi jeg er sulten.\"* (Hva da? Setningen er ikke ferdig.)"
+        },
+        {
+            "type": "component",
+            "component": "GrammarRuleCard",
+            "props": {
+                "title": "Ikke-testen",
+                "rule": "Plasseringen av ordet 'ikke' avslører om det er en helsetning eller leddsetning.",
+                "examples": [
+                    {
+                        "text": "Helsetning: Han kommer **ikke** på festen. ('Ikke' etter verbet)"
+                    },
+                    {
+                        "text": "Leddsetning: ...at han **ikke** kommer på festen. ('Ikke' før verbet)"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Pute-leken"
+        },
+        {
+            "type": "text",
+            "content": "Tenk på ordet \"ikke\" (eller \"aldri/alltid\") som en pute. \n*   I en **helsetning** kaster vi puten *bak* verbet.\n*   I en **leddsetning** setter vi puten *foran* verbet for å dempe det."
+        },
+        {
+            "type": "header",
+            "content": "Test deg selv"
+        },
+        {
+            "type": "text",
+            "content": "Plasser *ikke* på riktig sted i denne leddsetningen (som starter med 'hvis')."
+        },
+        {
+            "type": "component",
+            "component": "SentenceBuilder",
+            "props": {
+                "instruction": "Leddsetning: '...hvis du ikke kommer'",
+                "segments": [
+                    {
+                        "id": "1",
+                        "text": "...hvis",
+                        "type": "adverbial"
+                    },
+                    {
+                        "id": "2",
+                        "text": "du",
+                        "type": "subject"
+                    },
+                    {
+                        "id": "3",
+                        "text": "ikke",
+                        "type": "adverbial"
+                    },
+                    {
+                        "id": "4",
+                        "text": "kommer",
+                        "type": "verbal"
+                    }
+                ],
+                "correctOrder": [
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Gratulerer!"
+        },
+        {
+            "type": "text",
+            "content": "Du har bestått kurset i setningsoppbygging! Du vet nå forskjellen på Subjekt og Verbal, du kan bygge ut setninger, du kan V2-regelen, og du behersker leddsetninger."
+        }
+    ]
+}

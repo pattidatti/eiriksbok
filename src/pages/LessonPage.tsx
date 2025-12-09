@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useManifest } from '../hooks/useManifest';
 import { useLesson } from '../hooks/useLesson';
 import type { ManifestLesson, ContentBlock } from '../types';
@@ -213,6 +213,14 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             <ErrorBoundary>
                 <NorskArticleLayout
                     article={articleData}
+                    relatedLessons={manifest?.subjects
+                        .find(s => s.id === subjectId)
+                        ?.topics.find(t => t.id === topicId)
+                        ?.lessons?.filter((l: any) => l.id !== lessonId)
+                        .map((l: any) => ({
+                            title: l.title,
+                            url: `/${subjectId}/${topicId}/${l.id}`
+                        }))}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
                     fallbackUrl={fallbackUrl}
                 />
@@ -340,6 +348,15 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                             concepts={lesson.concepts}
                             comparisonTags={lesson.comparison_tags}
                             quote={lesson.quote}
+                            relatedLessons={manifest?.subjects
+                                .find(s => s.id === subjectId)
+                                ?.topics.find(t => t.id === topicId)
+                                ?.lessons?.filter((l: any) => l.id !== lessonId)
+                                .map((l: any) => ({
+                                    title: l.title,
+                                    url: `/${subjectId}/${topicId}/${l.id}`
+                                }))}
+                            relatedTitle={topicId === 'ordklasser' ? 'Andre ordklasser' : undefined}
                         />
                     </div>
 
@@ -370,6 +387,35 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                                 )}
                             </div>
                         )}
+
+                        {/* Related Lessons (Mobile) */}
+                        {manifest?.subjects
+                            .find(s => s.id === subjectId)
+                            ?.topics.find(t => t.id === topicId)
+                            ?.lessons && (
+                                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                                    <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">
+                                        {topicId === 'ordklasser' ? 'Andre ordklasser' : 'Mer i dette emnet'}
+                                    </h3>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        {manifest.subjects
+                                            .find(s => s.id === subjectId)
+                                            ?.topics.find(t => t.id === topicId)
+                                            ?.lessons?.filter(l => l.id !== lessonId)
+                                            .map((l: any) => (
+                                                <Link
+                                                    key={l.id}
+                                                    to={`/${subjectId}/${topicId}/${l.id}`}
+                                                    className="block p-3 rounded-xl bg-white border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all group"
+                                                >
+                                                    <span className="font-medium text-slate-700 group-hover:text-indigo-700 transition-colors">
+                                                        {l.title}
+                                                    </span>
+                                                </Link>
+                                            ))}
+                                    </div>
+                                </div>
+                            )}
 
                     </div>
                 </div>

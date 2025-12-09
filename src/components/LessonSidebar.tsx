@@ -7,9 +7,11 @@ interface LessonSidebarProps {
     concepts?: Concept[];
     comparisonTags?: string[];
     quote?: Quote;
+    relatedLessons?: { title: string; url: string }[];
+    relatedTitle?: string;
 }
 
-export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparisonTags, quote }) => {
+export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparisonTags, quote, relatedLessons, relatedTitle }) => {
     return (
         <div className="space-y-8">
             {/* Quote */}
@@ -58,6 +60,29 @@ export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparis
                             </Link>
                         ))}
                     </div>
+                </div>
+            )}
+
+            {/* Related Lessons */}
+            {relatedLessons && relatedLessons.length > 0 && (
+                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">
+                        {relatedTitle || 'Mer i dette emnet'}
+                    </h3>
+                    <ul className="space-y-3">
+                        {relatedLessons.map(lesson => (
+                            <li key={lesson.url}>
+                                <Link
+                                    to={lesson.url}
+                                    className="block p-3 rounded-xl bg-white border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all group"
+                                >
+                                    <span className="font-medium text-slate-700 group-hover:text-indigo-700 transition-colors">
+                                        {lesson.title}
+                                    </span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             )}
         </div>

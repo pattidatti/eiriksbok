@@ -1,0 +1,86 @@
+{
+    "id": "pronomen",
+    "title": "Pronomen",
+    "description": "Ord vi bruker istedenfor navn. Unngå 'Sin/Hans'-feilen!",
+    "layout": "rich",
+    "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
+    "tags": [
+        "grammatikk",
+        "pronomen",
+        "ordklasser"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Hva er et pronomen?"
+        },
+        {
+            "type": "text",
+            "content": "Pronomen betyr 'i stedet for navn'. Tenk deg hvis vi måtte si navnet på folk hele tiden: 'Per gikk til Per sin bil fordi Per ville kjøre'. Det blir slitsomt! Derfor sier vi heller: 'Per gikk til **SIN** bil fordi **HAN** ville kjøre'."
+        },
+        {
+            "type": "component",
+            "name": "TextHighlighter",
+            "props": {
+                "text": "Han ga henne en gave fordi hun var snill",
+                "correctWords": [
+                    "Han",
+                    "henne",
+                    "hun"
+                ],
+                "instruction": "Finn ordene som står i stedet for navn (pronomen):"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Den store fella: Sin eller Hans?"
+        },
+        {
+            "type": "text",
+            "content": "Dette er kanskje den vanligste feilen i norsk. Regelen er egentlig enkel: Eier subjektet tingen?"
+        },
+        {
+            "type": "component",
+            "name": "GrammarRuleCard",
+            "props": {
+                "title": "Sin vs. Hans/Hennes",
+                "rule": "Bruk SIN (eller si/sitt/sine) hvis det er SUBJEKTET som eier tingen.",
+                "examples": [
+                    "Ola (Subjekt) liker bilen SIN. (Det er Ola sin bil. Bra!)",
+                    "Ola (Subjekt) liker bilen HANS. (Det er naboens bil? Hvem er 'hans'? Feil hvis du mener Ola sin!)",
+                    "Anna kysset kjæresten SIN. (Fint, det er hennes kjæreste).",
+                    "Anna kysset kjæresten HENNES. (Oisann! Anna kysser en annen jente sin kjæreste? Drama!)"
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "SentenceBuilder",
+            "props": {
+                "segments": [
+                    "Liker",
+                    "boka",
+                    "si",
+                    "Hun"
+                ],
+                "correctOrder": [
+                    "Hun",
+                    "Liker",
+                    "boka",
+                    "si"
+                ],
+                "instruction": "Hun eier boka. Bygg setningen:"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Det vs. Den"
+        },
+        {
+            "type": "text",
+            "content": "Vi bruker ofte **Det** når vi snakker om noe generelt, eller været. 'Det regner'. Vi kaller det et formelt subjekt - det betyr ingenting, men må være der for at setningen skal virke."
+        }
+    ],
+    "createdDate": "2023-12-09T14:00:00Z",
+    "lastUpdated": "2025-12-09T16:15:00Z"
+}

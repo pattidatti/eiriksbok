@@ -1,0 +1,78 @@
+{
+    "id": "niva-2-utvidet",
+    "title": "Nivå 2: Objekt og Adverbial",
+    "description": "Utvid setningene med hvem som rammes og hvor det skjer.",
+    "content": [
+        {
+            "type": "header",
+            "content": "Vi bygger på grunnmuren"
+        },
+        {
+            "type": "text",
+            "content": "Vi vet at **S + V** er nok til å lage en setning (f.eks. *\"Jens spiser\"*). Men det er litt kjedelig! Vi vil gjerne vite *hva* han spiser, og kanskje *når* han spiser.\n\nDerfor utvider vi setningen med to nye ledd:\n1.  **Objekt (O)**: Hvem eller hva handlingen går ut over.\n2.  **Adverbial (A)**: Tid, sted eller måte."
+        },
+        {
+            "type": "header",
+            "content": "Objektet (O)"
+        },
+        {
+            "type": "text",
+            "content": "Objektet forteller oss *hva* som blir spist, kjøpt, slått eller sett. \n\n*   Ex: *\"Jens (S) spiser (V) **et eple (O)**.\"*\n*   Ex: *\"Marit (S) kjøper (V) **bil (O)**.\"*"
+        },
+        {
+            "type": "header",
+            "content": "Adverbialet (A)"
+        },
+        {
+            "type": "text",
+            "content": "Adverbialet gir oss ekstra informasjon om omstendighetene. Det svarer ofte på *Når? Hvor?* eller *Hvordan?*.\n\n*   Ex: *\"Jens spiser et eple **i dag (A)**.\"* (Tid)\n*   Ex: *\"Jens spiser et eple **på kjøkkenet (A)**.\"* (Sted)\n*   Ex: *\"Jens spiser et eple **raskt (A)**.\"* (Måte)"
+        },
+        {
+            "type": "header",
+            "content": "Bygg din egen setning"
+        },
+        {
+            "type": "text",
+            "content": "Sett sammen ordene til en logisk setning som følger **S - V - O - A** mønsteret."
+        },
+        {
+            "type": "component",
+            "component": "SentenceBuilder",
+            "props": {
+                "instruction": "Lag setningen: 'Gutten sparker fotballen hardt'",
+                "segments": [
+                    {
+                        "id": "1",
+                        "text": "Gutten",
+                        "type": "subject"
+                    },
+                    {
+                        "id": "2",
+                        "text": "sparker",
+                        "type": "verbal"
+                    },
+                    {
+                        "id": "3",
+                        "text": "fotballen",
+                        "type": "object"
+                    },
+                    {
+                        "id": "4",
+                        "text": "hardt",
+                        "type": "adverbial"
+                    }
+                ],
+                "correctOrder": [
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "**Husk**: På norsk kan vi flytte litt på disse klossene, men det er én streng regel vi ALDRI må bryte. Den skal vi se på i neste nivå!"
+        }
+    ]
+}

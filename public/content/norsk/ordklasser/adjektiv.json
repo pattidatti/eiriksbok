@@ -1,0 +1,89 @@
+{
+    "id": "adjektiv",
+    "title": "Adjektiv",
+    "description": "Hvordan ting ser ut, smaker og føles.",
+    "layout": "rich",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
+    "tags": [
+        "grammatikk",
+        "adjektiv",
+        "ordklasser"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Hva er et adjektiv?"
+        },
+        {
+            "type": "text",
+            "content": "Adjektiver er **Beskrivelses-ord**. De forteller oss hvordan noe ser ut, lukter, smaker eller føles. Uten adjektiver ville verden vært kjedelig og i gråskala!"
+        },
+        {
+            "type": "component",
+            "name": "TextHighlighter",
+            "props": {
+                "text": "Den snille katten spiste en stor fisk",
+                "correctWords": [
+                    "snille",
+                    "stor"
+                ],
+                "instruction": "Klikk på ordene som beskriver noe (Hvordan er katten? Hvordan er fisken?):"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Samsvarsbøying: Adjektivet må være enig!"
+        },
+        {
+            "type": "text",
+            "content": "På norsk er det sånn at adjektivet må tilpasse seg ordet det beskriver. Hvis ordet er hankjønn, bruker vi én form. Hvis det er intetkjønn, må vi ofte legge til en T."
+        },
+        {
+            "type": "component",
+            "name": "GrammarRuleCard",
+            "props": {
+                "title": "T-regelen og E-regelen",
+                "rule": "'Et'-ord får en T på slutten. Flertall får en E.",
+                "examples": [
+                    "En FIN bil (Ingen ending)",
+                    "Et FIN**T** hus (Får T fordi det er ET hus)",
+                    "Mange FIN**E** biler (Får E fordi det er mange)"
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Den Doble Bestemtheten"
+        },
+        {
+            "type": "text",
+            "content": "Norsk er litt rart. Når vi peker på noe bestemt, liker vi å si det to ganger. Vi sier både 'Den' OG 'mannen'. Vi sier ikke 'Den gammel mann', men 'Den gamle mannen'."
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Riktig:** Den *kule* gutten.",
+                "**Feil:** Den kul gutt.",
+                "**Husk:** I bestemt form får adjektivet en E til slutt!"
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Gradbøying: Stor, større, størst"
+        },
+        {
+            "type": "text",
+            "content": "Vi bruker adjektiver for å sammenligne ting."
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Positiv:** Pen (Han er pen)",
+                "**Komparativ:** Penere (Han er penere enn meg)",
+                "**Superlativ:** Penest (Han er penest i klassen)"
+            ]
+        }
+    ],
+    "createdDate": "2023-12-09T14:00:00Z",
+    "lastUpdated": "2025-12-09T16:10:00Z"
+}

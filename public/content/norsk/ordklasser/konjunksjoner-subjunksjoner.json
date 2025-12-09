@@ -1,0 +1,103 @@
+{
+    "id": "konjunksjoner-subjunksjoner",
+    "title": "Bindeord (Konjunksjoner)",
+    "description": "Limet i setningene våre. Og huskeregler for leddsetninger.",
+    "layout": "rich",
+    "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80",
+    "tags": [
+        "grammatikk",
+        "konjunksjoner",
+        "subjunksjoner",
+        "ordklasser"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Limet i språket"
+        },
+        {
+            "type": "text",
+            "content": "Hvis vi ikke hadde bindeord, ville vi snakket som roboter. 'Jeg gikk ut. Det var kaldt.' Med bindeord blir det flytende: 'Jeg gikk ut, **men** det var kaldt.' Bindeord limer sammen ideene våre."
+        },
+        {
+            "type": "header",
+            "content": "Konjunksjoner (De 5 store)"
+        },
+        {
+            "type": "text",
+            "content": "Disse binder sammen to ting som er like viktige. Husk huskeregelen **O-M-F-E-S**:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**O**G - (Jeg liker is **og** brus)",
+                "**M**EN - (Jeg liker is, **men** ikke brus)",
+                "**F**OR - (Jeg spiser, **for** jeg er sulten)",
+                "**E**LLER - (Vil du ha is **eller** brus?)",
+                "**S**Å - (Jeg er trøtt, **så** jeg legger meg)"
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Subjunksjoner (Starter leddsetninger)"
+        },
+        {
+            "type": "text",
+            "content": "Disse ordene starter en **leddsetning**. En leddsetning er en uferdig setning som ikke gir mening alene, som feks '...fordi jeg er sulten'. (Hvis du kommer inn i rommet og bare sier det, vil folk lure på hva du mener!)"
+        },
+        {
+            "type": "component",
+            "name": "TextHighlighter",
+            "props": {
+                "text": "Jeg spiser is fordi det er varmt",
+                "correctWords": [
+                    "fordi"
+                ],
+                "instruction": "Finn ordet som starter forklaringen (subjunksjonen):"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Hvor skal 'IKKE' stå?"
+        },
+        {
+            "type": "text",
+            "content": "Når du bruker en subjunksjon (som 'fordi', 'hvis', 'når'), skjer det noe rart med ordet 'ikke'. I vanlige setninger kommer 'ikke' *etter* verbet. Men i leddsetninger kommer det *før*!"
+        },
+        {
+            "type": "component",
+            "name": "GrammarRuleCard",
+            "props": {
+                "title": "Ikke-regelen",
+                "rule": "I leddsetninger kommer IKKE foran verbet.",
+                "examples": [
+                    "Helsetning: Jeg spiser **ikke** is. (Etter spiser)",
+                    "Leddsetning: ...fordi jeg **ikke** spiser is. (Før spiser)"
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "SentenceBuilder",
+            "props": {
+                "segments": [
+                    "fordi",
+                    "han",
+                    "ikke",
+                    "er",
+                    "sulten"
+                ],
+                "correctOrder": [
+                    "fordi",
+                    "han",
+                    "ikke",
+                    "er",
+                    "sulten"
+                ],
+                "instruction": "Bygg en leddsetning. Husk hvor 'ikke' skal stå!"
+            }
+        }
+    ],
+    "createdDate": "2023-12-09T14:00:00Z",
+    "lastUpdated": "2025-12-09T16:25:00Z"
+}

@@ -17,9 +17,37 @@ Vi skal lage dedikerte artikler/moduler for hver av hovedordklassene:
 *   **Konjunksjoner og Subjunksjoner**: Bindeord og ord som innleder leddsetninger.
 
 ### Spill og Aktiviteter
-*   **Ordklasse-sortering (Søppelbøtta)**: Dra og slipp ord ned i riktig "bøtte" (f.eks. "Verb", "Substantiv", "Adjektiv"). Økende vanskelighetsgrad.
+*   **(NY) Ordklasse-sortering (Søppelbøtta)**: Dra og slipp ord ned i riktig "bøtte" (f.eks. "Verb", "Substantiv", "Adjektiv"). Økende vanskelighetsgrad.
 *   **Ordjakt**: En tekst vises, og eleven må klikke på alle ord av en gitt klasse (f.eks. "Finn alle verbene i teksten").
 *   **Alias / Gjett ordet**: Beskriv et substantiv uten å bruke selve ordet (fokus på adjektiver og verb).
+
+### Utvidelsesplan: Fra definisjon til funksjon
+Vi utvider artiklene fra enkle definisjoner til å forklare *hvorfor* og *hvordan* ordene brukes, med kobling til syntaks.
+
+#### 1. Generelle Forbedringer
+*   **"Syntaks-koblingen"**: En fast seksjon i hver artikkel som forklarer hvilken syntaktisk rolle ordklassen vanligvis har (f.eks. "Substantivet er ofte Subjekt eller Objekt").
+*   **Kontekstuelle Eksempler**: Gå fra enkeltord til helsetninger hvor ordklassen er markert.
+*   **Vanlige Feil**: Tipsboks med "Unngå dette" (f.eks. "sin" vs "hans", samsvarsbøying).
+
+#### 2. Spesifikt Innhold per Klasse
+*   **Substantiv**:
+    *   *Dybde*: Regler for kjønn (hva er "en" vs "ei"?), uregelmessig flertall, genitiv.
+    *   *Syntaks*: Substantivet som setningens "anker" (Subjekt/Objekt/Predikativ).
+*   **Verb**:
+    *   *Dybde*: Modale hjelpeverb (skal, vil, må) og hvordan de endrer betydningen. Partikkelverb (kaste *bort*) vs sammensatte ord.
+    *   *Syntaks*: **V2-regelen!** Verbet er kongen av setningen og bestemmer strukturen.
+*   **Adjektiv**:
+    *   *Dybde*: Den "doble bestemtheten" (Den *gamle* mann*en*). Adjektiv brukt som substantiv ("De *unge*").
+    *   *Syntaks*: Adjektivets plassering: Attributivt (foran substantivet) vs. Predikativt (etter være/bli).
+*   **Pronomen**:
+    *   *Dybde*: Skillet mellom "den/det" (referanse) og "det" (formelt subjekt). **Viktig:** "Sin" vs. "hans/hennes" (refleksivt eieforhold).
+    *   *Syntaks*: Hvordan pronomen erstatter hele substantivfraser (tunge ledd) for å skape bedre flyt.
+*   **Preposisjoner**:
+    *   *Dybde*: Abstrakte preposisjoner og faste uttrykk ("på grunn av", "i forhold til").
+    *   *Syntaks*: Preposisjonsfraser som Adverbial (Sted/Tid) eller som attributt til et substantiv ("Mannen *med hatten*").
+*   **Konjunksjoner og Subjunksjoner**:
+    *   *Dybde*: Logiske forhold (årsak, motsetning, konsekvens, tid).
+    *   *Syntaks*: Forskjellen i ordstilling etter konjunksjon (ingen endring, binder likeverdige ledd) vs. subjunksjon (s-v-a → s-a-v i leddsetning, "ikke" flytter seg).
 
 ---
 
