@@ -44,7 +44,7 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 ## 📝 Gjøremål (Todo)
 - [ ] Chrono glider. Legge til skyting med spacebar. Motstandere som kommer. Powerpups. 
 - [ ] Chrono Cards. Vanskelig å navigere drag and drop når det er horisontal scrollbar.  App i full bredde kanskje, og noe annet?
-- [ ] Global timeline. Sjekke duplikater og fjerne dem. 
+- [x] Global timeline. Sjekke duplikater og fjerne dem. 
 - [ ] Øving: retorikk. Hvordan unlocke lvl 2 etc? Legge til flere eksempler. 
 - [ ] Admin inventory: Skjekke om artikkelen har quiz tilknyttet seg. Skjekke hvorfor f.eks. 30-årskrigen er betegnet med 0 ord
 ## ✅ Ferdig
