@@ -17,6 +17,9 @@ import { GrammarRuleCard } from './content/interactive/GrammarRuleCard';
 import { TextHighlighter } from './content/interactive/TextHighlighter';
 import { SentenceBuilder } from './content/interactive/SentenceBuilder';
 
+import { renderInlineMarkdown } from './markdownUtils';
+import type { Concept, ContentBlock } from '../types';
+
 // Simple markdown renderer fallback
 const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
     if (!text) return null;
@@ -52,9 +55,7 @@ const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
     );
 };
 
-import { Tooltip } from './Tooltip';
-import type { Concept, ContentBlock } from '../types';
-import { renderInlineMarkdown } from './markdownUtils';
+
 
 interface ArticleContentProps {
     content: any[];
