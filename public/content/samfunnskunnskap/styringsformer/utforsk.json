@@ -15,7 +15,85 @@
     "context": {
         "connections": []
     },
-    "quiz": [],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva betyr ordet demokrati?",
+            "options": [
+                "Folkestyre",
+                "Kongestyre",
+                "Rikmannsstyre",
+                "Militærstyre"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hva kjennetegner et diktatur?",
+            "options": [
+                "All makt er samlet hos én person eller en liten gruppe",
+                "Folket bestemmer hvem som skal styre",
+                "Det er frie valg hvert fjerde år",
+                "Alle har rett til å si sin mening"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hva er ytringsfrihet?",
+            "options": [
+                "Retten til å si og skrive det man mener uten å bli straffet",
+                "Plikten til å være enig med regjeringen",
+                "Retten til å si stygge ting om naboen",
+                "Forbud mot å kritisere kongen"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Hvilken by er kjent som demokratiets vugge?",
+            "options": [
+                "Athen",
+                "Roma",
+                "Paris",
+                "London"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q5",
+            "question": "Hva slags demokrati har vi i Norge?",
+            "options": [
+                "Indirekte demokrati (representativt)",
+                "Direkte demokrati",
+                "Ettpartistat",
+                "Presidentstyre"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q6",
+            "question": "Hva er sensur?",
+            "options": [
+                "Når myndighetene kontrollerer og stanser informasjon",
+                "Når aviser skriver hva de vil",
+                "En type valgordning",
+                "Et annet ord for stemmerett"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q7",
+            "question": "Hvor ofte er det stortingsvalg i Norge?",
+            "options": [
+                "Hvert 4. år",
+                "Hvert år",
+                "Hvert 2. år",
+                "Hvert 5. år"
+            ],
+            "correctAnswer": 0
+        }
+    ],
     "createdDate": "2023-01-01T12:00:00Z",
     "lastUpdated": "2025-12-03T17:25:16.499Z"
 }
