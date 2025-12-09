@@ -1,6 +1,6 @@
 import { useCallback, useRef, useEffect } from 'react';
 
-type SoundType = 'join' | 'click' | 'reveal' | 'correct' | 'wrong' | 'timer_warn' | 'timer_end' | 'win';
+type SoundType = 'join' | 'click' | 'reveal' | 'correct' | 'wrong' | 'timer_warn' | 'timer_end' | 'win' | 'pop' | 'explode' | 'whoosh';
 
 export const useQuizAudio = () => {
     const audioContextRef = useRef<AudioContext | null>(null);
@@ -141,6 +141,63 @@ export const useQuizAudio = () => {
                     o.start(now);
                     o.stop(now + 1.5);
                 });
+                break;
+
+            case 'pop':
+                // Quick high pitched pop
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(800, now);
+                osc.frequency.exponentialRampToValueAtTime(100, now + 0.1);
+                gainNode.gain.setValueAtTime(0.3, now);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+                osc.start(now);
+                osc.stop(now + 0.1);
+                break;
+
+            case 'explode':
+                // Deep noise explosion
+                // Create buffer for noise
+                const bufferSize = ctx.sampleRate * 2; // 2 seconds
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+
+                const noiseGain = ctx.createGain();
+                // Filter to make it "deep"
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.value = 1000;
+                filter.Q.value = 1;
+
+                noise.connect(filter);
+                filter.connect(noiseGain);
+                noiseGain.connect(ctx.destination);
+
+                noiseGain.gain.setValueAtTime(1, now);
+                noiseGain.gain.exponentialRampToValueAtTime(0.01, now + 1.5);
+                filter.frequency.exponentialRampToValueAtTime(100, now + 1);
+
+                noise.start(now);
+                noise.stop(now + 1.5);
+                break;
+
+            case 'whoosh':
+                // Fast swept noise (flying by)
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(200, now);
+                osc.frequency.exponentialRampToValueAtTime(800, now + 0.2);
+                osc.frequency.exponentialRampToValueAtTime(100, now + 0.5);
+
+                gainNode.gain.setValueAtTime(0, now);
+                gainNode.gain.linearRampToValueAtTime(0.3, now + 0.2);
+                gainNode.gain.linearRampToValueAtTime(0, now + 0.5);
+
+                osc.start(now);
+                osc.stop(now + 0.5);
                 break;
         }
     }, []);

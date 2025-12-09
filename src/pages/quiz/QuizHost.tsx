@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../../lib/firebase';
-import { ref, onValue, update, remove, child } from 'firebase/database';
+import { ref, onValue, update, runTransaction, push, remove, child, set, onChildAdded } from 'firebase/database';
 import { useManifest } from '../../hooks/useManifest';
 import { fetchLesson } from '../../utils/contentLoader';
 import { ArrowRight, Trophy, Zap, Clock, Star, MoveDown } from 'lucide-react';
 import { useQuizAudio } from '../../hooks/useQuizAudio';
+import confetti from 'canvas-confetti';
 import type { QuizQuestion } from '../../types';
 
 export const QuizHost: React.FC = () => {
@@ -27,7 +28,15 @@ export const QuizHost: React.FC = () => {
 
     // Lobby State
     const [balloonSize, setBalloonSize] = useState(0);
-    const [floatingEmojis, setFloatingEmojis] = useState<{ id: string, emoji: string, x: number }[]>([]);
+    const [floatingEmojis, setFloatingEmojis] = useState<any[]>([]);
+    const [reactionCounts, setReactionCounts] = useState<Record<string, number>>({ '👍': 0, '❤️': 0, '🔥': 0, '🚀': 0 });
+    const [flyingBalloonStatus, setFlyingBalloonStatus] = useState<'IDLE' | 'FLYING_OUT' | 'VISITING' | 'RETURNING'>('IDLE');
+    const [visitingPlayerIndex, setVisitingPlayerIndex] = useState(-1);
+    const [cooldownTimer, setCooldownTimer] = useState(0);
+
+    // Refs for stale closure fix
+    const playersRef = useRef(players);
+    useEffect(() => { playersRef.current = players; }, [players]);
 
     // Game State
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
@@ -40,6 +49,9 @@ export const QuizHost: React.FC = () => {
         const roomRef = ref(db, `rooms/${pin}`);
         const privateRef = ref(db, `quiz-data/${pin}/questions`);
 
+        // Reset balloon on load (if host refreshes)
+        set(ref(db, `rooms/${pin}/lobby/balloonSize`), 0);
+
         // Lobby Minigame Listeners
         const lobbyRef = ref(db, `rooms/${pin}/lobby`);
         const reactionsRef = ref(db, `rooms/${pin}/reactions`);
@@ -47,6 +59,12 @@ export const QuizHost: React.FC = () => {
         const unsubscribe = onValue(roomRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
+                const id = snapshot.key || Date.now();
+
+
+
+                // Play sound throttled
+                const now = Date.now();
                 setRoomData(data);
                 if (data.players) {
                     setPlayers(Object.entries(data.players).map(([id, p]: any) => ({ ...p, id })));
@@ -68,49 +86,45 @@ export const QuizHost: React.FC = () => {
             }
         });
 
-        const unsubscribeLobby = onValue(lobbyRef, (snapshot) => {
-            if (snapshot.exists()) {
-                const val = snapshot.val();
-                setBalloonSize(val.balloonSize || 0);
-                if (val.balloonSize > 100) {
-                    // POP!
-                    playSound('win'); // Reuse win sound for pop
-                    setBalloonSize(0);
-                    update(ref(db, `rooms/${pin}/lobby`), { balloonSize: 0 });
-                }
+        const unsubscribeBalloonWatch = onValue(ref(db, `rooms/${pin}/lobby/balloonSize`), (snapshot) => {
+            const val = snapshot.val() || 0;
+            if (val >= 100 && flyingBalloonStatus === 'IDLE') {
+                startBalloonJourney();
             }
+            setBalloonSize(val);
         });
 
-        const unsubscribeReactions = onValue(reactionsRef, (snapshot) => {
-            if (snapshot.exists()) {
-                const val = snapshot.val();
-                // Get the latest reaction (simplified)
-                const keys = Object.keys(val);
-                const lastKey = keys[keys.length - 1];
-                const reaction = val[lastKey];
+        const unsubscribeReactions = onChildAdded(reactionsRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                const id = snapshot.key || Date.now();
+
+                // Track counts
+                setReactionCounts(prev => ({
+                    ...prev,
+                    [data.emoji]: (prev[data.emoji] || 0) + 1
+                }));
 
                 // Add to floating emojis
-                const id = Date.now().toString() + Math.random();
-                setFloatingEmojis(prev => [...prev, { id, emoji: reaction.emoji, x: Math.random() * 80 + 10 }]);
+                setFloatingEmojis(prev => [...prev, { id, emoji: data.emoji, x: Math.random() * 80 + 10 }]);
 
-                // Cleanup
+                // Cleanup floating emoji
                 setTimeout(() => {
                     setFloatingEmojis(prev => prev.filter(e => e.id !== id));
                 }, 3000);
 
-                // Clear from firebase to avoid re-triggering?
-                // For simplicity, we just listen. In a real app we'd use child_added.
-                remove(child(reactionsRef, lastKey));
+                // Remove from firebase to keep it clean (and act as event stream)
+                remove(ref(db, `rooms/${pin}/reactions/${snapshot.key}`));
             }
         });
 
         return () => {
             unsubscribe();
             unsubscribePrivate();
-            unsubscribeLobby();
+            unsubscribeBalloonWatch();
             unsubscribeReactions();
         };
-    }, [pin, navigate, playSound]);
+    }, [pin, navigate, playSound, flyingBalloonStatus]);
 
     // Data Filtering
     const subjects = useMemo(() => manifest?.subjects.map(s => s.id) || [], [manifest]);
@@ -135,7 +149,6 @@ export const QuizHost: React.FC = () => {
                     if (prev <= 1) {
                         // Auto-skip logic
                         clearInterval(interval);
-                        clearInterval(interval);
                         // Trigger next step via Firebase
                         playSound('timer_end');
                         revealResult();
@@ -148,7 +161,61 @@ export const QuizHost: React.FC = () => {
             setTimer(30); // Reset when not in question
         }
         return () => clearInterval(interval);
-    }, [roomData?.status, showResult, showLeaderboard, currentQuestionIndex, pin]);
+    }, [roomData?.status, showResult, showLeaderboard, currentQuestionIndex, pin, playSound]);
+
+    // Cooldown Timer
+    useEffect(() => {
+        let interval: any;
+        if (cooldownTimer > 0) {
+            interval = setInterval(() => {
+                setCooldownTimer(prev => prev - 1);
+            }, 1000);
+        } else if (cooldownTimer === 0 && flyingBalloonStatus === 'RETURNING') {
+            // Reset after cooldown
+            setFlyingBalloonStatus('IDLE');
+            set(ref(db, `rooms/${pin}/lobby/balloonSize`), 0);
+            set(ref(db, `rooms/${pin}/lobby/isLocked`), false);
+        }
+        return () => clearInterval(interval);
+    }, [cooldownTimer, flyingBalloonStatus, pin]);
+
+    // BALLOON JOURNEY LOGIC
+    const startBalloonJourney = () => {
+        setFlyingBalloonStatus('FLYING_OUT');
+        set(ref(db, `rooms/${pin}/lobby/isLocked`), true); // Lock pumping
+        playSound('whoosh');
+
+        // 1. Fly Out Animation (Host)
+        setTimeout(() => {
+            setFlyingBalloonStatus('VISITING');
+            visitNextPlayer(0);
+        }, 2000);
+    };
+
+    const visitNextPlayer = (index: number) => {
+        const currentPlayers = playersRef.current;
+        if (index >= currentPlayers.length) {
+            // All visited, return home
+            setVisitingPlayerIndex(-1);
+            set(ref(db, `rooms/${pin}/lobby/visitingPlayerId`), null);
+            setFlyingBalloonStatus('RETURNING');
+            setCooldownTimer(5); // Start 5s cooldown
+            playSound('whoosh');
+            return;
+        }
+
+        setVisitingPlayerIndex(index);
+        const currentPlayer = currentPlayers[index];
+        if (currentPlayer) {
+            // Tell Firebase who is being visited
+            set(ref(db, `rooms/${pin}/lobby/visitingPlayerId`), currentPlayer.id);
+        }
+
+        // Next player in 2 seconds (fly time)
+        setTimeout(() => {
+            visitNextPlayer(index + 1);
+        }, 2000);
+    };
 
     const startGameSetup = async () => {
         if (!manifest || !pin) return;
@@ -227,6 +294,8 @@ export const QuizHost: React.FC = () => {
             updates[`rooms/${pin}/currentQuestion`] = -1;
             updates[`rooms/${pin}/showResult`] = false;
             updates[`rooms/${pin}/currentResult`] = null; // Clear old results
+            updates[`rooms/${pin}/lobby/balloonSize`] = 0; // Reset balloon
+            updates[`rooms/${pin}/lobby/isLocked`] = false;
 
             await update(ref(db), updates);
             setIsSetup(false);
@@ -370,19 +439,48 @@ export const QuizHost: React.FC = () => {
                 {/* Balloon Minigame Display */}
                 <div className="flex-1 flex items-center justify-center mb-12 z-10">
                     <div className="relative">
-                        <motion.div
-                            animate={{ scale: 1 + balloonSize / 50 }}
-                            className="text-9xl cursor-pointer"
-                        >
-                            🎈
-                        </motion.div>
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={flyingBalloonStatus} // Force re-mount to reset initial position
+                                animate={{
+                                    scale: flyingBalloonStatus === 'IDLE' ? 1 + balloonSize / 50 : 1,
+                                    x: (flyingBalloonStatus === 'FLYING_OUT' || flyingBalloonStatus === 'VISITING') ? '100vw' : 0,
+                                    y: (flyingBalloonStatus === 'FLYING_OUT' || flyingBalloonStatus === 'VISITING') ? -200 : 0,
+                                    opacity: cooldownTimer > 0 ? 0.5 : 1
+                                }}
+                                initial={
+                                    flyingBalloonStatus === 'RETURNING' ? { x: '-100vw', y: 0 } :
+                                        flyingBalloonStatus === 'FLYING_OUT' ? { x: 0, y: 0 } :
+                                            flyingBalloonStatus === 'VISITING' ? { x: '100vw', y: -200 } : {}
+                                }
+                                transition={{ duration: 1.5, type: 'spring' }}
+                                exit={{ opacity: 0, transition: { duration: 0 } }}
+                                className="text-9xl cursor-pointer select-none transition-transform"
+                            >
+                                🎈
+                            </motion.div>
+                        </AnimatePresence>
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-2xl drop-shadow-md">
-                            {balloonSize}%
+                            {cooldownTimer > 0 ? (
+                                <span className="text-6xl">{cooldownTimer}</span>
+                            ) : flyingBalloonStatus === 'IDLE' ? (
+                                `${Math.min(100, balloonSize)}%`
+                            ) : ''}
                         </div>
                     </div>
                 </div>
 
                 <div className="z-10 bg-white/80 backdrop-blur p-4 rounded-3xl">
+                    {/* Emoji Counters (Tug of War) */}
+                    <div className="flex justify-center gap-8 mb-6">
+                        {Object.entries(reactionCounts).map(([emoji, count]) => (
+                            <div key={emoji} className="flex flex-col items-center">
+                                <span className="text-4xl mb-1">{emoji}</span>
+                                <span className="text-2xl font-black text-slate-700">{count}</span>
+                            </div>
+                        ))}
+                    </div>
+
                     <button
                         onClick={resetGame}
                         className="bg-indigo-600 text-white px-16 py-8 rounded-full text-4xl font-black shadow-2xl hover:scale-105 transition-transform hover:bg-indigo-700"

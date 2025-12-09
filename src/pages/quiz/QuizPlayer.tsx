@@ -16,9 +16,13 @@ export const QuizPlayer: React.FC = () => {
     const [status, setStatus] = useState<string>('LOBBY');
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
     const [showResult, setShowResult] = useState(false);
+    const [myName, setMyName] = useState('');
     const [myScore, setMyScore] = useState(0);
     const [myStreak, setMyStreak] = useState(0);
-    const [myName, setMyName] = useState('');
+    const [lastPoints, setLastPoints] = useState<number>(0);
+    const [isVisitingMe, setIsVisitingMe] = useState(false);
+    const [debugIncomingId, setDebugIncomingId] = useState<string>('');
+    const [isLobbyLocked, setIsLobbyLocked] = useState(false);
     const [hasAnswered, setHasAnswered] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string | string[] | null>(null);
     const [sortingOrder, setSortingOrder] = useState<string[]>([]);
@@ -26,7 +30,11 @@ export const QuizPlayer: React.FC = () => {
     const [serverResult, setServerResult] = useState<any>(null);
     const [answerTime, setAnswerTime] = useState<number>(0);
     const [scoreProcessed, setScoreProcessed] = useState(false);
-    const [lastPoints, setLastPoints] = useState<number>(0);
+
+    // Lobby Juice
+    const [localEmojis, setLocalEmojis] = useState<{ id: number, emoji: string, x: number, y: number }[]>([]);
+    const [bgHue, setBgHue] = useState(0);
+
 
     const [questionStartTime, setQuestionStartTime] = useState<number>(0);
 
@@ -81,8 +89,31 @@ export const QuizPlayer: React.FC = () => {
             }
         });
 
-        return () => unsubscribe();
-    }, [pin, navigate]);
+        // Balloon Journey Listener
+        const visitRef = ref(db, `rooms/${pin}/lobby/visitingPlayerId`);
+        const unsubscribeVisit = onValue(visitRef, (snapshot) => {
+            const visitingId = snapshot.val();
+            setDebugIncomingId(visitingId); // Debug info
+            const myId = sessionStorage.getItem('quiz_player_id');
+            if (visitingId && visitingId === myId) {
+                setIsVisitingMe(true);
+                playSound('whoosh');
+                setTimeout(() => setIsVisitingMe(false), 2000);
+            }
+        });
+
+        // Lobby Lock Listener
+        const lockRef = ref(db, `rooms/${pin}/lobby/isLocked`);
+        const unsubscribeLock = onValue(lockRef, (snapshot) => {
+            setIsLobbyLocked(snapshot.val() || false);
+        });
+
+        return () => {
+            unsubscribe();
+            unsubscribeVisit();
+            unsubscribeLock();
+        };
+    }, [pin, navigate, playSound]);
 
     // Handle Question Change
     useEffect(() => {
@@ -204,7 +235,26 @@ export const QuizPlayer: React.FC = () => {
 
     if (status === 'LOBBY' || currentQuestionIndex === -1) {
         return (
-            <div className="h-screen flex flex-col items-center justify-center p-6 text-center">
+            <div
+                className="fixed inset-0 top-0 left-0 w-screen h-screen flex flex-col items-center justify-center p-6 text-center transition-colors duration-300 overflow-hidden z-50"
+                style={{ backgroundColor: `hsl(${220 + bgHue}, 90%, 95%)` }}
+            >
+                {/* Local Floating Emojis */}
+                <AnimatePresence>
+                    {localEmojis.map(emoji => (
+                        <motion.div
+                            key={emoji.id}
+                            initial={{ x: emoji.x, y: emoji.y, opacity: 1, scale: 0.5 }}
+                            animate={{ y: -100, opacity: 0, scale: 1.5 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 1 }}
+                            className="fixed text-4xl pointer-events-none z-50"
+                        >
+                            {emoji.emoji}
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
+
                 <div className="animate-bounce mb-8">
                     <Clock className="w-24 h-24 text-indigo-600 opacity-80" />
                 </div>
@@ -221,14 +271,16 @@ export const QuizPlayer: React.FC = () => {
                 {/* Minigame Controls */}
                 <div className="w-full max-w-sm">
                     <button
+                        disabled={isLobbyLocked}
                         onClick={() => {
+                            if (isLobbyLocked) return;
                             const lobbyRef = ref(db, `rooms/${pin}/lobby/balloonSize`);
                             runTransaction(lobbyRef, (current) => (current || 0) + 5);
                             playSound('click');
                         }}
-                        className="w-full bg-red-500 text-white font-black text-2xl py-6 rounded-3xl shadow-xl active:scale-95 transition-transform mb-8 flex items-center justify-center gap-4"
+                        className={`w-full text-white font-black text-2xl py-6 rounded-3xl shadow-xl transition-transform mb-8 flex items-center justify-center gap-4 ${isLobbyLocked ? 'bg-slate-400 opacity-50 cursor-not-allowed' : 'bg-red-500 active:scale-95'}`}
                     >
-                        <span className="text-4xl">🎈</span> PUMP!
+                        <span className="text-4xl">🎈</span> {isLobbyLocked ? 'Venter...' : 'PUMP!'}
                     </button>
 
                     <div className="grid grid-cols-4 gap-4">
@@ -238,21 +290,58 @@ export const QuizPlayer: React.FC = () => {
                             { emoji: '🔥', icon: Flame, color: 'text-orange-500 bg-orange-50' },
                             { emoji: '🚀', icon: Rocket, color: 'text-purple-500 bg-purple-50' }
                         ].map((item, i) => (
-                            <button
+                            <motion.button
                                 key={i}
+                                whileTap={{ scale: 0.8 }}
                                 onClick={() => {
                                     const reactionRef = ref(db, `rooms/${pin}/reactions`);
                                     const newRef = push(reactionRef);
                                     set(newRef, { emoji: item.emoji, timestamp: Date.now() });
+
+                                    // Local Juice
+                                    setBgHue(prev => (prev + 10) % 360);
+                                    const id = Date.now() + Math.random();
+                                    const btnRect = (document.activeElement as HTMLElement)?.getBoundingClientRect();
+                                    const startX = btnRect ? btnRect.left + btnRect.width / 2 : window.innerWidth / 2;
+                                    const startY = btnRect ? btnRect.top : window.innerHeight / 2;
+
+                                    setLocalEmojis(prev => [...prev, { id, emoji: item.emoji, x: startX - 20 + Math.random() * 40, y: startY }]);
+
+                                    // Cleanup emoji after 1s
+                                    setTimeout(() => {
+                                        setLocalEmojis(prev => prev.filter(e => e.id !== id));
+                                    }, 1000);
+
+                                    // Also pump the balloon slightly if NOT locked
+                                    if (!isLobbyLocked) {
+                                        const lobbyRef = ref(db, `rooms/${pin}/lobby/balloonSize`);
+                                        runTransaction(lobbyRef, (current) => (current || 0) + 1);
+                                    }
+
                                     playSound('join');
                                 }}
-                                className={`${item.color} p-4 rounded-2xl flex items-center justify-center shadow-md active:scale-90 transition-transform`}
+                                className={`${item.color} p-4 rounded-2xl flex items-center justify-center shadow-md transition-transform active:scale-95 cursor-pointer`}
                             >
                                 <item.icon className="w-8 h-8" />
-                            </button>
+                            </motion.button>
                         ))}
                     </div>
                 </div>
+
+                {/* Balloon Journey Overlay (Lobby) */}
+                <AnimatePresence>
+                    {isVisitingMe && (
+                        <motion.div
+                            initial={{ x: '-100vw', y: 0, scale: 0.5 }}
+                            animate={{ x: '100vw', y: -200, scale: 1.5, rotate: 10 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 1.5, ease: 'easeInOut' }}
+                            className="fixed top-1/2 left-0 z-[100] text-9xl pointer-events-none drop-shadow-2xl"
+                        >
+                            🎈
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         );
     }
@@ -416,6 +505,21 @@ export const QuizPlayer: React.FC = () => {
                     </div>
                 </div>
             )}
+
+            {/* Balloon Journey Overlay */}
+            <AnimatePresence>
+                {isVisitingMe && (
+                    <motion.div
+                        initial={{ x: '-100vw', y: 0, scale: 0.5 }}
+                        animate={{ x: '100vw', y: -200, scale: 1.5, rotate: 10 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1.5, ease: 'easeInOut' }}
+                        className="fixed top-1/2 left-0 z-[100] text-9xl pointer-events-none drop-shadow-2xl"
+                    >
+                        🎈
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
