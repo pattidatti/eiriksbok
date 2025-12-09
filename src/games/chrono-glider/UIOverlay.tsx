@@ -57,7 +57,8 @@ export function UIOverlay() {
     }
 
     if (gameState === 'won') {
-        // ... (existing won code)
+        // "Won" might be legacy if infinite loop, but useful if we ever define an "End".
+        // Or if we run out of events completely.
         return (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-green-900/80 backdrop-blur-md text-white z-50">
                 <h1 className="text-6xl font-bold mb-4">TIMELINE RESTORED</h1>
@@ -72,12 +73,36 @@ export function UIOverlay() {
         );
     }
 
+    if (gameState === 'level_complete') {
+        return (
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-indigo-900/80 backdrop-blur-md text-white z-50">
+                <h1 className="text-6xl font-bold mb-4 text-cyan-400 drop-shadow-lg">LEVEL {store.level} COMPLETE</h1>
+                <p className="text-2xl mb-4">Level Score: {score}</p>
+                {store.failedEvents.length > 0 ? (
+                    <div className="bg-red-900/50 p-4 rounded-lg mb-8 border border-red-500">
+                        <p className="text-red-200 font-bold mb-2">⚠ Time Paradoxes Detected: {store.failedEvents.length}</p>
+                        <p className="text-sm">These events will re-appear in the next level!</p>
+                    </div>
+                ) : (
+                    <p className="text-green-400 font-bold mb-8">✨ Perfect Synchronization! ✨</p>
+                )}
+
+                <button
+                    onClick={() => store.startNextLevel()}
+                    className="px-8 py-3 bg-cyan-500 hover:bg-cyan-400 text-white rounded-full text-xl font-bold shadow-[0_0_20px_rgba(34,211,238,0.5)] animate-pulse"
+                >
+                    INITIATE LEVEL {store.level + 1}
+                </button>
+            </div>
+        );
+    }
+
     return (
         <div className="absolute inset-0 pointer-events-none p-8 flex flex-col justify-between z-40">
-            {/* Feedback Overlay */}
+            {/* Feedback Overlay - Moved to bottom and smaller */}
             {feedback && (
-                <div className={`absolute inset-0 flex items-center justify-center pointer-events-none z-0 transition-opacity duration-300 ${feedback ? 'opacity-100' : 'opacity-0'}`}>
-                    <div className={`text-6xl font-bold px-8 py-4 rounded-xl backdrop-blur-md border-4 shadow-[0_0_50px_rgba(0,0,0,0.5)] transform scale-125 animate-bounce
+                <div className={`absolute bottom-24 left-1/2 transform -translate-x-1/2 flex items-center justify-center pointer-events-none z-0 transition-opacity duration-300 ${feedback ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className={`text-2xl font-bold px-6 py-2 rounded-full backdrop-blur-md border-2 shadow-lg animate-bounce
                         ${feedback.type === 'correct'
                             ? 'bg-green-500/20 border-green-400 text-green-100 shadow-green-500/50'
                             : 'bg-red-500/20 border-red-400 text-red-100 shadow-red-500/50'
@@ -107,6 +132,14 @@ export function UIOverlay() {
                 </div>
 
                 <div className="flex flex-col items-end">
+                    {/* Level Indicator -- New */}
+                    <div className="mb-4 text-right">
+                        <span className="text-gray-400 font-bold uppercase tracking-widest text-xs block">Level</span>
+                        <span className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400 drop-shadow-md">
+                            {store.level}
+                        </span>
+                    </div>
+
                     {/* Mute Button */}
                     <button
                         onClick={() => AudioManager.getInstance().toggleMute()}
@@ -117,7 +150,7 @@ export function UIOverlay() {
 
                     <span className="text-red-400 font-bold uppercase tracking-widest text-sm">Integrity</span>
                     <div className="flex gap-1 mt-1">
-                        {[...Array(3)].map((_, i) => (
+                        {[...Array(5)].map((_, i) => (
                             <div key={i} className={`w-8 h-2 rounded-full ${i < lives ? 'bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.8)]' : 'bg-red-900/30'}`} />
                         ))}
                     </div>
@@ -140,6 +173,26 @@ export function UIOverlay() {
             </div>
 
             {/* Speed Indicator / Progress? maybe overkill */}
+
+            {/* Controls Hint */}
+            <div className="absolute left-8 bottom-8 animate-pulse flex gap-4">
+                <div className="flex items-center gap-3 bg-black/40 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
+                    <div className="w-10 h-10 border-2 border-cyan-400 rounded-lg flex items-center justify-center text-cyan-400 font-bold text-xl shadow-[0_0_10px_rgba(34,211,238,0.3)]">
+                        W
+                    </div>
+                    <span className="text-cyan-100 font-medium tracking-wide uppercase text-sm">
+                        Hold for Speedboost
+                    </span>
+                </div>
+                <div className="flex items-center gap-3 bg-black/40 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
+                    <div className="w-24 h-10 border-2 border-cyan-400 rounded-lg flex items-center justify-center text-cyan-400 font-bold text-xl shadow-[0_0_10px_rgba(34,211,238,0.3)]">
+                        SPACE
+                    </div>
+                    <span className="text-cyan-100 font-medium tracking-wide uppercase text-sm">
+                        Shoot
+                    </span>
+                </div>
+            </div>
         </div>
     );
 }

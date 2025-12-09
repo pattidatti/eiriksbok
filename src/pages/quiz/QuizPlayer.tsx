@@ -1,22 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../../lib/firebase';
-import { ref, onValue, update } from 'firebase/database';
-import { Trophy, CheckCircle, XCircle, Clock } from 'lucide-react';
+import { ref, onValue, update, runTransaction, push, set } from 'firebase/database';
+import { Trophy, CheckCircle, XCircle, Clock, Heart, ThumbsUp, Flame, Rocket } from 'lucide-react';
+import { useQuizAudio } from '../../hooks/useQuizAudio';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const QuizPlayer: React.FC = () => {
     const { pin } = useParams();
     const navigate = useNavigate();
+    const { playSound } = useQuizAudio();
 
     // Local State
     const [status, setStatus] = useState<string>('LOBBY');
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
     const [showResult, setShowResult] = useState(false);
     const [myScore, setMyScore] = useState(0);
+    const [myStreak, setMyStreak] = useState(0);
     const [myName, setMyName] = useState('');
     const [hasAnswered, setHasAnswered] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+    const [serverResult, setServerResult] = useState<any>(null);
+    const [answerTime, setAnswerTime] = useState<number>(0);
+    const [scoreProcessed, setScoreProcessed] = useState(false);
+    const [lastPoints, setLastPoints] = useState<number>(0);
 
     const [questionStartTime, setQuestionStartTime] = useState<number>(0);
 
@@ -43,12 +51,31 @@ export const QuizPlayer: React.FC = () => {
             setShowResult(data.showResult);
             if (data.questions) setAllQuestions(data.questions);
             if (data.questionStartTime) setQuestionStartTime(data.questionStartTime);
+            if (data.currentResult) setServerResult(data.currentResult);
+            else setServerResult(null);
 
             // Get my own data
             const myData = data.players?.[playerId];
             if (myData) {
                 setMyName(myData.name);
                 setMyScore(myData.score);
+                setMyStreak(myData.streak || 0);
+                setMyName(myData.name);
+                setMyScore(myData.score);
+                setMyStreak(myData.streak || 0);
+
+                // Restore Answer State if exists
+                if (data.currentQuestion !== -1 && myData.answers && myData.answers[data.currentQuestion]) {
+                    const savedAnswer = myData.answers[data.currentQuestion];
+                    if (savedAnswer && !hasAnswered) {
+                        setSelectedOption(savedAnswer);
+                        setHasAnswered(true);
+                        // Restore time if available
+                        if (myData.answerTimes && myData.answerTimes[data.currentQuestion]) {
+                            setAnswerTime(myData.answerTimes[data.currentQuestion]);
+                        }
+                    }
+                }
             }
         });
 
@@ -60,16 +87,87 @@ export const QuizPlayer: React.FC = () => {
         setHasAnswered(false);
         setSelectedOption(null);
         setIsCorrect(null);
+        setServerResult(null);
+        setScoreProcessed(false);
+        setAnswerTime(0);
     }, [currentQuestionIndex]);
 
-    // Handle Result Reveal
+    // Handle Result Reveal & Score Calculation
     useEffect(() => {
-        if (showResult && hasAnswered && allQuestions[currentQuestionIndex]) {
-            const q = allQuestions[currentQuestionIndex];
-            const correctString = typeof q.correctAnswer === 'number' ? q.options[q.correctAnswer] : q.answer;
-            setIsCorrect(selectedOption === correctString);
+        // If we haven't answered, we can't be correct.
+        if (!showResult || !serverResult || scoreProcessed) return;
+
+        // If we didn't answer, we don't calculate score, just mark processed
+        if (!hasAnswered || !selectedOption) {
+            setScoreProcessed(true);
+            setIsCorrect(false); // Or null? treating as wrong for now.
+            setMyStreak(0);
+            return;
         }
-    }, [showResult, hasAnswered, allQuestions, currentQuestionIndex, selectedOption]);
+
+        setScoreProcessed(true);
+
+        // Check Correctness
+        let isAnswerCorrect = false;
+        if (typeof serverResult.correctAnswer === 'number') {
+            // If answer is index, we need to map to our options.
+            // NOTE: QuizHost shuffles options. Ensure indices match.
+            // Assuming allQuestions[currentQuestionIndex] has the SAME shuffled order as Host
+            // which it should if sync worked.
+            const q = allQuestions[currentQuestionIndex];
+            if (q && q.options) {
+                const correctOptionText = q.options[serverResult.correctAnswer];
+                isAnswerCorrect = selectedOption === correctOptionText;
+            }
+        } else if (serverResult.answer) {
+            isAnswerCorrect = selectedOption === serverResult.answer;
+        }
+
+        setIsCorrect(isAnswerCorrect);
+
+        if (isAnswerCorrect) {
+            playSound('correct');
+            // Speed Calculation
+            const now = answerTime; // Use stored answer time
+            const elapsed = now - questionStartTime;
+            const duration = 30000; // 30s
+            const timeLeft = Math.max(0, duration - elapsed);
+
+            const speedBonus = Math.floor(500 * (timeLeft / duration));
+
+            // Streak Calculation
+            const newStreak = myStreak + 1;
+            let multiplier = 1 + (newStreak > 1 ? (newStreak - 1) * 0.1 : 0);
+            if (multiplier > 2) multiplier = 2; // Cap at 2x
+
+            const points = Math.floor((500 + speedBonus) * multiplier);
+
+            const newScore = myScore + points;
+
+            setLastPoints(points);
+
+            // Update Firebase
+            const playerId = sessionStorage.getItem('quiz_player_id');
+            if (playerId && pin) {
+                update(ref(db, `rooms/${pin}/players/${playerId}`), {
+                    score: newScore,
+                    streak: newStreak
+                });
+            }
+
+            // Optimistic update
+            setMyScore(newScore);
+            setMyStreak(newStreak);
+        } else {
+            playSound('wrong');
+            // Reset Streak
+            const playerId = sessionStorage.getItem('quiz_player_id');
+            if (playerId && pin) {
+                update(ref(db, `rooms/${pin}/players/${playerId}`), { streak: 0 });
+            }
+            setMyStreak(0);
+        }
+    }, [showResult, hasAnswered, serverResult, scoreProcessed, allQuestions, currentQuestionIndex, selectedOption, answerTime, questionStartTime, myScore, myStreak, pin, playSound]);
 
     const submitAnswer = async (option: string) => {
         if (hasAnswered || showResult) return;
@@ -77,35 +175,16 @@ export const QuizPlayer: React.FC = () => {
         const playerId = sessionStorage.getItem('quiz_player_id');
         if (!playerId) return;
 
+        const now = Date.now();
+        setAnswerTime(now);
         setSelectedOption(option);
         setHasAnswered(true);
-
-        const q = allQuestions[currentQuestionIndex];
-        const correctString = typeof q.correctAnswer === 'number' ? q.options[q.correctAnswer] : q.answer;
-        const isAnswerCorrect = option === correctString;
+        playSound('click');
 
         const updates: any = {};
         updates[`rooms/${pin}/players/${playerId}/answers/${currentQuestionIndex}`] = option;
+        updates[`rooms/${pin}/players/${playerId}/answerTimes/${currentQuestionIndex}`] = now;
         updates[`rooms/${pin}/players/${playerId}/lastAnswer`] = option;
-
-        if (isAnswerCorrect) {
-            // Speed Calculation
-            // Default 30s. If we answer instantly -> 30s left -> 1.0 multiplier.
-            // Points = Base (500) + Bonus (up to 500)
-            const now = Date.now();
-            const elapsed = now - questionStartTime;
-            const duration = 30000; // 30s
-            const timeLeft = Math.max(0, duration - elapsed);
-
-            const speedBonus = Math.floor(500 * (timeLeft / duration));
-            const points = 500 + speedBonus;
-
-            const newScore = myScore + points;
-            updates[`rooms/${pin}/players/${playerId}/score`] = newScore;
-
-            // Optimistic update
-            setMyScore(newScore);
-        }
 
         await update(ref(db), updates);
     };
@@ -126,7 +205,43 @@ export const QuizPlayer: React.FC = () => {
                     <div className="text-6xl font-black text-indigo-600">{myName}</div>
                 </div>
 
-                <div className="text-3xl font-mono text-slate-400 font-bold">PIN: {pin}</div>
+                <div className="text-3xl font-mono text-slate-400 font-bold mb-12">PIN: {pin}</div>
+
+                {/* Minigame Controls */}
+                <div className="w-full max-w-sm">
+                    <button
+                        onClick={() => {
+                            const lobbyRef = ref(db, `rooms/${pin}/lobby/balloonSize`);
+                            runTransaction(lobbyRef, (current) => (current || 0) + 5);
+                            playSound('click');
+                        }}
+                        className="w-full bg-red-500 text-white font-black text-2xl py-6 rounded-3xl shadow-xl active:scale-95 transition-transform mb-8 flex items-center justify-center gap-4"
+                    >
+                        <span className="text-4xl">🎈</span> PUMP!
+                    </button>
+
+                    <div className="grid grid-cols-4 gap-4">
+                        {[
+                            { emoji: '👍', icon: ThumbsUp, color: 'text-blue-500 bg-blue-50' },
+                            { emoji: '❤️', icon: Heart, color: 'text-red-500 bg-red-50' },
+                            { emoji: '🔥', icon: Flame, color: 'text-orange-500 bg-orange-50' },
+                            { emoji: '🚀', icon: Rocket, color: 'text-purple-500 bg-purple-50' }
+                        ].map((item, i) => (
+                            <button
+                                key={i}
+                                onClick={() => {
+                                    const reactionRef = ref(db, `rooms/${pin}/reactions`);
+                                    const newRef = push(reactionRef);
+                                    set(newRef, { emoji: item.emoji, timestamp: Date.now() });
+                                    playSound('join');
+                                }}
+                                className={`${item.color} p-4 rounded-2xl flex items-center justify-center shadow-md active:scale-90 transition-transform`}
+                            >
+                                <item.icon className="w-8 h-8" />
+                            </button>
+                        ))}
+                    </div>
+                </div>
             </div>
         );
     }
@@ -148,23 +263,44 @@ export const QuizPlayer: React.FC = () => {
     if (!currentQ) return <div className="p-8 text-center h-screen flex items-center justify-center text-slate-500 font-bold text-3xl">Laster...</div>;
 
     if (showResult) {
+        const currentMultiplier = Math.min(2, 1 + (myStreak > 1 ? (myStreak - 1) * 0.1 : 0));
+
         return (
-            <div className={`h-screen flex flex-col items-center justify-center p-4 text-center ${isCorrect ? 'bg-green-50' : 'bg-red-50'} transition-colors duration-500`}>
-                {isCorrect ? (
-                    <>
-                        <CheckCircle className="w-40 h-40 mb-8 text-green-600 animate-bounce" />
-                        <h1 className="text-8xl font-black mb-4 text-green-800">Riktig!</h1>
-                        <p className="text-5xl text-green-700 font-black">+100 poeng</p>
-                    </>
-                ) : (
-                    <>
-                        <XCircle className="w-40 h-40 mb-8 text-red-600 animate-shake" />
-                        <h1 className="text-8xl font-black mb-4 text-red-800">Feil...</h1>
-                        <p className="text-4xl text-red-700 font-bold">Bedre lykke neste gang!</p>
-                    </>
-                )}
-                <div className="mt-20 text-slate-400 animate-pulse font-bold text-2xl">Se resultatliste på storskjermen</div>
-            </div>
+            <AnimatePresence>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className={`h-screen flex flex-col items-center justify-center p-4 text-center ${isCorrect ? 'bg-green-50' : 'bg-red-50'} transition-colors duration-500`}
+                >
+                    {isCorrect ? (
+                        <>
+                            <motion.div initial={{ scale: 0 }} animate={{ scale: 1, rotate: 360 }} transition={{ type: 'spring' }}>
+                                <CheckCircle className="w-40 h-40 mb-8 text-green-600" />
+                            </motion.div>
+                            <h1 className="text-8xl font-black mb-4 text-green-800">Riktig!</h1>
+                            <p className="text-5xl text-green-700 font-black mb-2">+{lastPoints} poeng</p>
+                            {myStreak > 1 && (
+                                <div className="text-3xl text-orange-500 font-bold animate-pulse">
+                                    🔥 {myStreak} på rad! ({currentMultiplier.toFixed(1)}x)
+                                </div>
+                            )}
+                        </>
+                    ) : (
+                        <>
+                            <motion.div initial={{ x: -50 }} animate={{ x: 0 }} transition={{ type: 'spring', stiffness: 500, damping: 10 }}>
+                                <XCircle className="w-40 h-40 mb-8 text-red-600" />
+                            </motion.div>
+                            <h1 className="text-8xl font-black mb-4 text-red-800">
+                                {hasAnswered ? "Feil..." : "For sent!"}
+                            </h1>
+                            <p className="text-4xl text-red-700 font-bold">
+                                {hasAnswered ? "Bedre lykke neste gang!" : "Du svarte ikke i tide ⏳"}
+                            </p>
+                        </>
+                    )}
+                    <div className="mt-20 text-slate-400 animate-pulse font-bold text-2xl">Se resultatliste på storskjermen</div>
+                </motion.div>
+            </AnimatePresence >
         );
     }
 
@@ -213,8 +349,9 @@ export const QuizPlayer: React.FC = () => {
 
             {hasAnswered && (
                 <div className="absolute inset-0 bg-slate-900/10 backdrop-blur-[1px] flex items-center justify-center z-20 animate-in fade-in duration-200">
-                    <div className="bg-white text-slate-900 px-12 py-8 rounded-3xl font-black text-4xl shadow-2xl transform scale-110 border-8 border-indigo-50">
+                    <div className="bg-white text-slate-900 px-12 py-8 rounded-3xl font-black text-4xl shadow-2xl transform scale-110 border-8 border-indigo-50 animate-pulse">
                         Svar sendt! 🚀
+                        <div className="text-lg text-slate-400 font-normal mt-4 text-center">Vent på resultat... 🤞</div>
                     </div>
                 </div>
             )}

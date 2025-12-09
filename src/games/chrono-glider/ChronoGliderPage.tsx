@@ -9,7 +9,7 @@ import { Loader } from '@react-three/drei';
 import { AudioManager } from './systems/AudioManager';
 
 export default function ChronoGliderPage() {
-    const { setEvents } = useGameStore();
+    const { setAllEvents } = useGameStore();
 
     useEffect(() => {
         // Init audio
@@ -43,19 +43,12 @@ export default function ChronoGliderPage() {
                         // Note: global-timeline uses negative numbers for BCE.
                         description: d.description || "",
                         displayDate: d.displayDate
-                    }))
-                    // Sort by year just in case, or shuffle for random gameplay?
-                    // "Chrono Glider" implies gliding through history. Chronological order makes sense?
-                    // Or random quiz mode. Let's do Chronological for now, or random subset.
-                    // Game loop handles simplified "Next Event".
-                    // Let's Shuffle for replayability!
-                    .sort(() => Math.random() - 0.5)
-                    .slice(0, 10); // Take 10 random events for a "Session"
+                    }));
 
-                setEvents(validEvents);
+                setAllEvents(validEvents);
             })
             .catch(err => console.error("Failed to load timeline", err));
-    }, [setEvents]);
+    }, [setAllEvents]);
 
     return (
         <div className="w-full h-screen bg-slate-900 overflow-hidden relative">

@@ -15,7 +15,10 @@ export const Glider = forwardRef<THREE.Group>((_, ref) => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (gameState !== 'playing') return;
             if (e.code === 'KeyW') setBoosting(true);
-            if (e.code === 'Space') fireProjectile();
+            if (e.code === 'Space') {
+                e.preventDefault();
+                fireProjectile();
+            }
         };
 
         const handleKeyUp = (e: KeyboardEvent) => {

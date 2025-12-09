@@ -2,25 +2,32 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../../lib/firebase';
-import { ref, onValue, update } from 'firebase/database';
+import { ref, onValue, update, remove, child } from 'firebase/database';
 import { useManifest } from '../../hooks/useManifest';
 import { fetchLesson } from '../../utils/contentLoader';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Trophy, Zap, Clock, Star } from 'lucide-react';
+import { useQuizAudio } from '../../hooks/useQuizAudio';
 import type { QuizQuestion } from '../../types';
 
 export const QuizHost: React.FC = () => {
     const { pin } = useParams();
     const navigate = useNavigate();
     const { data: manifest } = useManifest();
+    const { playSound } = useQuizAudio();
 
     const [roomData, setRoomData] = useState<any>(null);
     const [players, setPlayers] = useState<any[]>([]);
+    const [privateQuestions, setPrivateQuestions] = useState<any[]>([]); // Full questions with answers
 
     // Setup State
     const [isSetup, setIsSetup] = useState(true);
     const [selectedSubject, setSelectedSubject] = useState<string | 'all'>('all');
     const [selectedTopic, setSelectedTopic] = useState<string | 'all'>('all');
     const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
+
+    // Lobby State
+    const [balloonSize, setBalloonSize] = useState(0);
+    const [floatingEmojis, setFloatingEmojis] = useState<{ id: string, emoji: string, x: number }[]>([]);
 
     // Game State
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
@@ -31,6 +38,12 @@ export const QuizHost: React.FC = () => {
     useEffect(() => {
         if (!pin) return;
         const roomRef = ref(db, `rooms/${pin}`);
+        const privateRef = ref(db, `quiz-data/${pin}/questions`);
+
+        // Lobby Minigame Listeners
+        const lobbyRef = ref(db, `rooms/${pin}/lobby`);
+        const reactionsRef = ref(db, `rooms/${pin}/reactions`);
+
         const unsubscribe = onValue(roomRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
@@ -48,8 +61,56 @@ export const QuizHost: React.FC = () => {
                 navigate('/quiz-battle/admin-999');
             }
         });
-        return () => unsubscribe();
-    }, [pin, navigate]);
+
+        const unsubscribePrivate = onValue(privateRef, (snapshot) => {
+            if (snapshot.exists()) {
+                setPrivateQuestions(snapshot.val());
+            }
+        });
+
+        const unsubscribeLobby = onValue(lobbyRef, (snapshot) => {
+            if (snapshot.exists()) {
+                const val = snapshot.val();
+                setBalloonSize(val.balloonSize || 0);
+                if (val.balloonSize > 100) {
+                    // POP!
+                    playSound('win'); // Reuse win sound for pop
+                    setBalloonSize(0);
+                    update(ref(db, `rooms/${pin}/lobby`), { balloonSize: 0 });
+                }
+            }
+        });
+
+        const unsubscribeReactions = onValue(reactionsRef, (snapshot) => {
+            if (snapshot.exists()) {
+                const val = snapshot.val();
+                // Get the latest reaction (simplified)
+                const keys = Object.keys(val);
+                const lastKey = keys[keys.length - 1];
+                const reaction = val[lastKey];
+
+                // Add to floating emojis
+                const id = Date.now().toString() + Math.random();
+                setFloatingEmojis(prev => [...prev, { id, emoji: reaction.emoji, x: Math.random() * 80 + 10 }]);
+
+                // Cleanup
+                setTimeout(() => {
+                    setFloatingEmojis(prev => prev.filter(e => e.id !== id));
+                }, 3000);
+
+                // Clear from firebase to avoid re-triggering?
+                // For simplicity, we just listen. In a real app we'd use child_added.
+                remove(child(reactionsRef, lastKey));
+            }
+        });
+
+        return () => {
+            unsubscribe();
+            unsubscribePrivate();
+            unsubscribeLobby();
+            unsubscribeReactions();
+        };
+    }, [pin, navigate, playSound]);
 
     // Data Filtering
     const subjects = useMemo(() => manifest?.subjects.map(s => s.id) || [], [manifest]);
@@ -68,11 +129,16 @@ export const QuizHost: React.FC = () => {
         if (roomData?.status === 'PLAYING' && !showResult && !showLeaderboard && currentQuestionIndex !== -1) {
             interval = setInterval(() => {
                 setTimer((prev) => {
+                    if (prev <= 5 && prev > 1) {
+                        playSound('timer_warn');
+                    }
                     if (prev <= 1) {
                         // Auto-skip logic
                         clearInterval(interval);
+                        clearInterval(interval);
                         // Trigger next step via Firebase
-                        update(ref(db, `rooms/${pin}`), { showResult: true });
+                        playSound('timer_end');
+                        revealResult();
                         return 0;
                     }
                     return prev - 1;
@@ -145,10 +211,22 @@ export const QuizHost: React.FC = () => {
 
             // 2. Save to Firebase
             const updates: any = {};
-            updates[`rooms/${pin}/questions`] = allQuestions;
+
+            // Public Questions (Sanitized)
+            const publicQuestions = allQuestions.map(q => {
+                const { correctAnswer, answer, ...rest } = q; // Remove answer keys
+                return rest;
+            });
+
+            // Store Private Questions separately
+            updates[`quiz-data/${pin}/questions`] = allQuestions;
+
+            // Store Public Data
+            updates[`rooms/${pin}/questions`] = publicQuestions;
             updates[`rooms/${pin}/status`] = 'LOBBY';
             updates[`rooms/${pin}/currentQuestion`] = -1;
             updates[`rooms/${pin}/showResult`] = false;
+            updates[`rooms/${pin}/currentResult`] = null; // Clear old results
 
             await update(ref(db), updates);
             setIsSetup(false);
@@ -162,9 +240,11 @@ export const QuizHost: React.FC = () => {
     };
 
     const nextStep = async () => {
-        if (!roomData?.questions) return;
+        // Use privateQuestions for length check if available, else fallback
+        const questions = privateQuestions.length > 0 ? privateQuestions : roomData?.questions;
+        if (!questions) return;
 
-        const total = roomData.questions.length;
+        const total = questions.length;
 
         if (showLeaderboard) {
             // Was showing leaderboard, move to next question
@@ -176,6 +256,7 @@ export const QuizHost: React.FC = () => {
                 update(ref(db, `rooms/${pin}`), {
                     currentQuestion: nextIdx,
                     showResult: false,
+                    currentResult: null, // Reset result
                     questionStartTime: Date.now() // Start timer for scoring
                 });
                 setShowLeaderboard(false);
@@ -185,8 +266,29 @@ export const QuizHost: React.FC = () => {
             setShowLeaderboard(true);
         } else {
             // Was showing question, reveal result
-            update(ref(db, `rooms/${pin}`), { showResult: true });
+            playSound('reveal');
+            revealResult();
         }
+    };
+
+    const revealResult = () => {
+        const q = privateQuestions[currentQuestionIndex];
+        if (!q) return;
+
+        // Construct result object
+        const result: any = {
+            correctAnswer: q.correctAnswer
+        };
+
+        // Only add answer string if it exists (Firebase crashes on undefined)
+        if (q.answer !== undefined) {
+            result.answer = q.answer;
+        }
+
+        update(ref(db, `rooms/${pin}`), {
+            showResult: true,
+            currentResult: result
+        });
     };
 
     // Renders
@@ -230,14 +332,34 @@ export const QuizHost: React.FC = () => {
 
     // 2. Lobby Screen (Waiting to start 1st question)
     if (currentQuestionIndex === -1 && roomData.status !== 'FINISHED') {
+        const resetGame = async () => {
+            // Reset everything to handle "Play Again" flow if needed
+            // For now just standard start
+            update(ref(db, `rooms/${pin}`), { currentQuestion: 0, status: 'PLAYING', questionStartTime: Date.now() });
+        };
+
         return (
-            <div className="min-h-screen p-8 flex flex-col items-center">
-                <div className="text-center mb-12">
+            <div className="min-h-screen p-8 flex flex-col items-center relative overflow-hidden">
+                {/* Floating Emojis Layer */}
+                {floatingEmojis.map(e => (
+                    <motion.div
+                        key={e.id}
+                        initial={{ y: '100vh', opacity: 1 }}
+                        animate={{ y: '-10vh', opacity: 0 }}
+                        transition={{ duration: 3, ease: 'easeOut' }}
+                        className="absolute text-6xl pointer-events-none"
+                        style={{ left: `${e.x}%` }}
+                    >
+                        {e.emoji}
+                    </motion.div>
+                ))}
+
+                <div className="text-center mb-12 z-10">
                     <h2 className="text-2xl font-bold text-slate-500 uppercase tracking-widest mb-4">Gå til <span className="text-indigo-600">bok.haaland.de/quiz-battle</span></h2>
                     <div className="text-9xl font-black font-mono text-indigo-600 tracking-tighter mb-4 inline-block drop-shadow-sm">{pin}</div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-6xl mb-12">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-6xl mb-12 z-10">
                     {players.map((p: any, i) => (
                         <div key={i} className="bg-white border-2 border-indigo-100 p-6 rounded-2xl text-center font-bold text-xl animate-bounce-in shadow-sm text-indigo-900">
                             {p.name}
@@ -245,12 +367,32 @@ export const QuizHost: React.FC = () => {
                     ))}
                 </div>
 
-                <button
-                    onClick={() => update(ref(db, `rooms/${pin}`), { currentQuestion: 0, status: 'PLAYING', questionStartTime: Date.now() })}
-                    className="bg-indigo-600 text-white px-16 py-8 rounded-full text-4xl font-black shadow-2xl hover:scale-105 transition-transform hover:bg-indigo-700"
-                >
-                    Start Spillet 🚀
-                </button>
+                {/* Balloon Minigame Display */}
+                <div className="flex-1 flex items-center justify-center mb-12 z-10">
+                    <div className="relative">
+                        <motion.div
+                            animate={{ scale: 1 + balloonSize / 50 }}
+                            className="text-9xl cursor-pointer"
+                        >
+                            🎈
+                        </motion.div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-2xl drop-shadow-md">
+                            {balloonSize}%
+                        </div>
+                    </div>
+                </div>
+
+                <div className="z-10 bg-white/80 backdrop-blur p-4 rounded-3xl">
+                    <button
+                        onClick={resetGame}
+                        className="bg-indigo-600 text-white px-16 py-8 rounded-full text-4xl font-black shadow-2xl hover:scale-105 transition-transform hover:bg-indigo-700"
+                    >
+                        Start Spillet 🚀
+                    </button>
+                    <div className="text-center mt-4 text-slate-500 font-bold">
+                        {players.length} spillere er klare
+                    </div>
+                </div>
             </div>
         );
     }
@@ -259,30 +401,68 @@ export const QuizHost: React.FC = () => {
     if (roomData.status === 'FINISHED') {
         const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
         return (
-            <div className="min-h-screen p-8 text-center pt-20">
-                <h1 className="text-6xl font-black mb-16 text-indigo-900">Resultatliste 🏆</h1>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="min-h-screen p-8 text-center pt-20 bg-slate-50"
+            >
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                    {/* Simple Confetti Placeholder or particles would go here */}
+                </div>
+
+                <h1 className="text-6xl font-black mb-16 text-indigo-900 drop-shadow-sm">Resultatliste 🏆</h1>
                 <div className="max-w-3xl mx-auto space-y-6">
                     {sortedPlayers.map((p, i) => (
-                        <div key={i} className={`flex justify-between items-center p-8 rounded-3xl shadow-lg border-b-4 transition-transform hover:scale-[1.02] ${i === 0 ? 'bg-yellow-100 border-yellow-300 text-yellow-900 scale-110 z-10' :
-                            i === 1 ? 'bg-slate-100 border-slate-300 text-slate-700' :
-                                i === 2 ? 'bg-orange-50 border-orange-200 text-orange-800' :
-                                    'bg-white border-slate-100 text-slate-600'
-                            }`}>
+                        <motion.div
+                            key={i}
+                            initial={{ x: -100, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: i * 0.2, type: 'spring' }}
+                            className={`flex justify-between items-center p-8 rounded-3xl shadow-lg border-b-8 transition-transform hover:scale-[1.02] ${i === 0 ? 'bg-yellow-100 border-yellow-300 text-yellow-900 scale-110 z-10' :
+                                i === 1 ? 'bg-slate-100 border-slate-300 text-slate-700' :
+                                    i === 2 ? 'bg-orange-50 border-orange-200 text-orange-800' :
+                                        'bg-white border-slate-100 text-slate-600'
+                                }`}
+                        >
                             <span className="text-3xl font-bold flex items-center">
                                 <span className="w-12 inline-block text-center mr-4 opacity-50">#{i + 1}</span>
                                 {p.name}
+                                {i === 0 && <span className="ml-4 text-4xl">👑</span>}
+                                {p.streak > 2 && <span className="ml-2 text-2xl animate-pulse">🔥</span>}
                             </span>
                             <span className="text-4xl font-black">{p.score}p</span>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-                <button onClick={() => navigate('/quiz-battle/admin-999')} className="mt-20 text-indigo-500 hover:text-indigo-800 font-bold text-xl">Avslutt</button>
-            </div>
+                <div className="flex justify-center gap-4 mt-20">
+                    <button onClick={() => {
+                        // Reset game logic
+                        update(ref(db, `rooms/${pin}`), {
+                            status: 'LOBBY',
+                            currentQuestion: -1,
+                            questions: null, // Force re-fetch? Or just reset index.
+                            showResult: false
+                        });
+                        // Reset players?
+                        players.forEach(p => {
+                            update(ref(db, `rooms/${pin}/players/${p.id}`), { score: 0, streak: 0, answers: null });
+                        });
+                        // Go back to setup?
+                        setIsSetup(true);
+                    }} className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-xl hover:scale-105 transition-transform">
+                        Spill Igjen 🔄
+                    </button>
+                    <button onClick={() => navigate('/quiz-battle/admin-999')} className="bg-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold text-xl hover:bg-slate-300">
+                        Avslutt
+                    </button>
+                </div>
+            </motion.div>
         );
     }
 
     // 4. Gameplay Screen
-    const question = roomData.questions[currentQuestionIndex];
+    // Use privateQuestions for Host visualization (so we see the answers)
+    const question = privateQuestions[currentQuestionIndex] || roomData.questions[currentQuestionIndex];
     if (!question) return <div>Laster spørsmål...</div>;
 
     if (showLeaderboard) {
@@ -309,6 +489,10 @@ export const QuizHost: React.FC = () => {
                                 <div className="flex items-center gap-4">
                                     {p.score > 0 && <span className="text-sm bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">+{p.score % 100 || 100} speed!</span>}
                                     <span className="text-2xl font-black text-indigo-600">{p.score}p</span>
+                                    {p.streak > 2 && <div className="ml-2 text-orange-500 font-bold flex flex-col items-center leading-none">
+                                        <span className="text-2xl">🔥</span>
+                                        <span className="text-xs">{p.streak}x</span>
+                                    </div>}
                                 </div>
                             </motion.div>
                         ))}
@@ -328,12 +512,12 @@ export const QuizHost: React.FC = () => {
             {/* Top Bar */}
             <div className="flex w-full justify-between items-center mb-12 max-w-7xl">
                 <div className="font-mono font-bold text-xl text-slate-400">PIN: {pin}</div>
-                <div className="font-bold text-2xl text-slate-400">Spørsmål <span className="text-indigo-600 text-3xl">{currentQuestionIndex + 1}</span> / {roomData.questions.length}</div>
+                <div className="font-bold text-2xl text-slate-400">Spørsmål <span className="text-indigo-600 text-3xl">{currentQuestionIndex + 1}</span> / {privateQuestions.length || roomData.questions.length}</div>
 
                 {/* Timer */}
                 <div className={`
-                    w-20 h-20 rounded-full flex items-center justify-center text-3xl font-black border-4 shadow-lg
-                    ${timer <= 5 ? 'bg-red-100 text-red-600 border-red-500 animate-pulse' : 'bg-white text-slate-700 border-slate-200'}
+                    w-20 h-20 rounded-full flex items-center justify-center text-3xl font-black border-4 shadow-lg transition-all duration-300
+                    ${timer <= 5 ? 'bg-red-100 text-red-600 border-red-500 scale-125 shadow-red-200' : 'bg-white text-slate-700 border-slate-200'}
                 `}>
                     {timer}
                 </div>
@@ -344,10 +528,17 @@ export const QuizHost: React.FC = () => {
             </div>
 
             {/* Content - Full Screen / Immersive */}
-            <div className="flex-1 flex flex-col items-center justify-center w-full">
-                <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-center mb-20 leading-tight max-w-6xl mx-auto text-slate-900">
-                    {question.question}
-                </h2>
+            <div className="flex-1 flex flex-col items-center justify-center w-full relative z-10">
+                <AnimatePresence mode="wait">
+                    <motion.h2
+                        key={question.question}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-4xl md:text-5xl lg:text-7xl font-black text-center mb-20 leading-tight max-w-6xl mx-auto text-slate-900"
+                    >
+                        {question.question}
+                    </motion.h2>
+                </AnimatePresence>
 
                 <div className="grid grid-cols-2 gap-8 w-full max-w-[90vw] h-[45vh]">
                     {question.options.map((opt: string, i: number) => {
@@ -364,18 +555,23 @@ export const QuizHost: React.FC = () => {
                         let containerCalss = `${colors[i % 4]} shadow-xl`;
 
                         if (showColor) {
-                            if (!isCorrect) containerCalss = "bg-slate-100 text-slate-300 border-slate-200 opacity-50 scale-95 grayscale";
-                            else containerCalss = "bg-green-500 text-white scale-105 shadow-2xl z-10 ring-8 ring-green-100 border-green-700";
+                            if (!isCorrect) containerCalss = "bg-slate-100 text-slate-300 border-slate-200 opacity-20 scale-95 grayscale";
+                            else containerCalss = "bg-green-500 text-white scale-110 shadow-2xl z-20 ring-8 ring-green-200 border-green-600";
                         }
 
                         return (
-                            <div key={i} className={`
-                                ${containerCalss}
-                                rounded-3xl flex items-center justify-center p-8 
-                                text-3xl md:text-5xl font-bold text-center transition-all duration-500 border-b-8
-                            `}>
+                            <motion.div
+                                layout
+                                key={i}
+                                className={`
+                                    ${containerCalss}
+                                    rounded-3xl flex items-center justify-center p-8 
+                                    text-3xl md:text-5xl font-bold text-center transition-all duration-500 border-b-8
+                                    cursor-default select-none
+                                `}
+                            >
                                 <span className="drop-shadow-sm leading-tight">{opt}</span>
-                            </div>
+                            </motion.div>
                         )
                     })}
                 </div>

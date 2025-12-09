@@ -1,11 +1,13 @@
 // @ts-nocheck
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { useGameStore } from '../store';
+import { useGameStore, LEVEL_PALETTES } from '../store';
 
 function MovingGrid() {
     const gridRef = useRef<any>(null);
-    const { speed, gameState } = useGameStore();
+    const { speed, gameState, level } = useGameStore();
+
+    const palette = LEVEL_PALETTES[(level - 1) % LEVEL_PALETTES.length];
 
     useFrame((_, delta) => {
         if (gameState === 'menu') {
@@ -23,7 +25,7 @@ function MovingGrid() {
     return (
         <gridHelper
             ref={gridRef}
-            args={[100, 50, 0x4f46e5, 0x000000]} // Changed color to indigo/black for cooler look
+            args={[100, 50, palette.grid, 0x000000]}
             position={[0, -5, -40]}
             rotation={[0, 0, 0]}
         />
