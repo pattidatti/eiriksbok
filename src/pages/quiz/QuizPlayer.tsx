@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../../lib/firebase';
-import { ref, onValue, set, get, child } from 'firebase/database';
+import { ref, onValue, update } from 'firebase/database';
 import { Trophy, CheckCircle, XCircle, Clock } from 'lucide-react';
 
 export const QuizPlayer: React.FC = () => {
@@ -17,6 +17,8 @@ export const QuizPlayer: React.FC = () => {
     const [hasAnswered, setHasAnswered] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+
+    const [questionStartTime, setQuestionStartTime] = useState<number>(0);
 
     const [allQuestions, setAllQuestions] = useState<any[]>([]);
 
@@ -40,6 +42,7 @@ export const QuizPlayer: React.FC = () => {
             setCurrentQuestionIndex(data.currentQuestion);
             setShowResult(data.showResult);
             if (data.questions) setAllQuestions(data.questions);
+            if (data.questionStartTime) setQuestionStartTime(data.questionStartTime);
 
             // Get my own data
             const myData = data.players?.[playerId];
@@ -83,20 +86,28 @@ export const QuizPlayer: React.FC = () => {
 
         const updates: any = {};
         updates[`rooms/${pin}/players/${playerId}/answers/${currentQuestionIndex}`] = option;
+        updates[`rooms/${pin}/players/${playerId}/lastAnswer`] = option;
 
         if (isAnswerCorrect) {
-            const newScore = myScore + 100;
+            // Speed Calculation
+            // Default 30s. If we answer instantly -> 30s left -> 1.0 multiplier.
+            // Points = Base (500) + Bonus (up to 500)
+            const now = Date.now();
+            const elapsed = now - questionStartTime;
+            const duration = 30000; // 30s
+            const timeLeft = Math.max(0, duration - elapsed);
+
+            const speedBonus = Math.floor(500 * (timeLeft / duration));
+            const points = 500 + speedBonus;
+
+            const newScore = myScore + points;
             updates[`rooms/${pin}/players/${playerId}/score`] = newScore;
+
+            // Optimistic update
+            setMyScore(newScore);
         }
 
-        await set(child(ref(db), `rooms/${pin}/players/${playerId}/lastAnswer`), option);
-
-        if (isAnswerCorrect) {
-            const scoreRef = child(ref(db), `rooms/${pin}/players/${playerId}/score`);
-            const snapshot = await get(scoreRef);
-            const current = snapshot.val() || 0;
-            await set(scoreRef, current + 100);
-        }
+        await update(ref(db), updates);
     };
 
     // --- RENDER ---

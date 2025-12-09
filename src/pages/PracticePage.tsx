@@ -75,6 +75,14 @@ export const PracticePage: React.FC = () => {
             icon: Sword, // Reusing Sword or could use Shield if imported
             color: 'bg-rose-500',
             link: '/oving/tidslinje-td'
+        },
+        {
+            id: 'quiz-battle',
+            title: 'Quiz Battle',
+            description: 'Konkurrer mot andre i sanntid!',
+            icon: Gamepad2, // Or Users/Zap if available
+            color: 'bg-green-600',
+            link: '/quiz-battle'
         }
     ];
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../../lib/firebase';
 import { ref, onValue, update } from 'firebase/database';
@@ -35,7 +36,7 @@ export const QuizHost: React.FC = () => {
             if (data) {
                 setRoomData(data);
                 if (data.players) {
-                    setPlayers(Object.values(data.players));
+                    setPlayers(Object.entries(data.players).map(([id, p]: any) => ({ ...p, id })));
                 }
 
                 // Sync local state with remote state
@@ -59,6 +60,30 @@ export const QuizHost: React.FC = () => {
         return subject ? subject.topics.map(t => t.id) : [];
     }, [manifest, selectedSubject]);
 
+    // Timer Logic
+    const [timer, setTimer] = useState(30);
+
+    useEffect(() => {
+        let interval: any;
+        if (roomData?.status === 'PLAYING' && !showResult && !showLeaderboard && currentQuestionIndex !== -1) {
+            interval = setInterval(() => {
+                setTimer((prev) => {
+                    if (prev <= 1) {
+                        // Auto-skip logic
+                        clearInterval(interval);
+                        // Trigger next step via Firebase
+                        update(ref(db, `rooms/${pin}`), { showResult: true });
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+        } else {
+            setTimer(30); // Reset when not in question
+        }
+        return () => clearInterval(interval);
+    }, [roomData?.status, showResult, showLeaderboard, currentQuestionIndex, pin]);
+
     const startGameSetup = async () => {
         if (!manifest || !pin) return;
         setIsLoadingQuestions(true);
@@ -79,7 +104,33 @@ export const QuizHost: React.FC = () => {
             let allQuestions: QuizQuestion[] = [];
             results.forEach((lesson) => {
                 if (lesson?.quiz) {
-                    allQuestions.push(...lesson.quiz.map(q => ({ ...q, sourceTitle: lesson.title })));
+                    // Shuffle Options for each question
+                    const textQuestions = lesson.quiz.map(q => {
+                        // Create a copy of options with original indices
+                        const optionsWithIndex = q.options.map((opt, i) => ({ opt, i }));
+
+                        // Shuffle the options
+                        optionsWithIndex.sort(() => Math.random() - 0.5);
+
+                        // Map back to string array
+                        const shuffledOptions = optionsWithIndex.map(o => o.opt);
+
+                        // Find where the correct answer moved
+                        let newCorrectAnswer = q.correctAnswer;
+                        if (typeof q.correctAnswer === 'number') {
+                            const newIndex = optionsWithIndex.findIndex(o => o.i === q.correctAnswer);
+                            newCorrectAnswer = newIndex;
+                        }
+
+                        return {
+                            ...q,
+                            sourceTitle: lesson.title,
+                            options: shuffledOptions,
+                            correctAnswer: newCorrectAnswer
+                        };
+                    });
+
+                    allQuestions.push(...textQuestions);
                 }
             });
 
@@ -125,7 +176,7 @@ export const QuizHost: React.FC = () => {
                 update(ref(db, `rooms/${pin}`), {
                     currentQuestion: nextIdx,
                     showResult: false,
-                    // Clear player answers if you want (usually handled by player component based on qIndex change)
+                    questionStartTime: Date.now() // Start timer for scoring
                 });
                 setShowLeaderboard(false);
             }
@@ -195,7 +246,7 @@ export const QuizHost: React.FC = () => {
                 </div>
 
                 <button
-                    onClick={() => update(ref(db, `rooms/${pin}`), { currentQuestion: 0, status: 'PLAYING' })}
+                    onClick={() => update(ref(db, `rooms/${pin}`), { currentQuestion: 0, status: 'PLAYING', questionStartTime: Date.now() })}
                     className="bg-indigo-600 text-white px-16 py-8 rounded-full text-4xl font-black shadow-2xl hover:scale-105 transition-transform hover:bg-indigo-700"
                 >
                     Start Spillet 🚀
@@ -213,9 +264,9 @@ export const QuizHost: React.FC = () => {
                 <div className="max-w-3xl mx-auto space-y-6">
                     {sortedPlayers.map((p, i) => (
                         <div key={i} className={`flex justify-between items-center p-8 rounded-3xl shadow-lg border-b-4 transition-transform hover:scale-[1.02] ${i === 0 ? 'bg-yellow-100 border-yellow-300 text-yellow-900 scale-110 z-10' :
-                                i === 1 ? 'bg-slate-100 border-slate-300 text-slate-700' :
-                                    i === 2 ? 'bg-orange-50 border-orange-200 text-orange-800' :
-                                        'bg-white border-slate-100 text-slate-600'
+                            i === 1 ? 'bg-slate-100 border-slate-300 text-slate-700' :
+                                i === 2 ? 'bg-orange-50 border-orange-200 text-orange-800' :
+                                    'bg-white border-slate-100 text-slate-600'
                             }`}>
                             <span className="text-3xl font-bold flex items-center">
                                 <span className="w-12 inline-block text-center mr-4 opacity-50">#{i + 1}</span>
@@ -240,12 +291,28 @@ export const QuizHost: React.FC = () => {
             <div className="min-h-screen p-8">
                 <h2 className="text-5xl font-black text-center mb-16 text-indigo-900">Topp 5</h2>
                 <div className="max-w-3xl mx-auto space-y-4">
-                    {sortedPlayers.map((p, i) => (
-                        <div key={i} className="flex justify-between items-center bg-white border border-slate-100 p-6 rounded-2xl shadow-sm">
-                            <span className="text-2xl font-bold text-slate-700">{p.name}</span>
-                            <span className="text-2xl font-black text-indigo-600">{p.score}p</span>
-                        </div>
-                    ))}
+                    <AnimatePresence>
+                        {sortedPlayers.map((p, i) => (
+                            <motion.div
+                                layout
+                                key={p.id || i}
+                                initial={{ opacity: 0, y: 50, scale: 0.3 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
+                                transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+                                className="flex justify-between items-center bg-white border border-slate-100 p-6 rounded-2xl shadow-sm"
+                            >
+                                <span className="text-2xl font-bold text-slate-700">
+                                    <span className="inline-block w-8 text-slate-400">#{i + 1}</span>
+                                    {p.name}
+                                </span>
+                                <div className="flex items-center gap-4">
+                                    {p.score > 0 && <span className="text-sm bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold">+{p.score % 100 || 100} speed!</span>}
+                                    <span className="text-2xl font-black text-indigo-600">{p.score}p</span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
                 </div>
                 <div className="flex justify-end mt-12 fixed bottom-8 right-8">
                     <button onClick={nextStep} className="bg-indigo-600 text-white px-10 py-5 rounded-2xl font-bold text-2xl hover:bg-indigo-700 shadow-xl transition-transform hover:scale-105">
@@ -262,6 +329,15 @@ export const QuizHost: React.FC = () => {
             <div className="flex w-full justify-between items-center mb-12 max-w-7xl">
                 <div className="font-mono font-bold text-xl text-slate-400">PIN: {pin}</div>
                 <div className="font-bold text-2xl text-slate-400">Spørsmål <span className="text-indigo-600 text-3xl">{currentQuestionIndex + 1}</span> / {roomData.questions.length}</div>
+
+                {/* Timer */}
+                <div className={`
+                    w-20 h-20 rounded-full flex items-center justify-center text-3xl font-black border-4 shadow-lg
+                    ${timer <= 5 ? 'bg-red-100 text-red-600 border-red-500 animate-pulse' : 'bg-white text-slate-700 border-slate-200'}
+                `}>
+                    {timer}
+                </div>
+
                 <button onClick={nextStep} className="bg-white text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition-colors text-lg shadow-sm border border-slate-200">
                     {showResult ? 'Neste ➡️' : 'Vis Svar 👀'}
                 </button>
