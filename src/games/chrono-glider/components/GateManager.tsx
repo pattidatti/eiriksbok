@@ -51,7 +51,7 @@ function Gate({ initialPosition, date, isCorrect, onPass }: { initialPosition: [
             {/* The Ring */}
             <mesh rotation={[0, 0, 0]}>
                 <torusGeometry args={[1.2, 0.1, 16, 32]} />
-                <meshStandardMaterial color={isCorrect ? "#00ff88" : "#ff0055"} emissive={isCorrect ? "#004422" : "#440011"} emissiveIntensity={0.5} />
+                <meshStandardMaterial color={"#ff0055"} emissive={"#440011"} emissiveIntensity={0.5} />
             </mesh>
 
             {/* The Label */}

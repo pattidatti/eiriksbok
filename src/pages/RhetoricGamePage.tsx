@@ -7,11 +7,26 @@ import { ChevronRight, CheckCircle, Lock } from 'lucide-react';
 
 export const RhetoricGamePage: React.FC = () => {
     const [currentLevelIndex, setCurrentLevelIndex] = useState<number | null>(null);
-    const [completedLevels, setCompletedLevels] = useState<string[]>([]);
+
+    // Load from localStorage on mount
+    const [completedLevels, setCompletedLevels] = useState<string[]>(() => {
+        const saved = localStorage.getItem('rhetoric_completed_levels');
+        return saved ? JSON.parse(saved) : [];
+    });
 
     const handleLevelComplete = (id: string) => {
         if (!completedLevels.includes(id)) {
-            setCompletedLevels([...completedLevels, id]);
+            const newCompleted = [...completedLevels, id];
+            setCompletedLevels(newCompleted);
+            localStorage.setItem('rhetoric_completed_levels', JSON.stringify(newCompleted));
+        }
+    };
+
+    const resetProgress = () => {
+        if (window.confirm('Vil du nullstille progresjonen din?')) {
+            setCompletedLevels([]);
+            localStorage.removeItem('rhetoric_completed_levels');
+            setCurrentLevelIndex(null);
         }
     };
 
@@ -103,6 +118,16 @@ export const RhetoricGamePage: React.FC = () => {
                         </motion.div>
                     )}
                 </AnimatePresence>
+            </div>
+
+            {/* Footer with Reset */}
+            <div className="container mx-auto px-4 max-w-5xl mt-12 pt-8 border-t border-slate-200 text-center">
+                <button
+                    onClick={resetProgress}
+                    className="text-slate-400 hover:text-red-500 text-sm flex items-center gap-2 mx-auto transition-colors"
+                >
+                    <Lock className="w-3 h-3" /> Nullstill fremdrift
+                </button>
             </div>
         </div>
     );

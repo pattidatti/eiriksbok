@@ -144,5 +144,92 @@ export const rhetoricGames: TextAnalysisGameData[] = [
                 explanation: "En kraftig metafor som maler et bilde av hat som gift, ment å vekke frykt for vold."
             }
         ]
+    },
+    {
+        id: "retorikk-unnskyldning",
+        title: "Nivå 5: En offentlig unnskyldning",
+        text: "Jeg står her i dag med tungt hjerte for å si unnskyld. Som deres leder tar jeg fullt ansvar for feilen som har skjedd. Det var aldri min intensjon å skuffe dere, og jeg forstår sinnet deres. Når jeg ser hvordan dette har påvirket lokalsamfunnet vårt, kjenner jeg en dyp sorg. Jeg lover å gjøre alt i min makt for å rette opp i dette og gjenoppbygge tilliten dere har vist meg.",
+        categories: standardCategories,
+        solutions: [
+            {
+                id: 's1',
+                start: 46, // "Som deres leder tar jeg fullt ansvar"
+                end: 80,
+                categoryId: 'etos',
+                explanation: "Ved å ta ansvar og vise til sin rolle som leder, forsøker avsenderen å gjenoppbygge sin tapte troverdighet."
+            },
+            {
+                id: 's2',
+                start: 171, // "kjenner jeg en dyp sorg"
+                end: 194,
+                categoryId: 'patos',
+                explanation: "Avsenderen deler sine personlige, tunge følelser for å vekke sympati og vise at angran er ekte."
+            },
+            {
+                id: 's3',
+                start: 0, // "tungt hjerte"
+                end: 12,
+                categoryId: 'patos', // Metaphorical emotion
+                explanation: "Metaforen 'tungt hjerte' setter en alvorlig og angrende tone umiddelbart."
+            }
+        ]
+    },
+    {
+        id: "retorikk-klima",
+        title: "Nivå 6: Klimatoppmøtet",
+        text: "Huset vårt brenner. FNs klimapanel slår fast at vi har mindre enn ti år på å halvere utslippene våre hvis vi skal unngå katastrofale konsekvenser. Isen smelter, havet stiger, og arter dør ut i et tempo vi aldri har sett før. Hvordan kan dere se deres egne barnebarn i øynene og si at dere visste, men ikke gjorde noe?",
+        categories: standardCategories,
+        solutions: [
+            {
+                id: 's1',
+                start: 0, // "Huset vårt brenner"
+                end: 17,
+                categoryId: 'patos',
+                explanation: "En kraftig metafor som skaper akutt frykt og hastverk (Patos)."
+            },
+            {
+                id: 's2',
+                start: 19, // "FNs klimapanel slår fast at vi har mindre enn ti år"
+                end: 70,
+                categoryId: 'logos',
+                explanation: "Henvisning til vitenskapelig autoritet (FN) og tidsfrister gir argumentet logisk tyngde."
+            },
+            {
+                id: 's3',
+                start: 247, // "se deres egne barnebarn i øynene"
+                end: 279,
+                categoryId: 'patos',
+                explanation: "Å trekke inn 'barnebarn' treffer samvittigheten og det emosjonelle ansvaret hardt."
+            }
+        ]
+    },
+    {
+        id: "retorikk-salg",
+        title: "Nivå 7: Fremtidens Telefon",
+        text: "Møt PhoneX. Med over 10 års erfaring innen innovativ teknologi, har vårt team skapt noe unikt. Den nye prosessoren er 50% raskere enn nærmeste konkurrent, og batteriet varer i hele 48 timer. Forestill deg friheten av å aldri måtte lete etter en lader igjen. Du fortjener det beste.",
+        categories: standardCategories,
+        solutions: [
+            {
+                id: 's1',
+                start: 18, // "Med over 10 års erfaring innen innovativ teknologi"
+                end: 68,
+                categoryId: 'etos',
+                explanation: "Selskapet bygger etos ved å vise til lang erfaring og kompetanse."
+            },
+            {
+                id: 's2',
+                start: 110, // "50% raskere enn nærmeste konkurrent, og batteriet varer i hele 48 timer"
+                end: 179,
+                categoryId: 'logos',
+                explanation: "Konkrete spesifikasjoner og sammenlignbare tall appellerer til fornuften."
+            },
+            {
+                id: 's3',
+                start: 195, // "Forestill deg friheten av å aldri måtte lete etter en lader igjen"
+                end: 256,
+                categoryId: 'patos',
+                explanation: "Selgeren selger ikke bare en funksjon, men en 'følelse av frihet' og et problemfritt liv."
+            }
+        ]
     }
 ];

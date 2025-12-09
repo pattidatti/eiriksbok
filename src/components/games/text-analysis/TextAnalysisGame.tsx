@@ -166,17 +166,62 @@ export const TextAnalysisGame: React.FC<TextAnalysisGameProps> = ({ data, onComp
             </AnimatePresence>
 
             {showConfetti && (
-                <div className="fixed inset-0 pointer-events-none flex items-center justify-center z-50">
-                    <div className="bg-white/90 backdrop-blur p-8 rounded-2xl shadow-2xl text-center border-4 border-green-500">
-                        <h3 className="text-3xl font-bold text-slate-900 mb-2">Gratulerer! 🕵️‍♂️</h3>
-                        <p className="text-slate-600 mb-6">Du fant alle virkemidlene!</p>
-                        <button
-                            onClick={() => window.location.reload()}
-                            className="bg-indigo-600 text-white px-6 py-2 rounded-full font-bold hover:bg-indigo-700 pointer-events-auto"
-                        >
-                            Spill igjen
-                        </button>
-                    </div>
+                <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+                    <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" onClick={() => setShowConfetti(false)} />
+
+                    <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-hidden flex flex-col relative z-10"
+                    >
+                        {/* Header */}
+                        <div className="bg-green-600 p-6 text-white text-center">
+                            <h3 className="text-3xl font-bold mb-2">Gratulerer! 🎉</h3>
+                            <p className="text-green-100">Du fant alle {data.solutions.length} virkemidlene.</p>
+                        </div>
+
+                        {/* Scrollable Content */}
+                        <div className="p-6 overflow-y-auto space-y-4 bg-slate-50 flex-1">
+                            {data.solutions.map((sol, i) => {
+                                const category = data.categories.find(c => c.id === sol.categoryId);
+                                const colorName = category?.color?.split('-')[0] || 'blue';
+                                return (
+                                    <motion.div
+                                        key={sol.id}
+                                        initial={{ x: -20, opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1 }}
+                                        transition={{ delay: i * 0.1 }}
+                                        className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm"
+                                    >
+                                        <div className="flex justify-between items-start mb-2">
+                                            <span
+                                                className={`text-xs font-bold px-2 py-1 rounded uppercase tracking-wide bg-${colorName}-100 text-${colorName}-700`}
+                                            >
+                                                {category?.label || sol.categoryId}
+                                            </span>
+                                        </div>
+                                        <p className="text-slate-800 font-serif italic mb-3 border-l-4 border-slate-200 pl-3">
+                                            "{data.text.substring(sol.start, sol.end)}"
+                                        </p>
+                                        <p className="text-slate-600 text-sm">
+                                            <span className="font-bold text-slate-800">Forklaring: </span>
+                                            {sol.explanation}
+                                        </p>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Footer */}
+                        <div className="p-4 border-t border-slate-200 bg-white text-center">
+                            <button
+                                onClick={() => setShowConfetti(false)}
+                                className="bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition-transform hover:scale-105"
+                            >
+                                Se resultatet / Gå videre
+                            </button>
+                        </div>
+                    </motion.div>
                 </div>
             )}
         </div>
