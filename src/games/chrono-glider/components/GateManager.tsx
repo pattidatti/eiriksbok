@@ -1,8 +1,10 @@
-// @ts-nocheck
 import { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import { useGameStore } from '../store';
+import { Explosion } from './Explosion';
+
+// ... Gate component stays mostly same but maybe we can improve visuals later
 
 function Gate({ initialPosition, date, isCorrect, onPass }: { initialPosition: [number, number, number], date: string, isCorrect: boolean, onPass: (hit: boolean, correct: boolean) => void }) {
     const groupRef = useRef<any>(null);
@@ -51,7 +53,11 @@ function Gate({ initialPosition, date, isCorrect, onPass }: { initialPosition: [
             {/* The Ring */}
             <mesh rotation={[0, 0, 0]}>
                 <torusGeometry args={[1.2, 0.1, 16, 32]} />
-                <meshStandardMaterial color={"#ff0055"} emissive={"#440011"} emissiveIntensity={0.5} />
+                <meshStandardMaterial
+                    color={isCorrect ? "#ff0055" : "#ff0055"} // Keep them same color to not give it away, maybe slightly different emissive? User said "Fjern grønn sirkel, alle skal være rød"
+                    emissive={isCorrect ? "#440011" : "#440011"}
+                    emissiveIntensity={0.5}
+                />
             </mesh>
 
             {/* The Label */}
@@ -69,9 +75,10 @@ function Gate({ initialPosition, date, isCorrect, onPass }: { initialPosition: [
 }
 
 export function GateManager() {
-    const { events, currentEventIndex, nextEvent, addScore, loseLife, gameState } = useGameStore();
+    const { events, currentEventIndex, nextEvent, addScore, loseLife, gameState, triggerFeedback } = useGameStore();
 
     const [activeGroup, setActiveGroup] = useState<{ index: number, z: number, choices: { val: string, correct: boolean, x: number, y: number }[] } | null>(null);
+    const [explosions, setExplosions] = useState<{ id: number, position: [number, number, number], color: string }[]>([]);
 
     const currentEvent = events[currentEventIndex];
 
@@ -114,18 +121,27 @@ export function GateManager() {
 
     const handlePass = (hit: boolean, wasCorrectGate: boolean) => {
         if (hit && wasCorrectGate) {
+            triggerFeedback('correct', [0, 0, 0]); // Position isn't super critical for UI feedback
+            setExplosions(prev => [...prev, { id: Date.now(), position: [0, 0, -2], color: '#4ade80' }]); // Green explosion closer to camera
             addScore(100);
             nextEvent();
             setActiveGroup(null);
         } else if (hit && !wasCorrectGate) {
+            triggerFeedback('wrong', [0, 0, 0]);
             loseLife();
             nextEvent();
             setActiveGroup(null);
         } else if (!hit && wasCorrectGate) {
+            // Missed the correct gate completely
+            triggerFeedback('wrong', [0, 0, 0]);
             loseLife();
             nextEvent();
             setActiveGroup(null);
         }
+    };
+
+    const removeExplosion = (id: number) => {
+        setExplosions(prev => prev.filter(e => e.id !== id));
     };
 
     if (!activeGroup) return null;
@@ -139,6 +155,15 @@ export function GateManager() {
                     date={choice.val}
                     isCorrect={choice.correct}
                     onPass={handlePass}
+                />
+            ))}
+
+            {explosions.map(ex => (
+                <Explosion
+                    key={ex.id}
+                    position={ex.position}
+                    color={ex.color}
+                    onComplete={() => removeExplosion(ex.id)}
                 />
             ))}
         </>

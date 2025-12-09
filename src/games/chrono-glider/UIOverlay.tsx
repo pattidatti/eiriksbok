@@ -1,12 +1,24 @@
+import { useEffect, useState } from 'react';
 import { useGameStore } from './store';
 
-
 export function UIOverlay() {
-    const { score, lives, gameState, currentEventIndex, events, startGame, resetGame } = useGameStore();
+    const { score, lives, gameState, currentEventIndex, events, startGame, resetGame, feedbackTrigger } = useGameStore();
+    const [feedback, setFeedback] = useState<{ type: 'correct' | 'wrong', id: number } | null>(null);
+
+    useEffect(() => {
+        if (feedbackTrigger) {
+            setFeedback({ type: feedbackTrigger.type, id: feedbackTrigger.id });
+            const timer = setTimeout(() => {
+                setFeedback(null);
+            }, 1000); // Show for 1 second
+            return () => clearTimeout(timer);
+        }
+    }, [feedbackTrigger]);
 
     const currentEvent = events[currentEventIndex];
 
     if (gameState === 'menu') {
+        // ... (existing menu code)
         return (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm text-white z-50">
                 <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600 mb-8 drop-shadow-lg">
@@ -27,6 +39,7 @@ export function UIOverlay() {
     }
 
     if (gameState === 'gameover') {
+        // ... (existing gameover code)
         return (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-red-900/80 backdrop-blur-md text-white z-50">
                 <h1 className="text-6xl font-bold mb-4">MISSION FAILED</h1>
@@ -42,6 +55,7 @@ export function UIOverlay() {
     }
 
     if (gameState === 'won') {
+        // ... (existing won code)
         return (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-green-900/80 backdrop-blur-md text-white z-50">
                 <h1 className="text-6xl font-bold mb-4">TIMELINE RESTORED</h1>
@@ -58,6 +72,20 @@ export function UIOverlay() {
 
     return (
         <div className="absolute inset-0 pointer-events-none p-8 flex flex-col justify-between z-40">
+            {/* Feedback Overlay */}
+            {feedback && (
+                <div className={`absolute inset-0 flex items-center justify-center pointer-events-none z-0 transition-opacity duration-300 ${feedback ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className={`text-6xl font-bold px-8 py-4 rounded-xl backdrop-blur-md border-4 shadow-[0_0_50px_rgba(0,0,0,0.5)] transform scale-125 animate-bounce
+                        ${feedback.type === 'correct'
+                            ? 'bg-green-500/20 border-green-400 text-green-100 shadow-green-500/50'
+                            : 'bg-red-500/20 border-red-400 text-red-100 shadow-red-500/50'
+                        }`}
+                    >
+                        {feedback.type === 'correct' ? 'CORRECT!' : 'WRONG TIME!'}
+                    </div>
+                </div>
+            )}
+
             {/* Top Bar */}
             <div className="flex justify-between items-start">
                 <div className="flex flex-col">

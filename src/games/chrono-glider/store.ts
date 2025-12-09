@@ -27,6 +27,10 @@ export interface GameStore {
     nextEvent: () => void;
     setEvents: (events: TimelineEvent[]) => void;
     increaseSpeed: () => void;
+
+    // Feedback
+    feedbackTrigger: { type: 'correct' | 'wrong', position: [number, number, number], id: number } | null;
+    triggerFeedback: (type: 'correct' | 'wrong', position: [number, number, number]) => void;
 }
 
 export const useGameStore = create<GameStore>((set) => ({
@@ -36,10 +40,11 @@ export const useGameStore = create<GameStore>((set) => ({
     speed: 10,
     currentEventIndex: 0,
     events: [],
+    feedbackTrigger: null,
 
-    startGame: () => set({ gameState: 'playing', score: 0, lives: 3, speed: 10, currentEventIndex: 0 }),
+    startGame: () => set({ gameState: 'playing', score: 0, lives: 3, speed: 10, currentEventIndex: 0, feedbackTrigger: null }),
     endGame: (won) => set({ gameState: won ? 'won' : 'gameover' }),
-    resetGame: () => set({ gameState: 'menu', score: 0, lives: 3, currentEventIndex: 0 }),
+    resetGame: () => set({ gameState: 'menu', score: 0, lives: 3, currentEventIndex: 0, feedbackTrigger: null }),
 
     addScore: (points) => set((state) => ({ score: state.score + points })),
 
@@ -62,4 +67,6 @@ export const useGameStore = create<GameStore>((set) => ({
     setEvents: (events) => set({ events }),
 
     increaseSpeed: () => set((state) => ({ speed: state.speed + 0.5 })),
+
+    triggerFeedback: (type, position) => set({ feedbackTrigger: { type, position, id: Date.now() } }),
 }));
