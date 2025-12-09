@@ -42,7 +42,7 @@ basert på fag, emne, og artikler. Den skal/må hente ut fagbegreper fra emnet o
 
 
 ## 📝 Gjøremål (Todo)
-- [ ] Chrono glider. Legge til skyting med spacebar. Motstandere som kommer. Powerpups. 
+- [x] Chrono glider. Legge til skyting med spacebar. Motstandere som kommer. Powerpups. 
     - Fjern grønn sirkel,alle skal være rød. Repeter hvis man tar feil. 
     - Fly fortere med W - Gir ekstra poeng å fly fort. 
     - Lage eget utviklingsdokument med ideer og progresjon for utvikling. 

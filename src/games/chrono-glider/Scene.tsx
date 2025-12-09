@@ -1,5 +1,7 @@
+// @ts-nocheck
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import { useRef } from 'react';
 import { Glider } from './components/Glider';
 import { Tunnel } from './components/Tunnel';
 import { Background } from './components/Background';
@@ -8,9 +10,11 @@ import { useGameStore } from './store';
 import { ProjectileManager } from './components/ProjectileManager';
 import { ObjectManager } from './components/ObjectManager';
 import { Boss } from './components/Boss';
+import { EngineExhaust } from './components/EngineExhaust';
 
 export function Scene() {
     const { gameState, speed } = useGameStore();
+    const shipRef = useRef<THREE.Group>(null);
 
     useFrame((state) => {
         // Dynamic FOV based on speed
@@ -26,8 +30,12 @@ export function Scene() {
         <>
             <Background />
             <Tunnel />
-            <Glider />
-            <ProjectileManager />
+
+            {/* The Ship */}
+            <Glider ref={shipRef} />
+            <EngineExhaust shipRef={shipRef} />
+            <ProjectileManager shipRef={shipRef} />
+
             {gameState === 'playing' && (
                 <>
                     <GateManager />

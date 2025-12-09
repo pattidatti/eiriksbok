@@ -1,7 +1,8 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useGameStore } from '../store';
 import { Explosion } from './Explosion';
+import * as THREE from 'three';
 
 type ObjectType = 'obstacle' | 'powerup_health' | 'powerup_shield';
 
@@ -15,10 +16,26 @@ interface GameObject {
 }
 
 export function ObjectManager() {
-    const { gameState, speed, loseLife, addScore } = useGameStore();
+    const { gameState, speed, loseLife, gainLife, addScore } = useGameStore();
     const [objects, setObjects] = useState<GameObject[]>([]);
     const [explosions, setExplosions] = useState<{ id: number, position: [number, number, number], color: string }[]>([]);
     const spawnTimer = useRef(0);
+
+    // Geometry Pre-creation
+    const obstacleGeom = useMemo(() => new THREE.DodecahedronGeometry(0.5), []);
+    // Heart Shape for Health
+    const heartShape = useMemo(() => {
+        const x = 0, y = 0;
+        const heartShape = new THREE.Shape();
+        heartShape.moveTo(x + 0.25, y + 0.25);
+        heartShape.bezierCurveTo(x + 0.25, y + 0.25, x + 0.20, y, x, y);
+        heartShape.bezierCurveTo(x - 0.30, y, x - 0.30, y + 0.35, x - 0.30, y + 0.35);
+        heartShape.bezierCurveTo(x - 0.30, y + 0.55, x - 0.10, y + 0.77, x + 0.25, y + 0.95);
+        heartShape.bezierCurveTo(x + 0.60, y + 0.77, x + 0.80, y + 0.55, x + 0.80, y + 0.35);
+        heartShape.bezierCurveTo(x + 0.80, y + 0.35, x + 0.80, y, x + 0.50, y);
+        heartShape.bezierCurveTo(x + 0.35, y, x + 0.25, y + 0.25, x + 0.25, y + 0.25);
+        return new THREE.ExtrudeGeometry(heartShape, { depth: 0.1, bevelEnabled: false });
+    }, []);
 
     useFrame((state, delta) => {
         if (gameState !== 'playing') return;
@@ -30,10 +47,10 @@ export function ObjectManager() {
             const x = (Math.random() - 0.5) * 8;
             const y = (Math.random() - 0.5) * 5;
 
-            // Random type: 70% Obstacle, 30% Powerup
+            // Random type: 85% Obstacle, 15% Powerup
             const rand = Math.random();
             let type: ObjectType = 'obstacle';
-            if (rand > 0.8) type = 'powerup_health';
+            if (rand > 0.85) type = 'powerup_health';
 
             setObjects(prev => [...prev, {
                 id: Date.now(),
@@ -59,10 +76,9 @@ export function ObjectManager() {
                             loseLife();
                             setExplosions(ex => [...ex, { id: Date.now(), position: [o.x, o.y, o.z], color: 'gray' }]);
                         } else if (o.type === 'powerup_health') {
-                            // Add life logic? store doesn't have gainLife yet, but we can just ignore or add score for now
-                            // Or better: Implement gainLife in store. For now just score + special effect.
+                            gainLife();
                             addScore(500);
-                            setExplosions(ex => [...ex, { id: Date.now(), position: [o.x, o.y, o.z], color: 'green' }]);
+                            setExplosions(ex => [...ex, { id: Date.now(), position: [o.x, o.y, o.z], color: '#ff0055' }]);
                         }
                         return false;
                     }
@@ -80,19 +96,30 @@ export function ObjectManager() {
     return (
         <>
             {objects.map(o => (
-                <mesh key={o.id} position={[o.x, o.y, o.z]}>
-                    {o.type === 'obstacle' ? (
-                        <dodecahedronGeometry args={[0.5]} />
-                    ) : (
-                        <boxGeometry args={[0.4, 0.4, 0.4]} />
+                <group key={o.id} position={[o.x, o.y, o.z]}>
+                    <mesh rotation={[o.type === 'powerup_health' ? Math.PI : 0, 0, 0]}> {/* Flip heart if needed */}
+                        {o.type === 'obstacle' ? (
+                            <primitive object={obstacleGeom} />
+                        ) : (
+                            // Scale down heart and center it
+                            <mesh geometry={heartShape} scale={[0.5, 0.5, 0.5]} position={[-0.2, -0.2, 0]} />
+                        )}
+                        <meshStandardMaterial
+                            color={o.type === 'obstacle' ? 'gray' : '#ff0055'}
+                            wireframe={o.type === 'obstacle'}
+                            emissive={o.type === 'powerup_health' ? '#ff0055' : 'black'}
+                            emissiveIntensity={o.type === 'powerup_health' ? 2 : 0}
+                        />
+                    </mesh>
+
+                    {/* Add spinning ring for powerup visibility */}
+                    {o.type === 'powerup_health' && (
+                        <mesh rotation={[0, Date.now() * 0.005, 0]}>
+                            <torusGeometry args={[0.6, 0.05, 8, 32]} />
+                            <meshBasicMaterial color="#ff0055" />
+                        </mesh>
                     )}
-                    <meshStandardMaterial
-                        color={o.type === 'obstacle' ? 'gray' : 'lime'}
-                        wireframe={o.type === 'obstacle'}
-                        emissive={o.type === 'powerup_health' ? 'lime' : 'black'}
-                        emissiveIntensity={o.type === 'powerup_health' ? 1 : 0}
-                    />
-                </mesh>
+                </group>
             ))}
             {explosions.map(ex => (
                 <Explosion

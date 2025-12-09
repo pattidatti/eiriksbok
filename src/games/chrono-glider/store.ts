@@ -25,6 +25,7 @@ export interface GameStore {
     resetGame: () => void;
     addScore: (points: number) => void;
     loseLife: () => void;
+    gainLife: () => void;
     nextEvent: () => void;
     setEvents: (events: TimelineEvent[]) => void;
     increaseSpeed: () => void;
@@ -61,9 +62,9 @@ export const useGameStore = create<GameStore>((set) => ({
     streak: 0,
     multiplier: 1,
 
-    startGame: () => set({ gameState: 'playing', score: 0, lives: 3, speed: 10, currentEventIndex: 0, feedbackTrigger: null, isBoosting: false, streak: 0, multiplier: 1 }),
+    startGame: () => set({ gameState: 'playing', score: 0, lives: 5, speed: 10, currentEventIndex: 0, feedbackTrigger: null, isBoosting: false, streak: 0, multiplier: 1 }),
     endGame: (won) => set({ gameState: won ? 'won' : 'gameover', isBoosting: false }),
-    resetGame: () => set({ gameState: 'menu', score: 0, lives: 3, currentEventIndex: 0, feedbackTrigger: null, isBoosting: false, streak: 0, multiplier: 1 }),
+    resetGame: () => set({ gameState: 'menu', score: 0, lives: 5, currentEventIndex: 0, feedbackTrigger: null, isBoosting: false, streak: 0, multiplier: 1 }),
 
     addScore: (points) => set((state) => {
         // Simple heuristic: if points > 0, play sound? 
@@ -81,6 +82,14 @@ export const useGameStore = create<GameStore>((set) => ({
             return { lives: 0, gameState: 'gameover', streak: 0, multiplier: 1 };
         }
         return { lives: newLives, streak: 0, multiplier: 1 };
+    }),
+
+    gainLife: () => set((state) => {
+        if (state.lives < 5) {
+            AudioManager.getInstance().playCorrect(); // Or specific powerup sound
+            return { lives: state.lives + 1 };
+        }
+        return {};
     }),
 
     nextEvent: () => set((state) => {
