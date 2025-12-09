@@ -15,7 +15,7 @@ interface GameObject {
 }
 
 export function ObjectManager() {
-    const { gameState, speed, loseLife, lives, addScore } = useGameStore();
+    const { gameState, speed, loseLife, addScore } = useGameStore();
     const [objects, setObjects] = useState<GameObject[]>([]);
     const [explosions, setExplosions] = useState<{ id: number, position: [number, number, number], color: string }[]>([]);
     const spawnTimer = useRef(0);

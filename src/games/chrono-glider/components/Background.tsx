@@ -1,14 +1,11 @@
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Stars, Cloud } from '@react-three/drei';
-import * as THREE from 'three';
-import { useGameStore } from '../store';
+import { Stars } from '@react-three/drei';
 
 export function Background() {
-    const starsRef = useRef<any>();
-    const { speed, gameState } = useGameStore();
+    const starsRef = useRef<any>(null);
 
-    useFrame((state, delta) => {
+    useFrame((_, delta) => {
         if (starsRef.current) {
             // Rotate stars to simulate movement/roll
             starsRef.current.rotation.z += delta * 0.05;

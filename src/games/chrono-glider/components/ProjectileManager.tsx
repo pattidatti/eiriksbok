@@ -5,7 +5,6 @@ import { useGameStore } from '../store';
 
 export function ProjectileManager() {
     const { gameState, lastFired, speed } = useGameStore();
-    const projectilesRef = useRef<{ id: number; mesh: THREE.Mesh; velocity: THREE.Vector3 }[]>([]);
     const groupRef = useRef<THREE.Group>(null);
     const [lastFiredTime, setLastFiredTime] = useState(0);
 

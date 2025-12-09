@@ -75,7 +75,7 @@ function Gate({ initialPosition, date, isCorrect, onPass }: { initialPosition: [
 }
 
 export function GateManager() {
-    const { events, currentEventIndex, nextEvent, addScore, loseLife, gameState, triggerFeedback, setEvents, incrementStreak, resetStreak } = useGameStore();
+    const { events, currentEventIndex, nextEvent, addScore, loseLife, gameState, triggerFeedback, incrementStreak, resetStreak } = useGameStore();
 
     const [activeGroup, setActiveGroup] = useState<{ index: number, z: number, choices: { val: string, correct: boolean, x: number, y: number }[] } | null>(null);
     const [explosions, setExplosions] = useState<{ id: number, position: [number, number, number], color: string }[]>([]);

@@ -7,14 +7,12 @@ import * as THREE from 'three';
 export function Boss() {
     const { currentEventIndex } = useGameStore();
     const groupRef = useRef<THREE.Group>(null);
-    const [hp, setHp] = useState(100);
     const [active, setActive] = useState(false);
 
     // Trigger boss every 5 events?
     useEffect(() => {
         if (currentEventIndex > 0 && currentEventIndex % 5 === 0) {
             setActive(true);
-            setHp(100);
         } else {
             setActive(false);
         }
