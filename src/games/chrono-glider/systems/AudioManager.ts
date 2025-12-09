@@ -107,11 +107,13 @@ export class AudioManager {
         const now = this.ctx.currentTime;
 
         notes.forEach((freq, i) => {
+            if (!this.ctx || !this.sfxGain) return;
+
             const osc = this.ctx.createOscillator();
             const gain = this.ctx.createGain();
 
             osc.connect(gain);
-            gain.connect(this.sfxGain!);
+            gain.connect(this.sfxGain);
 
             osc.type = 'sine';
             osc.frequency.value = freq;
