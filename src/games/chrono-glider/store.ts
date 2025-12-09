@@ -185,7 +185,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
         return { currentEventIndex: nextIndex };
     }),
 
-    setEvents: (events) => set({ events }),
+    setEvents: (events: TimelineEvent[]) => set({ events }),
 
     increaseSpeed: () => set((state) => ({ speed: state.speed + 0.5 })),
 

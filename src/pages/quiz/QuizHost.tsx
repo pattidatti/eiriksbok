@@ -2,12 +2,12 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../../lib/firebase';
-import { ref, onValue, update, runTransaction, push, remove, child, set, onChildAdded } from 'firebase/database';
+import { ref, onValue, update, remove, set, onChildAdded } from 'firebase/database';
 import { useManifest } from '../../hooks/useManifest';
 import { fetchLesson } from '../../utils/contentLoader';
-import { ArrowRight, Trophy, Zap, Clock, Star, MoveDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useQuizAudio } from '../../hooks/useQuizAudio';
-import confetti from 'canvas-confetti';
+
 import type { QuizQuestion } from '../../types';
 
 export const QuizHost: React.FC = () => {
@@ -31,7 +31,7 @@ export const QuizHost: React.FC = () => {
     const [floatingEmojis, setFloatingEmojis] = useState<any[]>([]);
     const [reactionCounts, setReactionCounts] = useState<Record<string, number>>({ '👍': 0, '❤️': 0, '🔥': 0, '🚀': 0 });
     const [flyingBalloonStatus, setFlyingBalloonStatus] = useState<'IDLE' | 'FLYING_OUT' | 'VISITING' | 'RETURNING'>('IDLE');
-    const [visitingPlayerIndex, setVisitingPlayerIndex] = useState(-1);
+
     const [cooldownTimer, setCooldownTimer] = useState(0);
 
     // Refs for stale closure fix
@@ -53,7 +53,6 @@ export const QuizHost: React.FC = () => {
         set(ref(db, `rooms/${pin}/lobby/balloonSize`), 0);
 
         // Lobby Minigame Listeners
-        const lobbyRef = ref(db, `rooms/${pin}/lobby`);
         const reactionsRef = ref(db, `rooms/${pin}/reactions`);
 
         const unsubscribe = onValue(roomRef, (snapshot) => {
@@ -64,7 +63,6 @@ export const QuizHost: React.FC = () => {
 
 
                 // Play sound throttled
-                const now = Date.now();
                 setRoomData(data);
                 if (data.players) {
                     setPlayers(Object.entries(data.players).map(([id, p]: any) => ({ ...p, id })));
@@ -196,7 +194,6 @@ export const QuizHost: React.FC = () => {
         const currentPlayers = playersRef.current;
         if (index >= currentPlayers.length) {
             // All visited, return home
-            setVisitingPlayerIndex(-1);
             set(ref(db, `rooms/${pin}/lobby/visitingPlayerId`), null);
             setFlyingBalloonStatus('RETURNING');
             setCooldownTimer(5); // Start 5s cooldown
@@ -204,7 +201,6 @@ export const QuizHost: React.FC = () => {
             return;
         }
 
-        setVisitingPlayerIndex(index);
         const currentPlayer = currentPlayers[index];
         if (currentPlayer) {
             // Tell Firebase who is being visited

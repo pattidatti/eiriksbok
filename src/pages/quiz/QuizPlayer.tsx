@@ -21,7 +21,7 @@ export const QuizPlayer: React.FC = () => {
     const [myStreak, setMyStreak] = useState(0);
     const [lastPoints, setLastPoints] = useState<number>(0);
     const [isVisitingMe, setIsVisitingMe] = useState(false);
-    const [debugIncomingId, setDebugIncomingId] = useState<string>('');
+
     const [isLobbyLocked, setIsLobbyLocked] = useState(false);
     const [hasAnswered, setHasAnswered] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string | string[] | null>(null);
@@ -93,7 +93,6 @@ export const QuizPlayer: React.FC = () => {
         const visitRef = ref(db, `rooms/${pin}/lobby/visitingPlayerId`);
         const unsubscribeVisit = onValue(visitRef, (snapshot) => {
             const visitingId = snapshot.val();
-            setDebugIncomingId(visitingId); // Debug info
             const myId = sessionStorage.getItem('quiz_player_id');
             if (visitingId && visitingId === myId) {
                 setIsVisitingMe(true);
