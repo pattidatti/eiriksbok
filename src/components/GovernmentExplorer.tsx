@@ -11,6 +11,9 @@ import {
     GlobeAmericasIcon,
     ShieldExclamationIcon,
     SparklesIcon,
+    CheckCircleIcon,
+    XCircleIcon,
+    ArrowPathIcon,
     InformationCircleIcon,
     BuildingLibraryIcon,
     BanknotesIcon,
@@ -253,7 +256,7 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 // --- Hovedkomponent ---
 
 interface GovernmentExplorerProps {
-    lesson: Lesson;
+    lesson?: Lesson;
 }
 
 export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }) => {
@@ -363,7 +366,7 @@ export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }
                         { id: 'maktbalanse', label: 'Maktbalanse', icon: ScaleIcon },
                         { id: 'quiz', label: 'Quiz', icon: AcademicCapIcon },
                         { id: 'fagbegreper', label: 'Fagbegreper', icon: BuildingLibraryIcon }
-                    ].map((tab) => (
+                    ].filter(tab => tab.id !== 'quiz' || !!lesson).map((tab) => (
                         <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id as any)}
@@ -879,7 +882,7 @@ export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }
                 {/* === MODUS: QUIZ === */}
                 {activeTab === 'quiz' && (
                     <div className="max-w-3xl mx-auto w-full">
-                        <Quiz questions={lesson.quiz || []} />
+                        <Quiz questions={lesson?.quiz || []} />
                     </div>
                 )}
 
