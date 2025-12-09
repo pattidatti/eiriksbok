@@ -6,8 +6,26 @@ import { UIOverlay } from './UIOverlay';
 import { useGameStore } from './store';
 import { Loader } from '@react-three/drei';
 
+import { AudioManager } from './systems/AudioManager';
+
 export default function ChronoGliderPage() {
     const { setEvents } = useGameStore();
+
+    useEffect(() => {
+        // Init audio
+        const handleInteraction = () => {
+            AudioManager.getInstance().resume();
+            window.removeEventListener('click', handleInteraction);
+            window.removeEventListener('keydown', handleInteraction);
+        };
+        window.addEventListener('click', handleInteraction);
+        window.addEventListener('keydown', handleInteraction);
+
+        return () => {
+            window.removeEventListener('click', handleInteraction);
+            window.removeEventListener('keydown', handleInteraction);
+        };
+    }, []);
 
     useEffect(() => {
         // Fetch timeline data

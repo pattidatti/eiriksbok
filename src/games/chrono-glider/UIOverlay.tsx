@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useGameStore } from './store';
+import { AudioManager } from './systems/AudioManager';
 
 export function UIOverlay() {
     const store = useGameStore();
@@ -106,6 +107,14 @@ export function UIOverlay() {
                 </div>
 
                 <div className="flex flex-col items-end">
+                    {/* Mute Button */}
+                    <button
+                        onClick={() => AudioManager.getInstance().toggleMute()}
+                        className="mb-2 bg-gray-800/50 p-2 rounded hover:bg-gray-700/50 text-white text-xs uppercase font-bold"
+                    >
+                        Toggle Audio
+                    </button>
+
                     <span className="text-red-400 font-bold uppercase tracking-widest text-sm">Integrity</span>
                     <div className="flex gap-1 mt-1">
                         {[...Array(3)].map((_, i) => (

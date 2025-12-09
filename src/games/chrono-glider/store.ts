@@ -64,11 +64,19 @@ export const useGameStore = create<GameStore>((set) => ({
     endGame: (won) => set({ gameState: won ? 'won' : 'gameover', isBoosting: false }),
     resetGame: () => set({ gameState: 'menu', score: 0, lives: 3, currentEventIndex: 0, feedbackTrigger: null, isBoosting: false, streak: 0, multiplier: 1 }),
 
-    addScore: (points) => set((state) => ({ score: state.score + (points * state.multiplier) })),
+    addScore: (points) => set((state) => {
+        // Simple heuristic: if points > 0, play sound? 
+        // We probably don't want sound every frame if score trickles, but addScore is usually event based.
+        // Except for powerups (500) or gates (100).
+        if (points === 500) AudioManager.getInstance().playCorrect(); // Powerup sound reuse or new one?
+        return { score: state.score + (points * state.multiplier) };
+    }),
 
     loseLife: () => set((state) => {
+        AudioManager.getInstance().playExplosion();
         const newLives = state.lives - 1;
         if (newLives <= 0) {
+            AudioManager.getInstance().playWrong(); // Game Over sound
             return { lives: 0, gameState: 'gameover', streak: 0, multiplier: 1 };
         }
         return { lives: newLives, streak: 0, multiplier: 1 };
@@ -77,6 +85,7 @@ export const useGameStore = create<GameStore>((set) => ({
     nextEvent: () => set((state) => {
         const nextIndex = state.currentEventIndex + 1;
         if (nextIndex >= state.events.length) {
+            AudioManager.getInstance().playCorrect(); // Win sound
             return { gameState: 'won' };
         }
         return { currentEventIndex: nextIndex };
@@ -86,14 +95,24 @@ export const useGameStore = create<GameStore>((set) => ({
 
     increaseSpeed: () => set((state) => ({ speed: state.speed + 0.5 })),
 
-    triggerFeedback: (type, position) => set({ feedbackTrigger: { type, position, id: Date.now() } }),
+    triggerFeedback: (type, position) => {
+        if (type === 'correct') AudioManager.getInstance().playCorrect();
+        if (type === 'wrong') AudioManager.getInstance().playWrong();
+        set({ feedbackTrigger: { type, position, id: Date.now() } });
+    },
 
-    setBoosting: (boosting) => set((state) => ({
-        isBoosting: boosting,
-        speed: boosting ? 20 : 10 // Simple toggle for now, maybe we want base speed + boost
-    })),
+    setBoosting: (boosting) => set((state) => {
+        if (boosting && !state.isBoosting) AudioManager.getInstance().playBoost();
+        return {
+            isBoosting: boosting,
+            speed: boosting ? 20 : 10
+        };
+    }),
 
-    fireProjectile: () => set({ lastFired: Date.now() }),
+    fireProjectile: () => {
+        AudioManager.getInstance().playShoot();
+        set({ lastFired: Date.now() });
+    },
 
     resetStreak: () => set({ streak: 0, multiplier: 1 }),
 
