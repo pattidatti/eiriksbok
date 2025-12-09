@@ -68,6 +68,7 @@ interface GameState {
     damageEnemy: (enemyId: string, amount: number) => void;
 
     addTower: (tower: Tower) => void;
+    updateTower: (towerId: string, updates: Partial<Tower>) => void;
 
     addProjectile: (projectile: Projectile) => void;
     removeProjectile: (projectileId: string) => void;
@@ -104,6 +105,9 @@ export const useGameStore = create<GameState>((set) => ({
     })),
 
     addTower: (tower) => set((state) => ({ towers: [...state.towers, tower] })),
+    updateTower: (id, updates) => set((state) => ({
+        towers: state.towers.map(t => t.id === id ? { ...t, ...updates } : t)
+    })),
 
     addProjectile: (proj) => set((state) => ({ projectiles: [...state.projectiles, proj] })),
     removeProjectile: (id) => set((state) => ({ projectiles: state.projectiles.filter(p => p.id !== id) })),
