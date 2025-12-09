@@ -6,7 +6,8 @@ import { Background } from './components/Background';
 import { GateManager } from './components/GateManager';
 import { useGameStore } from './store';
 import { ProjectileManager } from './components/ProjectileManager';
-import { EnemyManager } from './components/EnemyManager';
+import { ObjectManager } from './components/ObjectManager';
+import { Boss } from './components/Boss';
 
 export function Scene() {
     const { gameState, speed } = useGameStore();
@@ -30,7 +31,8 @@ export function Scene() {
             {gameState === 'playing' && (
                 <>
                     <GateManager />
-                    <EnemyManager />
+                    <ObjectManager />
+                    <Boss />
                 </>
             )}
         </>

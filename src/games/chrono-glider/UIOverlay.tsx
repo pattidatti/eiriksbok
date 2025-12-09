@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useGameStore } from './store';
 
 export function UIOverlay() {
-    const { score, lives, gameState, currentEventIndex, events, startGame, resetGame, feedbackTrigger } = useGameStore();
+    const store = useGameStore();
+    const { score, lives, gameState, currentEventIndex, events, startGame, resetGame, feedbackTrigger } = store;
     const [feedback, setFeedback] = useState<{ type: 'correct' | 'wrong', id: number } | null>(null);
 
     useEffect(() => {
@@ -111,6 +112,21 @@ export function UIOverlay() {
                             <div key={i} className={`w-8 h-2 rounded-full ${i < lives ? 'bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.8)]' : 'bg-red-900/30'}`} />
                         ))}
                     </div>
+
+                    {/* Combo/Streak Display */}
+                    {store.streak > 1 && (
+                        <div className="mt-4 flex flex-col items-end animate-pulse">
+                            <span className="text-yellow-400 font-bold uppercase tracking-widest text-xs">Streak</span>
+                            <span className="text-4xl font-black italic text-yellow-300 drop-shadow-[0_0_10px_rgba(234,179,8,0.8)]">
+                                {store.streak}x
+                            </span>
+                            {store.multiplier > 1 && (
+                                <span className="text-purple-400 font-bold text-sm bg-purple-900/50 px-2 py-1 rounded">
+                                    {store.multiplier}x Multiplier!
+                                </span>
+                            )}
+                        </div>
+                    )}
                 </div>
             </div>
 

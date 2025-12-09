@@ -39,6 +39,12 @@ export interface GameStore {
     // Projectiles triggers (handled via events/store for simplicity or refs in components)
     lastFired: number;
     fireProjectile: () => void;
+
+    // Advanced Stats
+    streak: number;
+    multiplier: number;
+    resetStreak: () => void;
+    incrementStreak: () => void;
 }
 
 export const useGameStore = create<GameStore>((set) => ({
@@ -51,19 +57,21 @@ export const useGameStore = create<GameStore>((set) => ({
     feedbackTrigger: null,
     isBoosting: false,
     lastFired: 0,
+    streak: 0,
+    multiplier: 1,
 
-    startGame: () => set({ gameState: 'playing', score: 0, lives: 3, speed: 10, currentEventIndex: 0, feedbackTrigger: null, isBoosting: false }),
+    startGame: () => set({ gameState: 'playing', score: 0, lives: 3, speed: 10, currentEventIndex: 0, feedbackTrigger: null, isBoosting: false, streak: 0, multiplier: 1 }),
     endGame: (won) => set({ gameState: won ? 'won' : 'gameover', isBoosting: false }),
-    resetGame: () => set({ gameState: 'menu', score: 0, lives: 3, currentEventIndex: 0, feedbackTrigger: null, isBoosting: false }),
+    resetGame: () => set({ gameState: 'menu', score: 0, lives: 3, currentEventIndex: 0, feedbackTrigger: null, isBoosting: false, streak: 0, multiplier: 1 }),
 
-    addScore: (points) => set((state) => ({ score: state.score + points })),
+    addScore: (points) => set((state) => ({ score: state.score + (points * state.multiplier) })),
 
     loseLife: () => set((state) => {
         const newLives = state.lives - 1;
         if (newLives <= 0) {
-            return { lives: 0, gameState: 'gameover' };
+            return { lives: 0, gameState: 'gameover', streak: 0, multiplier: 1 };
         }
-        return { lives: newLives };
+        return { lives: newLives, streak: 0, multiplier: 1 };
     }),
 
     nextEvent: () => set((state) => {
@@ -86,4 +94,17 @@ export const useGameStore = create<GameStore>((set) => ({
     })),
 
     fireProjectile: () => set({ lastFired: Date.now() }),
+
+    resetStreak: () => set({ streak: 0, multiplier: 1 }),
+
+    incrementStreak: () => set((state) => {
+        const newStreak = state.streak + 1;
+        // Multiplier categories
+        let newMult = 1;
+        if (newStreak >= 3) newMult = 2;
+        if (newStreak >= 6) newMult = 3;
+        if (newStreak >= 10) newMult = 5;
+
+        return { streak: newStreak, multiplier: newMult };
+    }),
 }));

@@ -75,7 +75,7 @@ function Gate({ initialPosition, date, isCorrect, onPass }: { initialPosition: [
 }
 
 export function GateManager() {
-    const { events, currentEventIndex, nextEvent, addScore, loseLife, gameState, triggerFeedback, setEvents } = useGameStore();
+    const { events, currentEventIndex, nextEvent, addScore, loseLife, gameState, triggerFeedback, setEvents, incrementStreak, resetStreak } = useGameStore();
 
     const [activeGroup, setActiveGroup] = useState<{ index: number, z: number, choices: { val: string, correct: boolean, x: number, y: number }[] } | null>(null);
     const [explosions, setExplosions] = useState<{ id: number, position: [number, number, number], color: string }[]>([]);
@@ -124,6 +124,7 @@ export function GateManager() {
             triggerFeedback('correct', [0, 0, 0]); // Position isn't super critical for UI feedback
             setExplosions(prev => [...prev, { id: Date.now(), position: [0, 0, -2], color: '#4ade80' }]); // Green explosion closer to camera
             addScore(100);
+            incrementStreak();
             nextEvent();
             setActiveGroup(null);
         } else if (hit && !wasCorrectGate) {
@@ -137,6 +138,7 @@ export function GateManager() {
     const handleFailure = () => {
         triggerFeedback('wrong', [0, 0, 0]);
         loseLife();
+        resetStreak();
 
         // REPEAT LOGIC: Move current event to the end of the queue effectively?
         // Or just re-spawn it?
