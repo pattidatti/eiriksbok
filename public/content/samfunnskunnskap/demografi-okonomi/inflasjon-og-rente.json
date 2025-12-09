@@ -186,6 +186,50 @@
                 "Studenter"
             ],
             "correctAnswer": 0
+        },
+        {
+            "id": "q5",
+            "question": "Hva er Cantillon-effekten?",
+            "options": [
+                "De som får nye penger først tjener på det, mens de siste taper",
+                "Prisene stiger nøyaktig like mye for alle varer samtidig",
+                "Nye penger fordeler seg rettferdig i hele samfunnet",
+                "At inflasjon alltid fører til lavere arbeidsledighet"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q6",
+            "question": "Hvordan påvirker høy og uforutsigbar inflasjon bedrifter?",
+            "options": [
+                "Det skaper usikkerhet og gjør langsiktig planlegging vanskelig",
+                "Det gjør det lettere å beregne fremtidig overskudd",
+                "Det fører automatisk til flere ansettelser",
+                "Det har ingen betydning for bedrifter"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q7",
+            "question": "Hva betyr det å ha en 'negativ realrente'?",
+            "options": [
+                "At inflasjonen er høyere enn renten du får i banken",
+                "At banken betaler deg for å ha lån",
+                "At renten er under 0%",
+                "At du ikke betaler renter i det hele tatt"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q8",
+            "question": "Hva måler Konsumprisindeksen (KPI)?",
+            "options": [
+                "Prisutviklingen på en standard 'handlekurv' for husholdninger",
+                "Prisutviklingen på boliger og eiendom",
+                "Hvor mye penger som trykkes av sentralbanken",
+                "Prisen på gull og råvarer"
+            ],
+            "correctAnswer": 0
         }
     ],
     "createdDate": "2023-01-01T12:00:00Z",

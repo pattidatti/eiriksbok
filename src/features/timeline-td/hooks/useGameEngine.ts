@@ -3,135 +3,136 @@ import { useGameStore } from '../store/gameStore';
 import { GAME_PATH } from '../utils/pathUtils';
 
 export const useGameEngine = () => {
-    const {
-        status,
-        enemies,
-        towers,
-        projectiles,
-        spawnEnemy,
-        updateEnemyPosition,
-        updateProjectile,
-        removeEnemy,
-        removeProjectile,
-        damageEnemy,
-        addProjectile,
-        updateTower,
-        updateLives
-    } = useGameStore();
+    const status = useGameStore(state => state.status);
 
     const requestRef = useRef<number>(undefined);
     const previousTimeRef = useRef<number>(undefined);
 
     const gameLoop = (time: number) => {
         if (previousTimeRef.current !== undefined) {
-            const deltaTime = time - previousTimeRef.current; // ms
+            const deltaTime = time - previousTimeRef.current;
+            const dtSeconds = deltaTime / 1000;
+            const state = useGameStore.getState();
 
             // 1. Move Enemies
-            if (enemies.length > 0) {
-                enemies.forEach(e => {
+            // Faster speed: Base speed * 1.5 + curve compensation
+            if (state.enemies.length > 0) {
+                state.enemies.forEach(e => {
                     if (e.isFrozen) return;
 
-                    // Speed 1 = 20 points per second
-                    const moveAmount = (e.speed * 20) * (deltaTime / 1000);
+                    // Apply Effects
+                    let speedMod = 1.0;
+                    e.activeEffects.forEach(eff => {
+                        if (eff.type === 'SLOW') speedMod *= eff.value;
+                    });
+
+                    // Decay Effects (simple time based? store needs to update duration)
+                    // For now, let's just use speedMod. The duration logic needs a store action 'updateEffects'
+                    // or we handle it here by filtering.
+                    // Doing state updates inside loop is expensive.
+                    // Let's assume effects are permanent or handled by a separate tick for now to keep it simple,
+                    // OR we add logic to remove expired effects in updateParticles or similar.
+                    // Actually, let's just apply the mod.
+
+                    // Slowing down enemies. 
+                    // Previously 40, reducing to 10 for much slower gameplay.
+                    const moveAmount = (e.speed * speedMod * 10) * dtSeconds;
                     const nextIndex = e.pathIndex + moveAmount;
 
                     if (nextIndex >= GAME_PATH.length - 1) {
-                        removeEnemy(e.id);
-                        updateLives(-1);
+                        state.removeEnemy(e.id);
+                        state.updateLives(-1);
                     } else {
                         const newPos = GAME_PATH[Math.floor(nextIndex)];
-                        updateEnemyPosition(e.id, newPos, nextIndex);
+                        state.updateEnemyPosition(e.id, newPos, nextIndex);
                     }
                 });
             }
 
             // 2. Towers Attack
-            towers.forEach(tower => {
-                // Check cooldown (cooldown is in seconds)
+            state.towers.forEach(tower => {
                 if (Date.now() - tower.lastFired < tower.cooldown * 1000) return;
 
-                // Find target
-                // Simple logic: First enemy in range
-                // Optimization: could spatial hash, but N is small here
-                const target = enemies.find(e => {
+                // Targeting
+                // Different towers might have different targeting priorities?
+                // For now, closest.
+                const enemiesInRange = state.enemies.filter(e => {
                     const dx = e.position.x - tower.position.x;
                     const dy = e.position.y - tower.position.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    return dist <= tower.range;
+                    return (dx * dx + dy * dy) <= (tower.range * tower.range);
                 });
 
-                if (target) {
-                    // Fire!
-                    updateTower(tower.id, { lastFired: Date.now() });
+                if (enemiesInRange.length === 0) return;
 
-                    addProjectile({
+                // Sort by distance (default) or progress? Progress is better for TD.
+                // enemiesInRange.sort((a,b) => b.pathIndex - a.pathIndex); 
+                const target = enemiesInRange[0];
+
+                if (tower.type === 'TESLA') {
+                    // Instant Attack (Chain Lightning)
+                    state.updateTower(tower.id, { lastFired: Date.now() });
+                    // Chain Logic: Hit target, then find closest to target, etc.
+                    // For Phase 3 MVP: Just instant hit single target or small area?
+                    // Let's do instant damage to target.
+                    state.damageEnemy(target.id, tower.damage);
+
+                    // Visual: Add a "Lightning" particle?
+                    state.addParticle({
+                        id: Math.random().toString(),
+                        text: "⚡",
+                        position: target.position,
+                        life: 0.5,
+                        color: '#6366f1'
+                    });
+
+                } else if (tower.type === 'NEWTON') {
+                    // Gravity: Apply Slow Effect instantly to target(s)
+                    state.updateTower(tower.id, { lastFired: Date.now() });
+                    // Projectile? Newton apple? 
+                    // Let's use projectile but it applies slow on hit.
+                    state.addProjectile({
                         id: Math.random().toString(),
                         targetId: target.id,
                         position: { ...tower.position },
-                        speed: 300, // px per second
+                        speed: 300,
+                        damage: tower.damage,
+                        type: tower.type
+                    });
+
+                } else {
+                    // Standard Projectile (Gutenberg, Da Vinci)
+                    state.updateTower(tower.id, { lastFired: Date.now() });
+                    state.addProjectile({
+                        id: Math.random().toString(),
+                        targetId: target.id,
+                        position: { ...tower.position },
+                        speed: tower.type === 'GUTENBERG' ? 600 : 400,
                         damage: tower.damage,
                         type: tower.type
                     });
                 }
             });
 
-            // 3. Move Projectiles
-            if (projectiles.length > 0) {
-                projectiles.forEach(p => {
-                    const target = enemies.find(e => e.id === p.targetId);
-                    if (!target) {
-                        removeProjectile(p.id);
-                        return;
-                    }
-
-                    // Move towards target
-                    const dx = target.position.x - p.position.x;
-                    const dy = target.position.y - p.position.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < 10) {
-                        // Hit!
-                        damageEnemy(target.id, p.damage);
-                        removeProjectile(p.id);
-                        // TODO: Splash damage if Gutenberg
-                    } else {
-                        // Normalize and move
-                        const moveDist = (p.speed * deltaTime) / 1000;
-                        const angle = Math.atan2(dy, dx);
-                        const vx = Math.cos(angle) * moveDist;
-                        const vy = Math.sin(angle) * moveDist;
-
-                        updateProjectile(p.id, {
-                            x: p.position.x + vx,
-                            y: p.position.y + vy
-                        });
-                    }
-                });
+            state.updateParticles(dtSeconds);
+            // 5. Wave Management
+            if (state.waveInProgress) {
+                state.updateWaveProgress(time);
             }
 
-            // 4. Spawning (Simple Debug Spawn)
-            if (Math.random() < 0.005) {
-                spawnEnemy({
-                    id: Math.random().toString(),
-                    type: 'IGNORANCE', // 'Svartedauden' later
-                    position: GAME_PATH[0],
-                    health: 100,
-                    maxHealth: 100,
-                    speed: 2 + Math.random(),
-                    pathIndex: 0,
-                    isFrozen: false
-                });
-            }
+            // 6. Spawning (Legacy/Debug spawn removed in favor of WaveManager)
+            /* 
+            if (Math.random() < 0.005) { ... }
+            */
         }
         previousTimeRef.current = time;
-        if (status === 'PLAYING') {
+        if (useGameStore.getState().status === 'PLAYING') {
             requestRef.current = requestAnimationFrame(gameLoop);
         }
     };
 
     useEffect(() => {
         if (status === 'PLAYING') {
-            previousTimeRef.current = undefined; // Reset time so we don't have huge delta on resume
+            previousTimeRef.current = undefined;
             requestRef.current = requestAnimationFrame(gameLoop);
         }
         return () => {
@@ -139,7 +140,7 @@ export const useGameEngine = () => {
                 cancelAnimationFrame(requestRef.current);
             }
         };
-    }, [status, enemies, towers, projectiles]);
+    }, [status]);
 
     return {};
 };

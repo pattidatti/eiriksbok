@@ -237,6 +237,50 @@
                 "Den varer evig"
             ],
             "correctAnswer": 0
+        },
+        {
+            "id": "q5",
+            "question": "Hva er hovedårsaken til konjunktursvingninger ifølge den østerrikske skolen?",
+            "options": [
+                "Manipulering av renten",
+                "Tilfeldige sjokk",
+                "Værforhold",
+                "Teknologisk utvikling"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q6",
+            "question": "Hva skjer med ressurser under en 'boom' drevet av kunstig lav rente?",
+            "options": [
+                "De blir feilallokert til ulønnsomme prosjekter",
+                "De blir brukt mer effektivt enn vanlig",
+                "De blir spart til fremtidige generasjoner",
+                "Ingenting, alt fortsetter som før"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q7",
+            "question": "I historien om byggmesteren, hva oppdager han når krisen treffer?",
+            "options": [
+                "At han mangler murstein (ressurser) til å fullføre",
+                "At han har for mange arbeidere",
+                "At husene allerede er ferdige",
+                "At prisen på murstein har falt"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q8",
+            "question": "Hvorfor anses krisen (resesjonen) som nødvendig i denne teorien?",
+            "options": [
+                "For å flytte ressurser fra feilinvesteringer til levedyktige prosjekter",
+                "For å straffe bankene som lånte ut penger",
+                "For å øke skatteinntektene til staten",
+                "Den er ikke nødvendig, den er bare skadelig"
+            ],
+            "correctAnswer": 0
         }
     ],
     "createdDate": "2023-01-01T12:00:00Z",
