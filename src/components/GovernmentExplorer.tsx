@@ -11,8 +11,6 @@ import {
     GlobeAmericasIcon,
     ShieldExclamationIcon,
     SparklesIcon,
-    CheckCircleIcon,
-    XCircleIcon,
     ArrowPathIcon,
     InformationCircleIcon,
     BuildingLibraryIcon,
