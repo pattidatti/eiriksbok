@@ -829,6 +829,179 @@
                     "createdDate": "2023-10-01T12:00:00",
                     "lessons": [
                         {
+                            "id": "hypotesen-norden-vs-frankrike",
+                            "title": "Hypotesen: Norden vs Frankrike",
+                            "description": "Var vikingtoktene et selvforsvar mot Karl den Store?",
+                            "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "vikingtiden",
+                                "hypotese",
+                                "krig"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:00:00Z",
+                            "definitions": [
+                                {
+                                    "term": "Preventiv krig",
+                                    "definition": "Å angripe fienden før de rekker å angripe deg."
+                                },
+                                {
+                                    "term": "Saksere",
+                                    "definition": "Folkegruppe i Nord-Tyskland som Karl den Store kriget mot."
+                                },
+                                {
+                                    "term": "Dannevirke",
+                                    "definition": "Stor forsvarsvoll tvers over Jylland for å beskytte Danmark."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "karl-den-store",
+                            "title": "Karl den Store",
+                            "description": "Europas far og vikingenes store fiende.",
+                            "image": "https://images.unsplash.com/photo-1549144889-1052d9a609d5?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "historie",
+                                "frankerriket",
+                                "middelalder"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:00:00Z",
+                            "definitions": [
+                                {
+                                    "term": "Føydalisme",
+                                    "definition": "Samfunnssystem hvor kongen eier jorda og gir den til adelen i bytte mot soldater."
+                                },
+                                {
+                                    "term": "Keiser",
+                                    "definition": "Tittel med høyere rang enn konge, ofte knyttet til Romerriket."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "asatro",
+                            "title": "Åsatru og Verdensbilde",
+                            "description": "Den gamle sed vs Hvitekrist.",
+                            "image": "https://images.unsplash.com/photo-1505506874110-6a7a69069a08?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "religion",
+                                "mytologi",
+                                "vikingtiden"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:00:00Z",
+                            "definitions": [
+                                {
+                                    "term": "Blot",
+                                    "definition": "Norrøn offerfest for å takke gudene eller be om hjelp."
+                                },
+                                {
+                                    "term": "Yggdrasil",
+                                    "definition": "Verdenstreet som binder sammen de ni verdenene i norrøn mytologi."
+                                },
+                                {
+                                    "term": "Skjebne",
+                                    "definition": "Troen på at livet er bestemt på forhånd av nornene."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "danelagen",
+                            "title": "Danelagen",
+                            "description": "Vikingenes kongerike i England.",
+                            "image": "https://images.unsplash.com/photo-1455620611406-966dd68cfd5d?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "england",
+                                "krig",
+                                "vikingtiden"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:00:00Z",
+                            "definitions": [
+                                {
+                                    "term": "Danelagen",
+                                    "definition": "Området i Nord-England hvor vikingenes (danenes) lover gjaldt."
+                                },
+                                {
+                                    "term": "Tinget",
+                                    "definition": "Folkesamling hvor frie bønder møttes for å dømme og vedta lover."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "normandie",
+                            "title": "Normandie",
+                            "description": "Hvordan vikinger ble riddere.",
+                            "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "frankrike",
+                                "vikingtiden",
+                                "riddere"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:00:00Z",
+                            "definitions": [
+                                {
+                                    "term": "Normanner",
+                                    "definition": "Etterkommere av vikinger som bosatte seg i Nord-Frankrike (Normandie)."
+                                },
+                                {
+                                    "term": "Assimilering",
+                                    "definition": "Når en folkegruppe smelter sammen med en annen og overtar deres kultur/språk."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "veien-mot-ost",
+                            "title": "Veien mot Øst",
+                            "description": "Gardarike, Miklagard og Væringene.",
+                            "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "øst",
+                                "handel",
+                                "bysants"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:00:00Z",
+                            "definitions": [
+                                {
+                                    "term": "Miklagard",
+                                    "definition": "Vikingenes navn på Konstantinopel (Istanbul)."
+                                },
+                                {
+                                    "term": "Væring",
+                                    "definition": "Nordeuropeisk leiesoldat i tjeneste hos keiseren i Bysants."
+                                },
+                                {
+                                    "term": "Gardarike",
+                                    "definition": "Vikingenes navn på Russland (Riket med borgene/byene)."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kristningen-av-norge",
+                            "title": "Kristningen",
+                            "description": "Borgerkrigen om tro og makt.",
+                            "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "kristendom",
+                                "norge",
+                                "vikingtiden"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:00:00Z",
+                            "definitions": [
+                                {
+                                    "term": "Helgen",
+                                    "definition": "En person som er hellig og kan utføre mirakler (f.eks. Olav den Hellige)."
+                                },
+                                {
+                                    "term": "Kristenretten",
+                                    "definition": "Lover som innførte kristendommen som eneste tillatte religion i Norge."
+                                }
+                            ]
+                        },
+                        {
                             "id": "artikkel",
                             "title": "Vikingtiden",
                             "description": "Krigerne fra nord.",

@@ -1,0 +1,73 @@
+{
+    "id": "asatro",
+    "title": "Åsatru og Verdensbilde",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "fact": "Vikingene kalte ikke religionen sin 'Åsatru'. De kalte det 'Den gamle sed' (skikken).",
+    "tags": [
+        "vikingtiden",
+        "religion",
+        "mytologi",
+        "kultur"
+    ],
+    "year": "Før 1000",
+    "content": [
+        {
+            "type": "text",
+            "content": "For mennesker i vikingtiden var ikke religion noe man 'trodde på' søndag formiddag. Det var en integrert del av hverdagen. Verden var fylt av vesener: Guder (Æser og Vaner), men også jotner, dverger, alver og landvetter."
+        },
+        {
+            "type": "text",
+            "content": "Sentrale begreper var **Skjebne** (Wyrd/Urd) og **Ære**. Nornene spant livstråden din ved fødselen, og dagen for din død var bestemt. Det eneste du kunne påvirke, var *hvordan* du levde og døde – ditt ettermæle. 'Fe dør, frender dør, man selv dør. Ett vet jeg som aldri dør: Dommen over hver en død.'"
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "content": "Odin ofret seg selv til seg selv ved å henge i verdenstreet Yggdrasil i ni dager for å få visdom om runene."
+            }
+        },
+        {
+            "type": "text",
+            "content": "I motsetning til kristendommen, som har én allmektig Gud og strenge dogmer, var den gamle seden desentralisert. Det fantes ingen Bibel eller Pave. Hver gård hadde sine egne ritualer (blot) for å sikre god avling og fred."
+        },
+        {
+            "type": "component",
+            "name": "PantheonExplorer",
+            "props": {
+                "description": "Utforsk gudene Odin, Tor, Frøya og Loke."
+            }
+        },
+        {
+            "type": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva var viktigst for en viking?",
+                        "options": [
+                            "Å bli rik",
+                            "Ettermælet (hvordan man blir husket)",
+                            "Å leve lengst mulig",
+                            "Å lære å lese"
+                        ],
+                        "answer": "Ettermælet (hvordan man blir husket)",
+                        "explanation": "Fordi døden var uunngåelig, var det viktigste å dø med ære slik at man ble husket godt."
+                    },
+                    {
+                        "question": "Hva het verdenstreet i norrøn mytologi?",
+                        "options": [
+                            "Bøk",
+                            "Yggdrasil",
+                            "Askepott",
+                            "Midgard"
+                        ],
+                        "answer": "Yggdrasil",
+                        "explanation": "Yggdrasil var asketreet som holdt hele universet sammen."
+                    }
+                ]
+            }
+        }
+    ],
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:00:00Z"
+}

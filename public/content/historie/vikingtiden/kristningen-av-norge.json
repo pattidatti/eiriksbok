@@ -1,0 +1,73 @@
+{
+    "id": "kristningen-av-norge",
+    "title": "Kristningen: En borgerkrig om tro",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "fact": "Kristningen handlet ikke bare om tro, men om makt. Kongen ville bruke kristendommen til å samle riket under én lov og én gud (seg selv som Guds representant).",
+    "tags": [
+        "vikingtiden",
+        "kristendom",
+        "maktkamp",
+        "nasjonsbygging"
+    ],
+    "year": "930-1030",
+    "content": [
+        {
+            "type": "text",
+            "content": "Kristningen av Norge skjedde ikke over natten. Det var en lang prosess preget av konflikt. Olav Tryggvason brukte sverd og tvang. Han ødela gudehov og drepte de som nektet å la seg døpe."
+        },
+        {
+            "type": "text",
+            "content": "Olav Haraldsson (den Hellige) fortsatte arbeidet, men da med loven i hånd ($Kristenretten på Moster, 1024$). Han gjorde kristendommen til landets offisielle lov, noe som provoserte bøndene og høvdingene. Dette førte til slaget på Stiklestad i 1030, hvor Olav ble drept."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "content": "Selv om Olav tapte slaget på Stiklestad, vant kristendommen. Etter hans død skjedde det 'mirakler' ved graven hans, og han ble kåret til helgen. Dette samlet Norge religiøst."
+            }
+        },
+        {
+            "type": "text",
+            "content": "Overgangen endret samfunnet totalt: Fra å sette barn ut i skogen til å døpe dem, fra hevn til tilgivelse (i teorien), og fra trelldom til frihet. Stavkirker erstattet gudehovene."
+        },
+        {
+            "type": "component",
+            "name": "TimelineSlider",
+            "props": {
+                "description": "Tidslinje som viser endring i lover og skikker fra 930 til 1200."
+            }
+        },
+        {
+            "type": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvorfor ville kongene innføre kristendommen?",
+                        "options": [
+                            "De likte kirkene",
+                            "For å styrke sin egen makt og samle riket",
+                            "Paven tvang dem",
+                            "Det var billigere"
+                        ],
+                        "answer": "For å styrke sin egen makt og samle riket",
+                        "explanation": "Kristendommen ga kongen en guddommelig rett til å styre og et sentralisert system som erstattet de lokale høvdingene."
+                    },
+                    {
+                        "question": "Hva skjedde på Stiklestad i 1030?",
+                        "options": [
+                            "Norge ble frigjort fra Danmark",
+                            "Olav Haraldsson ble drept i et slag mot bøndene",
+                            "Vikingtiden startet",
+                            "Harald Hårfagre samlet Norge"
+                        ],
+                        "answer": "Olav Haraldsson ble drept i et slag mot bøndene",
+                        "explanation": "Slaget på Stiklestad var det avgjørende oppgjøret mellom den kristne kongemakten og det gamle bondesamfunnet."
+                    }
+                ]
+            }
+        }
+    ],
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:00:00Z"
+}

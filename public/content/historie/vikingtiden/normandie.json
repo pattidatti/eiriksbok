@@ -1,0 +1,66 @@
+{
+    "id": "normandie",
+    "title": "Normandie: Fra Viking til Ridder",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "fact": "Wilhelm Erobreren, som erobret England i 1066, var direkte etterkommer av vikinghøvdingen Rollo.",
+    "tags": [
+        "vikingtiden",
+        "frankrike",
+        "normandie",
+        "assimilerering"
+    ],
+    "year": "911",
+    "content": [
+        {
+            "type": "text",
+            "content": "Vikingene herjet Frankerriket brutalt og beleiret Paris flere ganger. Den franske kongen, Karl den Enfoldige, så ingen annen utvei enn å inngå en handel med vikinghøvdingen Rollo (som kanskje var norske Gange-Rolv)."
+        },
+        {
+            "type": "text",
+            "content": "I 911 ble avtalen inngått ved Saint-Clair-sur-Epte: Rollo fikk et stort landområde ved kysten mot at han lot seg døpe og beskyttet Frankrike mot *andre* vikinger. Dette området ble kalt 'Nordmennenes land' – Normandie."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "content": "På bare noen få generasjoner glemte normannerne det norrøne språket og ble franske. De byttet ut skip med hester og ble middelalderens fremste riddere."
+            }
+        },
+        {
+            "type": "text",
+            "content": "I 1066, over hundre år senere, krysset Rollos tippoldebarn Wilhelm Kanalen og erobret England. Slik endte vikingtiden paradoksalt nok med at 'franske vikinger' tok makten i England."
+        },
+        {
+            "type": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva måtte Rollo gjøre for å få Normandie?",
+                        "options": [
+                            "Betale masse gull",
+                            "La seg døpe og beskytte Frankrike",
+                            "Gi fra seg sverdene sine",
+                            "Lære å lage vin"
+                        ],
+                        "answer": "La seg døpe og beskytte Frankrike",
+                        "explanation": "Avtalen var land mot beskyttelse og konvertering til kristendommen."
+                    },
+                    {
+                        "question": "Hvem var Wilhelm Erobreren?",
+                        "options": [
+                            "En engelsk konge",
+                            "Rollos etterkommer som erobret England i 1066",
+                            "En tysk keiser",
+                            "Oppdageren av Amerika"
+                        ],
+                        "answer": "Rollos etterkommer som erobret England i 1066",
+                        "explanation": "Wilhelm var hertug av Normandie og etterkommer av vikingene som bosatte seg der."
+                    }
+                ]
+            }
+        }
+    ],
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:00:00Z"
+}

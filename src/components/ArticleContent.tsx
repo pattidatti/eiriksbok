@@ -16,6 +16,12 @@ import { BusinessCycleGraph } from './content/interactive/BusinessCycleGraph';
 import { GrammarRuleCard } from './content/interactive/GrammarRuleCard';
 import { TextHighlighter } from './content/interactive/TextHighlighter';
 import { SentenceBuilder } from './content/interactive/SentenceBuilder';
+import { ConflictMap } from './viking/ConflictMap';
+import { FeudalPyramid } from './viking/FeudalPyramid';
+import { PantheonExplorer } from './viking/PantheonExplorer';
+import { LanguageMixer } from './viking/LanguageMixer';
+import { TradeRouteMap } from './viking/TradeRouteMap';
+import { TimelineSlider } from './viking/TimelineSlider';
 
 import { renderInlineMarkdown } from './markdownUtils';
 import type { Concept, ContentBlock } from '../types';
@@ -252,6 +258,18 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                         instruction={block.props?.instruction}
                                     />
                                 );
+                            case 'ConflictMap':
+                                return <ConflictMap key={index} />;
+                            case 'FeudalPyramid':
+                                return <FeudalPyramid key={index} />;
+                            case 'PantheonExplorer':
+                                return <PantheonExplorer key={index} />;
+                            case 'LanguageMixer':
+                                return <LanguageMixer key={index} />;
+                            case 'TradeRouteMap':
+                                return <TradeRouteMap key={index} />;
+                            case 'TimelineSlider':
+                                return <TimelineSlider key={index} />;
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">

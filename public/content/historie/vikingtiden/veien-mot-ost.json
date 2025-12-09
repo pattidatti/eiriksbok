@@ -1,0 +1,69 @@
+{
+    "id": "veien-mot-ost",
+    "title": "Veien mot Øst: Gardarike og Miklagard",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "fact": "Vikingene kalte Konstantinopel (Istanbul) for Miklagard – 'Den store byen'. Det var verdens største by på den tiden.",
+    "tags": [
+        "vikingtiden",
+        "øst",
+        "handel",
+        "bysants"
+    ],
+    "year": "800-1050",
+    "content": [
+        {
+            "type": "text",
+            "content": "Mens nordmenn og daner dro vestover, dro svensker (kalt 'Rus') østover. De seilte ned de store russiske elvene Dnepr og Volga. De grunnla byer som Novgorod (Holmgard) og Kiev (Kønugard), og la grunnlaget for det russiske riket."
+        },
+        {
+            "type": "text",
+            "content": "Målet for reisen var ofte det rike Bysants og hovedstaden Konstantinopel. Her handlet de pels, voks og slaver i bytte mot sølv, silke og krydder. Mange vikinger tok også tjeneste hos Keiseren som elitesoldater i 'Væringgarden'. De var keiserens livvakter og kjent for sin lojalitet og styrke."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "content": "Harald Hardråde var sjef for Væringgarden før han kom hjem og ble konge i Norge. Han kom hjem med enorme mengder gull."
+            }
+        },
+        {
+            "type": "component",
+            "name": "TradeRouteMap",
+            "props": {
+                "description": "Kart som viser vannveiene fra Østersjøen til Svartehavet."
+            }
+        },
+        {
+            "type": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva kalte vikingene byen Konstantinopel?",
+                        "options": [
+                            "Roma",
+                            "Miklagard",
+                            "Jorvik",
+                            "Utgard"
+                        ],
+                        "answer": "Miklagard",
+                        "explanation": "Miklagard betyr 'Den store byen' på norrønt."
+                    },
+                    {
+                        "question": "Hva var Væringgarden?",
+                        "options": [
+                            "En hage i Sverige",
+                            "Keiserens nordiske livvaktstyrke i Bysants",
+                            "En handelsplass i Kiev",
+                            "Et skip"
+                        ],
+                        "answer": "Keiserens nordiske livvaktstyrke i Bysants",
+                        "explanation": "Keiseren i Bysants stolte ikke på sine egne, så han leide inn vikinger som livvakter."
+                    }
+                ]
+            }
+        }
+    ],
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:00:00Z"
+}

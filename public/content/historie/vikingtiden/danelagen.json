@@ -1,0 +1,73 @@
+{
+    "id": "danelagen",
+    "title": "Danelagen: Vikingene i England",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "fact": "Mange engelske bynavn som slutter på -by (som Derby og Whitby) kommer fra norrønt og betyr 'gård' eller 'landsby'.",
+    "tags": [
+        "vikingtiden",
+        "england",
+        "krig",
+        "kultur"
+    ],
+    "year": "865-954",
+    "content": [
+        {
+            "type": "text",
+            "content": "I 865 kom 'Den store hedningehæren' til England. Dette var ikke bare et tokt, men en invasjon for å erobre land. De inntok York (Jorvik) og la under seg store deler av Nord- og Øst-England."
+        },
+        {
+            "type": "text",
+            "content": "Den eneste kongen som klarte å stå imot, var Alfred den Store av Wessex. Etter harde kamper inngikk han en avtale med vikingkongen Guthrum. England ble delt i to: Alfreds rike i sør, og 'Danelagen' i nordøst, hvor vikingenes lover gjaldt."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "content": "Vikingtiden i England endte med Knut den Mektige, som var konge over både England, Danmark og Norge (Nordsjøriket)."
+            }
+        },
+        {
+            "type": "text",
+            "content": "Vikingene påvirket det engelske språket enormt. De tok med seg dagligdagse ord som gjør at engelsk og norsk fortsatt ligner. Ordene for 'egg', 'kniv', 'vindu', 'søster' og 'ta' (take) kommer fra norrønt."
+        },
+        {
+            "type": "component",
+            "name": "LanguageMixer",
+            "props": {
+                "description": "Interaktiv modul som viser engelske ord med norrønt opphav."
+            }
+        },
+        {
+            "type": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva var Danelagen?",
+                        "options": [
+                            "En type mjød",
+                            "Området i England hvor vikingenes lover gjaldt",
+                            "Navnet på vikingenes skip",
+                            "En fest på Tinget"
+                        ],
+                        "answer": "Området i England hvor vikingenes lover gjaldt",
+                        "explanation": "Danelagen var den delen av England som ble styrt av danene (vikingene) etter avtalen med kong Alfred."
+                    },
+                    {
+                        "question": "Hvilket av disse ordene på engelsk kommer fra norrønt?",
+                        "options": [
+                            "Computer",
+                            "Window (Vind-øye)",
+                            "Table",
+                            "Car"
+                        ],
+                        "answer": "Window (Vind-øye)",
+                        "explanation": "Window kommer fra norrønt 'vindauga' (vind-øye)."
+                    }
+                ]
+            }
+        }
+    ],
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:00:00Z"
+}

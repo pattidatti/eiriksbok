@@ -1,0 +1,66 @@
+{
+    "id": "karl-den-store",
+    "title": "Karl den Store",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "fact": "Karl den Store (Charlemagne) kalles ofte 'Europas far' fordi han samlet store deler av Vest-Europa.",
+    "tags": [
+        "middelalder",
+        "frankerriket",
+        "politikk",
+        "keiser"
+    ],
+    "year": "742-814",
+    "content": [
+        {
+            "type": "text",
+            "content": "Karl den Store var konge av Frankerne og ble kronet til Keiser av Romerne i år 800. Han var en gigant både fysisk og politisk, og hans visjon var å gjenskape Romerrikets storhet, men som et kristent imperium."
+        },
+        {
+            "type": "text",
+            "content": "Han innførte **føydalisme**, et pyramideformet samfunnssystem der kongen eide alt land og delte det ut til lojale grever og hertuger i bytte mot soldater. Dette stod i sterk kontrast til den nordiske modellen, hvor frie bønder eide sin egen jord og møttes på Tinget for å dømme."
+        },
+        {
+            "type": "text",
+            "content": "For nordboerne representerte Karl den Store en eksistensiell trussel. Han respekterte ikke gamle skikker eller religionsfrihet. Valget han ga sine naboer var ofte: 'La deg døpe, eller dø'. Dette skapte en dyp frykt og aggresjon i Norden, som kan ha utløst vikingtiden."
+        },
+        {
+            "type": "component",
+            "name": "FeudalPyramid",
+            "props": {
+                "description": "Interaktiv pyramide som viser føydalsystemet vs. tingsystemet."
+            }
+        },
+        {
+            "type": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvilket system innførte Karl den Store?",
+                        "options": [
+                            "Demokrati",
+                            "Føydalisme",
+                            "Kommunisme",
+                            "Anarki"
+                        ],
+                        "answer": "Føydalisme",
+                        "explanation": "Føydalismen var et hierarkisk system basert på landeierskap og lojalitet."
+                    },
+                    {
+                        "question": "Hvorfor fryktet vikingene Karl den Store?",
+                        "options": [
+                            "Han var veldig høy",
+                            "Han ville ta fra dem jorda og friheten (og religionen)",
+                            "Han stjal skipene deres",
+                            "Han laget dårlig mat"
+                        ],
+                        "answer": "Han ville ta fra dem jorda og friheten (og religionen)",
+                        "explanation": "Karl den Stores ekspansjon truet både bøndenes eiendomsrett og deres gamle tro."
+                    }
+                ]
+            }
+        }
+    ],
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:00:00Z"
+}

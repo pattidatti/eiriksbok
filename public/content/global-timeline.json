@@ -799,16 +799,115 @@
   {
     "id": "stamford-bridge",
     "title": "Slaget ved Stamford Bridge",
-    "description": "Slaget som markerer slutten på vikingtiden.",
+    "description": "Vikingtiden tar slutt med Harald Hardrådes fall.",
     "startDate": 1066,
     "endDate": null,
     "displayDate": "1066",
     "type": "event",
     "subjectId": "historie",
-    "link": "https://snl.no/Slaget_ved_Stamford_Bridge",
+    "link": "/historie/vikingtiden/artikkel",
     "tags": [
       "historie",
-      "verden",
+      "norge",
+      "krig",
+      "vikingtiden"
+    ]
+  },
+  {
+    "id": "stiklestad",
+    "title": "Slaget på Stiklestad",
+    "description": "Olav den Hellige faller, kristendommen vinner.",
+    "startDate": 1030,
+    "endDate": null,
+    "displayDate": "1030",
+    "type": "event",
+    "subjectId": "historie",
+    "link": "/historie/vikingtiden/kristningen-av-norge",
+    "tags": [
+      "historie",
+      "norge",
+      "kristendom",
+      "vikingtiden"
+    ]
+  },
+  {
+    "id": "normandie-grunnlegges",
+    "title": "Normandie grunnlegges",
+    "description": "Vikinghøvdingen Rollo får Normandie av frankerkongen.",
+    "startDate": 911,
+    "endDate": null,
+    "displayDate": "911",
+    "type": "event",
+    "subjectId": "historie",
+    "link": "/historie/vikingtiden/normandie",
+    "tags": [
+      "historie",
+      "frankrike",
+      "vikingtiden"
+    ]
+  },
+  {
+    "id": "rikssamlingen",
+    "title": "Rikssamlingen",
+    "description": "Harald Hårfagre samler Norge til ett rike (ca.)",
+    "startDate": 872,
+    "endDate": null,
+    "displayDate": "872",
+    "type": "event",
+    "subjectId": "historie",
+    "link": "/historie/vikingtiden/rikssamlingen",
+    "tags": [
+      "historie",
+      "norge",
+      "vikingtiden"
+    ]
+  },
+  {
+    "id": "danelagen-opprettes",
+    "title": "Danelagen opprettes",
+    "description": "Vikingene erobrer nord-England.",
+    "startDate": 865,
+    "endDate": 954,
+    "displayDate": "865-954",
+    "type": "event",
+    "subjectId": "historie",
+    "link": "/historie/vikingtiden/danelagen",
+    "tags": [
+      "historie",
+      "england",
+      "vikingtiden"
+    ]
+  },
+  {
+    "id": "karl-den-store-keiser",
+    "title": "Karl den Store blir keiser",
+    "description": "Frankerrikets makttopp. En trussel mot Norden.",
+    "startDate": 800,
+    "endDate": 814,
+    "displayDate": "800-814",
+    "type": "event",
+    "subjectId": "historie",
+    "link": "/historie/vikingtiden/karl-den-store",
+    "tags": [
+      "historie",
+      "europa",
+      "middelalder"
+    ]
+  },
+  {
+    "id": "lindisfarne",
+    "title": "Angrepet på Lindisfarne",
+    "description": "Starten på vikingtiden.",
+    "startDate": 793,
+    "endDate": null,
+    "displayDate": "793",
+    "type": "event",
+    "subjectId": "historie",
+    "link": "/historie/vikingtiden/hypotesen-norden-vs-frankrike",
+    "tags": [
+      "historie",
+      "norge",
+      "krig",
       "vikingtiden"
     ]
   },

@@ -1,0 +1,73 @@
+{
+    "id": "hypotesen-norden-vs-frankrike",
+    "title": "Hypotesen: Norden vs Frankrike",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "fact": "Visste du at Karl den Store massakrerte 4500 saksere ved Verden i 782 fordi de nektet å la seg kristne?",
+    "tags": [
+        "vikingtiden",
+        "krig",
+        "politikk",
+        "kristendom"
+    ],
+    "year": "772-814",
+    "content": [
+        {
+            "type": "text",
+            "content": "Tradisjonelt har vi lært at vikingtiden startet som et plutselig 'utbrudd' av rovdyr fra nord som angrep uskyldige klostre. Men moderne historikere (som Torgrim Titlestad) kaster lys over en annen mulighet: Var vikingtoktene egentlig et preventivt selvforsvar?"
+        },
+        {
+            "type": "text",
+            "content": "På 700-tallet utvidet Frankerriket seg voldsomt under Karl den Store. Han førte en brutal krig mot sakserne (naboene til danene i sør) i over 30 år. Målet var total underkastelse og tvangskristning. Flyktninger strømmet nordover med skrekkhistorier om 'Hvitekrist' som en krigsgud som krevde total lydighet."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "content": "Danske kong Godfred bygget 'Dannevirke' – en enorm forsvarsvoll tvers over Jylland – nettopp for å stoppe Frankerne."
+            }
+        },
+        {
+            "type": "text",
+            "content": "I dette lyset kan angrepet på Lindisfarne (793) og andre klostre sees som strategiske angrep. Klostrene var ikke bare hellige steder, men bankhvelv som finansierte Karl den Stores hærer. Ved å angripe dem, rammet vikingene fiendens lommebok. Det var en sivilisasjonskrig: 'Røde Tor' mot 'Hvitekrist'."
+        },
+        {
+            "type": "component",
+            "name": "ConflictMap",
+            "props": {
+                "description": "Kart som viser Frankerrikets ekspansjon og den danske forsvarslinjen."
+            }
+        },
+        {
+            "type": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva var hovedgrunnen til Karl den Stores krig mot sakserne?",
+                        "options": [
+                            "Han ville ha gullet deres",
+                            "Han ville tvinge dem til å bli kristne og en del av riket",
+                            "De hadde stjålet hestene hans",
+                            "Han ville lære dem å lese"
+                        ],
+                        "answer": "Han ville tvinge dem til å bli kristne og en del av riket",
+                        "explanation": "Det var en ideologisk krig for å utvide kristendommen og Frankerrikets makt."
+                    },
+                    {
+                        "question": "Hva kan ha vært en strategisk grunn til å angripe klostre?",
+                        "options": [
+                            "De hadde best øl",
+                            "Munkene var gode krigere",
+                            "De finansierte fiendens (Frankerrikets) krigføring",
+                            "Vikingene likte arkitekturen"
+                        ],
+                        "answer": "De finansierte fiendens (Frankerrikets) krigføring",
+                        "explanation": "Klostrene var svært rike og fungerte som logistikksentre for kristningsprosjektet."
+                    }
+                ]
+            }
+        }
+    ],
+    "createdDate": "2025-12-09T23:00:00Z",
+    "lastUpdated": "2025-12-09T23:00:00Z"
+}
