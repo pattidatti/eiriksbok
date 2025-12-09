@@ -58,7 +58,7 @@ export const QuizHost: React.FC = () => {
         const unsubscribe = onValue(roomRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
-                const id = snapshot.key || Date.now();
+
 
 
 
