@@ -54,8 +54,8 @@ function Gate({ initialPosition, date, isCorrect, onPass }: { initialPosition: [
             <mesh rotation={[0, 0, 0]}>
                 <torusGeometry args={[1.2, 0.1, 16, 32]} />
                 <meshStandardMaterial
-                    color={isCorrect ? "#ff0055" : "#ff0055"} // Keep them same color to not give it away, maybe slightly different emissive? User said "Fjern grønn sirkel, alle skal være rød"
-                    emissive={isCorrect ? "#440011" : "#440011"}
+                    color="#ef4444" // Always Red
+                    emissive="#991b1b"
                     emissiveIntensity={0.5}
                 />
             </mesh>
@@ -75,7 +75,7 @@ function Gate({ initialPosition, date, isCorrect, onPass }: { initialPosition: [
 }
 
 export function GateManager() {
-    const { events, currentEventIndex, nextEvent, addScore, loseLife, gameState, triggerFeedback } = useGameStore();
+    const { events, currentEventIndex, nextEvent, addScore, loseLife, gameState, triggerFeedback, setEvents } = useGameStore();
 
     const [activeGroup, setActiveGroup] = useState<{ index: number, z: number, choices: { val: string, correct: boolean, x: number, y: number }[] } | null>(null);
     const [explosions, setExplosions] = useState<{ id: number, position: [number, number, number], color: string }[]>([]);
@@ -127,18 +127,31 @@ export function GateManager() {
             nextEvent();
             setActiveGroup(null);
         } else if (hit && !wasCorrectGate) {
-            triggerFeedback('wrong', [0, 0, 0]);
-            loseLife();
-            nextEvent();
-            setActiveGroup(null);
+            handleFailure();
         } else if (!hit && wasCorrectGate) {
             // Missed the correct gate completely
-            triggerFeedback('wrong', [0, 0, 0]);
-            loseLife();
-            nextEvent();
-            setActiveGroup(null);
+            handleFailure();
         }
     };
+
+    const handleFailure = () => {
+        triggerFeedback('wrong', [0, 0, 0]);
+        loseLife();
+
+        // REPEAT LOGIC: Move current event to the end of the queue effectively?
+        // Or just re-spawn it?
+        // If we re-spawn it immediately, player might be confused or it spawns on top of them.
+        // Better: Push clone of this event to end of list, and move to next event for now?
+        // OR: Just keep currentEventIndex SAME, and re-spawn gates further out?
+        // If we keep index same, `activeGroup` becomes null, useFrame will see (!activeGroup && currentEvent) and spawn again at -50.
+        // This is perfect! Just setting ActiveGroup(null) WITHOUT calling nextEvent() will re-try the same level.
+
+        // HOWEVER, user might want to move on and see it later? "Repeter hvis man tar feil".
+        // Immediate repetition is often best for learning.
+        // Let's force immediate repetition.
+
+        setActiveGroup(null);
+    }
 
     const removeExplosion = (id: number) => {
         setExplosions(prev => prev.filter(e => e.id !== id));

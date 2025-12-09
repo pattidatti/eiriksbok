@@ -5,6 +5,8 @@ import { Tunnel } from './components/Tunnel';
 import { Background } from './components/Background';
 import { GateManager } from './components/GateManager';
 import { useGameStore } from './store';
+import { ProjectileManager } from './components/ProjectileManager';
+import { EnemyManager } from './components/EnemyManager';
 
 export function Scene() {
     const { gameState, speed } = useGameStore();
@@ -24,7 +26,13 @@ export function Scene() {
             <Background />
             <Tunnel />
             <Glider />
-            {gameState === 'playing' && <GateManager />}
+            <ProjectileManager />
+            {gameState === 'playing' && (
+                <>
+                    <GateManager />
+                    <EnemyManager />
+                </>
+            )}
         </>
     );
 }
