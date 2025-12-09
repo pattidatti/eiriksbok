@@ -22,7 +22,19 @@
         {
             "type": "text",
             "title": "Alfred den Store og delingen av England",
-            "content": "Kongen av Wessex, Alfred, var nær ved å tape alt. Han måtte en periode gjemme seg i myrene spiste brente kaker (ifølge legenden). Men han klarte å samle troppene og vinne et avgjørende slag ved Edington i 878. Vikinghøvdingen Guthrum måtte overgi seg og la seg døpe.\n\nResultatet ble en fredsavtale som delte England i to:\n1.  Wessex i sør-vest (styrt av engelskmennene).\n2.  Danelagen (The Danelaw) i nord-øst (styrt av vikingene/danene).\n\nI Danelagen gjaldt vikingenes lover. Her bosatte tusenvis av skandinaver seg. De var ikke bare krigere, men bønder, handelsmenn og håndverkere. Byen Jorvik (York) vokste til å bli en av Europas største og rikeste handelsbyer under vikingstyre."
+            "content": "Kongen av Wessex, Alfred, var nær ved å tape alt. Han måtte en periode gjemme seg i myrene spiste brente kaker (ifølge legenden). Men han klarte å samle troppene og vinne et avgjørende slag ved Edington i 878. Vikinghøvdingen Guthrum måtte overgi seg og la seg døpe.\n\nResultatet ble en fredsavtale som delte England i to:"
+        },
+        {
+            "type": "list",
+            "ordered": true,
+            "items": [
+                "Wessex i sør-vest (styrt av engelskmennene).",
+                "Danelagen (The Danelaw) i nord-øst (styrt av vikingene/danene)."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "I Danelagen gjaldt vikingenes lover. Her bosatte tusenvis av skandinaver seg. De var ikke bare krigere, men bønder, handelsmenn og håndverkere. Byen Jorvik (York) vokste til å bli en av Europas største og rikeste handelsbyer under vikingstyre."
         },
         {
             "type": "component",
@@ -31,7 +43,19 @@
         {
             "type": "text",
             "title": "Sproget ditt er fra vikingtiden",
-            "content": "Vikingenes største arv i England er ikke brente klostre, men sproget. Fordi angelsaksisk (gammelengelsk) og norrønt var ganske like språk, smeltet de sammen i Danelagen. Engelskmennene begynte å bruke de enkle norrøne ordene fordi de var lettere.\n\nOrdene forteller oss hva vikingene drev med:\n-   Krig: Gun, slaughter, berserk.\n-   Samfunn: Law, by-law, husting, outlaw.\n-   Hverdag: Egg, knife, vindauge (window), husband, sister, take, give, die.\n\nSelv pronomenet 'they' (de) er lånt fra norrønt! Uten vikingene ville engelsk hørtes veldig annerledes ut – mye mer som tysk."
+            "content": "Vikingenes største arv i England er ikke brente klostre, men sproget. Fordi angelsaksisk (gammelengelsk) og norrønt var ganske like språk, smeltet de sammen i Danelagen. Engelskmennene begynte å bruke de enkle norrøne ordene fordi de var lettere.\n\nOrdene forteller oss hva vikingene drev med:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Krig: Gun, slaughter, berserk.",
+                "Samfunn: Law, by-law, husting, outlaw.",
+                "Hverdag: Egg, knife, vindauge (window), husband, sister, take, give, die."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Selv pronomenet 'they' (de) er lånt fra norrønt! Uten vikingene ville engelsk hørtes veldig annerledes ut – mye mer som tysk."
         },
         {
             "type": "image",

@@ -160,14 +160,17 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                         );
 
                     case 'list':
+                        const ListTag = block.ordered ? 'ol' : 'ul';
+                        const listStyle = block.ordered ? "list-decimal" : "list-disc";
+
                         return (
-                            <ul key={index} className="list-disc list-inside space-y-2 mb-8 text-slate-700">
+                            <ListTag key={index} className={`${listStyle} list-inside space-y-2 mb-8 text-slate-700`}>
                                 {block.items?.map((item: string, i: number) => (
                                     <li key={i} className="leading-relaxed">
                                         {renderInlineMarkdown(item, concepts)}
                                     </li>
                                 ))}
-                            </ul>
+                            </ListTag>
                         );
 
                     case 'image':

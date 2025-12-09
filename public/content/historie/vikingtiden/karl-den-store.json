@@ -26,7 +26,21 @@
         {
             "type": "text",
             "title": "Føydalismen: En pyramide av makt",
-            "content": "Karl trengte en måte å styre sitt enorme rike på uten moderne kommunikasjon. Løsningen ble føydalismen. Systemet var enkelt, men strengt:\n\n1.  Gud var på toppen.\n2.  Keiseren fikk sin makt direkte fra Gud.\n3.  Adelen (Hertuger og Grever) fikk landområder av keiseren. Til gjengjeld måtte de sverge troskap og stille med soldater (riddere) når det var krig.\n4.  Bøndene var nederst. De fleste var livegne – de eide ikke sin egen kropp engang, men fulgte jorda. De jobbet gratis for adelen i bytte mot 'beskyttelse'.\n\nDette systemet var ekstremt effektivt for krigføring. Karl kunne mobilisere store hærer av pansrede ryttere (forløperen til ridderen) raskt. For vikingene i nord, hvor 'alle frie menn' hadde rett til å si sin mening på Tinget, var dette systemet helt fremmed og skremmende. Det representerte slaveri."
+            "content": "Karl trengte en måte å styre sitt enorme rike på uten moderne kommunikasjon. Løsningen ble føydalismen. Systemet var enkelt, men strengt:"
+        },
+        {
+            "type": "list",
+            "ordered": true,
+            "items": [
+                "Gud var på toppen.",
+                "Keiseren fikk sin makt direkte fra Gud.",
+                "Adelen (Hertuger og Grever) fikk landområder av keiseren. Til gjengjeld måtte de sverge troskap og stille med soldater (riddere) når det var krig.",
+                "Bøndene var nederst. De fleste var livegne – de eide ikke sin egen kropp engang, men fulgte jorda. De jobbet gratis for adelen i bytte mot 'beskyttelse'."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Dette systemet var ekstremt effektivt for krigføring. Karl kunne mobilisere store hærer av pansrede ryttere (forløperen til ridderen) raskt. For vikingene i nord, hvor 'alle frie menn' hadde rett til å si sin mening på Tinget, var dette systemet helt fremmed og skremmende. Det representerte slaveri."
         },
         {
             "type": "text",

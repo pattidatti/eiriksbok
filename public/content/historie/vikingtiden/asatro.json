@@ -27,7 +27,20 @@
         {
             "type": "text",
             "title": "Yggdrasil og de ni verdener",
-            "content": "I sentrum av alt sto treet Yggdrasil. Dets greiner strakte seg over hele universet. Verden var delt inn i ulike riker:\n\n-   Åsgard: Gudenes hjem, hvor Odin og Tor bodde.\n-   Midgard: Menneskenes verden (vår verden), beskyttet av en mur (laget av Ymes øyevipper!) mot kaoskreftene.\n-   Utgard/Jotunheim: Hjemmet til jotnene (kjempene), kaoskreftene som alltid truet med å ødelegge verden.\n-   Helheim: Dødsriket, styrt av gudinnen Hel.\n\nHele vikingenes verdensbilde handlet om balanse. Gudene var ordenens voktere. Jotnene var kaos. Menneskene levde midt imellom. Hvis balansen tippet, ville Ragnarok – verdens undergang – komme. Derfor var det menneskenes jobb å hjelpe gudene ved å ofre til dem."
+            "content": "I sentrum av alt sto treet Yggdrasil. Dets greiner strakte seg over hele universet. Verden var delt inn i ulike riker:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Åsgard: Gudenes hjem, hvor Odin og Tor bodde.",
+                "Midgard: Menneskenes verden (vår verden), beskyttet av en mur (laget av Ymes øyevipper!) mot kaoskreftene.",
+                "Utgard/Jotunheim: Hjemmet til jotnene (kjempene), kaoskreftene som alltid truet med å ødelegge verden.",
+                "Helheim: Dødsriket, styrt av gudinnen Hel."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Hele vikingenes verdensbilde handlet om balanse. Gudene var ordenens voktere. Jotnene var kaos. Menneskene levde midt imellom. Hvis balansen tippet, ville Ragnarok – verdens undergang – komme. Derfor var det menneskenes jobb å hjelpe gudene ved å ofre til dem."
         },
         {
             "type": "text",
