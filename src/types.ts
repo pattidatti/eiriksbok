@@ -25,6 +25,7 @@ export interface QuizQuestion {
     correctAnswer?: number; // Index of correct answer
     sourceUrl?: string;
     sourceTitle?: string;
+    type?: 'multiple_choice' | 'boolean' | 'sorting';
 }
 
 export interface MapData {

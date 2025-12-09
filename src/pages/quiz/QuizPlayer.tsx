@@ -4,7 +4,8 @@ import { db } from '../../lib/firebase';
 import { ref, onValue, update, runTransaction, push, set } from 'firebase/database';
 import { Trophy, CheckCircle, XCircle, Clock, Heart, ThumbsUp, Flame, Rocket } from 'lucide-react';
 import { useQuizAudio } from '../../hooks/useQuizAudio';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Reorder } from 'framer-motion';
+import type { QuizQuestion } from '../../types';
 
 export const QuizPlayer: React.FC = () => {
     const { pin } = useParams();
@@ -19,7 +20,8 @@ export const QuizPlayer: React.FC = () => {
     const [myStreak, setMyStreak] = useState(0);
     const [myName, setMyName] = useState('');
     const [hasAnswered, setHasAnswered] = useState(false);
-    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+    const [selectedOption, setSelectedOption] = useState<string | string[] | null>(null);
+    const [sortingOrder, setSortingOrder] = useState<string[]>([]);
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [serverResult, setServerResult] = useState<any>(null);
     const [answerTime, setAnswerTime] = useState<number>(0);
@@ -86,6 +88,7 @@ export const QuizPlayer: React.FC = () => {
     useEffect(() => {
         setHasAnswered(false);
         setSelectedOption(null);
+        setSortingOrder([]);
         setIsCorrect(null);
         setServerResult(null);
         setScoreProcessed(false);
@@ -120,7 +123,12 @@ export const QuizPlayer: React.FC = () => {
                 isAnswerCorrect = selectedOption === correctOptionText;
             }
         } else if (serverResult.answer) {
-            isAnswerCorrect = selectedOption === serverResult.answer;
+            if (Array.isArray(serverResult.answer)) {
+                // Sorting Check (Arrays must match exactly)
+                isAnswerCorrect = JSON.stringify(selectedOption) === JSON.stringify(serverResult.answer);
+            } else {
+                isAnswerCorrect = selectedOption === serverResult.answer;
+            }
         }
 
         setIsCorrect(isAnswerCorrect);
@@ -133,14 +141,17 @@ export const QuizPlayer: React.FC = () => {
             const duration = 30000; // 30s
             const timeLeft = Math.max(0, duration - elapsed);
 
-            const speedBonus = Math.floor(500 * (timeLeft / duration));
+            const speedRatio = timeLeft / duration;
+            // Base score: Linear from 30 (instant) down to 1 (last second)
+            const baseScore = 1 + Math.round(29 * speedRatio);
 
             // Streak Calculation
             const newStreak = myStreak + 1;
             let multiplier = 1 + (newStreak > 1 ? (newStreak - 1) * 0.1 : 0);
             if (multiplier > 2) multiplier = 2; // Cap at 2x
 
-            const points = Math.floor((500 + speedBonus) * multiplier);
+            // Final score with multiplier
+            const points = Math.floor(baseScore * multiplier);
 
             const newScore = myScore + points;
 
@@ -169,7 +180,7 @@ export const QuizPlayer: React.FC = () => {
         }
     }, [showResult, hasAnswered, serverResult, scoreProcessed, allQuestions, currentQuestionIndex, selectedOption, answerTime, questionStartTime, myScore, myStreak, pin, playSound]);
 
-    const submitAnswer = async (option: string) => {
+    const submitAnswer = async (option: string | string[]) => {
         if (hasAnswered || showResult) return;
 
         const playerId = sessionStorage.getItem('quiz_player_id');
@@ -259,8 +270,13 @@ export const QuizPlayer: React.FC = () => {
     }
 
     // GAMEPLAY
-    const currentQ = allQuestions[currentQuestionIndex];
+    const currentQ: QuizQuestion = allQuestions[currentQuestionIndex];
     if (!currentQ) return <div className="p-8 text-center h-screen flex items-center justify-center text-slate-500 font-bold text-3xl">Laster...</div>;
+
+    // Initial Sort Order Setup
+    if (currentQ.type === 'sorting' && sortingOrder.length === 0 && !hasAnswered) {
+        setSortingOrder([...currentQ.options]); // Start with shuffled options
+    }
 
     if (showResult) {
         const currentMultiplier = Math.min(2, 1 + (myStreak > 1 ? (myStreak - 1) * 0.1 : 0));
@@ -318,34 +334,79 @@ export const QuizPlayer: React.FC = () => {
                 </div>
             </div>
 
-            {/* Buttons - Fill remaining space, 3x taller buttons (h-48) */}
-            <div className="flex-1 content-center grid grid-cols-2 gap-4 pb-safe px-2">
-                {currentQ.options.map((opt: string, i: number) => {
-                    // Colors for buttons
-                    const colors = [
-                        'bg-red-500 border-red-600 text-white',
-                        'bg-blue-500 border-blue-600 text-white',
-                        'bg-yellow-500 border-yellow-600 text-white',
-                        'bg-green-500 border-green-600 text-white'
-                    ];
+            {/* Question Type Rendering */}
+            {currentQ.type === 'sorting' ? (
+                <div className="flex-1 px-4 pb-32 flex flex-col items-center justify-center max-w-2xl mx-auto w-full">
+                    <p className="text-slate-500 mb-4 font-bold uppercase tracking-widest text-center">Dra kortene i riktig rekkefølge 👇</p>
 
-                    return (
+                    <Reorder.Group axis="y" values={sortingOrder} onReorder={setSortingOrder} className="w-full space-y-3">
+                        {sortingOrder.map((item) => (
+                            <Reorder.Item key={item} value={item}>
+                                <div className="bg-white border-4 border-indigo-100 p-6 rounded-2xl shadow-lg flex items-center gap-4 active:scale-105 transition-transform touch-none">
+                                    <div className="text-slate-300">☰</div>
+                                    <span className="font-bold text-xl text-slate-800">{item}</span>
+                                </div>
+                            </Reorder.Item>
+                        ))}
+                    </Reorder.Group>
+
+                    {!hasAnswered && (
                         <button
-                            key={i}
+                            onClick={() => submitAnswer(sortingOrder)}
+                            className="mt-8 w-full bg-indigo-600 text-white py-6 rounded-3xl font-black text-2xl shadow-xl active:scale-95 transition-transform"
+                        >
+                            SEND SVAR 🚀
+                        </button>
+                    )}
+                </div>
+            ) : currentQ.type === 'boolean' ? (
+                <div className="flex-1 content-center grid grid-cols-2 gap-4 pb-safe px-2">
+                    {['Sant', 'Usant'].map((opt, i) => (
+                        <button
+                            key={opt}
                             onClick={() => submitAnswer(opt)}
                             disabled={hasAnswered}
                             className={`
-                                h-48 rounded-2xl border-b-[12px] font-black text-3xl md:text-5xl shadow-xl transition-all flex items-center justify-center p-4 leading-none
-                                ${colors[i % 4]}
+                                h-64 rounded-2xl border-b-[12px] font-black text-5xl shadow-xl transition-all flex items-center justify-center
+                                ${i === 0 ? 'bg-green-500 border-green-600 text-white' : 'bg-red-500 border-red-600 text-white'}
                                 ${hasAnswered && selectedOption !== opt ? 'opacity-30 scale-95 grayscale' : ''}
                                 ${hasAnswered && selectedOption === opt ? 'scale-105 ring-8 ring-slate-900 z-10' : 'active:scale-95'}
                             `}
                         >
-                            <span className="line-clamp-4 drop-shadow-md">{opt}</span>
+                            {opt === 'Sant' ? '👍 SANT' : '👎 USANT'}
                         </button>
-                    )
-                })}
-            </div>
+                    ))}
+                </div>
+            ) : (
+                // STANDARD MULTIPLE CHOICE
+                <div className="flex-1 content-center grid grid-cols-2 gap-4 pb-safe px-2">
+                    {currentQ.options.map((opt: string, i: number) => {
+                        // Colors for buttons
+                        const colors = [
+                            'bg-red-500 border-red-600 text-white',
+                            'bg-blue-500 border-blue-600 text-white',
+                            'bg-yellow-500 border-yellow-600 text-white',
+                            'bg-green-500 border-green-600 text-white'
+                        ];
+
+                        return (
+                            <button
+                                key={i}
+                                onClick={() => submitAnswer(opt)}
+                                disabled={hasAnswered}
+                                className={`
+                                    h-48 rounded-2xl border-b-[12px] font-black text-3xl md:text-5xl shadow-xl transition-all flex items-center justify-center p-4 leading-none
+                                    ${colors[i % 4]}
+                                    ${hasAnswered && selectedOption !== opt ? 'opacity-30 scale-95 grayscale' : ''}
+                                    ${hasAnswered && selectedOption === opt ? 'scale-105 ring-8 ring-slate-900 z-10' : 'active:scale-95'}
+                                `}
+                            >
+                                <span className="line-clamp-4 drop-shadow-md">{opt}</span>
+                            </button>
+                        )
+                    })}
+                </div>
+            )}
 
             {hasAnswered && (
                 <div className="absolute inset-0 bg-slate-900/10 backdrop-blur-[1px] flex items-center justify-center z-20 animate-in fade-in duration-200">

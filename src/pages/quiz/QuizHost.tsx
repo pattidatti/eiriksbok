@@ -5,7 +5,7 @@ import { db } from '../../lib/firebase';
 import { ref, onValue, update, remove, child } from 'firebase/database';
 import { useManifest } from '../../hooks/useManifest';
 import { fetchLesson } from '../../utils/contentLoader';
-import { ArrowRight, Trophy, Zap, Clock, Star } from 'lucide-react';
+import { ArrowRight, Trophy, Zap, Clock, Star, MoveDown } from 'lucide-react';
 import { useQuizAudio } from '../../hooks/useQuizAudio';
 import type { QuizQuestion } from '../../types';
 
@@ -540,41 +540,83 @@ export const QuizHost: React.FC = () => {
                     </motion.h2>
                 </AnimatePresence>
 
-                <div className="grid grid-cols-2 gap-8 w-full max-w-[90vw] h-[45vh]">
-                    {question.options.map((opt: string, i: number) => {
-                        const isCorrect = i === question.correctAnswer || opt === question.answer;
-                        const showColor = showResult;
 
-                        const colors = [
-                            'bg-red-500 border-red-700 text-white',
-                            'bg-blue-500 border-blue-700 text-white',
-                            'bg-yellow-500 border-yellow-700 text-white',
-                            'bg-green-500 border-green-700 text-white'
-                        ];
+                {question.type === 'sorting' ? (
+                    <div className="flex flex-col gap-4 w-full max-w-2xl">
+                        <div className="text-center text-slate-500 font-bold uppercase tracking-widest mb-4">Riktig Rekkefølge</div>
+                        {question.options.map((opt: string, i: number) => {
+                            // Correct order is just the initial order in privateQuestions because we store the answer-key as index order?
+                            // Wait, our logic for sorting shuffle was: options shuffled.
+                            // But for result display, we want to show the correct order.
+                            // Ideally, `question` here is the *original* strict ordered question from privateQuestions.
+                            // YES, privateQuestions has the original order (or should have).
 
-                        let containerCalss = `${colors[i % 4]} shadow-xl`;
+                            // BUT, wait. In startGameSetup we shuffle options.
+                            // For sorting, the "Correct Answer" is defined by the order in the JSON file.
+                            // So `privateQuestions[index]` actually has keys shuffled?
+                            // Let's check startGameSetup.
 
-                        if (showColor) {
-                            if (!isCorrect) containerCalss = "bg-slate-100 text-slate-300 border-slate-200 opacity-20 scale-95 grayscale";
-                            else containerCalss = "bg-green-500 text-white scale-110 shadow-2xl z-20 ring-8 ring-green-200 border-green-600";
-                        }
+                            return (
+                                <div key={i} className="flex items-center gap-6 animate-in slide-in-from-left fade-in duration-500" style={{ animationDelay: `${i * 100}ms` }}>
+                                    <div className="w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center font-black text-2xl shadow-lg shrink-0">
+                                        {i + 1}
+                                    </div>
+                                    <div className="bg-white p-6 rounded-2xl shadow-md border-l-8 border-indigo-400 font-bold text-2xl text-slate-800 flex-1">
+                                        {opt}
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                ) : question.type === 'boolean' ? (
+                    <div className="flex gap-8">
+                        {['Sant', 'Usant'].map((opt) => {
+                            const isCorrect = opt === question.answer;
+                            return (
+                                <div key={opt} className={`
+                                     w-80 h-80 rounded-full flex flex-col items-center justify-center border-[12px] shadow-2xl transition-all duration-500
+                                     ${showResult
+                                        ? (isCorrect ? 'bg-green-500 border-green-400 scale-110 opacity-100 z-10' : 'bg-slate-200 border-slate-300 opacity-20 scale-90 grayscale')
+                                        : (opt === 'Sant' ? 'bg-green-500 border-green-600' : 'bg-red-500 border-red-600')
+                                    }
+                                 `}>
+                                    <span className="text-8xl mb-4">{opt === 'Sant' ? '👍' : '👎'}</span>
+                                    <span className="text-5xl font-black text-white uppercase">{opt}</span>
+                                </div>
+                            )
+                        })}
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-2 gap-8 w-full max-w-[90vw] h-[45vh]">
+                        {question.options.map((opt: string, i: number) => {
+                            const isCorrect = i === question.correctAnswer || opt === question.answer;
+                            const showColor = showResult;
 
-                        return (
-                            <motion.div
-                                layout
-                                key={i}
-                                className={`
-                                    ${containerCalss}
-                                    rounded-3xl flex items-center justify-center p-8 
+                            return (
+                                <motion.div
+                                    layout
+                                    key={i}
+                                    className={`
+                                    ${showColor
+                                            ? (isCorrect ? 'bg-green-500 border-green-600 shadow-green-500/20 opacity-100 scale-105 z-10' : 'bg-slate-200 border-slate-300 opacity-20 scale-90 grayscale')
+                                            : [
+                                                'bg-red-500 border-red-600',
+                                                'bg-blue-500 border-blue-600',
+                                                'bg-yellow-500 border-yellow-600',
+                                                'bg-green-500 border-green-600'
+                                            ][i % 4]
+                                        }
+                                    rounded-3xl flex items-center justify-center p-8
                                     text-3xl md:text-5xl font-bold text-center transition-all duration-500 border-b-8
                                     cursor-default select-none
                                 `}
-                            >
-                                <span className="drop-shadow-sm leading-tight">{opt}</span>
-                            </motion.div>
-                        )
-                    })}
-                </div>
+                                >
+                                    <span className="drop-shadow-sm leading-tight">{opt}</span>
+                                </motion.div>
+                            )
+                        })}
+                    </div>
+                )}
             </div>
         </div>
     );
