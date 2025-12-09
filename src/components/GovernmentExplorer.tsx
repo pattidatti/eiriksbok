@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Quiz } from './Quiz';
+import type { Lesson } from '../types';
 import {
     UserGroupIcon,
     UserIcon,
@@ -9,9 +11,6 @@ import {
     GlobeAmericasIcon,
     ShieldExclamationIcon,
     SparklesIcon,
-    CheckCircleIcon,
-    XCircleIcon,
-    ArrowPathIcon,
     InformationCircleIcon,
     BuildingLibraryIcon,
     BanknotesIcon,
@@ -253,7 +252,11 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 
 // --- Hovedkomponent ---
 
-export const GovernmentExplorer: React.FC = () => {
+interface GovernmentExplorerProps {
+    lesson: Lesson;
+}
+
+export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }) => {
     const [activeTab, setActiveTab] = useState<'utforsk' | 'quiz' | 'fagbegreper' | 'maktbalanse'>('utforsk');
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -320,61 +323,15 @@ export const GovernmentExplorer: React.FC = () => {
         setPowerRelation(null);
     };
 
-    // --- Quiz State ---
-    const [quizIndex, setQuizIndex] = useState(0);
-    const [quizScore, setQuizScore] = useState(0);
-    const [quizAnswered, setQuizAnswered] = useState(false);
-    const [quizCorrect, setQuizCorrect] = useState(false);
-    const [shuffledQuiz, setShuffledQuiz] = useState<Definition[]>([]);
-    const [currentOptions, setCurrentOptions] = useState<Definition[]>([]);
+    // --- Quiz State Removed (Using unified Quiz component) ---
 
     useEffect(() => {
-        if (activeTab === 'quiz') {
-            const quizItems = definitions.filter(d => d.category !== 'Begrep');
-            setShuffledQuiz([...quizItems].sort(() => Math.random() - 0.5));
-            setQuizIndex(0);
-            setQuizScore(0);
-            setQuizAnswered(false);
-        }
         // Reset maktbalanse når man bytter tab
         if (activeTab === 'maktbalanse') {
             setGovStatus('sitter');
             setTriggerAction(false);
         }
     }, [activeTab]);
-
-    useEffect(() => {
-        if (shuffledQuiz.length > 0 && shuffledQuiz[quizIndex]) {
-            const currentQ = shuffledQuiz[quizIndex];
-            // Get 3 wrong answers excluding the current one
-            const wrongAnswers = definitions
-                .filter(d => d.id !== currentQ.id && d.category === currentQ.category)
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 3);
-
-            // Combine and shuffle
-            const options = [...wrongAnswers, currentQ].sort(() => Math.random() - 0.5);
-            setCurrentOptions(options);
-        }
-    }, [quizIndex, shuffledQuiz]);
-
-    const handleQuizAnswer = (answerId: string) => {
-        if (quizAnswered) return;
-        const isCorrect = answerId === shuffledQuiz[quizIndex].id;
-        setQuizCorrect(isCorrect);
-        if (isCorrect) setQuizScore(s => s + 1);
-        setQuizAnswered(true);
-    };
-
-    const nextQuestion = () => {
-        if (quizIndex < shuffledQuiz.length - 1) {
-            setQuizIndex(i => i + 1);
-            setQuizAnswered(false);
-            setQuizCorrect(false);
-        } else {
-            setActiveTab('utforsk');
-        }
-    };
 
     // --- Maktbalanse Actions ---
     const handleMistillit = () => {
@@ -920,87 +877,9 @@ export const GovernmentExplorer: React.FC = () => {
                 )}
 
                 {/* === MODUS: QUIZ === */}
-                {activeTab === 'quiz' && shuffledQuiz.length > 0 && (
+                {activeTab === 'quiz' && (
                     <div className="max-w-3xl mx-auto w-full">
-                        <div className="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-xl relative overflow-hidden">
-
-                            {/* Quiz Header */}
-                            <div className="flex justify-between items-center mb-10 border-b border-slate-200 pb-6">
-                                <div>
-                                    <h2 className="text-2xl font-bold text-slate-900">Gjett styringsformen</h2>
-                                    <p className="text-slate-500 text-sm">Spørsmål {quizIndex + 1} av {shuffledQuiz.length}</p>
-                                </div>
-                                <div className="bg-slate-100 px-4 py-2 rounded-lg border border-slate-200">
-                                    <span className="text-indigo-600 font-bold text-lg">Poeng: {quizScore}</span>
-                                </div>
-                            </div>
-
-                            {/* Question */}
-                            <div className="mb-12 text-center">
-                                <p className="text-slate-500 text-sm uppercase font-bold tracking-widest mb-4">Hva beskrives her?</p>
-                                <h3 className="text-slate-900 text-2xl md:text-3xl font-light leading-relaxed">
-                                    "{shuffledQuiz[quizIndex].description}"
-                                </h3>
-                            </div>
-
-                            {/* Options */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {currentOptions.map((option) => {
-                                    const currentQ = shuffledQuiz[quizIndex];
-                                    let btnClass = "bg-slate-50 border-slate-200 hover:bg-slate-100 hover:border-slate-300";
-                                    let icon = null;
-
-                                    if (quizAnswered) {
-                                        if (option.id === currentQ.id) {
-                                            btnClass = "bg-green-50 border-green-500 text-green-700 shadow-md";
-                                            icon = <CheckCircleIcon className="h-6 w-6 text-green-500" />;
-                                        } else if (option.id !== currentQ.id && !quizCorrect) {
-                                            btnClass = "bg-slate-50 border-slate-200 opacity-40";
-                                        } else if (!quizCorrect) { // This handles if user clicked wrong
-                                            // We don't need explicit wrong style on unclicked wrong answers, just fade them
-                                        }
-                                    }
-
-                                    return (
-                                        <button
-                                            key={option.id}
-                                            disabled={quizAnswered}
-                                            onClick={() => handleQuizAnswer(option.id)}
-                                            className={`p-5 rounded-2xl border text-left font-bold transition-all duration-300 flex items-center justify-between group ${btnClass} ${!quizAnswered && 'hover:scale-[1.02] active:scale-98'}`}
-                                        >
-                                            <span className={quizAnswered && option.id === currentQ.id ? 'text-green-700' : 'text-slate-700'}>
-                                                {option.title}
-                                            </span>
-                                            {icon}
-                                        </button>
-                                    );
-                                })}
-                            </div>
-
-                            {/* Feedback & Next Button */}
-                            <AnimatePresence>
-                                {quizAnswered && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        className="mt-10 flex flex-col items-center"
-                                    >
-                                        <div className={`mb-6 px-6 py-3 rounded-full flex items-center gap-3 ${quizCorrect ? 'bg-green-50 text-green-600 border border-green-200' : 'bg-red-50 text-red-600 border border-red-200'}`}>
-                                            {quizCorrect ? <CheckCircleIcon className="h-6 w-6" /> : <XCircleIcon className="h-6 w-6" />}
-                                            <span className="font-bold text-lg">{quizCorrect ? 'Riktig svar!' : 'Oops, det var feil.'}</span>
-                                        </div>
-
-                                        <button
-                                            onClick={nextQuestion}
-                                            className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-indigo-600 rounded-xl hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 hover:-translate-y-1"
-                                        >
-                                            <span>{quizIndex < shuffledQuiz.length - 1 ? 'Neste spørsmål' : 'Fullfør Quiz'}</span>
-                                            <ArrowPathIcon className="ml-2 h-5 w-5 group-hover:rotate-180 transition-transform" />
-                                        </button>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
+                        <Quiz questions={lesson.quiz || []} />
                     </div>
                 )}
 

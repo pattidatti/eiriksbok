@@ -163,8 +163,8 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         return <DemographyPage />;
     }
 
-    if (topicId === 'styringsformer' && lessonId === 'utforsk') {
-        return <GovernmentExplorer />;
+    if (topicId === 'styringsformer' && lessonId === 'utforsk' && lesson) {
+        return <GovernmentExplorer lesson={lesson} />;
     }
 
 

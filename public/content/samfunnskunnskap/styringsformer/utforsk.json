@@ -92,6 +92,215 @@
                 "Hvert 5. år"
             ],
             "correctAnswer": 0
+        },
+        {
+            "id": "q_anarki",
+            "question": "Hva beskrives her: 'Ingen stat eller hersker. Et samfunn uten formell styring'?",
+            "options": [
+                "Anarki",
+                "Monarki",
+                "Diktatur",
+                "Oligarki"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_monarki",
+            "question": "Hva beskrives her: 'En konge, dronning, fyrste eller greve er statsoverhode'?",
+            "options": [
+                "Monarki",
+                "Anarki",
+                "Republikk",
+                "Teokrati"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_diktatur",
+            "question": "Hva beskrives her: 'All makt er samlet hos én person eller en liten gruppe'?",
+            "options": [
+                "Diktatur",
+                "Demokrati",
+                "Monarki",
+                "Anarki"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_teokrati",
+            "question": "Hva beskrives her: 'Gud eller religiøse ledere styrer samfunnet basert på hellige skrifter'?",
+            "options": [
+                "Teokrati",
+                "Teknokrati",
+                "Oligarki",
+                "Demokrati"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_teknokrati",
+            "question": "Hva beskrives her: 'Eksperter og vitenskapsfolk styrer basert på kunnskap'?",
+            "options": [
+                "Teknokrati",
+                "Teokrati",
+                "Byråkrati",
+                "Oligarki"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_oligarki",
+            "question": "Hva beskrives her: 'En liten gruppe mennesker (fåmannsvelde) har all makten'?",
+            "options": [
+                "Oligarki",
+                "Monarki",
+                "Demokrati",
+                "Anarki"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_demokrati_rep",
+            "question": "Hva beskrives her: 'Folket velger representanter (politikere) som styrer for dem'?",
+            "options": [
+                "Representativt demokrati",
+                "Direkte demokrati",
+                "Diktatur",
+                "Teknokrati"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_demokrati_dir",
+            "question": "Hva beskrives her: 'Folket stemmer direkte på hver enkelt sak'?",
+            "options": [
+                "Direkte demokrati",
+                "Representativt demokrati",
+                "Oligarki",
+                "Anarki"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_anarko_kap",
+            "question": "Hva beskrives her: 'Et samfunn uten stat, hvor alt styres av det frie markedet'?",
+            "options": [
+                "Anarko-kapitalisme",
+                "Anarko-kommunisme",
+                "Sosialisme",
+                "Liberalisme"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_anarko_kom",
+            "question": "Hva beskrives her: 'Et samfunn uten stat og penger, hvor alt eies i fellesskap'?",
+            "options": [
+                "Anarko-kommunisme",
+                "Anarko-kapitalisme",
+                "Kommunisme",
+                "Sosialisme"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_republikk",
+            "question": "Hva beskrives her: 'En stat hvor statsoverhodet ikke er en monark (konge/dronning)'?",
+            "options": [
+                "Republikk",
+                "Monarki",
+                "Keiserdømme",
+                "Fyrstedømme"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_pres_republikk",
+            "question": "Hva beskrives her: 'Demokrati der presidenten har mye makt og velges uavhengig av parlamentet'?",
+            "options": [
+                "President-republikk",
+                "Parlamentarisk republikk",
+                "Monarki",
+                "Diktatur"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_parl_republikk",
+            "question": "Hva beskrives her: 'Republikk der parlamentet har mest makt. Presidenten har ofte en seremoniell rolle'?",
+            "options": [
+                "Parlamentarisk republikk",
+                "President-republikk",
+                "Enevelde",
+                "Oligarki"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_parl_stat",
+            "question": "Hva beskrives her: 'Et system der regjeringen må ha tillit fra parlamentet (Stortinget)'?",
+            "options": [
+                "Parlamentarisme",
+                "Maktfordeling",
+                "Presidentstyre",
+                "Enevelde"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_diktatur_aut",
+            "question": "Hva beskrives her: 'Folket får ikke være med å bestemme, men kan til en viss grad mene ting'?",
+            "options": [
+                "Autoritært diktatur",
+                "Totalitært diktatur",
+                "Demokrati",
+                "Anarki"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_diktatur_tot",
+            "question": "Hva beskrives her: 'Staten kontrollerer absolutt alt, inkludert hva folk tenker og mener'?",
+            "options": [
+                "Totalitært diktatur",
+                "Autoritært diktatur",
+                "Monarki",
+                "Oligarki"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_kapitalisme",
+            "question": "Hva beskrives her: 'Markedsøkonomi. Produksjon er privat eiendom'?",
+            "options": [
+                "Kapitalisme",
+                "Sosialisme",
+                "Kommunisme",
+                "Merkantilisme"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_sosialisme",
+            "question": "Hva beskrives her: 'Produksjonsmidlene eies eller kontrolleres av fellesskapet (staten)'?",
+            "options": [
+                "Sosialisme",
+                "Kapitalisme",
+                "Liberalisme",
+                "Konservatisme"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q_kommunisme",
+            "question": "Hva beskrives her: 'Et klasseløst samfunn der all eiendom er felles'?",
+            "options": [
+                "Kommunisme",
+                "Sosialisme",
+                "Kapitalisme",
+                "Fascisme"
+            ],
+            "correctAnswer": 0
         }
     ],
     "createdDate": "2023-01-01T12:00:00Z",
