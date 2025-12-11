@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowLeft, Zap, Heart } from 'lucide-react';
+import { ArrowLeft, Heart } from 'lucide-react';
 import type { Monster } from './types';
 import type { QuizQuestion } from '../../../types';
 import { useDungeonQuestions } from './useDungeonQuestions';
@@ -52,7 +52,7 @@ export const DungeonRun: React.FC<DungeonRunProps> = ({ subjectId, topicId, onEx
 
     // Game State Ref
     const gameStateRef = useRef<'EXPLORE' | 'COMBAT' | 'GAMEOVER' | 'QUIZ'>('EXPLORE');
-    const combatTargetRef = useRef<ActiveMonster | null>(null);
+
 
     // Hero Ref
     const heroRef = useRef({
@@ -89,7 +89,7 @@ export const DungeonRun: React.FC<DungeonRunProps> = ({ subjectId, topicId, onEx
     // COMBAT is now 'QUIZ' (Study Mode)
     // EXPLORE is the default "Action" mode
     const [gameMode, setGameMode] = useState<'EXPLORE' | 'QUIZ'>('EXPLORE');
-    const [quizReason, setQuizReason] = useState<'MANUAL' | 'EMPTY_RESOURCE' | null>(null);
+
 
     // Combat/Quiz State
     const [currentQuestion, setCurrentQuestion] = useState<QuizQuestion | null>(null);
@@ -114,7 +114,7 @@ export const DungeonRun: React.FC<DungeonRunProps> = ({ subjectId, topicId, onEx
             if (e.code === 'KeyR' && gameStateRef.current === 'EXPLORE') {
                 setGameMode('QUIZ');
                 gameStateRef.current = 'QUIZ'; // Pause game loop updates
-                setQuizReason('MANUAL');
+
                 pickNewQuestion();
             }
         };
