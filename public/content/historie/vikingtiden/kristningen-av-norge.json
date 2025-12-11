@@ -3,6 +3,8 @@
     "title": "Kristningen: Dåp eller Død",
     "description": "Hvordan Norge gikk fra å blot til Odin til å bygge stavkirker – med sverd i hånd.",
     "image": "https://images.unsplash.com/photo-1548625361-bd8856cb3e6e?auto=format&fit=crop&q=80",
+    "year": "995-1030",
+    "layout": "rich",
     "tags": [
         "religion",
         "norge",
@@ -12,7 +14,6 @@
     ],
     "createdDate": "2025-12-09T23:00:00Z",
     "lastUpdated": "2025-12-09T23:59:00Z",
-    "layout": "rich",
     "content": [
         {
             "type": "text",

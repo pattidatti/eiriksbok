@@ -642,6 +642,137 @@
                     ]
                 },
                 {
+                    "id": "vikingtiden",
+                    "title": "Vikingtiden",
+                    "description": "Plyndring, handel og rikssamling.",
+                    "image": "https://images.unsplash.com/photo-1548625361-bd8856cb3e6e?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "artikkel",
+                            "title": "Vikingtiden",
+                            "description": "En oversikt over perioden.",
+                            "image": "https://images.unsplash.com/photo-1548625361-bd8856cb3e6e?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "historie",
+                                "vikingtiden",
+                                "norge"
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                        },
+                        {
+                            "id": "hypotesen-norden-vs-frankrike",
+                            "title": "Hypotesen: Norden vs. Frankrike",
+                            "description": "Var vikingtiden et desperat selvforsvar mot en kristen supermakt?",
+                            "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "vikingtiden",
+                                "hypotese",
+                                "krig",
+                                "karl-den-store"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:30:00Z"
+                        },
+                        {
+                            "id": "karl-den-store",
+                            "title": "Karl den Store: Europas Far",
+                            "description": "Mannen som formet middelalderens Europa og ble vikingenes erkefiende.",
+                            "image": "https://images.unsplash.com/photo-1549144889-1052d9a609d5?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "historie",
+                                "europa",
+                                "middelalder",
+                                "karl-den-store"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:00:00Z"
+                        },
+                        {
+                            "id": "asatro",
+                            "title": "Åsatru: En verden av lureri og skjebne",
+                            "description": "Vikingenes religion handlet ikke om å være snill, men om å overleve i en farlig verden.",
+                            "image": "https://images.unsplash.com/photo-1505506874110-6a7a69069a08?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "religion",
+                                "mytologi",
+                                "vikingtiden",
+                                "guder"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:40:00Z"
+                        },
+                        {
+                            "id": "rikssamlingen",
+                            "title": "Rikssamlingen",
+                            "description": "Harald Hårfagre og samlingen av Norge.",
+                            "image": "https://images.unsplash.com/photo-1548625361-bd8856cb3e6e?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "historie",
+                                "norge",
+                                "rikssamlingen"
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                        },
+                        {
+                            "id": "danelagen",
+                            "title": "Danelagen: Da England var norsk",
+                            "description": "Historien om hvordan vikingene erobret halve England og nesten vant alt.",
+                            "image": "https://images.unsplash.com/photo-1455620611406-966dd68cfd5d?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "england",
+                                "krig",
+                                "vikingtiden"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:45:00Z"
+                        },
+                        {
+                            "id": "veien-mot-ost",
+                            "title": "Veien mot Øst",
+                            "description": "Mens norske og danske vikinger dro vestover, dro svenskene østover. De grunnla Russland.",
+                            "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "historie",
+                                "russland",
+                                "handel",
+                                "vikingtiden"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:55:00Z"
+                        },
+                        {
+                            "id": "kristningen-av-norge",
+                            "title": "Kristningen: Dåp eller Død",
+                            "description": "Hvordan Norge gikk fra å blot til Odin til å bygge stavkirker – med sverd i hånd.",
+                            "image": "https://images.unsplash.com/photo-1548625361-bd8856cb3e6e?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "religion",
+                                "norge",
+                                "olav-den-hellige",
+                                "stiklestad"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:59:00Z"
+                        },
+                        {
+                            "id": "normandie",
+                            "title": "Normandie: Fra Vikinger til Riddere",
+                            "description": "Hvordan en gjeng norske og danske vikinger ble Europas mektigste riddere.",
+                            "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "historie",
+                                "frankrike",
+                                "riddere",
+                                "vikingtiden"
+                            ],
+                            "createdDate": "2025-12-09T23:00:00Z",
+                            "lastUpdated": "2025-12-09T23:50:00Z"
+                        }
+                    ]
+                },
+                {
                     "id": "andre-verdenskrig",
                     "title": "Andre Verdenskrig",
                     "image": "https://images.unsplash.com/photo-1654359569921-8356a96a9808?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",

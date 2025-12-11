@@ -3,6 +3,8 @@
     "title": "Karl den Store: Europas Far",
     "description": "Mannen som formet middelalderens Europa og ble vikingenes erkefiende.",
     "image": "https://images.unsplash.com/photo-1549144889-1052d9a609d5?auto=format&fit=crop&q=80",
+    "year": "742-814",
+    "layout": "rich",
     "tags": [
         "historie",
         "frankerriket",
@@ -12,7 +14,6 @@
     ],
     "createdDate": "2025-12-09T23:00:00Z",
     "lastUpdated": "2025-12-09T23:35:00Z",
-    "layout": "rich",
     "content": [
         {
             "type": "text",

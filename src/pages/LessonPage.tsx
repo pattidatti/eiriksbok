@@ -355,7 +355,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
                                     // Special override for Viking Age to show full context (500-1100)
                                     if (currentTopic === 'vikingtiden') {
-                                        return e.startDate >= 500 && e.startDate <= 1100;
+                                        return (e.startDate >= 500 && e.startDate <= 1100) || e.tags?.includes('vikingtiden') || e.topicId === 'vikingtiden';
                                     }
 
                                     // Default filtering logic
@@ -366,7 +366,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                                     );
                                 })
                                 .sort((a, b) => a.startDate - b.startDate)
-                                .slice(0, 10) // Increased limit to show full eras
+                                .slice(0, 20) // Increased limit to show full eras
                             }
                             relatedLessons={manifest?.subjects
                                 .find(s => s.id === subjectId)
