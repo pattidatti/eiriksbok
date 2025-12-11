@@ -83,6 +83,14 @@ export const PracticePage: React.FC = () => {
             icon: Gamepad2, // Or Users/Zap if available
             color: 'bg-green-600',
             link: '/quiz-battle'
+        },
+        {
+            id: 'concept-snake',
+            title: 'Konsept Slange',
+            description: 'Spis deg stor på kunnskap! Finn riktige eksempler.',
+            icon: Gamepad2,
+            color: 'bg-green-600',
+            link: '/oving/konsept-snake'
         }
     ];
 

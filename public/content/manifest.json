@@ -309,6 +309,15 @@
                     "title": "Retorikk",
                     "description": "L\u00e6ren om talekunst og overbevisning.",
                     "image": "https://images.unsplash.com/photo-1560130958-02f95cc2e330?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                    "tools": [
+                        {
+                            "id": "concept-snake",
+                            "title": "Konsept-Slange",
+                            "description": "Spis ordene som passer til begrepet! En fartsfylt måte å lære retoriske begreper på.",
+                            "link": "/oving/konsept-snake",
+                            "icon": "play"
+                        }
+                    ],
                     "lessons": [
                         {
                             "id": "grunnleggende-retorikk",

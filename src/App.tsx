@@ -41,6 +41,7 @@ const ContentInventory = React.lazy(routeFactories.ContentInventory);
 const LinkChecker = React.lazy(routeFactories.LinkChecker);
 const ScannerPage = React.lazy(routeFactories.ScannerPage);
 const WordSorterGame = React.lazy(routeFactories.WordSorterGame);
+const ConceptSnakeGame = React.lazy(routeFactories.ConceptSnakeGame);
 
 import { usePresence } from './hooks/usePresence';
 
@@ -84,6 +85,7 @@ function AppContent() {
               <Route path="oving/hengemann" element={<HangmanPage />} />
               <Route path="oving/chrono-glider" element={<ChronoGliderPage />} />
               <Route path="oving/tidslinje-td" element={<TimelineTDPage />} />
+              <Route path="oving/konsept-snake" element={<ConceptSnakeGame />} />
 
               <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
               <Route path="admin/stats" element={<AdminGuard><StatsPage /></AdminGuard>} />

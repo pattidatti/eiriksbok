@@ -39,4 +39,5 @@ export const routeFactories: Record<string, PageFactory> = {
     ChronoGliderPage: () => import('./games/chrono-glider/ChronoGliderPage'),
     TimelineTDPage: () => import('./pages/TimelineTDPage'),
     WordSorterGame: () => import('./games/word-sorter/WordSorterGame'),
+    ConceptSnakeGame: () => import('./games/concept-snake/ConceptSnakeGame'),
 };

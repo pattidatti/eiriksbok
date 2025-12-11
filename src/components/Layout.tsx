@@ -70,8 +70,8 @@ export const Layout: React.FC = () => {
 
             <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
-            <main className={`relative z-10 ${location.pathname.includes('/oving/chrono-glider') || location.pathname.includes('/oving/chrono') ? '' : 'pt-8'}`}>
-                <div className={location.pathname.includes('/oving/chrono-glider') || location.pathname.includes('/oving/chrono') ? '' : 'max-w-7xl mx-auto px-6'}>
+            <main className={`relative z-10 ${location.pathname.includes('/oving/chrono-glider') || location.pathname.includes('/oving/chrono') || location.pathname.includes('/oving/konsept-snake') ? '' : 'pt-8'}`}>
+                <div className={location.pathname.includes('/oving/chrono-glider') || location.pathname.includes('/oving/chrono') || location.pathname.includes('/oving/konsept-snake') ? '' : 'max-w-7xl mx-auto px-6'}>
                     <Breadcrumbs />
                     <AnimatePresence mode="wait">
                         <motion.div
