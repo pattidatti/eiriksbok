@@ -78,7 +78,7 @@ export const QuizPage: React.FC = () => {
                 lessonsToFetch.map(async (l) => {
                     const lesson = await fetchLesson(l.subjectId, l.topicId, l.lessonId, l.subTopicId);
                     if (lesson) {
-                        return { ...lesson, subject: l.subjectId, topic: l.topicId };
+                        return { ...lesson, subject: l.subjectId, topic: l.topicId, subTopic: l.subTopicId };
                     }
                     return null;
                 })
@@ -87,7 +87,9 @@ export const QuizPage: React.FC = () => {
             const allQuestions: QuizQuestion[] = [];
             results.forEach(lesson => {
                 if (lesson && lesson.quiz) {
-                    const lessonUrl = `/${lesson.subject}/${lesson.topic}/${lesson.id}`;
+                    const lessonUrl = lesson.subTopic
+                        ? `/${lesson.subject}/${lesson.topic}/${lesson.subTopic}/${lesson.id}`
+                        : `/${lesson.subject}/${lesson.topic}/${lesson.id}`;
                     const enrichedQuestions = lesson.quiz.map(q => ({
                         ...q,
                         sourceUrl: lessonUrl,

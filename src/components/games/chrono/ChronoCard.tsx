@@ -53,8 +53,11 @@ export const ChronoCard: React.FC<ChronoCardProps> = ({
                         <p className="text-xs text-slate-500 mt-2 line-clamp-3">{event.description}</p>
                     </motion.div>
                 ) : (
-                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
-                        ?
+                    <div className="flex flex-col items-center gap-2 mt-2">
+                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold shrink-0">
+                            ?
+                        </div>
+                        <p className="text-xs text-slate-500 line-clamp-4 leading-relaxed">{event.description}</p>
                     </div>
                 )}
             </div>

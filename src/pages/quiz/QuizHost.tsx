@@ -19,6 +19,7 @@ export const QuizHost: React.FC = () => {
     const [roomData, setRoomData] = useState<any>(null);
     const [players, setPlayers] = useState<any[]>([]);
     const [privateQuestions, setPrivateQuestions] = useState<any[]>([]); // Full questions with answers
+    const [debugStatus, setDebugStatus] = useState<string>('');
 
     // Setup State
     const [isSetup, setIsSetup] = useState(true);
@@ -58,10 +59,6 @@ export const QuizHost: React.FC = () => {
         const unsubscribe = onValue(roomRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
-
-
-
-
                 // Play sound throttled
                 setRoomData(data);
                 if (data.players) {
@@ -123,6 +120,37 @@ export const QuizHost: React.FC = () => {
             unsubscribeReactions();
         };
     }, [pin, navigate, playSound, flyingBalloonStatus]);
+
+    // Auto-advance Logic
+    const [optionsVisible, setOptionsVisible] = useState(false);
+
+    useEffect(() => {
+        setOptionsVisible(false);
+        if (currentQuestionIndex !== -1 && !showResult && !showLeaderboard) {
+            const t = setTimeout(() => setOptionsVisible(true), 4000); // 4s delay
+            return () => clearTimeout(t);
+        }
+    }, [currentQuestionIndex, showResult, showLeaderboard]);
+
+    useEffect(() => {
+        if (!roomData || roomData.status !== 'PLAYING' || showResult || showLeaderboard || currentQuestionIndex === -1) return;
+
+        // Count answers
+        let answeredCount = 0;
+        players.forEach(p => {
+            if (p.answers && p.answers[currentQuestionIndex] !== undefined) {
+                answeredCount++;
+            }
+        });
+
+        if (players.length > 0 && answeredCount === players.length) {
+            // All players answered!
+            const timer = setTimeout(() => {
+                revealResult();
+            }, 4000);
+            return () => clearTimeout(timer);
+        }
+    }, [roomData, players, currentQuestionIndex, showResult, showLeaderboard, pin]);
 
     // Data Filtering
     const subjects = useMemo(() => manifest?.subjects.map(s => s.id) || [], [manifest]);
@@ -213,25 +241,72 @@ export const QuizHost: React.FC = () => {
         }, 2000);
     };
 
+    const resetGame = async () => {
+        // Reset everything to handle "Play Again" flow if needed
+        // For now just standard start
+        update(ref(db, `rooms/${pin}`), { currentQuestion: 0, status: 'PLAYING', questionStartTime: Date.now() });
+    };
+
     const startGameSetup = async () => {
-        if (!manifest || !pin) return;
+        setDebugStatus('Start clicked...');
+        console.log('startGameSetup clicked. Pin:', pin, 'Manifest:', manifest ? 'Loaded' : 'Missing');
+
+        if (!pin) {
+            setDebugStatus('Mangler PIN!');
+            alert('Feil: Mangler PIN-kode for rommet.');
+            return;
+        }
+        if (!manifest) {
+            setDebugStatus('Mangler manifest!');
+            alert('Feil: Innholdsoversikten (manifest) er ikke lastet inn ennå. Prøv å laste siden på nytt.');
+            return;
+        }
         setIsLoadingQuestions(true);
 
         try {
+            setDebugStatus('Henter leksjonsliste...');
             // 1. Fetch Questions
             const lessonsToFetch: any[] = [];
+
+            console.log('Starting game setup...');
             manifest.subjects.forEach(subject => {
                 if (selectedSubject !== 'all' && subject.id !== selectedSubject) return;
+
                 subject.topics.forEach(topic => {
                     if (selectedTopic !== 'all' && topic.id !== selectedTopic) return;
-                    topic.lessons?.forEach(lesson => lessonsToFetch.push({ subjectId: subject.id, topicId: topic.id, lessonId: lesson.id }));
-                    topic.subTopics?.forEach(subTopic => subTopic.lessons.forEach(lesson => lessonsToFetch.push({ subjectId: subject.id, topicId: topic.id, subTopicId: subTopic.id, lessonId: lesson.id })));
+
+                    // Add topic lessons
+                    topic.lessons?.forEach(lesson => {
+                        lessonsToFetch.push({ subjectId: subject.id, topicId: topic.id, lessonId: lesson.id });
+                    });
+
+                    // Add subtopic lessons (SAFE ACCESS)
+                    topic.subTopics?.forEach(subTopic => {
+                        subTopic.lessons?.forEach(lesson => {
+                            lessonsToFetch.push({ subjectId: subject.id, topicId: topic.id, subTopicId: subTopic.id, lessonId: lesson.id });
+                        });
+                    });
                 });
             });
 
+            console.log('Lessons to fetch:', lessonsToFetch);
+
+            if (lessonsToFetch.length === 0) {
+                alert('Fant ingen leksjoner med valgte filtre!');
+                setIsLoadingQuestions(false);
+                setDebugStatus('Ingen leksjoner funnet.');
+                return;
+            }
+
+            setDebugStatus(`Henter ${lessonsToFetch.length} leksjoner...`);
             const results = await Promise.all(lessonsToFetch.map(l => fetchLesson(l.subjectId, l.topicId, l.lessonId, l.subTopicId)));
             let allQuestions: QuizQuestion[] = [];
-            results.forEach((lesson) => {
+
+            setDebugStatus('Prosesserer spørsmål...');
+            results.forEach((lesson, index) => {
+                if (!lesson) return;
+                const meta = lessonsToFetch[index];
+
                 if (lesson?.quiz) {
                     // Shuffle Options for each question
                     const textQuestions = lesson.quiz.map(q => {
@@ -254,6 +329,10 @@ export const QuizHost: React.FC = () => {
                         return {
                             ...q,
                             sourceTitle: lesson.title,
+                            sourceSubjectId: meta.subjectId,
+                            sourceTopicId: meta.topicId,
+                            sourceLessonId: meta.lessonId,
+                            sourceSubTopicId: meta.subTopicId || null,
                             options: shuffledOptions,
                             correctAnswer: newCorrectAnswer
                         };
@@ -263,16 +342,20 @@ export const QuizHost: React.FC = () => {
                 }
             });
 
+            setDebugStatus(`Fant ${allQuestions.length} spørsmål. Blander...`);
+
             // Shuffle and limit
             allQuestions = allQuestions.sort(() => Math.random() - 0.5).slice(0, 15);
 
             if (allQuestions.length === 0) {
-                alert('Fant ingen spørsmål!');
+                alert('Fant ingen spørsmål i de valgte leksjonene!');
                 setIsLoadingQuestions(false);
+                setDebugStatus('Ingen spørsmål funnet.');
                 return;
             }
 
             // 2. Save to Firebase
+            setDebugStatus('Lagrer til database...');
             const updates: any = {};
 
             // Public Questions (Sanitized)
@@ -292,13 +375,16 @@ export const QuizHost: React.FC = () => {
             updates[`rooms/${pin}/currentResult`] = null; // Clear old results
             updates[`rooms/${pin}/lobby/balloonSize`] = 0; // Reset balloon
             updates[`rooms/${pin}/lobby/isLocked`] = false;
+            updates[`rooms/${pin}/questionStartTime`] = 0;
 
             await update(ref(db), updates);
+            setDebugStatus('Ferdig! Starter spill...');
             setIsSetup(false);
 
         } catch (e) {
             console.error(e);
-            alert('Feil ved henting av spørsmål');
+            alert('Feil ved henting av spørsmål: ' + (e as any).message);
+            setDebugStatus('Feil: ' + (e as any).message);
         } finally {
             setIsLoadingQuestions(false);
         }
@@ -336,7 +422,7 @@ export const QuizHost: React.FC = () => {
         }
     };
 
-    const revealResult = () => {
+    function revealResult() {
         const q = privateQuestions[currentQuestionIndex];
         if (!q) return;
 
@@ -354,7 +440,7 @@ export const QuizHost: React.FC = () => {
             showResult: true,
             currentResult: result
         });
-    };
+    }
 
     // Renders
     if (!roomData) return <div className="p-8 text-center">Laster rom...</div>;
@@ -388,8 +474,9 @@ export const QuizHost: React.FC = () => {
                         disabled={isLoadingQuestions}
                         className="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-green-700 disabled:opacity-50"
                     >
-                        {isLoadingQuestions ? 'Laster spørsmål...' : 'Gjør klart spill'}
+                        {isLoadingQuestions ? 'Laster spørsmål...' : 'Gjør klart spill (DEBUG MODE)'}
                     </button>
+                    {debugStatus && <div className="mt-4 text-center text-slate-500 font-mono">{debugStatus}</div>}
                 </div>
             </div>
         );
@@ -397,12 +484,6 @@ export const QuizHost: React.FC = () => {
 
     // 2. Lobby Screen (Waiting to start 1st question)
     if (currentQuestionIndex === -1 && roomData.status !== 'FINISHED') {
-        const resetGame = async () => {
-            // Reset everything to handle "Play Again" flow if needed
-            // For now just standard start
-            update(ref(db, `rooms/${pin}`), { currentQuestion: 0, status: 'PLAYING', questionStartTime: Date.now() });
-        };
-
         return (
             <div className="min-h-screen p-8 flex flex-col items-center relative overflow-hidden">
                 {/* Floating Emojis Layer */}
@@ -422,6 +503,20 @@ export const QuizHost: React.FC = () => {
                 <div className="text-center mb-12 z-10">
                     <h2 className="text-2xl font-bold text-slate-500 uppercase tracking-widest mb-4">Gå til <span className="text-indigo-600">bok.haaland.de/quiz-battle</span></h2>
                     <div className="text-9xl font-black font-mono text-indigo-600 tracking-tighter mb-4 inline-block drop-shadow-sm">{pin}</div>
+                    <div className="flex items-center justify-center gap-2 mt-4 mb-8">
+                        <span className="text-xl font-bold text-slate-400 uppercase tracking-widest">Spillere:</span>
+                        <span className="text-3xl font-black text-slate-800">{players.length}</span>
+                    </div>
+
+                    {/* Emoji Counters (Moved here) */}
+                    <div className="flex justify-center gap-8">
+                        {Object.entries(reactionCounts).map(([emoji, count]) => (
+                            <div key={emoji} className="flex flex-col items-center">
+                                <span className="text-2xl mb-1">{emoji}</span>
+                                <span className="text-xl font-black text-slate-700">{count}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-6xl mb-12 z-10">
@@ -467,16 +562,6 @@ export const QuizHost: React.FC = () => {
                 </div>
 
                 <div className="z-10 bg-white/80 backdrop-blur p-4 rounded-3xl">
-                    {/* Emoji Counters (Tug of War) */}
-                    <div className="flex justify-center gap-8 mb-6">
-                        {Object.entries(reactionCounts).map(([emoji, count]) => (
-                            <div key={emoji} className="flex flex-col items-center">
-                                <span className="text-4xl mb-1">{emoji}</span>
-                                <span className="text-2xl font-black text-slate-700">{count}</span>
-                            </div>
-                        ))}
-                    </div>
-
                     <button
                         onClick={resetGame}
                         className="bg-indigo-600 text-white px-16 py-8 rounded-full text-4xl font-black shadow-2xl hover:scale-105 transition-transform hover:bg-indigo-700"
@@ -529,21 +614,7 @@ export const QuizHost: React.FC = () => {
                     ))}
                 </div>
                 <div className="flex justify-center gap-4 mt-20">
-                    <button onClick={() => {
-                        // Reset game logic
-                        update(ref(db, `rooms/${pin}`), {
-                            status: 'LOBBY',
-                            currentQuestion: -1,
-                            questions: null, // Force re-fetch? Or just reset index.
-                            showResult: false
-                        });
-                        // Reset players?
-                        players.forEach(p => {
-                            update(ref(db, `rooms/${pin}/players/${p.id}`), { score: 0, streak: 0, answers: null });
-                        });
-                        // Go back to setup?
-                        setIsSetup(true);
-                    }} className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-xl hover:scale-105 transition-transform">
+                    <button onClick={resetGame} className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-xl hover:scale-105 transition-transform">
                         Spill Igjen 🔄
                     </button>
                     <button onClick={() => navigate('/quiz-battle/admin-999')} className="bg-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold text-xl hover:bg-slate-300">
@@ -636,7 +707,7 @@ export const QuizHost: React.FC = () => {
 
 
                 {question.type === 'sorting' ? (
-                    <div className="flex flex-col gap-4 w-full max-w-2xl">
+                    <div className={`flex flex-col gap-4 w-full max-w-2xl transition-opacity duration-500 ${optionsVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <div className="text-center text-slate-500 font-bold uppercase tracking-widest mb-4">Riktig Rekkefølge</div>
                         {question.options.map((opt: string, i: number) => {
                             // Correct order is just the initial order in privateQuestions because we store the answer-key as index order?
@@ -663,7 +734,7 @@ export const QuizHost: React.FC = () => {
                         })}
                     </div>
                 ) : question.type === 'boolean' ? (
-                    <div className="flex gap-8">
+                    <div className={`flex gap-8 transition-opacity duration-500 ${optionsVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         {['Sant', 'Usant'].map((opt) => {
                             const isCorrect = opt === question.answer;
                             return (
@@ -681,7 +752,7 @@ export const QuizHost: React.FC = () => {
                         })}
                     </div>
                 ) : (
-                    <div className="grid grid-cols-2 gap-8 w-full max-w-[90vw] h-[45vh]">
+                    <div className={`grid grid-cols-2 gap-8 w-full max-w-[90vw] h-[45vh] transition-opacity duration-500 ${optionsVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         {question.options.map((opt: string, i: number) => {
                             const isCorrect = i === question.correctAnswer || opt === question.answer;
                             const showColor = showResult;

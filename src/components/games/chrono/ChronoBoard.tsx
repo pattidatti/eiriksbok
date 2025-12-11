@@ -16,10 +16,30 @@ export const ChronoBoard: React.FC<ChronoBoardProps> = ({ events, onGameOver }) 
     const [lives, setLives] = useState(3);
     const [gameState, setGameState] = useState<'playing' | 'gameover'>('playing');
     const [highlightSlots, setHighlightSlots] = useState(false);
+    const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null);
 
     // Drag and Drop State
     const [activeDropZone, setActiveDropZone] = useState<number | null>(null);
     const dropZoneRefs = useRef<Map<number, HTMLButtonElement>>(new Map());
+
+    // Auto-scroll State
+    const [scrollDirection, setScrollDirection] = useState<'left' | 'right' | null>(null);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!scrollDirection) return;
+        const scrollAmount = 15;
+        const interval = setInterval(() => {
+            if (scrollContainerRef.current) {
+                if (scrollDirection === 'left') {
+                    scrollContainerRef.current.scrollLeft -= scrollAmount;
+                } else {
+                    scrollContainerRef.current.scrollLeft += scrollAmount;
+                }
+            }
+        }, 16);
+        return () => clearInterval(interval);
+    }, [scrollDirection]);
 
     useEffect(() => {
         if (events.length > 0) initGame();
@@ -67,6 +87,15 @@ export const ChronoBoard: React.FC<ChronoBoardProps> = ({ events, onGameOver }) 
         });
 
         setActiveDropZone(foundZone);
+
+        // Auto-scroll trigger
+        if (point.x < 150) {
+            setScrollDirection('left');
+        } else if (point.x > window.innerWidth - 150) {
+            setScrollDirection('right');
+        } else {
+            setScrollDirection(null);
+        }
     };
 
     // Removed unused 'info' parameter
@@ -75,10 +104,11 @@ export const ChronoBoard: React.FC<ChronoBoardProps> = ({ events, onGameOver }) 
             handlePlaceCard(activeDropZone);
         }
         setActiveDropZone(null);
+        setScrollDirection(null);
     };
 
     const handlePlaceCard = (index: number) => {
-        if (!hand || gameState !== 'playing') return;
+        if (!hand || gameState !== 'playing' || feedback) return;
 
         let isValid = true;
         const prevCard = index > 0 ? placedCards[index - 1] : null;
@@ -89,44 +119,77 @@ export const ChronoBoard: React.FC<ChronoBoardProps> = ({ events, onGameOver }) 
 
         if (isValid) {
             // Success
-            const newPlaced = [...placedCards];
-            newPlaced.splice(index, 0, hand);
-            setPlacedCards(newPlaced);
-            setScore(prev => prev + 1);
-            setHighlightSlots(false);
+            setFeedback('correct');
+            setTimeout(() => {
+                setFeedback(null);
+                const newPlaced = [...placedCards];
+                newPlaced.splice(index, 0, hand);
+                setPlacedCards(newPlaced);
+                setScore(prev => prev + 1);
+                setHighlightSlots(false);
 
-            const nextCardFromDeck = deck.length > 0 ? deck[deck.length - 1] : null;
-            if (nextCardFromDeck) {
-                setDeck(prev => prev.slice(0, -1));
-                setHand(nextCardFromDeck);
-            } else {
-                setHand(null);
-                onGameOver(score + 1);
-            }
+                const nextCardFromDeck = deck.length > 0 ? deck[deck.length - 1] : null;
+                if (nextCardFromDeck) {
+                    setDeck(prev => prev.slice(0, -1));
+                    setHand(nextCardFromDeck);
+                } else {
+                    setHand(null);
+                    onGameOver(score + 1);
+                }
+            }, 600); // Wait for animation
         } else {
             // Fail
-            setLives(prev => {
-                const newLives = prev - 1;
-                if (newLives <= 0) {
-                    setGameState('gameover');
-                    onGameOver(score);
-                }
-                return newLives;
-            });
+            setFeedback('incorrect');
+            setTimeout(() => {
+                setFeedback(null);
+                setLives(prev => {
+                    const newLives = prev - 1;
+                    if (newLives <= 0) {
+                        setGameState('gameover');
+                        onGameOver(score);
+                    }
+                    return newLives;
+                });
 
-            // Discard incorrectly placed card and draw new one
-            const nextCardFromDeck = deck.length > 0 ? deck[deck.length - 1] : null;
-            if (nextCardFromDeck) {
-                setDeck(prev => prev.slice(0, -1));
-                setHand(nextCardFromDeck);
-            } else {
-                setHand(null);
-            }
+                // Discard incorrectly placed card and draw new one
+                const nextCardFromDeck = deck.length > 0 ? deck[deck.length - 1] : null;
+                if (nextCardFromDeck) {
+                    setDeck(prev => prev.slice(0, -1));
+                    setHand(nextCardFromDeck);
+                } else {
+                    setHand(null);
+                }
+            }, 800);
         }
     };
 
     return (
-        <div className="w-full max-w-6xl mx-auto flex flex-col gap-8 pb-32">
+        <div className="w-full px-4 sm:px-8 flex flex-col gap-8 pb-32 relative">
+
+            {/* Feedback Overlay */}
+            <AnimatePresence>
+                {feedback && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.5, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 1.5, opacity: 0 }}
+                            className={`p-8 rounded-2xl shadow-2xl ${feedback === 'correct' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+                                }`}
+                        >
+                            <span className="text-6xl font-black">
+                                {feedback === 'correct' ? 'Riktig!' : 'Feil!'}
+                            </span>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             {/* Status Bar */}
             <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100 sticky top-20 z-20">
                 <div className="flex gap-4">
@@ -154,7 +217,7 @@ export const ChronoBoard: React.FC<ChronoBoardProps> = ({ events, onGameOver }) 
             </div>
 
             {/* The Board / Timeline */}
-            <div className="relative min-h-[350px] flex items-center overflow-x-auto pb-8 pt-4 px-4 gap-0 no-scrollbar touch-pan-x">
+            <div ref={scrollContainerRef} className="relative min-h-[350px] flex items-center overflow-x-auto pb-8 pt-4 px-4 gap-0 no-scrollbar touch-pan-x">
                 <div className="absolute top-1/2 left-0 w-full h-3 bg-slate-100 -z-10 rounded-full" />
 
                 <DropZone
@@ -284,8 +347,9 @@ const DropZone: React.FC<DropZoneProps> = ({ onClick, disabled, highlight, cardI
             className={`
                 relative h-64 rounded-xl border-2 border-dashed mx-1 shrink-0 flex items-center justify-center overflow-hidden
                 transition-colors duration-200 snap-center z-0
-                ${highlight ? 'border-indigo-500' : 'border-slate-300'}
-                ${isHovered ? 'border-indigo-500 bg-indigo-100' : 'hover:border-indigo-400 hover:bg-indigo-50'}
+                ${highlight ? 'border-indigo-500 animate-pulse' : 'border-slate-300'}
+                ${isHovered ? 'border-indigo-500 bg-indigo-100 cursor-pointer' : 'hover:border-indigo-400 hover:bg-indigo-50'}
+                ${cardInHand && !disabled ? 'cursor-pointer' : ''}
             `}
         >
             <div className="relative z-10 flex flex-col items-center gap-2 pointer-events-none">
@@ -301,7 +365,7 @@ const DropZone: React.FC<DropZoneProps> = ({ onClick, disabled, highlight, cardI
                         animate={{ opacity: 1, y: 0 }}
                         className="text-xs font-bold text-indigo-600 uppercase tracking-wider text-center px-2 bg-white/80 rounded-full py-1"
                     >
-                        Slipp her
+                        Klikk eller Slipp
                     </motion.span>
                 )}
             </div>

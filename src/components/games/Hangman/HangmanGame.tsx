@@ -30,16 +30,12 @@ export const HangmanGame = ({ words, onExit }: HangmanGameProps) => {
         const shuffled = [...words].sort(() => Math.random() - 0.5);
         setShuffledWords(shuffled);
         setCurrentWordIndex(0);
+        setGuessedLetters([]);
+        setGameStatus('playing');
     }, [words]);
 
     const currentWordData = shuffledWords[currentWordIndex];
     const wordToGuess = currentWordData?.term.toUpperCase() || "";
-
-    // Reset game state when word changes
-    useEffect(() => {
-        setGuessedLetters([]);
-        setGameStatus('playing');
-    }, [currentWordIndex, shuffledWords]);
 
     const wrongGuesses = guessedLetters.filter(
         letter => !wordToGuess.includes(letter)
@@ -95,6 +91,9 @@ export const HangmanGame = ({ words, onExit }: HangmanGameProps) => {
     }, [handleGuess]);
 
     const handleNextWord = () => {
+        setGuessedLetters([]);
+        setGameStatus('playing');
+
         if (currentWordIndex < shuffledWords.length - 1) {
             setCurrentWordIndex(prev => prev + 1);
         } else {

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../../lib/firebase';
-import { ref, onValue, update, runTransaction, push, set } from 'firebase/database';
-import { Trophy, CheckCircle, XCircle, Clock, Heart, ThumbsUp, Flame, Rocket } from 'lucide-react';
+import { ref, onValue, update, runTransaction, push, set, get } from 'firebase/database';
+import { Trophy, CheckCircle, XCircle, Clock, Heart, ThumbsUp, Flame, Rocket, ArrowRight } from 'lucide-react';
 import { useQuizAudio } from '../../hooks/useQuizAudio';
 import { motion, AnimatePresence, Reorder } from 'framer-motion';
 import type { QuizQuestion } from '../../types';
@@ -39,6 +39,8 @@ export const QuizPlayer: React.FC = () => {
     const [questionStartTime, setQuestionStartTime] = useState<number>(0);
 
     const [allQuestions, setAllQuestions] = useState<any[]>([]);
+    const [privateQuestions, setPrivateQuestions] = useState<any[]>([]);
+    const [myAnswers, setMyAnswers] = useState<Record<string, any>>({}); // To store answer history from DB
 
     useEffect(() => {
         const playerId = sessionStorage.getItem('quiz_player_id');
@@ -70,9 +72,9 @@ export const QuizPlayer: React.FC = () => {
                 setMyName(myData.name);
                 setMyScore(myData.score);
                 setMyStreak(myData.streak || 0);
-                setMyName(myData.name);
-                setMyScore(myData.score);
-                setMyStreak(myData.streak || 0);
+                if (myData.answers) {
+                    setMyAnswers(myData.answers);
+                }
 
                 // Restore Answer State if exists
                 if (data.currentQuestion !== -1 && myData.answers && myData.answers[data.currentQuestion]) {
@@ -112,7 +114,18 @@ export const QuizPlayer: React.FC = () => {
             unsubscribeVisit();
             unsubscribeLock();
         };
-    }, [pin, navigate, playSound]);
+    }, [pin, navigate, playSound, hasAnswered]);
+
+    // Fetch Private Questions on Finish for Report
+    useEffect(() => {
+        if (status === 'FINISHED' && pin) {
+            get(ref(db, `quiz-data/${pin}/questions`)).then((snap) => {
+                if (snap.exists()) {
+                    setPrivateQuestions(snap.val());
+                }
+            });
+        }
+    }, [status, pin]);
 
     // Handle Question Change
     useEffect(() => {
@@ -235,7 +248,7 @@ export const QuizPlayer: React.FC = () => {
     if (status === 'LOBBY' || currentQuestionIndex === -1) {
         return (
             <div
-                className="fixed inset-0 top-0 left-0 w-screen h-screen flex flex-col items-center justify-center p-6 text-center transition-colors duration-300 overflow-hidden z-50"
+                className="fixed inset-0 top-0 left-0 w-screen h-screen flex flex-col items-center justify-start pt-16 p-6 text-center transition-colors duration-300 overflow-hidden z-50"
                 style={{ backgroundColor: `hsl(${220 + bgHue}, 90%, 95%)` }}
             >
                 {/* Local Floating Emojis */}
@@ -346,13 +359,76 @@ export const QuizPlayer: React.FC = () => {
     }
 
     if (status === 'FINISHED') {
+        const hasPrivateData = privateQuestions.length > 0;
+
         return (
-            <div className="h-screen flex flex-col items-center justify-center p-4 text-center">
-                <Trophy className="w-32 h-32 text-yellow-500 mb-8" />
-                <h1 className="text-7xl font-black mb-6">Spillet er ferdig</h1>
-                <p className="text-3xl mb-4 text-slate-600 font-bold">Du fikk</p>
-                <div className="text-9xl font-black text-indigo-600 mb-12">{myScore}</div>
-                <button onClick={() => navigate('/quiz-battle')} className="bg-indigo-600 text-white px-12 py-6 rounded-full font-bold shadow-lg active:scale-95 transition-transform text-3xl">Spill igjen</button>
+            <div className="h-screen flex flex-col items-center justify-center p-4 text-center overflow-y-auto">
+                <Trophy className="w-32 h-32 text-yellow-500 mb-8 shrink-0" />
+                <h1 className="text-7xl font-black mb-6 shrink-0">Spillet er ferdig</h1>
+                <p className="text-3xl mb-4 text-slate-600 font-bold shrink-0">Du fikk</p>
+                <div className="text-9xl font-black text-indigo-600 mb-12 shrink-0">{myScore}</div>
+
+                {/* Study Recommendations */}
+                {hasPrivateData && (
+                    <div className="w-full max-w-md bg-white rounded-2xl shadow-lg overflow-hidden mb-8 text-left shrink-0">
+                        <div className="bg-slate-100 p-4 font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                            <span>📚</span> Anbefalt lesing
+                        </div>
+                        <div className="max-h-60 overflow-y-auto divide-y divide-slate-100">
+                            {(() => {
+                                const wrongLinks: any[] = [];
+                                privateQuestions.forEach((q, i) => {
+                                    // Check if correct
+                                    const myAns = myAnswers[i];
+                                    let isCorrect = false;
+
+                                    if (myAns) {
+                                        if (typeof q.correctAnswer === 'number') {
+                                            if (q.options && q.options[q.correctAnswer] === myAns) isCorrect = true;
+                                        } else if (q.answer) {
+                                            if (Array.isArray(q.answer)) {
+                                                if (JSON.stringify(myAns) === JSON.stringify(q.answer)) isCorrect = true;
+                                            } else {
+                                                if (myAns === q.answer) isCorrect = true;
+                                            }
+                                        }
+                                    }
+
+                                    if (!isCorrect) {
+                                        if (q.sourceLessonId && q.sourceSubjectId && q.sourceTopicId) {
+                                            // Deduplicate
+                                            const link = `/fag/${q.sourceSubjectId}/${q.sourceTopicId}/${q.sourceSubTopicId ? `${q.sourceSubTopicId}/` : ''}${q.sourceLessonId}`;
+                                            const title = q.sourceTitle;
+                                            if (!wrongLinks.find(l => l.link === link)) {
+                                                wrongLinks.push({ link, title });
+                                            }
+                                        }
+                                    }
+                                });
+
+                                if (wrongLinks.length === 0) return <div className="p-4 text-center text-green-600 font-bold">Alt riktig! Du er en stjerne! 🌟</div>;
+
+                                return wrongLinks.map((l, idx) => (
+                                    <a
+                                        key={idx}
+                                        href={l.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block p-4 hover:bg-indigo-50 transition-colors group"
+                                    >
+                                        <div className="flex justify-between items-center">
+                                            <span className="font-bold text-slate-700">{l.title}</span>
+                                            <ArrowRight className="w-4 h-4 text-indigo-300 group-hover:text-indigo-600" />
+                                        </div>
+                                    </a>
+                                ));
+                            })()}
+                        </div>
+                    </div>
+                )}
+                {!hasPrivateData && <div className="mb-8 text-slate-400">Laster statistikk...</div>}
+
+                <button onClick={() => navigate('/quiz-battle')} className="bg-indigo-600 text-white px-12 py-6 rounded-full font-bold shadow-lg active:scale-95 transition-transform text-3xl shrink-0">Spill igjen</button>
             </div>
         );
     }

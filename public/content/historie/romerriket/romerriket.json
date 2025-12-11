@@ -34,5 +34,47 @@
         }
     ],
     "createdDate": "2023-01-01T12:00:00Z",
+    "quiz": [
+        {
+            "question": "Når startet Romerriket?",
+            "options": [
+                "Ca. år 500 fvt.",
+                "Ca. år 0",
+                "År 1000",
+                "År 476 evt."
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hvilken religion ble offisiell i Romerriket rundt år 300?",
+            "options": [
+                "Jødedommen",
+                "Kristendommen",
+                "Islam",
+                "Norrøn mytologi"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva skjedde med Romerriket rundt år 400 evt.?",
+            "options": [
+                "Det ble delt i to: Vestriket og Østriket",
+                "Det ble erobret av Persia",
+                "Det ble en republikk igjen",
+                "Julius Caesar ble keiser"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hva kalles Østriket som levde videre etter at Vestriket falt?",
+            "options": [
+                "Det ottomanske riket",
+                "Bysants",
+                "Det hellige romerske rike",
+                "Makedonia"
+            ],
+            "correctAnswer": 1
+        }
+    ],
     "lastUpdated": "2025-12-03T17:25:16.499Z"
 }
