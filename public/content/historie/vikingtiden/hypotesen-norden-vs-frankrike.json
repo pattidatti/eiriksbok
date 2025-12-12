@@ -2,7 +2,7 @@
     "id": "hypotesen-norden-vs-frankrike",
     "title": "Hypotesen: Norden vs. Frankrike",
     "description": "Var vikingtiden et desperat selvforsvar mot en kristen supermakt?",
-    "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+    "image": "/images/lessons/vikingtiden/hypotesen.png",
     "year": "772-814",
     "tags": [
         "vikingtiden",
@@ -36,7 +36,7 @@
         },
         {
             "type": "image",
-            "src": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Danevirke_drawing.jpg",
+            "src": "/images/lessons/danevirke-kart.jpg",
             "caption": "Dannevirke: Nordens 'kinesiske mur' mot sør. Bygget for å holde frankerne ute.",
             "alt": "Tegning av Dannevirke festningsverk"
         },
