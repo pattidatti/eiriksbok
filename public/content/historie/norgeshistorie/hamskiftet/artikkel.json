@@ -1,0 +1,221 @@
+{
+    "id": "hamskiftet",
+    "title": "Hamskiftet",
+    "description": "Norge skifter ham: Fra bonde til arbeider.",
+    "image": "/images/lessons/norgeshistorie/hamskiftet.png",
+    "layout": "rich",
+    "tags": [
+        "historie",
+        "norge",
+        "industrialisering",
+        "samfunn"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "For 200 år siden var Norge et helt annet land. Nesten alle bodde på landet, og livet handlet om én ting: Å skaffe nok mat til å overleve vinteren. Men i løpet av noen få tiår gikk Norge gjennom en forvandling så stor at den ble kalt 'Det store hamskiftet'. Norge skiftet utseende – eller ham."
+        },
+        {
+            "type": "component",
+            "component": "QuoteBlock",
+            "props": {
+                "text": "Norge skiftet ham, slik ormen kaster skinnet.",
+                "author": "Inge Krokann (dikter)"
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "content": "Norge før 1800: Et slit for føden"
+        },
+        {
+            "type": "text",
+            "content": "På 1700- og tidlig 1800-tall var Norge et jordbrukssamfunn preget av \"mangesysleri\". Det betyr at man ikke bare var bonde – man var fisker, tømmerhogger, snekker og smed også. Man måtte kunne alt, for det man ikke lagde selv, fikk man ikke tak i."
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Selvforsyning:** Gården produserte alt man trengte av mat, klær og redskaper.",
+                "**Husmannsvesenet:** Mange eide ikke egen jord. De var husmenn som leide en liten plass under en storgård og måtte betale med pliktarbeid.",
+                "**Hardt arbeid:** Alle måtte bidra, fra barn til gamle. Dødeligheten var høy, og en dårlig sommer kunne bety sult om vinteren."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "content": "Befolkningseksplosjonen"
+        },
+        {
+            "type": "text",
+            "content": "På 1800-tallet skjedde det noe dramatisk. Poteten kom til Norge (og ga billig næring), silda kom inn til kysten, og vi fikk vaksiner mot kopper. Resultatet? Færre barn døde, og folk levde lenger. Befolkningen vokste raskere enn noen gang før."
+        },
+        {
+            "type": "component",
+            "component": "LineChart",
+            "props": {
+                "title": "Norges befolkning gjennom tidene",
+                "data": [
+                    {
+                        "year": 870,
+                        "value": 150000
+                    },
+                    {
+                        "year": 1349,
+                        "value": 450000
+                    },
+                    {
+                        "year": 1500,
+                        "value": 150000
+                    },
+                    {
+                        "year": 1665,
+                        "value": 440000
+                    },
+                    {
+                        "year": 1823,
+                        "value": 1000000
+                    },
+                    {
+                        "year": 1891,
+                        "value": 2000000
+                    },
+                    {
+                        "year": 1934,
+                        "value": 3000000
+                    },
+                    {
+                        "year": 2013,
+                        "value": 5000000
+                    },
+                    {
+                        "year": 2025,
+                        "value": 5600000
+                    }
+                ],
+                "xAxisLabel": "År",
+                "yAxisLabel": "Innbyggere"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Den voldsomme veksten skapte et problem: Det var ikke nok jord til alle. Dette førte til to store bølger av utvandring. Mange flyttet til byene for å jobbe i industrien, og hundretusener emigrerte til Amerika."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "content": "Det første hamskiftet (1840+)"
+        },
+        {
+            "type": "text",
+            "content": "Det vi kaller \"Det store hamskiftet\" er overgangen fra selvbergingsjordbruk til salgsjordbruk. Bøndene sluttet å produsere alt til eget bruk og begynte å produsere varer for å selge dem – melk, kjøtt og smør. For pengene kunne de kjøpe varer fra butikken, som kaffe, sukker og finere klær."
+        },
+        {
+            "type": "text",
+            "content": "Viktige drivere for endringen:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Jernbanen (1854):** Gjorde det mulig å frakte varer raskt over lange avstander.",
+                "**Maskiner:** Slåmaskiner og hesteriver fra USA og England gjorde at én mann og en hest kunne gjøre jobben til ti mann med ljå.",
+                "**Pengeøkonomi:** Bonden ble en forretningsmann som investerte i utstyr og solgte varer på et marked."
+            ]
+        },
+        {
+            "type": "component",
+            "component": "Comparison",
+            "props": {
+                "title": "Før vs. Etter Hamskiftet",
+                "leftTitle": "Det gamle bondesamfunnet",
+                "rightTitle": "Det nye industrisamfunnet",
+                "items": [
+                    {
+                        "left": "Selvforsyning (produsere for eget bruk)",
+                        "right": "Salgsjordbruk (produsere for markedet)"
+                    },
+                    {
+                        "left": "Betalte med varer eller arbeid",
+                        "right": "Pengeøkonomi"
+                    },
+                    {
+                        "left": "Håndkraft og enkle redskaper",
+                        "right": "Maskiner (slåmaskin, hesterive)"
+                    },
+                    {
+                        "left": "Gikk eller rodde",
+                        "right": "Tog og dampskip"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "content": "Det andre hamskiftet (1960+)"
+        },
+        {
+            "type": "text",
+            "content": "Utviklingen stoppet ikke der. Etter andre verdenskrig kom traktoren for fullt. Dette kalles ofte \"Det andre hamskiftet\". Igjen ble behovet for arbeidskraft drastisk redusert. Én traktor erstattet mange hester og enda flere gårdsarbeidere. Gårdene ble større, færre og helmekaniserte."
+        },
+        {
+            "type": "component",
+            "component": "InfoBox",
+            "props": {
+                "title": "Visste du at?",
+                "content": "I 1905 kom en av de første traktorene til Norge fra England. Den ble sett på som et monster! I dag styrer mange bønder traktoren via GPS mens de sjekker aksjekurser på mobilen."
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr 'mangesysleri' i det gamle bondesamfunnet?",
+            "options": [
+                "At man hadde mange jobber samtidig (bonde, fisker, snekker)",
+                "At man hadde mange barn",
+                "At man bare drev med én ting hele tiden",
+                "At man var sysselsatt av staten"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hva var hovedårsaken til befolkningseksplosjonen på 1800-tallet?",
+            "options": [
+                "Bedre kosthold (potet/sild) og vaksiner førte til lavere dødelighet",
+                "Folk fikk mange flere barn enn før",
+                "Mange innvandrere kom til Norge",
+                "Det var ingen kriger"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hva kjennetegner overgangen under 'Det store hamskiftet'?",
+            "options": [
+                "Fra selvforsyning til salgsjordbruk og pengeøkonomi",
+                "Fra fiske til olje",
+                "Fra hest til traktor (dette var det andre hamskiftet)",
+                "Fra kristendom til ateisme"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Når fikk Norge sin første jernbane (Hovedbanen)?",
+            "options": [
+                "1854",
+                "1814",
+                "1905",
+                "1940"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hva skjedde med husmennene under hamskiftet?",
+            "options": [
+                "Mange mistet plassen sin og flyttet til byen eller USA",
+                "De ble rike storbønder",
+                "De fikk stemmerett med en gang",
+                "Ingenting endret seg for dem"
+            ],
+            "correctAnswer": 0
+        }
+    ]
+}

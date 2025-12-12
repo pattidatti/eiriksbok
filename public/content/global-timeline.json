@@ -1,1577 +1,1594 @@
 [
-  {
-    "id": "demo-artikkel",
-    "title": "Demo Artikkel",
-    "description": "En demonstrasjon av standardisert artikkellayout.",
-    "startDate": 2024,
-    "endDate": null,
-    "displayDate": "2024",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "demo-artikkel",
-    "link": "/historie/demo-artikkel/demo-artikkel",
-    "tags": [
-      "demo",
-      "layout"
-    ]
-  },
-  {
-    "id": "doden",
-    "title": "Døden",
-    "description": "Utgitt av Ragnar Hovland",
-    "startDate": 2011,
-    "endDate": null,
-    "displayDate": "2011",
-    "type": "text",
-    "subjectId": "norsk",
-    "link": "/norsk/bibliotek?text=doden"
-  },
-  {
-    "id": "twitter-noveller",
-    "title": "Twitter-noveller",
-    "description": "Utgitt av Frode Grytten",
-    "startDate": 2009,
-    "endDate": null,
-    "displayDate": "2009",
-    "type": "text",
-    "subjectId": "norsk",
-    "link": "/norsk/bibliotek?text=twitter-noveller"
-  },
-  {
-    "id": "hjorten-i-skogbrynet",
-    "title": "Hjorten i skogbrynet",
-    "description": "Utgitt av Gunnhild Øyehaug",
-    "startDate": 2008,
-    "endDate": null,
-    "displayDate": "2008",
-    "type": "text",
-    "subjectId": "norsk",
-    "link": "/norsk/bibliotek?text=hjorten-i-skogbrynet"
-  },
-  {
-    "id": "mennesker-pa-kafe",
-    "title": "Mennesker på kafé",
-    "description": "Utgitt av Kjell Askildsen",
-    "startDate": 1983,
-    "endDate": null,
-    "displayDate": "1983",
-    "type": "text",
-    "subjectId": "norsk",
-    "link": "/norsk/bibliotek?text=mennesker-pa-kafe"
-  },
-  {
-    "id": "det-usynlige-barnet",
-    "title": "Det usynlige barnet",
-    "description": "Utgitt av Tove Jansson",
-    "startDate": 1962,
-    "endDate": null,
-    "displayDate": "1962",
-    "type": "text",
-    "subjectId": "norsk",
-    "link": "/norsk/bibliotek?text=det-usynlige-barnet"
-  },
-  {
-    "id": "alt-blir-som-for",
-    "title": "Alt blir som før",
-    "description": "Utgitt av Ari Behn",
-    "startDate": 1948,
-    "endDate": null,
-    "displayDate": "1948",
-    "type": "text",
-    "subjectId": "norsk",
-    "link": "/norsk/bibliotek?text=alt-blir-som-for"
-  },
-  {
-    "id": "ww2-sub-4",
-    "title": "Invasjonen av Polen",
-    "description": "Starten på andre verdenskrig (1. september).",
-    "startDate": 1939,
-    "endDate": null,
-    "displayDate": "1939",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "andre-verdenskrig",
-    "link": "/historie/andre-verdenskrig/bakgrunn",
-    "tags": [
-      "historie",
-      "krig",
-      "polen"
-    ]
-  },
-  {
-    "id": "ww2-sub-3",
-    "title": "Münchenavtalen",
-    "description": "Chamberlain erklærer 'Peace for our time'.",
-    "startDate": 1938,
-    "endDate": null,
-    "displayDate": "1938",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "andre-verdenskrig",
-    "link": "/historie/andre-verdenskrig/bakgrunn",
-    "tags": [
-      "historie",
-      "politikk",
-      "europa"
-    ]
-  },
-  {
-    "id": "ww2-sub-2",
-    "title": "Hitler blir rikskansler",
-    "description": "Nazistene tar makten i Tyskland.",
-    "startDate": 1933,
-    "endDate": null,
-    "displayDate": "1933",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "andre-verdenskrig",
-    "link": "/historie/andre-verdenskrig/bakgrunn",
-    "tags": [
-      "historie",
-      "politikk",
-      "tyskland"
-    ]
-  },
-  {
-    "id": "ww2-sub-1",
-    "title": "Børskrakket",
-    "description": "Starten på den store depresjonen.",
-    "startDate": 1929,
-    "endDate": null,
-    "displayDate": "1929",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "andre-verdenskrig",
-    "link": "/historie/andre-verdenskrig/bakgrunn",
-    "tags": [
-      "historie",
-      "økonomi",
-      "verden"
-    ]
-  },
-  {
-    "id": "ww2-sub-0",
-    "title": "Versailles-traktaten",
-    "description": "Fredsavtalen som la skylden på Tyskland.",
-    "startDate": 1919,
-    "endDate": null,
-    "displayDate": "1919",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "andre-verdenskrig",
-    "link": "/historie/andre-verdenskrig/bakgrunn",
-    "tags": [
-      "historie",
-      "krig",
-      "europa"
-    ]
-  },
-  {
-    "id": "bakgrunn",
-    "title": "Andre verdenskrig: Bakgrunn",
-    "description": "Bakgrunnen for krigen.",
-    "startDate": 1918,
-    "endDate": 1939,
-    "displayDate": "1918–1939",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "andre-verdenskrig",
-    "link": "/historie/andre-verdenskrig/bakgrunn",
-    "tags": [
-      "krig",
-      "historie",
-      "konflikt"
-    ]
-  },
-  {
-    "id": "dypfryst",
-    "title": "Dypfryst",
-    "description": "Utgitt av Roald Dahl",
-    "startDate": 1885,
-    "endDate": null,
-    "displayDate": "1885",
-    "type": "text",
-    "subjectId": "norsk",
-    "link": "/norsk/bibliotek?text=dypfryst"
-  },
-  {
-    "id": "karen",
-    "title": "Karen",
-    "description": "Utgitt av Alexander Kielland",
-    "startDate": 1882,
-    "endDate": null,
-    "displayDate": "1882",
-    "type": "text",
-    "subjectId": "norsk",
-    "link": "/norsk/bibliotek?text=karen"
-  },
-  {
-    "id": "en-middag",
-    "title": "En middag",
-    "description": "Utgitt av Alexander Kielland",
-    "startDate": 1879,
-    "endDate": null,
-    "displayDate": "1879",
-    "type": "text",
-    "subjectId": "norsk",
-    "link": "/norsk/bibliotek?text=en-middag"
-  },
-  {
-    "id": "eic-sub-4",
-    "title": "EIC oppløses",
-    "description": "Kompaniet blir formelt oppløst.",
-    "startDate": 1874,
-    "endDate": null,
-    "displayDate": "1874",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/eic",
-    "tags": [
-      "handel",
-      "imperialisme",
-      "india",
-      "storbritannia"
-    ]
-  },
-  {
-    "id": "trekanthandelen-sub-4",
-    "title": "Slaveriet oppheves i USA",
-    "description": "13. grunnlovstillegg etter borgerkrigen.",
-    "startDate": 1865,
-    "endDate": null,
-    "displayDate": "1865",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/trekanthandelen",
-    "tags": [
-      "historie",
-      "slaveri",
-      "usa"
-    ]
-  },
-  {
-    "id": "faderen",
-    "title": "Faderen",
-    "description": "Utgitt av Bjørnstjerne Bjørnson",
-    "startDate": 1860,
-    "endDate": null,
-    "displayDate": "1860",
-    "type": "text",
-    "subjectId": "norsk",
-    "link": "/norsk/bibliotek?text=faderen"
-  },
-  {
-    "id": "eic-sub-3",
-    "title": "The British Raj",
-    "description": "Den britiske staten tar over styringen av India.",
-    "startDate": 1858,
-    "endDate": null,
-    "displayDate": "1858",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/eic",
-    "tags": [
-      "handel",
-      "imperialisme",
-      "india",
-      "storbritannia"
-    ]
-  },
-  {
-    "id": "eic-sub-2",
-    "title": "Sepoy-opprøret",
-    "description": "Stort opprør blant indiske soldater mot kompaniets styre.",
-    "startDate": 1857,
-    "endDate": null,
-    "displayDate": "1857",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/eic",
-    "tags": [
-      "handel",
-      "imperialisme",
-      "india",
-      "storbritannia"
-    ]
-  },
-  {
-    "id": "piken-med-svovelstikkene",
-    "title": "Piken med svovelstikkene",
-    "description": "Utgitt av H.C. Andersen",
-    "startDate": 1845,
-    "endDate": null,
-    "displayDate": "1845",
-    "type": "text",
-    "subjectId": "norsk",
-    "link": "/norsk/bibliotek?text=piken-med-svovelstikkene"
-  },
-  {
-    "id": "industriell-start-norge",
-    "title": "Industriell start i Norge",
-    "description": "Den industrielle revolusjon skyter fart i Norge.",
-    "startDate": 1840,
-    "endDate": null,
-    "displayDate": "1840",
-    "type": "event",
-    "subjectId": "historie",
-    "tags": [
-      "historie",
-      "norge",
-      "industri"
-    ]
-  },
-  {
-    "id": "trekanthandelen-sub-3",
-    "title": "Slaveriet oppheves i britiske kolonier",
-    "description": "Slavery Abolition Act vedtas i Storbritannia.",
-    "startDate": 1833,
-    "endDate": null,
-    "displayDate": "1833",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/trekanthandelen",
-    "tags": [
-      "historie",
-      "slaveri",
-      "politikk"
-    ]
-  },
-  {
-    "id": "trekanthandelen-sub-2",
-    "title": "Forbud mot slavehandel",
-    "description": "Storbritannia og USA forbyr transatlantisk slavehandel.",
-    "startDate": 1807,
-    "endDate": null,
-    "displayDate": "1807",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/trekanthandelen",
-    "tags": [
-      "historie",
-      "slaveri",
-      "politikk"
-    ]
-  },
-  {
-    "id": "voc-sub-4",
-    "title": "VOC oppløses",
-    "description": "Selskapet går konkurs og staten tar over.",
-    "startDate": 1799,
-    "endDate": null,
-    "displayDate": "1799",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/voc",
-    "tags": [
-      "handel",
-      "kolonialisme",
-      "nederland",
-      "økonomi"
-    ]
-  },
-  {
-    "id": "eic-sub-1",
-    "title": "Slaget ved Plassey",
-    "description": "Robert Clive beseirer herskeren av Bengal, starten på britisk styre.",
-    "startDate": 1757,
-    "endDate": null,
-    "displayDate": "1757",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/eic",
-    "tags": [
-      "handel",
-      "imperialisme",
-      "india",
-      "storbritannia"
-    ]
-  },
-  {
-    "id": "voc-sub-3",
-    "title": "Kappstaden grunnlegges",
-    "description": "Koloni på sørspissen av Afrika etableres.",
-    "startDate": 1652,
-    "endDate": null,
-    "displayDate": "1652",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/voc",
-    "tags": [
-      "handel",
-      "kolonialisme",
-      "nederland",
-      "økonomi"
-    ]
-  },
-  {
-    "id": "30-aarskrigen-sub-3",
-    "title": "Freden i Westfalen",
-    "description": "Krigen avsluttes. Prinsippet om statsuavhengighet etableres.",
-    "startDate": 1648,
-    "endDate": null,
-    "displayDate": "1648",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "reformasjonen",
-    "link": "/historie/reformasjonen/30-aarskrigen",
-    "tags": [
-      "historie",
-      "krig",
-      "europa",
-      "reformasjonen"
-    ]
-  },
-  {
-    "id": "voc-sub-2",
-    "title": "Erobringen av Malakka",
-    "description": "VOC driver portugiserne ut av viktig handelsby.",
-    "startDate": 1641,
-    "endDate": null,
-    "displayDate": "1641",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/voc",
-    "tags": [
-      "handel",
-      "kolonialisme",
-      "nederland",
-      "økonomi"
-    ]
-  },
-  {
-    "id": "30-aarskrigen-sub-2",
-    "title": "Slaget ved Lützen",
-    "description": "Svenskekongen Gustav II Adolf faller i kamp, men protestantene vinner slaget.",
-    "startDate": 1632,
-    "endDate": null,
-    "displayDate": "1632",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "reformasjonen",
-    "link": "/historie/reformasjonen/30-aarskrigen",
-    "tags": [
-      "historie",
-      "krig",
-      "europa",
-      "reformasjonen"
-    ]
-  },
-  {
-    "id": "30-aarskrigen-sub-1",
-    "title": "Magdeburgs fall",
-    "description": "En av krigens verste grusomheter. Byen plyndres og brennes; 20 000 mennesker massakreres.",
-    "startDate": 1631,
-    "endDate": null,
-    "displayDate": "1631",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "reformasjonen",
-    "link": "/historie/reformasjonen/30-aarskrigen",
-    "tags": [
-      "historie",
-      "krig",
-      "europa",
-      "reformasjonen"
-    ]
-  },
-  {
-    "id": "voc-sub-1",
-    "title": "Batavia grunnlegges",
-    "description": "Hovedkvarteret etableres på Java (dagens Jakarta).",
-    "startDate": 1619,
-    "endDate": null,
-    "displayDate": "1619",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/voc",
-    "tags": [
-      "handel",
-      "kolonialisme",
-      "nederland",
-      "økonomi"
-    ]
-  },
-  {
-    "id": "30-aarskrigen",
-    "title": "30-årskrigen",
-    "description": "Den store katastrofen som formet det moderne Europa.",
-    "startDate": 1618,
-    "endDate": 1648,
-    "displayDate": "1618-1648",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "reformasjonen",
-    "link": "/historie/reformasjonen/30-aarskrigen",
-    "tags": [
-      "historie",
-      "krig",
-      "europa",
-      "reformasjonen"
-    ]
-  },
-  {
-    "id": "30-aarskrigen-sub-0",
-    "title": "Defenestrasjonen i Praha",
-    "description": "Protestantiske adelsmenn kaster keiserens utsendinger ut av et vindu i Praha. Startskuddet for krigen.",
-    "startDate": 1618,
-    "endDate": null,
-    "displayDate": "1618",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "reformasjonen",
-    "link": "/historie/reformasjonen/30-aarskrigen",
-    "tags": [
-      "historie",
-      "krig",
-      "europa",
-      "reformasjonen"
-    ]
-  },
-  {
-    "id": "voc",
-    "title": "Det nederlandske ostindiske kompani (VOC)",
-    "description": "Verdens første aksjeselskap og et globalt handelsimperium.",
-    "startDate": 1602,
-    "endDate": null,
-    "displayDate": "1602",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/voc",
-    "tags": [
-      "handel",
-      "kolonialisme",
-      "nederland",
-      "økonomi"
-    ]
-  },
-  {
-    "id": "voc-sub-0",
-    "title": "VOC grunnlegges",
-    "description": "Det nederlandske ostindiske kompani stiftes.",
-    "startDate": 1602,
-    "endDate": null,
-    "displayDate": "1602",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/voc",
-    "tags": [
-      "handel",
-      "kolonialisme",
-      "nederland",
-      "økonomi"
-    ]
-  },
-  {
-    "id": "eic",
-    "title": "Det britiske ostindiske kompani (EIC)",
-    "description": "Handelskompaniet som la grunnlaget for det britiske imperiet i India.",
-    "startDate": 1600,
-    "endDate": 1874,
-    "displayDate": "1600-1874",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/eic",
-    "tags": [
-      "handel",
-      "imperialisme",
-      "india",
-      "storbritannia"
-    ]
-  },
-  {
-    "id": "eic-sub-0",
-    "title": "EIC grunnlegges",
-    "description": "Dronning Elizabeth I gir selskapet kongelig privilegium.",
-    "startDate": 1600,
-    "endDate": null,
-    "displayDate": "1600",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/eic",
-    "tags": [
-      "handel",
-      "imperialisme",
-      "india",
-      "storbritannia"
-    ]
-  },
-  {
-    "id": "trekanthandelen-sub-1",
-    "title": "Sukkerrevolusjonen",
-    "description": "Etterspørselen etter sukker driver slavehandelen kraftig opp.",
-    "startDate": 1600,
-    "endDate": null,
-    "displayDate": "1600",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/trekanthandelen",
-    "tags": [
-      "historie",
-      "slaveri",
-      "økonomi"
-    ]
-  },
-  {
-    "id": "boktrykkerkunsten-sub-3",
-    "title": "Reformasjonen",
-    "description": "Martin Luthers teser spres raskt over hele Europa takket være trykkpressen.",
-    "startDate": 1517,
-    "endDate": null,
-    "displayDate": "1517",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "boktrykkerkunsten",
-    "link": "/historie/boktrykkerkunsten/boktrykkerkunsten",
-    "tags": [
-      "oppfinnelser",
-      "teknologi",
-      "renessansen",
-      "bøker"
-    ]
-  },
-  {
-    "id": "trekanthandelen-sub-0",
-    "title": "Første slaver til Amerika",
-    "description": "De første afrikanske slavene ankommer Hispaniola.",
-    "startDate": 1502,
-    "endDate": null,
-    "displayDate": "1502",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "kolonialisering",
-    "link": "/historie/kolonialisering/trekanthandelen",
-    "tags": [
-      "historie",
-      "slaveri",
-      "amerika"
-    ]
-  },
-  {
-    "id": "boktrykkerkunsten-sub-2",
-    "title": "Masseproduksjon av bøker",
-    "description": "Over 20 millioner bøker er trykket i Europa.",
-    "startDate": 1500,
-    "endDate": null,
-    "displayDate": "1500",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "boktrykkerkunsten",
-    "link": "/historie/boktrykkerkunsten/boktrykkerkunsten",
-    "tags": [
-      "oppfinnelser",
-      "teknologi",
-      "renessansen",
-      "bøker"
-    ]
-  },
-  {
-    "id": "reconquista",
-    "title": "Reconquista fullføres",
-    "description": "Spania tar tilbake hele Iberia og Columbus reiser til Amerika.",
-    "startDate": 1492,
-    "endDate": null,
-    "displayDate": "1492",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "https://snl.no/Reconquista",
-    "tags": [
-      "historie",
-      "verden",
-      "krig"
-    ]
-  },
-  {
-    "id": "konstantinopels-fall",
-    "title": "Konstantinopels fall",
-    "description": "Det osmanske riket erobrer Konstantinopel, noe som forstyrrer handelsrutene.",
-    "startDate": 1453,
-    "endDate": null,
-    "displayDate": "1453",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "https://snl.no/Konstantinopels_fall",
-    "tags": [
-      "historie",
-      "verden",
-      "krig"
-    ]
-  },
-  {
-    "id": "boktrykkerkunsten",
-    "title": "Boktrykkerkunsten",
-    "description": "En informasjonsrevolusjon startet av Gutenberg (og kineserne).",
-    "startDate": 1440,
-    "endDate": null,
-    "displayDate": "1440",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "boktrykkerkunsten",
-    "link": "/historie/boktrykkerkunsten/boktrykkerkunsten",
-    "tags": [
-      "oppfinnelser",
-      "teknologi",
-      "renessansen",
-      "bøker"
-    ]
-  },
-  {
-    "id": "boktrykkerkunsten-sub-1",
-    "title": "Gutenbergs gjennombrudd",
-    "description": "Johannes Gutenberg introduserer moderne boktrykkerkunst med løse typer i metall i Mainz.",
-    "startDate": 1440,
-    "endDate": null,
-    "displayDate": "1440",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "boktrykkerkunsten",
-    "link": "/historie/boktrykkerkunsten/boktrykkerkunsten",
-    "tags": [
-      "oppfinnelser",
-      "teknologi",
-      "renessansen",
-      "bøker"
-    ]
-  },
-  {
-    "id": "svartedauden-norge",
-    "title": "Svartedauden i Norge",
-    "description": "Pesten kommer til Bergen med et skip.",
-    "startDate": 1349,
-    "endDate": 1350,
-    "displayDate": "1349–1350",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "https://snl.no/svartedauden_i_Norge",
-    "tags": [
-      "historie",
-      "norge",
-      "pest"
-    ]
-  },
-  {
-    "id": "svartedauden-europa",
-    "title": "Svartedauden i Europa",
-    "description": "Pesten kommer til Europa via Italia.",
-    "startDate": 1346,
-    "endDate": 1353,
-    "displayDate": "1346–1353",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "https://snl.no/svartedauden",
-    "tags": [
-      "historie",
-      "verden",
-      "pest"
-    ]
-  },
-  {
-    "id": "marco-polo",
-    "title": "Marco Polos reiser",
-    "description": "Marco Polo reiser til Kina og øker interessen for Asia.",
-    "startDate": 1271,
-    "endDate": 1295,
-    "displayDate": "1271–1295",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "https://snl.no/Marco_Polo",
-    "tags": [
-      "historie",
-      "verden",
-      "handel"
-    ]
-  },
-  {
-    "id": "stamford-bridge",
-    "title": "Slaget ved Stamford Bridge",
-    "description": "Vikingtiden tar slutt med Harald Hardrådes fall.",
-    "startDate": 1066,
-    "endDate": null,
-    "displayDate": "1066",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "/historie/vikingtiden/artikkel",
-    "tags": [
-      "historie",
-      "norge",
-      "krig",
-      "vikingtiden"
-    ]
-  },
-  {
-    "id": "stiklestad",
-    "heroImage": "/images/lessons/vikingtiden/kristningen.png",
-    "title": "Slaget på Stiklestad",
-    "description": "Olav den Hellige faller, kristendommen vinner.",
-    "startDate": 1030,
-    "endDate": null,
-    "displayDate": "1030",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "/historie/vikingtiden/kristningen-av-norge",
-    "tags": [
-      "historie",
-      "norge",
-      "kristendom",
-      "vikingtiden"
-    ]
-  },
-  {
-    "id": "normandie-grunnlegges",
-    "heroImage": "/images/lessons/vikingtiden/normandie.png",
-    "title": "Normandie grunnlegges",
-    "description": "Vikinghøvdingen Rollo får Normandie av frankerkongen.",
-    "startDate": 911,
-    "endDate": null,
-    "displayDate": "911",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "/historie/vikingtiden/normandie",
-    "tags": [
-      "historie",
-      "frankrike",
-      "vikingtiden"
-    ]
-  },
-  {
-    "id": "rikssamlingen",
-    "heroImage": "/images/lessons/vikingtiden/rikssamlingen.png",
-    "title": "Rikssamlingen",
-    "description": "Harald Hårfagre samler Norge til ett rike (ca.)",
-    "startDate": 872,
-    "endDate": null,
-    "displayDate": "872",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "/historie/vikingtiden/rikssamlingen",
-    "tags": [
-      "historie",
-      "norge",
-      "vikingtiden"
-    ]
-  },
-  {
-    "id": "danelagen-opprettes",
-    "heroImage": "/images/lessons/vikingtiden/danelagen.png",
-    "title": "Danelagen opprettes",
-    "description": "Vikingene erobrer nord-England.",
-    "startDate": 865,
-    "endDate": 954,
-    "displayDate": "865-954",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "/historie/vikingtiden/danelagen",
-    "tags": [
-      "historie",
-      "england",
-      "vikingtiden"
-    ]
-  },
-  {
-    "id": "karl-den-store-keiser",
-    "heroImage": "/images/lessons/vikingtiden/karl_den_store.png",
-    "title": "Karl den Store blir keiser",
-    "description": "Frankerrikets makttopp. En trussel mot Norden.",
-    "startDate": 800,
-    "endDate": 814,
-    "displayDate": "800-814",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "/historie/vikingtiden/karl-den-store",
-    "tags": [
-      "historie",
-      "europa",
-      "middelalder"
-    ]
-  },
-  {
-    "id": "lindisfarne",
-    "title": "Angrepet på Lindisfarne",
-    "description": "Starten på vikingtiden.",
-    "startDate": 793,
-    "endDate": null,
-    "displayDate": "793",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "/historie/vikingtiden/hypotesen-norden-vs-frankrike",
-    "tags": [
-      "historie",
-      "norge",
-      "krig",
-      "vikingtiden"
-    ]
-  },
-  {
-    "id": "boktrykkerkunsten-sub-0",
-    "title": "Tidlige eksperimenter",
-    "description": "Kineseren Bi Sheng eksperimenterer med løse typer i keramikk.",
-    "startDate": 1040,
-    "endDate": null,
-    "displayDate": "1040",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "boktrykkerkunsten",
-    "link": "/historie/boktrykkerkunsten/boktrykkerkunsten",
-    "tags": [
-      "oppfinnelser",
-      "teknologi",
-      "renessansen",
-      "bøker"
-    ]
-  },
-  {
-    "id": "rikssamlingen-sub-3",
-    "title": "Harald Hårfagre dør",
-    "description": "Rikssamleren dør, og maktkampen fortsetter.",
-    "startDate": 933,
-    "endDate": null,
-    "displayDate": "933",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "vikingtiden",
-    "link": "/historie/vikingtiden/rikssamlingen",
-    "tags": [
-      "rikssamlingen",
-      "norge",
-      "konger",
-      "middelalder"
-    ]
-  },
-  {
-    "id": "rikssamlingen-sub-2",
-    "title": "Eirik Blodøks",
-    "description": "Haralds sønn tar over makten (ca. årstall).",
-    "startDate": 930,
-    "endDate": null,
-    "displayDate": "930",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "vikingtiden",
-    "link": "/historie/vikingtiden/rikssamlingen",
-    "tags": [
-      "rikssamlingen",
-      "norge",
-      "konger",
-      "middelalder"
-    ]
-  },
-  {
-    "id": "rikssamlingen-sub-1",
-    "title": "Slaget i Hafrsfjord",
-    "description": "Harald Hårfagre vinner og samler Norge til ett rike.",
-    "startDate": 872,
-    "endDate": null,
-    "displayDate": "872",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "vikingtiden",
-    "link": "/historie/vikingtiden/rikssamlingen",
-    "tags": [
-      "rikssamlingen",
-      "norge",
-      "konger",
-      "middelalder"
-    ]
-  },
-  {
-    "id": "rikssamlingen-sub-0",
-    "title": "Harald Hårfagre blir konge",
-    "description": "Tar over styringen etter Halvdan Svarte (ca. årstall).",
-    "startDate": 865,
-    "endDate": null,
-    "displayDate": "865",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "vikingtiden",
-    "link": "/historie/vikingtiden/rikssamlingen",
-    "tags": [
-      "rikssamlingen",
-      "norge",
-      "konger",
-      "middelalder"
-    ]
-  },
-  {
-    "id": "lindisfarne",
-    "title": "Lindisfarne",
-    "description": "Vikingangrep på klosteret Lindisfarne. Starten på vikingtiden.",
-    "startDate": 793,
-    "endDate": null,
-    "displayDate": "793",
-    "type": "event",
-    "subjectId": "historie",
-    "link": "https://snl.no/Lindisfarne",
-    "tags": [
-      "historie",
-      "verden",
-      "vikingtiden"
-    ]
-  },
-  {
-    "id": "jernredskaper-norge",
-    "title": "Jernredskaper i Norge",
-    "description": "Jern blir vanligere, befolkningen øker.",
-    "startDate": 700,
-    "endDate": null,
-    "displayDate": "700",
-    "type": "event",
-    "subjectId": "historie",
-    "tags": [
-      "historie",
-      "norge",
-      "teknologi"
-    ]
-  },
-  {
-    "id": "samfunnskollaps-550",
-    "title": "Samfunnskollaps",
-    "description": "Slutten på gullalderen og bruk av bygdeborger i Norge.",
-    "startDate": 550,
-    "endDate": null,
-    "displayDate": "550",
-    "type": "event",
-    "subjectId": "historie",
-    "tags": [
-      "historie",
-      "norge",
-      "forhistorie"
-    ]
-  },
-  {
-    "id": "klimakrisen-536",
-    "title": "536 - Året da solen forsvant",
-    "description": "Klimakrisen som kan være virkelighetens Fimbulvinter.",
-    "startDate": 536,
-    "endDate": null,
-    "displayDate": "536",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "norgeshistorie",
-    "link": "/historie/norgeshistorie/klimakrisen-536",
-    "tags": [
-      "historie",
-      "norge",
-      "klima",
-      "folkevandring",
-      "fimbulvinter"
-    ]
-  },
-  {
-    "id": "romerriket-sub-3",
-    "title": "Vestromerrikets fall",
-    "description": "Den siste vestromerske keiseren avsettes.",
-    "startDate": 476,
-    "endDate": null,
-    "displayDate": "476",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "romerriket",
-    "link": "/historie/romerriket/romerriket",
-    "tags": [
-      "antikken",
-      "roma",
-      "imperium",
-      "europa"
-    ]
-  },
-  {
-    "id": "romerriket-sub-2",
-    "title": "Romerriket deles i to",
-    "description": "Romerriket deles i Vest- og Østromerriket.",
-    "startDate": 395,
-    "endDate": null,
-    "displayDate": "395",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "romerriket",
-    "link": "/historie/romerriket/romerriket",
-    "tags": [
-      "antikken",
-      "roma",
-      "imperium",
-      "europa"
-    ]
-  },
-  {
-    "id": "romerriket-sub-1",
-    "title": "Kristendommen tillates i Romerriket",
-    "description": "Konstantin den store tillater kristendom.",
-    "startDate": 313,
-    "endDate": null,
-    "displayDate": "313",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "romerriket",
-    "link": "/historie/romerriket/romerriket",
-    "tags": [
-      "antikken",
-      "roma",
-      "imperium",
-      "europa"
-    ]
-  },
-  {
-    "id": "artikkel-sub-6",
-    "title": "Perserrikets fall",
-    "description": "Aleksander den store erobrer Persepolis og gjør slutt på Achaemenide-riket.",
-    "startDate": -330,
-    "endDate": null,
-    "displayDate": "330 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "perserriket",
-    "link": "/historie/perserriket/artikkel",
-    "tags": [
-      "antikken",
-      "midtøsten",
-      "imperier",
-      "krig"
-    ]
-  },
-  {
-    "id": "perserriket-sub-6",
-    "title": "Rikets fall (Perserriket)",
-    "description": "Aleksander den store erobrer Persepolis og gjør slutt på Achaemenide-riket.",
-    "startDate": -330,
-    "endDate": null,
-    "displayDate": "330 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "perserriket",
-    "link": "/historie/perserriket/artikkel",
-    "tags": [
-      "historie",
-      "perserriket",
-      "krig"
-    ]
-  },
-  {
-    "id": "perserriket-sub-5",
-    "title": "Xerxes' invasjon",
-    "description": "Xerxes I invaderer Hellas med en enorm hær, men taper sjøslaget ved Salamis.",
-    "startDate": -480,
-    "endDate": null,
-    "displayDate": "480 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "perserriket",
-    "link": "/historie/perserriket/artikkel",
-    "tags": [
-      "historie",
-      "perserriket",
-      "krig"
-    ]
-  },
-  {
-    "id": "perserriket-sub-4",
-    "title": "Slaget ved Marathon",
-    "description": "Perserne forsøker å invadere Hellas, men blir slått tilbake av athenerne.",
-    "startDate": -490,
-    "endDate": null,
-    "displayDate": "490 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "perserriket",
-    "link": "/historie/perserriket/artikkel",
-    "tags": [
-      "historie",
-      "perserriket",
-      "krig"
-    ]
-  },
-  {
-    "id": "romerriket",
-    "title": "Romerriket",
-    "description": "Et av historiens første store imperier som spredte kristendom og veier.",
-    "startDate": -500,
-    "endDate": 476,
-    "displayDate": "-500-476",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "romerriket",
-    "link": "/historie/romerriket/romerriket",
-    "tags": [
-      "antikken",
-      "roma",
-      "imperium",
-      "europa"
-    ]
-  },
-  {
-    "id": "romerriket-sub-0",
-    "title": "Romerriket grunnlegges",
-    "description": "Den romerske republikken oppstår (ca. årstall).",
-    "startDate": -500,
-    "endDate": null,
-    "displayDate": "-500",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "romerriket",
-    "link": "/historie/romerriket/romerriket",
-    "tags": [
-      "antikken",
-      "roma",
-      "imperium",
-      "europa"
-    ]
-  },
-  {
-    "id": "jernalderen-norge",
-    "title": "Jernalderen i Norge",
-    "description": "Jernutvinning fra myrmalm starter.",
-    "startDate": -500,
-    "endDate": null,
-    "displayDate": "500 fvt.",
-    "type": "event",
-    "subjectId": "historie",
-    "tags": [
-      "historie",
-      "norge",
-      "forhistorie"
-    ]
-  },
-  {
-    "id": "perserriket-sub-3",
-    "title": "Dareios den store",
-    "description": "Dareios I tar makten, organiserer riket i satrapier og bygger Persepolis.",
-    "startDate": -522,
-    "endDate": null,
-    "displayDate": "522 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "perserriket",
-    "link": "/historie/perserriket/artikkel",
-    "tags": [
-      "historie",
-      "perserriket",
-      "politikk"
-    ]
-  },
-  {
-    "id": "perserriket-sub-2",
-    "title": "Perserne erobrer Egypt",
-    "description": "Kambyses II, Kyros' sønn, legger Egypt under persisk styre.",
-    "startDate": -525,
-    "endDate": null,
-    "displayDate": "525 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "perserriket",
-    "link": "/historie/perserriket/artikkel",
-    "tags": [
-      "historie",
-      "perserriket",
-      "egypt"
-    ]
-  },
-  {
-    "id": "perserriket-sub-1",
-    "title": "Erobringen av Babylon",
-    "description": "Kyros erobrer Babylon og lar jødene vende hjem fra eksil.",
-    "startDate": -539,
-    "endDate": null,
-    "displayDate": "539 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "perserriket",
-    "link": "/historie/perserriket/artikkel",
-    "tags": [
-      "historie",
-      "perserriket",
-      "krig"
-    ]
-  },
-  {
-    "id": "artikkel",
-    "title": "Perserriket",
-    "description": "Det første verdensriket.",
-    "startDate": -550,
-    "endDate": -330,
-    "displayDate": "550 fvt - 330 fvt",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "perserriket",
-    "link": "/historie/perserriket/artikkel",
-    "tags": [
-      "antikken",
-      "midtøsten",
-      "imperier",
-      "krig",
-      "vikingtiden",
-      "norge",
-      "handel",
-      "pest",
-      "middelalder",
-      "sykdom"
-    ]
-  },
-  {
-    "id": "artikkel-sub-0",
-    "title": "Perserriket grunnlegges",
-    "description": "Kyros den store forener perserne og mederne og grunnlegger Achaemenide-riket.",
-    "startDate": -550,
-    "endDate": null,
-    "displayDate": "550 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "perserriket",
-    "link": "/historie/perserriket/artikkel",
-    "tags": [
-      "antikken",
-      "midtøsten",
-      "imperier",
-      "krig",
-      "vikingtiden",
-      "norge",
-      "handel",
-      "pest",
-      "middelalder",
-      "sykdom"
-    ]
-  },
-  {
-    "id": "perserriket-sub-0",
-    "title": "Perserriket grunnlegges",
-    "description": "Kyros den store forener perserne og mederne og grunnlegger Achaemenide-riket.",
-    "startDate": -550,
-    "endDate": null,
-    "displayDate": "550 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "perserriket",
-    "link": "/historie/perserriket/artikkel",
-    "tags": [
-      "historie",
-      "perserriket",
-      "antikken"
-    ]
-  },
-  {
-    "id": "bronsealderen-norge",
-    "title": "Bronsealderen i Norge",
-    "description": "Starten på bronsealderen og høvdingdømmer.",
-    "startDate": -1700,
-    "endDate": -500,
-    "displayDate": "1700 fvt.",
-    "type": "event",
-    "subjectId": "historie",
-    "tags": [
-      "historie",
-      "norge",
-      "forhistorie"
-    ]
-  },
-  {
-    "id": "jordbruk-og-sivilisasjoner-sub-3",
-    "title": "Stridsøksfolket",
-    "description": "Nye folkegrupper kommer til Norge.",
-    "startDate": -2500,
-    "endDate": null,
-    "displayDate": "2500 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "jordbruk-og-sivilisasjoner",
-    "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
-    "tags": [
-      "jordbruk",
-      "steinalder",
-      "sivilisasjon",
-      "teknologi"
-    ]
-  },
-  {
-    "id": "jordbruk-og-sivilisasjoner-sub-1",
-    "title": "Elvedalssivilisasjoner",
-    "description": "De første store sivilisasjonene oppstår i Mesopotamia og Egypt.",
-    "startDate": -4000,
-    "endDate": null,
-    "displayDate": "4000 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "jordbruk-og-sivilisasjoner",
-    "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
-    "tags": [
-      "jordbruk",
-      "steinalder",
-      "sivilisasjon",
-      "teknologi"
-    ]
-  },
-  {
-    "id": "jordbruk-og-sivilisasjoner-sub-2",
-    "title": "Jordbruk i Norge",
-    "description": "De første bøndene etablerer seg på Østlandet.",
-    "startDate": -4000,
-    "endDate": null,
-    "displayDate": "4000 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "jordbruk-og-sivilisasjoner",
-    "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
-    "tags": [
-      "jordbruk",
-      "steinalder",
-      "sivilisasjon",
-      "teknologi"
-    ]
-  },
-  {
-    "id": "menneskets-tidlige-historie-sub-4",
-    "title": "De første nordmenn",
-    "description": "Isen trekker seg tilbake, og folk bosetter seg i Finnmark.",
-    "startDate": -9300,
-    "endDate": null,
-    "displayDate": "9300 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "menneskets-tidlige-historie",
-    "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
-    "tags": [
-      "forhistorie",
-      "mennesket",
-      "evolusjon",
-      "afrika"
-    ]
-  },
-  {
-    "id": "jordbruk-og-sivilisasjoner-sub-0",
-    "title": "Jordbruket oppstår",
-    "description": "Mennesker i 'Den fruktbare halvmåne' begynner å dyrke jorden.",
-    "startDate": -10000,
-    "endDate": null,
-    "displayDate": "10000 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "jordbruk-og-sivilisasjoner",
-    "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
-    "tags": [
-      "jordbruk",
-      "steinalder",
-      "sivilisasjon",
-      "teknologi"
-    ]
-  },
-  {
-    "id": "jordbruk-og-sivilisasjoner",
-    "title": "Jordbruk og Sivilisasjoner",
-    "description": "Mennesket slår seg til ro: Fra nomade til fastboende med husdyr.",
-    "startDate": -12000,
-    "endDate": -4000,
-    "displayDate": "12000 fvt - 4000 fvt",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "jordbruk-og-sivilisasjoner",
-    "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
-    "tags": [
-      "jordbruk",
-      "steinalder",
-      "sivilisasjon",
-      "teknologi"
-    ]
-  },
-  {
-    "id": "menneskets-tidlige-historie-sub-3",
-    "title": "Ankomst til Amerika",
-    "description": "Mennesker krysser Beringstredet og bosetter seg i Amerika (ca. 15 000 år siden).",
-    "startDate": -13000,
-    "endDate": null,
-    "displayDate": "13000 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "menneskets-tidlige-historie",
-    "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
-    "tags": [
-      "forhistorie",
-      "mennesket",
-      "evolusjon",
-      "afrika"
-    ]
-  },
-  {
-    "id": "menneskets-tidlige-historie-sub-2",
-    "title": "Ankomst til Europa",
-    "description": "Homo sapiens når Europa og møter neanderthalerne.",
-    "startDate": -40000,
-    "endDate": null,
-    "displayDate": "40000 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "menneskets-tidlige-historie",
-    "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
-    "tags": [
-      "forhistorie",
-      "mennesket",
-      "evolusjon",
-      "afrika"
-    ]
-  },
-  {
-    "id": "menneskets-tidlige-historie-sub-1",
-    "title": "Utvandringen fra Afrika",
-    "description": "Mennesker begynner å spre seg til Asia og resten av verden.",
-    "startDate": -70000,
-    "endDate": null,
-    "displayDate": "70000 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "menneskets-tidlige-historie",
-    "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
-    "tags": [
-      "forhistorie",
-      "mennesket",
-      "evolusjon",
-      "afrika"
-    ]
-  },
-  {
-    "id": "menneskets-tidlige-historie",
-    "title": "Menneskets tidlige historie",
-    "description": "Fra nomader i Afrika til spredning over hele kloden.",
-    "startDate": -200000,
-    "endDate": -9300,
-    "displayDate": "200000 fvt - 9300 fvt",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "menneskets-tidlige-historie",
-    "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
-    "tags": [
-      "forhistorie",
-      "mennesket",
-      "evolusjon",
-      "afrika"
-    ]
-  },
-  {
-    "id": "menneskets-tidlige-historie-sub-0",
-    "title": "Homo sapiens oppstår",
-    "description": "Det moderne mennesket utvikler seg i Afrika.",
-    "startDate": -200000,
-    "endDate": null,
-    "displayDate": "200000 fvt",
-    "type": "sub-event",
-    "subjectId": "historie",
-    "topicId": "menneskets-tidlige-historie",
-    "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
-    "tags": [
-      "forhistorie",
-      "mennesket",
-      "evolusjon",
-      "afrika"
-    ]
-  }
+    {
+        "id": "demo-artikkel",
+        "title": "Demo Artikkel",
+        "description": "En demonstrasjon av standardisert artikkellayout.",
+        "startDate": 2024,
+        "endDate": null,
+        "displayDate": "2024",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "demo-artikkel",
+        "link": "/historie/demo-artikkel/demo-artikkel",
+        "tags": [
+            "demo",
+            "layout"
+        ]
+    },
+    {
+        "id": "doden",
+        "title": "Døden",
+        "description": "Utgitt av Ragnar Hovland",
+        "startDate": 2011,
+        "endDate": null,
+        "displayDate": "2011",
+        "type": "text",
+        "subjectId": "norsk",
+        "link": "/norsk/bibliotek?text=doden"
+    },
+    {
+        "id": "twitter-noveller",
+        "title": "Twitter-noveller",
+        "description": "Utgitt av Frode Grytten",
+        "startDate": 2009,
+        "endDate": null,
+        "displayDate": "2009",
+        "type": "text",
+        "subjectId": "norsk",
+        "link": "/norsk/bibliotek?text=twitter-noveller"
+    },
+    {
+        "id": "hjorten-i-skogbrynet",
+        "title": "Hjorten i skogbrynet",
+        "description": "Utgitt av Gunnhild Øyehaug",
+        "startDate": 2008,
+        "endDate": null,
+        "displayDate": "2008",
+        "type": "text",
+        "subjectId": "norsk",
+        "link": "/norsk/bibliotek?text=hjorten-i-skogbrynet"
+    },
+    {
+        "id": "mennesker-pa-kafe",
+        "title": "Mennesker på kafé",
+        "description": "Utgitt av Kjell Askildsen",
+        "startDate": 1983,
+        "endDate": null,
+        "displayDate": "1983",
+        "type": "text",
+        "subjectId": "norsk",
+        "link": "/norsk/bibliotek?text=mennesker-pa-kafe"
+    },
+    {
+        "id": "det-usynlige-barnet",
+        "title": "Det usynlige barnet",
+        "description": "Utgitt av Tove Jansson",
+        "startDate": 1962,
+        "endDate": null,
+        "displayDate": "1962",
+        "type": "text",
+        "subjectId": "norsk",
+        "link": "/norsk/bibliotek?text=det-usynlige-barnet"
+    },
+    {
+        "id": "alt-blir-som-for",
+        "title": "Alt blir som før",
+        "description": "Utgitt av Ari Behn",
+        "startDate": 1948,
+        "endDate": null,
+        "displayDate": "1948",
+        "type": "text",
+        "subjectId": "norsk",
+        "link": "/norsk/bibliotek?text=alt-blir-som-for"
+    },
+    {
+        "id": "ww2-sub-4",
+        "title": "Invasjonen av Polen",
+        "description": "Starten på andre verdenskrig (1. september).",
+        "startDate": 1939,
+        "endDate": null,
+        "displayDate": "1939",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "andre-verdenskrig",
+        "link": "/historie/andre-verdenskrig/bakgrunn",
+        "tags": [
+            "historie",
+            "krig",
+            "polen"
+        ]
+    },
+    {
+        "id": "ww2-sub-3",
+        "title": "Münchenavtalen",
+        "description": "Chamberlain erklærer 'Peace for our time'.",
+        "startDate": 1938,
+        "endDate": null,
+        "displayDate": "1938",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "andre-verdenskrig",
+        "link": "/historie/andre-verdenskrig/bakgrunn",
+        "tags": [
+            "historie",
+            "politikk",
+            "europa"
+        ]
+    },
+    {
+        "id": "ww2-sub-2",
+        "title": "Hitler blir rikskansler",
+        "description": "Nazistene tar makten i Tyskland.",
+        "startDate": 1933,
+        "endDate": null,
+        "displayDate": "1933",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "andre-verdenskrig",
+        "link": "/historie/andre-verdenskrig/bakgrunn",
+        "tags": [
+            "historie",
+            "politikk",
+            "tyskland"
+        ]
+    },
+    {
+        "id": "ww2-sub-1",
+        "title": "Børskrakket",
+        "description": "Starten på den store depresjonen.",
+        "startDate": 1929,
+        "endDate": null,
+        "displayDate": "1929",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "andre-verdenskrig",
+        "link": "/historie/andre-verdenskrig/bakgrunn",
+        "tags": [
+            "historie",
+            "økonomi",
+            "verden"
+        ]
+    },
+    {
+        "id": "ww2-sub-0",
+        "title": "Versailles-traktaten",
+        "description": "Fredsavtalen som la skylden på Tyskland.",
+        "startDate": 1919,
+        "endDate": null,
+        "displayDate": "1919",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "andre-verdenskrig",
+        "link": "/historie/andre-verdenskrig/bakgrunn",
+        "tags": [
+            "historie",
+            "krig",
+            "europa"
+        ]
+    },
+    {
+        "id": "bakgrunn",
+        "title": "Andre verdenskrig: Bakgrunn",
+        "description": "Bakgrunnen for krigen.",
+        "startDate": 1918,
+        "endDate": 1939,
+        "displayDate": "1918–1939",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "andre-verdenskrig",
+        "link": "/historie/andre-verdenskrig/bakgrunn",
+        "tags": [
+            "krig",
+            "historie",
+            "konflikt"
+        ]
+    },
+    {
+        "id": "dypfryst",
+        "title": "Dypfryst",
+        "description": "Utgitt av Roald Dahl",
+        "startDate": 1885,
+        "endDate": null,
+        "displayDate": "1885",
+        "type": "text",
+        "subjectId": "norsk",
+        "link": "/norsk/bibliotek?text=dypfryst"
+    },
+    {
+        "id": "karen",
+        "title": "Karen",
+        "description": "Utgitt av Alexander Kielland",
+        "startDate": 1882,
+        "endDate": null,
+        "displayDate": "1882",
+        "type": "text",
+        "subjectId": "norsk",
+        "link": "/norsk/bibliotek?text=karen"
+    },
+    {
+        "id": "en-middag",
+        "title": "En middag",
+        "description": "Utgitt av Alexander Kielland",
+        "startDate": 1879,
+        "endDate": null,
+        "displayDate": "1879",
+        "type": "text",
+        "subjectId": "norsk",
+        "link": "/norsk/bibliotek?text=en-middag"
+    },
+    {
+        "id": "eic-sub-4",
+        "title": "EIC oppløses",
+        "description": "Kompaniet blir formelt oppløst.",
+        "startDate": 1874,
+        "endDate": null,
+        "displayDate": "1874",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/eic",
+        "tags": [
+            "handel",
+            "imperialisme",
+            "india",
+            "storbritannia"
+        ]
+    },
+    {
+        "id": "trekanthandelen-sub-4",
+        "title": "Slaveriet oppheves i USA",
+        "description": "13. grunnlovstillegg etter borgerkrigen.",
+        "startDate": 1865,
+        "endDate": null,
+        "displayDate": "1865",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/trekanthandelen",
+        "tags": [
+            "historie",
+            "slaveri",
+            "usa"
+        ]
+    },
+    {
+        "id": "faderen",
+        "title": "Faderen",
+        "description": "Utgitt av Bjørnstjerne Bjørnson",
+        "startDate": 1860,
+        "endDate": null,
+        "displayDate": "1860",
+        "type": "text",
+        "subjectId": "norsk",
+        "link": "/norsk/bibliotek?text=faderen"
+    },
+    {
+        "id": "eic-sub-3",
+        "title": "The British Raj",
+        "description": "Den britiske staten tar over styringen av India.",
+        "startDate": 1858,
+        "endDate": null,
+        "displayDate": "1858",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/eic",
+        "tags": [
+            "handel",
+            "imperialisme",
+            "india",
+            "storbritannia"
+        ]
+    },
+    {
+        "id": "eic-sub-2",
+        "title": "Sepoy-opprøret",
+        "description": "Stort opprør blant indiske soldater mot kompaniets styre.",
+        "startDate": 1857,
+        "endDate": null,
+        "displayDate": "1857",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/eic",
+        "tags": [
+            "handel",
+            "imperialisme",
+            "india",
+            "storbritannia"
+        ]
+    },
+    {
+        "id": "piken-med-svovelstikkene",
+        "title": "Piken med svovelstikkene",
+        "description": "Utgitt av H.C. Andersen",
+        "startDate": 1845,
+        "endDate": null,
+        "displayDate": "1845",
+        "type": "text",
+        "subjectId": "norsk",
+        "link": "/norsk/bibliotek?text=piken-med-svovelstikkene"
+    },
+    {
+        "id": "industriell-start-norge",
+        "title": "Industriell start i Norge",
+        "description": "Den industrielle revolusjon skyter fart i Norge.",
+        "startDate": 1840,
+        "endDate": null,
+        "displayDate": "1840",
+        "type": "event",
+        "subjectId": "historie",
+        "tags": [
+            "historie",
+            "norge",
+            "industri"
+        ]
+    },
+    {
+        "id": "trekanthandelen-sub-3",
+        "title": "Slaveriet oppheves i britiske kolonier",
+        "description": "Slavery Abolition Act vedtas i Storbritannia.",
+        "startDate": 1833,
+        "endDate": null,
+        "displayDate": "1833",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/trekanthandelen",
+        "tags": [
+            "historie",
+            "slaveri",
+            "politikk"
+        ]
+    },
+    {
+        "id": "trekanthandelen-sub-2",
+        "title": "Forbud mot slavehandel",
+        "description": "Storbritannia og USA forbyr transatlantisk slavehandel.",
+        "startDate": 1807,
+        "endDate": null,
+        "displayDate": "1807",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/trekanthandelen",
+        "tags": [
+            "historie",
+            "slaveri",
+            "politikk"
+        ]
+    },
+    {
+        "id": "voc-sub-4",
+        "title": "VOC oppløses",
+        "description": "Selskapet går konkurs og staten tar over.",
+        "startDate": 1799,
+        "endDate": null,
+        "displayDate": "1799",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/voc",
+        "tags": [
+            "handel",
+            "kolonialisme",
+            "nederland",
+            "økonomi"
+        ]
+    },
+    {
+        "id": "eic-sub-1",
+        "title": "Slaget ved Plassey",
+        "description": "Robert Clive beseirer herskeren av Bengal, starten på britisk styre.",
+        "startDate": 1757,
+        "endDate": null,
+        "displayDate": "1757",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/eic",
+        "tags": [
+            "handel",
+            "imperialisme",
+            "india",
+            "storbritannia"
+        ]
+    },
+    {
+        "id": "voc-sub-3",
+        "title": "Kappstaden grunnlegges",
+        "description": "Koloni på sørspissen av Afrika etableres.",
+        "startDate": 1652,
+        "endDate": null,
+        "displayDate": "1652",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/voc",
+        "tags": [
+            "handel",
+            "kolonialisme",
+            "nederland",
+            "økonomi"
+        ]
+    },
+    {
+        "id": "30-aarskrigen-sub-3",
+        "title": "Freden i Westfalen",
+        "description": "Krigen avsluttes. Prinsippet om statsuavhengighet etableres.",
+        "startDate": 1648,
+        "endDate": null,
+        "displayDate": "1648",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "reformasjonen",
+        "link": "/historie/reformasjonen/30-aarskrigen",
+        "tags": [
+            "historie",
+            "krig",
+            "europa",
+            "reformasjonen"
+        ]
+    },
+    {
+        "id": "voc-sub-2",
+        "title": "Erobringen av Malakka",
+        "description": "VOC driver portugiserne ut av viktig handelsby.",
+        "startDate": 1641,
+        "endDate": null,
+        "displayDate": "1641",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/voc",
+        "tags": [
+            "handel",
+            "kolonialisme",
+            "nederland",
+            "økonomi"
+        ]
+    },
+    {
+        "id": "30-aarskrigen-sub-2",
+        "title": "Slaget ved Lützen",
+        "description": "Svenskekongen Gustav II Adolf faller i kamp, men protestantene vinner slaget.",
+        "startDate": 1632,
+        "endDate": null,
+        "displayDate": "1632",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "reformasjonen",
+        "link": "/historie/reformasjonen/30-aarskrigen",
+        "tags": [
+            "historie",
+            "krig",
+            "europa",
+            "reformasjonen"
+        ]
+    },
+    {
+        "id": "30-aarskrigen-sub-1",
+        "title": "Magdeburgs fall",
+        "description": "En av krigens verste grusomheter. Byen plyndres og brennes; 20 000 mennesker massakreres.",
+        "startDate": 1631,
+        "endDate": null,
+        "displayDate": "1631",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "reformasjonen",
+        "link": "/historie/reformasjonen/30-aarskrigen",
+        "tags": [
+            "historie",
+            "krig",
+            "europa",
+            "reformasjonen"
+        ]
+    },
+    {
+        "id": "voc-sub-1",
+        "title": "Batavia grunnlegges",
+        "description": "Hovedkvarteret etableres på Java (dagens Jakarta).",
+        "startDate": 1619,
+        "endDate": null,
+        "displayDate": "1619",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/voc",
+        "tags": [
+            "handel",
+            "kolonialisme",
+            "nederland",
+            "økonomi"
+        ]
+    },
+    {
+        "id": "30-aarskrigen",
+        "title": "30-årskrigen",
+        "description": "Den store katastrofen som formet det moderne Europa.",
+        "startDate": 1618,
+        "endDate": 1648,
+        "displayDate": "1618-1648",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "reformasjonen",
+        "link": "/historie/reformasjonen/30-aarskrigen",
+        "tags": [
+            "historie",
+            "krig",
+            "europa",
+            "reformasjonen"
+        ]
+    },
+    {
+        "id": "30-aarskrigen-sub-0",
+        "title": "Defenestrasjonen i Praha",
+        "description": "Protestantiske adelsmenn kaster keiserens utsendinger ut av et vindu i Praha. Startskuddet for krigen.",
+        "startDate": 1618,
+        "endDate": null,
+        "displayDate": "1618",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "reformasjonen",
+        "link": "/historie/reformasjonen/30-aarskrigen",
+        "tags": [
+            "historie",
+            "krig",
+            "europa",
+            "reformasjonen"
+        ]
+    },
+    {
+        "id": "voc",
+        "title": "Det nederlandske ostindiske kompani (VOC)",
+        "description": "Verdens første aksjeselskap og et globalt handelsimperium.",
+        "startDate": 1602,
+        "endDate": null,
+        "displayDate": "1602",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/voc",
+        "tags": [
+            "handel",
+            "kolonialisme",
+            "nederland",
+            "økonomi"
+        ]
+    },
+    {
+        "id": "voc-sub-0",
+        "title": "VOC grunnlegges",
+        "description": "Det nederlandske ostindiske kompani stiftes.",
+        "startDate": 1602,
+        "endDate": null,
+        "displayDate": "1602",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/voc",
+        "tags": [
+            "handel",
+            "kolonialisme",
+            "nederland",
+            "økonomi"
+        ]
+    },
+    {
+        "id": "eic",
+        "title": "Det britiske ostindiske kompani (EIC)",
+        "description": "Handelskompaniet som la grunnlaget for det britiske imperiet i India.",
+        "startDate": 1600,
+        "endDate": 1874,
+        "displayDate": "1600-1874",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/eic",
+        "tags": [
+            "handel",
+            "imperialisme",
+            "india",
+            "storbritannia"
+        ]
+    },
+    {
+        "id": "eic-sub-0",
+        "title": "EIC grunnlegges",
+        "description": "Dronning Elizabeth I gir selskapet kongelig privilegium.",
+        "startDate": 1600,
+        "endDate": null,
+        "displayDate": "1600",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/eic",
+        "tags": [
+            "handel",
+            "imperialisme",
+            "india",
+            "storbritannia"
+        ]
+    },
+    {
+        "id": "trekanthandelen-sub-1",
+        "title": "Sukkerrevolusjonen",
+        "description": "Etterspørselen etter sukker driver slavehandelen kraftig opp.",
+        "startDate": 1600,
+        "endDate": null,
+        "displayDate": "1600",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/trekanthandelen",
+        "tags": [
+            "historie",
+            "slaveri",
+            "økonomi"
+        ]
+    },
+    {
+        "id": "boktrykkerkunsten-sub-3",
+        "title": "Reformasjonen",
+        "description": "Martin Luthers teser spres raskt over hele Europa takket være trykkpressen.",
+        "startDate": 1517,
+        "endDate": null,
+        "displayDate": "1517",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "boktrykkerkunsten",
+        "link": "/historie/boktrykkerkunsten/boktrykkerkunsten",
+        "tags": [
+            "oppfinnelser",
+            "teknologi",
+            "renessansen",
+            "bøker"
+        ]
+    },
+    {
+        "id": "trekanthandelen-sub-0",
+        "title": "Første slaver til Amerika",
+        "description": "De første afrikanske slavene ankommer Hispaniola.",
+        "startDate": 1502,
+        "endDate": null,
+        "displayDate": "1502",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "kolonialisering",
+        "link": "/historie/kolonialisering/trekanthandelen",
+        "tags": [
+            "historie",
+            "slaveri",
+            "amerika"
+        ]
+    },
+    {
+        "id": "boktrykkerkunsten-sub-2",
+        "title": "Masseproduksjon av bøker",
+        "description": "Over 20 millioner bøker er trykket i Europa.",
+        "startDate": 1500,
+        "endDate": null,
+        "displayDate": "1500",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "boktrykkerkunsten",
+        "link": "/historie/boktrykkerkunsten/boktrykkerkunsten",
+        "tags": [
+            "oppfinnelser",
+            "teknologi",
+            "renessansen",
+            "bøker"
+        ]
+    },
+    {
+        "id": "reconquista",
+        "title": "Reconquista fullføres",
+        "description": "Spania tar tilbake hele Iberia og Columbus reiser til Amerika.",
+        "startDate": 1492,
+        "endDate": null,
+        "displayDate": "1492",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "https://snl.no/Reconquista",
+        "tags": [
+            "historie",
+            "verden",
+            "krig"
+        ]
+    },
+    {
+        "id": "konstantinopels-fall",
+        "title": "Konstantinopels fall",
+        "description": "Det osmanske riket erobrer Konstantinopel, noe som forstyrrer handelsrutene.",
+        "startDate": 1453,
+        "endDate": null,
+        "displayDate": "1453",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "https://snl.no/Konstantinopels_fall",
+        "tags": [
+            "historie",
+            "verden",
+            "krig"
+        ]
+    },
+    {
+        "id": "boktrykkerkunsten",
+        "title": "Boktrykkerkunsten",
+        "description": "En informasjonsrevolusjon startet av Gutenberg (og kineserne).",
+        "startDate": 1440,
+        "endDate": null,
+        "displayDate": "1440",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "boktrykkerkunsten",
+        "link": "/historie/boktrykkerkunsten/boktrykkerkunsten",
+        "tags": [
+            "oppfinnelser",
+            "teknologi",
+            "renessansen",
+            "bøker"
+        ]
+    },
+    {
+        "id": "boktrykkerkunsten-sub-1",
+        "title": "Gutenbergs gjennombrudd",
+        "description": "Johannes Gutenberg introduserer moderne boktrykkerkunst med løse typer i metall i Mainz.",
+        "startDate": 1440,
+        "endDate": null,
+        "displayDate": "1440",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "boktrykkerkunsten",
+        "link": "/historie/boktrykkerkunsten/boktrykkerkunsten",
+        "tags": [
+            "oppfinnelser",
+            "teknologi",
+            "renessansen",
+            "bøker"
+        ]
+    },
+    {
+        "id": "svartedauden-norge",
+        "title": "Svartedauden i Norge",
+        "description": "Pesten kommer til Bergen med et skip.",
+        "startDate": 1349,
+        "endDate": 1350,
+        "displayDate": "1349–1350",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "https://snl.no/svartedauden_i_Norge",
+        "tags": [
+            "historie",
+            "norge",
+            "pest"
+        ]
+    },
+    {
+        "id": "svartedauden-europa",
+        "title": "Svartedauden i Europa",
+        "description": "Pesten kommer til Europa via Italia.",
+        "startDate": 1346,
+        "endDate": 1353,
+        "displayDate": "1346–1353",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "https://snl.no/svartedauden",
+        "tags": [
+            "historie",
+            "verden",
+            "pest"
+        ]
+    },
+    {
+        "id": "marco-polo",
+        "title": "Marco Polos reiser",
+        "description": "Marco Polo reiser til Kina og øker interessen for Asia.",
+        "startDate": 1271,
+        "endDate": 1295,
+        "displayDate": "1271–1295",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "https://snl.no/Marco_Polo",
+        "tags": [
+            "historie",
+            "verden",
+            "handel"
+        ]
+    },
+    {
+        "id": "stamford-bridge",
+        "title": "Slaget ved Stamford Bridge",
+        "description": "Vikingtiden tar slutt med Harald Hardrådes fall.",
+        "startDate": 1066,
+        "endDate": null,
+        "displayDate": "1066",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "/historie/vikingtiden/artikkel",
+        "tags": [
+            "historie",
+            "norge",
+            "krig",
+            "vikingtiden"
+        ]
+    },
+    {
+        "id": "stiklestad",
+        "heroImage": "/images/lessons/vikingtiden/kristningen.png",
+        "title": "Slaget på Stiklestad",
+        "description": "Olav den Hellige faller, kristendommen vinner.",
+        "startDate": 1030,
+        "endDate": null,
+        "displayDate": "1030",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "/historie/vikingtiden/kristningen-av-norge",
+        "tags": [
+            "historie",
+            "norge",
+            "kristendom",
+            "vikingtiden"
+        ]
+    },
+    {
+        "id": "normandie-grunnlegges",
+        "heroImage": "/images/lessons/vikingtiden/normandie.png",
+        "title": "Normandie grunnlegges",
+        "description": "Vikinghøvdingen Rollo får Normandie av frankerkongen.",
+        "startDate": 911,
+        "endDate": null,
+        "displayDate": "911",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "/historie/vikingtiden/normandie",
+        "tags": [
+            "historie",
+            "frankrike",
+            "vikingtiden"
+        ]
+    },
+    {
+        "id": "rikssamlingen",
+        "heroImage": "/images/lessons/vikingtiden/rikssamlingen.png",
+        "title": "Rikssamlingen",
+        "description": "Harald Hårfagre samler Norge til ett rike (ca.)",
+        "startDate": 872,
+        "endDate": null,
+        "displayDate": "872",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "/historie/vikingtiden/rikssamlingen",
+        "tags": [
+            "historie",
+            "norge",
+            "vikingtiden"
+        ]
+    },
+    {
+        "id": "danelagen-opprettes",
+        "heroImage": "/images/lessons/vikingtiden/danelagen.png",
+        "title": "Danelagen opprettes",
+        "description": "Vikingene erobrer nord-England.",
+        "startDate": 865,
+        "endDate": 954,
+        "displayDate": "865-954",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "/historie/vikingtiden/danelagen",
+        "tags": [
+            "historie",
+            "england",
+            "vikingtiden"
+        ]
+    },
+    {
+        "id": "karl-den-store-keiser",
+        "heroImage": "/images/lessons/vikingtiden/karl_den_store.png",
+        "title": "Karl den Store blir keiser",
+        "description": "Frankerrikets makttopp. En trussel mot Norden.",
+        "startDate": 800,
+        "endDate": 814,
+        "displayDate": "800-814",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "/historie/vikingtiden/karl-den-store",
+        "tags": [
+            "historie",
+            "europa",
+            "middelalder"
+        ]
+    },
+    {
+        "id": "lindisfarne",
+        "title": "Angrepet på Lindisfarne",
+        "description": "Starten på vikingtiden.",
+        "startDate": 793,
+        "endDate": null,
+        "displayDate": "793",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "/historie/vikingtiden/hypotesen-norden-vs-frankrike",
+        "tags": [
+            "historie",
+            "norge",
+            "krig",
+            "vikingtiden"
+        ]
+    },
+    {
+        "id": "boktrykkerkunsten-sub-0",
+        "title": "Tidlige eksperimenter",
+        "description": "Kineseren Bi Sheng eksperimenterer med løse typer i keramikk.",
+        "startDate": 1040,
+        "endDate": null,
+        "displayDate": "1040",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "boktrykkerkunsten",
+        "link": "/historie/boktrykkerkunsten/boktrykkerkunsten",
+        "tags": [
+            "oppfinnelser",
+            "teknologi",
+            "renessansen",
+            "bøker"
+        ]
+    },
+    {
+        "id": "rikssamlingen-sub-3",
+        "title": "Harald Hårfagre dør",
+        "description": "Rikssamleren dør, og maktkampen fortsetter.",
+        "startDate": 933,
+        "endDate": null,
+        "displayDate": "933",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "vikingtiden",
+        "link": "/historie/vikingtiden/rikssamlingen",
+        "tags": [
+            "rikssamlingen",
+            "norge",
+            "konger",
+            "middelalder"
+        ]
+    },
+    {
+        "id": "rikssamlingen-sub-2",
+        "title": "Eirik Blodøks",
+        "description": "Haralds sønn tar over makten (ca. årstall).",
+        "startDate": 930,
+        "endDate": null,
+        "displayDate": "930",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "vikingtiden",
+        "link": "/historie/vikingtiden/rikssamlingen",
+        "tags": [
+            "rikssamlingen",
+            "norge",
+            "konger",
+            "middelalder"
+        ]
+    },
+    {
+        "id": "rikssamlingen-sub-1",
+        "title": "Slaget i Hafrsfjord",
+        "description": "Harald Hårfagre vinner og samler Norge til ett rike.",
+        "startDate": 872,
+        "endDate": null,
+        "displayDate": "872",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "vikingtiden",
+        "link": "/historie/vikingtiden/rikssamlingen",
+        "tags": [
+            "rikssamlingen",
+            "norge",
+            "konger",
+            "middelalder"
+        ]
+    },
+    {
+        "id": "rikssamlingen-sub-0",
+        "title": "Harald Hårfagre blir konge",
+        "description": "Tar over styringen etter Halvdan Svarte (ca. årstall).",
+        "startDate": 865,
+        "endDate": null,
+        "displayDate": "865",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "vikingtiden",
+        "link": "/historie/vikingtiden/rikssamlingen",
+        "tags": [
+            "rikssamlingen",
+            "norge",
+            "konger",
+            "middelalder"
+        ]
+    },
+    {
+        "id": "lindisfarne",
+        "title": "Lindisfarne",
+        "description": "Vikingangrep på klosteret Lindisfarne. Starten på vikingtiden.",
+        "startDate": 793,
+        "endDate": null,
+        "displayDate": "793",
+        "type": "event",
+        "subjectId": "historie",
+        "link": "https://snl.no/Lindisfarne",
+        "tags": [
+            "historie",
+            "verden",
+            "vikingtiden"
+        ]
+    },
+    {
+        "id": "jernredskaper-norge",
+        "title": "Jernredskaper i Norge",
+        "description": "Jern blir vanligere, befolkningen øker.",
+        "startDate": 700,
+        "endDate": null,
+        "displayDate": "700",
+        "type": "event",
+        "subjectId": "historie",
+        "tags": [
+            "historie",
+            "norge",
+            "teknologi"
+        ]
+    },
+    {
+        "id": "samfunnskollaps-550",
+        "title": "Samfunnskollaps",
+        "description": "Slutten på gullalderen og bruk av bygdeborger i Norge.",
+        "startDate": 550,
+        "endDate": null,
+        "displayDate": "550",
+        "type": "event",
+        "subjectId": "historie",
+        "tags": [
+            "historie",
+            "norge",
+            "forhistorie"
+        ]
+    },
+    {
+        "id": "klimakrisen-536",
+        "title": "536 - Året da solen forsvant",
+        "description": "Klimakrisen som kan være virkelighetens Fimbulvinter.",
+        "startDate": 536,
+        "endDate": null,
+        "displayDate": "536",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "norgeshistorie",
+        "link": "/historie/norgeshistorie/klimakrisen-536",
+        "tags": [
+            "historie",
+            "norge",
+            "klima",
+            "folkevandring",
+            "fimbulvinter"
+        ]
+    },
+    {
+        "id": "romerriket-sub-3",
+        "title": "Vestromerrikets fall",
+        "description": "Den siste vestromerske keiseren avsettes.",
+        "startDate": 476,
+        "endDate": null,
+        "displayDate": "476",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romerriket",
+        "tags": [
+            "antikken",
+            "roma",
+            "imperium",
+            "europa"
+        ]
+    },
+    {
+        "id": "romerriket-sub-2",
+        "title": "Romerriket deles i to",
+        "description": "Romerriket deles i Vest- og Østromerriket.",
+        "startDate": 395,
+        "endDate": null,
+        "displayDate": "395",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romerriket",
+        "tags": [
+            "antikken",
+            "roma",
+            "imperium",
+            "europa"
+        ]
+    },
+    {
+        "id": "romerriket-sub-1",
+        "title": "Kristendommen tillates i Romerriket",
+        "description": "Konstantin den store tillater kristendom.",
+        "startDate": 313,
+        "endDate": null,
+        "displayDate": "313",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romerriket",
+        "tags": [
+            "antikken",
+            "roma",
+            "imperium",
+            "europa"
+        ]
+    },
+    {
+        "id": "artikkel-sub-6",
+        "title": "Perserrikets fall",
+        "description": "Aleksander den store erobrer Persepolis og gjør slutt på Achaemenide-riket.",
+        "startDate": -330,
+        "endDate": null,
+        "displayDate": "330 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "perserriket",
+        "link": "/historie/perserriket/artikkel",
+        "tags": [
+            "antikken",
+            "midtøsten",
+            "imperier",
+            "krig"
+        ]
+    },
+    {
+        "id": "perserriket-sub-6",
+        "title": "Rikets fall (Perserriket)",
+        "description": "Aleksander den store erobrer Persepolis og gjør slutt på Achaemenide-riket.",
+        "startDate": -330,
+        "endDate": null,
+        "displayDate": "330 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "perserriket",
+        "link": "/historie/perserriket/artikkel",
+        "tags": [
+            "historie",
+            "perserriket",
+            "krig"
+        ]
+    },
+    {
+        "id": "perserriket-sub-5",
+        "title": "Xerxes' invasjon",
+        "description": "Xerxes I invaderer Hellas med en enorm hær, men taper sjøslaget ved Salamis.",
+        "startDate": -480,
+        "endDate": null,
+        "displayDate": "480 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "perserriket",
+        "link": "/historie/perserriket/artikkel",
+        "tags": [
+            "historie",
+            "perserriket",
+            "krig"
+        ]
+    },
+    {
+        "id": "perserriket-sub-4",
+        "title": "Slaget ved Marathon",
+        "description": "Perserne forsøker å invadere Hellas, men blir slått tilbake av athenerne.",
+        "startDate": -490,
+        "endDate": null,
+        "displayDate": "490 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "perserriket",
+        "link": "/historie/perserriket/artikkel",
+        "tags": [
+            "historie",
+            "perserriket",
+            "krig"
+        ]
+    },
+    {
+        "id": "romerriket",
+        "title": "Romerriket",
+        "description": "Et av historiens første store imperier som spredte kristendom og veier.",
+        "startDate": -500,
+        "endDate": 476,
+        "displayDate": "-500-476",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romerriket",
+        "tags": [
+            "antikken",
+            "roma",
+            "imperium",
+            "europa"
+        ]
+    },
+    {
+        "id": "romerriket-sub-0",
+        "title": "Romerriket grunnlegges",
+        "description": "Den romerske republikken oppstår (ca. årstall).",
+        "startDate": -500,
+        "endDate": null,
+        "displayDate": "-500",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romerriket",
+        "tags": [
+            "antikken",
+            "roma",
+            "imperium",
+            "europa"
+        ]
+    },
+    {
+        "id": "jernalderen-norge",
+        "title": "Jernalderen i Norge",
+        "description": "Jernutvinning fra myrmalm starter.",
+        "startDate": -500,
+        "endDate": null,
+        "displayDate": "500 fvt.",
+        "type": "event",
+        "subjectId": "historie",
+        "tags": [
+            "historie",
+            "norge",
+            "forhistorie"
+        ]
+    },
+    {
+        "id": "perserriket-sub-3",
+        "title": "Dareios den store",
+        "description": "Dareios I tar makten, organiserer riket i satrapier og bygger Persepolis.",
+        "startDate": -522,
+        "endDate": null,
+        "displayDate": "522 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "perserriket",
+        "link": "/historie/perserriket/artikkel",
+        "tags": [
+            "historie",
+            "perserriket",
+            "politikk"
+        ]
+    },
+    {
+        "id": "perserriket-sub-2",
+        "title": "Perserne erobrer Egypt",
+        "description": "Kambyses II, Kyros' sønn, legger Egypt under persisk styre.",
+        "startDate": -525,
+        "endDate": null,
+        "displayDate": "525 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "perserriket",
+        "link": "/historie/perserriket/artikkel",
+        "tags": [
+            "historie",
+            "perserriket",
+            "egypt"
+        ]
+    },
+    {
+        "id": "perserriket-sub-1",
+        "title": "Erobringen av Babylon",
+        "description": "Kyros erobrer Babylon og lar jødene vende hjem fra eksil.",
+        "startDate": -539,
+        "endDate": null,
+        "displayDate": "539 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "perserriket",
+        "link": "/historie/perserriket/artikkel",
+        "tags": [
+            "historie",
+            "perserriket",
+            "krig"
+        ]
+    },
+    {
+        "id": "artikkel",
+        "title": "Perserriket",
+        "description": "Det første verdensriket.",
+        "startDate": -550,
+        "endDate": -330,
+        "displayDate": "550 fvt - 330 fvt",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "perserriket",
+        "link": "/historie/perserriket/artikkel",
+        "tags": [
+            "antikken",
+            "midtøsten",
+            "imperier",
+            "krig",
+            "vikingtiden",
+            "norge",
+            "handel",
+            "pest",
+            "middelalder",
+            "sykdom"
+        ]
+    },
+    {
+        "id": "artikkel-sub-0",
+        "title": "Perserriket grunnlegges",
+        "description": "Kyros den store forener perserne og mederne og grunnlegger Achaemenide-riket.",
+        "startDate": -550,
+        "endDate": null,
+        "displayDate": "550 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "perserriket",
+        "link": "/historie/perserriket/artikkel",
+        "tags": [
+            "antikken",
+            "midtøsten",
+            "imperier",
+            "krig",
+            "vikingtiden",
+            "norge",
+            "handel",
+            "pest",
+            "middelalder",
+            "sykdom"
+        ]
+    },
+    {
+        "id": "perserriket-sub-0",
+        "title": "Perserriket grunnlegges",
+        "description": "Kyros den store forener perserne og mederne og grunnlegger Achaemenide-riket.",
+        "startDate": -550,
+        "endDate": null,
+        "displayDate": "550 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "perserriket",
+        "link": "/historie/perserriket/artikkel",
+        "tags": [
+            "historie",
+            "perserriket",
+            "antikken"
+        ]
+    },
+    {
+        "id": "bronsealderen-norge",
+        "title": "Bronsealderen i Norge",
+        "description": "Starten på bronsealderen og høvdingdømmer.",
+        "startDate": -1700,
+        "endDate": -500,
+        "displayDate": "1700 fvt.",
+        "type": "event",
+        "subjectId": "historie",
+        "tags": [
+            "historie",
+            "norge",
+            "forhistorie"
+        ]
+    },
+    {
+        "id": "jordbruk-og-sivilisasjoner-sub-3",
+        "title": "Stridsøksfolket",
+        "description": "Nye folkegrupper kommer til Norge.",
+        "startDate": -2500,
+        "endDate": null,
+        "displayDate": "2500 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "jordbruk-og-sivilisasjoner",
+        "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
+        "tags": [
+            "jordbruk",
+            "steinalder",
+            "sivilisasjon",
+            "teknologi"
+        ]
+    },
+    {
+        "id": "jordbruk-og-sivilisasjoner-sub-1",
+        "title": "Elvedalssivilisasjoner",
+        "description": "De første store sivilisasjonene oppstår i Mesopotamia og Egypt.",
+        "startDate": -4000,
+        "endDate": null,
+        "displayDate": "4000 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "jordbruk-og-sivilisasjoner",
+        "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
+        "tags": [
+            "jordbruk",
+            "steinalder",
+            "sivilisasjon",
+            "teknologi"
+        ]
+    },
+    {
+        "id": "jordbruk-og-sivilisasjoner-sub-2",
+        "title": "Jordbruk i Norge",
+        "description": "De første bøndene etablerer seg på Østlandet.",
+        "startDate": -4000,
+        "endDate": null,
+        "displayDate": "4000 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "jordbruk-og-sivilisasjoner",
+        "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
+        "tags": [
+            "jordbruk",
+            "steinalder",
+            "sivilisasjon",
+            "teknologi"
+        ]
+    },
+    {
+        "id": "menneskets-tidlige-historie-sub-4",
+        "title": "De første nordmenn",
+        "description": "Isen trekker seg tilbake, og folk bosetter seg i Finnmark.",
+        "startDate": -9300,
+        "endDate": null,
+        "displayDate": "9300 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "menneskets-tidlige-historie",
+        "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
+        "tags": [
+            "forhistorie",
+            "mennesket",
+            "evolusjon",
+            "afrika"
+        ]
+    },
+    {
+        "id": "jordbruk-og-sivilisasjoner-sub-0",
+        "title": "Jordbruket oppstår",
+        "description": "Mennesker i 'Den fruktbare halvmåne' begynner å dyrke jorden.",
+        "startDate": -10000,
+        "endDate": null,
+        "displayDate": "10000 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "jordbruk-og-sivilisasjoner",
+        "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
+        "tags": [
+            "jordbruk",
+            "steinalder",
+            "sivilisasjon",
+            "teknologi"
+        ]
+    },
+    {
+        "id": "jordbruk-og-sivilisasjoner",
+        "title": "Jordbruk og Sivilisasjoner",
+        "description": "Mennesket slår seg til ro: Fra nomade til fastboende med husdyr.",
+        "startDate": -12000,
+        "endDate": -4000,
+        "displayDate": "12000 fvt - 4000 fvt",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "jordbruk-og-sivilisasjoner",
+        "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
+        "tags": [
+            "jordbruk",
+            "steinalder",
+            "sivilisasjon",
+            "teknologi"
+        ]
+    },
+    {
+        "id": "menneskets-tidlige-historie-sub-3",
+        "title": "Ankomst til Amerika",
+        "description": "Mennesker krysser Beringstredet og bosetter seg i Amerika (ca. 15 000 år siden).",
+        "startDate": -13000,
+        "endDate": null,
+        "displayDate": "13000 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "menneskets-tidlige-historie",
+        "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
+        "tags": [
+            "forhistorie",
+            "mennesket",
+            "evolusjon",
+            "afrika"
+        ]
+    },
+    {
+        "id": "menneskets-tidlige-historie-sub-2",
+        "title": "Ankomst til Europa",
+        "description": "Homo sapiens når Europa og møter neanderthalerne.",
+        "startDate": -40000,
+        "endDate": null,
+        "displayDate": "40000 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "menneskets-tidlige-historie",
+        "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
+        "tags": [
+            "forhistorie",
+            "mennesket",
+            "evolusjon",
+            "afrika"
+        ]
+    },
+    {
+        "id": "menneskets-tidlige-historie-sub-1",
+        "title": "Utvandringen fra Afrika",
+        "description": "Mennesker begynner å spre seg til Asia og resten av verden.",
+        "startDate": -70000,
+        "endDate": null,
+        "displayDate": "70000 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "menneskets-tidlige-historie",
+        "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
+        "tags": [
+            "forhistorie",
+            "mennesket",
+            "evolusjon",
+            "afrika"
+        ]
+    },
+    {
+        "id": "menneskets-tidlige-historie",
+        "title": "Menneskets tidlige historie",
+        "description": "Fra nomader i Afrika til spredning over hele kloden.",
+        "startDate": -200000,
+        "endDate": -9300,
+        "displayDate": "200000 fvt - 9300 fvt",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "menneskets-tidlige-historie",
+        "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
+        "tags": [
+            "forhistorie",
+            "mennesket",
+            "evolusjon",
+            "afrika"
+        ]
+    },
+    {
+        "id": "menneskets-tidlige-historie-sub-0",
+        "title": "Homo sapiens oppstår",
+        "description": "Det moderne mennesket utvikler seg i Afrika.",
+        "startDate": -200000,
+        "endDate": null,
+        "displayDate": "200000 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "menneskets-tidlige-historie",
+        "link": "/historie/menneskets-tidlige-historie/menneskets-tidlige-historie",
+        "tags": [
+            "forhistorie",
+            "mennesket",
+            "evolusjon",
+            "afrika"
+        ]
+    },
+    {
+        "id": "hamskiftet",
+        "year": "1840-1900",
+        "title": "Det store hamskiftet",
+        "description": "Norge går fra å være et bondesamfunn til å bli et industrisamfunn.",
+        "category": "Historie",
+        "type": "lesson",
+        "details": [
+            "Overgang fra selvberging til salgsjordbruk",
+            "Innføring av maskiner i landbruket",
+            "Stor befolkningvekst og utvandring til Amerika",
+            "Fremveksten av industri og byer"
+        ],
+        "important": true,
+        "heroImage": "/images/lessons/norgeshistorie/hamskiftet.png",
+        "link": "/historie/norgeshistorie/hamskiftet"
+    }
 ]
