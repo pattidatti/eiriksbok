@@ -159,7 +159,7 @@
         },
         {
             "type": "component",
-            "component": "InfoBox",
+            "component": "FactBox",
             "props": {
                 "title": "Visste du at?",
                 "content": "I 1905 kom en av de første traktorene til Norge fra England. Den ble sett på som et monster! I dag styrer mange bønder traktoren via GPS mens de sjekker aksjekurser på mobilen."

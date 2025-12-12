@@ -22,6 +22,9 @@ import { PantheonExplorer } from './viking/PantheonExplorer';
 import { LanguageMixer } from './viking/LanguageMixer';
 import { TradeRouteMap } from './viking/TradeRouteMap';
 import { TimelineSlider } from './viking/TimelineSlider';
+import { QuoteBlock } from './QuoteBlock';
+import { Comparison } from './Comparison';
+import { LineChart } from './LineChart';
 
 import { renderInlineMarkdown } from './markdownUtils';
 import type { Concept, ContentBlock } from '../types';
@@ -273,6 +276,34 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 return <TradeRouteMap key={index} />;
                             case 'TimelineSlider':
                                 return <TimelineSlider key={index} />;
+                            case 'QuoteBlock':
+                                return (
+                                    <QuoteBlock
+                                        key={index}
+                                        text={block.props?.text}
+                                        author={block.props?.author}
+                                    />
+                                );
+                            case 'Comparison':
+                                return (
+                                    <Comparison
+                                        key={index}
+                                        title={block.props?.title}
+                                        leftTitle={block.props?.leftTitle}
+                                        rightTitle={block.props?.rightTitle}
+                                        items={block.props?.items || []}
+                                    />
+                                );
+                            case 'LineChart':
+                                return (
+                                    <LineChart
+                                        key={index}
+                                        title={block.props?.title}
+                                        data={block.props?.data || []}
+                                        xAxisLabel={block.props?.xAxisLabel}
+                                        yAxisLabel={block.props?.yAxisLabel}
+                                    />
+                                );
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">
