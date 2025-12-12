@@ -3,6 +3,7 @@
     "title": "Hamskiftet",
     "description": "Norge skifter ham: Fra bonde til arbeider.",
     "image": "/images/lessons/norgeshistorie/hamskiftet.png",
+    "year": "1840-1900",
     "layout": "rich",
     "tags": [
         "historie",
@@ -26,24 +27,28 @@
         {
             "type": "header",
             "level": 2,
-            "content": "Norge før 1800: Et slit for føden"
+            "content": "Norge før 1800: Et stendersamfunn"
         },
         {
             "type": "text",
-            "content": "På 1700- og tidlig 1800-tall var Norge et jordbrukssamfunn preget av \"mangesysleri\". Det betyr at man ikke bare var bonde – man var fisker, tømmerhogger, snekker og smed også. Man måtte kunne alt, for det man ikke lagde selv, fikk man ikke tak i."
+            "content": "På 1700- og tidlig 1800-tall var Norge et jordbrukssamfunn preget av \"mangesysleri\". Det betyr at man ikke bare var bonde – man var fisker, tømmerhogger, snekker og smed også. Man måtte kunne alt, for det man ikke lagde selv, fikk man ikke tak i. Samfunnet var også strengt inndelt i klasser."
         },
         {
             "type": "list",
             "items": [
-                "**Selvforsyning:** Gården produserte alt man trengte av mat, klær og redskaper.",
-                "**Husmannsvesenet:** Mange eide ikke egen jord. De var husmenn som leide en liten plass under en storgård og måtte betale med pliktarbeid.",
-                "**Hardt arbeid:** Alle måtte bidra, fra barn til gamle. Dødeligheten var høy, og en dårlig sommer kunne bety sult om vinteren."
+                "**Bønder:** Eide jorda si selv og hadde stemmerett (etter 1814). De var 'konger' på egen gård.",
+                "**Husmenn:** Den store underklassen. De eide ingenting, men fikk leie en liten jordflekk av bonden mot at de jobbet for ham når han trengte det. De og familiene deres levde ofte i dyp fattigdom.",
+                "**Tjenestefolk:** Ungdommer som jobbet på gårdene for kost og losji før de kanskje giftet seg."
             ]
+        },
+        {
+            "type": "text",
+            "content": "Husmannsvesenet vokste seg enormt utover 1800-tallet fordi befolkningen økte, men det var ikke nok jord til alle. Dette skapte en sosial spenning som skulle eksplodere i utvandring og politiske bevegelser."
         },
         {
             "type": "header",
             "level": 2,
-            "content": "Befolkningseksplosjonen"
+            "content": "Befolkningseksplosjonen og Drømmen om Amerika"
         },
         {
             "type": "text",
@@ -98,7 +103,7 @@
         },
         {
             "type": "text",
-            "content": "Den voldsomme veksten skapte et problem: Det var ikke nok jord til alle. Dette førte til to store bølger av utvandring. Mange flyttet til byene for å jobbe i industrien, og hundretusener emigrerte til Amerika."
+            "content": "Den voldsomme veksten skapte et akutt problem: Det var ikke nok jord til alle. Løsningen for mange ble å reise. Fra 1825 og utover reiste over 800 000 nordmenn til USA. Kun Irland sendte en større andel av befolkningen sin over Atlanteren. Brevene som kom hjem («Amerikabrev») fortalte om fruktbar jord som man kunne få gratis, og om frihet fra husmannsåket."
         },
         {
             "type": "header",
@@ -116,8 +121,8 @@
         {
             "type": "list",
             "items": [
-                "**Jernbanen (1854):** Gjorde det mulig å frakte varer raskt over lange avstander.",
-                "**Maskiner:** Slåmaskiner og hesteriver fra USA og England gjorde at én mann og en hest kunne gjøre jobben til ti mann med ljå.",
+                "**Jernbanen (1854):** Gjorde det mulig å frakte varer raskt over lange avstander. Melk kunne nå fraktes fersk inn til byene.",
+                "**Maskiner:** Slåmaskiner og hesteriver fra USA og England gjorde at én mann og en hest kunne gjøre jobben til ti mann med ljå. Dette var helt nødvendig, for arbeidskraften (husmennene) hadde dratt til Amerika eller byen.",
                 "**Pengeøkonomi:** Bonden ble en forretningsmann som investerte i utstyr og solgte varer på et marked."
             ]
         },
@@ -135,18 +140,31 @@
                     },
                     {
                         "left": "Betalte med varer eller arbeid",
-                        "right": "Pengeøkonomi"
+                        "right": "Pengeøkonomi og lønnsarbeid"
                     },
                     {
                         "left": "Håndkraft og enkle redskaper",
                         "right": "Maskiner (slåmaskin, hesterive)"
                     },
                     {
-                        "left": "Gikk eller rodde",
+                        "left": "Gikk, rodde eller red",
                         "right": "Tog og dampskip"
                     }
                 ]
             }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "content": "Arbeiderklassen vokser frem"
+        },
+        {
+            "type": "text",
+            "content": "De som ikke dro til Amerika, dro ofte til byene. Langs Akerselva i Christiania (Oslo) dukket det opp fabrikker drevet av vannkraft. Tekstilfabrikker, mekaniske verksteder og sagbruk trengte arbeidere. Her oppsto en ny samfunnsklasse: Industriarbeiderklassen."
+        },
+        {
+            "type": "text",
+            "content": "Livet i byene var hardt, med lange arbeidsdager (ofte 12-14 timer) og trangboddhet. Dette la grunnlaget for de første arbeiderforeningene. Marcus Thrane startet i 1848 den første store massebevegelsen for arbeidere (Thranebevegelsen), som krevde stemmerett og bedre kår. Selv om bevegelsen ble slått ned, var frøet sådd for det moderne norske demokratiet."
         },
         {
             "type": "header",
@@ -161,8 +179,8 @@
             "type": "component",
             "component": "FactBox",
             "props": {
-                "title": "Visste du at?",
-                "content": "I 1905 kom en av de første traktorene til Norge fra England. Den ble sett på som et monster! I dag styrer mange bønder traktoren via GPS mens de sjekker aksjekurser på mobilen."
+                "title": "Fra hest til hestekrefter",
+                "content": "I 1905 kom en av de første traktorene til Norge fra England. Den ble sett på som et monster! Men utviklingen gikk sin gang: I 1949 var det ca. 9 000 traktorer i Norge. I 1959 var tallet økt til over 50 000. I dag styrer mange bønder avanserte maskiner via GPS."
             }
         }
     ],
