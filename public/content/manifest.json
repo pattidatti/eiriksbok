@@ -645,13 +645,13 @@
                     "id": "vikingtiden",
                     "title": "Vikingtiden",
                     "description": "Plyndring, handel og rikssamling.",
-                    "image": "https://images.unsplash.com/photo-1548625361-bd8856cb3e6e?auto=format&fit=crop&q=80",
+                    "image": "/images/lessons/vikingtiden/viking_main.png",
                     "lessons": [
                         {
                             "id": "artikkel",
                             "title": "Vikingtiden",
                             "description": "En oversikt over perioden.",
-                            "image": "https://images.unsplash.com/photo-1548625361-bd8856cb3e6e?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/vikingtiden/viking_main.png",
                             "tags": [
                                 "historie",
                                 "vikingtiden",
@@ -664,7 +664,7 @@
                             "id": "hypotesen-norden-vs-frankrike",
                             "title": "Hypotesen: Norden vs. Frankrike",
                             "description": "Var vikingtiden et desperat selvforsvar mot en kristen supermakt?",
-                            "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/vikingtiden/hypotesen.png",
                             "tags": [
                                 "vikingtiden",
                                 "hypotese",
@@ -678,7 +678,7 @@
                             "id": "karl-den-store",
                             "title": "Karl den Store: Europas Far",
                             "description": "Mannen som formet middelalderens Europa og ble vikingenes erkefiende.",
-                            "image": "https://images.unsplash.com/photo-1549144889-1052d9a609d5?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/vikingtiden/karl_den_store.png",
                             "tags": [
                                 "historie",
                                 "europa",
@@ -692,7 +692,7 @@
                             "id": "asatro",
                             "title": "Åsatru: En verden av lureri og skjebne",
                             "description": "Vikingenes religion handlet ikke om å være snill, men om å overleve i en farlig verden.",
-                            "image": "https://images.unsplash.com/photo-1505506874110-6a7a69069a08?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/vikingtiden/asatro.png",
                             "tags": [
                                 "religion",
                                 "mytologi",
@@ -706,7 +706,7 @@
                             "id": "rikssamlingen",
                             "title": "Rikssamlingen",
                             "description": "Harald Hårfagre og samlingen av Norge.",
-                            "image": "https://images.unsplash.com/photo-1548625361-bd8856cb3e6e?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/vikingtiden/rikssamlingen.png",
                             "tags": [
                                 "historie",
                                 "norge",
@@ -719,7 +719,7 @@
                             "id": "danelagen",
                             "title": "Danelagen: Da England var norsk",
                             "description": "Historien om hvordan vikingene erobret halve England og nesten vant alt.",
-                            "image": "https://images.unsplash.com/photo-1455620611406-966dd68cfd5d?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/vikingtiden/danelagen.png",
                             "tags": [
                                 "england",
                                 "krig",
@@ -732,7 +732,7 @@
                             "id": "veien-mot-ost",
                             "title": "Veien mot Øst",
                             "description": "Mens norske og danske vikinger dro vestover, dro svenskene østover. De grunnla Russland.",
-                            "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/vikingtiden/veien_mot_ost.png",
                             "tags": [
                                 "historie",
                                 "russland",
@@ -746,7 +746,7 @@
                             "id": "kristningen-av-norge",
                             "title": "Kristningen: Dåp eller Død",
                             "description": "Hvordan Norge gikk fra å blot til Odin til å bygge stavkirker – med sverd i hånd.",
-                            "image": "https://images.unsplash.com/photo-1548625361-bd8856cb3e6e?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/vikingtiden/kristningen.png",
                             "tags": [
                                 "religion",
                                 "norge",
@@ -760,7 +760,7 @@
                             "id": "normandie",
                             "title": "Normandie: Fra Vikinger til Riddere",
                             "description": "Hvordan en gjeng norske og danske vikinger ble Europas mektigste riddere.",
-                            "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/vikingtiden/normandie.png",
                             "tags": [
                                 "historie",
                                 "frankrike",
@@ -999,7 +999,7 @@
                             "id": "karl-den-store",
                             "title": "Karl den Store",
                             "description": "Europas far og vikingenes store fiende.",
-                            "image": "https://images.unsplash.com/photo-1549144889-1052d9a609d5?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/vikingtiden/rikssamlingen.png",
                             "tags": [
                                 "historie",
                                 "frankerriket",

@@ -815,6 +815,7 @@
   },
   {
     "id": "stiklestad",
+    "heroImage": "/images/lessons/vikingtiden/kristningen.png",
     "title": "Slaget på Stiklestad",
     "description": "Olav den Hellige faller, kristendommen vinner.",
     "startDate": 1030,
@@ -832,6 +833,7 @@
   },
   {
     "id": "normandie-grunnlegges",
+    "heroImage": "/images/lessons/vikingtiden/normandie.png",
     "title": "Normandie grunnlegges",
     "description": "Vikinghøvdingen Rollo får Normandie av frankerkongen.",
     "startDate": 911,
@@ -848,6 +850,7 @@
   },
   {
     "id": "rikssamlingen",
+    "heroImage": "/images/lessons/vikingtiden/rikssamlingen.png",
     "title": "Rikssamlingen",
     "description": "Harald Hårfagre samler Norge til ett rike (ca.)",
     "startDate": 872,
@@ -864,6 +867,7 @@
   },
   {
     "id": "danelagen-opprettes",
+    "heroImage": "/images/lessons/vikingtiden/danelagen.png",
     "title": "Danelagen opprettes",
     "description": "Vikingene erobrer nord-England.",
     "startDate": 865,
@@ -880,6 +884,7 @@
   },
   {
     "id": "karl-den-store-keiser",
+    "heroImage": "/images/lessons/vikingtiden/karl_den_store.png",
     "title": "Karl den Store blir keiser",
     "description": "Frankerrikets makttopp. En trussel mot Norden.",
     "startDate": 800,
