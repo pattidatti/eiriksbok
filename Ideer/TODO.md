@@ -30,7 +30,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
 
 ### Norsk
-- [ ] Artikler i norskfaget-litteraturhistorie mangler sidebar. 
+- [x] Artikler i norskfaget-litteraturhistorie mangler sidebar. 
 ### Musikk
 - [ ] Implementere https://sites.google.com/bergensskolen.com/musikk/start og lage en logisk struktur på emnet. 
 

@@ -1,0 +1,42 @@
+{
+    "id": "vurderingskriterier",
+    "title": "Vurdering og Egenøving",
+    "ingress": "Hvordan blir jeg egentlig bedømt i musikk? Og hvordan blir jeg bedre?",
+    "content": [
+        {
+            "type": "text",
+            "title": "Kompetansemål (Hva du skal lære)",
+            "content": "I følge læreplanen (LK20) er det tre hovedting du skal kunne:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Utøve musikk**: Du skal kunne spille eller synge sammen med andre. Det handler om teknikk, men mest om samspill og formidling.",
+                "**Lage musikk**: Du skal kunne bruke digitale verktøy (som Beat Builderen vår!) til å sette sammen egne låter.",
+                "**Oppleve musikk**: Du skal kunne lytte til musikk og bruke fagbegreper (som takt, rytme, dur/moll) til å beskrive det du hører."
+            ]
+        },
+        {
+            "type": "text",
+            "content": ""
+        },
+        {
+            "type": "text",
+            "title": "Hvordan øve effektivt?",
+            "content": "Her er tre proff-tips for å bli god raskt:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Senk farten! Hvis du ikke kan spille det sakte, kan du ikke spille det raskt.",
+                "Del opp! Ikke spill hele sangen hver gang. Øv bare på den vanskelige overgangen.",
+                "Lytt! Hør på originalen. Prøv å herme etter det du hører."
+            ]
+        },
+        {
+            "type": "text",
+            "title": "Vurderingskriterier",
+            "content": "**Lav måloppnåelse**: Du deltar, men er usikker på grep/rytme.\n**Middels måloppnåelse**: Du mestrer det tekniske greit og klarer å følge pulsen til de andre.\n**Høy måloppnåelse**: Du spiller med overskudd, lytter til de andre, og bidrar kreativt til samspillet."
+        }
+    ]
+}

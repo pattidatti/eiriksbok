@@ -1,0 +1,20 @@
+{
+    "id": "akkordbank",
+    "title": "Akkordbank",
+    "description": "Din ultimate guide til akkorder på piano og gitar. Slå opp hvilken som helst akkord og se hvordan den spilles.",
+    "layout": "tool",
+    "content": [
+        {
+            "type": "text",
+            "content": "Velg instrument, grunntone og akkordtype for å se hvordan akkorden spilles. Du kan nå lagre dine favoritt-akkorder i din egen samling."
+        },
+        {
+            "type": "component",
+            "component": "ChordLibrary"
+        },
+        {
+            "type": "text",
+            "content": "### Om Akkorder\n\nEn akkord består av tre eller flere toner som klinger sammen. De vanligste akkordene er treklanger (dur og moll) og fireklanger (septimakkorder)."
+        }
+    ]
+}

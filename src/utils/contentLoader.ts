@@ -111,7 +111,7 @@ export async function fetchManifest(): Promise<Manifest | null> {
         const basePath = import.meta.env.BASE_URL.endsWith('/')
             ? import.meta.env.BASE_URL
             : `${import.meta.env.BASE_URL}/`;
-        const response = await fetch(`${basePath}content/manifest.json`);
+        const response = await fetch(`${basePath}content/manifest.json`, { cache: 'no-store' });
         if (!response.ok) return null;
         return await response.json() as Manifest;
     } catch (error) {

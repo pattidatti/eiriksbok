@@ -1,0 +1,24 @@
+{
+    "id": "bass-intro",
+    "title": "Bass: Introduksjon",
+    "ingress": "Aldri si at bassisten er uviktig. De er limet mellom trommene og resten av bandet.",
+    "content": [
+        {
+            "type": "text",
+            "title": "Grunnmuren",
+            "content": "Bassen spiller ofte de samme tonene som gitarakkorden (grunntonene), men en oktav dypere. Den har som regel 4 strenger: E, A, D, G (De fire dypeste på gitaren)."
+        },
+        {
+            "type": "component",
+            "component": "FretboardExplorer",
+            "props": {
+                "instrument": "bass"
+            }
+        },
+        {
+            "type": "text",
+            "title": "Oppgave: Finn E",
+            "content": "Bassen er stemt i E, A, D, G. Finn den tykkeste strengen (nederst på tegningen) og trykk på den åpne sirkelen (0). Dette er den dypeste tonen på en vanlig bass."
+        }
+    ]
+}

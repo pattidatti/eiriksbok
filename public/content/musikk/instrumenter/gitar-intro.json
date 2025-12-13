@@ -1,0 +1,57 @@
+{
+    "id": "gitar-intro",
+    "title": "Gitar: Introduksjon",
+    "ingress": "Det mest populære bål-instrumentet. Lær strengene, stemming og dine første grep.",
+    "content": [
+        {
+            "type": "text",
+            "title": "Strengene: En Annen Dag...",
+            "content": "En standard gitar har 6 strenger. Vi teller dem ofte fra den tykkeste (øverst) til den tynneste (nederst)."
+        },
+        {
+            "type": "list",
+            "items": [
+                "**E** (Den tykke / mørke)",
+                "**A**",
+                "**D**",
+                "**G**",
+                "**H** (eller B på engelsk)",
+                "**E** (Den tynne / lyse)"
+            ]
+        },
+        {
+            "type": "text",
+            "content": "**Huskeregle:** *En Annen Dag Gikk Bjørn Egentlig*."
+        },
+        {
+            "type": "component",
+            "component": "FretboardExplorer",
+            "props": {
+                "instrument": "guitar"
+            }
+        },
+        {
+            "type": "text",
+            "title": "Oppgave 1: Åpne strenger",
+            "content": "Se på gripebrettet over. De hvite sirklene helt til venstre kalles 'åpne strenger' (bånd 0).\n\n*   Klikk på E, A, D, G, B, E.\n*   Ser du at den tykkeste strengen er nederst på tegningen? (Slik ser det ut når du holder gitaren og ser ned på den)."
+        },
+        {
+            "type": "text",
+            "title": "Oppgave 2: E-moll (Verdens enkleste grep)",
+            "content": "Vi skal ta et grep som heter **Em** (E-moll). Det er ofte det første grepet man lærer."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Finn den tykke A-strengen (nest nederst på tegningen).",
+                "Trykk på **bånd 2** på A-strengen.",
+                "Finn D-strengen (strengen over).",
+                "Trykk på **bånd 2** på D-strengen også."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Nå holder du to fingre nede. Resten av strengene skal være åpne (0). Gratulerer, du kan spille E-moll!"
+        }
+    ]
+}

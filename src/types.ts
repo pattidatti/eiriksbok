@@ -58,7 +58,7 @@ export interface Lesson {
     readTime?: string;
     details?: string[];
     externalUrl?: string;
-    layout?: 'standard' | 'rich';
+    layout?: 'standard' | 'rich' | 'tool';
     year?: string;
     category?: string;
     // Legacy fields for backward compatibility

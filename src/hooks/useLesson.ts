@@ -7,7 +7,7 @@ export const useLesson = (subjectId: string, topicId: string, lessonId: string, 
         queryKey: ['lesson', subjectId, topicId, subTopicId, lessonId],
         queryFn: () => fetchLesson(subjectId, topicId, lessonId, subTopicId),
         enabled: !!subjectId && !!topicId && !!lessonId,
-        staleTime: Infinity,
-        gcTime: 1000 * 60 * 60 * 24, // 24 hours
+        staleTime: 0,
+        gcTime: 1000 * 60 * 5, // 5 minutes
     });
 };

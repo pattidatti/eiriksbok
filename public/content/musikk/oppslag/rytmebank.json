@@ -1,0 +1,212 @@
+{
+    "id": "rytmebank",
+    "title": "Rytmebank",
+    "ingress": "En samling med vanlige trommerytmer du kan bruke i dine egne låter.",
+    "content": [
+        {
+            "type": "text",
+            "content": "Rytme er fundamentet i all moderne musikk. Her er noen klassiske beats du kan høre på og eksperimentere med."
+        },
+        {
+            "type": "text",
+            "title": "Standard Rock Beat",
+            "content": "Dette er kanskje verdens mest brukte rytme. Basstromme på 1 og 3, skarp på 2 og 4, og åttedeler på hi-hat."
+        },
+        {
+            "type": "component",
+            "component": "BeatBuilder",
+            "props": {
+                "initialPattern": {
+                    "kick": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false
+                    ],
+                    "snare": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ],
+                    "hihat": [
+                        true,
+                        false,
+                        true,
+                        false,
+                        true,
+                        false,
+                        true,
+                        false,
+                        true,
+                        false,
+                        true,
+                        false,
+                        true,
+                        false,
+                        true,
+                        false
+                    ]
+                }
+            }
+        },
+        {
+            "type": "text",
+            "title": "Four-on-the-Floor (Disco/House)",
+            "content": "Kjennetegnet ved at basstromma spiller på hvert slag (1, 2, 3, 4). Veldig vanlig i dansemusikk."
+        },
+        {
+            "type": "component",
+            "component": "BeatBuilder",
+            "props": {
+                "initialPattern": {
+                    "kick": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ],
+                    "snare": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ],
+                    "hihat": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                }
+            }
+        },
+        {
+            "type": "text",
+            "title": "Hiphop Break",
+            "content": "En mer synkopert rytme hvor basstromma ikke alltid lander på de 'tunge' slagene. Gir en mer 'groovy' følelse."
+        },
+        {
+            "type": "component",
+            "component": "BeatBuilder",
+            "props": {
+                "initialPattern": {
+                    "kick": [
+                        true,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ],
+                    "snare": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ],
+                    "hihat": [
+                        true,
+                        false,
+                        true,
+                        false,
+                        true,
+                        true,
+                        false,
+                        false,
+                        true,
+                        false,
+                        true,
+                        false,
+                        true,
+                        true,
+                        false,
+                        true
+                    ]
+                }
+            }
+        }
+    ]
+}

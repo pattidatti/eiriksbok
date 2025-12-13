@@ -1,0 +1,16 @@
+{
+    "id": "latskriver",
+    "title": "Låtskriververktøy",
+    "ingress": "Planlegg din neste komposisjon ned til minste detalj.",
+    "content": [
+        {
+            "type": "text",
+            "title": "Arrangementsplanlegger",
+            "content": "Bruk dette verktøyet til å tegne opp strukturen på låta di. Hvor skal det være mye energi? Hvilke instrumenter skal spille når?"
+        },
+        {
+            "type": "component",
+            "component": "SongwriterStudio"
+        }
+    ]
+}

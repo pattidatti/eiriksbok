@@ -1,0 +1,43 @@
+{
+    "id": "lat-struktur",
+    "title": "Låtens Anatomi",
+    "ingress": "Hvordan bygge en hit? De fleste sanger følger en hemmelig oppskrift.",
+    "content": [
+        {
+            "type": "text",
+            "title": "Byggeklossene",
+            "content": "Når du hører på radioen, kan det virke som om alle sanger er forskjellige. Men nesten alle poplåter er bygget opp av de samme klossene:\n\n*   **Vers**: Forteller historien. Melodien er ofte roligere.\n*   **Refreng (Chorus)**: Hoveddelen. Det er denne du nynner på. Den kommer igjen flere ganger.\n*   **Bro (Bridge)**: En kontrast. Noe nytt skjer for å bryte monotoni før siste refreng."
+        },
+        {
+            "type": "component",
+            "component": "SongStructureBuilder"
+        },
+        {
+            "type": "text",
+            "title": "Oppgave: Pop-formelen",
+            "content": "Bruk verktøyet over til å bygge en klassisk 'hit-låt'. Prøv å lage denne strukturen:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Intro** (4 takter)",
+                "**Vers** (8 takter)",
+                "**Refreng** (8 takter)",
+                "**Vers** (8 takter)",
+                "**Refreng** (8 takter)",
+                "**Bro** (8 takter)",
+                "**Refreng** (8 takter)",
+                "**Outro** (4 takter)"
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Hvor lang ble sangen din totalt?"
+        },
+        {
+            "type": "text",
+            "title": "Dynamikk",
+            "content": "Tenk også på *energien* i låta. Versene er ofte litt lavere i energi. Refrenget skal 'løfte' taket. Broen kan være helt rolig, eller bygge seg sakte opp mot et klimaks."
+        }
+    ]
+}

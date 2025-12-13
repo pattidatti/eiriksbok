@@ -25,6 +25,13 @@ import { TimelineSlider } from './viking/TimelineSlider';
 import { QuoteBlock } from './QuoteBlock';
 import { Comparison } from './Comparison';
 import { LineChart } from './LineChart';
+import { VirtualPiano } from '../features/music/components/VirtualPiano';
+import { FretboardExplorer } from '../features/music/components/FretboardExplorer';
+import { BeatBuilder } from '../features/music/components/BeatBuilder';
+import { ChordLibrary } from '../features/music/components/ChordLibrary';
+import { SongStructureBuilder } from '../features/music/components/SongStructureBuilder';
+import { ArrangementPlanner } from '../features/music/components/ArrangementPlanner';
+import { SongwriterStudio } from '../features/music/components/SongwriterStudio';
 
 import { renderInlineMarkdown } from './markdownUtils';
 import type { Concept, ContentBlock } from '../types';
@@ -304,6 +311,25 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                         yAxisLabel={block.props?.yAxisLabel}
                                     />
                                 );
+                            case 'VirtualPiano':
+                                return <VirtualPiano key={index} highlightKeys={block.props?.highlightKeys} />;
+                            case 'FretboardExplorer':
+                                return (
+                                    <FretboardExplorer
+                                        key={index}
+                                        instrument={block.props?.instrument}
+                                    />
+                                );
+                            case 'BeatBuilder':
+                                return <BeatBuilder key={index} initialPattern={block.props?.initialPattern} />;
+                            case 'ChordLibrary':
+                                return <ChordLibrary key={index} />;
+                            case 'SongStructureBuilder':
+                                return <SongStructureBuilder key={index} />;
+                            case 'ArrangementPlanner':
+                                return <ArrangementPlanner key={index} />;
+                            case 'SongwriterStudio':
+                                return <SongwriterStudio key={index} />;
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">

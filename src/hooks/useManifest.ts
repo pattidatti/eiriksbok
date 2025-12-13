@@ -10,7 +10,7 @@ export const useManifest = () => {
             if (!data) throw new Error('Failed to load manifest');
             return data;
         },
-        staleTime: Infinity, // Data is considered fresh forever in this session
-        gcTime: 1000 * 60 * 60 * 24, // Keep in cache for 24 hours
+        staleTime: 0, // Always fetch fresh data on mount
+        gcTime: 1000 * 60 * 5, // Keep in cache for 5 minutes
     });
 };

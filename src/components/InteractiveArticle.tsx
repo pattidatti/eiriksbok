@@ -28,6 +28,7 @@ export type ArticleData = {
     year: string;
     title: string;
     description: string;
+    layout?: 'standard' | 'rich' | 'tool';
     content: ContentBlock[];
     details: string[];
     icon?: React.ReactNode;
@@ -249,26 +250,28 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
             </div>
 
             {/* Hero Image Banner */}
-            <div className="max-w-6xl mx-auto px-6 mb-16">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl"
-                >
-                    <ImageWithFallback
-                        src={event.heroImage}
-                        alt={event.title}
-                        className="w-full h-full object-cover"
-                        seed={event.title}
-                    />
-                </motion.div>
-            </div>
+            {event.layout !== 'tool' && (
+                <div className="max-w-6xl mx-auto px-6 mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.3 }}
+                        className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl"
+                    >
+                        <ImageWithFallback
+                            src={event.heroImage}
+                            alt={event.title}
+                            className="w-full h-full object-cover"
+                            seed={event.title}
+                        />
+                    </motion.div>
+                </div>
+            )}
 
             {/* Main Content Container */}
             <div className="max-w-6xl mx-auto px-6">
                 <div className="bg-white rounded-3xl p-8 md:p-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-16">
+                    <div className={`grid gap-16 ${event.layout === 'tool' ? 'grid-cols-1 max-w-7xl mx-auto' : 'grid-cols-1 lg:grid-cols-[1fr_350px]'}`}>
                         {/* Left Column: Article Text */}
                         <div className="space-y-8">
                             <ArticleContent
@@ -283,14 +286,16 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                         </div>
 
                         {/* Right Column: Sidebar / Interactive Elements */}
-                        <RichSidebar
-                            details={event.details}
-                            timelineEvents={combinedTimeline}
-                            relatedArticles={relatedArticles}
-                            mapData={event.mapData}
-                            tags={event.tags}
-                            config={sidebarConfig}
-                        />
+                        {event.layout !== 'tool' && (
+                            <RichSidebar
+                                details={event.details}
+                                timelineEvents={combinedTimeline}
+                                relatedArticles={relatedArticles}
+                                mapData={event.mapData}
+                                tags={event.tags}
+                                config={sidebarConfig}
+                            />
+                        )}
                     </div>
                 </div>
             </div>

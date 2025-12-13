@@ -150,6 +150,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             readTime: lesson.readTime || '5 min lesning',
             heroImage: lesson.heroImage || lessonImage,
             url: lesson.externalUrl,
+            layout: lesson.layout,
 
             fact: lesson.fact,
             mapData: lesson.mapData,

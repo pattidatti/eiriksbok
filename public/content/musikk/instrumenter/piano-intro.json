@@ -1,0 +1,38 @@
+{
+    "id": "piano-intro",
+    "title": "Piano: Introduksjon",
+    "ingress": "Pianoet er kanskje det mest oversiktlige instrumentet som finnes. Her ligger alle tonene på rekke og rad.",
+    "content": [
+        {
+            "type": "text",
+            "title": "Tangentene: Hvit og Svart",
+            "content": "På pianoet har vi hvite og svarte tangenter. De hvite kaller vi **stamtoner**. De heter C, D, E, F, G, A og H (eller B på engelsk).\n\nDe svarte tangentene er halvtoner (kryss eller b). De brukes for å spille skalaer som ikke bare er C-dur."
+        },
+        {
+            "type": "component",
+            "component": "VirtualPiano"
+        },
+        {
+            "type": "text",
+            "title": "Oppgave 1: Finn C",
+            "content": "Se på pianoet over. Ser du at de svarte tangentene kommer i grupper på to og tre?\n\n**Tonen C** finner du alltid rett til venstre for gruppen med **to svarte tangenter**.\n\n*   Prøv å finne alle C-ene på pianoet over.\n*   Trykk på dem. Hører du at de er like, men den ene er lysere enn den andre? Dette kalles en **oktav**."
+        },
+        {
+            "type": "text",
+            "title": "Oppgave 2: Din første akkord",
+            "content": "Vi skal spille en **C-dur akkord**. En akkord er når du spiller flere toner samtidig."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Finn en **C** med tommelen.",
+                "Tell to hvite tangenter til høyre og finn **E** (med pekefingeren).",
+                "Tell to hvite til og finn **G** (med lillefingeren)."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Trykk alle tre ned samtidig. Gratulerer, du spiller nå en C-dur akkord!"
+        }
+    ]
+}

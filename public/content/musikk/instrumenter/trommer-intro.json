@@ -1,0 +1,29 @@
+{
+    "id": "trommer-intro",
+    "title": "Trommer: Introduksjon",
+    "ingress": "Det er her energien kommer fra.",
+    "content": [
+        {
+            "type": "text",
+            "title": "Trommesettet",
+            "content": "Et trommesett består av mange deler, men tre er viktigst:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Stortromme (Kick)**: Den dype 'BOM'-lyden du kjenner i brystet. Spilles ofte på slag 1 og 3.",
+                "**Skarp (Snare)**: Den skarpe 'KAH'-lyden. Spilles ofte på slag 2 og 4 (Backbeat).",
+                "**Hi-Hat**: De to cymbalene som ligger mot hverandre. Holder pulsen (tikk-tikk-tikk-tikk)."
+            ]
+        },
+        {
+            "type": "text",
+            "content": ""
+        },
+        {
+            "type": "text",
+            "title": "Oppgave: Enkel Rocke-beat",
+            "content": "Prøv å lage denne rytmen i hodet (eller klapp den):\n\n*   1: Kick + Hi-hat\n*   2: Snare + Hi-hat\n*   3: Kick + Hi-hat\n*   4: Snare + Hi-hat"
+        }
+    ]
+}

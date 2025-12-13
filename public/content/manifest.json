@@ -2005,11 +2005,236 @@
                             ]
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "id": "musikk",
+            "title": "Musikk",
+            "tools": [
+                {
+                    "id": "akkordbank-tool",
+                    "title": "Akkordbank",
+                    "description": "Slå opp i pianoakkorder",
+                    "link": "/musikk/oppslag/akkordbank",
+                    "icon": "music"
                 },
                 {
-                    "id": "musikk",
-                    "title": "Musikk",
-                    "topics": []
+                    "id": "rytmebank-tool",
+                    "title": "Rytmebank",
+                    "description": "Trommebeats bibliotek",
+                    "link": "/musikk/oppslag/rytmebank",
+                    "icon": "drums"
+                },
+                {
+                    "id": "latskriver-tool",
+                    "title": "Låtskriver",
+                    "description": "Planlegg struktur",
+                    "link": "/musikk/oppslag/latskriver",
+                    "icon": "edit"
+                }
+            ],
+            "topics": [
+                {
+                    "id": "grunnleggende",
+                    "title": "Det Grunnleggende",
+                    "description": "Lær musikkens språk: Takt, rytme og harmoni.",
+                    "image": "/images/topics/musikk_grunnleggende.png",
+                    "lessons": [
+                        {
+                            "id": "takt-og-rytme",
+                            "title": "Takt og Rytme",
+                            "description": "Hva er puls? Hva er en takt? Lær om 4/4 og andre taktarter.",
+                            "image": "/images/lessons/musikk/takt_og_rytme.png",
+                            "tags": [
+                                "musikk",
+                                "teori",
+                                "rytme"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        },
+                        {
+                            "id": "akkorder-og-harmoni",
+                            "title": "Akkorder og Harmoni",
+                            "description": "Forstå dur, moll og treklanger.",
+                            "image": "/images/lessons/musikk/akkorder.png",
+                            "tags": [
+                                "musikk",
+                                "teori",
+                                "harmoni"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        },
+                        {
+                            "id": "notasjon",
+                            "title": "Notasjon",
+                            "description": "Lær å lese musikkens kart: Noter og tabulatur.",
+                            "image": "https://images.unsplash.com/photo-1507838153414-b4b713384ebd?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "musikk",
+                                "teori",
+                                "notasjon"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "instrumenter",
+                    "title": "Instrumentene",
+                    "description": "Verktøykassen: Gitar, Piano, Bass og Trommer.",
+                    "image": "/images/topics/musikk_instrumenter.png",
+                    "lessons": [
+                        {
+                            "id": "piano-intro",
+                            "title": "Piano: Introduksjon",
+                            "description": "Tangentene, akkorder og koordinasjon.",
+                            "image": "/images/lessons/musikk/piano.png",
+                            "tags": [
+                                "musikk",
+                                "instrument",
+                                "piano"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        },
+                        {
+                            "id": "gitar-intro",
+                            "title": "Gitar: Introduksjon",
+                            "description": "Strenger, grep og strumming.",
+                            "image": "/images/lessons/musikk/gitar.png",
+                            "tags": [
+                                "musikk",
+                                "instrument",
+                                "gitar"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        },
+                        {
+                            "id": "bass-intro",
+                            "title": "Bass: Introduksjon",
+                            "description": "Grunnmuren i bandet. Samspill med trommer.",
+                            "image": "/images/lessons/musikk/bass.png",
+                            "tags": [
+                                "musikk",
+                                "instrument",
+                                "bass"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        },
+                        {
+                            "id": "trommer-intro",
+                            "title": "Trommer: Introduksjon",
+                            "description": "Rytmeboksen. Koordinasjon og backbeat.",
+                            "image": "/images/lessons/musikk/trommer.png",
+                            "tags": [
+                                "musikk",
+                                "instrument",
+                                "trommer"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "komposisjon",
+                    "title": "Komposisjon",
+                    "description": "Hvordan lage egne låter?",
+                    "image": "/images/topics/musikk_komposisjon.png",
+                    "lessons": [
+                        {
+                            "id": "lat-struktur",
+                            "title": "Låtens Anatomi",
+                            "description": "Vers, refreng, bro og oppbygging.",
+                            "image": "/images/lessons/musikk/struktur.png",
+                            "tags": [
+                                "musikk",
+                                "komposisjon",
+                                "låtskriving"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "vurdering",
+                    "title": "Vurdering",
+                    "description": "Mål og mening.",
+                    "image": "/images/topics/musikk_vurdering.png",
+                    "lessons": [
+                        {
+                            "id": "vurderingskriterier",
+                            "title": "Hva blir vi vurdert i?",
+                            "description": "Teknikk, samspill og kreativitet.",
+                            "image": "/images/lessons/musikk/vurdering.png",
+                            "tags": [
+                                "musikk",
+                                "skole",
+                                "vurdering"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "oppslag",
+                    "title": "Verktøy & Oppslag",
+                    "description": "Din musikalske verktøykasse.",
+                    "image": "/images/topics/musikk_oppslag.png",
+                    "lessons": [
+                        {
+                            "id": "akkordbank",
+                            "layout": "tool",
+                            "title": "Akkordbank",
+                            "description": "Oversikt over vanlige pianoakkorder.",
+                            "image": "/images/lessons/musikk/piano.png",
+                            "tags": [
+                                "musikk",
+                                "oppslag",
+                                "piano",
+                                "akkorder"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        },
+                        {
+                            "id": "rytmebank",
+                            "layout": "tool",
+                            "title": "Rytmebank",
+                            "description": "Bibliotek over vanlige trommerytmer.",
+                            "image": "/images/lessons/musikk/trommer.png",
+                            "tags": [
+                                "musikk",
+                                "oppslag",
+                                "trommer",
+                                "rytme"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        },
+                        {
+                            "id": "latskriver",
+                            "layout": "tool",
+                            "title": "Låtskriververktøy",
+                            "description": "Planlegg strukturen og dynamikken i låta di.",
+                            "image": "/images/lessons/musikk/latskriving.png",
+                            "tags": [
+                                "musikk",
+                                "verktøy",
+                                "komposisjon"
+                            ],
+                            "createdDate": "2025-12-13T12:00:00Z",
+                            "lastUpdated": "2025-12-13T12:00:00Z"
+                        }
+                    ]
                 }
             ]
         }
