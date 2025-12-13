@@ -131,6 +131,13 @@ export interface ManifestSubject {
     tools?: TopicTool[];
 }
 
+export interface SidebarConfig {
+    showTimeline?: boolean;
+    showRelated?: boolean;
+    showConcepts?: boolean;
+    showTools?: boolean;
+}
+
 export interface Manifest {
     subjects: ManifestSubject[];
 }

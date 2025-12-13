@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import type { Concept, Quote, GlobalTimelineEvent } from '../types';
+import type { Concept, Quote, GlobalTimelineEvent, SidebarConfig } from '../types';
 import { ConceptCard } from './ConceptCard';
 
 interface LessonSidebarProps {
@@ -11,9 +11,18 @@ interface LessonSidebarProps {
     relatedLessons?: { title: string; url: string }[];
     relatedTitle?: string;
     timelineEvents?: GlobalTimelineEvent[];
+    config?: SidebarConfig;
 }
 
-export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparisonTags, quote, relatedLessons, relatedTitle, timelineEvents }) => {
+export const LessonSidebar: React.FC<LessonSidebarProps> = ({
+    concepts,
+    comparisonTags,
+    quote,
+    relatedLessons,
+    relatedTitle,
+    timelineEvents,
+    config
+}) => {
     return (
         <div className="space-y-8">
             {/* Quote */}
@@ -32,7 +41,7 @@ export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparis
             )}
 
             {/* Concepts */}
-            {concepts && concepts.length > 0 && (
+            {config?.showConcepts !== false && concepts && concepts.length > 0 && (
                 <section>
                     <h2 className="text-2xl font-display font-bold text-text-main mb-6 border-l-4 border-neon-accent pl-4">
                         Begreper
@@ -66,7 +75,7 @@ export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparis
             )}
 
             {/* Related Lessons */}
-            {relatedLessons && relatedLessons.length > 0 && (
+            {config?.showRelated !== false && relatedLessons && relatedLessons.length > 0 && (
                 <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">
                         {relatedTitle || 'Mer i dette emnet'}
@@ -89,7 +98,7 @@ export const LessonSidebar: React.FC<LessonSidebarProps> = ({ concepts, comparis
             )}
 
             {/* Timeline Context - Moved to bottom */}
-            {timelineEvents && timelineEvents.length > 0 && (
+            {config?.showTimeline !== false && timelineEvents && timelineEvents.length > 0 && (
                 <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 relative overflow-hidden">
                     {/* Decorative line */}
                     <div className="absolute top-0 bottom-0 left-9 w-0.5 bg-slate-200" />
