@@ -74,7 +74,6 @@ export const SmartChordInput: React.FC<SmartChordInputProps> = ({ onChordFound }
         // restOfRed contains the quality part, e.g., "m7", "maj7", "dim"
         // We need to match this against our supported qualities OR common aliases.
 
-        let bestQuality = 'Major'; // Default
 
         const qualityMap: Record<string, string> = {
             'm': 'Minor', 'min': 'Minor', '-': 'Minor',

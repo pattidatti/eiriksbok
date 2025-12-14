@@ -9,7 +9,6 @@ interface ChordSelectorProps {
 
 export const ChordSelector: React.FC<ChordSelectorProps> = ({ root, quality, onRootChange, onQualityChange }) => {
 
-
     // Helper to get available qualities from our definition
     const availableQualities = Object.keys(CHORD_QUALITIES);
 

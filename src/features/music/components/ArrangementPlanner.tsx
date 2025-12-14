@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, X, Music, Sliders, Activity } from 'lucide-react';
+import { Plus, X, Sliders, Activity } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type SectionType = 'intro' | 'vers' | 'refreng' | 'bro' | 'outro' | 'solo';
