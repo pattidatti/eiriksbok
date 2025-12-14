@@ -96,7 +96,7 @@ export const ArrangementPlanner: React.FC = () => {
                     </div>
 
                     <AnimatePresence>
-                        {sections.map((section, index) => (
+                        {sections.map((section) => (
                             <motion.div
                                 key={section.id}
                                 layout

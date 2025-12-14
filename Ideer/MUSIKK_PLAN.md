@@ -65,6 +65,14 @@ For å støtte læringen foreslår vi å utvikle følgende "micro-tools":
     *   Sett lengde på blokker (f.eks. 8 takter).
     *   Viser total lengde og struktur visuelt.
 
+### 🎧 "Songwriter Studio" (The "App")
+*   **Funksjon**: Det samlende verktøyet hvor alt settes sammen.
+*   **Se Roadmap**: [Songwriter Studio 2.0 Roadmap](./SONGWRITER_ROADMAP.md) for detaljert utviklingsløp.
+*   Inkluderer:
+    *   Tidslinje
+    *   Kordebibliotek
+    *   Orkester-visualisering
+
 ---
 
 ## 3. Ting du kanskje burde tenke på (Manglende brikker?)

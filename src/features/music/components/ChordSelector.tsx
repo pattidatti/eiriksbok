@@ -9,10 +9,6 @@ interface ChordSelectorProps {
 
 export const ChordSelector: React.FC<ChordSelectorProps> = ({ root, quality, onRootChange, onQualityChange }) => {
 
-    // Group qualities for better organization
-    const majorQualities = ['Major', 'Maj7', '6', 'add9'];
-    const minorQualities = ['Minor', 'Min7', 'm6', 'm9'];
-    const dominantQualities = ['7', '9', '11', '13', 'Sus4', 'Dim'];
 
     // Helper to get available qualities from our definition
     const availableQualities = Object.keys(CHORD_QUALITIES);

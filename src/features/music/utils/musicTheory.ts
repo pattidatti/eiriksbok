@@ -1,11 +1,10 @@
 
 export const NOTES_SHARP = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-export const NOTES_FLAT = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
 
 export const CHORD_QUALITIES = {
-    'Major': { label: 'Major (Dur)', intervals: [0, 4, 7] },
-    'Minor': { label: 'Minor (Moll)', intervals: [0, 3, 7] },
-    '7': { label: '7 (Dominant)', intervals: [0, 4, 7, 10] },
+    'Major': { label: 'Major', intervals: [0, 4, 7] },
+    'Minor': { label: 'Minor', intervals: [0, 3, 7] },
+    '7': { label: 'Dominant 7', intervals: [0, 4, 7, 10] },
     'Maj7': { label: 'Major 7', intervals: [0, 4, 7, 11] },
     'Min7': { label: 'Minor 7', intervals: [0, 3, 7, 10] },
     'Sus4': { label: 'Sus4', intervals: [0, 5, 7] },
@@ -13,6 +12,32 @@ export const CHORD_QUALITIES = {
 };
 
 export type Note = string; // e.g., "C", "F#"
+
+// Helper for scale generation
+const MAJOR_SCALE_INTERVALS = [0, 2, 4, 5, 7, 9, 11];
+const MINOR_SCALE_INTERVALS = [0, 2, 3, 5, 7, 8, 10]; // Natural Minor
+
+// Diatonic Chords Map (Scale Degree -> Quality Key)
+const MAJOR_DIATONIC = ['Major', 'Minor', 'Minor', 'Major', 'Major', 'Minor', 'Dim'];
+const MINOR_DIATONIC = ['Minor', 'Dim', 'Major', 'Minor', 'Minor', 'Major', 'Major']; // Natural Minor Scale Degrees
+
+export function getDiatonicChords(root: Note, scaleType: 'Major' | 'Minor'): { root: Note, quality: string, degree: number }[] {
+    const rootIndex = NOTES_SHARP.indexOf(root);
+    if (rootIndex === -1) return [];
+
+    const scaleIntervals = scaleType === 'Major' ? MAJOR_SCALE_INTERVALS : MINOR_SCALE_INTERVALS;
+    const qualities = scaleType === 'Major' ? MAJOR_DIATONIC : MINOR_DIATONIC;
+
+    return scaleIntervals.map((interval, index) => {
+        const noteIndex = (rootIndex + interval) % 12;
+        const noteName = NOTES_SHARP[noteIndex];
+        return {
+            root: noteName,
+            quality: qualities[index],
+            degree: index + 1
+        };
+    });
+}
 
 export function getChordNotes(root: Note, quality: keyof typeof CHORD_QUALITIES): Note[] {
     const rootIndex = NOTES_SHARP.indexOf(root);
@@ -24,106 +49,136 @@ export function getChordNotes(root: Note, quality: keyof typeof CHORD_QUALITIES)
     });
 }
 
-// Guitar Logic
-// Standard Tuning: E A D G B E (High to Low strings in array index 0-5? No, usually Low E is string 6)
-// Let's stick to the visualizer's convention. 
-// FretboardExplorer: ['E', 'B', 'G', 'D', 'A', 'E'] (Top/Index 0 is High E, Bottom/Index 5 is Low E)
-
-interface GuitarVoicing {
-    frets: number[]; // Array of 6 numbers. -1 for mute, 0 for open. Index 0 is High E.
-}
-
-// Base shapes (defined for specific roots)
-// We will transpose these.
-const BASE_SHAPES: Record<string, Record<string, GuitarVoicing>> = {
-    'E': {
-        'Major': { frets: [0, 0, 1, 2, 2, 0] }, // E Major: 022100 (Low to High) -> Vis: [0, 0, 1, 2, 2, 0] (High to Low)
-        'Minor': { frets: [0, 0, 0, 2, 2, 0] }, // Em
-        '7': { frets: [0, 3, 1, 2, 2, 0] },     // E7
+// "Cowboy Chords" / Open Chords Dictionary
+// Format: [E, A, D, G, B, e] - -1 means mute, 0 means open
+const OPEN_CHORDS: Record<string, Record<string, number[]>> = {
+    'C': {
+        'Major': [-1, 3, 2, 0, 1, 0], // x32010
+        'Major7': [-1, 3, 2, 0, 0, 0], // x32000
     },
     'A': {
-        'Major': { frets: [0, 2, 2, 2, 0, -1] }, // A Major: x02220 -> Vis: [0, 2, 2, 2, 0, -1]
-        'Minor': { frets: [0, 1, 2, 2, 0, -1] }, // Am
+        'Major': [-1, 0, 2, 2, 2, 0], // x02220
+        'Minor': [-1, 0, 2, 2, 1, 0], // x02210
+        '7': [-1, 0, 2, 0, 2, 0],     // x02020
+        'Sus4': [-1, 0, 2, 2, 3, 0],  // x02230
+    },
+    'G': {
+        'Major': [3, 2, 0, 0, 0, 3],  // 320003
+        '7': [3, 2, 0, 0, 0, 1],      // 320001
+    },
+    'E': {
+        'Major': [0, 2, 2, 1, 0, 0],  // 022100
+        'Minor': [0, 2, 2, 0, 0, 0],  // 022000
+        '7': [0, 2, 0, 1, 0, 0],      // 020100
+    },
+    'D': {
+        'Major': [-1, -1, 0, 2, 3, 2], // xx0232
+        'Minor': [-1, -1, 0, 2, 3, 1], // xx0231
+        '7': [-1, -1, 0, 2, 1, 2],     // xx0212
+        'Sus4': [-1, -1, 0, 2, 3, 3],  // xx0233
+    },
+    'F': {
+        'Major': [1, 3, 3, 2, 1, 1], // Barre is standard, but Fmaj7 open is x33210
+        'Maj7': [-1, 3, 3, 2, 1, 0], // x33210 (Easy F)
     }
 };
 
-// Helper: Get distance between two notes
-function getSemitones(from: Note, to: Note): number {
-    const i1 = NOTES_SHARP.indexOf(from);
-    const i2 = NOTES_SHARP.indexOf(to);
-    let diff = i2 - i1;
-    if (diff < 0) diff += 12;
-    return diff;
-}
-
-export interface FretPosition {
-    string: number; // 0-5 (High E to Low E)
-    fret: number;
-}
-
-export function getGuitarVoicing(root: Note, quality: string): FretPosition[] {
-    // Strategy: Try to find a barre chord shape based on E-shape or A-shape
-
-    // 1. E-Shape (Root on Low E string - Index 5)
-    // E is index 4 in NOTES_SHARP (C=0, C#=1, D=2, D#=3, E=4)
-    // Wait, E is index 4? C C# D D# E. Yes.
-
-    // Calculate offset from E
-    const eIndex = NOTES_SHARP.indexOf('E');
+export function getGuitarVoicing(root: Note, quality: string, variant: number = 0): number[] {
     const rootIndex = NOTES_SHARP.indexOf(root);
-    let shiftE = rootIndex - eIndex;
-    if (shiftE < 0) shiftE += 12;
+    if (rootIndex === -1) return [];
 
-    // 2. A-Shape (Root on A string - Index 4)
-    // A is index 9
-    const aIndex = NOTES_SHARP.indexOf('A');
-    let shiftA = rootIndex - aIndex;
-    if (shiftA < 0) shiftA += 12;
+    // Check for Open Chord matches first if variant is 0 (Open)
+    if (variant === 0) {
+        let openShape: number[] | null = null;
 
-    // Prefer lower voicings (closer to nut)
-    // But open chords are best. 
+        if (OPEN_CHORDS[root] && OPEN_CHORDS[root][quality]) {
+            openShape = OPEN_CHORDS[root][quality];
+        }
+        // Fallback or "Easy" mappings
+        else if (root === 'A' && quality === 'Min7') openShape = [-1, 0, 2, 0, 1, 0];
+        else if (root === 'E' && quality === 'Min7') openShape = [0, 2, 0, 0, 0, 0];
+        else if (root === 'D' && quality === 'Maj7') openShape = [-1, -1, 0, 2, 2, 2];
+        else if (root === 'C' && quality === 'Add9') openShape = [-1, 3, 2, 0, 3, 0];
 
-    // Simplistic Logic:
-    // Check if we have a hardcoded "Open" shape (offset 0)? 
-    // Actually, let's just use the E-shape and A-shape and shift them.
-
-    // If shift is 0, we can use open strings. If shift > 0, we treat open strings (0) as barre (0+shift).
-    // EXCEPT mute (-1) stays mute.
-
-    // Let's prefer the shape that puts the barre lower on the neck, but ideally < 12.
-
-    let bestShape = null;
-    let bestShift = 0;
-
-    // Check E-Shape suitability
-    // If quality exists in E-shape
-    if (BASE_SHAPES['E'][quality as keyof typeof BASE_SHAPES['E']]) {
-        bestShape = BASE_SHAPES['E'][quality];
-        bestShift = shiftE;
-    }
-
-    // Check A-Shape suitability (might be better if shift is lower)
-    if (BASE_SHAPES['A'][quality as keyof typeof BASE_SHAPES['A']]) {
-        const shape = BASE_SHAPES['A'][quality];
-        if (!bestShape || shiftA < bestShift) {
-            // Prefer E-shape if shift is 0 (Open E) vs A-shape shifted high
-            // But if A-shape shift is smaller, take it.
-            bestShape = shape;
-            bestShift = shiftA;
+        if (openShape) {
+            return openShape;
         }
     }
 
-    if (!bestShape) return []; // Unknown quality/shape
+    // Default Barre Chords Calculation (E-shape and A-shape)
+    // E-Shape Root (String 6): E=0, F=1, F#=2, G=3...
+    // A-Shape Root (String 5): A=0, A#=1...
 
-    const positions: FretPosition[] = [];
-    bestShape.frets.forEach((fret, stringIndex) => {
-        if (fret !== -1) {
-            positions.push({
-                string: stringIndex,
-                fret: fret + bestShift
-            });
+    // Determine target fret for E-shape
+    // E is 0. Root index of E is 4.
+    // (RootIndex - 4 + 12) % 12
+    const eShapeFret = (rootIndex - 4 + 12) % 12;
+
+    // Determine target fret for A-shape
+    // A is 9. Root index of A is 9.
+    // (RootIndex - 9 + 12) % 12
+    const aShapeFret = (rootIndex - 9 + 12) % 12;
+
+    // Define base shapes (offsets from barre)
+    // Format: relative frets. 0 = barre.
+    let baseShape = [];
+    let barreFret = 0;
+
+    // Strategy: Prefer lower frets (closer to nut)
+    // Unless specifically toggled to variant 1 (Barre)
+
+    // Choose shape based on fret position to avoid super high frets
+    const useEShape = eShapeFret <= 7;
+
+    // If variant 1 is requested, and we defaulted to open (which failed), we force barre.
+    // Logic: 
+    // Variant 0: Prefer Open -> Then Lowest Barre
+    // Variant 1: Force Alternative Barre (or higher inversion)
+
+    if (useEShape) {
+        barreFret = eShapeFret;
+        // E-shape definitions
+        if (quality === 'Major') baseShape = [0, 2, 2, 1, 0, 0];
+        else if (quality === 'Minor') baseShape = [0, 2, 2, 0, 0, 0];
+        else if (quality === '7') baseShape = [0, 2, 0, 1, 0, 0];
+        else if (quality === 'Min7') baseShape = [0, 2, 0, 0, 0, 0]; // 020000 relative
+        else if (quality === 'Maj7') baseShape = [0, 2, 1, 1, 0, 0]; // 021100 relative
+        else baseShape = [0, 2, 2, 1, 0, 0]; // Fallback Major
+    } else {
+        barreFret = aShapeFret;
+        // A-shape definitions (String 6 is mute usually)
+        if (quality === 'Major') baseShape = [-1, 0, 2, 2, 2, 0];
+        else if (quality === 'Minor') baseShape = [-1, 0, 2, 2, 1, 0];
+        else if (quality === '7') baseShape = [-1, 0, 2, 0, 2, 0];
+        else if (quality === 'Min7') baseShape = [-1, 0, 2, 0, 1, 0];
+        else if (quality === 'Maj7') baseShape = [-1, 0, 2, 1, 2, 0];
+        else baseShape = [-1, 0, 2, 2, 2, 0]; // Fallback Major
+    }
+
+    // Determine if we swap based on variant
+    if (variant === 1) {
+        // Find the "Other" shape. If we picked E, pick A (possibly higher up)
+        if (useEShape) {
+            barreFret = aShapeFret;
+            // A-shape definitions
+            if (quality === 'Major') baseShape = [-1, 0, 2, 2, 2, 0];
+            else if (quality === 'Minor') baseShape = [-1, 0, 2, 2, 1, 0];
+            else if (quality === '7') baseShape = [-1, 0, 2, 0, 2, 0];
+            else if (quality === 'Min7') baseShape = [-1, 0, 2, 0, 1, 0];
+            else if (quality === 'Maj7') baseShape = [-1, 0, 2, 1, 2, 0];
+            else baseShape = [-1, 0, 2, 2, 2, 0];
+        } else {
+            barreFret = eShapeFret;
+            // E-shape definitions
+            if (quality === 'Major') baseShape = [0, 2, 2, 1, 0, 0];
+            else if (quality === 'Minor') baseShape = [0, 2, 2, 0, 0, 0];
+            else if (quality === '7') baseShape = [0, 2, 0, 1, 0, 0];
+            else if (quality === 'Min7') baseShape = [0, 2, 0, 0, 0, 0];
+            else if (quality === 'Maj7') baseShape = [0, 2, 1, 1, 0, 0];
+            else baseShape = [0, 2, 2, 1, 0, 0];
         }
-    });
+    }
 
-    return positions;
+    // Apply offset
+    return baseShape.map(fret => fret === -1 ? -1 : fret + barreFret);
 }

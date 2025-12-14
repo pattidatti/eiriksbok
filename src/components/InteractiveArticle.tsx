@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import {
     Calendar,
     Clock,
@@ -12,7 +11,6 @@ import {
 } from 'lucide-react';
 import { ArticleContent } from './ArticleContent';
 import { RichSidebar } from './RichSidebar';
-import { TimelineComponent } from './TimelineComponent';
 import type { ContentBlock } from '../types';
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
 import { cleanTextForSpeech } from '../utils/speechUtils';
@@ -269,9 +267,9 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
             )}
 
             {/* Main Content Container */}
-            <div className="max-w-6xl mx-auto px-6">
-                <div className="bg-white rounded-3xl p-8 md:p-12">
-                    <div className={`grid gap-16 ${event.layout === 'tool' ? 'grid-cols-1 max-w-7xl mx-auto' : 'grid-cols-1 lg:grid-cols-[1fr_350px]'}`}>
+            <div className={`${event.layout === 'tool' ? 'w-full px-4' : 'max-w-6xl mx-auto px-6'}`}>
+                <div className={`${event.layout === 'tool' ? 'w-full' : 'bg-white rounded-3xl p-8 md:p-12'}`}>
+                    <div className={`grid gap-16 ${event.layout === 'tool' ? 'grid-cols-1 w-full' : 'grid-cols-1 lg:grid-cols-[1fr_350px]'}`}>
                         {/* Left Column: Article Text */}
                         <div className="space-y-8">
                             <ArticleContent

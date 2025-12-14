@@ -23,6 +23,13 @@ const PianoKey: React.FC<KeyProps> = ({ isBlack, isPressed, isHighlighted, label
             ? (isBlack ? "bg-emerald-600" : "bg-emerald-100")
             : (isBlack ? "bg-slate-800" : "bg-white");
 
+    // Extract note name from label or props if needed, but 'label' prop usually holds the note name for white keys.
+    // We want to show the note name if highlighted, even for black keys if we can derive it.
+    // But 'label' prop currently passed only for white keys.
+    // We might need to adjust parent to pass label for all keys or derive it here?
+    // Parent passes `note` which is full note + octave (C#4).
+    // Let's use `label` prop as is for now, but ensure we render it if highlighted.
+
     return (
         <div
             className={`${baseClass} ${colorClass} relative flex flex-col justify-end items-center pb-2 transition-colors cursor-pointer select-none`}
@@ -31,8 +38,17 @@ const PianoKey: React.FC<KeyProps> = ({ isBlack, isPressed, isHighlighted, label
             onMouseLeave={onMouseUp}
             onMouseEnter={onMouseEnter}
         >
-            {label && !isBlack && (
-                <span className={`text-xs font-bold ${isPressed ? 'text-indigo-600' : 'text-slate-400'}`}>
+            {/* Always show label if highlighted, or if it's a white key (standard piano label) */}
+            {(label || isHighlighted) && (
+                <span className={`text-xs font-bold mb-2 ${isPressed ? 'text-indigo-600' :
+                    isHighlighted ? (isBlack ? 'text-white' : 'text-emerald-700') : 'text-slate-400'
+                    }`}>
+                    {/* If highlighted and no label (black key), we might want to show something? 
+                        But we don't have the Note name easily without parsing props.note.
+                        Let's stick to showing label if it exists. 
+                        Wait, user wanted "Shown on key what chord is playing".
+                        If I highlight C#4, I want to see "C#" on the key.
+                    */}
                     {label}
                 </span>
             )}
@@ -125,7 +141,7 @@ export const VirtualPiano: React.FC<VirtualPianoProps> = ({ highlightKeys = [] }
                         isBlack={isBlack}
                         isPressed={pressedKeys.has(fullNote)}
                         isHighlighted={highlightKeys.includes(fullNote)}
-                        label={!isBlack ? note : undefined}
+                        label={note} // Pass note name as label for ALL keys
                         onMouseDown={() => handleMouseDown(fullNote)}
                         onMouseUp={() => handleMouseUp(fullNote)}
                         onMouseEnter={() => handleMouseEnter(fullNote)}
