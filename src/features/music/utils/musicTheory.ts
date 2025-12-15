@@ -182,3 +182,48 @@ export function getGuitarVoicing(root: Note, quality: string, variant: number = 
     // Apply offset
     return baseShape.map(fret => fret === -1 ? -1 : fret + barreFret);
 }
+
+export function getIntervalName(interval: number): string {
+    const map: Record<number, string> = {
+        0: 'R',
+        1: 'b2', 2: '2',
+        3: 'b3', 4: '3',
+        5: '4', 6: 'b5',
+        7: '5', 8: 'b6',
+        9: '6', 10: 'b7',
+        11: '7'
+    };
+    return map[interval] || '?';
+}
+
+export function getRelatedChords(root: Note, quality: string) {
+    const rootIndex = NOTES_SHARP.indexOf(root);
+    if (rootIndex === -1) return [];
+
+    const related = [];
+
+    // 1. Parallel (Major <-> Minor)
+    if (quality === 'Major') {
+        related.push({ label: 'Parallell Moll', root, quality: 'Minor' });
+        // Relative Minor (vi) - moved down 3 semitones from Major Root
+        const relMinIndex = (rootIndex - 3 + 12) % 12;
+        related.push({ label: 'Relativ Moll', root: NOTES_SHARP[relMinIndex], quality: 'Minor' });
+    } else if (quality === 'Minor') {
+        related.push({ label: 'Parallell Dur', root, quality: 'Major' });
+        // Relative Major (I) - moved up 3 semitones from Minor Root
+        const relMajIndex = (rootIndex + 3) % 12;
+        related.push({ label: 'Relativ Dur', root: NOTES_SHARP[relMajIndex], quality: 'Major' });
+    }
+
+    // 2. Dominant (V)
+    // 7 semitones up
+    const domIndex = (rootIndex + 7) % 12;
+    related.push({ label: 'Dominant (V)', root: NOTES_SHARP[domIndex], quality: '7' });
+
+    // 3. Subdominant (IV)
+    // 5 semitones up
+    const subIndex = (rootIndex + 5) % 12;
+    related.push({ label: 'Subdominant (IV)', root: NOTES_SHARP[subIndex], quality: quality }); // Same quality usually in pop context or Major
+
+    return related;
+}
