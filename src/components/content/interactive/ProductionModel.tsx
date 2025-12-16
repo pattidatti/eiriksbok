@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { TrendingUp, AlertTriangle, Building2, Wallet, ArrowRight } from 'lucide-react';
+import { AlertTriangle, Building2, Wallet, ArrowRight } from 'lucide-react';
 
 export const ProductionModel: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'planner' | 'market'>('planner');
@@ -87,10 +87,13 @@ const PlannerSimulation = () => {
         if (plan.transport.vedlikehold < trueNeeds.transport.vedlikehold - 20) newReports.push("Transport: Veiene er fulle av hull, folk kommer ikke på jobb.");
 
         // General abstract error calculation
-        Object.keys(plan).forEach(sector => {
-            Object.keys(plan[sector as keyof typeof plan]).forEach(item => {
-                const p = plan[sector as keyof typeof plan][item as keyof typeof plan['helse']];
-                const n = trueNeeds[sector as keyof typeof trueNeeds][item as keyof typeof trueNeeds['helse']];
+        (Object.keys(plan) as Array<keyof typeof plan>).forEach(sector => {
+            const sectorPlan = plan[sector];
+            const sectorNeeds = trueNeeds[sector];
+
+            Object.keys(sectorPlan).forEach(item => {
+                const p = (sectorPlan as Record<string, number>)[item];
+                const n = (sectorNeeds as Record<string, number>)[item];
                 totalError += Math.abs(p - n);
             });
         });
@@ -295,18 +298,4 @@ const MarketSimulation = () => {
     );
 };
 
-const BudgetSlider = ({ label, value, onChange }: { label: string, value: number, onChange: (val: number) => void }) => (
-    <div>
-        <div className="flex justify-between mb-2 text-sm">
-            <span className="font-medium text-slate-700">{label}</span>
-        </div>
-        <input
-            type="range"
-            min="0"
-            max="100"
-            value={value}
-            onChange={(e) => onChange(Number(e.target.value))}
-            className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-red-600"
-        />
-    </div>
-);
+
