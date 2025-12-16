@@ -173,11 +173,11 @@ const PlannerSimulation = () => {
                     <div key={key}>
                         <div className="flex justify-between mb-2">
                             <label className="font-medium text-slate-700">{labels[selectedSector][key]}</label>
-                            <span className="font-bold text-blue-600">{plan[selectedSector][key as keyof typeof plan['helse']]} enheter</span>
+                            <span className="font-bold text-blue-600">{(plan[selectedSector] as Record<string, number>)[key]} enheter</span>
                         </div>
                         <input
                             type="range" min="0" max="100"
-                            value={plan[selectedSector][key as keyof typeof plan['helse']]}
+                            value={(plan[selectedSector] as Record<string, number>)[key]}
                             onChange={(e) => updatePlan(key, Number(e.target.value))}
                             className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-red-600"
                         />
