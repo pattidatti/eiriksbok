@@ -13,6 +13,7 @@ import { InflationCalculator } from './content/interactive/InflationCalculator';
 import { TimePreferenceModel } from './content/interactive/TimePreferenceModel';
 import { BusinessCycleModel } from './content/interactive/BusinessCycleModel';
 import { BusinessCycleGraph } from './content/interactive/BusinessCycleGraph';
+import { ProductionModel } from './content/interactive/ProductionModel';
 import { GrammarRuleCard } from './content/interactive/GrammarRuleCard';
 import { TextHighlighter } from './content/interactive/TextHighlighter';
 import { SentenceBuilder } from './content/interactive/SentenceBuilder';
@@ -244,6 +245,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 return <BusinessCycleModel key={index} />;
                             case 'BusinessCycleGraph':
                                 return <BusinessCycleGraph key={index} />;
+                            case 'ProductionModel':
+                                return <ProductionModel key={index} />;
                             case 'GrammarRuleCard':
                                 return (
                                     <GrammarRuleCard

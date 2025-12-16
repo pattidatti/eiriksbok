@@ -212,9 +212,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                         {event.title}
                     </h1>
 
-                    <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
-                        {event.description}
-                    </p>
+
 
                     {/* TTS Button */}
                     {hasVoice && (

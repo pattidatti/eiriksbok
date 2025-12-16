@@ -476,6 +476,19 @@
                     "image": "/Eiriksbok/images/topics/demografi-okonomi.png",
                     "lessons": [
                         {
+                            "id": "produksjon",
+                            "title": "Produksjon",
+                            "description": "Hva bestemmer hva vi lager? Planøkonomi vs. Markedsøkonomi.",
+                            "image": "/Eiriksbok/images/topics/demografi-okonomi.png",
+                            "tags": [
+                                "økonomi",
+                                "produksjon",
+                                "systemer"
+                            ],
+                            "createdDate": "2023-12-16T12:00:00Z",
+                            "lastUpdated": "2023-12-16T12:00:00Z"
+                        },
+                        {
                             "id": "intro",
                             "title": "Introduksjon",
                             "description": "Grunnleggende om befolkning og \u00f8konomi.",
