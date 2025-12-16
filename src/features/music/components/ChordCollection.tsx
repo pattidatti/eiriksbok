@@ -13,9 +13,11 @@ interface ChordCollectionProps {
     currentRoot: string;
     currentQuality: string;
     onLoadChord: (root: string, quality: string) => void;
+    variant?: 'grid' | 'sidebar';
 }
 
-export const ChordCollection: React.FC<ChordCollectionProps> = ({ currentRoot, currentQuality, onLoadChord }) => {
+export const ChordCollection: React.FC<ChordCollectionProps> = ({ currentRoot, currentQuality, onLoadChord, variant = 'grid' }) => {
+
     const [savedChords, setSavedChords] = useState<SavedChord[]>([]);
 
     // Load from localStorage on mount
@@ -52,55 +54,63 @@ export const ChordCollection: React.FC<ChordCollectionProps> = ({ currentRoot, c
     };
 
     return (
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 mt-8">
-            <div className="flex justify-between items-center mb-6">
+        <div className={`bg-white rounded-2xl border border-slate-200 flex flex-col ${variant === 'sidebar' ? 'h-full border-0 rounded-none bg-transparent p-0' : 'p-6 mt-8'}`}>
+            <div className={`flex justify-between items-center ${variant === 'sidebar' ? 'mb-4 px-4 pt-4' : 'mb-6'}`}>
                 <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                     <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
-                    Mine Akkorder
+                    {variant === 'sidebar' ? 'Samling' : 'Mine Akkorder'}
                 </h3>
 
                 <button
                     onClick={handleSave}
-                    className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700 transition-colors text-sm shadow-sm"
+                    className="flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors shadow-sm"
+                    title="Lagre denne akkorden"
                 >
-                    <Plus className="w-4 h-4 mr-2" />
-                    Lagre denne akkorden
+                    <Plus className="w-5 h-5" />
                 </button>
             </div>
 
-            {savedChords.length === 0 ? (
-                <div className="text-center py-8 text-slate-500 bg-slate-50 rounded-xl border border-dashed border-slate-200">
-                    <p>Du har ingen lagrede akkorder enda.</p>
-                    <p className="text-sm mt-1">Trykk på "Lagre denne akkorden" for å samle favorittene dine.</p>
-                </div>
-            ) : (
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                    {savedChords.map(chord => (
-                        <div
-                            key={chord.id}
-                            onClick={() => onLoadChord(chord.root, chord.quality)}
-                            className="bg-slate-50 border border-slate-200 rounded-xl p-3 cursor-pointer group hover:border-indigo-300 hover:shadow-md transition-all relative"
-                        >
-                            <div className="text-center">
-                                <span className="block text-2xl font-bold text-slate-800">
-                                    {chord.root}
-                                    <span className="text-lg font-normal text-slate-500 ml-1">
+            <div className={`overflow-y-auto ${variant === 'sidebar' ? 'flex-1 px-2 pb-2' : ''}`}>
+                {savedChords.length === 0 ? (
+                    <div className="text-center py-8 text-slate-500 bg-slate-50 rounded-xl border border-dashed border-slate-200 mx-2">
+                        <p className="text-sm">Ingen lagrede akkorder.</p>
+                    </div>
+                ) : (
+                    <div className={variant === 'sidebar' ? 'space-y-2' : 'grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3'}>
+                        {savedChords.map(chord => (
+                            <div
+                                key={chord.id}
+                                onClick={() => onLoadChord(chord.root, chord.quality)}
+                                className={`
+                                    relative group cursor-pointer transition-all
+                                    ${variant === 'sidebar'
+                                        ? 'flex items-center justify-between p-3 bg-white border border-slate-200 rounded-lg hover:border-indigo-300 hover:shadow-sm'
+                                        : 'bg-slate-50 border border-slate-200 rounded-xl p-3 hover:border-indigo-300 hover:shadow-md'
+                                    }
+                                `}
+                            >
+                                <div className={variant === 'sidebar' ? 'flex items-baseline gap-2' : 'text-center'}>
+                                    <span className="font-bold text-slate-800 text-lg">{chord.root}</span>
+                                    <span className="text-sm text-slate-500">
                                         {CHORD_QUALITIES[chord.quality as keyof typeof CHORD_QUALITIES]?.label.split(' ')[0]}
                                     </span>
-                                </span>
-                            </div>
+                                </div>
 
-                            <button
-                                onClick={(e) => handleRemove(chord.id, e)}
-                                className="absolute top-1 right-1 p-1 text-slate-300 hover:text-red-500 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity"
-                                title="Fjern"
-                            >
-                                <Trash2 className="w-3 h-3" />
-                            </button>
-                        </div>
-                    ))}
-                </div>
-            )}
+                                <button
+                                    onClick={(e) => handleRemove(chord.id, e)}
+                                    className={`
+                                        text-slate-300 hover:text-red-500 transition-colors
+                                        ${variant === 'sidebar' ? 'opacity-0 group-hover:opacity-100' : 'absolute top-1 right-1 opacity-100 md:opacity-0 group-hover:opacity-100'}
+                                    `}
+                                    title="Fjern"
+                                >
+                                    <Trash2 className="w-4 h-4" />
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
