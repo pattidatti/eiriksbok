@@ -3,9 +3,16 @@ import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
 import { ChronoBoard } from '../components/games/chrono/ChronoBoard';
 import { PageSkeleton } from '../components/Skeleton';
 import { Link } from 'react-router-dom';
+import { useLayout } from '../context/LayoutContext';
 
 const ChronoGamePage: React.FC = () => {
     const { events, loading, error } = useGlobalTimeline();
+    const { setFullWidth } = useLayout();
+
+    React.useEffect(() => {
+        setFullWidth(true);
+        return () => setFullWidth(false);
+    }, [setFullWidth]);
 
     if (loading) return <PageSkeleton />;
     if (error) return <div className="p-8 text-center text-red-500">Klarte ikke laste spilldata. Prøv igjen senere.</div>;

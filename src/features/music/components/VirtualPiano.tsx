@@ -13,22 +13,16 @@ interface KeyProps {
 }
 
 const PianoKey: React.FC<KeyProps> = ({ isBlack, isPressed, isHighlighted, label, onMouseDown, onMouseUp, onMouseEnter }) => {
+    // Base structural classes (no colors)
     const baseClass = isBlack
         ? "w-8 h-32 -mx-4 z-10 rounded-b-lg border border-slate-900"
-        : "w-12 h-48 border border-slate-200 rounded-b-lg z-0 bg-white hover:bg-slate-50";
+        : "w-12 h-48 border border-slate-200 rounded-b-lg z-0 hover:bg-slate-50";
 
     const colorClass = isPressed
-        ? (isBlack ? "bg-indigo-600" : "bg-indigo-100")
+        ? (isBlack ? "bg-indigo-600" : "bg-indigo-200")
         : isHighlighted
-            ? (isBlack ? "bg-emerald-600" : "bg-emerald-100")
+            ? (isBlack ? "bg-emerald-500" : "bg-emerald-300")
             : (isBlack ? "bg-slate-800" : "bg-white");
-
-    // Extract note name from label or props if needed, but 'label' prop usually holds the note name for white keys.
-    // We want to show the note name if highlighted, even for black keys if we can derive it.
-    // But 'label' prop currently passed only for white keys.
-    // We might need to adjust parent to pass label for all keys or derive it here?
-    // Parent passes `note` which is full note + octave (C#4).
-    // Let's use `label` prop as is for now, but ensure we render it if highlighted.
 
     return (
         <div
@@ -40,15 +34,9 @@ const PianoKey: React.FC<KeyProps> = ({ isBlack, isPressed, isHighlighted, label
         >
             {/* Always show label if highlighted, or if it's a white key (standard piano label) */}
             {(label || isHighlighted) && (
-                <span className={`text-xs font-bold mb-2 ${isPressed ? 'text-indigo-600' :
-                    isHighlighted ? (isBlack ? 'text-white' : 'text-emerald-700') : 'text-slate-400'
+                <span className={`text-xs font-bold mb-2 ${isPressed ? 'text-indigo-800' :
+                    isHighlighted ? (isBlack ? 'text-white' : 'text-emerald-900') : 'text-slate-400'
                     }`}>
-                    {/* If highlighted and no label (black key), we might want to show something? 
-                        But we don't have the Note name easily without parsing props.note.
-                        Let's stick to showing label if it exists. 
-                        Wait, user wanted "Shown on key what chord is playing".
-                        If I highlight C#4, I want to see "C#" on the key.
-                    */}
                     {label}
                 </span>
             )}
@@ -60,7 +48,49 @@ interface VirtualPianoProps {
     highlightKeys?: string[];
 }
 
+
+// Helper to normalize notes for comparison (e.g. "C#", "Db", "C#4" -> "C#4")
+const normalizeNote = (note: string): string => {
+    // Extract pitch and octave
+    // Regex: Start with pitch (A-G followed by optional #/b), then capture optional rest (Octave)
+    const match = note.match(/^([A-G][#b]?)(.*)$/);
+    if (!match) return note;
+
+    const pitch = match[1];
+    const octave = match[2]; // Preserved!
+
+    // Canonical Map to Sharps
+    const canonical: Record<string, string> = {
+        'Db': 'C#', 'Eb': 'D#', 'Gb': 'F#', 'Ab': 'G#', 'Bb': 'A#',
+        'Cb': 'B', 'Fb': 'E', 'B#': 'C', 'E#': 'F'
+    };
+
+    const normPitch = canonical[pitch] || pitch;
+    return `${normPitch}${octave}`;
+};
+
 export const VirtualPiano: React.FC<VirtualPianoProps> = ({ highlightKeys = [] }) => {
+    // derived set of highlighted normalized notes for easier lookup
+    const highlightedNormalized = React.useMemo(() => {
+        return new Set(highlightKeys.map(k => normalizeNote(k)));
+    }, [highlightKeys]);
+
+    const isKeyHighlighted = (noteName: string) => {
+        // noteName is the key on the piano, e.g. "C#4"
+        const norm = normalizeNote(noteName);
+        const has = highlightedNormalized.has(norm);
+        // Reduce log spam by only logging if meaningful or once per render cycle (impossible here without ref logic)
+        // Instead, let's rely on the Set logging above which I'll add now
+        console.log(`[VirtualPiano] Checking key: ${noteName} (normalized: ${norm}). Is highlighted: ${has}`);
+        return has;
+    };
+
+    // Debug logging for normalized set
+    React.useEffect(() => {
+        console.log('[VirtualPiano] Highlight Keys:', highlightKeys);
+        console.log('[VirtualPiano] Normalized Set:', Array.from(highlightedNormalized));
+    }, [highlightKeys, highlightedNormalized]);
+
     const [pressedKeys, setPressedKeys] = useState<Set<string>>(new Set());
     const [isMouseDown, setIsMouseDown] = useState(false);
     const synthRef = useRef<Tone.PolySynth | null>(null);
@@ -140,7 +170,7 @@ export const VirtualPiano: React.FC<VirtualPianoProps> = ({ highlightKeys = [] }
                         note={fullNote}
                         isBlack={isBlack}
                         isPressed={pressedKeys.has(fullNote)}
-                        isHighlighted={highlightKeys.includes(fullNote)}
+                        isHighlighted={isKeyHighlighted(fullNote)}
                         label={note} // Pass note name as label for ALL keys
                         onMouseDown={() => handleMouseDown(fullNote)}
                         onMouseUp={() => handleMouseUp(fullNote)}
@@ -157,7 +187,7 @@ export const VirtualPiano: React.FC<VirtualPianoProps> = ({ highlightKeys = [] }
                 note={finalC}
                 isBlack={false}
                 isPressed={pressedKeys.has(finalC)}
-                isHighlighted={highlightKeys.includes(finalC)}
+                isHighlighted={isKeyHighlighted(finalC)}
                 label="C"
                 onMouseDown={() => handleMouseDown(finalC)}
                 onMouseUp={() => handleMouseUp(finalC)}

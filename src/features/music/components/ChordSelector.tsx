@@ -17,16 +17,16 @@ export const ChordSelector: React.FC<ChordSelectorProps> = ({ root, quality, onR
             {/* Root Note Selector (Keyboard Strip) */}
             <div className="space-y-2">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Grunntone</label>
-                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide mask-fade-right">
+                <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
                     {NOTES_SHARP.map((note) => (
                         <button
                             key={note}
                             onClick={() => onRootChange(note)}
                             className={`
-                                flex-shrink-0 w-10 h-14 rounded-lg font-bold text-lg transition-all flex items-center justify-center border-b-4
+                                h-12 rounded-lg font-bold text-lg transition-all flex items-center justify-center border-b-4
                                 ${root === note
-                                    ? 'bg-indigo-600 text-white border-indigo-800 shadow-lg transform -translate-y-1'
-                                    : 'bg-white text-slate-700 border-slate-200 hover:bg-indigo-50 hover:border-indigo-200'}
+                                    ? 'bg-indigo-600 text-white border-indigo-800 shadow-md transform translate-y-[1px]'
+                                    : 'bg-white text-slate-700 border-slate-200 hover:bg-indigo-50 hover:border-indigo-200 active:border-b-0 active:translate-y-1'}
                             `}
                         >
                             {note}

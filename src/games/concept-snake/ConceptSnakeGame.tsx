@@ -2,8 +2,15 @@ import React, { useEffect } from 'react';
 import { useSnakeGame } from './hooks/useSnakeGame';
 import { SnakeBoard } from './components/SnakeBoard';
 import { levels } from './data/conceptData';
+import { useLayout } from '../../context/LayoutContext';
 
 const ConceptSnakeGame: React.FC = () => {
+    const { setFullWidth } = useLayout();
+
+    useEffect(() => {
+        setFullWidth(true);
+        return () => setFullWidth(false);
+    }, [setFullWidth]);
     const {
         snake,
         status,

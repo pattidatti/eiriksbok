@@ -6,12 +6,14 @@ import { SearchOverlay } from './SearchOverlay';
 import { Breadcrumbs } from './Breadcrumbs';
 import { ScrollToTop } from './ScrollToTop';
 import { useSettings } from '../hooks/useSettings';
+import { useLayout } from '../context/LayoutContext';
 
 export const Layout: React.FC = () => {
     const location = useLocation();
     const outlet = useOutlet();
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const { settings, toggleDyslexicMode } = useSettings();
+    const { isFullWidth } = useLayout();
 
     const isActive = (path: string) => {
         return location.pathname.startsWith(path) ? 'text-text-main font-semibold' : 'text-text-muted hover:text-text-main';
@@ -70,8 +72,8 @@ export const Layout: React.FC = () => {
 
             <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
-            <main className={`relative z-10 ${location.pathname.includes('/oving/chrono-glider') || location.pathname.includes('/oving/chrono') || location.pathname.includes('/oving/konsept-snake') ? '' : 'pt-8'}`}>
-                <div className={location.pathname.includes('/oving/chrono-glider') || location.pathname.includes('/oving/chrono') || location.pathname.includes('/oving/konsept-snake') ? '' : 'max-w-7xl mx-auto px-6'}>
+            <main className={`relative z-10 ${isFullWidth ? '' : 'pt-8'}`}>
+                <div className={isFullWidth ? '' : 'max-w-7xl mx-auto px-6'}>
                     <Breadcrumbs />
                     <AnimatePresence mode="wait">
                         <motion.div

@@ -7,6 +7,7 @@ import { TowerSelector } from '../features/timeline-td/components/TowerSelector'
 import { TOWER_STATS } from '../features/timeline-td/data/gameData';
 import { ArrowLeft, Pause, Play, RefreshCw, Coins, Heart, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLayout } from '../context/LayoutContext';
 
 const TimelineTDPage: React.FC = () => {
     const {
@@ -22,6 +23,13 @@ const TimelineTDPage: React.FC = () => {
         updateMoney,
         startNextWave
     } = useGameStore();
+
+    const { setFullWidth } = useLayout();
+
+    React.useEffect(() => {
+        setFullWidth(true);
+        return () => setFullWidth(false);
+    }, [setFullWidth]);
 
     const [selectedTower, setSelectedTower] = useState<TowerType | null>(null);
 

@@ -227,3 +227,39 @@ export function getRelatedChords(root: Note, quality: string) {
 
     return related;
 }
+
+export function getPianoVoicing(root: Note, quality: keyof typeof CHORD_QUALITIES): string[] {
+    const rootIndex = NOTES_SHARP.indexOf(root);
+    if (rootIndex === -1) return [];
+
+    const intervals = CHORD_QUALITIES[quality].intervals;
+    const notesSet = new Set<string>();
+
+    /**
+     * Voicing Strategy:
+     * - Constrain all notes to the C4-C5 visual range.
+     * - Ideally show standard root position in Octave 4.
+     * - If a note exceeds the piano's top key (C5), invert it down an octave.
+     */
+
+    // VirtualPiano Visual Range: C3 (48) to C5 (72)
+    // We aim for C4 (60) to C5 (72) for the cleanest look.
+
+    // 1. Add Bass Root (Octave 3)
+    notesSet.add(`${root}3`);
+
+    intervals.forEach(interval => {
+        const absoluteSemi = rootIndex + interval;
+        const pitchClass = absoluteSemi % 12;
+        const noteName = NOTES_SHARP[pitchClass];
+
+        // 2. Add Chord Tones (Octave 4)
+        // Force every note to Octave 4.
+        // This creates inversions automatically for high notes relative to root, 
+        // but keeps the visual chord clustered in the middle.
+
+        notesSet.add(`${noteName}4`);
+    });
+
+    return Array.from(notesSet);
+}

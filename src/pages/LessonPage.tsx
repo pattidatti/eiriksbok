@@ -13,6 +13,7 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
 import { useAnalytics } from '../hooks/useAnalytics';
 import { useReadingTime } from '../hooks/useReadingTime';
+import { useLayout } from '../context/LayoutContext';
 
 const getFirstTextContent = (blocks: ContentBlock[]): string | undefined => {
     const block = blocks.find((b): b is Extract<ContentBlock, { type: 'text' }> => b.type === 'text' && !!(b.content || b.text));
@@ -34,6 +35,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const [lessonImage, setLessonImage] = useState<string | undefined>(undefined);
     const navigate = useNavigate();
     const { addToHistory } = useUserHistory();
+    const { setFullWidth } = useLayout();
 
     usePageTitle(lesson?.title || 'Leksjon', !!lesson);
 
@@ -78,6 +80,17 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             }
         }
     }, [manifest, subjectId, topicId, subTopicId, lessonId]);
+
+    // Handle Layout Context
+    useEffect(() => {
+        if (lesson && lesson.layout === 'tool') {
+            setFullWidth(true);
+        } else {
+            setFullWidth(false);
+        }
+
+        return () => setFullWidth(false);
+    }, [lesson, setFullWidth]);
 
     const loading = lessonLoading;
 
