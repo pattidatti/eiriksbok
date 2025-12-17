@@ -52,75 +52,75 @@ export const ChordLibrary: React.FC = () => {
     return (
         <div className="w-full min-h-screen bg-slate-50/50">
             {/* Main Application Container - Constrained Width */}
-            <div className="max-w-[1500px] mx-auto px-4 md:px-8 py-6 flex flex-col gap-6 h-full">
+            <div className="max-w-6xl mx-auto px-4 md:px-6 py-2 flex flex-col gap-3 h-full">
 
                 {/* Header: Search & Settings */}
-                <div className="flex flex-col xl:flex-row justify-between items-center gap-6">
-                    <div className="w-full max-w-2xl relative z-20">
+                <div className="flex flex-col xl:flex-row justify-between items-center gap-3">
+                    <div className="w-full max-w-xl relative z-20">
                         {/* Search Bar - Floating & Glassy */}
-                        <div className="bg-white/80 backdrop-blur-xl p-2 rounded-2xl shadow-lg border border-slate-200/60 ring-1 ring-slate-100">
+                        <div className="bg-white/80 backdrop-blur-xl p-1.5 rounded-xl shadow-lg border border-slate-200/60 ring-1 ring-slate-100">
                             <SmartChordInput onChordFound={handleSmartSearch} />
                         </div>
                     </div>
 
                     {/* Instrument Toggles */}
-                    <div className="flex bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200">
+                    <div className="flex bg-white p-1 rounded-xl shadow-sm border border-slate-200">
                         <button
                             onClick={() => setInstrument('piano')}
-                            className={`flex items-center px-6 py-3 rounded-xl font-bold transition-all duration-300 ${instrument === 'piano'
-                                ? 'bg-indigo-600 text-white shadow-md transform scale-105'
+                            className={`flex items-center px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300 ${instrument === 'piano'
+                                ? 'bg-indigo-600 text-white shadow-md'
                                 : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'
                                 }`}
                         >
-                            <Piano className="w-5 h-5 mr-3" />
+                            <Piano className="w-4 h-4 mr-2" />
                             Piano
                         </button>
                         <button
                             onClick={() => setInstrument('guitar')}
-                            className={`flex items-center px-6 py-3 rounded-xl font-bold transition-all duration-300 ${instrument === 'guitar'
-                                ? 'bg-amber-600 text-white shadow-md transform scale-105'
+                            className={`flex items-center px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300 ${instrument === 'guitar'
+                                ? 'bg-amber-600 text-white shadow-md'
                                 : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'
                                 }`}
                         >
-                            <Guitar className="w-5 h-5 mr-3" />
+                            <Guitar className="w-4 h-4 mr-2" />
                             Gitar
                         </button>
                     </div>
                 </div>
 
                 {/* Main Studio Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 flex-1">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 flex-1">
 
                     {/* Left Panel: Control Center */}
-                    <div className="lg:col-span-4 xl:col-span-3 flex flex-col gap-4">
+                    <div className="lg:col-span-4 xl:col-span-3 flex flex-col gap-3">
                         {/* Chord Info Card */}
-                        <div className="bg-white rounded-2xl p-6 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-4 relative overflow-hidden group hover:shadow-2xl transition-all duration-500">
+                        <div className="bg-white rounded-2xl p-4 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-2 relative overflow-hidden group hover:shadow-2xl transition-all duration-500">
                             <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-50 rounded-bl-[80px] -mr-6 -mt-6 transition-colors group-hover:bg-indigo-100" />
 
                             <div className="relative z-10">
                                 <div className="flex items-baseline gap-1 mb-1">
-                                    <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Valgt Akkord</span>
+                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest center">Valgt Akkord</span>
                                 </div>
-                                <h2 className="text-5xl font-black text-slate-800 tracking-tighter flex items-baseline flex-wrap gap-x-3">
+                                <h2 className="text-4xl font-black text-slate-800 tracking-tighter flex items-baseline flex-wrap gap-x-2">
                                     {root}
-                                    <span className="text-3xl font-light text-indigo-500">
+                                    <span className="text-2xl font-light text-indigo-500">
                                         {CHORD_QUALITIES[quality as keyof typeof CHORD_QUALITIES]?.label}
                                     </span>
                                 </h2>
                             </div>
 
-                            <div className="pt-4 border-t border-slate-100">
+                            <div className="pt-2 border-t border-slate-100">
                                 <IntervalDisplay quality={quality} />
                             </div>
                         </div>
 
                         {/* Chord Selector Panel */}
-                        <div className="bg-white rounded-3xl p-6 shadow-lg border border-slate-100 flex-1 flex flex-col gap-6">
-                            <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
-                                <Menu className="w-5 h-5 text-indigo-500" />
+                        <div className="bg-white rounded-2xl p-4 shadow-lg border border-slate-100 flex-1 flex flex-col gap-3 min-h-0">
+                            <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2 flex-shrink-0">
+                                <Menu className="w-4 h-4 text-indigo-500" />
                                 Utforsk Varianter
                             </h3>
-                            <div className="overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                            <div className="flex-1 min-h-0 overflow-visible">
                                 <ChordSelector
                                     root={root}
                                     quality={quality}
@@ -132,18 +132,18 @@ export const ChordLibrary: React.FC = () => {
                     </div>
 
                     {/* Center/Right Stage: Visualization */}
-                    <div className="lg:col-span-8 xl:col-span-9 flex flex-col gap-6">
+                    <div className="lg:col-span-8 xl:col-span-9 flex flex-col gap-4">
 
                         {/* Visualization Card */}
-                        <div className="flex-1 bg-white rounded-[2.5rem] shadow-2xl shadow-indigo-100/50 border border-slate-100 overflow-hidden relative min-h-[500px] flex flex-col">
+                        <div className="flex-1 bg-white rounded-[2rem] shadow-2xl shadow-indigo-100/50 border border-slate-100 overflow-hidden relative min-h-[400px] flex flex-col">
                             {/* Ambient Background */}
                             <div className="absolute inset-0 opacity-40 pointer-events-none">
-                                <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-gradient-to-b from-indigo-50 to-transparent rounded-full blur-3xl" />
-                                <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-gradient-to-t from-amber-50 to-transparent rounded-full blur-3xl" />
+                                <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-gradient-to-b from-indigo-50 to-transparent rounded-full blur-3xl" />
+                                <div className="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] bg-gradient-to-t from-amber-50 to-transparent rounded-full blur-3xl" />
                             </div>
 
                             {/* Content Stage */}
-                            <div className="relative z-10 flex-1 flex flex-col items-center justify-center p-8 md:p-16 gap-16">
+                            <div className="relative z-10 flex-1 flex flex-col items-center justify-center p-4 md:p-8 gap-8">
 
                                 {/* Note Badges - Floating */}
                                 <div className="flex flex-wrap justify-center gap-4">
