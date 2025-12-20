@@ -105,6 +105,10 @@
             "content": "Prosessen ble fullført under **Theodosius I** i år 380, da han gjorde kristendommen til den *eneste* lovlige religionen i riket. Men Theodosius lærte også at kirkens makt kunne være farlig. Da han beordret en massakre i byen Thessaloniki, nektet biskop Ambrosius av Milano ham adgang til kirken før keiseren hadde gjort bot. Foran en hel verden måtte den mektige romerske keiseren kle av seg de keiserlige kapper og be om tilgivelse fra en prest. Maktbalansen hadde skiftet."
         },
         {
+            "type": "text",
+            "content": "Dette øyeblikket markerte starten på en maktkamp som skulle prege Europa i tusen år fremover: Kampen mellom Kirke og Stat. Hvem var egentlig sjefen? Var det keiseren, som hadde sverdet, eller paven, som hadde nøklene til himmelen? I Vest-Europa vokste kirkens makt seg så stor at selv konger måtte bøye seg. Keisere ble avhengige av kirkens velsignelse for å være 'legitime'. Uten kroning fra paven, var du bare en krigsherre. Slik gikk Romerriket fra å være en stat der religionen tjente keiseren, til en verden der keiserne måtte tjene Gud (og hans tjenere på jorden)."
+        },
+        {
             "type": "component",
             "name": "FactBox",
             "props": {
