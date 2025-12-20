@@ -20,6 +20,7 @@ import { SentenceBuilder } from './content/interactive/SentenceBuilder';
 import { ConflictMap } from './viking/ConflictMap';
 import { FeudalPyramid } from './viking/FeudalPyramid';
 import { PantheonExplorer } from './viking/PantheonExplorer';
+import { RomanPantheonExplorer } from './content/interactive/RomanPantheonExplorer';
 import { LanguageMixer } from './viking/LanguageMixer';
 import { TradeRouteMap } from './viking/TradeRouteMap';
 import { TimelineSlider } from './viking/TimelineSlider';
@@ -286,6 +287,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 return <FeudalPyramid key={index} />;
                             case 'PantheonExplorer':
                                 return <PantheonExplorer key={index} />;
+                            case 'RomanPantheonExplorer':
+                                return <RomanPantheonExplorer key={index} />;
                             case 'LanguageMixer':
                                 return <LanguageMixer key={index} />;
                             case 'TradeRouteMap':

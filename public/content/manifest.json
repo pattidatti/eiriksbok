@@ -1115,17 +1115,68 @@
                             ],
                             "createdDate": "2025-12-20T11:00:00Z",
                             "lastUpdated": "2025-12-20T11:00:00Z"
+                        },
+                        {
+                            "id": "romerske-guder",
+                            "title": "De Romerske Gudene",
+                            "description": "En reise inn i en verden hvor guder er overalt, og fred med dem sikrer rikets bestående.",
+                            "image": "https://images.unsplash.com/photo-1555662369-0bd7982cb4c3?auto=format&fit=crop&q=80",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "romerriket",
+                                "religion",
+                                "krle"
+                            ],
+                            "createdDate": "2025-12-20T12:00:00Z",
+                            "lastUpdated": "2025-12-20T12:00:00Z"
                         }
                     ]
                 },
                 {
-                    "id": "svartedauden",
-                    "title": "Svartedauden",
-                    "description": "Pesten som drepte halvparten av befolkningen og endret samfunnet.",
-                    "image": "/images/lessons/svartedauden.png",
+                    "id": "reformasjonen",
+                    "title": "Reformasjonen og Religionskrig",
+                    "description": "Europa i endring: Tro, makt og 30-årskrigen.",
+                    "image": "/images/lessons/lutzen.jpg",
                     "lessons": [
                         {
-                            "id": "artikkel",
+                            "id": "30-aarskrigen",
+                            "title": "30-årskrigen",
+                            "description": "Den store katastrofen som formet det moderne Europa.",
+                            "image": "/images/lessons/lutzen.jpg",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "krig",
+                                "europa",
+                                "reformasjonen"
+                            ],
+                            "createdDate": "2025-12-06T12:00:00Z",
+                            "lastUpdated": "2025-12-06T12:00:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "middelalderen",
+                    "title": "Middelalderen",
+                    "description": "En tusenårig forvandling i Europa.",
+                    "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "middelalderen",
+                            "title": "Middelalderen",
+                            "description": "En oversikt over perioden fra Romerrikets fall til renessansen.",
+                            "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "historie",
+                                "middelalderen",
+                                "europa"
+                            ],
+                            "createdDate": "2025-12-20T12:00:00Z",
+                            "lastUpdated": "2025-12-20T12:00:00Z"
+                        },
+                        {
+                            "id": "svartedauden",
                             "title": "Svartedauden",
                             "description": "Pesten som endret Norge.",
                             "image": "/images/lessons/svartedauden.png",
@@ -1138,15 +1189,7 @@
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
-                        }
-                    ]
-                },
-                {
-                    "id": "boktrykkerkunsten",
-                    "title": "Boktrykkerkunsten",
-                    "description": "En informasjonsrevolusjon startet av Gutenberg (og kineserne).",
-                    "image": "https://images.unsplash.com/photo-1592776115343-3f2f637dba4d?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
-                    "lessons": [
+                        },
                         {
                             "id": "boktrykkerkunsten",
                             "title": "Boktrykkerkunsten",
@@ -1186,76 +1229,6 @@
                                     "definition": "En trykketeknikk hvor hele sider skjæres ut i treplater."
                                 }
                             ]
-                        }
-                    ]
-                },
-                {
-                    "id": "industriell-revolusjon-i-norge",
-                    "title": "Industriell Revolusjon i Norge",
-                    "description": "Fra overskudd av mat til fabrikker og maskiner.",
-                    "image": "/Eiriksbok/images/lessons/industriell-revolusjon.png",
-                    "lessons": []
-                },
-                {
-                    "id": "reformasjonen",
-                    "title": "Reformasjonen og Religionskrig",
-                    "description": "Europa i endring: Tro, makt og 30-årskrigen.",
-                    "image": "/images/lessons/lutzen.jpg",
-                    "lessons": [
-                        {
-                            "id": "30-aarskrigen",
-                            "title": "30-årskrigen",
-                            "description": "Den store katastrofen som formet det moderne Europa.",
-                            "image": "/images/lessons/lutzen.jpg",
-                            "layout": "rich",
-                            "tags": [
-                                "historie",
-                                "krig",
-                                "europa",
-                                "reformasjonen"
-                            ],
-                            "createdDate": "2025-12-06T12:00:00Z",
-                            "lastUpdated": "2025-12-06T12:00:00Z"
-                        }
-                    ]
-                },
-                {
-                    "id": "demo-artikkel",
-                    "title": "Demo Artikkel",
-                    "description": "En demonstrasjon av standardisert artikkellayout.",
-                    "lessons": [
-                        {
-                            "id": "demo-artikkel",
-                            "title": "Demo Artikkel",
-                            "description": "En demonstrasjon av standardisert artikkellayout.",
-                            "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "demo",
-                                "layout"
-                            ],
-                            "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z"
-                        }
-                    ]
-                },
-                {
-                    "id": "middelalderen",
-                    "title": "Middelalderen",
-                    "description": "En tusenårig forvandling i Europa.",
-                    "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
-                    "lessons": [
-                        {
-                            "id": "middelalderen",
-                            "title": "Middelalderen",
-                            "description": "En oversikt over perioden fra Romerrikets fall til renessansen.",
-                            "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "historie",
-                                "middelalderen",
-                                "europa"
-                            ],
-                            "createdDate": "2025-12-20T12:00:00Z",
-                            "lastUpdated": "2025-12-20T12:00:00Z"
                         }
                     ]
                 }
@@ -1834,6 +1807,29 @@
                                     "lastUpdated": "2025-12-03T17:25:16.499Z"
                                 }
                             ]
+                        },
+                        {
+                            "id": "historiske-religioner",
+                            "title": "Historiske Religioner",
+                            "description": "Religioner som har formet historien, fra antikken til norrøn tid.",
+                            "image": "https://images.unsplash.com/photo-1555662369-0bd7982cb4c3?auto=format&fit=crop&q=80",
+                            "tools": [
+                                {
+                                    "id": "romerske-guder-link",
+                                    "title": "De Romerske Gudene",
+                                    "description": "Utforsk den romerske gudeverdenen (Lenke til Historie).",
+                                    "link": "/historie/romerriket/romerske-guder",
+                                    "icon": "book-open"
+                                },
+                                {
+                                    "id": "norrøne-guder-link",
+                                    "title": "Åsatru og Vikingene",
+                                    "description": "Møt Odin, Tor og Frøya (Lenke til Historie).",
+                                    "link": "/historie/vikingtiden/asatro",
+                                    "icon": "cloud-lightning"
+                                }
+                            ],
+                            "lessons": []
                         },
                         {
                             "id": "bahai",

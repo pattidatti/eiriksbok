@@ -17,10 +17,10 @@ export const TopicCard: React.FC<TopicCardProps> = ({ title, description, image,
         <Link to={path} className="block group no-underline h-full">
             <motion.div
                 whileHover={{ y: -5 }}
-                className="h-full bg-surface-card border border-white/5 hover:border-white/10 rounded-xl overflow-hidden transition-all duration-300 flex flex-col"
+                className="h-full bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 flex flex-col"
             >
-                {/* Image Area */}
-                <div className="h-32 bg-slate-100 relative overflow-hidden">
+                {/* Image Area - Updated to h-40 to match ExplorerView */}
+                <div className="h-40 bg-slate-100 relative overflow-hidden">
                     <ImageWithFallback
                         src={image}
                         alt={title}
@@ -33,19 +33,19 @@ export const TopicCard: React.FC<TopicCardProps> = ({ title, description, image,
                     </div>
                 </div>
 
-                {/* Content Area */}
+                {/* Content Area - Updated spacing/typography to match ExplorerView */}
                 <div className="p-4 flex flex-col flex-grow">
-                    <h3 className="text-base font-bold text-text-main mb-1 group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-base font-bold text-slate-900 mb-1 group-hover:text-indigo-600 transition-colors">
                         {title}
                     </h3>
 
                     {description && (
-                        <p className="text-xs text-text-muted line-clamp-2 mb-2 flex-grow">
+                        <p className="text-xs text-slate-500 line-clamp-2 mb-2 flex-grow">
                             {description}
                         </p>
                     )}
 
-                    <div className="mt-auto pt-2 border-t border-white/5 flex items-center text-blue-400 font-medium text-[10px]">
+                    <div className="mt-auto pt-3 border-t border-slate-100 flex items-center text-indigo-600 font-medium text-[10px]">
                         <BookOpen className="w-3 h-3 mr-1" />
                         Gå til emne
                     </div>

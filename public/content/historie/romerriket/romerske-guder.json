@@ -1,0 +1,189 @@
+{
+    "id": "romerske-guder",
+    "title": "De Romerske Gudene",
+    "layout": "rich",
+    "year": "753 f.Kr - 476 e.Kr",
+    "category": "Religion & Historie",
+    "readTime": "10 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1555662369-0bd7982cb4c3?auto=format&fit=crop&q=80",
+    "tags": [
+        "historie",
+        "romerriket",
+        "religion",
+        "krle",
+        "mythology",
+        "antikken"
+    ],
+    "details": [
+        "Et polyteistisk system (mange guder)",
+        "Sterkt inspirert av gresk mytologi",
+        "Pax Deorum: Fred med gudene var statens ansvar",
+        "Keiserdyrkelse ble senere en del av religionen"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "title": "En Verden Full av Guder",
+            "content": "For en romer var verden myldrende full av guder og ånder. Det var ikke bare de store gudene oppe på fjellet Olympen (eller Kapitolhøyden i Roma) som betydde noe. Hver elv hadde sin gud, hver skog sin ånd, og til og med hver dørstokk i huset hadde sin egen beskytter (guden Janus).\n\nReligion i Romerriket handlet mindre om hva du *trodde* på inni deg, og mer om hva du *gjorde*. Det var en kontrakt: Du ga gudene ofringer og respekt, og til gjengjeld ga de deg beskyttelse og lykke. Dette konseptet kalte romerne for **do ut des** – «jeg gir for at du skal gi»."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Pax Deorum – Fred med Gudene",
+                "content": "**Pax Deorum** betyr «Gudenes Fred». Romerne trodde at så lenge de opprettholdt denne freden gjennom korrekte ritualer og ofringer, ville riket bestå. Hvis noe gikk galt – som pest, krigsnederlag eller naturkatastrofer – var det et tegn på at Pax Deorum var brutt. Da måtte staten finne ut hvilken gud som var fornærmet og blidgjøre den."
+            }
+        },
+        {
+            "type": "text",
+            "content": "### Fra Grekenland til Roma\n\nRomerne var praktiske folk. Når de erobret nye områder, så de ofte at lokalbefolkningens guder lignet på deres egne. «Åja, dere ber til en tordengud som er sjefen? Det må være Jupiter!» tenkte de. Slik absorberte de andre kulturers guder inn i sin egen religion. \n\nMest av alt ble de påvirket av grekerne. Nesten alle de store romerske gudene fikk etter hvert en gresk «tvilling» med samme historier og personlighet, bare med et nytt romersk navn."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Greske vs. Romerske Guder",
+                "leftTitle": "Gresk Navn",
+                "rightTitle": "Romersk Navn",
+                "items": [
+                    {
+                        "label": "Gudenes Konge",
+                        "left": "Zevs",
+                        "right": "Jupiter"
+                    },
+                    {
+                        "label": "Gudenes Dronning",
+                        "left": "Hera",
+                        "right": "Juno"
+                    },
+                    {
+                        "label": "Krigsguden",
+                        "left": "Ares",
+                        "right": "Mars"
+                    },
+                    {
+                        "label": "Havets Gud",
+                        "left": "Poseidon",
+                        "right": "Neptun"
+                    },
+                    {
+                        "label": "Visdommens Gudinne",
+                        "left": "Athene",
+                        "right": "Minerva"
+                    },
+                    {
+                        "label": "Kjærlighetsgudinnen",
+                        "left": "Afrodite",
+                        "right": "Venus"
+                    },
+                    {
+                        "label": "Underverdenens Gud",
+                        "left": "Hades",
+                        "right": "Pluto"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "title": "Utforsk Pantheon",
+            "content": "Ordet **Pantheon** betyr «alle guder». I Roma bygde de til og med et tempel med dette navnet (som står den dag i dag!) for å ære alle gudene samtidig. Her kan du bli kjent med de viktigste av dem."
+        },
+        {
+            "type": "component",
+            "name": "RomanPantheonExplorer"
+        },
+        {
+            "type": "text",
+            "title": "Religion som Maktmiddel",
+            "content": "Religion var ikke privat i Roma; det var politikk. Prester var ofte politikere, og politikere var prester. Julius Cæsar var for eksempel *Pontifex Maximus* (yppersteprest) lenge før han ble diktator.\n\n### Keiserdyrkelse\nEtter hvert som keiserne fikk mer makt, begynte grensen mellom menneske og gud å viskes ut. Da den første keiseren, Augustus, døde, erklærte senatet at han var blitt en gud. Senere keisere krevde å bli tilbedt mens de fortsatt levde! Å nekte å ofre til keiseren ble sett på som forræderi mot staten – noe som skapte store problemer for de tidlige kristne, som nektet å tilbe andre enn sin egen Gud."
+        },
+        {
+            "type": "text",
+            "title": "Livet etter døden",
+            "content": "Romerne hadde ikke en like klar idé om himmel og helvete som kristendommen har. De trodde at de døde levde videre som skygger i underverdenen. Men de trodde også at forfedrenes ånder (Lares og Penates) passet på familien. Derfor hadde alle romerske hjem et lite alter hvor de ofret mat og vin til sine forfedre hver dag."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Jeg kom, jeg så, jeg vant.",
+                "author": "Julius Cæsar (Veni, vidi, vici)"
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er det romerske navnet på den greske guden Zevs?",
+            "options": [
+                "Mars",
+                "Jupiter",
+                "Neptun",
+                "Apollo"
+            ],
+            "correctAnswer": 1,
+            "answer": "Jupiter er det romerske navnet for Zevs, gudenes konge.",
+            "type": "multiple_choice"
+        },
+        {
+            "question": "Hva betyr begrepet 'Pax Deorum'?",
+            "options": [
+                "Romersk Lov",
+                "Fred med Gudene",
+                "Keiserens makt",
+                "Krigserklæring"
+            ],
+            "correctAnswer": 1,
+            "answer": "Pax Deorum betyr 'Fred med Gudene', en tilstand av harmoni mellom Roma og gudene.",
+            "type": "multiple_choice"
+        },
+        {
+            "question": "Hvilken gudinne ble født ut av Jupiters hode?",
+            "options": [
+                "Juno",
+                "Venus",
+                "Minerva",
+                "Diana"
+            ],
+            "correctAnswer": 2,
+            "answer": "Minerva (visdommens gudinne) ble født fullvoksen og i rustning ut av Jupiters hode.",
+            "type": "multiple_choice"
+        },
+        {
+            "question": "Hva var 'do ut des'?",
+            "options": [
+                "Jeg gir for at du skal gi",
+                "Gudene er døde",
+                "Lenge leve keiseren",
+                "Krigen er over"
+            ],
+            "correctAnswer": 0,
+            "answer": "'Do ut des' (Jeg gir for at du skal gi) beskriver det kontraktsmessige forholdet mellom romerne og gudene.",
+            "type": "multiple_choice"
+        },
+        {
+            "question": "Hvilken gud er beskytter av ekteskapet?",
+            "options": [
+                "Venus",
+                "Juno",
+                "Ceres",
+                "Vesta"
+            ],
+            "correctAnswer": 1,
+            "answer": "Juno er beskytterinnen av ekteskapet og kvinner.",
+            "type": "multiple_choice"
+        },
+        {
+            "question": "Mars var ikke bare krigsgud, men også...",
+            "options": [
+                "Havets gud",
+                "Romas stamfar",
+                "Musikkens gud",
+                "Vinens gud"
+            ],
+            "correctAnswer": 1,
+            "answer": "Mars ble regnet som far til Romulus og Remus, og dermed som stamfar til hele det romerske folket.",
+            "type": "multiple_choice"
+        }
+    ]
+}
