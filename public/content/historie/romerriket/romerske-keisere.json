@@ -2,82 +2,197 @@
     "id": "romerske-keisere",
     "title": "De romerske keiserne",
     "layout": "rich",
-    "year": "14 evt. - 337 evt.",
+    "year": "27 f.Kr. - 476 evt.",
     "category": "Antikken",
-    "readTime": "9 min read",
-    "heroImage": "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&q=80",
+    "readTime": "15 min read",
+    "heroImage": "/images/romerriket/hero-emperors.png",
     "details": [
-        "Dynastienes makt og fall",
-        "De gode keiserne",
-        "Nero og maktens skyggeside",
-        "Kristendommen under Konstantin"
+        "Fra Augustus til Romulus Augustus",
+        "Dynastienes storhet og fall",
+        "Pax Romana og de fem gode keiserne",
+        "Krisen på 200-tallet og gjenreisingen",
+        "Kristendommens inntog og rikets deling"
     ],
     "content": [
         {
             "type": "text",
-            "content": "Etter [Augustus](/historie/romerriket/augustus-og-keiserdomme) ble maktbalansen i Roma aldri den samme. Keiseren var nå guden på jorden, den øverste generalen og den som bestemte over liv og død. Men det å sitte på toppen var farlig. For hver keiser som døde av alderdom, var det mange som ble myrdet av sine egne livvakter, forgiftet av familiemedlemmer eller drept i blodige borgerkriger."
+            "content": "Etter at [Augustus](/historie/romerriket/augustus-og-keiserdomme) vant borgerkrigene i det første århundret før vår tidsregning, ble maktbalansen i Roma fundamentalt endret. Keiseren var nå guden på jorden, den øverste generalen (*imperator*) og den som bestemte over liv og død. Denne artikkelen tar for seg reisen fra det første dynastiet til den siste keiseren i vest i år 476 evt."
         },
         {
             "type": "header",
-            "content": "Galskap og storhet"
+            "content": "Det julioclaudiske dynasti (27 f.Kr. – 68 e.Kr.)"
         },
         {
             "type": "text",
-            "content": "Noen keisere huskes for sin gale oppførsel. Nero er kanskje den mest beryktede, anklaget for å ha tent på Roma mens han spilte lyre. Men riket hadde også perioder med ekstrem stabilitet. Under 'de fem gode keiserne', som inkluderte Hadrian og filosof-keiseren Marcus Aurelius, nådde Romerriket sin største utbredelse. De fokuserte på å bygge forsvarsverker, som Hadrians mur i Storbritannia, og på å styre rettferdig."
+            "content": "Dette var det første keiserdynastiet, startet av Augustus. Etter ham fulgte Tiberius, en dyktig men mistenksom general. Kaligula huskes som en eksentrisk tyrann, mens Claudius var en undervurdert administrator som erobret Storbritannia. Dynastiet endte med Nero, som er beryktet for den store bybrannen i Roma og forfulgelsen av de første kristne. Da han døde i 68 evt., endte Augustus' slektslinje."
         },
         {
             "type": "header",
-            "content": "Suksess og tragedie på tronen"
+            "content": "Det flaviske dynasti (69–96 e.Kr.)"
         },
         {
             "type": "text",
-            "content": "Keisertiden bød på alt fra Neros dramatiske fall i år 68 evt., som markerte slutten på Augustus' slekt, til Trajans enorme erobringer på 100-tallet da riket var på sitt største. Men selv for de gode keiserne var slutten ofte brå. Under Marcus Aurelius, den kjente filosof-keiseren som døde i år 180 evt., begynte presset på grensene å øke. Da hans sønn Commodus ble kvalt i sitt eget badekar i år 192 evt., startet en lang periode med borgerkrig og kaos som nesten rev riket fra hverandre."
+            "content": "Etter et år med borgerkrig tok Vespasian makten. Han brakte stabilitet og startet byggingen av Colosseum. Hans sønn Titus ble elsket for sin håndtering av katastrofer som vulkanutbruddet fra Vesuv (Pompeii). Dynastiet endte med Domitians autoritære styre, som styrket økonomien men førte til hans eget attentat i et palasskomplott."
         },
         {
             "type": "header",
-            "content": "Konstantin og den store endringen"
+            "content": "De fem gode keiserne (96–192 e.Kr.)"
         },
         {
             "type": "text",
-            "content": "På 300-tallet gjennomgikk riket en enorm forvandling. Keiser Konstantin så at de gamle romerske gudene ikke lenger samlet folket. Etter et syn før et viktig slag, begynte han å støtte de kristne. Han flyttet også maktsenteret østover til byen Bysants, som han døpte om til Konstantinopel. Dette la grunnlaget for at riket senere ble delt i to, noe som fikk skjebnesvangre følger for den vestlige delen, som du kan lese mer om i artikkelen om [Vestromerrikets fall](/historie/romerriket/vestromerrikets-fall)."
+            "content": "Dette kalles ofte Romerrikets gullalder. Under Trajan nådde riket sin største utstrekning. Hadrian konsoliderte grensene med forsvarsverker som Hadrians mur. Antoninus Pius styrte i en tid med ekstrem fred, etterfulgt av 'filosof-keiseren' Marcus Aurelius som forsvarte grensene mens han skrev sine meditasjoner. Perioden endte brått med hans sønn Commodus, hvis tyranniske styre markerte slutten på Pax Romana."
+        },
+        {
+            "type": "header",
+            "content": "Krisen i det tredje århundre"
+        },
+        {
+            "type": "text",
+            "content": "På 200-tallet holdt riket på å kollapse under borgerkriger, invasjoner og økonomisk krise. Septimius Severus grunnla et militærbasert dynasti, og hans sønn Caracalla ga romersk statsborgerskap til alle frie menn i riket. Aurelian (270–275) ble hyllet som 'Verdens gjenoppretter' etter at han lyktes i å gjenforene det splittede riket."
+        },
+        {
+            "type": "header",
+            "content": "Diokletian og Konstantin"
+        },
+        {
+            "type": "text",
+            "content": "Diokletian reddet riket ved å innføre tetrarkiet (firemannsstyre), der makten ble delt mellom fire herskere. Senere tok Konstantin den store kontrollen. Han var den første kristne keiseren og flyttet hovedstaden til Konstantinopel (tidligere Bysants) i øst, noe som forandret rikets fokus for alltid."
+        },
+        {
+            "type": "header",
+            "content": "Mot det endelige fallet (opp til 476 evt.)"
+        },
+        {
+            "type": "text",
+            "content": "Utover 400-tallet ble Vestromerriket stadig svakere under press fra vandringene til germanske stammer. Theodosius I var den siste som styrte over et samlet rike før det ble permanent delt. Den aller siste vestromerske keiseren var den unge Romulus Augustus. Han ble avsatt av den germanske generalen Odoaker i år 476 evt., en hendelse som tradisjonelt markerer slutten på antikken og begynnelsen på middelalderen."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
                 "title": "Pretorianergarden",
-                "content": "Dette var keiserens personlige livvakter. Men i stedet for å beskytte ham, var de ofte de som drepte keiseren hvis de fikk bedre betalt av en rival eller var misfornøyde med lønna."
+                "content": "Dette var keiserens elitevakter. De hadde enorm politisk makt og var ofte involvert i å avsette eller drepe keisere de ikke lenger støttet."
+            }
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Year of the Four Emperors",
+                "content": "I år 69 evt., rett etter Neros død, hadde Roma fire forskjellige keisere på bare ett år (Galba, Otho, Vitellius og Vespasian) før Vespasian vant kontrollen."
+            }
+        },
+        {
+            "type": "component",
+            "name": "EmperorStats"
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvem regnes som den aller siste vestromerske keiseren?",
+                        "options": [
+                            "Konstantin",
+                            "Romulus Augustus",
+                            "Marcus Aurelius",
+                            "Nero"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hvilken keiser er kjent for å ha bygget en massiv mur i Storbritannia?",
+                        "options": [
+                            "Hadrian",
+                            "Trajan",
+                            "Augustus",
+                            "Caligula"
+                        ],
+                        "correctAnswer": 0
+                    },
+                    {
+                        "question": "Hvem ble hyllet som 'Verdens gjenoppretter' etter å ha gjenforent riket på 200-tallet?",
+                        "options": [
+                            "Vespasian",
+                            "Aurelian",
+                            "Caracalla",
+                            "Septimius Severus"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hvilket årstall markerer tradisjonelt Vestromerrikets fall?",
+                        "options": [
+                            "117 evt.",
+                            "337 evt.",
+                            "476 evt.",
+                            "1453 evt."
+                        ],
+                        "correctAnswer": 2
+                    },
+                    {
+                        "question": "Hva var spesielt med tetrarkiet som Diokletian innførte?",
+                        "options": [
+                            "Roma ble styrt av Senatet alene",
+                            "Riket ble styrt av fire herskere samtidig",
+                            "Kristendommen ble forbudt",
+                            "Alle keisere måtte være soldater"
+                        ],
+                        "correctAnswer": 1
+                    }
+                ]
             }
         }
     ],
     "quiz": [
         {
-            "question": "Hvilken keiser er kjent for Hadrians mur i Storbritannia?",
+            "question": "Hvem regnes som den aller siste vestromerske keiseren?",
             "options": [
-                "Nero",
-                "Hadrian",
                 "Konstantin",
-                "Julius Cæsar"
-            ],
-            "correctAnswer": 1
-        },
-        {
-            "question": "Hva var spesielt med keiser Konstantin?",
-            "options": [
-                "Han var den siste keiseren",
-                "Han var den første kristne keiseren",
-                "Han ødela Senatet helt",
-                "Han ble drept av Hannibal"
-            ],
-            "correctAnswer": 1
-        },
-        {
-            "question": "Hvem var filosof-keiseren som døde i år 180 evt?",
-            "options": [
-                "Augustus",
+                "Romulus Augustus",
                 "Marcus Aurelius",
+                "Nero"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilken keiser er kjent for å ha bygget en massiv mur i Storbritannia?",
+            "options": [
+                "Hadrian",
                 "Trajan",
-                "Commodus"
+                "Augustus",
+                "Caligula"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hvem ble hyllet som 'Verdens gjenoppretter' etter å ha gjenforent riket på 200-tallet?",
+            "options": [
+                "Vespasian",
+                "Aurelian",
+                "Caracalla",
+                "Septimius Severus"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilket årstall markerer tradisjonelt Vestromerrikets fall?",
+            "options": [
+                "117 evt.",
+                "337 evt.",
+                "476 evt.",
+                "1453 evt."
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva var spesielt med tetrarkiet som Diokletian innførte?",
+            "options": [
+                "Roma ble styrt av Senatet alene",
+                "Riket ble styrt av fire herskere samtidig",
+                "Kristendommen ble forbudt",
+                "Alle keisere måtte være soldater"
             ],
             "correctAnswer": 1
         }

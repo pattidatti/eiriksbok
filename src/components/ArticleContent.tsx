@@ -33,6 +33,7 @@ import { ChordLibrary } from '../features/music/components/ChordLibrary';
 import { SongStructureBuilder } from '../features/music/components/SongStructureBuilder';
 import { ArrangementPlanner } from '../features/music/components/ArrangementPlanner';
 import { SongwriterStudio } from '../features/music/components/SongwriterStudio';
+import { EmperorStats } from './EmperorStats';
 
 import { renderInlineMarkdown } from './markdownUtils';
 import type { Concept, ContentBlock } from '../types';
@@ -211,6 +212,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 return <Quiz key={index} questions={(block.props?.questions as any) || []} />;
                             case 'EICSimulation':
                                 return <EICSimulation key={index} />;
+                            case 'EmperorStats':
+                                return <EmperorStats key={index} />;
                             case 'FactBox':
                                 return (
                                     <FactBox
