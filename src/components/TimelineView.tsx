@@ -28,6 +28,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
     // Filter events
     const filteredEvents = useMemo(() => {
         return events.filter(event => {
+            if (!event.subjectId) return false;
             if (event.startDate < startYear || (event.startDate > endYear)) return false;
             if (subjects && !subjects.includes(event.subjectId)) return false;
             if (selectedSubject !== 'all' && event.subjectId !== selectedSubject) return false;
@@ -37,7 +38,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
 
     // Get unique subjects for filter dropdown
     const uniqueSubjects = useMemo(() => {
-        const subs = new Set(events.map(e => e.subjectId));
+        const subs = new Set(events.filter(e => e.subjectId).map(e => e.subjectId));
         return Array.from(subs).sort();
     }, [events]);
 

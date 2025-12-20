@@ -6,6 +6,7 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { routeFactories } from './routes';
 import { UpdatePrompt } from './components/UpdatePrompt';
 import { AdminGuard } from './components/AdminGuard';
+import { LayoutProvider } from './context/LayoutContext';
 import './App.css';
 
 // Lazy load pages using centralized factories
@@ -54,7 +55,10 @@ function App() {
         v7_relativeSplatPath: true,
       }}
     >
-      <AppContent />
+
+      <LayoutProvider>
+        <AppContent />
+      </LayoutProvider>
     </BrowserRouter>
   );
 }

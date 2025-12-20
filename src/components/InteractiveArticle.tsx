@@ -212,9 +212,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                         {event.title}
                     </h1>
 
-                    <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
-                        {event.description}
-                    </p>
+
 
                     {/* TTS Button */}
                     {hasVoice && (
@@ -267,7 +265,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
             )}
 
             {/* Main Content Container */}
-            <div className={`${event.layout === 'tool' ? 'w-full px-4' : 'max-w-6xl mx-auto px-6'}`}>
+            <div className={`${event.layout === 'tool' ? 'w-full' : 'max-w-6xl mx-auto px-6'}`}>
                 <div className={`${event.layout === 'tool' ? 'w-full' : 'bg-white rounded-3xl p-8 md:p-12'}`}>
                     <div className={`grid gap-16 ${event.layout === 'tool' ? 'grid-cols-1 w-full' : 'grid-cols-1 lg:grid-cols-[1fr_350px]'}`}>
                         {/* Left Column: Article Text */}
@@ -278,6 +276,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                                 activeBlockIndex={activeContentIndex}
                                 onBlockClick={handleBlockClick}
                                 fallbackUrl={fallbackUrl}
+                                isTool={event.layout === 'tool'}
                             />
 
                             {event.fact && <FactBox content={event.fact} />}

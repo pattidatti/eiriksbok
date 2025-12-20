@@ -13,6 +13,7 @@ import { InflationCalculator } from './content/interactive/InflationCalculator';
 import { TimePreferenceModel } from './content/interactive/TimePreferenceModel';
 import { BusinessCycleModel } from './content/interactive/BusinessCycleModel';
 import { BusinessCycleGraph } from './content/interactive/BusinessCycleGraph';
+import { ProductionModel } from './content/interactive/ProductionModel';
 import { GrammarRuleCard } from './content/interactive/GrammarRuleCard';
 import { TextHighlighter } from './content/interactive/TextHighlighter';
 import { SentenceBuilder } from './content/interactive/SentenceBuilder';
@@ -79,9 +80,10 @@ interface ArticleContentProps {
     activeBlockIndex?: number;
     onBlockClick?: (index: number) => void;
     fallbackUrl?: string;
+    isTool?: boolean;
 }
 
-export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concepts, activeBlockIndex, onBlockClick, fallbackUrl }) => {
+export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concepts, activeBlockIndex, onBlockClick, fallbackUrl, isTool = false }) => {
     if (!content || !Array.isArray(content)) return null;
     // DEBUG: Fallback fetch if content is truncated
     const [fullContent, setFullContent] = React.useState<ContentBlock[] | null>(null);
@@ -101,7 +103,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
     const displayContent = fullContent || content;
 
     return (
-        <div className="article-content max-w-5xl mx-auto">
+        <div className={`article-content ${isTool ? 'w-full max-w-none' : 'max-w-5xl mx-auto'}`}>
             {displayContent.map((block, index) => {
                 // Handle 'type' (standard), 'name' (legacy), and '__typename' (GraphQL)
                 let type = block.type || block.name;
@@ -244,6 +246,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 return <BusinessCycleModel key={index} />;
                             case 'BusinessCycleGraph':
                                 return <BusinessCycleGraph key={index} />;
+                            case 'ProductionModel':
+                                return <ProductionModel key={index} />;
                             case 'GrammarRuleCard':
                                 return (
                                     <GrammarRuleCard

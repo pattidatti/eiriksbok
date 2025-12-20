@@ -7,9 +7,16 @@ import { useGameStore } from './store';
 import { Loader } from '@react-three/drei';
 
 import { AudioManager } from './systems/AudioManager';
+import { useLayout } from '../../context/LayoutContext';
 
 export default function ChronoGliderPage() {
     const { setAllEvents } = useGameStore();
+    const { setFullWidth } = useLayout();
+
+    useEffect(() => {
+        setFullWidth(true);
+        return () => setFullWidth(false);
+    }, [setFullWidth]);
 
     useEffect(() => {
         // Init audio

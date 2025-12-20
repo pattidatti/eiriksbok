@@ -1576,11 +1576,15 @@
     },
     {
         "id": "hamskiftet",
-        "year": "1840-1900",
         "title": "Det store hamskiftet",
         "description": "Norge går fra å være et bondesamfunn til å bli et industrisamfunn.",
-        "category": "Historie",
+        "startDate": 1840,
+        "endDate": 1900,
+        "displayDate": "1840-1900",
         "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "norgeshistorie",
+        "link": "/historie/norgeshistorie/hamskiftet",
         "details": [
             "Overgang fra selvberging til salgsjordbruk",
             "Innføring av maskiner i landbruket",
@@ -1589,7 +1593,12 @@
         ],
         "important": true,
         "heroImage": "/images/lessons/norgeshistorie/hamskiftet.png",
-        "link": "/historie/norgeshistorie/hamskiftet"
+        "tags": [
+            "historie",
+            "norge",
+            "industri",
+            "samfunn"
+        ]
     },
     {
         "id": "romersk-start-timeline",
