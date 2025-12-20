@@ -228,7 +228,9 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                         key={index}
                                         events={(block.props?.events as any) || []}
                                         title={block.props?.title as string}
+                                        compact={block.props?.compact}
                                     />
+
                                 );
                             case 'PlotGraph':
                                 return (

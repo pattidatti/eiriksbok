@@ -413,6 +413,24 @@
         ]
     },
     {
+        "id": "30-aarskrigen-sub-6",
+        "title": "Slaget ved Rocroi",
+        "description": "Frankrike knuser den spanske hæren. Markerer slutten på Spanias militære dominans.",
+        "startDate": 1643,
+        "endDate": null,
+        "displayDate": "1643",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "reformasjonen",
+        "link": "/historie/reformasjonen/30-aarskrigen",
+        "tags": [
+            "historie",
+            "krig",
+            "europa",
+            "reformasjonen"
+        ]
+    },
+    {
         "id": "30-aarskrigen-sub-3",
         "title": "Freden i Westfalen",
         "description": "Krigen avsluttes. Prinsippet om statsuavhengighet etableres.",
@@ -455,6 +473,24 @@
         "startDate": 1632,
         "endDate": null,
         "displayDate": "1632",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "reformasjonen",
+        "link": "/historie/reformasjonen/30-aarskrigen",
+        "tags": [
+            "historie",
+            "krig",
+            "europa",
+            "reformasjonen"
+        ]
+    },
+    {
+        "id": "30-aarskrigen-sub-5",
+        "title": "Slaget ved Breitenfeld",
+        "description": "Gustav II Adolfs store seier. Sverige etablerer seg som stormakt.",
+        "startDate": 1631,
+        "endDate": null,
+        "displayDate": "1631",
         "type": "sub-event",
         "subjectId": "historie",
         "topicId": "reformasjonen",
@@ -510,6 +546,24 @@
         "endDate": 1648,
         "displayDate": "1618-1648",
         "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "reformasjonen",
+        "link": "/historie/reformasjonen/30-aarskrigen",
+        "tags": [
+            "historie",
+            "krig",
+            "europa",
+            "reformasjonen"
+        ]
+    },
+    {
+        "id": "30-aarskrigen-sub-4",
+        "title": "Slaget ved Det hvite berg",
+        "description": "Det bøhmiske opprøret knuses. Protestantismen forbys i Böhmen.",
+        "startDate": 1620,
+        "endDate": null,
+        "displayDate": "1620",
+        "type": "sub-event",
         "subjectId": "historie",
         "topicId": "reformasjonen",
         "link": "/historie/reformasjonen/30-aarskrigen",
@@ -2093,6 +2147,57 @@
         "tags": [
             "romerriket",
             "kultur"
+        ]
+    },
+    {
+        "id": "karl-den-store-krones",
+        "title": "Karl den store krones til keiser",
+        "description": "Pave Leo III kroner Karl den store til keiser i Roma, og knytter bånd mellom kirken og kongemakten.",
+        "startDate": 800,
+        "endDate": null,
+        "displayDate": "800",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "middelalderen",
+        "link": "/historie/middelalderen/middelalderen",
+        "tags": [
+            "middelalderen",
+            "europa",
+            "politikk"
+        ]
+    },
+    {
+        "id": "investiturstriden",
+        "title": "Investiturstriden",
+        "description": "Konflikten mellom pave og keiser om retten til å utnevne biskoper.",
+        "startDate": 1075,
+        "endDate": 1122,
+        "displayDate": "1075–1122",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "middelalderen",
+        "link": "/historie/middelalderen/middelalderen",
+        "tags": [
+            "middelalderen",
+            "religion",
+            "politikk"
+        ]
+    },
+    {
+        "id": "forste-korstog",
+        "title": "Det første korstoget",
+        "description": "Pave Urban 2. oppfordrer kristne til å ta tilbake Jerusalem.",
+        "startDate": 1095,
+        "endDate": 1099,
+        "displayDate": "1095–1099",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "middelalderen",
+        "link": "/historie/middelalderen/middelalderen",
+        "tags": [
+            "middelalderen",
+            "krig",
+            "religion"
         ]
     }
 ]
