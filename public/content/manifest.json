@@ -1028,6 +1028,21 @@
                             "lastUpdated": "2025-12-20T10:00:00Z"
                         },
                         {
+                            "id": "legitimitet-og-kristendom",
+                            "title": "Fra Princeps til Guds utvalgte",
+                            "description": "Hvordan keiserens makt gikk fra å være politisk til å bli guddommelig.",
+                            "image": "/images/romerriket/hero-legitimitet.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "romerriket",
+                                "religion",
+                                "politikk"
+                            ],
+                            "createdDate": "2023-12-20T12:00:00Z",
+                            "lastUpdated": "2023-12-20T12:00:00Z"
+                        },
+                        {
                             "id": "vestromerrikets-fall",
                             "title": "Vestromerrikets fall",
                             "description": "Et dypdykk i årsakene til det store imperiets kollaps.",

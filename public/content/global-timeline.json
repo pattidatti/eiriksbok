@@ -1886,5 +1886,101 @@
             "roma",
             "kollaps"
         ]
+    },
+    {
+        "id": "elagabalus",
+        "title": "Elagabalus og Solen",
+        "description": "Forsøk på å innføre solguden Elagabal som rikets øverste gud.",
+        "startDate": 218,
+        "endDate": 222,
+        "displayDate": "218-222",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/legitimitet-og-kristendom",
+        "tags": [
+            "romerriket",
+            "religion"
+        ]
+    },
+    {
+        "id": "sol-invictus",
+        "title": "Aurelian og Sol Invictus",
+        "description": "Etablerer Sol Invictus som rikets viktigste gud og samlende kraft.",
+        "startDate": 274,
+        "endDate": null,
+        "displayDate": "274",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/legitimitet-og-kristendom",
+        "tags": [
+            "romerriket",
+            "religion"
+        ]
+    },
+    {
+        "id": "diokletian-dominat",
+        "title": "Diokletian og Dominatet",
+        "description": "Keiseren blir 'Dominus' (Herre), en guddommelig opphøyd hersker.",
+        "startDate": 284,
+        "endDate": null,
+        "displayDate": "284",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/legitimitet-og-kristendom",
+        "tags": [
+            "romerriket",
+            "politikk"
+        ]
+    },
+    {
+        "id": "milviske-bro",
+        "title": "Slaget ved den milviske bro",
+        "description": "Konstantin ser korsets tegn og vinner makten under Chi-Rho symbolet.",
+        "startDate": 312,
+        "endDate": null,
+        "displayDate": "312",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/legitimitet-og-kristendom",
+        "tags": [
+            "romerriket",
+            "kristendom"
+        ]
+    },
+    {
+        "id": "milano-ediktet",
+        "title": "Milano-ediktet",
+        "description": "Religionsfrihet for kristne i Romerriket.",
+        "startDate": 313,
+        "endDate": null,
+        "displayDate": "313",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/legitimitet-og-kristendom",
+        "tags": [
+            "romerriket",
+            "kristendom"
+        ]
+    },
+    {
+        "id": "theodosius-edikt",
+        "title": "Ediktet i Thessaloniki",
+        "description": "Kristendommen blir den eneste tillatte statsreligionen.",
+        "startDate": 380,
+        "endDate": null,
+        "displayDate": "380",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/legitimitet-og-kristendom",
+        "tags": [
+            "romerriket",
+            "kristendom"
+        ]
     }
 ]
