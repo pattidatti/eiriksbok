@@ -56,15 +56,65 @@
         },
         {
             "type": "text",
-            "content": "Diokletian reddet riket ved å innføre tetrarkiet (firemannsstyre), der makten ble delt mellom fire herskere. Senere tok Konstantin den store kontrollen. Han var den første kristne keiseren og flyttet hovedstaden til Konstantinopel (tidligere Bysants) i øst, noe som forandret rikets fokus for alltid."
+            "content": "Historien om Roma starter ikke med store marmorbygninger, men med en myte om to brødre, en ulvemor og en krangel som endte med drap. Ifølge sagnene ble Roma grunnlagt i år 753 fvt. av Romulus, etter at han hadde drept sin tvillingbror Remus. Selv om dette er en spennende fortelling, vet arkeologene at virkeligheten var litt mer jordnær. Roma vokste frem som en samling små landsbyer på sju høyder ved elven Tiberen, der bønder og gjetere slo seg ned for å dra nytte av den gode plasseringen."
         },
         {
-            "type": "header",
-            "content": "Mot det endelige fallet (opp til 476 evt.)"
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Myte vs. Arkeologi",
+                "leftTitle": "Sagnet om Romulus",
+                "rightTitle": "Hva Arkeologien sier",
+                "items": [
+                    {
+                        "left": "Roma ble grunnlagt på nøyaktig én dag i 753 fvt.",
+                        "right": "Byen vokste sakte frem fra ca. 1000 fvt."
+                    },
+                    {
+                        "left": "En ulvemor reddet tvillingene Romulus og Remus.",
+                        "right": "Hyrder og bønder slo seg ned på høydene for beskyttelse."
+                    },
+                    {
+                        "left": "Romulus trakk plogfuren rundt bygrensen alene.",
+                        "right": "Flere små landsbyer slo seg sammen til ett fellesskap."
+                    },
+                    {
+                        "left": "Roma var skjebnebestemt til å styre verden fra starten.",
+                        "right": "Plasseringen ved Tiberen var perfekt for handel og forsvar."
+                    }
+                ]
+            }
         },
         {
             "type": "text",
-            "content": "Utover 400-tallet ble Vestromerriket stadig svakere under press fra vandringene til germanske stammer. Theodosius I var den siste som styrte over et samlet rike før det ble permanent delt. Den aller siste vestromerske keiseren var den unge Romulus Augustus. Han ble avsatt av den germanske generalen Odoaker i år 476 evt., en hendelse som tradisjonelt markerer slutten på antikken og begynnelsen på middelalderen."
+            "content": "Utover 400-tallet ble Vestromerriket stadig svakere under press fra vandringene til germanske stammer. Theodosius I var den siste som styrte over et samlet rike før det ble permanent delt. Den aller siste vestromerske keiseren var den unge [Romulus Augustus](/historie/romerriket/vestromerrikets-fall). Han ble avsatt av den germanske generalen Odoaker i år 476 evt., en hendelse som tradisjonelt markerer slutten på antikken og begynnelsen på middelalderen."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Dynasty Explorer: Fra 'Første borger' til 'Herre'",
+                "leftTitle": "Prinsipatet (Tidlig Keisertid)",
+                "rightTitle": "Dominatet (Sen Keisertid)",
+                "items": [
+                    {
+                        "left": "Keiseren kalles 'Princeps' (første borger).",
+                        "right": "Keiseren kalles 'Dominus' (herre og mester)."
+                    },
+                    {
+                        "left": "Fremstår som en vanlig politiker i toga.",
+                        "right": "Bærer purpurkappe og diadem; guddommelig stil."
+                    },
+                    {
+                        "left": "Samarbeider (i teorien) med Senatet.",
+                        "right": "Senatet er kun et symbolsk råd uten makt."
+                    },
+                    {
+                        "left": "Bor i et stort, men tilgjengelig hus i Roma.",
+                        "right": "Bor i befestede palasser i Trier, Milano eller Konstantinopel."
+                    }
+                ]
+            }
         },
         {
             "type": "component",

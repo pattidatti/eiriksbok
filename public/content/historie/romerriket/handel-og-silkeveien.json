@@ -1,0 +1,158 @@
+{
+    "id": "handel-og-silkeveien",
+    "title": "Handel og Silkeveien: Romas globale nettverk",
+    "layout": "rich",
+    "year": "27 fvt. - 200 evt.",
+    "category": "Antikken",
+    "readTime": "10 min read",
+    "heroImage": "/images/romerriket/hero-handel.png",
+    "details": [
+        "Mare Nostrum: Middelhavet som handelsvei",
+        "Luksusvarer fra øst: Silke, krydder og røkelse",
+        "Silkeveien: Koblingen mellom Roma og Kina",
+        "Valuta og økonomi i imperiet"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Visste du at en rik dame i Roma kunne gå kledd i silke fra Kina, krydre maten med pepper fra India og bruke parfyme fra Arabia? For to tusen år siden var Romerriket sentrum i en av verdenshistoriens første ekte globale økonomier. Ved hjelp av trygge sjøveier og de berømte romerske landeveiene ble varer fraktet over enorme avstander."
+        },
+        {
+            "type": "header",
+            "content": "Mare Nostrum: Vårt hav"
+        },
+        {
+            "type": "text",
+            "content": "Romerne kalte Middelhavet for *Mare Nostrum* – 'Vårt hav'. Etter at de hadde utryddet piratene, ble havet en gigantisk motorvei for handelsskip. Store skip lastet med korn fra Egypt seilte til Roma for å mate byens befolkning, mens amforaer (krukker) fylt med olivenolje fra Spania og vin fra Gallia ble solgt over hele riket."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Amforaer: Antikkens containere",
+                "content": "Romerne brukte store leirkrukker kalt amforaer til nesten alt. I Roma finnes det en hel kunstig høyde, Monte Testaccio, som består av restene fra over 50 millioner knuste olivenoljekrukker!"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Silkeveien: En reise til verdens ende"
+        },
+        {
+            "type": "text",
+            "content": "Selv om ingen romersk kjøpmann sannsynligvis reiste hele veien til Kina selv, var Roma koblet til Øst-Asia gjennom det vi kaller **Silkeveien**. Varer ble fraktet i etapper gjennom Sentral-Asia og Partia (dagens Iran). For romerne var silke det ultimate statussymbolet – et stoff som var så lett og vakkert at de knapt kunne tro det var ekte."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Hva ble byttet langs Silkeveien?",
+                "leftTitle": "Fra Øst til Roma",
+                "rightTitle": "Fra Roma til Øst",
+                "items": [
+                    {
+                        "left": "Silke fra Kina.",
+                        "right": "Gull og sølv mynter."
+                    },
+                    {
+                        "left": "Krydder (pepper, kanel) fra India.",
+                        "right": "Glassvarer av høy kvalitet."
+                    },
+                    {
+                        "left": "Røkelse og myrra fra Arabia.",
+                        "right": "Ull og tøy fra Europa."
+                    },
+                    {
+                        "left": "Edelstener og elfenben.",
+                        "right": "Vin og olivenolje."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Penger får hjulene til å rulle"
+        },
+        {
+            "type": "text",
+            "content": "For at handel skal fungere, trenger man penger folk stoler på. Romerne innførte en felles valuta over hele imperiet. Den mest kjente mynten var sølvpenningen, **Denaren**. Enten du var i London eller Kairo, kunne du betale med de samme myntene med keiserens ansikt på. Dette gjorde handelen utrolig mye enklere enn før."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Handelsunderskuddet",
+                "content": "Interessant nok var romerne så gale etter luksusvarer fra øst at store mengder av Romas gull havnet i India og Kina. Enkelte romerske forfattere klaget over at dette svekket rikets økonomi – et problem vi fortsatt snakker om i dag som 'handelsunderskudd'!"
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva kalte romerne Middelhavet?",
+                        "options": [
+                            "Den store sjøen",
+                            "Mare Nostrum (Vårt hav)",
+                            "Oceanus",
+                            "Det blå vannet"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hvilken luksusvare fra Kina var romerne spesielt begeistret for?",
+                        "options": [
+                            "Papir",
+                            "Krutt",
+                            "Silke",
+                            "Porselen"
+                        ],
+                        "correctAnswer": 2
+                    },
+                    {
+                        "question": "Hva het den mest brukte romerske sølvmynten?",
+                        "options": [
+                            "Krone",
+                            "Denar",
+                            "Drachme",
+                            "Euro"
+                        ],
+                        "correctAnswer": 1
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva kalte romerne Middelhavet?",
+            "options": [
+                "Den store sjøen",
+                "Mare Nostrum (Vårt hav)",
+                "Oceanus",
+                "Det blå vannet"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilken luksusvare fra Kina var romerne spesielt begeistret for?",
+            "options": [
+                "Papir",
+                "Krutt",
+                "Silke",
+                "Porselen"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva het den mest brukte romerske sølvmynten?",
+            "options": [
+                "Krone",
+                "Denar",
+                "Drachme",
+                "Euro"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

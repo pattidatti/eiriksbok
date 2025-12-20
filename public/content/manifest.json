@@ -1043,6 +1043,65 @@
                             "lastUpdated": "2023-12-20T12:00:00Z"
                         },
                         {
+                            "id": "handel-og-silkeveien",
+                            "title": "Handel og Silkeveien",
+                            "description": "Oppdag hvordan Romerriket var koblet til resten av verden gjennom handel med silke, krydder og gull.",
+                            "image": "/images/romerriket/hero-handel.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "romerriket",
+                                "økonomi",
+                                "globalisering"
+                            ],
+                            "createdDate": "2023-12-20T15:30:00Z",
+                            "lastUpdated": "2023-12-20T15:30:00Z"
+                        },
+                        {
+                            "id": "pompeii",
+                            "title": "Pompeii",
+                            "description": "Historien om byen som ble begravd av Vesuv, og hva de arkeologiske funnene forteller oss i dag.",
+                            "image": "/images/romerriket/hero-pompeii.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "romerriket",
+                                "arkeologi"
+                            ],
+                            "createdDate": "2023-12-20T15:00:00Z",
+                            "lastUpdated": "2023-12-20T15:00:00Z"
+                        },
+                        {
+                            "id": "den-romerske-legionen",
+                            "title": "Den romerske legionen",
+                            "description": "Utforsk antikkens mest effektive krigsmaskin: trening, utstyr og de legendariske formasjonene.",
+                            "image": "/images/romerriket/hero-legion.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "romerriket",
+                                "militær",
+                                "teknologi"
+                            ],
+                            "createdDate": "2023-12-20T14:30:00Z",
+                            "lastUpdated": "2023-12-20T14:30:00Z"
+                        },
+                        {
+                            "id": "hverdagsliv-i-roma",
+                            "title": "Hverdagslivet i Roma",
+                            "description": "Hvordan var det egentlig å bo i antikkens største by? Utforsk klasseskiller, boliger og 'brød og sirkus'.",
+                            "image": "/images/romerriket/hero-hverdag.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "romerriket",
+                                "kultur",
+                                "hverdagsliv"
+                            ],
+                            "createdDate": "2023-12-20T14:00:00Z",
+                            "lastUpdated": "2023-12-20T14:00:00Z"
+                        },
+                        {
                             "id": "arven-etter-romerriket",
                             "title": "Arven etter Romerriket",
                             "description": "Et dypdykk i hvordan Romerriket preger kultur, språk, lover og politikk i dag.",

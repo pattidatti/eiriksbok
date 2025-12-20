@@ -31,7 +31,15 @@
         },
         {
             "type": "text",
-            "content": "Mens romerne kranglet om hvem som skulle være keiser, skjedde det store ting på de germanske steppene og i skogene i nord og øst. Hunnerne, et fryktet rytterfolk fra Asia, presset andre folkegrupper vestover. Germanske stammer som visigoterne, vandalene og frankerne ble tvunget på flukt inn i romersk territorium. Romerne klarte ikke lenger å holde grensene ved Rhinen og Donau tette. I begynnelsen prøvde de å la barbarene bosette seg som allierte soldater, men tilliten brøt raskt sammen."
+            "content": "Mens romerne kranglet om hvem som skulle være keiser, skjedde det store ting på de germanske steppene og i skogene i nord og øst. Hunnerne, et fryktet rytterfolk fra Asia, presset andre folkegrupper vestover. Germanske stammer som visigoterne, vandalene og frankerne ble tvunget på flukt inn i romersk territorium. \n\nVandalene krysset for eksempel Rhinen i år 406, raste gjennom Gallia og Spania, og endte opp i Nord-Afrika der de bygde sin egen flåte for å plyndre Roma fra sjøsiden i 455."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Folkevandringsruter",
+                "content": "Tenk på dette som en gigantisk dominoeffekt:\n1. Hunnerne presser goterne fra øst.\n2. Goterne flykter inn i Romerriket og plyndrer Roma (410).\n3. Vandalene presses helt til Afrika og tar tilbake kontrollen over kornforsyningene.\n4. Frankerne tar Gallia og legger grunnlaget for dagens Frankrike."
+            }
         },
         {
             "type": "text",

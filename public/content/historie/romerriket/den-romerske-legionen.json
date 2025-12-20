@@ -1,0 +1,178 @@
+{
+    "id": "den-romerske-legionen",
+    "title": "Den romerske legionen: Antikkens supervåpen",
+    "layout": "rich",
+    "year": "107 fvt. - 476 evt.",
+    "category": "Antikken",
+    "readTime": "12 min read",
+    "heroImage": "/images/romerriket/hero-legion.png",
+    "details": [
+        "Marius-reformene: Profesjonelle soldater",
+        "Utstyr: Gladius, Scutum og Pilum",
+        "Formasjoner: Testudo og disiplin",
+        "Ingeniører i rustning: Veier og leirer"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Romerriket ble ikke bygget på flaks. Det ble bygget av støvler, spader og sverd. Den romerske legionen var antikkens mest effektive krigsmaskin – ikke fordi hver enkelt soldat var en superhelt, men fordi de var profesjonelle, disiplinerte og hadde verdens beste utstyr og organisasjon."
+        },
+        {
+            "type": "header",
+            "content": "Marius-reformene: Hæren blir en jobb"
+        },
+        {
+            "type": "text",
+            "content": "Før år 107 fvt. måtte man eie land for å være soldat. Generalen **Gaius Marius** endret dette for alltid. Han lot fattige borgere verve seg for 20-25 år. Staten betalte for utstyret, og soldatene fikk lønn og ofte en jordlapp når de pensjonerte seg. Dette gjorde at Roma fikk en stående hær av profesjonelle krigere som trente hver eneste dag."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Marius' muldyr",
+                "content": "Soldatene ble kalt 'Marius' muldyr' fordi de måtte bære alt utstyret sitt selv – ca. 30-40 kg! Dette gjorde at hæren kunne bevege seg raskt uten å være avhengig av trege vogntog."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Utstyr og Våpen"
+        },
+        {
+            "type": "text",
+            "content": "En romersk legionær var utstyrt for nærkamp. Hans viktigste verktøy var:\n\n1. **Scutum**: Et stort, buet skjold av tre og lær som dekket nesten hele kroppen.\n2. **Gladius**: Et kort stikksverd, perfekt for kamp i trange formasjoner.\n3. **Pilum**: Et spesialisert spyd som var designet for å bøye seg når det traff et fiendtlig skjold, slik at fienden ikke kunne dra det ut eller kaste det tilbake."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Legionær vs. 'Barbar'",
+                "leftTitle": "Romersk Soldat",
+                "rightTitle": "Germansk Kriger",
+                "items": [
+                    {
+                        "left": "Kjemper i tett formasjon, skulder til skulder.",
+                        "right": "Kjemper ofte som enkeltindivider eller i løse grupper."
+                    },
+                    {
+                        "left": "Standardisert utstyr betalt av staten.",
+                        "right": "Eget utstyr, ofte bare en øks eller et enkelt spyd."
+                    },
+                    {
+                        "left": "Profesjonell trening og streng disiplin.",
+                        "right": "Motivert av personlig ære og mot."
+                    },
+                    {
+                        "left": "Kort sverd designet for stikking.",
+                        "right": "Ofte lange sverd designet for brede hugg."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Testudo: Skilpaddeforsvaret"
+        },
+        {
+            "type": "text",
+            "content": "Når legionærene ble angrepet av piler fra oven, brukte de den berømte **Testudo**-formasjonen. Soldatene i midten holdt skjoldene over hodet, mens de på sidene og foran holdt dem utover. Dette skapte et pansret skall som var nesten helt ugjennomtrengelig for piler. Det var disiplinen som gjorde dette mulig – hvis én soldat sviktet, var hele enheten sårbar."
+        },
+        {
+            "type": "header",
+            "content": "Ingeniører i rustning"
+        },
+        {
+            "type": "text",
+            "content": "Halvparten av jobben til en legionær var å bygge. Etter en dagsmarsj brukte soldatene et par timer på å bygge en perfekt firkantet leir med voller, graver og teltgater. De bygde de berømte romerske veiene for å kunne flytte tropper raskt, og de bygde broer over elver som fiendene trodde var umulige å krysse. Julius Cæsar bygde for eksempel en enorm trebro over Rhinen på bare ti dager – kun for å vise germanerne hva Roma var i stand til."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva ble romerske soldater kalt etter at de begynte å bære alt utstyret sitt selv?",
+                        "options": [
+                            "Cæsars løver",
+                            "Marius' muldyr",
+                            "Romas hester",
+                            "Sølvskjoldene"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva het det korte, romerske stikksverdet?",
+                        "options": [
+                            "Katana",
+                            "Gladius",
+                            "Spatha",
+                            "Rapir"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hvilken formasjon ble brukt for å beskytte seg mot piler fra oven?",
+                        "options": [
+                            "Phalanx",
+                            "Testudo (Skilpadde)",
+                            "V-formasjon",
+                            "Løs rekke"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva var designet spesielt ved en 'Pilum' (romersk spyd)?",
+                        "options": [
+                            "Det kunne skyte ild",
+                            "Det var av rent gull",
+                            "Det bøyde seg etter treff så det ikke kunne kastes tilbake",
+                            "Det hadde vinger"
+                        ],
+                        "correctAnswer": 2
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva ble romerske soldater kalt etter at de begynte å bære alt utstyret sitt selv?",
+            "options": [
+                "Cæsars løver",
+                "Marius' muldyr",
+                "Romas hester",
+                "Sølvskjoldene"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva het det korte, romerske stikksverdet?",
+            "options": [
+                "Katana",
+                "Gladius",
+                "Spatha",
+                "Rapir"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilken formasjon ble brukt for å beskytte seg mot piler fra oven?",
+            "options": [
+                "Phalanx",
+                "Testudo (Skilpadde)",
+                "V-formasjon",
+                "Løs rekke"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var designet spesielt ved en 'Pilum' (romersk spyd)?",
+            "options": [
+                "Det kunne skyte ild",
+                "Det var av rent gull",
+                "Det bøyde seg etter treff så det ikke kunne kastes tilbake",
+                "Det hadde vinger"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

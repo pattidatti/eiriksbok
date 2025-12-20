@@ -1,0 +1,152 @@
+{
+    "id": "pompeii",
+    "title": "Pompeii: Byen som ble frosset i tid",
+    "layout": "rich",
+    "year": "79 evt.",
+    "category": "Antikken",
+    "readTime": "10 min read",
+    "heroImage": "/images/romerriket/hero-pompeii.png",
+    "details": [
+        "Livet før katastrofen",
+        "Vesuvs utbrudd i år 79 evt.",
+        "Arkeologiske funn og 'frosne' øyeblikk",
+        "Hva Pompeii lærer oss om Roma"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at du våkner opp en vakker morgen i en travel romersk ferieby. Solen skinner, folk handler i butikkene, og barna leker i gatene. Ingen vet at fjellet som troner over byen, Vesuv, er i ferd med å våkne etter hundrevis av år i søvn. I løpet av bare 24 timer skulle denne byen forsvinne fra kartet, begravd under metervis av aske og stein, for så å bli glemt i nesten 1700 år."
+        },
+        {
+            "type": "header",
+            "content": "Katastrofen rammer: 24 timer i helvete"
+        },
+        {
+            "type": "text",
+            "content": "Utbruddet startet rundt lunsjtid den 24. august (eller kanskje oktober, ifølge nyere forskning) i år 79 evt. En enorm søyle av aske og pimpstein ble skutt 30 kilometer opp i atmosfæren. For innbyggerne i Pompeii begynte det med et regn av lette steiner som dekket gatene og takene."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "De siste timene i Pompeii",
+                "events": [
+                    {
+                        "time": "13:00",
+                        "title": "Eksplosjonen",
+                        "description": "Vesuv eksploderer. En enorm sky av aske formet som en pinje sprer seg over himmelen."
+                    },
+                    {
+                        "time": "17:00",
+                        "title": "Askeregnet øker",
+                        "description": "Byen dekkes av pimpstein. Tak begynner å kollapse under vekten. Mange flykter mot havet."
+                    },
+                    {
+                        "time": "02:00 (Natt)",
+                        "title": "Pyroklastiske strømmer",
+                        "description": "Supervarme skyer av gass og aske raser nedover fjellsiden i over 100 km/t. Alt liv utslettes momentant."
+                    },
+                    {
+                        "time": "08:00 (Morgen)",
+                        "title": "Byen er borte",
+                        "description": "Pompeii er begravd under 6 meter med aske. Bare toppen av de høyeste bygningene stikker opp."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Gjenoppdagelsen"
+        },
+        {
+            "type": "text",
+            "content": "Pompeii ble funnet igjen ved en tilfeldighet på 1700-tallet. Fordi byen ble begravd så raskt og uten luft, har alt blitt utrolig godt bevart. Arkeologer har funnet alt fra brød som fortsatt lå i ovnen, til vakre veggmalerier og grafitti på veggene som forteller om kjærlighet, politikk og priser på vin."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Gipsavstøpningene",
+                "content": "Det mest gripende i Pompeii er hulrommene etter menneskene som døde. Arkeologen Giuseppe Fiorelli fant ut at han kunne fylle disse lommene i asken med gips. Resultatet er detaljerte figurer som viser folk i deres siste øyeblikk – noen som holder rundt hverandre, og andre som prøver å beskytte ansiktet."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Hva lærer Pompeii oss?"
+        },
+        {
+            "type": "text",
+            "content": "Pompeii er som en tidskapsel. Mens de fleste romerske byer ble bygget om og endret gjennom århundrene, viser Pompeii oss nøyaktig hvordan en by så ut på keiser Titus' tid. Vi kan se [hverdagslivet i Roma](/historie/romerriket/hverdagsliv-i-roma) i detalj: hvordan bakeriene fungerte, hvordan de rike pyntet husene sine, og til og med hva slags mat de spiste."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvilket årstall fant utbruddet sted?",
+                        "options": [
+                            "476 evt.",
+                            "79 evt.",
+                            "100 fvt.",
+                            "1453 evt."
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva het vulkanen som ødela Pompeii?",
+                        "options": [
+                            "Etna",
+                            "Vesuv",
+                            "Olympen",
+                            "Stromboli"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hvorfor er Pompeii så viktig for historikere?",
+                        "options": [
+                            "Fordi det var hovedstaden i riket",
+                            "Fordi den ble 'frosset i tid' og gir oss et unikt innblikk i hverdagen",
+                            "Fordi Julius Cæsar ble født der",
+                            "Fordi den hadde de største sølvgruvene"
+                        ],
+                        "correctAnswer": 1
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvilket årstall fant utbruddet sted?",
+            "options": [
+                "476 evt.",
+                "79 evt.",
+                "100 fvt.",
+                "1453 evt."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva het vulkanen som ødela Pompeii?",
+            "options": [
+                "Etna",
+                "Vesuv",
+                "Olympen",
+                "Stromboli"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvorfor er Pompeii så viktig for historikere?",
+            "options": [
+                "Fordi det var hovedstaden i riket",
+                "Fordi den ble 'frosset i tid' og gir oss et unikt innblikk i hverdagen",
+                "Fordi Julius Cæsar ble født der",
+                "Fordi den hadde de største sølvgruvene"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

@@ -1,0 +1,174 @@
+{
+    "id": "hverdagsliv-i-roma",
+    "title": "Hverdagslivet i Roma",
+    "layout": "rich",
+    "year": "100 fvt. - 200 evt.",
+    "category": "Antikken",
+    "readTime": "15 min read",
+    "heroImage": "/images/romerriket/hero-hverdag.png",
+    "details": [
+        "Sosiale skiller: Patrisiere og plebeiere",
+        "Livet i en 'Insula' (leiegård)",
+        "Mat, bad og daglige rutiner",
+        "Underholdning: Brød og sirkus"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Glem marmorpalasser og store statuer et øyeblikk. Hvis du kunne gå gjennom gatene i Roma for to tusen år siden, ville du møtt en travel, bråkete og til tider stinkende storby med over en million innbyggere. Livet ditt ville vært totalt forskjellig avhengig av hvem du var født som, hvor mye penger du hadde, og om du var en fri borger eller en slave."
+        },
+        {
+            "type": "header",
+            "content": "Klassesamfunnet: De som har alt, og de som har lite"
+        },
+        {
+            "type": "text",
+            "content": "Det romerske samfunnet var delt inn i strenge sosiale klasser. Øverst satt **patrisierne** – de gamle, rike adelsfamiliene som eide mesteparten av jorda og kontrollerte politikken. Under dem kom **plebeierne**, som var de vanlige borgerne: kjøpmenn, håndverkere og bønder. Mange av disse plebeierne tjenestegjorde i den [romerske legionen](/historie/romerriket/den-romerske-legionen) for å vinne ære og rikdom."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Patrisiere og Plebeiere",
+                "content": "I republikkens tidlige dager hadde plebeierne nesten ingen rettigheter, men etter hundrevis av år med krangler og streiker fikk de egne ledere kalt *tribuner* som kunne legge ned veto mot lover de ikke likte."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Hvordan bodde de?"
+        },
+        {
+            "type": "text",
+            "content": "Romerne bodde på to vidt forskjellige måter. De rike bodde i en **Domus**, et stort og elegant hus med åpne gårdsrom (atrium) og vakre hager. De fattige plebeierne ble stuet sammen i **Insulae** – store leiegårder som kunne være opptil seks-sju etasjer høye."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Domus vs. Insula",
+                "leftTitle": "Domus (Rikmannshuset)",
+                "rightTitle": "Insula (Leiegården)",
+                "items": [
+                    {
+                        "left": "Enkeltbolig for én familie.",
+                        "right": "Leiligheter for hundrevis av mennesker."
+                    },
+                    {
+                        "left": "Innlagt vann og private bad.",
+                        "right": "Ingen do eller vann; måtte bruke offentlige doer."
+                    },
+                    {
+                        "left": "Bygget av solid stein og marmor.",
+                        "right": "Ofte bygget av billig tre og murstein; brannfarlig."
+                    },
+                    {
+                        "left": "Stille og rolig med egen hage.",
+                        "right": "Mørkt, trangt og støyende fra gaten."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Brød og sirkus"
+        },
+        {
+            "type": "text",
+            "content": "Keiserne visste at en sulten og sint befolkning var farlig. For å holde folk fornøyde, utviklet de strategien 'brød og sirkus' (*panem et circenses*). Dette betydde at staten ga ut gratis korn til de fattigste, og arrangerte gigantiske forestillinger for å underholde dem."
+        },
+        {
+            "type": "text",
+            "content": "Den mest populære underholdningen var **vognløp** på Circus Maximus, der fire lag (de grønne, blå, røde og hvite) konkurrerte i livsfarlige løp. Deretter kom gladiatorkampene i Colosseum, der menn kjempet mot hverandre eller villdyr for å vinne ære og frihet. Finansieringen av disse enorme lekene kom ofte fra de enorme rikdommene Roma hentet gjennom [handel og silkeveien](/historie/romerriket/handel-og-silkeveien)."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Slaveri i Roma",
+                "content": "Vi må ikke glemme at hele dette samfunnet var avhengig av slaver. Slaver var ikke bare folk som jobbet i gruvene; de var lærere, leger, sekretærer og kokker. En slave kunne bli frigitt og selv bli en velstående borger, men livet som slave var ofte brutalt og rettsløst."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Daglige rutiner"
+        },
+        {
+            "type": "text",
+            "content": "En typisk romersk dag startet tidlig. Romerne spiste en lett frokost (*ientaculum*) og dro på jobb. Rundt klokken to-tre på ettermiddagen var arbeidsdagen over for de fleste frie menn. Da bar det rett til de **offentlige badene**. Badene var ikke bare for å vaske seg; det var antikkens treningssenter, bibliotek og sosiale møteplass."
+        },
+        {
+            "type": "text",
+            "content": "Romerne var også svært opptatt av familie. Overhodet i familien var **Pater Familias** – den eldste mannen. Han hadde i teorien makt over liv og død for alle i husstanden, selv om mødre i praksis ofte hadde stor innflytelse over barna og hjemmet."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva ble de rike, adelsfamilien i Roma kalle for?",
+                        "options": [
+                            "Plebeiere",
+                            "Patrisiere",
+                            "Heloter",
+                            "Legionærer"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva var en 'Insula'?",
+                        "options": [
+                            "En romersk øy",
+                            "En type mat",
+                            "En stor leiegård for vanlige folk",
+                            "Et privat bad"
+                        ],
+                        "correctAnswer": 2
+                    },
+                    {
+                        "question": "Hva betyr uttrykket 'brød og sirkus'?",
+                        "options": [
+                            "At alle måtte gå på sirkus",
+                            "At staten ga mat og underholdning for å holde folk rolige",
+                            "En oppskrift på romersk brød",
+                            "At slaver måtte jobbe på sirkus"
+                        ],
+                        "correctAnswer": 1
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva ble de rike, adelsfamilien i Roma kalle for?",
+            "options": [
+                "Plebeiere",
+                "Patrisiere",
+                "Heloter",
+                "Legionærer"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var en 'Insula'?",
+            "options": [
+                "En romersk øy",
+                "En type mat",
+                "En stor leiegård for vanlige folk",
+                "Et privat bad"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva betyr uttrykket 'brød og sirkus'?",
+            "options": [
+                "At alle måtte gå på sirkus",
+                "At staten ga mat og underholdning for å holde folk rolige",
+                "En oppskrift på romersk brød",
+                "At slaver måtte jobbe på sirkus"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

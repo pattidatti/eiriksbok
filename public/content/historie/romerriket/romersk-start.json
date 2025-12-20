@@ -18,6 +18,33 @@
             "content": "Historien om Roma starter ikke med store marmorbygninger, men med en myte om to brødre, en ulvemor og en krangel som endte med drap. Ifølge sagnene ble Roma grunnlagt i år 753 fvt. av Romulus, etter at han hadde drept sin tvillingbror Remus. Selv om dette er en spennende fortelling, vet arkeologene at virkeligheten var litt mer jordnær. Roma vokste frem som en samling små landsbyer på sju høyder ved elven Tiberen, der bønder og gjetere slo seg ned for å dra nytte av den gode plasseringen."
         },
         {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Myte vs. Arkeologi",
+                "leftTitle": "Sagnet om Romulus",
+                "rightTitle": "Hva Arkeologien sier",
+                "items": [
+                    {
+                        "left": "Roma ble grunnlagt på nøyaktig én dag i 753 fvt.",
+                        "right": "Byen vokste sakte frem fra ca. 1000 fvt."
+                    },
+                    {
+                        "left": "En ulvemor reddet tvillingene Romulus og Remus.",
+                        "right": "Hyrder og bønder slo seg ned på høydene for beskyttelse."
+                    },
+                    {
+                        "left": "Romulus trakk plogfuren rundt bygrensen alene.",
+                        "right": "Flere små landsbyer slo seg sammen til ett fellesskap."
+                    },
+                    {
+                        "left": "Roma var skjebnebestemt til å styre verden fra starten.",
+                        "right": "Plasseringen ved Tiberen var perfekt for handel og forsvar."
+                    }
+                ]
+            }
+        },
+        {
             "type": "header",
             "content": "Fra konger til frihet"
         },

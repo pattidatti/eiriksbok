@@ -1984,6 +1984,22 @@
         ]
     },
     {
+        "id": "marius-reformer",
+        "title": "Marius-reformene",
+        "description": "Gaius Marius gjør den romerske hæren profesjonell og åpen for de fattige.",
+        "startDate": -107,
+        "endDate": null,
+        "displayDate": "107 fvt.",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/den-romerske-legionen",
+        "tags": [
+            "romerriket",
+            "militær"
+        ]
+    },
+    {
         "id": "justinian-lov",
         "title": "Corpus Iuris Civilis",
         "description": "Keiser Justinian samler romersk rett, grunnlaget for vestlig lov.",
@@ -2045,6 +2061,38 @@
         "tags": [
             "romerriket",
             "lov"
+        ]
+    },
+    {
+        "id": "colosseum-apning",
+        "title": "Colosseum åpner",
+        "description": "Keiser Titus innvier det flaviske amfiteateret med 100 dager med leker.",
+        "startDate": 80,
+        "endDate": null,
+        "displayDate": "80",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/hverdagsliv-i-roma",
+        "tags": [
+            "romerriket",
+            "kultur"
+        ]
+    },
+    {
+        "id": "circus-maximus-utvidelse",
+        "title": "Circus Maximus på sitt største",
+        "description": "Trajan utvider banen til å romme over 150 000 tilskuere til vognløp.",
+        "startDate": 103,
+        "endDate": null,
+        "displayDate": "103",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/hverdagsliv-i-roma",
+        "tags": [
+            "romerriket",
+            "kultur"
         ]
     }
 ]
