@@ -972,6 +972,61 @@
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
+                        },
+                        {
+                            "id": "romersk-start",
+                            "title": "Romas grunnleggelse og republikken",
+                            "description": "Fra ulvebarn til maktbalanse i senatet.",
+                            "image": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "antikken",
+                                "roma",
+                                "republikk"
+                            ],
+                            "createdDate": "2025-12-20T08:00:00Z",
+                            "lastUpdated": "2025-12-20T08:00:00Z"
+                        },
+                        {
+                            "id": "augustus-og-keiserdomme",
+                            "title": "Fra republikk til keiserdømme: Augustus",
+                            "description": "Historien om hvordan en ung mann endret Roma for alltid.",
+                            "image": "https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "antikken",
+                                "roma",
+                                "augustus",
+                                "keiser"
+                            ],
+                            "createdDate": "2025-12-20T09:00:00Z",
+                            "lastUpdated": "2025-12-20T09:00:00Z"
+                        },
+                        {
+                            "id": "romerske-keisere",
+                            "title": "De romerske keiserne",
+                            "description": "En reise gjennom makt, galskap og storhet.",
+                            "image": "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "antikken",
+                                "roma",
+                                "keiser",
+                                "biografi"
+                            ],
+                            "createdDate": "2025-12-20T10:00:00Z",
+                            "lastUpdated": "2025-12-20T10:00:00Z"
+                        },
+                        {
+                            "id": "vestromerrikets-fall",
+                            "title": "Vestromerrikets fall",
+                            "description": "Et dypdykk i årsakene til det store imperiets kollaps.",
+                            "image": "https://images.unsplash.com/photo-1620021671810-67df76f45533?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "antikken",
+                                "roma",
+                                "kollaps",
+                                "historie"
+                            ],
+                            "createdDate": "2025-12-20T11:00:00Z",
+                            "lastUpdated": "2025-12-20T11:00:00Z"
                         }
                     ]
                 },

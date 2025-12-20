@@ -1,0 +1,120 @@
+{
+    "id": "romersk-start",
+    "title": "Romas grunnleggelse og republikken",
+    "layout": "rich",
+    "year": "753 fvt. - 27 fvt.",
+    "category": "Antikken",
+    "readTime": "8 min read",
+    "heroImage": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&q=80",
+    "details": [
+        "Myten om Romulus og Remus",
+        "Overgangen fra kongedømme til republikk",
+        "Maktfordelingen i senatet",
+        "Hannibal og Punerkrigene"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Historien om Roma starter ikke med store marmorbygninger, men med en myte om to brødre, en ulvemor og en krangel som endte med drap. Ifølge sagnene ble Roma grunnlagt i år 753 fvt. av Romulus, etter at han hadde drept sin tvillingbror Remus. Selv om dette er en spennende fortelling, vet arkeologene at virkeligheten var litt mer jordnær. Roma vokste frem som en samling små landsbyer på sju høyder ved elven Tiberen, der bønder og gjetere slo seg ned for å dra nytte av den gode plasseringen."
+        },
+        {
+            "type": "header",
+            "content": "Fra konger til frihet"
+        },
+        {
+            "type": "text",
+            "content": "I den tidlige fasen ble Roma styrt av konger. Noen av disse var etruskere, et mektig folk fra områdene lenger nord i Italia. Men romerne likte dårlig å bli styrt av mektige enerådig herskere. I år 509 fvt. jaget de den siste kongen, Tarquinius Superbus, ut av byen. Dette markerte starten på den romerske republikken, en styreform der makten skulle deles for å hindre at én person ble for mektig."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Hva betyr Republikk?",
+                "content": "Ordet republikk kommer fra det latinske 'res publica', som betyr 'folkets sak' eller 'offentlig sak'. Det motsatte er et monarki, der makten går i arv og tilhører én person."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Maktens balansegang: Senatet og folket"
+        },
+        {
+            "type": "text",
+            "content": "Republikken var ikke et demokrati slik vi kjenner det i dag, men et komplisert system av maktfordeling. De rikeste familiene, patrisierne, satt i Senatet og ga råd til de to konsulene som ledet staten. Samtidig kjempet den vanlige befolkningen, plebeierne, for sine rettigheter. Dette førte etter hvert til opprettelsen av folketribuner, som hadde makt til å stanse beslutninger som skadet folket."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Maktfordelingen i Republikken",
+                "leftTitle": "Senatet (Patrisierne)",
+                "rightTitle": "Folketribunene (Plebeierne)",
+                "items": [
+                    {
+                        "left": "Bestod av de rikeste adelsfamiliene.",
+                        "right": "Representerte de vanlige borgerne."
+                    },
+                    {
+                        "left": "Styrte utenrikspolitikk og økonomi.",
+                        "right": "Kunne legge ned veto mot lover."
+                    },
+                    {
+                        "left": "Satt på livstid og hadde enorm autoritet.",
+                        "right": "Beskyttet folket mot maktmisbruk fra konsulene."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Republikken vokser"
+        },
+        {
+            "type": "text",
+            "content": "Roma ble raskt en militær makt som la under seg hele den italienske halvøya. Den største testen kom da de møtte Kartago i Punerkrigene. Her kjempet de mot den legendariske generalen Hannibal, som krysset Alpene med elefanter for å angripe Roma. Til tross for store nederlag ga romerne seg aldri. Deres utholdenhet og evne til å bygge opp nye hærer gjorde at de til slutt vant krigen og ble den dominerende makten i Middelhavet."
+        },
+        {
+            "type": "text",
+            "content": "Denne ekspansjonen brakte enorme rikdommer til Roma, men den skapte også store indre spenninger. Bønder som kom hjem fra krig, fant gårdene sine i ruiner, mens de rike ble stadig rikere på slaver og krigsbytte. Dette la grunnlaget for de store konfliktene som senere skulle føre til republikkens fall og starten på keisertiden under [Augustus](/historie/romerriket/augustus-og-keiserdomme)."
+        },
+        {
+            "type": "header",
+            "content": "Milepæler i republikkens historie"
+        },
+        {
+            "type": "text",
+            "content": "Fra grunnleggelsen i år 753 fvt. til republikkens stiftelse i 509 fvt., gikk Roma fra å være en samling små landsbyer til å bli en organisert stat. Utvidelsen skjedde ikke uten kamp. Den mest dristige utfordringen kom i år 218 fvt., da den kartagiske generalen Hannibal krysset Alpene med både hærførere og elefanter. Men romerne sto imot, og med ødeleggelsen av rivalen Kartago i år 146 fvt., sto Roma igjen som den ubestridte herskeren over Middelhavet."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvilket årstall markerer starten på den romerske republikken?",
+            "options": [
+                "753 fvt.",
+                "509 fvt.",
+                "44 fvt.",
+                "476 evt."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva betyr 'res publica'?",
+            "options": [
+                "Kongens makt",
+                "Folkets sak",
+                "Gudenes gave",
+                "Militær styrke"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvem krysset Alpene med elefanter for å angripe Roma?",
+            "options": [
+                "Julius Cæsar",
+                "Alexander den store",
+                "Hannibal",
+                "Augustus"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

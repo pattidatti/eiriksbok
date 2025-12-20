@@ -1590,5 +1590,292 @@
         "important": true,
         "heroImage": "/images/lessons/norgeshistorie/hamskiftet.png",
         "link": "/historie/norgeshistorie/hamskiftet"
+    },
+    {
+        "id": "romersk-start-timeline",
+        "title": "Romas grunnleggelse (myte)",
+        "description": "Ifølge legenden ble byen grunnlagt av Romulus.",
+        "startDate": -753,
+        "endDate": null,
+        "displayDate": "753 fvt",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romersk-start",
+        "tags": [
+            "antikken",
+            "roma"
+        ]
+    },
+    {
+        "id": "romersk-republikk-timeline",
+        "title": "Den romerske republikken stiftes",
+        "description": "Romerne jager den siste kongen og innfører res publica.",
+        "startDate": -509,
+        "endDate": null,
+        "displayDate": "509 fvt",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romersk-start",
+        "tags": [
+            "antikken",
+            "roma",
+            "politikk"
+        ]
+    },
+    {
+        "id": "hannibal-timeline",
+        "title": "Hannibal krysser Alpene",
+        "description": "Den andre punerkrigen og kampen mot Kartago.",
+        "startDate": -218,
+        "endDate": null,
+        "displayDate": "218 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romersk-start",
+        "tags": [
+            "antikken",
+            "roma",
+            "krig"
+        ]
+    },
+    {
+        "id": "romersk-start-lesson",
+        "title": "Leksjon: Romas grunnleggelse og republikken",
+        "description": "Lær om hvordan Roma ble en stormakt.",
+        "startDate": -753,
+        "endDate": -27,
+        "displayDate": "753 fvt - 27 fvt",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romersk-start",
+        "tags": [
+            "antikken",
+            "roma"
+        ]
+    },
+    {
+        "id": "caesar-assassination-timeline",
+        "title": "Mordet på Julius Cæsar",
+        "description": "Idus Martiae: Cæsar blir myrdet i Senatet.",
+        "startDate": -44,
+        "endDate": null,
+        "displayDate": "44 fvt",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/augustus-og-keiserdomme",
+        "tags": [
+            "antikken",
+            "roma",
+            "politikk"
+        ]
+    },
+    {
+        "id": "actium-timeline",
+        "title": "Slaget ved Actium",
+        "description": "Octavian beseirer Marcus Antonius og Kleopatra.",
+        "startDate": -31,
+        "endDate": null,
+        "displayDate": "31 fvt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/augustus-og-keiserdomme",
+        "tags": [
+            "antikken",
+            "roma",
+            "krig"
+        ]
+    },
+    {
+        "id": "augustus-emperor-timeline",
+        "title": "Augustus blir den første keiser",
+        "description": "Starten på det romerske keiserdømmet og Pax Romana.",
+        "startDate": -27,
+        "endDate": null,
+        "displayDate": "27 fvt",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/augustus-og-keiserdomme",
+        "tags": [
+            "antikken",
+            "roma",
+            "politikk"
+        ]
+    },
+    {
+        "id": "augustus-lesson-timeline",
+        "title": "Leksjon: Augustus og keiserdømmet",
+        "description": "Hvordan Roma gikk fra republikk til imperium.",
+        "startDate": -49,
+        "endDate": 14,
+        "displayDate": "49 fvt - 14 evt",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/augustus-og-keiserdomme",
+        "tags": [
+            "antikken",
+            "roma",
+            "keiser"
+        ]
+    },
+    {
+        "id": "nero-death-timeline",
+        "title": "Neros død",
+        "description": "Den siste keiseren av det julisk-claudiske dynastiet dør.",
+        "startDate": 68,
+        "endDate": null,
+        "displayDate": "68 evt",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romerske-keisere",
+        "tags": [
+            "antikken",
+            "roma",
+            "biografi"
+        ]
+    },
+    {
+        "id": "trajan-peak-timeline",
+        "title": "Romerriket når sin største utbredelse",
+        "description": "Under keiser Trajan strekker riket seg fra Storbritannia til Persiabukten.",
+        "startDate": 117,
+        "endDate": null,
+        "displayDate": "117 evt",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romerske-keisere",
+        "tags": [
+            "antikken",
+            "roma",
+            "geografi"
+        ]
+    },
+    {
+        "id": "hadrians-wall-timeline",
+        "title": "Hadrians mur påbegynnes",
+        "description": "En massiv forsvarsmur bygges i det nordlige Storbritannia.",
+        "startDate": 122,
+        "endDate": null,
+        "displayDate": "122 evt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romerske-keisere",
+        "tags": [
+            "antikken",
+            "roma",
+            "arkitektur"
+        ]
+    },
+    {
+        "id": "constantine-timeline",
+        "title": "Konstantin blir kristen",
+        "description": "Keiseren støtter kristendommen etter slaget ved Ponte Milvio.",
+        "startDate": 312,
+        "endDate": null,
+        "displayDate": "312 evt",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romerske-keisere",
+        "tags": [
+            "antikken",
+            "roma",
+            "religion"
+        ]
+    },
+    {
+        "id": "romerske-keisere-lesson-timeline",
+        "title": "Leksjon: De romerske keisere",
+        "description": "Møt de som styrte verdens største rike.",
+        "startDate": 14,
+        "endDate": 337,
+        "displayDate": "14 evt - 337 evt",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/romerske-keisere",
+        "tags": [
+            "antikken",
+            "roma",
+            "biografi"
+        ]
+    },
+    {
+        "id": "empire-division-timeline",
+        "title": "Romerriket deles permanent",
+        "description": "Etter keiser Theodosius' død styres øst og vest hver for seg.",
+        "startDate": 395,
+        "endDate": null,
+        "displayDate": "395 evt",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/vestromerrikets-fall",
+        "tags": [
+            "antikken",
+            "roma",
+            "politikk"
+        ]
+    },
+    {
+        "id": "rome-sack-visigoths-timeline",
+        "title": "Roma plyndres av visigotere",
+        "description": "Alarik inntar byen, noe som sender sjokkbølger gjennom riket.",
+        "startDate": 410,
+        "endDate": null,
+        "displayDate": "410 evt",
+        "type": "sub-event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/vestromerrikets-fall",
+        "tags": [
+            "antikken",
+            "roma",
+            "krig"
+        ]
+    },
+    {
+        "id": "rome-fall-timeline",
+        "title": "Vestromerrikets fall",
+        "description": "Odoaker avsetter Romulus Augustulus. Slutten på antikken.",
+        "startDate": 476,
+        "endDate": null,
+        "displayDate": "476 evt",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/vestromerrikets-fall",
+        "tags": [
+            "antikken",
+            "roma",
+            "kollaps"
+        ]
+    },
+    {
+        "id": "vestromerrikets-fall-lesson-timeline",
+        "title": "Leksjon: Vestromerrikets fall",
+        "description": "Dypdykk i hvorfor det mektige riket kollapset.",
+        "startDate": 395,
+        "endDate": 476,
+        "displayDate": "395 evt - 476 evt",
+        "type": "lesson",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/vestromerrikets-fall",
+        "tags": [
+            "antikken",
+            "roma",
+            "kollaps"
+        ]
     }
 ]

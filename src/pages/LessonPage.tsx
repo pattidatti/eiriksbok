@@ -113,29 +113,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     ) : null;
 
     // Construct fallback URL for ArticleContent
-    const fallbackUrl = `${window.location.origin}/content/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}/${lessonId}/artikkel.json`;
-
-    if (timelineEvent && timelineEvent.type !== 'lesson') {
-        return (
-            <ErrorBoundary>
-                <InteractiveArticle
-                    event={{
-                        ...timelineEvent,
-                        year: timelineEvent.year || timelineEvent.displayDate || '',
-                        content: timelineEvent.content || [],
-                        details: timelineEvent.details || [],
-                        category: timelineEvent.category || 'Historie',
-                        readTime: timelineEvent.readTime || '3 min',
-                    } as any}
-                    onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
-                    fallbackUrl={fallbackUrl}
-                    sidebarConfig={sidebarConfig}
-                />
-            </ErrorBoundary>
-        );
-    }
-
-
+    const fallbackUrl = `${window.location.origin}${import.meta.env.BASE_URL.replace(/\/$/, '')}/content/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}/${lessonId}.json`;
 
     // Standardize all lessons to use InteractiveArticle (Rich Layout)
     if (lesson) {
@@ -163,6 +141,26 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             <ErrorBoundary>
                 <InteractiveArticle
                     event={articleData}
+                    onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
+                    fallbackUrl={fallbackUrl}
+                    sidebarConfig={sidebarConfig}
+                />
+            </ErrorBoundary>
+        );
+    }
+
+    if (timelineEvent && timelineEvent.type !== 'lesson') {
+        return (
+            <ErrorBoundary>
+                <InteractiveArticle
+                    event={{
+                        ...timelineEvent,
+                        year: timelineEvent.year || timelineEvent.displayDate || '',
+                        content: timelineEvent.content || [],
+                        details: timelineEvent.details || [],
+                        category: timelineEvent.category || 'Historie',
+                        readTime: timelineEvent.readTime || '3 min',
+                    } as any}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
                     fallbackUrl={fallbackUrl}
                     sidebarConfig={sidebarConfig}

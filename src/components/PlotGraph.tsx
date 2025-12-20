@@ -27,8 +27,16 @@ export const PlotGraph: React.FC<PlotGraphProps> = ({
     const height = 200;
     const padding = 40;
 
-    const mapX = (x: number) => padding + (x / 100) * (width - 2 * padding);
-    const mapY = (y: number) => height - padding - (y / 100) * (height - 2 * padding);
+    const minX = Math.min(...points.map(p => p.x));
+    const maxX = Math.max(...points.map(p => p.x));
+    const minY = Math.min(0, ...points.map(p => p.y));
+    const maxY = Math.max(100, ...points.map(p => p.y));
+
+    const xRange = maxX - minX || 1;
+    const yRange = maxY - minY || 1;
+
+    const mapX = (x: number) => padding + ((x - minX) / xRange) * (width - 2 * padding);
+    const mapY = (y: number) => height - padding - ((y - minY) / yRange) * (height - 2 * padding);
 
     // Create path string
     const pathD = points.reduce((acc, point, index) => {

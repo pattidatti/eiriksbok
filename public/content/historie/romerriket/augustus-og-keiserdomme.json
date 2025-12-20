@@ -1,0 +1,126 @@
+{
+    "id": "augustus-og-keiserdomme",
+    "title": "Fra republikk til keiserdømme: Augustus",
+    "layout": "rich",
+    "year": "49 fvt. - 14 evt.",
+    "category": "Antikken",
+    "readTime": "10 min read",
+    "heroImage": "https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?auto=format&fit=crop&q=80",
+    "details": [
+        "Julius Cæsars vei til makten",
+        "Mordet i Senatet",
+        "Octavian mot Antonius",
+        "Augustus og Pax Romana"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "På midten av det første århundret før vår tid var den romerske republikken i ferd med å revne i sømmene. Det som en gang var en stabil bystat, hadde vokst seg så stor at de gamle maktstrukturene ikke lenger fungerte. Generaler med egne hærer begynte å kjempe om kontrollen, og den mest kjente av disse var Julius Cæsar. Da han krysset elven Rubicon i år 49 fvt., brøt han romersk lov og startet en borgerkrig som skulle endre verden for alltid."
+        },
+        {
+            "type": "header",
+            "content": "Cæsars fall og republikkens dødskramper"
+        },
+        {
+            "type": "text",
+            "content": "Cæsar vant borgerkrigen og ble utnevnt til diktator på livstid. For mange romere, spesielt i Senatet, var dette et tegn på at friheten var tapt. De fryktet at de var på vei tilbake til det forhatte kongedømmet. Den 15. mars i år 44 fvt., en dato som kalles 'Idus martiae', ble Cæsar myrdet av en gruppe senatorer ledet av Brutus og Cassius. Men morderne hadde undervurdert én ting: Folket elsket Cæsar, og hans død førte bare til mer kaos og nye borgerkriger."
+        },
+        {
+            "type": "header",
+            "content": "Maktbalansen forskyves"
+        },
+        {
+            "type": "text",
+            "content": "Etter Cæsars død sto kampen mellom hans adoptivsønn Octavian og generalen Marcus Antonius. Octavian var ung og ble sett på som svak, men han viste seg å være en mester i politisk spill. Etter å ha beseiret Antonius og dronning Kleopatra av Egypt i slaget ved Actium, satt han igjen som den eneste herskeren i den romerske verden. Han visste at han ikke kunne kalle seg konge eller diktator uten å ende opp som sin adoptivfar. I stedet kalte han seg 'Princeps' – den første blant likemenn."
+        },
+        {
+            "type": "component",
+            "name": "PlotGraph",
+            "props": {
+                "title": "Maktbalansen i Roma (44 fvt - 14 evt)",
+                "description": "Denne grafen viser hvordan den reelle makten flyttet seg fra Senatet til den første keiseren, Augustus.",
+                "xAxisLabel": "Årstall",
+                "yAxisLabel": "Maktandel (%)",
+                "points": [
+                    {
+                        "x": -44,
+                        "y": 80,
+                        "label": "Senatet dominerer før Cæsars død"
+                    },
+                    {
+                        "x": -43,
+                        "y": 40,
+                        "label": "Triumvirat: Makten deles mellom tre menn"
+                    },
+                    {
+                        "x": -31,
+                        "y": 20,
+                        "label": "Actium: Octavian vinner kontroll"
+                    },
+                    {
+                        "x": -27,
+                        "y": 10,
+                        "label": "Augustus 'gjenoppretter' republikken, men beholder all makt"
+                    },
+                    {
+                        "x": 14,
+                        "y": 5,
+                        "label": "Senatet er nå i praksis bare et rådgivende organ"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Augustus og Pax Romana"
+        },
+        {
+            "type": "text",
+            "content": "I år 27 fvt. ga Senatet Octavian tittelen Augustus, som betyr 'den opphøyde'. Dette regnes som starten på det romerske keiserdømmet. Augustus styrte med jernhånd, men han brakte også noe romerne hadde savnet i hundre år: fred. Denne perioden kalles Pax Romana, den romerske freden. Under Augustus ble riket bygget ut med nye veier, akvedukter og praktbygg. Han skrøt selv av at han fant Roma i murstein og etterlot henne i marmor."
+        },
+        {
+            "type": "text",
+            "content": "Selv om republikken offisielt forsatte å eksistere, var den nå bare en fasade. Keiseren kontrollerte hæren, pengene og lovene. Dette nye systemet skulle vare i hundrevis av år og føre Roma til sin største blomstringstid, men det la også grunnlaget for de gale og paranoide herskerne som skulle komme senere, noe du kan lese mer om i artikkelen om [De romerske keiserne](/historie/romerriket/romerske-keisere)."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Visste du?",
+                "content": "Måneden August er oppkalt etter keiser Augustus. Før dette het måneden Sextilis, men senatet endret navnet for å ære keiseren som brakte fred til riket."
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr tittelen Augustus?",
+            "options": [
+                "Den mektige krigeren",
+                "Den opphøyde",
+                "Folkets venn",
+                "Lovgiveren"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva kalles perioden med relativ fred som Augustus startet?",
+            "options": [
+                "Den gylne tidsalder",
+                "Pax Romana",
+                "Cæsars fred",
+                "Republikkens høst"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvem kjempet Octavian mot i det avgjørende slaget ved Actium?",
+            "options": [
+                "Julius Cæsar og Brutus",
+                "Marcus Antonius og Kleopatra",
+                "Hannibal og kartagerne",
+                "Vandalene og visigoterne"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}
