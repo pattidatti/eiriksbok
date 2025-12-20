@@ -20,7 +20,7 @@
         },
         {
             "type": "text",
-            "content": "Det var på disse veiene kristendommen etter hvert ble spredt. Rundt år 300 ble kristendommen offisiell religion i riket. Romerriket eksisterte samtidig med andre imperier, som Persia (Achaemenid) og Makedonia (under Alexander den Store)."
+            "content": "Det var på disse veiene [kristendommen](/historie/romerriket/legitimitet-og-kristendom) etter hvert ble spredt. Rundt år 300 ble kristendommen offisiell religion i riket under keisere som [Konstantin](/historie/romerriket/romerske-keisere). Romerriket eksisterte samtidig med andre imperier, som Persia (Achaemenid) og Makedonia (under Alexander den Store)."
         },
         {
             "type": "text",
@@ -30,7 +30,7 @@
             "type": "component",
             "name": "FactBox",
             "props": {
-                "content": "Romerriket varte i nesten 1000 år og strakte seg over tre kontinenter. De bygde veier, akvedukter og spredte latin og kristendom."
+                "content": "Romerriket varte i nesten 1000 år og strakte seg over tre kontinenter. De bygde veier, akvedukter og spredte latin og kristendom. Romas påvirkning er så stor at vi fortsatt snakker om [arven etter Romerriket](/historie/romerriket/arven-etter-romerriket) i dagens Europa."
             }
         }
     ],

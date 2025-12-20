@@ -1982,5 +1982,69 @@
             "romerriket",
             "kristendom"
         ]
+    },
+    {
+        "id": "justinian-lov",
+        "title": "Corpus Iuris Civilis",
+        "description": "Keiser Justinian samler romersk rett, grunnlaget for vestlig lov.",
+        "startDate": 529,
+        "endDate": null,
+        "displayDate": "529",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/arven-etter-romerriket",
+        "tags": [
+            "romerriket",
+            "lov"
+        ]
+    },
+    {
+        "id": "karl-den-store-kroning",
+        "title": "Karl den store blir keiser",
+        "description": "Gjenoppliving av det romerske keiserdømmet i vest.",
+        "startDate": 800,
+        "endDate": null,
+        "displayDate": "800",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/arven-etter-romerriket",
+        "tags": [
+            "romerriket",
+            "geopolitikk"
+        ]
+    },
+    {
+        "id": "konstantinopels-fall",
+        "title": "Konstantinopels fall",
+        "description": "Det østromerske riket faller, slutten på det romerske statssystemet.",
+        "startDate": 1453,
+        "endDate": null,
+        "displayDate": "1453",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/arven-etter-romerriket",
+        "tags": [
+            "romerriket",
+            "historie"
+        ]
+    },
+    {
+        "id": "code-civil",
+        "title": "Code Civil (Napoléon)",
+        "description": "Napoléons lovverk, sterkt inspirert av romersk rett, sprer seg i Europa.",
+        "startDate": 1804,
+        "endDate": null,
+        "displayDate": "1804",
+        "type": "event",
+        "subjectId": "historie",
+        "topicId": "romerriket",
+        "link": "/historie/romerriket/arven-etter-romerriket",
+        "tags": [
+            "romerriket",
+            "lov"
+        ]
     }
 ]

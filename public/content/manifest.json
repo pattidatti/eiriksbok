@@ -1043,6 +1043,21 @@
                             "lastUpdated": "2023-12-20T12:00:00Z"
                         },
                         {
+                            "id": "arven-etter-romerriket",
+                            "title": "Arven etter Romerriket",
+                            "description": "Et dypdykk i hvordan Romerriket preger kultur, språk, lover og politikk i dag.",
+                            "image": "/images/romerriket/hero-arv.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "romerriket",
+                                "kultur",
+                                "politikk"
+                            ],
+                            "createdDate": "2023-12-20T13:00:00Z",
+                            "lastUpdated": "2023-12-20T13:00:00Z"
+                        },
+                        {
                             "id": "vestromerrikets-fall",
                             "title": "Vestromerrikets fall",
                             "description": "Et dypdykk i årsakene til det store imperiets kollaps.",
