@@ -4,114 +4,105 @@
     "layout": "rich",
     "year": "27 f.Kr. - 476 evt.",
     "category": "Antikken",
-    "readTime": "15 min read",
+    "readTime": "20 min read",
     "heroImage": "/images/romerriket/hero-emperors.png",
     "details": [
         "Fra Augustus til Romulus Augustus",
-        "Dynastienes storhet og fall",
-        "Pax Romana og de fem gode keiserne",
-        "Krisen på 200-tallet og gjenreisingen",
-        "Kristendommens inntog og rikets deling"
+        "Nero og det første dynastiet",
+        "Gullalderen med Trajan og Hadrian",
+        "Krigere og kriser på 200-tallet",
+        "Kristendommens inntog"
     ],
     "content": [
         {
             "type": "text",
-            "content": "Etter at [Augustus](/historie/romerriket/augustus-og-keiserdomme) vant borgerkrigene i det første århundret før vår tidsregning, ble maktbalansen i Roma fundamentalt endret. Keiseren var nå guden på jorden, den øverste generalen (*imperator*) og den som bestemte over liv og død. Denne artikkelen tar for seg reisen fra det første dynastiet til den siste keiseren i vest i år 476 evt."
+            "content": "Etter at [Augustus](/historie/romerriket/augustus-og-keiserdomme) vant borgerkrigene i det første århundret før vår tidsregning, ble maktbalansen i Roma fundamentalt endret. Keiseren var nå guden på jorden, den øverste generalen (*imperator*) og den som bestemte over liv og død. I løpet av 500 år skulle keiserne variere fra kloke filosofer til gale tyranner."
         },
         {
             "type": "header",
-            "content": "Det julioclaudiske dynasti (27 f.Kr. – 68 e.Kr.)"
+            "content": "Det julioclaudiske dynasti (27 f.Kr. – 68 e.Kr.): Slekten som feilet"
         },
         {
             "type": "text",
-            "content": "Dette var det første keiserdynastiet, startet av Augustus. Etter ham fulgte Tiberius, en dyktig men mistenksom general. Kaligula huskes som en eksentrisk tyrann, mens Claudius var en undervurdert administrator som erobret Storbritannia. Dynastiet endte med Nero, som er beryktet for den store bybrannen i Roma og forfulgelsen av de første kristne. Da han døde i 68 evt., endte Augustus' slektslinje."
+            "content": "Dette var det første keiserdynastiet, startet av Augustus. Etter ham fulgte Tiberius, en dyktig men mistenksom general som stakk av til øya Capri og styrte derfra. Deretter kom Caligula, som huskes som en eksentrisk galning som ville utnevne hesten sin til konsul. Claudius, som familien trodde var dum fordi han stammet, viste seg å være en genial administrator som erobret Storbritannia."
+        },
+        {
+            "type": "text",
+            "content": "Dynastiet endte med **Nero**. Han var mer opptatt av å synge og spille teater enn å styre riket. Da Roma brant ned i år 64 evt., gikk ryktene om at Nero selv hadde startet brannen for å gjøre plass til sitt gigantiske 'Gylne Hus'. For å avlede oppmerksomheten skyldte han på en ny, rar jødisk sekt: De kristne. Nero ble den første som systematisk forfulgte kristne, men hans eget stormannsgalskap ble til slutt for mye selv for romerne. Han ble tvunget til selvmord, og med ham døde Cæsars og Augustus' blodslinje ut."
         },
         {
             "type": "header",
-            "content": "Det flaviske dynasti (69–96 e.Kr.)"
+            "content": "De fem gode keiserne (96–192 e.Kr.): Gullalderen"
         },
         {
             "type": "text",
-            "content": "Etter et år med borgerkrig tok Vespasian makten. Han brakte stabilitet og startet byggingen av Colosseum. Hans sønn Titus ble elsket for sin håndtering av katastrofer som vulkanutbruddet fra Vesuv (Pompeii). Dynastiet endte med Domitians autoritære styre, som styrket økonomien men førte til hans eget attentat i et palasskomplott."
+            "content": "Etter kaoset med Nero og borgerkrigene som fulgte, kom en periode som historikeren Edward Gibbon kalte 'den lykkeligste tiden i menneskehetens historie'. Dette var tiden for de fem gode keiserne: Nerva, Trajan, Hadrian, Antoninus Pius og Marcus Aurelius. Hemmeligheten deres var enkel: Ingen av dem hadde egne sønner. I stedet adopterte de den dyktigste mannen i riket som sin etterfølger."
+        },
+        {
+            "type": "text",
+            "content": "**Trajan (98–117 evt.)** var soldatkeiseren. Under ham nådde Romerriket sin aller største utstrekning. Han erobret Dacia (dagens Romania) og tok med seg så mye gull hjem at han kunne betale for fantastiske byggverk i Roma, inkludert et nytt forum og den berømte Trajan-søylen som fortsatt står i dag. Søylen er som en tegneserie i stein som viser hele krigen i detalj."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/trajan-column.png",
+            "alt": "Nærbilde av relieffene på Trajansøylen som viser soldater i kamp",
+            "caption": "Trajansøylen fungerte som antikkens propagandaplakat. Den viser den romerske hærens overlegenhet og disiplin."
+        },
+        {
+            "type": "text",
+            "content": "Etterfølgeren **Hadrian (117–138 evt.)** innså at riket var blitt for stort til å forsvares. Han ga opp noen av erobringene i øst og fokuserte på å sikre grensene. Mest kjent er **Hadrians mur** i nord-England, en 120 km lang steinmur som markerte grensen mellom sivilisasjon og 'barbarene'. Hadrian var også en reisende keiser; han brukte mesteparten av sin regjeringstid på å besøke provinsene, fra Egypt til Spania."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/hadrians-wall.png",
+            "alt": "Hadrians mur som strekker seg over grønne åser i England",
+            "caption": "Hadrians mur var opprinnelig hvitkalket og ruvet over landskapet som en klar beskjed: 'Hit, men ikke lenger'."
+        },
+        {
+            "type": "text",
+            "content": "Gullalderen endte med filosof-keiseren Marcus Aurelius. Han brukte livet sitt på å forsvare grensene mot germanske stammer ved Donau, mens han skrev sine berømte 'Meditasjoner' om stoistisk filosofi i teltet om kvelden. Dessverre brøt han tradisjonen med adopsjon og lot sin biologiske sønn, **Commodus**, arve tronen. Commodus var (akkurat som i filmen *Gladiator*) en katastrofe, brutalt og inkompetent."
         },
         {
             "type": "header",
-            "content": "De fem gode keiserne (96–192 e.Kr.)"
+            "content": "Severerne og Soldatkeiserne: Makt er rett"
         },
         {
             "type": "text",
-            "content": "Dette kalles ofte Romerrikets gullalder. Under Trajan nådde riket sin største utstrekning. Hadrian konsoliderte grensene med forsvarsverker som Hadrians mur. Antoninus Pius styrte i en tid med ekstrem fred, etterfulgt av 'filosof-keiseren' Marcus Aurelius som forsvarte grensene mens han skrev sine meditasjoner. Perioden endte brått med hans sønn Commodus, hvis tyranniske styre markerte slutten på Pax Romana."
+            "content": "Etter at Commodus ble drept (kvelt i badekaret av sin egen brytertrener), fulgte en tid der hæren bestemte alt. Septimius Severus, som grunnla det nye dynastiet, ga sine sønner et enkelt råd: 'Vær venner, betal soldatene, og gi blaffen i alle andre.' Hans sønn **Caracalla** fulgte rådet om å betale soldatene, men drepte broren sin Geta. Caracalla er mest kjent for to ting: Han ga romersk statsborgerskap til alle frie menn i riket i 212 evt. (mest for å få flere å skattelegge), og han bygde de gigantiske Caracalla-badene i Roma."
         },
         {
-            "type": "header",
-            "content": "Krisen i det tredje århundre"
-        },
-        {
-            "type": "text",
-            "content": "På 200-tallet holdt riket på å kollapse under borgerkriger, invasjoner og økonomisk krise. Septimius Severus grunnla et militærbasert dynasti, og hans sønn Caracalla ga romersk statsborgerskap til alle frie menn i riket. Aurelian (270–275) ble hyllet som 'Verdens gjenoppretter' etter at han lyktes i å gjenforene det splittede riket."
-        },
-        {
-            "type": "header",
-            "content": "Diokletian og Konstantin"
+            "type": "image",
+            "src": "/images/romerriket/caracalla-baths.png",
+            "alt": "Interiør av Caracallas bad i antikken med mennesker som bader",
+            "caption": "Caracallas bad hadde plass til over 1600 badegjester samtidig. Det var et palass for folket, dekorert med marmor og gull."
         },
         {
             "type": "text",
-            "content": "Historien om Roma starter ikke med store marmorbygninger, men med en myte om to brødre, en ulvemor og en krangel som endte med drap. Ifølge sagnene ble Roma grunnlagt i år 753 fvt. av Romulus, etter at han hadde drept sin tvillingbror Remus. Selv om dette er en spennende fortelling, vet arkeologene at virkeligheten var litt mer jordnær. Roma vokste frem som en samling små landsbyer på sju høyder ved elven Tiberen, der bønder og gjetere slo seg ned for å dra nytte av den gode plasseringen."
+            "content": "På midten av 200-tallet kollapset nesten riket fullstendig i det vi kaller 'Krisen i det tredje århundre'. I løpet av 50 år hadde Roma over 26 keisere. Nesten alle ble myrdet. Riket ble angrepet fra alle kanter, og økonomien lå i ruiner. Det krevdes en jernhånd for å redde stumpene. Den hånden tilhørte keisere som [Diokletian](/historie/romerriket/legitimitet-og-kristendom), som forsto at systemet måtte endres totalt for å overleve."
         },
         {
             "type": "component",
             "name": "Comparison",
             "props": {
-                "title": "Myte vs. Arkeologi",
-                "leftTitle": "Sagnet om Romulus",
-                "rightTitle": "Hva Arkeologien sier",
+                "title": "Keisertyper",
+                "leftTitle": "Den Sivile Keiser",
+                "rightTitle": "Soldatkeiseren",
                 "items": [
                     {
-                        "left": "Roma ble grunnlagt på nøyaktig én dag i 753 fvt.",
-                        "right": "Byen vokste sakte frem fra ca. 1000 fvt."
+                        "left": "Styrte fra Roma i samarbeid med Senatet.",
+                        "right": "Styrte fra militærleirer ved grensen."
                     },
                     {
-                        "left": "En ulvemor reddet tvillingene Romulus og Remus.",
-                        "right": "Hyrder og bønder slo seg ned på høydene for beskyttelse."
+                        "left": "Gikk kledd i Toga (sivil drak).",
+                        "right": "Gikk kledd i rustning og militærkappe."
                     },
                     {
-                        "left": "Romulus trakk plogfuren rundt bygrensen alene.",
-                        "right": "Flere små landsbyer slo seg sammen til ett fellesskap."
+                        "left": "Eksempel: Augustus, Antoninus Pius.",
+                        "right": "Eksempel: Trajan, Septimius Severus."
                     },
                     {
-                        "left": "Roma var skjebnebestemt til å styre verden fra starten.",
-                        "right": "Plasseringen ved Tiberen var perfekt for handel og forsvar."
-                    }
-                ]
-            }
-        },
-        {
-            "type": "text",
-            "content": "Utover 400-tallet ble Vestromerriket stadig svakere under press fra vandringene til germanske stammer. Theodosius I var den siste som styrte over et samlet rike før det ble permanent delt. Den aller siste vestromerske keiseren var den unge [Romulus Augustus](/historie/romerriket/vestromerrikets-fall). Han ble avsatt av den germanske generalen Odoaker i år 476 evt., en hendelse som tradisjonelt markerer slutten på antikken og begynnelsen på middelalderen."
-        },
-        {
-            "type": "component",
-            "name": "Comparison",
-            "props": {
-                "title": "Dynasty Explorer: Fra 'Første borger' til 'Herre'",
-                "leftTitle": "Prinsipatet (Tidlig Keisertid)",
-                "rightTitle": "Dominatet (Sen Keisertid)",
-                "items": [
-                    {
-                        "left": "Keiseren kalles 'Princeps' (første borger).",
-                        "right": "Keiseren kalles 'Dominus' (herre og mester)."
-                    },
-                    {
-                        "left": "Fremstår som en vanlig politiker i toga.",
-                        "right": "Bærer purpurkappe og diadem; guddommelig stil."
-                    },
-                    {
-                        "left": "Samarbeider (i teorien) med Senatet.",
-                        "right": "Senatet er kun et symbolsk råd uten makt."
-                    },
-                    {
-                        "left": "Bor i et stort, men tilgjengelig hus i Roma.",
-                        "right": "Bor i befestede palasser i Trier, Milano eller Konstantinopel."
+                        "left": "Maktbase: Lover og tradisjon.",
+                        "right": "Maktbase: Lojale legioner og sverd."
                     }
                 ]
             }
@@ -120,16 +111,8 @@
             "type": "component",
             "name": "FactBox",
             "props": {
-                "title": "Pretorianergarden",
-                "content": "Dette var keiserens elitevakter. De hadde enorm politisk makt og var ofte involvert i å avsette eller drepe keisere de ikke lenger støttet."
-            }
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Year of the Four Emperors",
-                "content": "I år 69 evt., rett etter Neros død, hadde Roma fire forskjellige keisere på bare ett år (Galba, Otho, Vitellius og Vespasian) før Vespasian vant kontrollen."
+                "title": "Damnatio Memoriae",
+                "content": "Hvis en keiser var skikkelig ille (som Nero eller Commodus), kunne senatet vedta 'Damnatio Memoriae' etter deres død. Da ble navnet deres hugget vekk fra alle inskripsjoner, og statuene deres ble ødelagt. Det var som om de aldri hadde eksistert."
             }
         },
         {
@@ -142,52 +125,42 @@
             "props": {
                 "questions": [
                     {
-                        "question": "Hvem regnes som den aller siste vestromerske keiseren?",
+                        "question": "Hvem var den siste av de 'fem gode keiserne'?",
                         "options": [
-                            "Konstantin",
-                            "Romulus Augustus",
+                            "Nero",
                             "Marcus Aurelius",
-                            "Nero"
+                            "Hadrian",
+                            "Augustus"
                         ],
                         "correctAnswer": 1
                     },
                     {
-                        "question": "Hvilken keiser er kjent for å ha bygget en massiv mur i Storbritannia?",
+                        "question": "Hva er Hadrian mest kjent for å ha bygget?",
                         "options": [
-                            "Hadrian",
-                            "Trajan",
-                            "Augustus",
-                            "Caligula"
+                            "Colosseum",
+                            "En mur i England",
+                            "Forum Romanum",
+                            "Katakombene"
                         ],
-                        "correctAnswer": 0
+                        "correctAnswer": 1
                     },
                     {
-                        "question": "Hvem ble hyllet som 'Verdens gjenoppretter' etter å ha gjenforent riket på 200-tallet?",
+                        "question": "Hvem ga romersk statsborgerskap til alle frie menn i 212 evt.?",
                         "options": [
                             "Vespasian",
-                            "Aurelian",
                             "Caracalla",
-                            "Septimius Severus"
+                            "Caligula",
+                            "Trajan"
                         ],
                         "correctAnswer": 1
                     },
                     {
-                        "question": "Hvilket årstall markerer tradisjonelt Vestromerrikets fall?",
+                        "question": "Hva skjedde med de fleste keiserne på 200-tallet?",
                         "options": [
-                            "117 evt.",
-                            "337 evt.",
-                            "476 evt.",
-                            "1453 evt."
-                        ],
-                        "correctAnswer": 2
-                    },
-                    {
-                        "question": "Hva var spesielt med tetrarkiet som Diokletian innførte?",
-                        "options": [
-                            "Roma ble styrt av Senatet alene",
-                            "Riket ble styrt av fire herskere samtidig",
-                            "Kristendommen ble forbudt",
-                            "Alle keisere måtte være soldater"
+                            "De døde av alderdom",
+                            "De ble drept/myrdet",
+                            "De abdiserte frivillig",
+                            "De flyttet til Kina"
                         ],
                         "correctAnswer": 1
                     }
@@ -197,52 +170,32 @@
     ],
     "quiz": [
         {
-            "question": "Hvem regnes som den aller siste vestromerske keiseren?",
+            "question": "Hvem var den siste av de 'fem gode keiserne'?",
             "options": [
-                "Konstantin",
-                "Romulus Augustus",
+                "Nero",
                 "Marcus Aurelius",
-                "Nero"
+                "Hadrian",
+                "Augustus"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hvilken keiser er kjent for å ha bygget en massiv mur i Storbritannia?",
+            "question": "Hva er Hadrian mest kjent for å ha bygget?",
             "options": [
-                "Hadrian",
-                "Trajan",
-                "Augustus",
-                "Caligula"
+                "Colosseum",
+                "En mur i England",
+                "Forum Romanum",
+                "Katakombene"
             ],
-            "correctAnswer": 0
+            "correctAnswer": 1
         },
         {
-            "question": "Hvem ble hyllet som 'Verdens gjenoppretter' etter å ha gjenforent riket på 200-tallet?",
+            "question": "Hvem ga romersk statsborgerskap til alle frie menn i 212 evt.?",
             "options": [
                 "Vespasian",
-                "Aurelian",
                 "Caracalla",
-                "Septimius Severus"
-            ],
-            "correctAnswer": 1
-        },
-        {
-            "question": "Hvilket årstall markerer tradisjonelt Vestromerrikets fall?",
-            "options": [
-                "117 evt.",
-                "337 evt.",
-                "476 evt.",
-                "1453 evt."
-            ],
-            "correctAnswer": 2
-        },
-        {
-            "question": "Hva var spesielt med tetrarkiet som Diokletian innførte?",
-            "options": [
-                "Roma ble styrt av Senatet alene",
-                "Riket ble styrt av fire herskere samtidig",
-                "Kristendommen ble forbudt",
-                "Alle keisere måtte være soldater"
+                "Caligula",
+                "Trajan"
             ],
             "correctAnswer": 1
         }

@@ -4,79 +4,99 @@
     "layout": "rich",
     "year": "79 evt.",
     "category": "Antikken",
-    "readTime": "10 min read",
+    "readTime": "15 min read",
     "heroImage": "/images/romerriket/hero-pompeii.png",
     "details": [
-        "Livet før katastrofen",
-        "Vesuvs utbrudd i år 79 evt.",
-        "Arkeologiske funn og 'frosne' øyeblikk",
-        "Hva Pompeii lærer oss om Roma"
+        "Vesuvs utbrudd",
+        "Plinius' øyenvitneskildring",
+        "Herculaneum: Den glemte søsterbyen",
+        "Hva ruinene forteller oss"
     ],
     "content": [
         {
             "type": "text",
-            "content": "Tenk deg at du våkner opp en vakker morgen i en travel romersk ferieby. Solen skinner, folk handler i butikkene, og barna leker i gatene. Ingen vet at fjellet som troner over byen, Vesuv, er i ferd med å våkne etter hundrevis av år i søvn. I løpet av bare 24 timer skulle denne byen forsvinne fra kartet, begravd under metervis av aske og stein, for så å bli glemt i nesten 1700 år."
+            "content": "Den 24. august (eller kanskje i oktober, som nyere funn tyder på) i år 79 evt., våknet innbyggerne i den velstående byen Pompeii til en vakker morgen. De ante ikke at fjellet de bodde under, Vesuv, var en vulkan. For dem var det bare et fjell med gode vindruer. Ved lunsjtid eksploderte toppen av fjellet, og i løpet av 24 timer var en hel verden begravet."
         },
         {
             "type": "header",
-            "content": "Katastrofen rammer: 24 timer i helvete"
+            "content": "Øyenvitnet: Plinius den Yngre"
         },
         {
             "type": "text",
-            "content": "Utbruddet startet rundt lunsjtid den 24. august (eller kanskje oktober, ifølge nyere forskning) i år 79 evt. En enorm søyle av aske og pimpstein ble skutt 30 kilometer opp i atmosfæren. For innbyggerne i Pompeii begynte det med et regn av lette steiner som dekket gatene og takene."
+            "content": "Vi vet nøyaktig hva som skjedde den dagen, takket være en 17 år gammel gutt som sto på den andre siden av bukta og så alt sammen. **Plinius den Yngre** skrev to brev til historikeren Tacitus om katastrofen. Han beskrev røykskyen som steg opp fra fjellet 'som et paraplytre (pinje)', en sky som spredte seg utover himmelen."
+        },
+        {
+            "type": "text",
+            "content": "Hans onkel, Plinius den Eldre, var sjef for den romerske flåten. Han seilte inn mot infernoet for å redde folk, og skal ha ropt 'Lykken står den kjekke bi!' (*Fortes fortuna adiuvat*) mens asken regnet ned. Dessverre døde han av giftige gasser på stranden i Stabiae. Nevøens beskrivelser er så nøyaktige at vulkanologer i dag kaller denne typen eksplosive utbrudd for 'Plinske utbrudd'."
+        },
+        {
+            "type": "header",
+            "content": "Pompeii: Begravet i aske"
+        },
+        {
+            "type": "text",
+            "content": "I Pompeii falt asken som snø, men det var tung, varm stein (pimpstein). Takene raste sammen under vekten. Folk som ble inne, ble knust. De som løp ut, ble kvalt av gasser eller truffet av steiner. Men det var ikke asken som drepte de fleste. Det var **pyroklastiske strømmer** – supervarme bølger av gass og aske som raste nedover fjellsiden i 500 km/t og kokte alt på sin vei."
+        },
+        {
+            "type": "text",
+            "content": "Asken la seg som et 6 meter tykt teppe over byen. Den herdet og dannet en perfekt form rundt kroppene til de døde. Da kjøttet råtnet bort, ble det igjen et tomrom. På 1800-tallet fant arkeologen Giuseppe Fiorelli på å helle gips inn i disse hullene. Resultatet er de berømte gipsavstøpningene av ofrene i deres dødsøyeblikk: En hund som vrir seg i smerte, en mor som beskytter barnet sitt, og et par som holder hender."
+        },
+        {
+            "type": "header",
+            "content": "Herculaneum: Den glemte katastrofen"
+        },
+        {
+            "type": "text",
+            "content": "Mens Pompeii ble begravet i aske, led nabobyen Herculaneum en annerledes skjebne. Herculaneum lå nærmere vulkanen og ved sjøen. Den ble truffet av en vegg av vulkansk gjørme. Gjørmen fylte byen fullstendig, fra kjeller til tak, og herdet til stein like hard som sement. Det gjorde utgravningen mye vanskeligere, men det bevarte byen enda bedre."
+        },
+        {
+            "type": "text",
+            "content": "I Herculaneum er treverk, mat, papyrus-ruller og til og med møbler bevart. I båthusene ved stranden fant man skjelettene til hundrevis av mennesker som hadde søkt tilflukt mens de ventet på redning fra sjøen som aldri kom."
+        },
+        {
+            "type": "header",
+            "content": "En tidsmaskin"
+        },
+        {
+            "type": "text",
+            "content": "Pompeii og Herculaneum gir oss et unikt innblikk i hverdagslivet som ingen andre kilder kan matche. Vi ser ikke bare de store templene, men også de små tingene:\n*   **Grafitti**: På veggene har folk skrevet beskjeder som 'Gaius er en tosk', 'Samius til Cornelius: Heng deg!', og valgkamp-slagord.\n*   **Huronor**: Vi har funnet bordeller med eksplisitte malerier 'menyen' på veggen.\n*   **Gatekjøkken**: *Thermopolium* var romerske snackbarer der man kunne kjøpe varm mat og vin rett fra disken. I en av grytene fant arkeologene restene av en 2000 år gammel lapskaus med and og geit."
         },
         {
             "type": "component",
             "name": "TimelineComponent",
             "props": {
-                "title": "De siste timene i Pompeii",
+                "title": "Katastrofens tidslinje (24-25. August 79 evt.)",
                 "events": [
                     {
                         "time": "13:00",
-                        "title": "Eksplosjonen",
-                        "description": "Vesuv eksploderer. En enorm sky av aske formet som en pinje sprer seg over himmelen."
+                        "title": "Utbruddet starter",
+                        "description": "En røyksøyle stiger 30 km opp i været."
                     },
                     {
-                        "time": "17:00",
-                        "title": "Askeregnet øker",
-                        "description": "Byen dekkes av pimpstein. Tak begynner å kollapse under vekten. Mange flykter mot havet."
+                        "time": "15:00",
+                        "title": "Asken faller",
+                        "description": "Pimpstein regner over Pompeii. Tak begynner å kollapse."
                     },
                     {
-                        "time": "02:00 (Natt)",
+                        "time": "20:00",
                         "title": "Pyroklastiske strømmer",
-                        "description": "Supervarme skyer av gass og aske raser nedover fjellsiden i over 100 km/t. Alt liv utslettes momentant."
+                        "description": "De første varmebølgene treffer Herculaneum."
                     },
                     {
-                        "time": "08:00 (Morgen)",
-                        "title": "Byen er borte",
-                        "description": "Pompeii er begravd under 6 meter med aske. Bare toppen av de høyeste bygningene stikker opp."
+                        "time": "07:00 (Neste dag)",
+                        "title": "Pompeii utslettes",
+                        "description": "Den dødeligste strømmen treffer Pompeii og dreper alle gjenværende."
                     }
                 ]
             }
         },
         {
-            "type": "header",
-            "content": "Gjenoppdagelsen"
-        },
-        {
-            "type": "text",
-            "content": "Pompeii ble funnet igjen ved en tilfeldighet på 1700-tallet. Fordi byen ble begravd så raskt og uten luft, har alt blitt utrolig godt bevart. Arkeologer har funnet alt fra brød som fortsatt lå i ovnen, til vakre veggmalerier og grafitti på veggene som forteller om kjærlighet, politikk og priser på vin."
-        },
-        {
             "type": "component",
             "name": "FactBox",
             "props": {
-                "title": "Gipsavstøpningene",
-                "content": "Det mest gripende i Pompeii er hulrommene etter menneskene som døde. Arkeologen Giuseppe Fiorelli fant ut at han kunne fylle disse lommene i asken med gips. Resultatet er detaljerte figurer som viser folk i deres siste øyeblikk – noen som holder rundt hverandre, og andre som prøver å beskytte ansiktet."
+                "title": "Villa of Mysteries",
+                "content": "Rett utenfor bymurene i Pompeii ligger 'Mysterievillaen'. Her finner vi utrolig godt bevarte fresker (veggmalerier) i naturlig størrelse. De viser trolig et hemmelig opptaksrituale til en kult for vinguden Bacchus (Dionysos). Fargene er fortsatt skinnende klare etter 2000 år, spesielt den berømte 'pompeianske rødfargen'."
             }
-        },
-        {
-            "type": "header",
-            "content": "Hva lærer Pompeii oss?"
-        },
-        {
-            "type": "text",
-            "content": "Pompeii er som en tidskapsel. Mens de fleste romerske byer ble bygget om og endret gjennom århundrene, viser Pompeii oss nøyaktig hvordan en by så ut på keiser Titus' tid. Vi kan se [hverdagslivet i Roma](/historie/romerriket/hverdagsliv-i-roma) i detalj: hvordan bakeriene fungerte, hvordan de rike pyntet husene sine, og til og med hva slags mat de spiste."
         },
         {
             "type": "component",
@@ -84,34 +104,44 @@
             "props": {
                 "questions": [
                     {
-                        "question": "Hvilket årstall fant utbruddet sted?",
+                        "question": "Hvem skrev øyenvitneskildringen av utbruddet?",
                         "options": [
-                            "476 evt.",
-                            "79 evt.",
-                            "100 fvt.",
-                            "1453 evt."
+                            "Julius Cæsar",
+                            "Plinius den Yngre",
+                            "Nero",
+                            "Spartacus"
                         ],
                         "correctAnswer": 1
                     },
                     {
-                        "question": "Hva het vulkanen som ødela Pompeii?",
+                        "question": "Hva er forskjellen på hvordan Pompeii og Herculaneum ble ødelagt?",
                         "options": [
-                            "Etna",
-                            "Vesuv",
-                            "Olympen",
-                            "Stromboli"
+                            "Pompeii ble tatt av aske, Herculaneum av gjørme",
+                            "Pompeii brant, Herculaneum druknet",
+                            "Herculaneum slapp unna",
+                            "Det var ingen forskjell"
+                        ],
+                        "correctAnswer": 0
+                    },
+                    {
+                        "question": "Hvordan fikk man laget gipsavstøpninger av ofrene?",
+                        "options": [
+                            "Man fant statuer av dem",
+                            "Man helte gips i tomrommene etter kroppene i asken",
+                            "Man dekket skjelettene med leire",
+                            "Man scannet dem med laser"
                         ],
                         "correctAnswer": 1
                     },
                     {
-                        "question": "Hvorfor er Pompeii så viktig for historikere?",
+                        "question": "Hva var et 'Thermopolium'?",
                         "options": [
-                            "Fordi det var hovedstaden i riket",
-                            "Fordi den ble 'frosset i tid' og gir oss et unikt innblikk i hverdagen",
-                            "Fordi Julius Cæsar ble født der",
-                            "Fordi den hadde de største sølvgruvene"
+                            "Et offentlig bad",
+                            "En type gladiatorsverd",
+                            "Et romersk gatekjøkken/snackbar",
+                            "Et tempel for Jupiter"
                         ],
-                        "correctAnswer": 1
+                        "correctAnswer": 2
                     }
                 ]
             }
@@ -119,32 +149,32 @@
     ],
     "quiz": [
         {
-            "question": "Hvilket årstall fant utbruddet sted?",
+            "question": "Hvem skrev øyenvitneskildringen av utbruddet?",
             "options": [
-                "476 evt.",
-                "79 evt.",
-                "100 fvt.",
-                "1453 evt."
+                "Julius Cæsar",
+                "Plinius den Yngre",
+                "Nero",
+                "Spartacus"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hva het vulkanen som ødela Pompeii?",
+            "question": "Hva er forskjellen på hvordan Pompeii og Herculaneum ble ødelagt?",
             "options": [
-                "Etna",
-                "Vesuv",
-                "Olympen",
-                "Stromboli"
+                "Pompeii ble tatt av aske, Herculaneum av gjørme",
+                "Pompeii brant, Herculaneum druknet",
+                "Herculaneum slapp unna",
+                "Det var ingen forskjell"
             ],
-            "correctAnswer": 1
+            "correctAnswer": 0
         },
         {
-            "question": "Hvorfor er Pompeii så viktig for historikere?",
+            "question": "Hvordan fikk man laget gipsavstøpninger av ofrene?",
             "options": [
-                "Fordi det var hovedstaden i riket",
-                "Fordi den ble 'frosset i tid' og gir oss et unikt innblikk i hverdagen",
-                "Fordi Julius Cæsar ble født der",
-                "Fordi den hadde de største sølvgruvene"
+                "Man fant statuer av dem",
+                "Man helte gips i tomrommene etter kroppene i asken",
+                "Man dekket skjelettene med leire",
+                "Man scannet dem med laser"
             ],
             "correctAnswer": 1
         }

@@ -2,123 +2,111 @@
     "id": "arven-etter-romerriket",
     "title": "Arven etter Romerriket",
     "layout": "rich",
-    "year": "476 evt. - i dag",
-    "category": "Historie",
-    "readTime": "25 min read",
+    "year": "476 evt. - I dag",
+    "category": "Antikken",
+    "readTime": "18 min read",
     "heroImage": "/images/romerriket/hero-arv.png",
     "details": [
-        "Språkets makt: Fra latin til moderne tale",
-        "Rettsstaten: Romersk lov i dagens domstoler",
-        "Arkitektur: Buer, veier og betong",
-        "Politikk: Drømmen om det forente Europa"
+        "Språket vi snakker",
+        "Lovene vi følger",
+        "Byene vi bor i",
+        "Betongen vi bygger med"
     ],
     "content": [
         {
             "type": "text",
-            "content": "Romerriket falt formelt i år [476 evt.](/historie/romerriket/vestromerrikets-fall), men hvis du ser deg rundt i dag, vil du oppdage at Romas hjerte fortsatt slår. Vi snakker språk som stammer fra latin, vi bor i byer planlagt etter romerske mønstre, og våre lover er bygget på prinsipper som ble skapt i Senatet for to tusen år siden. Romerriket døde ikke – det ble selve fundamentet som den vestlige verden står på."
+            "content": "Romerriket falt ikke; det forandret seg bare til oss. Det er en dristig påstand, men se deg rundt. Hvis du bor i en by med rette gater, hvis du bruker penger med ansiktet til en leder på, hvis du går til en domstol for å løse en konflikt, eller hvis du bare sier ordet 'skole', 'kalender' eller 'musikk' – da lever du i arven etter Roma."
         },
         {
             "type": "header",
-            "content": "Språkarven: Fra legionenes latin til din smarttelefon"
+            "content": "Språkets usynlige imperium"
         },
         {
             "type": "text",
-            "content": "Da de romerske legionene marsjerte gjennom Europa, tok de med seg språket sitt: Latin. Dette var ikke bare språket til soldatene, men også språket til administrasjonen, loven og senere kirken. \n\nI dag snakker over en milliard mennesker det vi kaller **romanske språk**. Disse språkene er rett og slett moderne former for 'vulgærlatin' – det hverdagslige språket som folk flest snakket i provinsene."
+            "content": "Romerne snakket latin. Da imperiet falt, forsvant ikke språket. Det utviklet seg. I Frankrike blandet vulgærlatin (folkets latin) seg med gallisk, i Spania med iberisk, og i Romania med dakisk. Resultatet er de **romanske språkene**: Fransk, spansk, italiensk, portugisisk og rumensk. Nesten en milliard mennesker snakker i dag et moderne 'romersk' språk som morsmål."
+        },
+        {
+            "type": "text",
+            "content": "Men hva med oss i nord? Engelsk og norsk er germanske språk, men vi er likevel gjennomsyret av latin. Da kristendommen kom, kom den på latin. Vitenskapen, jussen og kirken brukte latin helt frem til 1700-tallet. Ord som *system, data, video, audio, media, null, prosent* og *sivilisasjon* er ren latin. Du kan faktisk ikke snakke om politikk, vitenskap eller utdanning uten å bruke ord romerne ga oss."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
-                "title": "De romanske språkene",
-                "content": "De fem største romanske språkene er spansk, fransk, italiensk, portugisisk og rumensk. Selv om norsk er et germansk språk, har vi lånt tusenvis av ord fra latin, som *skole*, *kirke*, *video*, *museum* og *politikk*."
+                "title": "Alfabetet",
+                "content": "Du leser denne teksten med **det latinske alfabetet**. Det er verdens mest brukte skriftsystem. Romerne lånte ideen fra grekerne, som lånte fra fønikerne, men det var romerne som ga bokstavene den formen vi bruker i dag (spesielt store bokstaver som A, B, C)."
             }
-        },
-        {
-            "type": "text",
-            "content": "Latin forble vitenskapens språk helt frem til 1800-tallet. Da Isaac Newton skrev sine lover om fysikk, eller da Carl von Linné ga navn til alle verdens planter og dyr, gjorde de det på latin. Dette gjør at leger, advokater og biologer over hele verden i dag kan kommunisere ved hjelp av romerske begreper."
         },
         {
             "type": "header",
-            "content": "Lov og Rett: Grunnlaget for rettsstaten"
+            "content": "Romersk lov: Rettferdighetens grunnmur"
         },
         {
             "type": "text",
-            "content": "Kanskje Romas viktigste gave til ettertiden er deres rettsvitenskap. Romerne var besatt av orden og definisjoner. De utviklet ideen om at lover skulle skrives ned, være logiske og gjelde for alle. \n\nKeiser Justinian I samlet på 500-tallet alle romerske lover i et verk som het **Corpus Iuris Civilis**. Dette verket ble gjenfunnet i middelalderen og ble grunnlaget for rettssystemene i nesten hele Europa."
+            "content": "Den kanskje viktigste arven er usynlig: Loven. Romerne var besatt av orden og regler. Deres største juridiske verk, *Corpus Juris Civilis* (samlet av keiser Justinian på 500-tallet), danner grunnlaget for lovgivningen i nesten alle europeiske land i dag. Napoleon baserte sin lovbok på romersk rett, og gjennom ham spredte det seg til hele verden."
         },
         {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Uskyldig inntil det motsatte er bevist",
-                "content": "Dette prinsippet, som er fundamentet i norske rettssaler i dag, stammer direkte fra romersk rett. Romerne mente at bevisbyrden lå hos den som anklaget, ikke hos den anklagede."
-            }
+            "type": "text",
+            "content": "Sentrale prinsipper vi tar for gitt, kommer fra Roma:\n1.  **Likhet for loven**: Loven skal gjelde likt for alle (selv om romerne ikke alltid fulgte dette i praksis med slaver).\n2.  **Uskyldspresumpsjonen**: 'Ei incumbit probatio qui dicit, non qui negat' – Bevisbyrden ligger på den som anklager, ikke den som nekter. Du er uskyldig til det motsatte er bevist.\n3.  **Dommere og advokater**: Systemet med proffe jurister som tolker loven og forsvarer klienter, er en romersk oppfinnelse."
+        },
+        {
+            "type": "header",
+            "content": "Ingeniørkunst: Verden i betong"
+        },
+        {
+            "type": "text",
+            "content": "Hvis du ser på berømte romerske bygninger som Pantheon eller Colosseum, kan du lure på hvorfor de fortsatt står etter 2000 år, mens moderne broer ruster i stykker etter femti. Hemmeligheten er **Opus Caementicium** – romersk betong. De blandet kalkstein med vulkansk aske (pozzolana). Denne blandingen har en unik egenskap: Den blir hardere over tid, og den herder til og med under vann."
+        },
+        {
+            "type": "text",
+            "content": "Vi glemte oppskriften på betong i middelalderen og gjenoppdaget den ikke før på 1700-tallet. Uten betong ville moderne byer med skyskrapere vært umulige. Romerne ga oss også **buen**. Før romerne brukte man mest søyler og bjelker (som i greske templer), noe som begrenset hvor store rom man kunne bygge. Buen fordeler vekten utover og nedover, slik at man kan bygge gigantiske åpne rom (hvelv) og broer som tåler enorm vekt."
         },
         {
             "type": "component",
             "name": "Comparison",
             "props": {
-                "title": "Romersk rett vs. Moderne rett",
-                "leftTitle": "Romersk Prinsipp",
-                "rightTitle": "Moderne Anvendelse",
+                "title": "Byggekunst",
+                "leftTitle": "Gresk stil",
+                "rightTitle": "Romersk stil",
                 "items": [
                     {
-                        "left": "Ius Gentium (Folkeretten)",
-                        "right": "Internasjonale lover og avtaler (FN)."
+                        "left": "Rette linjer, søyler og bjelker.",
+                        "right": "Buer, hvelv og kupler."
                     },
                     {
-                        "left": "Pacta sunt servanda (Avtaler skal holdes)",
-                        "right": "Grunnlaget for all kontraktsrett."
+                        "left": "Marmor og stein blokk-på-blokk.",
+                        "right": "Betongkjerne kledd med murstein eller marmor."
                     },
                     {
-                        "left": "Veto (Jeg forbyr)",
-                        "right": "Brukes av presidenter og i FNs sikkerhetsråd."
+                        "left": "Små indre rom (templer var for guder).",
+                        "right": "Enorme indre rom (basilikaer for folkemengder)."
+                    },
+                    {
+                        "left": "Fokus på utvendig skjønnhet.",
+                        "right": "Fokus på innvendig funksjon og romfølelse."
                     }
                 ]
             }
         },
         {
             "type": "header",
-            "content": "Arkitektur og Ingeniørkunst: Stein som varer"
+            "content": "Byplanlegging og infrastruktur"
         },
         {
             "type": "text",
-            "content": "Romerne var ikke de beste filosofene eller kunstnerne (der kopierte de ofte grekerne), men de var verdens beste ingeniører. De revolusjonerte arkitekturen ved å bruke **buen** og oppfinne **betong** (*opus caementicium*)."
+            "content": "Har du lagt merke til at mange gamle europeiske byer har gater som går rett som piler? Det er ofte fordi de startet som romerske militærleirer (*castrum*). Romerne planla byene sine etter et rutenett. De hadde to hovedgater: **Cardo** (nord-sør) og **Decumanus** (øst-vest). Der de krysset hverandre, lå **Forum** – byens sentrum med torg, templer og rådhus. Byer som London, Paris, Köln, Wien og Barcelona ble alle grunnlagt eller utbygd av romerne."
         },
         {
             "type": "text",
-            "content": "Uten romersk betong ville vi ikke hatt Pantheon i Roma, og vi ville ikke hatt moderne skyskrapere. Romerne bygde også over 80 000 kilometer med veier som var så solide at mange av dem fortsatt brukes som fundament for moderne motorveier i dag. Deres akvedukter førte friskt vann inn til byene – en teknisk prestasjon som Europa ikke klarte å gjenta før på 1800-tallet."
+            "content": "Mellom byene bygde de veier. 'Alle veier fører til Roma' er ikke bare et ordtak; det var fakta. Romerne bygde over 80 000 kilometer med steinbelagte veier. De var så solid bygget at mange av dem fortsatt brukes som fundament for moderne motorveier i dag. Veiene gjorde det mulig å reise raskt og trygt, noe som bandt Europa sammen økonomisk og kulturelt."
         },
         {
             "type": "header",
-            "content": "Geopolitikk: Drømmen om et enhetlig Europa"
+            "content": "Kristendommen: Romas statsreligion"
         },
         {
             "type": "text",
-            "content": "Etter at det vestromerske riket kollapset, forsøkte europeiske ledere i over tusen år å gjenskape det. Karl den store ble kront til 'romersk keiser' i år 800, og Det hellige romerske rike (av tysk nasjon) eksisterte helt frem til 1806. \n\nSelve ideen om at Europa er en kulturell enhet med felles lover og verdier, stammer fra perioden da hele kontinentet var samlet under Roma. Mange ser på Den europeiske union (EU) som et moderne forsøk på å oppnå den samme stabiliteten og enheten som *Pax Romana* (Den romerske fred) en gang ga."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Hvorfor heter det 'Tsaren' og 'Keiseren'?",
-                "content": "Tittelen 'Keiser' på norsk og tysk (Kaiser), og 'Tsar' på russisk, kommer begge fra navnet **Cæsar**. Alle europeiske stormakter ønsket å fremstå som de sanne arvtakerne etter Julius Cæsar."
-            }
-        },
-        {
-            "type": "header",
-            "content": "Musikk, Kultur og hverdag"
-        },
-        {
-            "type": "text",
-            "content": "Selv om vi ikke har lydopptak fra antikken, preget romersk kultur musikken gjennom kirken. Gregoriansk sang, som dominerte middelalderen, ble utviklet i det [kristne Roma](/historie/romerriket/legitimitet-og-kristendom). Notasjonssystemet vårt har også røtter i forsøkene på å systematisere sang i det kristne Roma. \n\nI hverdagen bruker vi fortsatt det romerske alfabetet, den romerske kalenderen (med juli og august oppkalt etter Julius og [Augustus](/historie/romerriket/augustus-og-keiserdomme)), og vi teller ofte med romertall ved høytidelige anledninger."
-        },
-        {
-            "type": "header",
-            "content": "Konklusjon: Mer enn bare ruiner"
-        },
-        {
-            "type": "text",
-            "content": "Romerriket er ikke bare pensum i historietimer. Det er operativsystemet som det moderne vesten kjører på. Når du stemmer i et valg, går på skolen, eller leser en lov, utfører du handlinger som er formet av menn og kvinner som levde for 2000 år siden ved Tiberens bredder. Arven etter Romerriket er ikke stein og statuer – det er måten vi tenker, snakker og lever på."
+            "content": "Til slutt må vi ikke glemme at Roma ble kristendommens 'hovedkvarter'. Paven i Roma tok tittelen *Pontifex Maximus* ('Den øverste brobygger'), en tittel som opprinnelig tilhørte den romerske ypperstepresten og senere keiseren. Den katolske kirke organiserte seg med bispedømmer som fulgte de gamle romerske provinsgrensene. Selv i dag snakker paven latin, og Vatikanstaten er på mange måter den siste levende resten av Romerriket."
         },
         {
             "type": "component",
@@ -128,50 +116,40 @@
                     {
                         "question": "Hva er 'romanske språk'?",
                         "options": [
-                            "Språk som snakkes i Romania",
-                            "Språk som har utviklet seg fra latin",
-                            "Språk som bruker romertall",
-                            "Språk som bare brukes i kirken"
+                            "Språk som snakkes i Roma i dag",
+                            "Språk som utviklet seg fra latin",
+                            "Språk som romerne hatet",
+                            "Språk skrevet med runer"
                         ],
                         "correctAnswer": 1
                     },
                     {
-                        "question": "Hvilket romersk lovverk ble grunnlaget for moderne europeisk rett?",
+                        "question": "Hvilket byggemateriale var romerne eksperter på?",
                         "options": [
-                            "De tolv tavlers lov",
-                            "Corpus Iuris Civilis",
-                            "Magna Carta",
-                            "Code Napoleon"
-                        ],
-                        "correctAnswer": 1
-                    },
-                    {
-                        "question": "Hvilken teknisk oppfinnelse gjorde romerne i stand til å bygge enorme kupler som Pantheon?",
-                        "options": [
+                            "Plast",
                             "Stål",
-                            "Betong (Opus caementicium)",
-                            "Heiser",
-                            "Plast"
+                            "Betong (Opus Caementicium)",
+                            "Isopor"
+                        ],
+                        "correctAnswer": 2
+                    },
+                    {
+                        "question": "Hva kalles hovedgaten som går nord-sør i en romersk byplan?",
+                        "options": [
+                            "Decumanus",
+                            "Cardo",
+                            "Forum",
+                            "Via Appia"
                         ],
                         "correctAnswer": 1
                     },
                     {
-                        "question": "Hvor kommer ordet 'Tsar' og 'Kaiser' fra?",
+                        "question": "Hvem tok tittelen Pontifex Maximus etter keiserne?",
                         "options": [
-                            "Fra ordet for konge",
-                            "Fra navnet Cæsar",
-                            "Fra navnet på en by",
-                            "Fra tysk mytologi"
-                        ],
-                        "correctAnswer": 1
-                    },
-                    {
-                        "question": "Hva betyr det romerske prinsippet 'Pacta sunt servanda'?",
-                        "options": [
-                            "Krigen er rettferdig",
-                            "Avtaler skal holdes",
-                            "Folket bestemmer",
-                            "Keiseren er gud"
+                            "Presidenten av Italia",
+                            "Paven",
+                            "Kongen av Frankrike",
+                            "Erkebiskopen av Canterbury"
                         ],
                         "correctAnswer": 1
                     }
@@ -183,52 +161,22 @@
         {
             "question": "Hva er 'romanske språk'?",
             "options": [
-                "Språk som snakkes i Romania",
-                "Språk som har utviklet seg fra latin",
-                "Språk som bruker romertall",
-                "Språk som bare brukes i kirken"
+                "Språk som snakkes i Roma i dag",
+                "Språk som utviklet seg fra latin",
+                "Språk som romerne hatet",
+                "Språk skrevet med runer"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hvilket romersk lovverk ble grunnlaget for moderne europeisk rett?",
+            "question": "Hvilket byggemateriale var romerne eksperter på?",
             "options": [
-                "De tolv tavlers lov",
-                "Corpus Iuris Civilis",
-                "Magna Carta",
-                "Code Napoleon"
-            ],
-            "correctAnswer": 1
-        },
-        {
-            "question": "Hvilken teknisk oppfinnelse gjorde romerne i stand til å bygge enorme kupler som Pantheon?",
-            "options": [
+                "Plast",
                 "Stål",
-                "Betong (Opus caementicium)",
-                "Heiser",
-                "Plast"
+                "Betong (Opus Caementicium)",
+                "Isopor"
             ],
-            "correctAnswer": 1
-        },
-        {
-            "question": "Hvor kommer ordet 'Tsar' og 'Kaiser' fra?",
-            "options": [
-                "Fra ordet for konge",
-                "Fra navnet Cæsar",
-                "Fra navnet på en by",
-                "Fra tysk mytologi"
-            ],
-            "correctAnswer": 1
-        },
-        {
-            "question": "Hva betyr det romerske prinsippet 'Pacta sunt servanda'?",
-            "options": [
-                "Krigen er rettferdig",
-                "Avtaler skal holdes",
-                "Folket bestemmer",
-                "Keiseren er gud"
-            ],
-            "correctAnswer": 1
+            "correctAnswer": 2
         }
     ]
 }

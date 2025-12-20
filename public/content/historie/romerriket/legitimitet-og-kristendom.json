@@ -4,19 +4,19 @@
     "layout": "rich",
     "year": "218 evt. - 395 evt.",
     "category": "Antikken",
-    "readTime": "18 min read",
+    "readTime": "22 min read",
     "heroImage": "/images/romerriket/hero-legitimitet.png",
     "details": [
         "Legitimitet: Retten til å styre",
-        "Sol Invictus: Monoteismens bro",
         "Fra Princeps til Dominus (Herre)",
         "Konstantin og den kristne revolusjonen",
+        "Kirkemøtet i Nikea og kampen om troen",
         "Theodosius: Tro som lov"
     ],
     "content": [
         {
             "type": "text",
-            "content": "Tenk deg at du er keiser i et rike som strekker seg fra Skottlands tåke til Egypts brennende sand. Hvordan overbeviser du millioner av mennesker om at akkurat *du* skal ha all makt? Dette spørsmålet handler om **legitimitet**."
+            "content": "Tenk deg at du er keiser i et rike som strekker seg fra Skottlands tåke til Egypts brennende sand. Hvordan overbeviser du millioner av mennesker om at akkurat *du* skal ha all makt? Dette spørsmålet handler om **legitimitet**. Historien om Romerrikets siste århundrer er historien om hvordan keiserne gikk fra å være 'folkevalgte' ledere til å bli Guds stedfortredere på jorden."
         },
         {
             "type": "component",
@@ -28,58 +28,88 @@
         },
         {
             "type": "text",
-            "content": "I Romerrikets tidlige dager ([Prinsipatet](/historie/romerriket/augustus-og-keiserdomme)) forsøkte keiserne å fremstå som vanlige borgere. [Augustus](/historie/romerriket/augustus-og-keiserdomme), den første keiseren, kalte seg selv for *Princeps* – 'den første borger'. Han ønsket å gi inntrykk av at han styrte i samarbeid med Senatet og folket, selv om han i virkeligheten hadde nesten all makt. Han skjulte makten sin bak tradisjoner for å unngå å provosere de som elsket den gamle [republikken](/historie/romerriket/romersk-start)."
+            "content": "I Romerrikets tidlige dager ([Prinsipatet](/historie/romerriket/augustus-og-keiserdomme)) forsøkte keiserne å fremstå som vanlige borgere. [Augustus](/historie/romerriket/augustus-og-keiserdomme), den første keiseren, kalte seg selv for *Princeps* – 'den første borger'. Han ønsket å gi inntrykk av at han styrte i samarbeid med Senatet og folket. Men etter hvert som krisene tårnet seg opp på 200-tallet, forsvant denne illusjonen. Legionene (hæren) hadde blitt de som bestemte hvem som var keiser. Makten lå i spissen av et spyd, og keisere ble drept like fort som de ble utnevnt."
         },
         {
             "type": "header",
-            "content": "Krisen som endret alt"
+            "content": "Dominatet: Herskeren blir hellig"
         },
         {
             "type": "text",
-            "content": "På 200-tallet holdt alt på å rakne. Romerriket opplevde borgerkriger, invasjoner fra germanske stammer og en økonomi som kollapset. Mellom år 235 og 284 var det over 20 forskjellige keisere, og nesten alle ble drept av sine egne soldater. Legionene (hæren) hadde blitt de som bestemte hvem som var keiser. Makten lå i spissen av et spyd, og det fantes ingen dypere grunn til å respektere herskeren enn ren frykt."
+            "content": "Keiser Diokletian (284–305) innså at for å overleve, måtte keiseren være noe mer enn bare en general. Han startet transformasjonen fra Princeps til **Dominus** ('Herre'). Han innførte seremonier der folk måtte knele og kysse kappen hans. Han knyttet sin makt til den gamle romerske guden Jupiter. Men det var en ny, fremmed religion som skulle gi keiserne den ultimate legitimiteten."
         },
         {
             "type": "header",
-            "content": "Sol Invictus: Veien mot én Gud"
+            "content": "Sol Invictus og Monoteismens bro"
         },
         {
             "type": "text",
-            "content": "For å samle riket igjen, trengte keiserne noe mer enn bare soldater. De trengte en guddommelig garantist. Før kristendommen kom for fullt, begynte keisere som **Elagabalus** og **Aurelian** å fremme dyrkingen av solguden. \n\nAurelian (270–275) gjorde dyrkingen av *Sol Invictus* ('Den uovervinnelige sol') til rikets offisielle religion. Dette var et viktig skritt bort fra polyteisme (troen på mange småguder) og mot monoteisme (troen på én mektig gud). Ideen var enkel: Én sol på himmelen, én gud over alle guder, og derfor bør det også være én keiser over alle mennesker."
+            "content": "Allerede før Aurelian hadde keiseren **Elagabalus** (218–222) forsøkt å innføre en solgud i Roma. Han var en eksentrisk tenåringsprest fra Syria som tok med seg en hellig svart stein (en meteoritt) til Roma og bygde et tempel for solguden Elagabal. Han sjokkerte romerne ved å danse rundt steinen og gifte seg med en vestalinne. Elagabalus ble drept for sin galskap, men ideen om én solgud overlevde ham."
+        },
+        {
+            "type": "text",
+            "content": "Keiser Aurelian (270–275) var mer vellykket. Han gjorde dyrkingen av **Sol Invictus** ('Den uovervinnelige sol') til statsreligion. Ideen var tiltalende: Én sol på himmelen, én keiser på jorden. Det var et viktig steg bort fra de mange gamle gudene og mot monoteisme."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/sol-invictus-coin.png",
+            "alt": "Romersk gullmynt med bilde av Sol Invictus med strålekrone",
+            "caption": "Selv Konstantin preget mynter med solguden lenge etter at han støttet kristendommen."
+        },
+        {
+            "type": "header",
+            "content": "Konstantin: Korset og makten"
+        },
+        {
+            "type": "text",
+            "content": "Keiser Konstantin den store endret verden for alltid. Før det avgjørende slaget ved den milviske bro i 312, sies det at han så et lysende kors på himmelen med ordene 'In hoc signo vinces' (Ved dette tegn skal du seire). Han malte symbolet **Chi-Rho** (de to første bokstavene i Kristus på gresk) på soldatenes skjold, og vant."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/constantine-vision.png",
+            "alt": "Konstantin ser et lysende kors på himmelen før et slag",
+            "caption": "Konstantins visjon gjorde kristendommen til en kriger-religion, ikke bare en fredsreligion."
+        },
+        {
+            "type": "text",
+            "content": "Dette var et genitrekk. Kristendommen hadde én allmektig Gud som krevde fullstendig lojalitet. Hvis keiseren var Guds utvalgte representant på jorden, var det å gjøre opprør mot keiseren det samme som å gjøre opprør mot Gud. Konstantin gjorde seg selv til kirkens beskytter og leder."
+        },
+        {
+            "type": "header",
+            "content": "Kirkemøtet i Nikea: En tro, ett rike"
+        },
+        {
+            "type": "text",
+            "content": "Men kristne var ikke enige om alt. En prest ved navn Arius i Egypt mente at Jesus ikke var like 'guddommelig' som Gud Faderen. Dette skapte kaos og splittelse. Konstantin hatet splittelse. I år 325 kalte han inn alle biskoper til byen Nikea for å bli enige en gang for alle."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/council-nicaea.png",
+            "alt": "Biskoper diskuterer heftig under Kirkemøtet i Nikea med keisere på tronen",
+            "caption": "På kirkemøtet i Nikea ble den kristne trosbekjennelsen (som fortsatt brukes i kirken i dag) snekret sammen som en politisk avtale."
+        },
+        {
+            "type": "text",
+            "content": "Konstantin satt selv på en gyllen trone og ledet møtet, selv om han knapt var døpt. Resultatet ble at Arius ble stemplet som kjetter, og man vedtok at Jesus og Gud var 'av samme vesen'. Dette var første gang en keiser brukte statens makt til å definere hva som var 'rett tro' (**ortodoksi**)."
+        },
+        {
+            "type": "header",
+            "content": "Julians siste forsøk og Theodosius' triumf"
+        },
+        {
+            "type": "text",
+            "content": "Ikke alle keisere var kristne etter Konstantin. Hans nevø, **Julian den frafalne** (361–363), prøvde desperat å gjeninnføre de gamle gudene. Han gjenåpnet templer og ofret dyr, men det var for sent. Samfunnet hadde endret seg. Da Julian døde i kamp mot perserne, døde de gamle gudene med ham."
+        },
+        {
+            "type": "text",
+            "content": "Prosessen ble fullført under **Theodosius I** i år 380, da han gjorde kristendommen til den *eneste* lovlige religionen i riket. Men Theodosius lærte også at kirkens makt kunne være farlig. Da han beordret en massakre i byen Thessaloniki, nektet biskop Ambrosius av Milano ham adgang til kirken før keiseren hadde gjort bot. Foran en hel verden måtte den mektige romerske keiseren kle av seg de keiserlige kapper og be om tilgivelse fra en prest. Maktbalansen hadde skiftet."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
-                "title": "Hva var Sol Invictus?",
-                "content": "Sol Invictus var en sammensmelting av flere solguder. Keiserne brukte solen som et symbol på kraft som aldri dør – hver natt går den ned, men hver morgen stiger den opp igjen. Ved å kalle seg 'solens følgesvenn' sa keiseren at han hadde fått sin makt direkte fra universets sterkeste kraft."
-            }
-        },
-        {
-            "type": "header",
-            "content": "Diokletian og Dominatet: Herskeren blir hellig"
-        },
-        {
-            "type": "text",
-            "content": "Da Diokletian tok makten i 284, innså han at den gamle rollen som 'første borger' ikke fungerte lenger. Han trengte å skape en avstand mellom seg selv og de farlige soldatene. Han forlot Princeps-tittelen og tok tittelen **Dominus**, som betyr 'Herre' eller 'Eier'. Dette markerte starten på en styreform vi kaller **autokrati**."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Autokrati",
-                "content": "I et autokrati har én person all makt, og denne makten er ikke begrenset av lover eller andre organer (som et parlament). Ordet kommer fra gresk og betyr 'selvhersker'."
-            }
-        },
-        {
-            "type": "text",
-            "content": "Diokletian gjorde keiserrollen til et teater. Han begynte å bære purpurkapper brodert med gull, et skinende diadem på hodet, og satt på en trone som sto høyt over andre. Han innførte en seremoni kalt **proskynese**."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Proskynese – Å bøye seg for makten",
-                "content": "Proskynese var et rituale der alle som kom foran keiseren måtte falle ned på kne og kysse kanten av kappen hans. Dette var ikke bare høflighet; det var en måte å vise at keiseren var mer enn et menneske – han var hellig."
+                "title": "Teokrati og Cæsaro-papisme",
+                "content": "**Teokrati** betyr 'Gudestyrte'. Det er en styreform der religiøse ledere styrer, eller der lederen styrer på vegne av Gud. \n\n**Cæsaro-papisme** er et vanskelig ord som betyr at keiseren (Cæsar) også fungerer som leder for kirken (Paven/Papal). I Østromerriket (Bysants) fortsatte keiseren å styre kirken i tusen år til."
             }
         },
         {
@@ -100,7 +130,7 @@
                     },
                     {
                         "left": "Legitimitet fra folk og senat.",
-                        "right": "Legitimitet fra det guddommelige."
+                        "right": "Legitimitet fra Gud (Jure Divino)."
                     },
                     {
                         "left": "Relativt enkel tilgang til keiseren.",
@@ -110,81 +140,37 @@
             }
         },
         {
-            "type": "header",
-            "content": "Konstantin: Korset og makten"
-        },
-        {
-            "type": "text",
-            "content": "Keiser Konstantin den store (306–337) fullførte denne utviklingen, men han byttet ut de gamle paganske gudene (som Jupiter og Sol) med den kristne Gud. Før slaget ved den milviske bro i 312 sies det at han så et tegn i himmelen (Chi-Rho, de to første bokstavene i Kristus) og hørte ordene: 'Ved dette tegn skal du seire'."
-        },
-        {
-            "type": "text",
-            "content": "Dette var et genitrekk. Kristendommen hadde én Gud som krevde fullstendig lojalitet. Dette passet perfekt for en keiser som ønsket total makt over et rike. Konstantin gjorde seg selv til Guds representant på jorden. Vi kaller dette for et **teokrati**."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Teokrati og Cæsaro-papisme",
-                "content": "**Teokrati** betyr 'Gudestyrte'. Det er en styreform der religiøse ledere styrer, eller der lederen styrer på vegne av Gud. \n\n**Cæsaro-papisme** er et vanskelig ord som betyr at keiseren (Cæsar) også fungerer som leder for kirken (Paven/Papal). Konstantin styrte ikke bare landet, han kalte også inn biskoper for å bestemme hva kristne skulle tro på."
-            }
-        },
-        {
-            "type": "header",
-            "content": "Theodosius: Tro blir lov"
-        },
-        {
-            "type": "text",
-            "content": "Prosessen toppet seg med keiser Theodosius I i 380. Han gjorde kristendommen til den eneste lovlige religionen i riket. Han innførte begrepet **ortodoksi** som en politisk sak."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Hva er Ortodoksi?",
-                "content": "Ortodoksi betyr 'den rette tro'. Under Theodosius betydde det at hvis du trodde på 'feil' versjon av kristendommen (heresi), kunne du bli straffet av staten. Å være en god borger ble det samme som å være en god kristen."
-            }
-        },
-        {
-            "type": "header",
-            "content": "Arven etter transformasjonen"
-        },
-        {
-            "type": "text",
-            "content": "Ved å koble makten sin til Gud, gjorde de sene romerske keiserne seg selv nesten umulige å kritisere. Hvis man sa imot keiseren, sa man imot Guds plan. Denne ideen døde ikke med [Vestromerrikets fall](/historie/romerriket/vestromerrikets-fall). Den levde videre i over tusen år gjennom middelalderen som en sentral del av [arven etter Romerriket](/historie/romerriket/arven-etter-romerriket) under navnet 'Kongedømmet av Guds nåde'. \n\nSelv i dag ser vi spor av dette når europeiske monarker krones i kirker – en tradisjon som går helt tilbake til Diokletians purpurkapper og Konstantins visjoner."
-        },
-        {
             "type": "component",
             "name": "Quiz",
             "props": {
                 "questions": [
                     {
-                        "question": "Hva betyr ordet 'Legitimitet' i politisk sammenheng?",
+                        "question": "Hva skjedde på kirkemøtet i Nikea i 325?",
                         "options": [
-                            "Makt brukt gjennom vold",
-                            "Retten til å styre som er godtatt av folket",
-                            "Loven om arv",
-                            "Hvor rik en hersker er"
+                            "Man bestemte hvilke bøker som skulle være i Bibelen",
+                            "Man vedtok den nikenske trosbekjennelse og fordømte arianismen",
+                            "Konstantin ble døpt",
+                            "Paven ble valgt for første gang"
                         ],
                         "correctAnswer": 1
                     },
                     {
-                        "question": "Hva var den største forskjellen mellom Princeps og Dominus?",
+                        "question": "Hva var spesielt med keiser Julian den frafalne?",
                         "options": [
-                            "Princeps var rikere enn Dominus",
-                            "Princeps fremsto som en 'likemann', mens Dominus var en 'herre'",
-                            "Dominus ble valgt av folket hvert år",
-                            "Det er ingen forskjell"
+                            "Han var den første kristne keiseren",
+                            "Han prøvde å gjeninnføre de gamle hedenske gudene",
+                            "Han flyttet hovedstaden til Paris",
+                            "Han levde til han ble 100 år"
                         ],
                         "correctAnswer": 1
                     },
                     {
-                        "question": "Hva kalles det når keiseren også fungerer som leder for kirken?",
+                        "question": "Hvilken biskop tvang keiser Theodosius til å gjøre bot?",
                         "options": [
-                            "Demokrati",
-                            "Parlamentarisme",
-                            "Cæsaro-papisme",
-                            "Oligarki"
+                            "Peter",
+                            "Augustin",
+                            "Ambrosius",
+                            "Arius"
                         ],
                         "correctAnswer": 2
                     },
@@ -197,16 +183,6 @@
                             "Helios"
                         ],
                         "correctAnswer": 1
-                    },
-                    {
-                        "question": "Hvilken keiser gjorde kristendommen til den eneste tillatte statsreligionen i 380?",
-                        "options": [
-                            "Nero",
-                            "Konstantin",
-                            "Theodosius I",
-                            "Augustus"
-                        ],
-                        "correctAnswer": 2
                     }
                 ]
             }
@@ -214,52 +190,32 @@
     ],
     "quiz": [
         {
-            "question": "Hva betyr ordet 'Legitimitet' i politisk sammenheng?",
+            "question": "Hva skjedde på kirkemøtet i Nikea i 325?",
             "options": [
-                "Makt brukt gjennom vold",
-                "Retten til å styre som er godtatt av folket",
-                "Loven om arv",
-                "Hvor rik en hersker er"
+                "Man bestemte hvilke bøker som skulle være i Bibelen",
+                "Man vedtok den nikenske trosbekjennelse og fordømte arianismen",
+                "Konstantin ble døpt",
+                "Paven ble valgt for første gang"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hva var den største forskjellen mellom Princeps og Dominus?",
+            "question": "Hva var spesielt med keiser Julian den frafalne?",
             "options": [
-                "Princeps var rikere enn Dominus",
-                "Princeps fremsto som en 'likemann', mens Dominus var en 'herre'",
-                "Dominus ble valgt av folket hvert år",
-                "Det var ingen forskjell"
+                "Han var den første kristne keiseren",
+                "Han prøvde å gjeninnføre de gamle hedenske gudene",
+                "Han flyttet hovedstaden til Paris",
+                "Han levde til han ble 100 år"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hva kalles det når keiseren også fungerer som leder for kirken?",
+            "question": "Hvilken biskop tvang keiser Theodosius til å gjøre bot?",
             "options": [
-                "Demokrati",
-                "Parlamentarisme",
-                "Cæsaro-papisme",
-                "Oligarki"
-            ],
-            "correctAnswer": 2
-        },
-        {
-            "question": "Hvilken solgud ble sett på som 'monoteismens bro' før kristendommen?",
-            "options": [
-                "Apollo",
-                "Sol Invictus",
-                "Ra",
-                "Helios"
-            ],
-            "correctAnswer": 1
-        },
-        {
-            "question": "Hvilken keiser gjorde kristendommen til den eneste tillatte statsreligionen i 380?",
-            "options": [
-                "Nero",
-                "Konstantin",
-                "Theodosius I",
-                "Augustus"
+                "Peter",
+                "Augustin",
+                "Ambrosius",
+                "Arius"
             ],
             "correctAnswer": 2
         }

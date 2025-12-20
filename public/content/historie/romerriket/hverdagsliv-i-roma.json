@@ -2,103 +2,112 @@
     "id": "hverdagsliv-i-roma",
     "title": "Hverdagslivet i Roma",
     "layout": "rich",
-    "year": "100 fvt. - 200 evt.",
+    "year": "100 evt.",
     "category": "Antikken",
-    "readTime": "15 min read",
+    "readTime": "16 min read",
     "heroImage": "/images/romerriket/hero-hverdag.png",
     "details": [
-        "Sosiale skiller: Patrisiere og plebeiere",
-        "Livet i en 'Insula' (leiegård)",
-        "Mat, bad og daglige rutiner",
-        "Underholdning: Brød og sirkus"
+        "Bolig: Insula vs Domus",
+        "Mat: Garum og brød",
+        "Klær: Toga og tunika",
+        "Skole og utdanning"
     ],
     "content": [
         {
             "type": "text",
-            "content": "Glem marmorpalasser og store statuer et øyeblikk. Hvis du kunne gå gjennom gatene i Roma for to tusen år siden, ville du møtt en travel, bråkete og til tider stinkende storby med over en million innbyggere. Livet ditt ville vært totalt forskjellig avhengig av hvem du var født som, hvor mye penger du hadde, og om du var en fri borger eller en slave."
+            "content": "Når vi tenker på Roma, ser vi ofte for oss keisere i hvite togaer og gladiatorer i arenaen. Men for de fleste av millionbyens innbyggere handlet livet om helt andre ting: Å skaffe mat til familien, unngå å få en bøtte med kloakk i hodet når man gikk i gaten, og å betale leien i tide."
         },
         {
             "type": "header",
-            "content": "Klassesamfunnet: De som har alt, og de som har lite"
+            "content": "Et liv i høyden: Insula"
         },
         {
             "type": "text",
-            "content": "Det romerske samfunnet var delt inn i strenge sosiale klasser. Øverst satt **patrisierne** – de gamle, rike adelsfamiliene som eide mesteparten av jorda og kontrollerte politikken. Under dem kom **plebeierne**, som var de vanlige borgerne: kjøpmenn, håndverkere og bønder. Mange av disse plebeierne tjenestegjorde i den [romerske legionen](/historie/romerriket/den-romerske-legionen) for å vinne ære og rikdom."
+            "content": "Roma var verdens første storby, og den hadde storbyproblemer vi kjenner igjen: Plassmangel. De rike bodde i store eneboliger kalt **Domus**, med innlagt vann, hage og gulvvarme. Men 90% av befolkningen bodde i **Insulae** (øyer) – store leiegårder som kunne være opptil syv etasjer høye."
+        },
+        {
+            "type": "text",
+            "content": "I en *insula* var det omvendt av i dag: De fattigste bodde øverst. Hvorfor? Fordi det ikke fantes heis, og hvis bygget kollapset (noe som skjedde ofte) eller begynte å brenne (enda oftere), var det umulig å komme seg ut fra toppen. De øverste leilighetene var små, mørke rom uten vann eller do. Leietakerne måtte hente vann fra offentlige fontener og bruke offentlige toaletter (latriner) på gatenivå."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
-                "title": "Patrisiere og Plebeiere",
-                "content": "I republikkens tidlige dager hadde plebeierne nesten ingen rettigheter, men etter hundrevis av år med krangler og streiker fikk de egne ledere kalt *tribuner* som kunne legge ned veto mot lover de ikke likte."
+                "title": "Offentlige toaletter",
+                "content": "Romerske latriner var sosiale møteplasser. Man satt på lange benker med hull, side om side, uten skillevegger. For å tørke seg brukte man en svamp på en pinne (*tersorium*), som man delte med naboen (etter å ha skylt den i eddikvann, forhåpentligvis)."
             }
         },
         {
             "type": "header",
-            "content": "Hvordan bodde de?"
+            "content": "Mat og drikke: Smaken av Roma"
         },
         {
             "type": "text",
-            "content": "Romerne bodde på to vidt forskjellige måter. De rike bodde i en **Domus**, et stort og elegant hus med åpne gårdsrom (atrium) og vakre hager. De fattige plebeierne ble stuet sammen i **Insulae** – store leiegårder som kunne være opptil seks-sju etasjer høye."
+            "content": "Romerne elsket mat, men dietten varierte enormt basert på klasse. For de fattige besto menyen nesten utelukkende av **korn**. Staten delte ut gratis korn (*annona*) til de fattigste borgerne, som de bakte til brød eller kokte til grøt. Kjøtt var luksusvare som man spiste ved spesielle anledninger eller offerfester."
+        },
+        {
+            "type": "text",
+            "content": "Men det var én ingrediens alle brukte: **Garum**. Dette var en fermentert fiskesaus laget av fiskeinnvoller og salt som fikk stå i solen i månedsvis til det ble en flytende væske. Det luktet forferdelig, men smakte (visstnok) fantastisk, fullt av umami. Romerne brukte garum på alt – til og med i desserter! Det var antikkens ketsjup og soyasaus i ett."
+        },
+        {
+            "type": "text",
+            "content": "Rike romere holdt berømte banketter (*convivium*) hvor de lå til bords på divaner og ble servert retter som stekt påfugl, fylte syvsovere (små gnagere) og østers fra Storbritannia. Måltidet varte i timevis, akkompagnert av vin blandet med vann og honning."
+        },
+        {
+            "type": "header",
+            "content": "Skole og utdanning"
+        },
+        {
+            "type": "text",
+            "content": "Skole var ikke obligatorisk, og det kostet penger. Derfor var det mest gutter fra rike familier som fikk utdanning. Jenter lærte som regel å lese og skrive hjemme, men deres utdanning fokuserte mer på å drive et hushold."
+        },
+        {
+            "type": "text",
+            "content": "Skolen startet tidlig om morgenen. Læreren var ofte en streng, gresk slave eller frigitt slave. Disiplinen var hard; stokkeslag var vanlig hvis man gjorde feil. Barna skrev på vokstavler med en spiss penn (*stylus*). Når de hadde lært leksen, kunne de glatte ut voksen med den flate baksiden av pennen og starte på nytt. De lærte å lese, skrive og regne, men det viktigste faget for en romersk gutt var **retorikk** – kunsten å tale for seg. For å gjøre karriere i politikken eller jussen, måtte man kunne overbevise folk med ord."
+        },
+        {
+            "type": "text",
+            "content": "En viktig figur i en rik gutts liv var **paedagogus**. Dette var en slave som fulgte gutten til og fra skolen, bar bøkene hans, og passet på at han oppførte seg pent og lærte leksene sine. Ordet 'pedagog' (lærer) kommer fra denne rollen."
+        },
+        {
+            "type": "header",
+            "content": "Klær: Hva du hadde på deg betydde alt"
+        },
+        {
+            "type": "text",
+            "content": "I dag kan en milliardær gå i t-skjorte og jeans. I Roma viste klærne nøyaktig hvem du var. Det grunnleggende plagget for alle – menn, kvinner, slaver og keisere – var **tunikaen**. Det var en enkel kjole av ull eller lin."
+        },
+        {
+            "type": "text",
+            "content": "Men over tunikaen bar romerske mannlige borgere en **Toga**. Togaen var et enormt stykke ullstoff (opptil 6 meter langt) som ble drapert rundt kroppen på en komplisert måte. Den var tung, varm og upraktisk – du kunne ikke løpe eller arbeide i den. Og det var nettopp poenget! Togaen viste at du var en borger som hadde tid til å drive med politikk, ikke manuelt arbeid. Kun borgere fikk bære toga; slaver og utlendinger fikk ikke lov."
         },
         {
             "type": "component",
             "name": "Comparison",
             "props": {
-                "title": "Domus vs. Insula",
-                "leftTitle": "Domus (Rikmannshuset)",
-                "rightTitle": "Insula (Leiegården)",
+                "title": "Sosial rang",
+                "leftTitle": "Patrisier (Rik)",
+                "rightTitle": "Plebeier/Slave",
                 "items": [
                     {
-                        "left": "Enkeltbolig for én familie.",
-                        "right": "Leiligheter for hundrevis av mennesker."
+                        "left": "Hvit toga med lilla stripe.",
+                        "right": "Enkel, mørk tunika."
                     },
                     {
-                        "left": "Innlagt vann og private bad.",
-                        "right": "Ingen do eller vann; måtte bruke offentlige doer."
+                        "left": "Bodde i Domus (enebolig).",
+                        "right": "Bodde i Insula (leiegård)."
                     },
                     {
-                        "left": "Bygget av solid stein og marmor.",
-                        "right": "Ofte bygget av billig tre og murstein; brannfarlig."
+                        "left": "Lå til bords og spiste.",
+                        "right": "Satt på krakker og spiste grøt.",
+                        "highlight": true
                     },
                     {
-                        "left": "Stille og rolig med egen hage.",
-                        "right": "Mørkt, trangt og støyende fra gaten."
+                        "left": "Hadde klienter som ba om tjenester.",
+                        "right": "Var klient hos en rik patron."
                     }
                 ]
             }
-        },
-        {
-            "type": "header",
-            "content": "Brød og sirkus"
-        },
-        {
-            "type": "text",
-            "content": "Keiserne visste at en sulten og sint befolkning var farlig. For å holde folk fornøyde, utviklet de strategien 'brød og sirkus' (*panem et circenses*). Dette betydde at staten ga ut gratis korn til de fattigste, og arrangerte gigantiske forestillinger for å underholde dem."
-        },
-        {
-            "type": "text",
-            "content": "Den mest populære underholdningen var **vognløp** på Circus Maximus, der fire lag (de grønne, blå, røde og hvite) konkurrerte i livsfarlige løp. Deretter kom gladiatorkampene i Colosseum, der menn kjempet mot hverandre eller villdyr for å vinne ære og frihet. Finansieringen av disse enorme lekene kom ofte fra de enorme rikdommene Roma hentet gjennom [handel og silkeveien](/historie/romerriket/handel-og-silkeveien)."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Slaveri i Roma",
-                "content": "Vi må ikke glemme at hele dette samfunnet var avhengig av slaver. Slaver var ikke bare folk som jobbet i gruvene; de var lærere, leger, sekretærer og kokker. En slave kunne bli frigitt og selv bli en velstående borger, men livet som slave var ofte brutalt og rettsløst."
-            }
-        },
-        {
-            "type": "header",
-            "content": "Daglige rutiner"
-        },
-        {
-            "type": "text",
-            "content": "En typisk romersk dag startet tidlig. Romerne spiste en lett frokost (*ientaculum*) og dro på jobb. Rundt klokken to-tre på ettermiddagen var arbeidsdagen over for de fleste frie menn. Da bar det rett til de **offentlige badene**. Badene var ikke bare for å vaske seg; det var antikkens treningssenter, bibliotek og sosiale møteplass."
-        },
-        {
-            "type": "text",
-            "content": "Romerne var også svært opptatt av familie. Overhodet i familien var **Pater Familias** – den eldste mannen. Han hadde i teorien makt over liv og død for alle i husstanden, selv om mødre i praksis ofte hadde stor innflytelse over barna og hjemmet."
         },
         {
             "type": "component",
@@ -106,32 +115,42 @@
             "props": {
                 "questions": [
                     {
-                        "question": "Hva ble de rike, adelsfamilien i Roma kalle for?",
+                        "question": "Hva var Garum?",
                         "options": [
-                            "Plebeiere",
-                            "Patrisiere",
-                            "Heloter",
-                            "Legionærer"
+                            "En type vin",
+                            "En fermentert fiskesaus",
+                            "En romersk kjole",
+                            "Navnet på keiserens hest"
                         ],
                         "correctAnswer": 1
                     },
                     {
-                        "question": "Hva var en 'Insula'?",
+                        "question": "Hvorfor bodde de fattige øverst i leiegårdene?",
                         "options": [
-                            "En romersk øy",
-                            "En type mat",
-                            "En stor leiegård for vanlige folk",
-                            "Et privat bad"
+                            "For utsikten",
+                            "Fordi det var billigere og farligere ved brann",
+                            "Fordi luften var renere",
+                            "Fordi heisen var ødelagt"
                         ],
-                        "correctAnswer": 2
+                        "correctAnswer": 1
                     },
                     {
-                        "question": "Hva betyr uttrykket 'brød og sirkus'?",
+                        "question": "Hvem fikk lov til å bære Toga?",
                         "options": [
-                            "At alle måtte gå på sirkus",
-                            "At staten ga mat og underholdning for å holde folk rolige",
-                            "En oppskrift på romersk brød",
-                            "At slaver måtte jobbe på sirkus"
+                            "Alle som bodde i Roma",
+                            "Kun mannlige romerske borgere",
+                            "Kvinner og barn",
+                            "Slaver ved festlige anledninger"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva het slaven som fulgte barna til skolen?",
+                        "options": [
+                            "Gladiator",
+                            "Paedagogus",
+                            "Senturion",
+                            "Senator"
                         ],
                         "correctAnswer": 1
                     }
@@ -141,32 +160,32 @@
     ],
     "quiz": [
         {
-            "question": "Hva ble de rike, adelsfamilien i Roma kalle for?",
+            "question": "Hva var Garum?",
             "options": [
-                "Plebeiere",
-                "Patrisiere",
-                "Heloter",
-                "Legionærer"
+                "En type vin",
+                "En fermentert fiskesaus",
+                "En romersk kjole",
+                "Navnet på keiserens hest"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hva var en 'Insula'?",
+            "question": "Hvorfor bodde de fattige øverst i leiegårdene?",
             "options": [
-                "En romersk øy",
-                "En type mat",
-                "En stor leiegård for vanlige folk",
-                "Et privat bad"
+                "For utsikten",
+                "Fordi det var billigere og farligere ved brann",
+                "Fordi luften var renere",
+                "Fordi heisen var ødelagt"
             ],
-            "correctAnswer": 2
+            "correctAnswer": 1
         },
         {
-            "question": "Hva betyr uttrykket 'brød og sirkus'?",
+            "question": "Hvem fikk lov til å bære Toga?",
             "options": [
-                "At alle måtte gå på sirkus",
-                "At staten ga mat og underholdning for å holde folk rolige",
-                "En oppskrift på romersk brød",
-                "At slaver måtte jobbe på sirkus"
+                "Alle som bodde i Roma",
+                "Kun mannlige romerske borgere",
+                "Kvinner og barn",
+                "Slaver ved festlige anledninger"
             ],
             "correctAnswer": 1
         }

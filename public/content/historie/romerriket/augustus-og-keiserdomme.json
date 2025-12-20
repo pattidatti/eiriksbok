@@ -4,34 +4,80 @@
     "layout": "rich",
     "year": "49 fvt. - 14 evt.",
     "category": "Antikken",
-    "readTime": "10 min read",
+    "readTime": "18 min read",
     "heroImage": "/images/romerriket/hero-augustus.png",
     "details": [
-        "Julius Cæsars vei til makten",
-        "Mordet i Senatet",
-        "Octavian mot Antonius",
-        "Augustus og Pax Romana"
+        "Julius Cæsars borgerkrig",
+        "Slaget ved Actium",
+        "Augustus bygger 'Roma i marmor'",
+        "Pax Romana: Den romerske fred"
     ],
     "content": [
         {
             "type": "text",
-            "content": "På midten av det første århundret før vår tid var den romerske republikken i ferd med å revne i sømmene. Det som en gang var en stabil bystat, hadde vokst seg så stor at de gamle maktstrukturene ikke lenger fungerte. Generaler med egne hærer begynte å kjempe om kontrollen, og den mest kjente av disse var Julius Cæsar. Da han krysset elven Rubicon i år 49 fvt., brøt han romersk lov og startet en borgerkrig som skulle endre verden for alltid."
-        },
-        {
-            "type": "header",
-            "content": "Cæsars fall og republikkens dødskramper"
+            "content": "På midten av det første århundret før vår tid var den romerske republikken i ferd med å revne i sømmene. Det som en gang var en stabil bystat, hadde vokst seg så stor at de gamle maktstrukturene ikke lenger fungerte. Generaler med egne hærer begynte å kjempe om kontrollen, og den mest briljante og hensynsløse av disse var **Julius Cæsar**."
         },
         {
             "type": "text",
-            "content": "Cæsar vant borgerkrigen og ble utnevnt til diktator på livstid. For mange romere, spesielt i Senatet, var dette et tegn på at friheten var tapt. De fryktet at de var på vei tilbake til det forhatte kongedømmet. Den 15. mars i år 44 fvt., en dato som kalles 'Idus martiae', ble Cæsar myrdet av en gruppe senatorer ledet av Brutus og Cassius. Men morderne hadde undervurdert én ting: Folket elsket Cæsar, og hans død førte bare til mer kaos og nye borgerkriger."
+            "content": "Cæsar hadde brukt åtte år på å erobre Gallia (dagens Frankrike). Han drepte hundretusener, gjorde en million mennesker til slaver, og ble ufattelig rik. Men i Roma så senatorene på ham med frykt. De beordret ham til å legge ned kommandoen og komme hjem som en privatperson. Cæsar visste at dette betydde rettssak og sannsynligvis døden. Han sto ved grenseelven **Rubicon** i Nord-Italia. Å krysse den med en hær var høyforræderi."
         },
         {
-            "type": "header",
-            "content": "Maktbalansen forskyves"
+            "type": "image",
+            "src": "/images/romerriket/caesar-rubicon.png",
+            "alt": "Julius Cæsar krysser Rubicon med en fakkel om natten",
+            "caption": "Natten til 11. januar 49 fvt. sa Cæsar de berømte ordene 'Alea iacta est' (Terningen er kastet) og krysset Rubicon."
         },
         {
             "type": "text",
-            "content": "Etter Cæsars død sto kampen mellom hans adoptivsønn Octavian og generalen Marcus Antonius. Octavian var ung og ble sett på som svak, men han viste seg å være en mester i politisk spill. Etter å ha beseiret Antonius og dronning Kleopatra av Egypt i slaget ved Actium, satt han igjen som den eneste herskeren i den romerske verden. Han visste at han ikke kunne kalle seg konge eller diktator uten å ende opp som sin adoptivfar. I stedet kalte han seg 'Princeps' – den første blant likemenn."
+            "content": "Borgerkrigen som fulgte var brutal, men kort. Cæsar var en militær strateg uten like, og i løpet av få år hadde han beseiret alle sine fiender og blitt utnevnt til diktator på livstid. Han begynte reformer, ga jord til soldatene og endret kalenderen (til den julianske kalenderen vi nesten bruker i dag - med unntak av små justeringer). Men han undervurderte hatet fra senatet. Den 15. mars år 44 fvt. ('Idus martiae') ble han knivstukket til døde av en gruppe senatorer, inkludert sin venn Brutus."
+        },
+        {
+            "type": "header",
+            "content": "Arven etter Cæsar: En verden i flammer"
+        },
+        {
+            "type": "text",
+            "content": "Morderne trodde de hadde reddet republikken, men de tok feil. Roma kastet seg ut i en ny borgerkrig, verre enn den forrige. På den ene siden sto morderne Brutus og Cassius. På den andre siden sto Cæsars lojale løytnant, **Marcus Antonius**, og Cæsars grandnevø og adopterte sønn, den unge **Gaius Octavius** (senere Augustus). Sammen knuste de morderne, men freden varte ikke lenge. Verden var ikke stor nok for to herskere."
+        },
+        {
+            "type": "text",
+            "content": "Marcus Antonius allierte seg med Egypts dronning, den forførende og intelligente **Kleopatra**. Sammen drømte de om et østlig imperium styrt fra Alexandria. Octavius, som var en mester i propaganda, malte et bilde av Antonius som en forræder som hadde glemt sine romerske røtter. Alt bygde opp mot et endelig oppgjør."
+        },
+        {
+            "type": "header",
+            "content": "Slaget ved Actium: Dagen verden endret seg"
+        },
+        {
+            "type": "text",
+            "content": "Den 2. september år 31 fvt. møttes flåtene deres utenfor kysten av Hellas, ved Actium. Det var et gigantisk sjøslag. Antonius hadde store, tunge skip med katapulter, mens Octavius' admiral Agrippa hadde mindre, raskere skip som kunne manøvrere rundt kjempene."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/battle-actium.png",
+            "alt": "Sjøslaget ved Actium med brennende skip og kaos",
+            "caption": "Ved Actium ble Romas skjebne forseglet. Etter tapet begikk både Antonius og Kleopatra selvmord."
+        },
+        {
+            "type": "text",
+            "content": "Med seieren ved Actium sto Octavius igjen som enehersker over hele middelhavsområdet. Han var nå verdens mektigste mann, men han visste at han måtte trå varsomt. Romerne hatet ordet 'konge'. Derfor kalte han seg 'Princeps' – den første borger. I år 27 fvt. ga senatet ham ærestittelen **Augustus** ('Den opphøyde'). Republikken var død, keiserdømmet var født."
+        },
+        {
+            "type": "header",
+            "content": "Augustus: Arkitekten bak freden"
+        },
+        {
+            "type": "text",
+            "content": "Augustus styrte i over 40 år, og han brukte tiden godt. Han reformerte alt: Hæren, skattesystemet, lovene og religionen. Han ønsket å gjenreise de 'gamle romerske dydene' – nøkternhet, trofasthet og pliktfølelse. Han var så streng at han til og med forviste sin egen datter, Julia, fordi hun levde et for utsvevende liv."
+        },
+        {
+            "type": "text",
+            "content": "Sammen med sin høyre hånd, Agrippa, satte han i gang et massivt byggeprogram. 'Jeg fant Roma i murstein og etterlot henne i marmor,' skal han ha sagt. De bygde akvedukter, bad, templer og det originale **Pantheon** (selv om den versjonen vi ser i dag er en senere ombygging av keiser Hadrian). Dette var ikke bare forfengelighet; det var en måte å gi folket i Roma arbeid og stolthet."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/pantheon-ancient.png",
+            "alt": "Pantheon i Roma slik det kan ha sett ut i antikken med folk utenfor",
+            "caption": "Agrippas navn står fortsatt på fasaden til Pantheon i dag, som en hyllest til Augustus' byggmester."
         },
         {
             "type": "component",
@@ -72,33 +118,33 @@
         },
         {
             "type": "header",
-            "content": "Augustus og Pax Romana"
+            "content": "Pax Romana: Den romerske fred"
         },
         {
             "type": "text",
-            "content": "I år 27 fvt. ga Senatet Octavian tittelen Augustus, som betyr 'den opphøyde'. Dette regnes som starten på det romerske keiserdømmet. Augustus styrte med jernhånd, men han brakte også noe romerne hadde savnet i hundre år: fred. Denne perioden kalles Pax Romana, den romerske freden. Under Augustus ble riket bygget ut med nye veier, akvedukter og praktbygg. Han skrøt selv av at han fant Roma i murstein og etterlot henne i marmor."
+            "content": "Det viktigste Augustus oppnådde var stabilitet. Etter hundre år med borgerkrig kunne folk endelig puste ut. Handelen blomstret, piratene var borte, og grensene var sikre. Denne perioden kalles **Pax Romana**, og den varte i ca. 200 år. Det var den lengste fredsperioden Europa noensinne hadde opplevd (før moderne tid). Men prisen for freden var friheten. Romerne var ikke lenger borgere som styrte seg selv; de var undersåtter av en keiser."
         },
         {
             "type": "text",
-            "content": "Selv om republikken offisielt fortsatte å eksistere, var den nå bare en fasade. Keiseren kontrollerte hæren, pengene og lovene. Dette nye systemet skulle vare i hundrevis av år og føre Roma til sin største blomstringstid. Men etter hvert som tidene endret seg, måtte også keiserens rolle endres fra 'første borger' til 'herre', noe du kan lese mer om i artikkelen om [legitimitet og kristendom](/historie/romerriket/legitimitet-og-kristendom), eller utforske de mange forskjellige [romerske keiserne](/historie/romerriket/romerske-keisere)."
+            "content": "Da Augustus lå for døden i år 14 evt., spurte han vennene sine: 'Har jeg spilt rollen min godt i livets komedie?' De nikket. Han svarte: 'Klapp da, for stykket er over.' Han visste at keiserdømmet var et teater, men det var et teater som holdt verden sammen."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
                 "title": "Visste du?",
-                "content": "Måneden August er oppkalt etter keiser Augustus. Før dette het måneden Sextilis, men senatet endret navnet for å ære keiseren som brakte fred til riket."
+                "content": "Måneden August er oppkalt etter keiser Augustus. Før dette het måneden Sextilis, men senatet endret navnet for å ære keiseren som brakte fred til riket. Juli er for øvrig oppkalt etter Julius Cæsar!"
             }
         }
     ],
     "quiz": [
         {
-            "question": "Hva betyr tittelen Augustus?",
+            "question": "Hva betyr uttrykket 'Alea iacta est'?",
             "options": [
-                "Den mektige krigeren",
-                "Den opphøyde",
-                "Folkets venn",
-                "Lovgiveren"
+                "Roma er størst",
+                "Terningen er kastet",
+                "Jeg kom, jeg så, jeg vant",
+                "Døden over forrædere"
             ],
             "correctAnswer": 1
         },

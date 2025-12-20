@@ -1,87 +1,108 @@
 {
     "id": "handel-og-silkeveien",
-    "title": "Handel og Silkeveien: Romas globale nettverk",
+    "title": "Handel og Silkeveien",
     "layout": "rich",
-    "year": "27 fvt. - 200 evt.",
+    "year": "100 evt.",
     "category": "Antikken",
-    "readTime": "10 min read",
+    "readTime": "16 min read",
     "heroImage": "/images/romerriket/hero-handel.png",
     "details": [
-        "Mare Nostrum: Middelhavet som handelsvei",
-        "Luksusvarer fra øst: Silke, krydder og røkelse",
-        "Silkeveien: Koblingen mellom Roma og Kina",
-        "Valuta og økonomi i imperiet"
+        "Verdens første globale økonomi",
+        "Kornkammeret Afrika",
+        "Silkeveien til Kina",
+        "Ostia: Romas havneby"
     ],
     "content": [
         {
             "type": "text",
-            "content": "Visste du at en rik dame i Roma kunne gå kledd i silke fra Kina, krydre maten med pepper fra India og bruke parfyme fra Arabia? For to tusen år siden var Romerriket sentrum i en av verdenshistoriens første ekte globale økonomier. Ved hjelp av trygge sjøveier og de berømte romerske landeveiene ble varer fraktet over enorme avstander."
+            "content": "Romerriket var ikke bare en krigsmaskin; det var en gigantisk handelsmaskin. For første gang i historien kunne man kjøpe varer fra tre kontinenter på ett og samme torg. En middels rik romer kunne kle seg i silke fra Kina, krydre maten med pepper fra India, bruke parfyme fra Arabia, og spise brød laget av korn fra Egypt."
         },
         {
             "type": "header",
-            "content": "Mare Nostrum: Vårt hav"
+            "content": "Ostia: Porten til verden"
         },
         {
             "type": "text",
-            "content": "Romerne kalte Middelhavet for *Mare Nostrum* – 'Vårt hav'. Etter at de hadde utryddet piratene, ble havet en gigantisk motorvei for handelsskip. Store skip lastet med korn fra Egypt seilte til Roma for å mate byens befolkning, mens amforaer (krukker) fylt med olivenolje fra Spania og vin fra Gallia ble solgt over hele riket."
+            "content": "Roma lå ikke ved kysten, men litt oppe i elven Tiberen. Store havgående skip kunne ikke seile helt opp. Derfor bygde de en enorm havneby ved elvemunningen: **Ostia Antica**. Her ankom tusenvis av skip hvert år. Varene ble lastet over på mindre elvebåter som ble trukket opp elven av okser til Romas havnelagre."
+        },
+        {
+            "type": "text",
+            "content": "På det travleste bodde 50 000 mennesker i Ostia. Byen var full av lagerhus (*horrea*) med mange etasjer, kontorer for handelsmenn fra hele verden ('Rederiforbundet for afrikanske oljehandlere' har vi funnet skiltet til), og barer for sjømenn. I dag er ruinene av Ostia nesten like godt bevart som Pompeii, men uten vulkanasken."
+        },
+        {
+            "type": "header",
+            "content": "Cura Annonae: Brød til folket"
+        },
+        {
+            "type": "text",
+            "content": "Den viktigste varen var korn. Roma hadde over én million innbyggere, og de kunne ikke brødfø seg selv. Keiseren hadde ansvar for **Cura Annonae** – kornforsyningen. Hvis kornflåten fra Egypt eller Nord-Afrika ble forsinket av uvær, kunne det bryte ut opptøyer i Roma på noen timer. Keiseren måtte sørge for at folket fikk 'brød og sirkus' for å holde seg ved makten."
+        },
+        {
+            "type": "header",
+            "content": "Silkeveien: Forbindelsen til Østen"
+        },
+        {
+            "type": "text",
+            "content": "Romerne visste om Kina (som de kalte *Seres* – silkefolket), og kineserne visste om Roma (som de kalte *Da Qin*). De møttes aldri direkte, men de handlet med hverandre via mellommenn langs **Silkeveien**. Karavaner av kameler fraktet silke gjennom Sentral-Asias ørkener til Persia, og derfra videre til Romerriket."
+        },
+        {
+            "type": "text",
+            "content": "Silke var så dyrt at det ble solgt for sin egen vekt i gull. Moralske ledere i Roma klaget over at romerske kvinner gikk i 'gjennomsiktige klær' og at alt gullet rant ut av riket for å betale for luksus. Keiserne prøvde flere ganger å forby silke, men moten vant alltid."
+        },
+        {
+            "type": "header",
+            "content": "Monsunvinden og India"
+        },
+        {
+            "type": "text",
+            "content": "En enda viktigere rute gikk sjøveien til India. I det første århundret oppdaget (eller lærte) greske sjømenn hvordan **monsunvindene** fungerte. Om sommeren blåste vinden fra vest mot India, og om vinteren blåste den tilbake. Dette betydde at man kunne seile fra Rødehavet til India på bare 40 dager, handle krydder og edelstener, og seile hjem igjen samme år."
+        },
+        {
+            "type": "text",
+            "content": "Vi har funnet store mengder romerske gullmynter i India, og i en gammel indisk havneby fant arkeologene nylig et romersk tempel. Det viser hvor omfattende denne handelen var. Pepper, ingefær og kanel ble vanlige varer i Roma takket være disse modige sjømennene."
+        },
+        {
+            "type": "header",
+            "content": "Rav-veien fra Nord"
+        },
+        {
+            "type": "text",
+            "content": "Handelen gikk også nordover. Fra Baltikum (dagens Polen og Litauen) og ned til Middelhavet gikk 'Rav-veien'. Rav (forsteinet harpiks) ble kalt 'nordens gull' og var enormt populært til smykker. Romerske handelsmenn reiste dypt inn i germanske områder for å bytte til seg rav, pelsverk og slaver (ofte blonde, som var eksotisk i Roma) mot vin og glass."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
-                "title": "Amforaer: Antikkens containere",
-                "content": "Romerne brukte store leirkrukker kalt amforaer til nesten alt. I Roma finnes det en hel kunstig høyde, Monte Testaccio, som består av restene fra over 50 millioner knuste olivenoljekrukker!"
+                "title": "Monte Testaccio",
+                "content": "I Roma finnes det en kunstig ås som heter Monte Testaccio. Den er 35 meter høy og består utelukkende av knuste olivenoljekrukker (*amforaer*). Det er restene av 53 millioner krukker, de fleste fra Spania, som ble tømt og kastet her over en periode på 250 år. Det er et monument over hvor enormt forbruket i antikkens Roma var."
             }
-        },
-        {
-            "type": "header",
-            "content": "Silkeveien: En reise til verdens ende"
-        },
-        {
-            "type": "text",
-            "content": "Selv om ingen romersk kjøpmann sannsynligvis reiste hele veien til Kina selv, var Roma koblet til Øst-Asia gjennom det vi kaller **Silkeveien**. Varer ble fraktet i etapper gjennom Sentral-Asia og Partia (dagens Iran). For romerne var silke det ultimate statussymbolet – et stoff som var så lett og vakkert at de knapt kunne tro det var ekte."
         },
         {
             "type": "component",
             "name": "Comparison",
             "props": {
-                "title": "Hva ble byttet langs Silkeveien?",
-                "leftTitle": "Fra Øst til Roma",
-                "rightTitle": "Fra Roma til Øst",
+                "title": "Transport",
+                "leftTitle": "Til Lands",
+                "rightTitle": "Til Vanns",
                 "items": [
                     {
-                        "left": "Silke fra Kina.",
-                        "right": "Gull og sølv mynter."
+                        "left": "Dyrebar og langsom (oksekjerre: 15 km/dag).",
+                        "right": "Billig og rask (seilskip: 100+ km/dag).",
+                        "highlight": true
                     },
                     {
-                        "left": "Krydder (pepper, kanel) fra India.",
-                        "right": "Glassvarer av høy kvalitet."
+                        "left": "Brukt for hæren og lette luksusvarer.",
+                        "right": "Brukt for tunge varer (korn, stein, olje)."
                     },
                     {
-                        "left": "Røkelse og myrra fra Arabia.",
-                        "right": "Ull og tøy fra Europa."
+                        "left": "Trygt (takket være veianlegg og vakter).",
+                        "right": "Risikabelt (stormer og pirater)."
                     },
                     {
-                        "left": "Edelstener og elfenben.",
-                        "right": "Vin og olivenolje."
+                        "left": "Krevde fôr til dyr.",
+                        "right": "Krevde vind."
                     }
                 ]
-            }
-        },
-        {
-            "type": "header",
-            "content": "Penger får hjulene til å rulle"
-        },
-        {
-            "type": "text",
-            "content": "For at handel skal fungere, trenger man penger folk stoler på. Romerne innførte en felles valuta over hele imperiet. Den mest kjente mynten var sølvpenningen, **Denaren**. Enten du var i London eller Kairo, kunne du betale med de samme myntene med keiserens ansikt på. Dette gjorde handelen utrolig mye enklere enn før."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Handelsunderskuddet",
-                "content": "Interessant nok var romerne så gale etter luksusvarer fra øst at store mengder av Romas gull havnet i India og Kina. Enkelte romerske forfattere klaget over at dette svekket rikets økonomi – et problem vi fortsatt snakker om i dag som 'handelsunderskudd'!"
             }
         },
         {
@@ -90,32 +111,42 @@
             "props": {
                 "questions": [
                     {
-                        "question": "Hva kalte romerne Middelhavet?",
+                        "question": "Hva het havnebyen til Roma?",
                         "options": [
-                            "Den store sjøen",
-                            "Mare Nostrum (Vårt hav)",
-                            "Oceanus",
-                            "Det blå vannet"
+                            "Napoli",
+                            "Ostia",
+                            "Venezia",
+                            "Kartago"
                         ],
                         "correctAnswer": 1
                     },
                     {
-                        "question": "Hvilken luksusvare fra Kina var romerne spesielt begeistret for?",
+                        "question": "Hvorfor var monsunvinden viktig?",
                         "options": [
-                            "Papir",
-                            "Krutt",
-                            "Silke",
-                            "Porselen"
+                            "Den kjølte ned keiseren",
+                            "Den gjorde det mulig å seile raskt til og fra India",
+                            "Den drev vindmøllene",
+                            "Den skremte fienden"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva er Monte Testaccio laget av?",
+                        "options": [
+                            "Jord",
+                            "Skjeletter",
+                            "Knuste krukker (amforaer)",
+                            "Gull"
                         ],
                         "correctAnswer": 2
                     },
                     {
-                        "question": "Hva het den mest brukte romerske sølvmynten?",
+                        "question": "Hvilken vare kom fra Kina langs Silkeveien?",
                         "options": [
-                            "Krone",
-                            "Denar",
-                            "Drachme",
-                            "Euro"
+                            "Poteter",
+                            "Silke",
+                            "Kaffe",
+                            "Sjokolade"
                         ],
                         "correctAnswer": 1
                     }
@@ -125,34 +156,34 @@
     ],
     "quiz": [
         {
-            "question": "Hva kalte romerne Middelhavet?",
+            "question": "Hva het havnebyen til Roma?",
             "options": [
-                "Den store sjøen",
-                "Mare Nostrum (Vårt hav)",
-                "Oceanus",
-                "Det blå vannet"
+                "Napoli",
+                "Ostia",
+                "Venezia",
+                "Kartago"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hvilken luksusvare fra Kina var romerne spesielt begeistret for?",
+            "question": "Hvorfor var monsunvinden viktig?",
             "options": [
-                "Papir",
-                "Krutt",
-                "Silke",
-                "Porselen"
+                "Den kjølte ned keiseren",
+                "Den gjorde det mulig å seile raskt til og fra India",
+                "Den drev vindmøllene",
+                "Den skremte fienden"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva er Monte Testaccio laget av?",
+            "options": [
+                "Jord",
+                "Skjeletter",
+                "Knuste krukker (amforaer)",
+                "Gull"
             ],
             "correctAnswer": 2
-        },
-        {
-            "question": "Hva het den mest brukte romerske sølvmynten?",
-            "options": [
-                "Krone",
-                "Denar",
-                "Drachme",
-                "Euro"
-            ],
-            "correctAnswer": 1
         }
     ]
 }

@@ -4,153 +4,197 @@
     "layout": "rich",
     "year": "395 evt. - 476 evt.",
     "category": "Antikken",
-    "readTime": "15 min read",
+    "readTime": "20 min read",
     "heroImage": "/images/romerriket/hero-fall.png",
     "details": [
-        "Delingen av riket",
         "Folkevandringstiden",
-        "Økonomisk kollaps og inflasjon",
-        "Året 476: Slutten på en æra"
+        "Attila og hunerne",
+        "Plyndringen av Roma",
+        "Den siste keiseren"
     ],
     "content": [
         {
             "type": "text",
-            "content": "Ingen stormakt varer evig, og Romerriket var intet unntak. Etter århundrer med dominans over Middelhavet, begynte det gigantiske riket å vise tegn på alvorlig svakhet. Det som en gang var en velsmurt maskin av veier, lover og soldater, ble sakte men sikkert spist opp fra både innsiden og utsiden. For å forstå hvorfor Vestromerriket falt i år 476 evt., må vi se på en perfekt storm av ulykker, dårlige beslutninger og endringer i verden som ingen keiser lenger kunne kontrollere."
+            "content": "Katastrofen kom ikke over natten. Romerrikets fall var en langsom, smertefull prosess som varte i nesten hundre år. Det startet med dårlig økonomi og korrupsjon innenfra, og ble avsluttet med massive invasjoner utenfra. Historikere diskuterer fortsatt *hvorfor* det falt, men *hvordan* det skjedde er en historie om svik, heltemot og en verden i endring."
         },
         {
             "type": "header",
-            "content": "Et rike delt i to"
+            "content": "Folkevandringene begynner"
         },
         {
             "type": "text",
-            "content": "Romerriket hadde blitt så enormt at det var nesten umulig å styre fra én by. Keiser Diokletian innså dette allerede på slutten av 200-tallet, og etter ham fullførte Konstantin prosessen ved å bygge en ny hovedstad i øst. Etter keiser Theodosius' død i år 395 evt. ble riket formelt delt mellom hans to sønner. Østriket, med sin hovedstad i Konstantinopel, var rikt og stabilt. Vestriket, styrt fra Roma eller Ravenna, satt derimot igjen med de eldste problemene, de mest sårbare grensene og en tom statskasse."
+            "content": "På slutten av 300-tallet begynte noe å røre seg på steppene i øst. Hunerne, et fryktinngytende krigerfolk på hest, presset vestover. Dette skapte en dominoeffekt. Germanske stammer som gotere, vandaler og burgundere flyktet fra hunerne og dundret inn over Romas grenser. Romerne, som tidligere hadde vært uovervinnelige, klarte ikke lenger å holde dem ute."
+        },
+        {
+            "type": "text",
+            "content": "I år 410 skjedde det utenkelige: Visigoterne under kong Alarik brøt seg inn i Roma og plyndret byen. Det var første gang på 800 år at fiender sto i Romas gater. Sjokket gikk gjennom hele den kjente verden. Kirkefaderen Hieronymus skrev gråtende fra hulen sin i Betlehem: 'Når Roma kan falle, hva er da trygt?'"
         },
         {
             "type": "header",
-            "content": "Presset fra nord: Folkevandringstiden"
+            "content": "Guds svøpe: Attila"
         },
         {
             "type": "text",
-            "content": "Mens romerne kranglet om hvem som skulle være keiser, skjedde det store ting på de germanske steppene og i skogene i nord og øst. Hunnerne, et fryktet rytterfolk fra Asia, presset andre folkegrupper vestover. Germanske stammer som visigoterne, vandalene og frankerne ble tvunget på flukt inn i romersk territorium. \n\nVandalene krysset for eksempel Rhinen i år 406, raste gjennom Gallia og Spania, og endte opp i Nord-Afrika der de bygde sin egen flåte for å plyndre Roma fra sjøsiden i 455."
+            "content": "Men det verste var i vente. På midten av 400-tallet samlet hunerkongen **Attila** en enorm hær. Han ble kalt 'Guds svøpe' (piske), fordi de kristne trodde han var sendt av Gud for å straffe dem for deres synder. Attila herjet først i Østromerriket, før han vendte blikket mot vest."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/attila-hun.png",
+            "alt": "Attila huneren til hest med en hær bak seg på steppene",
+            "caption": "Attila var så fryktet at gresset sies å ha sluttet å gro der hesten hans tråkket."
+        },
+        {
+            "type": "text",
+            "content": "I 451 møttes romerne og hunerne i det gigantiske **slaget ved de katalauniske marker** (i dagens Frankrike). Den romerske generalen Aëtius måtte alliere seg med sine gamle fiender, visigoterne, for å stoppe Attila. Det var et av historiens blodigste slag, og det stoppet hunernes fremmarsj, men Romerriket var tappet for krefter."
+        },
+        {
+            "type": "text",
+            "content": "Året etter marsjerte Attila mot selve Roma. Byen lå forsvarsløs. Keiseren gjemte seg i Ravenna. Den eneste som torde å møte Attila, var Pave Leo I. Ingen vet hva de sa til hverandre, men etter møtet snudde Attila og red hjem. Kanskje var det et mirakel, eller kanskje var hæren hans bare syk og sulten."
+        },
+        {
+            "type": "header",
+            "content": "Vandalenes herjinger: Da taket forsvant"
+        },
+        {
+            "type": "text",
+            "content": "Mens Roma var opptatt med hunerne, snek en annen stamme seg inn bakveien. Vandalene krysset Gibraltarstredet og erobret Nord-Afrika. Dette var katastrofalt for Roma, for Afrika var keiserrikets brødkurv. Uten kornet fra Afrika sultet Roma."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/sack-rome-vandals.png",
+            "alt": "Vandaler som plyndrer Roma i 455, bærer ut gull og statuer",
+            "caption": "Ordet 'vandalisme' (ødeleggelse) kommer fra dette folket, selv om de egentlig plyndret ganske organisert."
+        },
+        {
+            "type": "text",
+            "content": "I år 455 seilte vandalene opp Tiberen og inntok Roma. Denne gangen var det ingen kamp, bare to ukers systematisk plyndring. De tok alt som var av verdi. De skrelte til og med gulltaket av Jupiter-tempelet. Roma, 'Verdens hode', var nå en ribbet, fattig by full av ruiner og tiggere. Befolkningen sank fra over en million til kanskje 20 000."
+        },
+        {
+            "type": "header",
+            "content": "Slutten: Romulus Augustulus"
+        },
+        {
+            "type": "text",
+            "content": "Slutten kom ikke med et stort smell, men med et pennestrøk. I år 476 fikk den germanske leiesoldaten **Odovakar** nok av at keiseren ikke betalte lønn. Han marsjerte inn i Ravenna, avsatte den siste vestromerske keiseren og sendte ham i pensjon. Keiseren var en 12 år gammel gutt ved navn **Romulus Augustulus**."
+        },
+        {
+            "type": "text",
+            "content": "Det er en historisk ironi at den siste keiseren hadde navnene til både byens grunnlegger (Romulus) og imperiets grunnlegger (Augustus). Med ham var sirkelen sluttet. Odovakar gadd ikke engang utnevne en ny keiser. Han sendte keiserkronen til Konstantinopel og sa: 'Vi trenger ingen keiser i vest lenger. Jeg kan styre som konge under dere.' Vestromerriket hadde opphørt å eksistere."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
-                "title": "Folkevandringsruter",
-                "content": "Tenk på dette som en gigantisk dominoeffekt:\n1. Hunnerne presser goterne fra øst.\n2. Goterne flykter inn i Romerriket og plyndrer Roma (410).\n3. Vandalene presses helt til Afrika og tar tilbake kontrollen over kornforsyningene.\n4. Frankerne tar Gallia og legger grunnlaget for dagens Frankrike."
+                "title": "Levde Romerriket videre?",
+                "content": "Selv om Vestromerriket falt i 476, levde Østromerriket (Bysants) videre i nesten 1000 år til, helt til Konstantinopel falt for tyrkerne i 1453. Så på en måte falt ikke Romerriket før på slutten av middelalderen!"
             }
-        },
-        {
-            "type": "text",
-            "content": "I år 410 evt. skjedde det utenkelige: Visigoterne under ledelse av Alarik erobret og plyndret selve Roma. Det var første gang på 800 år at en fremmed hær sto inne i murene til den evige stad. Sjokkbølgene gikk gjennom hele verden. 'Hvis Roma kan falle, hva er da trygt?' spurte de lærde."
-        },
-        {
-            "type": "header",
-            "content": "Råten fra innsiden: Økonomi og moral"
-        },
-        {
-            "type": "text",
-            "content": "Selv om de germanske invasjonene var de mest synlige årsakene, var den indre råten kanskje enda farligere. Romerrikets økonomi var bygget på konstant ekspansjon og krigsbytte i form av slaver og gull. Da riket sluttet å vokse, tørket inntektskildene ut. Samtidig steg de militære utgiftene voldsomt fordi hæren måtte vokte gigantiske grenseområder."
-        },
-        {
-            "type": "text",
-            "content": "For å betale for dette, begynte staten å vanne ut myntene sine. De blandet inn billige metaller i sølvmyntene, noe som førte til en voldsom inflasjon. Prisene steg, handelen stoppet opp, og folk flyktet fra byene for å overleve på landet. Samtidig var det politiske systemet preget av dyp korrupsjon. Keisere ble ofte utnevnt av hæren, for så å bli myrdet bare uker senere."
         },
         {
             "type": "component",
             "name": "Comparison",
             "props": {
-                "title": "Collapse Simulator: Hva knuste Roma?",
-                "leftTitle": "Indre årsaker",
-                "rightTitle": "Ytre årsaker",
+                "title": "Roma: To plyndringer",
+                "leftTitle": "Visigoterne (410 evt)",
+                "rightTitle": "Vandalene (455 evt)",
                 "items": [
                     {
-                        "left": "Økonomisk krise og inflasjon som ødela handelen.",
-                        "right": "Invasjoner fra germanske stammer (visigotere, vandaler)."
+                        "left": "Varte i 3 dager.",
+                        "right": "Varte i 14 dager."
                     },
                     {
-                        "left": "Politisk ustabilitet og konstant borgerkrig.",
-                        "right": "Press fra hunnerne som drev andre folk på flukt."
+                        "left": "Begrenset ødeleggelse, sparte kirker.",
+                        "right": "Grundig, systematisk tømming av byen."
                     },
                     {
-                        "left": "Befolkningsnedgang på grunn av pest og lave fødselstall.",
-                        "right": "Tap av viktige jordbruksområder i Nord-Afrika."
+                        "left": "Kom landveien over Alpene.",
+                        "right": "Kom sjøveien fra Afrika."
                     },
                     {
-                        "left": "Religiøse endringer som svekket den gamle romerske lojaliteten.",
-                        "right": "Svekkelse av de militære grensene ved Rhinen og Donau."
+                        "left": "Sjokk: 'Det umulige skjedde'.",
+                        "right": "Resignasjon: 'Slutten er nær'."
                     }
                 ]
             }
         },
         {
-            "type": "header",
-            "content": "Kristendommens rolle"
-        },
-        {
-            "type": "text",
-            "content": "En av de mest diskuterte teoriene, fremmet av historikeren Edward Gibbon, er kristendommens innflytelse. Da kristendommen ble statsreligion, endret romernes fokus seg. I stedet for å hylle keiseren som en gud og fokusere på militær ære, vendte folk seg mot et liv etter døden og pasifisme. Selv om mange moderne historikere mener dette var en mindre viktig faktor enn økonomien, er det ingen tvil om at den gamle romerske identiteten ble kraftig endret."
-        },
-        {
-            "type": "header",
-            "content": "Slutten: Året 476"
-        },
-        {
-            "type": "text",
-            "content": "Selve slutten kom nesten umerkelig. I år 476 evt. ble den siste vestromerske keiseren, ironisk nok kalt Romulus Augustulus, avsatt av den germanske generalen Odoaker. Odoaker sendte keiserens insignier til Konstantinopel og erklærte at Vesten ikke lenger trengte sin egen keiser. Dette regnes tradisjonelt som overgangen fra antikken til middelalderen."
-        },
-        {
-            "type": "text",
-            "content": "Men selv om Vestromerriket forsvant som politisk makt, døde ikke den romerske arven. Det [Østromerske riket](/historie/romerriket/arven-etter-romerriket) (Bysants) overlevde i nesten tusen år til, og språket, lovene og arkitekturen fra Roma fortsatte å prege Europa gjennom hele middelalderen og helt frem til vår tid."
-        },
-        {
             "type": "component",
-            "name": "FactBox",
+            "name": "Quiz",
             "props": {
-                "title": "De viktigste grunnene til fallet",
-                "content": "Oppsummert kan vi si at fallet skyldtes en kombinasjon av:\n- Økonomisk kollaps og inflasjon\n- Overstrekt militærvesen og germanske invasjoner\n- Deling av riket som svekket ressursene i vest\n- Politisk kaos og mangel på sterke ledere"
+                "questions": [
+                    {
+                        "question": "Hvilket årstall regnes som Vestromerrikets fall?",
+                        "options": [
+                            "410 evt.",
+                            "476 evt.",
+                            "1453 evt.",
+                            "800 evt."
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva het den aller siste keiseren i vest?",
+                        "options": [
+                            "Julius Cæsar",
+                            "Nero",
+                            "Romulus Augustulus",
+                            "Konstantin"
+                        ],
+                        "correctAnswer": 2
+                    },
+                    {
+                        "question": "Hvorfor ble Attila kalt 'Guds svøpe'?",
+                        "options": [
+                            "Han pisket soldatene sine",
+                            "De kristne trodde han var Guds straff",
+                            "Han brukte pisk i kamp",
+                            "Han var veldig tynn"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hvilket viktig område mistet Roma til vandalene?",
+                        "options": [
+                            "Spania",
+                            "Nord-Afrika (kornkammeret)",
+                            "Hellas",
+                            "Storbritannia"
+                        ],
+                        "correctAnswer": 1
+                    }
+                ]
             }
-        },
-        {
-            "type": "header",
-            "content": "Oppsummering av tidslinjen for fallet"
-        },
-        {
-            "type": "text",
-            "content": "Veien mot undergangen var brolagt med store katastrofer. Det startet med den permanente delingen i år 395 evt., etterfulgt av sjokket i 410 da visigoterne plyndret Roma. Da vandalene gjentok dette i år 455, var riket i realiteten ferdig. Den symbolske slutten kom i år 476 evt., da den germanske generalen Odoaker avsatte den siste keiseren, Romulus Augustulus, og sendte keisertegnene tilbake til Østriket."
         }
     ],
     "quiz": [
         {
-            "question": "Hvem regnes som den siste vestromerske keiseren?",
+            "question": "Hvilket årstall regnes som Vestromerrikets fall?",
+            "options": [
+                "410 evt.",
+                "476 evt.",
+                "1453 evt.",
+                "800 evt."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva het den aller siste keiseren i vest?",
             "options": [
                 "Julius Cæsar",
-                "Augustus",
+                "Nero",
                 "Romulus Augustulus",
                 "Konstantin"
             ],
             "correctAnswer": 2
         },
         {
-            "question": "Hvilket årstall markerer Vestromerrikets fall?",
+            "question": "Hvorfor ble Attila kalt 'Guds svøpe'?",
             "options": [
-                "395 evt.",
-                "410 evt.",
-                "476 evt.",
-                "1453 evt."
+                "Han pisket soldatene sine",
+                "De kristne trodde han var Guds straff",
+                "Han brukte pisk i kamp",
+                "Han var veldig tynn"
             ],
-            "correctAnswer": 2
-        },
-        {
-            "question": "Hvilken tysk stamme plyndret Roma i 410 evt?",
-            "options": [
-                "Frankerne",
-                "Vikingene",
-                "Visigoterne",
-                "Sakserne"
-            ],
-            "correctAnswer": 2
+            "correctAnswer": 1
         }
     ]
 }

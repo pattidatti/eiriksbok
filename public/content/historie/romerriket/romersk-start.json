@@ -4,18 +4,28 @@
     "layout": "rich",
     "year": "753 fvt. - 27 fvt.",
     "category": "Antikken",
-    "readTime": "8 min read",
+    "readTime": "15 min read",
     "heroImage": "/images/romerriket/hero-founding.png",
     "details": [
         "Myten om Romulus og Remus",
-        "Overgangen fra kongedømme til republikk",
-        "Maktfordelingen i senatet",
-        "Hannibal og Punerkrigene"
+        "Kampen mellom patrisiere og plebeiere",
+        "Hannibal og de puniske kriger",
+        "Republikkens blodige endelikt"
     ],
     "content": [
         {
             "type": "text",
-            "content": "Historien om Roma starter ikke med store marmorbygninger, men med en myte om to brødre, en ulvemor og en krangel som endte med drap. Ifølge sagnene ble Roma grunnlagt i år 753 fvt. av Romulus, etter at han hadde drept sin tvillingbror Remus. Selv om dette er en spennende fortelling, vet arkeologene at virkeligheten var litt mer jordnær. Roma vokste frem som en samling små landsbyer på sju høyder ved elven Tiberen, der bønder og gjetere slo seg ned for å dra nytte av den gode plasseringen."
+            "content": "Historien om Roma starter ikke med store marmorbygninger, men med en myte om to brødre, en ulvemor og en krangel som endte med drap. Ifølge sagnene ble Roma grunnlagt i år 753 fvt. av Romulus, etter at han hadde drept sin tvillingbror Remus. De to var sønner av krigsguden Mars, men var blitt forlatt i en kurv på elven Tiberen. En hunnulv fant dem og fostret dem opp som sine egne valper."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/romulus-wolf.png",
+            "alt": "Bronsestatue av ulvinnen som ammer Romulus og Remus",
+            "caption": "Den kapitolinske ulvinne: symbolet på Romas mytiske start."
+        },
+        {
+            "type": "text",
+            "content": "Selv om dette er en spennende fortelling, vet arkeologene at virkeligheten var litt mer jordnær. Roma vokste frem som en samling små landsbyer på sju høyder ved elven Tiberen. Her slo bønder og gjetere seg ned for å dra nytte av den gode plasseringen: Trygg nok til å forsvare seg mot fiender på høydene, men nær nok elven til å drive handel med salt og varer fra kysten."
         },
         {
             "type": "component",
@@ -46,70 +56,174 @@
         },
         {
             "type": "header",
-            "content": "Fra konger til frihet"
+            "content": "Fra konger til frihet: Republikkens fødsel"
         },
         {
             "type": "text",
-            "content": "I den tidlige fasen ble Roma styrt av konger. Noen av disse var etruskere, et mektig folk fra områdene lenger nord i Italia. Men romerne likte dårlig å bli styrt av mektige enerådig herskere. I år 509 fvt. jaget de den siste kongen, Tarquinius Superbus, ut av byen. Dette markerte starten på den romerske republikken, en styreform der makten skulle deles for å hindre at én person ble for mektig."
+            "content": "I den tidlige fasen (753–509 fvt.) ble Roma styrt av konger. De siste av disse var etruskere, et avansert og mektig kultursamfunn fra nord-Italia. Romerne lærte mye av etruskerne – som bygging av buer og kloakksystemer – men de hatet å bli undertrykket. I år 509 fvt. fikk de nok. Under ledelse av Brutus (en forfar til han som senere drepte Cæsar) jaget de den siste kongen, Tarquinius Superbus, ut av byen."
+        },
+        {
+            "type": "text",
+            "content": "Romerne sverget en ed på at de aldri mer skulle la seg styre av én mann. De opprettet **Republikken** (*res publica* – 'folkets sak'). I stedet for en konge, skulle makten deles. Hvert år valgte de to ledere, kalt **konsuler**, som måtte være enige for å ta beslutninger. Hvis en konsul ble for maktsyk, kunne den andre stoppe ham. Men selv om de hatet konger, var ikke republikken noe demokrati for alle."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
-                "title": "Hva betyr Republikk?",
-                "content": "Ordet republikk kommer fra det latinske 'res publica', som betyr 'folkets sak' eller 'offentlig sak'. Det motsatte er et monarki, der makten går i arv og tilhører én person."
+                "title": "SPQR",
+                "content": "Har du sett bokstavene SPQR på kumlokk i Roma eller i filmer? Det står for *Senatus Populusque Romanus* – 'Senatet og det romerske folk'. Det var republikkens offisielle navn og merkevare."
             }
         },
         {
             "type": "header",
-            "content": "Maktens balansegang: Senatet og folket"
+            "content": "Stenderkampene: De rike mot de mange"
         },
         {
             "type": "text",
-            "content": "Republikken var ikke et demokrati slik vi kjenner det i dag, men et komplisert system av maktfordeling. De rikeste familiene, patrisierne, satt i Senatet og ga råd til de to konsulene som ledet staten. Samtidig kjempet den vanlige befolkningen, plebeierne, for sine rettigheter. Dette førte etter hvert til opprettelsen av folketribuner, som hadde makt til å stanse beslutninger som skadet folket."
+            "content": "Det nye systemet var skreddersydd for de rike. Samfunnet var delt i to: **Patrisierne**, som var etterkommere av de sju opprinnelige adelsfamiliene, og **Plebeierne**, som var... alle andre. Bønder, håndverkere, soldater. I starten var det bare patrisiere som kunne sitte i Senatet eller bli valgt til konsuler."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/roman-senate.png",
+            "alt": "Romerske senatorer i hvit toga diskuterer heftig i senatet",
+            "caption": "Debattene i Senatet kunne være både høylytte og voldelige."
+        },
+        {
+            "type": "text",
+            "content": "Plebeierne fant seg ikke i dette. I år 494 fvt. gjorde de noe radikalt: De gikk til streik. De nektet å arbeide eller kjempe i hæren, og marsjerte rett og slett ut av byen for å bygge sin egen by på en høyde i nærheten. Patrisierne fikk panikk. Uten arbeidere og soldater var Roma forsvarsløst. De måtte gi etter."
+        },
+        {
+            "type": "text",
+            "content": "Resultatet ble opprettelsen av **Folketribuner**. Disse lederne skulle representere vanlige folk og hadde en unik superkraft: **Veto-retten**. Hvis Senatet vedtok en lov som skadet folket, kunne tribunen reise seg og rope 'Veto!' ('Jeg forbyr!'), og loven ble stanset. Denne maktkampen varte i flere hundre år og kalles 'stenderkampene'."
+        },
+        {
+            "type": "header",
+            "content": "Ekspansjon og Punerkrigene"
+        },
+        {
+            "type": "text",
+            "content": "Med indre fred (sånn noenlunde) kunne Roma se utover. De erobret først naboene sine i Italia, men snart støtte de på en gigantisk rival: Kartago. Kartago var en sjømakt som kontrollerte handelen i Middelhavet fra sin base i Nord-Afrika. Krigene mellom Roma og Kartago kalles **Punerkrigene** og varte i over 100 år."
+        },
+        {
+            "type": "text",
+            "content": "Den mest dramatiske var den andre punerkrigen (218–201 fvt.). Den kartagiske generalen **Hannibal Barca** gjorde det ingen trodde var mulig. I stedet for å angripe Roma fra sjøen, tok han med seg en enorm hær – inkludert 37 krigselefanter! – og marsjerte fra Spania, gjennom Frankrike og over de snødekte Alpene for å angripe Italia fra nord."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/hannibal-alps.png",
+            "alt": "Maleri av Hannibal som krysser alpene med elefanter i snøstorm",
+            "caption": "Hannibals dristige marsj over Alpene sjokkerte romerne."
+        },
+        {
+            "type": "text",
+            "content": "Hannibal knuste romerne i slag etter slag. Det verste nederlaget kom ved **Cannae** i 216 fvt., hvor Hannibal omringet og slaktet ned kanskje så mange som 70 000 romerske soldater på én dag. Det er fortsatt et av de blodigste slagene i verdenshistorien. Men Romas styrke lå ikke i én hær, men i deres stahet. De nektet å overgi seg. Hvert år Hannibal ble værende i Italia, utskrev Roma nye legioner. Til slutt måtte Hannibal reise hjem for å forsvare Kartago, hvor han ble beseiret av den romerske generalen Scipio Africanus."
+        },
+        {
+            "type": "header",
+            "content": "Republikkens dødskamp"
+        },
+        {
+            "type": "text",
+            "content": "Seieren over Kartago gjorde Roma til verdens herskere, men rikdommen ødela republikken. Småbøndene, som hadde vært ryggraden i hæren, kom hjem til gjengrodde gårder de ikke hadde råd til å drive. De rike senatorene kjøpte opp jorda og brukte krigsfanger som gratis slaver. Bøndene flyktet til Roma som arbeidsløse tiggere."
+        },
+        {
+            "type": "text",
+            "content": "To brødre, **Tiberius og Gaius Gracchus**, prøvde å redde systemet ved å gi jord tilbake til de fattige. Men senatorene var ikke interessert i å dele. I stedet for debatt valgte de vold: Begge brødrene ble drept i politiske opptøyer. Dette markerte starten på slutten. Politikken flyttet seg fra talerstolen til slagmarken."
+        },
+        {
+            "type": "text",
+            "content": "Snart begynte generaler som **Marius** og **Sulla** å bruke hærene sine ikke mot Romas fiender, men mot hverandre. Soldatene var nå lojale mot generalen som betalte dem, ikke mot staten. Da Sulla marsjerte mot Roma og utnevnte seg selv til diktator i år 82 fvt., var presedensen satt. Republikken var i praksis død; den manglet bare en siste mann til å begrave den. Den mannen skulle bli Julius Cæsar. (Les mer om ham i artikkelen [Fra republikk til keiserdømme](/historie/romerriket/augustus-og-keiserdomme))."
         },
         {
             "type": "component",
-            "name": "Comparison",
+            "name": "Quiz",
             "props": {
-                "title": "Maktfordelingen i Republikken",
-                "leftTitle": "Senatet (Patrisierne)",
-                "rightTitle": "Folketribunene (Plebeierne)",
-                "items": [
+                "questions": [
                     {
-                        "left": "Bestod av de rikeste adelsfamiliene.",
-                        "right": "Representerte de vanlige borgerne."
+                        "question": "Hvilket årstall markerer starten på den romerske republikken?",
+                        "options": [
+                            "753 fvt.",
+                            "509 fvt.",
+                            "44 fvt.",
+                            "476 evt."
+                        ],
+                        "correctAnswer": 1
                     },
                     {
-                        "left": "Styrte utenrikspolitikk og økonomi.",
-                        "right": "Kunne legge ned veto mot lover."
+                        "question": "Hva var en 'Folketribun'?",
+                        "options": [
+                            "En general som ledet hæren",
+                            "En representant for plebeierne med veto-rett",
+                            "En prest i Jupiter-tempelet",
+                            "En slaveleder"
+                        ],
+                        "correctAnswer": 1
                     },
                     {
-                        "left": "Satt på livstid og hadde enorm autoritet.",
-                        "right": "Beskyttet folket mot maktmisbruk fra konsulene."
+                        "question": "Hvorfor er slaget ved Cannae berømt?",
+                        "options": [
+                            "Fordi Roma vant en stor seier",
+                            "Fordi Hannibal omringet og knuste den romerske hæren",
+                            "Fordi elefantene fløy",
+                            "Fordi det var et sjøslag"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hvem kjempet brødrene Gracchus for?",
+                        "options": [
+                            "De rike senatorene",
+                            "De fattige bøndene og byfolkene",
+                            "Slavene",
+                            "Kartago"
+                        ],
+                        "correctAnswer": 1
                     }
                 ]
             }
         },
         {
             "type": "header",
-            "content": "Republikken vokser"
-        },
-        {
-            "type": "text",
-            "content": "Roma ble raskt en militær makt som la under seg hele den italienske halvøya. Den største testen kom da de møtte Kartago i Punerkrigene. Her kjempet de mot den legendariske generalen Hannibal, som krysset Alpene med elefanter for å angripe Roma. Til tross for store nederlag ga romerne seg aldri. Deres utholdenhet og evne til å bygge opp nye hærer gjorde at de til slutt vant krigen og ble den dominerende makten i Middelhavet."
-        },
-        {
-            "type": "text",
-            "content": "Denne ekspansjonen brakte enorme rikdommer til Roma, men den skapte også store indre spenninger. Bønder som kom hjem fra krig, fant gårdene sine i ruiner, mens de rike ble stadig rikere på slaver og krigsbytte. Dette la grunnlaget for de store konfliktene som senere skulle føre til republikkens fall og starten på keisertiden under [Augustus](/historie/romerriket/augustus-og-keiserdomme)."
-        },
-        {
-            "type": "header",
             "content": "Milepæler i republikkens historie"
         },
         {
-            "type": "text",
-            "content": "Fra grunnleggelsen i år 753 fvt. til republikkens stiftelse i 509 fvt., gikk Roma fra å være en samling små landsbyer til å bli en organisert stat. Utvidelsen skjedde ikke uten kamp. Den mest dristige utfordringen kom i år 218 fvt., da den kartagiske generalen Hannibal krysset Alpene med både hærførere og elefanter. Men romerne sto imot, og med ødeleggelsen av rivalen Kartago i år 146 fvt., sto Roma igjen som den ubestridte herskeren over Middelhavet."
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "Veien mot Imperiet",
+                "events": [
+                    {
+                        "time": "753 fvt.",
+                        "title": "Grunnleggelsen",
+                        "description": "Roma grunnlegges (ifølge myten) av Romulus."
+                    },
+                    {
+                        "time": "509 fvt.",
+                        "title": "Republikken",
+                        "description": "Den siste kongen kastes, og republikken innføres."
+                    },
+                    {
+                        "time": "494 fvt.",
+                        "title": "Første streik",
+                        "description": "Plebeierne streiker og får egne folketribuner."
+                    },
+                    {
+                        "time": "218–201 fvt.",
+                        "title": "2. Punerkrig",
+                        "description": "Hannibal herjer i Italia, men Roma vinner til slutt."
+                    },
+                    {
+                        "time": "133 fvt.",
+                        "title": "Gracchus-drapet",
+                        "description": "Tiberius Gracchus drepes, og den politiske volden starter."
+                    },
+                    {
+                        "time": "27 fvt.",
+                        "title": "Slutten",
+                        "description": "Octavian blir Augustus, og republikken blir et keiserdømme."
+                    }
+                ]
+            }
         }
     ],
     "quiz": [
@@ -124,24 +238,24 @@
             "correctAnswer": 1
         },
         {
-            "question": "Hva betyr 'res publica'?",
+            "question": "Hva var en 'Folketribun'?",
             "options": [
-                "Kongens makt",
-                "Folkets sak",
-                "Gudenes gave",
-                "Militær styrke"
+                "En general som ledet hæren",
+                "En representant for plebeierne med veto-rett",
+                "En prest i Jupiter-tempelet",
+                "En slaveleder"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hvem krysset Alpene med elefanter for å angripe Roma?",
+            "question": "Hvorfor er slaget ved Cannae berømt?",
             "options": [
-                "Julius Cæsar",
-                "Alexander den store",
-                "Hannibal",
-                "Augustus"
+                "Fordi Roma vant en stor seier",
+                "Fordi Hannibal omringet og knuste den romerske hæren",
+                "Fordi elefantene fløy",
+                "Fordi det var et sjøslag"
             ],
-            "correctAnswer": 2
+            "correctAnswer": 1
         }
     ]
 }
