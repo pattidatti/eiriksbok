@@ -1,0 +1,70 @@
+{
+    "id": "arendt",
+    "title": "Hannah Arendt",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "20 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80",
+    "dimension": "samfunnssyn",
+    "comparison_tags": [
+        "det_ondes_banalitet",
+        "vita_activa",
+        "offentlig_rom"
+    ],
+    "details": [
+        "En av de viktigste politiske tenkerne i det 20. århundre.",
+        "Kjent for begrepet 'det ondes banalitet'.",
+        "Analyserte totalitære regimer og hvordan de oppstår.",
+        "Mente at det politiske livet (handling) er der mennesket virkelig blir fritt.",
+        "Flyktet fra Nazi-Tyskland og emigrerte til USA."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Hannah Arendt (1906–1975) var en jødisk-tysk filosof som levde gjennom noen av historiens mørkeste kapitler. Hun var elev av [Martin Heidegger](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/heidegger.json), men måtte flykte fra Tyskland da nazistene kom til makten. Hennes filosofi handler ikke om ensom spekulasjon, men om mennesket som et politisk og handlende vesen midt i en pluralistisk verden."
+        },
+        {
+            "type": "header",
+            "text": "Ondskapens banalitet: Når tanken stopper opp"
+        },
+        {
+            "type": "text",
+            "content": "I 1961 dekket Arendt rettssaken mot nazi-forbryteren Adolf Eichmann i Jerusalem. Folk forventet å se et demonisk monster, men Arendt saw noe langt mer skremmende: En helt vanlig, pliktoppfyllende mann som led av en total mangel på fantasi og kritisk tenkning. Eichmann handlet ikke ut fra dyp ondskap, men fordi han var ute av stand til å se verden fra andres perspektiv.\n\nArendt konkluderte med at det største onde ofte er banalt – det oppstår når mennesker slutter å tenke selv og bare blir lydige tannhjul i et byråkratisk system. Å tenke er derfor for Arendt en moralsk og politisk plikt. Ved å tenke henter vi oss inn fra massenes konformitet, slik [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json) gjorde i Aten."
+        },
+        {
+            "type": "header",
+            "text": "Vita Activa: Menneskets tre måter å være på"
+        },
+        {
+            "type": "text",
+            "content": "I sitt hovedverk Menneskets vilkår analyserer hun det aktive livet. Hun skiller mellom tre grunnleggende menneskelige aktiviteter som har røtter helt tilbake til [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json):"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Arbeid (Labor): Dette er den biologiske kampen for overlevelse. Her er vi lik dyrene; vi produserer det vi må forbruke for å leve (mat, søvn).",
+                "Verk (Work): Her skaper vi en varig verden av ting (bygninger, kunst, verktøy). Vi bygger et 'hjem' for menneskeheten på jorda som varer lenger enn våre egne liv.",
+                "Handling (Action): Dette er den høyeste formen for aktivitet. Det er når vi trer frem i det offentlige rom og interagerer med andre gjennom tale. Her viser vi hvem vi er, og her starter vi noe helt nytt i verden. Arendt kaller dette natalitet – menneskets evne til å føde nye begynnelser."
+            ]
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Ingen kan være fri alene. Frihet oppstår bare i rommet mellom oss når vi handler sammen.",
+                "author": "Hannah Arendt"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Det offentlige rom og Totalitarisme"
+        },
+        {
+            "type": "text",
+            "content": "For Arendt er det politiske rommet (offentligheten) som et bord som står mellom oss: Det både forbinder oss og holder oss fra hverandre som unike individer. I totalitære samfunn blir dette rommet ødelagt. Mennesker presses så tett sammen at de mister sin individualitet, og sannheten erstattes av ideologi og løgn.\n\nUten et levende offentlig rom der vi kan diskutere som likeverdige partnere, dør friheten. Hennes filosofi er en konstant påminnelse om at vi må pleie det politiske rommet og aldri slutte å stille spørsmål ved makten og systemene vi lever i."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:13:00Z"
+}

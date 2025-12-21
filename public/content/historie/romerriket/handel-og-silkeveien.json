@@ -23,11 +23,17 @@
         },
         {
             "type": "text",
-            "content": "Roma lå ikke ved kysten, men litt oppe i elven Tiberen. Store havgående skip kunne ikke seile helt opp. Derfor bygde de en enorm havneby ved elvemunningen: **Ostia Antica**. Her ankom tusenvis av skip hvert år. Varene ble lastet over på mindre elvebåter som ble trukket opp elven av okser til Romas havnelagre."
+            "content": "Roma lå ikke ved kysten, men litt oppe i elven Tiberen. Store havgående skip kunne ikke seile helt opp. Derfor bygde de en enorm havneby ved elvemunningen: Ostia Antica. Her ankom tusenvis av skip hvert år. Varene ble lastet over på mindre elvebåter som ble trukket opp elven av okser til Romas havnelagre."
         },
         {
             "type": "text",
             "content": "På det travleste bodde 50 000 mennesker i Ostia. Byen var full av lagerhus (*horrea*) med mange etasjer, kontorer for handelsmenn fra hele verden ('Rederiforbundet for afrikanske oljehandlere' har vi funnet skiltet til), og barer for sjømenn. I dag er ruinene av Ostia nesten like godt bevart som Pompeii, men uten vulkanasken."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/ostia-warehouse.png",
+            "alt": "Innsiden av et romersk lagerhus i Ostia",
+            "caption": "Ostia var fylt med enorme lagerhus (Horrea) hvor varer fra hele verden ble lagret før de ble sendt til Roma."
         },
         {
             "type": "header",
@@ -35,7 +41,13 @@
         },
         {
             "type": "text",
-            "content": "Den viktigste varen var korn. Roma hadde over én million innbyggere, og de kunne ikke brødfø seg selv. Keiseren hadde ansvar for **Cura Annonae** – kornforsyningen. Hvis kornflåten fra Egypt eller Nord-Afrika ble forsinket av uvær, kunne det bryte ut opptøyer i Roma på noen timer. Keiseren måtte sørge for at folket fikk 'brød og sirkus' for å holde seg ved makten."
+            "content": "Den viktigste varen var korn. Roma hadde over én million innbyggere, og de kunne ikke brødfø seg selv. Keiseren hadde ansvar for Cura Annonae – kornforsyningen. Hvis kornflåten fra Egypt eller Nord-Afrika ble forsinket av uvær, kunne det bryte ut opptøyer i Roma på noen timer. Keiseren måtte sørge for at folket fikk 'brød og sirkus' for å holde seg ved makten."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/roman-cargo-ship.png",
+            "alt": "Et romersk handelsskip på havet",
+            "caption": "Store handelsskip fraktet korn fra Egypt og Nord-Afrika for å brødfø Romas befolkning."
         },
         {
             "type": "header",
@@ -43,7 +55,13 @@
         },
         {
             "type": "text",
-            "content": "Romerne visste om Kina (som de kalte *Seres* – silkefolket), og kineserne visste om Roma (som de kalte *Da Qin*). De møttes aldri direkte, men de handlet med hverandre via mellommenn langs **Silkeveien**. Karavaner av kameler fraktet silke gjennom Sentral-Asias ørkener til Persia, og derfra videre til Romerriket."
+            "content": "Romerne visste om Kina (som de kalte *Seres* – silkefolket), og kineserne visste om Roma (som de kalte *Da Qin*). De møttes aldri direkte, men de handlet med hverandre via mellommenn langs Silkeveien. Karavaner av kameler fraktet silke gjennom Sentral-Asias ørkener til Persia, og derfra videre til Romerriket."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/silk-road-caravan.png",
+            "alt": "En karavane på Silkeveien",
+            "caption": "Silkeveien var ikke én vei, men et nettverk av ruter der varer ble byttet fra hånd til hånd gjennom ørkener og fjell."
         },
         {
             "type": "text",
@@ -55,7 +73,7 @@
         },
         {
             "type": "text",
-            "content": "En enda viktigere rute gikk sjøveien til India. I det første århundret oppdaget (eller lærte) greske sjømenn hvordan **monsunvindene** fungerte. Om sommeren blåste vinden fra vest mot India, og om vinteren blåste den tilbake. Dette betydde at man kunne seile fra Rødehavet til India på bare 40 dager, handle krydder og edelstener, og seile hjem igjen samme år."
+            "content": "En enda viktigere rute gikk sjøveien til India. I det første århundret oppdaget (eller lærte) greske sjømenn hvordan monsunvindene fungerte. Om sommeren blåste vinden fra vest mot India, og om vinteren blåste den tilbake. Dette betydde at man kunne seile fra Rødehavet til India på bare 40 dager, handle krydder og edelstener, og seile hjem igjen samme år."
         },
         {
             "type": "text",

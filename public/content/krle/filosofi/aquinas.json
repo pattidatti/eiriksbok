@@ -1,0 +1,82 @@
+{
+    "id": "aquinas",
+    "title": "Thomas Aquinas",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "24 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1515542641795-d60ae0bc528e?auto=format&fit=crop&q=80",
+    "dimension": "metafysikk",
+    "comparison_tags": [
+        "skolastikk",
+        "gudsbevis",
+        "naturlig_lov"
+    ],
+    "details": [
+        "Middelalderens største filosof og teolog.",
+        "Forente Aristoteles' logikk med kristen teologi (skolastikk).",
+        "Kjent for sine 'fem beviser' for Guds eksistens.",
+        "Mente at tro og fornuft aldri kan motsi hverandre fordi begge kommer fra Gud.",
+        "Utviklet læren om 'den naturlige lov'."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Thomas Aquinas (1225–1274) er kjempen i middelalderens filosofi. Han ble født inn i en adelig familie i Italia, men trosset foreldrene for å bli en fattig tiggermunk i dominikanerordenen. Han var så stor og stille at medstudentene kalte ham 'den dumme oksen', men læreren hans, Albertus Magnus, profeterte: 'Den dagen denne oksen rauter, vil det høres over hele verden'."
+        },
+        {
+            "type": "header",
+            "text": "Harmonien mellom Tro og Fornuft"
+        },
+        {
+            "type": "text",
+            "content": "På 1200-tallet ble de greske skriftene til [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json) gjenoppdaget i Europa. Dette skapte krise i kirken, fordi [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json) baserte alt på fornuft og observasjon, ikke på åpenbaring.\n\nThomas Aquinas utførte det enorme arbeidet med å forene disse to verdene. Han mente at Gud er kilden til både troen og fornuften. Derfor kan de aldri motsi hverandre. Hvis vitenskapen og Bibelen ser ut til å være uenige, skyldes det enten at vi har misforstått vitenskapen eller at vi har tolket Bibelen feil. Fornuften kan bevise Guds eksistens, mens troen trengs for å forstå Guds dypere mysterier."
+        },
+        {
+            "type": "header",
+            "text": "De fem gudsbevisene (Quinque Viae)"
+        },
+        {
+            "type": "text",
+            "content": "Thomas mente at vi ikke kan se Gud direkte, men vi kan se sporene etter Gud i naturen. Han satte opp fem logiske veier til Gud:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Bevegelse: Alt som beveger seg, må være satt i gang av noe annet. Men vi kan ikke ha en uendelig rekke av 'bevegere'. Det må finnes en Første Beveger som ikke selv er beveget – og det er Gud.",
+                "Årsak: Ingenting kan være årsak til seg selv. Det må finnes en Første Årsak til alt som eksisterer.",
+                "Nødvendighet: Alt i verden er forgjengelig og kan slutte å eksistere. Hvis alt var slik, ville det på et tidspunkt ikke finnes noe. Det må derfor finnes noe som eksisterer med nødvendighet."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Hans metode var strengt logisk og bygde direkte på [logikken til Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json)."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Skolastikken",
+                "content": "Thomas Aquinas er den fremste representanten for skolastikken. Dette var en vitenskapelig metode der man brukte logikk og diskusjon (disputaser) for å analysere teologiske spørsmål. Man stilte opp et spørsmål, presenterte alle tenkelige motargumenter, og svarte så på dem ett etter ett med knivskarp logikk."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Den naturlige lov og etikk"
+        },
+        {
+            "type": "text",
+            "content": "Thomas videreutviklet [Aristoteles' etikk](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json) ved å legge til de kristne dygdene tro, håp og kjærlighet. Han mente også at det finnes en 'naturlig lov' som er lik for alle mennesker, uavhengig av religion. Siden vi alle er skapt med fornuft, kan vi alle forstå at det er rett å bevare liv, leve i samfunn og søke sannhet.\n\nEn lov som strider mot den naturlige loven, er ifølge Thomas ingen lov i det hele tatt, men en 'perversjon av loven'. Dette har lagt grunnlaget for vestlig rettstenkning og ideen om universelle menneskerettigheter."
+        },
+        {
+            "type": "header",
+            "text": "Stillasene faller"
+        },
+        {
+            "type": "text",
+            "content": "Thomas skrev millioner av ord i verker som Summa Theologica. Men mot slutten av livet fikk han en visjon under en messe. Han sluttet plutselig å skrive og sa: 'Alt jeg har skrevet, virker som halm for meg sammenlignet med det jeg nå har sett'. Han døde kort tid etter, og etterlot seg et av de mest imponerende tankebyggverkene i menneskehetens historie. Hans filosofi er fremdeles den offisielle læren i den katolske kirke."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:12:00Z"
+}

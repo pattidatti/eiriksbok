@@ -1,0 +1,245 @@
+{
+    "id": "cuba-krisen",
+    "title": "Cuba-krisen 1962: Verden p\u00e5 kanten av utslettelse",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1962",
+    "category": "Kald krig",
+    "readTime": "15 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1516701037614-97c40e1376df?auto=format&fit=crop&q=80",
+    "details": [
+        "De 13 dagene i oktober 1962 da verden var n\u00e6rmest en atomkrig.",
+        "Utl\u00f8st av sovjetiske atomraketter p\u00e5 Cuba.",
+        "Karakterisert av intenst diplomati og hemmelige forhandlinger.",
+        "F\u00f8rte til opprettelsen av 'den r\u00f8de linje' mellom Moskva og Washington.",
+        "En personlig maktkamp mellom Kennedy og Khrusjtsjov."
+    ],
+    "timeline": [
+        {
+            "year": "1962",
+            "title": "Cuba-krisen",
+            "description": "Verden p\u00e5 kanten av atomragnarok i 13 dager i oktober."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "I oktober 1962 holdt hele verden pusten. I tretten dramatiske dager virket det som om menneskehetens historie kunne ta slutt i et glimt av atomflammer. Cuba-krisen var ikke bare en konflikt om territorium eller ideologi; det var en konfrontasjon der feilberegning fra \u00e9n enkelt person kunne ha utl\u00f8st en tredje verdenskrig i l\u00f8pet av [den kalde krigen](/historie/den-kalde-krigen/oversikt).\n\nKrisen oppsto da amerikanske spionfly oppdaget at Sovjetunionen holdt p\u00e5 \u00e5 installere mellomdistanseraketter med atomstridshoder p\u00e5 Cuba \u2013 bare 140 kilometer fra den amerikanske kysten. For USA var dette en uakseptabel trussel som krevde en umiddelbar og resolutt reaksjon."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Hvorfor plasserte Sovjet raketter p\u00e5 Cuba?",
+                "content": "Det var to hoved\u00e5rsaker: For det f\u00f8rste \u00f8nsket lederen Nikita Khrusjtsjov \u00e5 beskytte Cuba mot en ny amerikansk invasjon (etter det mislykkede 'Grisebukta'-angrepet i 1961). For det andre var det et svar p\u00e5 at USA hadde plassert atomraketter i Tyrkia og Italia, som kunne n\u00e5 sovjetiske byer p\u00e5 f\u00e5 minutter. Khrusjtsjov ville f\u00e5 USA til \u00e5 'f\u00f8le hvordan det var \u00e5 ha en pistol rettet mot seg'."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Oppdagelsen: 14. oktober 1962"
+        },
+        {
+            "type": "text",
+            "content": "S\u00f8ndag 14. oktober fl\u00f8 et U-2 spionfly over Cuba og tok tusenvis av bilder. Da bildene ble analysert neste dag, var bevisene klare: Sovjetiske teknikere holdt p\u00e5 \u00e5 klargj\u00f8re utskytningsramper for raketter som kunne n\u00e5 nesten alle store byer i USA.\n\nPresident John F. Kennedy ble informert morgenen 16. oktober. Han samlet umiddelbart sine n\u00e6rmeste r\u00e5dgivere i en gruppe kjent som ExComm (Executive Committee of the National Security Council). I seks dager diskuterte de i dypeste hemmelighet hva USA skulle gj\u00f8re. Generalene presset p\u00e5 for et massivt luftangrep og en invasjon av Cuba, mens andre fryktet at dette ville f\u00f8re til at Sovjetunionen svarte med \u00e5 ta [Vest-Berlin](/historie/den-kalde-krigen/berlinmuren) eller starte en atomkrig."
+        },
+        {
+            "type": "header",
+            "text": "Valget: Karantene i stedet for krig"
+        },
+        {
+            "type": "text",
+            "content": "Kennedy valgte en melloml\u00f8sning. I en dramatisk TV-tale til det amerikanske folket 22. oktober kunngjorde han en n\u00e5del\u00f8s karantene (blokade) av Cuba. Alle sovjetiske skip p\u00e5 vei til \u00f8ya ville bli stoppet og gjennoms\u00f8kt for offensive v\u00e5pen. Kennedy brukte ordet 'karantene' fordi en 'blokade' juridisk sett er en krigshandling.\n\nHan krevde ogs\u00e5 at alle eksisterende raketter skulle fjernes umiddelbart. Verden ventet n\u00e5 i spenning: Ville de sovjetiske skipene stoppe, eller ville de fors\u00f8ke \u00e5 bryte blokaden og dermed starte en krig?"
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "De 13 dagene som rystet verden",
+                "compact": true,
+                "events": [
+                    {
+                        "date": "16. okt",
+                        "title": "Kennedy informeres",
+                        "description": "ExComm møtes for første gang."
+                    },
+                    {
+                        "date": "22. okt",
+                        "title": "TV-talen",
+                        "description": "Kennedy kunngjør blokaden av Cuba."
+                    },
+                    {
+                        "date": "24. okt",
+                        "title": "Konfrontasjon",
+                        "description": "Sovjetiske skip nærmer seg blokadelinjen, men stopper eller snur."
+                    },
+                    {
+                        "date": "25. okt",
+                        "title": "Sikkerhetsrådet",
+                        "description": "Adlai Stevenson konfronterer Sovjetunionen i FN med bildebevis."
+                    },
+                    {
+                        "date": "26. okt",
+                        "title": "Første brev",
+                        "description": "Khrusjtsjov sender et personlig brev som antyder en løsning."
+                    },
+                    {
+                        "date": "27. okt",
+                        "title": "Sort lørdag",
+                        "description": "Et U-2 fly skytes ned over Cuba. Spenningen er på sitt absolutt høyeste."
+                    },
+                    {
+                        "date": "28. okt",
+                        "title": "Løsningen",
+                        "description": "Khrusjtsjov kunngjør at rakettene fjernes."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Sort l\u00f8rdag: Da tiden nesten stoppet"
+        },
+        {
+            "type": "text",
+            "content": "L\u00f8rdag 27. oktober var den farligste dagen. Et amerikansk U-2 fly ble skutt ned over Cuba, og piloten, major Rudolf Anderson, ble drept. Milit\u00e6rlederne i USA krevde hevnangrep med en gang. Samtidig ble en sovjetisk ub\u00e5t n\u00e6r Cuba presset til overflaten av amerikanske synkeminer. Ub\u00e5ten bar på en atomtorpedo, og bare nektelsen fra den sovjetiske offiseren Vasilij Arkhipov hindret mannskapet i \u00e5 avfyre den.\n\nI Washington jobbet Robert Kennedy (presidentens bror) desperat gjennom hemmelige kanaler. Han møtte den sovjetiske ambassad\u00f8ren Anatolij Dobrynin og ga ham et ultimatum: Hvis Sovjet ikke fjernet rakettene med en gang, ville USA angripe innen to dager."
+        },
+        {
+            "type": "header",
+            "text": "Den hemmelige avtalen"
+        },
+        {
+            "type": "text",
+            "content": "S\u00f8ndag 28. oktober kom meldingen over radio fra Moskva: Sovjetunionen gikk med p\u00e5 \u00e5 fjerne alle rakettinstallasjoner mot at USA ga et l\u00f8fte om aldri \u00e5 invadere Cuba.\n\nDet offentligheten ikke fikk vite f\u00f8r mange \u00e5r senere, var den andre delen av avtalen: USA lovet ogs\u00e5 hemmelig \u00e5 fjerne sine atomraketter fra Tyrkia. Dette var en 'ansiktsreddende' l\u00f8sning for Khrusjtsjov, som n\u00e5 kunne hevde at han hadde reddet Cuba og sikret freden."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Kennedy vs. Khrusjtsjov",
+                "leftTitle": "John F. Kennedy (USA)",
+                "rightTitle": "Nikita Khrusjtsjov (Sovjet)",
+                "items": [
+                    {
+                        "label": "Press hjemme",
+                        "left": "M\u00e5tte ikke virke svak f\u00f8r valget; generalene ville ha krig.",
+                        "right": "Hardlinere i Kreml mente han var for myk mot vesten."
+                    },
+                    {
+                        "label": "Strategi",
+                        "left": "Kombinerte milit\u00e6rt press (blokade) med hemmelig diplomati.",
+                        "right": "Tok en sjanse (gamble) p\u00e5 \u00e5 plassere rakettene raskt."
+                    },
+                    {
+                        "label": "Resultat",
+                        "left": "Visto som den store 'vinneren' i vesten; \u00f8kt prestisje.",
+                        "right": "Sikret et invasjonsl\u00f8fte og fjernet raketter i Tyrkia, men ble senere avsatt."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Etterspillet: Avspenning og r\u00f8de linjer"
+        },
+        {
+            "type": "text",
+            "content": "Sjokket over hvor n\u00e6r verden hadde v\u00e6rt en utslettelse, f\u00f8lte til en endring i [v\u00e5penkappl\u00f8pet](/historie/den-kalde-krigen/atomvapenkapplopet). Supermaktene inns\u00e5 at de m\u00e5tte kunne snakke sammen raskere. En direkte telefonlinje, 'den r\u00f8de linje', ble etablert mellom Det hvite hus og Kreml.\n\nI 1963 undertegnet de ogs\u00e5 den f\u00f8rste avtalen om begrensning av atompr\u00f8vesprengninger. Cuba-krisen markerte p\u00e5 mange m\u00e5ter overgangen til en periode med mer avspenning (d\u00e9tente), selv om den fundamentale konflikten fortsatte i mange ti\u00e5r til."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva slags fly oppdaget rakettene p\u00e5 Cuba?",
+                        "options": [
+                            "F-15",
+                            "U-2 spionfly",
+                            "Boeing 747",
+                            "Sputnik"
+                        ],
+                        "answer": "U-2 spionfly"
+                    },
+                    {
+                        "question": "Hvilken taktikk valgte Kennedy for \u00e5 stoppe sovjetiske skip?",
+                        "options": [
+                            "Full invasjon",
+                            "Atombomber",
+                            "Diplomatisk boikott",
+                            "Karantene (blokade)"
+                        ],
+                        "answer": "Karantene (blokade)"
+                    },
+                    {
+                        "question": "Hvor i Europa hadde USA raketter som Sovjet ville ha fjernet?",
+                        "options": [
+                            "Tyrkia og Italia",
+                            "Norge og Danmark",
+                            "England og Frankrike",
+                            "Tyskland og Polen"
+                        ],
+                        "answer": "Tyrkia og Italia"
+                    },
+                    {
+                        "question": "Hvem var offiseren som hindret en atomtorpedo i \u00e5 bli avfyrt fra en ub\u00e5t?",
+                        "options": [
+                            "Yuri Gagarin",
+                            "Vasilij Arkhipov",
+                            "Leonid Bresjnev",
+                            "Fidel Castro"
+                        ],
+                        "answer": "Vasilij Arkhipov"
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva slags fly oppdaget rakettene p\u00e5 Cuba?",
+            "options": [
+                "F-15",
+                "U-2 spionfly",
+                "Boeing 747",
+                "Sputnik"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hvilken taktikk valgte Kennedy for \u00e5 stoppe sovjetiske skip?",
+            "options": [
+                "Full invasjon",
+                "Atombomber",
+                "Diplomatisk boikott",
+                "Karantene (blokade)"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": "q3",
+            "question": "Hvor i Europa hadde USA raketter som Sovjet ville ha fjernet?",
+            "options": [
+                "Tyrkia og Italia",
+                "Norge og Danmark",
+                "England og Frankrike",
+                "Tyskland og Polen"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Hvem var offiseren som hindret en atomtorpedo i \u00e5 bli avfyrt fra en ub\u00e5t?",
+            "options": [
+                "Yuri Gagarin",
+                "Vasilij Arkhipov",
+                "Leonid Bresjnev",
+                "Fidel Castro"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2023-12-21T12:05:00Z",
+    "lastUpdated": "2023-12-21T12:05:00Z"
+}

@@ -18,12 +18,18 @@
             "content": "Den 24. august (eller kanskje i oktober, som nyere funn tyder på) i år 79 evt., våknet innbyggerne i den velstående byen Pompeii til en vakker morgen. De ante ikke at fjellet de bodde under, Vesuv, var en vulkan. For dem var det bare et fjell med gode vindruer. Ved lunsjtid eksploderte toppen av fjellet, og i løpet av 24 timer var en hel verden begravet."
         },
         {
+            "type": "image",
+            "src": "/images/romerriket/vesuvius-eruption.png",
+            "alt": "En dramatisk røyksøyle som stiger opp fra Vesuv, sett fra en villa over bukta",
+            "caption": "Utbruddet i år 79 evt. var så voldsomt at det fullstendig endret landskapet rundt Napolibukta."
+        },
+        {
             "type": "header",
             "content": "Øyenvitnet: Plinius den Yngre"
         },
         {
             "type": "text",
-            "content": "Vi vet nøyaktig hva som skjedde den dagen, takket være en 17 år gammel gutt som sto på den andre siden av bukta og så alt sammen. **Plinius den Yngre** skrev to brev til historikeren Tacitus om katastrofen. Han beskrev røykskyen som steg opp fra fjellet 'som et paraplytre (pinje)', en sky som spredte seg utover himmelen."
+            "content": "Vi vet nøyaktig hva som skjedde den dagen, takket være en 17 år gammel gutt som sto på den andre siden av bukta og så alt sammen. Plinius den Yngre skrev to brev til historikeren Tacitus om katastrofen. Han beskrev røykskyen som steg opp fra fjellet 'som et paraplytre (pinje)', en sky som spredte seg utover himmelen."
         },
         {
             "type": "text",
@@ -35,11 +41,17 @@
         },
         {
             "type": "text",
-            "content": "I Pompeii falt asken som snø, men det var tung, varm stein (pimpstein). Takene raste sammen under vekten. Folk som ble inne, ble knust. De som løp ut, ble kvalt av gasser eller truffet av steiner. Men det var ikke asken som drepte de fleste. Det var **pyroklastiske strømmer** – supervarme bølger av gass og aske som raste nedover fjellsiden i 500 km/t og kokte alt på sin vei."
+            "content": "I Pompeii falt asken som snø, men det var tung, varm stein (pimpstein). Takene raste sammen under vekten. Folk som ble inne, ble knust. De som løp ut, ble kvalt av gasser eller truffet av steiner. Men det var ikke asken som drepte de fleste. Det var pyroklastiske strømmer – supervarme bølger av gass og aske som raste nedover fjellsiden i 500 km/t og kokte alt på sin vei."
         },
         {
             "type": "text",
             "content": "Asken la seg som et 6 meter tykt teppe over byen. Den herdet og dannet en perfekt form rundt kroppene til de døde. Da kjøttet råtnet bort, ble det igjen et tomrom. På 1800-tallet fant arkeologen Giuseppe Fiorelli på å helle gips inn i disse hullene. Resultatet er de berømte gipsavstøpningene av ofrene i deres dødsøyeblikk: En hund som vrir seg i smerte, en mor som beskytter barnet sitt, og et par som holder hender."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/pompeii-victim.png",
+            "alt": "En gipsavstøpning av et offer i Pompeii",
+            "caption": "Gipsavstøpningene viser de siste øyeblikkene til ofrene med hjerteskjærende detaljer."
         },
         {
             "type": "header",
@@ -59,13 +71,20 @@
         },
         {
             "type": "text",
-            "content": "Pompeii og Herculaneum gir oss et unikt innblikk i hverdagslivet som ingen andre kilder kan matche. Vi ser ikke bare de store templene, men også de små tingene:\n*   **Grafitti**: På veggene har folk skrevet beskjeder som 'Gaius er en tosk', 'Samius til Cornelius: Heng deg!', og valgkamp-slagord.\n*   **Huronor**: Vi har funnet bordeller med eksplisitte malerier 'menyen' på veggen.\n*   **Gatekjøkken**: *Thermopolium* var romerske snackbarer der man kunne kjøpe varm mat og vin rett fra disken. I en av grytene fant arkeologene restene av en 2000 år gammel lapskaus med and og geit."
+            "content": "Pompeii og Herculaneum gir oss et unikt innblikk i hverdagslivet som ingen andre kilder kan matche. Vi ser ikke bare de store templene, men også de små tingene:\n*   Grafitti: På veggene har folk skrevet beskjeder som 'Gaius er en tosk', 'Samius til Cornelius: Heng deg!', og valgkamp-slagord.\n*   Huronor: Vi har funnet bordeller med eksplisitte malerier 'menyen' på veggen.\n*   Gatekjøkken: *Thermopolium* var romerske snackbarer der man kunne kjøpe varm mat og vin rett fra disken. I en av grytene fant arkeologene restene av en 2000 år gammel lapskaus med and og geit."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/pompeii-street.png",
+            "alt": "En gate i Pompeii med steiner for fotgjengere",
+            "caption": "Gatene i Pompeii hadde høye fortau og steiner man kunne gå på for å krysse veien uten å tråkke i søla."
         },
         {
             "type": "component",
             "name": "TimelineComponent",
             "props": {
                 "title": "Katastrofens tidslinje (24-25. August 79 evt.)",
+                "compact": true,
                 "events": [
                     {
                         "time": "13:00",

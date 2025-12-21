@@ -1160,13 +1160,13 @@
                     "id": "middelalderen",
                     "title": "Middelalderen",
                     "description": "En tusenårig forvandling i Europa.",
-                    "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+                    "image": "/images/lessons/middelalderen/middelalder_hero.png",
                     "lessons": [
                         {
                             "id": "middelalderen",
                             "title": "Middelalderen",
                             "description": "En oversikt over perioden fra Romerrikets fall til renessansen.",
-                            "image": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/middelalderen/middelalder_hero.png",
                             "tags": [
                                 "historie",
                                 "middelalderen",
@@ -1231,6 +1231,169 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "den-kalde-krigen",
+                    "title": "Den kalde krigen",
+                    "description": "En ideologisk kamp om verdensherred\u00f8mme.",
+                    "image": "https://images.unsplash.com/photo-1526040652367-ac003a0475fe?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "oversikt",
+                            "title": "Oversikt over den kalde krigen",
+                            "description": "Hva var den kalde krigen, og hvorfor skjedde den?",
+                            "image": "https://images.unsplash.com/photo-1526040652367-ac003a0475fe?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "oversikt",
+                                "ideologi",
+                                "stormakt",
+                                "usa",
+                                "sovjet"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "suez-krisen",
+                            "title": "Suez-krisen",
+                            "description": "Konflikten om kanalen og slutten p\u00e5 de gamle imperiene.",
+                            "image": "https://images.unsplash.com/photo-1558223108-ed0050965b6b?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "suez",
+                                "kris",
+                                "egypt",
+                                "imperialisme"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "cuba-krisen",
+                            "title": "Cuba-krisen",
+                            "description": "De 13 dagene som nesten avsluttet verden.",
+                            "image": "https://images.unsplash.com/photo-1516701037614-97c40e1376df?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "cuba",
+                                "atomv\u00e5pen",
+                                "kennedy",
+                                "khrusjtsjov"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "koreakrigen",
+                            "title": "Koreakrigen",
+                            "description": "Den f\u00f8rste store varme krigen i den kalde krigen.",
+                            "image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "korea",
+                                "krig",
+                                "proksykrig",
+                                "asia"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "vietnamkrigen",
+                            "title": "Vietnamkrigen",
+                            "description": "En splittende krig som rystet supermakten USA.",
+                            "image": "https://images.unsplash.com/photo-1444065381814-865dc9da92c0?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "vietnam",
+                                "krig",
+                                "usa",
+                                "protest"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "romkapplopet",
+                            "title": "Romkappl\u00f8pet",
+                            "description": "Mannen p\u00e5 m\u00e5nen og kampen om verdensrommet.",
+                            "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "romfart",
+                                "sputnik",
+                                "apollo",
+                                "teknologi"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "atomvapenkapplopet",
+                            "title": "Atomv\u00e5penkappl\u00f8pet",
+                            "description": "Terrorbalanse og kampen for overlevelse.",
+                            "image": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "atomv\u00e5pen",
+                                "mad",
+                                "nedrustning",
+                                "kappl\u00f8p"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "kultur",
+                            "title": "Kultur under den kalde krigen",
+                            "description": "Film, sport og musikk som ideologisk slagmark.",
+                            "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "kultur",
+                                "propaganda",
+                                "film",
+                                "sport"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "nato-vs-warszawa",
+                            "title": "NATO vs. Warszawapakten",
+                            "description": "Alliansene som delte verden i to.",
+                            "image": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "nato",
+                                "warszawapakten",
+                                "allianser",
+                                "europa"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "berlinmuren",
+                            "title": "Berlinmuren",
+                            "description": "Symbolet p\u00e5 det delte Europa.",
+                            "image": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "berlin",
+                                "mur",
+                                "tyskland",
+                                "jernteppet"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "veien-mot-slutt",
+                            "title": "Veien mot slutten",
+                            "description": "Murens fall og Sovjetunionens sammenbrudd.",
+                            "image": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "slutt",
+                                "gorbatsjov",
+                                "1989",
+                                "frihet"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        }
+                    ]
                 }
             ]
         },
@@ -1244,6 +1407,13 @@
                     "description": "Se likheter og forskjeller side om side.",
                     "link": "/krle/sammenlign",
                     "icon": "columns"
+                },
+                {
+                    "id": "compare-philosophy",
+                    "title": "Sammenlign Filosofer",
+                    "description": "Se hvordan ulike filosofer svarer på de store spørsmålene.",
+                    "link": "/krle/filosofi/sammenlign",
+                    "icon": "library"
                 }
             ],
             "topics": [
@@ -2163,6 +2333,316 @@
                                     "lastUpdated": "2025-12-03T17:25:16.499Z"
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    "id": "filosofi",
+                    "title": "Filosofi",
+                    "description": "Utforsk de store tankene som har formet vår verden.",
+                    "image": "https://images.unsplash.com/photo-1516050748632-ca7a5c110031?auto=format&fit=crop&q=80",
+                    "defaultView": "chronological",
+                    "lessons": [
+                        {
+                            "id": "intro",
+                            "title": "Hva er filosofi?",
+                            "description": "Opphavet til filosofi og de ulike grenene som undersøker virkeligheten.",
+                            "image": "https://images.unsplash.com/photo-1516050748632-ca7a5c110031?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "intro",
+                                "filosofi",
+                                "ontologi",
+                                "epistemologi"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "sokrates",
+                            "title": "Sokrates",
+                            "description": "Mannen som aldri skrev noe, men endret alt.",
+                            "image": "https://images.unsplash.com/photo-1507679022986-21827998a4f8?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "sokrates",
+                                "metode"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "platon",
+                            "title": "Platon",
+                            "description": "Idélæren og skyggene i hulen.",
+                            "image": "https://images.unsplash.com/photo-1503149779833-1de50ebe5f8a?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "platon",
+                                "idélære"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "aristoteles",
+                            "title": "Aristoteles",
+                            "description": "Systematikeren og den gylne middelvei.",
+                            "image": "https://images.unsplash.com/photo-1524333800407-b98ac37a391e?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "aristoteles",
+                                "logikk"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "augustin",
+                            "title": "Augustin",
+                            "description": "Tro og fornuft i tidlig middelalder.",
+                            "image": "https://images.unsplash.com/photo-1561571994-3c61c554181a?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "kristendom",
+                                "middelalder"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "aquinas",
+                            "title": "Thomas Aquinas",
+                            "description": "Gudbeviser og den naturlige lov.",
+                            "image": "https://images.unsplash.com/photo-1515542641795-d60ae0bc528e?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "skolastikk",
+                                "aquinas"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "descartes",
+                            "title": "René Descartes",
+                            "description": "Jeg tenker, altså er jeg.",
+                            "image": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "rasjonalisme",
+                                "descartes"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "locke",
+                            "title": "John Locke",
+                            "description": "Tabula Rasa og menneskets naturlige rettigheter.",
+                            "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "empirisme",
+                                "locke"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "kant",
+                            "title": "Immanuel Kant",
+                            "description": "Det kategoriske imperativ og fornuftens grenser.",
+                            "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "etikk",
+                                "kant"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "kierkegaard",
+                            "title": "Søren Kierkegaard",
+                            "description": "Eksistensens tre stadier.",
+                            "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "eksistensialisme",
+                                "kierkegaard"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "nietzsche",
+                            "title": "Friedrich Nietzsche",
+                            "description": "Gud er død og overmennesket.",
+                            "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "nihilisme",
+                                "nietzsche"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "mises",
+                            "title": "Ludwig von Mises",
+                            "description": "Handlende mennesker og praxeologi.",
+                            "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "økonomi",
+                                "mises"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "heidegger",
+                            "title": "Martin Heidegger",
+                            "description": "Dasein og spørsmålet om væren.",
+                            "image": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "heidegger",
+                                "eksistens"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "arendt",
+                            "title": "Hannah Arendt",
+                            "description": "Det ondes banalitet og det offentlige rom.",
+                            "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "arendt",
+                                "politisk"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "beauvoir",
+                            "title": "Simone de Beauvoir",
+                            "description": "Man fødes ikke som kvinne, man blir det.",
+                            "image": "https://images.unsplash.com/photo-1549405616-56329424c58f?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "feminisme",
+                                "beauvoir"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "rothbard",
+                            "title": "Murray Rothbard",
+                            "description": "Anarkokapitalisme og naturrett.",
+                            "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "filosofi",
+                                "politisk",
+                                "rothbard"
+                            ],
+                            "createdDate": "2025-12-21T12:00:00Z",
+                            "lastUpdated": "2025-12-21T12:00:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "etikk",
+                    "title": "Etikk",
+                    "description": "Hva er rett og galt? Utforsk de store etiske systemene.",
+                    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
+                    "defaultView": "chronological",
+                    "lessons": [
+                        {
+                            "id": "intro",
+                            "title": "Hva er etikk?",
+                            "description": "En introduksjon til moralens fundamenter og vanskelige valg.",
+                            "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "intro",
+                                "etikk",
+                                "moral"
+                            ],
+                            "createdDate": "2025-12-21T13:30:00Z",
+                            "lastUpdated": "2025-12-21T13:30:00Z"
+                        },
+                        {
+                            "id": "utilitarisme",
+                            "title": "Utilitarisme",
+                            "description": "Målet om størst mulig lykke for flest mulig.",
+                            "image": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "etikk",
+                                "nytte",
+                                "konsekvens",
+                                "mill"
+                            ],
+                            "createdDate": "2025-12-21T13:45:00Z",
+                            "lastUpdated": "2025-12-21T13:45:00Z"
+                        },
+                        {
+                            "id": "pliktetikk",
+                            "title": "Pliktetikk",
+                            "description": "Det finnes regler som aldri skal brytes.",
+                            "image": "https://images.unsplash.com/photo-1544258169-7ee4a169b27b?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "etikk",
+                                "plikt",
+                                "kant",
+                                "imperativ"
+                            ],
+                            "createdDate": "2025-12-21T14:00:00Z",
+                            "lastUpdated": "2025-12-21T14:00:00Z"
+                        },
+                        {
+                            "id": "dygdsetikk",
+                            "title": "Dygdsetikk",
+                            "description": "Det handler om karakter, ikke regler.",
+                            "image": "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "etikk",
+                                "dygd",
+                                "aristoteles",
+                                "karakter"
+                            ],
+                            "createdDate": "2025-12-21T14:15:00Z",
+                            "lastUpdated": "2025-12-21T14:15:00Z"
+                        },
+                        {
+                            "id": "naturrett",
+                            "title": "Naturretten",
+                            "description": "Er noen lover sanne for alle?",
+                            "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "etikk",
+                                "naturrett",
+                                "locke",
+                                "rettigheter"
+                            ],
+                            "createdDate": "2025-12-21T14:30:00Z",
+                            "lastUpdated": "2025-12-21T14:30:00Z"
+                        },
+                        {
+                            "id": "non-aggression",
+                            "title": "NAP: Ikke-aggresjon",
+                            "description": "Er skatt tyveri? Om frihetens grenser.",
+                            "image": "https://images.unsplash.com/photo-1569437061241-a848be43ccb6?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "etikk",
+                                "nap",
+                                "frihet",
+                                "eiendom"
+                            ],
+                            "createdDate": "2025-12-21T14:45:00Z",
+                            "lastUpdated": "2025-12-21T14:45:00Z"
                         }
                     ]
                 }

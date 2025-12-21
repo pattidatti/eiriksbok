@@ -1,0 +1,74 @@
+{
+    "id": "beauvoir",
+    "title": "Simone de Beauvoir",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "20 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1549405616-56329424c58f?auto=format&fit=crop&q=80",
+    "dimension": "samfunnssyn",
+    "comparison_tags": [
+        "eksistensialistisk_feminisme",
+        "situerthet",
+        "det_annet_kjønn"
+    ],
+    "details": [
+        "Eksistensialistisk filosof og grunnlegger av moderne feminisme.",
+        "Mente at mennesket må skape sin egen mening gjennom handling.",
+        "Kjent for setningen: 'Man fødes ikke som kvinne, man blir det'.",
+        "Utviklet en etikk basert på gjensidig frihet.",
+        "Partner med Jean-Paul Sartre, men en selvstendig og mektig tenker."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Simone de Beauvoir (1908–1986) var en av de mest lysende stjernene i det intellektuelle miljøet i Paris etter andre verdenskrig. Hun var utdannet filosof og ble den yngste noensinne til å bestå den krevende agrégation-eksamenen. Selv om hun ofte forbindes med Jean-Paul Sartre, var hun en dypt original tenker som utvidet eksistensialismen til å omfatte både kjønn og sosiale strukturer."
+        },
+        {
+            "type": "header",
+            "text": "Det annet kjønn: Myten om kvinnen"
+        },
+        {
+            "type": "text",
+            "content": "I sitt banebrytende verk Det annet kjønn (1949) går Beauvoir til angrep på ideen om at kvinnen har en naturlig 'essens' eller skjebne. Hun analyserer hvordan mannen gjennom hele historien har posisjonert seg som Subjektet – det handlende, tenkende sentrum – mens kvinnen har blitt definert som 'Den andre'.\n\nHun skrev de berømte ordene:"
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Man fødes ikke som kvinne, man blir det.",
+                "author": "Simone de Beauvoir"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Med dette mente hun at forestillingen om hva det vil si å være 'kvinnelig', er en sosial konstruksjon. Jenter blir oppdratt til å være passive objekter som skal behage, mens gutter oppdras til å handle og erobre. Biologien er ikke en skjebne, men en situasjon vi må forholde oss til. Her henter hun inspirasjon fra [Kierkegaards](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kierkegaard.json) ide om at eksistens handler om valg."
+        },
+        {
+            "type": "header",
+            "text": "Situert frihet"
+        },
+        {
+            "type": "text",
+            "content": "Beauvoir utviklet begrepet situerthet. Vi er alle frie til å velge våre liv, men vi velger alltid fra en bestemt situasjon (kjønn, klasse, kropp, historie). En kvinne i 1950 har andre valgmuligheter enn en kvinne i dag, men ansvaret for å gjøre det beste ut av sin situasjon ligger fortsatt på individet.\n\nHun kritiserte kvinner som valgte å forbli i en passiv rolle som 'objekter' for å slippe unna frihetens angst. Dette kalte hun for uegentlighet eller selvbedrag."
+        },
+        {
+            "type": "header",
+            "text": "Tvetydighetens etikk"
+        },
+        {
+            "type": "text",
+            "content": "I boken Tvetydighetens etikk argumenterer hun for at vi må leve i spenningen mellom å være en kropp bundet til jorda og en ånd som er fri. Hun mente at ekte frihet aldri kan oppnås alene. 'Å ville seg selv fri, er også å ville at de andre skal være frie', skrev hun.\n\nHuns filosofi er derfor grunnleggende politisk: Man kan ikke være virkelig fri i et samfunn der andre er undertrykte. Dette gjør henne til en viktig brobygger mellom eksistensialismen og sosial rettferdighet, i likhet med hennes samtidige [Hannah Arendt](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/arendt.json), selv om de to ofte var uenige om metodene."
+        },
+        {
+            "type": "header",
+            "text": "Alderdommen og de siste tabuer"
+        },
+        {
+            "type": "text",
+            "content": "Beauvoir fortsatte å utfordre samfunnets normer helt til det siste. Hun skrev omfattende om alderdommen og hvordan eldre mennesker ofte blir sett på som 'ikke-personer' uten behov eller rettigheter. Gjennom hele sitt liv og virke kjempet hun for at ethvert menneske, uansett kjønn eller alder, skal ha retten til å definere seg selv gjennom sine handlinger, akkurat som [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json) oppfordret oss til å kjenne oss selv."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:14:00Z"
+}

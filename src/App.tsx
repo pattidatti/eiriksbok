@@ -28,6 +28,7 @@ const QuizHost = React.lazy(routeFactories.QuizHost);
 const QuizPlayer = React.lazy(routeFactories.QuizPlayer);
 const ReligionPage = React.lazy(routeFactories.ReligionPage);
 const ReligionComparisonPage = React.lazy(routeFactories.ReligionComparisonPage);
+const PhilosophyComparisonPage = React.lazy(routeFactories.PhilosophyComparisonPage);
 const TopicComparisonPage = React.lazy(routeFactories.TopicComparisonPage);
 const GlobalTimelinePage = React.lazy(routeFactories.GlobalTimelinePage);
 const ChronoGamePage = React.lazy(routeFactories.ChronoGamePage);
@@ -104,6 +105,7 @@ function AppContent() {
               <Route path="quiz-battle/play/:pin" element={<QuizPlayer />} />
 
               <Route path="krle/sammenlign" element={<ReligionComparisonPage />} />
+              <Route path="krle/filosofi/sammenlign" element={<PhilosophyComparisonPage />} />
               <Route path="krle/sammenlign/tema/:tag" element={<TopicComparisonPage />} />
               <Route path="krle/religion/:religionId" element={<ReligionPage />} />
 

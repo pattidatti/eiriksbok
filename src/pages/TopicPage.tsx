@@ -202,7 +202,7 @@ export const TopicPage: React.FC = () => {
             {subTopics.length > 0 && (
                 <div className="mb-12">
                     <h2 className="text-2xl font-display font-bold text-text-main mb-6">Emner</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {subTopics.map((subTopic: any, index: number) => (
                             <motion.div
                                 key={subTopic.id}
@@ -242,7 +242,7 @@ export const TopicPage: React.FC = () => {
             {filteredLessons.length > 0 && (
                 <div>
                     {subTopics.length > 0 && <h2 className="text-2xl font-display font-bold text-text-main mb-6">Leksjoner</h2>}
-                    <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
+                    <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1'}`}>
                         {filteredLessons.map((lesson, index) => (
                             <motion.div
                                 key={lesson.id}

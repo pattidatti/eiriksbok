@@ -1,0 +1,12 @@
+{
+    "id": "aristoteles",
+    "name": "Aristoteles",
+    "color": "#10b981",
+    "dimensions": {
+        "metafysikk": "Realisme: Formene finnes i tingene selv, ikke i en annen verden. Alt har et iboende formål (teleologi).",
+        "epistemologi": "Empirisme: Kunnskap starter med sansene. Gjennom observasjon og logikk (induksjon) kan vi finne allmenne sannheter.",
+        "etikk": "Eudaimonia (lykke) gjennom dygder. Den gylne middelvei mellom ytterpunkter (f.eks. mot mellom feighet og overmot).",
+        "menneskesyn": "Hylemorfisme: Mennesket er en enhet av stoff (kropp) og form (sjel). Sjelen er kroppens livsprinsipp.",
+        "samfunnssyn": "Mennesket er et politisk dyr (zoon politikon). Den beste staten er den som lar flest mulig utvikle sine dygder i et stabilt fellesskap."
+    }
+}

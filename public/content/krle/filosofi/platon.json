@@ -1,0 +1,100 @@
+{
+    "id": "platon",
+    "title": "Platon",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "20 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1503149779833-1de50ebe5f8a?auto=format&fit=crop&q=80",
+    "dimension": "metafysikk",
+    "comparison_tags": [
+        "idélæren",
+        "hulelignelsen",
+        "filosofkonger"
+    ],
+    "details": [
+        "Sokrates' mest kjente elev og grunnlegger av Akademiet i Aten.",
+        "Utviklet idélæren: Verden vi ser er bare en blek kopi av en perfekt idéverden.",
+        "Kjent for hulelignelsen som forklarer menneskets erkjennelse.",
+        "Mente at samfunnet burde styres av 'filosofkonger'.",
+        "Skrev dialoger der Sokrates ofte er hovedpersonen."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Platon (ca. 427–347 f.Kr.) var [Sokrates’](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json) mest begavede elev. Der Sokrates forstyrret folk på gata med spørsmål, bygde Platon et helhetlig filosofisk system. Han grunnla Akademiet i Aten, en skole som besto i over 900 år og som regnes som Europas første universitet.\n\nHovedmålet for Platon var å finne noe fast og uforanderlig i en verden som alltid er i endring. Hvis en hest dør, finnes det fortsatt noe vi kaller 'en hest'. Hvor kommer denne ideen fra? Dette spørsmålet ledet ham til hans mest berømte teori."
+        },
+        {
+            "type": "header",
+            "text": "Idélæren: To verdener"
+        },
+        {
+            "type": "text",
+            "content": "Platon delte virkeligheten i to. På den ene siden har vi sanseverdenen – den vi ser, hører og tar på. Denne verdenen er ufullkommen og foranderlig. På den andre siden har vi idéverdenen (formenes verden). Her finnes de evige og perfekte modellene for alt i sanseverdenen.\n\nTenk på begrepet rettferdighet. Vi ser mange handlinger vi kaller rettferdige, men ingen av dem er perfekte. Likevel har vi en idé om hva perfekt rettferdighet er. For Platon var denne ideen mer 'virkelig' enn de enkelte handlingene, fordi ideen er evig mens handlingene forgår. Den høyeste av alle ideer kalte han Det godes idé – kilden til all sannhet og fornuft."
+        },
+        {
+            "type": "header",
+            "text": "Gjenoppindring (Anamnesis)"
+        },
+        {
+            "type": "text",
+            "content": "Hvordan kan vi mennesker vite noe om disse perfekte ideene hvis vi bare lever i sanseverdenen? Platon mente at sjelen vår er udødelig og har eksistert i idéverdenen før vi ble født. Når vi ser en vakker blomst, blir sjelen minnet om Sann Skjønnhet som den en gang har sett.\n\nÅ lære er derfor ikke å tilegne seg ny informasjon fra utsiden, men å huske det sjelen egentlig allerede vet. Dette kalles anamnesis – gjenoppindring. Gjennom filosofisk samtale og refleksjon kan vi 'vaske bort' de uklare inntrykkene fra sansene og nå frem til den klare kunnskapen som ligger gjemt i oss."
+        },
+        {
+            "type": "header",
+            "text": "Hulelignelsen: Veien til innsikt"
+        },
+        {
+            "type": "text",
+            "content": "For å illustrere forskjellen mellom innbildning og sann erkjennelse, skapte Platon hulelignelsen. Han beskriver mennesker som lever hele sitt liv fastlenket i en mørk hule. De ser bare skygger på veggen og tror dette er den sanne verden.\n\nEn fange slipper fri og tvinges ut i dagslyset. Overgangen er smertefull, og han blir først blendet. Men etter hvert ser han trærne, vannet og til slutt solen selv. Han forstår da at skyggene i hulen bare var bleke kopier. Solen symboliserer Det godes idé. Når filosofen vender tilbake til hulen for å befri de andre, blir han møtt med latter og motstand – en klar referanse til skjebnen til [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json)."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Sansene vs. Fornuften",
+                "leftTitle": "Sanseverdenen (Hulen)",
+                "rightTitle": "Idéverdenen (Solen)",
+                "items": [
+                    {
+                        "label": "Karakter",
+                        "left": "Foranderlig og ufullkommen",
+                        "right": "Evig og perfekt"
+                    },
+                    {
+                        "label": "Kilde",
+                        "left": "Kroppens sanser",
+                        "right": "Sjelens fornuft"
+                    },
+                    {
+                        "label": "Status",
+                        "left": "Blek kopi (skygge)",
+                        "right": "Sann virkelighet"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Staten og Sjelens tre deler"
+        },
+        {
+            "type": "text",
+            "content": "Platons politiske filosofi henger tett sammen med hans syn på mennesket. Han mente at menneskesjelen består av tre deler: Fornuft, vilje (mot) og begjær. Et rettferdig menneske er et menneske der fornuften styrer de to andre delene.\n\nDet samme gjaldt samfunnet i hans mest kjente verk, Staten. Han mente at staten burde organiseres slik:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "De styrende (Filosofkongene): Bruker sin fornuft og innsikt i ideene til å lede rettferdig.",
+                "Vaktmannskapet (Soldatene): Bruker sitt mot til å forsvare staten.",
+                "De næringsdrivende (Bønder og håndverkere): Sørger for det materielle behovet (styrt av begjær)."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Platon var skeptisk til demokratiet, som han kalte 'pøbelvelde'. Han mente at bare de med lengst utdanning og dypest filosofisk innsikt var skikket til å sitte ved makten. Hans fremste elev, [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json), skulle senere kritisere mange av disse ideene og bringe filosofien 'ned på jorda igen'."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:03:00Z"
+}

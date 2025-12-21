@@ -1,0 +1,81 @@
+{
+    "id": "descartes",
+    "title": "René Descartes",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "20 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
+    "dimension": "epistemologi",
+    "comparison_tags": [
+        "rasjonalisme",
+        "cogito",
+        "dualisme"
+    ],
+    "details": [
+        "Regnes som den moderne filosofiens far.",
+        "Søkte etter en absolutt sikker sannhet gjennom metodisk tvil.",
+        "Kjent for setningen 'Cogito, ergo sum' (Jeg tenker, altså er jeg).",
+        "Utviklet kartesisk dualisme: Skillet mellom kropp og sjel.",
+        "Var also en banebrytende matematiker (koordinatsystemet)."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "René Descartes (1596–1650) levde i en tid preget av intellektuell krise. Det gamle verdensbildet fra middelalderen, der [Thomas Aquinas](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aquinas.json) hadde forent tro og fornuft, var under angrep fra den nye vitenskapen. Descartes ville derfor bygge filosofien helt på nytt, på et fundament så sikkert at det kunne sammenlignes med matematikkens klarhet."
+        },
+        {
+            "type": "header",
+            "text": "Metodisk tvil: Å rive ned huset"
+        },
+        {
+            "type": "text",
+            "content": "For å finne en sannhet som var absolutt sikker, bestemte Descartes ved å tvile på alt som overhodet kunne betviltes. Han nøyde seg ikke med å tvile på sansene (som ofte lurer oss), men gikk lenger.\n\nHan forestilte seg at en 'ond ånd' (en bedragersk demon) brukte all sin makt på å lure ham. Kanskje verden rundt ham bare var en illusjon? Kanskje til og med 2+2=5 i demonens spill? Ved å presse tvilen til det ytterste, ville han se om det var noe igjen som var umulig å nekte for."
+        },
+        {
+            "type": "header",
+            "text": "Cogito, ergo sum: Klippen"
+        },
+        {
+            "type": "text",
+            "content": "Midt i denne dype tvilen oppdaget Descartes sin berømte klippe. Selv om en ond ånd lurte ham, måtte det finnes et 'jeg' som ble lurt. Selve det at han tvilte, beviste at han tenkte. Og hvis han tenkte, måtte han eksistere.\n\nSetningen 'Jeg tenker, altså er jeg' (Cogito, ergo sum) ble selve startpunktet for moderne filosofi. Dette var en sannhet som var uavhengig av sansene og som sto støtt uansett hva slags demoner som måtte finnes. Dette gjør Descartes til en banebrytende rasjonalist – han starter med fornuften, ikke med erfaringen."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Cogito, ergo sum. (Jeg tenker, altså er jeg.)",
+                "author": "René Descartes"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kartesisk Dualisme: Sjel og maskin"
+        },
+        {
+            "type": "text",
+            "content": "Etter å ha bevist sin egen eksistens, måtte Descartes forklare hva dette 'jeg-et' var. Han konkluderte med at virkeligheten består av to fundamentalt forskjellige stoffer:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Res Cogitans (Tenkende ting): Bevisstheten, sjelen, selvet. Den har ingen utstrekning og kan ikke måles.",
+                "Res Extensa (Utstrakt ting): Den fysiske materien, inkludert menneskekroppen. Han så på kroppen som en slags komplisert maskin som følger naturlovene."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Dette kalles kartesisk dualisme. Han skapte et skarpt skille mellom menneskets bevissthet og den materielle verden. Men hvis de er så forskjellige, hvordan kan tanken min få hånden min til å bevege seg? Descartes foreslo at koblingen satt i konglekjertelen i hjernen, men dette forble et uløst problem."
+        },
+        {
+            "type": "header",
+            "text": "Gud som garantist"
+        },
+        {
+            "type": "text",
+            "content": "For å kunne stole på sansene sine igjen og bygge opp vitenskapen, trengte Descartes et bevis for at Gud finnes og at Gud ikke er en bedrager (slik som den onde ånden). Han argumenterte for at ideen om et perfekt vesen (Gud) ikke kunne ha kommet fra ham selv, siden han er ufullkommen.\n\nIdeen om det perfekte må ha blitt lagt i ham av et perfekt vesen – Gud. Siden Gud er perfekt, kan han ikke være en bedrager. Derfor kan vi stole på de klare og tydelige fornuftssannhetene og, i stor grad, våre sanser. Hans rival, [John Locke](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/locke.json), skulle snart utfordre ideen om at vi har slike medfødte ideer."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:12:00Z"
+}

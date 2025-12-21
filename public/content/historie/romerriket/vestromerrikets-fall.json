@@ -35,7 +35,7 @@
         },
         {
             "type": "text",
-            "content": "Men det verste var i vente. På midten av 400-tallet samlet hunerkongen **Attila** en enorm hær. Han ble kalt 'Guds svøpe' (piske), fordi de kristne trodde han var sendt av Gud for å straffe dem for deres synder. Attila herjet først i Østromerriket, før han vendte blikket mot vest."
+            "content": "Men det verste var i vente. På midten av 400-tallet samlet hunerkongen Attila en enorm hær. Han ble kalt 'Guds svøpe' (piske), fordi de kristne trodde han var sendt av Gud for å straffe dem for deres synder. Attila herjet først i Østromerriket, før han vendte blikket mot vest."
         },
         {
             "type": "image",
@@ -45,7 +45,7 @@
         },
         {
             "type": "text",
-            "content": "I 451 møttes romerne og hunerne i det gigantiske **slaget ved de katalauniske marker** (i dagens Frankrike). Den romerske generalen Aëtius måtte alliere seg med sine gamle fiender, visigoterne, for å stoppe Attila. Det var et av historiens blodigste slag, og det stoppet hunernes fremmarsj, men Romerriket var tappet for krefter."
+            "content": "I 451 møttes romerne og hunerne i det gigantiske slaget ved de katalauniske marker (i dagens Frankrike). Den romerske generalen Aëtius måtte alliere seg med sine gamle fiender, visigoterne, for å stoppe Attila. Det var et av historiens blodigste slag, og det stoppet hunernes fremmarsj, men Romerriket var tappet for krefter."
         },
         {
             "type": "text",
@@ -70,12 +70,18 @@
             "content": "I år 455 seilte vandalene opp Tiberen og inntok Roma. Denne gangen var det ingen kamp, bare to ukers systematisk plyndring. De tok alt som var av verdi. De skrelte til og med gulltaket av Jupiter-tempelet. Roma, 'Verdens hode', var nå en ribbet, fattig by full av ruiner og tiggere. Befolkningen sank fra over en million til kanskje 20 000."
         },
         {
+            "type": "image",
+            "src": "/images/romerriket/forum-ruins.png",
+            "alt": "Oversiktsbilde av et gjengrodd Forum Romanum i ruiner ved solnedgang",
+            "caption": "Forum Romanum, det tidligere hjertet i Romerriket, ble etter hvert et sted der kuer beitet mellom ruinene."
+        },
+        {
             "type": "header",
             "content": "Slutten: Romulus Augustulus"
         },
         {
             "type": "text",
-            "content": "Slutten kom ikke med et stort smell, men med et pennestrøk. I år 476 fikk den germanske leiesoldaten **Odovakar** nok av at keiseren ikke betalte lønn. Han marsjerte inn i Ravenna, avsatte den siste vestromerske keiseren og sendte ham i pensjon. Keiseren var en 12 år gammel gutt ved navn **Romulus Augustulus**."
+            "content": "Slutten kom ikke med et stort smell, men med et pennestrøk. I år 476 fikk den germanske leiesoldaten Odovakar nok av at keiseren ikke betalte lønn. Han marsjerte inn i Ravenna, avsatte den siste vestromerske keiseren og sendte ham i pensjon. Keiseren var en 12 år gammel gutt ved navn Romulus Augustulus."
         },
         {
             "type": "text",

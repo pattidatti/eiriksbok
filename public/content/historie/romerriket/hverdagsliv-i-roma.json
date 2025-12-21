@@ -23,7 +23,7 @@
         },
         {
             "type": "text",
-            "content": "Roma var verdens første storby, og den hadde storbyproblemer vi kjenner igjen: Plassmangel. De rike bodde i store eneboliger kalt **Domus**, med innlagt vann, hage og gulvvarme. Men 90% av befolkningen bodde i **Insulae** (øyer) – store leiegårder som kunne være opptil syv etasjer høye."
+            "content": "Roma var verdens første storby, og den hadde storbyproblemer vi kjenner igjen: Plassmangel. De rike bodde i store eneboliger kalt Domus, med innlagt vann, hage og gulvvarme. Men 90% av befolkningen bodde i Insulae (øyer) – store leiegårder som kunne være opptil syv etasjer høye."
         },
         {
             "type": "text",
@@ -43,15 +43,27 @@
         },
         {
             "type": "text",
-            "content": "Romerne elsket mat, men dietten varierte enormt basert på klasse. For de fattige besto menyen nesten utelukkende av **korn**. Staten delte ut gratis korn (*annona*) til de fattigste borgerne, som de bakte til brød eller kokte til grøt. Kjøtt var luksusvare som man spiste ved spesielle anledninger eller offerfester."
+            "content": "Romerne elsket mat, men dietten varierte enormt basert på klasse. For de fattige besto menyen nesten utelukkende av korn. Staten delte ut gratis korn (*annona*) til de fattigste borgerne, som de bakte til brød eller kokte til grøt. Kjøtt var luksusvare som man spiste ved spesielle anledninger eller offerfester."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/thermopolium.png",
+            "alt": "Et romersk gatemat-utsalg (thermopolium) med krukker i disken",
+            "caption": "Siden de færreste hadde kjøkken hjemme, spiste de fleste romere lunsjen sin ute på gaten hos en 'thermopolium' – antikkens svar på McDonalds."
         },
         {
             "type": "text",
-            "content": "Men det var én ingrediens alle brukte: **Garum**. Dette var en fermentert fiskesaus laget av fiskeinnvoller og salt som fikk stå i solen i månedsvis til det ble en flytende væske. Det luktet forferdelig, men smakte (visstnok) fantastisk, fullt av umami. Romerne brukte garum på alt – til og med i desserter! Det var antikkens ketsjup og soyasaus i ett."
+            "content": "Men det var én ingrediens alle brukte: Garum. Dette var en fermentert fiskesaus laget av fiskeinnvoller og salt som fikk stå i solen i månedsvis til det ble en flytende væske. Det luktet forferdelig, men smakte (visstnok) fantastisk, fullt av umami. Romerne brukte garum på alt – til og med i desserter! Det var antikkens ketsjup og soyasaus i ett."
         },
         {
             "type": "text",
             "content": "Rike romere holdt berømte banketter (*convivium*) hvor de lå til bords på divaner og ble servert retter som stekt påfugl, fylte syvsovere (små gnagere) og østers fra Storbritannia. Måltidet varte i timevis, akkompagnert av vin blandet med vann og honning."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/roman-banquet.png",
+            "alt": "Rike romere som ligger til bords og spiser under en bankett",
+            "caption": "Et romersk måltid handlet like mye om status og samtale som om mat."
         },
         {
             "type": "header",
@@ -63,11 +75,17 @@
         },
         {
             "type": "text",
-            "content": "Skolen startet tidlig om morgenen. Læreren var ofte en streng, gresk slave eller frigitt slave. Disiplinen var hard; stokkeslag var vanlig hvis man gjorde feil. Barna skrev på vokstavler med en spiss penn (*stylus*). Når de hadde lært leksen, kunne de glatte ut voksen med den flate baksiden av pennen og starte på nytt. De lærte å lese, skrive og regne, men det viktigste faget for en romersk gutt var **retorikk** – kunsten å tale for seg. For å gjøre karriere i politikken eller jussen, måtte man kunne overbevise folk med ord."
+            "content": "Skolen startet tidlig om morgenen. Læreren var ofte en streng, gresk slave eller frigitt slave. Disiplinen var hard; stokkeslag var vanlig hvis man gjorde feil. Barna skrev på vokstavler med en spiss penn (*stylus*). Når de hadde lært leksen, kunne de glatte ut voksen med den flate baksiden av pennen og starte på nytt. De lærte å lese, skrive og regne, men det viktigste faget for en romersk gutt var retorikk – kunsten å tale for seg. For å gjøre karriere i politikken eller jussen, måtte man kunne overbevise folk med ord."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/roman-school.png",
+            "alt": "Romerske barn som blir undervist av en lærer utendørs",
+            "caption": "Læreren (magister) krevde full konsentrasjon, og feil ble ofte straffet fysisk."
         },
         {
             "type": "text",
-            "content": "En viktig figur i en rik gutts liv var **paedagogus**. Dette var en slave som fulgte gutten til og fra skolen, bar bøkene hans, og passet på at han oppførte seg pent og lærte leksene sine. Ordet 'pedagog' (lærer) kommer fra denne rollen."
+            "content": "En viktig figur i en rik gutts liv var paedagogus. Dette var en slave som fulgte gutten til og fra skolen, bar bøkene hans, og passet på at han oppførte seg pent og lærte leksene sine. Ordet 'pedagog' (lærer) kommer fra denne rollen."
         },
         {
             "type": "header",
@@ -75,11 +93,11 @@
         },
         {
             "type": "text",
-            "content": "I dag kan en milliardær gå i t-skjorte og jeans. I Roma viste klærne nøyaktig hvem du var. Det grunnleggende plagget for alle – menn, kvinner, slaver og keisere – var **tunikaen**. Det var en enkel kjole av ull eller lin."
+            "content": "I dag kan en milliardær gå i t-skjorte og jeans. I Roma viste klærne nøyaktig hvem du var. Det grunnleggende plagget for alle – menn, kvinner, slaver og keisere – var tunikaen. Det var en enkel kjole av ull eller lin."
         },
         {
             "type": "text",
-            "content": "Men over tunikaen bar romerske mannlige borgere en **Toga**. Togaen var et enormt stykke ullstoff (opptil 6 meter langt) som ble drapert rundt kroppen på en komplisert måte. Den var tung, varm og upraktisk – du kunne ikke løpe eller arbeide i den. Og det var nettopp poenget! Togaen viste at du var en borger som hadde tid til å drive med politikk, ikke manuelt arbeid. Kun borgere fikk bære toga; slaver og utlendinger fikk ikke lov."
+            "content": "Men over tunikaen bar romerske mannlige borgere en Toga. Togaen var et enormt stykke ullstoff (opptil 6 meter langt) som ble drapert rundt kroppen på en komplisert måte. Den var tung, varm og upraktisk – du kunne ikke løpe eller arbeide i den. Og det var nettopp poenget! Togaen viste at du var en borger som hadde tid til å drive med politikk, ikke manuelt arbeid. Kun borgere fikk bære toga; slaver og utlendinger fikk ikke lov."
         },
         {
             "type": "component",

@@ -1,0 +1,12 @@
+{
+    "id": "rothbard",
+    "name": "Murray Rothbard",
+    "color": "#1e3a8a",
+    "dimensions": {
+        "metafysikk": "Bygger på en objektiv virkelighet som kan forstås gjennom fornuften. Naturen har faste lover, og det inkluderer menneskets natur.",
+        "epistemologi": "Kombinerer aristotelisk realisme med misesiansk praxeologi. Vi kan kjenne de sanne lovene for menneskelig samhandling.",
+        "etikk": "Naturrett og ikke-aggresjonsprinsippet: Det er alltid moralsk galt å initiere tvang mot andre. Selveierskap er det ultimate etiske fundamentet.",
+        "menneskesyn": "Hvert individ eier seg selv og fruktene av sitt eget arbeid. Mennesket er født fritt og har ukrenkelige rettigheter.",
+        "samfunnssyn": "Anarkokapitalisme: Staten er en illegitim inntrenger. Alle tjenester, inkludert lov og orden, bør leveres gjennom frivillig samarbeid og konkurranse."
+    }
+}

@@ -1,0 +1,70 @@
+{
+    "id": "mises",
+    "title": "Ludwig von Mises",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "20 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
+    "dimension": "samfunnssyn",
+    "comparison_tags": [
+        "praxeologi",
+        "subjektiv_verdi",
+        "fri_markeds_filosofi"
+    ],
+    "details": [
+        "En av de mest betydningsfulle økonomene og samfunnsfilosofene i det 20. århundre.",
+        "Grunnla praxeologien: Læren om menneskelig handling.",
+        "Mente at individets valg er utgangspunktet for all samfunnsforståelse.",
+        "Forsvarte det frie markedet og individuell frihet mot totalitære ideologier.",
+        "Hovedverket 'Human Action' er en systematisk gjennomgang av menneskelig samhandling."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Ludwig von Mises (1881–1973) var en østerriksk filosof og økonom som levde i en tid preget av de store kollektivistiske ideologienes fremmarsj. Han mente at for å forstå samfunnet, må vi gå tilbake til det mest grunnleggende: det enkelte menneskets valg. Hans filosofi er et forsvar for individet mot statlig kontroll og sosial ingeniørkunst."
+        },
+        {
+            "type": "header",
+            "text": "Mennesket handler: Utgangspunktet for all kunnskap"
+        },
+        {
+            "type": "text",
+            "content": "Mises startet sin filosofi med et ubestridelig premiss: Mennesket handler. Dette høres enkelt ut, men har dype konsekvenser. Handling er målrettet atferd; vi bruker bevisst midler for å nå mål vi har satt oss. Vi handler fordi vi føler et ubehag eller et savn, og vi tror at handlingen vil føre oss til en bedre tilstand.\n\nHan kalte dette studiet for praxeologi. Mises mente at praxeologien er en logisk vitenskap, akkurat som matematikk. Vi trenger ikke statistikk for å vite at mennesker velger det de tror er best for seg selv i gjerningsøyeblikket. Dette logiske fundamentet gjør hans tanker svært forskjellige fra moderne økonomi som ofte baserer seg på modeller og tall."
+        },
+        {
+            "type": "header",
+            "text": "Subjektiv verdi og Prissystemet"
+        },
+        {
+            "type": "text",
+            "content": "I likhet med [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json) og [Locke](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/locke.json), understreket Mises at verdi ikke finnes i selve saken (som gull eller vann), men i menneskets vurdering av saken. Verdi er subjektivt.\n\nDette fører til prissystemet. Prisene i et fritt marked er ikke tilfeldige tall; de er signaler som forteller oss hva folk trenger og hvor knappe ressursene er. Uten priser famler vi i blinde. Dette er kjernen i hans berømte argument mot sosialismen: Uten et fritt marked og priser er det umulig å beregne hva som bør produseres, og økonomien vil bryte sammen."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Menneskelig handling er målrettet atferd.",
+                "author": "Ludwig von Mises"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Liberalisme og Fredelig samarbeid"
+        },
+        {
+            "type": "text",
+            "content": "For Mises var det frie markedet først og fremst et system for fred. Gjennom frivillig bytte og arbeidsdeling kan mennesker med helt ulike mål dra nytte av hverandre uten bruk av vold. Han mente at statens eneste legitime oppgave var å beskytte borgernes liv og eiendom mot aggresjon.\n\nHans ideer la grunnlaget for en renessanse av klassisk liberalisme og inspirerte tenkere som [Murray Rothbard](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/rothbard.json) til å gå enda lenger i kritikken av staten. Mises' insistering på menneskeverdet og individets ukrenkelighet har sterke paralleller til [Kants](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kant.json) moralfilosofi."
+        },
+        {
+            "type": "header",
+            "text": "Arven etter Mises"
+        },
+        {
+            "type": "text",
+            "content": "Mises måtte flykte fra nazistene i 1934, først til Sveits og senere til USA. Han ble aldri fullt akseptert av det akademiske etablissementet i sin tid, men hans innflytelse har vokst etter hans død. Hans forsvar for fornuft, individ og frihet står i skarp kontrast til de totalitære strømningene han kjempet mot hele sitt liv."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:15:00Z"
+}

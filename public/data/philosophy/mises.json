@@ -1,0 +1,12 @@
+{
+    "id": "mises",
+    "name": "Ludwig von Mises",
+    "color": "#3b82f6",
+    "dimensions": {
+        "metafysikk": "Mente at filosofien må bygge på menneskelig handling som et ubestridelig faktum. Virkeligheten er det rommet der mennesker handler for å nå mål.",
+        "epistemologi": "Praxeologi: A priori kunnskap om menneskelig handling. Visse sannheter kan utledes logisk fra aksiomet 'mennesket handler'.",
+        "etikk": "Utilitaristisk og liberal: Det som fremmer fredelig samarbeid og arbeidsdeling er det gode, fordi det lar flest mulig nå sine mål.",
+        "menneskesyn": "Homo Agens: Mennesket er et handlende vesen som bruker fornuft og midler for å fjerne ubehag og nå en bedre tilstand.",
+        "samfunnssyn": "Det frie markedet er det eneste systemet som tillater rasjonell økonomisk beregning og beskytter den individuelle friheten."
+    }
+}

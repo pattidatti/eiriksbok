@@ -5,7 +5,7 @@
     "year": "500 - 1500 evt.",
     "category": "Middelalderen",
     "readTime": "25 min lesning",
-    "heroImage": "https://images.unsplash.com/photo-1599557452636-f13880da9252?auto=format&fit=crop&q=80",
+    "heroImage": "/images/lessons/middelalderen/middelalder_hero.png",
     "tags": [
         "Historie",
         "Europa",
@@ -28,7 +28,7 @@
             "type": "component",
             "name": "TimelineComponent",
             "props": {
-                "title": "Tidslinje: Middelalderen",
+                "title": "Middelalderens epoker",
                 "compact": true,
                 "events": [
                     {
@@ -84,7 +84,7 @@
         },
         {
             "type": "image",
-            "src": "https://upload.wikimedia.org/wikipedia/commons/2/23/Charlemagne_crowned_by_Pope_Leo_III_at_St._Peter%27s_Basilica.jpg",
+            "src": "/images/lessons/middelalderen/karl_den_store_troner.png",
             "alt": "Karl den store krones til keiser",
             "caption": "Kroningen av Karl den store i år 800 knyttet bånd mellom paven og de europeiske kongene."
         },
@@ -194,7 +194,7 @@
         },
         {
             "type": "image",
-            "src": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Krakow_sukiennice_at_night.JPG",
+            "src": "/images/lessons/middelalderen/middelalder_markedsplass.png",
             "alt": "Markedsplass i en middelalderby",
             "caption": "Byene var sentre for handel og håndverk, og tilbød en frihet som ikke fantes på landsbygda: 'Byluft gjør fri'."
         },
@@ -224,7 +224,7 @@
         },
         {
             "type": "image",
-            "src": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Saint_Sebastian_interceding_for_the_plague_stricken._Oil_pain_Wellcome_V0017154.jpg",
+            "src": "/images/lessons/middelalderen/svartedauden_pest.png",
             "alt": "Ofre for pesten",
             "caption": "Svartedauden endret de sosiale strukturene i Europa fundamentalt ved å gjøre arbeidskraft til en mangelvare."
         },

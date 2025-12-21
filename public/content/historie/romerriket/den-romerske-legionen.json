@@ -23,7 +23,7 @@
         },
         {
             "type": "text",
-            "content": "Å bli legionær var en livsstil, ikke en sommerjobb. Man vervet seg for 25 år. Før du fikk ta på deg uniformen, måtte du gjennom en streng helsesjekk (man måtte være minst 172 cm høy og ha 'gode øyne'). Hvis du ble godkjent, sverget du **Sacramentum** – en hellig ed til keiseren, der du lovte å adlyde ordre til døden."
+            "content": "Å bli legionær var en livsstil, ikke en sommerjobb. Man vervet seg for 25 år. Før du fikk ta på deg uniformen, måtte du gjennom en streng helsesjekk (man måtte være minst 172 cm høy og ha 'gode øyne'). Hvis du ble godkjent, sverget du Sacramentum – en hellig ed til keiseren, der du lovte å adlyde ordre til døden."
         },
         {
             "type": "text",
@@ -35,11 +35,17 @@
         },
         {
             "type": "text",
-            "content": "En legion besto av ca. 5000 menn, inndelt i mindre grupper som legoklosser:\n*   **Contubernium**: 8 menn som delte telt og matlaging. Dette var din 'familie' i hæren.\n*   **Centurie**: 80 menn ledet av en Centurion. (Ja, navnet betyr 'hundre', men tallet varierte).\n*   **Kohort**: 480 menn (6 centurier).\n*   **Legion**: 10 kohorter + kavaleri og støttepersonell."
+            "content": "En legion besto av ca. 5000 menn, inndelt i mindre grupper som legoklosser:\n*   Contubernium: 8 menn som delte telt og matlaging. Dette var din 'familie' i hæren.\n*   Centurie: 80 menn ledet av en Centurion. (Ja, navnet betyr 'hundre', men tallet varierte).\n*   Kohort: 480 menn (6 centurier).\n*   Legion: 10 kohorter + kavaleri og støttepersonell."
         },
         {
             "type": "text",
-            "content": "**Centurionen** var ryggraden i hæren. Han var en veteran som hadde kjempet seg opp fra bunnen. Han kjentes igjen på den tverrstilte hestehårskammen på hjelmen og stokken han brukte til å slå udugelige soldater med."
+            "content": "Centurionen var ryggraden i hæren. Han var en veteran som hadde kjempet seg opp fra bunnen. Han kjentes igjen på den tverrstilte hestehårskammen på hjelmen og stokken han brukte til å slå udugelige soldater med."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/legionary-portrait.png",
+            "alt": "Nærbilde av en romersk Centurion i full rustning med krigsmaling og arr",
+            "caption": "Centurionen var den mest respekterte og fryktede offiseren i legionen."
         },
         {
             "type": "header",
@@ -47,7 +53,7 @@
         },
         {
             "type": "text",
-            "content": "Den romerske soldaten var en vandrende stridsvogn. Han bar en **Lorica Segmentata** (leddelt platepanser) som ga god beskyttelse men lot ham bevege seg fritt. Hans viktigste våpen var:\n1.  **Pilum**: Et tungt kaste-spyd. Spissen var laget av bløtt jern som bøyde seg når det traff et fiendtlig skjold. Dermed ble skjoldet ubrukelig, og fienden måtte kaste det.\n2.  **Gladius**: Et kort stikksverd. Mens barbarere brukte lange sverd for å hugge (noe som krever stor plass), sto romerne tett i tett bak de store skjoldene (**Scutum**) og stakk sverdene inn i magen på fienden som en symaskin."
+            "content": "Den romerske soldaten var en vandrende stridsvogn. Han bar en Lorica Segmentata (leddelt platepanser) som ga god beskyttelse men lot ham bevege seg fritt. Hans viktigste våpen var:\n1.  Pilum: Et tungt kaste-spyd. Spissen var laget av bløtt jern som bøyde seg når det traff et fiendtlig skjold. Dermed ble skjoldet ubrukelig, og fienden måtte kaste det.\n2.  Gladius: Et kort stikksverd. Mens barbarere brukte lange sverd for å hugge (noe som krever stor plass), sto romerne tett i tett bak de store skjoldene (Scutum) og stakk sverdene inn i magen på fienden som en symaskin."
         },
         {
             "type": "header",
@@ -55,7 +61,7 @@
         },
         {
             "type": "text",
-            "content": "Romersk disiplin var brutal. Hvis du sovnet på vakt, ble du slått ihjel av dine egne kamerater. Hvis en hel avdeling feiget ut i kamp, kunne generalen beordre **Decimering** (fra latin *decem* = ti). Soldatene ble stilt opp, og hver tiende mann ble trukket ut ved loddtrekning og henrettet av de andre ni. Dette skapte en fryktelig motivasjon for å holde linjen."
+            "content": "Romersk disiplin var brutal. Hvis du sovnet på vakt, ble du slått ihjel av dine egne kamerater. Hvis en hel avdeling feiget ut i kamp, kunne generalen beordre Decimering (fra latin *decem* = ti). Soldatene ble stilt opp, og hver tiende mann ble trukket ut ved loddtrekning og henrettet av de andre ni. Dette skapte en fryktelig motivasjon for å holde linjen."
         },
         {
             "type": "header",
@@ -66,12 +72,24 @@
             "content": "Legionærene var også ingeniører. Hver natt, uansett hvor slitne de var, bygde de en befestet leir med voller og palisader. De bygde veier, broer og akvedukter over hele imperiet. De hadde også egne leger og sykehus (*valetudinarium*), som faktisk var bedre enn de sivile sykehusene. En såret soldat hadde større sjanse for å overleve enn en rik borger i Roma."
         },
         {
+            "type": "image",
+            "src": "/images/romerriket/marching-camp.png",
+            "alt": "Oversiktsbilde av en romersk marsjleir (castra) under bygging",
+            "caption": "Den romerske marsjleiren var en midlertidig festning som ble bygget hver eneste natt når hæren var på marsj."
+        },
+        {
             "type": "header",
             "content": "Beleiringsmaskiner"
         },
         {
             "type": "text",
-            "content": "Når romerne møtte en bymur, stoppet de ikke. De bygde beleiringsmaskiner:\n*   **Ballista**: En gigantisk armbrøst som skjøt store jernpiler med enorm presisjon.\n*   **Onager** ('Villeselet'): En katapult som slynget steiner på opptil 50 kilo mot murene.\n*   **Testudo** ('Skilpadde'): Soldatene løftet skjoldene over hodet og dannet et tak, slik at de kunne marsjere helt inntil bymuren beskyttet mot piler og kokende olje."
+            "content": "Når romerne møtte en bymur, stoppet de ikke. De bygde beleiringsmaskiner:\n*   Ballista: En gigantisk armbrøst som skjøt store jernpiler med enorm presisjon.\n*   Onager ('Villeselet'): En katapult som slynget steiner på opptil 50 kilo mot murene.\n*   Testudo ('Skilpadde'): Soldatene løftet skjoldene over hodet og dannet et tak, slik at de kunne marsjere helt inntil bymuren beskyttet mot piler og kokende olje."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/ballista-action.png",
+            "alt": "En romersk ballista som avfyrer en pil under en beleiring",
+            "caption": "Romersk ingeniørkunst gjorde det nesten umulig for en by å motstå en beleiring over lang tid."
         },
         {
             "type": "component",

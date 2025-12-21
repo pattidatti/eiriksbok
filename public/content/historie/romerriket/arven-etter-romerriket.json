@@ -23,7 +23,7 @@
         },
         {
             "type": "text",
-            "content": "Romerne snakket latin. Da imperiet falt, forsvant ikke språket. Det utviklet seg. I Frankrike blandet vulgærlatin (folkets latin) seg med gallisk, i Spania med iberisk, og i Romania med dakisk. Resultatet er de **romanske språkene**: Fransk, spansk, italiensk, portugisisk og rumensk. Nesten en milliard mennesker snakker i dag et moderne 'romersk' språk som morsmål."
+            "content": "Romerne snakket latin. Da imperiet falt, forsvant ikke språket. Det utviklet seg. I Frankrike blandet vulgærlatin (folkets latin) seg med gallisk, i Spania med iberisk, og i Romania med dakisk. Resultatet er de romanske språkene: Fransk, spansk, italiensk, portugisisk og rumensk. Nesten en milliard mennesker snakker i dag et moderne 'romersk' språk som morsmål."
         },
         {
             "type": "text",
@@ -34,7 +34,7 @@
             "name": "FactBox",
             "props": {
                 "title": "Alfabetet",
-                "content": "Du leser denne teksten med **det latinske alfabetet**. Det er verdens mest brukte skriftsystem. Romerne lånte ideen fra grekerne, som lånte fra fønikerne, men det var romerne som ga bokstavene den formen vi bruker i dag (spesielt store bokstaver som A, B, C)."
+                "content": "Du leser denne teksten med det latinske alfabetet. Det er verdens mest brukte skriftsystem. Romerne lånte ideen fra grekerne, som lånte fra fønikerne, men det var romerne som ga bokstavene den formen vi bruker i dag (spesielt store bokstaver som A, B, C)."
             }
         },
         {
@@ -46,8 +46,14 @@
             "content": "Den kanskje viktigste arven er usynlig: Loven. Romerne var besatt av orden og regler. Deres største juridiske verk, *Corpus Juris Civilis* (samlet av keiser Justinian på 500-tallet), danner grunnlaget for lovgivningen i nesten alle europeiske land i dag. Napoleon baserte sin lovbok på romersk rett, og gjennom ham spredte det seg til hele verden."
         },
         {
+            "type": "image",
+            "src": "/images/romerriket/justinian-code.png",
+            "alt": "Et gammelt romersk manuskript med lovtekster (Corpus Juris Civilis)",
+            "caption": "Justinians lovsamling reddet den romerske retten for ettertiden og formet dagens europeiske juss."
+        },
+        {
             "type": "text",
-            "content": "Sentrale prinsipper vi tar for gitt, kommer fra Roma:\n1.  **Likhet for loven**: Loven skal gjelde likt for alle (selv om romerne ikke alltid fulgte dette i praksis med slaver).\n2.  **Uskyldspresumpsjonen**: 'Ei incumbit probatio qui dicit, non qui negat' – Bevisbyrden ligger på den som anklager, ikke den som nekter. Du er uskyldig til det motsatte er bevist.\n3.  **Dommere og advokater**: Systemet med proffe jurister som tolker loven og forsvarer klienter, er en romersk oppfinnelse."
+            "content": "Sentrale prinsipper vi tar for gitt, kommer fra Roma:\n1.  Likhet for loven: Loven skal gjelde likt for alle (selv om romerne ikke alltid fulgte dette i praksis med slaver).\n2.  Uskyldspresumpsjonen: 'Ei incumbit probatio qui dicit, non qui negat' – Bevisbyrden ligger på den som anklager, ikke den som nekter. Du er uskyldig til det motsatte er bevist.\n3.  Dommere og advokater: Systemet med proffe jurister som tolker loven og forsvarer klienter, er en romersk oppfinnelse."
         },
         {
             "type": "header",
@@ -55,11 +61,23 @@
         },
         {
             "type": "text",
-            "content": "Hvis du ser på berømte romerske bygninger som Pantheon eller Colosseum, kan du lure på hvorfor de fortsatt står etter 2000 år, mens moderne broer ruster i stykker etter femti. Hemmeligheten er **Opus Caementicium** – romersk betong. De blandet kalkstein med vulkansk aske (pozzolana). Denne blandingen har en unik egenskap: Den blir hardere over tid, og den herder til og med under vann."
+            "content": "Hvis du ser på berømte romerske bygninger som Pantheon eller Colosseum, kan du lure på hvorfor de fortsatt står etter 2000 år, mens moderne broer ruster i stykker etter femti. Hemmeligheten er Opus Caementicium – romersk betong. De blandet kalkstein med vulkansk aske (pozzolana). Denne blandingen har en unik egenskap: Den blir hardere over tid, og den herder til og med under vann."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/pantheon-oculus.png",
+            "alt": "Innsiden av Pantheon-kuppelen med lysstråle fra oculus",
+            "caption": "Kuppelen i Pantheon er fortsatt verdens største kuppel av uarmert betong, 1900 år etter at den ble bygget."
         },
         {
             "type": "text",
-            "content": "Vi glemte oppskriften på betong i middelalderen og gjenoppdaget den ikke før på 1700-tallet. Uten betong ville moderne byer med skyskrapere vært umulige. Romerne ga oss også **buen**. Før romerne brukte man mest søyler og bjelker (som i greske templer), noe som begrenset hvor store rom man kunne bygge. Buen fordeler vekten utover og nedover, slik at man kan bygge gigantiske åpne rom (hvelv) og broer som tåler enorm vekt."
+            "content": "Vi glemte oppskriften på betong i middelalderen og gjenoppdaget den ikke før på 1700-tallet. Uten betong ville moderne byer med skyskrapere vært umulige. Romerne ga oss også buen. Før romerne brukte man mest søyler og bjelker (som i greske templer), noe som begrenset hvor store rom man kunne bygge. Buen fordeler vekten utover og nedover, slik at man kan bygge gigantiske åpne rom (hvelv) og broer som tåler enorm vekt."
+        },
+        {
+            "type": "image",
+            "src": "/images/romerriket/pont-du-gard.png",
+            "alt": "Den romerske akveduktbroen Pont du Gard i Frankrike",
+            "caption": "Romerne var mestere i å kontrollere vannet. Akveduktene deres kunne transportere ferskvann over hundrevis av kilometer ved hjelp av tyngdekraften."
         },
         {
             "type": "component",
@@ -94,7 +112,7 @@
         },
         {
             "type": "text",
-            "content": "Har du lagt merke til at mange gamle europeiske byer har gater som går rett som piler? Det er ofte fordi de startet som romerske militærleirer (*castrum*). Romerne planla byene sine etter et rutenett. De hadde to hovedgater: **Cardo** (nord-sør) og **Decumanus** (øst-vest). Der de krysset hverandre, lå **Forum** – byens sentrum med torg, templer og rådhus. Byer som London, Paris, Köln, Wien og Barcelona ble alle grunnlagt eller utbygd av romerne."
+            "content": "Har du lagt merke til at mange gamle europeiske byer har gater som går rett som piler? Det er ofte fordi de startet som romerske militærleirer (*castrum*). Romerne planla byene sine etter et rutenett. De hadde to hovedgater: Cardo (nord-sør) og Decumanus (øst-vest). Der de krysset hverandre, lå Forum – byens sentrum med torg, templer og rådhus. Byer som London, Paris, Köln, Wien og Barcelona ble alle grunnlagt eller utbygd av romerne."
         },
         {
             "type": "text",

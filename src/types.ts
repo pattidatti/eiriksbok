@@ -161,6 +161,17 @@ export interface Religion {
         doctrinal?: any;
         material?: any;
     };
+}export interface Philosopher {
+    id: string;
+    name: string;
+    color?: string;
+    dimensions: {
+        metafysikk?: any; // Tina Rich Text or string
+        epistemologi?: any;
+        etikk?: any;
+        menneskesyn?: any;
+        samfunnssyn?: any;
+    };
 }
 
 export interface GlobalTimelineEvent {

@@ -188,6 +188,12 @@ Layout for primærkilder.
 ### 5. Interaktive Modeller
 Spesialsider med egne kontroller og paneler. (F.eks. `demografi-okonomi/intro`).
 
+### 6. Retningslinjer for Komponenter i Artikler
+For å sikre god lesbarhet og flyt i teksttunge artikler, skal følgende regler følges:
+*   **TimelineComponent**: Når denne brukes inne i en artikkel (`layout: rich`), skal den **alltid** ha `compact: true` i sine props. Dette forhindrer at tidslinjen tar for mye visuell plass og bryter opp lesingen for mye.
+*   **Header-nivåer**: Bruk `header` blocks for å dele opp innholdet. Dette genererer automatisk innholdsfortegnelse i sidebaren.
+*   **Formatering**: Bruk **aldri** fet skrift (`**tekst**`) for å utheve ord eller setninger i brødteksten. Dette gir et uryddig uttrykk. Viktige begreper skal håndteres av det automatiske begrepssystemet (concepts), som gir dem en egen stil og funksjonalitet uten behov for manuell utheving.
+
 ## 4.6. Troubleshooting / Feilsøking
 
 *   **"Unable to find record"**: `religion`-feltet må være en ID (f.eks. `"kristendom"`), ikke filsti.

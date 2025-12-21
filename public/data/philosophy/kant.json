@@ -1,0 +1,12 @@
+{
+    "id": "kant",
+    "name": "Immanuel Kant",
+    "color": "#f59e0b",
+    "dimensions": {
+        "metafysikk": "Vi kan aldri kjenne 'tingen i seg selv' (Ding an sich), bare verden slik den fremtrer for oss gjennom våre innebygde kategorier (som tid og rom).",
+        "epistemologi": "Kritisk filosofi: Forener rasjonalisme og empirisme. Sansene gir oss inntrykk, mens fornuften sorterer og gir dem mening.",
+        "etikk": "Pliktetikk: Det kategoriske imperativ. Man skal handle etter regler som kan gjøres til allmenne lover. Mennesket er et mål i seg selv.",
+        "menneskesyn": "Mennesket er et autonomt (selvstyrt) fornuftsvesen med en ukrenkelig verdighet.",
+        "samfunnssyn": "Mente at rettsstaten bør bygge på frihet, likhet og selvstendighet. Drømte om en 'evig fred' gjennom et forbund av frie stater."
+    }
+}

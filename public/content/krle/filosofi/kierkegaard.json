@@ -1,0 +1,70 @@
+{
+    "id": "kierkegaard",
+    "title": "Søren Kierkegaard",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "20 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1543165737-04028fa2d58e?auto=format&fit=crop&q=80",
+    "dimension": "menneskesyn",
+    "comparison_tags": [
+        "eksistensialisme",
+        "subjektivitet",
+        "eksistensens_stadier"
+    ],
+    "details": [
+        "Danske filosof som regnes som eksistensialismens far.",
+        "Mente at 'sannheten er subjektivitet'.",
+        "Beskrev menneskets vei gjennom ulike stadier: det estetiske, etiske og religiøse.",
+        "Fokuserte på det enkelte individets valg og ansvar.",
+        "Skrev ofte under pseudonym for å presentere ulike livssyn."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Søren Kierkegaard (1813–1855) levde nesten hele sitt liv i København. Han var en krøllete figur som ofte ble gjort narr av i avisene, men han bar på et voldsomt indre drama. Han var rasende på den offisielle kirken og mente at ekte tro ikke handlet om å gå i kirken på søndager, men om et personlig og risikabelt valg. Han la grunnlaget for det vi i dag kaller eksistensialisme."
+        },
+        {
+            "type": "header",
+            "text": "Eksistensens tre stadier"
+        },
+        {
+            "type": "text",
+            "content": "Kierkegaard mente at mennesket kan leve på ulike nivåer eller 'stadier' av bevissthet:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Det estetiske stadiet: Estetikeren lever for øyeblikket, for nytelse og for å unngå kjedsomhet. Han vil ikke forplikte seg til noe. Men dette fører til slutt til tomhet og fortvilelse.",
+                "Det etiske stadiet: Her tar mennesket et valg om å ta ansvar for sitt eget liv. Man velger seg selv som et forpliktet menneske, for eksempel gjennom ekteskap eller arbeid. Man lever etter universelle moralske lover, slik [Kant](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kant.json) foreslo.",
+                "Det religiøse stadiet: Dette er det dypeste nivået. Her innser man at verken nytelse eller moral er nok. Man må ta et 'troens sprang' ut i det ukjente og overgi seg til Gud personlig, selv om det virker paradoksalt for fornuften."
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Angst: Frihetens svimmelhet"
+        },
+        {
+            "type": "text",
+            "content": "For Kierkegaard er mennesket det eneste vesenet som har frihet til å velge hvem det vil være. Denne friheten er fantastisk, men også skremmende. Han kalte denne følelsen for angst. Han sammenlignet det med å stå på kanten av et stup: Du blir svimmel, ikke bare fordi du er redd for å falle, men fordi du innser at du har muligheten til å kaste deg ut.\n\nAngsten er et bevis på at vi er frie. Vi må tørre å stå i angsten og ta våre egne valg, i stedet for å bare flykte inn i mengden eller tradisjonen."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Å våge er å miste fotfestet for en liten stund. Å ikke våge er å miste seg selv.",
+                "author": "Søren Kierkegaard"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Sannheten er subjektivitet"
+        },
+        {
+            "type": "text",
+            "content": "Kierkegaard var ikke opptatt av objektive sannheter som alle er enige om (som 2+2=4). For ham var den viktigste sannheten 'den sannhet som er sann for meg'. Dette er ideer som betyr noe for hvordan du lever livet ditt.\n\nÅ finne denne sannheten krever lidenskap og personlig engasjement. Du kan ikke bare lære om livet ved å lese bøker; du må eksistere i det. Dette fokuset på det individuelle individet foran systemet gjør ham til en viktig forløper for både [Nietzsche](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/nietzsche.json) og 1900-tallets tenkere som [Heidegger](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/heidegger.json)."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:12:00Z"
+}

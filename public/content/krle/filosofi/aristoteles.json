@@ -1,0 +1,136 @@
+{
+    "id": "aristoteles",
+    "title": "Aristoteles",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "24 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1524333800407-b98ac37a391e?auto=format&fit=crop&q=80",
+    "dimension": "metafysikk",
+    "comparison_tags": [
+        "den_gylne_middelvei",
+        "realisme",
+        "logikk"
+    ],
+    "details": [
+        "Platons elev, men gikk mot læreren sin ved å fokusere på den fysiske verden.",
+        "Systemtiker og forsker: Grunnla biologi, logikk og naturvitenskap.",
+        "Mente at alt har et formål (teleologi).",
+        "Utviklet 'den gylne middelvei' som etisk ideal.",
+        "Lærer for Aleksander den store."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Aristoteles (384–322 f.Kr.) var [Platons](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/platon.json) stjerneid elev ved Akademiet i 20 år. Men han var fundamentalt uenig med sin lærer. Mens Platon pekte opp mot den abstrakte idéverdenen, pekte Aristoteles ned mot jorda. Han regnes som grunnleggeren av vestlig realisme og empirisme – ideen om at kunnskap kommer fra observasjon av den virkelige verden."
+        },
+        {
+            "type": "header",
+            "text": "Stoff og Form: Virkeligheten her og nå"
+        },
+        {
+            "type": "text",
+            "content": "Aristoteles avviste ideen om at det finnes en separat idéverden. Hun mente at 'formene' (ideene) finnes inne i tingene selv. Han kalte dette for hylomorfisme. Alt består av to sider:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Stoff (Hyle): Det fysiske materialet noe er laget av (f.eks. bronse eller tre).",
+                "Form (Morphe): Det som gjør tingen til akkurat den tingen (f.eks. formen til en statue eller et bord)."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Uten stoff har formen ingen sted å være, og uten form er stoffet bare ubestemmelig materie. Dette var et radikalt brudd med [Platon](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/platon.json), som mente formene var uavhengige av materien."
+        },
+        {
+            "type": "header",
+            "text": "De fire årsakene"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå en ting fullt ut, må vi ifølge Aristoteles kjenne fire ulike årsaker:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Den materielle årsaken: Hva er tingen laget av? (Eksempel: Marmor).",
+                "Den formale årsaken: Hva er tingens design eller plan? (Eksempel: Skulptørens tegning).",
+                "Den virkende årsaken: Hva eller hvem har satt tingen i gang? (Eksempel: Skulptørens hammer og meisling).",
+                "Den formålstjenlige årsaken (Telos): Hva er hensikten med tingen? (Eksempel: Å pryde et tempel)."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Den siste årsaken, telos, var den viktigste for Aristoteles. Han mente at alt inaturen har et formål. Et eikenøtt har som formål å bli et eiketre. Dette synet kalles teleologi."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Platon vs. Aristoteles",
+                "leftTitle": "Platon (Idealisme)",
+                "rightTitle": "Aristoteles (Realisme)",
+                "items": [
+                    {
+                        "label": "Fokus",
+                        "left": "Himmelen / Idéverdenen",
+                        "right": "Jorda / Naturen"
+                    },
+                    {
+                        "label": "Metode",
+                        "left": "Tenkning og meditasjon",
+                        "right": "Observasjon og erfaring"
+                    },
+                    {
+                        "label": "Kunnskap",
+                        "left": "Medfødt (gjenerindring)",
+                        "right": "Lært gjennom sansene"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Den gylne middelvei: Kunsten å leve"
+        },
+        {
+            "type": "text",
+            "content": "I verket Den nikomakiske etikk spør Aristoteles: Hva er det høyeste målet for mennesket? Svaret er eudaimonia, ofte oversatt som 'lykke' eller 'trivsel'. Men lykke for Aristoteles er ikke en følelse, det er en aktivitet.\n\nVi oppnår lykke ved å utvikle dygder. En dygd er alltid en balanse mellom to ytterpunkter. Dette kalte han den gylne middelvei:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Mot er midten mellom feighet og overmodighet.",
+                "Beskjedenhet er midten mellom skamløshet og overdreven sjenanse.",
+                "Generøsitet er midten mellom gjerrighet og ødselhet."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Å finne denne balansen er ikke noe vi gjør én gang; det er en vane vi må trene opp gjennom hele livet. Ved å handle rettferdig, blir vi rettferdige."
+        },
+        {
+            "type": "header",
+            "text": "Logikkens og vitenskapens far"
+        },
+        {
+            "type": "text",
+            "content": "Aristoteles var en besatt systemtiker. Han klassifiserte hundrevis av dyrearter og la grunnlaget for biologien. Han var også den første som utviklet et formelt system for logikk. Hans syllogismer er klassiske eksempler på deduktiv tenkning:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Premiss 1: Alle mennesker er dødelige.",
+                "Premiss 2: [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json) er et menneske.",
+                "Konklusjon: [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json) er dødelig."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Hans verktøy for logikk og hans fokus på empiriske undersøkelser ble gjenoppdaget i middelalderen, spesielt av [Thomas Aquinas](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aquinas.json), og preget europeisk tenkning helt frem til den vitenskapelige revolusjonen."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:12:00Z"
+}

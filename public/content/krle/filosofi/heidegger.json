@@ -1,0 +1,70 @@
+{
+    "id": "heidegger",
+    "title": "Martin Heidegger",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "24 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80",
+    "dimension": "metafysikk",
+    "comparison_tags": [
+        "dasein",
+        "væren",
+        "eksistens"
+    ],
+    "details": [
+        "En av de mest innflytelsesrike eksistensielle tenkerne i det 20. århundre.",
+        "Hovedverket 'Væren og tid' prøver å besvare spørsmålet om hva væren egentlig er.",
+        "Kjent for begrepet 'Dasein' (å være-der) – menneskets unike måte å eksistere på.",
+        "Fokusert på hvordan vi er 'kastet' inn i verden og lever mot døden.",
+        "Hans tilknytning til nazismen forblir et kontroversielt tema."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Martin Heidegger (1889–1976) regnes som en av de dypeste og mest krevende tenkerne i moderne tid. Han mente at vestlig filosofi helt siden [Platon](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/platon.json) og [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json) hadde glemt selve spørsmålet om 'væren' – hva det vil si at noe i det hele tatt eksisterer. Han trakk seg ofte tilbake til sin lille hytte i Schwarzwald for å tenke over disse fundamentale mysteriene."
+        },
+        {
+            "type": "header",
+            "text": "Dasein: Å være-der"
+        },
+        {
+            "type": "text",
+            "content": "Heidegger ville ikke bruke tradisjonelle ord som 'bevissthet' eller 'subjekt' for å beskrive mennesket. Han valgte ordet Dasein (å være-der). Mennesket er det eneste vesenet som bryr seg om at det eksisterer. Å være Dasein betyr å være 'der', midt i verden, alltid engasjert i noe.\n\nHan forklarte at vi ikke først er en isolert hjerne som så oppdager verden (slik [Descartes](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/descartes.json) trodde). Vi er alltid allerede 'væren-i-verden'. Vi forstår verden gjennom de verktøyene og de sammenhengene vi lever i. En snekker forstår ikke hammeren ved å stirre på den, men ved å bruke den."
+        },
+        {
+            "type": "header",
+            "text": "Kastethet og 'Das Man'"
+        },
+        {
+            "type": "text",
+            "content": "Heidegger pekte på at vi er kastet inn i eksistensen. Vi har ikke valgt språket vårt, tiden vår eller vår egen kropp. Dette skaper en grunnleggende følelse av 'ufasthet'.\n\nMesteparten av tiden flykter vi fra denne usikkerheten ved å gjemme oss i mengden. Heidegger kalte dette for Das Man (Man-et). Vi gjør som 'man' gjør, mener det 'man' mener og snakker om det 'man' snakker om. Vi lever uegentlig, som kopier av alle andre. Vi lar massen overta ansvaret for våre egne liv."
+        },
+        {
+            "type": "header",
+            "text": "Væren-mot-døden: Veien til egentlighet"
+        },
+        {
+            "type": "text",
+            "content": "Hvordan kan vi slutte å være en del av 'Das Man' og begynne å leve egentlig? Ifølge Heidegger skjer dette gjennom angst. Angst er ikke frykt for noe bestemt, men en følelse av at hele verden mister sin vante mening.\n\nI angsten innser vi vår væren-mot-døden. Døden er den eneste muligheten som er bare min, og som ingen andre kan ta over for meg. Ved å akseptere at tiden vår er begrenset og at døden er uunngåelig, kan vi rive oss løs fra 'Man-et' og ta ansvar for å gjøre våre egne, sanne valg. Her bygger han videre på ideene til [Kierkegaard](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kierkegaard.json)."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Døden er den mest egennyttige, uforholdsmessige og uovervinnelige mulighet for Dasein.",
+                "author": "Martin Heidegger"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Teknologiens ramme (Ge-stell)"
+        },
+        {
+            "type": "text",
+            "content": "I sine senere skrifter ble Heidegger en viktig kritiker av den moderne teknologiske utviklingen. Han mente at teknologien ikke bare er verktøy, men en måte å se verden på. Vi ser på elva som et kraftverk, skogen som tømmer og mennesket som 'human resources'.\n\nHan kalte dette for Ge-stell (bestillings-rammen). Vi prøver å kontrollere og bestille hele virkeligheten. Heidegger fryktet at dette ville føre til at vi mistet evnen til å undre oss over væren og til å 'bo' på jorda på en lyttende og poetisk måte. Hans elev [Hannah Arendt](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/arendt.json) skulle senere ta mange av hans filosofiske innsikter inn i det politiske feltet."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:12:00Z"
+}

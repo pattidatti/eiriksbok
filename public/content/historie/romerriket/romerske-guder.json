@@ -24,14 +24,14 @@
         {
             "type": "text",
             "title": "En Verden Full av Guder",
-            "content": "For en romer var verden myldrende full av guder og ånder. Det var ikke bare de store gudene oppe på fjellet Olympen (eller Kapitolhøyden i Roma) som betydde noe. Hver elv hadde sin gud, hver skog sin ånd, og til og med hver dørstokk i huset hadde sin egen beskytter (guden Janus).\n\nReligion i Romerriket handlet mindre om hva du *trodde* på inni deg, og mer om hva du *gjorde*. Det var en kontrakt: Du ga gudene ofringer og respekt, og til gjengjeld ga de deg beskyttelse og lykke. Dette konseptet kalte romerne for **do ut des** – «jeg gir for at du skal gi»."
+            "content": "For en romer var verden myldrende full av guder og ånder. Det var ikke bare de store gudene oppe på fjellet Olympen (eller Kapitolhøyden i Roma) som betydde noe. Hver elv hadde sin gud, hver skog sin ånd, og til og med hver dørstokk i huset hadde sin egen beskytter (guden Janus).\n\nReligion i Romerriket handlet mindre om hva du *trodde* på inni deg, og mer om hva du *gjorde*. Det var en kontrakt: Du ga gudene ofringer og respekt, og til gjengjeld ga de deg beskyttelse og lykke. Dette konseptet kalte romerne for do ut des – «jeg gir for at du skal gi»."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
                 "title": "Pax Deorum – Fred med Gudene",
-                "content": "**Pax Deorum** betyr «Gudenes Fred». Romerne trodde at så lenge de opprettholdt denne freden gjennom korrekte ritualer og ofringer, ville riket bestå. Hvis noe gikk galt – som pest, krigsnederlag eller naturkatastrofer – var det et tegn på at Pax Deorum var brutt. Da måtte staten finne ut hvilken gud som var fornærmet og blidgjøre den."
+                "content": "Pax Deorum betyr «Gudenes Fred». Romerne trodde at så lenge de opprettholdt denne freden gjennom korrekte ritualer og ofringer, ville riket bestå. Hvis noe gikk galt – som pest, krigsnederlag eller naturkatastrofer – var det et tegn på at Pax Deorum var brutt. Da måtte staten finne ut hvilken gud som var fornærmet og blidgjøre den."
             }
         },
         {
@@ -87,7 +87,7 @@
         {
             "type": "text",
             "title": "Utforsk Pantheon",
-            "content": "Ordet **Pantheon** betyr «alle guder». I Roma bygde de til og med et tempel med dette navnet (som står den dag i dag!) for å ære alle gudene samtidig. Her kan du bli kjent med de viktigste av dem."
+            "content": "Ordet Pantheon betyr «alle guder». I Roma bygde de til og med et tempel med dette navnet (som står den dag i dag!) for å ære alle gudene samtidig. Her kan du bli kjent med de viktigste av dem."
         },
         {
             "type": "component",

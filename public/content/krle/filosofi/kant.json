@@ -1,0 +1,77 @@
+{
+    "id": "kant",
+    "title": "Immanuel Kant",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "24 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80",
+    "dimension": "etikk",
+    "comparison_tags": [
+        "pliktetikk",
+        "kategorisk_imperativ",
+        "opplysningstid"
+    ],
+    "details": [
+        "En av de viktigste tenkerne i vestlig filosofihistorie.",
+        "Kombinerte rasjonalisme og empirisme i en ny 'kritisk' filosofi.",
+        "Mente at vi aldri kan kjenne verden slik den 'er i seg selv', bare slik den ser ut for oss.",
+        "Formulerte pliktetikken og Det kategoriske imperativ.",
+        "Mente at ethvert menneske er et mål i seg selv, aldri bare et middel."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Immanuel Kant (1724–1804) levde hele sitt liv i den østprøyssiske byen Königsberg. Han var kjent for sin ekstremt regelbundne livsstil – folk sies å ha stilt klokkene sine etter når Kant gikk sin daglige tur. Men bak den tørre fasaden skjulte det seg en intellektuell revolusjonær som endret filosofien for alltid."
+        },
+        {
+            "type": "header",
+            "text": "Den kopernikanske vendingen i filosofien"
+        },
+        {
+            "type": "text",
+            "content": "Før Kant trodde man at menneskesinnet bare passivt speilet verden utenfor. Kant snudde dette på hodet. Han mente at forstanden vår aktivt er med på å forme virkeligheten slik vi opplever den. Han kalte dette sin 'kopernikanske vending'.\n\nVi ser verden gjennom 'briller' som tid, rom og årsakssammenheng. Disse strukturene ligger inne i oss på forhånd. Derfor kan vi aldri vite hvordan verden er i seg selv (Das Ding an sich), bare hvordan den ser ut for oss (Das Ding für mich). Dette gjorde at han kunne forene [Descartes'](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/descartes.json) rasjonalisme med [Lockes](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/locke.json) empirisme."
+        },
+        {
+            "type": "header",
+            "text": "Det kategoriske imperativ"
+        },
+        {
+            "type": "text",
+            "content": "Kant er kanskje mest kjent for sin moralfilosofi. Han mente at moralen ikke avhenger av følelser eller konsekvenser, men av fornuften. Han formulerte en moralsk lov som gjelder for alle, alltid. Han kalte den Det kategoriske imperativ."
+        },
+        {
+            "type": "header",
+            "text": "To versjoner av loven"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Universaliseringsformelen: Handle bare etter den regelen som du samtidig kan ville at skal bli en allmenn lov. (Hvis du vurderer å lyve, spør deg selv: Vil jeg leve i en verden der alle alltid lyver?)",
+                "Humanitetsformelen: Handle slik at du alltid bruker menneskeheten, både i din egen person og i enhver annen, som et mål og aldri bare som et middel."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Dette synet kalles pliktetikk. For Kant er en handling bare moralsk riktig hvis den er gjort av plikt for den moralske loven, ikke fordi man har lyst eller vil oppnå noe. Dette er utgangspunktet for hele den vestlige forståelsen av [menneskerettigheter](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/intro.json) og menneskeverd, slik vi også ser det hos [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json) og hans fokus på menneskets verdighet."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "To ting fyller mitt sinn med stadig voksende beundring og ærefrykt: Stjernehimmelen over meg og den moralske lov i meg.",
+                "author": "Immanuel Kant"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Sapere Aude: Tør å vite!"
+        },
+        {
+            "type": "text",
+            "content": "Kant definerte opplysningstiden som menneskets utgang av sin selvforskydte umyndighet. Hans slagord var 'Sapere Aude!' – ha mot til å bruke din egen forstand! Han mente at vi ikke skal blindt følge autoriteter, verken prester eller konger, men tenke selv.\n\nDenne insisteringen på autonomi (selvstyre) peker fremover mot eksistensialismen hos [Kierkegaard](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kierkegaard.json) og [Nietzsche](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/nietzsche.json), selv om disse tenkerne senere skulle utfordre Kants tro på at fornuften kan gi oss alle svarene."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:12:00Z"
+}

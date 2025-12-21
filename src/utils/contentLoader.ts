@@ -1,4 +1,4 @@
-import type { Lesson, Manifest } from '../types';
+import type { Lesson, Manifest, Philosopher } from '../types';
 
 export async function fetchLesson(subject: string, topic: string, lessonId: string, subTopicId?: string): Promise<Lesson | null> {
     try {
@@ -138,6 +138,26 @@ export async function fetchReligion(id: string): Promise<any | null> {
         return data;
     } catch (error) {
         console.error("Error loading religion:", error);
+        return null;
+    }
+}
+
+export async function fetchPhilosopher(id: string): Promise<Philosopher | null> {
+    try {
+        const basePath = import.meta.env.BASE_URL.endsWith('/')
+            ? import.meta.env.BASE_URL
+            : `${import.meta.env.BASE_URL}/`;
+
+        const cleanId = id.replace(/\.json$/, '').split('/').pop();
+        const response = await fetch(`${basePath}data/philosophy/${cleanId}.json`);
+        if (!response.ok) {
+            console.error(`Failed to fetch philosopher: ${response.status} ${response.statusText}`);
+            return null;
+        }
+        const data = await response.json();
+        return data as Philosopher;
+    } catch (error) {
+        console.error("Error loading philosopher:", error);
         return null;
     }
 }

@@ -1,0 +1,103 @@
+{
+    "id": "locke",
+    "title": "John Locke",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "20 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&q=80",
+    "dimension": "epistemologi",
+    "comparison_tags": [
+        "empirisme",
+        "tabula_rasa",
+        "naturlige_rettigheter"
+    ],
+    "details": [
+        "Empirismens grunnlegger og en sentral skikkelse i opplysningstiden.",
+        "Mente at mennesket fødes som en 'tabula rasa' (blank tavle).",
+        "Hevdet at all kunnskap stammer fra erfaring og sansing.",
+        "Formulerte læren om de naturlige rettighetene: Liv, frihet og eiendom.",
+        "Hans politiske filosofi la grunnlaget for det moderne demokratiet."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "John Locke (1632–1704) var en motpol til [Descartes](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/descartes.json). Mens Descartes mente at vi har medfødte ideer om Gud og matematikk, hevdet Locke at menneskesinnet ved fødselen er helt tomt. Han er den viktigste representanten for empirismen – retningen som sier at all ekte kunnskap må komme fra erfaring."
+        },
+        {
+            "type": "header",
+            "text": "Tabula Rasa: Den blanke tavlen"
+        },
+        {
+            "type": "text",
+            "content": "Locke sammenlignet sinnet med et hvitt ark eller en blank tavle (tabula rasa). Vi blir ikke født med ferdige tanker. Alt innhold i bevisstheten vår er noe vi har hentet utenfra. Han delte erfaringen i to kilder:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Sensation (Sansing): Inntrykk fra de ytre sansene våre (farger, lukter, lyder).",
+                "Reflection (Refleksjon): Sinnet som observerer sine egne operasjoner (tenke, tvile, tro)."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Gjennom disse to kildene bygger vi opp enkle ideer som så settes sammen til sammensatte ideer. Dette betyr at ingenting finnes i forstanden som ikke først har vært i sansene."
+        },
+        {
+            "type": "header",
+            "text": "Naturlige rettigheter"
+        },
+        {
+            "type": "text",
+            "content": "Lockes politiske filosofi har preget vestlige grunnlover mer enn kanskje noen annen tenker. Han mente at alle mennesker er født frie og likeverdige, og at vi har visse naturlige rettigheter som ingen stat kan ta fra oss:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Retten til liv.",
+                "Retten til frihet.",
+                "Retten til eiendom."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Han argumenterte for at eiendomsretten oppstår når et menneske blander sitt eget arbeid med naturen. Hvis du dyrker en åker, blir resultatet ditt. Denne ideen ble senere fundamentet for klassisk liberalisme og tenkere som [Ludwig von Mises](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/mises.json)."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Rasjonalisme vs. Empirisme",
+                "leftTitle": "Descartes (Rasjonalisme)",
+                "rightTitle": "Locke (Empirisme)",
+                "items": [
+                    {
+                        "label": "Kilde til kunnskap",
+                        "left": "Fornuften",
+                        "right": "Erfaringen"
+                    },
+                    {
+                        "label": "Medfødte ideer",
+                        "left": "Ja",
+                        "right": "Nei (Tabula Rasa)"
+                    },
+                    {
+                        "label": "Sikkerhet",
+                        "left": "Logisk deduksjon",
+                        "right": "Observasjon"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Samfunnspakten og retten til opprør"
+        },
+        {
+            "type": "text",
+            "content": "Hvorfor trenger vi da en stat? Locke mente at vi inngår en samfunnspakt for å beskytte rettighetene våre mer effektivt. Men statens makt er betinget. Hvis en hersker bryter pakten og krenker folkets naturlige rettigheter, har folket ikke bare en rett, men en plikt til å gjøre opprør.\n\nHans ide om maktfordeling og folkesuverenitet var en direkte inspirasjon for både den amerikanske og den franske revolusjonen. Han pekte fremover mot [Immanuel Kant](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kant.json), som også ville understreke menneskets autonomi og verdi."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:12:00Z"
+}

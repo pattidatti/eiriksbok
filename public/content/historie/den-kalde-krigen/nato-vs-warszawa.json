@@ -1,0 +1,202 @@
+{
+    "id": "nato-vs-warszawa",
+    "title": "NATO vs. Warszawapakten: En delt verden",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1949–1991",
+    "category": "Kald krig / Politikk",
+    "readTime": "12 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&q=80",
+    "details": [
+        "Opprettelsen av de to store milit\u00e6ralliansene under den kalde krigen.",
+        "NATO ble stiftet i 1949 for \u00e5 forsvare Vest-Europa mot sovjetisk aggresjon.",
+        "Warszawapakten ble stiftet i 1955 som Sovjets svar p\u00e5 vesttysk gjenopprustning.",
+        "Store styrker sto ansikt til ansikt langs jernteppet i Europa.",
+        "Enkelte land valgte n\u00f8ytralitet eller ble med i den alliansefrie bevegelsen."
+    ],
+    "timeline": [
+        {
+            "year": "1949",
+            "title": "NATO stiftes",
+            "description": "Forsvarsalliansen mellom vestlige demokratier opprettes."
+        },
+        {
+            "year": "1955",
+            "title": "Warszawapakten",
+            "description": "Sovjetunionen og \u00d8stblokken danner sin egen milit\u00e6rallianse."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Under [den kalde krigen](/historie/den-kalde-krigen/oversikt) var verden organisert i to store, rivaliserende alliansesystemer. Dette var ikke bare vennskap mellom land, men bindende milit\u00e6re avtaler der et angrep p\u00e5 ett land ble sett p\u00e5 som et angrep p\u00e5 alle. Denne logikken skulle avskrekke fienden fra \u00e5 angripe, men det betydde ogs\u00e5 at en lokal konflikt i Europa lynraskt kunne eskalere til en global verdenskrig."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Atlanterhavspaktens artikkel 5",
+                "content": "Dette er selve kjernen i NATO. Den sl\u00e5r fast prinsippet om kollektivt forsvar: Hvis et medlemsland blir angrepet, skal de andre medlemmene se p\u00e5 det som et angrep p\u00e5 seg selv og bist\u00e5 med n\u00f8dvendige midler, inkludert milit\u00e6r makt."
+            }
+        },
+        {
+            "type": "header",
+            "text": "NATO opprettes (1949)"
+        },
+        {
+            "type": "text",
+            "content": "Etter andre verdenskrig l\u00e5 Vest-Europa i ruiner, mens Sovjetunionen hadde en enorm h\u00e6r stasjonert i \u00f8stdelen av kontinentet. Frykten for at Stalin ville bruke makt for \u00e5 spre kommunismen s\u00f8rover og vestover var reell. I 1949 undertegnet 12 land, inkludert USA, Canada, Storbritannia, Frankrike og Norge, Atlanterhavspakten i Washington.\n\nFor Norge var dette et dramatisk skifte fra den tradisjonelle n\u00f8ytralitetspolitikken. Men etter erfaringene fra 9. april 1940 inns\u00e5 Norge at de trengte stormaktsst\u00f8tte for \u00e5 v\u00e6re trygge. USA ble dermed garantisten for sikkerheten i Vest-Europa."
+        },
+        {
+            "type": "header",
+            "text": "\u00d8stblokkens svar: Warszawapakten (1955)"
+        },
+        {
+            "type": "text",
+            "content": "I f\u00f8rste omgang svarte ikke Sovjetunionen med en egen formell allianse, men da Vest-Tyskland ble med i NATO i 1955 og fikk lov til \u00e5 ruste opp sin egen h\u00e6r, endret situasjonen seg. Sovjetunionen fryktet et nytt, sterkt Tyskland og samlet sine satellittstater (\u00d8st-Tyskland, Polen, Tsjekkoslovakia, Ungarn, Romania, Bulgaria og Albania) i Warszawapakten.\n\nWarszawapakten ble styrt med hard h\u00e5nd fra Moskva. Men i motsetning til NATO, der landene ble med frivillig, ble Warszawapakten ofte brukt for \u00e5 holde egne medlemsland i sjakk. Da Ungarn i 1956 og Tsjekkoslovakia i 1968 \u00f8nsket mer frihet, ble alliansens tanks brukt for \u00e5 knuse folkelige oppr\u00f8r."
+        },
+        {
+            "type": "header",
+            "text": "Milit\u00e6rbalansen i Europa"
+        },
+        {
+            "type": "text",
+            "content": "Langs hele grensen mellom \u00d8st- og Vest-Europa sto enorme styrker klare. Den mest kritiske sektoren ble kalt Fulda-gapet i Tyskland – et flatt landskapsomr\u00e5de som var den mest sannsynlige veien for en sovjetisk panserinvasjon. \u00d8stblokken hadde et stort overtall i antall tanks og soldater, mens NATO stolte p\u00e5 mer avansert teknologi og trusselen om bruk av taktiske atomv\u00e5pen for \u00e5 stoppe et angrep."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Alliansene ansikt til ansikt",
+                "leftTitle": "NATO",
+                "rightTitle": "Warszawapakten",
+                "items": [
+                    {
+                        "label": "Lederland",
+                        "left": "USA",
+                        "right": "Sovjetunionen"
+                    },
+                    {
+                        "label": "Medlemskap",
+                        "left": "Frivillig (demokratier)",
+                        "right": "Tvang/Lydriker (sentralstyrt)"
+                    },
+                    {
+                        "label": "Hovedstyrke",
+                        "left": "Luftmakt og teknologi",
+                        "right": "Konvensjonelle bakkestyrker (tanks)"
+                    },
+                    {
+                        "label": "Geografisk fokus",
+                        "left": "Nord-Atlanteren og Vest-Europa",
+                        "right": "\u00d8st- og Sentral-Europa"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Alliansefrihet og n\u00f8ytralitet"
+        },
+        {
+            "type": "text",
+            "content": "Ikke alle land ville velge side. Noen holdt fast p\u00e5 n\u00f8ytraliteten av tradisjon eller geografisk nødvendighet, som Sverige, Sveits og Finland. I 1961 ble ogs\u00e5 Den alliansefrie bevegelsen stiftet under ledelse av Josip Broz Tito fra Jugoslavia, Jawaharlal Nehru fra India og Nasser fra Egypt.\n\nDisse landene \u00f8nsket \u00e5 navigere mellom de to supermaktene uten \u00e5 bli dratt inn i deres konflikter. De ble ofte en viktig stemme for fred og avspenning i FNs generalforsamling, selv om supermaktene ofte fors\u00f8kte \u00e5 presse eller kj\u00f8pe deres lojalitet."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "N\u00e5r ble forsvarsalliansen NATO stiftet?",
+                        "options": [
+                            "1945",
+                            "1949",
+                            "1955",
+                            "1962"
+                        ],
+                        "answer": "1949"
+                    },
+                    {
+                        "question": "Hva het Sovjetunionens svar p\u00e5 NATO?",
+                        "options": [
+                            "Komintern",
+                            "\u00d8stblokkunionen",
+                            "Warszawapakten",
+                            "Stalin-alliansen"
+                        ],
+                        "answer": "Warszawapakten"
+                    },
+                    {
+                        "question": "Hvilket nordisk land var med p\u00e5 \u00e5 stifte NATO?",
+                        "options": [
+                            "Sverige",
+                            "Finland",
+                            "Norge",
+                            "Sveits"
+                        ],
+                        "answer": "Norge"
+                    },
+                    {
+                        "question": "Hva er prinsippet om kollektivt forsvar i NATO?",
+                        "options": [
+                            "Alle land m\u00e5 ha samme konge",
+                            "Et angrep p\u00e5 ett land er et angrep p\u00e5 alle",
+                            "USA bestemmer alt",
+                            "Ingen land f\u00e5r ha egne soldater"
+                        ],
+                        "answer": "Et angrep p\u00e5 ett land er et angrep p\u00e5 alle"
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "N\u00e5r ble forsvarsalliansen NATO stiftet?",
+            "options": [
+                "1945",
+                "1949",
+                "1955",
+                "1962"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hva het Sovjetunionens svar p\u00e5 NATO?",
+            "options": [
+                "Komintern",
+                "\u00d8stblokkunionen",
+                "Warszawapakten",
+                "Stalin-alliansen"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q3",
+            "question": "Hvilket nordisk land var med p\u00e5 \u00e5 stifte NATO?",
+            "options": [
+                "Sverige",
+                "Finland",
+                "Norge",
+                "Sveits"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q4",
+            "question": "Hva er prinsippet om kollektivt forsvar i NATO?",
+            "options": [
+                "Alle land m\u00e5 ha samme konge",
+                "Et angrep p\u00e5 ett land er et angrep p\u00e5 alle",
+                "USA bestemmer alt",
+                "Ingen land f\u00e5r ha egne soldater"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2023-12-21T12:35:00Z",
+    "lastUpdated": "2023-12-21T12:35:00Z"
+}

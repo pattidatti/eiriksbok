@@ -1,0 +1,12 @@
+{
+    "id": "platon",
+    "name": "Platon",
+    "color": "#6366f1",
+    "dimensions": {
+        "metafysikk": "Idélæren: Den sanne virkeligheten er idéverdenen. Den fysiske verden er bare skygger og ufullkomne kopier.",
+        "epistemologi": "Rasjonalsime: Sann kunnskap får vi gjennom fornuften, ikke sansene. Erkjennelse er å 'gjenerindre' det sjelen visste i idéverdenen.",
+        "etikk": "Det gode liv er å leve i samsvar med ideene. Rettferdighet oppstår når det er harmoni mellom sjelens tre deler (fornuft, vilje, begjær).",
+        "menneskesyn": "Dualisme: Mennesket består av en forgjengelig kropp og en udødelig sjel som hørte hjemme i idéverdenen.",
+        "samfunnssyn": "Filosofstyre: Staten bør ledes av filosofkonger som har sett 'det godes idé'. Streng inndeling i samfunnsklasser."
+    }
+}

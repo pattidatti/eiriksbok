@@ -1,0 +1,86 @@
+{
+    "id": "nietzsche",
+    "title": "Friedrich Nietzsche",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "24 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
+    "dimension": "etikk",
+    "comparison_tags": [
+        "overmennesket",
+        "nihilisme",
+        "herre_slave_moral"
+    ],
+    "details": [
+        "En av de mest provoserende og misforståtte filosofene.",
+        "Kjent for erklæringen 'Gud er død'.",
+        "Mente at det vestlige samfunnet sto overfor en krise (nihilisme).",
+        "Utviklet ideen om overmennesket og herre- vs. slavemoral.",
+        "Skrev i et poetisk og bildekunstnerisk språk, ofte i aforismer."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Friedrich Nietzsche (1844–1900) var en filosofisk einstøing som vandret rundt i de sveitsiske alpene og ved den italienske rivieraen. Han var professor i klassisk filologi allerede som 24-åring, men sluttet for å skrive bøker som han selv sa var skrevet for alle og ingen. Han så på seg selv som en 'dynamitt' som skulle ryste det vestlige åndslivet og knuse de gamle verdiene."
+        },
+        {
+            "type": "header",
+            "text": "Gud er død: Tomheten etter solen"
+        },
+        {
+            "type": "text",
+            "content": "Når Nietzsche sa at 'Gud er død', kom han ikke med en hatefull melding, men med en dyster konstatering. Han mente at den kristne troen ikke lenger fungerte som det faste ankeret for moral og sannhet i Europa. Dette skapte et enormt tomrom.\n\nHan sammenlignet det med at jorda ble løsrevet fra sola – alt ble kaldt og retningsløst. Han fryktet at dette ville føre til nihilisme, en tilstand der ingenting har verdi eller mening. Hans filosofi var et forsøk på å overvinne denne nihilismen ved å lære mennesket å skape sine egne verdier, helt uavhengig av himmelen eller tradisjonen."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Gud er død! Gud forblir død! Og vi har drept ham! Hvordan skal vi, morderes mordere, trøste oss?",
+                "author": "Friedrich Nietzsche"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Herremoral og slavemoral"
+        },
+        {
+            "type": "text",
+            "content": "Nietzsche gjennomførte det han kalte en 'omvurdering av alle verdier'. Han menter at det vestlige mennesket var preget av en slavemoral – en moral som oppsto blant de undertrykte i romertiden. Slavemoralen opphøyer svakhet, ydmykhet og medlidenhet som 'dygder'.\n\nHan foretrakk den antikke herremoralen, slik vi finner den hos heltene i greske myter. Herremoralen hyllet styrke, stolthet, kreativitet og viljen til å herske over seg selv. Nietzsche mente at vi måtte forkaste slavetankegangen for å kunne bli frie individer. Han var spesielt kritisk til [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json) og [Platon](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/platon.json), som han mente startet forfallet ved å sette fornuften over livskraften."
+        },
+        {
+            "type": "header",
+            "text": "Viljen til makt og Selvovervinnelse"
+        },
+        {
+            "type": "text",
+            "content": "Nietzsches kanskje mest misforståtte begrep er viljen til makt. Det handler ikke nødvendigvis om å undertrykke andre med vold. For Nietzsche er alt liv i bunn og grunn en vilje til å vokse, ekspandere og uttrykke sin egen styrke. Den høyeste formen for makt er makt over egne impulser og evnen til å skape noe nytt.\n\nÅ leve er å være i konstant endring. 'Mennesket er noe som må overvinnes', skrev han. Ved å trene sin vilje og ta ansvar for sin egen skjebne, kan man forme sitt liv som et unikt kunstverk."
+        },
+        {
+            "type": "header",
+            "text": "Overmennesket (Übermensch)"
+        },
+        {
+            "type": "text",
+            "content": "Målet for menneskeheten er ikke et demokratisk flertall av likeverdige borgere, men fremveksten av overmennesket. Dette er et menneske som står helt på egne ben, som har overvunnet seg selv og som skaper sin egen moral. Overmennesket sier 'JA' til livet nøyaktig slik det er, med all dets lidelse og smerte. Begrepet ble senere grovt misbrukt av nazistene, som knyttet det til rase, noe som lå fjernt fra Nietzsches individuelle og kulturelle fokus."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Den tyngste bør: Den evige gjenkomst",
+                "content": "Nietzsche presenterte et voldsomt tankeeksperiment: Tenk om en demon kom til deg og sa at du måtte leve akkurat dette livet du lever nå, om og om igjen i all evighet. Hver minste detalj, hver glede og hver sorg, ville gjenta seg nøyaktig likt. Ville du falt sammen i fortvilelse, eller ville du elske livet så høyt at du jublet over en slik tanke? Dette kalte han amor fati – kjærligheten til skjebnen."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Etterspill"
+        },
+        {
+            "type": "text",
+            "content": "Nietzsche endte sitt liv i galskap, men hans skrifter ble eksplosive etter hans død. Han utfordret alt vi trodde vi visste om sannhet og moral, og han la grunnlaget for mye av 1900-tallets tenkning, fra psykologi til eksistensialisme. Han inspirerte tenkere som [Heidegger](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/heidegger.json) til å stille spørsmål ved selve 'væren' og menneskets plass i en verden uten Gud."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:12:00Z"
+}

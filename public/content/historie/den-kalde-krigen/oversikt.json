@@ -1,0 +1,335 @@
+{
+    "id": "oversikt",
+    "title": "En verden i to: Oversikt over den kalde krigen",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1945–1991",
+    "category": "Verden",
+    "readTime": "15 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1526040652367-ac003a0475fe?auto=format&fit=crop&q=80",
+    "details": [
+        "En ideologisk konflikt mellom USA og Sovjetunionen.",
+        "Karakterisert av trussel om atomkrig og 'terrorbalanse'.",
+        "Verden ble delt i to maktblokker: Vest og Øst.",
+        "Ingen direkte krig mellom supermaktene (derfor 'kald').",
+        "Dominerte verdenspolitikken i nesten 50 år."
+    ],
+    "timeline": [
+        {
+            "year": "1945",
+            "title": "Den kalde krigen starter",
+            "description": "Oppl\u00f8sningen av alliansen mot Nazityskland."
+        },
+        {
+            "year": "1946",
+            "title": "Jernteppet-talen",
+            "description": "Churchill advarer mot sovjetisk dominans i \u00d8st-Europa."
+        },
+        {
+            "year": "1947",
+            "title": "Truman-doktrinen",
+            "description": "USA lover \u00e5 st\u00f8tte frie folk mot kommunismen."
+        },
+        {
+            "year": "1948",
+            "title": "Marshallplanen",
+            "description": "\u00d8konomisk hjelp til gjenoppbygging av Europa."
+        },
+        {
+            "year": "1948",
+            "title": "Berlin-blokaden",
+            "description": "Sovjet stenger veiene til Berlin; luftbroen starter."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Den kalde krigen var ikke en krig i tradisjonell forstand, med store arméer som barket sammen på åpne slagmarker. Likevel var det en av de dypeste og mest omfattende konfliktene i menneskehetens historie. Fra 1945 til 1991 ble verden holdt i et jerngrep av en ideologisk, politisk, økonomisk og militær kamp mellom to supermakter: USA og Sovjetunionen.\n\nBegrepet «kald krig» beskriver en tilstand der to parter er i dyp konflikt, men unngår å erklære direkte krig mot hverandre. I stedet kjempet de gjennom propaganda, spionasje, allianser og såkalte proksykriper (stedfortrederkriger) i andre land. Over hele denne perioden hang frykten for en altutslettende atomkrig som en mørk sky over verden."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Hvorfor «kald»?",
+                "content": "Begrepet ble gjort kjent av den amerikanske journalisten Walter Lippmann og forfatteren George Orwell. Krigen var 'kald' fordi supermaktene aldri kjempet direkte mot hverandre med egne soldater. Årsaken var enkel: Begge sider hadde atomvåpen. En direkte konflikt ville betydd 'Mutual Assured Destruction' (gjensidig garantert ødeleggelse) – ingen ville overlevd."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Røttene til konflikten: Da samarbeidet brast"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå den kalde krigen må vi se på slutten av andre verdenskrig. Under krigen hadde USA, Storbritannia og Sovjetunionen vært uvanlige allierte i kampen mot Nazi-Tyskland. Men dette samarbeidet var basert på en felles fiende, ikke felles verdier. Da Hitlers Tyskland falt i mai 1945, dukket de gamle mistillitene opp igjen til overflaten.\n\nPå konferansene i Jalta og Potsdam i 1945 forsøkte de allierte lederne å bli enige om hvordan Europa skulle se ut etter krigen. Men deres visjoner var fundamentalt forskjellige. USA og Storbritannia ønsket frie valg og demokratiske regjeringer i de befridde landene i Øst-Europa. Sovjetunionens leder, Josef Stalin, hadde andre planer. Han ønsket en 'sikkerhetssone' mellom Sovjetunionen og Vesten, og begynte å installere kommunistiske lydriker i land som Polen, Ungarn og Tsjekkoslovakia."
+        },
+        {
+            "type": "header",
+            "text": "Ideologienes kamp: Kapitalisme vs. Kommunisme"
+        },
+        {
+            "type": "text",
+            "content": "Den kalde krigen var i hjertet en kamp mellom to uforenlige måter å organisere samfunnet på.\n\nI USA og Vest-Europa var idealet liberalt demokrati og kapitalisme. Dette innebar et system med flerpartivalg, ytringsfrihet, privat eiendomsrett og en markedsøkonomi der tilbud og etterspørsel styrte produksjonen. Amerikanerne så på seg selv som 'den frie verdens' forsvarere mot tyranni.\n\nI Sovjetunionen var idealet kommunisme. Basert på Marx' og Lenins ideer, ble samfunnet organisert som en ettpartistat styrt av kommunistpartiet. Staten eide alle bedrifter og ressurser, og økonomien var sentralstyrt planøkonomi. Sovjetlederne mente at deres system var overlegent fordi det (i teorien) fjernet klasseskiller og utbytting av arbeidere. De så på vestlig kapitalisme som imperialistisk og utbyttende."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Vestblokken vs. Østblokken",
+                "leftTitle": "USA & Allierte (Vest)",
+                "rightTitle": "Sovjetunionen & Allierte (Øst)",
+                "items": [
+                    {
+                        "label": "Politisk system",
+                        "left": "Flerpartidemokrati",
+                        "right": "Ettpartistat / Diktatur"
+                    },
+                    {
+                        "label": "\u00d8konomi",
+                        "left": "Markeds\u00f8konomi / Kapitalisme",
+                        "right": "Plan\u00f8konomi / Kollektivisme"
+                    },
+                    {
+                        "label": "Verdigrunnlag",
+                        "left": "Individuell frihet",
+                        "right": "Sosial likhet / Kollektivet"
+                    },
+                    {
+                        "label": "Milit\u00e6rallianse",
+                        "left": "[NATO](/historie/den-kalde-krigen/nato-vs-warszawa)",
+                        "right": "[Warszawapakten](/historie/den-kalde-krigen/nato-vs-warszawa)"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Jernteppet faller over Europa"
+        },
+        {
+            "type": "text",
+            "content": "I 1946 holdt den tidligere britiske statsministeren Winston Churchill en tale i USA som skulle bli historisk. Han erkl\u00e6rte at \u00abfra Stettin i \u00d8stersj\u00f8en til Trieste i Adriaterhavet har et jernteppet senket seg over det europeiske kontinentet\u00bb. Dette jernteppet var ikke en fysisk mur (enda), men en befestet grense som delte Europa i to: Den demokratiske vestdelen og den sovjetkontrollerte \u00f8stdelen.\n\nDet viktigste brennpunktet for denne delingen var Tyskland. Landet ble delt i fire okkupasjonssoner etter krigen. De tre vestlige sonene (USA, Storbritannia, Frankrike) ble etter hvert sl\u00e5tt sammen til Forbundsrepublikken Tyskland (Vest-Tyskland), mens den sovjetiske sonen ble til Den tyske demokratiske republikk (\u00d8st-Tyskland). Byen Berlin, som l\u00e5 dypt inne i \u00f8stsonen, ble ogs\u00e5 delt i to, noe som skapte store spenninger som senere f\u00f8rte til byggingen av [Berlinmuren](/historie/den-kalde-krigen/berlinmuren)."
+        },
+        {
+            "type": "header",
+            "text": "Truman-doktrinen og Oppdemming"
+        },
+        {
+            "type": "text",
+            "content": "Amerikansk utenrikspolitikk i begynnelsen av den kalde krigen ble definert av konseptet oppdemming (containment). Strategien gikk ut på at USA ikke nødvendigvis skulle tvinge kommunismen ut av land der den allerede var etablert, men de skulle kjempe med nebb og klør for å hindre at den spredte seg til nye land.\n\nI 1947 lanserte president Harry S. Truman det som ble kalt Truman-doktrinen. Han lovet at USA skulle hjelpe alle 'frie folk' som ble utsatt for press fra væpnede minoriteter eller ytre krefter (underforstått sovjetiskstøttede opprørere). Dette ble først brukt for å sende militær og økonomisk støtte til Hellas og Tyrkia for å hindre kommunistisk maktovertakelse."
+        },
+        {
+            "type": "header",
+            "text": "Marshallhjelpen: Penger som våpen"
+        },
+        {
+            "type": "text",
+            "content": "Samtidig som USA sendte våpen, sendte de også penger. Marshallplanen (1948-1952) var et gigantisk økonomisk hjelpeprogram for det krigsherjede Europa. USA innså at nød og fattigdom var den beste grobunnen for kommunisme. Ved å gi milliarder av dollar til gjenoppbygging, bidro USA til å skape velstand og stabilitet i Vest-Europa, samtidig som de sikret seg viktige handelspartnere og forhindret at kommunistpartiene vant valg i land som Frankrike og Italia.\n\nSovjetunionen nektet de østeuropeiske landene å ta imot Marshallhjelp, da de så på det som amerikansk 'dollar-diplomati' og et forsøk på å kjøpe lojalitet. Dette økte det økonomiske gapet mellom øst og vest markant."
+        },
+        {
+            "type": "header",
+            "text": "Krigene i skyggen: Proksykrigene"
+        },
+        {
+            "type": "text",
+            "content": "Selv om supermaktene ikke kjempet direkte, ble store deler av verden dratt inn i konflikter. I Asia vant kommunistene under Mao Zedong borgerkrigen i Kina i 1949, noe som sjokkerte USA. Kort tid etter brøt [Koreakrigen](/historie/den-kalde-krigen/koreakrigen) ut (1950-1953), der nordkoreanske styrker støttet av Kina og Sovjet kjempet mot sørkoreanske styrker støttet av USA og FN.\n\nSenere fulgte [Vietnamkrigen](/historie/den-kalde-krigen/vietnamkrigen) (1955-1975), en utmattelseskrig der USA sendte hundretusener av soldater for å hindre en kommunistisk overtagelse av Sør-Vietnam. I Afghanistan (1979-1989) opplevde Sovjetunionen sitt eget 'Vietnam' da de invaderte landet for å støtte et kommunistregime, men møtte knallhard motstand fra USA-støtte geriljasoldater (mujahedin)."
+        },
+        {
+            "type": "header",
+            "text": "Berlin-blokaden: Den f\u00f8rste store pr\u00f8vesteinen"
+        },
+        {
+            "type": "text",
+            "content": "I 1948 oppsto den f\u00f8rste virkelig farlige krisen i Berlin. Sovjetunionen ble stadig mer urolig over at de vestallierte slo sammen sine soner og innf\u00f8rte en ny valuta (D-mark). Som svar stengte Stalin alle landveier, jernbaner og kanaler inn til Vest-Berlin. M\u00e5let var \u00e5 sulte ut byen og tvinge de vestlige maktene til \u00e5 gi opp sine rettigheter i byen.\n\nI stedet for \u00e5 trekke seg ut eller bryte blokaden med makt (noe som kunne f\u00f8rt til krig), svarte USA og Storbritannia med luftbroen til Berlin. I nesten et helt \u00e5r landet et fly i Berlin hvert eneste minutt med mat, kull og medisiner. Det var en logistisk bragd uten sidestykke. Til slutt m\u00e5tte Sovjetunionen innse at blokaden var mislykket og \u00e5pnet veiene igjen i mai 1949. Krisen f\u00f8rte til den endelige splittelsen av Tyskland og fremskyndet dannelsen av [NATO](/historie/den-kalde-krigen/nato-vs-warszawa)."
+        },
+        {
+            "type": "header",
+            "text": "Spionenes gullalder: CIA vs. KGB"
+        },
+        {
+            "type": "text",
+            "content": "Siden supermaktene ikke kunne kjempe \u00e5pent, ble det skyggenes krig. Etterretningsorganisasjonene CIA (USA) og KGB (Sovjetunionen) spilte avgj\u00f8rende roller. De infiltrerte hverandres regjeringer, st\u00f8ttet kupp i fremmede land, drev med attentater og spredte desinformasjon.\n\nEt av de mest kjente eksemplene p\u00e5 etterretningsvirksomhet var bruken av spionflyet U-2. I 1960 ble et slikt fly skutt ned over Sovjetunionen, noe som f\u00f8rte til en diplomatisk skandale og knuste h\u00e5pet om en tidlig avspenning mellom president Eisenhower og lederen Khrusjtsjov. Spionasjen handlet ikke bare om milit\u00e6re hemmeligheter, men ogs\u00e5 om industriell spionasje og \u00e5 vinne folkets hjerter og sinn gjennom 'psykologisk krigf\u00f8ring'."
+        },
+        {
+            "type": "header",
+            "text": "Terrorbalanse og MAD-doktrinen"
+        },
+        {
+            "type": "text",
+            "content": "Etter at Sovjetunionen utviklet sin f\u00f8rste atombombe i 1949, eskalerte [v\u00e5penkappl\u00f8pet](/historie/den-kalde-krigen/atomvapenkapplopet) til et ufattelig niv\u00e5. Snart utviklet begge sider hydrogenbomber, som var tusen ganger kraftigere enn bombene over Hiroshima. Dette skapte konseptet Mutual Assured Destruction (MAD).\n\nLogikken bak MAD var paradoksal: Fordi begge sider hadde nok v\u00e5pen til \u00e5 utslette den andre i et motangrep (selv etter \u00e5 ha blitt truffet f\u00f8rst), ville ingen t\u00f8re \u00e5 starte en krig. Frykten for total utslettelse fungerte dermed som en slags bisarr garanti for fred. Likevel betydde det at menneskeheten levde p\u00e5 kanten av stupet i flere ti\u00e5r, s\u00e6rlig under kriser som [Cuba-krisen](/historie/den-kalde-krigen/cuba-krisen) i 1962, der verden var minutter unna katastrofe."
+        },
+        {
+            "type": "header",
+            "text": "\u00d8stblokkens indre uro"
+        },
+        {
+            "type": "text",
+            "content": "Selv om Sovjetunionen hadde et stramt grep om sine satellittstater i \u00d8st-Europa, var det flere fors\u00f8k p\u00e5 oppr\u00f8r. I 1956 gjorde folket i Ungarn oppr\u00f8r mot det sovjetiske styret, men oppstanden ble brutalt knust av sovjetiske tanks. I 1968 skjedde det samme i Tsjekkoslovakia under den s\u00e5kalte Praha-v\u00e5ren, der m\u00e5let var \u00e5 innf\u00f8re 'sosialisme med et menneskelig ansikt'.\n\nSovjetlederen Leonid Bresjnev formulerte da Bresjnev-doktrinen, som slo fast at Sovjetunionen hadde rett til \u00e5 intervenere milit\u00e6rt i ethvert sosialistisk land der det kommunistiske styret var truet. Dette viste verden at jernteppet var holdt oppe av ren makt, ikke av folkets vilje."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "Sentrale hendelser i den kalde krigen",
+                "compact": true,
+                "events": [
+                    {
+                        "date": "1945",
+                        "title": "Jalta-konferansen",
+                        "description": "Lederne planlegger etterkrigstidens Europa."
+                    },
+                    {
+                        "date": "1947",
+                        "title": "Truman-doktrinen",
+                        "description": "USA lover \u00e5 bekjempe kommunismens spredning."
+                    },
+                    {
+                        "date": "1948",
+                        "title": "Berlin-blokaden",
+                        "description": "Sovjet stenger veiene til Vest-Berlin; USA svarer med luftbro."
+                    },
+                    {
+                        "date": "1949",
+                        "title": "NATO opprettes",
+                        "description": "Forsvarsallianse mellom vestlige land."
+                    },
+                    {
+                        "date": "1950",
+                        "title": "Koreakrigen starter",
+                        "description": "F\u00f8rste store milit\u00e6re konflikt mellom blokkene."
+                    },
+                    {
+                        "date": "1955",
+                        "title": "Warszawapakten",
+                        "description": "\u00d8stblokkens milit\u00e6rallianse stiftes."
+                    },
+                    {
+                        "date": "1957",
+                        "title": "Sputnik-sjokket",
+                        "description": "Sovjet sender den f\u00f8rste satellitten ut i rommet."
+                    },
+                    {
+                        "date": "1961",
+                        "title": "Berlinmuren",
+                        "description": "Byggingen av muren gjennom Berlin starter."
+                    },
+                    {
+                        "date": "1962",
+                        "title": "Cuba-krisen",
+                        "description": "Verden n\u00e6r atomkrig p\u00e5 grunn av raketter p\u00e5 Cuba."
+                    },
+                    {
+                        "date": "1969",
+                        "title": "M\u00e5nelandingen",
+                        "description": "USA vinner 'kappl\u00f8pet'. Neil Armstrong g\u00e5r p\u00e5 m\u00e5nen."
+                    },
+                    {
+                        "date": "1989",
+                        "title": "Murens fall",
+                        "description": "Berlinmuren \u00e5pnes; slutten p\u00e5 jernteppet."
+                    },
+                    {
+                        "date": "1991",
+                        "title": "Sovjetunionens fall",
+                        "description": "Konflikten avsluttes offisielt."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva kaller vi tilstanden der to parter er i dyp konflikt, men unng\u00e5r direkte krig?",
+                        "options": [
+                            "Varm krig",
+                            "Kald krig",
+                            "Borgerkrig",
+                            "Snikkrig"
+                        ],
+                        "answer": "Kald krig"
+                    },
+                    {
+                        "question": "Hvilke to supermakter var hovedmotstandere under den kalde krigen?",
+                        "options": [
+                            "Tyskland og USA",
+                            "Storbritannia og Frankrike",
+                            "Kina og Japan",
+                            "USA og Sovjetunionen"
+                        ],
+                        "answer": "USA og Sovjetunionen"
+                    },
+                    {
+                        "question": "Hva var det viktigste symbolet p\u00e5 delingen av Europa?",
+                        "options": [
+                            "Eiffelt\u00e5rnet",
+                            "Frihetsgudinnen",
+                            "Jernteppet",
+                            "Atlanterhavet"
+                        ],
+                        "answer": "Jernteppet"
+                    },
+                    {
+                        "question": "Hva het den amerikanske strategien for \u00e5 hindre spredning av kommunisme?",
+                        "options": [
+                            "Oppdemming",
+                            "Aggresjon",
+                            "Isolasjon",
+                            "Eksperimentering"
+                        ],
+                        "answer": "Oppdemming"
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva kaller vi tilstanden der to parter er i dyp konflikt, men unng\u00e5r direkte krig?",
+            "options": [
+                "Varm krig",
+                "Kald krig",
+                "Borgerkrig",
+                "Snikkrig"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hvilke to supermakter var hovedmotstandere under den kalde krigen?",
+            "options": [
+                "Tyskland og USA",
+                "Storbritannia og Frankrike",
+                "Kina og Japan",
+                "USA og Sovjetunionen"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": "q3",
+            "question": "Hva var det viktigste symbolet p\u00e5 delingen av Europa?",
+            "options": [
+                "Eiffelt\u00e5rnet",
+                "Frihetsgudinnen",
+                "Jernteppet",
+                "Atlanterhavet"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q4",
+            "question": "Hva het den amerikanske strategien for \u00e5 hindre spredning av kommunisme?",
+            "options": [
+                "Oppdemming",
+                "Aggresjon",
+                "Isolasjon",
+                "Eksperimentering"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "createdDate": "2023-12-21T11:55:00Z",
+    "lastUpdated": "2023-12-21T11:55:00Z"
+}

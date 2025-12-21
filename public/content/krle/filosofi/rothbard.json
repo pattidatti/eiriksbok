@@ -1,0 +1,70 @@
+{
+    "id": "rothbard",
+    "title": "Murray Rothbard",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "20 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80",
+    "dimension": "samfunnssyn",
+    "comparison_tags": [
+        "anarkokapitalisme",
+        "selv_eierskap",
+        "naturrett"
+    ],
+    "details": [
+        "En sentral figur i moderne libertariansk filosofi.",
+        "Utviklet anarkokapitalismen som et helhetlig politisk system.",
+        "Mente at alle rettigheter bygger på prinsippet om selv-eierskap.",
+        "Brukte naturretten som utgangspunkt for moral og lovverk.",
+        "Kjent for sine skarpe analyser av statens makt."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Murray Rothbard (1926–1995) var en amerikansk intellektuell som ofte blir kalt 'Mr. Libertarian'. Han var en elev av [Ludwig von Mises](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/mises.json), men tok de liberale ideene til sin ytterste konsekvens. Hans mål var å bygge et komplett og logisk sammenhengende system for menneskelig frihet basert på urokkelige prinsipper."
+        },
+        {
+            "type": "header",
+            "text": "Selv-eierskap: Den ultimate rettigheten"
+        },
+        {
+            "type": "text",
+            "content": "Grunnmuren i Rothbards filosofi er aksiomet om selv-eierskap. Han mente det er en absolutt sannhet at hvert individ har full eiendomsrett over sin egen kropp. Dette prinsippet er ufravikelig. Hvis du ikke eier deg selv, må enten noen andre eie deg (slavisk), eller så må alle eie alle (kommunistisk), noe Rothbard mente var både logisk umulig og moralsk forkastelig.\n\nFra selv-eierskapet utvidet han retten til også å gjelde eiendom: Når du blander ditt eget arbeid med ubrukte naturressurser, blir de dine. Her bygger han direkte på [John Lockes](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/locke.json) teorier om eiendom."
+        },
+        {
+            "type": "header",
+            "text": "NAP: Ikke-aggresjonsprinsippet"
+        },
+        {
+            "type": "text",
+            "content": "Basert på selv-eierskap formulerte Rothbard ikke-aggresjonsprinsippet (NAP). Det sier at ingen har rett til å iverksette fysisk makt (aggresjon) mot et annet menneske eller deres rettmessig ervervede eiendom. Maktbruk er kun tillatt i rent selvforsvar.\n\nRothbard brukte dette prinsippet til å rette en knallhard kritikk mot staten. Han mente at skatt er tyveri (fordi det er tvunget fra deg), og at krig er massedrap. For Rothbard var staten den største overtrederen av NAP i historien, og han mente vi burde erstatte den med et samfunn basert på frivillige avtaler."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Staten er ikke annet enn en organisasjon som lever av plyndring som er dekket opp med juridiske uttrykk.",
+                "author": "Murray Rothbard"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Anarkokapitalisme: Et samfunn uten stat"
+        },
+        {
+            "type": "text",
+            "content": "I motsetning til [Mises](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/mises.json) og [Locke](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/locke.json), mente Rothbard at vi ikke trenger en 'vaktbikkje-stat' i det hele tatt. Han presenterte ideen om anarkokapitalisme, der alt fra politi og domstoler til veier og miljøvern blir håndtert av det frie markedet og private forsikringsselskaper.\n\nHan argumenterte for at konkurranse ville gjøre disse tjenestene både mer rettferdige og mer effektive enn et statlig monopol. Hans visjon var et samfunn der loven er basert på naturretten og respekten for individet, ikke på politiske vedtak."
+        },
+        {
+            "type": "header",
+            "text": "Naturrett og Moral"
+        },
+        {
+            "type": "text",
+            "content": "Rothbard var en sterk tilhenger av naturretten. Han mente at rettferdige lover ikke er noe vi 'finner på' gjennom avstemninger, men noe vi kan oppdage gjennom fornuften ved å studere menneskets natur. Hans etikk er derfor preget av en streng logikk som minner om [Kants](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kant.json) universaliserbarhet, men med et radikalt fokus på eiendomsrett og individuell suverenitet."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:16:00Z"
+}

@@ -1,0 +1,70 @@
+{
+    "id": "sokrates",
+    "title": "Sokrates",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "16 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1507679022986-21827998a4f8?auto=format&fit=crop&q=80",
+    "dimension": "epistemologi",
+    "comparison_tags": [
+        "sokratisk_metode",
+        "etikk",
+        "menneskesyn"
+    ],
+    "details": [
+        "Mannen som aldri skrev et eneste ord selv.",
+        "Kjent for den sokratiske metode: Å stille spørsmål for å avdekke uvitenhet.",
+        "Mente at ingen gjør urett med vilje, men av uvitenhet.",
+        "Dømt til døden for å 'forføre ungdommen' og 'fornekte gudene'.",
+        "Hans liv og død ble dokumentert av eleven Platon."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Sokrates (ca. 470–399 f.Kr.) er kanskje den mest gåtefulle figuren i filosofihistorien. Han vandret rundt på torget i Aten og snakket med hvem som helst som ville høre på. Han bygde ingen skoler, skrev ingen bøker og tok aldri betalt for undervisningen sin. Likevel la han grunnlaget for nesten all senere vestlig filosofi.\n\nHan pleide å si at han selv var 'Atenas klegg' – en plageånd som stakk de selvsikre borgerne slik at de våknet fra sin intellektuelle dvale. Han var ikke interessert i naturvitenskap eller metafysikk i seg selv, men i hvordan vi som mennesker bør leve."
+        },
+        {
+            "type": "header",
+            "text": "Sokratisk ironi og uvitenhet"
+        },
+        {
+            "type": "text",
+            "content": "Sokrates uttalte at han var den viseste i Aten, ikke fordi han visste så mye, men fordi han var den eneste som var klar over sin egen uvitenhet. Dette kalles gjerne sokratisk ironi. Når han gikk i dialog med eksperter – enten det var generaler om mot eller politikere om rettferdighet – startet han alltid med å innta rollen som den som ingenting visste.\n\nVed å stille tilsynelatende enkle spørsmål, lokket han samtalepartneren til å gi definisjoner som ved nærmere ettersyn viste seg å være mangelfulle eller selvmotsigende. Denne prosessen kalles 'elenchos' – en tøff utspørring som renser sinnet for falske forestillinger. For Sokrates var erkjennelsen av egen uvitenhet det nødvendige første steget mot sann visdom."
+        },
+        {
+            "type": "header",
+            "text": "Jordmorkunsten (Maieutikk)"
+        },
+        {
+            "type": "text",
+            "content": "Sokrates beskrev sin metode som 'maieutikk', eller jordmorkunst. Hans mor var jordmor, og han mente at han selv gjorde noe lignende: Han hjalp folk til å føde sine egne tanker. Han mente at sannheten allerede finnes inne i oss, men at den må bringes for dagen gjennom kritisk refleksjon.\n\nMålet med den sokratiske metoden var ikke å gi ferdige svar (faktainformasjon), men å utvikle evnen til å tenke selv. Dette står i sterk kontrast til sofistene – omreisende lærere på den tiden som tok betalt for å lære bort kunsten å overtale andre, uavhengig av hva som var sant. Sokrates kjempet mot ideen om at sannheten er relativ."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Det jeg vet, er at jeg ingenting vet.",
+                "author": "Sokrates"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Etikk: Viden er dygd"
+        },
+        {
+            "type": "text",
+            "content": "Hovedtemaet for Sokrates var hvordan vi kan leve et godt liv. Han mente at mennesket dypest sett ønsker det som er godt for seg selv. Men hva er det gode? Sokrates trodde at mange gjør feil fordi de misforstår hva som virkelig er til deres eget beste. De tror penger, makt eller berømmelse bringer lykke, mens det i virkeligheten er sjelen som må pleies.\n\nHans mest kjente etiske påstand er at 'viden er dygd'. Det betyr at hvis du virkelig vet hva som er rett, vil du også gjøre det rette. Ingen gjør ondt med vilje, mente Sokrates; de gjør ondt fordi de tror (feilaktig) at det vil gagne dem. Derfor er den viktigste dygden av alle visdom eller innsikt. Dette synet kalles ofte 'etisk intellektualisme'."
+        },
+        {
+            "type": "header",
+            "text": "Rettssaken og døden"
+        },
+        {
+            "type": "text",
+            "content": "Atens ledere så på Sokrates som en farlig provokatør som undergravde samfunnets orden ved å lære ungdommen å stille kritiske spørsmål. Etter nederlaget i peloponneskrigen trengte Aten syndebukker. I 399 f.Kr. ble han anklaget for å ha korrumpert ungdommen og for gudløshet.\n\nI sin forsvarstale (apologien) nektet han å unnskylde seg. Han hevdet at han utførte en tjeneste for gudene ved å vekke folket. Selv etter at han ble dømt til døden, beholdt han sin intellektuelle integritet. Han drakk giftbegeret (skarntyde) omgitt av sine venner, og hans siste ord var en påminnelse om å betale en gjeld han hadde – et symbol på hans respekt for lov og orden, selv når loven slo feil ut.\n\nHans fremste elev, [Platon](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/platon.json), ble så rystet av dommen at han dedikerte sitt liv til å fortsette Sokrates' arbeid og utforske hvordan en stat bør styres slik at den viseste ikke blir drept."
+        }
+    ],
+    "createdDate": "2025-12-21T12:00:00Z",
+    "lastUpdated": "2025-12-21T13:02:00Z"
+}
