@@ -1,0 +1,169 @@
+{
+    "id": "sannhetens-historie",
+    "title": "Sannhetens historie: Fra åpenbaring til algoritme",
+    "layout": "rich",
+    "year": "Fra middelalderens autoriteter til dagens data",
+    "category": "Idéhistorie",
+    "readTime": "15 min lesing",
+    "heroImage": "/images/lessons/ideer/sannhet_hero.png",
+    "details": [
+        "Hva betyr det at noe er 'sant'?",
+        "Troens tidsalder: Sannhet som åpenbaring",
+        "Fornuftens tidsalder: Sannhet som observasjon",
+        "Postmodernisme: Mange sannheter?",
+        "Algoritmenes makt: Sannhet i dataalderen"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Vi lever i en tid der ordet 'sannhet' ofte følges av spørsmålstegn. Med begreper som 'alternative fakta', ekkokamre på sosiale medier og kunstig intelligens som kan dikte opp troverdige bilder, kan det føles som om grunnen under oss svikter. Men kampen om sannheten er ikke ny. \n\nHistorien om mennesket er også historien om hvordan vi har avgjort hva som er sant. Det som var en uomtvistelig sannhet for et menneske i middelalderen, ville virke som ren overtro for en vitenskapsmann på 1800-tallet. Og kanskje vil våre etterkommere se på vår tids blindveier med samme hoderystende undring.\n\nI denne artikkelen skal vi se på hvordan vi har flyttet sannhetens kilde: Fra himmelen, inn i menneskets fornuft, og nå – kanskje – inn i maskinene."
+        },
+        {
+            "type": "header",
+            "text": "1. Hva er sannhet? To gamle ideer"
+        },
+        {
+            "type": "text",
+            "content": "Før vi ser på historien, må vi forstå at filosofer (som [Sokrates](/filosofi/historisk-filosofi/sokrates) og hans etterfølgere) har kranglet om definisjonen i tusenvis av år. Forenklet sagt finnes det to hovedmåter å tenke på:\n\n1. **Korrespondanse**: Noe er sant hvis det stemmer overens med virkeligheten. 'Himmelen er blå' er sant hvis jeg ser ut og himmelen faktisk er blå.\n2. **Koherens**: Noe er sant hvis det passer logisk sammen med alle andre ting vi vet. Det er som en puslespillbrikke som må passe inn i resten av bildet.\n\nGjennom historien har vi skiftet på hvilken av disse vi legger mest vekt på – og hvem vi stoler på at skal fortelle oss det."
+        },
+        {
+            "type": "header",
+            "text": "2. Middelalderen: Sannhet som autoritet"
+        },
+        {
+            "type": "image",
+            "src": "/images/lessons/ideer/faith_vs_logic.png",
+            "caption": "Fra middelalderens religiøse åpenbaring til moderne vitenskapelig empiri."
+        },
+        {
+            "type": "text",
+            "content": "I det lange tidsrommet vi kaller [middelalderen](/historie/middelalderen/middelalderen), var ikke sannheten noe du trengte å finne opp selv. Den var allerede gitt. Sannheten var åpenbart av Gud gjennom Bibelen og kirken.\n\nHvis du ville vite hvordan verden var skapt, eller hva som var rett og galt, så du ikke på data eller gjorde eksperimenter. Du leste de hellige skriftene eller hørte på paven. Sannhet var knyttet til **autoritet**. Å tvile på kirken var ikke bare å ta feil; det var å sette seg opp mot selve universets orden.\n\nDette ga samfunnet en enorm stabilitet. Alle delte det samme verdensbildet. Men det betød også at nye ideer som ikke passet inn i puslespillet, ble undertrykt (se [inkvisisjonen](/historie/middelalderen/det-hellige-romerske-rike))."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Galileos sannhet",
+                "content": "Da Galileo Galilei på 1600-tallet hevdet at jorden beveget seg rundt solen, ble han tvunget til å trekke det tilbake. Det var ikke fordi kirken ikke så bevisene hans, men fordi bevisene hans brøt med autoriteten til skriftene. Det var en konflikt mellom to helt ulike måter å finne sannhet på."
+            }
+        },
+        {
+            "type": "header",
+            "text": "3. Opplysningstiden: Sannhet gjennom bevis"
+        },
+        {
+            "type": "text",
+            "content": "Med den vitenskapelige revolusjon og [opplysningstiden](/historie/den-franske-revolusjon/intro) flyttet sannhetens kilde seg. Man begynte å stole på egne sanser og fornuft i stedet for gamle bøker. Sannhet ble til noe som kunne måles, veies og testes.\n\nDette er den vitenskapelige metodes fødsel. Nå var ikke noe sant bare fordi en konge eller en biskop sa det. Det var sant hvis hvem som helst kunne utføre det samme eksperimentet og få det samme svaret. Dette var en radikalt demokratisk tanke: Sannheten tilhørte alle som var villige til å bruke fornuften.\n\nDette natursynet (se også [naturens sjel](/historie/ideer-og-verdenssyn/naturens-sjel)) la grunnlaget for den moderne verden, medisin og teknologi."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Hvor kommer sannheten fra?",
+                "leftTitle": "Middelalderen (Åpenbaring)",
+                "rightTitle": "Moderne tid (Empiri)",
+                "items": [
+                    {
+                        "label": "Kilde",
+                        "left": "Gud, kirken, tradisjonen.",
+                        "right": "Observasjon, eksperimenter, logikk."
+                    },
+                    {
+                        "label": "Metode",
+                        "left": "Tro og lydighet.",
+                        "right": "Tvil og testing."
+                    },
+                    {
+                        "label": "Mål",
+                        "left": "Frelse og harmoni med Guds plan.",
+                        "right": "Fremskritt og kontroll over naturen."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "4. Postmodernismen: Er det din sannhet eller min?"
+        },
+        {
+            "type": "text",
+            "content": "Mot slutten av det 20. århundre begynte noen å spørre: Er vitenskapens sannhet egentlig så nøytral som vi tror? Filosofer påpekte at det vi kaller 'sant' ofte er farget av hvem som har makt i samfunnet.\n\nI denne perioden vokste tanken om at det kanskje finnes flere 'sannheter' som eksisterer side om side. Det man ser som en siviliserende misjon i ett perspektiv, kan sees på som brutal [kolonialisering](/historie/kolonialisering/eic) i et annet. \n\nDette har gitt oss viktig innsikt i at vi alle bærer på fordommer, men det har også gjort det vanskeligere å bli enige om felles fakta. Hvis alt bare er 'perspektiver', hvordan skal vi da løse globale problemer som krever felles handling?"
+        },
+        {
+            "type": "header",
+            "text": "5. Algoritmenes tidsalder: Sannhet som sannsynlighet"
+        },
+        {
+            "type": "text",
+            "content": "I dag står vi foran et nytt skifte. Vi overlater mer og mer av sannhetssøkingen til maskiner. Når du søker på Google eller ser en video på TikTok, bestemmer algoritmer hva som er 'relevant' (og dermed ofte hva som føles 'sant') for akkurat deg.\n\nHer ser vi en ny type sannhet: **Sannsynlighetssannhet**. En AI som ChatGPT beregner ikke sannhet i filosofisk forstand; den beregner hvilket ord som mest sannsynlig kommer etter det forrige basert på enorme datamengder. \n\nFaren er at vi går tilbake til en form for 'autoritetssannhet' – men denne gangen er autoriteten ikke en gud eller en kirke, men en ugjennomsiktig kode som ingen egentlig forstår helt."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Det finnes ingen fakta, bare tolkninger.",
+                "author": "Friedrich Nietzsche"
+            }
+        },
+        {
+            "type": "header",
+            "text": "6. Oppsummering: Tilbake til start?"
+        },
+        {
+            "type": "text",
+            "content": "Kanskje er vår tids største utfordring å finne tilbake til en felles sannhet uten å bli totalitære. Vi trenger vitenskapens objektivitet, men vi trenger også ydmykheten ved å vite at vi alltid ser verden gjennom et filter.\n\nSom [Sokrates](/filosofi/historisk-filosofi/sokrates) sa: 'Det eneste jeg vet, er at jeg intet vet.' Kanskje er dette den mest evigvarende sannheten vi har."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "id": "q1",
+                        "question": "Hva kalles det når man mener noe er sant hvis det stemmer overens med virkeligheten?",
+                        "options": [
+                            "Koherenssteorien",
+                            "Korrespondanseteorien",
+                            "Relativisme",
+                            "Dogmatisme"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "id": "q2",
+                        "question": "Hva var hovedkilden til sannhet i middelalderen?",
+                        "options": [
+                            "Vitenskapelige eksperimenter",
+                            "Internettsøk",
+                            "Religiøs autoritet og skriftene",
+                            "Demokratiske valg"
+                        ],
+                        "correctAnswer": 2
+                    },
+                    {
+                        "id": "q3",
+                        "question": "Hvilket historisk skifte flyttet fokuset fra tro til fornuft og bevis?",
+                        "options": [
+                            "Folkevandringstiden",
+                            "Opplysningstiden",
+                            "Vikingtiden",
+                            "Den kalde krigen"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "id": "q4",
+                        "question": "Hva er en utfordring med sannhet i 'algoritmenes tidsalder'?",
+                        "options": [
+                            "Alle får nøyaktig samme informasjon",
+                            "Vi stoler kun på paven",
+                            "Informasjon tilpasses individet, noe som kan skape ekkokamre",
+                            "Ingen bruker lenger datamaskiner"
+                        ],
+                        "correctAnswer": 2
+                    }
+                ]
+            }
+        }
+    ]
+}

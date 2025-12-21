@@ -38,6 +38,9 @@ import { EmperorStats } from './EmperorStats';
 import { TrolleyProblem } from './content/interactive/TrolleyProblem';
 import { GoldenMeanSlider } from './content/interactive/GoldenMeanSlider';
 import { CategoricalImperativeTester } from './content/interactive/CategoricalImperativeTester';
+import { FilterBubbleSim } from './content/interactive/FilterBubbleSim';
+import { AutomationRisk } from './content/interactive/AutomationRisk';
+import { ConformityExperiment } from './content/interactive/ConformityExperiment';
 
 import type { Concept, ContentBlock } from '../types';
 import { renderInlineMarkdown } from './markdownUtils';
@@ -351,6 +354,12 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 return <GoldenMeanSlider key={index} />;
                             case 'CategoricalImperativeTester':
                                 return <CategoricalImperativeTester key={index} />;
+                            case 'FilterBubbleSim':
+                                return <FilterBubbleSim key={index} />;
+                            case 'AutomationRisk':
+                                return <AutomationRisk key={index} />;
+                            case 'ConformityExperiment':
+                                return <ConformityExperiment key={index} />;
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">
@@ -358,6 +367,15 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                     </div>
                                 );
                         }
+
+                    case 'quiz':
+                        return (
+                            <div key={index} className="my-12">
+                                <Quiz
+                                    questions={(block.questions as any) || []}
+                                />
+                            </div>
+                        );
 
                     case 'link':
                         const isExternal = block.url?.startsWith('http');

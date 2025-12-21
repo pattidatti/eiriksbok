@@ -550,6 +550,74 @@
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
+                },
+                {
+                    "id": "mennesket-kultur-samfunn",
+                    "title": "Mennesket, kultur og samfunn",
+                    "description": "Utforsk hvordan psykologi, media og teknologi former oss som mennesker og samfunn.",
+                    "image": "/images/topics/mennesket-kultur-samfunn.png",
+                    "lessons": [
+                        {
+                            "id": "flokkmentalitet",
+                            "title": "Flokkmentalitetens psykologi",
+                            "description": "Hvorfor vi gjør som andre, selv når vi vet det er feil.",
+                            "image": "/images/lessons/mennesket-kultur-samfunn/flokkmentalitet.png",
+                            "tags": [
+                                "psykologi",
+                                "samfunn",
+                                "atferd"
+                            ],
+                            "createdDate": "2025-12-21T19:40:00Z"
+                        },
+                        {
+                            "id": "ytringsvett-vs-ytringsmot",
+                            "title": "Ytringsvett vs ytringsmot",
+                            "description": "Når bør du tie, og når må du tale? Om kanselleringskultur og selvsensur.",
+                            "image": "/images/lessons/mennesket-kultur-samfunn/ytringsvett.png",
+                            "tags": [
+                                "ytringsfrihet",
+                                "kultur",
+                                "debatt"
+                            ],
+                            "createdDate": "2025-12-21T19:40:00Z"
+                        },
+                        {
+                            "id": "ekkokamre",
+                            "title": "Ekkokamre og informasjonsbobler",
+                            "description": "Hvordan sosiale medier bekrefter det vi allerede mener.",
+                            "image": "/images/lessons/mennesket-kultur-samfunn/ekkokamre.png",
+                            "tags": [
+                                "sosiale-medier",
+                                "teknologi",
+                                "polarisering"
+                            ],
+                            "createdDate": "2025-12-21T19:40:00Z"
+                        },
+                        {
+                            "id": "kjendismakt",
+                            "title": "Kjendismakt og influensere",
+                            "description": "Kommersiell påvirkning i personlige feeds.",
+                            "image": "/images/lessons/mennesket-kultur-samfunn/kjendismakt.png",
+                            "tags": [
+                                "media",
+                                "markedsføring",
+                                "influensere"
+                            ],
+                            "createdDate": "2025-12-21T19:40:00Z"
+                        },
+                        {
+                            "id": "robotene-kommer",
+                            "title": "Robotene kommer",
+                            "description": "AI, fremtidens yrker og menneskelige ferdigheter.",
+                            "image": "/images/lessons/mennesket-kultur-samfunn/ai.png",
+                            "tags": [
+                                "ai",
+                                "teknologi",
+                                "fremtid"
+                            ],
+                            "createdDate": "2025-12-21T19:40:00Z"
+                        }
+                    ]
                 }
             ]
         },
@@ -557,6 +625,126 @@
             "id": "historie",
             "title": "Historie",
             "topics": [
+                {
+                    "id": "ideer-og-verdenssyn",
+                    "title": "Ideer og verdenssyn",
+                    "description": "Utforsk de store tankene, forestillingene og trosprosessene som har formet menneskets historie.",
+                    "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "eskatologi",
+                            "title": "Eskatologi: Verdens undergang",
+                            "description": "Hva har mennesket trodd om slutten på alt, og hvorfor er vi så fascinert av dommedag?",
+                            "image": "/images/lessons/ideer/eskatologi_hero.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "filosofi",
+                                "religion",
+                                "eskatologi"
+                            ],
+                            "createdDate": "2025-12-21T20:00:00Z"
+                        },
+                        {
+                            "id": "utopier",
+                            "title": "Utopier: Drømmen om det perfekte samfunn",
+                            "description": "Hvordan har forestillingen om det ideelle samfunnet formet historien, og hvorfor ender drømmen ofte som et mareritt?",
+                            "image": "/images/lessons/ideer/utopier_hero.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "filosofi",
+                                "politikk",
+                                "utopi"
+                            ],
+                            "createdDate": "2025-12-21T20:10:00Z"
+                        },
+                        {
+                            "id": "naturens-sjel",
+                            "title": "Naturens sjel: Fra hellig til ressurs",
+                            "description": "Hvordan gikk vi fra å se på naturen som besjelet og hellig til å se på den som et råmateriale for industri?",
+                            "image": "/images/lessons/ideer/naturens_sjel_hero.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "natur",
+                                "filosofi",
+                                "økologi"
+                            ],
+                            "createdDate": "2025-12-21T20:15:00Z"
+                        },
+                        {
+                            "id": "sannhetens-historie",
+                            "title": "Sannhetens historie: Fra åpenbaring til algoritme",
+                            "description": "Hvordan har vi avgjort hva som er sant gjennom tidene? En reise fra religiøse autoriteter til kunstig intelligens.",
+                            "image": "/images/lessons/ideer/sannhet_hero.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "filosofi",
+                                "vitenskap",
+                                "teknologi"
+                            ],
+                            "createdDate": "2025-12-21T20:20:00Z"
+                        },
+                        {
+                            "id": "humanisme",
+                            "title": "Mennesket i sentrum: Humanismens fødsel",
+                            "description": "Hvordan gikk vi fra et verdensbilde styrt av guder til et bilde der mennesket selv er kilden til moral og mening?",
+                            "image": "/images/lessons/ideer/humanisme_hero.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "filosofi",
+                                "renessansen",
+                                "rettigheter"
+                            ],
+                            "createdDate": "2025-12-21T20:25:00Z"
+                        },
+                        {
+                            "id": "framskrittstro",
+                            "title": "Troen på framskrittet: Blir alt egentlig bedre?",
+                            "description": "Er historien en rett linje oppover, eller går vi i sirkler? Utforsk ideen som formet den moderne verden.",
+                            "image": "/images/lessons/ideer/framskritt_hero.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "filosofi",
+                                "teknologi",
+                                "fremtid"
+                            ],
+                            "createdDate": "2025-12-21T20:30:00Z"
+                        },
+                        {
+                            "id": "det-unormale",
+                            "title": "Det 'unormale': Idéhistorien om sykdom og galskap",
+                            "description": "Hvordan har vi definert og behandlet det som faller utenfor normalen? En reise fra demoner til nevrologi.",
+                            "image": "/images/lessons/ideer/det_unormale_hero.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "medisin",
+                                "psykologi",
+                                "samfunn"
+                            ],
+                            "createdDate": "2025-12-21T20:35:00Z"
+                        },
+                        {
+                            "id": "casus-belli",
+                            "title": "Casus Belli: Historiens farligste argumenter",
+                            "description": "Hva gir et land rett til å gå til krig? Utforsk de dramatiske og noen ganger falske grunnene som har endret historien.",
+                            "image": "/Eiriksbok/images/topics/casus_belli_card.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "filosofi",
+                                "krig",
+                                "rettsvitenskap"
+                            ],
+                            "createdDate": "2025-12-21T20:40:00Z"
+                        }
+                    ]
+                },
                 {
                     "id": "norgeshistorie",
                     "title": "Norgeshistorie",
@@ -1344,6 +1532,21 @@
                                     "definition": "En trykketeknikk hvor hele sider skjæres ut i treplater."
                                 }
                             ]
+                        },
+                        {
+                            "id": "det-hellige-romerske-rike",
+                            "title": "Det hellige romerske rike",
+                            "description": "Tusen års kamp om makt, tro og keiserkrone.",
+                            "image": "/images/lessons/middelalderen/hre_hero.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "middelalderen",
+                                "tyskland",
+                                "keiser"
+                            ],
+                            "createdDate": "2025-12-21T14:45:00Z",
+                            "lastUpdated": "2025-12-21T14:45:00Z"
                         }
                     ]
                 },

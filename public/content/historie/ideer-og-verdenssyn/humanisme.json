@@ -1,0 +1,169 @@
+{
+    "id": "humanisme",
+    "title": "Mennesket i sentrum: Humanismens fødsel",
+    "layout": "rich",
+    "year": "Fra renessansen til moderne rettigheter",
+    "category": "Idéhistorie",
+    "readTime": "15 min lesing",
+    "heroImage": "/images/lessons/ideer/humanisme_hero.png",
+    "details": [
+        "Hva vil det si å være humanist?",
+        "Renessansen: Gjenoppdagelsen av antikken",
+        "Opplysningstiden: Fornuft og rettigheter",
+        "Sekulær humanisme: Moral uten religion",
+        "Humanismen i dag: Utfordringer og fremtid"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Hvis du ser deg rundt i det moderne Norge, ser du spor av humanismen overalt. Vi snakker om 'menneskeverd', vi kjemper for 'menneskerettigheter', og vi hyller individets frihet til å velge sin egen vei. Men det har ikke alltid vært slik. \n\nI store deler av historien var ikke enkeltmennesket hovedpersonen. Mennesket var en brikke i et større spill styrt av guder, skjebne eller konger. Humanismen er den store fortellingen om hvordan mennesket tok plassen i sentrum av sitt eget univers. \n\nDet er en reise som startet med støvete manuskripter fra antikken, fortsatte gjennom renessansens malerier og opplysningstidens revolusjoner, og som i dag danner selve fundamentet for vårt moderne samfunn."
+        },
+        {
+            "type": "header",
+            "text": "1. Mer enn bare å være snill"
+        },
+        {
+            "type": "text",
+            "content": "Ofte bruker vi ordet 'human' når vi mener at noen er snille eller barmhjertige. Men humanismen som idéhistorisk retning stikker dypere. Den handler om tre grunnleggende ideer:\n\n1. **Individets verdi**: Hvert enkelt menneske har en verdi i seg selv, uavhengig av rang, rase eller religion.\n2. **Kritisk tenkning**: Vi skal ikke godta sannheter bare fordi de er gamle eller kommer fra en autoritet (se [sannhetens historie](/historie/ideer-og-verdenssyn/sannhetens-historie)).\n3. **Ansvar**: Siden mennesket har fornuft og fri vilje, har vi også ansvaret for å skape et godt samfunn her og nå."
+        },
+        {
+            "type": "header",
+            "text": "2. Renessansen: Da mennesket våknet"
+        },
+        {
+            "type": "image",
+            "src": "/images/lessons/ideer/renaissance_man.png",
+            "caption": "Renessansehumanistene gjenoppdaget antikkens tekster og satte individet i sentrum."
+        },
+        {
+            "type": "text",
+            "content": "Etter [middelalderen](/historie/middelalderen/middelalderen) begynte lærde i Italia å lete i klosterbibliotekene etter glemte tekster fra [Romerriket](/historie/romerriket/arven-etter-romerriket) og Hellas. De gjenoppdaget filosofer som [Sokrates](/filosofi/historisk-filosofi/sokrates) og Platon.\n\nDisse humanistene ble fascinert av hvordan antikkens mennesker snakket om politikk, kunst og moral uten å alltid starte med Gud. De begynte å male mennesker som så ut som ekte mennesker, med følelser og dybde. De feiret den 'universelle renessansemennesket' – en person som var god i alt fra musikk og matematikk til fekting og poesi. \n\nBudskapet var klart: Mennesket er et underverk med uante muligheter."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Menneskets verdighet",
+                "content": "I 1486 skrev Giovanni Pico della Mirandola et av humanismens viktigste skrifter: 'Tale om menneskets verdighet'. Her hevder han at Gud skapte mennesket uten en fast form, slik at vi selv kan velge om vi vil synke ned til dyrenes nivå eller heve oss opp til det guddommelige gjennom kunnskap."
+            }
+        },
+        {
+            "type": "header",
+            "text": "3. Opplysningstiden: Fra ideer til rettigheter"
+        },
+        {
+            "type": "text",
+            "content": "På 1700-tallet tok humanismen steget ut i politikken. Hvis hvert menneske har samme verdi, hvorfor skal da noen fødes som konger og andre som slaver? \n\nDette førte til [den franske revolusjon](/historie/den-franske-revolusjon/intro) og den amerikanske uavhengighetserklæringen. Man formulerte for første gang ideen om *universelle* menneskerettigheter. Dette natursynet (se også [naturens sjel](/historie/ideer-og-verdenssyn/naturens-sjel)) innebar at rettighetene ikke ble gitt av en konge, men var noe du hadde rett og slett fordi du var menneske."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Før og etter humanismen",
+                "leftTitle": "Det føydale verdensbildet",
+                "rightTitle": "Det humanistiske verdensbildet",
+                "items": [
+                    {
+                        "label": "Menneskeverd",
+                        "left": "Bestemt av fødsel og stand.",
+                        "right": "Medfødt og likt for alle."
+                    },
+                    {
+                        "label": "Moral",
+                        "left": "Lydighet mot Gud og konge.",
+                        "right": "Fornuft og empati overfor andre."
+                    },
+                    {
+                        "label": "Mål med livet",
+                        "left": "Tjene sin plass i Guds orden.",
+                        "right": "Realisere seg selv og bidra til samfunnet."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "4. Sekulær humanisme: Mening uten Gud"
+        },
+        {
+            "type": "text",
+            "content": "Utover på 1800- og 1900-tallet vokste den sekulære humanismen fram. Mange mente at vi kunne beholde de humanistiske verdiene – som rettferdighet, kjærlighet og sannhet – selv om vi sluttet å tro på det overnaturlige.\n\nI Norge kjenner vi dette gjennom Human-Etisk Forbund, men tankegangen preger i dag nesten alle våre institusjoner. Skolen, sykehusene og lovverket vårt er bygget på ideen om at vi skal handle godt mot hverandre fordi vi er medmennesker, ikke fordi vi frykter straff i et etterliv (se [eskatologi](/historie/ideer-og-verdenssyn/eskatologi))."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Mennesket er altings målestokk.",
+                "author": "Protagoras (antikkens Hellas)"
+            }
+        },
+        {
+            "type": "header",
+            "text": "5. Humanismen under press"
+        },
+        {
+            "type": "text",
+            "content": "Humanismens historie er ikke bare en solskinnshistorie. Under [andre verdenskrig](/historie/andre-verdenskrig/intro) så vi hvordan ideologier som nazismen forkastet menneskeverdet totalt. Dette førte til en fornyet innsats for å beskytte de humanistiske verdiene gjennom FNs menneskerettserklæring i 1948.\n\nI dag møter humanismen nye utfordringer. Kan kunstig intelligens bli 'menneskelig'? Hvis vi kan endre genene våre, hva skjer da med 'menneskets natur'? Og i møte med klimakrisen, har vi kanskje satt mennesket *for mye* i sentrum og glemt at vi er avhengige av resten av naturen?"
+        },
+        {
+            "type": "header",
+            "text": "6. Oppsummering: En evig oppgave"
+        },
+        {
+            "type": "text",
+            "content": "Humanismen er ikke en ferdig fasit, men en pågående samtale. Den krever at vi hele tiden spør oss selv: Hvordan kan vi skape et verdig liv for alle? \n\nSom stafettpinne fra historien bærer vi med oss troen på at vi, tross alle våre feil, har kraften til å skape en bedre verden gjennom kunnskap, fornuft og medfølelse."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "id": "q1",
+                        "question": "Hvilken historisk periode regnes som humanismens 'gjenfødelse'?",
+                        "options": [
+                            "Vikingtiden",
+                            "Middelalderen",
+                            "Renessansen",
+                            "Istiden"
+                        ],
+                        "correctAnswer": 2
+                    },
+                    {
+                        "id": "q2",
+                        "question": "Hva er en sentral verdi i humanismen?",
+                        "options": [
+                            "Blind lydighet",
+                            "Individets egenverdi",
+                            "At noen er født mer verdt enn andre",
+                            "Frykt for naturen"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "id": "q3",
+                        "question": "Hvilket dokument fra 1948 er en hjørnestein i moderne humanisme?",
+                        "options": [
+                            "Magna Carta",
+                            "FNs verdenserklæring om menneskerettigheter",
+                            "Grunnloven",
+                            "Bibelen"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "id": "q4",
+                        "question": "Hva betyr ordet 'sekulær'?",
+                        "options": [
+                            "Veldig religiøs",
+                            "Ikke-kirkelig eller verdslig",
+                            "Gammeldags",
+                            "Uforståelig"
+                        ],
+                        "correctAnswer": 1
+                    }
+                ]
+            }
+        }
+    ]
+}

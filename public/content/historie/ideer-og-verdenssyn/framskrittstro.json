@@ -1,0 +1,169 @@
+{
+    "id": "framskrittstro",
+    "title": "Troen på framskrittet: Blir alt egentlig bedre?",
+    "layout": "rich",
+    "year": "Fra opplysningstiden til i dag",
+    "category": "Idéhistorie",
+    "readTime": "15 min lesing",
+    "heroImage": "/images/lessons/ideer/framskritt_hero.png",
+    "details": [
+        "Sirkler eller piler? Hvordan ser vi på tiden?",
+        "Opplysningstiden: Framskrittet som naturlov",
+        "1800-tallet: Damp, jern og imperier",
+        "Den store rystelsen: Verdenskriger og tvil",
+        "Framskrittet i dag: Vekst vs. bærekraft"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Vi moderne mennesker tar det nesten for gitt. Vi forventer at neste års mobil skal være bedre enn årets. Vi forventer at medisiner skal kurere flere sykdommer i framtiden, og at våre barn skal ha det bedre enn oss selv. Vi lever med en dyp tro på at historien beveger seg *oppover*. \n\nMen visste du at denne ideen er ganske ny? I mesteparten av menneskehetens historie har man sett på tiden som en sirkel, ikke en pil. Man forventet at ting ville gå tilbake til slik de var, akkurat som årstidene eller månens faser. \n\nTroen på framskrittet er en av de kraftigste motorene i det moderne samfunnet. Den har bygget byer og kurert sykdommer, men den har også skapt en rastløshet og en rovdrift på planeten vår som vi nå må betale prisen for."
+        },
+        {
+            "type": "header",
+            "text": "1. Sirkler og rettlinjet tid"
+        },
+        {
+            "type": "image",
+            "src": "/images/lessons/ideer/linear_vs_circular.png",
+            "caption": "Fra antikkens sirkulære tid til det moderne menneskets rettlinjede tro på fremskritt."
+        },
+        {
+            "type": "text",
+            "content": "Hvis du spurte en bonde i [Romerriket](/historie/romerriket/hverdagsliv-i-roma) eller i vikingtidens Norge om hvordan fremtiden ville se ut, ville han sannsynligvis svart: 'Som i fjor'. For dem var tiden sirkulær. Riker oppstår og går under, årstidene kommer og går, og mennesket er fanget i en evig gjentakelse.\n\nEndringen kom gradvis gjennom [de abrahamittiske religionene](/historie/ideer-og-verdenssyn/eskatologi), som så historien som en fortelling med en begynnelse (Skapelsen) og en slutt (Dommedag). Men det var først under opplysningstiden på 1700-tallet at denne lineære tiden ble fylt med optimisme. Man begynte å tro at mennesket, gjennom fornuft og vitenskap, kunne gjøre verden stadig bedre."
+        },
+        {
+            "type": "header",
+            "text": "2. Opplysningstiden: Fornuften som kompass"
+        },
+        {
+            "type": "text",
+            "content": "Filosofer som Condorcet og Immanuel Kant mente at menneskeheten var inne i en 'modningsprosess'. Akkurat som et barn blir voksen, ville menneskeheten som helhet vokse ut av overtro og rystende tradisjoner. \n\nSannhet (se [sannhetens historie](/historie/ideer-og-verdenssyn/sannhetens-historie)) var nøkkelen. Hvis vi bare lærte nok om naturen og oss selv, ville krig, fattigdom og sykdom til slutt forsvinne. Framskrittet ble sett på som en uunngåelig naturlov – en rett linje mot perfeksjon."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Optimisme i fengsel",
+                "content": "Markien av Condorcet skrev sitt mest optimistiske verk om menneskehetens framgang mens han satt i fengsel under den franske revolusjon, rett før han ble henrettet. Selv i møte med sin egen undergang, nektet han å gi slipp på troen på at fremtiden ville bli bedre."
+            }
+        },
+        {
+            "type": "header",
+            "text": "3. 1800-tallet: Maskinenes triumf"
+        },
+        {
+            "type": "text",
+            "content": "Under [den industrielle revolusjon](/historie/industriell-revolusjon/den-industrielle-revolusjon-i-norge) ble framskrittet synlig for alle. Jernbaner, dampskip og telegrafen bandt verden sammen. Det føltes som om mennesket hadde overvunnet avstanden, tiden og tyngdekraften.\n\nDette natursynet (se også [naturens sjel](/historie/ideer-og-verdenssyn/naturens-sjel)) satte effektivitet og produksjon i høysetet. Men framskrittet ble også brukt som en unnskyldning for [kolonialisering](/historie/kolonialisering/eic). Europeerne mente de hadde en plikt til å bringe sitt 'framskritt' til resten av verden, ofte med brutale midler."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Hva er framskritt?",
+                "leftTitle": "1800-tallets syn",
+                "rightTitle": "Moderne syn",
+                "items": [
+                    {
+                        "label": "Hovedfokus",
+                        "left": "Teknologi, industri og kontroll.",
+                        "right": "Livskvalitet, rettferdighet og miljø."
+                    },
+                    {
+                        "label": "Naturen",
+                        "left": "En hindring som skal overvinnes.",
+                        "right": "Et system vi må leve i harmoni med."
+                    },
+                    {
+                        "label": "Gis til",
+                        "left": "Europeisk kultur som modell for alle.",
+                        "right": "Mangfold og ulike veier til utvikling."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "4. Den store tvilen: 1914-1945"
+        },
+        {
+            "type": "text",
+            "content": "Troen på framskrittet led et enormt nederlag i det 20. århundre. Under [første verdenskrig](/historie/forste-verdenskrig/intro) ble den samme teknologien man hadde hyllet (fly, kjemikalier, masseproduksjon), brukt til å drepe millioner av mennesker med en effektivitet verden aldri hadde sett før.\n\nSenere, under [andre verdenskrig](/historie/andre-verdenskrig/intro) og Holocaust, så man at framskritt i organisering og teknologi kunne brukes til å utføre de verste forbrytelser mot menneskeheten (se også [humanisme](/historie/ideer-og-verdenssyn/humanisme)). Man begynte å spørre: Hva hjelper det med raskere biler hvis mennesket ikke blir moralsk bedre?"
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "All vår framgang i teknologi, som er vår tids stolthet, er som en øks i hendene på en patologisk morder.",
+                "author": "Albert Einstein"
+            }
+        },
+        {
+            "type": "header",
+            "text": "5. Framskrittet i dag: Fra vekst til overlevelse"
+        },
+        {
+            "type": "text",
+            "content": "I dag står vi i en ny krise. Vi har oppdaget at 'uendelig vekst' på en begrenset planet er umulig. Klimakrisen og tapet av naturmangfold (se [eskatologi](/historie/ideer-og-verdenssyn/eskatologi)) tvinger oss til å tenke nytt om hva framskritt egentlig betyr.\n\nKanskje betyr framskritt i fremtiden ikke å produsere *mer*, men å produsere *bedre*. Kanskje betyr det å gå tilbake til noen av de sirkulære tankene fra før-moderne tid, der vi ser på oss selv som en del av et kretsløp i stedet for en rakett på vei ut av atmosfæren."
+        },
+        {
+            "type": "header",
+            "text": "6. Oppsummering: En retning uten mål?"
+        },
+        {
+            "type": "text",
+            "content": "Troen på framskrittet har gitt oss utrolige fordeler. De fleste av oss lever lengre, tryggere og rikere liv enn våre forfedre kunne drømme om. Men denne troen krever også at vi aldri blir fornøyde. \n\nSpørsmålet er: Kan vi beholde optimismen og viljen til å gjøre ting bedre, uten å ødelegge det fundamentet vi står på? Svaret på det spørsmålet vil avgjøre om framskrittet var en rett linje oppover, eller bare en veldig stor sirkel."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "id": "q1",
+                        "question": "Hva er den største forskjellen mellom et sirkulært og et lineært historiesyn?",
+                        "options": [
+                            "Hvor raskt tiden går",
+                            "Om historien gjentar seg eller beveger seg mot et mål",
+                            "Hvilken kalender man bruker",
+                            "Hvor mange guder man tror på"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "id": "q2",
+                        "question": "I hvilken periode ble ideen om framskritt som en 'naturlov' dominerende?",
+                        "options": [
+                            "Vikingtiden",
+                            "Opplysningstiden",
+                            "Middelalderen",
+                            "Jernalderen"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "id": "q3",
+                        "question": "Hvilken hendelse regnes som et stort sjokk for troen på at teknologi alltid fører til noe godt?",
+                        "options": [
+                            "Oppdagelsen av Amerika",
+                            "Første verdenskrig",
+                            "Boktrykkerkunsten",
+                            "Romas fall"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "id": "q4",
+                        "question": "Hva er en moderne utfordring for ideen om uendelig framskritt?",
+                        "options": [
+                            "Vi har gått tom for ideer",
+                            "Alle er enige om alt",
+                            "Klimakrisen og planetens begrensede ressurser",
+                            "At vi har glemt hvordan man lager eldgamle maskiner"
+                        ],
+                        "correctAnswer": 2
+                    }
+                ]
+            }
+        }
+    ]
+}

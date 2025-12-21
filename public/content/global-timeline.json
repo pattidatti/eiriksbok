@@ -1,5 +1,345 @@
 [
   {
+    "id": "foucault-madness",
+    "title": "Galskapens historie",
+    "description": "Michel Foucault utgir sitt banebrytende verk om hvordan samfunnet har definert og stengt ute de 'umormale' gjennom tidene.",
+    "startDate": 1961,
+    "endDate": null,
+    "displayDate": "1961",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/det-unormale",
+    "tags": [
+      "filosofi",
+      "historie",
+      "psykologi"
+    ]
+  },
+  {
+    "id": "norge-diagnose-1972",
+    "title": "Homofili-diagnosen fjernes",
+    "description": "Et eksempel på hvordan medisinske definisjoner av 'normalitet' endrer seg i takt med samfunnet.",
+    "startDate": 1972,
+    "endDate": null,
+    "displayDate": "1972",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/det-unormale",
+    "tags": [
+      "historie",
+      "rettigheter",
+      "norge"
+    ]
+  },
+  {
+    "id": "crystal-palace",
+    "title": "Verdensutstillingen i London",
+    "description": "The Great Exhibition i Crystal Palace markerer høydepunktet for victorianernes tro på industrielt og teknologisk framskritt.",
+    "startDate": 1851,
+    "endDate": null,
+    "displayDate": "1851",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/framskrittstro",
+    "tags": [
+      "historie",
+      "teknologi",
+      "storbritannia"
+    ]
+  },
+  {
+    "id": "roman-club-limits",
+    "title": "Limits to Growth",
+    "description": "Romerklubbens rapport utfordrer ideen om uendelig økonomisk vekst på en begrenset planet.",
+    "startDate": 1972,
+    "endDate": null,
+    "displayDate": "1972",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/framskrittstro",
+    "tags": [
+      "miljø",
+      "økonomi",
+      "fremtid"
+    ]
+  },
+  {
+    "id": "mirandola-dignity",
+    "title": "Tale om menneskets verdighet",
+    "description": "Giovanni Pico della Mirandola utgir et av humanismens viktigste skrifter om menneskets frihet og potensial.",
+    "startDate": 1486,
+    "endDate": null,
+    "displayDate": "1486",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/humanisme",
+    "tags": [
+      "renessansen",
+      "filosofi",
+      "humanisme"
+    ]
+  },
+  {
+    "id": "un-human-rights",
+    "title": "FNs menneskerettserklæring",
+    "description": "Etter andre verdenskrig samler verden seg om universelle rettigheter for alle mennesker – en seier for humanistiske verdier.",
+    "startDate": 1948,
+    "endDate": null,
+    "displayDate": "1948",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/humanisme",
+    "tags": [
+      "historie",
+      "globalt",
+      "rettigheter"
+    ]
+  },
+  {
+    "id": "galileo-trial",
+    "title": "Galileos rettssak",
+    "description": "Kirken dømmer Galileo for å hevde at jorden går rundt solen – et avgjørende øyeblikk i kampen mellom autoritet og observasjon.",
+    "startDate": 1633,
+    "endDate": null,
+    "displayDate": "1633",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/sannhetens-historie",
+    "tags": [
+      "vitenskap",
+      "historie",
+      "sannhet"
+    ]
+  },
+  {
+    "id": "google-founding",
+    "title": "Google grunnlegges",
+    "description": "Starten på en ny era der algoritmer begynner å sortere og definere hva som er relevant informasjon for menneskeheten.",
+    "startDate": 1998,
+    "endDate": null,
+    "displayDate": "1998",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/sannhetens-historie",
+    "tags": [
+      "teknologi",
+      "historie",
+      "sannhet"
+    ]
+  },
+  {
+    "id": "chatgpt-launch",
+    "title": "ChatGPT lanseres",
+    "description": "Generativ AI introduserer en ny form for sannsynlighetsbasert informasjon som utfordrer tradisjonelle sannhetsbegreper.",
+    "startDate": 2022,
+    "endDate": null,
+    "displayDate": "2022",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/sannhetens-historie",
+    "tags": [
+      "teknologi",
+      "fremtid",
+      "sannhet"
+    ]
+  },
+  {
+    "id": "descartes-method",
+    "title": "Descartes: Naturen som maskin",
+    "description": "René Descartes utgir 'Om metoden', som legger grunnlaget for det mekanistiske verdensbildet.",
+    "startDate": 1637,
+    "endDate": null,
+    "displayDate": "1637",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/naturens-sjel",
+    "tags": [
+      "filosofi",
+      "vitenskap",
+      "natur"
+    ]
+  },
+  {
+    "id": "silent-spring",
+    "title": "Silent Spring utgis",
+    "description": "Rachel Carsons bok starter den moderne miljøbevegelsen ved å advare mot giftstoffer i naturen.",
+    "startDate": 1962,
+    "endDate": null,
+    "displayDate": "1962",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/naturens-sjel",
+    "tags": [
+      "økologi",
+      "historie",
+      "natur"
+    ]
+  },
+  {
+    "id": "blue-marble",
+    "title": "The Blue Marble",
+    "description": "Det første fargebildet av hele jorden fra verdensrommet endrer menneskehetens syn på planeten som en sårbar helhet.",
+    "startDate": 1972,
+    "endDate": null,
+    "displayDate": "1972",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/naturens-sjel",
+    "tags": [
+      "vitenskap",
+      "globalt",
+      "natur"
+    ]
+  },
+  {
+    "id": "platons-staten",
+    "title": "Platons Staten",
+    "description": "Filosofen Platon skriver sitt mest kjente verk om idealstaten og rettferdighet.",
+    "startDate": -375,
+    "endDate": null,
+    "displayDate": "ca. 375 fvt.",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/utopier",
+    "tags": [
+      "filosofi",
+      "hellas",
+      "utopi"
+    ]
+  },
+  {
+    "id": "thomas-more-utopia",
+    "title": "Thomas Mores Utopia",
+    "description": "Utgivelsen av boken som ga navn til hele sjangeren om det perfekte samfunn.",
+    "startDate": 1516,
+    "endDate": null,
+    "displayDate": "1516",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/utopier",
+    "tags": [
+      "renessansen",
+      "litteratur",
+      "utopi"
+    ]
+  },
+  {
+    "id": "new-harmony-owen",
+    "title": "New Harmony grunnlegges",
+    "description": "Robert Owen forsøker å skape et utopisk sosialistisk samfunn i USA.",
+    "startDate": 1825,
+    "endDate": null,
+    "displayDate": "1825",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/utopier",
+    "tags": [
+      "ideologi",
+      "usa",
+      "utopi"
+    ]
+  },
+  {
+    "id": "orwell-1984",
+    "title": "1984 utgis",
+    "description": "George Orwells dystopiske advarsel mot totalitære samfunn preger etterkrigstiden.",
+    "startDate": 1949,
+    "endDate": null,
+    "displayDate": "1949",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/utopier",
+    "tags": [
+      "litteratur",
+      "den-kalde-krigen",
+      "dystopi"
+    ]
+  },
+  {
+    "id": "frashokereti",
+    "title": "Frashokereti: Zoroastrismens dommedag",
+    "description": "Den eldste systematiske forestillingen om en lineær verdensende der det gode seirer over det onde.",
+    "startDate": -1000,
+    "endDate": null,
+    "displayDate": "ca. 1000 fvt.",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/eskatologi",
+    "tags": [
+      "religion",
+      "persia",
+      "eskatologi"
+    ]
+  },
+  {
+    "id": "miller-disappointment",
+    "title": "Den store skuffelsen",
+    "description": "Tusenvis av tilhengere av William Miller ventet på Jesu gjenkomst, noe som førte til dannelsen av nye trossamfunn.",
+    "startDate": 1844,
+    "endDate": null,
+    "displayDate": "1844",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/eskatologi",
+    "tags": [
+      "religion",
+      "usa",
+      "eskatologi"
+    ]
+  },
+  {
+    "id": "ozonlaget-avtalen",
+    "title": "Montreal-protokollen (Ozonlaget)",
+    "description": "En global avtale for å redde atmosfæren, ofte sett på som menneskehetens første suksessfulle 'avverging' av en moderne apokalypse.",
+    "startDate": 1987,
+    "endDate": null,
+    "displayDate": "1987",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/eskatologi",
+    "tags": [
+      "miljø",
+      "globalt",
+      "eskatologi"
+    ]
+  },
+  {
+    "id": "y2k-millennium",
+    "title": "Y2K: Millennium-frykten",
+    "description": "Global frykt for at datasystemer skulle kollapse ved tusenårsskiftet.",
+    "startDate": 2000,
+    "endDate": null,
+    "displayDate": "2000",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/eskatologi",
+    "tags": [
+      "teknologi",
+      "globalt",
+      "eskatologi"
+    ]
+  },
+  {
     "id": "menneskets-tidlige-historie",
     "title": "Menneskets tidlige historie",
     "description": "Fra nomader i Afrika til spredning over hele kloden.",
@@ -482,6 +822,24 @@
       "frankrike",
       "riddere",
       "vikingtiden"
+    ]
+  },
+  {
+    "id": "det-hellige-romerske-rike",
+    "title": "Det hellige romerske rike",
+    "description": "Tusen års kamp om makt, tro og keiserkrone.",
+    "startDate": 962,
+    "endDate": 1806,
+    "displayDate": "962 - 1806 evt.",
+    "type": "lesson",
+    "subjectId": "historie",
+    "topicId": "middelalderen",
+    "link": "/historie/middelalderen/det-hellige-romerske-rike",
+    "tags": [
+      "historie",
+      "middelalderen",
+      "tyskland",
+      "keiser"
     ]
   },
   {
@@ -1906,5 +2264,310 @@
       "krig",
       "teknologi"
     ]
+  },
+  {
+    "id": "sokrates-dod",
+    "title": "Sokrates' død",
+    "description": "Filosofen Sokrates dømmes til døden i Athen, et tidlig eksempel på ytringsmot.",
+    "startDate": -399,
+    "endDate": null,
+    "displayDate": "399 fvt.",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
+    "tags": [
+      "filosofi",
+      "ytringsfrihet",
+      "athen"
+    ]
+  },
+  {
+    "id": "danseplagen-strasbourg",
+    "title": "Danseplagen i Strasbourg",
+    "description": "Hundrevis av mennesker danser ukontrollert i gatene, et ekstremt eksempel på flokkmentalitet.",
+    "startDate": 1518,
+    "endDate": null,
+    "displayDate": "1518",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
+    "tags": [
+      "psykologi",
+      "historie",
+      "flokkmentalitet"
+    ]
+  },
+  {
+    "id": "tulipanmanien",
+    "title": "Tulipanmanien",
+    "description": "Verdens første dokumenterte økonomiske boble drevet av flokkmentalitet i Nederland.",
+    "startDate": 1634,
+    "endDate": 1637,
+    "displayDate": "1634-1637",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
+    "tags": [
+      "økonomi",
+      "flokkmentalitet",
+      "nederland"
+    ]
+  },
+  {
+    "id": "luddittene",
+    "title": "Luddittene",
+    "description": "Engelske tekstilarbeidere knuser maskiner i protest mot automatisering.",
+    "startDate": 1811,
+    "endDate": 1816,
+    "displayDate": "1811-1816",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer",
+    "tags": [
+      "teknologi",
+      "historie",
+      "arbeid"
+    ]
+  },
+  {
+    "id": "john-stuart-mill-liberty",
+    "title": "John Stuart Mill: 'On Liberty'",
+    "description": "Utgivelsen av et av liberalismens viktigste verk om ytringsfrihet.",
+    "startDate": 1859,
+    "endDate": null,
+    "displayDate": "1859",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
+    "tags": [
+      "filosofi",
+      "ytringsfrihet",
+      "liberalisme"
+    ]
+  },
+  {
+    "id": "edward-bernays-propaganda",
+    "title": "Torches of Freedom",
+    "description": "Edward Bernays revolusjonerer PR ved å koble røyking til kvinnefrigjøring.",
+    "startDate": 1929,
+    "endDate": null,
+    "displayDate": "1929",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt",
+    "tags": [
+      "pr",
+      "media",
+      "psykologi"
+    ]
+  },
+  {
+    "id": "asch-experiment",
+    "title": "Asch-eksperimentet",
+    "description": "Solomon Asch demonstrerer kraften i gruppekonformitet.",
+    "startDate": 1951,
+    "endDate": null,
+    "displayDate": "1951",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
+    "tags": [
+      "psykologi",
+      "forskning"
+    ]
+  },
+  {
+    "id": "deep-blue-kasparov",
+    "title": "Deep Blue slår Kasparov",
+    "description": "En datamaskin slår for første gang verdensmesteren i sjakk.",
+    "startDate": 1997,
+    "endDate": null,
+    "displayDate": "1997",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer",
+    "tags": [
+      "ai",
+      "teknologi",
+      "sjakk"
+    ]
+  },
+  {
+    "id": "eli-pariser-filter-bubble",
+    "title": "The Filter Bubble",
+    "description": "Eli Pariser introduserer begrepet 'informasjonsbobler'.",
+    "startDate": 2011,
+    "endDate": null,
+    "displayDate": "2011",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre",
+    "tags": [
+      "teknologi",
+      "sosiale-medier",
+      "polarisering"
+    ]
+  },
+  {
+    "id": "snowden-leaks",
+    "title": "Snowden-lekkasjen",
+    "description": "Edward Snowden avslører omfattende digital overvåking.",
+    "startDate": 2013,
+    "endDate": null,
+    "displayDate": "2013",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
+    "tags": [
+      "ytringsfrihet",
+      "overvåking"
+    ]
+  },
+  {
+    "id": "kylie-jenner-snapchat",
+    "title": "Jenner knuser Snapchat-aksjen",
+    "description": "Et enkelt innlegg fra Kylie Jenner senker selskapsverdien med 1,3 mrd dollar.",
+    "startDate": 2018,
+    "endDate": null,
+    "displayDate": "2018",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt",
+    "tags": [
+      "influensere",
+      "økonomi",
+      "media"
+    ]
+  },
+  {
+    "id": "frances-haugen-facebook",
+    "title": "Facebook-varsleren",
+    "description": "Frances Haugen avslører interne dokumenter om Facebooks algoritmer.",
+    "startDate": 2021,
+    "endDate": null,
+    "displayDate": "2021",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
+    "tags": [
+      "ytringsfrihet",
+      "teknologi",
+      "varsling"
+    ]
+  },
+  {
+    "id": "chatgpt-launch",
+    "title": "ChatGPT lanseres",
+    "description": "OpenAI lanserer ChatGPT, som starter en bølge av AI-interesse.",
+    "startDate": 2022,
+    "endDate": null,
+    "displayDate": "2022",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "mennesket-kultur-samfunn",
+    "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer",
+    "tags": [
+      "ai",
+      "teknologi",
+      "fremtid"
+    ]
+  },
+  {
+    "id": "belgia-1914-casus",
+    "title": "Invasjonen av Belgia",
+    "description": "Tysklands brudd på Belgias nøytralitet gir Storbritannia en legitim Casus Belli for å gå inn i krigen.",
+    "startDate": 1914,
+    "endDate": null,
+    "displayDate": "1914",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "tags": [
+      "krig",
+      "diplomati",
+      "første-verdenskrig"
+    ]
+  },
+  {
+    "id": "mukden-incident-1931",
+    "title": "Mukden-hendelsen",
+    "description": "Japan fabrikkerer en eksplosjon i Mandsjuria som påskudd for invasjon. En forkastet Casus Belli.",
+    "startDate": 1931,
+    "endDate": null,
+    "displayDate": "1931",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "tags": [
+      "krig",
+      "japan",
+      "mandsjuria"
+    ]
+  },
+  {
+    "id": "gleiwitz-1939-casus",
+    "title": "Gleiwitz-provokasjonen",
+    "description": "SS utfører et falskt angrep på en tysk radiostasjon for å rettferdiggjøre invasjonen av Polen.",
+    "startDate": 1939,
+    "endDate": null,
+    "displayDate": "1939",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "tags": [
+      "krig",
+      "tyskland",
+      "andre-verdenskrig"
+    ]
+  },
+  {
+    "id": "kuwait-1990-casus",
+    "title": "Invasjonen av Kuwait",
+    "description": "Iraks invasjon blir møtt med en nesten enstemmig internasjonal fordømmelse og legitim motaksjon.",
+    "startDate": 1990,
+    "endDate": null,
+    "displayDate": "1990",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "tags": [
+      "krig",
+      "fn",
+      "midtøsten"
+    ]
+  },
+  {
+    "id": "iraq-2003-casus",
+    "title": "Invasjonen av Irak",
+    "description": "USA invaderer Irak med påstander om masseødeleggelseswåpen. En Casus Belli som senere ble sterkt kritisert.",
+    "startDate": 2003,
+    "endDate": null,
+    "displayDate": "2003",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "tags": [
+      "krig",
+      "usa",
+      "irak"
+    ]
   }
 ]
+```
