@@ -65,6 +65,48 @@
             "content": "Atens ledere så på Sokrates som en farlig provokatør som undergravde samfunnets orden ved å lære ungdommen å stille kritiske spørsmål. Etter nederlaget i peloponneskrigen trengte Aten syndebukker. I 399 f.Kr. ble han anklaget for å ha korrumpert ungdommen og for gudløshet.\n\nI sin forsvarstale (apologien) nektet han å unnskylde seg. Han hevdet at han utførte en tjeneste for gudene ved å vekke folket. Selv etter at han ble dømt til døden, beholdt han sin intellektuelle integritet. Han drakk giftbegeret (skarntyde) omgitt av sine venner, og hans siste ord var en påminnelse om å betale en gjeld han hadde – et symbol på hans respekt for lov og orden, selv når loven slo feil ut.\n\nHans fremste elev, [Platon](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/platon.json), ble så rystet av dommen at han dedikerte sitt liv til å fortsette Sokrates' arbeid og utforske hvordan en stat bør styres slik at den viseste ikke blir drept."
         }
     ],
+    "quiz": [
+        {
+            "question": "Hva var den 'Sokratiske metode'?",
+            "options": [
+                "Å holde lange taler for å overbevise folk.",
+                "Å stille spørsmål for å hjelpe andre til å føde sine egne tanker (jordmorkunst).",
+                "Å skrive ned alle sine tanker i bøker.",
+                "Å meditere i stillhet."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva betyr uttrykket 'Sokratisk ironi'?",
+            "options": [
+                "Å være sarkastisk og slem.",
+                "Å late som om man er uvitende for å lure motstanderen til å avsløre sin egen uvitenhet.",
+                "Å si det motsatte av hva man mener for å være morsom.",
+                "At Sokrates egentlig var veldig rik."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvorfor ble Sokrates dømt til døden?",
+            "options": [
+                "Han stjal fra tempelet.",
+                "Han forrådte Aten til Sparta i krigen.",
+                "Han ble anklaget for å forføre ungdommen og fornekte byens guder.",
+                "Han nektet å delta i militæret."
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva mente Sokrates med at 'viden er dygd'?",
+            "options": [
+                "At man må gå på skole for å bli snill.",
+                "At den som virkelig vet hva som er rett, også vil gjøre det rette.",
+                "At kunnskap er makt.",
+                "At man bør lese flest mulig bøker."
+            ],
+            "correctAnswer": 1
+        }
+    ],
     "createdDate": "2025-12-21T12:00:00Z",
     "lastUpdated": "2025-12-21T13:02:00Z"
 }

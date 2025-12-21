@@ -800,23 +800,138 @@
                     ]
                 },
                 {
-                    "id": "andre-verdenskrig",
-                    "title": "Andre Verdenskrig",
-                    "image": "https://images.unsplash.com/photo-1654359569921-8356a96a9808?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                    "id": "forste-verdenskrig",
+                    "title": "Første verdenskrig",
+                    "description": "Den store krigen som endret verdenskartet (1914-1918).",
+                    "image": "https://images.unsplash.com/photo-1547638375-ebdaa9df273a?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
-                            "id": "bakgrunn",
-                            "title": "Bakgrunn",
-                            "description": "Bakgrunnen for krigen.",
-                            "date": "2023-04-01T12:00:00",
+                            "id": "oversikt",
+                            "title": "Oversikt",
+                            "description": "En introduksjon til første verdenskrig.",
+                            "image": "https://images.unsplash.com/photo-1547638375-ebdaa9df273a?auto=format&fit=crop&q=80",
                             "tags": [
                                 "krig",
-                                "historie",
-                                "konflikt"
+                                "oversikt"
                             ],
-                            "image": "https://images.unsplash.com/photo-1580130732478-7f14d4255091?auto=format&fit=crop&q=80",
+                            "createdDate": "2025-12-21T14:00:00Z",
+                            "lastUpdated": "2025-12-21T14:00:00Z"
+                        },
+                        {
+                            "id": "opptakt",
+                            "title": "Opptakten",
+                            "description": "Skuddene i Sarajevo og veien mot krig.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gavrilo_Princip_captured_in_Sarajevo_1914.jpg/1200px-Gavrilo_Princip_captured_in_Sarajevo_1914.jpg",
+                            "tags": [
+                                "geopolitikk",
+                                "opptakt"
+                            ],
+                            "createdDate": "2025-12-21T14:10:00Z",
+                            "lastUpdated": "2025-12-21T14:10:00Z"
+                        },
+                        {
+                            "id": "krigens-lop",
+                            "title": "Krigens løp",
+                            "description": "Fra skyttergraver til stillstand.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Battle_of_the_Somme_1916.jpg/1200px-Battle_of_the_Somme_1916.jpg",
+                            "tags": [
+                                "krigføring",
+                                "slag"
+                            ],
+                            "createdDate": "2025-12-21T14:20:00Z",
+                            "lastUpdated": "2025-12-21T14:20:00Z"
+                        },
+                        {
+                            "id": "teknologi",
+                            "title": "Teknologi",
+                            "description": "Stridsvogner, fly og giftgass.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/British_Mark_I_male_tank_Somme_25_September_1916.jpg/1200px-British_Mark_I_male_tank_Somme_25_September_1916.jpg",
+                            "tags": [
+                                "teknologi",
+                                "våpen"
+                            ],
+                            "createdDate": "2025-12-21T14:30:00Z",
+                            "lastUpdated": "2025-12-21T14:30:00Z"
+                        },
+                        {
+                            "id": "konsekvenser",
+                            "title": "Konsekvenser",
+                            "description": "Imperienes fall og Versailles-traktaten.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Signing_of_Peace_in_the_Hall_of_Mirrors%2C_Versailles%2C_28th_June_1919_%28William_Orpen%29.jpg/1200px-The_Signing_of_Peace_in_the_Hall_of_Mirrors%2C_Versailles%2C_28th_June_1919_%28William_Orpen%29.jpg",
+                            "tags": [
+                                "konsekvenser",
+                                "politikk"
+                            ],
+                            "createdDate": "2025-12-21T14:40:00Z",
+                            "lastUpdated": "2025-12-21T14:40:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "andre-verdenskrig",
+                    "title": "Andre verdenskrig",
+                    "description": "Verdenshistoriens største konflikt (1939-1945).",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg/1200px-Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg",
+                    "lessons": [
+                        {
+                            "id": "oversikt",
+                            "title": "Oversikt",
+                            "description": "En introduksjon til andre verdenskrig.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg/1200px-Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg",
+                            "tags": [
+                                "krig",
+                                "oversikt"
+                            ],
+                            "createdDate": "2025-12-21T15:00:00Z",
+                            "lastUpdated": "2025-12-21T15:00:00Z"
+                        },
+                        {
+                            "id": "bakgrunn",
+                            "title": "Geopolitikk og Opptakt",
+                            "description": "Veien mot krig: Hitler, Versailles og appeasement.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg/1200px-Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg",
+                            "tags": [
+                                "geopolitikk",
+                                "bakgrunn"
+                            ],
                             "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                            "lastUpdated": "2025-12-21T15:00:00Z"
+                        },
+                        {
+                            "id": "krigens-lop",
+                            "title": "Krigens løp",
+                            "description": "Fra Blitzkrieg til atombomben.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Into_the_Jaws_of_Death_23-0455M_edit.jpg/1200px-Into_the_Jaws_of_Death_23-0455M_edit.jpg",
+                            "tags": [
+                                "krigføring",
+                                "slag"
+                            ],
+                            "createdDate": "2025-12-21T15:10:00Z",
+                            "lastUpdated": "2025-12-21T15:10:00Z"
+                        },
+                        {
+                            "id": "teknologi",
+                            "title": "Teknologi",
+                            "description": "Radar, Enigma og atombomben.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/V-2_rocket_launching_from_Peenemunde_in_World_War_II_A4-V13.jpg/1200px-V-2_rocket_launching_from_Peenemunde_in_World_War_II_A4-V13.jpg",
+                            "tags": [
+                                "teknologi",
+                                "våpen"
+                            ],
+                            "createdDate": "2025-12-21T15:20:00Z",
+                            "lastUpdated": "2025-12-21T15:20:00Z"
+                        },
+                        {
+                            "id": "konsekvenser",
+                            "title": "Konsekvenser",
+                            "description": "Den kalde krigen og FN.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B_W%29.jpg/1200px-Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B_W%29.jpg",
+                            "tags": [
+                                "konsekvenser",
+                                "politikk"
+                            ],
+                            "createdDate": "2025-12-21T15:30:00Z",
+                            "lastUpdated": "2025-12-21T15:30:00Z"
                         }
                     ]
                 },

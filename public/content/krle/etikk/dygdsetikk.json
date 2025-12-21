@@ -105,6 +105,48 @@
             "content": "Den største kritikken mot dygdsetikken er at den kan være litt vag når vi står i en krise. Hvis du står midt i sporvognsproblemet, hjelper det lite å vite at du bør være 'modig' eller 'rettferdig'. Hva betyr det i praksis? Skal den rettferdige dra i spaken eller ikke?\n\nUtilitarismen gir deg en kalkulator. Pliktetikken gir deg en regelbok. Dygdsetikken sier bare: 'Gjør det en dygdig person ville gjort'. Men hvem bestemmer det? Ofte ender man opp med å si 'Se på heltene' (som Jesus, Gandhi eller Nelson Mandela). Dygdsetikken krever at vi bruker vårt moralske skjønn (fronesis) i hver situasjon, noe som kan være både frigjørende og frustrerende vanskelig."
         }
     ],
+    "quiz": [
+        {
+            "question": "Hva fokuserer dygdsetikken mest på?",
+            "options": [
+                "Konsekvensene av handlingene våre.",
+                "Reglene og pliktene vi må følge.",
+                "Hvem vi er (karakter) og hvilke egenskaper vi utvikler.",
+                "Hva loven sier er rett og galt."
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva er 'Den gylne middelvei'?",
+            "options": [
+                "Balansepunktet mellom to laster (for mye og for lite).",
+                "En vei laget av gull som fører til himmelen.",
+                "Verdien av penger målt i gull.",
+                "En religiøs regel om å gi bort alt man eier."
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hva betyr 'Eudaimonia'?",
+            "options": [
+                "Kortsiktig nytelse.",
+                "Lykke i betydningen blomstring eller å leve godt.",
+                "En tilstand av likegyldighet.",
+                "Å ofre seg for andre."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva kalles den praktiske klokskapen man trenger for å gjøre gode valg?",
+            "options": [
+                "Logos",
+                "Ethos",
+                "Fronesis",
+                "Patos"
+            ],
+            "correctAnswer": 2
+        }
+    ],
     "createdDate": "2025-12-21T14:15:00Z",
     "lastUpdated": "2025-12-21T14:15:00Z"
 }

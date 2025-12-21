@@ -131,6 +131,48 @@
             "content": "Hans verktøy for logikk og hans fokus på empiriske undersøkelser ble gjenoppdaget i middelalderen, spesielt av [Thomas Aquinas](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aquinas.json), og preget europeisk tenkning helt frem til den vitenskapelige revolusjonen."
         }
     ],
+    "quiz": [
+        {
+            "question": "Hva var den viktigste forskjellen mellom Platon og Aristoteles?",
+            "options": [
+                "Platon var en kriger, Aristoteles var en pasifist.",
+                "Platon fokuserte på idéverdenen; Aristoteles fokuserte på den fysiske verden (realisme).",
+                "Aristoteles trodde ikke på guder.",
+                "Platon skrev dikt, Aristoteles skrev bare lister."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva er 'Hylomorfisme'?",
+            "options": [
+                "Læren om at alt består av Stoff og Form.",
+                "En sykdom i antikken.",
+                "En metode for å blande maling.",
+                "En teori om sjelespredning."
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hva betyr begrepet 'Telos'?",
+            "options": [
+                "Begynnelse",
+                "Formål eller mål",
+                "Død",
+                "Kaos"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilken logisk slutning (syllogisme) er Aristoteles kjent for?",
+            "options": [
+                "Hvis det regner, blir jeg våt.",
+                "Alle mennesker er dødelige; Sokrates er et menneske; Sokrates er dødelig.",
+                "Jeg tenker, derfor er jeg.",
+                "Å være eller ikke være."
+            ],
+            "correctAnswer": 1
+        }
+    ],
     "createdDate": "2025-12-21T12:00:00Z",
     "lastUpdated": "2025-12-21T13:12:00Z"
 }

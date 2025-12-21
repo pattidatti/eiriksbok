@@ -112,6 +112,48 @@
             "content": "Selv om Kants strenghet kan virke fremmed, er det hans tanker som danner grunnlaget for FNs menneskerettigheter. Ideen om at alle mennesker har visse rettigheter som staten *aldri* kan ta fra dem (som ytringsfrihet, rettssikkerhet, forbud mot tortur), er ren pliktetikk. Vi sier at disse rettighetene gjelder uansett om det ville vært 'nyttig' for samfunnet å bryte dem. Slik fungerer pliktetikken som et skjold for individet mot makten."
         }
     ],
+    "quiz": [
+        {
+            "question": "Hva er det kategoriske imperativ?",
+            "options": [
+                "En befaling om å gjøre det som gir mest lykke.",
+                "Et påbud som gjelder ubetinget: Handl bare etter den regel du kan ville skal bli allmenn lov.",
+                "En regel om at man alltid skal følge lovene i landet man bor i.",
+                "En oppfordring til å følge sine følelser."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva mener Kant med at mennesket aldri skal brukes bare som et middel?",
+            "options": [
+                "At man aldri skal be andre om hjelp.",
+                "At man aldri skal ansette folk til å gjøre jobber man ikke vil gjøre selv.",
+                "At man alltid må respektere andres verdighet og rettigheter, selv når man samhandler med dem.",
+                "At teknologi og maskiner er onde."
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva ville Kant sagt om å lyve for å redde en venn fra en morder?",
+            "options": [
+                "Det er riktig å lyve for å redde liv.",
+                "Det er galt å lyve, uansett konsekvenser.",
+                "Det kommer an på om vennen faktisk er uskyldig.",
+                "Man bør kaste mynt og kron."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilken moderne idé bygger sterkt på Kants pliktetikk?",
+            "options": [
+                "Børsmarkedet",
+                "Menneskerettighetene",
+                "Evolusjonsteorien",
+                "Sosiale medier"
+            ],
+            "correctAnswer": 1
+        }
+    ],
     "createdDate": "2025-12-21T14:00:00Z",
     "lastUpdated": "2025-12-21T14:00:00Z"
 }

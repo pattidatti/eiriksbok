@@ -95,6 +95,48 @@
             "content": "Platon var skeptisk til demokratiet, som han kalte 'pøbelvelde'. Han mente at bare de med lengst utdanning og dypest filosofisk innsikt var skikket til å sitte ved makten. Hans fremste elev, [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json), skulle senere kritisere mange av disse ideene og bringe filosofien 'ned på jorda igen'."
         }
     ],
+    "quiz": [
+        {
+            "question": "Hva er 'Idélæren'?",
+            "options": [
+                "En teori om at alt er laget av vann.",
+                "En teori om at det finnes en perfekt, usynlig verden av ideer som sanseverdenen bare er en kopi av.",
+                "En politisk ideologi for demokrati.",
+                "En lære om hvordan man får gode ideer."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "I 'Hulelignelsen', hva skjer når fangen kommer ut i dagslyset?",
+            "options": [
+                "Han blir blind og dør.",
+                "Han ser den sanne virkeligheten (solen og verden utenfor) og forstår at skyggene var illusjoner.",
+                "Han savner hulen og løper tilbake med en gang.",
+                "Han finner en skatt."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvem mente Platon burde styre staten?",
+            "options": [
+                "De rikeste.",
+                "Folket (demokrati).",
+                "Filosofkongene (de viseste).",
+                "Soldatene."
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva er 'Anamnesis'?",
+            "options": [
+                "Et hukommelsestap.",
+                "Gjenoppindring – at sjelen husker kunnskap den hadde før fødselen.",
+                "En type gresk mat.",
+                "Navnet på Platons akademi."
+            ],
+            "correctAnswer": 1
+        }
+    ],
     "createdDate": "2025-12-21T12:00:00Z",
     "lastUpdated": "2025-12-21T13:03:00Z"
 }

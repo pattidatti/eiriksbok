@@ -1,54 +1,101 @@
 {
     "id": "bakgrunn",
-    "title": "Bakgrunn for andre verdenskrig",
-    "subject": "samfunnsfag",
-    "topic": "historie",
+    "title": "Geopolitikk og Opptakt: Veien mot stupet",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
     "layout": "rich",
-    "year": "1918–1939",
-    "category": "Verden",
-    "readTime": "6 min lesning",
+    "year": "1919–1939",
+    "category": "Bakgrunn",
+    "readTime": "20 min lesning",
     "heroImage": "https://images.unsplash.com/photo-1580130732478-7f14d4255091?auto=format&fit=crop&q=80",
-    "externalUrl": "https://snl.no/andre_verdenskrig",
     "details": [
-        "Versailles-traktaten skapte dyp misnøye.",
-        "Hitler utnyttet kaoset til å ta makten.",
-        "Tyskland brøt avtaler og rustet opp.",
-        "Vestmaktene var for ettergivende.",
-        "Invasjonen av Polen startet krigen."
+        "Versailles-traktaten skapte bitterhet i Tyskland.",
+        "Hitler utnyttet politisk kaos og økonomisk krise.",
+        "Folkeforbundet klarte ikke å stoppe aggresjon.",
+        "Vestmaktene førte en ettergivenhetspolitikk.",
+        "Molotov-Ribbentrop-pakten banet vei for invasjonen av Polen."
     ],
     "timeline": [],
     "content": [
         {
             "type": "text",
-            "content": "Andre verdenskrig brøt ikke ut over natten. Årsakene var mange og sammensatte, men de fleste historikere peker på oppgjøret etter første verdenskrig som en hovedårsak. Det var en urolig tid i Europa, preget av økonomisk krise, politisk kaos og ulmende konflikter."
+            "content": "Man sier ofte at kimen til andre verdenskrig ble lagt i fredsoppgjøret etter den første. Versailles-traktaten fra 1919 etterlot Tyskland ydmyket, økonomisk ruinert og politisk ustabilt. Mange tyskere følte at de var blitt urettferdig behandlet, og drømte om revansj. I dette klimaet av misnøye og desperasjon kunne ekstreme politiske bevegelser vokse frem, og fremst blant dem var nazismen ledet av Adolf Hitler."
         },
         {
-            "type": "fact",
-            "title": "Bakgrunnen for krigen",
-            "fact": "Visste du at Versaillestraktaten var så streng mot Tyskland at den britiske økonomen John Maynard Keynes forutså at den ville føre til en ny krig?",
-            "description": "Mellomkrigstiden var preget av ustabilitet. Versaillestraktaten skapte bitterhet i Tyskland, mens børskrakket i 1929 førte til global økonomisk krise. Dette ga grobunn for fascismens fremvekst."
-        },
-        {
-            "type": "text",
-            "title": "Versailles-traktaten: En fred som skapte krig?",
-            "content": "**Versailles-traktaten** i 1919 la hele skylden for første verdenskrig på Tyskland. Tyskerne opplevde fredsavtalen som en ydmykelse. De måtte betale enorme krigserstatninger, gi fra seg viktige landområder og redusere militæret til et minimum.\n\nDette skapte en dyp følelse av urettferdighet og hevnlyst i det tyske folket. Mange følte seg dolket i ryggen av sine egne politikere som hadde signert avtalen."
+            "type": "header",
+            "text": "Hitlers vei til makten"
         },
         {
             "type": "text",
-            "title": "Hitlers vei til makten",
-            "content": "I denne situasjonen kunne **Adolf Hitler** og nazistpartiet (NSDAP) vokse frem. Tyskland var rammet av hyperinflasjon og arbeidsledighet. Hitler var en karismatisk taler som lovet å gjenreise Tysklands ære, skape arbeidsplasser og samle alle tyskere i ett rike.\n\nEtter at han ble utnevnt til rikskansler i **1933**, avskaffet han demokratiet og innførte diktatur. Han begynte systematisk å bryte Versailles-traktaten ved å ruste opp militæret i hemmelighet."
+            "content": "Adolf Hitler, en østerriksk krigsveteran fra første verdenskrig, ble leder for det lille nasjonalsosialistiske tyske arbeiderparti (NSDAP) på 1920-tallet. Hans budskap var enkelt og brutalt: Tyskland var ikke blitt beseiret på slagmarken, men forrådt av jøder og sosialister hjemme (dolkesjøtlegenden). Han lovet å rive i stykker Versailles-traktaten, gjenreise Tysklands ære og skaffe det tyske folket «Lebensraum» (livsrom) i øst.\n\nLenken til [Konsekvenser av første verdenskrig](/historie/forste-verdenskrig/konsekvenser) er tydelig her. Den økonomiske krisen i 1929 kastet Tyskland ut i massearbeidsledighet, og velgerne strømmet til Hitler. I januar 1933 ble han utnevnt til rikskansler. I løpet av få måneder avskaffet han demokratiet, forbød andre partier og opprettet et brutalt diktatur. Nå begynte han systematisk å bryte vilkårene i Versailles-traktaten ved å bygge opp militæret igjen."
+        },
+        {
+            "type": "header",
+            "text": "Folkeforbundets maktesløshet"
         },
         {
             "type": "text",
-            "title": "Erobring og ettergivenhet",
-            "content": "Hitler ønsket mer \"Lebensraum\" (livsrom) for det tyske folk. Han innlemmet Østerrike i Tyskland (Anschluss) og krevde Sudetenland fra Tsjekkoslovakia. Vestmaktene, særlig Storbritannia og Frankrike, førte lenge en **appeasement-politikk** (ettergivenhetspolitikk).\n\nDe håpet at ved å gi Hitler det han ville ha, kunne de unngå en ny storkrig. Den britiske statsministeren Neville Chamberlain kom hjem fra forhandlinger med Hitler i 1938 og erklærte \"Peace for our time\". Han tok feil."
+            "content": "Folkeforbundet var opprettet for å bevare freden, men på 1930-tallet viste organisasjonen seg å være tannløs. Da Japan invaderte Mandsjuria i Kina i 1931, protesterte Folkeforbundet, men gjorde ingenting konkret. Japan meldte seg bare ut. Da Italias diktator Mussolini invaderte Etiopia i 1935, skjedde det samme.\n\nHitler observerte dette nøye. Han innså at demokratiene i vest – Storbritannia og Frankrike – var krigstrette og ville gå langt for å unngå en ny storkrig. Han begynte en serie med dristige trekk:"
+        },
+        {
+            "type": "list",
+            "ordered": true,
+            "items": [
+                "I 1936 sendte han tropper inn i Rhinland, en demilitarisert sone grensen mot Frankrike.",
+                "I 1938 gjennomførte han «Anschluss», innlemmelsen av Østerrike i Tyskland.",
+                "Høsten 1938 krevde han Sudetland, et område i Tsjekkoslovakia der det bodde mange tyskere."
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Ettergivenhetspolitikken"
+        },
+        {
+            "type": "list",
+            "ordered": false,
+            "items": [
+                "1933: Hitler tar makten – Blir rikskansler og avvikler demokratiet.",
+                "1935: Opprustning – Gjeninnfører verneplikt i strid med Versailles.",
+                "1936: Rhinland – Tyske tropper marsjerer inn i sonen.",
+                "1938: Anschluss – Østerrike innlemmes i Tyskland.",
+                "1939: Polen invaderes – Andre verdenskrig starter."
+            ]
         },
         {
             "type": "text",
-            "title": "Krigen bryter ut",
-            "content": "Da Tyskland krevde områder i Polen, sa Storbritannia og Frankrike stopp. De garanterte for Polens sikkerhet. Men Hitler trodde ikke de ville gripe inn.\n\nDen **1. september 1939** invaderte Tyskland Polen. To dager senere, den 3. september, erklærte Storbritannia og Frankrike krig mot Tyskland. Andre verdenskrig var et faktum."
+            "content": "Storbritannias statsminister Neville Chamberlain førte en politikk kjent som «appeasement» (ettergivenhet). Tanken var at hvis man ga Hitler det han rimeligvis kunne kreve (som å samle alle tyskere i ett rike), ville han bli fornøyd og freden ville bli bevart. Under München-avtalen i 1938 ga Storbritannia og Frankrike Hitler lov til å ta Sudetland, mot at han lovet å ikke kreve mer. Chamberlain kom hjem og proklamerte «Peace for our time».\n\nMen Hitler hadde ingen planer om å stoppe. Allerede i mars 1939 brøt han avtalen og okkuperte resten av Tsjekkoslovakia. Nå forsto endelig vestmaktene at Hitler ikke kunne stoles på, og at krig var uunngåelig. De ga en garanti til Polen: Hvis Tyskland angriper dere, vil vi hjelpe."
+        },
+        {
+            "type": "header",
+            "text": "Pakten med fienden"
+        },
+        {
+            "type": "text",
+            "content": "Det siste hinderet for Hitler var Sovjetunionen. En krig mot Polen kunne provosere russerne. I et sjokkerende diplomatisk trekk inngikk erke-fiendene Tyskland (nazister) og Sovjetunionen (kommunister) en ikke-angrepspakt i august 1939, kjent som Molotov-Ribbentrop-pakten. Offisielt lovet de å ikke angripe hverandre. I en hemmelig tilleggsprotokoll delte de Øst-Europa mellom seg: Tyskland skulle få vestre Polen, mens Sovjetunionen skulle få østre Polen, Finland og de baltiske statene.\n\nMed ryggen fri i øst ga Hitler ordren. 1. september 1939 rullet tyske stridsvogner over grensen til Polen. To dager senere erklærte Storbritannia og Frankrike krig. Katastrofen var et faktum."
         }
     ],
     "createdDate": "2023-01-01T12:00:00Z",
-    "lastUpdated": "2025-12-03T17:25:16.499Z"
+    "lastUpdated": "2025-12-21T15:10:00Z",
+    "definitions": [
+        {
+            "term": "Versailles-traktaten",
+            "definition": "Fredsavtalen etter første verdenskrig som mange tyskere opplevde som urettferdig og ydmykende."
+        },
+        {
+            "term": "Lebensraum",
+            "definition": "Tysk for \"livsrom\". Nazistenes idé om at det tyske folket trengte mer landområder, spesielt i Øst-Europa."
+        },
+        {
+            "term": "Anschluss",
+            "definition": "Tysklands annektering (innlemmelse) av Østerrike i 1938."
+        },
+        {
+            "term": "Ettergivenhetspolitikk",
+            "definition": "Politikken om å gi etter for en aggressors krav i håp om å unngå krig (Appeasement)."
+        },
+        {
+            "term": "Molotov-Ribbentrop-pakten",
+            "definition": "Ikke-angrepspakten mellom Tyskland og Sovjetunionen inngått like før krigsutbruddet i 1939."
+        }
+    ]
 }

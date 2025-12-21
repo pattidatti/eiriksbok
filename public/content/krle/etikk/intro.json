@@ -110,6 +110,48 @@
             "content": "Etikk er ikke noe vi bare driver med i klasserommet. Vi tar etiske valg hver eneste dag: Skal jeg kjøpe produktet som er billig, eller det som er produsert under rettferdige forhold? Skal jeg fortelle sannheten selv om det sårer en venn? Skal jeg gripe inn når noen blir mobbet?\n\nI fremtiden vil etikken bli enda viktigere. Vi må ta stilling til kunstig intelligens (skal en selvkjørende bil drepe passasjeren eller en fotgjenger?), genredigering og hvordan vi skal dele jordas begrensede ressurser. Ved å lære oss etisk refleksjon, blir vi bedre rustet til å navigere i en kompleks verden og ta ansvar for fremtiden.\n\nSom den store filosofen [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json) sa: 'Det viktigste er ikke å leve, men å leve rett'. I dette emnet skal vi lete etter hva det egentlig betyr."
         }
     ],
+    "quiz": [
+        {
+            "question": "Hva er forskjellen på moral og etikk?",
+            "options": [
+                "Det er ingen forskjell, ordene betyr nøyaktig det samme.",
+                "Moral er praksis (hva vi gjør), mens etikk er teori (hvorfor vi gjør det).",
+                "Moral gjelder for gamle dager, etikk er moderne.",
+                "Etikk er kun religiøse regler."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva viser 'Sporvognsproblemet' (Trolley Problem)?",
+            "options": [
+                "Hvordan man bygger trygge tog.",
+                "Konflikten mellom å redde flest mulig vs. å ikke aktivt drepe noen.",
+                "At man alltid skal dra i spaken.",
+                "At man aldri skal blande seg inn i andres problemer."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva handlet historien om 'Gyges ring' om?",
+            "options": [
+                "En ring som gjorde bæreren udødelig.",
+                "En ring som gjorde bæreren usynlig, og om vi ville være moralske uten straff.",
+                "En ring som måtte kastes i en vulkan.",
+                "Et bryllup i det gamle Hellas."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvem sa: 'Det viktigste er ikke å leve, men å leve rett'?",
+            "options": [
+                "Platon",
+                "Aristoteles",
+                "Sokrates",
+                "Julius Cæsar"
+            ],
+            "correctAnswer": 2
+        }
+    ],
     "createdDate": "2025-12-21T13:30:00Z",
     "lastUpdated": "2025-12-21T13:30:00Z"
 }

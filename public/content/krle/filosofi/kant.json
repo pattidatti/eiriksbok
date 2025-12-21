@@ -72,6 +72,48 @@
             "content": "Kant definerte opplysningstiden som menneskets utgang av sin selvforskydte umyndighet. Hans slagord var 'Sapere Aude!' – ha mot til å bruke din egen forstand! Han mente at vi ikke skal blindt følge autoriteter, verken prester eller konger, men tenke selv.\n\nDenne insisteringen på autonomi (selvstyre) peker fremover mot eksistensialismen hos [Kierkegaard](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kierkegaard.json) og [Nietzsche](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/nietzsche.json), selv om disse tenkerne senere skulle utfordre Kants tro på at fornuften kan gi oss alle svarene."
         }
     ],
+    "quiz": [
+        {
+            "question": "Hva kalles Kants teori om at vi former verden med vårt eget sinn?",
+            "options": [
+                "Den franske revolusjon",
+                "Den kopernikanske vending",
+                "Den industrielle revolusjon",
+                "Det kategoriske imperativ"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva er 'Das Ding an sich'?",
+            "options": [
+                "Tingen slik den ser ut for meg.",
+                "Tingen i seg selv (som vi aldri kan kjenne).",
+                "En type tysk pølse.",
+                "Et annet ord for Gud."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva betyr opplysningstidens slagord 'Sapere Aude'?",
+            "options": [
+                "Tør å vite! (Bruk din egen forstand)",
+                "Lev i nuet!",
+                "Tro på Gud!",
+                "Vær snill mot andre."
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hva sier 'Humanitetsformelen' i Kants etikk?",
+            "options": [
+                "At man alltid skal være human og snill.",
+                "At man aldri skal bruke mennesker bare som et middel, men alltid også som et mål.",
+                "At mennesker er verdt mer enn dyr.",
+                "At alle mennesker bør få borgerlønn."
+            ],
+            "correctAnswer": 1
+        }
+    ],
     "createdDate": "2025-12-21T12:00:00Z",
     "lastUpdated": "2025-12-21T13:12:00Z"
 }

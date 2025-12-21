@@ -1,0 +1,97 @@
+{
+    "id": "teknologi",
+    "title": "Teknologi: Våpenkappløp og innovasjon",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "layout": "rich",
+    "year": "1939–1945",
+    "category": "Teknologi",
+    "readTime": "15 min lesning",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Nagasakibomb.jpg/1200px-Nagasakibomb.jpg",
+    "details": [
+        "Radar var avgjørende for luftkrigen.",
+        "Datamaskiner ble utviklet for kodeknekking (Enigma).",
+        "Jetmotorer og raketter (V2) så dagens lys.",
+        "Penicillin reddet tusenvis av liv.",
+        "Atombomben endret verden for alltid."
+    ],
+    "timeline": [],
+    "content": [
+        {
+            "type": "text",
+            "content": "Andre verdenskrig var en krig mellom industrimakter, og seieren avhengte like mye av ingeniører og vitenskapsmenn som av soldater. Teknologien tok enorme sprang i løpet av disse seks årene. Mange av oppfinnelsene som ble utviklet for å drepe eller overvåke fienden, la grunnlaget for den moderne verden vi lever i i dag, fra datamaskiner og jetfly til romfart og atomenergi."
+        },
+        {
+            "type": "header",
+            "text": "Radar og elektronisk krigføring"
+        },
+        {
+            "type": "text",
+            "content": "En av de viktigste oppfinnelsene var radar (Radio Detection and Ranging). Teknologien bruker radiobølger til å oppdage gjenstander på lang avstand. Radar var helt avgjørende for at britene vant Slaget om Storbritannia i 1940. De kunne se de tyske bombeflyene lenge før de nådde kysten, og sende opp jagerflyene sine på nøyaktig rett tid og sted. Uten radar ville trolig Storbritannia ha tapt luftkrigen.\n\nUte på havet ble radar og sonar (lydbølger under vann) brukt til å jakte på tyske ubåter. Krigen førte også til utviklingen av de første elektroniske mottiltakene, som å slippe ut strimler av aluminiumfolie fra fly (kalt «chaff») for å forvirre fiendens radar."
+        },
+        {
+            "type": "header",
+            "text": "Kodeknekking og datamaskinenes fødsel"
+        },
+        {
+            "type": "text",
+            "content": "Informasjon var makt. Tyskerne brukte en avansert krypteringsmaskin kalt Enigma for å sende hemmelige meldinger til sine tropper og ubåter. De trodde koden var umulig å knekke. Men polske matematikere, og senere britiske eksperter ved Bletchley Park, klarte det umulige. Den britiske matematikeren Alan Turing spilte en nøkkelrolle ved å utvikle en elektromekanisk maskin som kunne teste tusenvis av kombinasjoner raskt.\n\nArbeidet ved Bletchley Park førte til utviklingen av Colossus, verdens første programmerbare elektroniske datamaskin. Evnen til å lese fiendens meldinger (kalt «Ultra»-etterretning) ga de allierte en enorm fordel, for eksempel ved å vite hvor tyske ubåter befant seg. Det sies at dette forkortet krigen med to år."
+        },
+        {
+            "type": "header",
+            "text": "Luftkrigens revolusjon: Jetfly og raketter"
+        },
+        {
+            "type": "text",
+            "content": "Flyene utviklet seg enormt fra 1939 til 1945. De ble raskere, fløy høyere og kunne bære tyngre bombelaster. Mot slutten av krigen introduserte Tyskland verdens første operative jetjager, Messerschmitt Me 262. Den var mye raskere enn allierte propellfly, men kom for sent og i for lite antall til å endre krigens gang.\n\nTyskland utviklet også verdens første ballistiske rakett, V2. Denne raketten kunne fly i overlydshastighet til kanten av verdensrommet før den stupte ned mot mål i London eller Antwerpen. Det var umulig å forsvare seg mot den. V2-teknologien ble etter krigen ryggraden i både det amerikanske og det sovjetiske romprogrammet."
+        },
+        {
+            "type": "header",
+            "text": "Medisin: Penicillin"
+        },
+        {
+            "type": "text",
+            "content": "Ikke all teknologi handlet om å drepe. En av de viktigste medisinske gjennombruddene var masseproduksjonen av penicillin, verdens første antibiotika. Før dette kunne selv små sårskader føre til dødelige infeksjoner. Penicillin reddet livet til hundretusener av allierte soldater som ellers ville dødd av koldbrann eller blodforgiftning. Dette ga de allierte en stor fordel, da Tyskland ikke hadde tilgang på like effektive medisiner."
+        },
+        {
+            "type": "header",
+            "text": "Manhattan-prosjektet: Atombomben"
+        },
+        {
+            "type": "text",
+            "content": "Det største og mest skremmende vitenskapelige prosjektet under krigen var det amerikanske Manhattan-prosjektet. Drevet av frykten for at Hitler skulle utvikle en atombombe først, samlet USA verdens fremste fysikere for å utnytte kjernekraften i et våpen. Resultatet var en bombe med en sprengkraft som tilsvarte tusenvis av tonn med vanlig sprengstoff.\n\nBombene over Hiroshima og Nagasaki i 1945 drepte over 200 000 mennesker, de fleste momentant eller i løpet av kort tid. Dette var første og eneste gang atomvåpen er brukt i krig. Oppfinnelsen endret verdenspolitikken fundamentalt og skapte en terrorbalanse som preget hele den kalde krigen."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Visste du at?",
+                "content": "Robert Oppenheimer, lederen for prosjektet, siterte et hinduistisk skriftsted da han så den første prøvesprengningen: **Nav har jeg blitt døden, ødelegger av verdener.**"
+            }
+        }
+    ],
+    "createdDate": "2025-12-21T15:30:00Z",
+    "lastUpdated": "2025-12-21T15:30:00Z",
+    "definitions": [
+        {
+            "term": "Radar",
+            "definition": "Teknologi som bruker radiobølger til å fastslå avstand, retning og hastighet til gjenstander som fly og skip."
+        },
+        {
+            "term": "Enigma",
+            "definition": "En tysk krypteringsmaskin brukt til å sende hemmelige meldinger under andre verdenskrig."
+        },
+        {
+            "term": "Manhattan-prosjektet",
+            "definition": "Det hemmelige amerikanske forskningsprosjektet som utviklet de første atombombene."
+        },
+        {
+            "term": "V2",
+            "definition": "Verdens første langdistanse ballistiske rakett, utviklet av Tyskland."
+        },
+        {
+            "term": "Penicillin",
+            "definition": "En type antibiotika som dreper bakterier og forhindrer infeksjoner."
+        }
+    ]
+}

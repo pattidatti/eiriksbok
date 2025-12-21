@@ -108,6 +108,48 @@
             "content": "Den største motstanden mot utilitarismen kommer fra dem som mener at rettigheter er hellige. Hvis vi bare ser på konsekvenser, mister vi respekten for individet. Hvis et flertall hater en liten minoritet, vil utilitarismen kanskje rettferdiggjøre undertrykkelse fordi flertallets 'glede' over undertrykkelsen er større enn minoritetens smerte. Dette er 'flertallets diktatur'.\n\nEn annen kritikk er at det er umulig å forutse alle konsekvenser. Hvordan kan vi vite hva handlingene våre fører til om ti eller hundre år? Dessuten: Kan vi virkelig sette en pris på alt? Er lykken ved å se en solnedgang sammenlignbar med lykken ved å få en ny telefon? Mange mener at utilitarismen gjør livet for kaldt og mekanisk, og vi skal se i neste artikkel hvordan [Immanuel Kant](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kant.json) prøvde å løse dette ved å fokusere på plikt og verdighet."
         }
     ],
+    "quiz": [
+        {
+            "question": "Hva er hovedprinsippet i utilitarismen?",
+            "options": [
+                "Handl slik at du følger Guds bud.",
+                "Handl slik at det skaper størst mulig lykke for flest mulig.",
+                "Handl alltid ut fra plikt, uavhengig av konsekvenser.",
+                "Handl slik at du fremmer dine egne interesser."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvem regnes som grunnleggeren av utilitarismen?",
+            "options": [
+                "Immanuel Kant",
+                "Aristoteles",
+                "Jeremy Bentham",
+                "Søren Kierkegaard"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva menes med 'lystkalkylen'?",
+            "options": [
+                "En metode for å beregne matematisk nytteverdi av en handling.",
+                "En måte å måle hvor mye penger man tjener.",
+                "En religiøs praksis for å oppnå frelse.",
+                "En teori om at all lyst er syndig."
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hva gikk 'Opplevelsesmaskinen' til Nozick ut på?",
+            "options": [
+                "At roboter vil ta over verden.",
+                "At vi heller vil leve i en falsk, lykkelig verden enn en ekte, smertefull en.",
+                "At de fleste foretrekker virkeligheten fremfor en simulert lykke.",
+                "At teknologi er nøkkelen til evig liv."
+            ],
+            "correctAnswer": 2
+        }
+    ],
     "createdDate": "2025-12-21T13:40:00Z",
     "lastUpdated": "2025-12-21T13:40:00Z"
 }

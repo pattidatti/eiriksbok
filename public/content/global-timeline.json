@@ -1489,5 +1489,422 @@
     "type": "text",
     "subjectId": "norsk",
     "link": "/norsk/bibliotek?text=doden"
+  },
+  {
+    "id": "sokrates-dod",
+    "title": "Sokrates dømmes til døden",
+    "description": "Filosofiens far tømmer giftbegeret i Athen.",
+    "startDate": -399,
+    "endDate": null,
+    "displayDate": "399 f.Kr.",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/sokrates",
+    "tags": [
+      "filosofi",
+      "hellas",
+      "etikk"
+    ]
+  },
+  {
+    "id": "platon-staten",
+    "title": "Platon: Staten",
+    "description": "Verket som definerte vestlig politisk filosofi.",
+    "startDate": -375,
+    "endDate": null,
+    "displayDate": "ca. 375 f.Kr.",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/platon",
+    "tags": [
+      "filosofi",
+      "politikk",
+      "idealisme"
+    ]
+  },
+  {
+    "id": "aristoteles-etikk",
+    "title": "Den nikomakiske etikk",
+    "description": "Aristoteles definerer dygdsetikken og den gylne middelvei.",
+    "startDate": -340,
+    "endDate": null,
+    "displayDate": "ca. 340 f.Kr.",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "etikk",
+    "link": "/krle/etikk/dygdsetikk",
+    "tags": [
+      "etikk",
+      "filosofi",
+      "lykke"
+    ]
+  },
+  {
+    "id": "augustin-gudsstaten",
+    "title": "Augustin: Om Gudsstaten",
+    "description": "Kristendommens forsvar mot Romas fall.",
+    "startDate": 426,
+    "endDate": null,
+    "displayDate": "426",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/augustin",
+    "tags": [
+      "filosofi",
+      "religion",
+      "mellomalderen"
+    ]
+  },
+  {
+    "id": "aquinas-summa",
+    "title": "Summa Theologica",
+    "description": "Thomas Aquinas forener tro og fornuft.",
+    "startDate": 1274,
+    "endDate": null,
+    "displayDate": "1274",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/aquinas",
+    "tags": [
+      "filosofi",
+      "teologi",
+      "skolastikk"
+    ]
+  },
+  {
+    "id": "descartes-meditasjoner",
+    "title": "Meditasjoner over filosofiens grunnlag",
+    "description": "'Cogito, ergo sum' – Descartes grunnlegger moderne filosofi.",
+    "startDate": 1641,
+    "endDate": null,
+    "displayDate": "1641",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/descartes",
+    "tags": [
+      "filosofi",
+      "rasjonalisme",
+      "erkjennelse"
+    ]
+  },
+  {
+    "id": "locke-treatises",
+    "title": "To avhandlinger om styresettet",
+    "description": "John Locke legger grunnlaget for liberalismen og maktfordeling.",
+    "startDate": 1689,
+    "endDate": null,
+    "displayDate": "1689",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/locke",
+    "tags": [
+      "filosofi",
+      "politikk",
+      "empirisme"
+    ]
+  },
+  {
+    "id": "kant-moral",
+    "title": "Grunnlegging av moralens metafysikk",
+    "description": "Immanuel Kant formulerer det kategoriske imperativ.",
+    "startDate": 1785,
+    "endDate": null,
+    "displayDate": "1785",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "etikk",
+    "link": "/krle/etikk/pliktetikk",
+    "tags": [
+      "etikk",
+      "filosofi",
+      "plikt"
+    ]
+  },
+  {
+    "id": "kierkegaard-enten-eller",
+    "title": "Enten – Eller",
+    "description": "Søren Kierkegaard utforsker livsstadiene og det eksistensielle valget.",
+    "startDate": 1843,
+    "endDate": null,
+    "displayDate": "1843",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/kierkegaard",
+    "tags": [
+      "filosofi",
+      "eksistensialisme",
+      "tro"
+    ]
+  },
+  {
+    "id": "mill-on-liberty",
+    "title": "Om friheten",
+    "description": "John Stuart Mills forsvar for ytringsfrihet og individualisme.",
+    "startDate": 1859,
+    "endDate": null,
+    "displayDate": "1859",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/etikk/utilitarisme",
+    "tags": [
+      "filosofi",
+      "politikk",
+      "frihet"
+    ]
+  },
+  {
+    "id": "nietzsche-zarathustra",
+    "title": "Slik talte Zarathustra",
+    "description": "Friedrich Nietzsche forkynner 'Guds død' og overmennesket.",
+    "startDate": 1883,
+    "endDate": null,
+    "displayDate": "1883",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/nietzsche",
+    "tags": [
+      "filosofi",
+      "eksistensialisme",
+      "nihilisme"
+    ]
+  },
+  {
+    "id": "heidegger-vaeren",
+    "title": "Væren og tid",
+    "description": "Martin Heidegger analyserer hva det vil si å være til.",
+    "startDate": 1927,
+    "endDate": null,
+    "displayDate": "1927",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/heidegger",
+    "tags": [
+      "filosofi",
+      "fenomenologi",
+      "eksistens"
+    ]
+  },
+  {
+    "id": "beauvoir-kjonn",
+    "title": "Det annet kjønn",
+    "description": "Simone de Beauvoir analyserer kvinnens stilling: 'Man fødes ikke som kvinne, man blir det'.",
+    "startDate": 1949,
+    "endDate": null,
+    "displayDate": "1949",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/beauvoir",
+    "tags": [
+      "filosofi",
+      "feminisme",
+      "eksistensialisme"
+    ]
+  },
+  {
+    "id": "arendt-totalitarisme",
+    "title": "Totalitarismens opprinnelse",
+    "description": "Hannah Arendt analyserer nazismen og stalinismen.",
+    "startDate": 1951,
+    "endDate": null,
+    "displayDate": "1951",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/arendt",
+    "tags": [
+      "filosofi",
+      "politikk",
+      "historie"
+    ]
+  },
+  {
+    "id": "rothbard-mes",
+    "title": "Man, Economy, and State",
+    "description": "Murray Rothbards hovedverk om østerriksk økonomi og praxeologi.",
+    "startDate": 1962,
+    "endDate": null,
+    "displayDate": "1962",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/rothbard",
+    "tags": [
+      "økonomi",
+      "filosofi",
+      "frihet"
+    ]
+  },
+  {
+    "id": "arendt-eichmann",
+    "title": "Eichmann i Jerusalem",
+    "description": "Arendt rapporterer fra rettssaken og lanserer begrepet 'ondskapens banalitet'.",
+    "startDate": 1963,
+    "endDate": null,
+    "displayDate": "1963",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/arendt",
+    "tags": [
+      "filosofi",
+      "etikk",
+      "rettferdighet"
+    ]
+  },
+  {
+    "id": "singer-animal",
+    "title": "Animal Liberation",
+    "description": "Peter Singer utvider utilitarismen til å inkludere dyr.",
+    "startDate": 1975,
+    "endDate": null,
+    "displayDate": "1975",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "etikk",
+    "link": "/krle/etikk/utilitarisme",
+    "tags": [
+      "etikk",
+      "dyrerettigheter",
+      "utilitarisme"
+    ]
+  },
+  {
+    "id": "forste-verdenskrig-event",
+    "title": "Første verdenskrig",
+    "description": "Den store krigen som endret europakartet.",
+    "startDate": 1914,
+    "endDate": 1918,
+    "displayDate": "1914-1918",
+    "type": "lesson",
+    "subjectId": "historie",
+    "topicId": "forste-verdenskrig",
+    "link": "/historie/forste-verdenskrig/oversikt",
+    "tags": [
+      "krig",
+      "europa"
+    ]
+  },
+  {
+    "id": "skuddene-i-sarajevo",
+    "title": "Skuddene i Sarajevo",
+    "description": "Erkehertug Franz Ferdinand skytes, noe som utløser krigen.",
+    "startDate": 1914,
+    "endDate": null,
+    "displayDate": "28. juni 1914",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "forste-verdenskrig",
+    "link": "/historie/forste-verdenskrig/oversikt",
+    "tags": [
+      "krig",
+      "opptakt"
+    ]
+  },
+  {
+    "id": "andre-verdenskrig-event",
+    "title": "Andre verdenskrig",
+    "description": "Verdenshistoriens største og dødeligste konflikt.",
+    "startDate": 1939,
+    "endDate": 1945,
+    "displayDate": "1939-1945",
+    "type": "lesson",
+    "subjectId": "historie",
+    "topicId": "andre-verdenskrig",
+    "link": "/historie/andre-verdenskrig/oversikt",
+    "tags": [
+      "krig",
+      "verden"
+    ]
+  },
+  {
+    "id": "hitler-makt",
+    "title": "Hitler tar makten",
+    "description": "Adolf Hitler blir rikskansler i Tyskland.",
+    "startDate": 1933,
+    "endDate": null,
+    "displayDate": "1933",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "andre-verdenskrig",
+    "link": "/historie/andre-verdenskrig/bakgrunn",
+    "tags": [
+      "politikk",
+      "tyskland"
+    ]
+  },
+  {
+    "id": "angrepet-pa-norge",
+    "title": "Angrepet på Norge",
+    "description": "Tyskland invaderer Norge.",
+    "startDate": 1940,
+    "endDate": 1945,
+    "displayDate": "9. april 1940",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "andre-verdenskrig",
+    "link": "/historie/andre-verdenskrig/krigens-lop",
+    "tags": [
+      "norge",
+      "krig"
+    ]
+  },
+  {
+    "id": "stalingrad",
+    "title": "Slaget om Stalingrad",
+    "description": "Krigen snur på Østfronten.",
+    "startDate": 1942,
+    "endDate": 1943,
+    "displayDate": "1942-1943",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "andre-verdenskrig",
+    "link": "/historie/andre-verdenskrig/krigens-lop",
+    "tags": [
+      "krig",
+      "slag"
+    ]
+  },
+  {
+    "id": "d-dagen",
+    "title": "D-dagen",
+    "description": "De allierte går i land i Normandie.",
+    "startDate": 1944,
+    "endDate": null,
+    "displayDate": "6. juni 1944",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "andre-verdenskrig",
+    "link": "/historie/andre-verdenskrig/krigens-lop",
+    "tags": [
+      "krig",
+      "slag"
+    ]
+  },
+  {
+    "id": "atombombene",
+    "title": "Atombombene over Japan",
+    "description": "Hiroshima og Nagasaki bombes, krigen slutter.",
+    "startDate": 1945,
+    "endDate": null,
+    "displayDate": "August 1945",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "andre-verdenskrig",
+    "link": "/historie/andre-verdenskrig/krigens-lop",
+    "tags": [
+      "krig",
+      "teknologi"
+    ]
   }
 ]

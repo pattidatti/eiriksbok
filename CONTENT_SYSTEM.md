@@ -129,7 +129,7 @@ The library contains short stories, poems, and excerpts.
     }
     ```
 
-### 4.4. Religion Comparison (KRLE)
+### 4.5. Religion Comparison (KRLE)
 Allows side-by-side comparison of religions.
 
 *   **Source**: `public/data/religion/[religion].json` (Dimensions) AND Article JSONs.
@@ -158,7 +158,7 @@ Allows side-by-side comparison of religions.
     }
     ```
 
-## 4.5. Artikkel-Layouts
+## 4.6. Artikkel-Layouts
 
 Alle artikkelsider deler samme grunnoppsett for innholdsvisning, men skilles hovedsakelig av **sidebaren** og dens funksjonalitet.
 
@@ -188,13 +188,14 @@ Layout for primærkilder.
 ### 5. Interaktive Modeller
 Spesialsider med egne kontroller og paneler. (F.eks. `demografi-okonomi/intro`).
 
-### 6. Retningslinjer for Komponenter i Artikler
+## 4.7. Retningslinjer for Komponenter i Artikler
 For å sikre god lesbarhet og flyt i teksttunge artikler, skal følgende regler følges:
 *   **TimelineComponent**: Når denne brukes inne i en artikkel (`layout: rich`), skal den **alltid** ha `compact: true` i sine props. Dette forhindrer at tidslinjen tar for mye visuell plass og bryter opp lesingen for mye.
 *   **Header-nivåer**: Bruk `header` blocks for å dele opp innholdet. Dette genererer automatisk innholdsfortegnelse i sidebaren.
 *   **Formatering**: Bruk **aldri** fet skrift (`**tekst**`) for å utheve ord eller setninger i brødteksten. Dette gir et uryddig uttrykk. Viktige begreper skal håndteres av det automatiske begrepssystemet (concepts), som gir dem en egen stil og funksjonalitet uten behov for manuell utheving.
+*   **Lister**: Bruk **aldri** markdown-lister (linjer som starter med `-` eller `*`) innad i en `text`-blokk. Tekstmotoren støtter ikke dette, og det vil se ødelagt ut. Bruk heller en egen blokk med `type: "list"` og legg punktene i en `items`-array.
 
-## 4.6. Troubleshooting / Feilsøking
+## 4.8. Troubleshooting / Feilsøking
 
 *   **"Unable to find record"**: `religion`-feltet må være en ID (f.eks. `"kristendom"`), ikke filsti.
 *   **"String cannot represent value"**: Sjekk for nestede `section`-blokker. Strukturen skal være flat.
