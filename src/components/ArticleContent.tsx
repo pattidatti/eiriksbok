@@ -35,9 +35,12 @@ import { SongStructureBuilder } from '../features/music/components/SongStructure
 import { ArrangementPlanner } from '../features/music/components/ArrangementPlanner';
 import { SongwriterStudio } from '../features/music/components/SongwriterStudio';
 import { EmperorStats } from './EmperorStats';
+import { TrolleyProblem } from './content/interactive/TrolleyProblem';
+import { GoldenMeanSlider } from './content/interactive/GoldenMeanSlider';
+import { CategoricalImperativeTester } from './content/interactive/CategoricalImperativeTester';
 
-import { renderInlineMarkdown } from './markdownUtils';
 import type { Concept, ContentBlock } from '../types';
+import { renderInlineMarkdown } from './markdownUtils';
 
 // Simple markdown renderer fallback
 const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
@@ -342,6 +345,12 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 return <ArrangementPlanner key={index} />;
                             case 'SongwriterStudio':
                                 return <SongwriterStudio key={index} />;
+                            case 'TrolleyProblem':
+                                return <TrolleyProblem key={index} />;
+                            case 'GoldenMeanSlider':
+                                return <GoldenMeanSlider key={index} />;
+                            case 'CategoricalImperativeTester':
+                                return <CategoricalImperativeTester key={index} />;
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">

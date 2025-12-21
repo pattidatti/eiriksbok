@@ -60,6 +60,10 @@
             "content": "For å finne ut hva plikten vår er, utviklet Kant en slags 'lakmustest' for handlinger. Han kalte den Det kategoriske imperativ. 'Kategorisk' betyr at den gjelder alltid, uten unntak. 'Imperativ' betyr at det er et påbud. Den mest kjente formuleringen lyder:\n\n'Handl bare etter den maksime (regel) gjennom hvilken du samtidig kan ville at den skal bli en allmenn lov.'\n\nLa oss teste dette: Kan du ville at 'alle skal kunne bryte løfter når det passer dem' skal bli en naturlov? Nei. Hvis alle brøt løfter, ville begrepet 'løfte' miste sin mening. Ingen ville stolt på noen, og du kunne ikke engang avgitt det løftet du planlegger å bryte. Ergo: Det er en logisk selvmotsigelse å ville lyve. Derfor er det din plikt å holde løfter. Alltid."
         },
         {
+            "type": "component",
+            "name": "CategoricalImperativeTester"
+        },
+        {
             "type": "header",
             "text": "Menneskeverdsformelen"
         },

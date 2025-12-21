@@ -25,6 +25,10 @@
             "content": "Tenk deg at du går tur langs en togskinne. Plutselig ser du et løpsk tog som dundrer avgårde i voldsom fart. Lenger fremme på skinnen ser du fem arbeidere som jobber uvitende om faren. De vil ikke rekke å flytte seg, og de vil garantert dø hvis toget treffer dem. Du står tilfeldigvis ved siden av en sporskifter. Hvis du drar i spaken, vil toget skifte spor. Men på det andre sporet står det én person som jobber. Hvis du gjør ingenting, dør fem personer. Hvis du handler, dør én person. Hva gjør du?\n\nDette er det berømte sporvognsproblemet, et av de mest kjente tankeeksperimentene i etikken. Det tvinger oss til å se nærmere på våre egne verdier: Er det resultatet som teller (fem liv mot ett), eller er det selve handlingen (å bevisst velge å drepe noen) som betyr mest? Dette er kjernen i etikk: Forsøket på å finne rasjonelle svar på hva som er rett og galt.\n\nFor å gjøre det enda vanskeligere, kan vi se på en variant: Tenk deg at du står på en bro over togskinnen. Det løpske toget kommer, og fem personer vil dø. Ved siden av deg på broen står en svært tung mann. Hvis du dytter ham ned på skinnen, vil hans tyngde stoppe toget. Han vil dø, men de fem vil overleve. Logikken er den samme (ett liv for fem), men de fleste av oss føler en dyp forskjell. Vi føler det er verre å fysisk dytte noen i døden enn å bare dra i en spak. Hvorfor føler vi det slik? Er følelsene våre en pålitelig guide til moral, eller bør vi bare lytte til den kalde logikken?"
         },
         {
+            "type": "component",
+            "name": "TrolleyProblem"
+        },
+        {
             "type": "header",
             "text": "Historien om de to brødrene"
         },

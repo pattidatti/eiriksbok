@@ -33,6 +33,10 @@
             "content": "Hva vil det si å være modig? Er det å aldri være redd? Nei, sa Aristoteles. En person som aldri er redd, selv når faren er livstruende, er ikke modig – han er dumdristig. På den andre siden har vi personen som er redd for alt; han er feig. Motet ligger midt imellom disse to ytterpunktene (lastene).\n\nDette er læren om den gylne middelvei. Dygden er balansepunktet mellom for mye og for lite:"
         },
         {
+            "type": "component",
+            "name": "GoldenMeanSlider"
+        },
+        {
             "type": "list",
             "items": [
                 "Dumdristighet (For mye selvtillit) – Mot (Dygd) – Feighet (For lite selvtillit)",
