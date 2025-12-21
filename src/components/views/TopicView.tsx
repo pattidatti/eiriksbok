@@ -24,7 +24,7 @@ export const TopicView: React.FC<TopicViewProps> = ({ subjectData, subjectId }) 
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             onClick={() => navigate(tool.link)}
-                            className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 cursor-pointer hover:shadow-md transition-all group"
+                            className="bg-surface-card p-6 rounded-xl border border-white/10 cursor-pointer hover:shadow-md transition-all group"
                         >
                             <div className="flex items-start gap-4">
                                 <div className="p-3 bg-indigo-50 text-indigo-600 rounded-lg group-hover:bg-indigo-100 transition-colors">

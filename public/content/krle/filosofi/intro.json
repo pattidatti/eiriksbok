@@ -45,16 +45,16 @@
             "name": "FactBox",
             "props": {
                 "title": "De fire store spørsmålene",
-                "content": "Den tyske filosofen [Immanuel Kant](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kant.json) oppsummerte filosofiens hovedområder i fire spørsmål:\n1. Hva kan jeg vite? (Metafysikk/Epistemologi)\n2. Hva skal jeg gjøre? (Etikk)\n3. Hva kan jeg håpe på? (Religionsfilosofi)\n4. Hva er mennesket? (Antropologi)"
+                "content": "Den tyske filosofen [Immanuel Kant](/krle/filosofi/kant) oppsummerte filosofiens hovedområder i fire spørsmål:\n1. Hva kan jeg vite? (Metafysikk/Epistemologi)\n2. Hva skal jeg gjøre? (Etikk)\n3. Hva kan jeg håpe på? (Religionsfilosofi)\n4. Hva er mennesket? (Antropologi)"
             }
         },
         {
             "type": "list",
             "items": [
-                "Metafysikk: Studiet av det som ligger bak den fysiske verden. Spørsmål som 'Hva er virkelighet?' og 'Finnes det en sjel?' hører hjemme her. [Platon](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/platon.json) og hans idélære er et klassisk eksemempel.",
+                "Metafysikk: Studiet av det som ligger bak den fysiske verden. Spørsmål som 'Hva er virkelighet?' og 'Finnes det en sjel?' hører hjemme her. [Platon](/krle/filosofi/platon) og hans idélære er et klassisk eksemempel.",
                 "Epistemologi (Erkjennelseslære): Studiet av kunnskap. Hvordan kan vi vite noe med sikkerhet? Hva er forskjellen på tro og viten? Her finner vi kjente diskusjoner mellom rasjonalister og empirister.",
-                "Etikk: Studiet av moral. Hva er rett og galt? Hvordan bør vi leve livene våre sammen med andre? [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json) fokuserte på dygder og lykke.",
-                "Logikk: Studiet av gyldig argumentasjon. Hvordan kan vi tenke korrekt og unngå logiske feilslutninger? [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json) regnes som logikkens far.",
+                "Etikk: Studiet av moral. Hva er rett og galt? Hvordan bør vi leve livene våre sammen med andre? [Aristoteles](/krle/filosofi/aristoteles) fokuserte på dygder og lykke.",
+                "Logikk: Studiet av gyldig argumentasjon. Hvordan kan vi tenke korrekt og unngå logiske feilslutninger? [Aristoteles](/krle/filosofi/aristoteles) regnes som logikkens far.",
                 "Politisk filosofi: Studiet av samfunnet og staten. Hva er rettferdighet? Hvem bør ha makt, og hvorfor? Dette feltet har inspirert alt fra demokratiske grunnlover til revolusjoner."
             ]
         },
@@ -64,7 +64,7 @@
         },
         {
             "type": "text",
-            "content": "I antikken var det ingen skille mellom filosofi og vitenskap. [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json) skrev om både biologi, fysikk og etikk i samme åndedrag. Men etter hvert som kunnskapen økte, skilte ulike vitenskaper seg ut som egne fagfelt. Fysikk, psykologi og sosiologi var alle opprinnelig en del av filosofien.\n\nLikevel forblir filosofien 'vitenskapenes mor'. Når vitenskapen har nådd sine grenser – for eksempel når fysikere spør hva tid egentlig er, eller når biologer diskuterer etikken rundt genredigering – vender de ofte tilbake til filosofiske verktøy. Filosofien stiller spørsmålene som vitenskapen forutsetter, men som den ikke alltid kan besvare selv."
+            "content": "I antikken var det ingen skille mellom filosofi og vitenskap. [Aristoteles](/krle/filosofi/aristoteles) skrev om både biologi, fysikk og etikk i samme åndedrag. Men etter hvert som kunnskapen økte, skilte ulike vitenskaper seg ut som egne fagfelt. Fysikk, psykologi og sosiologi var alle opprinnelig en del av filosofien.\n\nLikevel forblir filosofien 'vitenskapenes mor'. Når vitenskapen har nådd sine grenser – for eksempel når fysikere spør hva tid egentlig er, eller når biologer diskuterer etikken rundt genredigering – vender de ofte tilbake til filosofiske verktøy. Filosofien stiller spørsmålene som vitenskapen forutsetter, men som den ikke alltid kan besvare selv."
         },
         {
             "type": "header",
@@ -79,13 +79,13 @@
             "items": [
                 "Tenke kritisk: I en verden full av falske nyheter og manipulasjon er evnen til å analysere argumenter og avsløre logiske feilslutninger livsviktig.",
                 "Se sammenhenger: Ideer har konsekvenser. Ved å forstå filosofien bak ulike ideologier, kan vi bedre forstå hvorfor samfunnet ser ut som det gjør.",
-                "Forstå seg selv: Å filosofere betyr å undersøke sine egse verdier og antakelser. Som [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json) sa: 'Et ugransket liv er ikke verdt å leve'.",
+                "Forstå seg selv: Å filosofere betyr å undersøke sine egse verdier og antakelser. Som [Sokrates](/krle/filosofi/sokrates) sa: 'Et ugransket liv er ikke verdt å leve'.",
                 "Bygge broer: Filosofi lærer oss å lytte til andres argumenter og delta i saklig debatt, selv når vi er dypt uenige."
             ]
         },
         {
             "type": "text",
-            "content": "I de neste artiklene skal vi se på noen av de største tenkerne i historien. Vi starter med [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json), mannen som ble dømt til døden for å stille for mange spørsmål, og beveger oss gjennom tider med dype religiøse overbevisninger, vitenskapelige revolusjoner og moderne eksistensiell angst."
+            "content": "I de neste artiklene skal vi se på noen av de største tenkerne i historien. Vi starter med [Sokrates](/krle/filosofi/sokrates), mannen som ble dømt til døden for å stille for mange spørsmål, og beveger oss gjennom tider med dype religiøse overbevisninger, vitenskapelige revolusjoner og moderne eksistensiell angst."
         }
     ],
     "createdDate": "2025-12-21T12:00:00Z",

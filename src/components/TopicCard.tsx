@@ -17,7 +17,7 @@ export const TopicCard: React.FC<TopicCardProps> = ({ title, description, image,
         <Link to={path} className="block group no-underline h-full">
             <motion.div
                 whileHover={{ y: -5 }}
-                className="h-full bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 flex flex-col"
+                className="h-full bg-surface-card border border-white/10 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col"
             >
                 {/* Image Area - Updated to h-40 to match ExplorerView */}
                 <div className="h-40 bg-slate-100 relative overflow-hidden">
@@ -28,7 +28,7 @@ export const TopicCard: React.FC<TopicCardProps> = ({ title, description, image,
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
 
-                    <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-full text-[10px] font-bold text-white border border-white/10">
+                    <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-full text-[10px] font-bold text-white border border-white/5">
                         {lessonCount} leksjoner
                     </div>
                 </div>
@@ -45,7 +45,7 @@ export const TopicCard: React.FC<TopicCardProps> = ({ title, description, image,
                         </p>
                     )}
 
-                    <div className="mt-auto pt-3 border-t border-slate-100 flex items-center text-indigo-600 font-medium text-[10px]">
+                    <div className="mt-auto pt-3 border-t border-white/5 flex items-center text-indigo-600 font-medium text-[10px]">
                         <BookOpen className="w-3 h-3 mr-1" />
                         Gå til emne
                     </div>

@@ -22,7 +22,7 @@
     "content": [
         {
             "type": "text",
-            "content": "John Locke (1632–1704) var en motpol til [Descartes](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/descartes.json). Mens Descartes mente at vi har medfødte ideer om Gud og matematikk, hevdet Locke at menneskesinnet ved fødselen er helt tomt. Han er den viktigste representanten for empirismen – retningen som sier at all ekte kunnskap må komme fra erfaring."
+            "content": "John Locke (1632–1704) var en motpol til [Descartes](/krle/filosofi/descartes). Mens Descartes mente at vi har medfødte ideer om Gud og matematikk, hevdet Locke at menneskesinnet ved fødselen er helt tomt. Han er den viktigste representanten for empirismen – retningen som sier at all ekte kunnskap må komme fra erfaring."
         },
         {
             "type": "header",
@@ -61,7 +61,7 @@
         },
         {
             "type": "text",
-            "content": "Han argumenterte for at eiendomsretten oppstår når et menneske blander sitt eget arbeid med naturen. Hvis du dyrker en åker, blir resultatet ditt. Denne ideen ble senere fundamentet for klassisk liberalisme og tenkere som [Ludwig von Mises](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/mises.json)."
+            "content": "Han argumenterte for at eiendomsretten oppstår når et menneske blander sitt eget arbeid med naturen. Hvis du dyrker en åker, blir resultatet ditt. Denne ideen ble senere fundamentet for klassisk liberalisme og tenkere som [Ludwig von Mises](/krle/filosofi/mises)."
         },
         {
             "type": "component",
@@ -95,7 +95,7 @@
         },
         {
             "type": "text",
-            "content": "Hvorfor trenger vi da en stat? Locke mente at vi inngår en samfunnspakt for å beskytte rettighetene våre mer effektivt. Men statens makt er betinget. Hvis en hersker bryter pakten og krenker folkets naturlige rettigheter, har folket ikke bare en rett, men en plikt til å gjøre opprør.\n\nHans ide om maktfordeling og folkesuverenitet var en direkte inspirasjon for både den amerikanske og den franske revolusjonen. Han pekte fremover mot [Immanuel Kant](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kant.json), som også ville understreke menneskets autonomi og verdi."
+            "content": "Hvorfor trenger vi da en stat? Locke mente at vi inngår en samfunnspakt for å beskytte rettighetene våre mer effektivt. Men statens makt er betinget. Hvis en hersker bryter pakten og krenker folkets naturlige rettigheter, har folket ikke bare en rett, men en plikt til å gjøre opprør.\n\nHans ide om maktfordeling og folkesuverenitet var en direkte inspirasjon for både den amerikanske og den franske revolusjonen, og er selve grunnsteinen i vår tids forståelse av [makt og legitimitet](/samfunnskunnskap/styringsformer/makt-og-legitimitet). Han pekte fremover mot [Immanuel Kant](/krle/filosofi/kant), som også ville understreke menneskets autonomi og verdi."
         }
     ],
     "createdDate": "2025-12-21T12:00:00Z",

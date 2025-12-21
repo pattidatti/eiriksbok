@@ -22,7 +22,7 @@
     "content": [
         {
             "type": "text",
-            "content": "Martin Heidegger (1889–1976) regnes som en av de dypeste og mest krevende tenkerne i moderne tid. Han mente at vestlig filosofi helt siden [Platon](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/platon.json) og [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json) hadde glemt selve spørsmålet om 'væren' – hva det vil si at noe i det hele tatt eksisterer. Han trakk seg ofte tilbake til sin lille hytte i Schwarzwald for å tenke over disse fundamentale mysteriene."
+            "content": "Martin Heidegger (1889–1976) regnes som en av de dypeste og mest krevende tenkerne i moderne tid. Han mente at vestlig filosofi helt siden [Platon](/krle/filosofi/platon) og [Aristoteles](/krle/filosofi/aristoteles) hadde glemt selve spørsmålet om 'væren' – hva det vil si at noe i det hele tatt eksisterer. Han trakk seg ofte tilbake til sin lille hytte i Schwarzwald for å tenke over disse fundamentale mysteriene."
         },
         {
             "type": "header",
@@ -30,7 +30,7 @@
         },
         {
             "type": "text",
-            "content": "Heidegger ville ikke bruke tradisjonelle ord som 'bevissthet' eller 'subjekt' for å beskrive mennesket. Han valgte ordet Dasein (å være-der). Mennesket er det eneste vesenet som bryr seg om at det eksisterer. Å være Dasein betyr å være 'der', midt i verden, alltid engasjert i noe.\n\nHan forklarte at vi ikke først er en isolert hjerne som så oppdager verden (slik [Descartes](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/descartes.json) trodde). Vi er alltid allerede 'væren-i-verden'. Vi forstår verden gjennom de verktøyene og de sammenhengene vi lever i. En snekker forstår ikke hammeren ved å stirre på den, men ved å bruke den."
+            "content": "Heidegger ville ikke bruke tradisjonelle ord som 'bevissthet' eller 'subjekt' for å beskrive mennesket. Han valgte ordet Dasein (å være-der). Mennesket er det eneste vesenet som bryr seg om at det eksisterer. Å være Dasein betyr å være 'der', midt i verden, alltid engasjert i noe.\n\nHan forklarte at vi ikke først er en isolert hjerne som så oppdager verden (slik [Descartes](/krle/filosofi/descartes) trodde). Vi er alltid allerede 'væren-i-verden'. Vi forstår verden gjennom de verktøyene og de sammenhengene vi lever i. En snekker forstår ikke hammeren ved å stirre på den, men ved å bruke den."
         },
         {
             "type": "header",
@@ -46,7 +46,7 @@
         },
         {
             "type": "text",
-            "content": "Hvordan kan vi slutte å være en del av 'Das Man' og begynne å leve egentlig? Ifølge Heidegger skjer dette gjennom angst. Angst er ikke frykt for noe bestemt, men en følelse av at hele verden mister sin vante mening.\n\nI angsten innser vi vår væren-mot-døden. Døden er den eneste muligheten som er bare min, og som ingen andre kan ta over for meg. Ved å akseptere at tiden vår er begrenset og at døden er uunngåelig, kan vi rive oss løs fra 'Man-et' og ta ansvar for å gjøre våre egne, sanne valg. Her bygger han videre på ideene til [Kierkegaard](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kierkegaard.json)."
+            "content": "Hvordan kan vi slutte å være en del av 'Das Man' og begynne å leve egentlig? Ifølge Heidegger skjer dette gjennom angst. Angst er ikke frykt for noe bestemt, men en følelse av at hele verden mister sin vante mening.\n\nI angsten innser vi vår væren-mot-døden. Døden er den eneste muligheten som er bare min, og som ingen andre kan ta over for meg. Ved å akseptere at tiden vår er begrenset og at døden er uunngåelig, kan vi rive oss løs fra 'Man-et' og ta ansvar for å gjøre våre egne, sanne valg. Her bygger han videre på ideene til [Kierkegaard](/krle/filosofi/kierkegaard)."
         },
         {
             "type": "component",
@@ -62,7 +62,7 @@
         },
         {
             "type": "text",
-            "content": "I sine senere skrifter ble Heidegger en viktig kritiker av den moderne teknologiske utviklingen. Han mente at teknologien ikke bare er verktøy, men en måte å se verden på. Vi ser på elva som et kraftverk, skogen som tømmer og mennesket som 'human resources'.\n\nHan kalte dette for Ge-stell (bestillings-rammen). Vi prøver å kontrollere og bestille hele virkeligheten. Heidegger fryktet at dette ville føre til at vi mistet evnen til å undre oss over væren og til å 'bo' på jorda på en lyttende og poetisk måte. Hans elev [Hannah Arendt](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/arendt.json) skulle senere ta mange av hans filosofiske innsikter inn i det politiske feltet."
+            "content": "I sine senere skrifter ble Heidegger en viktig kritiker av den moderne teknologiske utviklingen. Han mente at teknologien ikke bare er verktøy, men en måte å se verden på. Vi ser på elva som et kraftverk, skogen som tømmer og mennesket som 'human resources'.\n\nHan kalte dette for Ge-stell (bestillings-rammen). Vi prøver å kontrollere og bestille hele virkeligheten. Heidegger fryktet at dette ville føre til at vi mistet evnen til å undre oss over væren og til å 'bo' på jorda på en lyttende og poetisk måte. Hans elev [Hannah Arendt](/krle/filosofi/arendt) skulle senere ta mange av hans filosofiske innsikter inn i det politiske feltet."
         }
     ],
     "createdDate": "2025-12-21T12:00:00Z",

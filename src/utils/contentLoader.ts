@@ -65,6 +65,10 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
                             const found = findLesson(node.subTopics);
                             if (found) return found;
                         }
+                        if (node.tools) {
+                            const found = findLesson(node.tools);
+                            if (found) return found;
+                        }
                         if (node.subjects) {
                             const found = findLesson(node.subjects);
                             if (found) return found;

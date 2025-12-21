@@ -41,6 +41,18 @@ import { CategoricalImperativeTester } from './content/interactive/CategoricalIm
 import { FilterBubbleSim } from './content/interactive/FilterBubbleSim';
 import { AutomationRisk } from './content/interactive/AutomationRisk';
 import { ConformityExperiment } from './content/interactive/ConformityExperiment';
+import { OstracismGame } from './content/interactive/OstracismGame';
+import { VirtueBalance } from './content/interactive/VirtueBalance';
+import { AuthorityShifter } from './content/interactive/AuthorityShifter';
+import { SocialContractDecider } from './content/interactive/SocialContractDecider';
+import { TotalitarianSandbox } from './content/interactive/TotalitarianSandbox';
+import { BanalityRoutine } from './content/interactive/BanalityRoutine';
+import { SpontaneousOrderSim } from './content/interactive/SpontaneousOrderSim';
+import { PrivateLawScenario } from './content/interactive/PrivateLawScenario';
+import { TheocraticCouncil } from './content/interactive/TheocraticCouncil';
+import { TechnocratProblemSolver } from './content/interactive/TechnocratProblemSolver';
+import { EliteNetworkBuilder } from './content/interactive/EliteNetworkBuilder';
+import { MonarchyEvolution } from './content/interactive/MonarchyEvolution';
 
 import type { Concept, ContentBlock } from '../types';
 import { renderInlineMarkdown } from './markdownUtils';
@@ -360,6 +372,30 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 return <AutomationRisk key={index} />;
                             case 'ConformityExperiment':
                                 return <ConformityExperiment key={index} />;
+                            case 'OstracismGame':
+                                return <OstracismGame key={index} />;
+                            case 'VirtueBalance':
+                                return <VirtueBalance key={index} />;
+                            case 'AuthorityShifter':
+                                return <AuthorityShifter key={index} />;
+                            case 'SocialContractDecider':
+                                return <SocialContractDecider key={index} />;
+                            case 'TotalitarianSandbox':
+                                return <TotalitarianSandbox key={index} />;
+                            case 'BanalityRoutine':
+                                return <BanalityRoutine key={index} />;
+                            case 'SpontaneousOrderSim':
+                                return <SpontaneousOrderSim key={index} />;
+                            case 'PrivateLawScenario':
+                                return <PrivateLawScenario key={index} />;
+                            case 'TheocraticCouncil':
+                                return <TheocraticCouncil key={index} />;
+                            case 'TechnocratProblemSolver':
+                                return <TechnocratProblemSolver key={index} />;
+                            case 'EliteNetworkBuilder':
+                                return <EliteNetworkBuilder key={index} />;
+                            case 'MonarchyEvolution':
+                                return <MonarchyEvolution key={index} />;
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">

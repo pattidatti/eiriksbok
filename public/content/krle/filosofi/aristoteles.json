@@ -22,7 +22,7 @@
     "content": [
         {
             "type": "text",
-            "content": "Aristoteles (384–322 f.Kr.) var [Platons](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/platon.json) stjerneid elev ved Akademiet i 20 år. Men han var fundamentalt uenig med sin lærer. Mens Platon pekte opp mot den abstrakte idéverdenen, pekte Aristoteles ned mot jorda. Han regnes som grunnleggeren av vestlig realisme og empirisme – ideen om at kunnskap kommer fra observasjon av den virkelige verden."
+            "content": "Aristoteles (384–322 f.Kr.) var [Platons](/krle/filosofi/platon) stjerneid elev ved Akademiet i 20 år. Men han var fundamentalt uenig med sin lærer. Mens Platon pekte opp mot den abstrakte idéverdenen, pekte Aristoteles ned mot jorda. Han regnes som grunnleggeren av vestlig realisme og empirisme – ideen om at kunnskap kommer fra observasjon av den virkelige verden."
         },
         {
             "type": "header",
@@ -41,7 +41,7 @@
         },
         {
             "type": "text",
-            "content": "Uten stoff har formen ingen sted å være, og uten form er stoffet bare ubestemmelig materie. Dette var et radikalt brudd med [Platon](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/platon.json), som mente formene var uavhengige av materien."
+            "content": "Uten stoff har formen ingen sted å være, og uten form er stoffet bare ubestemmelig materie. Dette var et radikalt brudd med [Platon](/krle/filosofi/platon), som mente formene var uavhengige av materien."
         },
         {
             "type": "header",
@@ -62,7 +62,7 @@
         },
         {
             "type": "text",
-            "content": "Den siste årsaken, telos, var den viktigste for Aristoteles. Han mente at alt inaturen har et formål. Et eikenøtt har som formål å bli et eiketre. Dette synet kalles teleologi."
+            "content": "Den siste årsaken, telos, var den viktigste for Aristoteles. Han mente at alt i naturen har et formål. Et eikenøtt har som formål å bli et eiketre. Dette synet kalles teleologi. Aristoteles kategoriserte også ulike styringsforhold, fra monarki til demokrati, en analyse som fortsatt preger vår forståelse av [Antikkens visjoner](/samfunnskunnskap/styringsformer/antikken-visjoner)."
         },
         {
             "type": "component",
@@ -122,13 +122,13 @@
             "type": "list",
             "items": [
                 "Premiss 1: Alle mennesker er dødelige.",
-                "Premiss 2: [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json) er et menneske.",
-                "Konklusjon: [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json) er dødelig."
+                "Premiss 2: [Sokrates](/krle/filosofi/sokrates) er et menneske.",
+                "Konklusjon: [Sokrates](/krle/filosofi/sokrates) er dødelig."
             ]
         },
         {
             "type": "text",
-            "content": "Hans verktøy for logikk og hans fokus på empiriske undersøkelser ble gjenoppdaget i middelalderen, spesielt av [Thomas Aquinas](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aquinas.json), og preget europeisk tenkning helt frem til den vitenskapelige revolusjonen."
+            "content": "Hans verktøy for logikk og hans fokus på empiriske undersøkelser ble gjenoppdaget i middelalderen, spesielt av [Thomas Aquinas](/krle/filosofi/aquinas), og preget europeisk tenkning helt frem til den vitenskapelige revolusjonen."
         }
     ],
     "quiz": [

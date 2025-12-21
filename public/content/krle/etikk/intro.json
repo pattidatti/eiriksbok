@@ -58,7 +58,7 @@
         },
         {
             "type": "text",
-            "content": "For de gamle grekerne handlet etikk om mer enn bare å unngå å gjøre onde ting. Det handlet om eudaimonia – et ord som ofte oversettes med lykke, men som egentlig betyr å blomstre som menneske. De mente at målet med etikken var å finne ut hvordan man kan leve et liv som er verdt å leve.\n\nTenk på en kniv: Hva er en 'god' kniv? Det er en kniv som er skarp og som skjærer godt. Den oppfyller sitt formål. På samme måte spurte dygdsetikere som [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json): Hva er et 'godt' menneske? Svaret var at det er et menneske som bruker sine unike evner (fornuft og fellesskap) på en best mulig måte. Etikk handler altså om å utvikle seg selv til å bli den beste versjonen av seg selv.\n\nDette betyr at etikken også er knyttet til helsen vår. Et menneske som lever i konstant konflikt med sin egen moral – som lyver og bedrar – vil sjelden finne indre ro. Derfor er etikken ikke en byrde vi bærer for andres skyld, men et verktøy vi bruker for å skape et meningsfullt og harmonisk liv for oss selv."
+            "content": "For de gamle grekerne handlet etikk om mer enn bare å unngå å gjøre onde ting. Det handlet om eudaimonia – et ord som ofte oversettes med lykke, men som egentlig betyr å blomstre som menneske. De mente at målet med etikken var å finne ut hvordan man kan leve et liv som er verdt å leve.\n\nTenk på en kniv: Hva er en 'god' kniv? Det er en kniv som er skarp og som skjærer godt. Den oppfyller sitt formål. På samme måte spurte dygdsetikere som [Aristoteles](/krle/filosofi/aristoteles): Hva er et 'godt' menneske? Svaret var at det er et menneske som bruker sine unike evner (fornuft og fellesskap) på en best mulig måte. Etikk handler altså om å utvikle seg selv til å bli den beste versjonen av seg selv.\n\nDette betyr at etikken også er knyttet til helsen vår. Et menneske som lever i konstant konflikt med sin egen moral – som lyver og bedrar – vil sjelden finne indre ro. Derfor er etikken ikke en byrde vi bærer for andres skyld, men et verktøy vi bruker for å skape et meningsfullt og harmonisk liv for oss selv."
         },
         {
             "type": "header",
@@ -72,8 +72,8 @@
             "type": "list",
             "items": [
                 "Religion: Mange mener at Gud har gitt oss lover å leve etter (som de ti bud). Her er moralen objektiv og uforanderlig fordi den kommer fra en høyere makt.",
-                "Fornuften: Andre, som [Immanuel Kant](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kant.json), mener at vi kan tenke oss frem til universelle lover som gjelder for alle fornuftige vesener.",
-                "Naturen: Noen mener at det finnes en medfødt menneskelig natur som gir oss rettigheter og plikter, slik vi ser i [naturretten](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/locke.json).",
+                "Fornuften: Andre, som [Immanuel Kant](/krle/filosofi/kant), mener at vi kan tenke oss frem til universelle lover som gjelder for alle fornuftige vesener.",
+                "Naturen: Noen mener at det finnes en medfødt menneskelig natur som gir oss rettigheter og plikter, slik vi ser i [naturretten](/krle/filosofi/locke).",
                 "Samfunnet: En del filosofer mener at moral bare er en avtale vi har inngått for å kunne leve sammen uten å slå hverandre ihjel (samfunnspakten)."
             ]
         },
@@ -107,7 +107,7 @@
         },
         {
             "type": "text",
-            "content": "Etikk er ikke noe vi bare driver med i klasserommet. Vi tar etiske valg hver eneste dag: Skal jeg kjøpe produktet som er billig, eller det som er produsert under rettferdige forhold? Skal jeg fortelle sannheten selv om det sårer en venn? Skal jeg gripe inn når noen blir mobbet?\n\nI fremtiden vil etikken bli enda viktigere. Vi må ta stilling til kunstig intelligens (skal en selvkjørende bil drepe passasjeren eller en fotgjenger?), genredigering og hvordan vi skal dele jordas begrensede ressurser. Ved å lære oss etisk refleksjon, blir vi bedre rustet til å navigere i en kompleks verden og ta ansvar for fremtiden.\n\nSom den store filosofen [Sokrates](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/sokrates.json) sa: 'Det viktigste er ikke å leve, men å leve rett'. I dette emnet skal vi lete etter hva det egentlig betyr."
+            "content": "Etikk er ikke noe vi bare driver med i klasserommet. Vi tar etiske valg hver eneste dag: Skal jeg kjøpe produktet som er billig, eller det som er produsert under rettferdige forhold? Skal jeg fortelle sannheten selv om det sårer en venn? Skal jeg gripe inn når noen blir mobbet?\n\nI fremtiden vil etikken bli enda viktigere. Vi må ta stilling til kunstig intelligens (skal en selvkjørende bil drepe passasjeren eller en fotgjenger?), genredigering og hvordan vi skal dele jordas begrensede ressurser. Ved å lære oss etisk refleksjon, blir vi bedre rustet til å navigere i en kompleks verden og ta ansvar for fremtiden.\n\nSom den store filosofen [Sokrates](/krle/filosofi/sokrates) sa: 'Det viktigste er ikke å leve, men å leve rett'. I dette emnet skal vi lete etter hva det egentlig betyr."
         }
     ],
     "quiz": [

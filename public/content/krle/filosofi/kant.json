@@ -30,7 +30,7 @@
         },
         {
             "type": "text",
-            "content": "Før Kant trodde man at menneskesinnet bare passivt speilet verden utenfor. Kant snudde dette på hodet. Han mente at forstanden vår aktivt er med på å forme virkeligheten slik vi opplever den. Han kalte dette sin 'kopernikanske vending'.\n\nVi ser verden gjennom 'briller' som tid, rom og årsakssammenheng. Disse strukturene ligger inne i oss på forhånd. Derfor kan vi aldri vite hvordan verden er i seg selv (Das Ding an sich), bare hvordan den ser ut for oss (Das Ding für mich). Dette gjorde at han kunne forene [Descartes'](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/descartes.json) rasjonalisme med [Lockes](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/locke.json) empirisme."
+            "content": "Før Kant trodde man at menneskesinnet bare passivt speilet verden utenfor. Kant snudde dette på hodet. Han mente at forstanden vår aktivt er med på å forme virkeligheten slik vi opplever den. Han kalte dette sin 'kopernikanske vending'.\n\nVi ser verden gjennom 'briller' som tid, rom og årsakssammenheng. Disse strukturene ligger inne i oss på forhånd. Derfor kan vi aldri vite hvordan verden er i seg selv (Das Ding an sich), bare hvordan den ser ut for oss (Das Ding für mich). Dette gjorde at han kunne forene [Descartes'](/krle/filosofi/descartes) rasjonalisme med [Lockes](/krle/filosofi/locke) empirisme."
         },
         {
             "type": "header",
@@ -53,7 +53,7 @@
         },
         {
             "type": "text",
-            "content": "Dette synet kalles pliktetikk. For Kant er en handling bare moralsk riktig hvis den er gjort av plikt for den moralske loven, ikke fordi man har lyst eller vil oppnå noe. Dette er utgangspunktet for hele den vestlige forståelsen av [menneskerettigheter](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/intro.json) og menneskeverd, slik vi også ser det hos [Aristoteles](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/aristoteles.json) og hans fokus på menneskets verdighet."
+            "content": "Dette synet kalles pliktetikk. For Kant er en handling bare moralsk riktig hvis den er gjort av plikt for den moralske loven, ikke fordi man har lyst eller vil oppnå noe. Dette er utgangspunktet for hele den vestlige forståelsen av [menneskerettigheter](/krle/filosofi/intro) og menneskeverd, slik vi også ser det hos [Aristoteles](/krle/filosofi/aristoteles) og hans fokus på menneskets verdighet."
         },
         {
             "type": "component",
@@ -69,7 +69,7 @@
         },
         {
             "type": "text",
-            "content": "Kant definerte opplysningstiden som menneskets utgang av sin selvforskydte umyndighet. Hans slagord var 'Sapere Aude!' – ha mot til å bruke din egen forstand! Han mente at vi ikke skal blindt følge autoriteter, verken prester eller konger, men tenke selv.\n\nDenne insisteringen på autonomi (selvstyre) peker fremover mot eksistensialismen hos [Kierkegaard](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/kierkegaard.json) og [Nietzsche](file:///c:/Users/Eirik/Documents/Eiriksbok/Eiriksbok/public/content/krle/filosofi/nietzsche.json), selv om disse tenkerne senere skulle utfordre Kants tro på at fornuften kan gi oss alle svarene."
+            "content": "Kant definerte opplysningstiden som menneskets utgang av sin selvforskydte umyndighet. Hans slagord var 'Sapere Aude!' – ha mot til å bruke din egen forstand! Han mente at vi ikke skal blindt følge autoriteter, verken prester eller konger, men tenke selv.\n\nDenne insisteringen på autonomi (selvstyre) peker fremover mot eksistensialismen hos [Kierkegaard](/krle/filosofi/kierkegaard) og [Nietzsche](/krle/filosofi/nietzsche), selv om disse tenkerne senere skulle utfordre Kants tro på at fornuften kan gi oss alle svarene."
         }
     ],
     "quiz": [

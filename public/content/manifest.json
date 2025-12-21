@@ -535,19 +535,116 @@
                     "title": "Styringsformer",
                     "description": "Demokrati, diktatur og alt imellom.",
                     "image": "/Eiriksbok/images/topics/styringsformer.png",
-                    "lessons": [
+                    "tools": [
                         {
                             "id": "utforsk",
                             "title": "Utforsk Styringsformer",
-                            "description": "Sammenlign ulike m\u00e5ter \u00e5 styre et land p\u00e5.",
+                            "description": "Sammenlign ulike måter å styre et land på.",
+                            "link": "/samfunnskunnskap/styringsformer/utforsk",
+                            "icon": "sparkles"
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "makt-og-legitimitet",
+                            "title": "Makt og legitimitet",
+                            "description": "Hvorfor styres vi? Om staten og Weber.",
                             "tags": [
                                 "politikk",
-                                "demokrati",
-                                "diktatur",
-                                "styresett"
+                                "sosial-kontrakt",
+                                "weber"
                             ],
-                            "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                            "createdDate": "2025-12-21T21:00:00Z"
+                        },
+                        {
+                            "id": "antikken-visjoner",
+                            "title": "Antikkens visjoner",
+                            "description": "Platon, Aristoteles og de første statsformene.",
+                            "tags": [
+                                "historie",
+                                "filosofi",
+                                "athen",
+                                "sparta"
+                            ],
+                            "createdDate": "2025-12-21T21:05:00Z"
+                        },
+                        {
+                            "id": "monarkiet",
+                            "title": "Monarkiet",
+                            "description": "Fra enevelde til konstitusjonalisme.",
+                            "tags": [
+                                "historie",
+                                "kongedømme",
+                                "norge"
+                            ],
+                            "createdDate": "2025-12-21T21:10:00Z"
+                        },
+                        {
+                            "id": "opplysningstid",
+                            "title": "Opplysningstiden",
+                            "description": "Locke, Rousseau og maktfordeling.",
+                            "tags": [
+                                "filosofi",
+                                "revolusjon",
+                                "rettigheter"
+                            ],
+                            "createdDate": "2025-12-21T21:15:00Z"
+                        },
+                        {
+                            "id": "demokrati-ansikter",
+                            "title": "Demokratiets mange ansikter",
+                            "description": "Hvordan fungerer folkestyret i praksis?",
+                            "tags": [
+                                "politikk",
+                                "parlamentarisme",
+                                "valg"
+                            ],
+                            "createdDate": "2025-12-21T21:20:00Z"
+                        },
+                        {
+                            "id": "elitenes-herredomme",
+                            "title": "Elitenes herredømme",
+                            "description": "Oligarki, plutokrati og maktens konsentrasjon.",
+                            "tags": [
+                                "politikk",
+                                "økonomi",
+                                "eliter"
+                            ],
+                            "createdDate": "2025-12-21T21:25:00Z"
+                        },
+                        {
+                            "id": "diktaturet",
+                            "title": "Diktaturet",
+                            "description": "Fra autoritær makt til totalitær kontroll.",
+                            "tags": [
+                                "politikk",
+                                "totalitarisme",
+                                "arendt"
+                            ],
+                            "createdDate": "2025-12-21T21:30:00Z"
+                        },
+                        {
+                            "id": "uten-hersker",
+                            "title": "Uten hersker",
+                            "description": "Anarkiets drøm, Rothbard og Liberland.",
+                            "tags": [
+                                "politikk",
+                                "anarki",
+                                "kapitalisme",
+                                "frihet"
+                            ],
+                            "createdDate": "2025-12-21T21:35:00Z"
+                        },
+                        {
+                            "id": "teokrati-teknokrati",
+                            "title": "Gud eller Eksperter?",
+                            "description": "Teokrati vs. Teknokrati.",
+                            "tags": [
+                                "religion",
+                                "politikk",
+                                "vitenskap"
+                            ],
+                            "createdDate": "2025-12-21T21:40:00Z"
                         }
                     ]
                 },
@@ -633,8 +730,8 @@
                     "lessons": [
                         {
                             "id": "eskatologi",
-                            "title": "Eskatologi: Verdens undergang",
-                            "description": "Hva har mennesket trodd om slutten på alt, og hvorfor er vi så fascinert av dommedag?",
+                            "title": "Eskatologi",
+                            "description": "Hva har vi trodd om verdens undergang og dommedag gjennom tidene?",
                             "image": "/images/lessons/ideer/eskatologi_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -647,8 +744,8 @@
                         },
                         {
                             "id": "utopier",
-                            "title": "Utopier: Drømmen om det perfekte samfunn",
-                            "description": "Hvordan har forestillingen om det ideelle samfunnet formet historien, og hvorfor ender drømmen ofte som et mareritt?",
+                            "title": "Utopier",
+                            "description": "Hvordan drømmen om det perfekte samfunn har formet vår historie.",
                             "image": "/images/lessons/ideer/utopier_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -661,8 +758,8 @@
                         },
                         {
                             "id": "naturens-sjel",
-                            "title": "Naturens sjel: Fra hellig til ressurs",
-                            "description": "Hvordan gikk vi fra å se på naturen som besjelet og hellig til å se på den som et råmateriale for industri?",
+                            "title": "Naturens sjel",
+                            "description": "Hvordan vi gikk fra å se naturen som hellig til å se den som en ressurs.",
                             "image": "/images/lessons/ideer/naturens_sjel_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -675,8 +772,8 @@
                         },
                         {
                             "id": "sannhetens-historie",
-                            "title": "Sannhetens historie: Fra åpenbaring til algoritme",
-                            "description": "Hvordan har vi avgjort hva som er sant gjennom tidene? En reise fra religiøse autoriteter til kunstig intelligens.",
+                            "title": "Sannhet",
+                            "description": "Fra religiøse åpenbaringer til moderne algoritmer og KI.",
                             "image": "/images/lessons/ideer/sannhet_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -689,8 +786,8 @@
                         },
                         {
                             "id": "humanisme",
-                            "title": "Mennesket i sentrum: Humanismens fødsel",
-                            "description": "Hvordan gikk vi fra et verdensbilde styrt av guder til et bilde der mennesket selv er kilden til moral og mening?",
+                            "title": "Humanisme",
+                            "description": "Hvordan mennesket ble kilden til moral og mening i et nytt verdensbilde.",
                             "image": "/images/lessons/ideer/humanisme_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -703,8 +800,8 @@
                         },
                         {
                             "id": "framskrittstro",
-                            "title": "Troen på framskrittet: Blir alt egentlig bedre?",
-                            "description": "Er historien en rett linje oppover, eller går vi i sirkler? Utforsk ideen som formet den moderne verden.",
+                            "title": "Framskrittstro",
+                            "description": "Er historien en rett linje oppover? Utforsk ideen som formet vår verden.",
                             "image": "/images/lessons/ideer/framskritt_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -717,8 +814,8 @@
                         },
                         {
                             "id": "det-unormale",
-                            "title": "Det 'unormale': Idéhistorien om sykdom og galskap",
-                            "description": "Hvordan har vi definert og behandlet det som faller utenfor normalen? En reise fra demoner til nevrologi.",
+                            "title": "Det 'unormale'",
+                            "description": "Idéhistorien om hvordan vi har sett på sykdom og galskap gjennom tidene.",
                             "image": "/images/lessons/ideer/det_unormale_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -731,8 +828,8 @@
                         },
                         {
                             "id": "casus-belli",
-                            "title": "Casus Belli: Historiens farligste argumenter",
-                            "description": "Hva gir et land rett til å gå til krig? Utforsk de dramatiske og noen ganger falske grunnene som har endret historien.",
+                            "title": "Casus Belli",
+                            "description": "Hva gir et land rett til å gå til krig? Utforsk historiens farligste argumenter.",
                             "image": "/Eiriksbok/images/topics/casus_belli_card.png",
                             "layout": "rich",
                             "tags": [

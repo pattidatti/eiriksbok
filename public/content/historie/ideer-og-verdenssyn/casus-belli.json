@@ -4,13 +4,14 @@
     "layout": "rich",
     "year": "Fra Antikken til i dag",
     "category": "Idéhistorie",
-    "readTime": "15 min les",
+    "readTime": "25 min les",
     "heroImage": "/Eiriksbok/images/lessons/ideer/casus-belli-hero.jpg",
     "details": [
         "Rettslige og moralske begrunnelser for krig",
         "Forskjellen på reell årsak og påskudd (pretekst)",
         "Historiske eksempler fra Roma til moderne tid",
-        "Den rettferdige krig (Jus ad bellum)"
+        "Den rettferdige krig (Jus ad bellum)",
+        "Krysskoblinger til Vikingtiden, Reformasjonen og Den kalde krigen"
     ],
     "content": [
         {
@@ -19,19 +20,51 @@
         },
         {
             "type": "header",
+            "text": "Antikken: Thukydid og de to sannhetene"
+        },
+        {
+            "type": "text",
+            "content": "Allerede i antikkens Hellas så man forskjellen på hva politikere sa, og hva de egentlig mente. Da Peloponneserkrigen brøt ut mellom Athen og Sparta, listet partene opp en rekke Casus Belli – brutte avtaler og krenkelser av allierte. Men historikeren Thukydid påpekte noe genialt: Den *egentlige* årsaken var Spartas frykt for Athens voksende makt. Dette skillet mellom den offisielle begrunnelsen og den dypere årsaken er selve kjernen i Casus Belli-analysen."
+        },
+        {
+            "type": "header",
             "text": "Romerne: Krig som rettssak"
         },
         {
             "type": "text",
-            "content": "For de gamle romerne var krig ikke noe man startet bare fordi man hadde lyst. Det var en juridisk og religiøs handling. De hadde en gruppe prester kalt *fetialer* som overvåket prosessen. Hvis Roma hadde blitt forurettet, dro en fetial til grensen og fremsatte et krav om oppreisning (*rerum repetitio*). Hvis motparten ikke ga seg innen 33 dager, kastet presten et spyd dyppet i blod over grensen. Nå var gudene på Romas side, og krigen var formelt sett 'rettferdig'."
+            "content": "For de gamle romerne var krig en juridisk og religiøs handling. De hadde en gruppe prester kalt *fetialer* som overvåket prosessen. Hvis Roma hadde blitt forurettet, dro en fetial til grensen og fremsatte et krav om oppreisning (*rerum repetitio*). Hvis motparten ikke ga seg innen 33 dager, kastet presten et spyd dyppet i blod over grensen. Nå var gudene på Romas side, og krigen var formelt sett 'rettferdig'."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
                 "title": "Raskt Faktum: Rubicon",
-                "content": "Da Julius Cæsar krysset elven Rubicon i 49 f.Kr., brukte han behovet for å 'forsvare tribunenes rettigheter' som sin Casus Belli. Det var et tynt juridisk dekke for det som i virkeligheten var et statskupp."
+                "content": "Da Julius Cæsar krysset elven Rubicon i 49 f.Kr., brukte han behovet for å 'forsvare tribunenes rettigheter' som sin Casus Belli. Det var et tynt juridisk dekke for det som i virkeligheten var et statskupp. Les mer om [Cæsars vei til makt](/historie/romerriket/augustus-og-keiserdomme)."
             }
+        },
+        {
+            "type": "header",
+            "text": "Angrep som forsvar: Vikingenes preventivkrig"
+        },
+        {
+            "type": "text",
+            "content": "Noen ganger er en Casus Belli ikke et svar på noe som *har* skjedd, men noe man frykter *skal* skje. Dette kalles preventiv krigføring. Et spennende eksempel finner vi i starten på [vikingtiden](/historie/vikingtiden/artikkel)."
+        },
+        {
+            "type": "text",
+            "content": "Historikere har lenge lurt på hvorfor vikingene plutselig begynte å angripe klostre. En moderne hypotese antyder at angrepet på Lindisfarne i 793 var et strategisk svar på trusselen fra [Karl den Store](/historie/vikingtiden/karl-den-store). Karl hadde slaktet ned tusenvis av saksere like sør for Danmark for å tvinge dem til å bli kristne. For vikinghøvdingene var dette en tydelig Casus Belli – de måtte slå til først for å avskrekke den kristne supermakten. Les mer om [Norden vs. Frankrike her](/historie/vikingtiden/hypotesen-norden-vs-frankrike)."
+        },
+        {
+            "type": "header",
+            "text": "Religionskrig og flyvetimer"
+        },
+        {
+            "type": "text",
+            "content": "I middelalderen og renessansen ble religion den vanligste begrunnelsen for krig. Da Filip II av Spania sendte *Den spanske armada* mot England i 1588, var hans Casus Belli at han ville gjeninnføre katolisismen og hevne henrettelsen av Maria Stuart. Men bak lå også ønsket om å knuse Englands voksende sjømakt."
+        },
+        {
+            "type": "text",
+            "content": "En av de mest bisarre begrunnelsene i historien er *Defenestrasjonen i Praha* i 1618. Protestantiske adelsmenn kastet tre katolske embetsmenn ut av et vindu på slottet (de overlevde ved å lande i en møkkahaug). Dette ble den offisielle grunnen til å starte [30-årskrigen](/historie/reformasjonen/30-aarskrigen), en konflikt som rystet hele Europa."
         },
         {
             "type": "header",
@@ -39,11 +72,15 @@
         },
         {
             "type": "text",
-            "content": "Gjennom historien har noen begrunnelser blitt stående som uomtvistelige og moralsk riktige i storsamfunnets øyne. Når et land bryter en nøytralitetspakt eller invaderer en fredelig nabo, skapes en Casus Belli som resten av verden ofte kan enes om."
+            "content": "Noen Casus Belli blir stående som uomtvistelige i storsamfunnets øyne. Når et land bryter en nøytralitetspakt eller invaderer en fredelig nabo, skapes en legitimitet som resten av verden ofte kan enes om."
         },
         {
             "type": "text",
-            "content": "I 1914 invaderte Tyskland Belgia. Dette var et direkte brudd på London-traktaten fra 1839, hvor stormaktene hadde garantert for Belgias nøytralitet. Storbritannia så på dette som en 'hellig plikt' å forsvare, og dette ga dem en klar og legitim grunn til å gå inn i første verdenskrig. Tilsvarende, da Irak invaderte Kuwait i 1990, var det et så åpenbart brudd på folkeretten at nesten hele verdenssamfunnet sto samlet bak motangrepet."
+            "content": "I 1914 ble attentatet på erkehertug Franz Ferdinand – de berømte [skuddene i Sarajevo](/historie/forste-verdenskrig/opptakt) – brukt som østerriksk-ungarsk Casus Belli mot Serbia. Kort tid etter invaderte Tyskland Belgia. Dette var et direkte brudd på London-traktaten, og ga Storbritannia en 'hellig plikt' til å gå inn i krigen. I moderne tid er [NATO](/historie/den-kalde-krigen/nato-vs-warszawa) bygget på et lignende prinsipp gjennom Artikkel 5."
+        },
+        {
+            "type": "text",
+            "content": "Et annet eksempel på en 'godkjent' grunn var da Irak invaderte Kuwait i 1990. Verdenssamfunnet så på dette som et så åpenbart brudd på alle internasjonale regler at en massiv koalisjon ble dannet for å drive invasjonsstyrkene ut."
         },
         {
             "type": "header",
@@ -51,7 +88,7 @@
         },
         {
             "type": "text",
-            "content": "Men hva skjer når man ønsker krig, men ikke har noen god grunn? Da fabrikkerer man en. Historien er full av såkalte 'False Flag'-operasjoner – handlinger utført med den hensikt å gi skylden til motparten."
+            "content": "Men hva skjer når man ønsker krig, men ikke har noen god grunn? Da fabrikkerer man en 'False Flag'-operasjon."
         },
         {
             "type": "component",
@@ -59,18 +96,14 @@
             "props": {
                 "title": "Reell årsak vs. Påskudd (Pretekst)",
                 "leftTitle": "Reell Årsak",
-                "leftContent": "De underliggende motivene: Økonomi, makt, territorium, ressurser eller ideologi.",
+                "leftContent": "De underliggende motivene: Økonomi, territorium, makt eller ideologi.",
                 "rightTitle": "Påskudd (Pretekst)",
                 "rightContent": "Den offisielle historien: En hendelse eller juridisk detalj som brukes for å legitimere angrepet utad."
             }
         },
         {
             "type": "text",
-            "content": "Et av de mest beryktede eksemplene er Gleiwitz-hendelsen i 1939. For å rettferdiggjøre invasjonen av Polen, arrangerte SS et falskt angrep på en tysk radiostasjon. De kledde seg ut som polske soldater og etterlot seg lik av dømte fanger for å få det til å se ut som polsk aggresjon. Hitler kunne dermed hevde at han bare 'slo tilbake'."
-        },
-        {
-            "type": "text",
-            "content": "En lignende metode ble brukt av Japan i 1931 under Mukden-hendelsen. Japanske offiserer sprengte en liten del av sin egen jernbane i Mandsjuria og la skylden på kinesiske dissidenter. Selv om en internasjonal kommisjon (Lytton-kommisjonen) senere avviste dette som en ugyldig Casus Belli, hadde Japan allerede okkupert store områder."
+            "content": "I 1931 sprengte japanske offiserer sin egen jernbane i *Mukden-hendelsen* for å ha en grunn til å invadere Kina. I 1939 iscenesatte SS et falskt polsk angrep på en radiostasjon i *Gleiwitz* for å rettferdiggjøre angrepet på Polen. Senere ble Tonkin-bukta-episoden brukt av USA som Casus Belli for å eskalere [Vietnamkrigen](/historie/den-kalde-krigen/vietnamkrigen)."
         },
         {
             "type": "component",
@@ -82,11 +115,11 @@
         },
         {
             "type": "header",
-            "text": "Moderne tid: Fra tårn til algoritmer"
+            "text": "Moderne tid: Forkjøpskrig og hybridtrusler"
         },
         {
             "type": "text",
-            "content": "I moderne tid har definisjonen av Casus Belli blitt mer kompleks. Etter angrepene 11. september 2001, innførte USA doktrinen om 'forkjøpskrig' – ideen om at man kan angripe før en trussel har manifestert seg helt. Dette ble brukt som begrunnelse for Irak-krigen i 2003, med påstanden om at landet hadde masseødeleggelsesvåpen. Da disse aldri ble funnet, kollapset den internasjonale anerkjennelsen av denne begrunnelsen, og krigen står i dag som et eksempel på en Casus Belli som ble forkastet av store deler av storsamfunnet."
+            "content": "Irak-krigen i 2003 står i dag som et eksempel på en Casus Belli (masseødeleggelsesvåpen) som ble forkastet av store deler av storsamfunnet da bevisene aldri dukket opp. I dag ser vi ofte hybrid krigføring, der Casus Belli kan være digitale angrep eller påvirkningsoperasjoner i gråsonen mellom fred og krig."
         },
         {
             "type": "header",
@@ -94,59 +127,59 @@
         },
         {
             "type": "text",
-            "content": "Casus Belli minner oss om at makt sjelden er nok alene. Selv de mektigste imperier føler seg tvunget til å spille etter regler, eller i det minste late som om de gjør det. I en verden av internasjonal lov og hybride trusler, er kampen om 'grunnen til å kjempe' viktigere enn noen gang."
+            "content": "Casus Belli minner oss om at selv de mektigste imperier føler seg tvunget til å spille etter regler, eller i det minste late som om de gjør det. I en verden av internasjonal lov er kampen om 'narrativet' viktigere enn noen gang."
         }
     ],
     "quiz": [
         {
-            "question": "Hva betyr det latinske begrepet 'Casus Belli'?",
+            "question": "Hva kalles Thukydids konklusjon om den 'egentlige' årsaken til Peloponneserkrigen?",
             "options": [
-                "Krigens slutt",
-                "Et tilfelle for krig",
-                "Fredsavtale",
-                "Krigerens vei"
+                "Athens frykt",
+                "Spartas makt",
+                "De gylne regler",
+                "Thukydids felle"
             ],
-            "correctAnswer": 1
+            "correctAnswer": 3
         },
         {
-            "question": "Hvilken hendelse ble brukt som en 'False Flag' operasjon av tyskland i 1939?",
+            "question": "Hvilken hendelse startet 30-årskrigen i 1618?",
             "options": [
+                "Slaget ved Lützen",
+                "Defenestrasjonen i Praha",
                 "London-traktaten",
-                "Ems-telegrammet",
-                "Gleiwitz-hendelsen",
-                "Mukden-hendelsen"
-            ],
-            "correctAnswer": 2
-        },
-        {
-            "question": "Hvilken gruppe prester i Roma overvåket lovligheten av krig?",
-            "options": [
-                "Vetalier",
-                "Fetialer",
-                "Augustiner",
-                "Pontifekser"
+                "Freden i Westfalen"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hvorfor ble Belgia (1914) regnet som en 'godkjent' Casus Belli for Storbritannia?",
+            "question": "Hva kaller vi det når et land selv iscenesetter et angrep for å få en grunn til å gå til krig?",
             "options": [
-                "Belgia angrep Storbritannia",
-                "Tyskland brøt en nøytralitetstraktat",
-                "Storbritannia ville ha belgiske ressurser",
-                "Det fantes ingen annen utvei"
+                "Coup d'état",
+                "False Flag",
+                "Status Quo",
+                "Veni Vidi Vici"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hva er hovedforskjellen mellom en 'reell årsak' og en 'pretekst'?",
+            "question": "Hva var den offisielle Casus Belli for USA i Irak-krigen 2003?",
             "options": [
-                "Det er ingen forskjell",
-                "Pretekst er det sanne motivet",
-                "Pretekst er den offisielle unnskyldningen",
-                "Reell årsak er alltid juridisk"
+                "Masseødeleggelsesvåpen",
+                "Oljekonflikt",
+                "Angrep på Kuwait",
+                "Hevn for 11. september"
             ],
-            "correctAnswer": 2
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hvilken historisk hendelse i 1931 ble avvist som en legitim Casus Belli av Lytton-kommisjonen?",
+            "options": [
+                "Gleiwitz",
+                "Mukden",
+                "Sarajevo",
+                "Tonkin"
+            ],
+            "correctAnswer": 1
         }
     ]
 }

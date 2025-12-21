@@ -2568,6 +2568,192 @@
       "usa",
       "irak"
     ]
+  },
+  {
+    "id": "peloponnesian-casus",
+    "title": "Peloponneserkrigen",
+    "description": "Spartas frykt for Athens makt blir den virkelige årsaken til krigen, tross mange offisielle begrunnelser.",
+    "startDate": -431,
+    "endDate": null,
+    "displayDate": "431 fvt.",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "tags": [
+      "antikken",
+      "hellas",
+      "politikk"
+    ]
+  },
+  {
+    "id": "praha-defenestrasjon-1618",
+    "title": "Defenestrasjonen i Praha",
+    "description": "Tre embetsmenn kastes ut av et vindu, noe som blir den utløsende årsaken til 30-årskrigen.",
+    "startDate": 1618,
+    "endDate": null,
+    "displayDate": "1618",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "tags": [
+      "reformasjonen",
+      "krig",
+      "europa"
+    ]
+  },
+  {
+    "id": "den-spanske-armada-1588",
+    "title": "Den spanske armada",
+    "description": "Filip II invaderer England med religiøs og politisk legitimering.",
+    "startDate": 1588,
+    "endDate": null,
+    "displayDate": "1588",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "tags": [
+      "renessansen",
+      "krig",
+      "religion"
+    ]
+  },
+  {
+    "id": "sarajevo-1914-casus",
+    "title": "Skuddene i Sarajevo",
+    "description": "Attentatet på Franz Ferdinand brukes som Casus Belli for den første verdenskrig.",
+    "startDate": 1914,
+    "endDate": null,
+    "displayDate": "1914",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "tags": [
+      "krig",
+      "opptakt",
+      "første-verdenskrig"
+    ]
+  },
+  {
+    "id": "athen-demokrati",
+    "title": "Demokratiet i Athen",
+    "description": "Verdens første direkte demokrati blomstrer i Athen.",
+    "startDate": -508,
+    "endDate": -322,
+    "displayDate": "508 fvt. - 322 fvt.",
+    "type": "sub-event",
+    "subjectId": "samfunnsfag",
+    "topicId": "styringsformer",
+    "link": "/samfunnskunnskap/styringsformer/antikken-visjoner",
+    "tags": [
+      "historie",
+      "athen",
+      "demokrati"
+    ]
+  },
+  {
+    "id": "ludvig-xiv-absolutisme",
+    "title": "Solkongen og eneveldet",
+    "description": "Ludvig XIV av Frankrike styrer som eneveldig monark ('Staten, det er jeg').",
+    "startDate": 1643,
+    "endDate": 1715,
+    "displayDate": "1643 - 1715",
+    "type": "sub-event",
+    "subjectId": "samfunnsfag",
+    "topicId": "styringsformer",
+    "link": "/samfunnskunnskap/styringsformer/monarkiet",
+    "tags": [
+      "historie",
+      "enevelde",
+      "frankrike"
+    ]
+  },
+  {
+    "id": "locke-treatises",
+    "title": "John Locke: Two Treatises",
+    "description": "John Locke utgir sitt viktigste politiske verk om naturlige rettigheter og samfunnskontrakten.",
+    "startDate": 1689,
+    "endDate": null,
+    "displayDate": "1689",
+    "type": "sub-event",
+    "subjectId": "samfunnsfag",
+    "topicId": "styringsformer",
+    "link": "/samfunnskunnskap/styringsformer/opplysningstid",
+    "tags": [
+      "filosofi",
+      "opplysningstiden",
+      "rettigheter"
+    ]
+  },
+  {
+    "id": "montesquieu-spirit-laws",
+    "title": "Montesquieu: Maktens tredeling",
+    "description": "Verket 'Lovenes ånd' utgis, som legger grunnlaget for maktfordelingsprinsippet.",
+    "startDate": 1748,
+    "endDate": null,
+    "displayDate": "1748",
+    "type": "sub-event",
+    "subjectId": "samfunnsfag",
+    "topicId": "styringsformer",
+    "link": "/samfunnskunnskap/styringsformer/opplysningstid",
+    "tags": [
+      "filosofi",
+      "opplysningstiden",
+      "maktfordeling"
+    ]
+  },
+  {
+    "id": "rousseau-social-contract",
+    "title": "Rousseau: Samfunnskontrakten",
+    "description": "Jean-Jacques Rousseau utgir 'Du contrat social', som inspirerer til folkesuverenitet.",
+    "startDate": 1762,
+    "endDate": null,
+    "displayDate": "1762",
+    "type": "sub-event",
+    "subjectId": "samfunnsfag",
+    "topicId": "styringsformer",
+    "link": "/samfunnskunnskap/styringsformer/opplysningstid",
+    "tags": [
+      "filosofi",
+      "opplysningstiden",
+      "folkevilje"
+    ]
+  },
+  {
+    "id": "norge-grunnlov-1814",
+    "title": "Norges Grunnlov",
+    "description": "Norge får sin egen grunnlov på Eidsvoll, basert på opplysningstidens idealer.",
+    "startDate": 1814,
+    "endDate": null,
+    "displayDate": "1814",
+    "type": "sub-event",
+    "subjectId": "samfunnsfag",
+    "topicId": "styringsformer",
+    "link": "/samfunnskunnskap/styringsformer/monarkiet",
+    "tags": [
+      "historie",
+      "norge",
+      "demokrati"
+    ]
+  },
+  {
+    "id": "anarki-catalonia",
+    "title": "Anarkismen i Catalonia",
+    "description": "Under den spanske borgerkrigen styres store deler av Catalonia etter anarkistiske prinsipper.",
+    "startDate": 1936,
+    "endDate": 1939,
+    "displayDate": "1936 - 1939",
+    "type": "sub-event",
+    "subjectId": "samfunnsfag",
+    "topicId": "styringsformer",
+    "link": "/samfunnskunnskap/styringsformer/uten-hersker",
+    "tags": [
+      "historie",
+      "anarkisme",
+      "spania"
+    ]
   }
 ]
-```

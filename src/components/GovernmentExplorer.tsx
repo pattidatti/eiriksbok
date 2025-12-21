@@ -41,7 +41,7 @@ const definitions: Definition[] = [
         title: 'Anarki',
         category: 'Styringsform',
         description: 'Ingen stat eller hersker. Et samfunn uten formell styring.',
-        details: 'Ordet betyr "uten hersker". Det finnes ingen stat, skatt eller voldsmonopol.',
+        details: 'Ordet betyr "uten hersker". Det finnes ingen stat, skatt eller voldsmonopol. Historisk eksempel: Island i fristatstiden (930-1262) hadde et system basert på tingmøter uten en sentral statsmakt.',
         icon: SparklesIcon,
         color: 'text-pink-600'
     },
@@ -50,16 +50,25 @@ const definitions: Definition[] = [
         title: 'Monarki',
         category: 'Styringsform',
         description: 'En konge, dronning, fyrste eller greve er statsoverhode.',
-        details: 'Makten går som regel i arv. I dag har vi ofte konstitusjonelt monarki hvor kongen har liten makt, men historisk var det ofte enevelde.',
+        details: 'Makten går som regel i arv. I dag har vi ofte konstitusjonelt monarki (som i Norge) hvor kongen har liten makt, men historisk var det ofte enevelde.',
         icon: UserIcon,
         color: 'text-yellow-600'
+    },
+    {
+        id: 'monarki_abs',
+        title: 'Absolutt monarki',
+        category: 'Styringsform',
+        description: 'Enevelde. Kongen har all makt og står over loven.',
+        details: 'Eksempel: Ludvig XIV av Frankrike (Solkongen), som sa "Staten, det er jeg". Her finnes ingen maktfordeling.',
+        icon: UserIcon,
+        color: 'text-yellow-800'
     },
     {
         id: 'diktatur',
         title: 'Diktatur',
         category: 'Styringsform',
         description: 'All makt er samlet hos én person eller en liten gruppe.',
-        details: 'Makten er ofte tatt med vold (kupp). Befolkningen har liten eller ingen mulighet til å påvirke styret.',
+        details: 'Makten er ofte tatt med vold (kupp). Befolkningen har liten eller ingen mulighet til å påvirke styret. Eksempel: Julius Cæsar etter at han ble utnevnt til diktator på livstid.',
         icon: ShieldExclamationIcon,
         color: 'text-red-600'
     },
@@ -68,7 +77,7 @@ const definitions: Definition[] = [
         title: 'Teokrati',
         category: 'Styringsform',
         description: 'Gud eller religiøse ledere styrer samfunnet basert på hellige skrifter.',
-        details: 'Lovene i landet er basert på religionen. Eksempler er Vatikanstaten eller Iran.',
+        details: 'Lovene i landet er basert på religionen. Eksempler er Vatikanstaten eller dagens Iran.',
         icon: BookOpenIcon,
         color: 'text-purple-600'
     },
@@ -77,25 +86,70 @@ const definitions: Definition[] = [
         title: 'Teknokrati',
         category: 'Styringsform',
         description: 'Eksperter og vitenskapsfolk styrer basert på kunnskap.',
-        details: 'Ideen er at eksperter (f.eks. ingeniører, økonomer) tar bedre beslutninger enn valgte politikere.',
+        details: 'Ideen er at eksperter (f.eks. ingeniører, økonomer) tar bedre beslutninger enn valgte politikere. Ofte debattert i forbindelse med EUs ekspertorganer.',
         icon: AcademicCapIcon,
         color: 'text-cyan-600'
+    },
+    {
+        id: 'meritokrati',
+        title: 'Meritokrati',
+        category: 'Styringsform',
+        description: 'Styrt av de med best evner og resultater.',
+        details: 'Posisjoner gis basert på kompetanse og utdanning snarere enn arv. Eksempel: Det historiske Kina med sine krevende embetseksamener.',
+        icon: AcademicCapIcon,
+        color: 'text-indigo-500'
     },
     {
         id: 'oligarki',
         title: 'Oligarki',
         category: 'Styringsform',
         description: 'En liten gruppe mennesker (fåmannsvelde) har all makten.',
-        details: 'Ofte er dette de rikeste i samfunnet, eller en militærjunta.',
+        details: 'Ofte er dette de rikeste i samfunnet, eller en militærjunta. Eksempel: De russiske oligarkene som fikk enorm makt etter Sovjetunionens fall.',
         icon: UserGroupIcon,
         color: 'text-orange-600'
+    },
+    {
+        id: 'plutokrati',
+        title: 'Plutokrati',
+        category: 'Styringsform',
+        description: 'Styrt av de rikeste.',
+        details: 'De som har mest penger har også den politiske makten. Eksempel: Senrepublikken i det gamle Roma, hvor de rikeste familiene (optimates) dominerte politikken.',
+        icon: BanknotesIcon,
+        color: 'text-yellow-700'
+    },
+    {
+        id: 'aristokrati',
+        title: 'Aristokrati',
+        category: 'Styringsform',
+        description: 'Styrt av "de beste" (adelen).',
+        details: 'Makten ligger hos en privilegert overklasse som anses å ha de beste forutsetningene for å styre. Ordet kommer fra gresk "aristos" (best).',
+        icon: UserIcon,
+        color: 'text-amber-900'
+    },
+    {
+        id: 'kleptokrati',
+        title: 'Kleptokrati',
+        category: 'Styringsform',
+        description: '"Tyvenes styre".',
+        details: 'Et system der herskerne bruker statens ressurser til å berike seg selv gjennom korrupsjon og tyveri. Preget av mangel på kontroll og innsyn.',
+        icon: BanknotesIcon,
+        color: 'text-slate-800'
+    },
+    {
+        id: 'junta',
+        title: 'Militærjunta',
+        category: 'Styringsform',
+        description: 'Styrt av militære ledere.',
+        details: 'En gruppe offiserer tar makten gjennom et statskupp. Eksempel: Myanmar (Burma) i store deler av moderne tid.',
+        icon: ShieldExclamationIcon,
+        color: 'text-zinc-700'
     },
     {
         id: 'demokrati_rep',
         title: 'Representativt demokrati',
         category: 'Styringsform',
         description: 'Folket velger representanter (politikere) som styrer for dem.',
-        details: 'Dette er den vanligste formen for demokrati i dag. Vi holder valg med jevne mellomrom.',
+        details: 'Dette er den vanligste formen for demokrati i dag. Vi holder valg med jevne mellomrom. Eksempel: De fleste vestlige land som Norge, USA og Tyskland.',
         icon: GlobeAmericasIcon,
         color: 'text-green-600'
     },
@@ -104,9 +158,18 @@ const definitions: Definition[] = [
         title: 'Direkte demokrati',
         category: 'Styringsform',
         description: 'Folket stemmer direkte på hver enkelt sak.',
-        details: 'Alle er med å bestemme alt. Brukes sjelden for hele land, men av og til i folkeavstemninger.',
+        details: 'Alle er med å bestemme alt. Eksempel: Antikkens Athen, hvor borgere møttes på Pnyx-høyden for å stemme over lover og krig.',
         icon: ScaleIcon,
         color: 'text-blue-600'
+    },
+    {
+        id: 'ettpartistat',
+        title: 'Ettpartistat',
+        category: 'Styringsform',
+        description: 'Kun ett politisk parti er tillatt.',
+        details: 'Partiet kontrollerer staten og all politisk aktivitet. Eksempel: Det nåværende Kina eller det tidligere Sovjetunionen.',
+        icon: UserGroupIcon,
+        color: 'text-red-800'
     },
 
     // --- Spesifikke Varianter (Subtyper) ---
@@ -115,16 +178,16 @@ const definitions: Definition[] = [
         title: 'Anarko-kapitalisme',
         category: 'Styringsform',
         description: 'Et samfunn uten stat, hvor alt styres av det frie markedet.',
-        details: 'Ingen stat, bare privat eiendom. Alt, inkludert politi og veier, kjøpes og selges.',
+        details: 'Ingen stat, bare privat eiendom. Teorien ble kraftig utviklet av Murray Rothbard. Eksempel: Den digitale mikronasjonen Liberland.',
         icon: BanknotesIcon,
-        color: 'text-emerald-600'
+        color: 'text-yellow-600'
     },
     {
         id: 'anarko_kom',
         title: 'Anarko-kommunisme',
         category: 'Styringsform',
         description: 'Et samfunn uten stat og penger, hvor alt eies i fellesskap.',
-        details: 'Ingen stat, ingen privat eiendom. Alle bidrar etter evne og får etter behov.',
+        details: 'Ingen stat, ingen privat eiendom. Eksempel: Catalonia under den spanske borgerkrigen (1936), hvor arbeidere tok over fabrikkene.',
         icon: UserGroupIcon,
         color: 'text-rose-600'
     },
@@ -133,7 +196,7 @@ const definitions: Definition[] = [
         title: 'Republikk',
         category: 'Styringsform',
         description: 'En stat hvor statsoverhodet ikke er en monark (konge/dronning).',
-        details: 'Lederen kalles som regel president. Kan være både demokratisk og udemokratisk.',
+        details: 'Lederen kalles som regel president. Kan være både demokratisk og udemokratisk. Ordet kommer fra latin "res publica" (folkets sak).',
         icon: BuildingOfficeIcon,
         color: 'text-indigo-600'
     },
@@ -151,7 +214,7 @@ const definitions: Definition[] = [
         title: 'Parlamentarisk republikk',
         category: 'Styringsform',
         description: 'Republikk der parlamentet har mest makt. Presidenten har ofte en seremoniell rolle.',
-        details: 'Eksempel: Island eller Tyskland. Regjeringen utgår fra parlamentet.',
+        details: 'Eksempel: Island, Tyskland eller Italia. Regjeringen utgår fra parlamentet.',
         icon: GlobeAmericasIcon,
         color: 'text-indigo-600'
     },
@@ -160,7 +223,7 @@ const definitions: Definition[] = [
         title: 'Parlamentarisk stat',
         category: 'Styringsform',
         description: 'Et system der regjeringen må ha tillit fra parlamentet (Stortinget).',
-        details: 'Gjelder både monarkier (Norge) og republikker. Hvis Stortinget sier nei, må regjeringen gå.',
+        details: 'Gjelder både monarkier (Norge) og republikker. Hvis Stortinget vedtar mistillit, må regjeringen gå.',
         icon: HandRaisedIcon,
         color: 'text-slate-600'
     },
@@ -169,18 +232,18 @@ const definitions: Definition[] = [
         title: 'Autoritært diktatur',
         category: 'Styringsform',
         description: 'Folket får ikke være med å bestemme, men kan til en viss grad mene ting.',
-        details: 'Staten kontrollerer politikken, men lar folk leve livene sine relativt fritt ellers.',
+        details: 'Staten kontrollerer politikken, men lar folk leve livene sine relativt fritt ellers. Eksempel: Mange historiske militærregimer.',
         icon: ShieldExclamationIcon,
-        color: 'text-red-600'
+        color: 'text-red-700'
     },
     {
         id: 'diktatur_tot',
         title: 'Totalitært diktatur',
         category: 'Styringsform',
         description: 'Staten kontrollerer absolutt alt, inkludert hva folk tenker og mener.',
-        details: 'Ingen frihet. Ekstrem overvåkning og propaganda. Eksempel: Nord-Korea.',
+        details: 'Ingen frihet. Ekstrem overvåkning og propaganda. Eksempel: Nord-Korea eller Nazi-Tyskland.',
         icon: ShieldExclamationIcon,
-        color: 'text-red-700'
+        color: 'text-red-900'
     },
 
     // --- Økonomiske Systemer ---
@@ -189,7 +252,7 @@ const definitions: Definition[] = [
         title: 'Kapitalisme',
         category: 'Økonomi',
         description: 'Markedsøkonomi. Produksjon er privat eiendom.',
-        details: 'Styres av tilbud og etterspørsel (profitt og tap). Kundene "bestemmer" hva som lages.',
+        details: 'Styres av tilbud og etterspørsel. Teorien ble grunnlagt av Adam Smith. Målet er profitt gjennom konkurranse.',
         icon: BanknotesIcon,
         color: 'text-green-600'
     },
@@ -198,7 +261,7 @@ const definitions: Definition[] = [
         title: 'Sosialisme',
         category: 'Økonomi',
         description: 'Produksjonsmidlene eies eller kontrolleres av fellesskapet (staten).',
-        details: 'Politisk bestemt hva som skal produseres (Planøkonomi). Målet er likere fordeling.',
+        details: 'Politisk bestemt hva som skal produseres (Planøkonomi). Målet er likere fordeling og rettferdighet.',
         icon: UserGroupIcon,
         color: 'text-red-600'
     },
@@ -207,7 +270,7 @@ const definitions: Definition[] = [
         title: 'Kommunisme',
         category: 'Økonomi',
         description: 'Et klasseløst samfunn der all eiendom er felles.',
-        details: 'I teorien statsløst (som anarko-kommunisme), men i praksis ofte brukt om stater med streng planøkonomi.',
+        details: 'Basert på ideene til Karl Marx. I teorien et statsløst samfunn hvor man "yter etter evne og får etter behov".',
         icon: UserGroupIcon,
         color: 'text-red-700'
     }
@@ -265,8 +328,10 @@ export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }
     const [whoRules, setWhoRules] = useState<'ingen' | 'en' | 'få' | 'alle' | null>(null);
     const [anarchyType, setAnarchyType] = useState<'kapital' | 'felles' | null>(null);
     const [oneRulerSource, setOneRulerSource] = useState<'arv' | 'makt' | null>(null);
+    const [monarchyType, setMonarchyType] = useState<'absolutt' | 'konstitusjonelt' | null>(null);
+    const [dictatorType, setDictatorType] = useState<'person' | 'militær' | 'parti' | null>(null);
     const [dictatorScope, setDictatorScope] = useState<'politikk' | 'alt' | null>(null);
-    const [fewRulerType, setFewRulerType] = useState<'rike' | 'religion' | 'eksperter' | null>(null);
+    const [fewRulerType, setFewRulerType] = useState<'rike' | 'penger' | 'adel' | 'tyv' | 'eksperter' | 'religion' | null>(null);
     const [demoMethod, setDemoMethod] = useState<'direkte' | 'representanter' | null>(null);
     const [headOfState, setHeadOfState] = useState<'konge' | 'president' | null>(null);
     const [powerRelation, setPowerRelation] = useState<'parlamentarisk' | 'separat' | null>(null);
@@ -285,8 +350,13 @@ export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }
             return definitions.find(d => d.id === 'anarki') || null;
         }
         if (whoRules === 'en') {
-            if (oneRulerSource === 'arv') return definitions.find(d => d.id === 'monarki') || null;
+            if (oneRulerSource === 'arv') {
+                if (monarchyType === 'absolutt') return definitions.find(d => d.id === 'monarki_abs') || null;
+                return definitions.find(d => d.id === 'monarki') || null;
+            }
             if (oneRulerSource === 'makt') {
+                if (dictatorType === 'militær') return definitions.find(d => d.id === 'junta') || null;
+                if (dictatorType === 'parti') return definitions.find(d => d.id === 'ettpartistat') || null;
                 if (dictatorScope === 'alt') return definitions.find(d => d.id === 'diktatur_tot') || null;
                 if (dictatorScope === 'politikk') return definitions.find(d => d.id === 'diktatur_aut') || null;
                 return definitions.find(d => d.id === 'diktatur') || null;
@@ -294,8 +364,10 @@ export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }
         }
         if (whoRules === 'få') {
             if (fewRulerType === 'religion') return definitions.find(d => d.id === 'teokrati') || null;
-            if (fewRulerType === 'eksperter') return definitions.find(d => d.id === 'teknokrati') || null;
-            if (fewRulerType === 'rike') return definitions.find(d => d.id === 'oligarki') || null;
+            if (fewRulerType === 'eksperter') return definitions.find(d => d.id === 'meritokrati') || null;
+            if (fewRulerType === 'penger') return definitions.find(d => d.id === 'plutokrati') || null;
+            if (fewRulerType === 'adel') return definitions.find(d => d.id === 'aristokrati') || null;
+            if (fewRulerType === 'tyv') return definitions.find(d => d.id === 'kleptokrati') || null;
             return definitions.find(d => d.id === 'oligarki') || null;
         }
         if (whoRules === 'alle') {
@@ -317,6 +389,8 @@ export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }
     const resetBranch = () => {
         setAnarchyType(null);
         setOneRulerSource(null);
+        setMonarchyType(null);
+        setDictatorType(null);
         setDictatorScope(null);
         setFewRulerType(null);
         setDemoMethod(null);
@@ -452,7 +526,6 @@ export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }
                                     </motion.div>
                                 )}
 
-                                {/* Branch: EN (Monarki/Diktatur) */}
                                 {whoRules === 'en' && (
                                     <motion.div
                                         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
@@ -465,41 +538,95 @@ export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }
                                                     label="Arv (Blodsbånd)"
                                                     subtext="Kongefamilie"
                                                     selected={oneRulerSource === 'arv'}
-                                                    onClick={() => { setOneRulerSource('arv'); setDictatorScope(null); }}
+                                                    onClick={() => { setOneRulerSource('arv'); setDictatorType(null); setDictatorScope(null); }}
                                                     icon={UserIcon}
                                                 />
                                                 <ChoiceButton
                                                     label="Makt (Kupp/Militær)"
                                                     subtext="Diktatur"
                                                     selected={oneRulerSource === 'makt'}
-                                                    onClick={() => setOneRulerSource('makt')}
+                                                    onClick={() => { setOneRulerSource('makt'); setMonarchyType(null); }}
                                                     icon={ShieldExclamationIcon}
                                                 />
                                             </div>
                                         </div>
+
+                                        {oneRulerSource === 'arv' && (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                                                className="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm"
+                                            >
+                                                <SectionTitle>3. Hvor mye makt har monarken?</SectionTitle>
+                                                <div className="space-y-3">
+                                                    <ChoiceButton
+                                                        label="All makt (Enevelde)"
+                                                        subtext="Absolutt monarki"
+                                                        selected={monarchyType === 'absolutt'}
+                                                        onClick={() => setMonarchyType('absolutt')}
+                                                        icon={UserIcon}
+                                                    />
+                                                    <ChoiceButton
+                                                        label="Begrenset av loven"
+                                                        subtext="Konstitusjonelt monarki"
+                                                        selected={monarchyType === 'konstitusjonelt'}
+                                                        onClick={() => setMonarchyType('konstitusjonelt')}
+                                                        icon={ScaleIcon}
+                                                    />
+                                                </div>
+                                            </motion.div>
+                                        )}
 
                                         {oneRulerSource === 'makt' && (
                                             <motion.div
                                                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                                                 className="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-red-500"
                                             >
-                                                <SectionTitle>3. Hvor mye kontrollerer staten?</SectionTitle>
+                                                <SectionTitle>3. Hvem styrer diktaturet?</SectionTitle>
                                                 <div className="space-y-3">
                                                     <ChoiceButton
-                                                        label="Kun politikken (Autoritær)"
-                                                        subtext="Folk lever ellers fritt"
-                                                        selected={dictatorScope === 'politikk'}
-                                                        onClick={() => setDictatorScope('politikk')}
+                                                        label="Enkeltperson"
+                                                        subtext="Klassisk diktatur"
+                                                        selected={dictatorType === 'person'}
+                                                        onClick={() => setDictatorType('person')}
+                                                        icon={UserIcon}
+                                                    />
+                                                    <ChoiceButton
+                                                        label="Militæret"
+                                                        subtext="Militærjunta"
+                                                        selected={dictatorType === 'militær'}
+                                                        onClick={() => setDictatorType('militær')}
                                                         icon={ShieldExclamationIcon}
                                                     />
                                                     <ChoiceButton
-                                                        label="Alt! (Totalitær)"
-                                                        subtext="Tankekontroll og overvåkning"
-                                                        selected={dictatorScope === 'alt'}
-                                                        onClick={() => setDictatorScope('alt')}
-                                                        icon={ShieldExclamationIcon}
+                                                        label="Ett politisk parti"
+                                                        subtext="Ettpartistat"
+                                                        selected={dictatorType === 'parti'}
+                                                        onClick={() => setDictatorType('parti')}
+                                                        icon={UserGroupIcon}
                                                     />
                                                 </div>
+
+                                                {dictatorType === 'person' && (
+                                                    <div className="mt-6">
+                                                        <SectionTitle>4. Hvor mye kontrollerer staten?</SectionTitle>
+                                                        <div className="space-y-3">
+                                                            <ChoiceButton
+                                                                label="Kun politikken (Autoritær)"
+                                                                subtext="Folk lever ellers fritt"
+                                                                selected={dictatorScope === 'politikk'}
+                                                                onClick={() => setDictatorScope('politikk')}
+                                                                icon={ShieldExclamationIcon}
+                                                            />
+                                                            <ChoiceButton
+                                                                label="Alt! (Totalitær)"
+                                                                subtext="Tankekontroll og overvåkning"
+                                                                selected={dictatorScope === 'alt'}
+                                                                onClick={() => setDictatorScope('alt')}
+                                                                icon={ShieldExclamationIcon}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </motion.div>
                                         )}
                                     </motion.div>
@@ -511,14 +638,21 @@ export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }
                                         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
                                         className="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm"
                                     >
-                                        <SectionTitle>2. Hvem er i denne gruppen?</SectionTitle>
+                                        <SectionTitle>2. Hvilken gruppe styrer?</SectionTitle>
                                         <div className="space-y-3">
                                             <ChoiceButton
-                                                label="De rike og mektige"
-                                                subtext="Oligarki"
-                                                selected={fewRulerType === 'rike'}
-                                                onClick={() => setFewRulerType('rike')}
+                                                label="De rikeste"
+                                                subtext="Plutokrati"
+                                                selected={fewRulerType === 'penger'}
+                                                onClick={() => setFewRulerType('penger')}
                                                 icon={BanknotesIcon}
+                                            />
+                                            <ChoiceButton
+                                                label="Adelen / Overklassen"
+                                                subtext="Aristokrati"
+                                                selected={fewRulerType === 'adel'}
+                                                onClick={() => setFewRulerType('adel')}
+                                                icon={UserIcon}
                                             />
                                             <ChoiceButton
                                                 label="Religiøse ledere"
@@ -528,11 +662,18 @@ export const GovernmentExplorer: React.FC<GovernmentExplorerProps> = ({ lesson }
                                                 icon={BookOpenIcon}
                                             />
                                             <ChoiceButton
-                                                label="Eksperter / Vitenskapsfolk"
-                                                subtext="Teknokrati"
+                                                label="Eksperter / De dyktigste"
+                                                subtext="Meritokrati / Teknokrati"
                                                 selected={fewRulerType === 'eksperter'}
                                                 onClick={() => setFewRulerType('eksperter')}
                                                 icon={AcademicCapIcon}
+                                            />
+                                            <ChoiceButton
+                                                label="De som stjeler"
+                                                subtext="Kleptokrati"
+                                                selected={fewRulerType === 'tyv'}
+                                                onClick={() => setFewRulerType('tyv')}
+                                                icon={BanknotesIcon}
                                             />
                                         </div>
                                     </motion.div>

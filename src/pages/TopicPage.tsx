@@ -58,7 +58,8 @@ export const TopicPage: React.FC = () => {
 
 
 
-    const lessonInTopic = currentTopic?.lessons?.find(l => l.id === subTopicId);
+    const lessonInTopic = currentTopic?.lessons?.find(l => l.id === subTopicId) ||
+        currentTopic?.tools?.find(t => t.id === subTopicId);
     if (lessonInTopic) {
         return <ErrorBoundary><LessonPage lessonIdOverride={subTopicId} /></ErrorBoundary>;
     }
