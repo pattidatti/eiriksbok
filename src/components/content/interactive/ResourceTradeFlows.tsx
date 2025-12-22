@@ -8,7 +8,8 @@ import {
     ArrowDownRight,
     Users,
     Package,
-    Factory
+    Factory,
+    type LucideIcon
 } from 'lucide-react';
 
 interface TradePath {
@@ -17,7 +18,7 @@ interface TradePath {
     to: string;
     resource: string;
     resourceNo: string;
-    icon: React.ElementType;
+    icon: LucideIcon;
     description: string;
     color: string;
     points: string;
@@ -178,8 +179,8 @@ export const ResourceTradeFlows: React.FC = () => {
                                     className="bg-slate-50/80 border border-slate-200 p-8 rounded-3xl"
                                 >
                                     <div className="flex items-center gap-3 mb-6">
-                                        <div className="p-2.5 rounded-xl shadow-sm" style={{ backgroundColor: `${activePath.color}15` } as any}>
-                                            <activePath.icon className="w-5 h-5" style={{ color: activePath.color } as any} />
+                                        <div className="p-2.5 rounded-xl shadow-sm" style={{ backgroundColor: `${activePath.color}15` }}>
+                                            <activePath.icon className="w-5 h-5" style={{ color: activePath.color }} />
                                         </div>
                                         <h3 className="text-xl font-bold text-slate-900">{activePath.resourceNo}</h3>
                                     </div>

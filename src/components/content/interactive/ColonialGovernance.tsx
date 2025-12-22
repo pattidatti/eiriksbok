@@ -6,7 +6,8 @@ import {
     Shield,
     TrendingUp,
     History,
-    Map
+    Map,
+    type LucideIcon
 } from 'lucide-react';
 
 interface GovernanceModel {
@@ -14,7 +15,7 @@ interface GovernanceModel {
     nation: string;
     nationNo: string;
     color: 'indigo' | 'blue' | 'rose';
-    icon: React.ElementType;
+    icon: LucideIcon;
     ideology: string;
     administration: string;
     economicGoal: string;
@@ -113,7 +114,7 @@ export const ColonialGovernance: React.FC = () => {
                                 key={model.id}
                                 onClick={() => setSelectedModel(model)}
                                 className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all text-sm font-semibold ${selectedModel.id === model.id
-                                    ? `${(colorMap as any)[model.color].bg} text-white shadow-md`
+                                    ? `${colorMap[model.color].bg} text-white shadow-md`
                                     : 'bg-slate-50 text-slate-500 hover:bg-slate-100 border border-slate-200/50'
                                     }`}
                             >
@@ -181,7 +182,7 @@ export const ColonialGovernance: React.FC = () => {
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Interaktiv Modell</span>
                 <div className="flex gap-1">
                     {models.map(m => (
-                        <div key={m.id} className={`w-1.5 h-1.5 rounded-full ${selectedModel.id === m.id ? (colorMap as any)[m.color].bg : 'bg-slate-200'}`} />
+                        <div key={m.id} className={`w-1.5 h-1.5 rounded-full ${selectedModel.id === m.id ? colorMap[m.color].bg : 'bg-slate-200'}`} />
                     ))}
                 </div>
             </div>
@@ -189,7 +190,7 @@ export const ColonialGovernance: React.FC = () => {
     );
 };
 
-const InfoCard: React.FC<{ icon: React.ElementType, title: string, content: string, colorClass: string }> = ({ icon: Icon, title, content, colorClass }) => (
+const InfoCard: React.FC<{ icon: LucideIcon, title: string, content: string, colorClass: string }> = ({ icon: Icon, title, content, colorClass }) => (
     <div className="group">
         <div className="flex items-center gap-2 mb-2">
             <div className={`p-1.5 bg-white border border-slate-100 rounded-lg shadow-sm ${colorClass}`}>

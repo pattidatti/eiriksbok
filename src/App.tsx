@@ -44,6 +44,7 @@ const LinkChecker = React.lazy(routeFactories.LinkChecker);
 const ScannerPage = React.lazy(routeFactories.ScannerPage);
 const WordSorterGame = React.lazy(routeFactories.WordSorterGame);
 const ConceptSnakeGame = React.lazy(routeFactories.ConceptSnakeGame);
+const ColonizationMap = React.lazy(routeFactories.ColonizationMap);
 
 import { usePresence } from './hooks/usePresence';
 
@@ -79,6 +80,7 @@ function AppContent() {
               <Route path="norsk/bibliotek" element={<TextLibraryPage />} />
               <Route path="norsk/bibliotek/:textId" element={<TextReaderPage />} />
               <Route path="tidslinje" element={<GlobalTimelinePage />} />
+              <Route path="colonization" element={<ColonizationMap />} />
 
               {/* Static routes must come before dynamic :subjectId routes */}
               <Route path="oving" element={<PracticePage />} />
