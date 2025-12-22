@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Gavel, MessageSquare, Shield, CheckCircle2, User } from 'lucide-react';
+import { Gavel, MessageSquare, Shield, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface Argument {

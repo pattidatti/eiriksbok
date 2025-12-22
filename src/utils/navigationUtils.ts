@@ -27,7 +27,10 @@ export const getTopicLink = (subjectId: string, topic: ManifestTopic): string =>
     }
 
     // Smart navigation logic
-    if (allLessons.length === 1) {
+    // Only redirect if there is exactly one lesson AND no tools
+    const hasTools = topic.tools && topic.tools.length > 0;
+
+    if (allLessons.length === 1 && !hasTools) {
         const lesson = allLessons[0];
         return `/${subjectId}/${topic.id}${lesson.subTopicId ? `/${lesson.subTopicId}` : ''}/${lesson.id}`;
     }

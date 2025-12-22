@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Reorder, useDragControls } from 'framer-motion';
+import { Reorder } from 'framer-motion';
 import { GripVertical, CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
 
 interface TimelineEvent {

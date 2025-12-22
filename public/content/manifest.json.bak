@@ -1,4 +1,4 @@
-﻿{
+{
     "subjects": [
         {
             "id": "norsk",
@@ -16,13 +16,13 @@
                 {
                     "id": "ordklasser",
                     "title": "Ordklasser",
-                    "description": "LÃ¦r om de ulike ordklassene: Substantiv, verb, adjektiv og mer.",
+                    "description": "Lær om de ulike ordklassene: Substantiv, verb, adjektiv og mer.",
                     "image": "/Eiriksbok/images/topics/grammatikk.png",
                     "tools": [
                         {
                             "id": "word-sorter",
                             "title": "Ordklasse-sortering",
-                            "description": "Spill der du skal sortere ord i riktige bokser. Klarer du Ã¥ skille mellom verb og substantiv?",
+                            "description": "Spill der du skal sortere ord i riktige bokser. Klarer du å skille mellom verb og substantiv?",
                             "link": "/norsk/ordklasser/sortering"
                         }
                     ],
@@ -30,7 +30,7 @@
                         {
                             "id": "substantiv",
                             "title": "Substantiv",
-                            "description": "Konkret vs. abstrakt, kjÃ¸nn og bÃ¸ying.",
+                            "description": "Konkret vs. abstrakt, kjønn og bøying.",
                             "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
                             "tags": [
                                 "grammatikk",
@@ -56,7 +56,7 @@
                         {
                             "id": "adjektiv",
                             "title": "Adjektiv",
-                            "description": "SamsvarsbÃ¸ying og gradbÃ¸ying.",
+                            "description": "Samsvarsbøying og gradbøying.",
                             "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
                             "tags": [
                                 "grammatikk",
@@ -69,7 +69,7 @@
                         {
                             "id": "pronomen",
                             "title": "Pronomen",
-                            "description": "Personlige, eiendoms- og spÃ¸rrepronomen.",
+                            "description": "Personlige, eiendoms- og spørrepronomen.",
                             "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
                             "tags": [
                                 "grammatikk",
@@ -95,7 +95,7 @@
                         {
                             "id": "adverb",
                             "title": "Adverb",
-                            "description": "Tidsadverb, stedsadverb og mÃ¥tesadverb.",
+                            "description": "Tidsadverb, stedsadverb og måtesadverb.",
                             "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
                             "tags": [
                                 "grammatikk",
@@ -124,7 +124,7 @@
                 {
                     "id": "grammatikk",
                     "title": "Grammatikk",
-                    "description": "LÃ¦r om sprÃ¥kets oppbygning.",
+                    "description": "Lær om språkets oppbygning.",
                     "image": "/Eiriksbok/images/topics/grammatikk.png",
                     "lessons": [
                         {
@@ -133,7 +133,7 @@
                             "description": "Hvordan analysere setninger.",
                             "image": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skjÃ¸nnlitteratur",
+                                "skjønnlitteratur",
                                 "fortelling"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
@@ -144,12 +144,12 @@
                 {
                     "id": "setningsoppbygging",
                     "title": "Setningsoppbygging",
-                    "description": "Bygg forstÃ¥else stein for stein. Fra S-V til komplekse leddsetninger.",
+                    "description": "Bygg forståelse stein for stein. Fra S-V til komplekse leddsetninger.",
                     "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
                             "id": "niva-1-grunnmuren",
-                            "title": "NivÃ¥ 1: Grunnmuren (S-V)",
+                            "title": "Nivå 1: Grunnmuren (S-V)",
                             "description": "Subjekt og Verbal: Selve skjelettet i setningen.",
                             "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
                             "tags": [
@@ -163,7 +163,7 @@
                         },
                         {
                             "id": "niva-2-utvidet",
-                            "title": "NivÃ¥ 2: Objekt og Adverbial",
+                            "title": "Nivå 2: Objekt og Adverbial",
                             "description": "Utvid setningene med hvem som rammes og hvor det skjer.",
                             "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
                             "tags": [
@@ -177,8 +177,8 @@
                         },
                         {
                             "id": "niva-3-v2-regelen",
-                            "title": "NivÃ¥ 3: V2-Regelen",
-                            "description": "Den viktigste regelen i norsk: Verbet skal alltid stÃ¥ pÃ¥ plass nummer to!",
+                            "title": "Nivå 3: V2-Regelen",
+                            "description": "Den viktigste regelen i norsk: Verbet skal alltid stå på plass nummer to!",
                             "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
                             "tags": [
                                 "grammatikk",
@@ -191,7 +191,7 @@
                         },
                         {
                             "id": "niva-4-leddsetninger",
-                            "title": "NivÃ¥ 4: Leddsetninger",
+                            "title": "Nivå 4: Leddsetninger",
                             "description": "Helsetninger vs. leddsetninger og 'ikke'-plassering.",
                             "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
                             "tags": [
@@ -208,7 +208,7 @@
                 {
                     "id": "tekstsjangre",
                     "title": "Tekstsjangre",
-                    "description": "LÃ¦r om ulike typer tekster.",
+                    "description": "Lær om ulike typer tekster.",
                     "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
@@ -217,7 +217,7 @@
                             "description": "Korte fortellinger med en tydelig konflikt.",
                             "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skjÃ¸nnlitteratur",
+                                "skjønnlitteratur",
                                 "fortelling",
                                 "korthistorie"
                             ],
@@ -230,7 +230,7 @@
                             "description": "Folkediktning full av magi og overnaturlige vesener.",
                             "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skjÃ¸nnlitteratur",
+                                "skjønnlitteratur",
                                 "eventyr",
                                 "folkediktning"
                             ],
@@ -243,7 +243,7 @@
                             "description": "Lengre fortellinger som gir rom for fordypning.",
                             "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skjÃ¸nnlitteratur",
+                                "skjønnlitteratur",
                                 "fortelling",
                                 "bok"
                             ],
@@ -253,10 +253,10 @@
                         {
                             "id": "dikt",
                             "title": "Dikt (Lyrikk)",
-                            "description": "Tekster som uttrykker stemninger og fÃ¸lelser.",
+                            "description": "Tekster som uttrykker stemninger og følelser.",
                             "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skjÃ¸nnlitteratur",
+                                "skjønnlitteratur",
                                 "lyrikk",
                                 "poesi"
                             ],
@@ -307,13 +307,13 @@
                 {
                     "id": "retorikk",
                     "title": "Retorikk",
-                    "description": "LÃ¦ren om talekunst og overbevisning.",
+                    "description": "Læren om talekunst og overbevisning.",
                     "image": "https://images.unsplash.com/photo-1560130958-02f95cc2e330?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "tools": [
                         {
                             "id": "concept-snake",
                             "title": "Konsept-Slange",
-                            "description": "Spis ordene som passer til begrepet! En fartsfylt mÃ¥te Ã¥ lÃ¦re retoriske begreper pÃ¥.",
+                            "description": "Spis ordene som passer til begrepet! En fartsfylt måte å lære retoriske begreper på.",
                             "link": "/oving/konsept-snake",
                             "icon": "play"
                         }
@@ -322,11 +322,11 @@
                         {
                             "id": "grunnleggende-retorikk",
                             "title": "Hva er retorikk?",
-                            "description": "En innfÃ¸ring i etos, patos og logos.",
+                            "description": "En innføring i etos, patos og logos.",
                             "image": "https://images.unsplash.com/photo-1560130958-02f95cc2e330?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "tags": [
                                 "retorikk",
-                                "sprÃ¥k",
+                                "språk",
                                 "kommunikasjon"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
@@ -343,7 +343,7 @@
                         {
                             "id": "nasjonalromantikken",
                             "title": "Nasjonalromantikken",
-                            "description": "Da Norge fant sin sjel: BÃ¸nder, natur og eventyr.",
+                            "description": "Da Norge fant sin sjel: Bønder, natur og eventyr.",
                             "image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Brudeferden_by_Adolph_Tidemand_and_Hans_Gude.jpg",
                             "createdDate": "2025-11-30T21:00:00",
                             "tags": [
@@ -369,7 +369,7 @@
                         {
                             "id": "ny-romantikken",
                             "title": "Nyromantikken",
-                            "description": "FÃ¸lelser og mystikk: Det ubevisste sjeleliv.",
+                            "description": "Følelser og mystikk: Det ubevisste sjeleliv.",
                             "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80",
                             "createdDate": "2025-11-30T21:20:00",
                             "tags": [
@@ -397,13 +397,13 @@
                 {
                     "id": "skrivehjelp",
                     "title": "Skrivehjelp",
-                    "description": "Tips og triks for Ã¥ skrive bedre.",
+                    "description": "Tips og triks for å skrive bedre.",
                     "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
                             "id": "hvordan-skrive-novelle",
                             "title": "Hvordan skrive novelle",
-                            "description": "Tips og triks for Ã¥ skrive gode noveller.",
+                            "description": "Tips og triks for å skrive gode noveller.",
                             "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -415,7 +415,7 @@
                         {
                             "id": "hvordan-skrive-eventyr",
                             "title": "Hvordan skrive eventyr",
-                            "description": "LÃ¦r Ã¥ skrive eventyr med magi og moral.",
+                            "description": "Lær å skrive eventyr med magi og moral.",
                             "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -427,7 +427,7 @@
                         {
                             "id": "hvordan-skrive-dikt",
                             "title": "Hvordan skrive dikt",
-                            "description": "Slipp lÃ¸s kreativiteten med lyrikk.",
+                            "description": "Slipp løs kreativiteten med lyrikk.",
                             "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -439,7 +439,7 @@
                         {
                             "id": "hvordan-skrive-roman",
                             "title": "Hvordan skrive roman",
-                            "description": "Tips for Ã¥ planlegge og skrive lengre fortellinger.",
+                            "description": "Tips for å planlegge og skrive lengre fortellinger.",
                             "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -451,7 +451,7 @@
                         {
                             "id": "7-vanlige-plot",
                             "title": "7 vanlige plot",
-                            "description": "De syv grunnleggende historiene som alle fortellinger bygger pÃ¥.",
+                            "description": "De syv grunnleggende historiene som alle fortellinger bygger på.",
                             "image": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -471,17 +471,17 @@
             "topics": [
                 {
                     "id": "demografi-okonomi",
-                    "title": "Demografi & Ã˜konomi",
-                    "description": "Befolkningsutvikling og Ã¸konomiske systemer.",
+                    "title": "Demografi & Økonomi",
+                    "description": "Befolkningsutvikling og økonomiske systemer.",
                     "image": "/Eiriksbok/images/topics/demografi-okonomi.png",
                     "lessons": [
                         {
                             "id": "produksjon",
                             "title": "Produksjon",
-                            "description": "Hva bestemmer hva vi lager? PlanÃ¸konomi vs. MarkedsÃ¸konomi.",
+                            "description": "Hva bestemmer hva vi lager? Planøkonomi vs. Markedsøkonomi.",
                             "image": "/Eiriksbok/images/topics/demografi-okonomi.png",
                             "tags": [
-                                "Ã¸konomi",
+                                "økonomi",
                                 "produksjon",
                                 "systemer"
                             ],
@@ -491,10 +491,10 @@
                         {
                             "id": "intro",
                             "title": "Introduksjon",
-                            "description": "Grunnleggende om befolkning og Ã¸konomi.",
+                            "description": "Grunnleggende om befolkning og økonomi.",
                             "tags": [
                                 "demografi",
-                                "Ã¸konomi",
+                                "økonomi",
                                 "samfunn",
                                 "befolkning"
                             ],
@@ -507,7 +507,7 @@
                             "description": "Hvorfor blir alt dyrere? Om penger, renter og priser.",
                             "image": "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80",
                             "tags": [
-                                "Ã¸konomi",
+                                "økonomi",
                                 "inflasjon",
                                 "penger",
                                 "rente"
@@ -518,10 +518,10 @@
                         {
                             "id": "finanskriser",
                             "title": "Finanskriser",
-                            "description": "Festen og bakrusen: Hvorfor krasjer Ã¸konomien?",
+                            "description": "Festen og bakrusen: Hvorfor krasjer økonomien?",
                             "image": "https://images.unsplash.com/photo-1535320903710-d9cf113ebdb0?auto=format&fit=crop&q=80",
                             "tags": [
-                                "Ã¸konomi",
+                                "økonomi",
                                 "krise",
                                 "syklus"
                             ],
@@ -539,7 +539,7 @@
                         {
                             "id": "utforsk",
                             "title": "Utforsk Styringsformer",
-                            "description": "Sammenlign ulike mÃ¥ter Ã¥ styre et land pÃ¥.",
+                            "description": "Sammenlign ulike måter å styre et land på.",
                             "link": "/samfunnskunnskap/styringsformer/utforsk",
                             "icon": "sparkles"
                         }
@@ -559,7 +559,7 @@
                         {
                             "id": "antikken-visjoner",
                             "title": "Antikkens visjoner",
-                            "description": "Platon, Aristoteles og de fÃ¸rste statsformene.",
+                            "description": "Platon, Aristoteles og de første statsformene.",
                             "tags": [
                                 "historie",
                                 "filosofi",
@@ -574,7 +574,7 @@
                             "description": "Fra enevelde til konstitusjonalisme.",
                             "tags": [
                                 "historie",
-                                "kongedÃ¸mme",
+                                "kongedømme",
                                 "norge"
                             ],
                             "createdDate": "2025-12-21T21:10:00Z"
@@ -603,11 +603,11 @@
                         },
                         {
                             "id": "elitenes-herredomme",
-                            "title": "Elitenes herredÃ¸mme",
+                            "title": "Elitenes herredømme",
                             "description": "Oligarki, plutokrati og maktens konsentrasjon.",
                             "tags": [
                                 "politikk",
-                                "Ã¸konomi",
+                                "økonomi",
                                 "eliter"
                             ],
                             "createdDate": "2025-12-21T21:25:00Z"
@@ -615,7 +615,7 @@
                         {
                             "id": "diktaturet",
                             "title": "Diktaturet",
-                            "description": "Fra autoritÃ¦r makt til totalitÃ¦r kontroll.",
+                            "description": "Fra autoritær makt til totalitær kontroll.",
                             "tags": [
                                 "politikk",
                                 "totalitarisme",
@@ -626,7 +626,7 @@
                         {
                             "id": "uten-hersker",
                             "title": "Uten hersker",
-                            "description": "Anarkiets drÃ¸m, Rothbard og Liberland.",
+                            "description": "Anarkiets drøm, Rothbard og Liberland.",
                             "tags": [
                                 "politikk",
                                 "anarki",
@@ -648,8 +648,8 @@
                         },
                         {
                             "id": "foydalisme",
-                            "title": "FÃ¸ydalismen",
-                            "description": "Herre og vasall: Da personlige bÃ¥nd styrte Europa.",
+                            "title": "Føydalismen",
+                            "description": "Herre og vasall: Da personlige bånd styrte Europa.",
                             "tags": [
                                 "historie",
                                 "politikk",
@@ -679,7 +679,7 @@
                         {
                             "id": "flokkmentalitet",
                             "title": "Flokkmentalitetens psykologi",
-                            "description": "Hvorfor vi gjÃ¸r som andre, selv nÃ¥r vi vet det er feil.",
+                            "description": "Hvorfor vi gjør som andre, selv når vi vet det er feil.",
                             "image": "/images/lessons/mennesket-kultur-samfunn/flokkmentalitet.png",
                             "tags": [
                                 "psykologi",
@@ -691,7 +691,7 @@
                         {
                             "id": "ytringsvett-vs-ytringsmot",
                             "title": "Ytringsvett vs ytringsmot",
-                            "description": "NÃ¥r bÃ¸r du tie, og nÃ¥r mÃ¥ du tale? Om kanselleringskultur og selvsensur.",
+                            "description": "Når bør du tie, og når må du tale? Om kanselleringskultur og selvsensur.",
                             "image": "/images/lessons/mennesket-kultur-samfunn/ytringsvett.png",
                             "tags": [
                                 "ytringsfrihet",
@@ -715,11 +715,11 @@
                         {
                             "id": "kjendismakt",
                             "title": "Kjendismakt og influensere",
-                            "description": "Kommersiell pÃ¥virkning i personlige feeds.",
+                            "description": "Kommersiell påvirkning i personlige feeds.",
                             "image": "/images/lessons/mennesket-kultur-samfunn/kjendismakt.png",
                             "tags": [
                                 "media",
-                                "markedsfÃ¸ring",
+                                "markedsføring",
                                 "influensere"
                             ],
                             "createdDate": "2025-12-21T19:40:00Z"
@@ -761,7 +761,7 @@
                         {
                             "id": "utopier",
                             "title": "Utopier",
-                            "description": "Hvordan drÃ¸mmen om det perfekte samfunn har formet vÃ¥r historie.",
+                            "description": "Hvordan drømmen om det perfekte samfunn har formet vår historie.",
                             "image": "/images/lessons/ideer/utopier_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -775,21 +775,21 @@
                         {
                             "id": "naturens-sjel",
                             "title": "Naturens sjel",
-                            "description": "Hvordan vi gikk fra Ã¥ se naturen som hellig til Ã¥ se den som en ressurs.",
+                            "description": "Hvordan vi gikk fra å se naturen som hellig til å se den som en ressurs.",
                             "image": "/images/lessons/ideer/naturens_sjel_hero.png",
                             "layout": "rich",
                             "tags": [
                                 "historie",
                                 "natur",
                                 "filosofi",
-                                "Ã¸kologi"
+                                "økologi"
                             ],
                             "createdDate": "2025-12-21T20:15:00Z"
                         },
                         {
                             "id": "sannhetens-historie",
                             "title": "Sannhet",
-                            "description": "Fra religiÃ¸se Ã¥penbaringer til moderne algoritmer og KI.",
+                            "description": "Fra religiøse åpenbaringer til moderne algoritmer og KI.",
                             "image": "/images/lessons/ideer/sannhet_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -817,7 +817,7 @@
                         {
                             "id": "framskrittstro",
                             "title": "Framskrittstro",
-                            "description": "Er historien en rett linje oppover? Utforsk ideen som formet vÃ¥r verden.",
+                            "description": "Er historien en rett linje oppover? Utforsk ideen som formet vår verden.",
                             "image": "/images/lessons/ideer/framskritt_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -831,7 +831,7 @@
                         {
                             "id": "det-unormale",
                             "title": "Det 'unormale'",
-                            "description": "IdÃ©historien om hvordan vi har sett pÃ¥ sykdom og galskap gjennom tidene.",
+                            "description": "Idéhistorien om hvordan vi har sett på sykdom og galskap gjennom tidene.",
                             "image": "/images/lessons/ideer/det_unormale_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -845,7 +845,7 @@
                         {
                             "id": "casus-belli",
                             "title": "Casus Belli",
-                            "description": "Hva gir et land rett til Ã¥ gÃ¥ til krig? Utforsk historiens farligste argumenter.",
+                            "description": "Hva gir et land rett til å gå til krig? Utforsk historiens farligste argumenter.",
                             "image": "/Eiriksbok/images/topics/casus_belli_card.png",
                             "layout": "rich",
                             "tags": [
@@ -864,7 +864,7 @@
                             "layout": "rich",
                             "tags": [
                                 "historie",
-                                "Ã¸konomi",
+                                "økonomi",
                                 "syklus",
                                 "samfunn"
                             ],
@@ -886,7 +886,7 @@
                     "lessons": [
                         {
                             "id": "norge-for-vikingene",
-                            "title": "Norge fÃ¸r vikingene",
+                            "title": "Norge før vikingene",
                             "description": "Fra pionerbosetning til folkevandringstid.",
                             "image": "https://images.unsplash.com/photo-1518990167611-66380e77406d?auto=format&fit=crop&q=80",
                             "tags": [
@@ -901,8 +901,8 @@
                         {
                             "id": "klimakrisen-536",
                             "layout": "rich",
-                            "title": "536 - Ã…ret da solen forsvant",
-                            "description": "Klimakrisen som kan vÃ¦re virkelighetens Fimbulvinter.",
+                            "title": "536 - Året da solen forsvant",
+                            "description": "Klimakrisen som kan være virkelighetens Fimbulvinter.",
                             "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80",
                             "year": "536",
                             "tags": [
@@ -917,19 +917,19 @@
                             "definitions": [
                                 {
                                     "term": "Fimbulvinter",
-                                    "definition": "Tre vintre pÃ¥ rad uten sommer, som varsler Ragnarok (og trolig refererer til klimakrisen i 536)."
+                                    "definition": "Tre vintre på rad uten sommer, som varsler Ragnarok (og trolig refererer til klimakrisen i 536)."
                                 },
                                 {
                                     "term": "Justinianerpesten",
-                                    "definition": "En dÃ¸delig pandemi (byllepest) som rammet Europa og MidtÃ¸sten fra 541 e.Kr."
+                                    "definition": "En dødelig pandemi (byllepest) som rammet Europa og Midtøsten fra 541 e.Kr."
                                 },
                                 {
                                     "term": "Dendrokronologi",
-                                    "definition": "En metode for Ã¥ datere treverk og klima ved Ã¥ studere Ã¥rringer i trÃ¦r."
+                                    "definition": "En metode for å datere treverk og klima ved å studere årringer i trær."
                                 },
                                 {
                                     "term": "Senantikken",
-                                    "definition": "Perioden som markerer overgangen fra antikken til middelalderen (ca. 300â€“600 e.Kr.)."
+                                    "definition": "Perioden som markerer overgangen fra antikken til middelalderen (ca. 300–600 e.Kr.)."
                                 }
                             ]
                         },
@@ -949,27 +949,27 @@
                             "definitions": [
                                 {
                                     "term": "Senmiddelalderen",
-                                    "definition": "Perioden i europeisk historie fra ca. 1300 til 1500, preget av pest, kriser, men ogsÃ¥ politisk sentralisering."
+                                    "definition": "Perioden i europeisk historie fra ca. 1300 til 1500, preget av pest, kriser, men også politisk sentralisering."
                                 },
                                 {
                                     "term": "Kalmarunionen",
-                                    "definition": "En personalunion mellom Danmark, Norge og Sverige (1397â€“1523) styrt av en felles monark."
+                                    "definition": "En personalunion mellom Danmark, Norge og Sverige (1397–1523) styrt av en felles monark."
                                 },
                                 {
                                     "term": "Adel",
-                                    "definition": "En samfunnsklasse med sÃ¦rskilte privilegier (som skattefritak) og makt, ofte knyttet til jordeie og krigstjeneste."
+                                    "definition": "En samfunnsklasse med særskilte privilegier (som skattefritak) og makt, ofte knyttet til jordeie og krigstjeneste."
                                 },
                                 {
-                                    "term": "FolkeopprÃ¸ret i 1501",
-                                    "definition": "Et bredt opprÃ¸r i Norge ledet av Knut Alvsson mot det danske styret og kong Hans."
+                                    "term": "Folkeopprøret i 1501",
+                                    "definition": "Et bredt opprør i Norge ledet av Knut Alvsson mot det danske styret og kong Hans."
                                 },
                                 {
                                     "term": "Festning",
-                                    "definition": "Et militÃ¦rt forsvarsverk (borg) bygget for Ã¥ kontrollere et omrÃ¥de og tÃ¥le beleiring, som Akershus festning."
+                                    "definition": "Et militært forsvarsverk (borg) bygget for å kontrollere et område og tåle beleiring, som Akershus festning."
                                 },
                                 {
                                     "term": "Knut Alvsson",
-                                    "definition": "Norsk adelsmann og leder av opprÃ¸ret mot kong Hans. Drapet pÃ¥ ham i 1502 markerte slutten pÃ¥ norsk selvstendighet i senmiddelalderen."
+                                    "definition": "Norsk adelsmann og leder av opprøret mot kong Hans. Drapet på ham i 1502 markerte slutten på norsk selvstendighet i senmiddelalderen."
                                 }
                             ]
                         },
@@ -990,9 +990,172 @@
                     ]
                 },
                 {
+                    "id": "den-kalde-krigen",
+                    "title": "Den kalde krigen",
+                    "description": "En ideologisk kamp om verdensherredømme.",
+                    "image": "https://images.unsplash.com/photo-1526040652367-ac003a0475fe?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "oversikt",
+                            "title": "Oversikt over den kalde krigen",
+                            "description": "Hva var den kalde krigen, og hvorfor skjedde den?",
+                            "image": "https://images.unsplash.com/photo-1526040652367-ac003a0475fe?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "oversikt",
+                                "ideologi",
+                                "stormakt",
+                                "usa",
+                                "sovjet"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "suez-krisen",
+                            "title": "Suez-krisen",
+                            "description": "Konflikten om kanalen og slutten på de gamle imperiene.",
+                            "image": "https://images.unsplash.com/photo-1558223108-ed0050965b6b?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "suez",
+                                "kris",
+                                "egypt",
+                                "imperialisme"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "cuba-krisen",
+                            "title": "Cuba-krisen",
+                            "description": "De 13 dagene som nesten avsluttet verden.",
+                            "image": "https://images.unsplash.com/photo-1516701037614-97c40e1376df?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "cuba",
+                                "atomvåpen",
+                                "kennedy",
+                                "khrusjtsjov"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "koreakrigen",
+                            "title": "Koreakrigen",
+                            "description": "Den første store varme krigen i den kalde krigen.",
+                            "image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "korea",
+                                "krig",
+                                "proksykrig",
+                                "asia"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "vietnamkrigen",
+                            "title": "Vietnamkrigen",
+                            "description": "En splittende krig som rystet supermakten USA.",
+                            "image": "https://images.unsplash.com/photo-1444065381814-865dc9da92c0?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "vietnam",
+                                "krig",
+                                "usa",
+                                "protest"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "romkapplopet",
+                            "title": "Romkappløpet",
+                            "description": "Mannen på månen og kampen om verdensrommet.",
+                            "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "romfart",
+                                "sputnik",
+                                "apollo",
+                                "teknologi"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "atomvapenkapplopet",
+                            "title": "Atomvåpenkappløpet",
+                            "description": "Terrorbalanse og kampen for overlevelse.",
+                            "image": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "atomvåpen",
+                                "mad",
+                                "nedrustning",
+                                "kappløp"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "kultur",
+                            "title": "Kultur under den kalde krigen",
+                            "description": "Film, sport og musikk som ideologisk slagmark.",
+                            "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "kultur",
+                                "propaganda",
+                                "film",
+                                "sport"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "nato-vs-warszawa",
+                            "title": "NATO vs. Warszawapakten",
+                            "description": "Alliansene som delte verden i to.",
+                            "image": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "nato",
+                                "warszawapakten",
+                                "allianser",
+                                "europa"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "berlinmuren",
+                            "title": "Berlinmuren",
+                            "description": "Symbolet på det delte Europa.",
+                            "image": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "berlin",
+                                "mur",
+                                "tyskland",
+                                "jernteppet"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "veien-mot-slutt",
+                            "title": "Veien mot slutten",
+                            "description": "Murens fall og Sovjetunionens sammenbrudd.",
+                            "image": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "slutt",
+                                "gorbatsjov",
+                                "1989",
+                                "frihet"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        }
+                    ]
+                },
+                {
                     "id": "andre-verdenskrig",
                     "title": "Andre verdenskrig",
-                    "description": "Verdenshistoriens stÃ¸rste konflikt (1939-1945).",
+                    "description": "Verdenshistoriens største konflikt (1939-1945).",
                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg/1200px-Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg",
                     "lessons": [
                         {
@@ -1021,11 +1184,11 @@
                         },
                         {
                             "id": "krigens-lop",
-                            "title": "Krigens lÃ¸p",
+                            "title": "Krigens løp",
                             "description": "Fra Blitzkrieg til atombomben.",
                             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Into_the_Jaws_of_Death_23-0455M_edit.jpg/1200px-Into_the_Jaws_of_Death_23-0455M_edit.jpg",
                             "tags": [
-                                "krigfÃ¸ring",
+                                "krigføring",
                                 "slag"
                             ],
                             "createdDate": "2025-12-21T15:10:00Z",
@@ -1038,7 +1201,7 @@
                             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/V-2_rocket_launching_from_Peenemunde_in_World_War_II_A4-V13.jpg/1200px-V-2_rocket_launching_from_Peenemunde_in_World_War_II_A4-V13.jpg",
                             "tags": [
                                 "teknologi",
-                                "vÃ¥pen"
+                                "våpen"
                             ],
                             "createdDate": "2025-12-21T15:20:00Z",
                             "lastUpdated": "2025-12-21T15:20:00Z"
@@ -1072,14 +1235,14 @@
                 },
                 {
                     "id": "forste-verdenskrig",
-                    "title": "FÃ¸rste verdenskrig",
+                    "title": "Første verdenskrig",
                     "description": "Den store krigen som endret verdenskartet (1914-1918).",
                     "image": "https://images.unsplash.com/photo-1547638375-ebdaa9df273a?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
                             "id": "oversikt",
                             "title": "Oversikt",
-                            "description": "En introduksjon til fÃ¸rste verdenskrig.",
+                            "description": "En introduksjon til første verdenskrig.",
                             "image": "https://images.unsplash.com/photo-1547638375-ebdaa9df273a?auto=format&fit=crop&q=80",
                             "tags": [
                                 "krig",
@@ -1102,11 +1265,11 @@
                         },
                         {
                             "id": "krigens-lop",
-                            "title": "Krigens lÃ¸p",
+                            "title": "Krigens løp",
                             "description": "Fra skyttergraver til stillstand.",
                             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Battle_of_the_Somme_1916.jpg/1200px-Battle_of_the_Somme_1916.jpg",
                             "tags": [
-                                "krigfÃ¸ring",
+                                "krigføring",
                                 "slag"
                             ],
                             "createdDate": "2025-12-21T14:20:00Z",
@@ -1119,7 +1282,7 @@
                             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/British_Mark_I_male_tank_Somme_25_September_1916.jpg/1200px-British_Mark_I_male_tank_Somme_25_September_1916.jpg",
                             "tags": [
                                 "teknologi",
-                                "vÃ¥pen"
+                                "våpen"
                             ],
                             "createdDate": "2025-12-21T14:30:00Z",
                             "lastUpdated": "2025-12-21T14:30:00Z"
@@ -1449,7 +1612,7 @@
                     "tools": [
                         {
                             "id": "vikingtiden-sti",
-                            "title": "LÃ¦ringssti: Vikingtiden",
+                            "title": "Læringssti: Vikingtiden",
                             "description": "En omfattende reise gjennom vikingenes verden, frem mot din egen fordypningsoppgave.",
                             "link": "/historie/vikingtiden/vikingtiden-sti",
                             "icon": "map"
@@ -1486,7 +1649,7 @@
                         {
                             "id": "samfunn-og-rett",
                             "title": "Samfunn og Rett",
-                            "description": "Vikingtiden handlet om mer enn krig. Det var et samfunn med strenge lover og Ã¦re.",
+                            "description": "Vikingtiden handlet om mer enn krig. Det var et samfunn med strenge lover og ære.",
                             "image": "/images/lessons/vikingtiden/tinget.png",
                             "tags": [
                                 "historie",
@@ -1527,8 +1690,8 @@
                         },
                         {
                             "id": "asatro",
-                            "title": "Ã…satru: En verden av lureri og skjebne",
-                            "description": "Vikingenes religion handlet ikke om Ã¥ vÃ¦re snill, men om Ã¥ overleve i en farlig verden.",
+                            "title": "Åsatru: En verden av lureri og skjebne",
+                            "description": "Vikingenes religion handlet ikke om å være snill, men om å overleve i en farlig verden.",
                             "image": "/images/lessons/vikingtiden/asatro.png",
                             "tags": [
                                 "religion",
@@ -1542,7 +1705,7 @@
                         {
                             "id": "rikssamlingen",
                             "title": "Rikssamlingen",
-                            "description": "Harald HÃ¥rfagre og samlingen av Norge.",
+                            "description": "Harald Hårfagre og samlingen av Norge.",
                             "image": "/images/lessons/vikingtiden/rikssamlingen.png",
                             "tags": [
                                 "historie",
@@ -1567,8 +1730,8 @@
                         },
                         {
                             "id": "veien-mot-ost",
-                            "title": "Veien mot Ã˜st",
-                            "description": "Mens norske og danske vikinger dro vestover, dro svenskene Ã¸stover. De grunnla Russland.",
+                            "title": "Veien mot Øst",
+                            "description": "Mens norske og danske vikinger dro vestover, dro svenskene østover. De grunnla Russland.",
                             "image": "/images/lessons/vikingtiden/veien_mot_ost.png",
                             "tags": [
                                 "historie",
@@ -1582,7 +1745,7 @@
                         {
                             "id": "oppdagelsesreiser",
                             "title": "Oppdagelsesreiser i Vesterled",
-                            "description": "Vikingene var de fÃ¸rste europeerne som krysset Atlanterhavet.",
+                            "description": "Vikingene var de første europeerne som krysset Atlanterhavet.",
                             "image": "/images/lessons/vikingtiden/vinland.png",
                             "tags": [
                                 "historie",
@@ -1595,8 +1758,8 @@
                         },
                         {
                             "id": "kristningen-av-norge",
-                            "title": "Kristningen: DÃ¥p eller DÃ¸d",
-                            "description": "Hvordan Norge gikk fra Ã¥ blot til Odin til Ã¥ bygge stavkirker â€“ med sverd i hÃ¥nd.",
+                            "title": "Kristningen: Dåp eller Død",
+                            "description": "Hvordan Norge gikk fra å blot til Odin til å bygge stavkirker – med sverd i hånd.",
                             "image": "/images/lessons/vikingtiden/kristningen.png",
                             "tags": [
                                 "religion",
@@ -1626,12 +1789,12 @@
                 {
                     "id": "middelalderen",
                     "title": "Middelalderen",
-                    "description": "En tusenÃ¥rig forvandling i Europa.",
+                    "description": "En tusenårig forvandling i Europa.",
                     "image": "/images/lessons/middelalderen/middelalder_hero.png",
                     "tools": [
                         {
                             "id": "svartedauden-sti",
-                            "title": "LÃ¦ringssti: Svartedauden",
+                            "title": "Læringssti: Svartedauden",
                             "description": "En guidet reise gjennom pestens historie med oppgaver og refleksjon.",
                             "link": "/historie/middelalderen/svartedauden-sti",
                             "icon": "map"
@@ -1675,7 +1838,7 @@
                                 "oppfinnelser",
                                 "teknologi",
                                 "renessansen",
-                                "bÃ¸ker"
+                                "bøker"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z",
@@ -1686,11 +1849,11 @@
                                 },
                                 {
                                     "term": "Scriptorier",
-                                    "definition": "Skrivestuer i klostre hvor munker kopierte bÃ¸ker for hÃ¥nd."
+                                    "definition": "Skrivestuer i klostre hvor munker kopierte bøker for hånd."
                                 },
                                 {
-                                    "term": "LÃ¸se typer",
-                                    "definition": "Enkeltbokstaver stÃ¸pt i metall som kunne settes sammen til ord og sider, og brukes om igjen."
+                                    "term": "Løse typer",
+                                    "definition": "Enkeltbokstaver støpt i metall som kunne settes sammen til ord og sider, og brukes om igjen."
                                 },
                                 {
                                     "term": "Legering",
@@ -1698,18 +1861,18 @@
                                 },
                                 {
                                     "term": "Reformasjonen",
-                                    "definition": "En religiÃ¸s omveltning pÃ¥ 1500-tallet startet av Martin Luther, som fÃ¸rte til dannelsen av protestantiske kirker."
+                                    "definition": "En religiøs omveltning på 1500-tallet startet av Martin Luther, som førte til dannelsen av protestantiske kirker."
                                 },
                                 {
                                     "term": "Blokktrykk",
-                                    "definition": "En trykketeknikk hvor hele sider skjÃ¦res ut i treplater."
+                                    "definition": "En trykketeknikk hvor hele sider skjæres ut i treplater."
                                 }
                             ]
                         },
                         {
                             "id": "det-hellige-romerske-rike",
                             "title": "Det hellige romerske rike",
-                            "description": "Tusen Ã¥rs kamp om makt, tro og keiserkrone.",
+                            "description": "Tusen års kamp om makt, tro og keiserkrone.",
                             "image": "/images/lessons/middelalderen/hre_hero.png",
                             "layout": "rich",
                             "tags": [
@@ -1726,13 +1889,13 @@
                 {
                     "id": "romerriket",
                     "title": "Romerriket",
-                    "description": "Et av historiens fÃ¸rste store imperier som spredte kristendom og veier.",
+                    "description": "Et av historiens første store imperier som spredte kristendom og veier.",
                     "image": "/images/romerriket/hero-overview.png",
                     "tools": [
                         {
                             "id": "romerriket-sti",
-                            "title": "LÃ¦ringssti: Romerriket",
-                            "description": "Bli med legionÃ¦ren Markus, keiser Augustus og gladiatoren Spartacus pÃ¥ en reise gjennom Romerriket.",
+                            "title": "Læringssti: Romerriket",
+                            "description": "Bli med legionæren Markus, keiser Augustus og gladiatoren Spartacus på en reise gjennom Romerriket.",
                             "link": "/historie/romerriket/romerriket-sti",
                             "icon": "map"
                         }
@@ -1753,7 +1916,7 @@
                         },
                         {
                             "id": "augustus-og-keiserdomme",
-                            "title": "Fra republikk til keiserdÃ¸mme: Augustus",
+                            "title": "Fra republikk til keiserdømme: Augustus",
                             "description": "Historien om hvordan en ung mann endret Roma for alltid.",
                             "image": "/images/romerriket/hero-augustus.png",
                             "tags": [
@@ -1782,7 +1945,7 @@
                         {
                             "id": "legitimitet-og-kristendom",
                             "title": "Fra Princeps til Guds utvalgte",
-                            "description": "Hvordan keiserens makt gikk fra Ã¥ vÃ¦re politisk til Ã¥ bli guddommelig.",
+                            "description": "Hvordan keiserens makt gikk fra å være politisk til å bli guddommelig.",
                             "image": "/images/romerriket/hero-legitimitet.png",
                             "layout": "rich",
                             "tags": [
@@ -1803,7 +1966,7 @@
                             "tags": [
                                 "historie",
                                 "romerriket",
-                                "Ã¸konomi",
+                                "økonomi",
                                 "globalisering"
                             ],
                             "createdDate": "2023-12-20T15:30:00Z",
@@ -1832,7 +1995,7 @@
                             "tags": [
                                 "historie",
                                 "romerriket",
-                                "militÃ¦r",
+                                "militær",
                                 "teknologi"
                             ],
                             "createdDate": "2023-12-20T14:30:00Z",
@@ -1841,7 +2004,7 @@
                         {
                             "id": "hverdagsliv-i-roma",
                             "title": "Hverdagslivet i Roma",
-                            "description": "Hvordan var det egentlig Ã¥ bo i antikkens stÃ¸rste by? Utforsk klasseskiller, boliger og 'brÃ¸d og sirkus'.",
+                            "description": "Hvordan var det egentlig å bo i antikkens største by? Utforsk klasseskiller, boliger og 'brød og sirkus'.",
                             "image": "/images/romerriket/hero-hverdag.png",
                             "layout": "rich",
                             "tags": [
@@ -1856,7 +2019,7 @@
                         {
                             "id": "arven-etter-romerriket",
                             "title": "Arven etter Romerriket",
-                            "description": "Et dypdykk i hvordan Romerriket preger kultur, sprÃ¥k, lover og politikk i dag.",
+                            "description": "Et dypdykk i hvordan Romerriket preger kultur, språk, lover og politikk i dag.",
                             "image": "/images/romerriket/hero-arv.png",
                             "layout": "rich",
                             "tags": [
@@ -1871,7 +2034,7 @@
                         {
                             "id": "vestromerrikets-fall",
                             "title": "Vestromerrikets fall",
-                            "description": "Et dypdykk i Ã¥rsakene til det store imperiets kollaps.",
+                            "description": "Et dypdykk i årsakene til det store imperiets kollaps.",
                             "image": "/images/romerriket/hero-fall.png",
                             "tags": [
                                 "antikken",
@@ -1885,7 +2048,7 @@
                         {
                             "id": "romerske-guder",
                             "title": "De Romerske Gudene",
-                            "description": "En reise inn i en verden hvor guder er overalt, og fred med dem sikrer rikets bestÃ¥ende.",
+                            "description": "En reise inn i en verden hvor guder er overalt, og fred med dem sikrer rikets bestående.",
                             "image": "https://images.unsplash.com/photo-1555662369-0bd7982cb4c3?auto=format&fit=crop&q=80",
                             "layout": "rich",
                             "tags": [
@@ -1902,17 +2065,17 @@
                 {
                     "id": "perserriket",
                     "title": "Perserriket",
-                    "description": "Det fÃ¸rste verdensriket, fra Kyros den store til Aleksander den store.",
+                    "description": "Det første verdensriket, fra Kyros den store til Aleksander den store.",
                     "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
                             "id": "artikkel",
                             "title": "Perserriket",
-                            "description": "Det fÃ¸rste verdensriket.",
+                            "description": "Det første verdensriket.",
                             "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
                             "tags": [
                                 "antikken",
-                                "midtÃ¸sten",
+                                "midtøsten",
                                 "imperier",
                                 "krig"
                             ],
@@ -1924,7 +2087,7 @@
                 {
                     "id": "jordbruk-og-sivilisasjoner",
                     "title": "Jordbruk og Sivilisasjoner",
-                    "description": "Mennesket slÃ¥r seg til ro: Fra nomade til fastboende med husdyr.",
+                    "description": "Mennesket slår seg til ro: Fra nomade til fastboende med husdyr.",
                     "image": "/Eiriksbok/images/lessons/jordbruk.png",
                     "createdDate": "2023-11-15T12:00:00",
                     "updatedDate": "2023-11-29T12:00:00",
@@ -1954,7 +2117,7 @@
                         {
                             "id": "menneskets-tidlige-historie",
                             "title": "Menneskets tidlige historie",
-                            "description": "VÃ¥r felles opprinnelse.",
+                            "description": "Vår felles opprinnelse.",
                             "image": "https://images.unsplash.com/photo-1564429247506-322ee8fc5190?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "tags": [
                                 "forhistorie",
@@ -1983,7 +2146,7 @@
                 {
                     "id": "compare-philosophy",
                     "title": "Sammenlign Filosofer",
-                    "description": "Se hvordan ulike filosofer svarer pÃ¥ de store spÃ¸rsmÃ¥lene.",
+                    "description": "Se hvordan ulike filosofer svarer på de store spørsmålene.",
                     "link": "/krle/filosofi/sammenlign",
                     "icon": "library"
                 }
@@ -1998,14 +2161,14 @@
                         {
                             "id": "kristendom",
                             "title": "Kristendom",
-                            "description": "Verdens stÃ¸rste religion.",
+                            "description": "Verdens største religion.",
                             "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/kristendom",
                             "lessons": [
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i kristendommen: Frelse, treenighet og nestekjÃ¦rlighet.",
+                                    "description": "Kjernen i kristendommen: Frelse, treenighet og nestekjærlighet.",
                                     "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
@@ -2016,12 +2179,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "BÃ¸nn",
-                                    "description": "BÃ¸nn i kristendommen.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i kristendommen.",
                                     "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
-                                        "bÃ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2030,7 +2193,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "DÃ¥p, konfirmasjon, bryllup og begravelse.",
+                                    "description": "Dåp, konfirmasjon, bryllup og begravelse.",
                                     "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
@@ -2069,7 +2232,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Treenigheten",
-                                    "description": "Gud som Fader, SÃ¸nn og Hellig Ã…nd.",
+                                    "description": "Gud som Fader, Sønn og Hellig Ånd.",
                                     "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
@@ -2081,8 +2244,8 @@
                                 },
                                 {
                                     "id": "frelse",
-                                    "title": "Frelse og nÃ¥de",
-                                    "description": "Frelse gjennom tro pÃ¥ Jesus.",
+                                    "title": "Frelse og nåde",
+                                    "description": "Frelse gjennom tro på Jesus.",
                                     "image": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
@@ -2109,14 +2272,14 @@
                         {
                             "id": "islam",
                             "title": "Islam",
-                            "description": "Den nest stÃ¸rste verdensreligionen.",
+                            "description": "Den nest største verdensreligionen.",
                             "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/islam",
                             "lessons": [
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i islam: Underkastelse, Tawhid og de fem sÃ¸yler.",
+                                    "description": "Kjernen i islam: Underkastelse, Tawhid og de fem søyler.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
@@ -2127,12 +2290,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "BÃ¸nn (Salah)",
-                                    "description": "Den rituelle bÃ¸nnen i islam.",
+                                    "title": "Bønn (Salah)",
+                                    "description": "Den rituelle bønnen i islam.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
-                                        "bÃ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2023-01-01T12:00:00Z",
@@ -2141,7 +2304,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "FÃ¸dsel, ekteskap og dÃ¸d.",
+                                    "description": "Fødsel, ekteskap og død.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
@@ -2180,7 +2343,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Tawhid",
-                                    "description": "Troen pÃ¥ Guds enhet.",
+                                    "description": "Troen på Guds enhet.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
@@ -2193,7 +2356,7 @@
                                 {
                                     "id": "frelse",
                                     "title": "Dommens dag",
-                                    "description": "Regnskapets time og livet etter dÃ¸den.",
+                                    "description": "Regnskapets time og livet etter døden.",
                                     "image": "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
@@ -2227,7 +2390,7 @@
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i buddhismen: Nirvana, de fire edle sannheter og den Ã¥ttedelte vei.",
+                                    "description": "Kjernen i buddhismen: Nirvana, de fire edle sannheter og den åttedelte vei.",
                                     "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
@@ -2238,12 +2401,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "BÃ¸nn og meditasjon",
-                                    "description": "BÃ¸nn og meditasjon i buddhismen.",
+                                    "title": "Bønn og meditasjon",
+                                    "description": "Bønn og meditasjon i buddhismen.",
                                     "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
-                                        "bÃ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2252,7 +2415,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "FÃ¸dsel, munkeinnvielse og dÃ¸d.",
+                                    "description": "Fødsel, munkeinnvielse og død.",
                                     "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
@@ -2265,7 +2428,7 @@
                                 {
                                     "id": "grunnleggere",
                                     "title": "Buddha",
-                                    "description": "Siddhartha Gautama - den oppvÃ¥knede.",
+                                    "description": "Siddhartha Gautama - den oppvåknede.",
                                     "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
@@ -2304,7 +2467,7 @@
                                 {
                                     "id": "frelse",
                                     "title": "Nirvana",
-                                    "description": "FrigjÃ¸ring fra lidelse og gjenfÃ¸delse.",
+                                    "description": "Frigjøring fra lidelse og gjenfødelse.",
                                     "image": "https://images.unsplash.com/photo-1606293926075-69a00febf280?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
@@ -2330,7 +2493,7 @@
                         },
                         {
                             "id": "jodedom",
-                            "title": "JÃ¸dedom",
+                            "title": "Jødedom",
                             "description": "Den eldste monoteistiske religionen.",
                             "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/jodedom",
@@ -2338,7 +2501,7 @@
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i jÃ¸dedommen: Pakten, Toraen og livet her og nÃ¥.",
+                                    "description": "Kjernen i jødedommen: Pakten, Toraen og livet her og nå.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
@@ -2349,12 +2512,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "BÃ¸nn",
-                                    "description": "BÃ¸nn i jÃ¸dedommen.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i jødedommen.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
-                                        "bÃ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2363,7 +2526,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "OmskjÃ¦ring, Bar/Bat Mitzvah og ekteskap.",
+                                    "description": "Omskjæring, Bar/Bat Mitzvah og ekteskap.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
@@ -2402,7 +2565,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Monoteisme",
-                                    "description": "Troen pÃ¥ Ã©n Gud - Jahve.",
+                                    "description": "Troen på én Gud - Jahve.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
@@ -2414,8 +2577,8 @@
                                 },
                                 {
                                     "id": "frelse",
-                                    "title": "Livet her og nÃ¥",
-                                    "description": "Fokus pÃ¥ Ã¥ leve et rettferdig liv.",
+                                    "title": "Livet her og nå",
+                                    "description": "Fokus på å leve et rettferdig liv.",
                                     "image": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
@@ -2428,10 +2591,10 @@
                                 {
                                     "id": "intro",
                                     "title": "Introduksjon",
-                                    "description": "Grunnleggende om jÃ¸dedommen.",
+                                    "description": "Grunnleggende om jødedommen.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
-                                        "jÃ¸dedom",
+                                        "jødedom",
                                         "intro"
                                     ],
                                     "createdDate": "2023-01-01T12:00:00Z",
@@ -2442,7 +2605,7 @@
                         {
                             "id": "hinduisme",
                             "title": "Hinduisme",
-                            "description": "Verdens eldste nÃ¥levende religion.",
+                            "description": "Verdens eldste nålevende religion.",
                             "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/hinduisme",
                             "lessons": [
@@ -2460,12 +2623,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "BÃ¸nn (Puja)",
-                                    "description": "BÃ¸nn og tilbedelse i hinduismen.",
+                                    "title": "Bønn (Puja)",
+                                    "description": "Bønn og tilbedelse i hinduismen.",
                                     "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "hinduisme",
-                                        "bÃ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2513,7 +2676,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Brahman og guder",
-                                    "description": "Ã‰n guddommelig kraft i mange former.",
+                                    "description": "Én guddommelig kraft i mange former.",
                                     "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "hinduisme",
@@ -2526,7 +2689,7 @@
                                 {
                                     "id": "frelse",
                                     "title": "Moksha",
-                                    "description": "FrigjÃ¸ring fra samsara.",
+                                    "description": "Frigjøring fra samsara.",
                                     "image": "https://images.unsplash.com/photo-1621827979802-6d778e170a64?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "hinduisme",
@@ -2553,7 +2716,7 @@
                         {
                             "id": "historiske-religioner",
                             "title": "Historiske Religioner",
-                            "description": "Religioner som har formet historien, fra antikken til norrÃ¸n tid.",
+                            "description": "Religioner som har formet historien, fra antikken til norrøn tid.",
                             "image": "https://images.unsplash.com/photo-1555662369-0bd7982cb4c3?auto=format&fit=crop&q=80",
                             "tools": [
                                 {
@@ -2564,9 +2727,9 @@
                                     "icon": "book-open"
                                 },
                                 {
-                                    "id": "norrÃ¸ne-guder-link",
-                                    "title": "Ã…satru og Vikingene",
-                                    "description": "MÃ¸t Odin, Tor og FrÃ¸ya (Lenke til Historie).",
+                                    "id": "norrøne-guder-link",
+                                    "title": "Åsatru og Vikingene",
+                                    "description": "Møt Odin, Tor og Frøya (Lenke til Historie).",
                                     "link": "/historie/vikingtiden/asatro",
                                     "icon": "cloud-lightning"
                                 }
@@ -2575,15 +2738,15 @@
                         },
                         {
                             "id": "bahai",
-                            "title": "BahÃ¡'Ã­",
-                            "description": "Troen pÃ¥ menneskehetens enhet.",
+                            "title": "Bahá'í",
+                            "description": "Troen på menneskehetens enhet.",
                             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                             "link": "/krle/religion/bahai",
                             "lessons": [
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i bahÃ¡'Ã­: Enhet mellom Gud, religion og menneskehet.",
+                                    "description": "Kjernen i bahá'í: Enhet mellom Gud, religion og menneskehet.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2594,12 +2757,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "BÃ¸nn",
-                                    "description": "BÃ¸nn i bahÃ¡'Ã­.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i bahá'í.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
-                                        "bÃ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2620,8 +2783,8 @@
                                 },
                                 {
                                     "id": "grunnleggere",
-                                    "title": "BahÃ¡'u'llÃ¡h",
-                                    "description": "Grunnleggeren av bahÃ¡'Ã­-troen.",
+                                    "title": "Bahá'u'lláh",
+                                    "description": "Grunnleggeren av bahá'í-troen.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2633,8 +2796,8 @@
                                 },
                                 {
                                     "id": "hellige-tekster",
-                                    "title": "KitÃ¡b-i-Aqdas",
-                                    "description": "Den helligste boken i bahÃ¡'Ã­.",
+                                    "title": "Kitáb-i-Aqdas",
+                                    "description": "Den helligste boken i bahá'í.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2647,7 +2810,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "En ukjennbar Gud",
-                                    "description": "Gud er Ã©n og utenfor menneskelig fatteevne.",
+                                    "description": "Gud er én og utenfor menneskelig fatteevne.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2659,7 +2822,7 @@
                                 },
                                 {
                                     "id": "frelse",
-                                    "title": "Ã…ndelig utvikling",
+                                    "title": "Åndelig utvikling",
                                     "description": "Sjelens reise mot Gud.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
@@ -2673,7 +2836,7 @@
                                 {
                                     "id": "intro",
                                     "title": "Introduksjon",
-                                    "description": "Grunnleggende om bahÃ¡'Ã­.",
+                                    "description": "Grunnleggende om bahá'í.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2705,12 +2868,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "BÃ¸nn",
-                                    "description": "BÃ¸nn i mormonismen.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i mormonismen.",
                                     "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "mormonisme",
-                                        "bÃ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2719,7 +2882,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "DÃ¥p, konfirmasjon og tempelbesegling.",
+                                    "description": "Dåp, konfirmasjon og tempelbesegling.",
                                     "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "mormonisme",
@@ -2758,7 +2921,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Guddommen",
-                                    "description": "Faderen, SÃ¸nnen og Den hellige Ã¥nd er tre separate vesener.",
+                                    "description": "Faderen, Sønnen og Den hellige ånd er tre separate vesener.",
                                     "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "mormonisme",
@@ -2771,7 +2934,7 @@
                                 {
                                     "id": "frelse",
                                     "title": "Evig progresjon",
-                                    "description": "Muligheten til Ã¥ bli lik Gud.",
+                                    "description": "Muligheten til å bli lik Gud.",
                                     "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "mormonisme",
@@ -2805,7 +2968,7 @@
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i Jehovas vitner: Guds rike og paradis pÃ¥ jord.",
+                                    "description": "Kjernen i Jehovas vitner: Guds rike og paradis på jord.",
                                     "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jehovas-vitner",
@@ -2816,12 +2979,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "BÃ¸nn",
-                                    "description": "BÃ¸nn i Jehovas vitner.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i Jehovas vitner.",
                                     "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jehovas-vitner",
-                                        "bÃ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2830,7 +2993,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "DÃ¥p og ekteskap.",
+                                    "description": "Dåp og ekteskap.",
                                     "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jehovas-vitner",
@@ -2881,8 +3044,8 @@
                                 },
                                 {
                                     "id": "frelse",
-                                    "title": "Paradis pÃ¥ jord",
-                                    "description": "HÃ¥pet om evig liv pÃ¥ en paradisisk jord.",
+                                    "title": "Paradis på jord",
+                                    "description": "Håpet om evig liv på en paradisisk jord.",
                                     "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jehovas-vitner",
@@ -2911,14 +3074,14 @@
                 {
                     "id": "filosofi",
                     "title": "Filosofi",
-                    "description": "Utforsk de store tankene som har formet vÃ¥r verden.",
+                    "description": "Utforsk de store tankene som har formet vår verden.",
                     "image": "https://images.unsplash.com/photo-1516050748632-ca7a5c110031?auto=format&fit=crop&q=80",
                     "defaultView": "chronological",
                     "lessons": [
                         {
                             "id": "intro",
                             "title": "Hva er filosofi?",
-                            "description": "Opphavet til filosofi og de ulike grenene som undersÃ¸ker virkeligheten.",
+                            "description": "Opphavet til filosofi og de ulike grenene som undersøker virkeligheten.",
                             "image": "https://images.unsplash.com/photo-1516050748632-ca7a5c110031?auto=format&fit=crop&q=80",
                             "tags": [
                                 "intro",
@@ -2945,12 +3108,12 @@
                         {
                             "id": "platon",
                             "title": "Platon",
-                            "description": "IdÃ©lÃ¦ren og skyggene i hulen.",
+                            "description": "Idélæren og skyggene i hulen.",
                             "image": "https://images.unsplash.com/photo-1503149779833-1de50ebe5f8a?auto=format&fit=crop&q=80",
                             "tags": [
                                 "filosofi",
                                 "platon",
-                                "idÃ©lÃ¦re"
+                                "idélære"
                             ],
                             "createdDate": "2025-12-21T12:00:00Z",
                             "lastUpdated": "2025-12-21T12:00:00Z"
@@ -2996,8 +3159,8 @@
                         },
                         {
                             "id": "descartes",
-                            "title": "RenÃ© Descartes",
-                            "description": "Jeg tenker, altsÃ¥ er jeg.",
+                            "title": "René Descartes",
+                            "description": "Jeg tenker, altså er jeg.",
                             "image": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
                             "tags": [
                                 "filosofi",
@@ -3035,7 +3198,7 @@
                         },
                         {
                             "id": "kierkegaard",
-                            "title": "SÃ¸ren Kierkegaard",
+                            "title": "Søren Kierkegaard",
                             "description": "Eksistensens tre stadier.",
                             "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
                             "tags": [
@@ -3049,7 +3212,7 @@
                         {
                             "id": "nietzsche",
                             "title": "Friedrich Nietzsche",
-                            "description": "Gud er dÃ¸d og overmennesket.",
+                            "description": "Gud er død og overmennesket.",
                             "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
                             "tags": [
                                 "filosofi",
@@ -3066,7 +3229,7 @@
                             "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
                             "tags": [
                                 "filosofi",
-                                "Ã¸konomi",
+                                "økonomi",
                                 "mises"
                             ],
                             "createdDate": "2025-12-21T12:00:00Z",
@@ -3075,7 +3238,7 @@
                         {
                             "id": "heidegger",
                             "title": "Martin Heidegger",
-                            "description": "Dasein og spÃ¸rsmÃ¥let om vÃ¦ren.",
+                            "description": "Dasein og spørsmålet om væren.",
                             "image": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80",
                             "tags": [
                                 "filosofi",
@@ -3101,7 +3264,7 @@
                         {
                             "id": "beauvoir",
                             "title": "Simone de Beauvoir",
-                            "description": "Man fÃ¸des ikke som kvinne, man blir det.",
+                            "description": "Man fødes ikke som kvinne, man blir det.",
                             "image": "https://images.unsplash.com/photo-1549405616-56329424c58f?auto=format&fit=crop&q=80",
                             "tags": [
                                 "filosofi",
@@ -3149,7 +3312,7 @@
                         {
                             "id": "utilitarisme",
                             "title": "Utilitarisme",
-                            "description": "MÃ¥let om stÃ¸rst mulig lykke for flest mulig.",
+                            "description": "Målet om størst mulig lykke for flest mulig.",
                             "image": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80",
                             "tags": [
                                 "etikk",
@@ -3227,7 +3390,7 @@
                 {
                     "id": "akkordbank-tool",
                     "title": "Akkordbank",
-                    "description": "SlÃ¥ opp i pianoakkorder",
+                    "description": "Slå opp i pianoakkorder",
                     "link": "/musikk/oppslag/akkordbank",
                     "icon": "music"
                 },
@@ -3240,7 +3403,7 @@
                 },
                 {
                     "id": "latskriver-tool",
-                    "title": "LÃ¥tskriver",
+                    "title": "Låtskriver",
                     "description": "Planlegg struktur",
                     "link": "/musikk/oppslag/latskriver",
                     "icon": "edit"
@@ -3250,13 +3413,13 @@
                 {
                     "id": "grunnleggende",
                     "title": "Det Grunnleggende",
-                    "description": "LÃ¦r musikkens sprÃ¥k: Takt, rytme og harmoni.",
+                    "description": "Lær musikkens språk: Takt, rytme og harmoni.",
                     "image": "/images/topics/musikk_grunnleggende.png",
                     "lessons": [
                         {
                             "id": "takt-og-rytme",
                             "title": "Takt og Rytme",
-                            "description": "Hva er puls? Hva er en takt? LÃ¦r om 4/4 og andre taktarter.",
+                            "description": "Hva er puls? Hva er en takt? Lær om 4/4 og andre taktarter.",
                             "image": "/images/lessons/musikk/takt_og_rytme.png",
                             "tags": [
                                 "musikk",
@@ -3269,7 +3432,7 @@
                         {
                             "id": "akkorder-og-harmoni",
                             "title": "Akkorder og Harmoni",
-                            "description": "ForstÃ¥ dur, moll og treklanger.",
+                            "description": "Forstå dur, moll og treklanger.",
                             "image": "/images/lessons/musikk/akkorder.png",
                             "tags": [
                                 "musikk",
@@ -3282,7 +3445,7 @@
                         {
                             "id": "notasjon",
                             "title": "Notasjon",
-                            "description": "LÃ¦r Ã¥ lese musikkens kart: Noter og tabulatur.",
+                            "description": "Lær å lese musikkens kart: Noter og tabulatur.",
                             "image": "https://images.unsplash.com/photo-1507838153414-b4b713384ebd?auto=format&fit=crop&q=80",
                             "tags": [
                                 "musikk",
@@ -3297,7 +3460,7 @@
                 {
                     "id": "instrumenter",
                     "title": "Instrumentene",
-                    "description": "VerktÃ¸ykassen: Gitar, Piano, Bass og Trommer.",
+                    "description": "Verktøykassen: Gitar, Piano, Bass og Trommer.",
                     "image": "/images/topics/musikk_instrumenter.png",
                     "lessons": [
                         {
@@ -3357,18 +3520,18 @@
                 {
                     "id": "komposisjon",
                     "title": "Komposisjon",
-                    "description": "Hvordan lage egne lÃ¥ter?",
+                    "description": "Hvordan lage egne låter?",
                     "image": "/images/topics/musikk_komposisjon.png",
                     "lessons": [
                         {
                             "id": "lat-struktur",
-                            "title": "LÃ¥tens Anatomi",
+                            "title": "Låtens Anatomi",
                             "description": "Vers, refreng, bro og oppbygging.",
                             "image": "/images/lessons/musikk/struktur.png",
                             "tags": [
                                 "musikk",
                                 "komposisjon",
-                                "lÃ¥tskriving"
+                                "låtskriving"
                             ],
                             "createdDate": "2025-12-13T12:00:00Z",
                             "lastUpdated": "2025-12-13T12:00:00Z"
@@ -3378,7 +3541,7 @@
                 {
                     "id": "vurdering",
                     "title": "Vurdering",
-                    "description": "MÃ¥l og mening.",
+                    "description": "Mål og mening.",
                     "image": "/images/topics/musikk_vurdering.png",
                     "lessons": [
                         {
@@ -3398,8 +3561,8 @@
                 },
                 {
                     "id": "oppslag",
-                    "title": "VerktÃ¸y & Oppslag",
-                    "description": "Din musikalske verktÃ¸ykasse.",
+                    "title": "Verktøy & Oppslag",
+                    "description": "Din musikalske verktøykasse.",
                     "image": "/images/topics/musikk_oppslag.png",
                     "lessons": [
                         {
@@ -3435,12 +3598,12 @@
                         {
                             "id": "latskriver",
                             "layout": "tool",
-                            "title": "LÃ¥tskriververktÃ¸y",
-                            "description": "Planlegg strukturen og dynamikken i lÃ¥ta di.",
+                            "title": "Låtskriververktøy",
+                            "description": "Planlegg strukturen og dynamikken i låta di.",
                             "image": "/images/lessons/musikk/latskriving.png",
                             "tags": [
                                 "musikk",
-                                "verktÃ¸y",
+                                "verktøy",
                                 "komposisjon"
                             ],
                             "createdDate": "2025-12-13T12:00:00Z",

@@ -1,0 +1,475 @@
+{
+    "id": "kald-krig-sti",
+    "title": "Læringssti: Den Kalde Krigen",
+    "description": "Bli med agenten 'Null' gjennom en verden delt av jernteppet. Fra ruinene av Berlin til Cubas jungel – du er vitne til spillet som kunne endt verden.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "1945 - 1991",
+    "readTime": "4-5 timer",
+    "learningPathData": {
+        "id": "kald-krig-sti",
+        "title": "Den Kalde Krigen: I skyggen av bomben",
+        "description": "Du er en observatør, kodenavn 'Null'. Din oppgave er å navigere gjennom det 20. århundrets farligste tiår. Du vil se supermakter som stirrer hverandre i hvitøyet, og vanlige folk som lever i frykt for soppen skyen. Husk: I en kald krig er informasjonen ditt viktigste våpen.",
+        "steps": [
+            {
+                "id": "cold-war-intro",
+                "phase": "Fase 1: Jernteppet senker seg (1945-1955)",
+                "title": "En verden delt i to",
+                "type": "fakta",
+                "content": "Året er 1945. Europa ligger i ruiner. Seierherrene fra verdenskrigen, USA og Sovjetunionen, står nå ansikt til ansikt. Men de smiler ikke lenger. Winston Churchill erklærer at et 'jernteppe' har senket seg over kontinentet. Du står ved sjekkpunktet i Berlin. På den ene siden: Frihet og kapitalisme. På den andre: Kommunisme og kontroll. Hvilken side velger du?",
+                "tasks": [
+                    "Hva mente Winston Churchill med uttrykket 'Jernteppet'?",
+                    "Hva var Trumandoktrinen, og hva var målet med den?",
+                    "Hvorfor kalles denne konflikten 'kald' og ikke 'varm'?",
+                    "Hva var Marshallhjelpen, og hvorfor takket land i øst nei til den?",
+                    "Hvordan ble Tyskland delt etter krigen?",
+                    "Hva skjedde under Berlinblokaden i 1948?"
+                ],
+                "links": [
+                    {
+                        "title": "Oversikt: Den Kalde Krigen",
+                        "url": "/historie/den-kalde-krigen/oversikt"
+                    }
+                ]
+            },
+            {
+                "id": "cold-war-alliances",
+                "title": "Å velge side: NATO vs Warszawa",
+                "type": "fakta",
+                "content": "Frykten sprer seg. Ingen tør å stå alene. I Vest bygger USA en allianse basert på 'en for alle, alle for en'. I Øst svarer Sovjetunionen med sin egen pakt. Du sitter i et røykfylt rom i Brussel og leser hemmelige rapporter. Kartet farges blått og rødt. Verden låses i to leire, og nøytralitet blir livsfarlig.",
+                "tasks": [
+                    "Når ble NATO opprettet, og hva er artikkel 5?",
+                    "Hvilke land var med i Warszawapakten?",
+                    "Hva var formålet med disse militæralliansene?",
+                    "Hvorfor ble Norge medlem av NATO, til tross for naboen i øst?",
+                    "Hva menes med begrepet 'Terrorbalanse'?",
+                    "Hvordan påvirket alliansene land som ikke ville velge side (Alliansefrie land)?"
+                ],
+                "links": [
+                    {
+                        "title": "NATO vs Warszawapakten",
+                        "url": "/historie/den-kalde-krigen/nato-vs-warszawa"
+                    }
+                ]
+            },
+            {
+                "id": "cold-war-korea",
+                "title": "Korea: Den første varme krigen",
+                "type": "fakta",
+                "content": "1950. Alarmen går. Nord-Koreanske styrker har krysset den 38. breddegrad. Dette er ikke lenger en kald krig – det brenner. Du er utsendt til frontlinjen som krigskorrespondent. Supermaktene kjemper via andre. Nord støttes av Kina og Sovjet, Sør av USA og FN. Dette er den store testen: Vil atomvåpnene bli brukt?",
+                "tasks": [
+                    "Hva var 'Casus belli' for Koreakrigen?",
+                    "Hvorfor kaller vi Koreakrigen en 'stedfortrederkrig' (proxy war)?",
+                    "Hvilken rolle spilte FN i denne konflikten?",
+                    "Hva ble resultatet av krigen, og hvor går grensen i dag?",
+                    "Hvordan var general MacArthurs plan forskjellig fra president Trumans?",
+                    "Hvilke konsekvenser fikk krigen for sivilbefolkningen?"
+                ],
+                "links": [
+                    {
+                        "title": "Koreakrigen",
+                        "url": "/historie/den-kalde-krigen/koreakrigen"
+                    }
+                ],
+                "component": {
+                    "name": "PackTheBag",
+                    "props": {
+                        "capacity": 50,
+                        "targetValue": 90,
+                        "description": "Sirenen uler! Atomangrep kan være nært forestående. Du har 5 minutter på å pakke utstyr til bomberommet. Hva trenger du for å overleve i uker under jorden?",
+                        "items": [
+                            {
+                                "id": "hermetikk",
+                                "name": "Hermetikk (Børnebønner)",
+                                "weight": 10,
+                                "value": 40,
+                                "icon": "🥫"
+                            },
+                            {
+                                "id": "vann",
+                                "name": "Vannkanne (20L)",
+                                "weight": 20,
+                                "value": 50,
+                                "icon": "💧"
+                            },
+                            {
+                                "id": "radio",
+                                "name": "Batteriradio",
+                                "weight": 5,
+                                "value": 30,
+                                "icon": "📻"
+                            },
+                            {
+                                "id": "geiger",
+                                "name": "Geigerteller",
+                                "weight": 2,
+                                "value": 20,
+                                "icon": "☢️"
+                            },
+                            {
+                                "id": "våpen",
+                                "name": "Pistol",
+                                "weight": 3,
+                                "value": 10,
+                                "icon": "🔫"
+                            },
+                            {
+                                "id": "spill",
+                                "name": "Kortstokk",
+                                "weight": 1,
+                                "value": 5,
+                                "icon": "b"
+                            },
+                            {
+                                "id": "pass",
+                                "name": "Falske Pass",
+                                "weight": 1,
+                                "value": 25,
+                                "icon": "🛂"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "cold-war-arms",
+                "phase": "Fase 2: Terrorbalansen (1955-1965)",
+                "title": "Kappløpet mot dommedag",
+                "type": "fakta",
+                "content": "Begge sider har nå bomben. Ikke bare atombomben, men hydrogenbomben – tusen ganger kraftigere. Du ser generalene flytte brikker på verdenskartet. Strategien er galskap satt i system: M.A.D. (Mutually Assured Destruction). Hvis du skyter, dør jeg. Men hvis jeg dør, tar jeg deg med meg. Verden holder pusten.",
+                "tasks": [
+                    "Hva står forkortelsen M.A.D. for, og hva betyr det i praksis?",
+                    "Hvorfor førte terrorbalansen paradoksalt nok til at det *ikke* ble verdenskrig?",
+                    "Hva var prøvestansavtalen?",
+                    "Hvilke andre våpen enn atombomber ble utviklet (tenk leveringssystemer)?",
+                    "Hvordan påvirket atomtrusselen hverdagslivet (Duck and Cover)?",
+                    "Hva var Cubakrisens rolle i opprettelsen av 'den røde telefonen'?"
+                ],
+                "links": [
+                    {
+                        "title": "Atomvåpenkappløpet",
+                        "url": "/historie/den-kalde-krigen/atomvapenkapplopet"
+                    }
+                ]
+            },
+            {
+                "id": "cold-war-space",
+                "title": "Kampen om stjernene",
+                "type": "fakta",
+                "content": "Bipp... Bipp... Bipp... Lyden fra Sputnik sjokkerer Vesten. Sovjet har erobret rommet! Du står på Cape Canaveral og ser raketter eksplodere på oppskytingsrampen. USA ligger etter. Men president Kennedy setter et hårete mål: Vi skal til månen. Romkappløpet handler ikke bare om vitenskap – det handler om å bevise hvilket system som er overlegent.",
+                "tasks": [
+                    "Hva var Sputnik-sjokket?",
+                    "Hvem var Jurij Gagarin?",
+                    "Hvorfor var det så viktig prestisjemessig å komme først til månen?",
+                    "Hvilke teknologiske nyvinninger fra romkappløpet bruker vi i dag?",
+                    "Hvordan brukte begge stormaktene romfart i sin propaganda?",
+                    "Når landet Apollo 11 på månen?"
+                ],
+                "links": [
+                    {
+                        "title": "Romkappløpet",
+                        "url": "/historie/den-kalde-krigen/romkapplopet"
+                    }
+                ]
+            },
+            {
+                "id": "cold-war-cuba",
+                "title": "13 dager på randen",
+                "type": "fakta",
+                "content": "Oktober 1962. Spionflybilder viser sovjetiske raketter på Cuba, rett utenfor Floridas kyst. President Kennedy innkaller sine rådgivere. Generalene vil bombe. Diplomatene vil snakke. Sovjetiske skip er på vei. Du befinner deg i Det hvite hus' situasjonsrom. Klokken tikker mot midnatt. Ett feiltrinn nå, og sivilisasjonen ender.",
+                "tasks": [
+                    "Hva var den direkte årsaken (Casus belli-potensialet) til krisen?",
+                    "Hvorfor plasserte Khrusjtsjov raketter på Cuba?",
+                    "Hva valgte Kennedy å gjøre (blokade/karantene)?",
+                    "Hvordan ble krisen løst?",
+                    "Hva var avtalen om rakettene i Tyrkia?",
+                    "Hvor nær var verden atomkrig, ifølge historikere?"
+                ],
+                "links": [
+                    {
+                        "title": "Cubakrisen",
+                        "url": "/historie/den-kalde-krigen/cuba-krisen"
+                    }
+                ],
+                "component": {
+                    "name": "ScenarioRoleplay",
+                    "props": {
+                        "title": "Rådgiver i Det hvite hus",
+                        "intro": "Du er Kennedys nærmeste rådgiver. U-2 fly har bekreftet atomraketter på Cuba. Generalene presser på for et luftangrep. Presidenten ser på deg. Hva er ditt råd?",
+                        "startId": "start",
+                        "scenarios": [
+                            {
+                                "id": "start",
+                                "text": "Hva anbefaler du, rådgiver?",
+                                "options": [
+                                    {
+                                        "label": "Luftangrep! Vi må ødelegge rakettene før de er klare.",
+                                        "nextId": "airstrike"
+                                    },
+                                    {
+                                        "label": "Invasjon! Send inn marinesoldatene.",
+                                        "nextId": "invasion"
+                                    },
+                                    {
+                                        "label": "Blokade (Karantene). Stopp sovjetiske skip med marinen.",
+                                        "nextId": "blockade"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "airstrike",
+                                "text": "Angrepet lyktes delvis, men noen raketter overlevde. Sovjet svarer med å angripe Berlin. NATO aktiverer artikkel 5. Tredje verdenskrig er i gang.",
+                                "options": [
+                                    {
+                                        "label": "Prøv igjen (Game Over)",
+                                        "nextId": "start"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "invasion",
+                                "text": "Amerikanske tropper møter uventet hard motstand. Sovjetiske feltkommandanter på Cuba bruker taktiske atomvåpen mot invasjonsstyrken. Eskalering er uunngåelig.",
+                                "options": [
+                                    {
+                                        "label": "Prøv igjen (Game Over)",
+                                        "nextId": "start"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "blockade",
+                                "text": "Marinen omringer Cuba. Det er en passiv, men fast handling. Khrusjtsjov kaller det 'sjørøveri', men skipene hans stopper. Tiden stopper opp. Vil han snu?",
+                                "options": [
+                                    {
+                                        "label": "Hold linjen. Gi diplomatiet tid.",
+                                        "nextId": "victory"
+                                    },
+                                    {
+                                        "label": "Senk skipene hvis de ikke snur!",
+                                        "nextId": "escalation"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "escalation",
+                                "text": "Du senket et sovjetisk skip. Ubåten som eskorterte det fyrte av en atomtorpedo. Det er over.",
+                                "options": [
+                                    {
+                                        "label": "Prøv igjen",
+                                        "nextId": "start"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "victory",
+                                "text": "Det virket! Khrusjtsjov sender et brev. Han trekker rakettene tilbake mot at USA lover å ikke invadere Cuba (og fjerner raketter i Tyrkia i hemmelighet). Verden puster ut.",
+                                "options": []
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "cold-war-culture",
+                "phase": "Fase 3: Kulturkrig og Proxy-konflikter (1965-1979)",
+                "title": "Kultur og Propaganda",
+                "type": "fakta",
+                "content": "Krigen utkjempes ikke bare med våpen, men med tanker. I Moskva vises heroiske arbeidere. I Hollywood kjemper James Bond mot onde russere. Du går gjennom gatene og ser plakatene. 'Better dead than red'. Hver film, hver bok, hvert OL-gull er en del av kampen. Hvordan påvirker denne konstante indoktrineringen deg?",
+                "tasks": [
+                    "Hvordan ble film og tegneserier brukt som propaganda i Vesten?",
+                    "Hva var 'sosialistisk realisme' innen kunsten?",
+                    "Hvorfor var idrettsprestasjoner (som OL) så politisk viktige?",
+                    "Hva var McCarthyismen og 'rødfrykten' i USA?",
+                    "Hvordan prøvde CIA og KGB å påvirke kulturlivet?",
+                    "Finnes det liknende informasjonskriger i dag?"
+                ],
+                "links": [
+                    {
+                        "title": "Kultur under Den Kalde Krigen",
+                        "url": "/historie/den-kalde-krigen/kultur"
+                    }
+                ]
+            },
+            {
+                "id": "cold-war-vietnam",
+                "title": "Vietnam: En supermakt blør",
+                "type": "fakta",
+                "content": "Du kjenner varmen fra jungelen og lukten av napalm. USA har gått inn i Vietnam for å stoppe 'Dominobrikkene' fra å falle. Men fienden er overalt og ingen steder. Tonkin-bukten ga USA sin 'Casus belli', men var den ekte? Hjemme i stuene ser folk krigens grusomheter på TV for første gang. Demonstrasjonene vokser. Er denne krigen verdt prisen?",
+                "tasks": [
+                    "Hva var Tonkin-episoden, og var den en legitim 'Casus belli'?",
+                    "Hva menes med 'Dominoteorien'?",
+                    "Hvorfor klarte ikke USA, med all sin overmakt, å vinne over Vietcong?",
+                    "Hvordan påvirket mediaopinionen krigens gang?",
+                    "Drøft: Hvordan lider sivilbefolkningen i en stedfortrederkrig?",
+                    "Hva ble konsekvensene av krigen for USA og Vietnam?"
+                ],
+                "links": [
+                    {
+                        "title": "Vietnamkrigen",
+                        "url": "/historie/den-kalde-krigen/vietnamkrigen"
+                    }
+                ],
+                "component": {
+                    "name": "DebateSimulator",
+                    "props": {
+                        "topic": "Hvilket system tjener folket best?",
+                        "opponentName": "Ambassadør Petrov",
+                        "context": "FNs generalforsamling, 1970. Du representerer Vesten. Debatten raser om ideologi.",
+                        "winningScore": 15,
+                        "arguments": [
+                            {
+                                "id": "a1",
+                                "text": "Kapitalismen gir frihet til å velge og skape sin egen lykke.",
+                                "strength": 5,
+                                "type": "freedom",
+                                "response": "Frihet til å sulte! I mitt land har alle jobb og mat."
+                            },
+                            {
+                                "id": "a2",
+                                "text": "Ytringsfrihet er en menneskerett. Vi fengsler ikke kritikere.",
+                                "strength": 8,
+                                "type": "freedom",
+                                "response": "Dere lar kapitalistene eie avisene. Det er ikke frihet, det er hjernevask."
+                            },
+                            {
+                                "id": "a3",
+                                "text": "Det frie markedet skaper innovasjon og velstand for flest mulig.",
+                                "strength": 4,
+                                "type": "economy",
+                                "response": "Det skaper ulikhet! Noen er rike, mens andre bor på gaten."
+                            },
+                            {
+                                "id": "b1",
+                                "text": "Kommunismen har drept millioner gjennom sult og tvang.",
+                                "strength": 9,
+                                "type": "history",
+                                "response": "Løgn! Det er vestlig propaganda. Vi industrialiserte på rekordtid."
+                            },
+                            {
+                                "id": "b2",
+                                "text": "Se på Berlinmuren. Dere må bygge murer for å holde folk inne.",
+                                "strength": 10,
+                                "type": "history",
+                                "response": "Vi beskytter folket mot fascister og spioner... (Publikum mumler)"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "cold-war-berlin",
+                "phase": "Fase 4: Murens fall (1980-1991)",
+                "title": "Riv muren!",
+                "type": "fakta",
+                "content": "Det er sent på 80-tallet. Sovjetøkonomien råtner. Gorbatsjov innfører 'Glasnost' og 'Perestrojka'. Han åpner døren på gløtt, men folket sparker den inn. Du står igjen i Berlin, 9. november 1989. Vaktene er forvirret. Folk strømmer mot muren med slegger. Betongen som delte verden i 28 år, smuldrer opp foran øynene dine.",
+                "tasks": [
+                    "Hva var Glasnost og Perestrojka?",
+                    "Hvorfor kollapset økonomien i Sovjetunionen?",
+                    "Hvilken rolle spilte Ronald Reagan og pave Johannes Paul II?",
+                    "Beskriv hendelsene natt til 9. november 1989.",
+                    "Hvordan spredte 'høstrevolusjonene' seg gjennom Øst-Europa?",
+                    "Hva betydde murens fall symbolsk?"
+                ],
+                "links": [
+                    {
+                        "title": "Berlinmuren",
+                        "url": "/historie/den-kalde-krigen/berlinmuren"
+                    }
+                ]
+            },
+            {
+                "id": "cold-war-end",
+                "title": "Slutten på historien?",
+                "type": "utfordring",
+                "content": "Julaften 1991. Det røde flagget fires over Kreml for siste gang. Sovjetunionen er oppløst. Den Kalde Krigen er over uten et kjernefysisk ragnarok. Agent 'Null', ditt oppdrag er utført. Men verden er forandret. Nye stater oppstår, og maktbalansen er forskjøvet. Har vi lært, eller ulmer glørne fortsatt?",
+                "tasks": [
+                    "Hvorfor gikk Sovjetunionen i oppløsning så raskt?",
+                    "Hvilke nye stater oppsto etter 1991?",
+                    "Hva mente Francis Fukuyama med 'The End of History'?",
+                    "Hvordan er forholdet mellom Russland og Vesten i dag sammenlignet med da?",
+                    "Hva skjedde med atomvåpnene etter Sovjets fall?"
+                ],
+                "links": [
+                    {
+                        "title": "Veien mot slutten",
+                        "url": "/historie/den-kalde-krigen/veien-mot-slutt"
+                    }
+                ],
+                "component": {
+                    "name": "DragDropTimeline",
+                    "props": {
+                        "title": "Den Kalde Krigens Tidslinje",
+                        "events": [
+                            {
+                                "id": "truman",
+                                "year": 1947,
+                                "label": "Trumandoktrinen"
+                            },
+                            {
+                                "id": "korea",
+                                "year": 1950,
+                                "label": "Koreakrigen starter"
+                            },
+                            {
+                                "id": "sputnik",
+                                "year": 1957,
+                                "label": "Sputnik 1"
+                            },
+                            {
+                                "id": "cuba",
+                                "year": 1962,
+                                "label": "Cubakrisen"
+                            },
+                            {
+                                "id": "moon",
+                                "year": 1969,
+                                "label": "Månelandingen"
+                            },
+                            {
+                                "id": "wall",
+                                "year": 1989,
+                                "label": "Berlinmurens fall"
+                            },
+                            {
+                                "id": "dissolution",
+                                "year": 1991,
+                                "label": "Sovjetunionens oppløsning"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "cold-war-reflection",
+                "phase": "Fase 5: Ettertid",
+                "title": "Hva lærte vi?",
+                "type": "refleksjon",
+                "content": "Du legger vekk spionutstyret. Verden unngikk atomkrig, men millioner døde i stedfortrederkriger. Vi lever fortsatt med arven: atomvåpen, allianser og mistenksomhet. Var det verdikampen verdt det? Og er den kalde krigen egentlig over, eller har den bare skiftet form?",
+                "tasks": [
+                    "Diskuter: Er verden tryggere i dag enn under Den Kalde Krigen?",
+                    "Hvilke paralleller ser du til dagens konflikter (f.eks. USA vs Kina)?",
+                    "Hvordan har teknologi (internett, overvåkning) endret spionasje?",
+                    "Reflekter over begrepet 'fiendebilde' – hvordan skapes det?"
+                ],
+                "links": [
+                    {
+                        "title": "Oversikt: Den Kalde Krigen",
+                        "url": "/historie/den-kalde-krigen/oversikt"
+                    }
+                ]
+            },
+            {
+                "id": "cold-war-project",
+                "title": "Fordypningsoppgave",
+                "type": "oppgave",
+                "content": "Nå er det din tur til å rapportere. Velg deg et tema fra denne epoken. Du kan dykke ned i teknologien, kulturen eller de politiske spillene.",
+                "tasks": [
+                    "Lag en nyhetssending (video/podcast) fra enten Månelandingen eller Murens fall.",
+                    "Skriv en spionnovelle satt til Berlin under Den Kalde Krigen.",
+                    "Lag en presentasjon om en stedfortrederkrig (f.eks. Afghanistan eller Angola) som vi ikke dekket grundig her.",
+                    "Analyse av en film fra perioden (f.eks. 'Dr. Strangelove' eller 'Rocky IV')."
+                ]
+            }
+        ]
+    }
+}

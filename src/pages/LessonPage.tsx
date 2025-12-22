@@ -141,19 +141,10 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const relevantLearningPaths = allTopicTools
         .filter(t => {
             const isPath = t.id.includes('sti') || t.title.toLowerCase().includes('læringssti');
-            if (!isPath) return false;
+            // If it's a learning path defined in the topic, always show it
+            if (isPath) return true;
 
-            // Heuristic matches
-            const titleMatches = t.title.toLowerCase().includes(lesson?.title?.toLowerCase() || '');
-            const idMatches = t.id.includes(lessonId);
-
-            // If the lesson is the main topic article, it's very likely relevant
-            const isMainTopicLesson = lessonId === topicId || lessonId === subTopicId;
-
-            // If the path ID starts with the topic ID, it's likely a general path for the topic
-            const isTopicGeneralPath = topicId && t.id.startsWith(topicId);
-
-            return titleMatches || idMatches || isMainTopicLesson || isTopicGeneralPath;
+            return false;
         })
         .map(t => ({
             id: t.id,

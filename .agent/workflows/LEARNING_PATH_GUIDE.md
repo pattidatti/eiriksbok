@@ -162,15 +162,45 @@ For at stien skal vises i systemet, må den registreres i `public/content/manife
 
 ```json
 {
-    "id": "mitt-emne-sti",
-    "title": "Læringssti: Tittel",
-    "description": "Beskrivelse...",
-    "image": "/images/lessons/sti-bilde.png",
-    "tags": ["læringssti", "emne"],
-    "createdDate": "2024-01-01T12:00:00Z",
-    "lastUpdated": "2024-01-01T12:00:00Z"
+    "id": "mitt-emne",
+    "tools": [
+        {
+            "id": "mitt-emne-sti",
+            "title": "Læringssti: Tittel",
+            "description": "Beskrivelse...",
+            "link": "/historie/mitt-emne/mitt-emne-sti",
+            "icon": "map"
+        }
+    ],
+    "lessons": [ ... ]
 }
 ```
+
+> **VIKTIG:** Læringsstier skal registreres i `tools`-listen til et emne, **ikke** under `lessons`.
+
+## 5. Feilsøking og Kvalitetssikring
+
+### Kritiske Sjekkpunkter (Unngå disse feilene!)
+
+#### 1. "Spøkelsesdata" (Duplikate oppføringer)
+**Symptom:** Endringer i manifestet vises ikke, eller gamle data henger igjen.
+**Årsak:** Det finnes flere oppføringer for samme `id` i manifestet (f.eks to blokker med `"id": "den-kalde-krigen"`). Systemet velger ofte den første den finner.
+**Løsning:** Før du limer inn noe nytt, søk etter ID-en i filen for å se om den allerede eksisterer. Slett eller oppdater den eksisterende blokken.
+
+#### 2. Koding og Norske Tegn
+**Symptom:** Tekst vises som "Ã¦", "Ã¸", "Ã¥".
+**Årsak:** Manuell redigering eller kopiering har ødelagt tegnsettet (UTF-8).
+**Løsning:** Vær nøye med encoding når du redigerer `manifest.json`. Ser du rare tegn, fiks dem umiddelbart.
+
+#### 3. Synlighet i Sidebar
+**Symptom:** Læringsstien dukker ikke opp i menyen til høyre inne på artikler.
+**Årsak:** Læringsstien er ikke registrert korrekt i `tools`-listen i manifestet, eller koden finner den ikke.
+**Løsning:** Sjekk at `tools`-blokken ligger på samme nivå som `lessons` inne i emnet.
+
+#### 4. Navigasjon på Emnekort
+**Symptom:** Klikk på emnet går rett til første artikkel, ikke oversikten.
+**Årsak:** Systemet tror emnet bare har én leksjon og hopper over forsiden.
+**Løsning:** Sørg for at `tools` er definert. Navigasjonslogikken skal prioritere oversiktssiden hvis verktøy finnes.
 
 > **VIKTIG:** Sørg for at `id` i manifestet matcher filnavnet (uten .json) og `id` inne i JSON-filen.
 

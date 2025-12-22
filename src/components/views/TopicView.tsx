@@ -56,6 +56,10 @@ export const TopicView: React.FC<TopicViewProps> = ({ subjectData, subjectId }) 
                     } else if (topic.lessons) {
                         lessonCount = topic.lessons.length;
                     }
+                    // Add tools to count
+                    if (topic.tools) {
+                        lessonCount += topic.tools.length;
+                    }
 
                     return (
                         <motion.div

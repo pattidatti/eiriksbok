@@ -66,6 +66,16 @@ export const TopicPage: React.FC = () => {
     }
 
     const activeItem = currentSubTopic || currentTopic;
+
+
+    console.log('TopicPage Debug Stringified:', JSON.stringify({
+        topicId,
+        hasTools: !!activeItem?.tools,
+        toolsLength: activeItem?.tools?.length,
+        tools: activeItem?.tools
+    }, null, 2));
+
+
     const rawLessons = activeItem.lessons || [];
     const subTopics = !currentSubTopic && currentTopic.subTopics ? currentTopic.subTopics : [];
     const title = activeItem.title;
