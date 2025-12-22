@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, MessageCircle, Share2, Shield, User, Info } from 'lucide-react';
+import { Heart, MessageCircle, Share2, Shield, Info } from 'lucide-react';
 
 interface Post {
     id: number;
