@@ -2,59 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Volume2 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { GovernmentExplorer } from './GovernmentExplorer';
-import { HistoryLongLines } from './HistoryLongLines';
-import { Quiz } from './Quiz';
-import { EICSimulation } from './EICSimulation';
-import { FactBox } from './FactBox';
-import { TimelineComponent } from './TimelineComponent';
-import { PlotGraph } from './PlotGraph';
-import { InflationCalculator } from './content/interactive/InflationCalculator';
-import { TimePreferenceModel } from './content/interactive/TimePreferenceModel';
-import { BusinessCycleModel } from './content/interactive/BusinessCycleModel';
-import { BusinessCycleGraph } from './content/interactive/BusinessCycleGraph';
-import { ProductionModel } from './content/interactive/ProductionModel';
-import { GrammarRuleCard } from './content/interactive/GrammarRuleCard';
-import { TextHighlighter } from './content/interactive/TextHighlighter';
-import { SentenceBuilder } from './content/interactive/SentenceBuilder';
-import { ConflictMap } from './viking/ConflictMap';
-import { FeudalPyramid } from './viking/FeudalPyramid';
-import { PantheonExplorer } from './viking/PantheonExplorer';
-import { RomanPantheonExplorer } from './content/interactive/RomanPantheonExplorer';
-import { LanguageMixer } from './viking/LanguageMixer';
-import { TradeRouteMap } from './viking/TradeRouteMap';
-import { TimelineSlider } from './viking/TimelineSlider';
-import { QuoteBlock } from './QuoteBlock';
-import { Comparison } from './Comparison';
-import { LineChart } from './LineChart';
-import { VirtualPiano } from '../features/music/components/VirtualPiano';
-import { FretboardExplorer } from '../features/music/components/FretboardExplorer';
-import { BeatBuilder } from '../features/music/components/BeatBuilder';
-import { ChordLibrary } from '../features/music/components/ChordLibrary';
-import { SongStructureBuilder } from '../features/music/components/SongStructureBuilder';
-import { ArrangementPlanner } from '../features/music/components/ArrangementPlanner';
-import { SongwriterStudio } from '../features/music/components/SongwriterStudio';
-import { EmperorStats } from './EmperorStats';
-import { TrolleyProblem } from './content/interactive/TrolleyProblem';
-import { GoldenMeanSlider } from './content/interactive/GoldenMeanSlider';
-import { CategoricalImperativeTester } from './content/interactive/CategoricalImperativeTester';
-import { FilterBubbleSim } from './content/interactive/FilterBubbleSim';
-import { AutomationRisk } from './content/interactive/AutomationRisk';
-import { ConformityExperiment } from './content/interactive/ConformityExperiment';
-import { OstracismGame } from './content/interactive/OstracismGame';
-import { VirtueBalance } from './content/interactive/VirtueBalance';
-import { AuthorityShifter } from './content/interactive/AuthorityShifter';
-import { SocialContractDecider } from './content/interactive/SocialContractDecider';
-import { TotalitarianSandbox } from './content/interactive/TotalitarianSandbox';
-import { BanalityRoutine } from './content/interactive/BanalityRoutine';
-import { SpontaneousOrderSim } from './content/interactive/SpontaneousOrderSim';
-import { PrivateLawScenario } from './content/interactive/PrivateLawScenario';
-import { TheocraticCouncil } from './content/interactive/TheocraticCouncil';
-import { TechnocratProblemSolver } from './content/interactive/TechnocratProblemSolver';
-import { EliteNetworkBuilder } from './content/interactive/EliteNetworkBuilder';
-import { MonarchyEvolution } from './content/interactive/MonarchyEvolution';
-import { ColonialGovernance } from './content/interactive/ColonialGovernance';
-import { ResourceTradeFlows } from './content/interactive/ResourceTradeFlows';
+import { getComponent } from './ComponentRegistry';
+
+// ... standard imports remain (Link, Volume2, motion, etc.)
 
 import type { Concept, ContentBlock } from '../types';
 import { renderInlineMarkdown } from './markdownUtils';
@@ -224,196 +174,29 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                         );
 
                     case 'component':
-                        switch (block.name || block.component) {
-                            case 'GovernmentExplorer':
-                                return <GovernmentExplorer key={index} />;
-                            case 'HistoryLongLines':
-                                return <HistoryLongLines key={index} />;
-                            case 'Quiz':
-                                return <Quiz key={index} questions={(block.props?.questions as any) || []} />;
-                            case 'EICSimulation':
-                                return <EICSimulation key={index} />;
-                            case 'EmperorStats':
-                                return <EmperorStats key={index} />;
-                            case 'FactBox':
-                                return (
-                                    <FactBox
-                                        key={index}
-                                        title={block.props?.title as string}
-                                        content={block.props?.content as string}
-                                    />
-                                );
-                            case 'TimelineComponent':
-                                return (
-                                    <TimelineComponent
-                                        key={index}
-                                        events={(block.props?.events as any) || []}
-                                        title={block.props?.title as string}
-                                        compact={block.props?.compact}
-                                    />
+                        const ComponentName = block.name || block.component;
+                        const RegisteredComponent = getComponent(ComponentName);
 
-                                );
-                            case 'PlotGraph':
-                                return (
-                                    <PlotGraph
-                                        key={index}
-                                        points={(block.props?.points as any) || []}
-                                        title={block.props?.title as string}
-                                        description={block.props?.description as string}
-                                        xAxisLabel={block.props?.xAxisLabel as string}
-                                        yAxisLabel={block.props?.yAxisLabel as string}
-                                    />
-                                );
-                            case 'InflationCalculator':
-                                return <InflationCalculator key={index} />;
-                            case 'TimePreferenceModel':
-                                return <TimePreferenceModel key={index} />;
-                            case 'BusinessCycleModel':
-                                return <BusinessCycleModel key={index} />;
-                            case 'BusinessCycleGraph':
-                                return <BusinessCycleGraph key={index} />;
-                            case 'ProductionModel':
-                                return <ProductionModel key={index} />;
-                            case 'GrammarRuleCard':
-                                return (
-                                    <GrammarRuleCard
-                                        key={index}
-                                        title={block.props?.title}
-                                        rule={block.props?.rule}
-                                        examples={block.props?.examples || []}
-                                    />
-                                );
-                            case 'TextHighlighter':
-                                return (
-                                    <TextHighlighter
-                                        key={index}
-                                        text={block.props?.text}
-                                        correctWords={block.props?.correctWords || []}
-                                        instruction={block.props?.instruction}
-                                    />
-                                );
-                            case 'SentenceBuilder':
-                                return (
-                                    <SentenceBuilder
-                                        key={index}
-                                        segments={block.props?.segments || []}
-                                        correctOrder={block.props?.correctOrder || []}
-                                        instruction={block.props?.instruction}
-                                    />
-                                );
-                            case 'ConflictMap':
-                                return <ConflictMap key={index} />;
-                            case 'FeudalPyramid':
-                                return <FeudalPyramid key={index} />;
-                            case 'PantheonExplorer':
-                                return <PantheonExplorer key={index} />;
-                            case 'RomanPantheonExplorer':
-                                return <RomanPantheonExplorer key={index} />;
-                            case 'LanguageMixer':
-                                return <LanguageMixer key={index} />;
-                            case 'TradeRouteMap':
-                                return <TradeRouteMap key={index} />;
-                            case 'TimelineSlider':
-                                return <TimelineSlider key={index} />;
-                            case 'QuoteBlock':
-                                return (
-                                    <QuoteBlock
-                                        key={index}
-                                        text={block.props?.text}
-                                        author={block.props?.author}
-                                    />
-                                );
-                            case 'Comparison':
-                                return (
-                                    <Comparison
-                                        key={index}
-                                        title={block.props?.title}
-                                        leftTitle={block.props?.leftTitle}
-                                        rightTitle={block.props?.rightTitle}
-                                        items={block.props?.items || []}
-                                    />
-                                );
-                            case 'LineChart':
-                                return (
-                                    <LineChart
-                                        key={index}
-                                        title={block.props?.title}
-                                        data={block.props?.data || []}
-                                        xAxisLabel={block.props?.xAxisLabel}
-                                        yAxisLabel={block.props?.yAxisLabel}
-                                    />
-                                );
-                            case 'VirtualPiano':
-                                return <VirtualPiano key={index} highlightKeys={block.props?.highlightKeys} />;
-                            case 'FretboardExplorer':
-                                return (
-                                    <FretboardExplorer
-                                        key={index}
-                                        instrument={block.props?.instrument}
-                                    />
-                                );
-                            case 'BeatBuilder':
-                                return <BeatBuilder key={index} initialPattern={block.props?.initialPattern} />;
-                            case 'ChordLibrary':
-                                return <ChordLibrary key={index} />;
-                            case 'SongStructureBuilder':
-                                return <SongStructureBuilder key={index} />;
-                            case 'ArrangementPlanner':
-                                return <ArrangementPlanner key={index} />;
-                            case 'SongwriterStudio':
-                                return <SongwriterStudio key={index} />;
-                            case 'TrolleyProblem':
-                                return <TrolleyProblem key={index} />;
-                            case 'GoldenMeanSlider':
-                                return <GoldenMeanSlider key={index} />;
-                            case 'CategoricalImperativeTester':
-                                return <CategoricalImperativeTester key={index} />;
-                            case 'FilterBubbleSim':
-                                return <FilterBubbleSim key={index} />;
-                            case 'AutomationRisk':
-                                return <AutomationRisk key={index} />;
-                            case 'ConformityExperiment':
-                                return <ConformityExperiment key={index} />;
-                            case 'OstracismGame':
-                                return <OstracismGame key={index} />;
-                            case 'VirtueBalance':
-                                return <VirtueBalance key={index} />;
-                            case 'AuthorityShifter':
-                                return <AuthorityShifter key={index} />;
-                            case 'SocialContractDecider':
-                                return <SocialContractDecider key={index} />;
-                            case 'TotalitarianSandbox':
-                                return <TotalitarianSandbox key={index} />;
-                            case 'BanalityRoutine':
-                                return <BanalityRoutine key={index} />;
-                            case 'SpontaneousOrderSim':
-                                return <SpontaneousOrderSim key={index} />;
-                            case 'PrivateLawScenario':
-                                return <PrivateLawScenario key={index} />;
-                            case 'TheocraticCouncil':
-                                return <TheocraticCouncil key={index} />;
-                            case 'TechnocratProblemSolver':
-                                return <TechnocratProblemSolver key={index} />;
-                            case 'EliteNetworkBuilder':
-                                return <EliteNetworkBuilder key={index} />;
-                            case 'MonarchyEvolution':
-                                return <MonarchyEvolution key={index} />;
-                            case 'ColonialGovernance':
-                                return <ColonialGovernance key={index} />;
-                            case 'ResourceTradeFlows':
-                                return <ResourceTradeFlows key={index} />;
-                            default:
-                                return (
-                                    <div key={index} className="p-4 border border-red-500 rounded text-red-500">
-                                        Unknown component: {block.name || block.component}
-                                    </div>
-                                );
+                        if (!RegisteredComponent) {
+                            return (
+                                <div key={index} className="p-4 border border-red-500 rounded text-red-500 my-4">
+                                    Unknown component: {ComponentName}
+                                </div>
+                            );
                         }
 
+                        return (
+                            <React.Suspense key={index} fallback={<div className="h-40 w-full animate-pulse bg-slate-100 rounded-xl my-4 flex items-center justify-center text-slate-400">Laster modul...</div>}>
+                                <RegisteredComponent {...(block.props || {})} />
+                            </React.Suspense>
+                        );
+
                     case 'quiz':
+                        const QuizComp = getComponent('Quiz');
+                        if (!QuizComp) return null;
                         return (
                             <div key={index} className="my-12">
-                                <Quiz
+                                <QuizComp
                                     questions={(block.questions as any) || []}
                                 />
                             </div>
