@@ -1,0 +1,611 @@
+{
+    "id": "vikingtiden-sti",
+    "title": "Læringssti: Vikingtiden",
+    "description": "En omfattende reise fra skipssmedens verksted til dannelsen av det norske riket. Denne stien tar deg gjennom 22 steg med fordypning, refleksjon og oppgaver som forbereder deg på en storstilt emneoppgave.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "750-1066",
+    "readTime": "2-3 timer aktiv læring",
+    "learningPathData": {
+        "id": "vikingtiden-sti",
+        "title": "Vikingtiden: Arven fra fortiden",
+        "description": "Følg denne stien for å mestre vikingtidens kompleksitet. Hvert steg gir deg brikker til det store puslespillet: Din egen fordypningsoppgave.",
+        "steps": [
+            {
+                "id": "viking-tech",
+                "phase": "Fase 1: Teknologi og Opptakt",
+                "title": "Skipet: Nøkkelen til suksess",
+                "type": "fakta",
+                "content": "Uten klinkbygde skip med seil og kjøl ville vikingtiden aldri skjedd. Skipene var både transportmiddel, våpen og statussymbol.",
+                "tasks": [
+                    "Hva er forskjellen på et langskip og et knarr?",
+                    "Hvorfor var det grunne dypgående på skipene så viktig for vikingenes taktikk?",
+                    "Tegn eller beskriv oppbyggingen av et vikingskip."
+                ],
+                "links": [
+                    {
+                        "title": "Skipet: Vikingtidens teknologi",
+                        "url": "/historie/vikingtiden/skipsteknologi"
+                    }
+                ],
+                "component": {
+                    "name": "PackTheBag",
+                    "props": {
+                        "capacity": 500,
+                        "targetValue": 80,
+                        "items": [
+                            {
+                                "id": "fish",
+                                "name": "Tørrfisk",
+                                "weight": 50,
+                                "value": 30,
+                                "icon": "🐟"
+                            },
+                            {
+                                "id": "water",
+                                "name": "Vannfat",
+                                "weight": 100,
+                                "value": 50,
+                                "icon": "🚰"
+                            },
+                            {
+                                "id": "sword",
+                                "name": "Sverd & Skjold",
+                                "weight": 20,
+                                "value": 20,
+                                "icon": "⚔️"
+                            },
+                            {
+                                "id": "tent",
+                                "name": "Telt",
+                                "weight": 30,
+                                "value": 15,
+                                "icon": "⛺"
+                            },
+                            {
+                                "id": "amber",
+                                "name": "Rav (Handel)",
+                                "weight": 5,
+                                "value": 40,
+                                "icon": "💎"
+                            },
+                            {
+                                "id": "wool",
+                                "name": "Ullstoff",
+                                "weight": 40,
+                                "value": 25,
+                                "icon": "🧶"
+                            },
+                            {
+                                "id": "statue",
+                                "name": "Gudestatue",
+                                "weight": 10,
+                                "value": 5,
+                                "icon": "🗿"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "viking-causes",
+                "title": "Hvorfor dro de ut?",
+                "type": "refleksjon",
+                "content": "Befolkningspress, mangel på dyrkbar jord, eller kanskje bare lysten på ære og sølv? Årsakene er mange og omdiskuterte.",
+                "tasks": [
+                    "Forklar forskjellen på 'indre' og 'ytre' årsaker til vikingtoktene.",
+                    "Hvilken betydning hadde arvereglene i det norrøne samfunnet for toktene?",
+                    "Reflekter: Ville du dratt ut som 18-åring i år 800?"
+                ],
+                "links": [
+                    {
+                        "title": "Hypotesen: Norden vs. Frankrike",
+                        "url": "/historie/vikingtiden/hypotesen-norden-vs-frankrike"
+                    }
+                ]
+            },
+            {
+                "id": "lindisfarne",
+                "title": "Lindisfarne 793: Sjokket i Europa",
+                "type": "fakta",
+                "content": "Angrepet på klosteret Lindisfarne regnes som startskuddet. For de kristne i Europa var dette tegn på Guds vrede.",
+                "tasks": [
+                    "Hvorfor valgte vikingene ofte klostre som mål?",
+                    "Hvordan reagerte lærde menn som Alkuin på angrepet?",
+                    "Hva forteller dette angrepet om vikingenes forhold til religion i starten?"
+                ],
+                "links": [
+                    {
+                        "title": "Vikingtiden: En oversikt",
+                        "url": "/historie/vikingtiden/artikkel"
+                    }
+                ],
+                "component": {
+                    "name": "ScenarioRoleplay",
+                    "props": {
+                        "title": "Raidet mot Lindisfarne",
+                        "intro": "Året er 793. Du står ved roret på et langskip. Kysten av England er i sikte.",
+                        "startId": "start",
+                        "scenarios": [
+                            {
+                                "id": "start",
+                                "text": "Tåken letter og du ser et kloster på stranden. Munkene bærer ingen våpen. Hva gjør du?",
+                                "options": [
+                                    {
+                                        "label": "Angrip umiddelbart! Overraskelse er alt.",
+                                        "nextId": "raid_success"
+                                    },
+                                    {
+                                        "label": "Send en speider for å forhandle.",
+                                        "nextId": "negotiate_fail"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "raid_success",
+                                "text": "Angrepet er en suksess. Dere fyller skipet med sølv og slaver. Men en storm truer på hjemveien.",
+                                "options": [
+                                    {
+                                        "label": "Offre en del av sølvet til Tor for god bør.",
+                                        "nextId": "safe_return"
+                                    },
+                                    {
+                                        "label": "Seil gjennom stormen, vi er vikinger!",
+                                        "nextId": "storm_damage"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "negotiate_fail",
+                                "text": "Munkene stenger portene og ringer med kirkeklokkene. Varslet sprer seg. Lokale soldater kommer!",
+                                "options": [
+                                    {
+                                        "label": "Kjemp! Vi rømmer aldri.",
+                                        "nextId": "battle_hard"
+                                    },
+                                    {
+                                        "label": "Trekk dere tilbake til skipene.",
+                                        "nextId": "retreat_shame"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "safe_return",
+                                "text": "Vinden løyer. Dere kommer hjem som helter. Din berømmelse (ettermæle) vokser.",
+                                "options": []
+                            },
+                            {
+                                "id": "storm_damage",
+                                "text": "Stormen knekker masten. Dere driver i land i Danmark, ribbet for alt.",
+                                "options": []
+                            },
+                            {
+                                "id": "battle_hard",
+                                "text": "Det blir en blodig kamp. Du vinner, men mister halve mannskapet. Var det verdt det?",
+                                "options": []
+                            },
+                            {
+                                "id": "retreat_shame",
+                                "text": "Dere overlever, men uten ære. Ingen vil seile med deg neste år.",
+                                "options": []
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "viking-society",
+                "phase": "Fase 2: Samfunn og Mennesker",
+                "title": "Tinget: Norrønt demokrati?",
+                "type": "fakta",
+                "content": "Selv om vikingene var krigere, hadde de et avansert rettssystem. Konflikter ble løst på Tinget.",
+                "tasks": [
+                    "Hva var Tingets funksjon i det norrøne samfunnet?",
+                    "Hva betyr uttrykket 'Land skal med lov bygges, og ikke med ulov ødes'?",
+                    "Sammenlign Tinget med dagens Storting. Hva er likt og ulikt?"
+                ],
+                "links": [
+                    {
+                        "title": "Samfunn og Rett",
+                        "url": "/historie/vikingtiden/samfunn-og-rett"
+                    },
+                    {
+                        "title": "Stortinget",
+                        "url": "/samfunnskunnskap/styringsformer/stortinget"
+                    }
+                ],
+                "component": {
+                    "name": "DebateSimulator",
+                    "props": {
+                        "topic": "Tyveri av en ku",
+                        "opponentName": "Einar den Sta",
+                        "context": "Einar anklager din trell for å ha stjålet hans ku. Du vet trellen er uskyldig, men Einar har mektige venner.",
+                        "winningScore": 15,
+                        "arguments": [
+                            {
+                                "id": "a1",
+                                "text": "Jeg tilbyr baug (bot) for å løse saken fredelig.",
+                                "strength": 5,
+                                "type": "mercy",
+                                "response": "Penger kan ikke kjøpe ære, men jeg lytter."
+                            },
+                            {
+                                "id": "a2",
+                                "text": "Ingen så tyveriet! Jeg krever vitner etter loven.",
+                                "strength": 10,
+                                "type": "laws",
+                                "response": "Loven er klar på vitner. Der har du et poeng."
+                            },
+                            {
+                                "id": "a3",
+                                "text": "Du fornærmer min ære, Einar! Holmgang!",
+                                "strength": -5,
+                                "type": "honor",
+                                "response": "Voldsbruk på Tinget? Da mister du retten din."
+                            },
+                            {
+                                "id": "b1",
+                                "text": "Min trell var med meg hele dagen.",
+                                "strength": 8,
+                                "type": "laws",
+                                "response": "Et alibi? Kan noen andre bekrefte det?"
+                            },
+                            {
+                                "id": "b2",
+                                "text": "Hvorfor skulle jeg stjele en mager ku?",
+                                "strength": 2,
+                                "type": "mercy",
+                                "response": "En tyv er en tyv, uansett kuas fett."
+                            },
+                            {
+                                "id": "b3",
+                                "text": "Gudene ser alt, og de vet sannheten.",
+                                "strength": 3,
+                                "type": "honor",
+                                "response": "La oss holde gudene utenfor dette jordiske tyveriet."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "social-classes",
+                "title": "Treller, bønder og jarler",
+                "type": "refleksjon",
+                "content": "Samfunnet var lagdelt. Nederst var trellene – ufrie mennesker som ble kjøpt og solgt.",
+                "tasks": [
+                    "Hvordan fungerte trelldommen i praksis?",
+                    "Hva krevdes for at en bonde kunne bli regnet som 'fribåren'?",
+                    "Drøft: Var det norrøne samfunnet mer eller mindre klassedelt enn føydalsystemet i resten av Europa?"
+                ],
+                "links": [
+                    {
+                        "title": "Treller, bønder og jarler",
+                        "url": "/historie/vikingtiden/samfunn-og-rett"
+                    },
+                    {
+                        "title": "Føydalismen",
+                        "url": "/samfunnskunnskap/styringsformer/foydalisme"
+                    }
+                ]
+            },
+            {
+                "id": "viking-women",
+                "title": "Husfrua og Skjoldmøya",
+                "type": "fakta",
+                "content": "Kvinner i vikingtiden hadde rettigheter som var uvanlige i resten av Europa, som retten til skilsmisse og ansvar for gården.",
+                "tasks": [
+                    "Hva symboliserte nøklene som husfrua bar i beltet?",
+                    "Hvilke kilder har vi på at kvinner deltok i krig (skjoldmøyer)?",
+                    "Beskriv dagliglivet for en kvinne på en stor vikinggård."
+                ],
+                "links": [
+                    {
+                        "title": "Husfrua: Kvinnens makt",
+                        "url": "/historie/vikingtiden/samfunn-og-rett"
+                    }
+                ]
+            },
+            {
+                "id": "viking-religion",
+                "phase": "Fase 3: Verdensbilde og Tro",
+                "title": "Åsatru: En verden av lureri og kraft",
+                "type": "fakta",
+                "content": "Vikingene trodde ikke på evig frelse gjennom god oppførsel, men på styrke, kløkt og lojalitet til ætten.",
+                "tasks": [
+                    "Hvem var de tre viktigste gudene, og hva var deres ansvarsområder?",
+                    "Hva er ' Ragnarok', og hvordan skiller dette slutten av verden seg fra kristendommens 'Dommedag'?",
+                    "Hvilken rolle spilte ofring (blot) i hverdagen?"
+                ],
+                "links": [
+                    {
+                        "title": "Åsatru og Skjebne",
+                        "url": "/historie/vikingtiden/asatro"
+                    },
+                    {
+                        "title": "Eskatologi",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi"
+                    }
+                ]
+            },
+            {
+                "id": "nordic-philosophy",
+                "title": "Håvamål: Vikingenes vett og visdom",
+                "type": "refleksjon",
+                "content": "Håvamål gir oss et innblikk i vikingenes etiske verdier. Gjestfrihet og forsiktighet var viktig.",
+                "tasks": [
+                    "Finn tre visdomsord fra Håvamål. Hva forteller de oss om vikingenes livssyn?",
+                    "Hvorfor var 'ettermæle' (rykte etter døden) så ekstremt viktig?",
+                    "Sammenlign vikingenes moral i Håvamål med kristne verdier (f.eks. De ti bud)."
+                ],
+                "links": [
+                    {
+                        "title": "Åsatru og Skjebne",
+                        "url": "/historie/vikingtiden/asatro"
+                    },
+                    {
+                        "title": "Håvamål (Biblioteket)",
+                        "url": "/norsk/bibliotek/havamal"
+                    }
+                ]
+            },
+            {
+                "id": "missionaries",
+                "title": "Møtet med 'Hvite-Krist'",
+                "type": "fakta",
+                "content": "Kristendommen kom ikke over natta. Det var en lang periode med blandingsreligion og kulturmøter.",
+                "tasks": [
+                    "Hva er en 'primsigning', og hvorfor gjorde vikingene dette?",
+                    "Hvorfor var det ofte lettere å omvende kongene enn bøndene?",
+                    "Finn eksempler på smykker eller gjenstander som viser både kors og Tors hammer."
+                ],
+                "links": [
+                    {
+                        "title": "Kristningen: Dåp eller Død",
+                        "url": "/historie/vikingtiden/kristningen-av-norge"
+                    }
+                ]
+            },
+            {
+                "id": "viking-expansion-danelaw",
+                "phase": "Fase 4: Den store ekspansjonen",
+                "title": "Danelagen: Da England ble delt",
+                "type": "fakta",
+                "content": "Store deler av England ble styrt av vikinger i over hundre år. Dette satte dype spor i språket.",
+                "tasks": [
+                    "Hvilke engelske byer har navn som slutter på -by eller -thorp? Finn 3 eksempler.",
+                    "Hvem var Alfred den Store, og hvordan stoppet han vikingenes fremmarsj?",
+                    "Nevn 5 norske lånord i moderne engelsk (f.eks. 'sky', 'knife')."
+                ],
+                "links": [
+                    {
+                        "title": "Danelagen",
+                        "url": "/historie/vikingtiden/danelagen"
+                    }
+                ]
+            },
+            {
+                "id": "normandy-riddere",
+                "title": "Normandie: Fra skip til hest",
+                "type": "fakta",
+                "content": "I 911 fikk vikinghøvdingen Gange-Rolv tildelt Normandie mot at han forsvarte Paris.",
+                "tasks": [
+                    "Hvorfor valgte den franske kongen å gi land til en vikinghøvding?",
+                    "Hvordan endret vikingene i Normandie seg i løpet av få generasjoner?",
+                    "Hvilken betydning fikk etterkommerne deres for erobringen av England i 1066?"
+                ],
+                "links": [
+                    {
+                        "title": "Normandie",
+                        "url": "/historie/vikingtiden/normandie"
+                    }
+                ]
+            },
+            {
+                "id": "viking-east",
+                "title": "Gardarike: Rusernes vei til Miklagard",
+                "type": "fakta",
+                "content": "Svenske vikinger seilte østover på de store russiske elvene og grunnla store handelsstasjoner.",
+                "tasks": [
+                    "Hva het vikingenes byer i øst (Holmgard og Kønugard)?",
+                    "Hvem var Væringene, og hvem jobbet de for i Konstantinopel?",
+                    "Beskriv handelsruten fra Skandinavia til Det kaspiske hav."
+                ],
+                "links": [
+                    {
+                        "title": "Veien mot øst",
+                        "url": "/historie/vikingtiden/veien-mot-ost"
+                    }
+                ]
+            },
+            {
+                "id": "vinland-exploration",
+                "title": "Island, Grønland og Vinland",
+                "type": "ressurs",
+                "content": "Vikingene var de første europeerne som bosatte seg på Island og Grønland, og de nådde også Amerika.",
+                "tasks": [
+                    "Hvem var Leiv Eiriksson, og hvorfor kalte han landet 'Vinland'?",
+                    "Hva forteller funnene på L'Anse aux Meadows oss om vikingenes bosetting i Amerika?",
+                    "Hvorfor ble ikke bosettingen i Vinland permanent?"
+                ],
+                "links": [
+                    {
+                        "title": "Oppdagelsesreiser i Vesterled",
+                        "url": "/historie/vikingtiden/oppdagelsesreiser"
+                    }
+                ]
+            },
+            {
+                "id": "unification-start",
+                "phase": "Fase 5: Kampen om Norge",
+                "title": "Harald Hårfagre: Drømmen om ett rike",
+                "type": "fakta",
+                "content": "Før vikingtiden var Norge delt mellom mange småkonger. Harald Hårfagre startet prosessen med å samle landet.",
+                "tasks": [
+                    "Hva var Slaget i Hafrsfjord, og hvorfor er 872 et viktig årstall?",
+                    "Hvorfor var det strategisk viktig for Harald å kontrollere kystveien (Nordvegen)?",
+                    "Hvilken betydning hadde alliansene med jarler for Haralds makt?"
+                ],
+                "links": [
+                    {
+                        "title": "Rikssamlingen",
+                        "url": "/historie/vikingtiden/rikssamlingen"
+                    }
+                ],
+                "component": {
+                    "name": "DragDropTimeline",
+                    "props": {
+                        "title": "Samlingen av Norge - Rekkefølge",
+                        "events": [
+                            {
+                                "id": "hafrsfjord",
+                                "year": 872,
+                                "label": "Slaget i Hafrsfjord"
+                            },
+                            {
+                                "id": "stiklestad",
+                                "year": 1030,
+                                "label": "Slaget på Stiklestad"
+                            },
+                            {
+                                "id": "stamford",
+                                "year": 1066,
+                                "label": "Slaget ved Stamford Bridge"
+                            },
+                            {
+                                "id": "lindisfarne",
+                                "year": 793,
+                                "label": "Angrepet på Lindisfarne"
+                            },
+                            {
+                                "id": "moster",
+                                "year": 1024,
+                                "label": "Kristenretten på Moster"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "olav-tryggvason",
+                "title": "Olav Tryggvason og den 'harde' kristningen",
+                "type": "fakta",
+                "content": "Olav Tryggvason brakte kristendommen til Norge med makt. Han bygde den første kirken i landet.",
+                "tasks": [
+                    "Hvordan brukte Olav kristendommen for å bryte ned den gamle høvdingmakten?",
+                    "Beskriv hendelsene ved Moster i 995.",
+                    "Hva skjedde i Slaget ved Svolder?"
+                ],
+                "links": [
+                    {
+                        "title": "Kristningen: Dåp eller Død",
+                        "url": "/historie/vikingtiden/kristningen-av-norge"
+                    }
+                ]
+            },
+            {
+                "id": "olav-den-hellige",
+                "title": "Olav Haraldsson: Lovgiveren og Helgenen",
+                "type": "fakta",
+                "content": "Olav Haraldsson (den hellige) satte kristenretten på Moster i 1024. Dette endret det norske lovverket fundamentalt.",
+                "tasks": [
+                    "Hva innebar Kristenretten for vanlig folks liv (f.eks. barneutsettelse og fattige)?",
+                    "Hvorfor ble Olav jaget ut av landet av sine egne høvdinger?",
+                    "Hvilken rolle spilte danskekongen Knut den mektige i opprøret mot Olav?"
+                ],
+                "links": [
+                    {
+                        "title": "Kristningen: Dåp eller Død",
+                        "url": "/historie/vikingtiden/kristningen-av-norge"
+                    }
+                ]
+            },
+            {
+                "id": "stiklestad-1030",
+                "title": "Stiklestad: Da nederlaget ble en seier",
+                "type": "utfordring",
+                "content": "Olav falt i slaget mot bondehæren, men etter hans død skjedde det merkelige ting. Han ble Norges evige konge.",
+                "tasks": [
+                    "Hvorfor vant bondehæren slaget, men tapte 'krigen' om religionen?",
+                    "Hva er et 'helligkåring', og hvorfor ble Olav helgen så raskt?",
+                    "Hvordan bidro helgenkongen til å stabilisere det norske kongedømmet i ettertid?"
+                ],
+                "links": [
+                    {
+                        "title": "Kristningen: Dåp eller Død",
+                        "url": "/historie/vikingtiden/kristningen-av-norge"
+                    }
+                ]
+            },
+            {
+                "id": "end-of-viking-age",
+                "title": "1066: Slutten på en æra",
+                "type": "fakta",
+                "content": "Med Harald Hardrådes fall ved Stamford Bridge i 1066 regnes vikingtiden som over. Norge var nå et kristent rike i Europa.",
+                "tasks": [
+                    "Hvorfor kalles Harald Hardråde 'den siste vikingkongen'?",
+                    "Hva skjedde i Slaget ved Hastings samme år, og hvem vant?",
+                    "Reflekter: Hva er de tre viktigste forskjellene på Norge i år 750 og år 1066?"
+                ],
+                "links": [
+                    {
+                        "title": "Slutten på vikingtiden",
+                        "url": "/historie/vikingtiden/kristningen-av-norge"
+                    }
+                ]
+            },
+            {
+                "id": "viking-legacy",
+                "phase": "Fase 6: Oppsummering og Fordypning",
+                "title": "Hva sitter vi igjen med?",
+                "type": "refleksjon",
+                "content": "Vikingtiden formet Norge. Våre lover, vårt språk, våre byer og vårt forhold til havet har røtter i denne perioden.",
+                "tasks": [
+                    "På hvilke måter kan vi se spor av vikingtiden i dagens Norge?",
+                    "Hvilke myter om vikingtiden er de vanligste, og hvorfor oppsto de?",
+                    "Drøft: Var vikingtiden nødvendig for at Norge skulle bli en moderne stat?"
+                ],
+                "links": [
+                    {
+                        "title": "Se tidslinjen for store linjer",
+                        "url": "/tidslinje"
+                    }
+                ]
+            },
+            {
+                "id": "problemstilling-workshop",
+                "title": "DIN Problemstilling",
+                "type": "refleksjon",
+                "content": "Du har nå et enormt lager av kunnskap. Nå skal du velge din egen vei. En god problemstilling tvinger deg til å drøfte, ikke bare ramse opp fakta.",
+                "tasks": [
+                    "Lag tre mulige problemstillinger basert på det du har lært.",
+                    "Eksempel 1: I hvilken grad var skipsteknologien den viktigste faktoren for vikingenes suksess?",
+                    "Eksempel 2: Hvordan endret kristningen maktforholdet mellom konge og høvding?",
+                    "Eksempel 3: Var vikingene i øst (ruserne) mer handelsmenn enn krigere?"
+                ]
+            },
+            {
+                "id": "project-planning",
+                "title": "Prosjektplan",
+                "type": "oppgave",
+                "content": "Velg ditt format (Video, Podcast, Artikkel eller Presentasjon). Lag en disposisjon for hvordan du skal besvare problemstillingen din.",
+                "tasks": [
+                    "Hvilke kilder skal du bruke? (Bruk minst 3 artikler fra læreboka).",
+                    "Hvilke visuelle elementer (kart, bilder, tidslinjer) skal du inkludere?",
+                    "Hvordan skal du strukturere drøftingen din?"
+                ]
+            },
+            {
+                "id": "viking-final-epic",
+                "title": "Det store oppdraget: Arven fra Vikingtiden",
+                "type": "oppgave",
+                "content": "Dette er din sjanse til å skinne. Lag ditt sluttprodukt og vis frem din forståelse av vikingtiden.",
+                "tasks": [
+                    "Produser ditt valgte medium (Video, Podkast, Skriftlig eller Muntlig).",
+                    "Sørg for en tydelig rød tråd fra problemstilling til konklusjon.",
+                    "Lever inn og gjør deg klar til å presentere!"
+                ]
+            }
+        ]
+    }
+}

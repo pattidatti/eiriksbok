@@ -12,6 +12,7 @@ interface RichSidebarProps {
     mapData?: any;
     tags?: string[];
     config?: SidebarConfig;
+    learningPaths?: { id: string; title: string; url: string }[];
 }
 
 const InteractiveMapPlaceholder: React.FC = () => (
@@ -57,10 +58,33 @@ const ExpandableSection: React.FC<{ title: string; children: React.ReactNode; de
     );
 };
 
-export const RichSidebar: React.FC<RichSidebarProps> = ({ details, timelineEvents, relatedArticles, mapData, tags, config }) => {
+export const RichSidebar: React.FC<RichSidebarProps> = ({ details, timelineEvents, relatedArticles, mapData, tags, config, learningPaths }) => {
     return (
         <div className="space-y-8">
             <div className="sticky top-8">
+                {learningPaths && learningPaths.length > 0 && (
+                    <div className="space-y-3 mb-8">
+                        {learningPaths.map(path => (
+                            <Link
+                                key={path.id}
+                                to={path.url}
+                                className="block bg-indigo-600 hover:bg-indigo-700 p-4 rounded-2xl text-white shadow-lg transition-all group overflow-hidden relative"
+                            >
+                                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 group-hover:opacity-20 transition-all">
+                                    <Map className="w-12 h-12" />
+                                </div>
+                                <div className="relative z-10">
+                                    <div className="text-[10px] font-bold uppercase tracking-widest opacity-80 mb-1">Denne artikkelen er en del av en læringssti</div>
+                                    <div className="font-bold flex items-center gap-2">
+                                        <Map className="w-4 h-4" />
+                                        {path.title}
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                )}
+
                 {(details.length > 0 || (config?.showTimeline !== false && timelineEvents.length > 0)) && (
                     <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-8">
                         {details.length > 0 && (

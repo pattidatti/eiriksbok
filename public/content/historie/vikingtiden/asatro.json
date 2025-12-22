@@ -49,6 +49,30 @@
             "content": "Det kanskje viktigste begrepet i norrøn tid var skjebne. Vikingene trodde at tre kvinner – Nornene (Urd, Verdande og Skuld) – satt ved Yggdrasils rot og spant livstråden til hvert eneste menneske. Den dagen du ble født, var dagen du skulle dø allerede bestemt. Ingen gud, ikke engang Odin, kunne endre dette.\n\nDette ga vikingene en enorm dødsforakt. Hvorfor være redd i kamp? Hvis det er din dag å dø, dør du uansett om du gjemmer deg under senga eller stormer fremst i krigen. Da er det bedre å dø stående med ære, for ettermælet (hva folk sier om deg etterpå) er det eneste som lever evig.\n\n> «Fe dør, frender dør, en selv dør på samme vis; men ordets glans skal aldri dø i et ærefullt ettermæle.» (Håvamål)"
         },
         {
+            "type": "header",
+            "text": "Håvamål: Vikingenes leveregler"
+        },
+        {
+            "type": "text",
+            "content": "Vikingenes etikk er best kjent fra diktet Håvamål ('Den høyes tale'). Her er det ikke bud om å 'du skal ikke', men snarere gode råd om hvordan man overlever sosialt og fysisk. Vett, vennskap og forsiktighet går igjen."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Betre bør du ber kje i bakkane enn mannavit mykje. (Bedre last bærer du ikke i bakkene enn mye mannevett).",
+                "author": "Håvamål"
+            }
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Veit du ein ven som vel du trur, og du vil gagn av han ha: gjev han heile di sjel og gåver send, og gakk ofte hans veg.",
+                "author": "Håvamål"
+            }
+        },
+        {
             "type": "text",
             "title": "Blot og hverdagstro",
             "content": "Religionen var en del av hverdagen. Man blotet (ofret) til alvene under dørstokken for å beskytte huset. Man helte øl på ilden til ørnene. Store offringer skjedde ved jevndøgn og solverv (jul). Et blot var en fest hvor man drepte dyr og spiste kjøttet sammen med gudene (symbolsk). Blodet ble stenket på deltakerne for å gi dem styrke.\n\nDa kristendommen kom med sine kirker, prester og forbud mot hestekjøtt, var det et kultursjokk. Kristendommen krevde underkastelse og ydmykhet. Åsatru krevde mot og handling. Det var to fundamentalt forskjellige måter å være menneske på."

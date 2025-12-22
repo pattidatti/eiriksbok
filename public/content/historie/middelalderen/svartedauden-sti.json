@@ -1,0 +1,94 @@
+{
+    "id": "svartedauden-sti",
+    "title": "Læringssti: Svartedauden",
+    "description": "Bli med på en reise gjennom en av historiens mest dramatiske hendelser. Denne stien tar deg fra de første utbruddene til de store samfunnsendringene som fulgte i kjølvannet av pesten.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "1347-1351",
+    "readTime": "15 min aktiv læring",
+    "learningPathData": {
+        "id": "svartedauden-sti",
+        "title": "Svartedauden - Fra krise til endring",
+        "description": "Fullfør denne stien for å forstå hvordan pesten endret Norge og Europa for alltid.",
+        "steps": [
+            {
+                "id": "fakta-intro",
+                "title": "Grunnleggende fakta",
+                "type": "fakta",
+                "content": "Før vi går i dybden, må vi ha kontroll på det grunnleggende. Svartedauden var en pestsykdom forårsaket av bakterien *Yersinia pestis*.",
+                "tasks": [
+                    "Når kom Svartedauden til Norge?",
+                    "Hvor mange av Norges befolkning døde antagelig?",
+                    "Hva er sammenhengen mellom lopper, rotter og mennesker i spredningen av pesten?"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkelen om Svartedauden",
+                        "url": "/historie/middelalderen/svartedauden"
+                    }
+                ],
+                "difficulty": "easy"
+            },
+            {
+                "id": "refleksjon-mennesket",
+                "title": "Mennesket i krisen",
+                "type": "refleksjon",
+                "content": "Hvordan tror du det føltes å leve i et samfunn der halvparten av menneskene plutselig forsvant? Refleksjoner over de menneskelige konsekvensene.",
+                "tasks": [
+                    "Hvordan forklarte folk i middelalderen pesten? (Religion vs. vitenskap)",
+                    "Ville du reagert annerledes enn folk i 1349 hvis en lignende krise skjedde i dag?"
+                ],
+                "difficulty": "medium"
+            },
+            {
+                "id": "utfordring-samfunn",
+                "title": "De store endringene",
+                "type": "utfordring",
+                "content": "Pesten førte til en enorm mangel på arbeidskraft. Dette endret maktbalansen mellom bønder og adel.",
+                "tasks": [
+                    "Hva skjedde med lønningene til de som overlevde? Hvorfor?",
+                    "Forklar begrepet 'ødegårder' og hva det forteller oss om bosettingsmønsteret etter 1350.",
+                    "Analyser hvordan pesten svekket det norske riksstyret i forhold til nabolandene."
+                ],
+                "links": [
+                    {
+                        "title": "Utforsk tidslinjen for senmiddelalderen",
+                        "url": "/historie/middelalderen/lange-linjer"
+                    }
+                ],
+                "difficulty": "hard"
+            },
+            {
+                "id": "gruppe-diskusjon",
+                "title": "Gruppearbeid: Historisk detektiv",
+                "type": "gruppe",
+                "content": "Sett dere sammen i grupper på 2-4 og diskuter følgende scenario.",
+                "tasks": [
+                    "Dere er kongens rådgivere i 1351. Landet ligger nede, skatteinntektene har stoppet opp, og embetsmennene er døde. Hvilke tre tiltak vil dere prioritere for å bygge opp igjen Norge?",
+                    "Lag en kort presentasjon (3 min) av deres viktigste tiltak."
+                ],
+                "difficulty": "medium"
+            },
+            {
+                "id": "oving-spill",
+                "title": "Øving og Spill",
+                "type": "oving",
+                "content": "Bruk disse verktøyene for å repetere det du har lært.",
+                "tasks": [
+                    "Spill 'Kronos' og plasser pest-relaterte hendelser i riktig rekkefølge.",
+                    "Gjennomfør quizen nederst i hovedartikkelen."
+                ],
+                "links": [
+                    {
+                        "title": "Spill Kronos",
+                        "url": "/oving/chrono"
+                    },
+                    {
+                        "title": "Øv på tidslinjen",
+                        "url": "/tidslinje"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -656,6 +656,17 @@
                                 "middelalder"
                             ],
                             "createdDate": "2025-12-22T12:00:00Z"
+                        },
+                        {
+                            "id": "stortinget",
+                            "title": "Stortinget",
+                            "description": "Norges nasjonalforsamling og maktens tredeling.",
+                            "tags": [
+                                "politikk",
+                                "norge",
+                                "demokrati"
+                            ],
+                            "createdDate": "2025-12-23T12:00:00Z"
                         }
                     ]
                 },
@@ -1448,11 +1459,20 @@
                     "title": "Vikingtiden",
                     "description": "Plyndring, handel og rikssamling.",
                     "image": "/images/lessons/vikingtiden/viking_main.png",
+                    "tools": [
+                        {
+                            "id": "vikingtiden-sti",
+                            "title": "Læringssti: Vikingtiden",
+                            "description": "En omfattende reise gjennom vikingenes verden, frem mot din egen fordypningsoppgave.",
+                            "link": "/historie/vikingtiden/vikingtiden-sti",
+                            "icon": "map"
+                        }
+                    ],
                     "lessons": [
                         {
                             "id": "artikkel",
-                            "title": "Vikingtiden",
-                            "description": "En oversikt over perioden.",
+                            "title": "Vikingtiden: En oversikt",
+                            "description": "En omfattende oversikt over perioden, fra Lindisfarne til Stamford Bridge.",
                             "image": "/images/lessons/vikingtiden/viking_main.png",
                             "tags": [
                                 "historie",
@@ -1460,7 +1480,35 @@
                                 "norge"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                            "lastUpdated": "2025-12-22T20:20:00Z"
+                        },
+                        {
+                            "id": "skipsteknologi",
+                            "title": "Skipet: Vikingtidens teknologi",
+                            "description": "Uten de klinkbygde skipene ville vikingtiden aldri ha skjedd.",
+                            "image": "/images/lessons/vikingtiden/vikingskip.png",
+                            "tags": [
+                                "historie",
+                                "vikingtiden",
+                                "teknologi",
+                                "skip"
+                            ],
+                            "createdDate": "2025-12-22T20:25:00Z",
+                            "lastUpdated": "2025-12-22T20:25:00Z"
+                        },
+                        {
+                            "id": "samfunn-og-rett",
+                            "title": "Samfunn og Rett",
+                            "description": "Vikingtiden handlet om mer enn krig. Det var et samfunn med strenge lover og ære.",
+                            "image": "/images/lessons/vikingtiden/tinget.png",
+                            "tags": [
+                                "historie",
+                                "vikingtiden",
+                                "samfunn",
+                                "lov"
+                            ],
+                            "createdDate": "2025-12-22T20:30:00Z",
+                            "lastUpdated": "2025-12-22T20:30:00Z"
                         },
                         {
                             "id": "hypotesen-norden-vs-frankrike",
@@ -1545,6 +1593,20 @@
                             "lastUpdated": "2025-12-09T23:55:00Z"
                         },
                         {
+                            "id": "oppdagelsesreiser",
+                            "title": "Oppdagelsesreiser i Vesterled",
+                            "description": "Vikingene var de første europeerne som krysset Atlanterhavet.",
+                            "image": "/images/lessons/vikingtiden/vinland.png",
+                            "tags": [
+                                "historie",
+                                "vikingtiden",
+                                "oppdagelse",
+                                "amerika"
+                            ],
+                            "createdDate": "2025-12-22T20:35:00Z",
+                            "lastUpdated": "2025-12-22T20:35:00Z"
+                        },
+                        {
                             "id": "kristningen-av-norge",
                             "title": "Kristningen: Dåp eller Død",
                             "description": "Hvordan Norge gikk fra å blot til Odin til å bygge stavkirker – med sverd i hånd.",
@@ -1579,6 +1641,15 @@
                     "title": "Middelalderen",
                     "description": "En tusenårig forvandling i Europa.",
                     "image": "/images/lessons/middelalderen/middelalder_hero.png",
+                    "tools": [
+                        {
+                            "id": "svartedauden-sti",
+                            "title": "Læringssti: Svartedauden",
+                            "description": "En guidet reise gjennom pestens historie med oppgaver og refleksjon.",
+                            "link": "/historie/middelalderen/svartedauden-sti",
+                            "icon": "map"
+                        }
+                    ],
                     "lessons": [
                         {
                             "id": "middelalderen",

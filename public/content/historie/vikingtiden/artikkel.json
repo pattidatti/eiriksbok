@@ -1,14 +1,15 @@
 {
     "id": "vikingtiden",
-    "title": "Vikingtiden",
+    "title": "Vikingtiden: En brytningstid for Norden",
     "subject": "Samfunnsfag",
     "topic": "Historie",
-    "fact": "Visste du at vikinger ikke hadde horn på hjelmene sine? Dette er en myte som oppstod på 1800-tallet.",
+    "fact": "Visste du at kallenavnet 'viking' sannsynligvis betyr en person som kommer fra en vik, eller en som drar ut på sjøen?",
     "tags": [
         "vikingtiden",
         "norge",
         "krig",
-        "handel"
+        "handel",
+        "kultur"
     ],
     "year": "793-1066",
     "image": "/images/lessons/vikingtiden/viking_main.png",
@@ -17,21 +18,35 @@
     "content": [
         {
             "type": "text",
-            "content": "Vikingtiden regnes fra angrepet på Lindisfarne i 793 til slaget ved Stamford Bridge i 1066. Vikingene kom fra hele Skandinavia og var både bønder, handelsfolk, sjømenn og krigere. Men hvorfor reiste de? Før år 700 ble jernredskaper vanligere, noe som gjorde det lettere å rydde gårder. Dette førte til at folketallet økte, og det ble plassmangel på Vestlandet. Mange søkte derfor rikdom i utlandet."
+            "title": "Startskuddet",
+            "content": "Vikingtiden regnes tradisjonelt fra angrepet på klosteret Lindisfarne i 793 til slaget ved Stamford Bridge i 1066. For folk i Europa kom angrepene som et sjokk. Den lærde mannen Alkuin skrev til kongen av Northumbria at aldri før hadde slike grusomheter blitt sett i England. Han lurte på om dette var et tegn på guddommelig vrede. Vikingene kom fra hele Skandinavia og var slett ikke bare krigere; de var også bønder, dyktige handelsfolk og dristige sjømenn."
         },
         {
             "type": "text",
-            "content": "Samfunnet var organisert i ætter (storfamilier) og stammer ledet av en høvding. Høvdingen var leder, og viktige avgjørelser ble tatt på Tinget, en hellig plass for diskusjon og dom. De rike bøndene (frie menn) eide jorden, mens treller (slaver) var ufrie arbeidsfolk."
+            "title": "Hvorfor reiste de ut?",
+            "content": "Det er mange årsaker til at vikingene begynte å søke rikdom og nytt land i utlandet. En viktig indre årsak var teknologisk utvikling. Før år 700 ble jernredskaper vanligere i Norden, noe som gjorde det betydelig lettere å rydde nye gårder og dyrke jorda mer effektivt. Dette førte til en kraftig vekst i folketallet, som igjen skapte plassmangel, særlig på Vestlandet. Samtidig gjorde arvereglene at det ofte bare var den eldste sønnen som overtok gården, noe som tvang de yngre brødrene til å søke lykken andre steder."
         },
         {
             "type": "text",
-            "content": "Vikingene reiste med langskip som kunne seile både på åpent hav og grunt vann (elver). De grunnla riker i øst (Rus-riket/Kiev) og vest (Danelagen i England), og oppdaget Island, Grønland og Vinland (Amerika). De fikk ulike navn der de dro: 'Væringer' i Bysants, 'Rus' blant slaverne, og 'Normanner' i Frankrike."
+            "title": "Samfunnet og Tinget",
+            "content": "Det norrøne samfunnet var organisert i sterke ætter (storfamilier) og stammer ledet av en høvding. Ætten var individets sikkerhetsnett; hvis noen skadet deg, var det ættens plikt å kreve erstatning eller hevn. Selv om høvdingen var den øverste lederen, var samfunnet preget av en form for tidlig demokrati. Viktige avgjørelser, rettssaker og lover ble vedtatt på Tinget, en hellig samlingsplass for frie menn. De rike bøndene eide jorden og bar våpen, mens treller (slaver) var ufrie arbeidsfolk som utførte det tyngste arbeidet på gårdene."
+        },
+        {
+            "type": "text",
+            "title": "Teknologi og Verden",
+            "content": "Nøkkelen til vikingenes suksess var de klinkbygde langskipene. Disse skipene hadde en unik kombinasjon av seil og årer, og et grunt dypgående som gjorde at de kunne seile både på åpent hav og dypt innover i elver. Dette gjorde at de kunne slå til raskt og uventet. De grunnla betydelige riker både i øst, som Rus-riket med sentrum i Kiev, og i vest, slik som Danelagen i England. De reiste også utover den kjente verden og oppdaget Island, Grønland og Vinland (Amerika). Navnene de fikk varierte etter hvor de dro; de var kjent som væringer i Bysants, rus blant de slaviske folkene, og normanner i Frankrike."
+        },
+        {
+            "type": "text",
+            "title": "Arven og mytene",
+            "content": "I dag er vikingtiden en av de mest kjente periodene i norsk historie, men den er også full av myter. En av de mest seiglivede forestillingene er at vikingene brukte hjelmer med horn. Dette er faktisk en oppspinn fra 1800-tallets operaoppsetninger; det er aldri funnet en eneste vikinghjelm med horn. Vikingenes virkelige arv ligger i språket vårt, i lovverket de utviklet, og i hvordan de knyttet Norden til resten av verden gjennom handel og bosetting."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
-                "content": "Vikingene var dyktige sjøfolk som nådde helt til Amerika (Vinland) 500 år før Columbus."
+                "title": "Visste du dette?",
+                "content": "Vikingene var usedvanlig dyktige sjøfolk som nådde helt til Amerika (Vinland) over 500 år før Kristoffer Columbus ble født."
             }
         },
         {
@@ -40,31 +55,31 @@
             "props": {
                 "questions": [
                     {
-                        "question": "Hva var en viktig årsak til at vikingene begynte å reise ut?",
+                        "question": "Hva var en viktig teknologisk årsak til at vikingene kunne reise ut?",
                         "options": [
-                            "De ble kastet ut av kongen",
-                            "Befolkningsvekst og mangel på jord (plassmangel)",
-                            "En stor flodbølge ødela avlingene",
-                            "De ville spre kristendommen"
+                            "Oppfinnelsen av kompasset",
+                            "Bedre jernredskaper og langskip med seil",
+                            "Bruk av krutt i krigføring",
+                            "Oppdagelsen av dampmaskinen"
                         ],
-                        "answer": "Befolkningsvekst og mangel på jord (plassmangel)",
-                        "explanation": "Jernredskaper gjorde at de kunne dyrke mer mat, som førte til at folketallet økte. Det ble trangt om plassen på Vestlandet."
+                        "answer": "Bedre jernredskaper og langskip med seil",
+                        "explanation": "Jernredskaper gjorde jordbruket mer effektivt, mens langskipene med kjøl og seil gjorde det mulig å krysse store havstrekninger."
                     },
                     {
-                        "question": "Hva kalles samfunnssystemet vikingene levde under?",
+                        "question": "Hvilken rolle spilte Tinget i det norrøne samfunnet?",
                         "options": [
-                            "Demokrati",
-                            "Ættesamfunn med høvdinger og ting",
-                            "Keiserdømme",
-                            "Føydalisme"
+                            "Det var en festplass for kun høvdinger",
+                            "Det var en hellig plass for diskusjon, domavsigelser og lover",
+                            "Det var et marked for kjøp og salg av treller",
+                            "Det var en treningsleir for unge krigere"
                         ],
-                        "answer": "Ættesamfunn med høvdinger og ting",
-                        "explanation": "Samfunnet var bygget opp rundt ætten (storfamilien). Høvdingen var leder, og viktige saker ble avgjort på tinget."
+                        "answer": "Det var en hellig plass for diskusjon, domavsigelser og lover",
+                        "explanation": "Tinget var den sentrale institusjonen der frie menn møttes for å løse konflikter og vedta lover."
                     }
                 ]
             }
         }
     ],
     "createdDate": "2023-01-01T12:00:00Z",
-    "lastUpdated": "2025-12-03T17:25:16.499Z"
+    "lastUpdated": "2025-12-22T20:20:00Z"
 }

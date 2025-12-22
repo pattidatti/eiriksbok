@@ -45,6 +45,11 @@ const MonarchyEvolution = lazy(() => import('./content/interactive/MonarchyEvolu
 const ColonialGovernance = lazy(() => import('./content/interactive/ColonialGovernance').then(m => ({ default: m.ColonialGovernance })));
 const ResourceTradeFlows = lazy(() => import('./content/interactive/ResourceTradeFlows').then(m => ({ default: m.ResourceTradeFlows })));
 const InterdisciplinaryBridge = lazy(() => import('./content/interactive/InterdisciplinaryBridge').then(m => ({ default: m.InterdisciplinaryBridge })));
+const GlossaryTooltip = lazy(() => import('./content/interactive/GlossaryTooltip').then(m => ({ default: m.GlossaryTooltip })));
+const ScenarioRoleplay = lazy(() => import('./content/interactive/ScenarioRoleplay').then(m => ({ default: m.ScenarioRoleplay })));
+const DragDropTimeline = lazy(() => import('./content/interactive/DragDropTimeline').then(m => ({ default: m.DragDropTimeline })));
+const PackTheBag = lazy(() => import('./content/interactive/PackTheBag').then(m => ({ default: m.PackTheBag })));
+const DebateSimulator = lazy(() => import('./content/interactive/DebateSimulator').then(m => ({ default: m.DebateSimulator })));
 
 // Viking/Historie
 const ConflictMap = lazy(() => import('./viking/ConflictMap').then(m => ({ default: m.ConflictMap })));
@@ -108,6 +113,11 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     ColonialGovernance,
     ResourceTradeFlows,
     InterdisciplinaryBridge,
+    GlossaryTooltip,
+    ScenarioRoleplay,
+    DragDropTimeline,
+    PackTheBag,
+    DebateSimulator,
 
     // Viking/History
     ConflictMap,

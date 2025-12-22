@@ -128,6 +128,39 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     // Construct fallback URL for ArticleContent
     const fallbackUrl = `${window.location.origin}${import.meta.env.BASE_URL.replace(/\/$/, '')}/content/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}/${lessonId}.json`;
 
+    // Gather relevant learning paths from the manifest
+    const subject = manifest?.subjects.find(s => s.id === subjectId);
+    const topic = subject?.topics.find(t => t.id === topicId);
+    const subTopic = topic?.subTopics?.find(st => st.id === subTopicId);
+
+    const allTopicTools = [
+        ...(topic?.tools || []),
+        ...(subTopic?.tools || [])
+    ];
+
+    const relevantLearningPaths = allTopicTools
+        .filter(t => {
+            const isPath = t.id.includes('sti') || t.title.toLowerCase().includes('læringssti');
+            if (!isPath) return false;
+
+            // Heuristic matches
+            const titleMatches = t.title.toLowerCase().includes(lesson?.title?.toLowerCase() || '');
+            const idMatches = t.id.includes(lessonId);
+
+            // If the lesson is the main topic article, it's very likely relevant
+            const isMainTopicLesson = lessonId === topicId || lessonId === subTopicId;
+
+            // If the path ID starts with the topic ID, it's likely a general path for the topic
+            const isTopicGeneralPath = topicId && t.id.startsWith(topicId);
+
+            return titleMatches || idMatches || isMainTopicLesson || isTopicGeneralPath;
+        })
+        .map(t => ({
+            id: t.id,
+            title: t.title,
+            url: t.link
+        }));
+
     // Standardize all lessons to use InteractiveArticle (Rich Layout)
     if (lesson) {
         const articleData = {
@@ -147,7 +180,9 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             mapData: lesson.mapData,
             tags: lesson.tags,
             subjectId: subjectId,
-            topicId: topicId
+            topicId: topicId,
+            learningPathData: lesson.learningPathData,
+            learningPaths: relevantLearningPaths
         };
 
         return (

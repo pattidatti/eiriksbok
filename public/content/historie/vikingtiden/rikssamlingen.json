@@ -1,9 +1,15 @@
 {
     "id": "rikssamlingen",
-    "title": "Rikssamlingen",
+    "title": "Rikssamlingen: Da Norge ble ett",
     "subject": "Samfunnsfag",
     "topic": "Historie",
-    "fact": "Visste du at slaget ved Hafrsfjord sannsynligvis ikke var det ene avgjørende slaget som samlet Norge, men heller en del av en lang prosess?",
+    "fact": "Visste du at navnet Norge faktisk betyr veien mot nord (Norðvegr)?",
+    "tags": [
+        "vikingtiden",
+        "rikssamling",
+        "harald hårfagre",
+        "hafrsfjord"
+    ],
     "year": "865-933",
     "image": "/images/lessons/vikingtiden/rikssamlingen.png",
     "layout": "rich",
@@ -11,24 +17,63 @@
     "content": [
         {
             "type": "text",
-            "content": "Harald Hårfagre (konge ca. 865–933) regnes som Norges første rikskonge. Han kom sannsynligvis fra Vestfold og arvet riket etter faren Halvdan Svarte. Historien forteller at han lovet kongsdattern Gyda å samle hele Norge til ett rike før han ville klippe håret."
+            "title": "Drømmen om et samlet rike",
+            "content": "Harald Hårfagre regnes som Norges første rikskonge. Han styrte fra omtrent år 865 til 933. Harald kom sannsynligvis fra Vestfold og arvet et mindre rike etter faren sin, Halvdan Svarte. Ifølge sagaen ble han utfordret av kongsdattern Gyda, som nektet å gifte seg med ham før han hadde samlet hele Norge til ett rike. Harald svarte med og avlegge et løfte om at han ikke skulle klippe eller kjemme håret før målet var nådd."
         },
         {
             "type": "text",
-            "content": "Det avgjørende slaget stod i Hafrsfjord (tradisjonelt år 872). Her allierte Harald seg med jarler fra Trøndelag for å slå sjøkongene på Sør-Vestlandet. Han etablerte et viktig maktsenter på Karmøy."
+            "title": "Slaget i Hafrsfjord",
+            "content": "Det avgjørende slaget i rikssamlingen fant sted i Hafrsfjord, tradisjonelt rundt år 872. Her kjempet Harald mot småkonger fra Sør- og Vestlandet. Suksessen til Harald skyldtes ikke bare hans egen styrke, men også strategiske allianser. Han sørget for å knytte til seg de mektige Ladejarlene fra Trøndelag. Sammen med dem klarte han å nedkjempe motstanderne sine og etablere et fast maktsenter på Karmøy."
         },
         {
             "type": "text",
-            "content": "Selv om Harald samlet landet, var makten sårbar. Han fikk mange sønner som ble sendt til ulike allierte ætter for oppfostring. Etter Haralds død gikk riket delvis i oppløsning gjennom maktkamper mellom sønnene, som Eirik Blodøks og Håkon den Gode. Harald Hårfagre ga senere konger 'historisk legitimitet' – retten til å styre fordi de stammet fra ham."
+            "title": "Kontrollen over kysten",
+            "content": "Rikssamlingen handlet i stor grad om å kontrollere Nordvegen – den viktige kystveien langs Norge. Den som kontrollerte kysten, kontrollerte også handelen og skipstrafikken. Ved å bygge opp kongsgårder langs kysten kunne Harald kreve inn skatter og sikre lojalitet fra lokale høvdinger. Likevel var riket sårbart for indre splid."
+        },
+        {
+            "type": "text",
+            "title": "En skjør enhet",
+            "content": "Selv om Harald samlet landet, var makten hans i stor grad knyttet til hans egen person. Han hadde mange sønner, og for å sikre fred ble de sendt til ulike allierte familier for oppfostring. Etter Haralds død brøt det ut voldsomme maktkamper mellom sønnene, blant andre Eirik Blodøks og Håkon den Gode. Til tross for dette ga Harald Hårfagre senere norske konger en såkalt historisk legitimitet; man mente at bare de som stammet fra Harald hadde rett til å kreve kongetittelen."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
-                "content": "Slaget i Hafrsfjord i 872 regnes som tidspunktet da Norge ble samlet til ett rike."
+                "title": "Viktig årstall",
+                "content": "Slaget i Hafrsfjord i 872 regnes som det symbolske tidspunktet da Norge ble samlet til ett rike."
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvem allierte Harald Hårfagre seg med for å vinne i Hafrsfjord?",
+                        "options": [
+                            "Danskekongen",
+                            "Ladejarlene fra Trøndelag",
+                            "Saksere fra sør",
+                            "Irske småkonger"
+                        ],
+                        "answer": "Ladejarlene fra Trøndelag",
+                        "explanation": "Alliansen med Ladejarlene var avgjørende for at Harald fikk kontroll over kysten."
+                    },
+                    {
+                        "question": "Hva betyr navnet Norge?",
+                        "options": [
+                            "Det kalde landet",
+                            "Vikingenes land",
+                            "Veien mot nord (Nordvegen)",
+                            "Havets rike"
+                        ],
+                        "answer": "Veien mot nord (Nordvegen)",
+                        "explanation": "Navnet henviser til den viktige seilingsruten langs kysten."
+                    }
+                ]
             }
         }
     ],
     "createdDate": "2023-01-01T12:00:00Z",
-    "lastUpdated": "2025-12-03T17:25:16.499Z"
+    "lastUpdated": "2025-12-22T20:40:00Z"
 }

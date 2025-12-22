@@ -58,7 +58,7 @@ export interface Lesson {
     readTime?: string;
     details?: string[];
     externalUrl?: string;
-    layout?: 'standard' | 'rich' | 'tool';
+    layout?: 'standard' | 'rich' | 'tool' | 'learning-path';
     year?: string;
     category?: string;
     // Legacy fields for backward compatibility
@@ -73,6 +73,8 @@ export interface Lesson {
     relatedLink?: { text: string; url: string; };
     quote?: Quote;
     flashcards?: { front: string; back: string }[];
+    learningPathData?: LearningPathData;
+    learningPaths?: { id: string; title: string; url: string }[];
 }
 
 export interface Quote {
@@ -221,4 +223,29 @@ export interface TextAnalysisGameData {
     text: string; // The full text content
     categories: TextAnalysisCategory[];
     solutions: TextAnalysisSpan[];
+}
+
+export interface LearningPathStep {
+    id: string;
+    title: string;
+    type: 'fakta' | 'refleksjon' | 'utfordring' | 'gruppe' | 'ressurs' | 'oving' | 'oppgave';
+    content: string;
+    icon?: string;
+    links?: { title: string; url: string; external?: boolean }[];
+    tasks?: string[];
+    difficulty?: 'easy' | 'medium' | 'hard';
+    phase?: string;
+    component?: {
+        name: string;
+        props?: Record<string, any>;
+    };
+}
+
+export interface LearningPathData {
+    id: string;
+    title: string;
+    description: string;
+    steps: LearningPathStep[];
+    targetTopicId?: string;
+    targetSubjectId?: string;
 }

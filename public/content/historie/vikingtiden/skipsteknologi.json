@@ -1,0 +1,100 @@
+{
+    "id": "skipsteknologi",
+    "title": "Skipet: Vikingtidens viktigste teknologi",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "description": "Uten de klinkbygde skipene ville vikingtiden aldri ha skjedd. Her ser vi på hvordan skipene ble bygget og hvorfor de var så overlegne.",
+    "tags": [
+        "vikingtiden",
+        "teknologi",
+        "skip",
+        "sjøfart"
+    ],
+    "year": "750-1066",
+    "image": "/images/lessons/vikingtiden/vikingskip.png",
+    "layout": "rich",
+    "content": [
+        {
+            "type": "text",
+            "title": "Klinkbygging: En revolusjon i tre",
+            "content": "Hemmeligheten bak vikingenes skip ligger i klinkbyggingen. I stedet for å bygge et skjelett først, festet båtbyggerne bordgangene over hverandre som takstein, og klinket dem sammen med jernnagler. Dette gjorde skipene både lette og fleksible. Et vikingskip kunne vri seg i bølgene uten å sprekke, noe som ga dem en fantastisk sjødyktighet."
+        },
+        {
+            "type": "text",
+            "title": "Kjølen og seilet",
+            "content": "Den viktigste oppfinnelsen var likevel kjølen. Før vikingtiden var skipene flate under og ble drevet frem med årer. Med en kraftig kjøl av eik kunne skipene nå bære en stor mast med seil uten å velte. Seilet gjorde det mulig å reise over enorme avstander uten å slite ut mannskapet ved årene. Vikingene brukte både årer og seil, noe som gjorde skipene deres farlige uansett værforhold."
+        },
+        {
+            "type": "text",
+            "title": "Langskip og Knarr",
+            "content": "Vikingene bygde ulike skip til ulike formål. Langskipet var krigsskipet. Det var smalt, langt og bygd for fart. Med et grunt dypgående kunne det seiles helt opp i små elver og trekkes opp på stranden, noe som gjorde at vikingene kunne slå til der fienden følte seg trygg. Knarren var derimot handelsskipet. Det var bredere og dypere, med stor plass til laste som kvernsteiner, skinn og tømmer. Knarren var den stødige arbeidshesten som fraktet folk og fe til Island og Grønland."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Visste du dette?",
+                "content": "Gokstadskipet, som ble funnet i en gravhaug i Vestfold, er et av de best bevarte vikingskipene i verden. Det viser nøyaktig hvor avanserte disse skipene var."
+            }
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Langskip vs. Knarr",
+                "leftTitle": "Langskip",
+                "rightTitle": "Knarr",
+                "items": [
+                    {
+                        "left": "Langt og smalt",
+                        "right": "Bredt og dypt"
+                    },
+                    {
+                        "left": "Bygget for fart og krig",
+                        "right": "Bygget for last og handel"
+                    },
+                    {
+                        "left": "Mange årer og seil",
+                        "right": "Få årer, mest seil"
+                    },
+                    {
+                        "left": "Grunt dypgående (elver)",
+                        "right": "Tåler grov sjø på åpent hav"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva kalles metoden der skipsbordene legges over hverandre som takstein?",
+                        "options": [
+                            "Klinkbygging",
+                            "Kravellbygging",
+                            "Lafting",
+                            "Sperreverk"
+                        ],
+                        "answer": "Klinkbygging",
+                        "explanation": "Klinkbygging er den tradisjonelle nordiske metoden som gjorde skipene lette, sterke og fleksible."
+                    },
+                    {
+                        "question": "Hvorfor var det grunne dypgående så viktig for vikingenes krigstaktikk?",
+                        "options": [
+                            "Det gjorde skipene raskere",
+                            "De kunne seile opp elver og overraske fienden",
+                            "Det var lettere å male skipene",
+                            "De kunne frakte mer tunge varer"
+                        ],
+                        "answer": "De kunne seile opp elver og overraske fienden",
+                        "explanation": "Fordi skipene ikke stakk dypt i vannet, kunne de navigere der andre store skip ville gått på grunn."
+                    }
+                ]
+            }
+        }
+    ],
+    "createdDate": "2025-12-22T20:25:00Z",
+    "lastUpdated": "2025-12-22T20:25:00Z"
+}

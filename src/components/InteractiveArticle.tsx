@@ -11,7 +11,8 @@ import {
 } from 'lucide-react';
 import { ArticleContent } from './ArticleContent';
 import { RichSidebar } from './RichSidebar';
-import type { ContentBlock } from '../types';
+import { LearningPath } from './content/LearningPath';
+import type { ContentBlock, LearningPathData } from '../types';
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
 import { cleanTextForSpeech } from '../utils/speechUtils';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
@@ -26,7 +27,7 @@ export type ArticleData = {
     year: string;
     title: string;
     description: string;
-    layout?: 'standard' | 'rich' | 'tool';
+    layout?: 'standard' | 'rich' | 'tool' | 'learning-path';
     content: ContentBlock[];
     details: string[];
     icon?: React.ReactNode;
@@ -41,6 +42,8 @@ export type ArticleData = {
     concepts?: any[];
     topicId?: string;
     subjectId?: string;
+    learningPathData?: LearningPathData;
+    learningPaths?: { id: string; title: string; url: string }[];
 };
 
 interface InteractiveArticleProps {
@@ -270,35 +273,40 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
             )}
 
             {/* Main Content Container */}
-            <div className={`${event.layout === 'tool' ? 'w-full' : 'max-w-6xl mx-auto px-6'}`}>
-                <div className={`${event.layout === 'tool' ? 'w-full' : 'bg-white rounded-3xl p-8 md:p-12'}`}>
-                    <div className={`grid gap-16 ${event.layout === 'tool' ? 'grid-cols-1 w-full' : 'grid-cols-1 lg:grid-cols-[1fr_350px]'}`}>
-                        {/* Left Column: Article Text */}
-                        <div className="space-y-8">
-                            <ArticleContent
-                                content={event.content}
-                                concepts={event.concepts}
-                                activeBlockIndex={activeContentIndex}
-                                onBlockClick={handleBlockClick}
-                                fallbackUrl={fallbackUrl}
-                                isTool={event.layout === 'tool'}
-                            />
+            <div className={`${(event.layout === 'tool' || event.layout === 'learning-path') ? 'w-full' : 'max-w-6xl mx-auto px-6'}`}>
+                <div className={`${(event.layout === 'tool' || event.layout === 'learning-path') ? 'w-full' : 'bg-white rounded-3xl p-8 md:p-12'}`}>
+                    {event.layout === 'learning-path' && event.learningPathData ? (
+                        <LearningPath data={event.learningPathData} />
+                    ) : (
+                        <div className={`grid gap-16 ${event.layout === 'tool' ? 'grid-cols-1 w-full' : 'grid-cols-1 lg:grid-cols-[1fr_350px]'}`}>
+                            {/* Left Column: Article Text */}
+                            <div className="space-y-8">
+                                <ArticleContent
+                                    content={event.content}
+                                    concepts={event.concepts}
+                                    activeBlockIndex={activeContentIndex}
+                                    onBlockClick={handleBlockClick}
+                                    fallbackUrl={fallbackUrl}
+                                    isTool={event.layout === 'tool'}
+                                />
 
-                            {event.fact && <FactBox content={event.fact} />}
+                                {event.fact && <FactBox content={event.fact} />}
+                            </div>
+
+                            {/* Right Column: Sidebar / Interactive Elements */}
+                            {event.layout !== 'tool' && (
+                                <RichSidebar
+                                    details={event.details}
+                                    timelineEvents={combinedTimeline}
+                                    relatedArticles={relatedArticles}
+                                    mapData={event.mapData}
+                                    tags={event.tags}
+                                    config={sidebarConfig}
+                                    learningPaths={event.learningPaths}
+                                />
+                            )}
                         </div>
-
-                        {/* Right Column: Sidebar / Interactive Elements */}
-                        {event.layout !== 'tool' && (
-                            <RichSidebar
-                                details={event.details}
-                                timelineEvents={combinedTimeline}
-                                relatedArticles={relatedArticles}
-                                mapData={event.mapData}
-                                tags={event.tags}
-                                config={sidebarConfig}
-                            />
-                        )}
-                    </div>
+                    )}
                 </div>
             </div>
         </div>

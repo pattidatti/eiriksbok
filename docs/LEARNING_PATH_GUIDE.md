@@ -1,0 +1,191 @@
+# Håndbok: Lage nye læringsstier i Eiriksbok
+
+Dette dokumentet beskriver den komplette prosessen for å opprette, strukturere og implementere nye læringsstier. En læringssti er en kuratert reise gjennom et emne, som binder sammen artikler, oppgaver og interaktive spill.
+
+## 1. Konsept og Planlegging
+
+Før du skriver kode, må du strukturere stien pedagogisk.
+
+### Sjekkliste for innhold
+*   **Tema**: Hva er den røde tråden? (F.eks "Vikingtiden" eller "Den industrielle revolusjon")
+*   **Målgruppe**: Er det for introduksjon eller fordypning?
+*   **Omfang**: En god sti bør ha 10-20 steg.
+*   **Artikler**: Har vi de nødvendige underliggende artiklene? (Hvis ikke, må disse opprettes som "placeholders" først).
+
+## 2. Filstruktur
+
+Læringsstier lagres som JSON-filer sammen med emnets artikler.
+
+**Eksempel:**
+```
+public/content/historie/vikingtiden/vikingtiden-sti.json
+```
+
+Navngivingen bør følge mønsteret `[emne]-sti.json`.
+
+## 3. JSON-Struktur
+
+En læringssti består av metadata og en liste med steg.
+
+### Baseskjema (`LearningPathData`)
+
+```json
+{
+    "id": "mitt-emne-sti",
+    "title": "Læringssti: Tittel",
+    "description": "Kort innsalg til eleven.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "Tidsperiode",
+    "readTime": "Estimat (f.eks 2-3 timer)",
+    "learningPathData": {
+        "id": "mitt-emne-sti",
+        "title": "Tittel inne i selve komponenten",
+        "description": "Lengre beskrivelse...",
+        "steps": [ ... ]
+    }
+}
+```
+
+### Steg-struktur (`LearningPathStep`)
+
+Hvert steg i `steps`-arrayet kan være av typen:
+*   `fakta`: Ren informasjon.
+*   `refleksjon`: Spørsmål til ettertanke.
+*   `utfordring`: Noe vanskeligere.
+*   `oppgave`: Konkrete gjøremål.
+*   `ressurs`: Lenker til fordypning.
+
+```json
+{
+    "id": "unik-id-for-steget",
+    "phase": "Fase 1: Oppstart (Valgfritt, lager overskrift)",
+    "title": "Stegets tittel",
+    "type": "fakta", 
+    "content": "Selve teksten som vises i kortet.",
+    "tasks": [
+        "Oppgave 1",
+        "Oppgave 2"
+    ],
+    "links": [
+        {
+            "title": "Les mer om dette",
+            "url": "/historie/emne/artikkel"
+        }
+    ]
+}
+```
+
+### Interaktive Komponenter (Fase 2)
+
+Du kan legge inn spill og verktøy direkte i et steg ved å bruke `component`-feltet.
+
+> **Tips:** Hvis ingen av de eksisterende komponentene passer til ditt innhold, ikke nøl med å **foreslå nye!** Vi utvider stadig biblioteket med skreddersydde verktøy for spesifikke læringsmål.
+
+#### Tilgjengelige komponenter:
+
+**1. PackTheBag (Ressursstyring)**
+Brukes for forberedelser, reiser eller økonomi.
+```json
+"component": {
+    "name": "PackTheBag",
+    "props": {
+        "capacity": 500,
+        "targetValue": 80,
+        "items": [
+           { "id": "item1", "name": "Navn", "weight": 50, "value": 30, "icon": "🐟" }
+        ]
+    }
+}
+```
+
+**2. ScenarioRoleplay (Valg-basert historie)**
+Brukes for dilemmaer og historisk empati.
+```json
+"component": {
+    "name": "ScenarioRoleplay",
+    "props": {
+        "title": "Tittel",
+        "intro": "Intro tekst...",
+        "startId": "start",
+        "scenarios": [
+            {
+                "id": "start",
+                "text": "Hva gjør du?",
+                "options": [
+                    { "label": "Valg A", "nextId": "a" },
+                    { "label": "Valg B", "nextId": "b" }
+                ]
+            }
+        ]
+    }
+}
+```
+
+**3. DebateSimulator (Argumentasjon)**
+Brukes for politikk, rettssaker eller konflikter.
+```json
+"component": {
+    "name": "DebateSimulator",
+    "props": {
+        "topic": "Saken gjelder...",
+        "opponentName": "Motstander",
+        "context": "Bakgrunn...",
+        "winningScore": 15,
+        "arguments": [
+             { "id": "a1", "text": "Ditt argument", "strength": 5, "type": "mercy", "response": "Motstanders svar" }
+        ]
+    }
+}
+```
+
+**4. DragDropTimeline (Rekkefølge)**
+Brukes for hendelsesforløp.
+```json
+"component": {
+    "name": "DragDropTimeline",
+    "props": {
+        "title": "Sett i rekkefølge",
+        "events": [
+            { "id": "e1", "year": 1000, "label": "Hendelse A" },
+            { "id": "e2", "year": 1066, "label": "Hendelse B" }
+        ]
+    }
+}
+```
+
+## 4. Registrering i Manifest
+
+For at stien skal vises i systemet, må den registreres i `public/content/manifest.json` under riktig `topic`.
+
+```json
+{
+    "id": "mitt-emne-sti",
+    "title": "Læringssti: Tittel",
+    "description": "Beskrivelse...",
+    "image": "/images/lessons/sti-bilde.png",
+    "tags": ["læringssti", "emne"],
+    "createdDate": "2024-01-01T12:00:00Z",
+    "lastUpdated": "2024-01-01T12:00:00Z"
+}
+```
+
+> **VIKTIG:** Sørg for at `id` i manifestet matcher filnavnet (uten .json) og `id` inne i JSON-filen.
+
+## 5. Sjekkliste for Kvalitetssikring
+
+Før du sier deg ferdig:
+
+1.  [ ] **Lenker**: Fungerer alle interne lenker til artikler? Har du laget placeholder-artikler for manglende innhold?
+2.  [ ] **Bilder**: Har alle interaktive komponenter nødvendige ikoner/bilder?
+3.  [ ] **Progresjon**: Er det en logisk rekkefølge fra enkle fakta til komplekse oppgaver?
+4.  [ ] **Variasjon**: Bland lesing, refleksjon og interaktive spill. Unngå 10 "fakta"-kort på rad.
+5.  [ ] **Testing**: Åpne stien i nettleseren og klikk gjennom alle stegene. Spill gjennom scenariene for å sjekke at logikken holder.
+
+## 6. Tips & Triks
+
+*   **Bruk "Faser"**: Gruppér stegene med `phase`-feltet for å gi eleven oversikt (f.eks "Fase 1: Oppstart", "Fase 2: Fordypning").
+*   **Tooltips**: Bruk `<GlossaryTooltip term="ord" definition="forklaring" />` inne i React-komponenter der det er mulig (krever koding), eller skriv definisjoner i parantes i JSON-teksten.
+*   **Ikke bruk fet tekst**: Vi bruker ikke **fet tekst** for utheving i brødtekst, la innholdet stå for seg selv.
+*   **Tverrfaglighet**: Læringsstien bør lenke til artikler utenfor hovedemnet for å vise helhet (f.eks. lenke til Religion når man snakker om Lov og Rett).
+*   **Flere lenker**: Et enkelt steg kan og bør ha flere lenker hvis det belyser temaet fra ulike sider.

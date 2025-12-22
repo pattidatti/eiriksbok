@@ -1,0 +1,79 @@
+{
+    "id": "samfunn-og-rett",
+    "title": "Samfunn og Rett i vikingtiden",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "description": "Vikingtiden handlet om mer enn krig. Det var et samfunn med strenge lover, et lagdelt klassesystem og klare regler for ære.",
+    "tags": [
+        "vikingtiden",
+        "samfunn",
+        "lov",
+        "tinget",
+        "kvinner"
+    ],
+    "year": "750-1066",
+    "image": "/images/lessons/vikingtiden/tinget.png",
+    "layout": "rich",
+    "content": [
+        {
+            "type": "text",
+            "title": "Lagdelingen: Fra trell til jarl",
+            "content": "Samfunnet i vikingtiden var delt inn i tre hovedklasser: treller, bønder og jarler. Trellene var ufrie slaver som sto nederst på rangstigen. De utførte det tyngste arbeidet og hadde ingen rettigheter. Bøndene var den største gruppen. De var frie menn som eide sin egen jord og hadde rett til å tale på Tinget. Øverst sto jarlene, de mektige høvdingene som ledet ekspedisjoner og eide store landområder. Selv om klassene var tydelige, var det mulig å bevege seg mellom dem, for eksempel hvis en trell ble kjøpt fri."
+        },
+        {
+            "type": "text",
+            "title": "Tinget: Lov og rettferdighet",
+            "content": "Selv om vikingene ofte løste konflikter med sverd, hadde de et avansert rettssystem. Hvert område hadde sitt eget Ting, en samlingsplass der de frie mennene møttes for å dømme i rettssaker og vedta lover. Et kjent prinsipp var at 'land skal med lov bygges, og ikke med ulov ødes'. Dette betydde at samfunnet var avhengig av lovverket for å overleve. Den strengeste straffen var å bli lyst fredløs, som betydde at hvem som helst kunne drepe deg uten at det fikk konsekvenser."
+        },
+        {
+            "type": "text",
+            "title": "Husfrua: Kvinnens makt",
+            "content": "Kvinner i vikingtiden hadde en stilling som var uvanlig sterk sammenlignet med det meste av Europa på den tiden. Husfrua var lederen på gården når mannen var ute på tokt eller handel. Hun bar nøklene til gårdens kister og lager i beltet sitt som et symbol på sin makt og sitt ansvar. Kvinner hadde rett til å kreve skilsmisse og beholde sin egen eiendom. Selv om de sjelden deltok direkte på Tinget, hadde de stor uformell makt gjennom ætten og familien."
+        },
+        {
+            "type": "text",
+            "title": "Ætten: Familiens ære",
+            "content": "Individet betydde lite alene i vikingtiden; det var ætten som var viktigst. Hvis et familiemedlem ble krenket, var det hele ættens ansvar å få oppreisning. Ære var den viktigste sosiale kapitalen en person hadde. Et godt ettermæle var det eneste som levde evig, og derfor var det viktigere å dø med ære enn å leve i skam."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Visste du dette?",
+                "content": "Gulatinget på Vestlandet er et av de eldste tingstedene vi kjenner til. Lovene som ble vedtatt der, har påvirket det norske rettssystemet helt frem til i dag."
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvilken gruppe i samfunnet hadde ingen rettigheter og ble regnet som ufrie?",
+                        "options": [
+                            "Bønder",
+                            "Jarler",
+                            "Treller",
+                            "Væringer"
+                        ],
+                        "answer": "Treller",
+                        "explanation": "Treller var slaver som ble kjøpt, solgt eller tatt som krigsbytte."
+                    },
+                    {
+                        "question": "Hva symboliserte nøklene som husfrua bar i beltet?",
+                        "options": [
+                            "Hennes makt og ansvar over gården",
+                            "At hun var en dyktig smed",
+                            "At hun var en fange",
+                            "Hennes ønske om å reise ut"
+                        ],
+                        "answer": "Hennes makt og ansvar over gården",
+                        "explanation": "Nøklene viste at det var hun som kontrollerte gårdens ressurser og verdier."
+                    }
+                ]
+            }
+        }
+    ],
+    "createdDate": "2025-12-22T20:30:00Z",
+    "lastUpdated": "2025-12-22T20:30:00Z"
+}

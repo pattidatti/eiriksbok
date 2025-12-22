@@ -24,7 +24,19 @@
         },
         {
             "type": "text",
-            "content": "Før vi ser på historien, må vi forstå at filosofer (som [Sokrates](/filosofi/historisk-filosofi/sokrates) og hans etterfølgere) har kranglet om definisjonen i tusenvis av år. Forenklet sagt finnes det to hovedmåter å tenke på:\n\n1. **Korrespondanse**: Noe er sant hvis det stemmer overens med virkeligheten. 'Himmelen er blå' er sant hvis jeg ser ut og himmelen faktisk er blå.\n2. **Koherens**: Noe er sant hvis det passer logisk sammen med alle andre ting vi vet. Det er som en puslespillbrikke som må passe inn i resten av bildet.\n\nGjennom historien har vi skiftet på hvilken av disse vi legger mest vekt på – og hvem vi stoler på at skal fortelle oss det."
+            "content": "Før vi ser på historien, må vi forstå at filosofer (som [Sokrates](/filosofi/historisk-filosofi/sokrates) og hans etterfølgere) har kranglet om definisjonen i tusenvis av år. Forenklet sagt finnes det to hovedmåter å tenke på:"
+        },
+        {
+            "type": "list",
+            "ordered": true,
+            "items": [
+                "Korrespondanse: Noe er sant hvis det stemmer overens med virkeligheten. 'Himmelen er blå' er sant hvis jeg ser ut og himmelen faktisk er blå.",
+                "Koherens: Noe er sant hvis det passer logisk sammen med alle andre ting vi vet. Det er som en puslespillbrikke som må passe inn i resten av bildet."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Gjennom historien har vi skiftet på hvilken av disse vi legger mest vekt på – og hvem vi stoler på at skal fortelle oss det."
         },
         {
             "type": "header",
@@ -37,7 +49,7 @@
         },
         {
             "type": "text",
-            "content": "I det lange tidsrommet vi kaller [middelalderen](/historie/middelalderen/middelalderen), var ikke sannheten noe du trengte å finne opp selv. Den var allerede gitt. Sannheten var åpenbart av Gud gjennom Bibelen og kirken.\n\nHvis du ville vite hvordan verden var skapt, eller hva som var rett og galt, så du ikke på data eller gjorde eksperimenter. Du leste de hellige skriftene eller hørte på paven. Sannhet var knyttet til **autoritet**. Å tvile på kirken var ikke bare å ta feil; det var å sette seg opp mot selve universets orden.\n\nDette ga samfunnet en enorm stabilitet. Alle delte det samme verdensbildet. Men det betød også at nye ideer som ikke passet inn i puslespillet, ble undertrykt (se [inkvisisjonen](/historie/middelalderen/det-hellige-romerske-rike))."
+            "content": "I det lange tidsrommet vi kaller [middelalderen](/historie/middelalderen/middelalderen), var ikke sannheten noe du trengte å finne opp selv. Den var allerede gitt. Sannheten var åpenbart av Gud gjennom Bibelen og kirken.\n\nHvis du ville vite hvordan verden var skapt, eller hva som var rett og galt, så du ikke på data eller gjorde eksperimenter. Du leste de hellige skriftene eller hørte på paven. Sannhet var knyttet til autoritet. Å tvile på kirken var ikke bare å ta feil; det var å sette seg opp mot selve universets orden.\n\nDette ga samfunnet en enorm stabilitet. Alle delte det samme verdensbildet. Men det betød også at nye ideer som ikke passet inn i puslespillet, ble undertrykt (se [inkvisisjonen](/historie/middelalderen/det-hellige-romerske-rike))."
         },
         {
             "type": "component",
@@ -95,7 +107,7 @@
         },
         {
             "type": "text",
-            "content": "I dag står vi foran et nytt skifte. Vi overlater mer og mer av sannhetssøkingen til maskiner. Når du søker på Google eller ser en video på TikTok, bestemmer algoritmer hva som er 'relevant' (og dermed ofte hva som føles 'sant') for akkurat deg.\n\nHer ser vi en ny type sannhet: **Sannsynlighetssannhet**. En AI som ChatGPT beregner ikke sannhet i filosofisk forstand; den beregner hvilket ord som mest sannsynlig kommer etter det forrige basert på enorme datamengder. \n\nFaren er at vi går tilbake til en form for 'autoritetssannhet' – men denne gangen er autoriteten ikke en gud eller en kirke, men en ugjennomsiktig kode som ingen egentlig forstår helt."
+            "content": "I dag står vi foran et nytt skifte. Vi overlater mer og mer av sannhetssøkingen til maskiner. Når du søker på Google eller ser en video på TikTok, bestemmer algoritmer hva som er 'relevant' (og dermed ofte hva som føles 'sant') for akkurat deg.\n\nHer ser vi en ny type sannhet: Sannsynlighetssannhet. En AI som ChatGPT beregner ikke sannhet i filosofisk forstand; den beregner hvilket ord som mest sannsynlig kommer etter det forrige basert på enorme datamengder. \n\nFaren er at vi går tilbake til en form for 'autoritetssannhet' – men denne gangen er autoriteten ikke en gud eller en kirke, men en ugjennomsiktig kode som ingen egentlig forstår helt."
         },
         {
             "type": "component",

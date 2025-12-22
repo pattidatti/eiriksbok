@@ -1,0 +1,80 @@
+{
+    "id": "oppdagelsesreiser",
+    "title": "Oppdagelsesreiser i Vesterled",
+    "subject": "Samfunnsfag",
+    "topic": "Historie",
+    "description": "Vikingene var de første europeerne som krysset Atlanterhavet. Her ser vi på bosettingene på Island, Grønland og den mystiske reisen til Vinland.",
+    "tags": [
+        "vikingtiden",
+        "oppdagelse",
+        "island",
+        "grønland",
+        "vinland",
+        "amerika"
+    ],
+    "year": "870-1000",
+    "image": "/images/lessons/vikingtiden/vinland.png",
+    "layout": "rich",
+    "content": [
+        {
+            "type": "text",
+            "title": "Island: Flukten fra kongemakten",
+            "content": "Landnåmet på Island startet rundt år 870. Mange som dro dit, var norske høvdinger som reiste i protest mot Harald Hårfagres harde styre. På Island skapte de et helt unikt samfunn uten konge, men med en sterk rettsorden. I år 930 grunnla de Alltinget, som i dag regnes som verdens eldste fungerende parlament. Island ble et knutepunkt for nordisk kultur og sagaskriving."
+        },
+        {
+            "type": "text",
+            "title": "Grønland: Eirik Raudes drøm",
+            "content": "Eirik Raude ble lyst fredløs på Island og seilte vestover for å finne nytt land. Han fant en stor øy og ga den navnet Grønland for å lokke til seg flere bosettere. Han grunnla to store bosettinger på Grønland som overlevde i over 400 år. Folkene der drev med sauehold og jakt, og de handlet med verdifulle varer som hvalrosstenner med resten av Europa."
+        },
+        {
+            "type": "text",
+            "title": "Vinland: Amerika 500 år før Columbus",
+            "content": "Rundt år 1000 seilte Leiv Eiriksson, sønn av Eirik Raude, enda lenger vest. Han nådde kysten av Nord-Amerika og ga landet navnet Vinland fordi han fant viltvoksende druer der. De bygde en liten base, sannsynligvis ved L'Anse aux Meadows på dagens Newfoundland. Vikingene ble imidlertid ikke værende lenge. Store avstander til Grønland og konflikter med urbefolkningen (som de kalte skrælinger) gjorde at bosettingen i Vinland ble oppgitt etter bare noen få år."
+        },
+        {
+            "type": "text",
+            "title": "Hvorfor stoppet det?",
+            "content": "Oppdagelsesreisene i vest viser vikingenes utrolige evne til å navigere over åpent hav. At de ikke klarte å bite seg fast i Amerika, skyldtes sannsynligvis at de rett og slett var for få folk. Grønland lå så langt unna at det var vanskelig å sende forsterkninger og utstyr. Likevel står deres bragder som et av de mest imponerende kapitlene i sjøfartshistorien."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Visste du dette?",
+                "content": "Arkeologiske utgravninger på Newfoundland i 1960-årene bekreftet for første gang at vikingenes sagaer om Vinland var historisk sanne."
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva het det islandske parlamentet som ble grunnlagt i år 930?",
+                        "options": [
+                            "Gulatinget",
+                            "Alltinget",
+                            "Frostatinget",
+                            "Stortinget"
+                        ],
+                        "answer": "Alltinget",
+                        "explanation": "Alltinget ble samlet på Þingvellir og er verdens eldste parlament."
+                    },
+                    {
+                        "question": "Hvorfor kalte Leiv Eiriksson det nye landet i vest for Vinland?",
+                        "options": [
+                            "Fordi han elsket vin",
+                            "Fordi han fant viltvoksende druer der",
+                            "Det var et hemmelig kodeord",
+                            "Vinden var så sterk der"
+                        ],
+                        "answer": "Fordi han fant viltvoksende druer der",
+                        "explanation": "Navnet henviser til funnet av druer eller vinbær i det frodige landskapet."
+                    }
+                ]
+            }
+        }
+    ],
+    "createdDate": "2025-12-22T20:35:00Z",
+    "lastUpdated": "2025-12-22T20:35:00Z"
+}

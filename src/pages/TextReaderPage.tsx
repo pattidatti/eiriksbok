@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, User, Tag, Volume2, PauseCircle, PlayCircle } from 'lucide-react';
+import { ArrowLeft, BookOpen, User, Tag, Volume2, PauseCircle, PlayCircle, Columns } from 'lucide-react';
 import { textLibraryData } from '../data/textLibraryData';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { Tooltip } from '../components/Tooltip';
@@ -17,10 +17,15 @@ export const TextReaderPage: React.FC = () => {
         [textId]);
 
     const [currentLanguage, setCurrentLanguage] = useState<string>('bm.');
+    const [isSplitView, setIsSplitView] = useState(false);
 
     useEffect(() => {
         if (textEntry) {
             setCurrentLanguage(textEntry.language || 'bm.');
+            // Default to split view if translations are available
+            if (textEntry.translations && textEntry.translations.length > 0) {
+                setIsSplitView(true);
+            }
         }
     }, [textEntry]);
 
@@ -30,6 +35,18 @@ export const TextReaderPage: React.FC = () => {
         const translation = textEntry.translations?.find(t => t.language === currentLanguage);
         return translation ? translation.content : textEntry.content;
     }, [textEntry, currentLanguage]);
+
+    const compareContent = useMemo(() => {
+        if (!textEntry || !isSplitView) return null;
+
+        // If current is base language, try to find a translation (prefer the first one)
+        if (currentLanguage === (textEntry.language || 'bm.')) {
+            return textEntry.translations?.[0]?.content || null;
+        }
+
+        // If current is a translation, show the base language
+        return textEntry.content;
+    }, [textEntry, currentLanguage, isSplitView]);
 
     const displayTitle = useMemo(() => {
         if (!textEntry) return '';
@@ -88,8 +105,8 @@ export const TextReaderPage: React.FC = () => {
         }
     };
 
-    const renderParagraph = (text: string) => {
-        if (!textEntry?.definitions) return text;
+    const renderParagraph = (text: string, isComparison: boolean = false) => {
+        if (!textEntry?.definitions || isComparison) return text;
 
         let parts: (string | React.ReactNode)[] = [text];
 
@@ -98,7 +115,6 @@ export const TextReaderPage: React.FC = () => {
             parts.forEach(part => {
                 if (typeof part === 'string') {
                     // Create a regex that matches the term case-insensitively and ensures word boundaries
-                    // We escape special regex characters in the term just in case
                     const escapedTerm = def.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                     const regex = new RegExp(`\\b(${escapedTerm})\\b`, 'gi');
 
@@ -140,7 +156,7 @@ export const TextReaderPage: React.FC = () => {
     }
 
     return (
-        <div className="max-w-4xl mx-auto px-6 py-12">
+        <div className={`mx-auto px-6 py-12 ${isSplitView ? 'max-w-7xl' : 'max-w-4xl'}`}>
             <button
                 onClick={() => navigate('/norsk/bibliotek')}
                 className="flex items-center text-slate-500 hover:text-slate-900 transition-colors mb-8 group"
@@ -162,142 +178,200 @@ export const TextReaderPage: React.FC = () => {
                         {displayTitle}
                     </h1>
 
-                    {/* TTS Button */}
-                    {hasVoice && (
-                        <div className="flex justify-center mb-8">
-                            <button
-                                onClick={handleListenClick}
-                                className={`flex items-center px-4 py-2 rounded-full font-bold transition-all shadow-sm ${isPlaying
-                                    ? 'bg-indigo-600 text-white shadow-lg'
-                                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                                    }`}
-                            >
-                                {isPlaying ? (
-                                    isPaused ? (
-                                        <>
-                                            <PlayCircle className="w-5 h-5 mr-2" /> Fortsett
-                                        </>
-                                    ) : (
-                                        <>
-                                            <PauseCircle className="w-5 h-5 mr-2" /> Pause
-                                        </>
-                                    )
-                                ) : (
-                                    <>
-                                        <Volume2 className="w-5 h-5 mr-2" /> Lytt til tekst
-                                    </>
-                                )}
-                            </button>
-                        </div>
-                    )}
-                    <div className="flex items-center justify-center gap-6 text-slate-600">
-                        <button
-                            onClick={() => navigate(`/norsk/bibliotek?search=${textEntry.author}`)}
-                            className="flex items-center gap-2 hover:text-indigo-600 transition-colors"
-                        >
-                            <User size={18} />
-                            <span className="font-medium">{textEntry.author}</span>
-                        </button>
-                        {textEntry.publishedYear && (
-                            <button
-                                onClick={() => {
-                                    // Logic to find the correct period label based on the year
-                                    let periodLabel = '';
-                                    if (textEntry.publishedYear! < 1900) periodLabel = 'Før 1900';
-                                    else if (textEntry.publishedYear! <= 1950) periodLabel = '1900 - 1950';
-                                    else if (textEntry.publishedYear! <= 2000) periodLabel = '1950 - 2000';
-                                    else periodLabel = 'Etter 2000';
-
-                                    navigate(`/norsk/bibliotek?period=${periodLabel}`);
-                                }}
-                                className="text-sm font-mono bg-slate-100 px-2 py-1 rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors"
-                            >
-                                {textEntry.publishedYear}
-                            </button>
-                        )}
-                        {textEntry.language && (
-                            <span className="text-sm font-mono bg-slate-100 px-2 py-1 rounded">
-                                {textEntry.language}
-                            </span>
-                        )}
-                        {textEntry.translations && textEntry.translations.length > 0 && (
-                            <div className="flex items-center bg-slate-100 rounded-lg p-1 ml-4">
+                    <div className="flex flex-col items-center gap-6">
+                        {/* Audio & Split View Controls */}
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {hasVoice && (
                                 <button
-                                    onClick={() => setCurrentLanguage(textEntry.language || 'bm.')}
-                                    className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${currentLanguage === (textEntry.language || 'bm.')
-                                        ? 'bg-white text-indigo-600 shadow-sm'
-                                        : 'text-slate-600 hover:text-slate-900'
+                                    onClick={handleListenClick}
+                                    className={`flex items-center px-4 py-2 rounded-full font-bold transition-all shadow-sm ${isPlaying
+                                        ? 'bg-indigo-600 text-white shadow-lg'
+                                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                         }`}
                                 >
-                                    {textEntry.language === 'bm.' ? 'Bokmål' : textEntry.language === 'nn.' ? 'Nynorsk' : textEntry.language}
+                                    {isPlaying ? (
+                                        isPaused ? (
+                                            <>
+                                                <PlayCircle className="w-5 h-5 mr-2" /> Fortsett
+                                            </>
+                                        ) : (
+                                            <>
+                                                <PauseCircle className="w-5 h-5 mr-2" /> Pause
+                                            </>
+                                        )
+                                    ) : (
+                                        <>
+                                            <Volume2 className="w-5 h-5 mr-2" /> Lytt til tekst
+                                        </>
+                                    )}
                                 </button>
-                                {textEntry.translations.map(t => (
+                            )}
+
+                            {/* Split View Toggle */}
+                            {textEntry.translations && textEntry.translations.length > 0 && (
+                                <button
+                                    onClick={() => setIsSplitView(!isSplitView)}
+                                    className={`flex items-center px-4 py-2 rounded-full font-bold transition-all shadow-sm ${isSplitView
+                                        ? 'bg-indigo-100 text-indigo-700 ring-2 ring-indigo-200'
+                                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                                        }`}
+                                >
+                                    <Columns className="w-5 h-5 mr-2" />
+                                    {isSplitView ? 'Side ved side' : 'Vis parallelltekst'}
+                                </button>
+                            )}
+                        </div>
+
+                        {/* Metadata & Language Selection */}
+                        <div className="flex flex-wrap items-center justify-center gap-6 text-slate-600">
+                            <button
+                                onClick={() => navigate(`/norsk/bibliotek?search=${textEntry.author}`)}
+                                className="flex items-center gap-2 hover:text-indigo-600 transition-colors"
+                            >
+                                <User size={18} />
+                                <span className="font-medium">{textEntry.author}</span>
+                            </button>
+                            {textEntry.publishedYear && (
+                                <button
+                                    onClick={() => {
+                                        let periodLabel = '';
+                                        if (textEntry.publishedYear! < 1900) periodLabel = 'Før 1900';
+                                        else if (textEntry.publishedYear! <= 1950) periodLabel = '1900 - 1950';
+                                        else if (textEntry.publishedYear! <= 2000) periodLabel = '1950 - 2000';
+                                        else periodLabel = 'Etter 2000';
+
+                                        navigate(`/norsk/bibliotek?period=${periodLabel}`);
+                                    }}
+                                    className="text-sm font-mono bg-slate-100 px-2 py-1 rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors"
+                                >
+                                    {textEntry.publishedYear}
+                                </button>
+                            )}
+                            {textEntry.language && (
+                                <span className="text-sm font-mono bg-slate-100 px-2 py-1 rounded">
+                                    {textEntry.language}
+                                </span>
+                            )}
+
+                            {/* Language Switcher */}
+                            {textEntry.translations && textEntry.translations.length > 0 && (
+                                <div className="flex items-center bg-slate-100 rounded-lg p-1 ml-4">
                                     <button
-                                        key={t.language}
-                                        onClick={() => setCurrentLanguage(t.language)}
-                                        className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${currentLanguage === t.language
+                                        onClick={() => setCurrentLanguage(textEntry.language || 'bm.')}
+                                        className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${currentLanguage === (textEntry.language || 'bm.')
                                             ? 'bg-white text-indigo-600 shadow-sm'
                                             : 'text-slate-600 hover:text-slate-900'
                                             }`}
                                     >
-                                        {t.language}
+                                        {textEntry.language === 'bm.' ? 'Bokmål' : textEntry.language === 'nn.' ? 'Nynorsk' : textEntry.language}
                                     </button>
-                                ))}
-                            </div>
-                        )}
+                                    {textEntry.translations.map(t => (
+                                        <button
+                                            key={t.language}
+                                            onClick={() => setCurrentLanguage(t.language)}
+                                            className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${currentLanguage === t.language
+                                                ? 'bg-white text-indigo-600 shadow-sm'
+                                                : 'text-slate-600 hover:text-slate-900'
+                                                }`}
+                                        >
+                                            {t.language}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </header>
 
                 {/* Genre Links Section */}
-                <div className="mb-12 flex flex-wrap gap-4 justify-center">
-                    <button
-                        onClick={() => navigate(`/norsk/tekstsjangre/${textEntry.genre.toLowerCase()}`)}
-                        className="flex items-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-lg hover:bg-indigo-100 transition-colors font-medium"
-                    >
-                        <BookOpen size={18} />
-                        Kjennetegn på {textEntry.genre.toLowerCase()}
-                    </button>
-                    <button
-                        onClick={() => navigate(`/norsk/skrivehjelp/hvordan-skrive-${textEntry.genre.toLowerCase()}`)}
-                        className="flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition-colors font-medium"
-                    >
-                        <User size={18} />
-                        Hvordan skrive {textEntry.genre.toLowerCase()}
-                    </button>
-                </div>
+                {!isSplitView && (
+                    <div className="mb-12 flex flex-wrap gap-4 justify-center">
+                        <button
+                            onClick={() => navigate(`/norsk/tekstsjangre/${textEntry.genre.toLowerCase()}`)}
+                            className="flex items-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-lg hover:bg-indigo-100 transition-colors font-medium"
+                        >
+                            <BookOpen size={18} />
+                            Kjennetegn på {textEntry.genre.toLowerCase()}
+                        </button>
+                        <button
+                            onClick={() => navigate(`/norsk/skrivehjelp/hvordan-skrive-${textEntry.genre.toLowerCase()}`)}
+                            className="flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition-colors font-medium"
+                        >
+                            <User size={18} />
+                            Hvordan skrive {textEntry.genre.toLowerCase()}
+                        </button>
+                    </div>
+                )}
 
-                <div className="prose prose-lg prose-slate mx-auto font-serif">
+                <div className={`prose prose-lg prose-slate mx-auto font-serif ${isSplitView ? 'max-w-none' : ''}`}>
                     {displayContent ? (
                         displayContent.map((paragraph, index) => {
                             const isActive = activeBlockIndex !== -1 && speechData.mapSpeechToContent[activeBlockIndex] === index;
+
+                            // Base classes for the main content paragraph
                             const activeClass = isActive
-                                ? "bg-yellow-50 -mx-4 px-4 py-2 rounded-lg border-l-4 border-yellow-400 transition-all duration-300 ease-in-out shadow-sm relative"
-                                : "transition-all duration-300 ease-in-out border-l-4 border-transparent px-4 -mx-4 relative";
+                                ? "bg-yellow-50 rounded-lg border-l-4 border-yellow-400 transition-all duration-300 ease-in-out shadow-sm"
+                                : "transition-all duration-300 ease-in-out border-l-4 border-transparent";
+
+                            const contentWrapperClass = isSplitView
+                                ? "grid grid-cols-2 gap-8 mb-6 border-b border-slate-50 pb-6 last:border-0"
+                                : `mb-6 leading-relaxed relative ${activeClass} ${!isActive ? '-mx-4 px-4' : '-mx-4 px-4'} cursor-pointer group`;
+
+                            const compareParagraph = compareContent ? compareContent[index] : null;
 
                             return (
                                 <div
                                     key={index}
-                                    className={`mb-6 leading-relaxed text-slate-800 ${textEntry.genre === 'Dikt' ? 'whitespace-pre-line' : ''} ${activeClass} cursor-pointer group`}
+                                    className={contentWrapperClass}
                                     onClick={() => {
-                                        const speechIndex = speechData.mapContentToSpeech[index];
-                                        if (speechIndex !== undefined) playBlock(speechIndex);
+                                        if (!isSplitView) {
+                                            const speechIndex = speechData.mapContentToSpeech[index];
+                                            if (speechIndex !== undefined) playBlock(speechIndex);
+                                        }
                                     }}
                                 >
-                                    {isActive && (
-                                        <div className="absolute -left-12 top-2 hidden md:flex items-center justify-center w-8 h-8">
-                                            <motion.div
-                                                animate={{ scale: [1, 1.2, 1] }}
-                                                transition={{
-                                                    duration: 1.5,
-                                                    repeat: Infinity,
-                                                    ease: "easeInOut"
-                                                }}
-                                            >
-                                                <Volume2 className="w-5 h-5 text-yellow-600" />
-                                            </motion.div>
+                                    {/* Left Column / Main Content */}
+                                    <div className={`relative ${isSplitView ? (isActive ? 'bg-yellow-50 p-4 rounded-lg' : '') : ''}`}>
+
+                                        {/* Verse Number */}
+                                        {textEntry.genre === 'Dikt' && (
+                                            <span className={`absolute ${isSplitView ? '-left-8' : '-left-8 md:-left-12'} top-0 text-slate-400 font-sans text-sm font-medium select-none w-6 text-right`}>
+                                                {index + 1}
+                                            </span>
+                                        )}
+
+                                        {isActive && !isSplitView && (
+                                            <div className="absolute -left-16 top-2 hidden md:flex items-center justify-center w-8 h-8">
+                                                <motion.div
+                                                    animate={{ scale: [1, 1.2, 1] }}
+                                                    transition={{
+                                                        duration: 1.5,
+                                                        repeat: Infinity,
+                                                    }}
+                                                >
+                                                    <Volume2 className="w-5 h-5 text-yellow-600" />
+                                                </motion.div>
+                                            </div>
+                                        )}
+                                        <div className={`text-slate-800 ${textEntry.genre === 'Dikt' ? 'whitespace-pre-line' : ''}`}>
+                                            <p>{renderParagraph(paragraph)}</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Right Column / Comparison Content */}
+                                    {isSplitView && compareParagraph && (
+                                        <div className={`relative text-slate-600 font-serif border-l border-slate-100 pl-8 ${textEntry.genre === 'Dikt' ? 'whitespace-pre-line' : ''} ${isActive ? 'bg-yellow-50/50 py-4 pr-4 pl-10 rounded-r-lg -ml-8 border-l-0 border-r border-yellow-200' : ''}`}>
+
+                                            {/* Verse Number for Comparison */}
+                                            {textEntry.genre === 'Dikt' && (
+                                                <span className="absolute left-1 top-0 text-slate-400 font-sans text-sm font-medium select-none w-6 text-right">
+                                                    {index + 1}
+                                                </span>
+                                            )}
+
+                                            <p>{renderParagraph(compareParagraph, true)}</p>
                                         </div>
                                     )}
-                                    <p>{renderParagraph(paragraph)}</p>
                                 </div>
                             );
                         })
