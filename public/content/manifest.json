@@ -1741,6 +1741,15 @@
                     "title": "Romerriket",
                     "description": "Et av historiens første store imperier som spredte kristendom og veier.",
                     "image": "/images/romerriket/hero-overview.png",
+                    "tools": [
+                        {
+                            "id": "romerriket-sti",
+                            "title": "Læringssti: Romerriket",
+                            "description": "Bli med legionæren Markus, keiser Augustus og gladiatoren Spartacus på en reise gjennom Romerriket.",
+                            "link": "/historie/romerriket/romerriket-sti",
+                            "icon": "map"
+                        }
+                    ],
                     "lessons": [
                         {
                             "id": "romersk-start",

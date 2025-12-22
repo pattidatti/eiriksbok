@@ -1,0 +1,456 @@
+{
+    "id": "romerriket-sti",
+    "title": "Læringssti: Romerriket",
+    "description": "Bli med på en tidsreise fra en liten landsby på sju høyder til et verdensrike som formet historien. Du vil leve som legionær, keiser og gladiator.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "753 f.Kr - 476 e.Kr",
+    "readTime": "3-4 timer",
+    "learningPathData": {
+        "id": "romerriket-sti",
+        "title": "Romerriket: Din reise gjennom århundrene",
+        "description": "Denne stien er ikke bare en historietime – det er en reise. Du starter ved Romas vugge og følger riket til dets dramatiske fall. Underveis må du ta valg, løse oppgaver og forstå menneskene som levde da.",
+        "steps": [
+            {
+                "id": "rome-start",
+                "phase": "Fase 1: En supermakt blir til (753 f.Kr - 27 f.Kr)",
+                "title": "Fra landsby til verdensrike",
+                "type": "fakta",
+                "content": "Du står på Palatin-høyden. Under deg ser du en liten samling gjeterhytter ved elven Tiberen. Ingen kan vite at dette skal bli verdens hovedstad. Du ser byen vokse, kaste sin siste konge, og bli en republikk. Men hvem skal bestemme? Senatet med de rike, eller folket på gata? Spenningen ligger i luften.",
+                "tasks": [
+                    "Hva betyr forkortelsen SPQR, og hvorfor var den så viktig?",
+                    "Hvem var Romas legendariske grunnleggere?",
+                    "Hva var forskjellen på patrisiere og plebeiere?",
+                    "Hvordan fungerte maktfordelingen mellom de to konsulene og senatet?",
+                    "Hvorfor var romerne så skeptiske til å ha en konge?",
+                    "Hva var 'De tolv tavlene', og hvorfor var det viktig at lovene ble skrevet ned?",
+                    "Nevn en viktig årsak til at Roma havnet i krig med Kartago (Punerkrigene)."
+                ],
+                "links": [
+                    {
+                        "title": "Romersk start: Republikken",
+                        "url": "/historie/romerriket/romersk-start"
+                    }
+                ]
+            },
+            {
+                "id": "rome-legion",
+                "title": "Den romerske legionen",
+                "type": "fakta",
+                "content": "Året er 107 f.Kr. Konsul Marius har åpnet hæren for alle, også de fattige. Du har vervet deg for å unnslippe fattigdommen i Romas bakgater. I stedet får du hard disiplin, daglige marsjer på 3 mil med full oppakning, og løftet om jord som pensjon. Det er denne profesjonelle krigsmaskinen som nålegger verden for sine føtter – ikke for en konge, men for Senatet og Folket i Roma (SPQR).",
+                "tasks": [
+                    "Hvilke nye utstyrskrav innførte Marius for soldatene?",
+                    "Hvorfor ble soldatene kalt 'Marius' muldyr'?",
+                    "Hva var formålet med en 'gladius' i nærkamp?",
+                    "Beskriv hvordan 'testudo' (skilpaddeformasjonen) beskyttet mot piler.",
+                    "Hva skjedde hvis en avdeling viste feighet i kamp (desimering)?",
+                    "Hvorfor var det attraktivt for fattige romere å verve seg i 25 år?",
+                    "Hvordan var en romersk leir (castra) organisert?"
+                ],
+                "links": [
+                    {
+                        "title": "Den romerske legionen",
+                        "url": "/historie/romerriket/den-romerske-legionen"
+                    }
+                ],
+                "component": {
+                    "name": "PackTheBag",
+                    "props": {
+                        "capacity": 40,
+                        "targetValue": 80,
+                        "description": "Du skal på marsj mot nord. Centurionen sjekker at sekken er pakket korrekt. Du bærer alt du eier på ryggen. Har du husket det viktigste for å overleve i felt?",
+                        "items": [
+                            {
+                                "id": "gladius",
+                                "name": "Gladius (Sverd)",
+                                "weight": 2,
+                                "value": 30,
+                                "icon": "🗡️"
+                            },
+                            {
+                                "id": "scutum",
+                                "name": "Scutum (Skjold)",
+                                "weight": 10,
+                                "value": 40,
+                                "icon": "🛡️"
+                            },
+                            {
+                                "id": "pilum",
+                                "name": "Pilum (Spyd)",
+                                "weight": 4,
+                                "value": 20,
+                                "icon": "🔱"
+                            },
+                            {
+                                "id": "rations",
+                                "name": "Rasjoner (Kjøtt/Korn)",
+                                "weight": 5,
+                                "value": 25,
+                                "icon": "🥩"
+                            },
+                            {
+                                "id": "wine",
+                                "name": "Vinblandet vann",
+                                "weight": 3,
+                                "value": 10,
+                                "icon": "🍷"
+                            },
+                            {
+                                "id": "armor",
+                                "name": "Lorica Hamata (Ringbrynje)",
+                                "weight": 9,
+                                "value": 35,
+                                "icon": "👕"
+                            },
+                            {
+                                "id": "caligae",
+                                "name": "Caligae (Sandaler)",
+                                "weight": 1,
+                                "value": 5,
+                                "icon": "👡"
+                            },
+                            {
+                                "id": "tent",
+                                "name": "Telt (Delt)",
+                                "weight": 15,
+                                "value": 10,
+                                "icon": "⛺"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "rome-augustus",
+                "phase": "Fase 2: Keisere og Pax Romana (27 f.Kr - 180 e.Kr)",
+                "title": "Augustus: Arkitekten bak freden",
+                "type": "fakta",
+                "content": "Borgerkrigene har revet Roma i stykker i årevis. Broder har drept broder. Men nå stiger en ung mann frem fra asken. Augustus. Han lover fred, men prisen er friheten. Du ser ham forvandle Roma fra en by av murstein til en by av marmor. Er det verdt det?",
+                "tasks": [
+                    "Hvem var Augustus' berømte onkel?",
+                    "Hva betyr tittelen 'Augustus'?",
+                    "Hvordan klarte Augustus å samle all makt uten å bli drept som Cæsar?",
+                    "Hva var 'Pax Romana', og hvor lenge varte denne perioden?",
+                    "Hvorfor kalte han seg 'Princeps' i stedet for keiser eller konge?",
+                    "Hvordan brukte Augustus kunst og litteratur (som Aeneiden) som propaganda?",
+                    "Drøft påstanden: 'Augustus ofret frihet for å skape fred'."
+                ],
+                "links": [
+                    {
+                        "title": "Augustus og Keiserdømmet",
+                        "url": "/historie/romerriket/augustus-og-keiserdomme"
+                    }
+                ]
+            },
+            {
+                "id": "rome-emperors",
+                "title": "Keisergalleriet: Galskap og genialitet",
+                "type": "utfordring",
+                "content": "Du vandrer gjennom keiserpalasset på Palatin. Veggene hvisker historier. Noen keisere var guder på jord, som Trajan og Marcus Aurelius, som styrte med visdom. Andre, som Nero og Caligula, var mareritt som fikk Roma til å blø. Klarer du å skille heltene fra skurkene i denne blodige slektshistorien?",
+                "tasks": [
+                    "Nevn to 'gode' og to 'gale' keisere.",
+                    "Hva gjorde Nero beryktet?",
+                    "Hvordan utvidet Trajan riket til sitt aller største?"
+                ],
+                "links": [
+                    {
+                        "title": "Romerske Keisere",
+                        "url": "/historie/romerriket/romerske-keisere"
+                    }
+                ],
+                "component": {
+                    "name": "DragDropTimeline",
+                    "props": {
+                        "title": "Romerske Keisere - Kronologi",
+                        "events": [
+                            {
+                                "id": "augustus",
+                                "year": -27,
+                                "label": "Augustus (Første keiser)"
+                            },
+                            {
+                                "id": "nero",
+                                "year": 54,
+                                "label": "Nero (Brannen i Roma)"
+                            },
+                            {
+                                "id": "trajan",
+                                "year": 98,
+                                "label": "Trajan (Riket på sitt største)"
+                            },
+                            {
+                                "id": "marcus",
+                                "year": 161,
+                                "label": "Marcus Aurelius (Filosofkeiseren)"
+                            },
+                            {
+                                "id": "konstantin",
+                                "year": 306,
+                                "label": "Konstantin (Kristendommen)"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "rome-pompeii",
+                "title": "Pompeii: Livet frosset i tid",
+                "type": "fakta",
+                "content": "Året er 79 e.Kr. Du nyter en varm sommerdag i Pompeii. Plutselig mørkner himmelen. Vesuv våkner. I løpet av noen timer blir byen og dens innbyggere begravet i aske, frosset i øyeblikket for evigheten. Når arkeologene graver dem frem nesten 2000 år senere, kan vi se nøyaktig hvordan de levde – og døde.",
+                "tasks": [
+                    "Hva skjedde med Pompeii i år 79 e.Kr?",
+                    "Hva er et 'atrium' i et romersk hus?",
+                    "Hvordan skan vi vite så mye om hva folk spiste og jobbet med i Pompeii?",
+                    "Hva forteller veggmaleriene og graffitien om livet i byen?",
+                    "Hva var funksjonen til Forum i en romersk by?",
+                    "Sammenlign boligene til de rike og de fattige i Pompeii.",
+                    "Hvorfor er Pompeii en viktigere kilde enn mange skrevne tekster fra samme tid?"
+                ],
+                "links": [
+                    {
+                        "title": "Pompeii: Tidskapselen",
+                        "url": "/historie/romerriket/pompeii"
+                    }
+                ]
+            },
+            {
+                "id": "rome-entertainment",
+                "phase": "Fase 3: Livet i Romerriket",
+                "title": "Brød og Sirkus",
+                "type": "refleksjon",
+                "content": "Panem et circenses. Brød og sirkus. Du sitter på tribunen i Colosseum sammen med 50 000 andre. Solen steker, og lukten av blod og svette fyller arenaen. Keiseren vet at så lenge folket er mette og underholdt, vil de ikke gjøre opprør. Men nede i sanden kjemper mennesker for livet.",
+                "tasks": [
+                    "Hvorfor var det så viktig for keiseren å gi 'brød og sirkus' til folket?",
+                    "Hvem var gladiatorene, og kunne de bli frie?",
+                    "Reflekter: Har vi noe tilsvarende 'brød og sirkus' i dag?"
+                ],
+                "links": [
+                    {
+                        "title": "Hverdagsliv i Roma",
+                        "url": "/historie/romerriket/hverdagsliv-i-roma"
+                    }
+                ],
+                "component": {
+                    "name": "ScenarioRoleplay",
+                    "props": {
+                        "title": "En dag i Colosseum",
+                        "intro": "Du er en 'Thraex' gladiator. Publikum brøler navnet ditt. Porten åpnes, og lyset blender deg. Foran deg står en tungt rustet motstander. Keiseren ser på. Overlever du?",
+                        "startId": "start",
+                        "scenarios": [
+                            {
+                                "id": "start",
+                                "text": "Din motstander er en 'Murmillo' med stort skjold. Han brøler og går til angrep. Hva gjør du?",
+                                "options": [
+                                    {
+                                        "label": "Gå defensivt og vent på en åpning.",
+                                        "nextId": "defend"
+                                    },
+                                    {
+                                        "label": "Angrip først! (Risikabelt)",
+                                        "nextId": "attack_fail"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "defend",
+                                "text": "Du smetter unna det tunge slaget hans. Han mister balansen et øyeblikk.",
+                                "options": [
+                                    {
+                                        "label": "Hugg ham i beinet (klassisk Thraex-trekk).",
+                                        "nextId": "victory"
+                                    },
+                                    {
+                                        "label": "Prøv å dytte ham overende.",
+                                        "nextId": "risk_push"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "attack_fail",
+                                "text": "Han blokkerer lett med det store skjoldet sitt og slår deg bevisstløs med skjoldkanten.",
+                                "options": [
+                                    {
+                                        "label": "Håp på keiserens nåde.",
+                                        "nextId": "thumbs_down"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "victory",
+                                "text": "Han faller! Du setter sverdet mot halsen hans. Publikum roper. Keiseren reiser seg. Tommelen avgjør alt.",
+                                "options": [
+                                    {
+                                        "label": "Seieren er din!",
+                                        "nextId": "win"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "thumbs_down",
+                                "text": "Keiseren peker tommelen mot halsen. Det er slutt. Du kjempet tappert.",
+                                "options": []
+                            },
+                            {
+                                "id": "win",
+                                "text": "Keiseren sparer ham! Du blir hyllet som seierherre. Én dag nærmere friheten og tresverdet (rudis).",
+                                "options": []
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "rome-trade",
+                "title": "Alle veier fører til Rom",
+                "type": "fakta",
+                "content": "Du står ved havnen i Ostia. Skip fra hele den kjente verden legger til kai. Korn fra Egypt, silke fra Kina, ville dyr fra Afrika og tinn fra Britannia. Romerriket er en globalisert maskin, bundet sammen av rette, solide veier og en felles valuta. Du kan reise fra Skottland til Syria uten pass.",
+                "tasks": [
+                    "Hva menes med uttrykket 'Alle veier fører til Rom'?",
+                    "Hvorfor var Middelhavet ('Mare Nostrum') så viktig for handelen?",
+                    "Hvilke varer ble importert til Roma, og hvor kom de fra?",
+                    "Hva var Silkeveien?",
+                    "Hvordan bidro det romerske veinettet til rikets sikkerhet og økonomi?",
+                    "Hvordan fungerte den romerske myntenheten som en felles standard?",
+                    "Forklar sammenhengen mellom romersk fred (Pax Romana) og økt handel."
+                ],
+                "links": [
+                    {
+                        "title": "Handel og Silkeveien",
+                        "url": "/historie/romerriket/handel-og-silkeveien"
+                    }
+                ]
+            },
+            {
+                "id": "rome-religion",
+                "title": "Gudene og Pantheon",
+                "type": "fakta",
+                "content": "Røyken stiger fra altrene. Du skal ofre til Jupiter for å sikre familiens lykke. Romerne er praktiske – de inngår kontrakter med gudene: 'Jeg gir, for at du skal gi'. Og når de erobrer nye land, tar de gjerne med seg de fremmede gudene hjem. Så lenge du ofrer til keiseren, kan du tro på hva du vil. Nesten.",
+                "tasks": [
+                    "Hvem var Jupiter, Juno og Minerva?",
+                    "Hva var 'Pax Deorum', og hvorfor var romerne redde for å bryte den?",
+                    "Hva var funksjonen til en 'Pater Familias' i familiens religiøse liv?",
+                    "Hvem var Vestalinnene, og hva var deres oppgave?",
+                    "Hva menes med keiserdyrkelse, og hvorfor var det en politisk handling?",
+                    "Hva var Lares og Penates?",
+                    "Hvorfor aksepterte romerne ofte guder fra erobrede områder (synkretisme)?"
+                ],
+                "links": [
+                    {
+                        "title": "Romerske Guder",
+                        "url": "/historie/romerriket/romerske-guder"
+                    }
+                ]
+            },
+            {
+                "id": "rome-christianity",
+                "phase": "Fase 4: Kriser og Kristendom (180 - 476 e.Kr)",
+                "title": "Kristendommen: Fra sekt til statsmakt",
+                "type": "refleksjon",
+                "content": "I katakombene under byen hviskes det om en ny gud. En som ikke krever blodoffer, men kjærlighet. De kristne nekter å bøye kne for keiseren. De kalles ateister og opprørere. Du ser dem bli kastet for løvene, men troen deres dør ikke. Snart skal til og med keiseren knele for korset.",
+                "tasks": [
+                    "Hvorfor ble de kristne forfulgt?",
+                    "Hva gjorde keiser Konstantin i 313 (Milano-ediktet)?",
+                    "Hvordan endret Romerriket seg da kristendommen ble statsreligion?"
+                ],
+                "links": [
+                    {
+                        "title": "Legitimitet og Kristendom",
+                        "url": "/historie/romerriket/legitimitet-og-kristendom"
+                    }
+                ],
+                "component": {
+                    "name": "DebateSimulator",
+                    "props": {
+                        "topic": "Skal de kristne straffes?",
+                        "opponentName": "Senator Cato",
+                        "context": "År 250 e.Kr. En gruppe kristne er arrestert. Senator Cato krever dødsstraff for forræderi mot statens guder. Du må forsvare dem - eller dømme dem.",
+                        "winningScore": 15,
+                        "arguments": [
+                            {
+                                "id": "a1",
+                                "text": "De betaler skatt og er fredelige borgere.",
+                                "strength": 5,
+                                "type": "mercy",
+                                "response": "Men de nekter å ære statens beskytter! Det bringer ulykke."
+                            },
+                            {
+                                "id": "a2",
+                                "text": "Martyrene gjør dem bare sterkere. La oss ignorere dem.",
+                                "strength": 8,
+                                "type": "honor",
+                                "response": "Svakhet oppmuntrer til opprør. Loven må følges."
+                            },
+                            {
+                                "id": "a3",
+                                "text": "Alle bør ha rett til å tro på sin egen gud.",
+                                "strength": 2,
+                                "type": "mercy",
+                                "response": "Religionsfrihet? Latterlig. Romerske guder bygget dette riket."
+                            },
+                            {
+                                "id": "b1",
+                                "text": "Disse ofringene er bare en formalitet, ikke tro.",
+                                "strength": 6,
+                                "type": "laws",
+                                "response": "Nettopp! Og de nekter selv det minste tegn på lojalitet."
+                            },
+                            {
+                                "id": "b2",
+                                "text": "Vi trenger enhet i riket, ikke splittelse.",
+                                "strength": 4,
+                                "type": "honor",
+                                "response": "Enhet får vi ved at alle bøyer kne for keiseren."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "rome-fall",
+                "title": "Vestromerrikets fall",
+                "type": "utfordring",
+                "content": "Riket knaker i sammenføyningene. Grensene lekker. Økonomien kollapser. Du står på muren og ser røyken fra brennende byer i horisonten. Barbarene hamret på portene, og denne gangen er det ingen som kan stoppe dem. I 476 sender den siste keiseren kronen til Konstantinopel. Lyset slukkes i vest.",
+                "tasks": [
+                    "Nevn tre årsaker til at Vestromerriket falt.",
+                    "Hvem var hunnerne og goterne?",
+                    "Hva skjedde med Østromerriket (Bysants)?"
+                ],
+                "links": [
+                    {
+                        "title": "Vestromerrikets fall",
+                        "url": "/historie/romerriket/vestromerrikets-fall"
+                    }
+                ]
+            },
+            {
+                "id": "rome-legacy",
+                "phase": "Fase 5: Arven",
+                "title": "Hva har romerne gjort for oss?",
+                "type": "refleksjon",
+                "content": "Du er tilbake i nåtiden. Men ser du deg rundt, er Roma overalt. I bokstavene du leser. I lovene som styrer oss. I betongen i huset ditt. Romerriket falt aldri helt – det ble bare en del av oss. Arven lever videre.",
+                "tasks": [
+                    "Finn fem ord i norsk språk som kommer fra latin.",
+                    "Hvordan er vårt rettssystem påvirket av romersk rett?",
+                    "Se på en bygning i din by (f.eks tinghuset/rådhuset). Ser du romerske søyler?"
+                ],
+                "links": [
+                    {
+                        "title": "Arven etter Romerriket",
+                        "url": "/historie/romerriket/arven-etter-romerriket"
+                    }
+                ]
+            },
+            {
+                "id": "rome-project",
+                "title": "Fordypningsoppgave",
+                "type": "oppgave",
+                "content": "Din tidsreise er over, men arbeidet ditt har nettopp begynt. Nå skal du bruke alt du har sett og lært. Velg deg en keiser som fascinerte deg, et slag som endret historien, eller et aspekt ved dagliglivet, og fortell historien videre.",
+                "tasks": [
+                    "Problemstilling: Var Romerriket et godt sted å leve? (Husk: For hvem?)",
+                    "Sammenlign Romerriket med et imperium fra en annen verdensdel (f.eks Kina under Han-dynastiet).",
+                    "Lag en modell av Colosseum eller en akvedukt."
+                ]
+            }
+        ]
+    }
+}

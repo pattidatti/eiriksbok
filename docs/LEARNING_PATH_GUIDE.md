@@ -11,6 +11,7 @@ Før du skriver kode, må du strukturere stien pedagogisk.
 *   **Målgruppe**: Er det for introduksjon eller fordypning?
 *   **Omfang**: En god sti bør ha 10-20 steg.
 *   **Artikler**: Har vi de nødvendige underliggende artiklene? (Hvis ikke, må disse opprettes som "placeholders" først).
+*   **Narrativ bue**: Lag en gjennomgående historie. Bruk "Du"-perspektiv som utvikler seg (f.eks. fra bonde til konge).
 
 ## 2. Filstruktur
 
@@ -62,10 +63,11 @@ Hvert steg i `steps`-arrayet kan være av typen:
     "phase": "Fase 1: Oppstart (Valgfritt, lager overskrift)",
     "title": "Stegets tittel",
     "type": "fakta", 
-    "content": "Selve teksten som vises i kortet.",
+    "content": "Selve teksten som vises i kortet. Bør være 50-80 ord. Sett scenen: 'Du står på torget...'. Skap kontekst før fakta.",
     "tasks": [
-        "Oppgave 1",
-        "Oppgave 2"
+        "Oppgave 1 - Enkel fakta",
+        "Oppgave 2 - ...",
+        "Oppgave 8 - Refleksjon (Mål: 5-8 oppgaver med stigende vanskelighetsgrad)"
     ],
     "links": [
         {
@@ -187,5 +189,7 @@ Før du sier deg ferdig:
 *   **Bruk "Faser"**: Gruppér stegene med `phase`-feltet for å gi eleven oversikt (f.eks "Fase 1: Oppstart", "Fase 2: Fordypning").
 *   **Tooltips**: Bruk `<GlossaryTooltip term="ord" definition="forklaring" />` inne i React-komponenter der det er mulig (krever koding), eller skriv definisjoner i parantes i JSON-teksten.
 *   **Ikke bruk fet tekst**: Vi bruker ikke **fet tekst** for utheving i brødtekst, la innholdet stå for seg selv.
+*   **Integrert interaktivitet**: Introduser spill i teksten. F.eks: 'Offiseren beordrer deg til å pakke...' før en PackTheBag-komponent.
+*   **Kronologisk nøyaktighet**: Vær streng på tidslinjen. Ikke snakk om keisere i republikkens tid.
 *   **Tverrfaglighet**: Læringsstien bør lenke til artikler utenfor hovedemnet for å vise helhet (f.eks. lenke til Religion når man snakker om Lov og Rett).
 *   **Flere lenker**: Et enkelt steg kan og bør ha flere lenker hvis det belyser temaet fra ulike sider.
