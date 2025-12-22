@@ -80,12 +80,12 @@ export const MonarchyEvolution: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
                     {/* Visual Balance */}
-                    <div className="relative h-64 flex justify-center items-center">
+                    <div className="relative h-64 flex justify-center items-center gap-4">
                         {/* King */}
                         <motion.div
                             animate={{ scale: 0.5 + (currentEra.kingPower / 100), opacity: 0.3 + (currentEra.kingPower / 140) }}
                             transition={{ type: 'spring', stiffness: 100 }}
-                            className="absolute bg-amber-100 p-8 rounded-full border-4 border-amber-400 text-amber-600 z-10"
+                            className="bg-amber-100 p-8 rounded-full border-4 border-amber-400 text-amber-600 z-10 relative"
                         >
                             <Crown size={80} strokeWidth={1.5} />
                             <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 font-bold text-sm uppercase tracking-widest whitespace-nowrap bg-white px-3 py-1 rounded-full shadow-sm border border-amber-100">
@@ -95,9 +95,9 @@ export const MonarchyEvolution: React.FC = () => {
 
                         {/* Parliament / People */}
                         <motion.div
-                            animate={{ scale: 0.5 + (currentEra.peoplePower / 100), opacity: 0.3 + (currentEra.peoplePower / 140), x: 120 }}
+                            animate={{ scale: 0.5 + (currentEra.peoplePower / 100), opacity: 0.3 + (currentEra.peoplePower / 140) }}
                             transition={{ type: 'spring', stiffness: 100 }}
-                            className="absolute bg-blue-100 p-8 rounded-full border-4 border-blue-400 text-blue-600"
+                            className="bg-blue-100 p-8 rounded-full border-4 border-blue-400 text-blue-600 relative"
                         >
                             <Landmark size={80} strokeWidth={1.5} />
                             <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 font-bold text-sm uppercase tracking-widest whitespace-nowrap bg-white px-3 py-1 rounded-full shadow-sm border border-blue-100">
@@ -149,11 +149,11 @@ export const MonarchyEvolution: React.FC = () => {
                                                 className="bg-blue-500 h-full"
                                             />
                                         </div>
-                                        <span className="w-20 text-blue-700 text-right">Frihet</span>
+                                        <span className="w-20 text-blue-700 text-left">Frihet</span>
                                     </div>
                                     <div className="flex justify-between text-[10px] text-slate-400 px-24">
-                                        <span>Kongens Makt</span>
-                                        <span>Folkets Makt</span>
+                                        <span className="text-right w-full pr-2">Kongens Makt</span>
+                                        <span className="text-left w-full pl-2">Folkets Makt</span>
                                     </div>
                                 </div>
 

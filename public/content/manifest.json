@@ -645,6 +645,17 @@
                                 "vitenskap"
                             ],
                             "createdDate": "2025-12-21T21:40:00Z"
+                        },
+                        {
+                            "id": "foydalisme",
+                            "title": "Føydalismen",
+                            "description": "Herre og vasall: Da personlige bånd styrte Europa.",
+                            "tags": [
+                                "historie",
+                                "politikk",
+                                "middelalder"
+                            ],
+                            "createdDate": "2025-12-22T12:00:00Z"
                         }
                     ]
                 },

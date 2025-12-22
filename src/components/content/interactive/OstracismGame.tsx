@@ -59,21 +59,21 @@ export const OstracismGame: React.FC = () => {
     };
 
     return (
-        <div className="bg-slate-50 text-slate-900 p-6 md:p-10 rounded-2xl border border-slate-200 my-10 shadow-xl overflow-hidden relative">
+        <div className="bg-slate-50 text-slate-900 p-4 md:p-6 rounded-xl border border-slate-200 my-6 shadow-lg overflow-hidden relative">
             <div className="relative z-10">
-                <div className="flex items-center gap-4 mb-6">
-                    <div className="p-3 bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-200">
-                        <Shield size={32} />
+                <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-blue-600 text-white rounded-lg shadow-md shadow-blue-200">
+                        <Shield size={24} />
                     </div>
                     <div>
-                        <h3 className="text-3xl font-black text-slate-800 tracking-tight">
+                        <h3 className="text-xl font-black text-slate-800 tracking-tight">
                             Ostrasismespillet
                         </h3>
-                        <p className="text-slate-500 font-medium">Beskytt demokratiet mot tyranniske ambisjoner</p>
+                        <p className="text-slate-500 text-sm font-medium">Beskytt demokratiet mot tyranniske ambisjoner</p>
                     </div>
                 </div>
 
-                <p className="text-slate-600 mb-10 max-w-3xl text-lg leading-relaxed">
+                <p className="text-slate-600 mb-6 max-w-3xl text-sm leading-relaxed">
                     I det antikke Aten kunne folket stemme på hvem de mente var en trussel mot demokratiet.
                     Den som fikk flest stemmer, ble sendt i eksil i 10 år. <strong>Hvem velger du å forvise?</strong>
                 </p>
@@ -82,61 +82,61 @@ export const OstracismGame: React.FC = () => {
                     {gameState === 'selecting' ? (
                         <motion.div
                             key="selecting"
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            className="flex flex-col gap-6"
+                            exit={{ opacity: 0, y: -10 }}
+                            className="grid gap-3"
                         >
                             {candidates.map((c) => (
                                 <div
                                     key={c.id}
                                     onClick={() => setSelectedId(c.id)}
-                                    className={`group cursor-pointer p-6 md:p-8 rounded-2xl border-2 transition-all duration-300 relative ${selectedId === c.id
-                                        ? 'border-blue-600 bg-white ring-4 ring-blue-50 shadow-xl'
-                                        : 'border-slate-200 bg-white hover:border-blue-300 hover:shadow-md'
+                                    className={`group cursor-pointer p-4 rounded-xl border-2 transition-all duration-200 relative ${selectedId === c.id
+                                        ? 'border-blue-600 bg-white ring-2 ring-blue-50 shadow-md'
+                                        : 'border-slate-200 bg-white hover:border-blue-300 hover:shadow-sm'
                                         }`}
                                 >
-                                    <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-
-                                        {/* Avatar / Portrait Placeholder */}
-                                        <div className={`w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-full flex items-center justify-center text-3xl font-black uppercase tracking-tighter ${selectedId === c.id ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-500'
-                                            }`}>
-                                            {c.name.substring(0, 2)}
-                                        </div>
-
-                                        <div className="flex-grow space-y-3">
-                                            <div className="flex flex-wrap justify-between items-start gap-4">
+                                    <div className="flex flex-col gap-2">
+                                        {/* Header Row: Name, Role, Risk, Button */}
+                                        <div className="flex flex-wrap justify-between items-center gap-3">
+                                            <div className="flex items-center gap-3">
                                                 <div>
-                                                    <h4 className="text-2xl font-black text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-tight">{c.name}</h4>
-                                                    <p className="text-sm font-bold text-blue-500 uppercase tracking-widest">{c.role}</p>
+                                                    <h4 className="text-lg font-black text-slate-800 group-hover:text-blue-600 transition-colors uppercase tracking-tight leading-none">
+                                                        {c.name}
+                                                    </h4>
+                                                    <span className="text-xs font-bold text-blue-500 uppercase tracking-widest">
+                                                        {c.role}
+                                                    </span>
                                                 </div>
                                                 {c.risk === 'high' && (
-                                                    <div className="flex items-center gap-2 px-3 py-1 bg-amber-50 text-amber-700 rounded-full text-xs font-bold border border-amber-100">
-                                                        <AlertTriangle size={14} /> Høy Risiko
+                                                    <div className="flex items-center gap-1 px-2 py-0.5 bg-amber-50 text-amber-700 rounded-full text-[10px] font-bold border border-amber-100">
+                                                        <AlertTriangle size={10} /> Høy Risiko
                                                     </div>
                                                 )}
                                             </div>
 
-                                            <p className="text-slate-600 text-lg leading-relaxed">{c.bio}</p>
-
-                                            <div className="flex items-start gap-3 pt-2">
-                                                <Quote className="shrink-0 text-blue-200 mt-1" size={16} />
-                                                <p className="text-slate-500 italic text-sm font-medium">
-                                                    "{c.rumor}"
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <div className="w-full md:w-auto mt-4 md:mt-0 md:self-center shrink-0">
                                             <button
                                                 onClick={(e) => { e.stopPropagation(); handleOstracize(c); }}
-                                                className={`w-full md:w-auto px-8 py-3 rounded-xl font-bold uppercase tracking-widest text-sm transition-all whitespace-nowrap ${selectedId === c.id
-                                                    ? 'bg-red-600 text-white hover:bg-red-700 shadow-md transform scale-105'
-                                                    : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200 group-hover:text-slate-700'
+                                                className={`px-4 py-1.5 rounded-lg font-bold uppercase tracking-widest text-xs transition-all whitespace-nowrap ${selectedId === c.id
+                                                    ? 'bg-red-600 text-white hover:bg-red-700 shadow-sm'
+                                                    : 'bg-slate-100 text-slate-400 group-hover:bg-slate-200 group-hover:text-slate-600'
                                                     }`}
                                             >
                                                 {selectedId === c.id ? 'FORVIS' : 'VELG'}
                                             </button>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="space-y-2">
+                                            <p className="text-slate-600 text-sm leading-relaxed">
+                                                {c.bio}
+                                            </p>
+                                            <div className="flex items-start gap-2 pt-1 border-t border-slate-50">
+                                                <Quote className="shrink-0 text-blue-200 mt-0.5" size={12} />
+                                                <p className="text-slate-400 italic text-xs font-medium">
+                                                    "{c.rumor}"
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -145,29 +145,29 @@ export const OstracismGame: React.FC = () => {
                     ) : (
                         <motion.div
                             key="result"
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            className="bg-white border-2 border-blue-100 p-10 rounded-3xl text-center shadow-2xl shadow-blue-100/50"
+                            className="bg-white border-2 border-blue-100 p-6 rounded-2xl text-center shadow-lg shadow-blue-100/50"
                         >
-                            <div className="mb-6 inline-flex p-6 rounded-3xl bg-red-50 text-red-600">
-                                <UserX size={64} />
+                            <div className="mb-4 inline-flex p-4 rounded-2xl bg-red-50 text-red-600">
+                                <UserX size={48} />
                             </div>
-                            <h4 className="text-4xl font-black text-slate-800 mb-6">{ostracized?.name} er forvist!</h4>
+                            <h4 className="text-2xl font-black text-slate-800 mb-4">{ostracized?.name} er forvist!</h4>
 
-                            <div className="max-w-2xl mx-auto p-8 bg-slate-50 rounded-2xl border border-slate-100 mb-10">
+                            <div className="max-w-xl mx-auto p-5 bg-slate-50 rounded-xl border border-slate-100 mb-6 text-left">
                                 {ostracized?.isTyrant ? (
-                                    <div className="space-y-4">
-                                        <p className="text-green-600 font-bold text-xl uppercase tracking-tight">Korrekt vurdert!</p>
-                                        <p className="text-slate-700 text-lg leading-relaxed font-medium">
+                                    <div className="space-y-2">
+                                        <p className="text-green-600 font-bold text-sm uppercase tracking-tight">Korrekt vurdert!</p>
+                                        <p className="text-slate-700 text-sm leading-relaxed">
                                             Du har fjernet en potensiell tyran som kunne ha knust demokratiet.
                                             Men husk: ved å forvise ham, har du også fjernet en som mange fattige borgere stolte på.
                                             Kan maktvakuumet etter ham føre til enda mer uro?
                                         </p>
                                     </div>
                                 ) : (
-                                    <div className="space-y-4">
-                                        <p className="text-amber-600 font-bold text-xl uppercase tracking-tight">En kontroversiell beslutning...</p>
-                                        <p className="text-slate-700 text-lg leading-relaxed font-medium">
+                                    <div className="space-y-2">
+                                        <p className="text-amber-600 font-bold text-sm uppercase tracking-tight">En kontroversiell beslutning...</p>
+                                        <p className="text-slate-700 text-sm leading-relaxed">
                                             {ostracized?.id === 'aristides' ? (
                                                 "Du sendte bort 'den rettferdige'. Historien forteller at en borger stemte på ham bare fordi han var lei av å høre hvor rettferdig han var. Dette viser baksiden av direktedemokrati: Personlige følelser kan veie tyngre enn kompetanse."
                                             ) : (
@@ -180,7 +180,7 @@ export const OstracismGame: React.FC = () => {
 
                             <button
                                 onClick={reset}
-                                className="px-10 py-5 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 transition-all font-bold text-lg shadow-xl shadow-slate-200"
+                                className="px-6 py-3 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-all font-bold text-sm shadow-lg shadow-slate-200"
                             >
                                 Gå tilbake til Pnyx
                             </button>
@@ -188,16 +188,15 @@ export const OstracismGame: React.FC = () => {
                     )}
                 </AnimatePresence>
 
-                <div className="mt-12 flex items-start gap-4 bg-blue-50 p-6 rounded-2xl border border-blue-100">
-                    <div className="p-3 bg-white text-blue-600 rounded-xl shadow-sm">
-                        <CheckCircle2 size={24} />
+                <div className="mt-8 flex items-start gap-3 bg-blue-50 p-4 rounded-xl border border-blue-100">
+                    <div className="p-2 bg-white text-blue-600 rounded-lg shadow-sm">
+                        <CheckCircle2 size={18} />
                     </div>
                     <div>
-                        <h5 className="font-black text-slate-800 mb-1 uppercase tracking-tight">Pedagogisk refleksjon</h5>
-                        <p className="text-slate-600 leading-relaxed">
+                        <h5 className="font-black text-slate-800 mb-0.5 text-sm uppercase tracking-tight">Pedagogisk refleksjon</h5>
+                        <p className="text-slate-600 text-xs leading-relaxed">
                             Ostrasisme var ment som en sikkerhetsventil mot tyranni, men det ble ofte brukt
-                            som et politisk våpen for å bli kvitt rivaler. Det illustrerer spenningen mellom
-                            flertallets makt og rettssikkerhet for den enkelte borger.
+                            som et politisk våpen for å bli kvitt rivaler.
                         </p>
                     </div>
                 </div>

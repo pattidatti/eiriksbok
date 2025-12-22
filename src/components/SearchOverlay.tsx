@@ -85,7 +85,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                         type: 'lesson',
                         title: displayTitle,
                         path: path,
-                        description: `Leksjon i ${contextTitle}`,
+                        description: lesson.description || `Leksjon i ${contextTitle}`,
                         tags: lesson.tags || []
                     });
                 };
