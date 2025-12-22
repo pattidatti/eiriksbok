@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { motionPresets } from '../styles/motion-presets';
 import { Search, Filter, BookOpen, Tag } from 'lucide-react';
 import { textLibraryData } from '../data/textLibraryData';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -256,15 +257,14 @@ export const TextLibraryPage: React.FC = () => {
                         </div>
                     )}
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                        {filteredAndSortedTexts.map(text => {
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+                        {filteredAndSortedTexts.map((text, index) => {
                             const isRead = readTexts.includes(text.id);
                             return (
                                 <motion.div
                                     key={text.id}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.3 }}
+                                    {...motionPresets.slideUp}
+                                    transition={{ delay: index * 0.03 }}
                                     className={`bg-white rounded-xl shadow-sm border overflow-hidden flex flex-col hover:shadow-md transition-all group ${isRead ? 'border-green-200 bg-green-50/30' : 'border-slate-100'}`}
                                 >
                                     <div className="p-6 flex-grow relative">

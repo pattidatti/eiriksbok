@@ -4,6 +4,7 @@ import { fetchManifest } from '../utils/contentLoader';
 import { LessonCard } from '../components/LessonCard';
 import type { ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
+import { motionPresets } from '../styles/motion-presets';
 import { textLibraryData } from '../data/textLibraryData';
 import { db } from '../lib/firebase';
 
@@ -160,8 +161,7 @@ export const SearchPage: React.FC = () => {
     return (
         <div className="max-w-7xl mx-auto px-6 py-12">
             <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...motionPresets.slideDown}
                 className="mb-12"
             >
                 {tag ? (
@@ -186,13 +186,12 @@ export const SearchPage: React.FC = () => {
             </motion.div>
 
             {results.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {results.map((result, index) => (
                         <motion.div
                             key={`${result.subjectId}-${result.lesson.id}`}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
+                            {...motionPresets.slideUp}
+                            transition={{ delay: index * 0.05 }}
                         >
                             <LessonCard
                                 lesson={result.lesson}

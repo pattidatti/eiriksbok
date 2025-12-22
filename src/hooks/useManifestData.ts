@@ -70,11 +70,10 @@ export const useManifestData = () => {
 
             // Calculate Recent Lessons
             const recent = [...lessons].sort((a, b) => {
-                // Use lastUpdated if available, otherwise createdDate, otherwise date, otherwise fallback
                 const dateA = a.lastUpdated || a.createdDate || a.date || '0000';
                 const dateB = b.lastUpdated || b.createdDate || b.date || '0000';
                 return dateB.localeCompare(dateA);
-            }).slice(0, 3);
+            }).slice(0, 4);
 
             startTransition(() => {
                 setRecentLessons(recent);
@@ -85,7 +84,7 @@ export const useManifestData = () => {
                 const hist = history
                     .map(h => lessons.find(l => l.id === h.id))
                     .filter((l): l is ProcessedLesson => !!l)
-                    .slice(0, 3);
+                    .slice(0, 4);
 
                 startTransition(() => {
                     setHistoryLessons(hist);

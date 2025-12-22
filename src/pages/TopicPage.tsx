@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import { useManifest } from '../hooks/useManifest';
 import type { ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
+import { motionPresets } from '../styles/motion-presets';
 import { LessonCard } from '../components/LessonCard';
 import { TopicCard } from '../components/TopicCard';
 import { ChevronRight, Grid, List, ArrowDownAZ, Calendar, Clock, Map } from 'lucide-react';
@@ -105,8 +106,7 @@ export const TopicPage: React.FC = () => {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    {...motionPresets.slideUp}
                 >
                     <h1 className="text-4xl font-display font-bold text-text-main mb-2">
                         {title}
@@ -207,8 +207,7 @@ export const TopicPage: React.FC = () => {
                         {subTopics.map((subTopic: any, index: number) => (
                             <motion.div
                                 key={subTopic.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                {...motionPresets.slideUp}
                                 transition={{ delay: index * 0.05 }}
                                 className="h-full"
                             >
@@ -247,8 +246,7 @@ export const TopicPage: React.FC = () => {
                         {filteredLessons.map((lesson, index) => (
                             <motion.div
                                 key={lesson.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                {...motionPresets.slideUp}
                                 transition={{ delay: index * 0.05 }}
                                 className="h-full"
                             >

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useManifest } from '../hooks/useManifest';
 import type { ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
+import { motionPresets } from '../styles/motion-presets';
 import { Timeline } from '../components/Timeline';
 import { TopicView } from '../components/views/TopicView';
 import { ExplorerView } from '../components/views/ExplorerView';
@@ -61,8 +62,7 @@ export const SubjectPage: React.FC = () => {
         <div className="subject-page max-w-7xl mx-auto px-6 py-12">
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
                 <motion.h1
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    {...motionPresets.slideInLeft}
                     className="text-5xl font-display font-bold text-text-main"
                 >
                     {subjectData.title}

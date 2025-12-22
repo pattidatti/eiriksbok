@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { motionPresets } from '../../styles/motion-presets';
 import { useNavigate } from 'react-router-dom';
 import { LayoutGrid } from 'lucide-react';
 import { TopicCard } from '../TopicCard';
@@ -17,12 +18,12 @@ export const TopicView: React.FC<TopicViewProps> = ({ subjectData, subjectId }) 
         <div className="space-y-12">
             {/* Tools Section */}
             {subjectData.tools && subjectData.tools.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {subjectData.tools.map((tool: any) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {subjectData.tools.map((tool: any, index: number) => (
                         <motion.div
                             key={tool.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            {...motionPresets.slideUp}
+                            transition={{ delay: index * 0.05 }}
                             onClick={() => navigate(tool.link)}
                             className="bg-surface-card p-6 rounded-xl border border-white/10 cursor-pointer hover:shadow-md transition-all group"
                         >
@@ -59,8 +60,7 @@ export const TopicView: React.FC<TopicViewProps> = ({ subjectData, subjectId }) 
                     return (
                         <motion.div
                             key={topic.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            {...motionPresets.slideUp}
                             transition={{ delay: index * 0.05 }}
                             className="h-full"
                         >

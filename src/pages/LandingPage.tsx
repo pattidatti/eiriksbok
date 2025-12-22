@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PrefetchLink } from '../components/PrefetchLink';
 import { motion } from 'framer-motion';
+import { motionPresets } from '../styles/motion-presets';
 import { LessonCard } from '../components/LessonCard';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useManifestData } from '../hooks/useManifestData';
@@ -18,8 +19,7 @@ export const LandingPage: React.FC = () => {
         <div className="min-h-screen pb-20">
             <div className="max-w-7xl mx-auto px-4 md:px-8 pt-4 md:pt-6">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    {...motionPresets.slideUp}
                     className="mb-8"
                 >
                     <div className="flex flex-col gap-1">
@@ -56,13 +56,12 @@ export const LandingPage: React.FC = () => {
                             </h3>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                             {historyLessons.map((lesson, index) => (
                                 <motion.div
                                     key={`history-${lesson.id}`}
                                     className="h-full"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
+                                    {...motionPresets.slideUp}
                                     transition={{ delay: index * 0.05 }}
                                 >
                                     <LessonCard
@@ -92,13 +91,12 @@ export const LandingPage: React.FC = () => {
                             </Link>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                             {recentLessons.map((lesson, index) => (
                                 <motion.div
                                     key={lesson.id}
                                     className="h-full"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
+                                    {...motionPresets.slideUp}
                                     transition={{ delay: index * 0.05 }}
                                 >
                                     <LessonCard
