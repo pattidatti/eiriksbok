@@ -116,9 +116,9 @@ export const InterdisciplinaryBridge: React.FC<InterdisciplinaryBridgeProps> = (
                                                 r={50}
                                                 fill={node.color || '#6366f1'}
                                                 initial={{ scale: 0.8, opacity: 0 }}
-                                                animate={{ scale: 1.4, opacity: 0.2 }}
+                                                animate={{ scale: 1.3, opacity: 0.1 }}
                                                 exit={{ scale: 0.8, opacity: 0 }}
-                                                transition={{ duration: 1, repeat: Infinity }}
+                                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                                             />
                                         )}
                                     </AnimatePresence>
