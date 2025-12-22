@@ -143,7 +143,8 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                 return (eStart <= contextEnd && eEnd >= contextStart);
             })
             .map(e => ({
-                year: e.displayDate,
+                year: e.displayDate || e.year || '',
+                startDate: e.startDate,
                 title: e.title,
                 description: e.description || '',
                 link: e.link
@@ -151,11 +152,15 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
     }, [event, globalEvents]);
 
     // Combine and sort by year
-    const combinedTimeline = [...contextEvents].sort((a, b) => {
-        const rangeA = parseYearRange(a.year);
-        const rangeB = parseYearRange(b.year);
-        return rangeA.start - rangeB.start;
-    });
+    const combinedTimeline = React.useMemo(() => {
+        return [...contextEvents].sort((a, b) => {
+            const getStart = (item: any) => {
+                if (typeof item.startDate === 'number') return item.startDate;
+                return parseYearRange(item.year).start;
+            };
+            return getStart(a) - getStart(b);
+        });
+    }, [contextEvents]);
 
     // Find related articles using the shared hook
     // We use the event's subjectId and topicId if available, otherwise defaults or empty strings

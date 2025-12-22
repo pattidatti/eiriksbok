@@ -140,6 +140,23 @@
     ]
   },
   {
+    "id": "europeisk-hegemoni",
+    "title": "Europeisk hegemoni",
+    "description": "En 500-årig periode der europeiske stormakter dominerte verden politisk, økonomisk og kulturelt.",
+    "startDate": 1492,
+    "endDate": 1956,
+    "displayDate": "1492 - 1956",
+    "type": "lesson",
+    "subjectId": "historie",
+    "topicId": "kolonialisering",
+    "link": "/historie/kolonialisering/europa-erobrer-verden",
+    "tags": [
+      "global-historie",
+      "imperialisme",
+      "kolonialisme"
+    ]
+  },
+  {
     "id": "cortes-mexico",
     "title": "Cortés erobrer Mexico",
     "description": "Aztekerrikets fall markerer starten på Spanias herredømme på fastlandet.",
@@ -879,9 +896,60 @@
     "topicId": "middelalderen",
     "link": "/historie/middelalderen/middelalderen",
     "tags": [
+      "norge",
+      "middelalder",
+      "lov"
+    ]
+  },
+  {
+    "id": "voc-founding",
+    "title": "VOC stiftes",
+    "description": "Det nederlandske ostindiske kompani blir verdens første aksjeselskap og symboliserer starten på det nederlandske hegemoniet.",
+    "startDate": 1602,
+    "endDate": null,
+    "displayDate": "1602",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
+    "tags": [
+      "økonomi",
+      "handel",
+      "nederland"
+    ]
+  },
+  {
+    "id": "napoleon-end",
+    "title": "Slutten på Napoleonskrigene",
+    "description": "Slaget ved Waterloo markerer slutten på Frankrikes utfordring og starten på Pax Britannica – Storbritannias hundreårige fred.",
+    "startDate": 1815,
+    "endDate": null,
+    "displayDate": "1815",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
+    "tags": [
       "historie",
-      "middelalderen",
-      "europa"
+      "storbritannia",
+      "krig"
+    ]
+  },
+  {
+    "id": "bretton-woods",
+    "title": "Bretton Woods-konferansen",
+    "description": "Grunnlaget for den moderne verdensøkonomien legges, med dollaren som den globale reservevalutaen under USAs ledelse.",
+    "startDate": 1944,
+    "endDate": null,
+    "displayDate": "1944",
+    "type": "sub-event",
+    "subjectId": "samfunnskunnskap",
+    "topicId": "ideer-og-verdenssyn",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
+    "tags": [
+      "økonomi",
+      "usa",
+      "globalt"
     ]
   },
   {

@@ -53,6 +53,8 @@ import { TheocraticCouncil } from './content/interactive/TheocraticCouncil';
 import { TechnocratProblemSolver } from './content/interactive/TechnocratProblemSolver';
 import { EliteNetworkBuilder } from './content/interactive/EliteNetworkBuilder';
 import { MonarchyEvolution } from './content/interactive/MonarchyEvolution';
+import { ColonialGovernance } from './content/interactive/ColonialGovernance';
+import { ResourceTradeFlows } from './content/interactive/ResourceTradeFlows';
 
 import type { Concept, ContentBlock } from '../types';
 import { renderInlineMarkdown } from './markdownUtils';
@@ -396,6 +398,10 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 return <EliteNetworkBuilder key={index} />;
                             case 'MonarchyEvolution':
                                 return <MonarchyEvolution key={index} />;
+                            case 'ColonialGovernance':
+                                return <ColonialGovernance key={index} />;
+                            case 'ResourceTradeFlows':
+                                return <ResourceTradeFlows key={index} />;
                             default:
                                 return (
                                     <div key={index} className="p-4 border border-red-500 rounded text-red-500">
@@ -442,6 +448,31 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                             <Link key={index} to={block.url} className={className}>
                                 {block.text}
                             </Link>
+                        );
+
+                    case 'video':
+                        const videoUrl = block.url || block.value;
+                        const videoTitle = block.title || "YouTube video";
+                        // Extract video ID from URL if it's a full link
+                        let embedUrl = videoUrl;
+                        if (videoUrl.includes('youtube.com/watch?v=')) {
+                            const videoId = videoUrl.split('v=')[1]?.split('&')[0];
+                            embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                        } else if (videoUrl.includes('youtu.be/')) {
+                            const videoId = videoUrl.split('youtu.be/')[1]?.split('?')[0];
+                            embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                        }
+
+                        return (
+                            <div key={index} className="my-10 aspect-video w-full overflow-hidden rounded-xl shadow-lg border border-slate-200">
+                                <iframe
+                                    src={embedUrl}
+                                    title={videoTitle}
+                                    className="h-full w-full"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
                         );
 
                     default:

@@ -1,39 +1,44 @@
 
-// Helper to parse year strings like "1918–1939", "1885", "550 fvt", "-500-476"
+// Helper to parse year strings like "1918–1939", "1885", "550 fvt", "-500-476", "August 1945", "6. juni 1944"
 export const parseYearRange = (yearStr: string): { start: number, end: number } => {
     if (!yearStr) return { start: 0, end: 0 };
 
-    // Remove "ca." and spaces
-    const cleanStr = yearStr.replace(/ca\.?/i, '').replace(/\s+/g, '');
-
-    // Check for "fvt." (BC)
+    // Basic cleaning, but keep some context for regex
+    const cleanStr = yearStr.replace(/ca\.?/i, '').trim();
     const isBC = cleanStr.toLowerCase().includes('fvt');
     const multiplier = isBC ? -1 : 1;
 
-    // Remove text suffix
+    // Remove BC/AD suffixes for easier numeric extraction
     const numStr = cleanStr.replace(/fvt\.?|evt\.?/i, '');
 
-    // Handle ranges "1400-1500"
-    if (numStr.includes('–') || numStr.includes('-')) {
-        const parts = numStr.split(/[–-]/);
-        if (parts.length === 2) {
-            let start = parseInt(parts[0]);
-            let end = parseInt(parts[1]);
+    // 1. Check for ranges first (dashes)
+    const parts = numStr.split(/[–-]/);
+    if (parts.length >= 2) {
+        const extractYear = (s: string) => {
+            // Find numbers with 3-4 digits first (years), otherwise any number
+            const matches = s.match(/\d{3,4}/) || s.match(/\d+/g);
+            return matches ? parseInt(matches[matches.length - 1]) : NaN;
+        };
 
-            if (isNaN(start)) start = 0;
-            if (isNaN(end)) end = 0;
+        const start = extractYear(parts[0]);
+        const end = extractYear(parts[parts.length - 1]);
 
-            // If BC, the larger number is actually smaller (older), but usually written "12000-4000 fvt"
-            // So 12000 BC is start (-12000), 4000 BC is end (-4000)
-            if (isBC) {
-                return { start: start * multiplier, end: end * multiplier };
-            }
-            return { start, end };
+        if (!isNaN(start)) {
+            return {
+                start: start * multiplier,
+                end: (isNaN(end) ? start : end) * multiplier
+            };
         }
     }
 
-    // Single year
-    const year = parseInt(numStr);
-    if (isNaN(year)) return { start: 0, end: 0 };
-    return { start: year * multiplier, end: year * multiplier };
+    // 2. Single year or descriptive date
+    // Try to find a 3-4 digit year first (avoids day/month numbers)
+    // If no 3-4 digit year, take the last number found
+    const matches = numStr.match(/\d{3,4}/) || numStr.match(/\d+/g);
+    if (matches) {
+        const year = parseInt(matches[matches.length - 1]);
+        return { start: year * multiplier, end: year * multiplier };
+    }
+
+    return { start: 0, end: 0 };
 };

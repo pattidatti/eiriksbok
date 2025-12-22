@@ -844,6 +844,20 @@
                                 "rettsvitenskap"
                             ],
                             "createdDate": "2025-12-21T20:40:00Z"
+                        },
+                        {
+                            "id": "store-sykluser",
+                            "title": "De store syklusene",
+                            "description": "Sivilisasjoners vekst og fall: Hvorfor gjentar historien seg?",
+                            "image": "/images/ideer/store-sykluser-hero.jpg",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "økonomi",
+                                "syklus",
+                                "samfunn"
+                            ],
+                            "createdDate": "2025-12-22T12:00:00Z"
                         }
                     ]
                 }
@@ -1321,6 +1335,21 @@
                         }
                     ],
                     "lessons": [
+                        {
+                            "id": "europa-erobrer-verden",
+                            "title": "Europa erobrer verden",
+                            "description": "500 år med imperialisme, maktkamp og globale imperier.",
+                            "image": "/images/historie/kolonialisering/europa-erobrer-verden-hero.jpg",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "kolonialisme",
+                                "imperialisme",
+                                "global-historie"
+                            ],
+                            "createdDate": "2025-12-22T14:00:00Z",
+                            "lastUpdated": "2025-12-22T14:00:00Z"
+                        },
                         {
                             "id": "verdenshandel-for-oppdagelsesreisene",
                             "title": "Verdenshandel før oppdagelsesreisene",

@@ -18,11 +18,11 @@
         },
         {
             "type": "text",
-            "content": "Mens britene ryddet land for å bygge gårder, kom franskmennene til Nord-Amerika (New France) med et annet formål: Pels. Beverpels var motens høyeste skrik i Europa, og de endeløse skogene i Canada var fulle av dem. For å få tak i pelsen, var franskmennene helt avhengige av samarbeid med de innfødte stammene."
+            "content": "Mens britene ryddet land for å bygge gårder, kom franskmennene til Nord-Amerika (New France) med et annet formål: Pels. Beverpels var motens høyeste skrik i Europa, og de endeløse skogene i Canada var fulle av dem. Under Ludvig XIV og [eneveldet](/samfunnskunnskap/styringsformer/monarkiet) ble koloniseringen en del av statens prestisje. Kongen ønsket å spre fransk kultur og katolisisme til den nye verden."
         },
         {
             "type": "text",
-            "content": "Dette skapte en unik dynamikk. Franske *Coureurs de bois* ('løpere i skogen') levde blant indianerne, lærte språkene deres og giftet seg inn i stammene. De var ikke erobrere i spansk forstand, men partnere og allierte."
+            "content": "Dette skapte en unik dynamikk. Franske *Coureurs de bois* ('løpere i skogen') levde blant indianerne, lærte språkene deres og giftet seg inn i stammene. De var ikke erobrere i spansk forstand, men partnere og allierte. For å få tak i pelsen, var franskmennene helt avhengige av samarbeid med de innfødte stammene."
         },
         {
             "type": "header",
@@ -94,19 +94,67 @@
                     "description": "Slaveopprøret på Saint-Domingue starter, fører til Haitis uavhengighet."
                 },
                 {
-                    "year": "1803",
-                    "title": "Louisiana-kjøpet",
-                    "description": "Napoleon selger det gjenværende franske landområdet i Nord-Amerika til USA."
+                    "year": "1830",
+                    "title": "Invasjonen av Algerie",
+                    "description": "Starten på det andre franske koloniriket."
+                },
+                {
+                    "year": "1887",
+                    "title": "Fransk Indokina dannes",
+                    "description": "Frankrike samler sine besittelser i Sørøst-Asia."
+                },
+                {
+                    "year": "1954",
+                    "title": "Dien Bien Phu",
+                    "description": "Avgjørende fransk nederlag i Vietnam."
+                },
+                {
+                    "year": "1956",
+                    "title": "Suez-krisen",
+                    "description": "Frankrike ydmykes sammen med Storbritannia; slutten på supermaktstiden."
+                },
+                {
+                    "year": "1962",
+                    "title": "Algerisk uavhengighet",
+                    "description": "Slutten på en blodig krig og det meste av det franske imperiet."
                 }
             ]
         },
         {
             "type": "header",
-            "content": "Drømmen som brast"
+            "content": "Revolusjon og Napoleons omveltninger"
         },
         {
             "type": "text",
-            "content": "Det franske koloniriket i Nord-Amerika fikk en brå slutt med tapet i Sjuårskrigen i 1763. De måtte gi fra seg Canada til [britene](/historie/kolonialisering/britisk-imperium). Mange av de franske bosetterne (Acadians) ble tvangsflyttet, og en del endte opp i Louisiana, hvor kulturen deres lever videre som *Cajun*. Selv om det politiske styret forsvant, lever det franske språket og kulturen videre i Québec den dag i dag."
+            "content": "Den [franske revolusjon](/historie/den-franske-revolusjon/intro) og Napoleonskrigene rystet imperiet. Idealene om «frihet, likhet og brorskap» inspirerte slaveopprøret på Saint-Domingue, som førte til dannelsen av Haiti – den første selvstendige svarte republikken. Napoleon trengte penger til krigføring i Europa, og i 1803 solgte han det enorme Louisiana-territoriet til USA. Det første franske koloniriket lå i ruiner."
+        },
+        {
+            "type": "header",
+            "content": "Det andre imperiet: Afrika og Asia"
+        },
+        {
+            "type": "text",
+            "content": "I 1830 startet Frankrike en ny bølge med ekspansjon ved å invadere Algerie. Dette markerte starten på «det andre franske koloniriket». Algerie ble ikke bare sett på som en koloni, men som en direkte del av Frankrike. Senere ekspanderte de dypt inn i Vest-Afrika og erobret Indochina (Vietnam, Laos, Kambodsja) i Asia."
+        },
+        {
+            "type": "text",
+            "content": "I motsetning til britene, som ofte styrte gjennom lokale ledere, forsøkte franskmennene å «sivilisere» sine undersåtter ved å gjøre dem franske. De kalte dette *Mission Civilisatrice* – en misjon for å spre fransk språk, kultur og verdier, selv om dette ofte skjedde med brutal makt."
+        },
+        {
+            "type": "header",
+            "content": "Avkolonisering og bitre kriger"
+        },
+        {
+            "type": "text",
+            "content": "Etter [andre verdenskrig](/historie/andre-verdenskrig/intro) nektet Frankrike å gi slipp på sine kolonier. Dette førte til to svært blodige kriger: Først i Vietnam, som endte med det knusende tapet i slaget ved Dien Bien Phu i 1954, og deretter den traumatiske algeriekrigen (1954–1962). Algeriekrigen var så splittende at den holdt på å føre til borgerkrig i selve Frankrike."
+        },
+        {
+            "type": "text",
+            "content": "Som for [britene](/historie/kolonialisering/britisk-imperium) ble [Suez-krisen](/historie/den-kalde-krigen/suez-krisen) i 1956 et vendepunkt. Frankrike deltok i invasjonen for å stanse Egypts støtte til algeriske opprørere. Fiaskoen viste at Frankrike ikke lenger kunne handle som en uavhengig stormakt i verdenspolitikken. De ble tvunget til å innse at deres tid som global leder var over."
+        },
+        {
+            "type": "text",
+            "content": "Selv om det politiske styret forsvant, lever det franske språket og kulturen videre i Québec, store deler av Afrika og i de franske oversjøiske områdene som fortsatt er en del av Frankrike i dag."
         }
     ],
     "quiz": [

@@ -18,11 +18,15 @@
         },
         {
             "type": "text",
-            "content": "Mens spanjolene lette etter gull og portugiserne jaktet på krydder, kom engelskmennene (senere britene) sent til festen. Deres imperium vokste frem ikke bare gjennom statlig erobring, men gjennom private initiativ: handelskompanier og religiøse flyktninger som søkte et nytt liv. Dette skulle bli grunnlaget for et imperium som på sitt høyeste dekket en fjerdedel av jordens overflate."
+            "content": "Mens spanjolene lette etter gull og portugiserne jaktet på krydder, kom engelskmennene sent til festen. Deres imperium vokste frem ikke bare gjennom statlig erobring, men gjennom private initiativ: handelskompanier og religiøse flyktninger som søkte et nytt liv. Etter at dronning Elizabeth I beseiret den spanske armadaen i 1588, lå havet åpent for engelsk ekspansjon."
         },
         {
             "type": "text",
-            "content": "Det britiske imperiet utviklet seg i to hovedretninger: I øst (India) var det drevet av handel gjennom det mektige Østindiske kompani. I vest (Nord-Amerika) var det drevet av bosetting – vanlige folk som ryddet land og bygget samfunn."
+            "content": "Selv gjennom den [engelske borgerkrigen](/historie/reformasjonen/30-aarskrigen) (1642–1651) og skiftet mellom monarki og republikk, fortsatte flåten å vokse. Det var behovet for kontroll over handelsrutene som tvang frem en stadig sterkere *Royal Navy*. Britene forsto tidlig at den som kontrollerer havet, kontrollerer verden."
+        },
+        {
+            "type": "text",
+            "content": "Det britiske imperiet utviklet seg i to hovedretninger: I øst (India) var det drevet av handel gjennom det mektige [Østindiske kompani](/historie/kolonialisering/eic). I vest (Nord-Amerika) var det drevet av bosetting – vanlige folk som ryddet land og bygget samfunn."
         },
         {
             "type": "header",
@@ -30,7 +34,7 @@
         },
         {
             "type": "text",
-            "content": "I år 1600 fikk *British East India Company* kongelig monopol på handel med Asia. Dette var ikke bare et firma; det var en militær og politisk maktfaktor. Med egne hærer, egne mynter og retten til å inngå krig og fred, styrte kompaniet store deler av India som om det var deres private eiendom."
+            "content": "I år 1600 fikk *[British East India Company](/historie/kolonialisering/eic)* kongelig monopol på handel med Asia. Dette var ikke bare et firma; det var en militær og politisk maktfaktor. Med egne hærer, egne mynter og retten til å inngå krig og fred, styrte kompaniet store deler av India som om det var deres private eiendom. Etter [Sjuårskrigen](/historie/kolonialisering/fransk-kolonirike) sikret de seg total dominans over det indiske subkontinentet."
         },
         {
             "type": "factbox",
@@ -83,6 +87,26 @@
                     "year": "1770",
                     "title": "Cook oppdager Australia",
                     "description": "James Cook gjør krav på Australia for den britiske kronen."
+                },
+                {
+                    "year": "1857",
+                    "title": "Sepoy-opprøret",
+                    "description": "Indisk opprør som fører til at kronen tar over direkte styre av India."
+                },
+                {
+                    "year": "1884",
+                    "title": "Berlin-konferansen",
+                    "description": "Stormaktene deler Afrika mellom seg; kappløpet starter for alvor."
+                },
+                {
+                    "year": "1947",
+                    "title": "India blir selvstendig",
+                    "description": "Den viktigste kolonien tapes; starten på avkoloniseringen."
+                },
+                {
+                    "year": "1956",
+                    "title": "Suez-krisen",
+                    "description": "Storbritannia ydmykes og viser at de ikke lenger er en global supermakt."
                 }
             ]
         },
@@ -109,12 +133,48 @@
             "content": "Globale konsekvenser"
         },
         {
-            "type": "text",
-            "content": "Storbritannias seier over [Frankrike](/historie/kolonialisering/fransk-kolonirike) i Sjuårskrigen (1756–1763) sementerte deres posisjon som verdens ledende kolonimakt. De tok Canada fra franskmennene og sikret seg kontrollen over India. Men suksessen hadde en pris. Kostnadene ved å forsvare det enorme imperiet førte til økte skatter for kolonistene i Amerika, noe som var direkte årsak til den amerikanske uavhengighetskrigen få tiår senere."
+            "type": "header",
+            "content": "Pax Britannica og dampens tidsalder"
         },
         {
             "type": "text",
-            "content": "Selv etter tapet av de 13 koloniene (som ble USA), fortsatte det britiske imperiet å vokse i Afrika, Asia og Oseania. Arven etter imperiet er synlig overalt i dag: Det engelske språket, rettssystemer basert på *Common Law*, og sportsgrener som fotball og cricket som spilles over hele verden."
+            "content": "På 1800-tallet endret alt seg. Den [industrielle revolusjon](/historie/industriell-revolusjon/intro) gjorde Storbritannia til «verdens verksted». For å holde fabrikkene i gang trengte de enorme mengder råvarer som bomull, gummi og metaller. Dette drev frem en ny bølge av imperialisme."
+        },
+        {
+            "type": "text",
+            "content": "Med dampskip og telegraf kunne London styre fjerne kolonier med en presisjon man aldri før hadde sett. Dette ble kjent som *Pax Britannica* – en periode med relativ fred i Europa der den britiske flåten fungerte som verdens politi og sikret fri handel på verdenshavene."
+        },
+        {
+            "type": "header",
+            "content": "Juvelen i kronen: Det britiske Raj"
+        },
+        {
+            "type": "text",
+            "content": "Etter det indiske opprøret i 1857 (*Sepoy-opprøret*) tok den britiske staten over styret fra [Det Østindiske Kompani](/historie/kolonialisering/eic). India ble nå kjent som «juvelen i kronen» i imperiet. Dronning Victoria ble kronet til keiserinne av India i 1876. Britene bygget jernbaner, skolesystemer og rettsvesen, mas profitten endte alltid opp i London, mens lokalbefolkningen ofte led under hungersnød og undertrykkelse."
+        },
+        {
+            "type": "header",
+            "content": "Kappløpet om Afrika"
+        },
+        {
+            "type": "text",
+            "content": "Mot slutten av 1800-tallet deltok Storbritannia i kappløpet om Afrika. Ved Berlin-konferansen i 1884 ble kontinentet delt opp mellom stormaktene med linjal. Britiske visjonærer som Cecil Rhodes drømte om et imperium som strakte seg «fra Kapp til Cairo» – en sammenhengende jernbane gjennom hele det afrikanske kontinentet."
+        },
+        {
+            "type": "header",
+            "content": "Fra verdensmakt til avvikling"
+        },
+        {
+            "type": "text",
+            "content": "Etter to ødeleggende verdenskriger var Storbritannia teknisk sett konkurs. [Andre verdenskrig](/historie/andre-verdenskrig/intro) hadde knust myten om europeisk overlegenhet, og nasjonalistiske bevegelser vokste frem overalt. I 1947 vant India sin uavhengighet under Gandhi, noe som markerte starten på slutten for det britiske imperiet."
+        },
+        {
+            "type": "text",
+            "content": "Det endelige nådestøtet for Storbritannia som supermakt kom med [Suez-krisen](/historie/den-kalde-krigen/suez-krisen) i 1956. Ved å forsøke å ta kontroll over Suezkanalen sammen med Frankrike, ble de ydmyket av både USA og Sovjetunionen. Det ble tydelig at tiden som verdens hersker var over. Storbritannia var ikke lenger en stormakt som kunne handle alene."
+        },
+        {
+            "type": "text",
+            "content": "Arven etter imperiet er synlig overalt i dag: Det engelske språket, rettssystemer basert på *Common Law*, og sportsgrener som fotball og cricket som spilles over hele verden."
         }
     ],
     "quiz": [
