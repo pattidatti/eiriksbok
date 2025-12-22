@@ -44,6 +44,7 @@ const EliteNetworkBuilder = lazy(() => import('./content/interactive/EliteNetwor
 const MonarchyEvolution = lazy(() => import('./content/interactive/MonarchyEvolution').then(m => ({ default: m.MonarchyEvolution })));
 const ColonialGovernance = lazy(() => import('./content/interactive/ColonialGovernance').then(m => ({ default: m.ColonialGovernance })));
 const ResourceTradeFlows = lazy(() => import('./content/interactive/ResourceTradeFlows').then(m => ({ default: m.ResourceTradeFlows })));
+const InterdisciplinaryBridge = lazy(() => import('./content/interactive/InterdisciplinaryBridge').then(m => ({ default: m.InterdisciplinaryBridge })));
 
 // Viking/Historie
 const ConflictMap = lazy(() => import('./viking/ConflictMap').then(m => ({ default: m.ConflictMap })));
@@ -106,6 +107,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     MonarchyEvolution,
     ColonialGovernance,
     ResourceTradeFlows,
+    InterdisciplinaryBridge,
 
     // Viking/History
     ConflictMap,
