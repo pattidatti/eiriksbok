@@ -1,5 +1,56 @@
 [
   {
+    "id": "dachau-opens",
+    "title": "Dachau åpnes",
+    "description": "Den første konsentrasjonsleiren etableres, opprinnelig for politiske fanger.",
+    "startDate": 1933,
+    "endDate": null,
+    "displayDate": "1933",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "andre-verdenskrig",
+    "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+    "tags": [
+      "tyskland",
+      "nazisme",
+      "leire"
+    ]
+  },
+  {
+    "id": "wannsee-conference",
+    "title": "Wannsee-konferansen",
+    "description": "Nazistoppene planlegger 'den endelige løsningen' – industrialisert folkemord.",
+    "startDate": 1942,
+    "endDate": null,
+    "displayDate": "1942",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "andre-verdenskrig",
+    "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+    "tags": [
+      "holocaust",
+      "jøder",
+      "folkemord"
+    ]
+  },
+  {
+    "id": "auschwitz-liberation",
+    "title": "Frigjøringen av Auschwitz",
+    "description": "Sovjetiske styrker frigjør leiren og verden får se omfanget av holocaust.",
+    "startDate": 1945,
+    "endDate": null,
+    "displayDate": "1945",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "andre-verdenskrig",
+    "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+    "tags": [
+      "frigjøring",
+      "holocaust",
+      "sovjet"
+    ]
+  },
+  {
     "id": "foucault-madness",
     "title": "Galskapens historie",
     "description": "Michel Foucault utgir sitt banebrytende verk om hvordan samfunnet har definert og stengt ute de 'umormale' gjennom tidene.",
