@@ -1,0 +1,186 @@
+{
+    "id": "hume",
+    "title": "David Hume",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "readTime": "25 min lesning",
+    "heroImage": "/images/filosofi/hume-hero.png",
+    "dimension": "epistemologi",
+    "comparison_tags": [
+        "skeptisisme",
+        "empirisme",
+        "induksjon",
+        "kausalitet"
+    ],
+    "details": [
+        "Den store skeptikeren som vekket Kant fra hans dogmatiske slummer.",
+        "Mente at all kunnskap er begrenset til våre sanseinntrykk.",
+        "Stilte spørsmål ved om vi egentlig kan vite at solen vil stå opp i morgen.",
+        "Hevdet at fornuften er og bør være følelsenes slave.",
+        "Kjent for 'Humes giljotin': Du kan ikke slutte fra 'er' til 'bør'."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "David Hume (1711–1776) var kanskje historiens blideste skeptiker. Han var kjent som 'le bon David' i Frankrike, en mann som elsket god mat, godt selskap og backgammon. Samtidig var han filosofien store uromoment. Han tok [Lockes](/krle/filosofi/locke) empirisme og dro den til sin logiske, og skremmende, konklusjon: Vi vet egentlig ingenting om verden utenfor oss selv."
+        },
+        {
+            "type": "header",
+            "text": "Biljardkulene: Hvor er årsaken?"
+        },
+        {
+            "type": "text",
+            "content": "Tenk deg et biljardbord. En hvit kule triller bortover og treffer en rød kule. Den røde kulen begynner å bevege seg. Hva har skjedd? Du vil si: 'Den hvite kulen er årsaken til at den røde beveget seg.'\n\nMen Hume stopper deg der. Hva så du egentlig?"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Du så den hvite kulen bevege seg.",
+                "Du så at de berørte hverandre.",
+                "Du så den røde kulen bevege seg."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Du så aldri selve årsaken. Du så ingen usynlig kraft som hoppet fra den hvite til den røde kulen. Du så bare en rekkefølge av hendelser. Likevel er vi helt overbevist om at det er en nødvendig sammenheng. Hvorfor?"
+        },
+        {
+            "type": "text",
+            "content": "Humes svar er provoserende enkelt: Det er bare en vane. Fordi vi har sett det skje tusen ganger før, forventer vi at det skal skje igjen. Men denne forventningen er en følelse i oss, ikke en lov ute i verden."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Causation is nothing but a habit of the mind.",
+                "source": "David Hume",
+                "translation": "Årsakssammenheng er intet annet enn en vane i sinnet."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Vil solen stå opp i morgen?"
+        },
+        {
+            "type": "text",
+            "content": "Dette leder oss til induksjonsproblemet. Hele vitenskapen vår bygger på induksjon: Vi ser mange enkelttilfeller (solen står opp hver dag) og lager en generell regel (solen står alltid opp).\n\nMen kan vi bevise logisk at solen vil stå opp i morgen? Nei, sier Hume. Det er ingen logisk selvmotsigelse i å si at solen ikke vil stå opp. At den har gjort det til nå, beviser ingenting om fremtiden, med mindre vi antar at 'fremtiden vil ligne fortiden'. Men hvordan vet vi at fremtiden vil ligne fortiden? Bare fordi den har gjort det før. Det er en sirkelargumentasjon!\n\nVi kan ikke vite noe sikkert om fremtiden. Vi kan bare tro."
+        },
+        {
+            "type": "header",
+            "text": "Inntrykk og Idéer"
+        },
+        {
+            "type": "text",
+            "content": "Som Locke, mente Hume at sinnet var tomt ved fødselen. Han delte innholdet i bevisstheten vår i to:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Inntrykk (Impressions): Det sterke, levende vi opplever akkurat nå (fargen rød, smerten av et stikk, gleden over et måltid).",
+                "Idéer (Ideas): De bleke kopiene vi har i minnet når vi tenker på inntrykkene etterpå."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Du kan ikke ha en idé uten å ha hatt inntrykket først. En blind mann kan ikke ha en idé om fargen rød. Dette betyr også at ord som 'Gud', 'Sjel' eller 'Selv' er meningsløse hvis vi ikke kan peke på hvilket inntrykk de kommer fra. Hume 'kikket inn i seg selv' for å finne sitt 'Jeg', men fant bare en strøm av skiftende følelser – kulde, varme, sult, glede. Han fant aldri noe fast 'Jeg' bak følelsene."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Hvem har rett?",
+                "leftTitle": "Descartes (Rasjonalisten)",
+                "rightTitle": "Hume (Empiristen)",
+                "items": [
+                    {
+                        "label": "Årsak/Virkning",
+                        "left": "Logisk nødvendighet",
+                        "right": "Psykologisk vane"
+                    },
+                    {
+                        "label": "Jeget (Sjelen)",
+                        "left": "En tenkende substans (res cogitans)",
+                        "right": "En bunt av skiftende inntrykk"
+                    },
+                    {
+                        "label": "Gud",
+                        "left": "Kan bevises logisk",
+                        "right": "Kan ikke erfares, ergo vet vi ikke"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Fornuft og følelser"
+        },
+        {
+            "type": "text",
+            "content": "I motsetning til de fleste filosofer før ham, som mente fornuften skulle sjefe over følelsene, snudde Hume opp ned på alt. Fornuften kan fortelle oss hvordan vi skal bygge et hus, eller hvordan vi kan drepe noen, men den kan aldri fortelle oss *hvorfor* vi bør gjøre det ene eller det andre. Det er det bare følelsene våre (lidenskapene) som kan."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Reason is, and ought only to be the slave of the passions.",
+                "source": "David Hume",
+                "translation": "Fornuften er, og bør bare være, lidenskapenes slave."
+            }
+        },
+        {
+            "type": "text",
+            "content": "Moral er altså ikke logikk, men følelser. Vi dømmer en handling som 'god' fordi den vekker en følelse av sympati eller behag i oss, ikke fordi den oppfyller en matematisk formel."
+        },
+        {
+            "type": "header",
+            "text": "Humes Giljotin: Er vs. Bør"
+        },
+        {
+            "type": "text",
+            "content": "Hume oppdaget en feil mange gjør. De starter med å beskrive hvordan verden *er* (f.eks. 'Mennesker spiser kjøtt fra naturens side'), og glir umerkelig over til å si hvordan den *bør* være ('Derfor er det riktig å spise kjøtt').\n\nDette er logisk ugyldig, sa Hume. Du kan ikke utlede et 'bør' fra et 'er'. At noe *er* på en bestemt måte, forteller oss ingenting om det *er riktig* at det er slik. Denne skarpheten kalles 'Humes Giljotin', fordi den kutter hodet av mange dårlige argumenter."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Våknet av dvalen",
+                "content": "Den tyske filosofen [Immanuel Kant](/krle/filosofi/kant) var sjokkert da han leste Hume. Han innså at Hume hadde rett i at erfaring alene ikke kan gi oss sikker viten (som at solen må stå opp). For å redde vitenskapen måtte Kant finne på noe helt nytt. Han sa senere at det var Hume som 'vekket ham fra hans dogmatiske slummer'."
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er forskjellen på inntrykk og idéer ifølge Hume?",
+            "options": [
+                "Inntrykk er medfødte, idéer er tillærte.",
+                "Inntrykk er sterke opplevelser her og nå, idéer er bleke minner om disse.",
+                "Idéer er det sanne, inntrykk er bare skygger.",
+                "Det er ingen forskjell."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva mener Hume med at kausalitet (årsak-virkning) er en 'vane'?",
+            "options": [
+                "At vi observerer en nødvendig kraft mellom hendelser.",
+                "At vi er vant til å tenke feil.",
+                "At vi bare forventer at B følger A fordi vi har sett det før, ikke fordi vi kan se noen nødvendig sammenheng.",
+                "At årsaker alltid kommer før virkninger."
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva sier 'Humes Giljotin'?",
+            "options": [
+                "At alle skeptikere bør halshugges.",
+                "At man ikke kan slutte fra hvordan noe ER til hvordan noe BØR være.",
+                "At fornuften må kutte vekk alle følelser.",
+                "At sansene våre ofte lurer oss."
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2025-12-22T23:55:00Z",
+    "lastUpdated": "2025-12-22T23:55:00Z"
+}

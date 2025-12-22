@@ -1,4 +1,4 @@
-﻿{
+{
     "subjects": [
         {
             "id": "norsk",
@@ -549,6 +549,7 @@
                             "id": "makt-og-legitimitet",
                             "title": "Makt og legitimitet",
                             "description": "Hvorfor styres vi? Om staten og Weber.",
+                            "image": "/images/lessons/styringsformer/makt-og-legitimitet_hero.png",
                             "tags": [
                                 "politikk",
                                 "sosial-kontrakt",
@@ -560,6 +561,7 @@
                             "id": "antikken-visjoner",
                             "title": "Antikkens visjoner",
                             "description": "Platon, Aristoteles og de første statsformene.",
+                            "image": "/images/lessons/styringsformer/antikken-visjoner_hero.png",
                             "tags": [
                                 "historie",
                                 "filosofi",
@@ -572,6 +574,7 @@
                             "id": "monarkiet",
                             "title": "Monarkiet",
                             "description": "Fra enevelde til konstitusjonalisme.",
+                            "image": "/images/lessons/styringsformer/monarkiet_hero.png",
                             "tags": [
                                 "historie",
                                 "kongedømme",
@@ -583,6 +586,7 @@
                             "id": "opplysningstid",
                             "title": "Opplysningstiden",
                             "description": "Locke, Rousseau og maktfordeling.",
+                            "image": "/images/lessons/styringsformer/opplysningstid_hero.png",
                             "tags": [
                                 "filosofi",
                                 "revolusjon",
@@ -594,6 +598,7 @@
                             "id": "demokrati-ansikter",
                             "title": "Demokratiets mange ansikter",
                             "description": "Hvordan fungerer folkestyret i praksis?",
+                            "image": "/images/lessons/styringsformer/demokrati-ansikter_hero.png",
                             "tags": [
                                 "politikk",
                                 "parlamentarisme",
@@ -605,6 +610,7 @@
                             "id": "elitenes-herredomme",
                             "title": "Elitenes herredømme",
                             "description": "Oligarki, plutokrati og maktens konsentrasjon.",
+                            "image": "/images/lessons/styringsformer/elitenes-herredomme_hero.png",
                             "tags": [
                                 "politikk",
                                 "økonomi",
@@ -616,6 +622,7 @@
                             "id": "diktaturet",
                             "title": "Diktaturet",
                             "description": "Fra autoritær makt til totalitær kontroll.",
+                            "image": "/images/lessons/styringsformer/diktaturet_hero.png",
                             "tags": [
                                 "politikk",
                                 "totalitarisme",
@@ -627,6 +634,7 @@
                             "id": "uten-hersker",
                             "title": "Uten hersker",
                             "description": "Anarkiets drøm, Rothbard og Liberland.",
+                            "image": "/images/lessons/styringsformer/uten-hersker_hero.png",
                             "tags": [
                                 "politikk",
                                 "anarki",
@@ -639,6 +647,7 @@
                             "id": "teokrati-teknokrati",
                             "title": "Gud eller Eksperter?",
                             "description": "Teokrati vs. Teknokrati.",
+                            "image": "/images/lessons/styringsformer/teokrati-teknokrati_hero.png",
                             "tags": [
                                 "religion",
                                 "politikk",
@@ -650,6 +659,7 @@
                             "id": "foydalisme",
                             "title": "Føydalismen",
                             "description": "Herre og vasall: Da personlige bånd styrte Europa.",
+                            "image": "/images/lessons/styringsformer/foydalisme_hero.png",
                             "tags": [
                                 "historie",
                                 "politikk",
@@ -661,6 +671,7 @@
                             "id": "stortinget",
                             "title": "Stortinget",
                             "description": "Norges nasjonalforsamling og maktens tredeling.",
+                            "image": "/images/lessons/styringsformer/stortinget_hero.png",
                             "tags": [
                                 "politikk",
                                 "norge",
@@ -3018,6 +3029,20 @@
                             ],
                             "createdDate": "2025-12-21T12:00:00Z",
                             "lastUpdated": "2025-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "hume",
+                            "title": "David Hume",
+                            "description": "Fornuften er følelsenes slave: Skeptisisme og vane.",
+                            "image": "/images/filosofi/hume-hero.png",
+                            "tags": [
+                                "filosofi",
+                                "empirisme",
+                                "skeptisisme",
+                                "hume"
+                            ],
+                            "createdDate": "2025-12-22T23:55:00Z",
+                            "lastUpdated": "2025-12-22T23:55:00Z"
                         },
                         {
                             "id": "kant",

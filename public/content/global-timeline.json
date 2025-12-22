@@ -3048,5 +3048,22 @@
       "anarkisme",
       "spania"
     ]
+  },
+  {
+    "id": "david-hume",
+    "title": "David Hume",
+    "description": "Den skotske filosofen David Hume utgir 'A Treatise of Human Nature', et av de viktigste verkene i vestlig filosofi.",
+    "startDate": 1739,
+    "endDate": 1776,
+    "displayDate": "1739 - 1776",
+    "type": "sub-event",
+    "subjectId": "krle",
+    "topicId": "filosofi",
+    "link": "/krle/filosofi/hume",
+    "tags": [
+      "filosofi",
+      "opplysningstid",
+      "empirisme"
+    ]
   }
 ]
