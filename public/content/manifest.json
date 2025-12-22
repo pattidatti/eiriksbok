@@ -1675,7 +1675,7 @@
                                 "oppfinnelser",
                                 "teknologi",
                                 "renessansen",
-                                "bæ¸ker"
+                                "bøker"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z",
@@ -1686,11 +1686,11 @@
                                 },
                                 {
                                     "term": "Scriptorier",
-                                    "definition": "Skrivestuer i klostre hvor munker kopierte bæ¸ker for hånd."
+                                    "definition": "Skrivestuer i klostre hvor munker kopierte bøker for hånd."
                                 },
                                 {
-                                    "term": "Læ¸se typer",
-                                    "definition": "Enkeltbokstaver stæ¸pt i metall som kunne settes sammen til ord og sider, og brukes om igjen."
+                                    "term": "Løse typer",
+                                    "definition": "Enkeltbokstaver støpt i metall som kunne settes sammen til ord og sider, og brukes om igjen."
                                 },
                                 {
                                     "term": "Legering",
@@ -1698,7 +1698,7 @@
                                 },
                                 {
                                     "term": "Reformasjonen",
-                                    "definition": "En religiæ¸s omveltning på 1500-tallet startet av Martin Luther, som fæ¸rte til dannelsen av protestantiske kirker."
+                                    "definition": "En religiøs omveltning på 1500-tallet startet av Martin Luther, som førte til dannelsen av protestantiske kirker."
                                 },
                                 {
                                     "term": "Blokktrykk",
@@ -1726,7 +1726,7 @@
                 {
                     "id": "romerriket",
                     "title": "Romerriket",
-                    "description": "Et av historiens fæ¸rste store imperier som spredte kristendom og veier.",
+                    "description": "Et av historiens første store imperier som spredte kristendom og veier.",
                     "image": "/images/romerriket/hero-overview.png",
                     "tools": [
                         {
@@ -1753,7 +1753,7 @@
                         },
                         {
                             "id": "augustus-og-keiserdomme",
-                            "title": "Fra republikk til keiserdæ¸mme: Augustus",
+                            "title": "Fra republikk til keiserdømme: Augustus",
                             "description": "Historien om hvordan en ung mann endret Roma for alltid.",
                             "image": "/images/romerriket/hero-augustus.png",
                             "tags": [
@@ -1803,7 +1803,7 @@
                             "tags": [
                                 "historie",
                                 "romerriket",
-                                "æ¸konomi",
+                                "økonomi",
                                 "globalisering"
                             ],
                             "createdDate": "2023-12-20T15:30:00Z",
@@ -1841,7 +1841,7 @@
                         {
                             "id": "hverdagsliv-i-roma",
                             "title": "Hverdagslivet i Roma",
-                            "description": "Hvordan var det egentlig å bo i antikkens stæ¸rste by? Utforsk klasseskiller, boliger og 'bræ¸d og sirkus'.",
+                            "description": "Hvordan var det egentlig å bo i antikkens største by? Utforsk klasseskiller, boliger og 'brød og sirkus'.",
                             "image": "/images/romerriket/hero-hverdag.png",
                             "layout": "rich",
                             "tags": [
@@ -1902,17 +1902,17 @@
                 {
                     "id": "perserriket",
                     "title": "Perserriket",
-                    "description": "Det fæ¸rste verdensriket, fra Kyros den store til Aleksander den store.",
+                    "description": "Det første verdensriket, fra Kyros den store til Aleksander den store.",
                     "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
                             "id": "artikkel",
                             "title": "Perserriket",
-                            "description": "Det fæ¸rste verdensriket.",
+                            "description": "Det første verdensriket.",
                             "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
                             "tags": [
                                 "antikken",
-                                "midtæ¸sten",
+                                "midtøsten",
                                 "imperier",
                                 "krig"
                             ],
@@ -1983,7 +1983,7 @@
                 {
                     "id": "compare-philosophy",
                     "title": "Sammenlign Filosofer",
-                    "description": "Se hvordan ulike filosofer svarer på de store spæ¸rsmålene.",
+                    "description": "Se hvordan ulike filosofer svarer på de store spørsmålene.",
                     "link": "/krle/filosofi/sammenlign",
                     "icon": "library"
                 }
@@ -1998,7 +1998,7 @@
                         {
                             "id": "kristendom",
                             "title": "Kristendom",
-                            "description": "Verdens stæ¸rste religion.",
+                            "description": "Verdens største religion.",
                             "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/kristendom",
                             "lessons": [
@@ -2015,13 +2015,12 @@
                                     "lastUpdated": "2025-12-04T10:00:00Z"
                                 },
                                 {
-                                    "id": "bonn",
-                                    "title": "Bæ¸nn",
-                                    "description": "Bæ¸nn i kristendommen.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i kristendommen.",
                                     "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
-                                        "bæ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2069,7 +2068,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Treenigheten",
-                                    "description": "Gud som Fader, Sæ¸nn og Hellig æ…nd.",
+                                    "description": "Gud som Fader, Sønn og Hellig Ånd.",
                                     "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
@@ -2109,14 +2108,14 @@
                         {
                             "id": "islam",
                             "title": "Islam",
-                            "description": "Den nest stæ¸rste verdensreligionen.",
+                            "description": "Den nest største verdensreligionen.",
                             "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/islam",
                             "lessons": [
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i islam: Underkastelse, Tawhid og de fem sæ¸yler.",
+                                    "description": "Kjernen i islam: Underkastelse, Tawhid og de fem søyler.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
@@ -2127,12 +2126,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "Bæ¸nn (Salah)",
-                                    "description": "Den rituelle bæ¸nnen i islam.",
+                                    "title": "Bønn (Salah)",
+                                    "description": "Den rituelle bønnen i islam.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
-                                        "bæ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2023-01-01T12:00:00Z",
@@ -2141,7 +2140,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "Fæ¸dsel, ekteskap og dæ¸d.",
+                                    "description": "Fødsel, ekteskap og død.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
@@ -2193,7 +2192,7 @@
                                 {
                                     "id": "frelse",
                                     "title": "Dommens dag",
-                                    "description": "Regnskapets time og livet etter dæ¸den.",
+                                    "description": "Regnskapets time og livet etter døden.",
                                     "image": "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
@@ -2238,12 +2237,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "Bæ¸nn og meditasjon",
-                                    "description": "Bæ¸nn og meditasjon i buddhismen.",
+                                    "title": "Bønn og meditasjon",
+                                    "description": "Bønn og meditasjon i buddhismen.",
                                     "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
-                                        "bæ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2252,7 +2251,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "Fæ¸dsel, munkeinnvielse og dæ¸d.",
+                                    "description": "Fødsel, munkeinnvielse og død.",
                                     "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
@@ -2304,7 +2303,7 @@
                                 {
                                     "id": "frelse",
                                     "title": "Nirvana",
-                                    "description": "Frigjæ¸ring fra lidelse og gjenfæ¸delse.",
+                                    "description": "Frigjøring fra lidelse og gjenfødelse.",
                                     "image": "https://images.unsplash.com/photo-1606293926075-69a00febf280?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
@@ -2330,7 +2329,7 @@
                         },
                         {
                             "id": "jodedom",
-                            "title": "Jæ¸dedom",
+                            "title": "Jødedom",
                             "description": "Den eldste monoteistiske religionen.",
                             "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/jodedom",
@@ -2338,7 +2337,7 @@
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i jæ¸dedommen: Pakten, Toraen og livet her og nå.",
+                                    "description": "Kjernen i jødedommen: Pakten, Toraen og livet her og nå.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
@@ -2349,12 +2348,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "Bæ¸nn",
-                                    "description": "Bæ¸nn i jæ¸dedommen.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i jødedommen.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
-                                        "bæ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2402,7 +2401,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Monoteisme",
-                                    "description": "Troen på æ©n Gud - Jahve.",
+                                    "description": "Troen på én Gud - Jahve.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
@@ -2428,10 +2427,10 @@
                                 {
                                     "id": "intro",
                                     "title": "Introduksjon",
-                                    "description": "Grunnleggende om jæ¸dedommen.",
+                                    "description": "Grunnleggende om jødedommen.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
-                                        "jæ¸dedom",
+                                        "jødedom",
                                         "intro"
                                     ],
                                     "createdDate": "2023-01-01T12:00:00Z",
@@ -2460,12 +2459,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "Bæ¸nn (Puja)",
-                                    "description": "Bæ¸nn og tilbedelse i hinduismen.",
+                                    "title": "Bønn (Puja)",
+                                    "description": "Bønn og tilbedelse i hinduismen.",
                                     "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "hinduisme",
-                                        "bæ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2513,7 +2512,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Brahman og guder",
-                                    "description": "æ‰n guddommelig kraft i mange former.",
+                                    "description": "én guddommelig kraft i mange former.",
                                     "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "hinduisme",
@@ -2526,7 +2525,7 @@
                                 {
                                     "id": "frelse",
                                     "title": "Moksha",
-                                    "description": "Frigjæ¸ring fra samsara.",
+                                    "description": "Frigjøring fra samsara.",
                                     "image": "https://images.unsplash.com/photo-1621827979802-6d778e170a64?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "hinduisme",
@@ -2553,7 +2552,7 @@
                         {
                             "id": "historiske-religioner",
                             "title": "Historiske Religioner",
-                            "description": "Religioner som har formet historien, fra antikken til norræ¸n tid.",
+                            "description": "Religioner som har formet historien, fra antikken til norrøn tid.",
                             "image": "https://images.unsplash.com/photo-1555662369-0bd7982cb4c3?auto=format&fit=crop&q=80",
                             "tools": [
                                 {
@@ -2564,9 +2563,9 @@
                                     "icon": "book-open"
                                 },
                                 {
-                                    "id": "norræ¸ne-guder-link",
-                                    "title": "æ…satru og Vikingene",
-                                    "description": "Mæ¸t Odin, Tor og Fræ¸ya (Lenke til Historie).",
+                                    "id": "norræne-guder-link",
+                                    "title": "Åsatru og Vikingene",
+                                    "description": "Møt Odin, Tor og Frøya (Lenke til Historie).",
                                     "link": "/historie/vikingtiden/asatro",
                                     "icon": "cloud-lightning"
                                 }
@@ -2575,7 +2574,7 @@
                         },
                         {
                             "id": "bahai",
-                            "title": "Bahæ¡'æ­",
+                            "title": "Bahá'í",
                             "description": "Troen på menneskehetens enhet.",
                             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                             "link": "/krle/religion/bahai",
@@ -2583,7 +2582,7 @@
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i bahæ¡'æ­: Enhet mellom Gud, religion og menneskehet.",
+                                    "description": "Kjernen i Bahá'í: Enhet mellom Gud, religion og menneskehet.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2594,12 +2593,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "Bæ¸nn",
-                                    "description": "Bæ¸nn i bahæ¡'æ­.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i Bahá'í.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
-                                        "bæ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2620,8 +2619,8 @@
                                 },
                                 {
                                     "id": "grunnleggere",
-                                    "title": "Bahæ¡'u'llæ¡h",
-                                    "description": "Grunnleggeren av bahæ¡'æ­-troen.",
+                                    "title": "Bahá'u'lláh",
+                                    "description": "Grunnleggeren av Bahá'í-troen.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2633,8 +2632,8 @@
                                 },
                                 {
                                     "id": "hellige-tekster",
-                                    "title": "Kitæ¡b-i-Aqdas",
-                                    "description": "Den helligste boken i bahæ¡'æ­.",
+                                    "title": "Kitáb-i-Aqdas",
+                                    "description": "Den helligste boken i Bahá'í.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2647,7 +2646,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "En ukjennbar Gud",
-                                    "description": "Gud er æ©n og utenfor menneskelig fatteevne.",
+                                    "description": "Gud er én og utenfor menneskelig fatteevne.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2659,7 +2658,7 @@
                                 },
                                 {
                                     "id": "frelse",
-                                    "title": "æ…ndelig utvikling",
+                                    "title": "Åndelig utvikling",
                                     "description": "Sjelens reise mot Gud.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
@@ -2673,7 +2672,7 @@
                                 {
                                     "id": "intro",
                                     "title": "Introduksjon",
-                                    "description": "Grunnleggende om bahæ¡'æ­.",
+                                    "description": "Grunnleggende om Bahá'í.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2705,12 +2704,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "Bæ¸nn",
-                                    "description": "Bæ¸nn i mormonismen.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i mormonismen.",
                                     "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "mormonisme",
-                                        "bæ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2758,7 +2757,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Guddommen",
-                                    "description": "Faderen, Sæ¸nnen og Den hellige ånd er tre separate vesener.",
+                                    "description": "Faderen, Sønnen og Den hellige ånd er tre separate vesener.",
                                     "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "mormonisme",
@@ -2816,12 +2815,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "Bæ¸nn",
-                                    "description": "Bæ¸nn i Jehovas vitner.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i Jehovas vitner.",
                                     "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jehovas-vitner",
-                                        "bæ¸nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2918,7 +2917,7 @@
                         {
                             "id": "intro",
                             "title": "Hva er filosofi?",
-                            "description": "Opphavet til filosofi og de ulike grenene som undersæ¸ker virkeligheten.",
+                            "description": "Opphavet til filosofi og de ulike grenene som undersøker virkeligheten.",
                             "image": "https://images.unsplash.com/photo-1516050748632-ca7a5c110031?auto=format&fit=crop&q=80",
                             "tags": [
                                 "intro",
@@ -2945,12 +2944,12 @@
                         {
                             "id": "platon",
                             "title": "Platon",
-                            "description": "Idæ©læren og skyggene i hulen.",
+                            "description": "Idélæren og skyggene i hulen.",
                             "image": "https://images.unsplash.com/photo-1503149779833-1de50ebe5f8a?auto=format&fit=crop&q=80",
                             "tags": [
                                 "filosofi",
                                 "platon",
-                                "idæ©lære"
+                                "idélære"
                             ],
                             "createdDate": "2025-12-21T12:00:00Z",
                             "lastUpdated": "2025-12-21T12:00:00Z"
@@ -2996,7 +2995,7 @@
                         },
                         {
                             "id": "descartes",
-                            "title": "Renæ© Descartes",
+                            "title": "René Descartes",
                             "description": "Jeg tenker, altså er jeg.",
                             "image": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
                             "tags": [
@@ -3035,7 +3034,7 @@
                         },
                         {
                             "id": "kierkegaard",
-                            "title": "Sæ¸ren Kierkegaard",
+                            "title": "Søren Kierkegaard",
                             "description": "Eksistensens tre stadier.",
                             "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
                             "tags": [
@@ -3049,7 +3048,7 @@
                         {
                             "id": "nietzsche",
                             "title": "Friedrich Nietzsche",
-                            "description": "Gud er dæ¸d og overmennesket.",
+                            "description": "Gud er død og overmennesket.",
                             "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
                             "tags": [
                                 "filosofi",
@@ -3066,7 +3065,7 @@
                             "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
                             "tags": [
                                 "filosofi",
-                                "æ¸konomi",
+                                "økonomi",
                                 "mises"
                             ],
                             "createdDate": "2025-12-21T12:00:00Z",
@@ -3075,7 +3074,7 @@
                         {
                             "id": "heidegger",
                             "title": "Martin Heidegger",
-                            "description": "Dasein og spæ¸rsmålet om væren.",
+                            "description": "Dasein og spørsmålet om væren.",
                             "image": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80",
                             "tags": [
                                 "filosofi",
@@ -3101,7 +3100,7 @@
                         {
                             "id": "beauvoir",
                             "title": "Simone de Beauvoir",
-                            "description": "Man fæ¸des ikke som kvinne, man blir det.",
+                            "description": "Man fødes ikke som kvinne, man blir det.",
                             "image": "https://images.unsplash.com/photo-1549405616-56329424c58f?auto=format&fit=crop&q=80",
                             "tags": [
                                 "filosofi",
@@ -3149,7 +3148,7 @@
                         {
                             "id": "utilitarisme",
                             "title": "Utilitarisme",
-                            "description": "Målet om stæ¸rst mulig lykke for flest mulig.",
+                            "description": "Målet om størst mulig lykke for flest mulig.",
                             "image": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80",
                             "tags": [
                                 "etikk",
@@ -3297,7 +3296,7 @@
                 {
                     "id": "instrumenter",
                     "title": "Instrumentene",
-                    "description": "Verktæ¸ykassen: Gitar, Piano, Bass og Trommer.",
+                    "description": "Verktøykassen: Gitar, Piano, Bass og Trommer.",
                     "image": "/images/topics/musikk_instrumenter.png",
                     "lessons": [
                         {
@@ -3398,8 +3397,8 @@
                 },
                 {
                     "id": "oppslag",
-                    "title": "Verktæ¸y & Oppslag",
-                    "description": "Din musikalske verktæ¸ykasse.",
+                    "title": "Verktøy & Oppslag",
+                    "description": "Din musikalske verktøykasse.",
                     "image": "/images/topics/musikk_oppslag.png",
                     "lessons": [
                         {
@@ -3435,12 +3434,12 @@
                         {
                             "id": "latskriver",
                             "layout": "tool",
-                            "title": "Låtskriververktæ¸y",
+                            "title": "Låtskriververktøy",
                             "description": "Planlegg strukturen og dynamikken i låta di.",
                             "image": "/images/lessons/musikk/latskriving.png",
                             "tags": [
                                 "musikk",
-                                "verktæ¸y",
+                                "verktøy",
                                 "komposisjon"
                             ],
                             "createdDate": "2025-12-13T12:00:00Z",
