@@ -1,0 +1,164 @@
+{
+    "id": "fransk-kolonirike",
+    "title": "Det franske imperiet: Pels, allianser og sukker",
+    "description": "Fra de iskalde skogene i Canada til sukkerplantasjene i Karibia. Historien om et imperium bygget på handel og diplomati med urbefolkningen.",
+    "image": "/images/historie/kolonialisering/fransk-kolonirike-hero.jpg",
+    "layout": "rich",
+    "tags": [
+        "historie",
+        "kolonialisering",
+        "frankrike",
+        "nord-amerika",
+        "handel"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Et annerledes imperium i nord"
+        },
+        {
+            "type": "text",
+            "content": "Mens britene ryddet land for å bygge gårder, kom franskmennene til Nord-Amerika (New France) med et annet formål: Pels. Beverpels var motens høyeste skrik i Europa, og de endeløse skogene i Canada var fulle av dem. For å få tak i pelsen, var franskmennene helt avhengige av samarbeid med de innfødte stammene."
+        },
+        {
+            "type": "text",
+            "content": "Dette skapte en unik dynamikk. Franske *Coureurs de bois* ('løpere i skogen') levde blant indianerne, lærte språkene deres og giftet seg inn i stammene. De var ikke erobrere i spansk forstand, men partnere og allierte."
+        },
+        {
+            "type": "header",
+            "content": "Samuel de Champlain og New France"
+        },
+        {
+            "type": "text",
+            "content": "I 1608 grunnla Samuel de Champlain Quebec, som ble hjertet i det franske Nord-Amerika. Han forsto at allianser var nøkkelen til overlevelse. Han allierte seg med Huron-folket mot deres fiender, Irokeserne. Dette sikret handelen, men trakk også Frankrike inn i lokale kriger som skulle vare i generasjoner."
+        },
+        {
+            "type": "quote",
+            "content": "Våre sønner vil gifte seg med deres døtre, og vi skal bli ett folk.",
+            "author": "Samuel de Champlain",
+            "source": "Til lederne for innfødte stammer (1633)"
+        },
+        {
+            "type": "factbox",
+            "title": "Coureurs de bois",
+            "content": "Uavhengige franske pelshandlere som opererte uten lisens. De padlet kano dypt inn i villmarken, levde som de innfødte og spilte en avgjørende rolle som tolker og diplomater mellom franske myndigheter og stammene."
+        },
+        {
+            "type": "header",
+            "content": "Det rike sør: Sukker og slaveri"
+        },
+        {
+            "type": "text",
+            "content": "Mens nordområdene handlet om pels og diplomati, var historien en helt annen i Karibia. På øyer som Saint-Domingue (dagens Haiti) etablerte franskmennene enorme sukkerplantasjer basert på brutalt slaveri. Saint-Domingue ble verdens rikeste koloni, kjent som «Antillenes perle», men rikdommen var bygget på ryggen til hundretusener av afrikanske slaver."
+        },
+        {
+            "type": "comparison",
+            "title": "Fransk vs. Britisk i Nord-Amerika",
+            "leftTitle": "Fransk Modell (Handel)",
+            "rightTitle": "Britisk Modell (Bosetting)",
+            "leftItems": [
+                "Fokus på pelshandel",
+                "Få bosettere (ca. 60 000 i 1760)",
+                "Allianser og ekteskap med innfødte",
+                "Katolske misjonærer (Jesuittene)"
+            ],
+            "rightItems": [
+                "Fokus på jordbruk og land",
+                "Mange bosettere (ca. 1.5 millioner i 1760)",
+                "Konflikt og fordrivelse av innfødte",
+                "Religiøst mangfold (Puritanere, Kvekere osv.)"
+            ]
+        },
+        {
+            "type": "timeline",
+            "compact": true,
+            "items": [
+                {
+                    "year": "1608",
+                    "title": "Quebec grunnlegges",
+                    "description": "Samuel de Champlain etablerer den første franske bosetningen."
+                },
+                {
+                    "year": "1682",
+                    "title": "Louisiana kreves",
+                    "description": "La Salle seiler ned Mississippi og gjør krav på hele dalføret for Frankrike."
+                },
+                {
+                    "year": "1756-1763",
+                    "title": "Sjuårskrigen",
+                    "description": "Frankrike taper nesten alle sine kolonier i Nord-Amerika til Storbritannia."
+                },
+                {
+                    "year": "1791",
+                    "title": "Haitisk revolusjon",
+                    "description": "Slaveopprøret på Saint-Domingue starter, fører til Haitis uavhengighet."
+                },
+                {
+                    "year": "1803",
+                    "title": "Louisiana-kjøpet",
+                    "description": "Napoleon selger det gjenværende franske landområdet i Nord-Amerika til USA."
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Drømmen som brast"
+        },
+        {
+            "type": "text",
+            "content": "Det franske koloniriket i Nord-Amerika fikk en brå slutt med tapet i Sjuårskrigen i 1763. De måtte gi fra seg Canada til [britene](/historie/kolonialisering/britisk-imperium). Mange av de franske bosetterne (Acadians) ble tvangsflyttet, og en del endte opp i Louisiana, hvor kulturen deres lever videre som *Cajun*. Selv om det politiske styret forsvant, lever det franske språket og kulturen videre i Québec den dag i dag."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var den viktigste handelsvaren for franskmennene i Canada?",
+            "options": [
+                "Gull",
+                "Sukker",
+                "Beverpels",
+                "Tobakk"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva het byen Samuel de Champlain grunnla i 1608?",
+            "options": [
+                "Montreal",
+                "Quebec",
+                "New Orleans",
+                "Paris"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvem var 'Coureurs de bois'?",
+            "options": [
+                "Franske soldater",
+                "Pelsjegere som levde i skogen",
+                "Kongens utsendte",
+                "Misjonærer"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilken fransk koloni var kjent for sukkerproduksjon?",
+            "options": [
+                "Quebec",
+                "Saint-Domingue (Haiti)",
+                "Louisiana",
+                "Acadia"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva skjedde med det franske Nord-Amerika etter Sjuårskrigen?",
+            "options": [
+                "Det ble utvidet",
+                "Det ble selvstendig",
+                "Det ble avstått til Storbritannia",
+                "Det ble solgt til Spania"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

@@ -1,0 +1,172 @@
+{
+    "id": "britisk-imperium",
+    "title": "Det britiske imperiet: Solen som aldri gikk ned",
+    "description": "Fra handelskompanier til verdensomspennende dominans. Historien om hvordan en liten øynasjon bygget historiens største imperium.",
+    "image": "/images/historie/kolonialisering/britisk-imperium-hero.jpg",
+    "layout": "rich",
+    "tags": [
+        "historie",
+        "kolonialisering",
+        "storbritannia",
+        "handel",
+        "nord-amerika"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Et imperium bygget på handel og bosetting"
+        },
+        {
+            "type": "text",
+            "content": "Mens spanjolene lette etter gull og portugiserne jaktet på krydder, kom engelskmennene (senere britene) sent til festen. Deres imperium vokste frem ikke bare gjennom statlig erobring, men gjennom private initiativ: handelskompanier og religiøse flyktninger som søkte et nytt liv. Dette skulle bli grunnlaget for et imperium som på sitt høyeste dekket en fjerdedel av jordens overflate."
+        },
+        {
+            "type": "text",
+            "content": "Det britiske imperiet utviklet seg i to hovedretninger: I øst (India) var det drevet av handel gjennom det mektige Østindiske kompani. I vest (Nord-Amerika) var det drevet av bosetting – vanlige folk som ryddet land og bygget samfunn."
+        },
+        {
+            "type": "header",
+            "content": "Det Østindiske Kompani: En stat i staten"
+        },
+        {
+            "type": "text",
+            "content": "I år 1600 fikk *British East India Company* kongelig monopol på handel med Asia. Dette var ikke bare et firma; det var en militær og politisk maktfaktor. Med egne hærer, egne mynter og retten til å inngå krig og fred, styrte kompaniet store deler av India som om det var deres private eiendom."
+        },
+        {
+            "type": "factbox",
+            "title": "Verdens mektigste selskap",
+            "content": "På det meste hadde Det Østindiske Kompani en privat hær på 260 000 mann – dobbelt så stor som den britiske hæren. De kontrollerte handelen med bomull, silke, te og opium. Det var kapitalisme med sverd i hånd, og markerte starten på Storbritannias dominans i Asia."
+        },
+        {
+            "type": "header",
+            "content": "Nybyggere i Nord-Amerika"
+        },
+        {
+            "type": "text",
+            "content": "I Nord-Amerika var historien annerledes. Her fant britene verken gull eller krydder. I stedet fant de jord. Den første vellykkede kolonien var Jamestown i Virginia (1607), etablert for profitt (dyrking av tobakk). Lenger nord, i New England, kom \"Pilgrimene\" med skipet Mayflower i 1620. De var religiøse dissidenter som ønsket å bygge et samfunn basert på sin tro, fritt fra den engelske kirken."
+        },
+        {
+            "type": "quote",
+            "content": "Vi skal være som en by på et fjell, alle øyne skal se på oss.",
+            "author": "John Winthrop",
+            "source": "Tale til puritanerne på vei til Amerika (1630)"
+        },
+        {
+            "type": "text",
+            "content": "Denne blandingen av profittjag og idealisme skapte en unik dynamikk. Bosetterne fordrev den innfødte befolkningen for å rydde land til gårder og byer. I motsetning til spanjolene, som ofte brukte innfødte som arbeidskraft, skjøv britene dem vekk. Dette førte til en lang rekke brutale kriger om landområder."
+        },
+        {
+            "type": "timeline",
+            "compact": true,
+            "items": [
+                {
+                    "year": "1600",
+                    "title": "Det Østindiske Kompani dannes",
+                    "description": "Dronning Elizabeth I gir monopol på handel med Østen."
+                },
+                {
+                    "year": "1607",
+                    "title": "Jamestown grunnlegges",
+                    "description": "Den første permanente engelske bosetningen i Amerika."
+                },
+                {
+                    "year": "1620",
+                    "title": "Mayflower ankommer",
+                    "description": "Puritanere (Pilgrimene) etablerer Plymouth-kolonien."
+                },
+                {
+                    "year": "1756-1763",
+                    "title": "Sjuårskrigen",
+                    "description": "Storbritannia beseirer Frankrike og blir den dominerende makten i Nord-Amerika og India."
+                },
+                {
+                    "year": "1770",
+                    "title": "Cook oppdager Australia",
+                    "description": "James Cook gjør krav på Australia for den britiske kronen."
+                }
+            ]
+        },
+        {
+            "type": "comparison",
+            "title": "Forskjellige kolonistrategier",
+            "leftTitle": "Britisk Modell (Bosetting)",
+            "rightTitle": "Spansk Modell (Erobring)",
+            "leftItems": [
+                "Private kompanier og religiøse grupper",
+                "Fokus på jordbruk og handel",
+                "Fordrev innfødte ('Frontier'-mentalitet)",
+                "Relativt stort selvstyre i koloniene"
+            ],
+            "rightItems": [
+                "Statlig styrt av kronen",
+                "Fokus på utvinning (gull/sølv)",
+                "Integrerte/undertrykte innfødte som arbeidskraft",
+                "Direkte styre fra Madrid"
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Globale konsekvenser"
+        },
+        {
+            "type": "text",
+            "content": "Storbritannias seier over [Frankrike](/historie/kolonialisering/fransk-kolonirike) i Sjuårskrigen (1756–1763) sementerte deres posisjon som verdens ledende kolonimakt. De tok Canada fra franskmennene og sikret seg kontrollen over India. Men suksessen hadde en pris. Kostnadene ved å forsvare det enorme imperiet førte til økte skatter for kolonistene i Amerika, noe som var direkte årsak til den amerikanske uavhengighetskrigen få tiår senere."
+        },
+        {
+            "type": "text",
+            "content": "Selv etter tapet av de 13 koloniene (som ble USA), fortsatte det britiske imperiet å vokse i Afrika, Asia og Oseania. Arven etter imperiet er synlig overalt i dag: Det engelske språket, rettssystemer basert på *Common Law*, og sportsgrener som fotball og cricket som spilles over hele verden."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var hovedforskjellen på den britiske og den spanske kolonimodellen?",
+            "options": [
+                "Britene var bare interessert i gull",
+                "Britene drev mer med bosetting og handel, spanjolene med erobring",
+                "Spanjolene brukte aldri militærmakt",
+                "Britene samarbeidet alltid med de innfødte"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilket selskap var sentralt i den britiske koloniseringen av Asia?",
+            "options": [
+                "Hudson's Bay Company",
+                "Det Britiske Vestindiske Kompani",
+                "Det Østindiske Kompani",
+                "Royal African Company"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva het den første permanente engelske kolonien i Nord-Amerika?",
+            "options": [
+                "New York",
+                "Plymouth",
+                "Jamestown",
+                "Boston"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hvem var 'Pilgrimene'?",
+            "options": [
+                "Gullgravere",
+                "Religiøse flyktninger",
+                "Soldater",
+                "Handelsmenn"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilken krig sikret britisk dominans i Nord-Amerika over franskmennene?",
+            "options": [
+                "Hundreårskrigen",
+                "Den amerikanske uavhengighetskrigen",
+                "Sjuårskrigen",
+                "Rosekrigene"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

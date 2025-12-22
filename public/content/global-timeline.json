@@ -1,5 +1,196 @@
 [
   {
+    "id": "ceuta-conquest",
+    "title": "Erobringen av Ceuta",
+    "description": "Portugal erobrer byen Ceuta i Nord-Afrika, starten på den europeiske ekspansjonen.",
+    "startDate": 1415,
+    "endDate": null,
+    "displayDate": "1415",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "kolonialisering",
+    "link": "/historie/kolonialisering/portugisisk-kolonialisering",
+    "tags": [
+      "krig",
+      "portugal",
+      "afrika"
+    ]
+  },
+  {
+    "id": "dias-cape",
+    "title": "Dias runder Kapp det gode håp",
+    "description": "Bartolomeu Dias åpner sjøveien til India ved å runde Afrikas sørspiss.",
+    "startDate": 1488,
+    "endDate": null,
+    "displayDate": "1488",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "kolonialisering",
+    "link": "/historie/kolonialisering/portugisisk-kolonialisering",
+    "tags": [
+      "oppdagelse",
+      "portugal",
+      "afrika"
+    ]
+  },
+  {
+    "id": "dagama-india",
+    "title": "Vasco da Gama når India",
+    "description": "Sjøveien til India er funnet, og Portugal kan handle krydder direkte.",
+    "startDate": 1498,
+    "endDate": null,
+    "displayDate": "1498",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "kolonialisering",
+    "link": "/historie/kolonialisering/portugisisk-kolonialisering",
+    "tags": [
+      "handel",
+      "portugal",
+      "india"
+    ]
+  },
+  {
+    "id": "cabral-brasil",
+    "title": "Cabral oppdager Brasil",
+    "description": "Portugal gjør krav på Sør-Amerikas største land.",
+    "startDate": 1500,
+    "endDate": null,
+    "displayDate": "1500",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "kolonialisering",
+    "link": "/historie/kolonialisering/portugisisk-kolonialisering",
+    "tags": [
+      "oppdagelse",
+      "portugal",
+      "brasil"
+    ]
+  },
+  {
+    "id": "malacca-conquest",
+    "title": "Erobringen av Malakka",
+    "description": "Portugal tar kontroll over krydderhandelen i Sørøst-Asia.",
+    "startDate": 1511,
+    "endDate": null,
+    "displayDate": "1511",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "kolonialisering",
+    "link": "/historie/kolonialisering/portugisisk-kolonialisering",
+    "tags": [
+      "krig",
+      "portugal",
+      "asia"
+    ]
+  },
+  {
+    "id": "jamestown",
+    "year": "1607",
+    "title": "Jamestown grunnlegges",
+    "description": "Første permanente engelske koloni i Amerika.",
+    "category": "historie"
+  },
+  {
+    "id": "quebec",
+    "year": "1608",
+    "title": "Quebec grunnlegges",
+    "description": "Starten på Det franske Nord-Amerika.",
+    "category": "historie"
+  },
+  {
+    "id": "sju-aars-krigen",
+    "year": "1756",
+    "title": "Sjuårskrigen",
+    "description": "Global konflikt som sikrer britisk dominans.",
+    "category": "historie"
+  },
+  {
+    "id": "columbus-arrival",
+    "title": "Columbus når Amerika",
+    "description": "Christofer Columbus ankommer Karibia og innleder den spanske koloniseringen av Amerika.",
+    "startDate": 1492,
+    "endDate": null,
+    "displayDate": "1492",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "kolonialisering",
+    "link": "/historie/kolonialisering/spansk-kolonialisering",
+    "tags": [
+      "oppdagelse",
+      "spania",
+      "amerika"
+    ]
+  },
+  {
+    "id": "tordesillas-treaty",
+    "title": "Tordesillastraktaten",
+    "description": "Paven deler verden i to mellom Spania og Portugal.",
+    "startDate": 1494,
+    "endDate": null,
+    "displayDate": "1494",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "kolonialisering",
+    "link": "/historie/kolonialisering/spansk-kolonialisering",
+    "tags": [
+      "diplomati",
+      "spania",
+      "portugal"
+    ]
+  },
+  {
+    "id": "cortes-mexico",
+    "title": "Cortés erobrer Mexico",
+    "description": "Aztekerrikets fall markerer starten på Spanias herredømme på fastlandet.",
+    "startDate": 1521,
+    "endDate": null,
+    "displayDate": "1521",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "kolonialisering",
+    "link": "/historie/kolonialisering/spansk-kolonialisering",
+    "tags": [
+      "krig",
+      "aztekere",
+      "mexico"
+    ]
+  },
+  {
+    "id": "pizarro-peru",
+    "title": "Pizarro erobrer Peru",
+    "description": "Inkariket faller for Francisco Pizarros styrker.",
+    "startDate": 1533,
+    "endDate": null,
+    "displayDate": "1533",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "kolonialisering",
+    "link": "/historie/kolonialisering/spansk-kolonialisering",
+    "tags": [
+      "krig",
+      "inka",
+      "peru"
+    ]
+  },
+  {
+    "id": "potosi-silver",
+    "title": "Sølvfunnet i Potosí",
+    "description": "Verdens største sølvforekomst oppdages i dagens Bolivia, og finansierer det spanske imperiet.",
+    "startDate": 1545,
+    "endDate": null,
+    "displayDate": "1545",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "kolonialisering",
+    "link": "/historie/kolonialisering/spansk-kolonialisering",
+    "tags": [
+      "økonomi",
+      "sølv",
+      "bolivia"
+    ]
+  },
+  {
     "id": "dachau-opens",
     "title": "Dachau åpnes",
     "description": "Den første konsentrasjonsleiren etableres, opprinnelig for politiske fanger.",
@@ -60,7 +251,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/det-unormale",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/det-unormale",
     "tags": [
       "filosofi",
       "historie",
@@ -77,7 +268,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/det-unormale",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/det-unormale",
     "tags": [
       "historie",
       "rettigheter",
@@ -94,7 +285,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/framskrittstro",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro",
     "tags": [
       "historie",
       "teknologi",
@@ -111,7 +302,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/framskrittstro",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro",
     "tags": [
       "miljø",
       "økonomi",
@@ -128,7 +319,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/humanisme",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/humanisme",
     "tags": [
       "renessansen",
       "filosofi",
@@ -145,7 +336,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/humanisme",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/humanisme",
     "tags": [
       "historie",
       "globalt",
@@ -162,7 +353,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/sannhetens-historie",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
     "tags": [
       "vitenskap",
       "historie",
@@ -179,7 +370,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/sannhetens-historie",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
     "tags": [
       "teknologi",
       "historie",
@@ -196,7 +387,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/sannhetens-historie",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
     "tags": [
       "teknologi",
       "fremtid",
@@ -213,7 +404,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/naturens-sjel",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel",
     "tags": [
       "filosofi",
       "vitenskap",
@@ -230,7 +421,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/naturens-sjel",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel",
     "tags": [
       "økologi",
       "historie",
@@ -247,7 +438,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/naturens-sjel",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel",
     "tags": [
       "vitenskap",
       "globalt",
@@ -264,7 +455,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/utopier",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
     "tags": [
       "filosofi",
       "hellas",
@@ -281,7 +472,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/utopier",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
     "tags": [
       "renessansen",
       "litteratur",
@@ -298,7 +489,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/utopier",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
     "tags": [
       "ideologi",
       "usa",
@@ -315,7 +506,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/utopier",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
     "tags": [
       "litteratur",
       "den-kalde-krigen",
@@ -332,7 +523,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/eskatologi",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
     "tags": [
       "religion",
       "persia",
@@ -349,7 +540,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/eskatologi",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
     "tags": [
       "religion",
       "usa",
@@ -366,7 +557,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/eskatologi",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
     "tags": [
       "miljø",
       "globalt",
@@ -383,7 +574,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/eskatologi",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
     "tags": [
       "teknologi",
       "globalt",
@@ -1124,23 +1315,6 @@
       "historie",
       "norge",
       "industrialisering"
-    ]
-  },
-  {
-    "id": "den-industrielle-revolusjon-i-norge",
-    "title": "Industriell Revolusjon i Norge",
-    "description": "Fra overskudd av mat til fabrikker og maskiner.",
-    "startDate": 1840,
-    "endDate": null,
-    "displayDate": "ca. 1840",
-    "type": "lesson",
-    "subjectId": "historie",
-    "topicId": "industriell-revolusjon",
-    "link": "/historie/industriell-revolusjon/den-industrielle-revolusjon-i-norge",
-    "tags": [
-      "historie",
-      "norge",
-      "industri"
     ]
   },
   {
@@ -2545,7 +2719,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
     "tags": [
       "krig",
       "diplomati",
@@ -2562,7 +2736,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
     "tags": [
       "krig",
       "japan",
@@ -2579,7 +2753,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
     "tags": [
       "krig",
       "tyskland",
@@ -2596,7 +2770,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
     "tags": [
       "krig",
       "fn",
@@ -2613,7 +2787,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
     "tags": [
       "krig",
       "usa",
@@ -2630,7 +2804,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
     "tags": [
       "antikken",
       "hellas",
@@ -2647,7 +2821,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
     "tags": [
       "reformasjonen",
       "krig",
@@ -2664,7 +2838,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
     "tags": [
       "renessansen",
       "krig",
@@ -2681,7 +2855,7 @@
     "type": "sub-event",
     "subjectId": "historie",
     "topicId": "ideer-og-verdenssyn",
-    "link": "/historie/ideer-og-verdenssyn/casus-belli",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
     "tags": [
       "krig",
       "opptakt",

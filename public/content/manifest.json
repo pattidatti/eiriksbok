@@ -208,7 +208,7 @@
                 {
                     "id": "tekstsjangre",
                     "title": "Tekstsjangre",
-                    "description": "L\u00e6r om ulike typer tekster.",
+                    "description": "Lær om ulike typer tekster.",
                     "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
@@ -217,7 +217,7 @@
                             "description": "Korte fortellinger med en tydelig konflikt.",
                             "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skj\u00f8nnlitteratur",
+                                "skjønnlitteratur",
                                 "fortelling",
                                 "korthistorie"
                             ],
@@ -230,7 +230,7 @@
                             "description": "Folkediktning full av magi og overnaturlige vesener.",
                             "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skj\u00f8nnlitteratur",
+                                "skjønnlitteratur",
                                 "eventyr",
                                 "folkediktning"
                             ],
@@ -243,7 +243,7 @@
                             "description": "Lengre fortellinger som gir rom for fordypning.",
                             "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skj\u00f8nnlitteratur",
+                                "skjønnlitteratur",
                                 "fortelling",
                                 "bok"
                             ],
@@ -253,10 +253,10 @@
                         {
                             "id": "dikt",
                             "title": "Dikt (Lyrikk)",
-                            "description": "Tekster som uttrykker stemninger og f\u00f8lelser.",
+                            "description": "Tekster som uttrykker stemninger og følelser.",
                             "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
                             "tags": [
-                                "skj\u00f8nnlitteratur",
+                                "skjønnlitteratur",
                                 "lyrikk",
                                 "poesi"
                             ],
@@ -307,7 +307,7 @@
                 {
                     "id": "retorikk",
                     "title": "Retorikk",
-                    "description": "L\u00e6ren om talekunst og overbevisning.",
+                    "description": "Læren om talekunst og overbevisning.",
                     "image": "https://images.unsplash.com/photo-1560130958-02f95cc2e330?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                     "tools": [
                         {
@@ -322,11 +322,11 @@
                         {
                             "id": "grunnleggende-retorikk",
                             "title": "Hva er retorikk?",
-                            "description": "En innf\u00f8ring i etos, patos og logos.",
+                            "description": "En innføring i etos, patos og logos.",
                             "image": "https://images.unsplash.com/photo-1560130958-02f95cc2e330?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "tags": [
                                 "retorikk",
-                                "spr\u00e5k",
+                                "språk",
                                 "kommunikasjon"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
@@ -343,7 +343,7 @@
                         {
                             "id": "nasjonalromantikken",
                             "title": "Nasjonalromantikken",
-                            "description": "Da Norge fant sin sjel: B\u00f8nder, natur og eventyr.",
+                            "description": "Da Norge fant sin sjel: Bønder, natur og eventyr.",
                             "image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Brudeferden_by_Adolph_Tidemand_and_Hans_Gude.jpg",
                             "createdDate": "2025-11-30T21:00:00",
                             "tags": [
@@ -369,7 +369,7 @@
                         {
                             "id": "ny-romantikken",
                             "title": "Nyromantikken",
-                            "description": "F\u00f8lelser og mystikk: Det ubevisste sjeleliv.",
+                            "description": "Følelser og mystikk: Det ubevisste sjeleliv.",
                             "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80",
                             "createdDate": "2025-11-30T21:20:00",
                             "tags": [
@@ -397,13 +397,13 @@
                 {
                     "id": "skrivehjelp",
                     "title": "Skrivehjelp",
-                    "description": "Tips og triks for \u00e5 skrive bedre.",
+                    "description": "Tips og triks for å skrive bedre.",
                     "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
                             "id": "hvordan-skrive-novelle",
                             "title": "Hvordan skrive novelle",
-                            "description": "Tips og triks for \u00e5 skrive gode noveller.",
+                            "description": "Tips og triks for å skrive gode noveller.",
                             "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -415,7 +415,7 @@
                         {
                             "id": "hvordan-skrive-eventyr",
                             "title": "Hvordan skrive eventyr",
-                            "description": "L\u00e6r \u00e5 skrive eventyr med magi og moral.",
+                            "description": "Lær å skrive eventyr med magi og moral.",
                             "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -427,7 +427,7 @@
                         {
                             "id": "hvordan-skrive-dikt",
                             "title": "Hvordan skrive dikt",
-                            "description": "Slipp l\u00f8s kreativiteten med lyrikk.",
+                            "description": "Slipp løs kreativiteten med lyrikk.",
                             "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -439,7 +439,7 @@
                         {
                             "id": "hvordan-skrive-roman",
                             "title": "Hvordan skrive roman",
-                            "description": "Tips for \u00e5 planlegge og skrive lengre fortellinger.",
+                            "description": "Tips for å planlegge og skrive lengre fortellinger.",
                             "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -451,7 +451,7 @@
                         {
                             "id": "7-vanlige-plot",
                             "title": "7 vanlige plot",
-                            "description": "De syv grunnleggende historiene som alle fortellinger bygger p\u00e5.",
+                            "description": "De syv grunnleggende historiene som alle fortellinger bygger på.",
                             "image": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
                             "tags": [
                                 "skrivehjelp",
@@ -471,8 +471,8 @@
             "topics": [
                 {
                     "id": "demografi-okonomi",
-                    "title": "Demografi & \u00d8konomi",
-                    "description": "Befolkningsutvikling og \u00f8konomiske systemer.",
+                    "title": "Demografi & Økonomi",
+                    "description": "Befolkningsutvikling og økonomiske systemer.",
                     "image": "/Eiriksbok/images/topics/demografi-okonomi.png",
                     "lessons": [
                         {
@@ -491,10 +491,10 @@
                         {
                             "id": "intro",
                             "title": "Introduksjon",
-                            "description": "Grunnleggende om befolkning og \u00f8konomi.",
+                            "description": "Grunnleggende om befolkning og økonomi.",
                             "tags": [
                                 "demografi",
-                                "\u00f8konomi",
+                                "økonomi",
                                 "samfunn",
                                 "befolkning"
                             ],
@@ -507,7 +507,7 @@
                             "description": "Hvorfor blir alt dyrere? Om penger, renter og priser.",
                             "image": "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80",
                             "tags": [
-                                "\u00f8konomi",
+                                "økonomi",
                                 "inflasjon",
                                 "penger",
                                 "rente"
@@ -518,10 +518,10 @@
                         {
                             "id": "finanskriser",
                             "title": "Finanskriser",
-                            "description": "Festen og bakrusen: Hvorfor krasjer \u00f8konomien?",
+                            "description": "Festen og bakrusen: Hvorfor krasjer økonomien?",
                             "image": "https://images.unsplash.com/photo-1535320903710-d9cf113ebdb0?auto=format&fit=crop&q=80",
                             "tags": [
-                                "\u00f8konomi",
+                                "økonomi",
                                 "krise",
                                 "syklus"
                             ],
@@ -726,13 +726,7 @@
                             "createdDate": "2025-12-21T19:40:00Z"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "id": "historie",
-            "title": "Historie",
-            "topics": [
+                },
                 {
                     "id": "ideer-og-verdenssyn",
                     "title": "Ideer og verdenssyn",
@@ -852,7 +846,13 @@
                             "createdDate": "2025-12-21T20:40:00Z"
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "id": "historie",
+            "title": "Historie",
+            "topics": [
                 {
                     "id": "norgeshistorie",
                     "title": "Norgeshistorie",
@@ -961,6 +961,456 @@
                             ],
                             "createdDate": "2025-12-12T10:00:00Z",
                             "lastUpdated": "2025-12-12T10:00:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "den-kalde-krigen",
+                    "title": "Den kalde krigen",
+                    "description": "En ideologisk kamp om verdensherredømme.",
+                    "image": "https://images.unsplash.com/photo-1526040652367-ac003a0475fe?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "oversikt",
+                            "title": "Oversikt over den kalde krigen",
+                            "description": "Hva var den kalde krigen, og hvorfor skjedde den?",
+                            "image": "https://images.unsplash.com/photo-1526040652367-ac003a0475fe?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "oversikt",
+                                "ideologi",
+                                "stormakt",
+                                "usa",
+                                "sovjet"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "suez-krisen",
+                            "title": "Suez-krisen",
+                            "description": "Konflikten om kanalen og slutten på de gamle imperiene.",
+                            "image": "https://images.unsplash.com/photo-1558223108-ed0050965b6b?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "suez",
+                                "kris",
+                                "egypt",
+                                "imperialisme"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "cuba-krisen",
+                            "title": "Cuba-krisen",
+                            "description": "De 13 dagene som nesten avsluttet verden.",
+                            "image": "https://images.unsplash.com/photo-1516701037614-97c40e1376df?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "cuba",
+                                "atomvåpen",
+                                "kennedy",
+                                "khrusjtsjov"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "koreakrigen",
+                            "title": "Koreakrigen",
+                            "description": "Den første store varme krigen i den kalde krigen.",
+                            "image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "korea",
+                                "krig",
+                                "proksykrig",
+                                "asia"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "vietnamkrigen",
+                            "title": "Vietnamkrigen",
+                            "description": "En splittende krig som rystet supermakten USA.",
+                            "image": "https://images.unsplash.com/photo-1444065381814-865dc9da92c0?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "vietnam",
+                                "krig",
+                                "usa",
+                                "protest"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "romkapplopet",
+                            "title": "Romkappløpet",
+                            "description": "Mannen på månen og kampen om verdensrommet.",
+                            "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "romfart",
+                                "sputnik",
+                                "apollo",
+                                "teknologi"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "atomvapenkapplopet",
+                            "title": "Atomvåpenkappløpet",
+                            "description": "Terrorbalanse og kampen for overlevelse.",
+                            "image": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "atomvåpen",
+                                "mad",
+                                "nedrustning",
+                                "kappløp"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "kultur",
+                            "title": "Kultur under den kalde krigen",
+                            "description": "Film, sport og musikk som ideologisk slagmark.",
+                            "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "kultur",
+                                "propaganda",
+                                "film",
+                                "sport"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "nato-vs-warszawa",
+                            "title": "NATO vs. Warszawapakten",
+                            "description": "Alliansene som delte verden i to.",
+                            "image": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "nato",
+                                "warszawapakten",
+                                "allianser",
+                                "europa"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "berlinmuren",
+                            "title": "Berlinmuren",
+                            "description": "Symbolet på det delte Europa.",
+                            "image": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "berlin",
+                                "mur",
+                                "tyskland",
+                                "jernteppet"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        },
+                        {
+                            "id": "veien-mot-slutt",
+                            "title": "Veien mot slutten",
+                            "description": "Murens fall og Sovjetunionens sammenbrudd.",
+                            "image": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "slutt",
+                                "gorbatsjov",
+                                "1989",
+                                "frihet"
+                            ],
+                            "createdDate": "2023-12-21T12:00:00Z",
+                            "lastUpdated": "2023-12-21T12:00:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "andre-verdenskrig",
+                    "title": "Andre verdenskrig",
+                    "description": "Verdenshistoriens største konflikt (1939-1945).",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg/1200px-Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg",
+                    "lessons": [
+                        {
+                            "id": "oversikt",
+                            "title": "Oversikt",
+                            "description": "En introduksjon til andre verdenskrig.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg/1200px-Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg",
+                            "tags": [
+                                "krig",
+                                "oversikt"
+                            ],
+                            "createdDate": "2025-12-21T15:00:00Z",
+                            "lastUpdated": "2025-12-21T15:00:00Z"
+                        },
+                        {
+                            "id": "bakgrunn",
+                            "title": "Geopolitikk og Opptakt",
+                            "description": "Veien mot krig: Hitler, Versailles og appeasement.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg/1200px-Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg",
+                            "tags": [
+                                "geopolitikk",
+                                "bakgrunn"
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-21T15:00:00Z"
+                        },
+                        {
+                            "id": "krigens-lop",
+                            "title": "Krigens løp",
+                            "description": "Fra Blitzkrieg til atombomben.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Into_the_Jaws_of_Death_23-0455M_edit.jpg/1200px-Into_the_Jaws_of_Death_23-0455M_edit.jpg",
+                            "tags": [
+                                "krigføring",
+                                "slag"
+                            ],
+                            "createdDate": "2025-12-21T15:10:00Z",
+                            "lastUpdated": "2025-12-21T15:10:00Z"
+                        },
+                        {
+                            "id": "teknologi",
+                            "title": "Teknologi",
+                            "description": "Radar, Enigma og atombomben.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/V-2_rocket_launching_from_Peenemunde_in_World_War_II_A4-V13.jpg/1200px-V-2_rocket_launching_from_Peenemunde_in_World_War_II_A4-V13.jpg",
+                            "tags": [
+                                "teknologi",
+                                "våpen"
+                            ],
+                            "createdDate": "2025-12-21T15:20:00Z",
+                            "lastUpdated": "2025-12-21T15:20:00Z"
+                        },
+                        {
+                            "id": "konsentrasjonsleirene",
+                            "title": "Konsentrasjonsleirene",
+                            "description": "Holocaust og det industrielle massemordet.",
+                            "image": "/images/lessons/andre-verdenskrig/konsentrasjonsleirene_hero.png",
+                            "tags": [
+                                "holocaust",
+                                "folkemord",
+                                "auschwitz"
+                            ],
+                            "createdDate": "2025-12-22T10:00:00Z",
+                            "lastUpdated": "2025-12-22T10:00:00Z"
+                        },
+                        {
+                            "id": "konsekvenser",
+                            "title": "Konsekvenser",
+                            "description": "Den kalde krigen og FN.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B_W%29.jpg/1200px-Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B_W%29.jpg",
+                            "tags": [
+                                "konsekvenser",
+                                "politikk"
+                            ],
+                            "createdDate": "2025-12-21T15:30:00Z",
+                            "lastUpdated": "2025-12-21T15:30:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "forste-verdenskrig",
+                    "title": "Første verdenskrig",
+                    "description": "Den store krigen som endret verdenskartet (1914-1918).",
+                    "image": "https://images.unsplash.com/photo-1547638375-ebdaa9df273a?auto=format&fit=crop&q=80",
+                    "lessons": [
+                        {
+                            "id": "oversikt",
+                            "title": "Oversikt",
+                            "description": "En introduksjon til første verdenskrig.",
+                            "image": "https://images.unsplash.com/photo-1547638375-ebdaa9df273a?auto=format&fit=crop&q=80",
+                            "tags": [
+                                "krig",
+                                "oversikt"
+                            ],
+                            "createdDate": "2025-12-21T14:00:00Z",
+                            "lastUpdated": "2025-12-21T14:00:00Z"
+                        },
+                        {
+                            "id": "opptakt",
+                            "title": "Opptakten",
+                            "description": "Skuddene i Sarajevo og veien mot krig.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gavrilo_Princip_captured_in_Sarajevo_1914.jpg/1200px-Gavrilo_Princip_captured_in_Sarajevo_1914.jpg",
+                            "tags": [
+                                "geopolitikk",
+                                "opptakt"
+                            ],
+                            "createdDate": "2025-12-21T14:10:00Z",
+                            "lastUpdated": "2025-12-21T14:10:00Z"
+                        },
+                        {
+                            "id": "krigens-lop",
+                            "title": "Krigens løp",
+                            "description": "Fra skyttergraver til stillstand.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Battle_of_the_Somme_1916.jpg/1200px-Battle_of_the_Somme_1916.jpg",
+                            "tags": [
+                                "krigføring",
+                                "slag"
+                            ],
+                            "createdDate": "2025-12-21T14:20:00Z",
+                            "lastUpdated": "2025-12-21T14:20:00Z"
+                        },
+                        {
+                            "id": "teknologi",
+                            "title": "Teknologi",
+                            "description": "Stridsvogner, fly og giftgass.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/British_Mark_I_male_tank_Somme_25_September_1916.jpg/1200px-British_Mark_I_male_tank_Somme_25_September_1916.jpg",
+                            "tags": [
+                                "teknologi",
+                                "våpen"
+                            ],
+                            "createdDate": "2025-12-21T14:30:00Z",
+                            "lastUpdated": "2025-12-21T14:30:00Z"
+                        },
+                        {
+                            "id": "konsekvenser",
+                            "title": "Konsekvenser",
+                            "description": "Imperienes fall og Versailles-traktaten.",
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Signing_of_Peace_in_the_Hall_of_Mirrors%2C_Versailles%2C_28th_June_1919_%28William_Orpen%29.jpg/1200px-The_Signing_of_Peace_in_the_Hall_of_Mirrors%2C_Versailles%2C_28th_June_1919_%28William_Orpen%29.jpg",
+                            "tags": [
+                                "konsekvenser",
+                                "politikk"
+                            ],
+                            "createdDate": "2025-12-21T14:40:00Z",
+                            "lastUpdated": "2025-12-21T14:40:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "industriell-revolusjon",
+                    "title": "Industriell Revolusjon",
+                    "description": "Fra bonde- til industrisamfunn.",
+                    "image": "https://images.unsplash.com/photo-1633619425163-149e7793542a?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                    "lessons": []
+                },
+                {
+                    "id": "reformasjonen",
+                    "title": "Reformasjonen og Religionskrig",
+                    "description": "Europa i endring: Tro, makt og 30-årskrigen.",
+                    "image": "/images/lessons/lutzen.jpg",
+                    "lessons": [
+                        {
+                            "id": "30-aarskrigen",
+                            "title": "30-årskrigen",
+                            "description": "Den store katastrofen som formet det moderne Europa.",
+                            "image": "/images/lessons/lutzen.jpg",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "krig",
+                                "europa",
+                                "reformasjonen"
+                            ],
+                            "createdDate": "2025-12-06T12:00:00Z",
+                            "lastUpdated": "2025-12-06T12:00:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "kolonialisering",
+                    "title": "Kolonialisering",
+                    "description": "Europeisk ekspansjon og dens konsekvenser.",
+                    "image": "https://images.unsplash.com/photo-1657322933305-390ddb0ca969?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                    "tools": [
+                        {
+                            "id": "colonization-map",
+                            "title": "Colonization Era Explorer",
+                            "description": "Interaktivt kart som viser koloniseringens historie.",
+                            "link": "/colonization",
+                            "icon": "map"
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "verdenshandel-for-oppdagelsesreisene",
+                            "title": "Verdenshandel før oppdagelsesreisene",
+                            "description": "Handel med krydder og luksusvarer før 1500.",
+                            "tags": [
+                                "handel",
+                                "middelalderen",
+                                "silkeveien"
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                        },
+                        {
+                            "id": "spansk-kolonialisering",
+                            "title": "Det spanske imperiet",
+                            "description": "Gull, Gud og ære: Erobringen av Amerika.",
+                            "image": "/images/historie/kolonialisering/spansk-kolonialisering-hero.jpg",
+                            "tags": [
+                                "kolonialisme",
+                                "spania",
+                                "amerika",
+                                "imperium"
+                            ],
+                            "createdDate": "2025-12-22T12:00:00Z",
+                            "lastUpdated": "2025-12-22T12:00:00Z"
+                        },
+                        {
+                            "id": "portugisisk-kolonialisering",
+                            "title": "Portugal",
+                            "description": "Handelens herskere: Det første globale imperiet.",
+                            "image": "/images/historie/kolonialisering/portugisisk-kolonialisering-hero.jpg",
+                            "tags": [
+                                "historie",
+                                "kolonialisering",
+                                "portugal"
+                            ],
+                            "createdDate": "2025-12-22T10:00:00Z"
+                        },
+                        {
+                            "id": "britisk-imperium",
+                            "title": "Det britiske imperiet",
+                            "description": "Solen som aldri gikk ned: Handel, bosetting og dominans.",
+                            "image": "/images/historie/kolonialisering/britisk-imperium-hero.jpg",
+                            "tags": [
+                                "historie",
+                                "kolonialisering",
+                                "storbritannia"
+                            ],
+                            "createdDate": "2025-12-22T12:00:00Z"
+                        },
+                        {
+                            "id": "fransk-kolonirike",
+                            "title": "Det franske imperiet",
+                            "description": "Pels, allianser og sukker i Nord-Amerika.",
+                            "image": "/images/historie/kolonialisering/fransk-kolonirike-hero.jpg",
+                            "tags": [
+                                "historie",
+                                "kolonialisering",
+                                "frankrike"
+                            ],
+                            "createdDate": "2025-12-22T12:00:00Z",
+                            "lastUpdated": "2025-12-22T12:00:00Z"
+                        },
+                        {
+                            "id": "voc",
+                            "title": "Det nederlandske ostindiske kompani (VOC)",
+                            "description": "Verdens første aksjeselskap og et globalt handelsimperium.",
+                            "createdDate": "2023-11-20T12:00:00",
+                            "tags": [
+                                "handel",
+                                "kolonialisme",
+                                "nederland",
+                                "økonomi"
+                            ],
+                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/A_View_of_the_Port_of_Batavia%2C_c._1665.jpg/1280px-A_View_of_the_Port_of_Batavia%2C_c._1665.jpg",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                        },
+                        {
+                            "id": "eic",
+                            "title": "Det britiske ostindiske kompani (EIC)",
+                            "description": "Handelskompaniet som la grunnlaget for det britiske imperiet i India.",
+                            "tags": [
+                                "handel",
+                                "imperialisme",
+                                "india",
+                                "storbritannia"
+                            ],
+                            "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80",
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 },
@@ -1096,304 +1546,100 @@
                     ]
                 },
                 {
-                    "id": "forste-verdenskrig",
-                    "title": "Første verdenskrig",
-                    "description": "Den store krigen som endret verdenskartet (1914-1918).",
-                    "image": "https://images.unsplash.com/photo-1547638375-ebdaa9df273a?auto=format&fit=crop&q=80",
+                    "id": "middelalderen",
+                    "title": "Middelalderen",
+                    "description": "En tusenårig forvandling i Europa.",
+                    "image": "/images/lessons/middelalderen/middelalder_hero.png",
                     "lessons": [
                         {
-                            "id": "oversikt",
-                            "title": "Oversikt",
-                            "description": "En introduksjon til første verdenskrig.",
-                            "image": "https://images.unsplash.com/photo-1547638375-ebdaa9df273a?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "krig",
-                                "oversikt"
-                            ],
-                            "createdDate": "2025-12-21T14:00:00Z",
-                            "lastUpdated": "2025-12-21T14:00:00Z"
-                        },
-                        {
-                            "id": "opptakt",
-                            "title": "Opptakten",
-                            "description": "Skuddene i Sarajevo og veien mot krig.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gavrilo_Princip_captured_in_Sarajevo_1914.jpg/1200px-Gavrilo_Princip_captured_in_Sarajevo_1914.jpg",
-                            "tags": [
-                                "geopolitikk",
-                                "opptakt"
-                            ],
-                            "createdDate": "2025-12-21T14:10:00Z",
-                            "lastUpdated": "2025-12-21T14:10:00Z"
-                        },
-                        {
-                            "id": "krigens-lop",
-                            "title": "Krigens løp",
-                            "description": "Fra skyttergraver til stillstand.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Battle_of_the_Somme_1916.jpg/1200px-Battle_of_the_Somme_1916.jpg",
-                            "tags": [
-                                "krigføring",
-                                "slag"
-                            ],
-                            "createdDate": "2025-12-21T14:20:00Z",
-                            "lastUpdated": "2025-12-21T14:20:00Z"
-                        },
-                        {
-                            "id": "teknologi",
-                            "title": "Teknologi",
-                            "description": "Stridsvogner, fly og giftgass.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/British_Mark_I_male_tank_Somme_25_September_1916.jpg/1200px-British_Mark_I_male_tank_Somme_25_September_1916.jpg",
-                            "tags": [
-                                "teknologi",
-                                "våpen"
-                            ],
-                            "createdDate": "2025-12-21T14:30:00Z",
-                            "lastUpdated": "2025-12-21T14:30:00Z"
-                        },
-                        {
-                            "id": "konsekvenser",
-                            "title": "Konsekvenser",
-                            "description": "Imperienes fall og Versailles-traktaten.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Signing_of_Peace_in_the_Hall_of_Mirrors%2C_Versailles%2C_28th_June_1919_%28William_Orpen%29.jpg/1200px-The_Signing_of_Peace_in_the_Hall_of_Mirrors%2C_Versailles%2C_28th_June_1919_%28William_Orpen%29.jpg",
-                            "tags": [
-                                "konsekvenser",
-                                "politikk"
-                            ],
-                            "createdDate": "2025-12-21T14:40:00Z",
-                            "lastUpdated": "2025-12-21T14:40:00Z"
-                        }
-                    ]
-                },
-                {
-                    "id": "andre-verdenskrig",
-                    "title": "Andre verdenskrig",
-                    "description": "Verdenshistoriens største konflikt (1939-1945).",
-                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg/1200px-Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg",
-                    "lessons": [
-                        {
-                            "id": "oversikt",
-                            "title": "Oversikt",
-                            "description": "En introduksjon til andre verdenskrig.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg/1200px-Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg",
-                            "tags": [
-                                "krig",
-                                "oversikt"
-                            ],
-                            "createdDate": "2025-12-21T15:00:00Z",
-                            "lastUpdated": "2025-12-21T15:00:00Z"
-                        },
-                        {
-                            "id": "bakgrunn",
-                            "title": "Geopolitikk og Opptakt",
-                            "description": "Veien mot krig: Hitler, Versailles og appeasement.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg/1200px-Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg",
-                            "tags": [
-                                "geopolitikk",
-                                "bakgrunn"
-                            ],
-                            "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-21T15:00:00Z"
-                        },
-                        {
-                            "id": "krigens-lop",
-                            "title": "Krigens løp",
-                            "description": "Fra Blitzkrieg til atombomben.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Into_the_Jaws_of_Death_23-0455M_edit.jpg/1200px-Into_the_Jaws_of_Death_23-0455M_edit.jpg",
-                            "tags": [
-                                "krigføring",
-                                "slag"
-                            ],
-                            "createdDate": "2025-12-21T15:10:00Z",
-                            "lastUpdated": "2025-12-21T15:10:00Z"
-                        },
-                        {
-                            "id": "teknologi",
-                            "title": "Teknologi",
-                            "description": "Radar, Enigma og atombomben.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/V-2_rocket_launching_from_Peenemunde_in_World_War_II_A4-V13.jpg/1200px-V-2_rocket_launching_from_Peenemunde_in_World_War_II_A4-V13.jpg",
-                            "tags": [
-                                "teknologi",
-                                "våpen"
-                            ],
-                            "createdDate": "2025-12-21T15:20:00Z",
-                            "lastUpdated": "2025-12-21T15:20:00Z"
-                        },
-                        {
-                            "id": "konsentrasjonsleirene",
-                            "title": "Konsentrasjonsleirene",
-                            "description": "Holocaust og det industrielle massemordet.",
-                            "image": "/images/lessons/andre-verdenskrig/konsentrasjonsleirene_hero.png",
-                            "tags": [
-                                "holocaust",
-                                "folkemord",
-                                "auschwitz"
-                            ],
-                            "createdDate": "2025-12-22T10:00:00Z",
-                            "lastUpdated": "2025-12-22T10:00:00Z"
-                        },
-                        {
-                            "id": "konsekvenser",
-                            "title": "Konsekvenser",
-                            "description": "Den kalde krigen og FN.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B_W%29.jpg/1200px-Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B_W%29.jpg",
-                            "tags": [
-                                "konsekvenser",
-                                "politikk"
-                            ],
-                            "createdDate": "2025-12-21T15:30:00Z",
-                            "lastUpdated": "2025-12-21T15:30:00Z"
-                        }
-                    ]
-                },
-                {
-                    "id": "industriell-revolusjon",
-                    "title": "Industriell Revolusjon",
-                    "description": "Fra bonde- til industrisamfunn.",
-                    "image": "https://images.unsplash.com/photo-1633619425163-149e7793542a?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
-                    "lessons": [
-                        {
-                            "id": "den-industrielle-revolusjon-i-norge",
-                            "title": "Industriell Revolusjon i Norge",
-                            "description": "Fra overskudd av mat til fabrikker og maskiner.",
-                            "image": "https://images.unsplash.com/photo-1633619425163-149e7793542a?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                            "id": "middelalderen",
+                            "title": "Middelalderen",
+                            "description": "En oversikt over perioden fra Romerrikets fall til renessansen.",
+                            "image": "/images/lessons/middelalderen/middelalder_hero.png",
                             "tags": [
                                 "historie",
-                                "norge",
-                                "industri"
-                            ],
-                            "createdDate": "2025-12-07T12:00:00Z",
-                            "lastUpdated": "2025-12-07T12:00:00Z"
-                        }
-                    ]
-                },
-                {
-                    "id": "kolonialisering",
-                    "title": "Kolonialisering",
-                    "description": "Europeisk ekspansjon og dens konsekvenser.",
-                    "image": "https://images.unsplash.com/photo-1657322933305-390ddb0ca969?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
-                    "tools": [
-                        {
-                            "id": "colonization-map",
-                            "title": "Colonization Era Explorer",
-                            "description": "Interaktivt kart som viser koloniseringens historie.",
-                            "link": "/colonization",
-                            "icon": "map"
-                        }
-                    ],
-                    "lessons": [
-                        {
-                            "id": "verdenshandel-for-oppdagelsesreisene",
-                            "title": "Verdenshandel f\u00f8r oppdagelsesreisene",
-                            "description": "Handel med krydder og luksusvarer f\u00f8r 1500.",
-                            "tags": [
-                                "handel",
                                 "middelalderen",
-                                "silkeveien"
+                                "europa"
+                            ],
+                            "createdDate": "2025-12-20T12:00:00Z",
+                            "lastUpdated": "2025-12-20T12:00:00Z"
+                        },
+                        {
+                            "id": "svartedauden",
+                            "title": "Svartedauden",
+                            "description": "Pesten som endret Norge.",
+                            "image": "/images/lessons/svartedauden.png",
+                            "layout": "rich",
+                            "tags": [
+                                "pest",
+                                "middelalder",
+                                "norge",
+                                "sykdom"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
                         },
                         {
-                            "id": "voc",
-                            "title": "Det nederlandske ostindiske kompani (VOC)",
-                            "description": "Verdens f\u00f8rste aksjeselskap og et globalt handelsimperium.",
-                            "createdDate": "2023-11-20T12:00:00",
+                            "id": "boktrykkerkunsten",
+                            "title": "Boktrykkerkunsten",
+                            "description": "Revolusjonen som spredte kunnskap.",
+                            "image": "https://images.unsplash.com/photo-1592776115343-3f2f637dba4d?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "tags": [
-                                "handel",
-                                "kolonialisme",
-                                "nederland",
-                                "\u00f8konomi"
+                                "oppfinnelser",
+                                "teknologi",
+                                "renessansen",
+                                "bøker"
                             ],
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/A_View_of_the_Port_of_Batavia%2C_c._1665.jpg/1280px-A_View_of_the_Port_of_Batavia%2C_c._1665.jpg",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z",
+                            "definitions": [
+                                {
+                                    "term": "Mainz",
+                                    "definition": "En tysk by hvor Gutenberg utviklet trykkpressen."
+                                },
+                                {
+                                    "term": "Scriptorier",
+                                    "definition": "Skrivestuer i klostre hvor munker kopierte bøker for hånd."
+                                },
+                                {
+                                    "term": "Løse typer",
+                                    "definition": "Enkeltbokstaver støpt i metall som kunne settes sammen til ord og sider, og brukes om igjen."
+                                },
+                                {
+                                    "term": "Legering",
+                                    "definition": "En blanding av to eller flere metaller (her bly, tinn og antimon)."
+                                },
+                                {
+                                    "term": "Reformasjonen",
+                                    "definition": "En religiøs omveltning på 1500-tallet startet av Martin Luther, som førte til dannelsen av protestantiske kirker."
+                                },
+                                {
+                                    "term": "Blokktrykk",
+                                    "definition": "En trykketeknikk hvor hele sider skjæres ut i treplater."
+                                }
+                            ]
                         },
                         {
-                            "id": "eic",
-                            "title": "Det britiske ostindiske kompani (EIC)",
-                            "description": "Handelskompaniet som la grunnlaget for det britiske imperiet i India.",
+                            "id": "det-hellige-romerske-rike",
+                            "title": "Det hellige romerske rike",
+                            "description": "Tusen års kamp om makt, tro og keiserkrone.",
+                            "image": "/images/lessons/middelalderen/hre_hero.png",
+                            "layout": "rich",
                             "tags": [
-                                "handel",
-                                "imperialisme",
-                                "india",
-                                "storbritannia"
+                                "historie",
+                                "middelalderen",
+                                "tyskland",
+                                "keiser"
                             ],
-                            "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80",
-                            "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z"
-                        }
-                    ]
-                },
-                {
-                    "id": "menneskets-tidlige-historie",
-                    "title": "Menneskets tidlige historie",
-                    "description": "Fra nomader i Afrika til spredning over hele kloden.",
-                    "image": "https://images.unsplash.com/photo-1564429247506-322ee8fc5190?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
-                    "lessons": [
-                        {
-                            "id": "menneskets-tidlige-historie",
-                            "title": "Menneskets tidlige historie",
-                            "description": "V\u00e5r felles opprinnelse.",
-                            "image": "https://images.unsplash.com/photo-1564429247506-322ee8fc5190?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
-                            "tags": [
-                                "forhistorie",
-                                "mennesket",
-                                "evolusjon",
-                                "afrika"
-                            ],
-                            "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z"
-                        }
-                    ]
-                },
-                {
-                    "id": "jordbruk-og-sivilisasjoner",
-                    "title": "Jordbruk og Sivilisasjoner",
-                    "description": "Mennesket sl\u00e5r seg til ro: Fra nomade til fastboende med husdyr.",
-                    "image": "/Eiriksbok/images/lessons/jordbruk.png",
-                    "createdDate": "2023-11-15T12:00:00",
-                    "updatedDate": "2023-11-29T12:00:00",
-                    "lessons": [
-                        {
-                            "id": "jordbruk-og-sivilisasjoner",
-                            "title": "Jordbruksrevolusjonen",
-                            "description": "Det store skiftet.",
-                            "image": "/Eiriksbok/images/lessons/jordbruk.png",
-                            "tags": [
-                                "jordbruk",
-                                "steinalder",
-                                "sivilisasjon",
-                                "teknologi"
-                            ],
-                            "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z"
-                        }
-                    ]
-                },
-                {
-                    "id": "perserriket",
-                    "title": "Perserriket",
-                    "description": "Det f\u00f8rste verdensriket, fra Kyros den store til Aleksander den store.",
-                    "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
-                    "lessons": [
-                        {
-                            "id": "artikkel",
-                            "title": "Perserriket",
-                            "description": "Det f\u00f8rste verdensriket.",
-                            "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "antikken",
-                                "midt\u00f8sten",
-                                "imperier",
-                                "krig"
-                            ],
-                            "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                            "createdDate": "2025-12-21T14:45:00Z",
+                            "lastUpdated": "2025-12-21T14:45:00Z"
                         }
                     ]
                 },
                 {
                     "id": "romerriket",
                     "title": "Romerriket",
-                    "description": "Et av historiens f\u00f8rste store imperier som spredte kristendom og veier.",
+                    "description": "Et av historiens første store imperier som spredte kristendom og veier.",
                     "image": "/images/romerriket/hero-overview.png",
                     "lessons": [
                         {
@@ -1558,279 +1804,70 @@
                     ]
                 },
                 {
-                    "id": "reformasjonen",
-                    "title": "Reformasjonen og Religionskrig",
-                    "description": "Europa i endring: Tro, makt og 30-årskrigen.",
-                    "image": "/images/lessons/lutzen.jpg",
+                    "id": "perserriket",
+                    "title": "Perserriket",
+                    "description": "Det første verdensriket, fra Kyros den store til Aleksander den store.",
+                    "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
-                            "id": "30-aarskrigen",
-                            "title": "30-årskrigen",
-                            "description": "Den store katastrofen som formet det moderne Europa.",
-                            "image": "/images/lessons/lutzen.jpg",
-                            "layout": "rich",
+                            "id": "artikkel",
+                            "title": "Perserriket",
+                            "description": "Det første verdensriket.",
+                            "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
                             "tags": [
-                                "historie",
-                                "krig",
-                                "europa",
-                                "reformasjonen"
-                            ],
-                            "createdDate": "2025-12-06T12:00:00Z",
-                            "lastUpdated": "2025-12-06T12:00:00Z"
-                        }
-                    ]
-                },
-                {
-                    "id": "middelalderen",
-                    "title": "Middelalderen",
-                    "description": "En tusenårig forvandling i Europa.",
-                    "image": "/images/lessons/middelalderen/middelalder_hero.png",
-                    "lessons": [
-                        {
-                            "id": "middelalderen",
-                            "title": "Middelalderen",
-                            "description": "En oversikt over perioden fra Romerrikets fall til renessansen.",
-                            "image": "/images/lessons/middelalderen/middelalder_hero.png",
-                            "tags": [
-                                "historie",
-                                "middelalderen",
-                                "europa"
-                            ],
-                            "createdDate": "2025-12-20T12:00:00Z",
-                            "lastUpdated": "2025-12-20T12:00:00Z"
-                        },
-                        {
-                            "id": "svartedauden",
-                            "title": "Svartedauden",
-                            "description": "Pesten som endret Norge.",
-                            "image": "/images/lessons/svartedauden.png",
-                            "layout": "rich",
-                            "tags": [
-                                "pest",
-                                "middelalder",
-                                "norge",
-                                "sykdom"
+                                "antikken",
+                                "midtøsten",
+                                "imperier",
+                                "krig"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
-                        },
-                        {
-                            "id": "boktrykkerkunsten",
-                            "title": "Boktrykkerkunsten",
-                            "description": "Revolusjonen som spredte kunnskap.",
-                            "image": "https://images.unsplash.com/photo-1592776115343-3f2f637dba4d?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
-                            "tags": [
-                                "oppfinnelser",
-                                "teknologi",
-                                "renessansen",
-                                "b\u00f8ker"
-                            ],
-                            "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z",
-                            "definitions": [
-                                {
-                                    "term": "Mainz",
-                                    "definition": "En tysk by hvor Gutenberg utviklet trykkpressen."
-                                },
-                                {
-                                    "term": "Scriptorier",
-                                    "definition": "Skrivestuer i klostre hvor munker kopierte bøker for hånd."
-                                },
-                                {
-                                    "term": "Løse typer",
-                                    "definition": "Enkeltbokstaver støpt i metall som kunne settes sammen til ord og sider, og brukes om igjen."
-                                },
-                                {
-                                    "term": "Legering",
-                                    "definition": "En blanding av to eller flere metaller (her bly, tinn og antimon)."
-                                },
-                                {
-                                    "term": "Reformasjonen",
-                                    "definition": "En religiøs omveltning på 1500-tallet startet av Martin Luther, som førte til dannelsen av protestantiske kirker."
-                                },
-                                {
-                                    "term": "Blokktrykk",
-                                    "definition": "En trykketeknikk hvor hele sider skjæres ut i treplater."
-                                }
-                            ]
-                        },
-                        {
-                            "id": "det-hellige-romerske-rike",
-                            "title": "Det hellige romerske rike",
-                            "description": "Tusen års kamp om makt, tro og keiserkrone.",
-                            "image": "/images/lessons/middelalderen/hre_hero.png",
-                            "layout": "rich",
-                            "tags": [
-                                "historie",
-                                "middelalderen",
-                                "tyskland",
-                                "keiser"
-                            ],
-                            "createdDate": "2025-12-21T14:45:00Z",
-                            "lastUpdated": "2025-12-21T14:45:00Z"
                         }
                     ]
                 },
                 {
-                    "id": "den-kalde-krigen",
-                    "title": "Den kalde krigen",
-                    "description": "En ideologisk kamp om verdensherred\u00f8mme.",
-                    "image": "https://images.unsplash.com/photo-1526040652367-ac003a0475fe?auto=format&fit=crop&q=80",
+                    "id": "jordbruk-og-sivilisasjoner",
+                    "title": "Jordbruk og Sivilisasjoner",
+                    "description": "Mennesket slår seg til ro: Fra nomade til fastboende med husdyr.",
+                    "image": "/Eiriksbok/images/lessons/jordbruk.png",
+                    "createdDate": "2023-11-15T12:00:00",
+                    "updatedDate": "2023-11-29T12:00:00",
                     "lessons": [
                         {
-                            "id": "oversikt",
-                            "title": "Oversikt over den kalde krigen",
-                            "description": "Hva var den kalde krigen, og hvorfor skjedde den?",
-                            "image": "https://images.unsplash.com/photo-1526040652367-ac003a0475fe?auto=format&fit=crop&q=80",
+                            "id": "jordbruk-og-sivilisasjoner",
+                            "title": "Jordbruksrevolusjonen",
+                            "description": "Det store skiftet.",
+                            "image": "/Eiriksbok/images/lessons/jordbruk.png",
                             "tags": [
-                                "oversikt",
-                                "ideologi",
-                                "stormakt",
-                                "usa",
-                                "sovjet"
-                            ],
-                            "createdDate": "2023-12-21T12:00:00Z",
-                            "lastUpdated": "2023-12-21T12:00:00Z"
-                        },
-                        {
-                            "id": "suez-krisen",
-                            "title": "Suez-krisen",
-                            "description": "Konflikten om kanalen og slutten p\u00e5 de gamle imperiene.",
-                            "image": "https://images.unsplash.com/photo-1558223108-ed0050965b6b?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "suez",
-                                "kris",
-                                "egypt",
-                                "imperialisme"
-                            ],
-                            "createdDate": "2023-12-21T12:00:00Z",
-                            "lastUpdated": "2023-12-21T12:00:00Z"
-                        },
-                        {
-                            "id": "cuba-krisen",
-                            "title": "Cuba-krisen",
-                            "description": "De 13 dagene som nesten avsluttet verden.",
-                            "image": "https://images.unsplash.com/photo-1516701037614-97c40e1376df?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "cuba",
-                                "atomv\u00e5pen",
-                                "kennedy",
-                                "khrusjtsjov"
-                            ],
-                            "createdDate": "2023-12-21T12:00:00Z",
-                            "lastUpdated": "2023-12-21T12:00:00Z"
-                        },
-                        {
-                            "id": "koreakrigen",
-                            "title": "Koreakrigen",
-                            "description": "Den f\u00f8rste store varme krigen i den kalde krigen.",
-                            "image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "korea",
-                                "krig",
-                                "proksykrig",
-                                "asia"
-                            ],
-                            "createdDate": "2023-12-21T12:00:00Z",
-                            "lastUpdated": "2023-12-21T12:00:00Z"
-                        },
-                        {
-                            "id": "vietnamkrigen",
-                            "title": "Vietnamkrigen",
-                            "description": "En splittende krig som rystet supermakten USA.",
-                            "image": "https://images.unsplash.com/photo-1444065381814-865dc9da92c0?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "vietnam",
-                                "krig",
-                                "usa",
-                                "protest"
-                            ],
-                            "createdDate": "2023-12-21T12:00:00Z",
-                            "lastUpdated": "2023-12-21T12:00:00Z"
-                        },
-                        {
-                            "id": "romkapplopet",
-                            "title": "Romkappl\u00f8pet",
-                            "description": "Mannen p\u00e5 m\u00e5nen og kampen om verdensrommet.",
-                            "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "romfart",
-                                "sputnik",
-                                "apollo",
+                                "jordbruk",
+                                "steinalder",
+                                "sivilisasjon",
                                 "teknologi"
                             ],
-                            "createdDate": "2023-12-21T12:00:00Z",
-                            "lastUpdated": "2023-12-21T12:00:00Z"
-                        },
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "menneskets-tidlige-historie",
+                    "title": "Menneskets tidlige historie",
+                    "description": "Fra nomader i Afrika til spredning over hele kloden.",
+                    "image": "https://images.unsplash.com/photo-1564429247506-322ee8fc5190?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                    "lessons": [
                         {
-                            "id": "atomvapenkapplopet",
-                            "title": "Atomv\u00e5penkappl\u00f8pet",
-                            "description": "Terrorbalanse og kampen for overlevelse.",
-                            "image": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&q=80",
+                            "id": "menneskets-tidlige-historie",
+                            "title": "Menneskets tidlige historie",
+                            "description": "Vår felles opprinnelse.",
+                            "image": "https://images.unsplash.com/photo-1564429247506-322ee8fc5190?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
                             "tags": [
-                                "atomv\u00e5pen",
-                                "mad",
-                                "nedrustning",
-                                "kappl\u00f8p"
+                                "forhistorie",
+                                "mennesket",
+                                "evolusjon",
+                                "afrika"
                             ],
-                            "createdDate": "2023-12-21T12:00:00Z",
-                            "lastUpdated": "2023-12-21T12:00:00Z"
-                        },
-                        {
-                            "id": "kultur",
-                            "title": "Kultur under den kalde krigen",
-                            "description": "Film, sport og musikk som ideologisk slagmark.",
-                            "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "kultur",
-                                "propaganda",
-                                "film",
-                                "sport"
-                            ],
-                            "createdDate": "2023-12-21T12:00:00Z",
-                            "lastUpdated": "2023-12-21T12:00:00Z"
-                        },
-                        {
-                            "id": "nato-vs-warszawa",
-                            "title": "NATO vs. Warszawapakten",
-                            "description": "Alliansene som delte verden i to.",
-                            "image": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "nato",
-                                "warszawapakten",
-                                "allianser",
-                                "europa"
-                            ],
-                            "createdDate": "2023-12-21T12:00:00Z",
-                            "lastUpdated": "2023-12-21T12:00:00Z"
-                        },
-                        {
-                            "id": "berlinmuren",
-                            "title": "Berlinmuren",
-                            "description": "Symbolet p\u00e5 det delte Europa.",
-                            "image": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "berlin",
-                                "mur",
-                                "tyskland",
-                                "jernteppet"
-                            ],
-                            "createdDate": "2023-12-21T12:00:00Z",
-                            "lastUpdated": "2023-12-21T12:00:00Z"
-                        },
-                        {
-                            "id": "veien-mot-slutt",
-                            "title": "Veien mot slutten",
-                            "description": "Murens fall og Sovjetunionens sammenbrudd.",
-                            "image": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80",
-                            "tags": [
-                                "slutt",
-                                "gorbatsjov",
-                                "1989",
-                                "frihet"
-                            ],
-                            "createdDate": "2023-12-21T12:00:00Z",
-                            "lastUpdated": "2023-12-21T12:00:00Z"
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
                         }
                     ]
                 }
@@ -1865,14 +1902,14 @@
                         {
                             "id": "kristendom",
                             "title": "Kristendom",
-                            "description": "Verdens st\u00f8rste religion.",
+                            "description": "Verdens største religion.",
                             "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/kristendom",
                             "lessons": [
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i kristendommen: Frelse, treenighet og nestekj\u00e6rlighet.",
+                                    "description": "Kjernen i kristendommen: Frelse, treenighet og nestekjærlighet.",
                                     "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
@@ -1883,12 +1920,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "B\u00f8nn",
-                                    "description": "B\u00f8nn i kristendommen.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i kristendommen.",
                                     "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
-                                        "b\u00f8nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -1897,7 +1934,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "D\u00e5p, konfirmasjon, bryllup og begravelse.",
+                                    "description": "Dåp, konfirmasjon, bryllup og begravelse.",
                                     "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
@@ -1936,7 +1973,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Treenigheten",
-                                    "description": "Gud som Fader, S\u00f8nn og Hellig \u00c5nd.",
+                                    "description": "Gud som Fader, Sønn og Hellig Ånd.",
                                     "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
@@ -1948,8 +1985,8 @@
                                 },
                                 {
                                     "id": "frelse",
-                                    "title": "Frelse og n\u00e5de",
-                                    "description": "Frelse gjennom tro p\u00e5 Jesus.",
+                                    "title": "Frelse og nåde",
+                                    "description": "Frelse gjennom tro på Jesus.",
                                     "image": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "kristendom",
@@ -1976,14 +2013,14 @@
                         {
                             "id": "islam",
                             "title": "Islam",
-                            "description": "Den nest st\u00f8rste verdensreligionen.",
+                            "description": "Den nest største verdensreligionen.",
                             "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/islam",
                             "lessons": [
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i islam: Underkastelse, Tawhid og de fem s\u00f8yler.",
+                                    "description": "Kjernen i islam: Underkastelse, Tawhid og de fem søyler.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
@@ -1994,12 +2031,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "B\u00f8nn (Salah)",
-                                    "description": "Den rituelle b\u00f8nnen i islam.",
+                                    "title": "Bønn (Salah)",
+                                    "description": "Den rituelle bønnen i islam.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
-                                        "b\u00f8nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2023-01-01T12:00:00Z",
@@ -2008,7 +2045,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "F\u00f8dsel, ekteskap og d\u00f8d.",
+                                    "description": "Fødsel, ekteskap og død.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
@@ -2047,7 +2084,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Tawhid",
-                                    "description": "Troen p\u00e5 Guds enhet.",
+                                    "description": "Troen på Guds enhet.",
                                     "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
@@ -2060,7 +2097,7 @@
                                 {
                                     "id": "frelse",
                                     "title": "Dommens dag",
-                                    "description": "Regnskapets time og livet etter d\u00f8den.",
+                                    "description": "Regnskapets time og livet etter døden.",
                                     "image": "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "islam",
@@ -2094,7 +2131,7 @@
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i buddhismen: Nirvana, de fire edle sannheter og den \u00e5ttedelte vei.",
+                                    "description": "Kjernen i buddhismen: Nirvana, de fire edle sannheter og den åttedelte vei.",
                                     "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
@@ -2105,12 +2142,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "B\u00f8nn og meditasjon",
-                                    "description": "B\u00f8nn og meditasjon i buddhismen.",
+                                    "title": "Bønn og meditasjon",
+                                    "description": "Bønn og meditasjon i buddhismen.",
                                     "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
-                                        "b\u00f8nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2119,7 +2156,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "F\u00f8dsel, munkeinnvielse og d\u00f8d.",
+                                    "description": "Fødsel, munkeinnvielse og død.",
                                     "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
@@ -2132,7 +2169,7 @@
                                 {
                                     "id": "grunnleggere",
                                     "title": "Buddha",
-                                    "description": "Siddhartha Gautama - den oppv\u00e5knede.",
+                                    "description": "Siddhartha Gautama - den oppvåknede.",
                                     "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
@@ -2171,7 +2208,7 @@
                                 {
                                     "id": "frelse",
                                     "title": "Nirvana",
-                                    "description": "Frigj\u00f8ring fra lidelse og gjenf\u00f8delse.",
+                                    "description": "Frigjøring fra lidelse og gjenfødelse.",
                                     "image": "https://images.unsplash.com/photo-1606293926075-69a00febf280?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "buddhisme",
@@ -2197,7 +2234,7 @@
                         },
                         {
                             "id": "jodedom",
-                            "title": "J\u00f8dedom",
+                            "title": "Jødedom",
                             "description": "Den eldste monoteistiske religionen.",
                             "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/jodedom",
@@ -2205,7 +2242,7 @@
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i j\u00f8dedommen: Pakten, Toraen og livet her og n\u00e5.",
+                                    "description": "Kjernen i jødedommen: Pakten, Toraen og livet her og nå.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
@@ -2216,12 +2253,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "B\u00f8nn",
-                                    "description": "B\u00f8nn i j\u00f8dedommen.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i jødedommen.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
-                                        "b\u00f8nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2230,7 +2267,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "Omskj\u00e6ring, Bar/Bat Mitzvah og ekteskap.",
+                                    "description": "Omskjæring, Bar/Bat Mitzvah og ekteskap.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
@@ -2269,7 +2306,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Monoteisme",
-                                    "description": "Troen p\u00e5 \u00e9n Gud - Jahve.",
+                                    "description": "Troen på én Gud - Jahve.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
@@ -2281,8 +2318,8 @@
                                 },
                                 {
                                     "id": "frelse",
-                                    "title": "Livet her og n\u00e5",
-                                    "description": "Fokus p\u00e5 \u00e5 leve et rettferdig liv.",
+                                    "title": "Livet her og nå",
+                                    "description": "Fokus på å leve et rettferdig liv.",
                                     "image": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jodedom",
@@ -2295,10 +2332,10 @@
                                 {
                                     "id": "intro",
                                     "title": "Introduksjon",
-                                    "description": "Grunnleggende om j\u00f8dedommen.",
+                                    "description": "Grunnleggende om jødedommen.",
                                     "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
                                     "tags": [
-                                        "j\u00f8dedom",
+                                        "jødedom",
                                         "intro"
                                     ],
                                     "createdDate": "2023-01-01T12:00:00Z",
@@ -2309,7 +2346,7 @@
                         {
                             "id": "hinduisme",
                             "title": "Hinduisme",
-                            "description": "Verdens eldste n\u00e5levende religion.",
+                            "description": "Verdens eldste nålevende religion.",
                             "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
                             "link": "/krle/religion/hinduisme",
                             "lessons": [
@@ -2327,12 +2364,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "B\u00f8nn (Puja)",
-                                    "description": "B\u00f8nn og tilbedelse i hinduismen.",
+                                    "title": "Bønn (Puja)",
+                                    "description": "Bønn og tilbedelse i hinduismen.",
                                     "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "hinduisme",
-                                        "b\u00f8nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2380,7 +2417,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Brahman og guder",
-                                    "description": "\u00c9n guddommelig kraft i mange former.",
+                                    "description": "Én guddommelig kraft i mange former.",
                                     "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "hinduisme",
@@ -2393,7 +2430,7 @@
                                 {
                                     "id": "frelse",
                                     "title": "Moksha",
-                                    "description": "Frigj\u00f8ring fra samsara.",
+                                    "description": "Frigjøring fra samsara.",
                                     "image": "https://images.unsplash.com/photo-1621827979802-6d778e170a64?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "hinduisme",
@@ -2442,15 +2479,15 @@
                         },
                         {
                             "id": "bahai",
-                            "title": "Bah\u00e1'\u00ed",
-                            "description": "Troen p\u00e5 menneskehetens enhet.",
+                            "title": "Bahá'í",
+                            "description": "Troen på menneskehetens enhet.",
                             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                             "link": "/krle/religion/bahai",
                             "lessons": [
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i bah\u00e1'\u00ed: Enhet mellom Gud, religion og menneskehet.",
+                                    "description": "Kjernen i bahá'í: Enhet mellom Gud, religion og menneskehet.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2461,12 +2498,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "B\u00f8nn",
-                                    "description": "B\u00f8nn i bah\u00e1'\u00ed.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i bahá'í.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
-                                        "b\u00f8nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2487,8 +2524,8 @@
                                 },
                                 {
                                     "id": "grunnleggere",
-                                    "title": "Bah\u00e1'u'll\u00e1h",
-                                    "description": "Grunnleggeren av bah\u00e1'\u00ed-troen.",
+                                    "title": "Bahá'u'lláh",
+                                    "description": "Grunnleggeren av bahá'í-troen.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2500,8 +2537,8 @@
                                 },
                                 {
                                     "id": "hellige-tekster",
-                                    "title": "Kit\u00e1b-i-Aqdas",
-                                    "description": "Den helligste boken i bah\u00e1'\u00ed.",
+                                    "title": "Kitáb-i-Aqdas",
+                                    "description": "Den helligste boken i bahá'í.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2514,7 +2551,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "En ukjennbar Gud",
-                                    "description": "Gud er \u00e9n og utenfor menneskelig fatteevne.",
+                                    "description": "Gud er én og utenfor menneskelig fatteevne.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2526,7 +2563,7 @@
                                 },
                                 {
                                     "id": "frelse",
-                                    "title": "\u00c5ndelig utvikling",
+                                    "title": "Åndelig utvikling",
                                     "description": "Sjelens reise mot Gud.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
@@ -2540,7 +2577,7 @@
                                 {
                                     "id": "intro",
                                     "title": "Introduksjon",
-                                    "description": "Grunnleggende om bah\u00e1'\u00ed.",
+                                    "description": "Grunnleggende om bahá'í.",
                                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
                                     "tags": [
                                         "bahai",
@@ -2572,12 +2609,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "B\u00f8nn",
-                                    "description": "B\u00f8nn i mormonismen.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i mormonismen.",
                                     "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "mormonisme",
-                                        "b\u00f8nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2586,7 +2623,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "D\u00e5p, konfirmasjon og tempelbesegling.",
+                                    "description": "Dåp, konfirmasjon og tempelbesegling.",
                                     "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "mormonisme",
@@ -2625,7 +2662,7 @@
                                 {
                                     "id": "gudsbilde",
                                     "title": "Guddommen",
-                                    "description": "Faderen, S\u00f8nnen og Den hellige \u00e5nd er tre separate vesener.",
+                                    "description": "Faderen, Sønnen og Den hellige ånd er tre separate vesener.",
                                     "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "mormonisme",
@@ -2638,7 +2675,7 @@
                                 {
                                     "id": "frelse",
                                     "title": "Evig progresjon",
-                                    "description": "Muligheten til \u00e5 bli lik Gud.",
+                                    "description": "Muligheten til å bli lik Gud.",
                                     "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "mormonisme",
@@ -2672,7 +2709,7 @@
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
-                                    "description": "Kjernen i Jehovas vitner: Guds rike og paradis p\u00e5 jord.",
+                                    "description": "Kjernen i Jehovas vitner: Guds rike og paradis på jord.",
                                     "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jehovas-vitner",
@@ -2683,12 +2720,12 @@
                                 },
                                 {
                                     "id": "bonn",
-                                    "title": "B\u00f8nn",
-                                    "description": "B\u00f8nn i Jehovas vitner.",
+                                    "title": "Bønn",
+                                    "description": "Bønn i Jehovas vitner.",
                                     "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jehovas-vitner",
-                                        "b\u00f8nn",
+                                        "bønn",
                                         "ritual"
                                     ],
                                     "createdDate": "2025-12-04T11:00:00Z",
@@ -2697,7 +2734,7 @@
                                 {
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
-                                    "description": "D\u00e5p og ekteskap.",
+                                    "description": "Dåp og ekteskap.",
                                     "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jehovas-vitner",
@@ -2748,8 +2785,8 @@
                                 },
                                 {
                                     "id": "frelse",
-                                    "title": "Paradis p\u00e5 jord",
-                                    "description": "H\u00e5pet om evig liv p\u00e5 en paradisisk jord.",
+                                    "title": "Paradis på jord",
+                                    "description": "Håpet om evig liv på en paradisisk jord.",
                                     "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
                                     "tags": [
                                         "jehovas-vitner",

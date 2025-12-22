@@ -413,6 +413,19 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                             </div>
                         );
 
+                    case 'quote':
+                        return (
+                            <blockquote key={index} className="my-8 pl-8 border-l-4 border-indigo-500 italic text-xl text-slate-700 bg-slate-50 py-4 pr-4 rounded-r-lg shadow-sm">
+                                "{block.content}"
+                                {(block.author || block.source) && (
+                                    <footer className="mt-4 text-sm not-italic flex flex-col text-slate-500 font-medium">
+                                        {block.author && <cite className="not-italic text-slate-800 text-base mb-1">— {block.author}</cite>}
+                                        {block.source && <span className="text-slate-400">{block.source}</span>}
+                                    </footer>
+                                )}
+                            </blockquote>
+                        );
+
                     case 'link':
                         const isExternal = block.url?.startsWith('http');
                         const className = "inline-flex items-center gap-2 px-6 py-3 bg-indigo-50 text-indigo-700 rounded-full font-medium hover:bg-indigo-100 transition-colors my-4";

@@ -59,7 +59,7 @@ Focus on the "Bones" of the JSON structure.
 Final polish and technical checks.
 
 ### 1. Image Generation
-- **Style:** "Authentic mobile phone photo, historical realism, high detail, taken with an iPhone".
+- **Style:** "Authentic mobile phone photo, historical realism, high detail".
 - **Path:** `public/images/<topic>/<article-id>-hero.jpg`.
 - **Consistency:** Ensure the hero image matches the card image in Topic overview.
 
