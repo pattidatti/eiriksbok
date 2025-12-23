@@ -50,6 +50,9 @@ const ScenarioRoleplay = lazy(() => import('./content/interactive/ScenarioRolepl
 const DragDropTimeline = lazy(() => import('./content/interactive/DragDropTimeline').then(m => ({ default: m.DragDropTimeline })));
 const PackTheBag = lazy(() => import('./content/interactive/PackTheBag').then(m => ({ default: m.PackTheBag })));
 const DebateSimulator = lazy(() => import('./content/interactive/DebateSimulator').then(m => ({ default: m.DebateSimulator })));
+const TetrarchyVisualizer = lazy(() => import('./content/interactive/TetrarchyVisualizer').then(m => ({ default: m.TetrarchyVisualizer })));
+const PriceEdictExplorer = lazy(() => import('./content/interactive/PriceEdictExplorer').then(m => ({ default: m.PriceEdictExplorer })));
+const RomanDefenseModel = lazy(() => import('./content/interactive/RomanDefenseModel').then(m => ({ default: m.RomanDefenseModel })));
 
 // Viking/Historie
 const ConflictMap = lazy(() => import('./viking/ConflictMap').then(m => ({ default: m.ConflictMap })));
@@ -118,6 +121,9 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     DragDropTimeline,
     PackTheBag,
     DebateSimulator,
+    TetrarchyVisualizer,
+    PriceEdictExplorer,
+    RomanDefenseModel,
 
     // Viking/History
     ConflictMap,

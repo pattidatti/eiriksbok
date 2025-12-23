@@ -9,7 +9,8 @@ import {
     Users,
     ExternalLink,
     Gamepad2,
-    ArrowRight
+    ArrowRight,
+    Brain
 } from 'lucide-react';
 import type { LearningPathData, LearningPathStep } from '../../types';
 import { Link } from 'react-router-dom';
@@ -193,7 +194,18 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                         <CheckCircle2 className="w-6 h-6" />
                     </div>
                     <h3 className="text-xl font-bold text-slate-800 mb-2">Du er ferdig med stien!</h3>
-                    <p className="text-slate-500">Gå videre til neste emne for å fortsette læringen.</p>
+                    <p className="text-slate-500 mb-8">Gå videre til neste emne for å fortsette læringen.</p>
+
+                    {data.targetTopicId && (
+                        <Link
+                            to={`/oving/quiz?topic=${data.targetTopicId}${data.targetSubjectId ? `&subject=${data.targetSubjectId}` : ''}`}
+                            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-bold shadow-lg shadow-indigo-200 hover:shadow-xl hover:shadow-indigo-300 transform hover:-translate-y-0.5 transition-all"
+                        >
+                            <Brain className="w-5 h-5" />
+                            Test dine kunnskaper med en quiz
+                            <ArrowRight className="w-5 h-5" />
+                        </Link>
+                    )}
                 </div>
             </footer>
         </div >

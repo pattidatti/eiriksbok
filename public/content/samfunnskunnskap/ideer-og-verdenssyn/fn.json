@@ -1,0 +1,87 @@
+{
+    "id": "fn",
+    "title": "Forente Nasjoner (FN): Verdens sikkerhetsråd",
+    "subject": "samfunnskunnskap",
+    "topic": "ideer-og-verdenssyn",
+    "layout": "rich",
+    "year": "1945 - i dag",
+    "category": "Politikk",
+    "readTime": "20 min les",
+    "heroImage": "https://images.unsplash.com/photo-1594508415392-70678d2cc908?auto=format&fit=crop&q=80",
+    "details": [
+        "Opprettet etter andre verdenskrig for å hindre ny krig.",
+        "Sikkerhetsrådet og vetoretten.",
+        "FNs rolle i Koreakrigen og den kalde krigen.",
+        "Menneskerettighetserklæringen av 1948."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Forente Nasjoner (FN) ble født ut av asken fra den andre verdenskrig. Etter at Folkeforbundet hadde feilet i å stoppe Hitler og Mussolini, innså verdens ledere at de trengte en sterkere organisasjon. Den 24. oktober 1945 trådte FN-pakten i kraft."
+        },
+        {
+            "type": "header",
+            "text": "Målet: Fred og samarbeid"
+        },
+        {
+            "type": "text",
+            "content": "FNs hovedoppgave er å opprettholde internasjonal fred og sikkerhet. Men FN er mye mer enn bare blå hjelmer. Organisasjonen jobber med alt fra menneskerettigheter til miljøvern og fattigdomsbekjempelse. Likevel var det sikkerhetspolitikken som sto i sentrum under den kalde krigen."
+        },
+        {
+            "type": "header",
+            "text": "Sikkerhetsrådet og vetoretten"
+        },
+        {
+            "type": "text",
+            "content": "I hjertet av FN ligger Sikkerhetsrådet. Her sitter stormaktene som vant krigen – USA, Sovjetunionen (nå Russland), Storbritannia, Frankrike og Kina – som faste medlemmer. De har noe ingen andre har: vetorett. Hvis én av disse sier nei, blir ikke et forslag vedtatt. Under den kalde krigen ble denne retten brukt flittig, noe som ofte lammet organisasjonen i viktige konflikter."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Koreakrigen: Et unntak",
+                "content": "Vanligvis ville Sovjetunionen lagt ned veto mot at FN skulle hjelpe Sør-Korea i 1950. Men på det tidspunktet boikottet sovjetene Sikkerhetsrådet i protest mot at Taiwan representerte Kina. Dermed kunne de andre medlemmene vedta å sende en FN-støttet styrke til Korea. Dette er en av de få gangene FN har gått til direkte militær aksjon mot en angriper under den kalde krigen."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Menneskerettighetene"
+        },
+        {
+            "type": "text",
+            "content": "I 1948 vedtok FN Verdenserklæringen om menneskerettigheter. Ledet av Eleanor Roosevelt ble dette et dokument som utfordret diktaturer over hele verden. Selv om mange land ikke fulgte den i praksis, ble den en moralsk målestokk som senere bidro til å inspirere frihetsbevegelser i østblokken."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Når ble FN offisielt opprettet?",
+            "options": [
+                "1918",
+                "1939",
+                "1945",
+                "1950"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hvilke land har fast plass og vetorett i Sikkerhetsrådet?",
+            "options": [
+                "Norge, Sverige og Danmark",
+                "USA, Russland, Kina, Storbritannia og Frankrike",
+                "Tyskland, Japan og Italia",
+                "Alle medlemsland"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvorfor kunne FN gripe inn i Koreakrigen uten sovjetisk veto?",
+            "options": [
+                "Sovjetunionen var enig",
+                "USA truet med atomvåpen",
+                "Sovjetunionen boikottet møtet",
+                "FN hadde ikke vetorett den gangen"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

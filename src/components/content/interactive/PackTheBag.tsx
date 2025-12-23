@@ -13,9 +13,23 @@ interface PackTheBagProps {
     capacity: number;
     items: PackItem[];
     targetValue: number; // Minimum value to win
+    title?: string;
+    descriptionOverride?: string;
+    overweightLabel?: string;
+    successLabel?: string;
+    pendingLabel?: string;
 }
 
-export const PackTheBag: React.FC<PackTheBagProps> = ({ capacity, items, targetValue }) => {
+export const PackTheBag: React.FC<PackTheBagProps> = ({
+    capacity,
+    items,
+    targetValue,
+    title = "Last Knarren",
+    descriptionOverride,
+    overweightLabel = "Skipet er for tungt!",
+    successLabel = "Klar for avreise!",
+    pendingLabel = "Mangler utstyr..."
+}) => {
     const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
     const toggleItem = (id: string) => {
@@ -44,7 +58,7 @@ export const PackTheBag: React.FC<PackTheBagProps> = ({ capacity, items, targetV
             <div className="bg-slate-900 text-white p-4 flex justify-between items-center">
                 <div className="flex items-center gap-2">
                     <Anchor className="w-5 h-5 text-indigo-400" />
-                    <h3 className="font-bold">Last Knarren</h3>
+                    <h3 className="font-bold">{title}</h3>
                 </div>
                 <div className={`font-mono font-bold text-sm px-3 py-1 rounded ${isOverweight ? 'bg-rose-500' : 'bg-emerald-600'}`}>
                     {currentWeight} / {capacity} kg
@@ -53,7 +67,7 @@ export const PackTheBag: React.FC<PackTheBagProps> = ({ capacity, items, targetV
 
             <div className="p-6">
                 <p className="text-slate-600 mb-6 text-sm">
-                    Du skal seile til Island. Velg utstyr som gir nok overlevelsesverdi ({targetValue} poeng) uten at skipet synker ({capacity} kg).
+                    {descriptionOverride || `Du skal seile til Island. Velg utstyr som gir nok overlevelsesverdi (${targetValue} poeng) uten at skipet synker (${capacity} kg).`}
                 </p>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
@@ -92,17 +106,17 @@ export const PackTheBag: React.FC<PackTheBagProps> = ({ capacity, items, targetV
                         {isOverweight ? (
                             <div className="text-rose-600 font-bold flex items-center gap-2">
                                 <AlertTriangle className="w-4 h-4" />
-                                Skipet er for tungt!
+                                {overweightLabel}
                             </div>
                         ) : isSuccess ? (
                             <div className="text-emerald-600 font-bold flex items-center gap-2">
                                 <CheckCircle2 className="w-4 h-4" />
-                                Klar for avreise!
+                                {successLabel}
                             </div>
                         ) : (
                             <div className="text-amber-500 font-bold flex items-center gap-2">
                                 <Package className="w-4 h-4" />
-                                Mangler utstyr...
+                                {pendingLabel}
                             </div>
                         )}
                     </div>

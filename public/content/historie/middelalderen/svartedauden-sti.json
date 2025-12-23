@@ -10,6 +10,8 @@
         "id": "svartedauden-sti",
         "title": "Svartedauden - Fra krise til endring",
         "description": "Fullfør denne stien for å forstå hvordan pesten endret Norge og Europa for alltid.",
+        "targetTopicId": "middelalderen",
+        "targetSubjectId": "historie",
         "steps": [
             {
                 "id": "fakta-intro",

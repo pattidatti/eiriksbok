@@ -1,0 +1,319 @@
+{
+    "id": "diokletian",
+    "title": "Diokletian: Da Romerriket ble gjenfødt",
+    "description": "Oppdag hvordan en soldat fra enkle kår reddet Romerriket fra kollaps gjennom en total omstrukturering av staten, militæret og økonomien.",
+    "layout": "rich",
+    "createdDate": "2025-12-23T12:00:00Z",
+    "lastUpdated": "2025-12-23T14:20:00Z",
+    "tags": [
+        "historie",
+        "romerriket",
+        "reformer",
+        "sentantikken",
+        "dominatet"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "text": "Krisen i det tredje århundre: Et rike i dødsspiral"
+        },
+        {
+            "type": "text",
+            "text": "For å forstå storheten i Diokletians verk, må vi først forstå dybden av bunnen Romerriket hadde nådd midt på 200-tallet. Dette var en apokalyptisk tid, preget av det historikere kaller 'Krisen i det tredje århundre'. Det romerske riket, som en gang hadde virket uovervinnelig, sto overfor en total kollaps av sine politiske, økonomiske og militære systemer. Det var ikke bare én krise, men en serie sammenflettede katastrofer som matet hverandre i en ond sirkel."
+        },
+        {
+            "type": "text",
+            "text": "Sikkerheten ved grensene hadde forsvunnet. Goterne seilte over Svartehavet og herjet i Hellas. Frankerne krysset Rhinen og nådde helt ned til Spania. I øst hadde parterne blitt erstattet av det sassanidiske Perserriket, en aggressiv stormakt som var like organisert som Roma selv. Ydmykelsen nådde sitt absolutte lavpunkt da keiser Valerian ble tatt til fange av perserne og endte sine dager som fotpall for den persiske kongen og senere ble stoppet ut med strå som et trofé. Dette var et sjokk for den romerske selvfølelsen; troen på keiserens guddommelige beskyttelse var rystet i sin grunnvoll."
+        },
+        {
+            "type": "text",
+            "text": "Internt var situasjonen preget av anarki. Den økonomiske motoren hadde skåret seg fullstendig. [Inflasjonen](/samfunnskunnskap/demografi-okonomi/inflasjon-og-rente) var så ekstrem at penger mistet sin verdi, og folk gikk tilbake til naturalhusholdning. Pesten herjet i byene, og folketallet sank drastisk, noe som førte til mangel på både soldater og skattytere. Mellom 235 og 284 fantes det nesten seksti forskjellige menn som gjorde krav på keisertittelen. De fleste var 'soldatkeisere' utropt av sine egne legioner, ofte bare for å bli myrdet noen måneder senere når de ikke klarte å betale ut de lovte bonusene. Romerriket hadde i realiteten brutt sammen i tre uavhengige deler: Det galliske riket i vest, Palmyra-riket i øst, og restene av den sentrale romerske provinsen i midten."
+        },
+        {
+            "type": "text",
+            "text": "I 284 steg Diokles frem i dette mørket. Han var ikke av adelig slekt; han var sønn av en frigitt slave fra Dalmatia, i dagens Kroatia. Han var en mann som hadde klatret i gradene gjennom pur kompetanse og rå viljestyrke. Han var en administrator med en jernvilje og en unik evne til å se de underliggende systemene som hadde sviktet. Da han ble utropt til keiser Diokletian, forsto han at det ikke lenger holdt å bare vinne slag. Hele fundamentet til den romerske staten – dens DNA – måtte skrives om for å tåle den nye, harde virkeligheten."
+        },
+        {
+            "type": "header",
+            "text": "Tetrarkiet: Den administrative revolusjonen"
+        },
+        {
+            "type": "text",
+            "text": "Diokletians mest kjente og dristige reform var tetrarkiet ('styre av fire'). Han innså det ingen andre hadde turt å innrømme: Romerriket var for stort for én mann. Strategiske trusler oppsto samtidig ved Rhinen, Donau og Eufrat. En keiser stasjonert i øst ville bruke uker på å bare få nyhetene om et opprør i vest, og enda lengre tid på å flytte en hær dit."
+        },
+        {
+            "type": "text",
+            "text": "I 293 formaliserte han systemet etter en prøveperiode med en medkeiser. Han delte riket i en østlig og en vestlig del. To senior-keisere, med tittelen *Augustus*, skulle styre hver sin del. Under dem ble det utnevnt to junior-keisere, med tittelen *Caesar*. Disse var ikke bare undersåtter, men adopterte sønner og utvalgte tronfølgere. Tanken var at når en Augustus abdiserte eller døde etter en fastsatt periode på tjue år, skulle hans Caesar rykke opp, og en ny Caesar skulle utnevnes. Dette var et forsøk på å skape en forutsigbar og [legitim](/samfunnskunnskap/styringsformer/makt-og-legitimitet) maktveksling, og dermed eliminere grunnlaget for borgerkriger."
+        },
+        {
+            "type": "text",
+            "text": "Dette systemet flyttet makten bort fra Roma. Den evige stad ble liggende igjen som et symbolsk sentrum, nesten som et museum, mens de virkelige maktsentrene ble etablert i nærheten av frontlinjene. Nikomedia i Bithynia ble Diokletians hovedstad i øst, mens hans Caesar, Galerius, holdt til i Sirmium ved Donau. I vest styrte Maximian fra Mediolanum (Milano), mens Constantius Chlorus voktet Rhinen fra Augusta Treverorum (Trier). Herfra kunne keiserne reagere lynraskt på trusler. Kontrollen ble så stram at man nesten kunne føle keiserens nærvær i hver eneste avkrok av riket."
+        },
+        {
+            "type": "component",
+            "name": "TetrarchyVisualizer"
+        },
+        {
+            "type": "text",
+            "text": "Tetrarkiet krevde et langt dypere kontrollapparat enn det gamle [Augustus-systemet](/historie/romerriket/augustus-og-keiserdomme). Diokletian nesten doblet antallet provinser (fra ca. 50 til over 100). Dette gjorde hver provins mindre og hver guvernør mindre farlig som en potensiell opprører. Disse provinsene ble så gruppert i tolv 'dioceser', hver ledet av en *vicarius* (vicar eller stedfortreder). Over disse sto fire pretorianerprefekter, én for hver keiser. Dette hierarkiske byråkratiet ble bygget for maksimal kontroll og supereffektiv skatteinnkreving. Det er fascinerende å merke seg at den katolske kirken senere overtok denne strukturen nesten uforandret, og begreper som 'dioceses' (bispedømmer) lever videre i dag."
+        },
+        {
+            "type": "text",
+            "text": "For å sikre at dette byråkratiet forble lojalt og ærlig, utviklet Diokletian også en form for hemmelig politi: *Agentes in rebus* (de som handler i saken). Disse fungerte som kurerer, spioner og inspektører som reiste på kryss og tvers i riket for å rapportere om korrupsjon eller antydninger til opprør. Den romerske staten var i ferd med å endre karakter fra en løs føderasjon av byer til en gjennomorganisert og til tider undertrykkende totalstat."
+        },
+        {
+            "type": "timeline",
+            "compact": true,
+            "events": [
+                {
+                    "year": "284",
+                    "title": "Utropt til keiser",
+                    "description": "Diokles blir keiser og tar navnet Diokletian, noe som markerer slutten på krisetiden."
+                },
+                {
+                    "year": "286",
+                    "title": "Maximian som med-Augustus",
+                    "description": "Riket får to keisere for å håndtere samtidige trusler i øst og vest."
+                },
+                {
+                    "year": "293",
+                    "title": "Tetrarkiet fullføres",
+                    "description": "To Caesarer utnevnes, og riket styres nå av fire keisere med hver sine hovedsteder."
+                },
+                {
+                    "year": "297",
+                    "title": "Den store provinsreformen",
+                    "description": "Riket deles inn i over 100 små provinser organisert i 12 dioceser for dypere administrativ kontroll."
+                },
+                {
+                    "year": "301",
+                    "title": "Prisediktet og valuta-eksperiment",
+                    "description": "Gjennomføring av historiens mest ambisiøse forsøk på priskontroll."
+                },
+                {
+                    "year": "305",
+                    "title": "Abdisering",
+                    "description": "Diokletian og Maximian trekker seg tilbake i en nøye planlagt maktoverføring."
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Dominatet: Keiseren som jordisk gud og eneveldig herre"
+        },
+        {
+            "type": "text",
+            "text": "Samtidig som han endret selve styringsstrukturen, endret Diokletian fundamentalt hvordan keiseren ble oppfattet av folket. Han forkastet det gamle [Augustus-systemet](/historie/romerriket/augustus-og-keiserdomme) – Principatet – der keiseren spilte en rolle som 'Princeps' (den første borger). Dette var et show der keiseren latet som om han var en beskjeden tjener av republikken, selv om han i realiteten var eneveldig. Diokletian mente at denne rollen var for sårbar; en 'første borger' var for enkel å erstatte med en annen borger."
+        },
+        {
+            "type": "text",
+            "text": "Han innførte derfor *Dominatet* (fra *Dominus*, som betyr Herre). Roma ble et [monarki](/samfunnskunnskap/styringsformer/monarkiet) i sin mest absolutte form. Inspirert av det persiske hoffet, gjorde han keiseren utilgjengelig, hellig og fryktinngytende. Han kledde seg i tunge purpurkapper av silke, brodert med gulltråder og edelstener – en luksus som var nesten ufattelig for vanlige romere. Han bar et perlebesatt diadem, et tegn på absolutt makt som tidligere keisere hadde unngått fordi det minnet for mye om de hatede kongene fra Romas barndom."
+        },
+        {
+            "type": "text",
+            "text": "Seremoniellet ved hoffet ble ekstremt stivt. De få som ble sluppet inn i keiserens nærvær, måtte utføre *proskynese* – en rituell handling der man kastet seg flatt ned på magen og kysset kanten av keiserens purpurkappe. Dette var ikke bare et utslag av stormannsgalskap; det var en nøye kalkulert politisk strategi. Ved å gjøre keiseren til en guddommelig figur hevet over det jordiske, skapte han en ny form for [legitimitet](/samfunnskunnskap/styringsformer/makt-og-legitimitet). Hvis keiseren var Guds utvalgte på jord, ble det mye vanskeligere for en opprørsk general å bare stikke ham ned for å overta rollen. Man dreper ikke en tjenestemann; man begår helligbrøde mot en guddommelig institusjon."
+        },
+        {
+            "type": "text",
+            "text": "Dette la grunnlaget for den bysantinske keisertradisjonen og senere de europeiske kongens enevelde. Keiseren ble kilden til all lov og autoritet, støttet av en hærskare av evnukker og spesialstyrker som overvåket hvert åndedrag ved hoffet. Den klassiske romerske borgerånden var død, erstattet av en undersått-kultur der lydighet mot 'Herren' var den viktigste dyden."
+        },
+        {
+            "type": "header",
+            "text": "Militærrevolusjonen og den nye krigsmaskinen"
+        },
+        {
+            "type": "text",
+            "text": "Diokletian forsto at de gamle [legionene](/historie/romerriket/den-romerske-legionen) ikke lenger var tilstrekkelige for de nye truslene. Krisen i det tredje århundre hadde vist at det romerske forsvaret var for statisk. Han gjennomførte en total ombygging av hæren, som nå nesten doblet seg i størrelse til over 500 000 mann. Men det var endringen i strategien som var mest banebrytende."
+        },
+        {
+            "type": "text",
+            "text": "Han skapte et system av 'dybdeforsvar'. Istedenfor å ha alle soldatene stasjonert fast ved grensen (*Limes*), delte han hæren i to. *Limitanei* var grensetroppene. De bodde i faste befestninger langs elvene og fjellpassene, ofte med egne jordlapper de dyrket. Deres jobb var ikke å stanse store invasjoner alene, men å fungere som et 'snublenett', varsle om angrep og holde fienden i sjakk til hjelpen kom."
+        },
+        {
+            "type": "component",
+            "name": "RomanDefenseModel"
+        },
+        {
+            "type": "text",
+            "text": "De virkelige elitestyrkene var *Comitatenses* – mobile feltstyrker som sto stasjonert i de indre provinsene under keisernes personlige kommando. Disse var de romerske elitestyrkene, klare til å rykke ut som en brannbil når varsellampene lyste ved grensen. Innenfor disse styrkene utviklet han også *Palatini*, de keiserlige livgardene, og *Scholae Palatinae*, som var tunge panseravdelinger. Kavaleriet fikk nå en mye mer dominant rolle, inspirert av de fryktede persiske katapraktene – krigere dekket fra topp til tå i jern, både hest og rytter."
+        },
+        {
+            "type": "text",
+            "text": "For å administrere og kommandere dette gigantiske militærapparatet, gjorde Diokletian noe som var kontroversielt, men nødvendig: Han skilte militær og sivil makt fullstendig. En provinsguvernør hadde ikke lenger kommando over soldatene i sin provins; det var det en *dux* (hertug) eller en *comes* (greve) som gjorde. Dette reduserte sjansen for lokale guvernører til å starte militære opprør, men det skapte også et enda mer komplekst byråkratisk maskineri som krevde enorme ressurser å holde i gang."
+        },
+        {
+            "type": "header",
+            "text": "Den økonomiske kommandoøkonomien: Kontroll over alt"
+        },
+        {
+            "type": "text",
+            "text": "Romerrikets største eksistensielle trussel var ikke de germanske stammene, men den fullstendige økonomiske kollapsen. Da Diokletian tok over, var den romerske valutaen, denaren, i praksis verdiløs. Etter tiår med debasering – der keisere hadde blandet stadig mer kobber i sølvmyntene for å finansiere sine kriger – var tilliten til pengesystemet forsvunnet. Folk nektet å selge varer for mynter som smuldret opp, og økonomien gikk over til byttehandel. Dette gjorde det nesten umulig for staten å samle inn [skatter](/samfunnskunnskap/demografi-okonomi/produksjon) og lønne sine soldater."
+        },
+        {
+            "type": "text",
+            "text": "Diokletians svar var å innføre det vi i dag ville kalt en kommandoøkonomi. For å sikre forsyninger til staten og hæren, innførte han det revolusjonerende skattesystemet *Iugatio-capitatio*. Dette var et brutalt effektivt system basert på to variabler: *iugum* (en enhet dyrkbar jord) og *caput* (en enhet menneskelig arbeidskraft). Hvert femte år ble det foretatt en total folketelling og en nøyaktig måling av alt land i riket. Skatten ble beregnet ut fra disse faste enhetene, og den ble krevd inn i naturalia – korn, vin, olje, ull – fremfor verdiløse penger. Dette sikret at hæren alltid hadde mat og klær, uavhengig av [inflasjon](/samfunnskunnskap/demografi-okonomi/inflasjon-og-rente)."
+        },
+        {
+            "type": "text",
+            "text": "I 301 utstedte han det mest beryktede økonomiske dokumentet i antikken: *Ediktet om maksimalpriser*. Dette var et desperat forsøk på å tvinge prisene ned med sverdets makt. Ediktet listet opp over tusen forskjellige varer og tjenester – fra prisen på en liter vin fra Picenum til dagslønnen for en barberer eller en murer. Straffen for å ta en pris som var høyere enn den fastsatte? Døden. Ikke bare for selgeren, men også for kjøperen som gikk med på prisen."
+        },
+        {
+            "type": "text",
+            "text": "Historikeren Lactantius, som levde på denne tiden, forteller at 'mye blod ble spilt for uvesentlige ting'. Ediktet var en økonomisk katastrofe. Varer forsvant fra de offentlige markedene fra den ene dagen til den andre. Kjøpmenn ville ikke selge sine produkter til priser som ikke engang dekket kostnadene. Svartebørshandel ble den eneste måten å få tak i nødvendigheter på. Diokletian lærte den dyrekjøpte leksen at selv den mest eneveldige keiser ikke kan oppheve lovene om tilbud og etterspørsel. Ediktet ble etter kort tid en dundrende fiasko og ble i praksis ignorert av alle."
+        },
+        {
+            "type": "component",
+            "name": "PriceEdictExplorer"
+        },
+        {
+            "type": "factbox",
+            "title": "Prisediktet: Et vindu inn i fortiden",
+            "content": "Selv om ediktet feilet som økonomisk politikk, er det en uvurderlig kilde for historikere. Det forteller oss nøyaktig hva ting kostet, hvilke viner som ble ansett som de beste, og hvilke lønnsforskjeller som fantes i Romerriket på 300-tallet. Vi vet for eksempel at en ufaglært arbeider tjente 25 denarer om dagen (pluss mat), mens en maler kunne tjene det dobbelte."
+        },
+        {
+            "type": "header",
+            "text": "Fra borger til fange: Kimen til føydalismen"
+        },
+        {
+            "type": "text",
+            "text": "Diokletians reformer hadde en mørk bakside som skulle endre Europas sosiale struktur for de neste tusen årene. Fordi skattesystemet var basert på faste enheter av land og arbeidskraft, måtte staten sørge for at disse ressursene forble der de ble skattlagt. Han innførte derfor lover som bant folk til deres yrker og bosteder med lenker av lov. Dette var fødselen til en form for sosial kontroll som vi ikke ser igjen før i moderne totalitære stater."
+        },
+        {
+            "type": "text",
+            "text": "Bøndene, kjent som *coloni*, ble juridisk bundet til jorden de dyrket. De var i teorien frie borgere (i motsetning til slaver), men de kunne ikke flytte, de kunne ikke gifte seg uten godkjennelse fra jordeieren, og de ble solgt sammen med jorda hvis godset skiftet eier. Dette var colonat-systemet – den direkte stamfaren til middelalderens livegenskap. Her ser vi den tydelige overgangen fra antikkens slavedrift til [føydalismens](/samfunnskunnskap/styringsformer/foydalisme) båndlegging av den frie bonde."
+        },
+        {
+            "type": "text",
+            "text": "Det samme skjedde i byene. Yrkeslaugenes medlemmer (*corporati*) ble pålagt å fortsette i sine yrker livet ut, og medlemskapet ble gjort arvelig. Sønnen til en baker måtte forbli baker; datteren til en skipsreder ble født inn i rollen som ansvarlig for kornforsyningen. Staten nektet folk å endre sin sosiale status fordi stabilitet ble ansett som viktigere enn frihet. Selv de rike bystyrerepresentantene, *curiales*, ble holdt personlig ansvarlige for å dekke eventuelle mangler i skatteinnkrevingen med sin egen formue. Dette førte til at eliten flyktet fra byene til sine befestede landsteder, noe som ytterligere svekket bykulturen som hadde vært Romerrikets hjerte."
+        },
+        {
+            "type": "comparison",
+            "title": "Sammenligning: Romerriket før og etter Diokletian",
+            "headers": [
+                "Tema",
+                "Før Diokletian (Principatet)",
+                "Etter Diokletian (Dominatet)"
+            ],
+            "rows": [
+                [
+                    "Keiserens rolle",
+                    "Første blant likemenn (Princeps)",
+                    "Herre og Gud (Dominus)"
+                ],
+                [
+                    "Skatteinnkreving",
+                    "Indirekte og sporadisk",
+                    "Direkte og systematisk (Iugatio-capitatio)"
+                ],
+                [
+                    "Hærens struktur",
+                    "Fast stasjonert ved grensen",
+                    "Dybdeforsvar med mobile reserver"
+                ],
+                [
+                    "Hovedstader",
+                    "Roma",
+                    "Fire ulike hovedsteder (Tetrarki)"
+                ],
+                [
+                    "Sosial mobilitet",
+                    "Relativt åpen for de dyktige",
+                    "Styrte yrker og binding til jorden"
+                ],
+                [
+                    "Administrasjon",
+                    "Minimalistisk embetsverk",
+                    "Enormt og hierarkisk byråkrati"
+                ]
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Religiøs enhet og den siste store forfølgelsen"
+        },
+        {
+            "type": "text",
+            "text": "Diokletian så på sitt arbeid som en restaurering av den klassiske romerske orden. Han mente at krisene på 200-tallet var et tegn på at gudene hadde forlatt Roma fordi monarkiet hadde blitt svekket. For å sikre rikets fremtid, krevde han religiøs enformighet. Alle som nektet å utføre de offisielle ofringene til Jupiter og Hercules (som keiserne nå hevdet å være [legitimert](/samfunnskunnskap/styringsformer/makt-og-legitimitet) av), ble sett på som potensielle forrædere."
+        },
+        {
+            "type": "text",
+            "text": "I 303 startet han det historien kjenner som 'Den store forfølgelsen'. Dette var det mest systematiske og iherdige forsøket på å utslette den voksende kristne troen. Fire edikter ble utstedt i rask rekkefølge: Kirker skulle rives, hellige skrifter brennes, alle kristne mistet sine borgerlige rettigheter, og presteskapet ble kastet i fengsel. Til slutt ble det krevd at alle borgere skulle utføre offentlige ofringer under trussel om død."
+        },
+        {
+            "type": "text",
+            "text": "Men Diokletian hadde undervurdert kirkens styrke og organisasjon. Forfølgelsen skapte en bølge av martyrer hvis historier inspirerte og samlet de troende mer enn noen gang. Istedenfor å fjerne kristendommen, forberedte Diokletian paradoksalt nok grunnen for sin etterfølger, [Konstantin den store](/historie/romerriket/legitimitet-og-kristendom). Bare et tiår senere ville Konstantin innse at kristendommen var en mye sterkere kraft å bygge statens enhet rundt enn de gamle gudene. Diokletians siste store kamp ble hans eneste totale nederlag."
+        },
+        {
+            "type": "header",
+            "text": "Abdiseringen: En keiser som valgte freden fremfor purpuren"
+        },
+        {
+            "type": "text",
+            "text": "Den mest sensasjonelle og unike hendelsen i Diokletians karriere skjedde 1. mai 305. Han gjorde noe som nesten ingen romersk hersker hadde gjort før ham, og som få har gjort siden: Han ga frivillig fra seg absolutt makt. Han erklærte at han var syk og utslitt etter tjue år med uavbrutt arbeid for staten. Han tvang sin motvillige med-Augustus Maximian til å gjøre det samme, slik at de to Caesar-ene kunne ta over tronen som planlagt."
+        },
+        {
+            "type": "text",
+            "text": "Diokletian trakk seg tilbake til sitt gigantiske palass i Split (Spalatum) ved kysten av Dalmatia. Dette palasset var mer en festning enn en villa, og det står den dag i dag som hjertet i Split sentrum. Her levde han sine siste seks år som privatperson. Da Maximian, rastløs og maktlysten, senere forsøkte å overtale ham til å returnere til politikken for å løse de nye borgerkrigene som hadde blusset opp mellom arvingene, ga Diokletian et legendarisk svar:"
+        },
+        {
+            "type": "text",
+            "text": "'Hvis du kunne se kålhodene jeg har plantet og pleiet med mine egne hender i Split, ville du aldri foreslå at jeg skulle bytte denne fredelige lykken mot mørket av uendelig grådighet og maktkamp'."
+        },
+        {
+            "type": "text",
+            "text": "Diokletian døde i 311. Han fikk oppleve at hans nøye planlagte tetrarki begynte å rakne i kaos og krig, men han hadde lykkes med det viktigste: Han hadde gitt det døende Romerriket en ny administrativ, militær og økonomisk ryggmarg som lot det overleve i vest i hundre år til, og i øst (Bysants) i over tusen år. Han var arkitekten bak den sene romerske staten – en mann som forsto maktens pris og som hadde viljen til å bygge en verden som var hardere, strammere, men mer stabil."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var hovedformålet med Tetrarkiet ('firemannsstyret')?",
+            "options": [
+                "Å flytte all makt tilbake til Roma",
+                "Å sikre raskere militær respons og en forutsigbar arvefølge",
+                "Å innføre demokrati",
+                "Å avskaffe hæren"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Hvilken tittel tok keiserne under det nye systemet 'Dominatet'?",
+            "options": [
+                "Princeps (Første borger)",
+                "Consul (Foreningsleder)",
+                "Dominus (Herre og Gud)",
+                "Dux (Hertug)"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Hva var hovedutfordringen med 'Ediktet om maksimalpriser' fra 301?",
+            "options": [
+                "Det var ingen som leste det",
+                "Det førte til varemangel og svartebørshandel fordi det ignorerte markedskreftene",
+                "Det gjorde alle romere ekstremt rike",
+                "Det forbød handel med korn"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Hvordan la Diokletians reformer kimen til føydalismen?",
+            "options": [
+                "Ved å bygge mange slott",
+                "Ved å binde bønder (coloni) til jorden for å sikre skatteinntekter",
+                "Ved å innføre riddere",
+                "Ved å gi bort alt keiserlig land"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Hvilken militær strategi innførte Diokletian?",
+            "options": [
+                "Å trekke alle tropper bort fra grensen",
+                "Dybdeforsvar med grensetropper (limitanei) og mobile elitestyrker (comitatenses)",
+                "Å bare bruke leiesoldater",
+                "Å slutte å bruke kavaleri"
+            ],
+            "answer": 1
+        }
+    ]
+}

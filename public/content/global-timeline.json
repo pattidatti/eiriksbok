@@ -3066,4 +3066,56 @@
       "empirisme"
     ]
   }
+  ,
+  {
+    "id": "tetrarkiet-etablert",
+    "title": "Tetrarkiet etableres",
+    "description": "Diokletian deler makten mellom fire keisere for å sikre Romerrikets stabilitet.",
+    "startDate": 293,
+    "endDate": null,
+    "displayDate": "293",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "romerriket",
+    "link": "/historie/romerriket/diokletian",
+    "tags": [
+      "politikk",
+      "romerriket",
+      "maktfordeling"
+    ]
+  },
+  {
+    "id": "maksimalpris-ediktet",
+    "title": "Ediktet om maksimalpriser",
+    "description": "Diokletian forsøker å bremse inflasjonen med drakoniske pristiltak.",
+    "startDate": 301,
+    "endDate": null,
+    "displayDate": "301",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "romerriket",
+    "link": "/historie/romerriket/diokletian",
+    "tags": [
+      "økonomi",
+      "inflasjon",
+      "romerriket"
+    ]
+  },
+  {
+    "id": "diokletian-abdikerer",
+    "title": "Diokletian abdikerer",
+    "description": "Den eneste romerske keiseren som frivillig trekker seg tilbake for å dyrke kål i Split.",
+    "startDate": 305,
+    "endDate": null,
+    "displayDate": "305",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "romerriket",
+    "link": "/historie/romerriket/diokletian",
+    "tags": [
+      "historie",
+      "romerriket",
+      "biografi"
+    ]
+  }
 ]

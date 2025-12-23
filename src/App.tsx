@@ -84,6 +84,7 @@ function AppContent() {
 
               {/* Static routes must come before dynamic :subjectId routes */}
               <Route path="oving" element={<PracticePage />} />
+              <Route path="quiz" element={<QuizPage />} />
               <Route path="oving/flashcards" element={<FlashcardPage />} />
               <Route path="oving/quiz" element={<QuizPage />} />
               <Route path="oving/chrono" element={<ChronoGamePage />} />

@@ -10,6 +10,8 @@
         "id": "vikingtiden-sti",
         "title": "Vikingtiden: Arven fra fortiden",
         "description": "Følg denne stien for å mestre vikingtidens kompleksitet. Hvert steg gir deg brikker til det store puslespillet: Din egen fordypningsoppgave.",
+        "targetTopicId": "vikingtiden",
+        "targetSubjectId": "historie",
         "steps": [
             {
                 "id": "viking-tech",

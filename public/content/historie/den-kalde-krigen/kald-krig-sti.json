@@ -10,6 +10,8 @@
         "id": "kald-krig-sti",
         "title": "Den Kalde Krigen: I skyggen av bomben",
         "description": "Du er en observatør, kodenavn 'Null'. Din oppgave er å navigere gjennom det 20. århundrets farligste tiår. Du vil se supermakter som stirrer hverandre i hvitøyet, og vanlige folk som lever i frykt for soppen skyen. Husk: I en kald krig er informasjonen ditt viktigste våpen.",
+        "targetTopicId": "den-kalde-krigen",
+        "targetSubjectId": "historie",
         "steps": [
             {
                 "id": "cold-war-intro",
@@ -69,6 +71,14 @@
                     {
                         "title": "Koreakrigen",
                         "url": "/historie/den-kalde-krigen/koreakrigen"
+                    },
+                    {
+                        "title": "Casus Belli: Historiens påskudd",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli"
+                    },
+                    {
+                        "title": "FN: Verdens sikkerhetsråd",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/fn"
                     }
                 ],
                 "component": {
@@ -76,11 +86,15 @@
                     "props": {
                         "capacity": 50,
                         "targetValue": 90,
-                        "description": "Sirenen uler! Atomangrep kan være nært forestående. Du har 5 minutter på å pakke utstyr til bomberommet. Hva trenger du for å overleve i uker under jorden?",
+                        "title": "Overlevelse i Bomberommet",
+                        "descriptionOverride": "Sirenen uler! Atomangrep kan være nært forestående. Du har 5 minutter på å pakke utstyr til bomberommet. Velg utstyr som gir nok overlevelsesverdi (90 poeng) uten at sekken din veier for mye (50 kg).",
+                        "overweightLabel": "Sekken er for tung!",
+                        "successLabel": "Klar for bomberommet!",
+                        "pendingLabel": "Mangler viktig utstyr...",
                         "items": [
                             {
                                 "id": "hermetikk",
-                                "name": "Hermetikk (Børnebønner)",
+                                "name": "Hermetikk (Bønner)",
                                 "weight": 10,
                                 "value": 40,
                                 "icon": "🥫"
@@ -108,21 +122,21 @@
                             },
                             {
                                 "id": "våpen",
-                                "name": "Pistol",
+                                "name": "Våpen (for selvforsvar)",
                                 "weight": 3,
                                 "value": 10,
                                 "icon": "🔫"
                             },
                             {
                                 "id": "spill",
-                                "name": "Kortstokk",
+                                "name": "Kortstokk (Mental helse)",
                                 "weight": 1,
                                 "value": 5,
-                                "icon": "b"
+                                "icon": "🃏"
                             },
                             {
                                 "id": "pass",
-                                "name": "Falske Pass",
+                                "name": "Dokumenter",
                                 "weight": 1,
                                 "value": 25,
                                 "icon": "🛂"

@@ -1,19 +1,31 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useManifest } from '../hooks/useManifest';
 import { fetchLesson } from '../utils/contentLoader';
 import { Quiz } from '../components/Quiz';
 import type { QuizQuestion } from '../types';
 import { Loader2, ArrowLeft, Brain, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 export const QuizPage: React.FC = () => {
     const { data: manifest, isLoading: isManifestLoading } = useManifest();
-    const [selectedSubject, setSelectedSubject] = useState<string | 'all'>('all');
-    const [selectedTopic, setSelectedTopic] = useState<string | 'all'>('all');
+    const [searchParams] = useSearchParams();
+
+    // Get initial values from search params
+    const initialSubject = searchParams.get('subject') || 'all';
+    const initialTopic = searchParams.get('topic') || 'all';
+
+    const [selectedSubject, setSelectedSubject] = useState<string | 'all'>(initialSubject);
+    const [selectedTopic, setSelectedTopic] = useState<string | 'all'>(initialTopic);
     const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [quizStarted, setQuizStarted] = useState(false);
     const [error, setError] = useState<string | null>(null);
+
+    // Update state if search params change
+    useEffect(() => {
+        if (searchParams.has('subject')) setSelectedSubject(searchParams.get('subject')!);
+        if (searchParams.has('topic')) setSelectedTopic(searchParams.get('topic')!);
+    }, [searchParams]);
 
     // Extract subjects
     const subjects = useMemo(() => {

@@ -10,6 +10,8 @@
         "id": "romerriket-sti",
         "title": "Romerriket: Din reise gjennom århundrene",
         "description": "Denne stien er ikke bare en historietime – det er en reise. Du starter ved Romas vugge og følger riket til dets dramatiske fall. Underveis må du ta valg, løse oppgaver og forstå menneskene som levde da.",
+        "targetTopicId": "romerriket",
+        "targetSubjectId": "historie",
         "steps": [
             {
                 "id": "rome-start",
