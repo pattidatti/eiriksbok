@@ -5,7 +5,7 @@
     "topic": "filosofi",
     "layout": "rich",
     "readTime": "20 min lesning",
-    "heroImage": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80",
+    "heroImage": "/images/filosofi/arendt_hero.png",
     "dimension": "samfunnssyn",
     "comparison_tags": [
         "det_ondes_banalitet",

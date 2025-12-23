@@ -2929,7 +2929,7 @@
                             "id": "intro",
                             "title": "Hva er filosofi?",
                             "description": "Opphavet til filosofi og de ulike grenene som undersøker virkeligheten.",
-                            "image": "https://images.unsplash.com/photo-1516050748632-ca7a5c110031?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/intro_hero.png",
                             "tags": [
                                 "intro",
                                 "filosofi",
@@ -2943,7 +2943,7 @@
                             "id": "sokrates",
                             "title": "Sokrates",
                             "description": "Mannen som aldri skrev noe, men endret alt.",
-                            "image": "https://images.unsplash.com/photo-1507679022986-21827998a4f8?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/sokrates_hero.png",
                             "tags": [
                                 "filosofi",
                                 "sokrates",
@@ -2956,7 +2956,7 @@
                             "id": "platon",
                             "title": "Platon",
                             "description": "Idélæren og skyggene i hulen.",
-                            "image": "https://images.unsplash.com/photo-1503149779833-1de50ebe5f8a?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/platon_hero.png",
                             "tags": [
                                 "filosofi",
                                 "platon",
@@ -2969,7 +2969,7 @@
                             "id": "aristoteles",
                             "title": "Aristoteles",
                             "description": "Systematikeren og den gylne middelvei.",
-                            "image": "https://images.unsplash.com/photo-1524333800407-b98ac37a391e?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/aristoteles_hero.png",
                             "tags": [
                                 "filosofi",
                                 "aristoteles",
@@ -2982,7 +2982,7 @@
                             "id": "augustin",
                             "title": "Augustin",
                             "description": "Tro og fornuft i tidlig middelalder.",
-                            "image": "https://images.unsplash.com/photo-1561571994-3c61c554181a?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/augustin_hero.png",
                             "tags": [
                                 "filosofi",
                                 "kristendom",
@@ -2995,7 +2995,7 @@
                             "id": "aquinas",
                             "title": "Thomas Aquinas",
                             "description": "Gudbeviser og den naturlige lov.",
-                            "image": "https://images.unsplash.com/photo-1515542641795-d60ae0bc528e?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/aquinas_hero.png",
                             "tags": [
                                 "filosofi",
                                 "skolastikk",
@@ -3008,7 +3008,7 @@
                             "id": "descartes",
                             "title": "René Descartes",
                             "description": "Jeg tenker, altså er jeg.",
-                            "image": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/descartes_hero.png",
                             "tags": [
                                 "filosofi",
                                 "rasjonalisme",
@@ -3021,7 +3021,7 @@
                             "id": "locke",
                             "title": "John Locke",
                             "description": "Tabula Rasa og menneskets naturlige rettigheter.",
-                            "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/locke_hero.png",
                             "tags": [
                                 "filosofi",
                                 "empirisme",
@@ -3048,7 +3048,7 @@
                             "id": "kant",
                             "title": "Immanuel Kant",
                             "description": "Det kategoriske imperativ og fornuftens grenser.",
-                            "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/kant_hero.png",
                             "tags": [
                                 "filosofi",
                                 "etikk",
@@ -3061,7 +3061,7 @@
                             "id": "kierkegaard",
                             "title": "Søren Kierkegaard",
                             "description": "Eksistensens tre stadier.",
-                            "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/kierkegaard_hero.png",
                             "tags": [
                                 "filosofi",
                                 "eksistensialisme",
@@ -3074,7 +3074,7 @@
                             "id": "nietzsche",
                             "title": "Friedrich Nietzsche",
                             "description": "Gud er død og overmennesket.",
-                            "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/nietzsche_hero.png",
                             "tags": [
                                 "filosofi",
                                 "nihilisme",
@@ -3087,7 +3087,7 @@
                             "id": "mises",
                             "title": "Ludwig von Mises",
                             "description": "Handlende mennesker og praxeologi.",
-                            "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/mises_hero.png",
                             "tags": [
                                 "filosofi",
                                 "økonomi",
@@ -3100,7 +3100,7 @@
                             "id": "heidegger",
                             "title": "Martin Heidegger",
                             "description": "Dasein og spørsmålet om væren.",
-                            "image": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/heidegger_hero.png",
                             "tags": [
                                 "filosofi",
                                 "heidegger",
@@ -3113,7 +3113,7 @@
                             "id": "arendt",
                             "title": "Hannah Arendt",
                             "description": "Det ondes banalitet og det offentlige rom.",
-                            "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/arendt_hero.png",
                             "tags": [
                                 "filosofi",
                                 "arendt",
@@ -3126,7 +3126,7 @@
                             "id": "beauvoir",
                             "title": "Simone de Beauvoir",
                             "description": "Man fødes ikke som kvinne, man blir det.",
-                            "image": "https://images.unsplash.com/photo-1549405616-56329424c58f?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/beauvoir_hero.png",
                             "tags": [
                                 "filosofi",
                                 "feminisme",
@@ -3139,7 +3139,7 @@
                             "id": "rothbard",
                             "title": "Murray Rothbard",
                             "description": "Anarkokapitalisme og naturrett.",
-                            "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80",
+                            "image": "/images/filosofi/rothbard_hero.png",
                             "tags": [
                                 "filosofi",
                                 "politisk",
@@ -3161,7 +3161,7 @@
                             "id": "intro",
                             "title": "Hva er etikk?",
                             "description": "En introduksjon til moralens fundamenter og vanskelige valg.",
-                            "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
+                            "image": "/images/etikk/intro_hero.png",
                             "tags": [
                                 "intro",
                                 "etikk",
@@ -3174,7 +3174,7 @@
                             "id": "utilitarisme",
                             "title": "Utilitarisme",
                             "description": "Målet om størst mulig lykke for flest mulig.",
-                            "image": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80",
+                            "image": "/images/etikk/utilitarisme_hero.png",
                             "tags": [
                                 "etikk",
                                 "nytte",
@@ -3188,7 +3188,7 @@
                             "id": "pliktetikk",
                             "title": "Pliktetikk",
                             "description": "Det finnes regler som aldri skal brytes.",
-                            "image": "https://images.unsplash.com/photo-1544258169-7ee4a169b27b?auto=format&fit=crop&q=80",
+                            "image": "/images/etikk/pliktetikk_hero.png",
                             "tags": [
                                 "etikk",
                                 "plikt",
@@ -3202,7 +3202,7 @@
                             "id": "dygdsetikk",
                             "title": "Dygdsetikk",
                             "description": "Det handler om karakter, ikke regler.",
-                            "image": "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&q=80",
+                            "image": "/images/etikk/dygdsetikk_hero.png",
                             "tags": [
                                 "etikk",
                                 "dygd",
@@ -3216,7 +3216,7 @@
                             "id": "naturrett",
                             "title": "Naturretten",
                             "description": "Er noen lover sanne for alle?",
-                            "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80",
+                            "image": "/images/etikk/naturrett_hero.png",
                             "tags": [
                                 "etikk",
                                 "naturrett",
@@ -3230,7 +3230,7 @@
                             "id": "non-aggression",
                             "title": "NAP: Ikke-aggresjon",
                             "description": "Er skatt tyveri? Om frihetens grenser.",
-                            "image": "https://images.unsplash.com/photo-1569437061241-a848be43ccb6?auto=format&fit=crop&q=80",
+                            "image": "/images/etikk/non-aggression_hero.png",
                             "tags": [
                                 "etikk",
                                 "nap",

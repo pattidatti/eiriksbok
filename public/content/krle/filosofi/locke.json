@@ -5,7 +5,7 @@
     "topic": "filosofi",
     "layout": "rich",
     "readTime": "20 min lesning",
-    "heroImage": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&q=80",
+    "heroImage": "/images/filosofi/locke_hero.png",
     "dimension": "epistemologi",
     "comparison_tags": [
         "empirisme",

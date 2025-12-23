@@ -5,7 +5,7 @@
     "topic": "filosofi",
     "layout": "rich",
     "readTime": "20 min lesning",
-    "heroImage": "https://images.unsplash.com/photo-1561571994-3c61c554181a?auto=format&fit=crop&q=80",
+    "heroImage": "/images/filosofi/augustin_hero.png",
     "dimension": "metafysikk",
     "comparison_tags": [
         "kristen_platonisme",

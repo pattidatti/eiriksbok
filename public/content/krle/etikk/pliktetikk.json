@@ -5,7 +5,7 @@
     "topic": "etikk",
     "layout": "rich",
     "readTime": "40 min lesning",
-    "heroImage": "https://images.unsplash.com/photo-1544258169-7ee4a169b27b?auto=format&fit=crop&q=80",
+    "heroImage": "/images/etikk/pliktetikk_hero.png",
     "dimension": "etikk",
     "comparison_tags": [
         "plikt",

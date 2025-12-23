@@ -5,7 +5,7 @@
     "topic": "filosofi",
     "layout": "rich",
     "readTime": "24 min lesning",
-    "heroImage": "https://images.unsplash.com/photo-1515542641795-d60ae0bc528e?auto=format&fit=crop&q=80",
+    "heroImage": "/images/filosofi/aquinas_hero.png",
     "dimension": "metafysikk",
     "comparison_tags": [
         "skolastikk",

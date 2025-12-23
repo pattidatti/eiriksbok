@@ -5,7 +5,7 @@
     "topic": "filosofi",
     "layout": "rich",
     "readTime": "20 min lesning",
-    "heroImage": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
+    "heroImage": "/images/filosofi/descartes_hero.png",
     "dimension": "epistemologi",
     "comparison_tags": [
         "rasjonalisme",

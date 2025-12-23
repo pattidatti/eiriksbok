@@ -5,7 +5,7 @@
     "topic": "etikk",
     "layout": "rich",
     "readTime": "35 min lesning",
-    "heroImage": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
+    "heroImage": "/images/etikk/intro_hero.png",
     "dimension": "etikk",
     "comparison_tags": [
         "intro",

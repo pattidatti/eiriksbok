@@ -5,7 +5,7 @@
     "topic": "filosofi",
     "layout": "rich",
     "readTime": "24 min lesning",
-    "heroImage": "https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80",
+    "heroImage": "/images/filosofi/kant_hero.png",
     "dimension": "etikk",
     "comparison_tags": [
         "pliktetikk",
