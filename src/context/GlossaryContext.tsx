@@ -9,6 +9,7 @@ export interface GlossaryEntry {
     tags?: string[];
     image?: string;
     link?: string;
+    lifespan?: string;
 }
 
 interface GlossaryContextType {

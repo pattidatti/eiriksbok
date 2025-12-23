@@ -6011,27 +6011,6 @@
       }
     ],
     [
-      "Aristoteles",
-      {
-        "count": 34,
-        "sources": [
-          "Middelalderen: En tusenårig forvandling",
-          "Dygdsetikk",
-          "Hva er etikk?",
-          "Thomas Aquinas",
-          "Hannah Arendt",
-          "Aristoteles",
-          "Martin Heidegger",
-          "Hva er filosofi?",
-          "Immanuel Kant",
-          "Ludwig von Mises",
-          "Platon",
-          "Hva er retorikk?",
-          "Antikkens visjoner: Platon og Aristoteles"
-        ]
-      }
-    ],
-    [
       "Målet",
       {
         "count": 33,
@@ -6264,29 +6243,6 @@
       }
     ],
     [
-      "Sokrates",
-      {
-        "count": 29,
-        "sources": [
-          "Hva er etikk?",
-          "Hannah Arendt",
-          "Aristoteles",
-          "Simone de Beauvoir",
-          "Hva er filosofi?",
-          "Friedrich Nietzsche",
-          "Platon",
-          "Sokrates",
-          "Det 'unormale': Idéhistorien om sykdom og galskap",
-          "Mennesket i sentrum: Humanismens fødsel",
-          "Sannhetens historie: Fra åpenbaring til algoritme",
-          "Utopier: Drømmen om det perfekte samfunn",
-          "Ytringsvett vs ytringsmot",
-          "Antikkens visjoner: Platon og Aristoteles",
-          "Makt og legitimitet: Hvorfor styres vi?"
-        ]
-      }
-    ],
-    [
       "Ungarn",
       {
         "count": 28,
@@ -6454,25 +6410,6 @@
           "Simone de Beauvoir",
           "Føydalisme: Da personlige bånd styrte Europa",
           "Opplysningstid og Samfunnskontrakten"
-        ]
-      }
-    ],
-    [
-      "Platon",
-      {
-        "count": 21,
-        "sources": [
-          "Hva er etikk?",
-          "Aristoteles",
-          "Augustin",
-          "Martin Heidegger",
-          "Hva er filosofi?",
-          "Friedrich Nietzsche",
-          "Platon",
-          "Sokrates",
-          "Mennesket i sentrum: Humanismens fødsel",
-          "Utopier: Drømmen om det perfekte samfunn",
-          "Antikkens visjoner: Platon og Aristoteles"
         ]
       }
     ],
@@ -6800,16 +6737,6 @@
           "De romerske keiserne",
           "Vestromerrikets fall",
           "Karl den Store: Europas Far"
-        ]
-      }
-    ],
-    [
-      "Diokletian",
-      {
-        "count": 14,
-        "sources": [
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "De romerske keiserne"
         ]
       }
     ],
@@ -7533,6 +7460,57 @@
         "sources": [
           "Kristningen og Vikingtidens Slutt",
           "Rikssamlingen: Da Norge ble ett"
+        ]
+      }
+    ],
+    [
+      "Etikk",
+      {
+        "count": 8,
+        "sources": [
+          "Hva er etikk?",
+          "Hva er filosofi?",
+          "Sokrates"
+        ]
+      }
+    ],
+    [
+      "Naturen",
+      {
+        "count": 8,
+        "sources": [
+          "Hva er etikk?",
+          "Utilitarisme",
+          "Nasjonalromantikken: Da Norge fant sin sjel",
+          "Nyromantikken: Følelser og mystikk",
+          "Naturens sjel: Fra hellig til ressurs"
+        ]
+      }
+    ],
+    [
+      "Locke",
+      {
+        "count": 8,
+        "sources": [
+          "Naturretten",
+          "John Locke",
+          "Ludwig von Mises",
+          "Murray Rothbard",
+          "Opplysningstid og Samfunnskontrakten"
+        ]
+      }
+    ],
+    [
+      "Koranen",
+      {
+        "count": 8,
+        "sources": [
+          "Kitáb-i-Aqdas",
+          "Bønn (Salah) i Islam",
+          "Koranen",
+          "Sentrale trekk i Islam",
+          "Skapelsen i Islam",
+          "Eskatologi: Historien om verdens undergang"
         ]
       }
     ]

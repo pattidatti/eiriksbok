@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { User, Search, Filter, BookOpen, ArrowRight } from 'lucide-react';
 import { useGlossary } from '../context/GlossaryContext';
 
@@ -108,9 +109,14 @@ export const PersonGallery: React.FC = () => {
                                         </span>
                                     )}
                                 </div>
-                                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">
+                                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
                                     {person.term}
                                 </h3>
+                                {person.lifespan && (
+                                    <div className="text-sm font-semibold text-slate-400 mb-3 bg-slate-50 inline-block py-0.5 px-2 rounded-lg">
+                                        {person.lifespan}
+                                    </div>
+                                )}
                                 <p className="text-slate-600 leading-relaxed mb-6 flex-1">
                                     {person.definition}
                                 </p>
@@ -121,9 +127,18 @@ export const PersonGallery: React.FC = () => {
                                             <span key={tag} className="text-[10px] font-bold text-slate-400 uppercase">#{tag}</span>
                                         ))}
                                     </div>
-                                    <button className="text-orange-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                                        Lær mer <ArrowRight size={16} />
-                                    </button>
+                                    {person.link ? (
+                                        <Link
+                                            to={person.link}
+                                            className="text-orange-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                                        >
+                                            Lær mer <ArrowRight size={16} />
+                                        </Link>
+                                    ) : (
+                                        <div className="text-slate-300 font-bold text-sm flex items-center gap-1 cursor-default">
+                                            Lær mer <ArrowRight size={16} />
+                                        </div>
+                                    )}
                                 </div>
                             </motion.div>
                         ))}
@@ -132,10 +147,13 @@ export const PersonGallery: React.FC = () => {
             )}
 
             <footer className="mt-24 py-12 border-t border-slate-200 text-center">
-                <div className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-50 text-indigo-700 rounded-full font-bold hover:bg-indigo-100 transition-colors">
+                <Link
+                    to="/oving/flashcards"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-50 text-indigo-700 rounded-full font-bold hover:bg-indigo-100 transition-colors cursor-pointer"
+                >
                     <BookOpen size={20} />
                     <span>Se alle fagbegreper</span>
-                </div>
+                </Link>
             </footer>
         </div>
     );

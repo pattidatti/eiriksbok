@@ -64,18 +64,6 @@
     "type": "concept"
   },
   {
-    "term": "Augustin",
-    "definition": "Også kjent som St. Augustin av Hippo. En av de viktigste kirkefedrene i den vestlige kristendommen, kjent for verket 'Gudstaten'.",
-    "type": "concept",
-    "tags": [
-      "antikken",
-      "teologi",
-      "kirken"
-    ],
-    "subject": "historie",
-    "link": "/krle/filosofi/augustin"
-  },
-  {
     "term": "autoritært diktatur",
     "definition": "Folket får ikke være med å bestemme, men kan til en viss grad mene ting. Staten kontrollerer politikken, men lar folk leve livene sine relativt fritt ellers.",
     "subject": "samfunnskunnskap",
@@ -133,18 +121,6 @@
       "tyskland"
     ],
     "subject": "historie"
-  },
-  {
-    "term": "David Hume",
-    "definition": "Skotsk filosof og historiker, regnet som en av de viktigste figurene i den vestlige filosofiens historie og i den skotske opplysningstiden.",
-    "type": "concept",
-    "tags": [
-      "opplysningstid",
-      "skottland",
-      "empirisme"
-    ],
-    "subject": "historie",
-    "link": "/krle/filosofi/hume"
   },
   {
     "term": "De allierte",
@@ -265,29 +241,6 @@
     "type": "concept"
   },
   {
-    "term": "Friedrich Nietzsche",
-    "definition": "Tysk filosof, kulturkritiker og lyriker, kjent for sine ideer om 'overmennesket', 'viljen til makt' og kritikken av kristen moral.",
-    "type": "concept",
-    "tags": [
-      "filosofi",
-      "tyskland",
-      "eksistensialisme"
-    ],
-    "subject": "historie",
-    "link": "/krle/filosofi/nietzsche"
-  },
-  {
-    "term": "Gaius Octavius",
-    "definition": "Bedre kjent som Augustus, den første romerske keiseren. Han forvandlet den romerske republikken til et keiserriket etter borgerkrigen mot Marcus Antonius.",
-    "type": "concept",
-    "tags": [
-      "roma",
-      "antikken",
-      "keiser"
-    ],
-    "subject": "historie"
-  },
-  {
     "term": "Glasnost",
     "definition": "En reformpolitik lansert av Mikhail Gorbatsjov i Sovjetunionen på 1980-tallet. Ordet betyr 'åpenhet', og målet var å skape mer gjennomsiktighet i staten og mer ytringsfrihet for borgerne.",
     "subject": "historie",
@@ -298,17 +251,6 @@
       "frihet"
     ],
     "type": "concept"
-  },
-  {
-    "term": "Gustav II Adolf",
-    "definition": "Konge av Sverige fra 1611 til 1632. Han regnes som en av de største militærstrategene i historien og spilte en avgjørende rolle i 30-årskrigen.",
-    "type": "concept",
-    "tags": [
-      "stormaktstid",
-      "sverige",
-      "30-årskrigen"
-    ],
-    "subject": "historie"
   },
   {
     "term": "Habsburgerne",
@@ -328,17 +270,6 @@
       "setningsanalyse"
     ],
     "subject": "norsk"
-  },
-  {
-    "term": "Henrik Krummedige",
-    "definition": "Dansk-norsk adelsmann og riksråd, kjent for sin bitre maktkamp mot Knut Alvsson på begynnelsen av 1500-tallet.",
-    "type": "concept",
-    "tags": [
-      "norge",
-      "danmark",
-      "middelalder"
-    ],
-    "subject": "historie"
   },
   {
     "term": "Holocaust",
@@ -376,17 +307,6 @@
     "subject": "historie"
   },
   {
-    "term": "Jeanne d’Arc",
-    "definition": "En fransk nasjonalhelt og helgen som ledet den franske hæren til flere viktige seire under Hundreårskrigen mot England.",
-    "type": "concept",
-    "tags": [
-      "middelalder",
-      "frankrike",
-      "kriger"
-    ],
-    "subject": "historie"
-  },
-  {
     "term": "Jernteppet",
     "definition": "Et begrep brukt om den politiske, ideologiske og fysiske grensen som delte Europa i to maktblokker fra 1945 til 1991: Vestblokken (støttet av USA) og Østblokken (støttet av Sovjetunionen).",
     "subject": "historie",
@@ -397,29 +317,6 @@
       "grense"
     ],
     "type": "concept"
-  },
-  {
-    "term": "John Locke",
-    "definition": "Engelsk filosof og lege, ofte sett på som 'liberalismens far' og en av de mest innflytelsesrike opplysningstenkerne.",
-    "type": "concept",
-    "tags": [
-      "opplysningstid",
-      "liberalisme",
-      "england"
-    ],
-    "subject": "historie",
-    "link": "/krle/filosofi/locke"
-  },
-  {
-    "term": "Julius Cæsar",
-    "definition": "Romersk statsmann, general og forfatter som spilte en kritisk rolle i hendelsene som førte til slutten på den romerske republikken og fremveksten av Romerriket.",
-    "type": "concept",
-    "tags": [
-      "antikken",
-      "roma",
-      "diktator"
-    ],
-    "subject": "historie"
   },
   {
     "term": "justinianerpesten",
@@ -451,40 +348,6 @@
     "topic": "demografi-okonomi",
     "tags": [],
     "type": "concept"
-  },
-  {
-    "term": "Karl den store",
-    "definition": "Frankerkongen som ble kronet til romersk keiser i år 800. Han samlet store deler av Vest-Europa og la grunnlaget for det som senere ble Det hellige romerske rike.",
-    "type": "concept",
-    "tags": [
-      "middelalder",
-      "frankerriket",
-      "keiser"
-    ],
-    "subject": "historie"
-  },
-  {
-    "term": "Kleopatra",
-    "definition": "Den siste aktive herskeren av det ptolemeiske kongedømmet i Egypt. Hun var kjent for sine politiske allianser med Julius Cæsar og Marcus Antonius.",
-    "type": "concept",
-    "tags": [
-      "antikken",
-      "egypt",
-      "roma"
-    ],
-    "subject": "historie"
-  },
-  {
-    "term": "Knut Alvsson",
-    "definition": "Norsk adelsmann og ridder som ledet et opprør mot den danske kong Hans i 1501. Han ble drept av Henrik Krummedige under forhandlinger.",
-    "type": "concept",
-    "tags": [
-      "norge",
-      "opprør",
-      "middelalder"
-    ],
-    "subject": "historie",
-    "link": "/historie/norgeshistorie/knut-alvsson"
   },
   {
     "term": "koloni",
@@ -588,17 +451,6 @@
     "type": "concept"
   },
   {
-    "term": "Marcus Antonius",
-    "definition": "Romersk politiker og general som var en nær støttespiller for Julius Cæsar. Han er mest kjent for sitt forhold til Kleopatra og maktkampen mot Octavius.",
-    "type": "concept",
-    "tags": [
-      "roma",
-      "antikken",
-      "general"
-    ],
-    "subject": "historie"
-  },
-  {
     "term": "Marshallhjelpen",
     "definition": "Et omfattende amerikansk økonomisk hjelpeprogram (1948-1952) rettet mot gjenoppbyggingen av Europa etter andre verdenskrig. Målet var å skape økonomisk stabilitet og hindre kommunistisk innflytelse.",
     "subject": "historie",
@@ -610,18 +462,6 @@
       "europa"
     ],
     "type": "concept"
-  },
-  {
-    "term": "Martin Heidegger",
-    "definition": "Tysk filosof på 1900-tallet, best kjent for sitt verk 'Væren og tid' og sine bidrag til fenomenologi og eksistensialisme.",
-    "type": "concept",
-    "tags": [
-      "filosofi",
-      "tyskland",
-      "eksistensialisme"
-    ],
-    "subject": "historie",
-    "link": "/krle/filosofi/heidegger"
   },
   {
     "term": "merkantilisme",
@@ -980,18 +820,6 @@
     "type": "concept"
   },
   {
-    "term": "Thomas Aquinas",
-    "definition": "Italiensk filosof og teolog fra middelalderen, regnet som en av kristendommens viktigste tenkere.",
-    "type": "concept",
-    "tags": [
-      "middelalder",
-      "teologi",
-      "skolastikk"
-    ],
-    "subject": "historie",
-    "link": "/krle/filosofi/aquinas"
-  },
-  {
     "term": "Total krig",
     "definition": "En krigføring der alle samfunnets ressurser mobiliseres, og skillet mellom militære og sivile mål forsvinner.",
     "subject": "historie",
@@ -1117,11 +945,260 @@
     "type": "concept"
   },
   {
+    "term": "Aristoteles",
+    "definition": "Gresk filosof og elev av Platon. Han var lærer for Aleksander den store og la grunnlaget for logikk og mange av dagens vitenskaper.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "antikken",
+      "logikk"
+    ],
+    "subject": "historie",
+    "lifespan": "384 f.Kr. – 322 f.Kr.",
+    "link": "/historie/antikken/platon-og-aristoteles"
+  },
+  {
+    "term": "Augustin",
+    "definition": "Også kjent som St. Augustin av Hippo. En av de viktigste kirkefedrene i den vestlige kristendommen, kjent for verket 'Gudstaten'.",
+    "type": "person",
+    "tags": [
+      "antikken",
+      "teologi",
+      "kirken"
+    ],
+    "subject": "historie",
+    "lifespan": "354 e.Kr. – 430 e.Kr.",
+    "link": "/historie/antikken/princeps-til-guds-utvalgte"
+  },
+  {
+    "term": "David Hume",
+    "definition": "Skotsk filosof og historiker, regnet som en av de viktigste figurene i den vestlige filosofiens historie og i den skotske opplysningstiden.",
+    "type": "person",
+    "tags": [
+      "opplysningstid",
+      "skottland",
+      "empirisme"
+    ],
+    "subject": "historie",
+    "lifespan": "1711 – 1776",
+    "link": "/filosofi/opplysningstid/david-hume"
+  },
+  {
+    "term": "Diokletian",
+    "definition": "Romersk keiser fra 284 til 305. Han er kjent for å ha stabilisert riket gjennom reformer, blant annet ved å innføre tetrarkiet (firemannsstyret).",
+    "type": "person",
+    "tags": [
+      "roma",
+      "keiser",
+      "tetrarkiet"
+    ],
+    "subject": "historie",
+    "lifespan": "ca. 244 e.Kr. – 311 e.Kr.",
+    "link": "/historie/romerriket/diokletian"
+  },
+  {
     "term": "dronning elizabeth i",
     "definition": "Dronning av England fra 1558 til 1603. Hun ga EIC monopol på handel med Østen.",
     "subject": "historie",
     "topic": "kolonialisering",
     "tags": [],
+    "lifespan": "1533 – 1603",
+    "link": "/historie/kolonialisering/britisk-imperium",
     "type": "person"
+  },
+  {
+    "term": "Friedrich Nietzsche",
+    "definition": "Tysk filosof, kulturkritiker og lyriker, kjent for sine ideer om 'overmennesket', 'viljen til makt' og kritikken av kristen moral.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "tyskland",
+      "eksistensialisme"
+    ],
+    "subject": "historie",
+    "lifespan": "1844 – 1900",
+    "link": "/filosofi/eksistensialisme/friedrich-nietzsche"
+  },
+  {
+    "term": "Gaius Octavius",
+    "definition": "Bedre kjent som Augustus, den første romerske keiseren. Han forvandlet den romerske republikken til et keiserriket etter borgerkrigen mot Marcus Antonius.",
+    "type": "person",
+    "tags": [
+      "roma",
+      "antikken",
+      "keiser"
+    ],
+    "subject": "historie",
+    "lifespan": "63 f.Kr. – 14 e.Kr.",
+    "link": "/historie/romerriket/augustus"
+  },
+  {
+    "term": "Gustav II Adolf",
+    "definition": "Konge av Sverige fra 1611 til 1632. Han regnes som en av de største militærstrategene i historien og spilte en avgjørende rolle i 30-årskrigen.",
+    "type": "person",
+    "tags": [
+      "stormaktstid",
+      "sverige",
+      "30-årskrigen"
+    ],
+    "subject": "historie",
+    "lifespan": "1594 – 1632",
+    "link": "/historie/reformasjonen/30-arskrigen"
+  },
+  {
+    "term": "Henrik Krummedige",
+    "definition": "Dansk-norsk adelsmann og riksråd, kjent for sin bitre maktkamp mot Knut Alvsson på begynnelsen av 1500-tallet.",
+    "type": "person",
+    "tags": [
+      "norge",
+      "danmark",
+      "middelalder"
+    ],
+    "subject": "historie",
+    "lifespan": "ca. 1464 – 1530",
+    "link": "/historie/middelalder/knut-alvsson"
+  },
+  {
+    "term": "Jeanne d’Arc",
+    "definition": "En fransk nasjonalhelt og helgen som ledet den franske hæren til flere viktige seire under Hundreårskrigen mot England.",
+    "type": "person",
+    "tags": [
+      "middelalder",
+      "frankrike",
+      "kriger"
+    ],
+    "subject": "historie",
+    "lifespan": "ca. 1412 – 1431",
+    "link": "/historie/middelalder/jeanne-d-arc"
+  },
+  {
+    "term": "John Locke",
+    "definition": "Engelsk filosof og lege, ofte sett på som 'liberalismens far' og en av de mest innflytelsesrike opplysningstenkerne.",
+    "type": "person",
+    "tags": [
+      "opplysningstid",
+      "liberalisme",
+      "england"
+    ],
+    "subject": "historie",
+    "lifespan": "1632 – 1704",
+    "link": "/filosofi/opplysningstid/john-locke"
+  },
+  {
+    "term": "Julius Cæsar",
+    "definition": "Romersk statsmann, general og forfatter som spilte en kritisk rolle i hendelsene som førte til slutten på den romerske republikken og fremveksten av Romerriket.",
+    "type": "person",
+    "tags": [
+      "antikken",
+      "roma",
+      "diktator"
+    ],
+    "subject": "historie",
+    "lifespan": "100 f.Kr. – 44 f.Kr.",
+    "link": "/historie/romerriket/caesar"
+  },
+  {
+    "term": "Karl den store",
+    "definition": "Frankerkongen som ble kronet til romersk keiser i år 800. Han samlet store deler av Vest-Europa og la grunnlaget for det som senere ble Det hellige romerske rike.",
+    "type": "person",
+    "tags": [
+      "middelalder",
+      "frankerriket",
+      "keiser"
+    ],
+    "subject": "historie",
+    "lifespan": "742 – 814",
+    "link": "/historie/middelalder/karl-den-store"
+  },
+  {
+    "term": "Kleopatra",
+    "definition": "Den siste aktive herskeren av det ptolemeiske kongedømmet i Egypt. Hun var kjent for sine politiske allianser med Julius Cæsar og Marcus Antonius.",
+    "type": "person",
+    "tags": [
+      "antikken",
+      "egypt",
+      "roma"
+    ],
+    "subject": "historie",
+    "lifespan": "69 f.Kr. – 30 f.Kr.",
+    "link": "/historie/romerriket/caesar"
+  },
+  {
+    "term": "Knut Alvsson",
+    "definition": "Norsk adelsmann og ridder som ledet et opprør mot den danske kong Hans i 1501. Han ble drept av Henrik Krummedige under forhandlinger.",
+    "type": "person",
+    "tags": [
+      "norge",
+      "opprør",
+      "middelalder"
+    ],
+    "subject": "historie",
+    "lifespan": "ca. 1455 – 1502",
+    "link": "/historie/middelalder/knut-alvsson"
+  },
+  {
+    "term": "Marcus Antonius",
+    "definition": "Romersk politiker og general som var en nær støttespiller for Julius Cæsar. Han er mest kjent for sitt forhold til Kleopatra og maktkampen mot Octavius.",
+    "type": "person",
+    "tags": [
+      "roma",
+      "antikken",
+      "general"
+    ],
+    "subject": "historie",
+    "lifespan": "83 f.Kr. – 30 f.Kr.",
+    "link": "/historie/romerriket/augustus"
+  },
+  {
+    "term": "Martin Heidegger",
+    "definition": "Tysk filosof på 1900-tallet, best kjent for sitt verk 'Væren og tid' og sine bidrag til fenomenologi og eksistensialisme.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "tyskland",
+      "eksistensialisme"
+    ],
+    "subject": "historie",
+    "lifespan": "1889 – 1976",
+    "link": "/filosofi/eksistensialisme/martin-heidegger"
+  },
+  {
+    "term": "Platon",
+    "definition": "Gresk filosof og elev av Sokrates. Han grunnla Akademiet i Athen og er kjent for hulelignelsen og sine dialoger om staten.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "antikken",
+      "athen"
+    ],
+    "subject": "historie",
+    "lifespan": "ca. 427 f.Kr. – 347 f.Kr.",
+    "link": "/historie/antikken/platon-og-aristoteles"
+  },
+  {
+    "term": "Sokrates",
+    "definition": "Gresk filosof fra Athen, regnet som en av grunnleggerne av vestlig filosofi. Han er kjent for den sokratiske metode (utspørring).",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "antikken",
+      "athen"
+    ],
+    "subject": "historie",
+    "lifespan": "ca. 470 f.Kr. – 399 f.Kr.",
+    "link": "/historie/antikken/sokrates"
+  },
+  {
+    "term": "Thomas Aquinas",
+    "definition": "Italiensk filosof og teolog fra middelalderen, regnet som en av kristendommens viktigste tenkere.",
+    "type": "person",
+    "tags": [
+      "middelalder",
+      "teologi",
+      "skolastikk"
+    ],
+    "subject": "historie",
+    "lifespan": "1225 – 1274",
+    "link": "/filosofi/middelalder/thomas-aquinas"
   }
 ]
