@@ -64,6 +64,18 @@
     "type": "concept"
   },
   {
+    "term": "Augustin",
+    "definition": "Også kjent som St. Augustin av Hippo. En av de viktigste kirkefedrene i den vestlige kristendommen, kjent for verket 'Gudstaten'.",
+    "type": "concept",
+    "tags": [
+      "antikken",
+      "teologi",
+      "kirken"
+    ],
+    "subject": "historie",
+    "link": "/krle/filosofi/augustin"
+  },
+  {
     "term": "autoritært diktatur",
     "definition": "Folket får ikke være med å bestemme, men kan til en viss grad mene ting. Staten kontrollerer politikken, men lar folk leve livene sine relativt fritt ellers.",
     "subject": "samfunnskunnskap",
@@ -112,6 +124,29 @@
     "type": "concept"
   },
   {
+    "term": "Dachau",
+    "definition": "Den første konsentrasjonsleiren etablert av nazistene i Tyskland (1933). Den fungerte som modell for alle senere leirer.",
+    "type": "concept",
+    "tags": [
+      "andre verdenskrig",
+      "holocaust",
+      "tyskland"
+    ],
+    "subject": "historie"
+  },
+  {
+    "term": "David Hume",
+    "definition": "Skotsk filosof og historiker, regnet som en av de viktigste figurene i den vestlige filosofiens historie og i den skotske opplysningstiden.",
+    "type": "concept",
+    "tags": [
+      "opplysningstid",
+      "skottland",
+      "empirisme"
+    ],
+    "subject": "historie",
+    "link": "/krle/filosofi/hume"
+  },
+  {
     "term": "De allierte",
     "definition": "Alliansen som kjempet mot Aksemaktene, ledet av Storbritannia, USA og Sovjetunionen.",
     "subject": "historie",
@@ -148,12 +183,15 @@
     "type": "concept"
   },
   {
-    "term": "diktatur",
-    "definition": "All makt er samlet hos én person eller en liten gruppe. Makten er ofte tatt med vold (kupp). Befolkningen har liten eller ingen mulighet til å påvirke styret.",
-    "subject": "samfunnskunnskap",
-    "topic": "styringsformer",
-    "tags": [],
+    "term": "Diktatur",
+    "definition": "En styreform der makten er konsentrert hos én person eller en liten gruppe, uten demokratisk kontroll eller frie valg.",
     "type": "concept",
+    "tags": [
+      "styreform",
+      "samfunnsfag",
+      "politikk"
+    ],
+    "subject": "historie",
     "link": "/samfunnskunnskap/styringsformer/diktaturet"
   },
   {
@@ -181,6 +219,17 @@
     "type": "concept"
   },
   {
+    "term": "Etos",
+    "definition": "En av de tre retoriske appellformene. Handler om avsenderens troverdighet, karakter og moralske autoritet.",
+    "type": "concept",
+    "tags": [
+      "retorikk",
+      "norsk",
+      "appellformer"
+    ],
+    "subject": "norsk"
+  },
+  {
     "term": "Ettergivenhetspolitikk",
     "definition": "Politikken om å gi etter for en aggressors krav i håp om å unngå krig (Appeasement).",
     "subject": "historie",
@@ -197,12 +246,46 @@
     "type": "concept"
   },
   {
+    "term": "Førromersk jernalder",
+    "definition": "Den eldste delen av jernalderen i Norden, som strekker seg fra ca. 500 fvt. til begynnelsen av vår tidsregning.",
+    "type": "concept",
+    "tags": [
+      "jernalder",
+      "norge",
+      "historie"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Folkeforbundet",
     "definition": "En internasjonal organisasjon opprettet etter krigen for å sikre fred og internasjonalt samarbeid.",
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Friedrich Nietzsche",
+    "definition": "Tysk filosof, kulturkritiker og lyriker, kjent for sine ideer om 'overmennesket', 'viljen til makt' og kritikken av kristen moral.",
+    "type": "concept",
+    "tags": [
+      "filosofi",
+      "tyskland",
+      "eksistensialisme"
+    ],
+    "subject": "historie",
+    "link": "/krle/filosofi/nietzsche"
+  },
+  {
+    "term": "Gaius Octavius",
+    "definition": "Bedre kjent som Augustus, den første romerske keiseren. Han forvandlet den romerske republikken til et keiserriket etter borgerkrigen mot Marcus Antonius.",
+    "type": "concept",
+    "tags": [
+      "roma",
+      "antikken",
+      "keiser"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Glasnost",
@@ -217,12 +300,45 @@
     "type": "concept"
   },
   {
+    "term": "Gustav II Adolf",
+    "definition": "Konge av Sverige fra 1611 til 1632. Han regnes som en av de største militærstrategene i historien og spilte en avgjørende rolle i 30-årskrigen.",
+    "type": "concept",
+    "tags": [
+      "stormaktstid",
+      "sverige",
+      "30-årskrigen"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Habsburgerne",
     "definition": "Det mektige kongehuset som styrte Det tysk-romerske riket, Spania og Østerrike.",
     "subject": "historie",
     "topic": "reformasjonen",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Helsetning",
+    "definition": "En setning som kan stå alene og gi fullstendig mening. Den inneholder minst et subjekt og et verbal.",
+    "type": "concept",
+    "tags": [
+      "grammatikk",
+      "norsk",
+      "setningsanalyse"
+    ],
+    "subject": "norsk"
+  },
+  {
+    "term": "Henrik Krummedige",
+    "definition": "Dansk-norsk adelsmann og riksråd, kjent for sin bitre maktkamp mot Knut Alvsson på begynnelsen av 1500-tallet.",
+    "type": "concept",
+    "tags": [
+      "norge",
+      "danmark",
+      "middelalder"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Holocaust",
@@ -249,6 +365,28 @@
     "type": "concept"
   },
   {
+    "term": "Investiturstriden",
+    "definition": "En konflikt mellom kirken og staten i middelalderen (ca. 1075–1122) om hvem som hadde rett til å utnevne biskoper og abbeder.",
+    "type": "concept",
+    "tags": [
+      "middelalder",
+      "kirken",
+      "maktkamp"
+    ],
+    "subject": "historie"
+  },
+  {
+    "term": "Jeanne d’Arc",
+    "definition": "En fransk nasjonalhelt og helgen som ledet den franske hæren til flere viktige seire under Hundreårskrigen mot England.",
+    "type": "concept",
+    "tags": [
+      "middelalder",
+      "frankrike",
+      "kriger"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Jernteppet",
     "definition": "Et begrep brukt om den politiske, ideologiske og fysiske grensen som delte Europa i to maktblokker fra 1945 til 1991: Vestblokken (støttet av USA) og Østblokken (støttet av Sovjetunionen).",
     "subject": "historie",
@@ -259,6 +397,29 @@
       "grense"
     ],
     "type": "concept"
+  },
+  {
+    "term": "John Locke",
+    "definition": "Engelsk filosof og lege, ofte sett på som 'liberalismens far' og en av de mest innflytelsesrike opplysningstenkerne.",
+    "type": "concept",
+    "tags": [
+      "opplysningstid",
+      "liberalisme",
+      "england"
+    ],
+    "subject": "historie",
+    "link": "/krle/filosofi/locke"
+  },
+  {
+    "term": "Julius Cæsar",
+    "definition": "Romersk statsmann, general og forfatter som spilte en kritisk rolle i hendelsene som førte til slutten på den romerske republikken og fremveksten av Romerriket.",
+    "type": "concept",
+    "tags": [
+      "antikken",
+      "roma",
+      "diktator"
+    ],
+    "subject": "historie"
   },
   {
     "term": "justinianerpesten",
@@ -273,12 +434,57 @@
     "type": "concept"
   },
   {
+    "term": "Justinianske pest",
+    "definition": "En omfattende pandemi på 500-tallet (fra 541 evt.) som rammet Østromerriket og store deler av Europa. Det var det første kjente utbruddet av byllepest i historien.",
+    "type": "concept",
+    "tags": [
+      "middelalder",
+      "sykdom",
+      "pest"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "kapitalisme",
     "definition": "Markedsøkonomi. Produksjon er privat eiendom. Styres av tilbud og etterspørsel (profitt og tap). Kundene \"bestemmer\" hva som lages.",
     "subject": "samfunnskunnskap",
     "topic": "demografi-okonomi",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Karl den store",
+    "definition": "Frankerkongen som ble kronet til romersk keiser i år 800. Han samlet store deler av Vest-Europa og la grunnlaget for det som senere ble Det hellige romerske rike.",
+    "type": "concept",
+    "tags": [
+      "middelalder",
+      "frankerriket",
+      "keiser"
+    ],
+    "subject": "historie"
+  },
+  {
+    "term": "Kleopatra",
+    "definition": "Den siste aktive herskeren av det ptolemeiske kongedømmet i Egypt. Hun var kjent for sine politiske allianser med Julius Cæsar og Marcus Antonius.",
+    "type": "concept",
+    "tags": [
+      "antikken",
+      "egypt",
+      "roma"
+    ],
+    "subject": "historie"
+  },
+  {
+    "term": "Knut Alvsson",
+    "definition": "Norsk adelsmann og ridder som ledet et opprør mot den danske kong Hans i 1501. Han ble drept av Henrik Krummedige under forhandlinger.",
+    "type": "concept",
+    "tags": [
+      "norge",
+      "opprør",
+      "middelalder"
+    ],
+    "subject": "historie",
+    "link": "/historie/norgeshistorie/knut-alvsson"
   },
   {
     "term": "koloni",
@@ -297,6 +503,17 @@
     "type": "concept"
   },
   {
+    "term": "Komsakulturen",
+    "definition": "En eldre steinalderkultur i Finnmark og Nord-Troms, datert til ca. 9000–7000 fvt. Navnet kommer fra Komsa-fjellet ved Alta.",
+    "type": "concept",
+    "tags": [
+      "steinader",
+      "norge",
+      "arkeologi"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Krigserstatning",
     "definition": "Økonomisk kompensasjon som den tapende part i en krig må betale til seierherrene for skadene som er påført.",
     "subject": "historie",
@@ -313,12 +530,34 @@
     "type": "concept"
   },
   {
+    "term": "Leddsetning",
+    "definition": "En setning som ikke kan stå alene og gi mening, men som fungerer som et ledd i en annen setning (helsetning). Begynner ofte med en subjunksjon (som 'da', 'fordi', 'hvis').",
+    "type": "concept",
+    "tags": [
+      "grammatikk",
+      "norsk",
+      "setningsanalyse"
+    ],
+    "subject": "norsk"
+  },
+  {
     "term": "Leiesoldater",
     "definition": "Soldater som kjemper for betaling, ikke for et land eller en sak. Ofte brutale mot sivilbefolkningen.",
     "subject": "historie",
     "topic": "reformasjonen",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Logos",
+    "definition": "En av de tre retoriske appellformene. Handler om logisk argumentasjon, fakta og saklig innhold.",
+    "type": "concept",
+    "tags": [
+      "retorikk",
+      "norsk",
+      "appellformer"
+    ],
+    "subject": "norsk"
   },
   {
     "term": "MAD",
@@ -349,6 +588,17 @@
     "type": "concept"
   },
   {
+    "term": "Marcus Antonius",
+    "definition": "Romersk politiker og general som var en nær støttespiller for Julius Cæsar. Han er mest kjent for sitt forhold til Kleopatra og maktkampen mot Octavius.",
+    "type": "concept",
+    "tags": [
+      "roma",
+      "antikken",
+      "general"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Marshallhjelpen",
     "definition": "Et omfattende amerikansk økonomisk hjelpeprogram (1948-1952) rettet mot gjenoppbyggingen av Europa etter andre verdenskrig. Målet var å skape økonomisk stabilitet og hindre kommunistisk innflytelse.",
     "subject": "historie",
@@ -360,6 +610,18 @@
       "europa"
     ],
     "type": "concept"
+  },
+  {
+    "term": "Martin Heidegger",
+    "definition": "Tysk filosof på 1900-tallet, best kjent for sitt verk 'Væren og tid' og sine bidrag til fenomenologi og eksistensialisme.",
+    "type": "concept",
+    "tags": [
+      "filosofi",
+      "tyskland",
+      "eksistensialisme"
+    ],
+    "subject": "historie",
+    "link": "/krle/filosofi/heidegger"
   },
   {
     "term": "merkantilisme",
@@ -463,6 +725,28 @@
     "type": "concept"
   },
   {
+    "term": "Patos",
+    "definition": "En av de tre retoriske appellformene. Handler om å vekke følelser hos mottakeren.",
+    "type": "concept",
+    "tags": [
+      "retorikk",
+      "norsk",
+      "appellformer"
+    ],
+    "subject": "norsk"
+  },
+  {
+    "term": "Pax Romana",
+    "definition": "En lang periode med relativ fred og stabilitet i Romerriket, som varte fra Augustus' regjeringstid til slutten av det 2. århundre evt.",
+    "type": "concept",
+    "tags": [
+      "roma",
+      "antikken",
+      "fred"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Penicillin",
     "definition": "En type antibiotika som dreper bakterier og forhindrer infeksjoner.",
     "subject": "historie",
@@ -530,6 +814,28 @@
     "tags": [],
     "type": "concept",
     "link": "/historie/romerriket/augustus-og-keiserdomme"
+  },
+  {
+    "term": "Rhinen",
+    "definition": "En av Europas lengste og viktigste elver. I antikken utgjorde den sammen med Donau mye av den nordlige grensen (limes) for Romerriket.",
+    "type": "concept",
+    "tags": [
+      "geografi",
+      "europa",
+      "roma"
+    ],
+    "subject": "historie"
+  },
+  {
+    "term": "Rubicon",
+    "definition": "En liten elv i Nord-Italia. Da Julius Cæsar krysset elven med sin hær i 49 fvt., brøt han romersk lov og startet en borgerkrig. Uttrykket 'å krysse Rubicon' betyr å ta en ugjenkallelig beslutning.",
+    "type": "concept",
+    "tags": [
+      "roma",
+      "historie",
+      "uttrykk"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Schlieffen-planen",
@@ -623,6 +929,17 @@
     "type": "concept"
   },
   {
+    "term": "Subjektet",
+    "definition": "Den delen av en setning som forteller hvem eller hva som utfører handlingen (verbalet).",
+    "type": "concept",
+    "tags": [
+      "grammatikk",
+      "norsk",
+      "setningsanalyse"
+    ],
+    "subject": "norsk"
+  },
+  {
     "term": "Suverenitetsprinsippet",
     "definition": "Ideen om at en stat bestemmer over seg selv, uten innblanding fra andre stater eller paven.",
     "subject": "historie",
@@ -663,6 +980,18 @@
     "type": "concept"
   },
   {
+    "term": "Thomas Aquinas",
+    "definition": "Italiensk filosof og teolog fra middelalderen, regnet som en av kristendommens viktigste tenkere.",
+    "type": "concept",
+    "tags": [
+      "middelalder",
+      "teologi",
+      "skolastikk"
+    ],
+    "subject": "historie",
+    "link": "/krle/filosofi/aquinas"
+  },
+  {
     "term": "Total krig",
     "definition": "En krigføring der alle samfunnets ressurser mobiliseres, og skillet mellom militære og sivile mål forsvinner.",
     "subject": "historie",
@@ -677,6 +1006,17 @@
     "topic": "styringsformer",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Traktbegerkulturen",
+    "definition": "Den første jordbrukskulturen i Sør-Norge og Nord-Europa, kjennetegnet av karakteristiske traktformede leirkar.",
+    "type": "concept",
+    "tags": [
+      "steinalder",
+      "jordbruk",
+      "norge"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Truman-doktrinen",
@@ -723,12 +1063,26 @@
     "type": "concept"
   },
   {
+    "term": "Verbalet",
+    "definition": "Den delen av en setning som forteller hva som skjer eller hva som gjøres. Det består alltid av ett eller flere verb.",
+    "type": "concept",
+    "tags": [
+      "grammatikk",
+      "norsk",
+      "setningsanalyse"
+    ],
+    "subject": "norsk"
+  },
+  {
     "term": "Versailles-traktaten",
-    "definition": "Fredsavtalen etter første verdenskrig som mange tyskere opplevde som urettferdig og ydmykende.",
-    "subject": "historie",
-    "topic": "andre-verdenskrig",
-    "tags": [],
-    "type": "concept"
+    "definition": "Fredsavtalen som ble undertegnet i 1919 etter første verdenskrig. Avtalen la skylden for krigen på Tyskland og påla dem harde krigsskadeerstatninger.",
+    "type": "concept",
+    "tags": [
+      "første verdenskrig",
+      "tyskland",
+      "fredsavtale"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Vestfronten",

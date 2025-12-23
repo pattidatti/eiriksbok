@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane, History } from 'lucide-react';
+import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane, History, Users } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
@@ -11,6 +11,14 @@ export const PracticePage: React.FC = () => {
             icon: Brain,
             color: 'bg-indigo-500',
             link: '/oving/flashcards'
+        },
+        {
+            id: 'persongalleri',
+            title: 'Persongalleri',
+            description: 'Møt de mest sentrale historiske personene og tenkerne.',
+            icon: Users,
+            color: 'bg-orange-500',
+            link: '/persongalleri'
         },
         {
             id: 'quiz',

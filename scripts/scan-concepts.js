@@ -121,21 +121,52 @@ console.log(`Scanning ${filteredArticleFiles.length} articles for suggestions...
 const candidates = {};
 const mentions = {};
 const frequentTerms = {};
+const potentialPeople = {};
 
 filteredArticleFiles.forEach(file => {
     try {
         const content = JSON.parse(fs.readFileSync(file, 'utf-8'));
         if (!content.content) return;
 
-        // Extract all text
-        let fullText = "";
-        content.content.forEach(block => {
-            if (block.type === 'text' && block.text) {
-                fullText += block.text + "\n";
-            } else if (block.type === 'text' && block.content) {
-                fullText += block.content + "\n";
+        // Extract all text recursively
+        function extractText(obj) {
+            let text = "";
+            if (typeof obj === 'string') return obj + " ";
+            if (Array.isArray(obj)) {
+                obj.forEach(item => { text += extractText(item); });
+            } else if (typeof obj === 'object' && obj !== null) {
+                if (obj.text) text += obj.text + " ";
+                if (obj.content) text += extractText(obj.content);
+                if (obj.items) text += extractText(obj.items);
             }
-        });
+            return text;
+        }
+
+        let fullText = extractText(content.content);
+
+        // 4. Find Potential People (Title Case clusters)
+        // This regex looks for Title Case words, allowing for some small connectors like 'den', 'von', 'de'
+        const nameMatches = fullText.match(/\b[A-ZÆØÅ][a-zæøå']+\b(\s+(den|von|de|di|d')\s+\b[A-ZÆØÅ][a-zæøå']+\b)?(\s+\b[A-ZÆØÅ][a-zæøå']+\b)*/g);
+
+        if (nameMatches) {
+            nameMatches.forEach(name => {
+                const lowerName = name.toLowerCase();
+                if (name.length < 3) return;
+                if (stopWords.has(lowerName)) return;
+                if (knownTerms.has(lowerName)) return;
+
+                const excludes = ['Norge', 'Sverige', 'Danmark', 'Tyskland', 'Europa', 'Vesten', 'Verden', 'Nord-Norge', 'Sør-Norge', 'Oslo', 'Bergen', 'Romerriket', 'Middelalderen', 'Historien', 'Kirken', 'Staten', 'Byen', 'Landet', 'Gud', 'Guds', 'Jesus', 'Allah', 'Brahman', 'Buddha', 'Kristus'];
+                if (excludes.includes(name)) return;
+
+                if (!potentialPeople[name]) {
+                    potentialPeople[name] = { count: 0, sources: [] };
+                }
+                potentialPeople[name].count++;
+                if (!potentialPeople[name].sources.includes(content.title)) {
+                    potentialPeople[name].sources.push(content.title);
+                }
+            });
+        }
 
         // 1. Find Bold Candidates
         const boldMatches = fullText.matchAll(/\*\*(.*?)\*\*/g);
@@ -229,10 +260,25 @@ Object.entries(mentions).slice(0, 5).forEach(([term, sources]) => {
     console.log(`- ${term}: mentioned in ${sources.length} articles (${sources.slice(0, 3).join(', ')}...)`);
 });
 
+console.log("\n--- POTENTIAL PEOPLE (Title Case Clusters) ---");
+const sortedPeople = Object.entries(potentialPeople)
+    .sort(([, a], [, b]) => b.count - a.count)
+    .filter(([name, data]) => {
+        //Heuristic: names often consist of 1-3 words
+        const wordCount = name.split(/\s+/).length;
+        return wordCount >= 1 && wordCount <= 3 && data.count >= 1;
+    })
+    .slice(0, 100);
+
+sortedPeople.slice(0, 20).forEach(([name, data]) => {
+    console.log(`[👤] ${name} (Found ${data.count} times)`);
+});
+
 const SUGGESTIONS_FILE = path.join(__dirname, '../public/data/suggestions.json');
 const suggestions = {
     boldCandidates: sortedCandidates,
-    frequentTerms: sortedFrequent
+    frequentTerms: sortedFrequent,
+    potentialPeople: sortedPeople
 };
 fs.writeFileSync(SUGGESTIONS_FILE, JSON.stringify(suggestions, null, 2));
 console.log(`Saved suggestions to ${SUGGESTIONS_FILE}`);

@@ -1,0 +1,11 @@
+{
+    "term": "Helsetning",
+    "definition": "En setning som kan stå alene og gi fullstendig mening. Den inneholder minst et subjekt og et verbal.",
+    "type": "concept",
+    "tags": [
+        "grammatikk",
+        "norsk",
+        "setningsanalyse"
+    ],
+    "subject": "norsk"
+}

@@ -1,7 +1,11 @@
 {
   "term": "Versailles-traktaten",
-  "definition": "Fredsavtalen etter første verdenskrig som mange tyskere opplevde som urettferdig og ydmykende.",
-  "subject": "historie",
-  "topic": "andre-verdenskrig",
-  "tags": []
+  "definition": "Fredsavtalen som ble undertegnet i 1919 etter første verdenskrig. Avtalen la skylden for krigen på Tyskland og påla dem harde krigsskadeerstatninger.",
+  "type": "concept",
+  "tags": [
+    "første verdenskrig",
+    "tyskland",
+    "fredsavtale"
+  ],
+  "subject": "historie"
 }
