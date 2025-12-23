@@ -1,112 +1,90 @@
 {
-    "id": "konsekvenser",
-    "title": "Konsekvenser: En delt verden",
-    "subject": "historie",
-    "topic": "andre-verdenskrig",
-    "layout": "rich",
-    "year": "1945–1991",
-    "category": "Konsekvenser",
-    "readTime": "20 min lesning",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B%26W%29.jpg/1200px-Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B%26W%29.jpg",
-    "details": [
-        "Jernteppet delte Europa i øst og vest.",
-        "FN ble opprettet for å sikre menneskerettigheter.",
-        "Europeiske kolonier startet frigjøringskampen.",
-        "Marshallhjelpen gjenreiste Vest-Europa.",
-        "Norge gikk fra nøytralitet til NATO-medlemskap."
-    ],
-    "timeline": [],
-    "content": [
-        {
-            "type": "text",
-            "content": "Andre verdenskrig etterlot seg et Europa i ruiner og en verden i sjokk. Omfanget av ødeleggelsene og folkemordene tvang frem fundamentale endringer i internasjonal politikk, økonomi og lovgivning. Men drømmen om en fredelig verden ble raskt knust av en ny konflikt: [den kalde krigen](/historie/den-kalde-krigen/oversikt)."
-        },
-        {
-            "type": "header",
-            "text": "Supermaktene og Jernteppet"
-        },
-        {
-            "type": "text",
-            "content": "Krigens store vinnere var USA og Sovjetunionen. De gamle europeiske stormaktene, Storbritannia, Frankrike og Tyskland, var enten knust eller økonomisk utslitt. USA og Sovjetunionen sto for to helt ulike ideologier: kapitalistisk demokrati i vest og kommunistisk diktatur i øst. Mistilliten mellom dem vokste raskt.\n\nStalin sørget for å installere kommunistiske lydriker i landene den røde armé hadde frigjort i Øst-Europa (Polen, Ungarn, Tsjekkoslovakia, etc.). Tyskland ble delt i to: Vest-Tyskland (alliert med USA) og Øst-Tyskland (kontrollert av Sovjet). Den britiske statsministeren Winston Churchill erklærte i 1946 at et «jernteppe» hadde senket seg over Europa. Verden var delt i to blokker, og en langvarig maktkamp var i gang."
-        },
-        {
-            "type": "component",
-            "component": "Comparison",
-            "props": {
-                "title": "Den kalde krigens blokker",
-                "leftTitle": "Vestblokken (USA)",
-                "rightTitle": "Østblokken (Sovjetunionen)",
-                "items": [
-                    {
-                        "left": "Kapitalisme / Markedsøkonomi",
-                        "right": "Kommunisme / Planøkonomi"
-                    },
-                    {
-                        "left": "Demokrati",
-                        "right": "Ettpartistat / Diktatur"
-                    },
-                    {
-                        "left": "NATO",
-                        "right": "Warszawapakten"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "header",
-            "text": "FN og menneskerettighetene"
-        },
-        {
-            "type": "text",
-            "content": "For å unngå feilene fra Folkeforbundet, ble De forente nasjoner (FN) grunnlagt i San Francisco i 1945. Målet var å sikre verdensfreden gjennom internasjonalt samarbeid. I kjølvannet av Holocausts redsler vedtok FN i 1948 Verdenserklæringen om menneskerettighetene. For første gang ble det slått fast at alle mennesker har visse rettigheter som ingen stat kan ta fra dem. Begreper som «forbrytelser mot menneskeheten» og «folkemord» ble del av internasjonal lov, og naziledere ble stilt for retten og dømt under Nürnbergprosessene."
-        },
-        {
-            "type": "header",
-            "text": "Kolonienes frigjøring"
-        },
-        {
-            "type": "text",
-            "content": "Krigen ble dødsstøtet for de europeiske kolonirikene. Storbritannia og Frankrike var for svake til å holde på sine imperier, og myten om den hvite manns overlegenhet var knust. Soldater fra India og Afrika hadde kjempet og dødd for frihet i Europa, og nå krevde de frihet hjemme. I årene etter krigen ble store land som India (1947), Indonesia (1949) og en rekke afrikanske stater selvstendige. Denne avkoloniseringen endret verdenskartet totalt."
-        },
-        {
-            "type": "header",
-            "text": "Marshallhjelpen"
-        },
-        {
-            "type": "text",
-            "content": "USA innså at fattigdom og nød var grobunn for kommunisme og ekstremisme. I 1948 lanserte utenriksminister George Marshall en enorm økonomisk hjelpepakke for å gjenreise Europa. Marshallhjelpen ga milliarder av dollar til gjenoppbygging av industri og infrastruktur i Vest-Europa. Dette bidro til en rask økonomisk vekst og styrket samholdet mellom de vestlige landene, men det forsterket også splittelsen med Sovjetunionen, som nektet østblokklandene å ta imot hjelpen."
-        },
-        {
-            "type": "header",
-            "text": "Norge etter krigen"
-        },
-        {
-            "type": "text",
-            "content": "For Norge førte krigen til et brudd med den gamle nøytralitetspolitikken. Erfaringen fra 9. april 1940 viste at nøytralitet ikke beskytter mot en aggressiv stormakt. Norge valgte derfor å søke sikkerhet i allianse med vestmaktene, og ble et av de stiftende medlemmene i forsvarsalliansen NATO i 1949. Landet gikk inn i en periode med sterk statlig styring og oppbygging av velferdsstaten, ofte under mottoet «Aldri mer 9. april»."
-        }
-    ],
-    "createdDate": "2025-12-21T15:40:00Z",
-    "lastUpdated": "2025-12-21T15:40:00Z",
-    "definitions": [
-        {
-            "term": "Jernteppet",
-            "definition": "Den ideologiske og fysiske grensen som delte Europa i en vestlig og en østlig blokk under den kalde krigen."
-        },
-        {
-            "term": "De forente nasjoner (FN)",
-            "definition": "Internasjonal organisasjon grunnlagt i 1945 for å fremme fred, samarbeid og menneskerettigheter."
-        },
-        {
-            "term": "Marshallhjelpen",
-            "definition": "Amerikansk økonomisk hjelpeprogram for gjenoppbyggingen av Europa etter andre verdenskrig."
-        },
-        {
-            "term": "Avkolonisering",
-            "definition": "Prosessen der kolonier blir selvstendige stater."
-        },
-        {
-            "term": "Nürnbergprosessene",
-            "definition": "Rettssakene mot ledende nazister etter krigen, der prinsippet om individuelt ansvar for krigsforbrytelser ble knesatt."
-        }
-    ]
+  "id": "konsekvenser",
+  "title": "Konsekvenser: En delt verden",
+  "subject": "historie",
+  "topic": "andre-verdenskrig",
+  "layout": "rich",
+  "year": "1945–1991",
+  "category": "Konsekvenser",
+  "readTime": "20 min lesning",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B%26W%29.jpg/1200px-Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B%26W%29.jpg",
+  "details": [
+    "Jernteppet delte Europa i øst og vest.",
+    "FN ble opprettet for å sikre menneskerettigheter.",
+    "Europeiske kolonier startet frigjøringskampen.",
+    "Marshallhjelpen gjenreiste Vest-Europa.",
+    "Norge gikk fra nøytralitet til NATO-medlemskap."
+  ],
+  "timeline": [],
+  "content": [
+    {
+      "type": "text",
+      "content": "Andre verdenskrig etterlot seg et Europa i ruiner og en verden i sjokk. Omfanget av ødeleggelsene og folkemordene tvang frem fundamentale endringer i internasjonal politikk, økonomi og lovgivning. Men drømmen om en fredelig verden ble raskt knust av en ny konflikt: [den kalde krigen](/historie/den-kalde-krigen/oversikt)."
+    },
+    {
+      "type": "header",
+      "text": "Supermaktene og Jernteppet"
+    },
+    {
+      "type": "text",
+      "content": "Krigens store vinnere var USA og Sovjetunionen. De gamle europeiske stormaktene, Storbritannia, Frankrike og Tyskland, var enten knust eller økonomisk utslitt. USA og Sovjetunionen sto for to helt ulike ideologier: kapitalistisk demokrati i vest og kommunistisk diktatur i øst. Mistilliten mellom dem vokste raskt.\n\nStalin sørget for å installere kommunistiske lydriker i landene den røde armé hadde frigjort i Øst-Europa (Polen, Ungarn, Tsjekkoslovakia, etc.). Tyskland ble delt i to: Vest-Tyskland (alliert med USA) og Øst-Tyskland (kontrollert av Sovjet). Den britiske statsministeren Winston Churchill erklærte i 1946 at et «jernteppe» hadde senket seg over Europa. Verden var delt i to blokker, og en langvarig maktkamp var i gang."
+    },
+    {
+      "type": "component",
+      "component": "Comparison",
+      "props": {
+        "title": "Den kalde krigens blokker",
+        "leftTitle": "Vestblokken (USA)",
+        "rightTitle": "Østblokken (Sovjetunionen)",
+        "items": [
+          {
+            "left": "Kapitalisme / Markedsøkonomi",
+            "right": "Kommunisme / Planøkonomi"
+          },
+          {
+            "left": "Demokrati",
+            "right": "Ettpartistat / Diktatur"
+          },
+          {
+            "left": "NATO",
+            "right": "Warszawapakten"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "FN og menneskerettighetene"
+    },
+    {
+      "type": "text",
+      "content": "For å unngå feilene fra Folkeforbundet, ble De forente nasjoner (FN) grunnlagt i San Francisco i 1945. Målet var å sikre verdensfreden gjennom internasjonalt samarbeid. I kjølvannet av Holocausts redsler vedtok FN i 1948 Verdenserklæringen om menneskerettighetene. For første gang ble det slått fast at alle mennesker har visse rettigheter som ingen stat kan ta fra dem. Begreper som «forbrytelser mot menneskeheten» og «folkemord» ble del av internasjonal lov, og naziledere ble stilt for retten og dømt under Nürnbergprosessene."
+    },
+    {
+      "type": "header",
+      "text": "Kolonienes frigjøring"
+    },
+    {
+      "type": "text",
+      "content": "Krigen ble dødsstøtet for de europeiske kolonirikene. Storbritannia og Frankrike var for svake til å holde på sine imperier, og myten om den hvite manns overlegenhet var knust. Soldater fra India og Afrika hadde kjempet og dødd for frihet i Europa, og nå krevde de frihet hjemme. I årene etter krigen ble store land som India (1947), Indonesia (1949) og en rekke afrikanske stater selvstendige. Denne avkoloniseringen endret verdenskartet totalt."
+    },
+    {
+      "type": "header",
+      "text": "Marshallhjelpen"
+    },
+    {
+      "type": "text",
+      "content": "USA innså at fattigdom og nød var grobunn for kommunisme og ekstremisme. I 1948 lanserte utenriksminister George Marshall en enorm økonomisk hjelpepakke for å gjenreise Europa. Marshallhjelpen ga milliarder av dollar til gjenoppbygging av industri og infrastruktur i Vest-Europa. Dette bidro til en rask økonomisk vekst og styrket samholdet mellom de vestlige landene, men det forsterket også splittelsen med Sovjetunionen, som nektet østblokklandene å ta imot hjelpen."
+    },
+    {
+      "type": "header",
+      "text": "Norge etter krigen"
+    },
+    {
+      "type": "text",
+      "content": "For Norge førte krigen til et brudd med den gamle nøytralitetspolitikken. Erfaringen fra 9. april 1940 viste at nøytralitet ikke beskytter mot en aggressiv stormakt. Norge valgte derfor å søke sikkerhet i allianse med vestmaktene, og ble et av de stiftende medlemmene i forsvarsalliansen NATO i 1949. Landet gikk inn i en periode med sterk statlig styring og oppbygging av velferdsstaten, ofte under mottoet «Aldri mer 9. april»."
+    }
+  ],
+  "createdDate": "2025-12-21T15:40:00Z",
+  "lastUpdated": "2025-12-21T15:40:00Z"
 }

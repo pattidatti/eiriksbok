@@ -1,135 +1,109 @@
 {
-    "id": "opptakt",
-    "title": "Opptakten: Veien mot katastrofen",
-    "subject": "historie",
-    "topic": "forste-verdenskrig",
-    "layout": "rich",
-    "year": "1900–1914",
-    "category": "Geopolitikk",
-    "readTime": "20 min lesning",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gavrilo_Princip_captured_in_Sarajevo_1914.jpg/1200px-Gavrilo_Princip_captured_in_Sarajevo_1914.jpg",
-    "details": [
-        "Europa var delt i to store allianseblokker.",
-        "Imperialisme og kappløp om kolonier skapte spenning.",
-        "Nasjonalismen vokste, spesielt på Balkan.",
-        "Skuddene i Sarajevo utløste krigen.",
-        "Juli-krisen førte til en kjedereaksjon av krigserklæringer."
-    ],
-    "timeline": [],
-    "content": [
-        {
-            "type": "text",
-            "content": "Hvordan kunne et mord i en by få mennesker hadde hørt om, kaste hele verden ut i en fire år lang krig? Svaret ligger ikke bare i selve skuddene i Sarajevo, men i tiår med oppbygget spenning, hemmelige avtaler, rustningskappløp og en aggressiv maktkamp mellom Europas stormakter. I 1914 var Europa som en trykkoker som bare ventet på en gnist for å eksplodere."
-        },
-        {
-            "type": "header",
-            "text": "Stormaktenes spill: Imperialisme og Allianser"
-        },
-        {
-            "type": "text",
-            "content": "På starten av 1900-tallet var Europa verdens sentrum både økonomisk, militært og kulturelt. Stormaktene Storbritannia, Frankrike og Tyskland konkurrerte om innflytelse ikke bare i Europa, men over hele kloden. Imperialismen var på sitt høydepunkt, og stormaktene hadde delt nesten hele Afrika og store deler av Asia mellom seg. Denne jakten på kolonier, ressurser og markeder skapte friksjon og konflikter. Tyskland, som ble samlet til ett rike først i 1871, var en ung og ambisiøs nasjon. Landet hadde en sterkt voksende industri og militærmakt, og følte at de kom for sent til oppdelingen av verden. Keiser Wilhelm II krevde at Tyskland skulle ha sin «plass i solen», noe som ble oppfattet som en trussel, spesielt av Storbritannia som fryktet for sin dominans på verdenshavene.\n\nFor å sikre seg mot angrep og styrke sin posisjon, inngikk landene allianser. Europa ble gradvis delt i to væpnede leire:"
-        },
-        {
-            "type": "list",
-            "ordered": false,
-            "items": [
-                "Trippelententen besto av Storbritannia, Frankrike og Russland.",
-                "Trippelalliansen besto av Tyskland, Østerrike-Ungarn og Italia."
-            ]
-        },
-        {
-            "type": "component",
-            "component": "Comparison",
-            "props": {
-                "title": "Maktbalansen i 1914",
-                "leftTitle": "Trippelententen",
-                "rightTitle": "Trippelalliansen",
-                "items": [
-                    {
-                        "left": "Storbritannia",
-                        "right": "Tyskland"
-                    },
-                    {
-                        "left": "Frankrike",
-                        "right": "Østerrike-Ungarn"
-                    },
-                    {
-                        "left": "Russland",
-                        "right": "Italia (byttet side i 1915)"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "text",
-            "content": "Tanken bak alliansene var maktbalanse; ingen ville våge å starte en krig hvis de visste at fienden hadde mektige venner. Men systemet hadde en farlig bakside. Det betydde at en lokal konflikt mellom to land raskt kunne involvere alle stormaktene, ettersom de var forpliktet til å hjelpe hverandre."
-        },
-        {
-            "type": "header",
-            "text": "Balkan: Europas kruttønne"
-        },
-        {
-            "type": "text",
-            "content": "Sørøst i Europa, på Balkan, var situasjonen spesielt ustabil. Det gamle osmanske riket, som lenge hadde kontrollert området, var i ferd med å gå i oppløsning. Dette skapte et maktvakuum som både Østerrike-Ungarn og Russland ønsket å fylle. Samtidig vokste nasjonalismen frem blant folkegruppene i regionen. Nye nasjoner som Serbia, Bulgaria og Hellas hadde løsrevet seg og drømte om å utvide sine grenser.\n\nSerbia var spesielt ambisiøse og ønsket å samle alle slavere på Balkan i ett stort rike (Jugoslavia). Dette var en direkte trussel mot nabolandet Østerrike-Ungarn, som selv var et multietnisk imperium med mange slaviske innbyggere. Østerrike-Ungarn fryktet at serbisk nasjonalisme ville inspirere deres egne minoriteter til opprør og rive riket i stykker. Russland, på sin side, så på seg selv som slavernes beskytter i Europa og støttet Serbia både politisk og militært."
-        },
-        {
-            "type": "header",
-            "text": "Skuddene i Sarajevo"
-        },
-        {
-            "type": "text",
-            "content": "Den 28. juni 1914 besøkte den østerrikske tronarvingen, erkehertug Franz Ferdinand, byen Sarajevo i Bosnia. Bosnia var nylig blitt annektert av Østerrike-Ungarn, noe mange serbere mislikte sterkt. En gruppe unge revolusjonære nasjonalister, støttet av den hemmelige serbiske organisasjonen «Den sorte hånd», planla å drepe erkehertugen for å ramme okkupasjonsmakten.\n\nBesøket startet dårlig med et mislykket bombeangrep mot kortesjen. Senere på dagen kjørte erkehertugens bil feil og stoppet tilfeldigvis rett foran en av de andre attentatmennene, 19 år gamle Gavrilo Princip. Princip trakk en pistol og skjøt to skudd på kloss hold. Både Franz Ferdinand og hans gravide kone Sophie ble truffet og døde kort tid etter. Ingen visste det da, men disse to skuddene skulle bli startskuddet – [casus belli](/samfunnskunnskap/ideer-og-verdenssyn/casus-belli) – for verdenskrigen."
-        },
-        {
-            "type": "header",
-            "text": "Juli-krisen: Kjedereaksjonen"
-        },
-        {
-            "type": "text",
-            "content": "Skuddene i Sarajevo utløste en diplomatisk krise som varte gjennom hele juli 1914, kjent som Juli-krisen. Østerrike-Ungarn så sitt snitt til å knuse den serbiske trusselen en gang for alle, men de trengte ryggdekning fra sin mektige allierte, Tyskland. Tyskland ga dem det som historikere kaller en «blankoblankett» – et løfte om full og uforbeholden støtte uansett hva Østerrike-Ungarn valgte å gjøre. Med tysk støtte i ryggen sendte Østerrike-Ungarn et ultimatum til Serbia med så harde krav at de regnet med at Serbia ville avvise dem.\n\nOverraskende nok godtok Serbia nesten alle kravene, men det var ikke nok for Wien. Den 28. juli erklærte Østerrike-Ungarn krig mot Serbia. Da begynte allianseforpliktelsene og mobiliseringsplanene å styre begivenhetene, nesten som et tog uten bremser:"
-        },
-        {
-            "type": "list",
-            "ordered": true,
-            "items": [
-                "Russland kunne ikke sitte og se på at Serbia ble knust, og beordret mobilisering av hæren sin.",
-                "Tyskland krevde at Russland skulle stoppe mobiliseringen. Da russerne nektet, erklærte Tyskland krig mot Russland 1. august.",
-                "Frankrike, Russlands allierte, begynte å mobilisere. Tyskland erklærte krig mot Frankrike 3. august.",
-                "Tyskland hadde en krigsplan, Schlieffen-planen, som gikk ut på å slå ut Frankrike raskt før Russland rakk å bli kampklare. Den raskeste veien til Paris gikk gjennom det nøytrale Belgia.",
-                "Da tyske tropper marsjerte inn i Belgia 4. august, erklærte Storbritannia krig mot Tyskland, ettersom de hadde garantert for Belgias nøytralitet."
-            ]
-        },
-        {
-            "type": "text",
-            "content": "På under en uke hadde en lokal konflikt på Balkan dratt nesten hele Europa inn i en storkrig. Entusiasmen var stor i mange hovedsteder; soldatene marsjerte ut til jubel og blomster, overbevist om at de ville «være hjemme igjen før jul»."
-        }
-    ],
-    "createdDate": "2025-12-21T14:10:00Z",
-    "lastUpdated": "2025-12-21T14:10:00Z",
-    "definitions": [
-        {
-            "term": "Imperialisme",
-            "definition": "En politikk der en stat forsøker å skaffe seg politisk, kulturell, økonomisk eller militært herredømme utover sine egne grenser."
-        },
-        {
-            "term": "Nasjonalisme",
-            "definition": "En ideologi som hevder at hver nasjon (folkegruppe) skal ha sin egen stat."
-        },
-        {
-            "term": "Allianse",
-            "definition": "En avtale mellom land om gjensidig støtte, ofte militært, hvis et av landene blir angrepet."
-        },
-        {
-            "term": "Schlieffen-planen",
-            "definition": "Tysklands krigsplan for å unngå en tofrontskrig ved å slå ut Frankrike raskt før Russland rakk å mobilisere."
-        },
-        {
-            "term": "Blankoblankett",
-            "definition": "Fullmakt eller uforbeholden støtte. Refererer til Tysklands løfte til Østerrike-Ungarn i 1914."
-        },
-        {
-            "term": "Ultimatum",
-            "definition": "Et endelig krav som må oppfylles innen en viss tidsfrist for å unngå alvorlige konsekvenser, ofte krig."
-        }
-    ]
+  "id": "opptakt",
+  "title": "Opptakten: Veien mot katastrofen",
+  "subject": "historie",
+  "topic": "forste-verdenskrig",
+  "layout": "rich",
+  "year": "1900–1914",
+  "category": "Geopolitikk",
+  "readTime": "20 min lesning",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gavrilo_Princip_captured_in_Sarajevo_1914.jpg/1200px-Gavrilo_Princip_captured_in_Sarajevo_1914.jpg",
+  "details": [
+    "Europa var delt i to store allianseblokker.",
+    "Imperialisme og kappløp om kolonier skapte spenning.",
+    "Nasjonalismen vokste, spesielt på Balkan.",
+    "Skuddene i Sarajevo utløste krigen.",
+    "Juli-krisen førte til en kjedereaksjon av krigserklæringer."
+  ],
+  "timeline": [],
+  "content": [
+    {
+      "type": "text",
+      "content": "Hvordan kunne et mord i en by få mennesker hadde hørt om, kaste hele verden ut i en fire år lang krig? Svaret ligger ikke bare i selve skuddene i Sarajevo, men i tiår med oppbygget spenning, hemmelige avtaler, rustningskappløp og en aggressiv maktkamp mellom Europas stormakter. I 1914 var Europa som en trykkoker som bare ventet på en gnist for å eksplodere."
+    },
+    {
+      "type": "header",
+      "text": "Stormaktenes spill: Imperialisme og Allianser"
+    },
+    {
+      "type": "text",
+      "content": "På starten av 1900-tallet var Europa verdens sentrum både økonomisk, militært og kulturelt. Stormaktene Storbritannia, Frankrike og Tyskland konkurrerte om innflytelse ikke bare i Europa, men over hele kloden. Imperialismen var på sitt høydepunkt, og stormaktene hadde delt nesten hele Afrika og store deler av Asia mellom seg. Denne jakten på kolonier, ressurser og markeder skapte friksjon og konflikter. Tyskland, som ble samlet til ett rike først i 1871, var en ung og ambisiøs nasjon. Landet hadde en sterkt voksende industri og militærmakt, og følte at de kom for sent til oppdelingen av verden. Keiser Wilhelm II krevde at Tyskland skulle ha sin «plass i solen», noe som ble oppfattet som en trussel, spesielt av Storbritannia som fryktet for sin dominans på verdenshavene.\n\nFor å sikre seg mot angrep og styrke sin posisjon, inngikk landene allianser. Europa ble gradvis delt i to væpnede leire:"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Trippelententen besto av Storbritannia, Frankrike og Russland.",
+        "Trippelalliansen besto av Tyskland, Østerrike-Ungarn og Italia."
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Comparison",
+      "props": {
+        "title": "Maktbalansen i 1914",
+        "leftTitle": "Trippelententen",
+        "rightTitle": "Trippelalliansen",
+        "items": [
+          {
+            "left": "Storbritannia",
+            "right": "Tyskland"
+          },
+          {
+            "left": "Frankrike",
+            "right": "Østerrike-Ungarn"
+          },
+          {
+            "left": "Russland",
+            "right": "Italia (byttet side i 1915)"
+          }
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "Tanken bak alliansene var maktbalanse; ingen ville våge å starte en krig hvis de visste at fienden hadde mektige venner. Men systemet hadde en farlig bakside. Det betydde at en lokal konflikt mellom to land raskt kunne involvere alle stormaktene, ettersom de var forpliktet til å hjelpe hverandre."
+    },
+    {
+      "type": "header",
+      "text": "Balkan: Europas kruttønne"
+    },
+    {
+      "type": "text",
+      "content": "Sørøst i Europa, på Balkan, var situasjonen spesielt ustabil. Det gamle osmanske riket, som lenge hadde kontrollert området, var i ferd med å gå i oppløsning. Dette skapte et maktvakuum som både Østerrike-Ungarn og Russland ønsket å fylle. Samtidig vokste nasjonalismen frem blant folkegruppene i regionen. Nye nasjoner som Serbia, Bulgaria og Hellas hadde løsrevet seg og drømte om å utvide sine grenser.\n\nSerbia var spesielt ambisiøse og ønsket å samle alle slavere på Balkan i ett stort rike (Jugoslavia). Dette var en direkte trussel mot nabolandet Østerrike-Ungarn, som selv var et multietnisk imperium med mange slaviske innbyggere. Østerrike-Ungarn fryktet at serbisk nasjonalisme ville inspirere deres egne minoriteter til opprør og rive riket i stykker. Russland, på sin side, så på seg selv som slavernes beskytter i Europa og støttet Serbia både politisk og militært."
+    },
+    {
+      "type": "header",
+      "text": "Skuddene i Sarajevo"
+    },
+    {
+      "type": "text",
+      "content": "Den 28. juni 1914 besøkte den østerrikske tronarvingen, erkehertug Franz Ferdinand, byen Sarajevo i Bosnia. Bosnia var nylig blitt annektert av Østerrike-Ungarn, noe mange serbere mislikte sterkt. En gruppe unge revolusjonære nasjonalister, støttet av den hemmelige serbiske organisasjonen «Den sorte hånd», planla å drepe erkehertugen for å ramme okkupasjonsmakten.\n\nBesøket startet dårlig med et mislykket bombeangrep mot kortesjen. Senere på dagen kjørte erkehertugens bil feil og stoppet tilfeldigvis rett foran en av de andre attentatmennene, 19 år gamle Gavrilo Princip. Princip trakk en pistol og skjøt to skudd på kloss hold. Både Franz Ferdinand og hans gravide kone Sophie ble truffet og døde kort tid etter. Ingen visste det da, men disse to skuddene skulle bli startskuddet – [casus belli](/samfunnskunnskap/ideer-og-verdenssyn/casus-belli) – for verdenskrigen."
+    },
+    {
+      "type": "header",
+      "text": "Juli-krisen: Kjedereaksjonen"
+    },
+    {
+      "type": "text",
+      "content": "Skuddene i Sarajevo utløste en diplomatisk krise som varte gjennom hele juli 1914, kjent som Juli-krisen. Østerrike-Ungarn så sitt snitt til å knuse den serbiske trusselen en gang for alle, men de trengte ryggdekning fra sin mektige allierte, Tyskland. Tyskland ga dem det som historikere kaller en «blankoblankett» – et løfte om full og uforbeholden støtte uansett hva Østerrike-Ungarn valgte å gjøre. Med tysk støtte i ryggen sendte Østerrike-Ungarn et ultimatum til Serbia med så harde krav at de regnet med at Serbia ville avvise dem.\n\nOverraskende nok godtok Serbia nesten alle kravene, men det var ikke nok for Wien. Den 28. juli erklærte Østerrike-Ungarn krig mot Serbia. Da begynte allianseforpliktelsene og mobiliseringsplanene å styre begivenhetene, nesten som et tog uten bremser:"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Russland kunne ikke sitte og se på at Serbia ble knust, og beordret mobilisering av hæren sin.",
+        "Tyskland krevde at Russland skulle stoppe mobiliseringen. Da russerne nektet, erklærte Tyskland krig mot Russland 1. august.",
+        "Frankrike, Russlands allierte, begynte å mobilisere. Tyskland erklærte krig mot Frankrike 3. august.",
+        "Tyskland hadde en krigsplan, Schlieffen-planen, som gikk ut på å slå ut Frankrike raskt før Russland rakk å bli kampklare. Den raskeste veien til Paris gikk gjennom det nøytrale Belgia.",
+        "Da tyske tropper marsjerte inn i Belgia 4. august, erklærte Storbritannia krig mot Tyskland, ettersom de hadde garantert for Belgias nøytralitet."
+      ]
+    },
+    {
+      "type": "text",
+      "content": "På under en uke hadde en lokal konflikt på Balkan dratt nesten hele Europa inn i en storkrig. Entusiasmen var stor i mange hovedsteder; soldatene marsjerte ut til jubel og blomster, overbevist om at de ville «være hjemme igjen før jul»."
+    }
+  ],
+  "createdDate": "2025-12-21T14:10:00Z",
+  "lastUpdated": "2025-12-21T14:10:00Z"
 }

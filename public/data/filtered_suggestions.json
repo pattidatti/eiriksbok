@@ -1,0 +1,118 @@
+{
+  "boldCandidates": [
+    [
+      "Verbalet",
+      {
+        "count": 3,
+        "sources": [
+          "Setningsanalyse",
+          "Nivå 1: Grunnmuren (S-V)"
+        ]
+      }
+    ],
+    [
+      "leddsetning",
+      {
+        "count": 3,
+        "sources": [
+          "Bindeord (Konjunksjoner)",
+          "Nivå 4: Leddsetninger"
+        ]
+      }
+    ],
+    [
+      "helsetning",
+      {
+        "count": 3,
+        "sources": [
+          "Nivå 1: Grunnmuren (S-V)",
+          "Nivå 4: Leddsetninger"
+        ]
+      }
+    ],
+    [
+      "Subjektet",
+      {
+        "count": 2,
+        "sources": [
+          "Setningsanalyse",
+          "Nivå 1: Grunnmuren (S-V)"
+        ]
+      }
+    ],
+    [
+      "Subjekt",
+      {
+        "count": 2,
+        "sources": [
+          "Substantiv",
+          "Nivå 1: Grunnmuren (S-V)"
+        ]
+      }
+    ],
+    [
+      "etos",
+      {
+        "count": 2,
+        "sources": [
+          "Hva er retorikk?"
+        ]
+      }
+    ],
+    [
+      "patos",
+      {
+        "count": 2,
+        "sources": [
+          "Hva er retorikk?"
+        ]
+      }
+    ],
+    [
+      "logos",
+      {
+        "count": 2,
+        "sources": [
+          "Hva er retorikk?"
+        ]
+      }
+    ],
+    [
+      "Dachau",
+      {
+        "count": 1,
+        "sources": [
+          "Konsentrasjonsleirene"
+        ]
+      }
+    ],
+    [
+      "Karl den store",
+      {
+        "count": 1,
+        "sources": [
+          "Middelalderen: En tusenårig forvandling"
+        ]
+      }
+    ],
+    [
+      "investiturstriden",
+      {
+        "count": 1,
+        "sources": [
+          "Middelalderen: En tusenårig forvandling"
+        ]
+      }
+    ],
+    [
+      "Jeanne d’Arc",
+      {
+        "count": 1,
+        "sources": [
+          "Middelalderen: En tusenårig forvandling"
+        ]
+      }
+    ]
+  ],
+  "frequentTerms": []
+}

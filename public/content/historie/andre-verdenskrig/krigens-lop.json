@@ -1,107 +1,85 @@
 {
-    "id": "krigens-lop",
-    "title": "Krigens løp: Fra lynkrig til ragnarok",
-    "subject": "historie",
-    "topic": "andre-verdenskrig",
-    "layout": "rich",
-    "year": "1939–1945",
-    "category": "Krigføring",
-    "readTime": "25 min lesning",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Into_the_Jaws_of_Death_23-0455M_edit.jpg/1200px-Into_the_Jaws_of_Death_23-0455M_edit.jpg",
-    "details": [
-        "Tyskland erobret store deler av Europa med lynkrig.",
-        "Angrepet på Sovjetunionen og Pearl Harbor gjorde krigen global.",
-        "Vendepunkter ved Stalingrad, El Alamein og Midway.",
-        "D-dagen markerte starten på slutten i Vest-Europa.",
-        "Krigen endte med atombombene over Japan."
-    ],
-    "timeline": [],
-    "content": [
-        {
-            "type": "text",
-            "content": "Andre verdenskrig kan grovt deles inn i to faser: Aksemaktenes fremmarsj (1939–1942) og de alliertes motoffensiv (1943–1945). Krigen startet som en europeisk konflikt, men utvidet seg raskt til en global brann som involverte kamper på alle verdenshav og kontinenter unntatt Antarktis."
-        },
-        {
-            "type": "header",
-            "text": "1939-1940: Lynkrigen"
-        },
-        {
-            "type": "text",
-            "content": "Da Tyskland invaderte Polen 1. september 1939, demonstrerte de en ny og skremmende form for krigføring: Blitzkrieg (lynkrig). I stedet for skyttergravenes stillstand, brukte tyskerne raske stridsvogner støttet av stupbombefly for å slå hull i fiendens linjer og skape kaos. Polen falt på under en måned.\n\nVåren 1940 vendte Hitler blikket mot vest. 9. april ble Danmark og Norge invadert for å sikre baser og jernmalmtransport. I mai angrep tyskerne Nederland, Belgia og Frankrike. Til alles sjokk kollapset den franske hæren, som ble regnet som en av verdens sterkeste, på bare seks uker. Britiske styrker måtte evakueres i all hast fra strendene ved Dunkerque. Hitler var nå herre over nesten hele det kontinentale Europa."
-        },
-        {
-            "type": "header",
-            "text": "Slaget om Storbritannia"
-        },
-        {
-            "type": "text",
-            "content": "Storbritannia sto nå alene. Hitler planla en invasjon (Operasjon Sjøløve), men han måtte først kontrollere luftrommet. Sommeren og høsten 1940 kjempet det britiske flyvåpenet (RAF) en desperat kamp mot det tyske Luftwaffe over Sør-England. Takket være radarteknologi og modige piloter klarte britene å påføre tyskerne store tap. Hitler måtte utsette invasjonen på ubestemt tid. Dette var hans første store nederlag."
-        },
-        {
-            "type": "header",
-            "text": "1941: Krigen blir global"
-        },
-        {
-            "type": "text",
-            "content": "I 1941 tok krigen to dramatiske vendinger. Den 22. juni brøt Hitler pakten med Stalin og invaderte Sovjetunionen med tre millioner soldater. Operasjon Barbarossa var historiens største invasjon. Tyskerne trengte dypt inn i Russland og sto ved portene til Moskva samme vinter, men ble stoppet av den russiske vinteren og innbitt sovjetisk motstand.\n\nDen 7. desember 1941 gjennomførte Japan et overraskelsesangrep på den amerikanske flåtebasen Pearl Harbor på Hawaii. USA, som frem til da hadde vært nøytrale, ble med dette kastet inn i krigen. Nå sto verdens mektigste industrimakt på de alliertes side."
-        },
-        {
-            "type": "header",
-            "text": "1942-1943: Vendepunktene"
-        },
-        {
-            "type": "text",
-            "content": "Krigen snudde i løpet av en periode på seks måneder:"
-        },
-        {
-            "type": "list",
-            "ordered": false,
-            "items": [
-                "Juni 1942: Midway – Japan mister initiativet i Stillehavet.",
-                "Okt 1942: El Alamein – Britisk seier i Nord-Afrika.",
-                "Feb 1943: Stalingrad – Tysklands første store nederlag.",
-                "Juni 1944: D-dagen – Invasjonen av Normandie."
-            ]
-        },
-        {
-            "type": "header",
-            "text": "Festning Europa faller"
-        },
-        {
-            "type": "text",
-            "content": "De allierte begynte nå å frigjøre Europa. Først invaderte de Italia i 1943, noe som førte til Mussolinis fall. Deretter kom den store invasjonen av Frankrike. D-dagen, 6. juni 1944, gikk allierte styrker i land på strendene i Normandie. Det var den største amfibiske operasjonen i historien. Tyskerne ble nå presset fra to kanter: av amerikanere og briter fra vest, og av den røde armé fra øst."
-        },
-        {
-            "type": "header",
-            "text": "1945: Det endelige oppgjøret"
-        },
-        {
-            "type": "text",
-            "content": "Våren 1945 kollapset Det tredje riket. Sovjetiske styrker kjempet seg inn i Berlins gater. I en bunker under rikskanselliet begikk Adolf Hitler selvmord 30. april. Tyskland kapitulerte betingelsesløst 8. mai 1945 (Frigjøringsdagen).\n\nI Asia fortsatte fanatiske japanske styrker å kjempe, til tross for at de var i ferd med å tape. USA fryktet at en invasjon av Japan ville koste hundretusener av amerikanske liv. President Harry S. Truman tok avgjørelsen om å bruke det nye atomvåpenet. 6. august falt den første bomben over Hiroshima, og 9. august falt den andre over Nagasaki. Japan kapitulerte 15. august, og andre verdenskrig var over."
-        }
-    ],
-    "createdDate": "2025-12-21T15:20:00Z",
-    "lastUpdated": "2025-12-21T15:20:00Z",
-    "definitions": [
-        {
-            "term": "Blitzkrieg",
-            "definition": "Tysk strategi basert på raske, koordinerte angrep med fly og panservogner."
-        },
-        {
-            "term": "Operasjon Barbarossa",
-            "definition": "Kodenavnet på Tysklands invasjon av Sovjetunionen i 1941."
-        },
-        {
-            "term": "D-dagen",
-            "definition": "Den allierte invasjonen av Normandie i Frankrike 6. juni 1944."
-        },
-        {
-            "term": "RAF",
-            "definition": "Royal Air Force, Tyrkias flyvåpen som forsvarte landet under slaget om Storbritannia."
-        },
-        {
-            "term": "Stalingrad",
-            "definition": "By i Russland der et avgjørende slag fant sted; vendepunktet på Østfronten."
-        }
-    ]
+  "id": "krigens-lop",
+  "title": "Krigens løp: Fra lynkrig til ragnarok",
+  "subject": "historie",
+  "topic": "andre-verdenskrig",
+  "layout": "rich",
+  "year": "1939–1945",
+  "category": "Krigføring",
+  "readTime": "25 min lesning",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Into_the_Jaws_of_Death_23-0455M_edit.jpg/1200px-Into_the_Jaws_of_Death_23-0455M_edit.jpg",
+  "details": [
+    "Tyskland erobret store deler av Europa med lynkrig.",
+    "Angrepet på Sovjetunionen og Pearl Harbor gjorde krigen global.",
+    "Vendepunkter ved Stalingrad, El Alamein og Midway.",
+    "D-dagen markerte starten på slutten i Vest-Europa.",
+    "Krigen endte med atombombene over Japan."
+  ],
+  "timeline": [],
+  "content": [
+    {
+      "type": "text",
+      "content": "Andre verdenskrig kan grovt deles inn i to faser: Aksemaktenes fremmarsj (1939–1942) og de alliertes motoffensiv (1943–1945). Krigen startet som en europeisk konflikt, men utvidet seg raskt til en global brann som involverte kamper på alle verdenshav og kontinenter unntatt Antarktis."
+    },
+    {
+      "type": "header",
+      "text": "1939-1940: Lynkrigen"
+    },
+    {
+      "type": "text",
+      "content": "Da Tyskland invaderte Polen 1. september 1939, demonstrerte de en ny og skremmende form for krigføring: Blitzkrieg (lynkrig). I stedet for skyttergravenes stillstand, brukte tyskerne raske stridsvogner støttet av stupbombefly for å slå hull i fiendens linjer og skape kaos. Polen falt på under en måned.\n\nVåren 1940 vendte Hitler blikket mot vest. 9. april ble Danmark og Norge invadert for å sikre baser og jernmalmtransport. I mai angrep tyskerne Nederland, Belgia og Frankrike. Til alles sjokk kollapset den franske hæren, som ble regnet som en av verdens sterkeste, på bare seks uker. Britiske styrker måtte evakueres i all hast fra strendene ved Dunkerque. Hitler var nå herre over nesten hele det kontinentale Europa."
+    },
+    {
+      "type": "header",
+      "text": "Slaget om Storbritannia"
+    },
+    {
+      "type": "text",
+      "content": "Storbritannia sto nå alene. Hitler planla en invasjon (Operasjon Sjøløve), men han måtte først kontrollere luftrommet. Sommeren og høsten 1940 kjempet det britiske flyvåpenet (RAF) en desperat kamp mot det tyske Luftwaffe over Sør-England. Takket være radarteknologi og modige piloter klarte britene å påføre tyskerne store tap. Hitler måtte utsette invasjonen på ubestemt tid. Dette var hans første store nederlag."
+    },
+    {
+      "type": "header",
+      "text": "1941: Krigen blir global"
+    },
+    {
+      "type": "text",
+      "content": "I 1941 tok krigen to dramatiske vendinger. Den 22. juni brøt Hitler pakten med Stalin og invaderte Sovjetunionen med tre millioner soldater. Operasjon Barbarossa var historiens største invasjon. Tyskerne trengte dypt inn i Russland og sto ved portene til Moskva samme vinter, men ble stoppet av den russiske vinteren og innbitt sovjetisk motstand.\n\nDen 7. desember 1941 gjennomførte Japan et overraskelsesangrep på den amerikanske flåtebasen Pearl Harbor på Hawaii. USA, som frem til da hadde vært nøytrale, ble med dette kastet inn i krigen. Nå sto verdens mektigste industrimakt på de alliertes side."
+    },
+    {
+      "type": "header",
+      "text": "1942-1943: Vendepunktene"
+    },
+    {
+      "type": "text",
+      "content": "Krigen snudde i løpet av en periode på seks måneder:"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Juni 1942: Midway – Japan mister initiativet i Stillehavet.",
+        "Okt 1942: El Alamein – Britisk seier i Nord-Afrika.",
+        "Feb 1943: Stalingrad – Tysklands første store nederlag.",
+        "Juni 1944: D-dagen – Invasjonen av Normandie."
+      ]
+    },
+    {
+      "type": "header",
+      "text": "Festning Europa faller"
+    },
+    {
+      "type": "text",
+      "content": "De allierte begynte nå å frigjøre Europa. Først invaderte de Italia i 1943, noe som førte til Mussolinis fall. Deretter kom den store invasjonen av Frankrike. D-dagen, 6. juni 1944, gikk allierte styrker i land på strendene i Normandie. Det var den største amfibiske operasjonen i historien. Tyskerne ble nå presset fra to kanter: av amerikanere og briter fra vest, og av den røde armé fra øst."
+    },
+    {
+      "type": "header",
+      "text": "1945: Det endelige oppgjøret"
+    },
+    {
+      "type": "text",
+      "content": "Våren 1945 kollapset Det tredje riket. Sovjetiske styrker kjempet seg inn i Berlins gater. I en bunker under rikskanselliet begikk Adolf Hitler selvmord 30. april. Tyskland kapitulerte betingelsesløst 8. mai 1945 (Frigjøringsdagen).\n\nI Asia fortsatte fanatiske japanske styrker å kjempe, til tross for at de var i ferd med å tape. USA fryktet at en invasjon av Japan ville koste hundretusener av amerikanske liv. President Harry S. Truman tok avgjørelsen om å bruke det nye atomvåpenet. 6. august falt den første bomben over Hiroshima, og 9. august falt den andre over Nagasaki. Japan kapitulerte 15. august, og andre verdenskrig var over."
+    }
+  ],
+  "createdDate": "2025-12-21T15:20:00Z",
+  "lastUpdated": "2025-12-21T15:20:00Z"
 }

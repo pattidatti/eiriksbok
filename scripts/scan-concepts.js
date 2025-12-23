@@ -30,6 +30,48 @@ function findJsonFiles(dir, fileList = []) {
 
     return fileList;
 }
+const MANIFEST_FILE = path.join(CONTENT_DIR, 'manifest.json');
+
+// Build a map of article links from the manifest
+function getArticleMap() {
+    const articleMap = {};
+    if (!fs.existsSync(MANIFEST_FILE)) return articleMap;
+
+    const manifest = JSON.parse(fs.readFileSync(MANIFEST_FILE, 'utf-8'));
+    manifest.subjects.forEach(subject => {
+        subject.topics.forEach(topic => {
+            if (topic.lessons) {
+                topic.lessons.forEach(lesson => {
+                    const link = `/${subject.id}/${topic.id}/${lesson.id}`;
+                    const title = lesson.title.toLowerCase();
+                    const id = lesson.id.toLowerCase();
+
+                    // Priority 1: Exact matches
+                    articleMap[title] = link;
+                    articleMap[id] = link;
+
+                    // Priority 2: Singular/Plural/Definite forms
+                    if (title.endsWith('iet')) articleMap[title.slice(0, -3)] = link;
+                    if (title.endsWith('et')) articleMap[title.slice(0, -2)] = link;
+                    if (title.endsWith('en')) articleMap[title.slice(0, -2)] = link;
+
+                    // Priority 3: Word in title
+                    // Split title into words and map each word to the article if it's long enough
+                    const wordsInTitle = title.split(/[\s-]+/);
+                    wordsInTitle.forEach(w => {
+                        const word = w.replace(/[(),]/g, '');
+                        if (word.length > 4 && !articleMap[word]) {
+                            articleMap[word] = link;
+                        }
+                    });
+                });
+            }
+        });
+    });
+    return articleMap;
+}
+
+const articleMap = getArticleMap();
 
 // Load all concepts and people
 function loadGlossaryData() {
@@ -40,7 +82,10 @@ function loadGlossaryData() {
         const conceptFiles = findJsonFiles(CONCEPTS_DIR);
         conceptFiles.forEach(file => {
             const content = JSON.parse(fs.readFileSync(file, 'utf-8'));
-            data.push({ ...content, type: 'concept' });
+            const term = content.term.toLowerCase();
+            // Auto-link if a match is found in manifest
+            const autoLink = articleMap[term];
+            data.push({ ...content, type: 'concept', link: content.link || autoLink });
         });
     }
 
@@ -49,7 +94,9 @@ function loadGlossaryData() {
         const peopleFiles = findJsonFiles(PEOPLE_DIR);
         peopleFiles.forEach(file => {
             const content = JSON.parse(fs.readFileSync(file, 'utf-8'));
-            data.push({ ...content, type: 'person' });
+            const term = content.term.toLowerCase();
+            const autoLink = articleMap[term];
+            data.push({ ...content, type: 'person', link: content.link || autoLink });
         });
     }
 
@@ -154,19 +201,25 @@ filteredArticleFiles.forEach(file => {
 console.log("\n--- POTENTIAL NEW TERMS (Bold terms) ---");
 const sortedCandidates = Object.entries(candidates)
     .sort(([, a], [, b]) => b.count - a.count)
-    .slice(0, 15);
+    .slice(0, 100); // Increased limit
 
-sortedCandidates.forEach(([term, data]) => {
+sortedCandidates.slice(0, 15).forEach(([term, data]) => {
     console.log(`[x] ${term} (Found ${data.count} times)`);
 });
 
 console.log("\n--- INTELLIGENT SUGGESTIONS (High Frequency Non-Bold) ---");
 const sortedFrequent = Object.entries(frequentTerms)
     .sort(([, a], [, b]) => b.count - a.count)
-    .filter(([term, data]) => data.count > 2)
-    .slice(0, 20);
+    .filter(([term, data]) => {
+        const lowerTerm = term.toLowerCase();
+        // Skip common words and very short words
+        if (lowerTerm.length < 3) return false;
+        if (stopWords.has(lowerTerm)) return false;
+        return data.count > 2;
+    })
+    .slice(0, 100); // Increased limit
 
-sortedFrequent.forEach(([term, data]) => {
+sortedFrequent.slice(0, 20).forEach(([term, data]) => {
     console.log(`[?] ${term} (Found ${data.count} times in: ${data.sources.slice(0, 2).join(', ')}...)`);
 });
 
@@ -175,5 +228,13 @@ console.log("\n--- MENTIONS OF EXISTING TERMS ---");
 Object.entries(mentions).slice(0, 5).forEach(([term, sources]) => {
     console.log(`- ${term}: mentioned in ${sources.length} articles (${sources.slice(0, 3).join(', ')}...)`);
 });
+
+const SUGGESTIONS_FILE = path.join(__dirname, '../public/data/suggestions.json');
+const suggestions = {
+    boldCandidates: sortedCandidates,
+    frequentTerms: sortedFrequent
+};
+fs.writeFileSync(SUGGESTIONS_FILE, JSON.stringify(suggestions, null, 2));
+console.log(`Saved suggestions to ${SUGGESTIONS_FILE}`);
 
 console.log("\nScan complete.");

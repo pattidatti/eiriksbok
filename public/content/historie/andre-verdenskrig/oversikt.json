@@ -1,159 +1,133 @@
 {
-    "id": "oversikt",
-    "title": "Andre verdenskrig: En oversikt",
-    "subject": "historie",
-    "topic": "andre-verdenskrig",
-    "layout": "rich",
-    "year": "1939–1945",
-    "category": "Verden",
-    "readTime": "15 min lesning",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg/1200px-Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg",
-    "details": [
-        "Den mest omfattende krigen i historien.",
-        "De allierte kjempet mot Aksemaktene.",
-        "Holocaust var det systematiske folkemordet på jødene.",
-        "Krigen sluttet med atombombene over Japan.",
-        "Førte til FN, den kalde krigen og atomalderen."
-    ],
-    "timeline": [],
-    "content": [
-        {
-            "type": "text",
-            "content": "Andre verdenskrig (1939–1945) står igjen som den største, blodigste og mest omfattende konflikten i menneskehetens historie. Mens første verdenskrig hovedsakelig var en europeisk konflikt, spredte andre verdenskrig seg til nesten alle hjørner av kloden – fra de frosne slettene i Russland til de varme junglene i Sørøst-Asia, og fra ørkenen i Nord-Afrika til øyene i Stillehavet. Krigen involverte over 100 millioner mennesker fra mer enn 30 land, og da den endte, lå store deler av den siviliserte verden i ruiner."
-        },
-        {
-            "type": "header",
-            "text": "De stridende partene"
-        },
-        {
-            "type": "text",
-            "content": "Krigen ble utkjempet mellom to store militærallianser:"
-        },
-        {
-            "type": "list",
-            "ordered": false,
-            "items": [
-                "Aksemaktene: Ledet av Tyskland under Adolf Hitler, Italia under Benito Mussolini, og keiserriket Japan. Disse statene var aggressive diktaturer som ønsket å utvide sine imperier gjennom militær erobring.",
-                "De allierte: En bred koalisjon som til slutt inkluderte Storbritannia (ledet av Winston Churchill), Sovjetunionen (under Josef Stalin), USA (under Franklin D. Roosevelt) og Kina, samt en rekke andre land som Norge, Canada og Australia."
-            ]
-        },
-        {
-            "type": "component",
-            "component": "QuoteBlock",
-            "props": {
-                "text": "Jeg har ingenting annet å tilby enn blod, slit, tårer og svette.",
-                "author": "Winston Churchill, første tale som statsminister, 1940"
-            }
-        },
-        {
-            "type": "text",
-            "content": "Krigen handlet ikke bare om landområder, men var også en ideologisk kamp. På den ene siden sto nazismen og fascismen, som foraktet demokrati og menneskerettigheter, og som dyrket den sterkes rett og rasehat. På den andre siden sto en skjør allianse av vestlige demokratier og det kommunistiske Sovjetunionen, forent kun av kampen mot en felles fiende."
-        },
-        {
-            "type": "header",
-            "text": "Total krig"
-        },
-        {
-            "type": "text",
-            "content": "Andre verdenskrig er det fremste eksempelet på total krig. Dette betyr at skillet mellom soldater og sivile ble nesten visket ut. Nasjonene mobiliserte alle sine ressurser – industri, vitenskap og befolkning – for krigsinnsatsen. Kvinner gikk inn i fabrikkene for å bygge fly og stridsvogner, mens mat og varer ble strengt rasjonert.\n\nDessverre betydde total krig også at sivilbefolkningen ble legitime mål. Byer som London, Berlin, Tokyo og Dresden ble bombet til grus. Det anslås at mellom 70 og 85 millioner mennesker døde i løpet av krigen, og flertallet av disse var sivile. Sult, sykdom og massakrer krevde flere liv enn kulene på slagmarken."
-        },
-        {
-            "type": "header",
-            "text": "Holocaust: Krigens mørke kjerne"
-        },
-        {
-            "type": "text",
-            "content": "En mørk skygge over krigen er Holocaust. Det nazistiske regimet i Tyskland, drevet av en fanatisk antisemittisme, iverksatte en systematisk plan for å utrydde alle jøder i Europa. I begynnelsen ble jøder forfulgt, fratatt rettigheter og samlet i ghettoer. Etter invasjonen av Sovjetunionen begynte massskytingene, og fra 1942 ble «den endelige løsningen» satt ut i livet med industrielle utryddelsesleire som Auschwitz.\n\nRundt seks millioner jøder ble drept, noe som utgjorde to tredjedeler av den jødiske befolkningen i Europa. I tillegg ble millioner av andre – romfolk, funksjonshemmede, homofile, sovjetiske krigsfanger og politiske motstandere – myrdet i nazistenes leire. Dette folkemordet har for alltid endret hvordan verden ser på rasisme og menneskerettigheter."
-        },
-        {
-            "type": "header",
-            "text": "Krigens gang i korte trekk"
-        },
-        {
-            "type": "text",
-            "content": "Krigen i Europa startet med Tysklands invasjon av Polen 1. september 1939. Storbritannia og Frankrike svarte med å erklære krig. I 1940 erobret Tyskland store deler av Vest-Europa, inkludert Norge, Danmark, Nederland, Belgia og Frankrike, gjennom lynkrig-taktikken. Storbritannia sto alene igjen, men klarte å avverge tysk invasjon under Slaget om Storbritannia.\n\nI 1941 endret krigen karakter. I juni invaderte Tyskland sin tidligere allierte, Sovjetunionen, i historiens største militæroperasjon (Operasjon Barbarossa). I desember angrep Japan den amerikanske flåtebasen Pearl Harbor, noe som trakk USA inn i krigen. Dermed var konflikten blitt en verdenskrig.\n\nVendepunktene kom i 1942 og 1943. I Stillehavet stoppet amerikanerne den japanske fremrykkingen ved Midway. I Nord-Afrika seiret britene ved El Alamein. Og på Østfronten ble den tyske hæren knust i det blodige slaget om Stalingrad. Fra da av ble Aksemaktene presset tilbake på alle fronter.\n\nKrigen i Europa endte i mai 1945 med Tysklands totale overgivelse, etter at sovjetiske styrker hadde inntatt Berlin. I Asia fortsatte kampene frem til august 1945, da USA slapp to atombomber over byene Hiroshima og Nagasaki. Dette tvang Japan til å kapitulere, og markerte inngangen til atomalderen."
-        },
-        {
-            "type": "header",
-            "text": "En ny verdensorden"
-        },
-        {
-            "type": "text",
-            "content": "Etter krigen var de gamle europeiske stormaktene Storbritannia og Frankrike svekket. Makten i verden flyttet seg til de to nye supermaktene: USA og Sovjetunionen. Det gamle systemet med europeiske kolonier begynte å rakne, da folk i Asia og Afrika krevde sin frihet.\n\nFor å hindre nye verdenskriger og sikre menneskerettighetene, ble De forente nasjoner (FN) opprettet i 1945. Men alliansen mellom øst og vest brøt raskt sammen, og verden ble delt i to under den kalde krigen. Slik formet andre verdenskrig den verden vi lever i i dag, fra landegrenser og politiske allianser til teknologi og internasjonal rett."
-        }
-    ],
-    "createdDate": "2025-12-21T15:00:00Z",
-    "lastUpdated": "2025-12-21T15:00:00Z",
-    "definitions": [
-        {
-            "term": "De allierte",
-            "definition": "Alliansen som kjempet mot Aksemaktene, ledet av Storbritannia, USA og Sovjetunionen."
-        },
-        {
-            "term": "Aksemaktene",
-            "definition": "Alliansen mellom Tyskland, Italia og Japan."
-        },
-        {
-            "term": "Blitzkrieg",
-            "definition": "\"Lynkrig\". En tysk militær strategi basert på raske, overraskende angrep med stridsvogner og fly."
-        },
-        {
-            "term": "Holocaust",
-            "definition": "Det nasjonalsosialistiske Tysklands systematiske folkemord på jøder og andre minoriteter."
-        },
-        {
-            "term": "Total krig",
-            "definition": "En krigføring der alle samfunnets ressurser mobiliseres, og skillet mellom militære og sivile mål forsvinner."
-        },
-        {
-            "term": "Fascisme",
-            "definition": "En autoritær, nasjonalistisk ideologi som sto sterkt i Italia og Tyskland (nazisme)."
-        }
-    ],
-    "quiz": [
-        {
-            "id": "q1",
-            "question": "Når startet andre verdenskrig?",
-            "options": [
-                "1914",
-                "1939",
-                "1941",
-                "1945"
-            ],
-            "correctAnswer": 1
-        },
-        {
-            "id": "q2",
-            "question": "Hva ble den raske tyske angrepsmetoden kalt?",
-            "options": [
-                "Trench warfare",
-                "Blitzkrieg",
-                "Gerilja",
-                "Stormangrep"
-            ],
-            "correctAnswer": 1
-        },
-        {
-            "id": "q3",
-            "question": "Hva var Holocaust?",
-            "options": [
-                "Et stort sjøslag",
-                "Tysklands krigsstrategi",
-                "Det systematiske folkemordet på jødene",
-                "Navnet på en fredsavtale"
-            ],
-            "correctAnswer": 2
-        },
-        {
-            "id": "q4",
-            "question": "Hvilket våpen ble brukt mot Hiroshima og Nagasaki?",
-            "options": [
-                "Napalm",
-                "Atombombe",
-                "V2-rakett",
-                "Giftgass"
-            ],
-            "correctAnswer": 1
-        }
-    ]
+  "id": "oversikt",
+  "title": "Andre verdenskrig: En oversikt",
+  "subject": "historie",
+  "topic": "andre-verdenskrig",
+  "layout": "rich",
+  "year": "1939–1945",
+  "category": "Verden",
+  "readTime": "15 min lesning",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg/1200px-Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg",
+  "details": [
+    "Den mest omfattende krigen i historien.",
+    "De allierte kjempet mot Aksemaktene.",
+    "Holocaust var det systematiske folkemordet på jødene.",
+    "Krigen sluttet med atombombene over Japan.",
+    "Førte til FN, den kalde krigen og atomalderen."
+  ],
+  "timeline": [],
+  "content": [
+    {
+      "type": "text",
+      "content": "Andre verdenskrig (1939–1945) står igjen som den største, blodigste og mest omfattende konflikten i menneskehetens historie. Mens første verdenskrig hovedsakelig var en europeisk konflikt, spredte andre verdenskrig seg til nesten alle hjørner av kloden – fra de frosne slettene i Russland til de varme junglene i Sørøst-Asia, og fra ørkenen i Nord-Afrika til øyene i Stillehavet. Krigen involverte over 100 millioner mennesker fra mer enn 30 land, og da den endte, lå store deler av den siviliserte verden i ruiner."
+    },
+    {
+      "type": "header",
+      "text": "De stridende partene"
+    },
+    {
+      "type": "text",
+      "content": "Krigen ble utkjempet mellom to store militærallianser:"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Aksemaktene: Ledet av Tyskland under Adolf Hitler, Italia under Benito Mussolini, og keiserriket Japan. Disse statene var aggressive diktaturer som ønsket å utvide sine imperier gjennom militær erobring.",
+        "De allierte: En bred koalisjon som til slutt inkluderte Storbritannia (ledet av Winston Churchill), Sovjetunionen (under Josef Stalin), USA (under Franklin D. Roosevelt) og Kina, samt en rekke andre land som Norge, Canada og Australia."
+      ]
+    },
+    {
+      "type": "component",
+      "component": "QuoteBlock",
+      "props": {
+        "text": "Jeg har ingenting annet å tilby enn blod, slit, tårer og svette.",
+        "author": "Winston Churchill, første tale som statsminister, 1940"
+      }
+    },
+    {
+      "type": "text",
+      "content": "Krigen handlet ikke bare om landområder, men var også en ideologisk kamp. På den ene siden sto nazismen og fascismen, som foraktet demokrati og menneskerettigheter, og som dyrket den sterkes rett og rasehat. På den andre siden sto en skjør allianse av vestlige demokratier og det kommunistiske Sovjetunionen, forent kun av kampen mot en felles fiende."
+    },
+    {
+      "type": "header",
+      "text": "Total krig"
+    },
+    {
+      "type": "text",
+      "content": "Andre verdenskrig er det fremste eksempelet på total krig. Dette betyr at skillet mellom soldater og sivile ble nesten visket ut. Nasjonene mobiliserte alle sine ressurser – industri, vitenskap og befolkning – for krigsinnsatsen. Kvinner gikk inn i fabrikkene for å bygge fly og stridsvogner, mens mat og varer ble strengt rasjonert.\n\nDessverre betydde total krig også at sivilbefolkningen ble legitime mål. Byer som London, Berlin, Tokyo og Dresden ble bombet til grus. Det anslås at mellom 70 og 85 millioner mennesker døde i løpet av krigen, og flertallet av disse var sivile. Sult, sykdom og massakrer krevde flere liv enn kulene på slagmarken."
+    },
+    {
+      "type": "header",
+      "text": "Holocaust: Krigens mørke kjerne"
+    },
+    {
+      "type": "text",
+      "content": "En mørk skygge over krigen er Holocaust. Det nazistiske regimet i Tyskland, drevet av en fanatisk antisemittisme, iverksatte en systematisk plan for å utrydde alle jøder i Europa. I begynnelsen ble jøder forfulgt, fratatt rettigheter og samlet i ghettoer. Etter invasjonen av Sovjetunionen begynte massskytingene, og fra 1942 ble «den endelige løsningen» satt ut i livet med industrielle utryddelsesleire som Auschwitz.\n\nRundt seks millioner jøder ble drept, noe som utgjorde to tredjedeler av den jødiske befolkningen i Europa. I tillegg ble millioner av andre – romfolk, funksjonshemmede, homofile, sovjetiske krigsfanger og politiske motstandere – myrdet i nazistenes leire. Dette folkemordet har for alltid endret hvordan verden ser på rasisme og menneskerettigheter."
+    },
+    {
+      "type": "header",
+      "text": "Krigens gang i korte trekk"
+    },
+    {
+      "type": "text",
+      "content": "Krigen i Europa startet med Tysklands invasjon av Polen 1. september 1939. Storbritannia og Frankrike svarte med å erklære krig. I 1940 erobret Tyskland store deler av Vest-Europa, inkludert Norge, Danmark, Nederland, Belgia og Frankrike, gjennom lynkrig-taktikken. Storbritannia sto alene igjen, men klarte å avverge tysk invasjon under Slaget om Storbritannia.\n\nI 1941 endret krigen karakter. I juni invaderte Tyskland sin tidligere allierte, Sovjetunionen, i historiens største militæroperasjon (Operasjon Barbarossa). I desember angrep Japan den amerikanske flåtebasen Pearl Harbor, noe som trakk USA inn i krigen. Dermed var konflikten blitt en verdenskrig.\n\nVendepunktene kom i 1942 og 1943. I Stillehavet stoppet amerikanerne den japanske fremrykkingen ved Midway. I Nord-Afrika seiret britene ved El Alamein. Og på Østfronten ble den tyske hæren knust i det blodige slaget om Stalingrad. Fra da av ble Aksemaktene presset tilbake på alle fronter.\n\nKrigen i Europa endte i mai 1945 med Tysklands totale overgivelse, etter at sovjetiske styrker hadde inntatt Berlin. I Asia fortsatte kampene frem til august 1945, da USA slapp to atombomber over byene Hiroshima og Nagasaki. Dette tvang Japan til å kapitulere, og markerte inngangen til atomalderen."
+    },
+    {
+      "type": "header",
+      "text": "En ny verdensorden"
+    },
+    {
+      "type": "text",
+      "content": "Etter krigen var de gamle europeiske stormaktene Storbritannia og Frankrike svekket. Makten i verden flyttet seg til de to nye supermaktene: USA og Sovjetunionen. Det gamle systemet med europeiske kolonier begynte å rakne, da folk i Asia og Afrika krevde sin frihet.\n\nFor å hindre nye verdenskriger og sikre menneskerettighetene, ble De forente nasjoner (FN) opprettet i 1945. Men alliansen mellom øst og vest brøt raskt sammen, og verden ble delt i to under den kalde krigen. Slik formet andre verdenskrig den verden vi lever i i dag, fra landegrenser og politiske allianser til teknologi og internasjonal rett."
+    }
+  ],
+  "createdDate": "2025-12-21T15:00:00Z",
+  "lastUpdated": "2025-12-21T15:00:00Z",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "Når startet andre verdenskrig?",
+      "options": [
+        "1914",
+        "1939",
+        "1941",
+        "1945"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": "q2",
+      "question": "Hva ble den raske tyske angrepsmetoden kalt?",
+      "options": [
+        "Trench warfare",
+        "Blitzkrieg",
+        "Gerilja",
+        "Stormangrep"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": "q3",
+      "question": "Hva var Holocaust?",
+      "options": [
+        "Et stort sjøslag",
+        "Tysklands krigsstrategi",
+        "Det systematiske folkemordet på jødene",
+        "Navnet på en fredsavtale"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": "q4",
+      "question": "Hvilket våpen ble brukt mot Hiroshima og Nagasaki?",
+      "options": [
+        "Napalm",
+        "Atombombe",
+        "V2-rakett",
+        "Giftgass"
+      ],
+      "correctAnswer": 1
+    }
+  ]
 }

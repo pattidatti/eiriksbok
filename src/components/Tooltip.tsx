@@ -11,25 +11,52 @@ interface TooltipProps {
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({ text, children, type = 'concept', link }) => {
-    const [isVisible, setIsVisible] = React.useState(false);
+    const [isOpen, setIsOpen] = React.useState(false);
+    const [isTouch, setIsTouch] = React.useState(false);
 
     const Icon = type === 'person' ? User : Book;
-    const accentColor = type === 'person' ? 'border-orange-400' : 'border-indigo-400';
-    const bgColor = type === 'person' ? 'hover:bg-orange-50' : 'hover:bg-indigo-50';
+    // const accentColor = type === 'person' ? 'border-orange-400' : 'border-indigo-400';
+    // const bgColor = type === 'person' ? 'hover:bg-orange-50' : 'hover:bg-indigo-50';
+
+    // Simplified trigger style as requested: no bold, subtle underline
+    const triggerStyles = `
+        inline-block
+        transition-all
+        duration-300
+        cursor-help
+        border-b
+        border-slate-300
+        hover:border-slate-500
+        decoration-dotted
+    `.trim();
+
+    const handleClick = () => {
+        if (!isTouch) {
+            setIsTouch(true);
+            setIsOpen(true);
+        } else {
+            setIsOpen(!isOpen);
+        }
+    };
 
     return (
         <span
-            className="relative inline-block"
-            onMouseEnter={() => setIsVisible(true)}
-            onMouseLeave={() => setIsVisible(false)}
-            onClick={() => setIsVisible(!isVisible)} // Mobile support
+            className="relative inline-block group"
+        // onMouseEnter={() => setIsVisible(true)}
+        // onMouseLeave={() => setIsVisible(false)}
+        // onClick={() => setIsVisible(!isVisible)} // Mobile support
         >
-            <span className={`cursor-help border-b-2 border-dotted ${accentColor} ${bgColor} transition-colors rounded px-0.5 font-medium text-slate-800`}>
+            <span
+                className={triggerStyles}
+                onMouseEnter={() => !isTouch && setIsOpen(true)}
+                onMouseLeave={() => !isTouch && setIsOpen(false)}
+                onClick={handleClick}
+            >
                 {children}
             </span>
 
             <AnimatePresence>
-                {isVisible && (
+                {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}

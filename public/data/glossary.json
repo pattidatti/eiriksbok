@@ -1,9 +1,25 @@
 [
   {
+    "term": "Aksemaktene",
+    "definition": "Alliansen mellom Tyskland, Italia og Japan.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "aksjeselskap",
     "definition": "En selskapsform der eierne har fordelt eierskapet gjennom aksjer. Man risikerer bare å tape pengene man har betalt for aksjene.",
     "subject": "historie",
     "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Allianse",
+    "definition": "En avtale mellom land om gjensidig støtte, ofte militært, hvis et av landene blir angrepet.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
     "tags": [],
     "type": "concept"
   },
@@ -32,10 +48,90 @@
     "type": "concept"
   },
   {
+    "term": "Anschluss",
+    "definition": "Tysklands annektering (innlemmelse) av Østerrike i 1938.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Artilleri",
+    "definition": "Tunge skytevåpen som kanoner og bombekastere, ment for å skyte over lange avstander.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "autoritært diktatur",
     "definition": "Folket får ikke være med å bestemme, men kan til en viss grad mene ting. Staten kontrollerer politikken, men lar folk leve livene sine relativt fritt ellers.",
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Avkolonisering",
+    "definition": "Prosessen der kolonier blir selvstendige stater.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Blankoblankett",
+    "definition": "Fullmakt eller uforbeholden støtte. Refererer til Tysklands løfte til Østerrike-Ungarn i 1914.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Blitzkrieg",
+    "definition": "Tysk strategi basert på raske, koordinerte angrep med fly og panservogner.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Blokade",
+    "definition": "Å stenge av forsyninger til et land ved bruk av militærmakt, oftest skip.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "D-dagen",
+    "definition": "Den allierte invasjonen av Normandie i Frankrike 6. juni 1944.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "De allierte",
+    "definition": "Alliansen som kjempet mot Aksemaktene, ledet av Storbritannia, USA og Sovjetunionen.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "De forente nasjoner (FN)",
+    "definition": "Internasjonal organisasjon grunnlagt i 1945 for å fremme fred, samarbeid og menneskerettigheter.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Defenestrasjon",
+    "definition": "Handlingen å kaste noen ut av et vindu (fra latin 'fenestra' = vindu).",
+    "subject": "historie",
+    "topic": "reformasjonen",
     "tags": [],
     "type": "concept"
   },
@@ -57,13 +153,54 @@
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
     "tags": [],
-    "type": "concept"
+    "type": "concept",
+    "link": "/samfunnskunnskap/styringsformer/diktaturet"
   },
   {
     "term": "direkte demokrati",
     "definition": "Folket stemmer direkte på hver enkelt sak. Alle er med å bestemme alt. Brukes sjelden for hele land, men av og til i folkeavstemninger.",
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Enigma",
+    "definition": "En tysk krypteringsmaskin brukt til å sende hemmelige meldinger under andre verdenskrig.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Ententen",
+    "definition": "Alliansen mellom Frankrike, Storbritannia og Russland (senere også Italia og USA).",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Ettergivenhetspolitikk",
+    "definition": "Politikken om å gi etter for en aggressors krav i håp om å unngå krig (Appeasement).",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Fascisme",
+    "definition": "En autoritær, nasjonalistisk ideologi som sto sterkt i Italia og Tyskland (nazisme).",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Folkeforbundet",
+    "definition": "En internasjonal organisasjon opprettet etter krigen for å sikre fred og internasjonalt samarbeid.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
     "tags": [],
     "type": "concept"
   },
@@ -80,10 +217,34 @@
     "type": "concept"
   },
   {
+    "term": "Habsburgerne",
+    "definition": "Det mektige kongehuset som styrte Det tysk-romerske riket, Spania og Østerrike.",
+    "subject": "historie",
+    "topic": "reformasjonen",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Holocaust",
+    "definition": "Det nasjonalsosialistiske Tysklands systematiske folkemord på jøder og andre minoriteter.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "imperialisme",
     "definition": "En politikk der en stat forsøker å skaffe seg politisk, kulturell, økonomisk eller militært herredømme utover sine egne grenser.",
     "subject": "historie",
     "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Ingenmannsland",
+    "definition": "Området mellom de to fiendtlige skyttergravslinjene, ofte dekket av piggtråd og kratere.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
     "tags": [],
     "type": "concept"
   },
@@ -136,6 +297,30 @@
     "type": "concept"
   },
   {
+    "term": "Krigserstatning",
+    "definition": "Økonomisk kompensasjon som den tapende part i en krig må betale til seierherrene for skadene som er påført.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Lebensraum",
+    "definition": "Tysk for \"livsrom\". Nazistenes idé om at det tyske folket trengte mer landområder, spesielt i Øst-Europa.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Leiesoldater",
+    "definition": "Soldater som kjemper for betaling, ikke for et land eller en sak. Ofte brutale mot sivilbefolkningen.",
+    "subject": "historie",
+    "topic": "reformasjonen",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "MAD",
     "definition": "Forkortelse for 'Mutual Assured Destruction' (gjensidig garantert ødeleggelse). En militærstrategisk doktrine der bruk av atomvåpen av to parter vil føre til total utslettelse av begge, noe som hindrer angrep.",
     "subject": "historie",
@@ -145,6 +330,22 @@
       "strategi",
       "sikkerhet"
     ],
+    "type": "concept"
+  },
+  {
+    "term": "Mandatområde",
+    "definition": "Et område som administreres av en stat på vegne av Folkeforbundet (senere FN), ofte en tidligere koloni.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Manhattan-prosjektet",
+    "definition": "Det hemmelige amerikanske forskningsprosjektet som utviklet de første atombombene.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
     "type": "concept"
   },
   {
@@ -169,12 +370,21 @@
     "type": "concept"
   },
   {
+    "term": "Molotov-Ribbentrop-pakten",
+    "definition": "Ikke-angrepspakten mellom Tyskland og Sovjetunionen inngått like før krigsutbruddet i 1939.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "monarki",
     "definition": "En konge, dronning, fyrste eller greve er statsoverhode. Makten går som regel i arv. I dag har vi ofte konstitusjonelt monarki hvor kongen har liten makt, men historisk var det ofte enevelde.",
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
     "tags": [],
-    "type": "concept"
+    "type": "concept",
+    "link": "/samfunnskunnskap/styringsformer/monarkiet"
   },
   {
     "term": "monopol",
@@ -185,10 +395,34 @@
     "type": "concept"
   },
   {
+    "term": "Nasjonalisme",
+    "definition": "En ideologi som hevder at hver nasjon (folkegruppe) skal ha sin egen stat.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Nürnbergprosessene",
+    "definition": "Rettssakene mot ledende nazister etter krigen, der prinsippet om individuelt ansvar for krigsforbrytelser ble knesatt.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "oligarki",
     "definition": "En liten gruppe mennesker (fåmannsvelde) har all makten. Ofte er dette de rikeste i samfunnet, eller en militærjunta.",
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Operasjon Barbarossa",
+    "definition": "Kodenavnet på Tysklands invasjon av Sovjetunionen i 1941.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
     "tags": [],
     "type": "concept"
   },
@@ -229,6 +463,14 @@
     "type": "concept"
   },
   {
+    "term": "Penicillin",
+    "definition": "En type antibiotika som dreper bakterier og forhindrer infeksjoner.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "Perestrojka",
     "definition": "En politisk og økonomisk reformpolitik (omstrukturering) innført av Mikhail Gorbatsjov i Sovjetunionen på 1980-tallet. Målet var å modernisere og effektivisere det sovjetiske systemet.",
     "subject": "historie",
@@ -249,6 +491,30 @@
     "type": "concept"
   },
   {
+    "term": "Radar",
+    "definition": "Teknologi som bruker radiobølger til å fastslå avstand, retning og hastighet til gjenstander som fly og skip.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "RAF",
+    "definition": "Royal Air Force, Tyrkias flyvåpen som forsvarte landet under slaget om Storbritannia.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Rekognosering",
+    "definition": "Militær speiding for å samle informasjon om fiendens posisjoner og styrker.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "representativt demokrati",
     "definition": "Folket velger representanter (politikere) som styrer for dem. Den vanligste formen for demokrati i dag. Vi holder valg med jevne mellomrom.",
     "subject": "samfunnskunnskap",
@@ -261,6 +527,23 @@
     "definition": "En stat hvor statsoverhodet ikke er en monark (konge/dronning). Lederen kalles som regel president. Kan være både demokratisk og udemokratisk.",
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
+    "tags": [],
+    "type": "concept",
+    "link": "/historie/romerriket/augustus-og-keiserdomme"
+  },
+  {
+    "term": "Schlieffen-planen",
+    "definition": "Tysklands krigsplan for å unngå en tofrontskrig ved å slå ut Frankrike raskt før Russland rakk å mobilisere.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Selvbestemmelsesrett",
+    "definition": "Prinsippet om at et folk har rett til å styre seg selv og velge sin egen statstilhørighet.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
     "tags": [],
     "type": "concept"
   },
@@ -276,6 +559,22 @@
     "type": "concept"
   },
   {
+    "term": "Sennepsgass",
+    "definition": "En kjemisk stridsgass som gir blemmer på hud og i lunger, brukt under første verdenskrig.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Sentralmaktene",
+    "definition": "Alliansen mellom Tyskland, Østerrike-Ungarn og Det osmanske riket.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "sepoy",
     "definition": "Indisk soldat i tjeneste for en europeisk makt, spesielt Storbritannia.",
     "subject": "historie",
@@ -284,10 +583,50 @@
     "type": "concept"
   },
   {
+    "term": "Skyttergravskrig",
+    "definition": "En form for krigføring hvor soldatene beskytter seg i utgravde grøfter, ofte preget av stillstand.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "sosialisme",
     "definition": "Produksjonsmidlene eies eller kontrolleres av fellesskapet (staten). Politisk bestemt hva som skal produseres (Planøkonomi). Målet er likere fordeling.",
     "subject": "samfunnskunnskap",
     "topic": "demografi-okonomi",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Stalingrad",
+    "definition": "By i Russland der et avgjørende slag fant sted; vendepunktet på Østfronten.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Østfronten",
+    "definition": "Krigssonen i Øst-Europa, mellom Tyskland/Østerrike-Ungarn og Russland.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Stridsvogn",
+    "definition": "Et pansret motorkjøretøy med belter og bevæpning (tank), utviklet for å bryte gjennom skyttergraver.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Suverenitetsprinsippet",
+    "definition": "Ideen om at en stat bestemmer over seg selv, uten innblanding fra andre stater eller paven.",
+    "subject": "historie",
+    "topic": "reformasjonen",
     "tags": [],
     "type": "concept"
   },
@@ -324,6 +663,14 @@
     "type": "concept"
   },
   {
+    "term": "Total krig",
+    "definition": "En krigføring der alle samfunnets ressurser mobiliseres, og skillet mellom militære og sivile mål forsvinner.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "totalitært diktatur",
     "definition": "Staten kontrollerer absolutt alt, inkludert hva folk tenker og mener. Ingen frihet. Ekstrem overvåkning og propaganda. Eksempel: Nord-Korea.",
     "subject": "samfunnskunnskap",
@@ -341,6 +688,78 @@
       "utenrikspolitikk",
       "oppdemming"
     ],
+    "type": "concept"
+  },
+  {
+    "term": "Uinnskrenket ubåtkrig",
+    "definition": "En type sjøkrig hvor ubåter senker fartøy uten forvarsel, også nøytrale handelsskip.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Ultimatum",
+    "definition": "Et endelig krav som må oppfylles innen en viss tidsfrist for å unngå alvorlige konsekvenser, ofte krig.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Utmattelseskrig",
+    "definition": "En krigføring hvor målet er å slite ut fiendens ressurser og mannskap fremfor å vinne raske territorielle seire.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "V2",
+    "definition": "Verdens første langdistanse ballistiske rakett, utviklet av Tyskland.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Versailles-traktaten",
+    "definition": "Fredsavtalen etter første verdenskrig som mange tyskere opplevde som urettferdig og ydmykende.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Vestfronten",
+    "definition": "Krigssonen i Vest-Europa, hovedsakelig i Frankrike og Belgia.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Weimarrepublikken",
+    "definition": "Betegnelsen på den demokratiske tyske staten som eksisterte fra 1919 til 1933.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Zeppeliner",
+    "definition": "Et stort, styrbart luftskip med stivt skjelett, brukt til bombing og speiding.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Zimmermann-telegrammet",
+    "definition": "Et hemmelig telegram fra Tyskland til Mexico som bidro til å trekke USA inn i krigen.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": [],
     "type": "concept"
   },
   {
