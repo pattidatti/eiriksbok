@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import { Volume2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getComponent } from './ComponentRegistry';
-
-// ... standard imports remain (Link, Volume2, motion, etc.)
-
+import { useGlossary } from '../context/GlossaryContext';
 import type { Concept, ContentBlock } from '../types';
 import { renderInlineMarkdown } from './markdownUtils';
 
@@ -44,8 +42,6 @@ const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
     );
 };
 
-
-
 interface ArticleContentProps {
     content: any[];
     concepts?: Concept[];
@@ -55,8 +51,19 @@ interface ArticleContentProps {
     isTool?: boolean;
 }
 
-export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concepts, activeBlockIndex, onBlockClick, fallbackUrl, isTool = false }) => {
+export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concepts: explicitConcepts, activeBlockIndex, onBlockClick, fallbackUrl, isTool = false }) => {
+    const { entries: globalEntries } = useGlossary();
+
     if (!content || !Array.isArray(content)) return null;
+
+    // Merge explicit concepts with global ones, explicit takes priority
+    const mergedConcepts = [...(explicitConcepts || [])];
+    globalEntries.forEach(entry => {
+        if (!mergedConcepts.some(c => c.term.toLowerCase() === entry.term.toLowerCase())) {
+            mergedConcepts.push(entry as any);
+        }
+    });
+
     // DEBUG: Fallback fetch if content is truncated
     const [fullContent, setFullContent] = React.useState<ContentBlock[] | null>(null);
 
@@ -77,6 +84,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
     return (
         <div className={`article-content ${isTool ? 'w-full max-w-none' : 'max-w-5xl mx-auto'}`}>
             {displayContent.map((block, index) => {
+                // ... (rest of the mapping using mergedConcepts instead of concepts)
                 // Handle 'type' (standard), 'name' (legacy), and '__typename' (GraphQL)
                 let type = block.type || block.name;
 
@@ -122,7 +130,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                         </motion.div>
                                     </div>
                                 )}
-                                {renderWithMarkdown(block.content || block.text || block.value, concepts)}
+                                {renderWithMarkdown(block.content || block.text || block.value, mergedConcepts)}
                             </div>
                         );
 
@@ -139,7 +147,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 {block.title && (
                                     <h2 className="text-2xl font-bold text-slate-800 mb-4">{block.title}</h2>
                                 )}
-                                {block.content && <ArticleContent content={block.content} />}
+                                {block.content && <ArticleContent content={block.content} concepts={mergedConcepts} />}
                             </div>
                         );
 
@@ -151,7 +159,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                             <ListTag key={index} className={`${listStyle} list-inside space-y-2 mb-8 text-slate-700`}>
                                 {block.items?.map((item: string, i: number) => (
                                     <li key={i} className="leading-relaxed">
-                                        {renderInlineMarkdown(item, concepts)}
+                                        {renderInlineMarkdown(item, mergedConcepts)}
                                     </li>
                                 ))}
                             </ListTag>
@@ -263,7 +271,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                         if (block.content && typeof block.content === 'string') {
                             return (
                                 <div key={index} className="mb-4 text-slate-700">
-                                    {renderWithMarkdown(block.content, concepts)}
+                                    {renderWithMarkdown(block.content, mergedConcepts)}
                                 </div>
                             );
                         }

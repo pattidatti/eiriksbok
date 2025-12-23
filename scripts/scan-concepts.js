@@ -8,10 +8,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const CONTENT_DIR = path.join(__dirname, '../public/content');
-const CONCEPTS_FILE = path.join(__dirname, '../public/data/concepts.json');
+const CONCEPTS_DIR = path.join(CONTENT_DIR, 'concepts');
+const PEOPLE_DIR = path.join(CONTENT_DIR, 'people');
+const GLOSSARY_FILE = path.join(__dirname, '../public/data/glossary.json');
 
 // Helper to recursively find files
 function findJsonFiles(dir, fileList = []) {
+    if (!fs.existsSync(dir)) return fileList;
     const files = fs.readdirSync(dir);
 
     files.forEach(file => {
@@ -28,23 +31,51 @@ function findJsonFiles(dir, fileList = []) {
     return fileList;
 }
 
-// Load concepts
-let knownConcepts = [];
-if (fs.existsSync(CONCEPTS_FILE)) {
-    knownConcepts = JSON.parse(fs.readFileSync(CONCEPTS_FILE, 'utf-8'));
-}
-const knownTerms = new Set(knownConcepts.map(c => c.term.toLowerCase()));
+// Load all concepts and people
+function loadGlossaryData() {
+    const data = [];
 
-console.log(`Loaded ${knownConcepts.length} known concepts.`);
+    // Load concepts
+    if (fs.existsSync(CONCEPTS_DIR)) {
+        const conceptFiles = findJsonFiles(CONCEPTS_DIR);
+        conceptFiles.forEach(file => {
+            const content = JSON.parse(fs.readFileSync(file, 'utf-8'));
+            data.push({ ...content, type: 'concept' });
+        });
+    }
+
+    // Load people
+    if (fs.existsSync(PEOPLE_DIR)) {
+        const peopleFiles = findJsonFiles(PEOPLE_DIR);
+        peopleFiles.forEach(file => {
+            const content = JSON.parse(fs.readFileSync(file, 'utf-8'));
+            data.push({ ...content, type: 'person' });
+        });
+    }
+
+    return data;
+}
+
+const glossaryData = loadGlossaryData();
+const knownTerms = new Set(glossaryData.map(c => c.term.toLowerCase()));
+
+console.log(`Loaded ${glossaryData.length} entries (${glossaryData.filter(d => d.type === 'concept').length} concepts, ${glossaryData.filter(d => d.type === 'person').length} people).`);
+
+// Save to unified glossary.json
+fs.writeFileSync(GLOSSARY_FILE, JSON.stringify(glossaryData, null, 2));
+console.log(`Saved unified glossary to ${GLOSSARY_FILE}`);
 
 const articleFiles = findJsonFiles(CONTENT_DIR);
-console.log(`Scanning ${articleFiles.length} articles...`);
+// Filter out the concepts and people directories from being scanned AS articles
+const filteredArticleFiles = articleFiles.filter(f => !f.includes('concepts/') && !f.includes('people/'));
+
+console.log(`Scanning ${filteredArticleFiles.length} articles for suggestions...`);
 
 const candidates = {};
 const mentions = {};
 const frequentTerms = {};
 
-articleFiles.forEach(file => {
+filteredArticleFiles.forEach(file => {
     try {
         const content = JSON.parse(fs.readFileSync(file, 'utf-8'));
         if (!content.content) return;
@@ -79,7 +110,6 @@ articleFiles.forEach(file => {
         }
 
         // 2. Intelligent Frequency Analysis (Universal System)
-        // Clean text: remove markdown chars, punctuation, etc.
         const cleanText = fullText
             .replace(/[*_#\[\]()]/g, '') // Remove markdown
             .replace(/[.,:;?!"]/g, ' ')  // Remove punctuation
@@ -88,10 +118,10 @@ articleFiles.forEach(file => {
         const words = cleanText.split(/\s+/);
 
         words.forEach(word => {
-            if (word.length < 5) return; // Skip short words
-            if (stopWords.has(word)) return; // Skip common words
-            if (knownTerms.has(word)) return; // Skip known concepts
-            if (/^\d+$/.test(word)) return; // Skip numbers
+            if (word.length < 5) return;
+            if (stopWords.has(word)) return;
+            if (knownTerms.has(word)) return;
+            if (/^\d+$/.test(word)) return;
 
             if (!frequentTerms[word]) {
                 frequentTerms[word] = { count: 0, sources: [] };
@@ -103,25 +133,25 @@ articleFiles.forEach(file => {
         });
 
 
-        // 3. Find Mentions of Known Concepts
-        knownConcepts.forEach(concept => {
-            const regex = new RegExp(`\\b${concept.term}\\b`, 'gi');
+        // 3. Find Mentions of Known Terms
+        glossaryData.forEach(entry => {
+            const regex = new RegExp(`\\b${entry.term}\\b`, 'gi');
             if (regex.test(fullText)) {
-                if (!mentions[concept.term]) {
-                    mentions[concept.term] = [];
+                if (!mentions[entry.term]) {
+                    mentions[entry.term] = [];
                 }
-                if (!mentions[concept.term].includes(content.title)) {
-                    mentions[concept.term].push(content.title);
+                if (!mentions[entry.term].includes(content.title)) {
+                    mentions[entry.term].push(content.title);
                 }
             }
         });
 
     } catch (e) {
-        // Ignore errors for now
+        // Ignore errors
     }
 });
 
-console.log("\n--- POTENTIAL NEW CONCEPTS (Bold terms) ---");
+console.log("\n--- POTENTIAL NEW TERMS (Bold terms) ---");
 const sortedCandidates = Object.entries(candidates)
     .sort(([, a], [, b]) => b.count - a.count)
     .slice(0, 15);
@@ -131,10 +161,9 @@ sortedCandidates.forEach(([term, data]) => {
 });
 
 console.log("\n--- INTELLIGENT SUGGESTIONS (High Frequency Non-Bold) ---");
-console.log("(Based on frequency analysis minus stop words)");
 const sortedFrequent = Object.entries(frequentTerms)
     .sort(([, a], [, b]) => b.count - a.count)
-    .filter(([term, data]) => data.count > 2) // Minimum frequency threshold
+    .filter(([term, data]) => data.count > 2)
     .slice(0, 20);
 
 sortedFrequent.forEach(([term, data]) => {
@@ -142,8 +171,7 @@ sortedFrequent.forEach(([term, data]) => {
 });
 
 
-console.log("\n--- MENTIONS OF EXISTING CONCEPTS ---");
-console.log("(These articles mention concepts but might not have them linked/tagged)");
+console.log("\n--- MENTIONS OF EXISTING TERMS ---");
 Object.entries(mentions).slice(0, 5).forEach(([term, sources]) => {
     console.log(`- ${term}: mentioned in ${sources.length} articles (${sources.slice(0, 3).join(', ')}...)`);
 });

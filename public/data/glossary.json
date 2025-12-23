@@ -1,0 +1,354 @@
+[
+  {
+    "term": "aksjeselskap",
+    "definition": "En selskapsform der eierne har fordelt eierskapet gjennom aksjer. Man risikerer bare å tape pengene man har betalt for aksjene.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "anarki",
+    "definition": "Ingen stat eller hersker. Et samfunn uten formell styring. Ordet betyr \"uten hersker\". Det finnes ingen stat, skatt eller voldsmonopol.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "anarko-kapitalisme",
+    "definition": "Et samfunn uten stat, hvor alt styres av det frie markedet. Ingen stat, bare privat eiendom. Alt, inkludert politi og veier, kjøpes og selges.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "anarko-kommunisme",
+    "definition": "Et samfunn uten stat og penger, hvor alt eies i fellesskap. Ingen stat, ingen privat eiendom. Alle bidrar etter evne og får etter behov.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "autoritært diktatur",
+    "definition": "Folket får ikke være med å bestemme, men kan til en viss grad mene ting. Staten kontrollerer politikken, men lar folk leve livene sine relativt fritt ellers.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "dendrokronologi",
+    "definition": "Metode for å datere treverk ved å telle og analysere årringer. Brukes blant annet til å studere tidligere klimaforhold.",
+    "subject": "historie",
+    "topic": "klimakrisen-536",
+    "tags": [
+      "arkeologi",
+      "klima",
+      "metode"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "diktatur",
+    "definition": "All makt er samlet hos én person eller en liten gruppe. Makten er ofte tatt med vold (kupp). Befolkningen har liten eller ingen mulighet til å påvirke styret.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "direkte demokrati",
+    "definition": "Folket stemmer direkte på hver enkelt sak. Alle er med å bestemme alt. Brukes sjelden for hele land, men av og til i folkeavstemninger.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Glasnost",
+    "definition": "En reformpolitik lansert av Mikhail Gorbatsjov i Sovjetunionen på 1980-tallet. Ordet betyr 'åpenhet', og målet var å skape mer gjennomsiktighet i staten og mer ytringsfrihet for borgerne.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "sovjet",
+      "reform",
+      "frihet"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "imperialisme",
+    "definition": "En politikk der en stat forsøker å skaffe seg politisk, kulturell, økonomisk eller militært herredømme utover sine egne grenser.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Jernteppet",
+    "definition": "Et begrep brukt om den politiske, ideologiske og fysiske grensen som delte Europa i to maktblokker fra 1945 til 1991: Vestblokken (støttet av USA) og Østblokken (støttet av Sovjetunionen).",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "kald-krig",
+      "europa",
+      "grense"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "justinianerpesten",
+    "definition": "En pandemi som rammet Østromerriket og store deler av Europa fra 541 e.Kr. Den skyldtes pestbakterien Yersinia pestis og brøt ut i kjølvannet av klimakrisen i 536.",
+    "subject": "historie",
+    "topic": "klimakrisen-536",
+    "tags": [
+      "pest",
+      "sykdom",
+      "middelalder"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "kapitalisme",
+    "definition": "Markedsøkonomi. Produksjon er privat eiendom. Styres av tilbud og etterspørsel (profitt og tap). Kundene \"bestemmer\" hva som lages.",
+    "subject": "samfunnskunnskap",
+    "topic": "demografi-okonomi",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "koloni",
+    "definition": "Et område som ligger utenfor moderlandet, men som styres av det.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "kommunisme",
+    "definition": "Et klasseløst samfunn der all eiendom er felles. I teorien statsløst (som anarko-kommunisme), men i praksis ofte brukt om stater med streng planøkonomi.",
+    "subject": "samfunnskunnskap",
+    "topic": "demografi-okonomi",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "MAD",
+    "definition": "Forkortelse for 'Mutual Assured Destruction' (gjensidig garantert ødeleggelse). En militærstrategisk doktrine der bruk av atomvåpen av to parter vil føre til total utslettelse av begge, noe som hindrer angrep.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "atomvåpen",
+      "strategi",
+      "sikkerhet"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "Marshallhjelpen",
+    "definition": "Et omfattende amerikansk økonomisk hjelpeprogram (1948-1952) rettet mot gjenoppbyggingen av Europa etter andre verdenskrig. Målet var å skape økonomisk stabilitet og hindre kommunistisk innflytelse.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "økonomi",
+      "hjelp",
+      "usa",
+      "europa"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "merkantilisme",
+    "definition": "En økonomisk politikk der målet var å samle mest mulig gull og sølv i statskassen ved å eksportere mer enn man importerte.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "monarki",
+    "definition": "En konge, dronning, fyrste eller greve er statsoverhode. Makten går som regel i arv. I dag har vi ofte konstitusjonelt monarki hvor kongen har liten makt, men historisk var det ofte enevelde.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "monopol",
+    "definition": "Enerett til å drive handel eller virksomhet. Ingen andre får lov til å konkurrere.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "oligarki",
+    "definition": "En liten gruppe mennesker (fåmannsvelde) har all makten. Ofte er dette de rikeste i samfunnet, eller en militærjunta.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "opium",
+    "definition": "Et sterkt vanedannende rusmiddel laget av valmuer. EIC solgte dette til Kina for å betale for te.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Oppdemming",
+    "definition": "Amerikansk utenrikspolitisk strategi (Containment) under den kalde krigen. Målet var å hindre at sovjetisk makt og kommunistisk ideologi spredte seg til nye land og områder.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "strategi",
+      "usa",
+      "utenrikspolitikk"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "parlamentarisk republikk",
+    "definition": "Republikk der parlamentet har mest makt. Presidenten har ofte en seremoniell rolle. Eksempel: Island eller Tyskland. Regjeringen utgår fra parlamentet.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "parlamentarisk stat",
+    "definition": "Et system der regjeringen må ha tillit fra parlamentet (Stortinget). Gjelder både monarkier (Norge) og republikker. Hvis Stortinget sier nei, må regjeringen gå.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Perestrojka",
+    "definition": "En politisk og økonomisk reformpolitik (omstrukturering) innført av Mikhail Gorbatsjov i Sovjetunionen på 1980-tallet. Målet var å modernisere og effektivisere det sovjetiske systemet.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "sovjet",
+      "økonomi",
+      "reform"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "president-republikk",
+    "definition": "Demokrati der presidenten har mye makt og velges uavhengig av parlamentet. Eksempel: USA. Presidenten leder regjeringen og kan ikke enkelt kastes av kongressen.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "representativt demokrati",
+    "definition": "Folket velger representanter (politikere) som styrer for dem. Den vanligste formen for demokrati i dag. Vi holder valg med jevne mellomrom.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "republikk",
+    "definition": "En stat hvor statsoverhodet ikke er en monark (konge/dronning). Lederen kalles som regel president. Kan være både demokratisk og udemokratisk.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "senantikken",
+    "definition": "Overgangsperioden mellom antikken og middelalderen, ca. 200–600 e.Kr. Preget av store endringer i Romerriket, kristendommens fremvekst og folkevandringer.",
+    "subject": "historie",
+    "topic": "klimakrisen-536",
+    "tags": [
+      "periode",
+      "romerriket"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "sepoy",
+    "definition": "Indisk soldat i tjeneste for en europeisk makt, spesielt Storbritannia.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "sosialisme",
+    "definition": "Produksjonsmidlene eies eller kontrolleres av fellesskapet (staten). Politisk bestemt hva som skal produseres (Planøkonomi). Målet er likere fordeling.",
+    "subject": "samfunnskunnskap",
+    "topic": "demografi-okonomi",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "te",
+    "definition": "En drikk laget av blader fra tebusken. Ble ekstremt populært i Storbritannia på 1700-tallet.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "teknokrati",
+    "definition": "Eksperter og vitenskapsfolk styrer basert på kunnskap. Ideen er at eksperter (f.eks. ingeniører, økonomer) tar bedre beslutninger enn valgte politikere.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "tekstil",
+    "definition": "Stoffer og klær. Bomullstekstiler fra India var svært ettertraktet i Europa.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "teokrati",
+    "definition": "Gud eller religiøse ledere styrer samfunnet basert på hellige skrifter. Lovene i landet er basert på religionen. Eksempler er Vatikanstaten eller Iran.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "totalitært diktatur",
+    "definition": "Staten kontrollerer absolutt alt, inkludert hva folk tenker og mener. Ingen frihet. Ekstrem overvåkning og propaganda. Eksempel: Nord-Korea.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Truman-doktrinen",
+    "definition": "En utenrikspolitisk strategi lansert av USAs president Harry S. Truman i 1947, som slo fast at USA skulle støtte frie folk og demokratier som ble truet av kommunistisk aggresjon eller autoritære regimer.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "usa",
+      "utenrikspolitikk",
+      "oppdemming"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "dronning elizabeth i",
+    "definition": "Dronning av England fra 1558 til 1603. Hun ga EIC monopol på handel med Østen.",
+    "subject": "historie",
+    "topic": "kolonialisering",
+    "tags": [],
+    "type": "person"
+  }
+]

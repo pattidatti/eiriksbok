@@ -65,9 +65,15 @@ export const renderInlineMarkdown = (text: string, concepts?: Concept[]) => {
         });
     });
 
-    // 4. Concepts (Tooltips)
+    // 4. Concepts/Glossary (Tooltips)
     if (concepts && concepts.length > 0) {
-        const sortedConcepts = [...concepts].sort((a, b) => (b.term || b.title || '').length - (a.term || a.title || '').length);
+        // concepts can be either Concept[] or GlossaryEntry[]
+        const sortedConcepts = [...concepts].sort((a, b) => {
+            const termA = (a.term || a.title || '');
+            const termB = (b.term || b.title || '');
+            return termB.length - termA.length;
+        });
+
         const pattern = new RegExp(`\\b(${sortedConcepts.map(c => (c.term || c.title || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`, 'gi');
 
         elements = elements.flatMap((el): React.ReactNode[] => {
@@ -75,13 +81,16 @@ export const renderInlineMarkdown = (text: string, concepts?: Concept[]) => {
 
             // Use split with capturing group to keep delimiters (the concepts)
             return el.split(pattern).map((part, i) => {
-                const concept = sortedConcepts.find(c => (c.term || c.title || '').toLowerCase() === part.toLowerCase());
+                const concept: any = sortedConcepts.find(c => (c.term || c.title || '').toLowerCase() === part.toLowerCase());
                 if (concept) {
                     return (
-                        <Tooltip key={`c-${i}-${part.substring(0, 10)}`} text={concept.definition || concept.description || ''}>
-                            <span className="concept-highlight cursor-help border-b-2 border-neon-accent/30 hover:border-neon-accent transition-colors">
-                                {part}
-                            </span>
+                        <Tooltip
+                            key={`c-${i}-${part.substring(0, 10)}`}
+                            text={concept.definition || concept.description || ''}
+                            type={concept.type} // support 'concept' or 'person'
+                            link={concept.link}
+                        >
+                            {part}
                         </Tooltip>
                     );
                 }

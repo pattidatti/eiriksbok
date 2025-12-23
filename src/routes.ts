@@ -41,4 +41,5 @@ export const routeFactories: Record<string, PageFactory> = {
     TimelineTDPage: () => import('./pages/TimelineTDPage'),
     WordSorterGame: () => import('./games/word-sorter/WordSorterGame'),
     ConceptSnakeGame: () => import('./games/concept-snake/ConceptSnakeGame'),
+    PersonGallery: () => import('./pages/PersonGallery').then(module => ({ default: module.PersonGallery })),
 };

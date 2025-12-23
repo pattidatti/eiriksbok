@@ -753,7 +753,7 @@
                     "id": "ideer-og-verdenssyn",
                     "title": "Ideer og verdenssyn",
                     "description": "Utforsk de store tankene, forestillingene og trosprosessene som har formet menneskets historie.",
-                    "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80",
+                    "image": "/images/lessons/ideer/framskritt_hero.jpg",
                     "lessons": [
                         {
                             "id": "eskatologi",
@@ -829,7 +829,7 @@
                             "id": "framskrittstro",
                             "title": "Framskrittstro",
                             "description": "Er historien en rett linje oppover? Utforsk ideen som formet vår verden.",
-                            "image": "/images/lessons/ideer/framskritt_hero.png",
+                            "image": "/images/lessons/ideer/framskritt_hero.jpg",
                             "layout": "rich",
                             "tags": [
                                 "historie",
@@ -843,7 +843,7 @@
                             "id": "det-unormale",
                             "title": "Det 'unormale'",
                             "description": "Idéhistorien om hvordan vi har sett på sykdom og galskap gjennom tidene.",
-                            "image": "/images/lessons/ideer/det_unormale_hero.png",
+                            "image": "/images/lessons/ideer/det_unormale_hero.jpg",
                             "layout": "rich",
                             "tags": [
                                 "historie",
@@ -2057,7 +2057,7 @@
                             "id": "kristendom",
                             "title": "Kristendom",
                             "description": "Verdens største religion.",
-                            "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                            "image": "/images/krle/religion/kristendom_hero.jpg",
                             "link": "/krle/religion/kristendom",
                             "lessons": [
                                 {
@@ -2167,7 +2167,7 @@
                             "id": "islam",
                             "title": "Islam",
                             "description": "Den nest største verdensreligionen.",
-                            "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                            "image": "/images/krle/religion/islam_hero.jpg",
                             "link": "/krle/religion/islam",
                             "lessons": [
                                 {
@@ -2278,7 +2278,7 @@
                             "id": "buddhisme",
                             "title": "Buddhisme",
                             "description": "En av verdens eldste religioner.",
-                            "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                            "image": "/images/krle/religion/buddhisme_hero.jpg",
                             "link": "/krle/religion/buddhisme",
                             "lessons": [
                                 {
@@ -2389,7 +2389,7 @@
                             "id": "jodedom",
                             "title": "Jødedom",
                             "description": "Den eldste monoteistiske religionen.",
-                            "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                            "image": "/images/krle/religion/jodedom_hero.jpg",
                             "link": "/krle/religion/jodedom",
                             "lessons": [
                                 {
@@ -2500,7 +2500,7 @@
                             "id": "hinduisme",
                             "title": "Hinduisme",
                             "description": "Verdens eldste nålevende religion.",
-                            "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                            "image": "/images/krle/religion/hinduisme_hero.jpg",
                             "link": "/krle/religion/hinduisme",
                             "lessons": [
                                 {
@@ -2634,7 +2634,7 @@
                             "id": "bahai",
                             "title": "Bahá'í",
                             "description": "Troen på menneskehetens enhet.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                            "image": "/images/krle/religion/bahai_hero.jpg",
                             "link": "/krle/religion/bahai",
                             "lessons": [
                                 {
@@ -2745,7 +2745,7 @@
                             "id": "mormonisme",
                             "title": "Mormonisme",
                             "description": "Jesu Kristi Kirke av Siste Dagers Hellige.",
-                            "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                            "image": "/images/krle/religion/mormonisme_hero.jpg",
                             "link": "/krle/religion/mormonisme",
                             "lessons": [
                                 {
@@ -2856,7 +2856,7 @@
                             "id": "jehovas-vitner",
                             "title": "Jehovas vitner",
                             "description": "Et aktivt forkynnende trossamfunn.",
-                            "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                            "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
                             "link": "/krle/religion/jehovas-vitner",
                             "lessons": [
                                 {
