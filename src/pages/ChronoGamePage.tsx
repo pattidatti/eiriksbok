@@ -1,37 +1,108 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
+import { useManifest } from '../hooks/useManifest';
 import { ChronoBoard } from '../components/games/chrono/ChronoBoard';
+import { ChronoSetup, type ChronoFilterOptions } from '../components/games/chrono/ChronoSetup';
 import { PageSkeleton } from '../components/Skeleton';
 import { Link } from 'react-router-dom';
 import { useLayout } from '../context/LayoutContext';
 
 const ChronoGamePage: React.FC = () => {
-    const { events, loading, error } = useGlobalTimeline();
+    const { events, loading: timelineLoading, error: timelineError } = useGlobalTimeline();
+    const { data: manifest, isLoading: manifestLoading } = useManifest();
     const { setFullWidth } = useLayout();
+    const [gameState, setGameState] = useState<'setup' | 'playing'>('setup');
+    const [filteredEvents, setFilteredEvents] = useState<any[]>([]);
+    const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>('medium');
 
     React.useEffect(() => {
-        setFullWidth(true);
-        return () => setFullWidth(false);
+        setFullWidth(false); // No longer 100% widescreen
     }, [setFullWidth]);
 
-    if (loading) return <PageSkeleton />;
-    if (error) return <div className="p-8 text-center text-red-500">Klarte ikke laste spilldata. Prøv igjen senere.</div>;
+    const titleLookups = useMemo(() => {
+        const subjectMap: Record<string, string> = {};
+        const topicMap: Record<string, string> = {};
 
-    // Filter events to ensure they have valid dates and descriptions
-    const validEvents = events.map(e => ({
-        id: e.id,
-        title: e.title,
-        description: e.description || '',
-        startDate: e.startDate,
-        displayDate: e.displayDate,
-        sourceUrl: e.link
-    })).filter(e => e.description && e.description.length > 10); // Simple filter to ensure quality cards
+        if (manifest?.subjects) {
+            manifest.subjects.forEach(s => {
+                subjectMap[s.id] = s.title;
+                s.topics.forEach(t => {
+                    topicMap[t.id] = t.title;
+                });
+            });
+        }
+
+        return { subjectMap, topicMap };
+    }, [manifest]);
+
+    // Extract unique subjects and topics for the setup screen
+    const availableSubjects = useMemo(() => {
+        const subjects = new Set<string>();
+        events.forEach(e => {
+            if (e.subjectId) {
+                const title = titleLookups.subjectMap[e.subjectId] || e.subjectId;
+                subjects.add(title);
+            }
+        });
+        return Array.from(subjects).sort();
+    }, [events, titleLookups]);
+
+    const availableTopics = useMemo(() => {
+        const topics = new Set<string>();
+        events.forEach(e => {
+            if (e.topicId) {
+                const title = titleLookups.topicMap[e.topicId] || e.topicId;
+                topics.add(title);
+            }
+        });
+        return Array.from(topics).sort();
+    }, [events, titleLookups]);
+
+    const handleStart = (options: ChronoFilterOptions) => {
+        const filtered = events.filter(e => {
+            // Filter by subject (options.subjects has titles, e.subjectId is slug)
+            if (options.subjects.length > 0) {
+                const subjectTitle = titleLookups.subjectMap[e.subjectId] || e.subjectId;
+                if (!options.subjects.includes(subjectTitle)) return false;
+            }
+            // Filter by topic
+            if (options.topics.length > 0 && e.topicId) {
+                const topicTitle = titleLookups.topicMap[e.topicId] || e.topicId;
+                if (!options.topics.includes(topicTitle)) return false;
+            }
+            // Date range filter
+            if (e.startDate < options.yearRange[0] || e.startDate > options.yearRange[1]) {
+                return false;
+            }
+            // Basic quality check
+            return e.description && e.description.length > 10;
+        }).map(e => ({
+            id: e.id,
+            title: e.title,
+            description: e.description || '',
+            startDate: e.startDate,
+            displayDate: e.displayDate,
+            sourceUrl: e.link
+        }));
+
+        if (filtered.length < 5) {
+            alert('For få hendelser med dette valget. Prøv å velge flere fag eller emner.');
+            return;
+        }
+
+        setDifficulty(options.difficulty);
+        setFilteredEvents(filtered);
+        setGameState('playing');
+    };
+
+    if (timelineLoading || manifestLoading) return <PageSkeleton />;
+    if (timelineError) return <div className="p-8 text-center text-red-500">Klarte ikke laste spilldata. Prøv igjen senere.</div>;
 
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900 pb-20">
             {/* Header */}
-            <header className="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-sm">
-                <div className="w-full px-4 sm:px-8 h-16 flex items-center justify-between">
+            <header className="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-sm font-sans">
+                <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         <Link to="/oving" className="flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
@@ -42,15 +113,34 @@ const ChronoGamePage: React.FC = () => {
                             Chrono Cards
                         </h1>
                     </div>
-                    <div className="hidden sm:block text-sm text-slate-500 font-medium">
-                        Plasser hendelsene i riktig rekkefølge!
-                    </div>
+                    {gameState === 'playing' && (
+                        <button
+                            onClick={() => setGameState('setup')}
+                            className="text-xs font-bold text-slate-400 hover:text-indigo-600 transition-colors bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100"
+                        >
+                            Endre valg av emne og periode
+                        </button>
+                    )}
                 </div>
             </header>
 
             {/* Game Content */}
-            <main className="p-4 sm:p-8">
-                <ChronoBoard events={validEvents} onGameOver={(finalScore) => console.log('Game over with score:', finalScore)} />
+            <main className="max-w-6xl mx-auto px-4 py-4 sm:py-8 font-sans">
+                {gameState === 'setup' ? (
+                    <ChronoSetup
+                        availableSubjects={availableSubjects}
+                        availableTopics={availableTopics}
+                        minYear={-4000}
+                        maxYear={2100}
+                        onStart={handleStart}
+                    />
+                ) : (
+                    <ChronoBoard
+                        events={filteredEvents}
+                        onGameOver={(finalScore) => console.log('Game over with score:', finalScore)}
+                        difficulty={difficulty}
+                    />
+                )}
             </main>
         </div>
     );

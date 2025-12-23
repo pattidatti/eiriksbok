@@ -19,15 +19,16 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Artikler om kolonier gjennom tidene, fra Hellas, Romer, til moderne kolonier. I samme artikkel; hvordan dette ofte er en del av imperialismen. Ingen av disse konseptene er verken nye eller europeiske. Lage passende interaktive modeller som understreker konseptene og eksemplifiserer hendelser. 
 - [ ] Artikkel om store folkevandringer gjennom historien, knytte dette til migrasjonsteorien i samfunnskunnskap. 
 - [ ] Arikkeler om 1054 skisma, hypotesen at vikingtiden er krig mot frankrike. 
-- [ ] Den kalde krigen emne. En hovedartikkel, og flere subartikler om spesifikke hendelser. 
+- [x] Den kalde krigen emne. En hovedartikkel, og flere subartikler om spesifikke hendelser. 
+- [ ] Artikkel om hvordan USAs intervenering ofte har ført til backfire, Ho chi min, Vietnamkrigen, Afghanistan, taliban, støtte Sadam Hussein, annet? 
 - [ ] Artikler om mange av sentrale hendelsene i midtøsten. 
 
 ### KRLE
 
 - [ ] Finne en logisk måte å skille retninger innen kristendom og islam. 
-- [ ] Etikk og filosofi-emne. 
+- [x] Etikk og filosofi-emne. 
 - [ ] Artikkel om sekularisering
-- [ ] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
+- [x] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
 
 ### Norsk
 - [x] Artikler i norskfaget-litteraturhistorie mangler sidebar. 
