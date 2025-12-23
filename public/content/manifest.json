@@ -1498,7 +1498,7 @@
                             "id": "skipsteknologi",
                             "title": "Skipet: Vikingtidens teknologi",
                             "description": "Uten de klinkbygde skipene ville vikingtiden aldri ha skjedd.",
-                            "image": "/images/lessons/vikingtiden/vikingskip.png",
+                            "image": "/images/lessons/vikingtiden/vikingskip_hero.jpg",
                             "tags": [
                                 "historie",
                                 "vikingtiden",
@@ -2064,7 +2064,7 @@
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
                                     "description": "Kjernen i kristendommen: Frelse, treenighet og nestekjærlighet.",
-                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/kristendom_hero.jpg",
                                     "tags": [
                                         "kristendom",
                                         "sentrale_trekk"
@@ -2075,7 +2075,7 @@
                                 {
                                     "title": "Bønn",
                                     "description": "Bønn i kristendommen.",
-                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/kristendom_hero.jpg",
                                     "tags": [
                                         "kristendom",
                                         "bønn",
@@ -2088,7 +2088,7 @@
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
                                     "description": "Dåp, konfirmasjon, bryllup og begravelse.",
-                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/kristendom_hero.jpg",
                                     "tags": [
                                         "kristendom",
                                         "overgangsriter",
@@ -2101,7 +2101,7 @@
                                     "id": "grunnleggere",
                                     "title": "Jesus",
                                     "description": "Jesus fra Nasaret - kristendommens grunnlegger.",
-                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/kristendom_hero.jpg",
                                     "tags": [
                                         "kristendom",
                                         "grunnleggere",
@@ -2127,7 +2127,7 @@
                                     "id": "gudsbilde",
                                     "title": "Treenigheten",
                                     "description": "Gud som Fader, Sønn og Hellig Ånd.",
-                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/kristendom_hero.jpg",
                                     "tags": [
                                         "kristendom",
                                         "gudsbilde",
@@ -2153,7 +2153,7 @@
                                     "id": "intro",
                                     "title": "Introduksjon",
                                     "description": "Grunnleggende om kristendommen.",
-                                    "image": "https://images.unsplash.com/photo-1548625361-9882cf0f410e?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/kristendom_hero.jpg",
                                     "tags": [
                                         "kristendom",
                                         "intro"
@@ -2174,7 +2174,7 @@
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
                                     "description": "Kjernen i islam: Underkastelse, Tawhid og de fem søyler.",
-                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/islam_hero.jpg",
                                     "tags": [
                                         "islam",
                                         "sentrale_trekk"
@@ -2186,7 +2186,7 @@
                                     "id": "bonn",
                                     "title": "Bønn (Salah)",
                                     "description": "Den rituelle bønnen i islam.",
-                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/islam_hero.jpg",
                                     "tags": [
                                         "islam",
                                         "bønn",
@@ -2199,7 +2199,7 @@
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
                                     "description": "Fødsel, ekteskap og død.",
-                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/islam_hero.jpg",
                                     "tags": [
                                         "islam",
                                         "overgangsriter",
@@ -2212,7 +2212,7 @@
                                     "id": "grunnleggere",
                                     "title": "Muhammad",
                                     "description": "Profeten Muhammad - islams siste profet.",
-                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/islam_hero.jpg",
                                     "tags": [
                                         "islam",
                                         "grunnleggere",
@@ -2238,7 +2238,7 @@
                                     "id": "gudsbilde",
                                     "title": "Tawhid",
                                     "description": "Troen på Guds enhet.",
-                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/islam_hero.jpg",
                                     "tags": [
                                         "islam",
                                         "gudsbilde",
@@ -2264,7 +2264,7 @@
                                     "id": "intro",
                                     "title": "Introduksjon",
                                     "description": "Grunnleggende om islam.",
-                                    "image": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/islam_hero.jpg",
                                     "tags": [
                                         "islam",
                                         "intro"
@@ -2285,7 +2285,7 @@
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
                                     "description": "Kjernen i buddhismen: Nirvana, de fire edle sannheter og den åttedelte vei.",
-                                    "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/buddhisme_hero.jpg",
                                     "tags": [
                                         "buddhisme",
                                         "sentrale_trekk"
@@ -2297,7 +2297,7 @@
                                     "id": "bonn",
                                     "title": "Bønn og meditasjon",
                                     "description": "Bønn og meditasjon i buddhismen.",
-                                    "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/buddhisme_hero.jpg",
                                     "tags": [
                                         "buddhisme",
                                         "bønn",
@@ -2310,7 +2310,7 @@
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
                                     "description": "Fødsel, munkeinnvielse og død.",
-                                    "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/buddhisme_hero.jpg",
                                     "tags": [
                                         "buddhisme",
                                         "overgangsriter",
@@ -2323,7 +2323,7 @@
                                     "id": "grunnleggere",
                                     "title": "Buddha",
                                     "description": "Siddhartha Gautama - den oppvåknede.",
-                                    "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/buddhisme_hero.jpg",
                                     "tags": [
                                         "buddhisme",
                                         "grunnleggere",
@@ -2349,7 +2349,7 @@
                                     "id": "gudsbilde",
                                     "title": "Ingen skapergud",
                                     "description": "En ikke-teistisk religion.",
-                                    "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/buddhisme_hero.jpg",
                                     "tags": [
                                         "buddhisme",
                                         "gudsbilde",
@@ -2375,7 +2375,7 @@
                                     "id": "intro",
                                     "title": "Introduksjon",
                                     "description": "Grunnleggende om buddhismen.",
-                                    "image": "https://images.unsplash.com/photo-1526716173434-a1b560f2065d?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/buddhisme_hero.jpg",
                                     "tags": [
                                         "buddhisme",
                                         "intro"
@@ -2396,7 +2396,7 @@
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
                                     "description": "Kjernen i jødedommen: Pakten, Toraen og livet her og nå.",
-                                    "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jodedom_hero.jpg",
                                     "tags": [
                                         "jodedom",
                                         "sentrale_trekk"
@@ -2408,7 +2408,7 @@
                                     "id": "bonn",
                                     "title": "Bønn",
                                     "description": "Bønn i jødedommen.",
-                                    "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jodedom_hero.jpg",
                                     "tags": [
                                         "jodedom",
                                         "bønn",
@@ -2421,7 +2421,7 @@
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
                                     "description": "Omskjæring, Bar/Bat Mitzvah og ekteskap.",
-                                    "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jodedom_hero.jpg",
                                     "tags": [
                                         "jodedom",
                                         "overgangsriter",
@@ -2434,7 +2434,7 @@
                                     "id": "grunnleggere",
                                     "title": "Abraham og Moses",
                                     "description": "Stamfaren og lovgiveren.",
-                                    "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jodedom_hero.jpg",
                                     "tags": [
                                         "jodedom",
                                         "grunnleggere",
@@ -2460,7 +2460,7 @@
                                     "id": "gudsbilde",
                                     "title": "Monoteisme",
                                     "description": "Troen på én Gud - Jahve.",
-                                    "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jodedom_hero.jpg",
                                     "tags": [
                                         "jodedom",
                                         "gudsbilde",
@@ -2486,7 +2486,7 @@
                                     "id": "intro",
                                     "title": "Introduksjon",
                                     "description": "Grunnleggende om jødedommen.",
-                                    "image": "https://images.unsplash.com/photo-1590053723707-160d332d2d9c?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jodedom_hero.jpg",
                                     "tags": [
                                         "jødedom",
                                         "intro"
@@ -2507,7 +2507,7 @@
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
                                     "description": "Kjernen i hinduismen: Moksha, Dharma og Karma.",
-                                    "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/hinduisme_hero.jpg",
                                     "tags": [
                                         "hinduisme",
                                         "sentrale_trekk"
@@ -2519,7 +2519,7 @@
                                     "id": "bonn",
                                     "title": "Bønn (Puja)",
                                     "description": "Bønn og tilbedelse i hinduismen.",
-                                    "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/hinduisme_hero.jpg",
                                     "tags": [
                                         "hinduisme",
                                         "bønn",
@@ -2532,7 +2532,7 @@
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
                                     "description": "Samskaras - livets overgangsriter.",
-                                    "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/hinduisme_hero.jpg",
                                     "tags": [
                                         "hinduisme",
                                         "overgangsriter",
@@ -2545,7 +2545,7 @@
                                     "id": "grunnleggere",
                                     "title": "Ingen enkelt grunnlegger",
                                     "description": "En religion uten en enkelt stifter.",
-                                    "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/hinduisme_hero.jpg",
                                     "tags": [
                                         "hinduisme",
                                         "grunnleggere",
@@ -2571,7 +2571,7 @@
                                     "id": "gudsbilde",
                                     "title": "Brahman og guder",
                                     "description": "én guddommelig kraft i mange former.",
-                                    "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/hinduisme_hero.jpg",
                                     "tags": [
                                         "hinduisme",
                                         "gudsbilde",
@@ -2597,7 +2597,7 @@
                                     "id": "intro",
                                     "title": "Introduksjon",
                                     "description": "Grunnleggende om hinduismen.",
-                                    "image": "https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/hinduisme_hero.jpg",
                                     "tags": [
                                         "hinduisme",
                                         "intro"
@@ -2641,7 +2641,7 @@
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
                                     "description": "Kjernen i Bahá'í: Enhet mellom Gud, religion og menneskehet.",
-                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "image": "/images/krle/religion/bahai_hero.jpg",
                                     "tags": [
                                         "bahai",
                                         "sentrale_trekk"
@@ -2653,7 +2653,7 @@
                                     "id": "bonn",
                                     "title": "Bønn",
                                     "description": "Bønn i Bahá'í.",
-                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "image": "/images/krle/religion/bahai_hero.jpg",
                                     "tags": [
                                         "bahai",
                                         "bønn",
@@ -2666,7 +2666,7 @@
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
                                     "description": "Ingen faste ritualer, men markering av livshendelser.",
-                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "image": "/images/krle/religion/bahai_hero.jpg",
                                     "tags": [
                                         "bahai",
                                         "overgangsriter",
@@ -2679,7 +2679,7 @@
                                     "id": "grunnleggere",
                                     "title": "Bahá'u'lláh",
                                     "description": "Grunnleggeren av Bahá'í-troen.",
-                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "image": "/images/krle/religion/bahai_hero.jpg",
                                     "tags": [
                                         "bahai",
                                         "grunnleggere",
@@ -2692,7 +2692,7 @@
                                     "id": "hellige-tekster",
                                     "title": "Kitáb-i-Aqdas",
                                     "description": "Den helligste boken i Bahá'í.",
-                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "image": "/images/krle/religion/bahai_hero.jpg",
                                     "tags": [
                                         "bahai",
                                         "hellige-tekster",
@@ -2705,7 +2705,7 @@
                                     "id": "gudsbilde",
                                     "title": "En ukjennbar Gud",
                                     "description": "Gud er én og utenfor menneskelig fatteevne.",
-                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "image": "/images/krle/religion/bahai_hero.jpg",
                                     "tags": [
                                         "bahai",
                                         "gudsbilde",
@@ -2718,7 +2718,7 @@
                                     "id": "frelse",
                                     "title": "Åndelig utvikling",
                                     "description": "Sjelens reise mot Gud.",
-                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "image": "/images/krle/religion/bahai_hero.jpg",
                                     "tags": [
                                         "bahai",
                                         "frelse",
@@ -2731,7 +2731,7 @@
                                     "id": "intro",
                                     "title": "Introduksjon",
                                     "description": "Grunnleggende om Bahá'í.",
-                                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bahai_Gardens_Haifa_2011.jpg/1280px-Bahai_Gardens_Haifa_2011.jpg",
+                                    "image": "/images/krle/religion/bahai_hero.jpg",
                                     "tags": [
                                         "bahai",
                                         "intro"
@@ -2752,7 +2752,7 @@
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
                                     "description": "Kjernen i mormonismen: Gjenopprettelsen og evig progresjon.",
-                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/mormonisme_hero.jpg",
                                     "tags": [
                                         "mormonisme",
                                         "sentrale_trekk"
@@ -2764,7 +2764,7 @@
                                     "id": "bonn",
                                     "title": "Bønn",
                                     "description": "Bønn i mormonismen.",
-                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/mormonisme_hero.jpg",
                                     "tags": [
                                         "mormonisme",
                                         "bønn",
@@ -2777,7 +2777,7 @@
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
                                     "description": "Dåp, konfirmasjon og tempelbesegling.",
-                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/mormonisme_hero.jpg",
                                     "tags": [
                                         "mormonisme",
                                         "overgangsriter",
@@ -2790,7 +2790,7 @@
                                     "id": "grunnleggere",
                                     "title": "Joseph Smith",
                                     "description": "Profeten som gjenopprettet kirken.",
-                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/mormonisme_hero.jpg",
                                     "tags": [
                                         "mormonisme",
                                         "grunnleggere",
@@ -2803,7 +2803,7 @@
                                     "id": "hellige-tekster",
                                     "title": "Mormons bok",
                                     "description": "Et annet testamente om Jesus Kristus.",
-                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/mormonisme_hero.jpg",
                                     "tags": [
                                         "mormonisme",
                                         "hellige-tekster",
@@ -2816,7 +2816,7 @@
                                     "id": "gudsbilde",
                                     "title": "Guddommen",
                                     "description": "Faderen, Sønnen og Den hellige ånd er tre separate vesener.",
-                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/mormonisme_hero.jpg",
                                     "tags": [
                                         "mormonisme",
                                         "gudsbilde",
@@ -2829,7 +2829,7 @@
                                     "id": "frelse",
                                     "title": "Evig progresjon",
                                     "description": "Muligheten til å bli lik Gud.",
-                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/mormonisme_hero.jpg",
                                     "tags": [
                                         "mormonisme",
                                         "frelse",
@@ -2842,7 +2842,7 @@
                                     "id": "intro",
                                     "title": "Introduksjon",
                                     "description": "Grunnleggende om mormonismen.",
-                                    "image": "https://images.unsplash.com/photo-1565108092241-1a06b0201b14?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/mormonisme_hero.jpg",
                                     "tags": [
                                         "mormonisme",
                                         "intro"
@@ -2863,7 +2863,7 @@
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
                                     "description": "Kjernen i Jehovas vitner: Guds rike og paradis på jord.",
-                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
                                     "tags": [
                                         "jehovas-vitner",
                                         "sentrale_trekk"
@@ -2875,7 +2875,7 @@
                                     "id": "bonn",
                                     "title": "Bønn",
                                     "description": "Bønn i Jehovas vitner.",
-                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
                                     "tags": [
                                         "jehovas-vitner",
                                         "bønn",
@@ -2888,7 +2888,7 @@
                                     "id": "overgangsriter",
                                     "title": "Overgangsriter",
                                     "description": "Dåp og ekteskap.",
-                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
                                     "tags": [
                                         "jehovas-vitner",
                                         "overgangsriter",
@@ -2901,7 +2901,7 @@
                                     "id": "grunnleggere",
                                     "title": "Charles Taze Russell",
                                     "description": "Grunnleggeren av Bibelstudentene.",
-                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
                                     "tags": [
                                         "jehovas-vitner",
                                         "grunnleggere",
@@ -2914,7 +2914,7 @@
                                     "id": "hellige-tekster",
                                     "title": "Ny verden-oversettelsen",
                                     "description": "Jehovas vitners bibeloversettelse.",
-                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
                                     "tags": [
                                         "jehovas-vitner",
                                         "hellige-tekster",
@@ -2927,7 +2927,7 @@
                                     "id": "gudsbilde",
                                     "title": "Jehova",
                                     "description": "Guds personlige navn.",
-                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
                                     "tags": [
                                         "jehovas-vitner",
                                         "gudsbilde",
@@ -2940,7 +2940,7 @@
                                     "id": "frelse",
                                     "title": "Paradis på jord",
                                     "description": "Håpet om evig liv på en paradisisk jord.",
-                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
                                     "tags": [
                                         "jehovas-vitner",
                                         "frelse",
@@ -2953,7 +2953,7 @@
                                     "id": "intro",
                                     "title": "Introduksjon",
                                     "description": "Grunnleggende om Jehovas vitner.",
-                                    "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+                                    "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
                                     "tags": [
                                         "jehovas-vitner",
                                         "intro"
