@@ -5,7 +5,7 @@
     "year": "1602",
     "category": "Kolonialisering",
     "readTime": "5 min lesning",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/A_View_of_the_Port_of_Batavia%2C_c._1665.jpg/1280px-A_View_of_the_Port_of_Batavia%2C_c._1665.jpg",
+    "heroImage": "/images/historie/kolonialisering/voc/hero.png",
     "externalUrl": "https://snl.no/handelskompani",
     "fact": "Visste du at VOC (Det nederlandske ostindiske kompani) regnes som verdens første multinasjonale selskap og utstedte verdens første aksjer?",
     "tags": [
@@ -37,6 +37,12 @@
         {
             "type": "text",
             "content": "Suksessen utløste en konkurranse mellom mange små, private handelselskaper i Nederland. Denne rivaliseringen førte til priskrig som truet med å ødelegge profitten – kryddermarkedet holdt på å kollapse mot slutten av 1500-tallet. For å stabilisere handelen grep staten inn: I 1602 vedtok Generalstatene (parlamentet) at de eksisterende små selskapene skulle slås sammen til ett stort, forent ostindisk kompani. VOC ble dermed stiftet 20. mars 1602 som et nasjonalt monopol på all nederlandsk handel øst for Kapp det gode håp. Formålet var både å sikre jevn tilgang på asiatiske varer (særlig krydder) til Nederland og å styrke landets posisjon i kampen mot Spania."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/kolonialisering/voc/bors.png",
+            "caption": "Kjøpmenn handler med aksjer i VOC ved børsen i Amsterdam.",
+            "alt": "Børsen i Amsterdam på 1600-tallet med kjøpmenn i tradisjonelle klær."
         },
         {
             "type": "header",
@@ -72,6 +78,12 @@
             "content": "Handelsrutene under VOCs kontroll gikk hovedsakelig sjøveien fra Europa rundt Afrika. Skipene seilte ut fra Nederlands havner (særlig Amsterdam) og fulgte den lange ruten sørover langs Afrikas kyst, rundt Kapp det gode håp, og videre over Det indiske hav til handelsknutepunktene i Asia. Underveis etablerte VOC støttepunkter (som Kappstaden) for å fylle opp proviant. Returreisen brakte asiatiske varer tilbake til Europa for salg. En typisk rundreise kunne ta nærmere ett år og var full av farer – alt fra stormer og sykdom til pirater truet VOC-skipene. Likevel var profitten på de asiatiske varene så høy at denne sjøruten gjorde Nederland til et av verdens rikeste land på 1600-1700-tallet."
         },
         {
+            "type": "image",
+            "src": "/images/historie/kolonialisering/voc/krydder.png",
+            "caption": "Krydderhandel på Maluku-øyene: VOC kontrollerte produksjonen av muskat og nellik.",
+            "alt": "Lasteplass på en tropisk øy med tønner med krydder og VOC-skip."
+        },
+        {
             "type": "header",
             "text": "Organisering og privilegier"
         },
@@ -82,6 +94,12 @@
         {
             "type": "text",
             "content": "Gjennom sitt kongelige charter fikk VOC myndighet som gikk langt utover det vanlige for et selskap. Staten ga VOC handelsmonopol på all nederlandsk handel mellom Europa og Asia, innen et avgrenset geografisk område. Ingen andre nederlandske aktører fikk lov til å drive handel øst for Kapp det gode håp utenom VOC. I tillegg fikk selskapet politiske og militære fullmakter: VOC kunne inngå traktater og avtaler med fremmede herskere i Asia, etablere kolonier og bygge befestede handelsstasjoner. Selskapet hadde også rett til å holde seg med egen hær og flåte, noe de faktisk gjorde – VOC utrustet hundrevis av egne krigsskip og soldater for å beskytte sine interesser. Slik kunne VOC føre krig mot andre makter i Asia ved behov. Disse privilegiene gjorde VOC i praksis til en slags selvstyrt koloniadministrasjon og militærmakt i områdene de kontrollerte. Det nederlandske ostindiske kompani regnes derfor som en unik konstruksjon: et privat forretningsforetak som også utøvde statlige maktfunksjoner, med egne fort, myntverk, soldater og embetsmenn som styrte kolonier på vegne av selskapet."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/kolonialisering/voc/heren-xvii.png",
+            "caption": "Heren XVII: De sytten herrene som ledet VOC fra Amsterdam.",
+            "alt": "Møte i styrerommet med kart over Asia."
         },
         {
             "type": "header",

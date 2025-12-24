@@ -61,7 +61,7 @@ Focus on the "Bones" of the JSON structure.
 Final polish and technical checks.
 
 ### 1. Image Generation
-- **Style:** "Authentic mobile phone photo, historical realism, high detail".
+- **Style:** Use image-style-guide.md
 - **Path:** `public/images/<topic>/<article-id>-hero.jpg`.
 - **Consistency:** Ensure the hero image matches the card image in Topic overview.
 
