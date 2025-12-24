@@ -2962,6 +2962,59 @@
                                     "lastUpdated": "2025-12-03T17:25:16.499Z"
                                 }
                             ]
+                        },
+                        {
+                            "id": "sikhisme",
+                            "title": "Sikhisme",
+                            "description": "Likhet, tjeneste og troen på én Gud.",
+                            "image": "https://images.unsplash.com/photo-1598018554441-b14cc672213e?auto=format&fit=crop&q=80",
+                            "link": "/krle/religion/sikhisme",
+                            "lessons": [
+                                {
+                                    "id": "sentrale-trekk",
+                                    "title": "Sentrale trekk",
+                                    "description": "Kjernen i sikhismen: Likhet, de fem K-ene og Khalsa.",
+                                    "image": "/images/krle/religion/sikhisme_hero.jpg",
+                                    "tags": [
+                                        "sikhisme",
+                                        "sentrale_trekk"
+                                    ],
+                                    "createdDate": "2025-12-24T10:00:00Z"
+                                },
+                                {
+                                    "id": "grunnleggere",
+                                    "title": "Guruene",
+                                    "description": "Fra Guru Nanak til den evige Guru Granth Sahib.",
+                                    "image": "/images/krle/religion/sikhisme_hero.jpg",
+                                    "tags": [
+                                        "sikhisme",
+                                        "grunnleggere"
+                                    ],
+                                    "createdDate": "2025-12-24T10:00:00Z"
+                                },
+                                {
+                                    "id": "hellige-tekster",
+                                    "title": "Guru Granth Sahib",
+                                    "description": "Sikhismens hellige bok og evige lærer.",
+                                    "image": "/images/krle/religion/sikhisme_hero.jpg",
+                                    "tags": [
+                                        "sikhisme",
+                                        "hellige-tekster"
+                                    ],
+                                    "createdDate": "2025-12-24T10:00:00Z"
+                                },
+                                {
+                                    "id": "intro",
+                                    "title": "Introduksjon",
+                                    "description": "Grunnleggende om sikhismen.",
+                                    "image": "/images/krle/religion/sikhisme_hero.jpg",
+                                    "tags": [
+                                        "sikhisme",
+                                        "intro"
+                                    ],
+                                    "createdDate": "2025-12-24T10:00:00Z"
+                                }
+                            ]
                         }
                     ]
                 },
