@@ -1167,7 +1167,7 @@
                     "id": "den-kalde-krigen",
                     "title": "Den Kalde Krigen",
                     "description": "Verden delt i to: Øst mot Vest i en kamp om verdensherredømme.",
-                    "image": "/images/historie/den-kalde-krigen/oversikt-hero.jpg",
+                    "image": "/images/lessons/den-kalde-krigen/oversikt.webp",
                     "tools": [
                         {
                             "id": "kald-krig-sti",
@@ -1182,7 +1182,7 @@
                             "id": "oversikt",
                             "title": "Oversikt: Den Kalde Krigen",
                             "description": "Terrorbalanse, spionasje og proxykriger.",
-                            "image": "/images/historie/den-kalde-krigen/oversikt-hero.jpg",
+                            "image": "/images/lessons/den-kalde-krigen/oversikt.webp",
                             "tags": [
                                 "historie",
                                 "kald-krig",
@@ -1195,7 +1195,7 @@
                             "id": "nato-vs-warszawa",
                             "title": "NATO vs Warszawa",
                             "description": "To mektige allianser står mot hverandre.",
-                            "image": "/images/historie/den-kalde-krigen/nato-hero.jpg",
+                            "image": "/images/lessons/den-kalde-krigen/nato-vs-warszawa.webp",
                             "tags": [
                                 "allianser",
                                 "nato",
@@ -1207,7 +1207,7 @@
                             "id": "koreakrigen",
                             "title": "Koreakrigen",
                             "description": "Den kalde krigen blir varm i Asia.",
-                            "image": "/images/historie/den-kalde-krigen/korea-hero.jpg",
+                            "image": "/images/lessons/den-kalde-krigen/koreakrigen.webp",
                             "tags": [
                                 "krig",
                                 "asia",
@@ -1219,7 +1219,7 @@
                             "id": "atomvapenkapplopet",
                             "title": "Atomvåpenkappløpet",
                             "description": "Terrorbalanse og frykten for dommedag.",
-                            "image": "/images/historie/den-kalde-krigen/atom-hero.jpg",
+                            "image": "/images/lessons/den-kalde-krigen/atomvapenkapplopet.webp",
                             "tags": [
                                 "teknologi",
                                 "atomvåpen",
@@ -1231,7 +1231,7 @@
                             "id": "romkapplopet",
                             "title": "Romkappløpet",
                             "description": "Kampen om stjernene: Sputnik og Apollo.",
-                            "image": "/images/historie/den-kalde-krigen/romfart-hero.jpg",
+                            "image": "/images/lessons/den-kalde-krigen/romkapplopet.webp",
                             "tags": [
                                 "teknologi",
                                 "romfart",
@@ -1243,7 +1243,7 @@
                             "id": "cuba-krisen",
                             "title": "Cubakrisen",
                             "description": "13 dager da verden holdt pusten.",
-                            "image": "/images/historie/den-kalde-krigen/cuba-hero.jpg",
+                            "image": "/images/lessons/den-kalde-krigen/cuba-krisen.webp",
                             "tags": [
                                 "krise",
                                 "diplomati",
@@ -1255,7 +1255,7 @@
                             "id": "kultur",
                             "title": "Kultur og Propaganda",
                             "description": "Kampen om hjerter og hjerner.",
-                            "image": "/images/historie/den-kalde-krigen/kultur-hero.jpg",
+                            "image": "/images/lessons/den-kalde-krigen/kultur.webp",
                             "tags": [
                                 "kultur",
                                 "media",
@@ -1279,7 +1279,7 @@
                             "id": "berlinmuren",
                             "title": "Berlinmuren",
                             "description": "Symbolet på skillet mellom Øst og vest.",
-                            "image": "/images/historie/den-kalde-krigen/berlin-hero.jpg",
+                            "image": "/images/lessons/den-kalde-krigen/berlinmuren.webp",
                             "tags": [
                                 "tyskland",
                                 "jernteppet",
