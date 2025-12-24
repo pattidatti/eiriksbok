@@ -1099,13 +1099,13 @@
                     "id": "forste-verdenskrig",
                     "title": "Første verdenskrig",
                     "description": "Den store krigen som endret verdenskartet (1914-1918).",
-                    "image": "https://images.unsplash.com/photo-1547638375-ebdaa9df273a?auto=format&fit=crop&q=80",
+                    "image": "/images/historie/forste-verdenskrig/oversikt_hero.png",
                     "lessons": [
                         {
                             "id": "oversikt",
                             "title": "Oversikt",
                             "description": "En introduksjon til første verdenskrig.",
-                            "image": "https://images.unsplash.com/photo-1547638375-ebdaa9df273a?auto=format&fit=crop&q=80",
+                            "image": "/images/historie/forste-verdenskrig/oversikt_hero.png",
                             "tags": [
                                 "krig",
                                 "oversikt"
@@ -1117,7 +1117,7 @@
                             "id": "opptakt",
                             "title": "Opptakten",
                             "description": "Skuddene i Sarajevo og veien mot krig.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gavrilo_Princip_captured_in_Sarajevo_1914.jpg/1200px-Gavrilo_Princip_captured_in_Sarajevo_1914.jpg",
+                            "image": "/images/historie/forste-verdenskrig/opptakt_hero.png",
                             "tags": [
                                 "geopolitikk",
                                 "opptakt"
@@ -1129,7 +1129,7 @@
                             "id": "krigens-lop",
                             "title": "Krigens løp",
                             "description": "Fra skyttergraver til stillstand.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Battle_of_the_Somme_1916.jpg/1200px-Battle_of_the_Somme_1916.jpg",
+                            "image": "/images/historie/forste-verdenskrig/krigens_lop_hero.png",
                             "tags": [
                                 "krigføring",
                                 "slag"
@@ -1141,7 +1141,7 @@
                             "id": "teknologi",
                             "title": "Teknologi",
                             "description": "Stridsvogner, fly og giftgass.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/British_Mark_I_male_tank_Somme_25_September_1916.jpg/1200px-British_Mark_I_male_tank_Somme_25_September_1916.jpg",
+                            "image": "/images/historie/forste-verdenskrig/teknologi_hero.png",
                             "tags": [
                                 "teknologi",
                                 "våpen"
@@ -1153,7 +1153,7 @@
                             "id": "konsekvenser",
                             "title": "Konsekvenser",
                             "description": "Imperienes fall og Versailles-traktaten.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Signing_of_Peace_in_the_Hall_of_Mirrors%2C_Versailles%2C_28th_June_1919_%28William_Orpen%29.jpg/1200px-The_Signing_of_Peace_in_the_Hall_of_Mirrors%2C_Versailles%2C_28th_June_1919_%28William_Orpen%29.jpg",
+                            "image": "/images/historie/forste-verdenskrig/konsekvenser_hero.png",
                             "tags": [
                                 "konsekvenser",
                                 "politikk"
