@@ -32,6 +32,10 @@ Focus on the "Soul" of the content before writing any code.
     - `Comparison`: For comparing concepts/figures.
     - `QuoteBlock`: For primary sources.
     - `FactBox`: For technical details.
+    - Also make a model that underscores what the article is about, interaktive, beautiful, fun and insightfull. 
+
+
+
 
 ---
 
