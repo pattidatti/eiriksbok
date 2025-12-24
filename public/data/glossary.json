@@ -241,6 +241,18 @@
     "type": "concept"
   },
   {
+    "term": "Folkevandringstiden",
+    "definition": "En periode i Europas historie preget av store folkeforflytninger, spesielt på 300- til 500-tallet. Den markerer overgangen fra antikken til middelalderen.",
+    "type": "concept",
+    "tags": [
+      "historie",
+      "middelalder",
+      "migrasjon"
+    ],
+    "subject": "historie",
+    "link": "/historie/middelalderen/tidlig-middelalder"
+  },
+  {
     "term": "Glasnost",
     "definition": "En reformpolitik lansert av Mikhail Gorbatsjov i Sovjetunionen på 1980-tallet. Ordet betyr 'åpenhet', og målet var å skape mer gjennomsiktighet i staten og mer ytringsfrihet for borgerne.",
     "subject": "historie",
@@ -393,6 +405,18 @@
       "pest"
     ],
     "subject": "historie"
+  },
+  {
+    "term": "Kalmarunionen",
+    "definition": "En personalunion mellom kongerikene Danmark, Norge og Sverige (inkludert Finland) som varte fra 1397 til 1523. Unionen ble styrt fra Danmark, noe som førte til stadige konflikter med den svenske adelen.",
+    "type": "concept",
+    "tags": [
+      "union",
+      "middelalder",
+      "norden"
+    ],
+    "subject": "historie",
+    "link": "/historie/sveriges-historie/sveriges-historie"
   },
   {
     "term": "kapitalisme",
@@ -554,6 +578,18 @@
     "topic": "kolonialisering",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Merovingerne",
+    "definition": "Det første kongedynastiet som styrte Frankerriket, fra midten av 400-tallet til 751. De ble sett på som 'langhårede konger' og hadde en semi-legendarisk status.",
+    "type": "concept",
+    "tags": [
+      "historie",
+      "frankrike",
+      "dynasti"
+    ],
+    "subject": "historie",
+    "link": "/historie/middelalderen/tidlig-middelalder"
   },
   {
     "term": "Molotov-Ribbentrop-pakten",
@@ -855,6 +891,18 @@
     "type": "concept"
   },
   {
+    "term": "Stormaktstiden",
+    "definition": "En periode i Sveriges historie mellom 1611 og 1718 der landet var en av Europas ledende stormakter, med kontroll over store deler av Østersjøregionen.",
+    "type": "concept",
+    "tags": [
+      "stormakt",
+      "sverige",
+      "krig"
+    ],
+    "subject": "historie",
+    "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
     "term": "Stridsvogn",
     "definition": "Et pansret motorkjøretøy med belter og bevæpning (tank), utviklet for å bryte gjennom skyttergraver.",
     "subject": "historie",
@@ -969,6 +1017,18 @@
     "type": "concept"
   },
   {
+    "term": "Unionsoppløsningen 1905",
+    "definition": "Den fredelige avslutningen på personalunionen mellom Sverige og Norge. Etter intense forhandlinger i Karlstad anerkjente Sverige Norges selvstendighet i oktober 1905.",
+    "type": "concept",
+    "tags": [
+      "union",
+      "fred",
+      "norge-sverige"
+    ],
+    "subject": "historie",
+    "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
     "term": "Utmattelseskrig",
     "definition": "En krigføring hvor målet er å slite ut fiendens ressurser og mannskap fremfor å vinne raske territorielle seire.",
     "subject": "historie",
@@ -1063,6 +1123,32 @@
     "subject": "historie",
     "lifespan": "354 e.Kr. – 430 e.Kr.",
     "link": "/historie/antikken/princeps-til-guds-utvalgte"
+  },
+  {
+    "term": "Birger Jarl",
+    "definition": "Svensk jarl og statsmann på 1200-tallet. Han regnes som grunnleggeren av Stockholm og arkitekten bak et samlet svensk riksstyre gjennom sine 'fridlover'.",
+    "type": "person",
+    "tags": [
+      "middelalder",
+      "sverige",
+      "statsbygger"
+    ],
+    "subject": "historie",
+    "lifespan": "ca. 1210 – 1266",
+    "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
+    "term": "Klodvig I",
+    "definition": "Frankerkonge som samlet de frankiske stammene og grunnla merovingerdynastiet. Hans dåp i 496 regnes som et vendepunkt i europeisk historie, da det knyttet frankerne til den katolske kirke.",
+    "type": "person",
+    "tags": [
+      "middelalder",
+      "frankerriket",
+      "konge"
+    ],
+    "subject": "historie",
+    "lifespan": "ca. 466 – 511",
+    "link": "/historie/middelalderen/tidlig-middelalder"
   },
   {
     "term": "David Hume",
@@ -1164,6 +1250,19 @@
     "subject": "historie",
     "lifespan": "1594 – 1632",
     "link": "/historie/reformasjonen/30-arskrigen"
+  },
+  {
+    "term": "Gustav Vasa",
+    "definition": "Konge av Sverige fra 1523 til 1560. Han førte Sverige ut av Kalmarunionen, gjennomførte reformasjonen og la grunnlaget for den moderne svenske nasjonalstaten.",
+    "type": "person",
+    "tags": [
+      "vasa",
+      "sverige",
+      "reformasjonen"
+    ],
+    "subject": "historie",
+    "lifespan": "1496 – 1560",
+    "link": "/historie/sveriges-historie/sveriges-historie"
   },
   {
     "term": "Henrik Krummedige",
@@ -1281,6 +1380,19 @@
     "subject": "historie",
     "lifespan": "1889 – 1976",
     "link": "/filosofi/eksistensialisme/martin-heidegger"
+  },
+  {
+    "term": "Oscar II",
+    "definition": "Konge av Sverige (1872–1907) og Norge (1872–1905). Han var den siste kongen i personalunionen mellom de to landene og spilte en viktig rolle i den fredelige unionsoppløsningen.",
+    "type": "person",
+    "tags": [
+      "union",
+      "norge-sverige",
+      "bernadotte"
+    ],
+    "subject": "historie",
+    "lifespan": "1829 – 1907",
+    "link": "/historie/sveriges-historie/sveriges-historie"
   },
   {
     "term": "Platon",

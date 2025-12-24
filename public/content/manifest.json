@@ -1015,6 +1015,30 @@
                     ]
                 },
                 {
+                    "id": "sveriges-historie",
+                    "title": "Sveriges historie",
+                    "description": "Fra middelalderens riksbygging til 1905.",
+                    "image": "/images/historie/sveriges-historie/hero.png",
+                    "lessons": [
+                        {
+                            "id": "sveriges-historie",
+                            "title": "Sveriges historie: Fra østfarere til moderne nasjon",
+                            "description": "En reise gjennom Sveriges dramatiske historie.",
+                            "image": "/images/historie/sveriges-historie/hero.png",
+                            "year": "1252–1905",
+                            "layout": "rich",
+                            "tags": [
+                                "sverige",
+                                "historie",
+                                "stormaktstid",
+                                "vasa",
+                                "unionsoppløsning"
+                            ],
+                            "createdDate": "2025-12-24T00:00:00Z"
+                        }
+                    ]
+                },
+                {
                     "id": "andre-verdenskrig",
                     "title": "Andre verdenskrig",
                     "description": "Verdenshistoriens største konflikt (1939-1945).",
@@ -1663,6 +1687,18 @@
                         }
                     ],
                     "lessons": [
+                        {
+                            "id": "tidlig-middelalder",
+                            "title": "Tidlig middelalder: Folkevandring og forvandling",
+                            "description": "Fra Romerrikets fall til Karl den store: Hvordan det moderne Europa ble til.",
+                            "image": "/images/lessons/middelalderen/tidlig_middelalder_hero.webp",
+                            "tags": [
+                                "historie",
+                                "middelalderen",
+                                "folkevandringstiden"
+                            ],
+                            "createdDate": "2025-12-24T23:50:00Z"
+                        },
                         {
                             "id": "middelalderen",
                             "title": "Middelalderen",

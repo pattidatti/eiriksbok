@@ -3065,8 +3065,7 @@
       "opplysningstid",
       "empirisme"
     ]
-  }
-  ,
+  },
   {
     "id": "tetrarkiet-etablert",
     "title": "Tetrarkiet etableres",
@@ -3117,13 +3116,17 @@
       "romerriket",
       "biografi"
     ]
-    },
+  },
   {
     "id": "sikhisme-nanak-fodsel",
     "title": "Guru Nanak blir født",
     "description": "Grunnleggeren av sikhismen, Guru Nanak, blir født i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes én Gud.",
     "date": 1469,
-    "tags": ["religion", "sikhisme", "grunnleggere"],
+    "tags": [
+      "religion",
+      "sikhisme",
+      "grunnleggere"
+    ],
     "subjectId": "krle",
     "topicId": "religion",
     "link": "/krle/religion/sikhisme/grunnleggere"
@@ -3133,17 +3136,25 @@
     "title": "Khalsa-fellesskapet grunnlegges",
     "description": "Den tiende guruen, Guru Gobind Singh, etablerer Khalsa-fellesskapet ved Vaisakhi-feiringen. Dette gir sikhismen en tydeligere identitet og ytre kjennetegn.",
     "date": 1699,
-    "tags": ["religion", "sikhisme", "ritual"],
+    "tags": [
+      "religion",
+      "sikhisme",
+      "ritual"
+    ],
     "subjectId": "krle",
     "topicId": "religion",
     "link": "/krle/religion/sikhisme/sentrale-trekk"
-    },
+  },
   {
     "id": "sikhisme-nanak-fodsel",
     "title": "Guru Nanak blir fÃ¸dt",
     "description": "Grunnleggeren av sikhismen, Guru Nanak, blir fÃ¸dt i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes Ã©n Gud.",
     "date": 1469,
-    "tags": ["religion", "sikhisme", "grunnleggere"],
+    "tags": [
+      "religion",
+      "sikhisme",
+      "grunnleggere"
+    ],
     "subjectId": "krle",
     "topicId": "religion",
     "link": "/krle/religion/sikhisme/grunnleggere"
@@ -3153,9 +3164,181 @@
     "title": "Khalsa-fellesskapet grunnlegges",
     "description": "Den tiende guruen, Guru Gobind Singh, etablerer Khalsa-fellesskapet ved Vaisakhi-feiringen. Dette gir sikhismen en tydeligere identitet og ytre kjennetegn.",
     "date": 1699,
-    "tags": ["religion", "sikhisme", "ritual"],
+    "tags": [
+      "religion",
+      "sikhisme",
+      "ritual"
+    ],
     "subjectId": "krle",
     "topicId": "religion",
     "link": "/krle/religion/sikhisme/sentrale-trekk"
+  },
+  {
+    "id": "vestromerrikets-fall",
+    "title": "Vestromerrikets fall",
+    "description": "Den siste vestromerske keiseren, Romulus Augustulus, avsettes. Dette regnes ofte som starten på middelalderen.",
+    "startDate": 476,
+    "endDate": null,
+    "displayDate": "476",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "middelalderen",
+    "link": "/historie/middelalderen/tidlig-middelalder",
+    "tags": [
+      "historie",
+      "romerriket",
+      "middelalderen"
+    ]
+  },
+  {
+    "id": "klodvigs-daap",
+    "title": "Klodvig lar seg døpe",
+    "description": "Frankerkongen Klodvig konverterer til katolisismen, noe som sikrer alliansen mellom frankerne og kirken.",
+    "startDate": 496,
+    "endDate": null,
+    "displayDate": "496",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "middelalderen",
+    "link": "/historie/middelalderen/tidlig-middelalder",
+    "tags": [
+      "historie",
+      "frankerriket",
+      "religion"
+    ]
+  },
+  {
+    "id": "battle-of-tours",
+    "title": "Slaget ved Tours",
+    "description": "Karl Martell stanser den islamske ekspansjonen inn i Frankrike, et avgjørende øyeblikk for Europas fremtid.",
+    "startDate": 732,
+    "endDate": null,
+    "displayDate": "732",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "middelalderen",
+    "link": "/historie/middelalderen/tidlig-middelalder",
+    "tags": [
+      "krig",
+      "frankerriket",
+      "islam"
+    ]
+  },
+  {
+    "id": "karl-den-store-krone",
+    "title": "Karl den store krones til keiser",
+    "description": "Paven kroner Karl den store til romersk keiser i Roma, noe som markerer dannelsen av et nytt kristent imperium i vest.",
+    "startDate": 800,
+    "endDate": null,
+    "displayDate": "800",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "middelalderen",
+    "link": "/historie/middelalderen/tidlig-middelalder",
+    "tags": [
+      "historie",
+      "keiser",
+      "karl-den-store"
+    ]
+  },
+  {
+    "id": "stockholm-founding",
+    "title": "Stockholm grunnlegges",
+    "description": "Birger Jarl grunnlegger Stockholm.",
+    "startDate": 1252,
+    "endDate": null,
+    "displayDate": "1252",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "sveriges-historie",
+    "link": "/historie/sveriges-historie/sveriges-historie",
+    "tags": [
+      "sverige",
+      "bygger"
+    ]
+  },
+  {
+    "id": "kalmar-union-start",
+    "title": "Kalmarunionen inngås",
+    "description": "Norge, Sverige og Danmark samles i en union under dronning Margrete.",
+    "startDate": 1397,
+    "endDate": 1523,
+    "displayDate": "1397",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "sveriges-historie",
+    "link": "/historie/sveriges-historie/sveriges-historie",
+    "tags": [
+      "union",
+      "politikk",
+      "norden"
+    ]
+  },
+  {
+    "id": "gustav-vasa-king",
+    "title": "Gustav Vasa valgt til konge",
+    "description": "Markerer slutten på Kalmarunionen og starten på det moderne Sverige.",
+    "startDate": 1523,
+    "endDate": null,
+    "displayDate": "1523",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "sveriges-historie",
+    "link": "/historie/sveriges-historie/sveriges-historie",
+    "tags": [
+      "konge",
+      "selvstendighet",
+      "vasa"
+    ]
+  },
+  {
+    "id": "lutzen-battle",
+    "title": "Slaget ved Lützen",
+    "description": "Gustav II Adolf faller i kamp under 30-årskrigen.",
+    "startDate": 1632,
+    "endDate": null,
+    "displayDate": "1632",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "sveriges-historie",
+    "link": "/historie/sveriges-historie/sveriges-historie",
+    "tags": [
+      "krig",
+      "stormaktstid",
+      "konge"
+    ]
+  },
+  {
+    "id": "union-1814-start",
+    "title": "Union med Norge",
+    "description": "Sverige tvinger Danmark til å avstå Norge etter Napoleonskrigene.",
+    "startDate": 1814,
+    "endDate": 1905,
+    "displayDate": "1814",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "sveriges-historie",
+    "link": "/historie/sveriges-historie/sveriges-historie",
+    "tags": [
+      "union",
+      "diplomati"
+    ]
+  },
+  {
+    "id": "union-dissolution-1905",
+    "title": "Unionsoppløsningen",
+    "description": "Sverige og Norge skiller lag fredelig etter Karlstad-forhandlingene.",
+    "startDate": 1905,
+    "endDate": null,
+    "displayDate": "1905",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "sveriges-historie",
+    "link": "/historie/sveriges-historie/sveriges-historie",
+    "tags": [
+      "fred",
+      "selvstendighet",
+      "diplomati"
+    ]
   }
 ]

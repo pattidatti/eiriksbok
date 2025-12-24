@@ -1,0 +1,214 @@
+{
+    "id": "sveriges-historie",
+    "title": "Sveriges historie: Fra østfarere til moderne nasjon",
+    "description": "En reise gjennom Sveriges dramatiske historie, fra middelalderens riksbygging via stormaktstidens glansdager til den fredelige unionsoppløsningen in 1905.",
+    "image": "/images/historie/sveriges-historie/hero.png",
+    "year": "1252–1905",
+    "layout": "rich",
+    "subject": "historie",
+    "topic": "sveriges-historie",
+    "tags": [
+        "sverige",
+        "historie",
+        "stormaktstid",
+        "vasa",
+        "unionsoppløsning"
+    ],
+    "createdDate": "2025-12-24T00:00:00Z",
+    "lastUpdated": "2025-12-24T00:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Innledning: Landet som vendte blikket øst"
+        },
+        {
+            "type": "text",
+            "content": "Sverige har en historie som skiller seg markant fra sine skandinaviske naboer. Mens Norge og Danmark ofte så vestover mot Atlanterhavet og Nordsjøen, har Sverige i store deler av sin historie vendt blikket østover mot Østersjøen og de store elvene i dagens Russland og Ukraina. Denne orienteringen la grunnlaget for dannelsen av et rike som skulle vokse fra en samling løse landskap til en av Europas mest fryktede stormakter."
+        },
+        {
+            "type": "header",
+            "text": "Middelalderen: Birger Jarl og lovens makt"
+        },
+        {
+            "type": "text",
+            "content": "På 1200-tallet begynte konturene av en samlet svensk stat å tre frem. En av de viktigste skikkelsene i denne prosessen var Birger Jarl. Han var ikke konge selv, men som jarl (rikets øverste embetsmann) styrte han Sverige med fast hånd. Birger Jarl er i ettertiden best kjent for to ting: Han regnes som grunnleggeren av Stockholm rundt 1252, og han innførte de såkalte 'fridlovene'.\n\nDisse lovene var revolusjonerende for sin tid. De omfattet kirkefrid, tingsfrid, hjemfrid og – kanskje viktigst – kvinnefrid. Kvinnefrid-loven satte strenge straffer for voldtekt og overgrep mot kvinner, noe som var en svært progressiv tankegang i middelalderen. Ved å sentralisere lovverket, begynte Sverige reisen fra å være et samfunn styrt av slektshevn til å bli en rettsstat."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Visste du at?",
+                "content": "Birger Jarls fridlover inkluderte 'kvinnefred', som satte strenge straffer for voldtekt og overgrep mot kvinner – en svært progressiv tankegang for middelalderen."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kalmarunionen: En skjør nordisk drøm"
+        },
+        {
+            "type": "text",
+            "content": "I 1397 ble Norge, Sverige og Danmark samlet i Kalmarunionen under dronning Margrete Valdemarsdatter. Tanken var et sterkt, samlet Norden som kunne stå imot den tyske Hansaens økonomiske makt. Men unionen ble preget av stadige konflikter. Den svenske adelen følte seg ofte overkjørt av de danske kongene, og spenningene bygde seg opp gjennom hele 1400-tallet."
+        },
+        {
+            "type": "header",
+            "text": "Stockholms blodbad og veien til frihet"
+        },
+        {
+            "type": "text",
+            "content": "Konfliktene kulminerte i 1520 med det beryktede Stockholms blodbad. Den danske kong Christian II (i Sverige kalt 'Kristian Tyrann') lot henrette nesten 100 svenske adelsmenn og geistlige etter sin kroning. Blant de drepte var faren til en ung adelsmann ved navn Gustav Eriksson Vasa.\n\nGustav Vasa flyktet til Dalarna for å samle bøndene til opprør. Legenden forteller om hans dramatiske flukt på ski, en hendelse som i dag minnes gjennom det berømte Vasaloppet. Hans tale til mennene i Mora regnes som et vendepunkt i svensk historie."
+        },
+        {
+            "type": "quote",
+            "author": "Gustav Vasa (legendarisk tale i Mora)",
+            "content": "Svenske menn! Vil dere se deres fedreland gå fortapt under en tyranns fot, eller vil dere kjempe for deres frihet?"
+        },
+        {
+            "type": "header",
+            "text": "Vasa-tiden: Reformasjon og jernhånd"
+        },
+        {
+            "type": "text",
+            "content": "I 1523 ble Gustav Vasa valgt til konge, og Sverige forlot Kalmarunionen for godt. Den 6. juni – Sveriges nasjonaldag – markerer denne hendelsen. Gustav Vasa var en nådeløs, men effektiv administrator. Han gjennomførte reformasjonen i Sverige, ikke nødvendigvis av religiøs overbevisning, men fordi det ga ham muligheten til å konfiskere kirkens enorme verdier for å betale ned statsgjelden.\n\nHan la grunnlaget for det moderne Sverige med et sentralisert byråkrati og en fast arvefølge for tronen. Under Vasa-ætten vokste Sverige fra å være et fattig utkantrike til å bli en regional maktfaktor."
+        },
+        {
+            "type": "header",
+            "text": "Stormaktstiden: Sveriges gullalder"
+        },
+        {
+            "type": "text",
+            "content": "På 1600-tallet gikk Sverige inn i det som kalles Stormaktstiden. Under kong Gustav II Adolf ble Sverige en av de ledende militærmaktene i Europa. Under 30-årskrigen utviklet svenskene nye og revolusjonerende militære taktikker som gjorde dem nesten uovervinnelige på slagmarken.\n\nSverige kontrollerte på sitt største nesten hele kystlinjen rundt Østersjøen. Østersjøen ble nærmest for en 'svensk innsjø' å regne. Men å opprettholde et slikt imperium var ekstremt kostbart og krevde konstante kriger, noe som tæret på landets ressurser og befolkning."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Sverige som stormakt",
+                "leftTitle": "Før Stormaktstiden",
+                "rightTitle": "Høydepunktet (ca. 1658)",
+                "items": [
+                    {
+                        "left": "Løst sammensatt rike",
+                        "right": "Sentralisert militærstat"
+                    },
+                    {
+                        "left": "Begrenset adgang til havet",
+                        "right": "Kontroll over Østersjøen"
+                    },
+                    {
+                        "left": "Regional aktør",
+                        "right": "Europeisk lederstjerne"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "1814: Et nytt kapittel og unionen med Norge"
+        },
+        {
+            "type": "text",
+            "content": "Etter nederlaget i Napoleonskrigene og tapet av Finland til Russland i 1809, var Sverige i krise. Ved Kielfreden i 1814 ble Danmark tvunget til å avstå Norge til Sverige som erstatning for tapet av Finland. Nordmennene gjorde opprør og skrev sin egen grunnlov, men etter en kort krig ble Norge tvunget inn i en personalunion med Sverige.\n\nDe neste 91 årene var preget av en gradvis demokratisering i begge land, men også av økende gnisninger. Nordmennene ønsket mer selvstendighet, spesielt i utenrikspolitikken, mens den svenske kongen og adelen ønsket å bevare unionen som en garantist for stabilitet i Norden."
+        },
+        {
+            "type": "header",
+            "text": "Veien mot 1905: Den lange skilsmissen"
+        },
+        {
+            "type": "text",
+            "content": "Mot slutten av 1800-tallet ble konfliktene i unionen stadig dypere. Den såkalte 'konsulatsaken' ble dråpen som fikk begeret til å renne over. Norge krevde sitt eget konsulatsystem – egne representanter i utlandet – noe den svenske kongen Oscar II nektet å godta."
+        },
+        {
+            "type": "header",
+            "text": "Fredens seier i Karlstad"
+        },
+        {
+            "type": "text",
+            "content": "7. juni 1905 erklærte det norske Stortinget unionen for oppløst. Situasjonen var ekstremt spent, og begge land mobiliserte sine hærer langs grensen. Europa holdt pusten; ville det bryte ut en blodig krig mellom brødrefolkene?\n\nHøsten 1905 møttes delegater fra begge land i Karlstad for å forhandle. Til tross for det enorme presset, klarte politikerne å komme til enighet. Sverige anerkjente Norges selvstendighet, og unionen ble oppløst på fredelig vis. Dette regnes i dag som et av de fremste eksemplene på fredelig konfliktløsning i moderne historie."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "Tidslinje: Sveriges vei",
+                "events": [
+                    {
+                        "year": "1252",
+                        "title": "Stockholm grunnlegges",
+                        "description": "Birger Jarl etablerer byen som festningsverk."
+                    },
+                    {
+                        "year": "1397",
+                        "title": "Kalmarunionen",
+                        "description": "Norden samles under Margrete Valdemarsdatter."
+                    },
+                    {
+                        "year": "1523",
+                        "title": "Gustav Vasa konge",
+                        "description": "Sverige blir selvstendig fra Danmark."
+                    },
+                    {
+                        "year": "1632",
+                        "title": "Slaget ved Lützen",
+                        "description": "Sverige befester sin stilling som stormakt."
+                    },
+                    {
+                        "year": "1814",
+                        "title": "Union med Norge",
+                        "description": "Kielfreden overfører Norge til Sverige."
+                    },
+                    {
+                        "year": "1905",
+                        "title": "Unionsoppløsningen",
+                        "description": "Fredelig skilsmisse etter forhandlinger i Karlstad."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Konklusjon: Fra krig til velferd"
+        },
+        {
+            "type": "text",
+            "content": "Etter 1905 gikk Sverige inn i en ny æra. Landet holdt seg nøytralt gjennom begge verdenskrigene og utviklet den berømte 'svenske modellen' – en velferdsstat bygget på samarbeid mellom arbeidstakere, arbeidsgivere og staten. Fra å være en aggresiv krigerstat i middelalderen og stormaktstiden, har Sverige transformert seg til et av verdens mest stabile og velstående demokratier."
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hvem regnes som grunnleggeren av Stockholm?",
+                    "options": [
+                        "Gustav Vasa",
+                        "Birger Jarl",
+                        "Gustav II Adolf",
+                        "Margrete Valdemarsdatter"
+                    ],
+                    "answer": 1,
+                    "explanation": "Birger Jarl grunnla Stockholm rundt 1252 for å beskytte mot sjørøvere og kontrollere handelen."
+                },
+                {
+                    "question": "Hva skjedde i 1523?",
+                    "options": [
+                        "Kalmarunionen ble inngått",
+                        "Sverige ble med i 30-årskrigen",
+                        "Gustav Vasa ble valgt til konge",
+                        "Unionen med Norge ble oppløst"
+                    ],
+                    "answer": 2,
+                    "explanation": "I 1523 ble Gustav Vasa valgt til konge, noe som markerte slutten på Kalmarunionen og starten på det moderne Sverige."
+                },
+                {
+                    "question": "Hvor ble forhandlingene om unionsoppløsningen holdt i 1905?",
+                    "options": [
+                        "Stockholm",
+                        "Oslo",
+                        "Karlstad",
+                        "København"
+                    ],
+                    "answer": 2,
+                    "explanation": "Forhandlingene mellom Norge og Sverige i 1905 foregikk i Karlstad."
+                }
+            ]
+        }
+    ]
+}
