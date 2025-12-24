@@ -1,0 +1,76 @@
+{
+    "id": "hellige-tekster",
+    "title": "Guru Granth Sahib",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "sikhisme",
+    "createdDate": "2025-12-24T10:00:00Z",
+    "lastUpdated": "2025-12-24T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Mer enn bare en bok"
+        },
+        {
+            "type": "text",
+            "content": "For en sikh er Guru Granth Sahib mer enn en samling med tekster; det er sikhismens øverste autoritet og evige lærer. Boken inneholder 1430 sider med vakre hymner og dikt som er ment å synges (kirtan)."
+        },
+        {
+            "type": "header",
+            "text": "En samling av mange stemmer"
+        },
+        {
+            "type": "text",
+            "content": "Det som gjør Guru Granth Sahib helt spesiell, er at den ikke bare inneholder tekster fra sikh-guruene. Den inneholder også dikt og visdomsord fra muslimske sufi-mystikere og hinduistiske lærde (bhaktier). Dette viser sikhismens åpenhet og respekt for sannheten, uansett hvor den kommer fra."
+        },
+        {
+            "type": "header",
+            "text": "Respekt og ærbødighet"
+        },
+        {
+            "type": "text",
+            "content": "I Gurdwaraen ligger Guru Granth Sahib på en opphøyd trone under en baldakin. Folk viser respekt ved å bøye seg for den, og en person står ofte og vifter den med en vifte laget av yak-hår (en chaur) for å vise dens kongelige status. Om natten legges boken høytidelig til hvile i et eget rom."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "guru-granth-sahib",
+            "term": "Guru Granth Sahib",
+            "definition": "Sikhismens hellige bok og nåværende åndelige guru."
+        },
+        {
+            "id": "kirtan",
+            "term": "Kirtan",
+            "definition": "Lovsang og musikalsk fremføring av hymner fra Guru Granth Sahib."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvor mange sider har Guru Granth Sahib?",
+            "options": [
+                "1000",
+                "1430",
+                "2000"
+            ],
+            "answer": "1430"
+        },
+        {
+            "question": "Hvem andre enn sikh-guruene har tekster i boken?",
+            "options": [
+                "Kun katolske prester",
+                "Muslimske sufier og hinduistiske lærde",
+                "Ingen andre"
+            ],
+            "answer": "Muslimske sufier og hinduistiske lærde"
+        },
+        {
+            "question": "Hvordan behandles boken i tempelet?",
+            "options": [
+                "Den står i en vanlig bokhylle",
+                "Den ligger på en trone og blir viftet for",
+                "Den holdes låst inne i et skap"
+            ],
+            "answer": "Den ligger på en trone og blir viftet for"
+        }
+    ]
+}

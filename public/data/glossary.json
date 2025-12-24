@@ -253,6 +253,59 @@
     "type": "concept"
   },
   {
+    "term": "gurdwara",
+    "definition": "Sikhismens gudshus. Navnet betyr 'porten til guruen'.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "Guru Gobind Singh",
+    "definition": "Den tiende menneskelige guruen (1666–1708), som etablerte Khalsa-fellesskapet og overførte autoriteten til Guru Granth Sahib.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme",
+      "grunnleggere"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "Guru Granth Sahib",
+    "definition": "Sikhismens hellige bok og nåværende åndelige guru. Den inneholder hymner fra sikh-guruene og andre religiøse lærde.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme",
+      "hellige-tekster"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "Guru Nanak",
+    "definition": "Den første av sikhismens ti guruer og grunnleggeren av religionen (1469–1539). Han forkynte likhet og troen på én Gud.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme",
+      "grunnleggere"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "guru",
+    "definition": "En åndelig lærer. I sikhismen refererer det til de ti menneskelige guruene og den hellige boken Guru Granth Sahib.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme"
+    ],
+    "type": "concept"
+  },
+  {
     "term": "Habsburgerne",
     "definition": "Det mektige kongehuset som styrte Det tysk-romerske riket, Spania og Østerrike.",
     "subject": "historie",
@@ -350,6 +403,27 @@
     "type": "concept"
   },
   {
+    "term": "khalsa",
+    "definition": "Fellesskapet av innviede sikher som lover å følge sikhismens regler strengt og bære de fem K-ene.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme"
+    ],
+    "type": "concept"
+  },
+  {
+    "term": "Kirtan",
+    "definition": "Lovsang og musikalsk fremføring av hymner fra Guru Granth Sahib, som er en sentral del av sikh-tilbedelse.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme",
+      "ritual"
+    ],
+    "type": "concept"
+  },
+  {
     "term": "koloni",
     "definition": "Et område som ligger utenfor moderlandet, men som styres av det.",
     "subject": "historie",
@@ -382,6 +456,16 @@
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "langar",
+    "definition": "Det åpne kjøkkenet i en Gurdwara der gratis vegetarmat serveres til alle, uavhengig av bakgrunn, som et symbol på likhet.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme"
+    ],
     "type": "concept"
   },
   {
@@ -729,6 +813,16 @@
     "type": "concept"
   },
   {
+    "term": "sikh",
+    "definition": "Betyr 'elev'. En tilhenger av sikhismen.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme"
+    ],
+    "type": "concept"
+  },
+  {
     "term": "Skyttergravskrig",
     "definition": "En form for krigføring hvor soldatene beskytter seg i utgravde grøfter, ofte preget av stillstand.",
     "subject": "historie",
@@ -1031,6 +1125,32 @@
     "subject": "historie",
     "lifespan": "63 f.Kr. – 14 e.Kr.",
     "link": "/historie/romerriket/augustus"
+  },
+  {
+    "term": "Guru Gobind Singh",
+    "definition": "Den tiende menneskelige guruen som etablerte Khalsa-fellesskapet og bestemte at Guru Granth Sahib skulle være sikhismens evige guru.",
+    "type": "person",
+    "tags": [
+      "sikhisme",
+      "religion",
+      "leder"
+    ],
+    "subject": "krle",
+    "lifespan": "1666–1708",
+    "link": "/krle/religion/sikhisme/grunnleggere"
+  },
+  {
+    "term": "Guru Nanak",
+    "definition": "Grunnleggeren av sikhismen og den første av de ti menneskelige guruene. Han forkynte at alle mennesker er like og at det bare finnes én Gud.",
+    "type": "person",
+    "tags": [
+      "sikhisme",
+      "religion",
+      "grunnlegger"
+    ],
+    "subject": "krle",
+    "lifespan": "1469–1539",
+    "link": "/krle/religion/sikhisme/grunnleggere"
   },
   {
     "term": "Gustav II Adolf",

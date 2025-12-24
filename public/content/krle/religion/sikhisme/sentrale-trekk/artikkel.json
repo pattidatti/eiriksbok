@@ -1,0 +1,99 @@
+{
+    "id": "sentrale-trekk",
+    "title": "Sentrale trekk i sikhismen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "sikhisme",
+    "createdDate": "2025-12-24T10:00:00Z",
+    "lastUpdated": "2025-12-24T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "De fem K-ene"
+        },
+        {
+            "type": "text",
+            "content": "Mange sikher velger å bære fem ytre symboler som viser deres tilhørighet til troen og Khalsa-fellesskapet. Disse kalles de fem K-ene fordi alle starter med bokstaven K på språket punjabi:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Kesh**: Uklippet hår (symboliserer aksept av Guds vilje og naturen).",
+                "**Kangha**: En trekam (symboliserer renslighet og orden).",
+                "**Kara**: Et stålarmbånd (symboliserer evigheten og båndet til Gud).",
+                "**Kachera**: Spesielle bomullsbukser (symboliserer selvkontroll og moralsk renhet).",
+                "**Kirpan**: En liten seremoniell dolk (symboliserer plikten til å forsvare de svake og kjempe for rettferdighet)."
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Langar – fellesmåltidet"
+        },
+        {
+            "type": "text",
+            "content": "I hver eneste Gurdwara (sikh-tempel) finnes det et kjøkken som kalles Langar. Her serveres det gratis vegetarmat til alle som kommer, uansett hvem de er. Alle sitter på gulvet og spiser sammen. Dette er en kraftfull demonstrasjon av at ingen er mer verdt enn andre."
+        },
+        {
+            "type": "header",
+            "text": "De tre pilarene"
+        },
+        {
+            "type": "text",
+            "content": "Guru Nanak lærte bort tre enkle regler for hvordan man bør leve livet sitt:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Kirat Karni**: Å tjene til livets opphold gjennom ærlig arbeid.",
+                "**Vand Chakko**: Å dele det man har med andre som trenger det.",
+                "**Naam Japo**: Å alltid huske på Gud og be."
+            ]
+        }
+    ],
+    "concepts": [
+        {
+            "id": "khalsa",
+            "term": "Khalsa",
+            "definition": "Fellesskapet av innviede sikher som lover å følge sikhismens regler strengt."
+        },
+        {
+            "id": "langar",
+            "term": "Langar",
+            "definition": "Det åpne kjøkkenet i en Gurdwara der gratis mat serveres til alle."
+        },
+        {
+            "id": "gurdwara",
+            "term": "Gurdwara",
+            "definition": "Sikhismens gudshus. Navnet betyr 'porten til guruen'."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva symboliserer Kara (stålarmbåndet)?",
+            "options": [
+                "Styrke",
+                "Evigheten og båndet til Gud",
+                "Rikdom"
+            ],
+            "answer": "Evigheten og båndet til Gud"
+        },
+        {
+            "question": "Hvorfor sitter alle på gulvet under Langar-måltidet?",
+            "options": [
+                "Fordi de ikke har stoler",
+                "For å vise at alle er likeverdige",
+                "For å spare plass"
+            ],
+            "answer": "For å vise at alle er likeverdige"
+        },
+        {
+            "question": "Hva betyr 'Vand Chakko'?",
+            "options": [
+                "Å be hver morgen",
+                "Å dele med andre",
+                "Å jobbe hardt"
+            ],
+            "answer": "Å dele med andre"
+        }
+    ]
+}

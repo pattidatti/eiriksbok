@@ -1,0 +1,78 @@
+{
+    "id": "grunnleggere",
+    "title": "Guruene – sikhismens læremestre",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "sikhisme",
+    "createdDate": "2025-12-24T10:00:00Z",
+    "lastUpdated": "2025-12-24T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "De ti menneskelige guruene"
+        },
+        {
+            "type": "text",
+            "content": "Sikhismen ble formet gjennom lederskapet til ti guruer som levde mellom 1469 og 1708. Hver av dem la til noe viktig i religionens utvikling."
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Guru Nanak (1.)**: Grunnleggeren som lærte om én Gud og likhet.",
+                "**Guru Angad (2.)**: Utviklet det skriftlige språket gurmukhi.",
+                "**Guru Arjan (5.)**: Samlet de første hellige tekstene og bygget Det gylne tempelet.",
+                "**Guru Tegh Bahadur (9.)**: Ofret livet sitt for å forsvare religionsfriheten til andre.",
+                "**Guru Gobind Singh (10.)**: Grunnla Khalsa-fellesskapet og bestemte at det ikke skulle komme flere menneskelige guruer."
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Den evige guruen"
+        },
+        {
+            "type": "text",
+            "content": "Før Guru Gobind Singh døde i 1708, erklærte han at sikhismens hellige bok, Guru Granth Sahib, fra nå av skulle være den åndelige lederen for alle sikher. Boken behandles derfor med samme respekt som en levende konge eller lærer."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "guru-nanak",
+            "term": "Guru Nanak",
+            "definition": "Den første av sikhismens ti guruer og grunnleggeren av religionen."
+        },
+        {
+            "id": "guru-gobind-singh",
+            "term": "Guru Gobind Singh",
+            "definition": "Den tiende og siste menneskelige guruen, som etablerte Khalsa-fellesskapet."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvor mange menneskelige guruer var det i sikhismen?",
+            "options": [
+                "1",
+                "10",
+                "12"
+            ],
+            "answer": "10"
+        },
+        {
+            "question": "Hvem bestemte at boken skulle være den neste guruen?",
+            "options": [
+                "Guru Nanak",
+                "Guru Arjan",
+                "Guru Gobind Singh"
+            ],
+            "answer": "Guru Gobind Singh"
+        },
+        {
+            "question": "Hva kalles det skriftlige språket som sikhismens tekster er skrevet på?",
+            "options": [
+                "Sanskrit",
+                "Gurmukhi",
+                "Arabisk"
+            ],
+            "answer": "Gurmukhi"
+        }
+    ]
+}

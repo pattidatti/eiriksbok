@@ -50,7 +50,9 @@ Focus on the "Bones" of the JSON structure.
 
 ### 3. Global Data Sync
 - **Timeline:** Add events to `public/content/global-timeline.json`.
-- **Concepts:** Add new technical terms to TinaCMS or `public/content/concepts/`.
+- **Glossary & People:** 
+    - Add new technical terms to `public/content/concepts/`.
+    - Add historical figures to `public/content/people/` (MUST include `lifespan` and `link`).
 - **Quiz:** Add 3-5 multiple-choice questions to the article JSON (under a `quiz` field).
 
 ---
@@ -71,6 +73,8 @@ Final polish and technical checks.
 - [ ] Concepts are clickable and show in sidebar.
 - [ ] Timeline events appear correctly.
 - [ ] Images load without errors.
+- **Data Synchronization:**
+    - [ ] Run `node scripts/scan-concepts.js` to update the global glossary and people records.
 
 ---
 

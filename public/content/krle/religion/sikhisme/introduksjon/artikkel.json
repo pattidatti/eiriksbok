@@ -1,0 +1,82 @@
+{
+    "id": "intro",
+    "title": "Introduksjon til sikhismen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "sikhisme",
+    "createdDate": "2025-12-24T10:00:00Z",
+    "lastUpdated": "2025-12-24T10:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "En tro på likhet"
+        },
+        {
+            "type": "text",
+            "content": "Sikhismen er en av verdens yngste store religioner, grunnlagt i Punjab-regionen i det nåværende India og Pakistan på slutten av 1400-tallet. Kjernen i troen er budskapet om at det bare finnes én Gud, og at alle mennesker er like mye verdt, uavhengig av kjønn, kaste eller religion."
+        },
+        {
+            "type": "header",
+            "text": "Guru Nanaks åpenbaring"
+        },
+        {
+            "type": "text",
+            "content": "Det hele startet med Guru Nanak (1469–1539). Etter en åpenbaring der han var borte i tre dager, kom han tilbake med de berømte ordene: 'Det finnes ingen hindu, det finnes ingen muslim'. Med dette mente han at Gud ser forbi merkelappene vi setter på hverandre, og heller ser på hjertet og handlingene våre."
+        },
+        {
+            "type": "quote",
+            "text": "Sannheten er høyere enn alt, men enda høyere er sannferdig livsførsel.",
+            "source": "Guru Nanak",
+            "reference": "Guru Granth Sahib"
+        },
+        {
+            "type": "header",
+            "text": "Hva vil det si å være en sikh?"
+        },
+        {
+            "type": "text",
+            "content": "Ordet 'sikh' betyr 'elev' eller 'læregutt'. En sikh er altså en som lærer av guruene. I dag er sikhismen den femte største religionen i verden, med over 25 millioner tilhengere over hele kloden."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "sikh",
+            "term": "Sikh",
+            "definition": "Betyr 'elev'. En tilhenger av sikhismen."
+        },
+        {
+            "id": "guru",
+            "term": "Guru",
+            "definition": "En åndelig lærer. I sikhismen refererer det til de ti menneskelige guruene og den hellige boken."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva betyr ordet 'sikh'?",
+            "options": [
+                "Mester",
+                "Elev",
+                "Kriger"
+            ],
+            "answer": "Elev"
+        },
+        {
+            "question": "Hvem grunnla sikhismen?",
+            "options": [
+                "Guru Nanak",
+                "Guru Gobind Singh",
+                "Buddha"
+            ],
+            "answer": "Guru Nanak"
+        },
+        {
+            "question": "Hva var Guru Nanaks viktigste budskap?",
+            "options": [
+                "At man må krige for troen",
+                "At alle mennesker er like",
+                "At man må be fem ganger om dagen"
+            ],
+            "answer": "At alle mennesker er like"
+        }
+    ]
+}

@@ -1,0 +1,104 @@
+{
+    "name": "Sikhisme",
+    "color": "#ff9933",
+    "dimensions": {
+        "ritual": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Bønn morgen og kveld. Det viktigste ritualet er Langar – et felles måltid for alle, uavhengig av kaste eller tro, som symboliserer likhet."
+                        }
+                    ]
+                }
+            ]
+        },
+        "narrative": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Guru Granth Sahib er den evige Guru og hellige bok. Fortellingene om de ti guruene, spesielt Guru Nanak og Guru Gobind Singh, er sentrale."
+                        }
+                    ]
+                }
+            ]
+        },
+        "experiential": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Mediatasjon på Guds navn (Nam Simran) og følelsen av guddommelig nærvær gjennom musikk (Kirtan)."
+                        }
+                    ]
+                }
+            ]
+        },
+        "social": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Fellesskapet kalles Khalsa (for de innviede) eller Panth. Gurdwaraen er det sosiale og religiøse senteret."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ethical": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "De tre pilarene: Hardt arbeid (Kirat Karni), dele med andre (Vand Chakko) og huske Gud (Naam Japo). Total likhet mellom kjønn og kaster."
+                        }
+                    ]
+                }
+            ]
+        },
+        "doctrinal": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Monoteisme (Ik Onkar - Gud er Én). Målet er å overvinne egoet (haumai) og forenes med Gud gjennom sannhet og tjeneste."
+                        }
+                    ]
+                }
+            ]
+        },
+        "material": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "De fem K-ene (Kesh, Kangha, Kara, Kachera, Kirpan), turband, og Gurdwaraen (med det gylne tempelet i Amritsar som det viktigste)."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
