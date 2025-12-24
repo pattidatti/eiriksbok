@@ -1267,7 +1267,7 @@
                             "id": "vietnamkrigen",
                             "title": "Vietnamkrigen",
                             "description": "En supermakt kjører seg fast i jungelen.",
-                            "image": "/images/historie/den-kalde-krigen/vietnam-hero.jpg",
+                            "image": "/images/historie/den-kalde-krigen/vietnamkrigen_hero.png",
                             "tags": [
                                 "krig",
                                 "asia",
@@ -1291,7 +1291,7 @@
                             "id": "veien-mot-slutt",
                             "title": "Veien mot slutten",
                             "description": "Sovjetunionens fall og krigens slutt.",
-                            "image": "/images/historie/den-kalde-krigen/slutt-hero.jpg",
+                            "image": "/images/historie/den-kalde-krigen/veien_mot_slutten_hero.png",
                             "tags": [
                                 "politikk",
                                 "glasnost",
@@ -1303,7 +1303,7 @@
                             "id": "suez-krisen",
                             "title": "Suezkrisen",
                             "description": "Når gamle stormakter mister grepet.",
-                            "image": "/images/historie/den-kalde-krigen/suez-hero.jpg",
+                            "image": "/images/historie/den-kalde-krigen/suez_krisen_hero.png",
                             "tags": [
                                 "midtøsten",
                                 "konflikt",
