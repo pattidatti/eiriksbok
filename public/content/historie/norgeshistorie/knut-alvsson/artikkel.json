@@ -51,13 +51,10 @@
             "content": "Høsten 1501 brøt folkeopprøret ut for alvor. Opprøret startet på Vestlandet, i områdene der Knut Alvsson hadde arvet store gods og hadde mange støttespillere. Derfra spredte det seg videre. Over hele Sør-Norge samlet folk seg for å støtte ridderen som utfordret kongen. Snart kontrollerte opprørerne store deler av landet. Vinteren og våren 1502 ledet Knut Alvsson sine styrker som en feltherre. Med hjelp fra blant annet en skotsk adelsmann (David Sinclair) og en leidangflåte, gikk Knut til angrep på de viktigste festningene i Sør-Norge. I løpet av våren 1502 klarte han å erobre flere strategiske festninger, blant dem selveste Akershus festning i Oslo og Tunsberghus festning i Tønsberg. Dette var en stor seier – Akershus var hovedborgen som symboliserte kongemakt i Norge. Uten særlig kamp tok hans menn også kontroll over Viken-området (Oslofjord-området), og de inntok kongsgården i Bergen i juni 1502. På forsommeren så det mørkt ut for kong Hans’ herredømme: Den danske kongen var iferd med å miste grepet om Norge."
         },
         {
-            "type": "component",
-            "component": "Image",
-            "props": {
-                "src": "/images/historie/norgeshistorie/knut-alvsson/oppror.png",
-                "caption": "Norske bønder og allmue samler seg til væpnet opprør mot det danske styret i 1501.",
-                "alt": "Norske bønder med økser og spyd i en vinterlig skog."
-            }
+            "type": "image",
+            "src": "/images/historie/norgeshistorie/knut-alvsson/oppror.png",
+            "caption": "Norske bønder og allmue samler seg til væpnet opprør mot det danske styret i 1501.",
+            "alt": "Norske bønder med økser og spyd i en vinterlig skog."
         },
         {
             "type": "text",
@@ -76,13 +73,10 @@
             "content": "Den 18. august 1502 gikk Knut Alvsson om bord på Henrik Krummediges skip under hvitt flagg, i den tro at han trygt kunne forhandle om overgivelse eller våpenhvile. Det skulle vise seg å være en skjebnesvanger avgjørelse. Istedenfor ærlige forhandlinger møtte Knut et bakhold. På dekk på fiendens skip ble den norske opprørslederen overrasset og drept av Krummediges menn. Drapet skjedde til tross for løftet om fritt leide, noe som den gang ble sett på som et grovt og æresløst svik. Etter gammel norsk lov var det strengt forbudt å bryte et leidebrev (en trygghetsgaranti), og hendelsen vakte sterke reaksjoner. Likevel sørget den seirende part for at drapet ikke fikk rettslige følger – kongens domstol i Oslo frikjente Henrik Krummedige og mente han hadde rett til å handle som han gjorde. For Knut Alvssons tilhengere var sjokket stort: Den mest fremtredende norske lederen var brutalt ryddet av veien. Med Knuts død mistet opprøret sin drivkraft, og motstanden mot kong Hans i Norge falt sammen. Folkeoppstanden ebbet ut i månedene som fulgte."
         },
         {
-            "type": "component",
-            "component": "Image",
-            "props": {
-                "src": "/images/historie/norgeshistorie/knut-alvsson/svik.png",
-                "caption": "Sviket ved Akershus: Knut Alvsson blir drept i et bakhold på Henrik Krummediges skip.",
-                "alt": "Ridder i rød kappe blir angrepet av soldater på et skip i tåke."
-            }
+            "type": "image",
+            "src": "/images/historie/norgeshistorie/knut-alvsson/svik.png",
+            "caption": "Sviket ved Akershus: Knut Alvsson blir drept i et bakhold på Henrik Krummediges skip.",
+            "alt": "Ridder i rød kappe blir angrepet av soldater på et skip i tåke."
         },
         {
             "type": "header",
