@@ -1018,13 +1018,13 @@
                     "id": "andre-verdenskrig",
                     "title": "Andre verdenskrig",
                     "description": "Verdenshistoriens største konflikt (1939-1945).",
-                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg/1200px-Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg",
+                    "image": "/images/historie/andre-verdenskrig/oversikt_hero.png",
                     "lessons": [
                         {
                             "id": "oversikt",
                             "title": "Oversikt",
                             "description": "En introduksjon til andre verdenskrig.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg/1200px-Raising_the_Flag_on_Iwo_Jima_by_Joe_Rosenthal.jpg",
+                            "image": "/images/historie/andre-verdenskrig/oversikt_hero.png",
                             "tags": [
                                 "krig",
                                 "oversikt"
@@ -1036,7 +1036,7 @@
                             "id": "bakgrunn",
                             "title": "Geopolitikk og Opptakt",
                             "description": "Veien mot krig: Hitler, Versailles og appeasement.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg/1200px-Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg",
+                            "image": "/images/historie/andre-verdenskrig/bakgrunn_hero.png",
                             "tags": [
                                 "geopolitikk",
                                 "bakgrunn"
@@ -1048,7 +1048,7 @@
                             "id": "krigens-lop",
                             "title": "Krigens løp",
                             "description": "Fra Blitzkrieg til atombomben.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Into_the_Jaws_of_Death_23-0455M_edit.jpg/1200px-Into_the_Jaws_of_Death_23-0455M_edit.jpg",
+                            "image": "/images/historie/andre-verdenskrig/krigens_lop_hero.png",
                             "tags": [
                                 "krigføring",
                                 "slag"
@@ -1060,7 +1060,7 @@
                             "id": "teknologi",
                             "title": "Teknologi",
                             "description": "Radar, Enigma og atombomben.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/V-2_rocket_launching_from_Peenemunde_in_World_War_II_A4-V13.jpg/1200px-V-2_rocket_launching_from_Peenemunde_in_World_War_II_A4-V13.jpg",
+                            "image": "/images/historie/andre-verdenskrig/teknologi_hero.png",
                             "tags": [
                                 "teknologi",
                                 "våpen"
@@ -1085,7 +1085,7 @@
                             "id": "konsekvenser",
                             "title": "Konsekvenser",
                             "description": "Den kalde krigen og FN.",
-                            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B_W%29.jpg/1200px-Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B_W%29.jpg",
+                            "image": "/images/historie/andre-verdenskrig/konsekvenser_hero.png",
                             "tags": [
                                 "konsekvenser",
                                 "politikk"
