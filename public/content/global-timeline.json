@@ -1,8 +1,8 @@
-﻿[
+[
   {
     "id": "ceuta-conquest",
     "title": "Erobringen av Ceuta",
-    "description": "Portugal erobrer byen Ceuta i Nord-Afrika, starten pÃ¥ den europeiske ekspansjonen.",
+    "description": "Portugal erobrer byen Ceuta i Nord-Afrika, starten på den europeiske ekspansjonen.",
     "startDate": 1415,
     "endDate": null,
     "displayDate": "1415",
@@ -18,8 +18,8 @@
   },
   {
     "id": "dias-cape",
-    "title": "Dias runder Kapp det gode hÃ¥p",
-    "description": "Bartolomeu Dias Ã¥pner sjÃ¸veien til India ved Ã¥ runde Afrikas sÃ¸rspiss.",
+    "title": "Dias runder Kapp det gode håp",
+    "description": "Bartolomeu Dias åpner sjøveien til India ved å runde Afrikas sørspiss.",
     "startDate": 1488,
     "endDate": null,
     "displayDate": "1488",
@@ -35,8 +35,8 @@
   },
   {
     "id": "dagama-india",
-    "title": "Vasco da Gama nÃ¥r India",
-    "description": "SjÃ¸veien til India er funnet, og Portugal kan handle krydder direkte.",
+    "title": "Vasco da Gama når India",
+    "description": "Sjøveien til India er funnet, og Portugal kan handle krydder direkte.",
     "startDate": 1498,
     "endDate": null,
     "displayDate": "1498",
@@ -53,7 +53,7 @@
   {
     "id": "cabral-brasil",
     "title": "Cabral oppdager Brasil",
-    "description": "Portugal gjÃ¸r krav pÃ¥ SÃ¸r-Amerikas stÃ¸rste land.",
+    "description": "Portugal gjør krav på Sør-Amerikas største land.",
     "startDate": 1500,
     "endDate": null,
     "displayDate": "1500",
@@ -70,7 +70,7 @@
   {
     "id": "malacca-conquest",
     "title": "Erobringen av Malakka",
-    "description": "Portugal tar kontroll over krydderhandelen i SÃ¸rÃ¸st-Asia.",
+    "description": "Portugal tar kontroll over krydderhandelen i Sørøst-Asia.",
     "startDate": 1511,
     "endDate": null,
     "displayDate": "1511",
@@ -88,26 +88,26 @@
     "id": "jamestown",
     "year": "1607",
     "title": "Jamestown grunnlegges",
-    "description": "FÃ¸rste permanente engelske koloni i Amerika.",
+    "description": "Første permanente engelske koloni i Amerika.",
     "category": "historie"
   },
   {
     "id": "quebec",
     "year": "1608",
     "title": "Quebec grunnlegges",
-    "description": "Starten pÃ¥ Det franske Nord-Amerika.",
+    "description": "Starten på Det franske Nord-Amerika.",
     "category": "historie"
   },
   {
     "id": "sju-aars-krigen",
     "year": "1756",
-    "title": "SjuÃ¥rskrigen",
+    "title": "Sjuårskrigen",
     "description": "Global konflikt som sikrer britisk dominans.",
     "category": "historie"
   },
   {
     "id": "columbus-arrival",
-    "title": "Columbus nÃ¥r Amerika",
+    "title": "Columbus når Amerika",
     "description": "Christofer Columbus ankommer Karibia og innleder den spanske koloniseringen av Amerika.",
     "startDate": 1492,
     "endDate": null,
@@ -142,7 +142,7 @@
   {
     "id": "europeisk-hegemoni",
     "title": "Europeisk hegemoni",
-    "description": "En 500-Ã¥rig periode der europeiske stormakter dominerte verden politisk, Ã¸konomisk og kulturelt.",
+    "description": "En 500-årig periode der europeiske stormakter dominerte verden politisk, økonomisk og kulturelt.",
     "startDate": 1492,
     "endDate": 1956,
     "displayDate": "1492 - 1956",
@@ -158,8 +158,8 @@
   },
   {
     "id": "cortes-mexico",
-    "title": "CortÃ©s erobrer Mexico",
-    "description": "Aztekerrikets fall markerer starten pÃ¥ Spanias herredÃ¸mme pÃ¥ fastlandet.",
+    "title": "Cortés erobrer Mexico",
+    "description": "Aztekerrikets fall markerer starten på Spanias herredømme på fastlandet.",
     "startDate": 1521,
     "endDate": null,
     "displayDate": "1521",
@@ -192,8 +192,8 @@
   },
   {
     "id": "potosi-silver",
-    "title": "SÃ¸lvfunnet i PotosÃ­",
-    "description": "Verdens stÃ¸rste sÃ¸lvforekomst oppdages i dagens Bolivia, og finansierer det spanske imperiet.",
+    "title": "Sølvfunnet i Potosí",
+    "description": "Verdens største sølvforekomst oppdages i dagens Bolivia, og finansierer det spanske imperiet.",
     "startDate": 1545,
     "endDate": null,
     "displayDate": "1545",
@@ -202,15 +202,15 @@
     "topicId": "kolonialisering",
     "link": "/historie/kolonialisering/spansk-kolonialisering",
     "tags": [
-      "Ã¸konomi",
-      "sÃ¸lv",
+      "økonomi",
+      "sølv",
       "bolivia"
     ]
   },
   {
     "id": "dachau-opens",
-    "title": "Dachau Ã¥pnes",
-    "description": "Den fÃ¸rste konsentrasjonsleiren etableres, opprinnelig for politiske fanger.",
+    "title": "Dachau åpnes",
+    "description": "Den første konsentrasjonsleiren etableres, opprinnelig for politiske fanger.",
     "startDate": 1933,
     "endDate": null,
     "displayDate": "1933",
@@ -227,7 +227,7 @@
   {
     "id": "wannsee-conference",
     "title": "Wannsee-konferansen",
-    "description": "Nazistoppene planlegger 'den endelige lÃ¸sningen' â€“ industrialisert folkemord.",
+    "description": "Nazistoppene planlegger 'den endelige løsningen' “ industrialisert folkemord.",
     "startDate": 1942,
     "endDate": null,
     "displayDate": "1942",
@@ -237,14 +237,14 @@
     "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
     "tags": [
       "holocaust",
-      "jÃ¸der",
+      "jøder",
       "folkemord"
     ]
   },
   {
     "id": "auschwitz-liberation",
-    "title": "FrigjÃ¸ringen av Auschwitz",
-    "description": "Sovjetiske styrker frigjÃ¸r leiren og verden fÃ¥r se omfanget av holocaust.",
+    "title": "Frigjøringen av Auschwitz",
+    "description": "Sovjetiske styrker frigjør leiren og verden får se omfanget av holocaust.",
     "startDate": 1945,
     "endDate": null,
     "displayDate": "1945",
@@ -253,7 +253,7 @@
     "topicId": "andre-verdenskrig",
     "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
     "tags": [
-      "frigjÃ¸ring",
+      "frigjøring",
       "holocaust",
       "sovjet"
     ]
@@ -278,7 +278,7 @@
   {
     "id": "norge-diagnose-1972",
     "title": "Homofili-diagnosen fjernes",
-    "description": "Et eksempel pÃ¥ hvordan medisinske definisjoner av 'normalitet' endrer seg i takt med samfunnet.",
+    "description": "Et eksempel på hvordan medisinske definisjoner av 'normalitet' endrer seg i takt med samfunnet.",
     "startDate": 1972,
     "endDate": null,
     "displayDate": "1972",
@@ -295,7 +295,7 @@
   {
     "id": "crystal-palace",
     "title": "Verdensutstillingen i London",
-    "description": "The Great Exhibition i Crystal Palace markerer hÃ¸ydepunktet for victorianernes tro pÃ¥ industrielt og teknologisk framskritt.",
+    "description": "The Great Exhibition i Crystal Palace markerer høydepunktet for victorianernes tro på industrielt og teknologisk framskritt.",
     "startDate": 1851,
     "endDate": null,
     "displayDate": "1851",
@@ -312,7 +312,7 @@
   {
     "id": "roman-club-limits",
     "title": "Limits to Growth",
-    "description": "Romerklubbens rapport utfordrer ideen om uendelig Ã¸konomisk vekst pÃ¥ en begrenset planet.",
+    "description": "Romerklubbens rapport utfordrer ideen om uendelig økonomisk vekst på en begrenset planet.",
     "startDate": 1972,
     "endDate": null,
     "displayDate": "1972",
@@ -321,8 +321,8 @@
     "topicId": "ideer-og-verdenssyn",
     "link": "/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro",
     "tags": [
-      "miljÃ¸",
-      "Ã¸konomi",
+      "miljø",
+      "økonomi",
       "fremtid"
     ]
   },
@@ -345,8 +345,8 @@
   },
   {
     "id": "un-human-rights",
-    "title": "FNs menneskerettserklÃ¦ring",
-    "description": "Etter andre verdenskrig samler verden seg om universelle rettigheter for alle mennesker â€“ en seier for humanistiske verdier.",
+    "title": "FNs menneskerettserklæring",
+    "description": "Etter andre verdenskrig samler verden seg om universelle rettigheter for alle mennesker “ en seier for humanistiske verdier.",
     "startDate": 1948,
     "endDate": null,
     "displayDate": "1948",
@@ -363,7 +363,7 @@
   {
     "id": "galileo-trial",
     "title": "Galileos rettssak",
-    "description": "Kirken dÃ¸mmer Galileo for Ã¥ hevde at jorden gÃ¥r rundt solen â€“ et avgjÃ¸rende Ã¸yeblikk i kampen mellom autoritet og observasjon.",
+    "description": "Kirken dømmer Galileo for å hevde at jorden går rundt solen “ et avgjørende øyeblikk i kampen mellom autoritet og observasjon.",
     "startDate": 1633,
     "endDate": null,
     "displayDate": "1633",
@@ -380,7 +380,7 @@
   {
     "id": "google-founding",
     "title": "Google grunnlegges",
-    "description": "Starten pÃ¥ en ny era der algoritmer begynner Ã¥ sortere og definere hva som er relevant informasjon for menneskeheten.",
+    "description": "Starten på en ny era der algoritmer begynner å sortere og definere hva som er relevant informasjon for menneskeheten.",
     "startDate": 1998,
     "endDate": null,
     "displayDate": "1998",
@@ -414,7 +414,7 @@
   {
     "id": "descartes-method",
     "title": "Descartes: Naturen som maskin",
-    "description": "RenÃ© Descartes utgir 'Om metoden', som legger grunnlaget for det mekanistiske verdensbildet.",
+    "description": "René Descartes utgir 'Om metoden', som legger grunnlaget for det mekanistiske verdensbildet.",
     "startDate": 1637,
     "endDate": null,
     "displayDate": "1637",
@@ -431,7 +431,7 @@
   {
     "id": "silent-spring",
     "title": "Silent Spring utgis",
-    "description": "Rachel Carsons bok starter den moderne miljÃ¸bevegelsen ved Ã¥ advare mot giftstoffer i naturen.",
+    "description": "Rachel Carsons bok starter den moderne miljøbevegelsen ved å advare mot giftstoffer i naturen.",
     "startDate": 1962,
     "endDate": null,
     "displayDate": "1962",
@@ -440,7 +440,7 @@
     "topicId": "ideer-og-verdenssyn",
     "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel",
     "tags": [
-      "Ã¸kologi",
+      "økologi",
       "historie",
       "natur"
     ]
@@ -448,7 +448,7 @@
   {
     "id": "blue-marble",
     "title": "The Blue Marble",
-    "description": "Det fÃ¸rste fargebildet av hele jorden fra verdensrommet endrer menneskehetens syn pÃ¥ planeten som en sÃ¥rbar helhet.",
+    "description": "Det første fargebildet av hele jorden fra verdensrommet endrer menneskehetens syn på planeten som en sårbar helhet.",
     "startDate": 1972,
     "endDate": null,
     "displayDate": "1972",
@@ -499,7 +499,7 @@
   {
     "id": "new-harmony-owen",
     "title": "New Harmony grunnlegges",
-    "description": "Robert Owen forsÃ¸ker Ã¥ skape et utopisk sosialistisk samfunn i USA.",
+    "description": "Robert Owen forsøker å skape et utopisk sosialistisk samfunn i USA.",
     "startDate": 1825,
     "endDate": null,
     "displayDate": "1825",
@@ -516,7 +516,7 @@
   {
     "id": "orwell-1984",
     "title": "1984 utgis",
-    "description": "George Orwells dystopiske advarsel mot totalitÃ¦re samfunn preger etterkrigstiden.",
+    "description": "George Orwells dystopiske advarsel mot totalitære samfunn preger etterkrigstiden.",
     "startDate": 1949,
     "endDate": null,
     "displayDate": "1949",
@@ -533,7 +533,7 @@
   {
     "id": "frashokereti",
     "title": "Frashokereti: Zoroastrismens dommedag",
-    "description": "Den eldste systematiske forestillingen om en lineÃ¦r verdensende der det gode seirer over det onde.",
+    "description": "Den eldste systematiske forestillingen om en lineær verdensende der det gode seirer over det onde.",
     "startDate": -1000,
     "endDate": null,
     "displayDate": "ca. 1000 fvt.",
@@ -550,7 +550,7 @@
   {
     "id": "miller-disappointment",
     "title": "Den store skuffelsen",
-    "description": "Tusenvis av tilhengere av William Miller ventet pÃ¥ Jesu gjenkomst, noe som fÃ¸rte til dannelsen av nye trossamfunn.",
+    "description": "Tusenvis av tilhengere av William Miller ventet på Jesu gjenkomst, noe som førte til dannelsen av nye trossamfunn.",
     "startDate": 1844,
     "endDate": null,
     "displayDate": "1844",
@@ -567,7 +567,7 @@
   {
     "id": "ozonlaget-avtalen",
     "title": "Montreal-protokollen (Ozonlaget)",
-    "description": "En global avtale for Ã¥ redde atmosfÃ¦ren, ofte sett pÃ¥ som menneskehetens fÃ¸rste suksessfulle 'avverging' av en moderne apokalypse.",
+    "description": "En global avtale for å redde atmosfæren, ofte sett på som menneskehetens første suksessfulle 'avverging' av en moderne apokalypse.",
     "startDate": 1987,
     "endDate": null,
     "displayDate": "1987",
@@ -576,7 +576,7 @@
     "topicId": "ideer-og-verdenssyn",
     "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
     "tags": [
-      "miljÃ¸",
+      "miljø",
       "globalt",
       "eskatologi"
     ]
@@ -584,7 +584,7 @@
   {
     "id": "y2k-millennium",
     "title": "Y2K: Millennium-frykten",
-    "description": "Global frykt for at datasystemer skulle kollapse ved tusenÃ¥rsskiftet.",
+    "description": "Global frykt for at datasystemer skulle kollapse ved tusenårsskiftet.",
     "startDate": 2000,
     "endDate": null,
     "displayDate": "2000",
@@ -619,7 +619,7 @@
   {
     "id": "jordbruk-og-sivilisasjoner",
     "title": "Jordbruk og Sivilisasjoner",
-    "description": "Mennesket slÃ¥r seg til ro: Fra nomade til fastboende med husdyr.",
+    "description": "Mennesket slår seg til ro: Fra nomade til fastboende med husdyr.",
     "startDate": -12000,
     "endDate": -4000,
     "displayDate": "12000 fvt - 4000 fvt",
@@ -636,8 +636,8 @@
   },
   {
     "id": "jordbruk-og-sivilisasjoner-sub-0",
-    "title": "Jordbruket oppstÃ¥r",
-    "description": "Mennesker i 'Den fruktbare halvmÃ¥ne' begynner Ã¥ dyrke jorden.",
+    "title": "Jordbruket oppstår",
+    "description": "Mennesker i 'Den fruktbare halvmåne' begynner å dyrke jorden.",
     "startDate": -10000,
     "endDate": null,
     "displayDate": "10000 fvt",
@@ -655,7 +655,7 @@
   {
     "id": "jordbruk-og-sivilisasjoner-sub-1",
     "title": "Elvedalssivilisasjoner",
-    "description": "De fÃ¸rste store sivilisasjonene oppstÃ¥r i Mesopotamia og Egypt.",
+    "description": "De første store sivilisasjonene oppstår i Mesopotamia og Egypt.",
     "startDate": -4000,
     "endDate": null,
     "displayDate": "4000 fvt",
@@ -673,7 +673,7 @@
   {
     "id": "jordbruk-og-sivilisasjoner-sub-2",
     "title": "Jordbruk i Norge",
-    "description": "De fÃ¸rste bÃ¸ndene etablerer seg pÃ¥ Ã˜stlandet.",
+    "description": "De første bøndene etablerer seg på æ˜stlandet.",
     "startDate": -4000,
     "endDate": null,
     "displayDate": "4000 fvt",
@@ -690,7 +690,7 @@
   },
   {
     "id": "jordbruk-og-sivilisasjoner-sub-3",
-    "title": "StridsÃ¸ksfolket",
+    "title": "Stridsøksfolket",
     "description": "Nye folkegrupper kommer til Norge.",
     "startDate": -2500,
     "endDate": null,
@@ -737,13 +737,13 @@
     "tags": [
       "historie",
       "romerriket",
-      "militÃ¦r",
+      "militær",
       "teknologi"
     ]
   },
   {
     "id": "augustus-og-keiserdomme",
-    "title": "Fra republikk til keiserdÃ¸mme: Augustus",
+    "title": "Fra republikk til keiserdømme: Augustus",
     "description": "Historien om hvordan en ung mann endret Roma for alltid.",
     "startDate": -49,
     "endDate": 14,
@@ -808,14 +808,14 @@
     "tags": [
       "historie",
       "romerriket",
-      "Ã¸konomi",
+      "økonomi",
       "globalisering"
     ]
   },
   {
     "id": "hverdagsliv-i-roma",
     "title": "Hverdagslivet i Roma",
-    "description": "Hvordan var det egentlig Ã¥ bo i antikkens stÃ¸rste by? Utforsk klasseskiller, boliger og 'brÃ¸d og sirkus'.",
+    "description": "Hvordan var det egentlig å bo i antikkens største by? Utforsk klasseskiller, boliger og 'brød og sirkus'.",
     "startDate": 100,
     "endDate": null,
     "displayDate": "100 evt.",
@@ -833,7 +833,7 @@
   {
     "id": "legitimitet-og-kristendom",
     "title": "Fra Princeps til Guds utvalgte",
-    "description": "Hvordan keiserens makt gikk fra Ã¥ vÃ¦re politisk til Ã¥ bli guddommelig.",
+    "description": "Hvordan keiserens makt gikk fra å være politisk til å bli guddommelig.",
     "startDate": 218,
     "endDate": 395,
     "displayDate": "218 evt. - 395 evt.",
@@ -851,7 +851,7 @@
   {
     "id": "vestromerrikets-fall",
     "title": "Vestromerrikets fall",
-    "description": "Et dypdykk i Ã¥rsakene til det store imperiets kollaps.",
+    "description": "Et dypdykk i årsakene til det store imperiets kollaps.",
     "startDate": 395,
     "endDate": 476,
     "displayDate": "395 evt. - 476 evt.",
@@ -869,7 +869,7 @@
   {
     "id": "arven-etter-romerriket",
     "title": "Arven etter Romerriket",
-    "description": "Et dypdykk i hvordan Romerriket preger kultur, sprÃ¥k, lover og politikk i dag.",
+    "description": "Et dypdykk i hvordan Romerriket preger kultur, språk, lover og politikk i dag.",
     "startDate": 476,
     "endDate": null,
     "displayDate": "476 evt. - I dag",
@@ -887,7 +887,7 @@
   {
     "id": "middelalderen",
     "title": "Middelalderen",
-    "description": "En tusenÃ¥rig forvandling i Europa.",
+    "description": "En tusenårig forvandling i Europa.",
     "startDate": 500,
     "endDate": 1500,
     "displayDate": "500 - 1500 evt.",
@@ -904,7 +904,7 @@
   {
     "id": "voc-founding",
     "title": "VOC stiftes",
-    "description": "Det nederlandske ostindiske kompani blir verdens fÃ¸rste aksjeselskap og symboliserer starten pÃ¥ det nederlandske hegemoniet.",
+    "description": "Det nederlandske ostindiske kompani blir verdens første aksjeselskap og symboliserer starten på det nederlandske hegemoniet.",
     "startDate": 1602,
     "endDate": null,
     "displayDate": "1602",
@@ -913,15 +913,15 @@
     "topicId": "ideer-og-verdenssyn",
     "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
     "tags": [
-      "Ã¸konomi",
+      "økonomi",
       "handel",
       "nederland"
     ]
   },
   {
     "id": "napoleon-end",
-    "title": "Slutten pÃ¥ Napoleonskrigene",
-    "description": "Slaget ved Waterloo markerer slutten pÃ¥ Frankrikes utfordring og starten pÃ¥ Pax Britannica â€“ Storbritannias hundreÃ¥rige fred.",
+    "title": "Slutten på Napoleonskrigene",
+    "description": "Slaget ved Waterloo markerer slutten på Frankrikes utfordring og starten på Pax Britannica “ Storbritannias hundreårige fred.",
     "startDate": 1815,
     "endDate": null,
     "displayDate": "1815",
@@ -938,7 +938,7 @@
   {
     "id": "bretton-woods",
     "title": "Bretton Woods-konferansen",
-    "description": "Grunnlaget for den moderne verdensÃ¸konomien legges, med dollaren som den globale reservevalutaen under USAs ledelse.",
+    "description": "Grunnlaget for den moderne verdensøkonomien legges, med dollaren som den globale reservevalutaen under USAs ledelse.",
     "startDate": 1944,
     "endDate": null,
     "displayDate": "1944",
@@ -947,15 +947,15 @@
     "topicId": "ideer-og-verdenssyn",
     "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
     "tags": [
-      "Ã¸konomi",
+      "økonomi",
       "usa",
       "globalt"
     ]
   },
   {
     "id": "klimakrisen-536",
-    "title": "536 - Ã…ret da solen forsvant",
-    "description": "Klimakrisen som kan vÃ¦re virkelighetens Fimbulvinter.",
+    "title": "536 - æ…ret da solen forsvant",
+    "description": "Klimakrisen som kan være virkelighetens Fimbulvinter.",
     "startDate": 536,
     "endDate": null,
     "displayDate": "536",
@@ -992,7 +992,7 @@
   {
     "id": "romerske-guder",
     "title": "De Romerske Gudene",
-    "description": "En reise inn i en verden hvor guder er overalt, og fred med dem sikrer rikets bestÃ¥ende.",
+    "description": "En reise inn i en verden hvor guder er overalt, og fred med dem sikrer rikets bestående.",
     "startDate": 753,
     "endDate": 476,
     "displayDate": "753 f.Kr - 476 e.Kr",
@@ -1041,15 +1041,15 @@
       "vikingtiden",
       "norge",
       "antikken",
-      "midtÃ¸sten",
+      "midtøsten",
       "imperier",
       "krig"
     ]
   },
   {
     "id": "asatro",
-    "title": "Ã…satru: En verden av lureri og skjebne",
-    "description": "Vikingenes religion handlet ikke om Ã¥ vÃ¦re snill, men om Ã¥ overleve i en farlig verden.",
+    "title": "æ…satru: En verden av lureri og skjebne",
+    "description": "Vikingenes religion handlet ikke om å være snill, men om å overleve i en farlig verden.",
     "startDate": 793,
     "endDate": 1066,
     "displayDate": "793-1066",
@@ -1066,8 +1066,8 @@
   },
   {
     "id": "veien-mot-ost",
-    "title": "Veien mot Ã˜st",
-    "description": "Mens norske og danske vikinger dro vestover, dro svenskene Ã¸stover. De grunnla Russland.",
+    "title": "Veien mot æ˜st",
+    "description": "Mens norske og danske vikinger dro vestover, dro svenskene østover. De grunnla Russland.",
     "startDate": 862,
     "endDate": 1050,
     "displayDate": "862-1050",
@@ -1085,7 +1085,7 @@
   {
     "id": "rikssamlingen",
     "title": "Rikssamlingen",
-    "description": "Harald HÃ¥rfagre og samlingen av Norge.",
+    "description": "Harald Hårfagre og samlingen av Norge.",
     "startDate": 865,
     "endDate": 933,
     "displayDate": "865-933",
@@ -1137,7 +1137,7 @@
   {
     "id": "det-hellige-romerske-rike",
     "title": "Det hellige romerske rike",
-    "description": "Tusen Ã¥rs kamp om makt, tro og keiserkrone.",
+    "description": "Tusen års kamp om makt, tro og keiserkrone.",
     "startDate": 962,
     "endDate": 1806,
     "displayDate": "962 - 1806 evt.",
@@ -1154,8 +1154,8 @@
   },
   {
     "id": "kristningen-av-norge",
-    "title": "Kristningen: DÃ¥p eller DÃ¸d",
-    "description": "Hvordan Norge gikk fra Ã¥ blot til Odin til Ã¥ bygge stavkirker â€“ med sverd i hÃ¥nd.",
+    "title": "Kristningen: Dåp eller Død",
+    "description": "Hvordan Norge gikk fra å blot til Odin til å bygge stavkirker “ med sverd i hånd.",
     "startDate": 995,
     "endDate": 1030,
     "displayDate": "995-1030",
@@ -1173,7 +1173,7 @@
   {
     "id": "boktrykkerkunsten-sub-0",
     "title": "Tidlige eksperimenter",
-    "description": "Kineseren Bi Sheng eksperimenterer med lÃ¸se typer i keramikk.",
+    "description": "Kineseren Bi Sheng eksperimenterer med løse typer i keramikk.",
     "startDate": 1040,
     "endDate": null,
     "displayDate": "1040",
@@ -1185,7 +1185,7 @@
       "oppfinnelser",
       "teknologi",
       "renessansen",
-      "bÃ¸ker"
+      "bøker"
     ]
   },
   {
@@ -1221,13 +1221,13 @@
       "oppfinnelser",
       "teknologi",
       "renessansen",
-      "bÃ¸ker"
+      "bøker"
     ]
   },
   {
     "id": "boktrykkerkunsten-sub-1",
     "title": "Gutenbergs gjennombrudd",
-    "description": "Johannes Gutenberg introduserer moderne boktrykkerkunst med lÃ¸se typer i metall i Mainz.",
+    "description": "Johannes Gutenberg introduserer moderne boktrykkerkunst med løse typer i metall i Mainz.",
     "startDate": 1440,
     "endDate": null,
     "displayDate": "1440",
@@ -1239,13 +1239,13 @@
       "oppfinnelser",
       "teknologi",
       "renessansen",
-      "bÃ¸ker"
+      "bøker"
     ]
   },
   {
     "id": "boktrykkerkunsten-sub-2",
     "title": "Masseproduksjon",
-    "description": "Over 20 millioner bÃ¸ker er trykket i Europa.",
+    "description": "Over 20 millioner bøker er trykket i Europa.",
     "startDate": 1500,
     "endDate": null,
     "displayDate": "1500",
@@ -1257,13 +1257,13 @@
       "oppfinnelser",
       "teknologi",
       "renessansen",
-      "bÃ¸ker"
+      "bøker"
     ]
   },
   {
     "id": "boktrykkerkunsten-sub-3",
     "title": "Reformasjonen",
-    "description": "Martin Luthers teser spres raskt over hele Europa takket vÃ¦re trykkpressen.",
+    "description": "Martin Luthers teser spres raskt over hele Europa takket være trykkpressen.",
     "startDate": 1517,
     "endDate": null,
     "displayDate": "1517",
@@ -1275,7 +1275,7 @@
       "oppfinnelser",
       "teknologi",
       "renessansen",
-      "bÃ¸ker"
+      "bøker"
     ]
   },
   {
@@ -1317,7 +1317,7 @@
   {
     "id": "voc",
     "title": "Det nederlandske ostindiske kompani (VOC)",
-    "description": "Verdens fÃ¸rste aksjeselskap og et globalt handelsimperium.",
+    "description": "Verdens første aksjeselskap og et globalt handelsimperium.",
     "startDate": 1602,
     "endDate": null,
     "displayDate": "1602",
@@ -1329,12 +1329,12 @@
       "handel",
       "kolonialisme",
       "nederland",
-      "Ã¸konomi"
+      "økonomi"
     ]
   },
   {
     "id": "30-aarskrigen",
-    "title": "30-Ã¥rskrigen",
+    "title": "30-årskrigen",
     "description": "Den store katastrofen som formet det moderne Europa.",
     "startDate": 1618,
     "endDate": 1648,
@@ -1353,7 +1353,7 @@
   {
     "id": "eic-sub-1",
     "title": "Slaget ved Plassey",
-    "description": "Robert Clive beseirer herskeren av Bengal, starten pÃ¥ britisk styre.",
+    "description": "Robert Clive beseirer herskeren av Bengal, starten på britisk styre.",
     "startDate": 1757,
     "endDate": null,
     "displayDate": "1757",
@@ -1398,8 +1398,8 @@
   },
   {
     "id": "eic-sub-2",
-    "title": "Sepoy-opprÃ¸ret",
-    "description": "Stort opprÃ¸r blant indiske soldater mot kompaniets styre.",
+    "title": "Sepoy-opprøret",
+    "description": "Stort opprør blant indiske soldater mot kompaniets styre.",
     "startDate": 1857,
     "endDate": null,
     "displayDate": "1857",
@@ -1435,7 +1435,7 @@
   {
     "id": "faderen",
     "title": "Faderen",
-    "description": "Utgitt av BjÃ¸rnstjerne BjÃ¸rnson",
+    "description": "Utgitt av Bjørnstjerne Bjørnson",
     "startDate": 1860,
     "endDate": null,
     "displayDate": "1860",
@@ -1445,8 +1445,8 @@
   },
   {
     "id": "eic-sub-4",
-    "title": "OpplÃ¸sning",
-    "description": "Kompaniet blir formelt opplÃ¸st.",
+    "title": "Oppløsning",
+    "description": "Kompaniet blir formelt oppløst.",
     "startDate": 1874,
     "endDate": null,
     "displayDate": "1874",
@@ -1500,7 +1500,7 @@
     "description": "Bakgrunnen for krigen.",
     "startDate": 1918,
     "endDate": 1939,
-    "displayDate": "1918â€“1939",
+    "displayDate": "1918“1939",
     "type": "lesson",
     "subjectId": "historie",
     "topicId": "andre-verdenskrig",
@@ -1517,7 +1517,7 @@
     "description": "Hva var den kalde krigen, og hvorfor skjedde den?",
     "startDate": 1945,
     "endDate": 1991,
-    "displayDate": "1945â€“1991",
+    "displayDate": "1945“1991",
     "type": "lesson",
     "subjectId": "historie",
     "topicId": "den-kalde-krigen",
@@ -1533,7 +1533,7 @@
   {
     "id": "oversikt-sub-0",
     "title": "Den kalde krigen starter",
-    "description": "OpplÃ¸sningen av alliansen mot Nazityskland.",
+    "description": "Oppløsningen av alliansen mot Nazityskland.",
     "startDate": 1945,
     "endDate": null,
     "displayDate": "1945",
@@ -1551,20 +1551,20 @@
   },
   {
     "id": "atomvapenkapplopet",
-    "title": "AtomvÃ¥penkapplÃ¸pet",
+    "title": "Atomvåpenkappløpet",
     "description": "Terrorbalanse og kampen for overlevelse.",
     "startDate": 1945,
     "endDate": 1991,
-    "displayDate": "1945â€“1991",
+    "displayDate": "1945“1991",
     "type": "lesson",
     "subjectId": "historie",
     "topicId": "den-kalde-krigen",
     "link": "/historie/den-kalde-krigen/atomvapenkapplopet",
     "tags": [
-      "atomvÃ¥pen",
+      "atomvåpen",
       "mad",
       "nedrustning",
-      "kapplÃ¸p"
+      "kappløp"
     ]
   },
   {
@@ -1573,7 +1573,7 @@
     "description": "Film, sport og musikk som ideologisk slagmark.",
     "startDate": 1945,
     "endDate": 1991,
-    "displayDate": "1945â€“1991",
+    "displayDate": "1945“1991",
     "type": "lesson",
     "subjectId": "historie",
     "topicId": "den-kalde-krigen",
@@ -1588,7 +1588,7 @@
   {
     "id": "oversikt-sub-1",
     "title": "Jernteppet-talen",
-    "description": "Churchill advarer mot sovjetisk dominans i Ã˜st-Europa.",
+    "description": "Churchill advarer mot sovjetisk dominans i æ˜st-Europa.",
     "startDate": 1946,
     "endDate": null,
     "displayDate": "1946",
@@ -1607,7 +1607,7 @@
   {
     "id": "oversikt-sub-2",
     "title": "Truman-doktrinen",
-    "description": "USA lover Ã¥ stÃ¸tte frie folk mot kommunismen.",
+    "description": "USA lover å støtte frie folk mot kommunismen.",
     "startDate": 1947,
     "endDate": null,
     "displayDate": "1947",
@@ -1626,7 +1626,7 @@
   {
     "id": "oversikt-sub-3",
     "title": "Marshallplanen",
-    "description": "Ã˜konomisk hjelp til gjenoppbygging av Europa.",
+    "description": "æ˜konomisk hjelp til gjenoppbygging av Europa.",
     "startDate": 1948,
     "endDate": null,
     "displayDate": "1948",
@@ -1663,7 +1663,7 @@
   },
   {
     "id": "alt-blir-som-for",
-    "title": "Alt blir som fÃ¸r",
+    "title": "Alt blir som før",
     "description": "Utgitt av Ari Behn",
     "startDate": 1948,
     "endDate": null,
@@ -1678,7 +1678,7 @@
     "description": "Alliansene som delte verden i to.",
     "startDate": 1949,
     "endDate": 1991,
-    "displayDate": "1949â€“1991",
+    "displayDate": "1949“1991",
     "type": "lesson",
     "subjectId": "historie",
     "topicId": "den-kalde-krigen",
@@ -1711,10 +1711,10 @@
   {
     "id": "koreakrigen",
     "title": "Koreakrigen",
-    "description": "Den fÃ¸rste store varme krigen i den kalde krigen.",
+    "description": "Den første store varme krigen i den kalde krigen.",
     "startDate": 1950,
     "endDate": 1953,
-    "displayDate": "1950â€“1953",
+    "displayDate": "1950“1953",
     "type": "lesson",
     "subjectId": "historie",
     "topicId": "den-kalde-krigen",
@@ -1729,7 +1729,7 @@
   {
     "id": "koreakrigen-sub-0",
     "title": "Koreakrigen starter",
-    "description": "Nord-Korea invaderer SÃ¸r-Korea.",
+    "description": "Nord-Korea invaderer Sør-Korea.",
     "startDate": 1950,
     "endDate": null,
     "displayDate": "1950",
@@ -1746,7 +1746,7 @@
   },
   {
     "id": "koreakrigen-sub-1",
-    "title": "VÃ¥penhvile i Korea",
+    "title": "Våpenhvile i Korea",
     "description": "Krigen pauses, men en formell fredsavtale mangler.",
     "startDate": 1953,
     "endDate": null,
@@ -1768,7 +1768,7 @@
     "description": "En splittende krig som rystet supermakten USA.",
     "startDate": 1955,
     "endDate": 1975,
-    "displayDate": "1955â€“1975",
+    "displayDate": "1955“1975",
     "type": "lesson",
     "subjectId": "historie",
     "topicId": "den-kalde-krigen",
@@ -1783,7 +1783,7 @@
   {
     "id": "nato-vs-warszawa-sub-1",
     "title": "Warszawapakten",
-    "description": "Sovjetunionen og Ã˜stblokken danner sin egen militÃ¦rallianse.",
+    "description": "Sovjetunionen og æ˜stblokken danner sin egen militærallianse.",
     "startDate": 1955,
     "endDate": null,
     "displayDate": "1955",
@@ -1801,7 +1801,7 @@
   {
     "id": "suez-krisen",
     "title": "Suez-krisen",
-    "description": "Konflikten om kanalen og slutten pÃ¥ de gamle imperiene.",
+    "description": "Konflikten om kanalen og slutten på de gamle imperiene.",
     "startDate": 1956,
     "endDate": null,
     "displayDate": "1956",
@@ -1819,7 +1819,7 @@
   {
     "id": "suez-krisen-sub-0",
     "title": "Suez-krisen",
-    "description": "Nasjonaliseringen av kanalen utlÃ¸ser internasjonal krise.",
+    "description": "Nasjonaliseringen av kanalen utløser internasjonal krise.",
     "startDate": 1956,
     "endDate": null,
     "displayDate": "1956",
@@ -1836,11 +1836,11 @@
   },
   {
     "id": "romkapplopet",
-    "title": "RomkapplÃ¸pet",
-    "description": "Mannen pÃ¥ mÃ¥nen og kampen om verdensrommet.",
+    "title": "Romkappløpet",
+    "description": "Mannen på månen og kampen om verdensrommet.",
     "startDate": 1957,
     "endDate": 1975,
-    "displayDate": "1957â€“1975",
+    "displayDate": "1957“1975",
     "type": "lesson",
     "subjectId": "historie",
     "topicId": "den-kalde-krigen",
@@ -1855,7 +1855,7 @@
   {
     "id": "romkapplopet-sub-0",
     "title": "Sputnik 1",
-    "description": "Verdens fÃ¸rste kunstige satellitt skytes opp.",
+    "description": "Verdens første kunstige satellitt skytes opp.",
     "startDate": 1957,
     "endDate": null,
     "displayDate": "1957",
@@ -1872,8 +1872,8 @@
   },
   {
     "id": "romkapplopet-sub-1",
-    "title": "FÃ¸rste menneske i rommet",
-    "description": "Yuri Gagarin fullfÃ¸rer et kretslÃ¸p rundt jorda.",
+    "title": "Første menneske i rommet",
+    "description": "Yuri Gagarin fullfører et kretsløp rundt jorda.",
     "startDate": 1961,
     "endDate": null,
     "displayDate": "1961",
@@ -1891,10 +1891,10 @@
   {
     "id": "berlinmuren",
     "title": "Berlinmuren",
-    "description": "Symbolet pÃ¥ det delte Europa.",
+    "description": "Symbolet på det delte Europa.",
     "startDate": 1961,
     "endDate": 1989,
-    "displayDate": "1961â€“1989",
+    "displayDate": "1961“1989",
     "type": "lesson",
     "subjectId": "historie",
     "topicId": "den-kalde-krigen",
@@ -1909,7 +1909,7 @@
   {
     "id": "berlinmuren-sub-0",
     "title": "Berlinmuren bygges",
-    "description": "Grensene i Berlin stenges brÃ¥tt natt til 13. august.",
+    "description": "Grensene i Berlin stenges brått natt til 13. august.",
     "startDate": 1961,
     "endDate": null,
     "displayDate": "1961",
@@ -1937,7 +1937,7 @@
     "link": "/historie/den-kalde-krigen/cuba-krisen",
     "tags": [
       "cuba",
-      "atomvÃ¥pen",
+      "atomvåpen",
       "kennedy",
       "khrusjtsjov"
     ]
@@ -1945,7 +1945,7 @@
   {
     "id": "cuba-krisen-sub-0",
     "title": "Cuba-krisen",
-    "description": "Verden pÃ¥ kanten av atomragnarok i 13 dager i oktober.",
+    "description": "Verden på kanten av atomragnarok i 13 dager i oktober.",
     "startDate": 1962,
     "endDate": null,
     "displayDate": "1962",
@@ -1955,7 +1955,7 @@
     "link": "/historie/den-kalde-krigen/cuba-krisen",
     "tags": [
       "cuba",
-      "atomvÃ¥pen",
+      "atomvåpen",
       "kennedy",
       "khrusjtsjov"
     ]
@@ -1974,7 +1974,7 @@
   {
     "id": "vietnamkrigen-sub-0",
     "title": "Tonkinbukta-episoden",
-    "description": "USA trapper opp sitt militÃ¦re engasjement i Vietnam.",
+    "description": "USA trapper opp sitt militære engasjement i Vietnam.",
     "startDate": 1964,
     "endDate": null,
     "displayDate": "1964",
@@ -1991,8 +1991,8 @@
   },
   {
     "id": "romkapplopet-sub-2",
-    "title": "MÃ¥nelandingen",
-    "description": "Apollo 11 lander pÃ¥ mÃ¥nen; USA vinner kapplÃ¸pet.",
+    "title": "Månelandingen",
+    "description": "Apollo 11 lander på månen; USA vinner kappløpet.",
     "startDate": 1969,
     "endDate": null,
     "displayDate": "1969",
@@ -2027,7 +2027,7 @@
   },
   {
     "id": "mennesker-pa-kafe",
-    "title": "Mennesker pÃ¥ kafÃ©",
+    "title": "Mennesker på kafé",
     "description": "Utgitt av Kjell Askildsen",
     "startDate": 1983,
     "endDate": null,
@@ -2042,7 +2042,7 @@
     "description": "Murens fall og Sovjetunionens sammenbrudd.",
     "startDate": 1985,
     "endDate": 1991,
-    "displayDate": "1985â€“1991",
+    "displayDate": "1985“1991",
     "type": "lesson",
     "subjectId": "historie",
     "topicId": "den-kalde-krigen",
@@ -2075,7 +2075,7 @@
   {
     "id": "berlinmuren-sub-1",
     "title": "Berlinmurens fall",
-    "description": "Presset fra befolkningen fÃ¸rer til at portene Ã¥pnes 9. november.",
+    "description": "Presset fra befolkningen fører til at portene åpnes 9. november.",
     "startDate": 1989,
     "endDate": null,
     "displayDate": "1989",
@@ -2093,7 +2093,7 @@
   {
     "id": "veien-mot-slutt-sub-1",
     "title": "Sovjetunionens fall",
-    "description": "Unionen opplÃ¸ses; den kalde krigen er offisielt over.",
+    "description": "Unionen oppløses; den kalde krigen er offisielt over.",
     "startDate": 1991,
     "endDate": null,
     "displayDate": "1991",
@@ -2111,7 +2111,7 @@
   {
     "id": "hjorten-i-skogbrynet",
     "title": "Hjorten i skogbrynet",
-    "description": "Utgitt av Gunnhild Ã˜yehaug",
+    "description": "Utgitt av Gunnhild æ˜yehaug",
     "startDate": 2008,
     "endDate": null,
     "displayDate": "2008",
@@ -2132,7 +2132,7 @@
   },
   {
     "id": "doden",
-    "title": "DÃ¸den",
+    "title": "Døden",
     "description": "Utgitt av Ragnar Hovland",
     "startDate": 2011,
     "endDate": null,
@@ -2143,8 +2143,8 @@
   },
   {
     "id": "sokrates-dod",
-    "title": "Sokrates dÃ¸mmes til dÃ¸den",
-    "description": "Filosofiens far tÃ¸mmer giftbegeret i Athen.",
+    "title": "Sokrates dømmes til døden",
+    "description": "Filosofiens far tømmer giftbegeret i Athen.",
     "startDate": -399,
     "endDate": null,
     "displayDate": "399 f.Kr.",
@@ -2229,7 +2229,7 @@
   {
     "id": "descartes-meditasjoner",
     "title": "Meditasjoner over filosofiens grunnlag",
-    "description": "'Cogito, ergo sum' â€“ Descartes grunnlegger moderne filosofi.",
+    "description": "'Cogito, ergo sum' “ Descartes grunnlegger moderne filosofi.",
     "startDate": 1641,
     "endDate": null,
     "displayDate": "1641",
@@ -2279,8 +2279,8 @@
   },
   {
     "id": "kierkegaard-enten-eller",
-    "title": "Enten â€“ Eller",
-    "description": "SÃ¸ren Kierkegaard utforsker livsstadiene og det eksistensielle valget.",
+    "title": "Enten “ Eller",
+    "description": "Søren Kierkegaard utforsker livsstadiene og det eksistensielle valget.",
     "startDate": 1843,
     "endDate": null,
     "displayDate": "1843",
@@ -2314,7 +2314,7 @@
   {
     "id": "nietzsche-zarathustra",
     "title": "Slik talte Zarathustra",
-    "description": "Friedrich Nietzsche forkynner 'Guds dÃ¸d' og overmennesket.",
+    "description": "Friedrich Nietzsche forkynner 'Guds død' og overmennesket.",
     "startDate": 1883,
     "endDate": null,
     "displayDate": "1883",
@@ -2330,8 +2330,8 @@
   },
   {
     "id": "heidegger-vaeren",
-    "title": "VÃ¦ren og tid",
-    "description": "Martin Heidegger analyserer hva det vil si Ã¥ vÃ¦re til.",
+    "title": "Væren og tid",
+    "description": "Martin Heidegger analyserer hva det vil si å være til.",
     "startDate": 1927,
     "endDate": null,
     "displayDate": "1927",
@@ -2347,8 +2347,8 @@
   },
   {
     "id": "beauvoir-kjonn",
-    "title": "Det annet kjÃ¸nn",
-    "description": "Simone de Beauvoir analyserer kvinnens stilling: 'Man fÃ¸des ikke som kvinne, man blir det'.",
+    "title": "Det annet kjønn",
+    "description": "Simone de Beauvoir analyserer kvinnens stilling: 'Man fødes ikke som kvinne, man blir det'.",
     "startDate": 1949,
     "endDate": null,
     "displayDate": "1949",
@@ -2382,7 +2382,7 @@
   {
     "id": "rothbard-mes",
     "title": "Man, Economy, and State",
-    "description": "Murray Rothbards hovedverk om Ã¸sterriksk Ã¸konomi og praxeologi.",
+    "description": "Murray Rothbards hovedverk om østerriksk økonomi og praxeologi.",
     "startDate": 1962,
     "endDate": null,
     "displayDate": "1962",
@@ -2391,7 +2391,7 @@
     "topicId": "filosofi",
     "link": "/krle/filosofi/rothbard",
     "tags": [
-      "Ã¸konomi",
+      "økonomi",
       "filosofi",
       "frihet"
     ]
@@ -2416,7 +2416,7 @@
   {
     "id": "singer-animal",
     "title": "Animal Liberation",
-    "description": "Peter Singer utvider utilitarismen til Ã¥ inkludere dyr.",
+    "description": "Peter Singer utvider utilitarismen til å inkludere dyr.",
     "startDate": 1975,
     "endDate": null,
     "displayDate": "1975",
@@ -2432,7 +2432,7 @@
   },
   {
     "id": "forste-verdenskrig-event",
-    "title": "FÃ¸rste verdenskrig",
+    "title": "Første verdenskrig",
     "description": "Den store krigen som endret europakartet.",
     "startDate": 1914,
     "endDate": 1918,
@@ -2449,7 +2449,7 @@
   {
     "id": "skuddene-i-sarajevo",
     "title": "Skuddene i Sarajevo",
-    "description": "Erkehertug Franz Ferdinand skytes, noe som utlÃ¸ser krigen.",
+    "description": "Erkehertug Franz Ferdinand skytes, noe som utløser krigen.",
     "startDate": 1914,
     "endDate": null,
     "displayDate": "28. juni 1914",
@@ -2465,7 +2465,7 @@
   {
     "id": "andre-verdenskrig-event",
     "title": "Andre verdenskrig",
-    "description": "Verdenshistoriens stÃ¸rste og dÃ¸deligste konflikt.",
+    "description": "Verdenshistoriens største og dødeligste konflikt.",
     "startDate": 1939,
     "endDate": 1945,
     "displayDate": "1939-1945",
@@ -2496,7 +2496,7 @@
   },
   {
     "id": "angrepet-pa-norge",
-    "title": "Angrepet pÃ¥ Norge",
+    "title": "Angrepet på Norge",
     "description": "Tyskland invaderer Norge.",
     "startDate": 1940,
     "endDate": 1945,
@@ -2513,7 +2513,7 @@
   {
     "id": "stalingrad",
     "title": "Slaget om Stalingrad",
-    "description": "Krigen snur pÃ¥ Ã˜stfronten.",
+    "description": "Krigen snur på æ˜stfronten.",
     "startDate": 1942,
     "endDate": 1943,
     "displayDate": "1942-1943",
@@ -2529,7 +2529,7 @@
   {
     "id": "d-dagen",
     "title": "D-dagen",
-    "description": "De allierte gÃ¥r i land i Normandie.",
+    "description": "De allierte går i land i Normandie.",
     "startDate": 1944,
     "endDate": null,
     "displayDate": "6. juni 1944",
@@ -2560,8 +2560,8 @@
   },
   {
     "id": "sokrates-dod",
-    "title": "Sokrates' dÃ¸d",
-    "description": "Filosofen Sokrates dÃ¸mmes til dÃ¸den i Athen, et tidlig eksempel pÃ¥ ytringsmot.",
+    "title": "Sokrates' død",
+    "description": "Filosofen Sokrates dømmes til døden i Athen, et tidlig eksempel på ytringsmot.",
     "startDate": -399,
     "endDate": null,
     "displayDate": "399 fvt.",
@@ -2578,7 +2578,7 @@
   {
     "id": "danseplagen-strasbourg",
     "title": "Danseplagen i Strasbourg",
-    "description": "Hundrevis av mennesker danser ukontrollert i gatene, et ekstremt eksempel pÃ¥ flokkmentalitet.",
+    "description": "Hundrevis av mennesker danser ukontrollert i gatene, et ekstremt eksempel på flokkmentalitet.",
     "startDate": 1518,
     "endDate": null,
     "displayDate": "1518",
@@ -2595,7 +2595,7 @@
   {
     "id": "tulipanmanien",
     "title": "Tulipanmanien",
-    "description": "Verdens fÃ¸rste dokumenterte Ã¸konomiske boble drevet av flokkmentalitet i Nederland.",
+    "description": "Verdens første dokumenterte økonomiske boble drevet av flokkmentalitet i Nederland.",
     "startDate": 1634,
     "endDate": 1637,
     "displayDate": "1634-1637",
@@ -2604,7 +2604,7 @@
     "topicId": "mennesket-kultur-samfunn",
     "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
     "tags": [
-      "Ã¸konomi",
+      "økonomi",
       "flokkmentalitet",
       "nederland"
     ]
@@ -2646,7 +2646,7 @@
   {
     "id": "edward-bernays-propaganda",
     "title": "Torches of Freedom",
-    "description": "Edward Bernays revolusjonerer PR ved Ã¥ koble rÃ¸yking til kvinnefrigjÃ¸ring.",
+    "description": "Edward Bernays revolusjonerer PR ved å koble røyking til kvinnefrigjøring.",
     "startDate": 1929,
     "endDate": null,
     "displayDate": "1929",
@@ -2678,8 +2678,8 @@
   },
   {
     "id": "deep-blue-kasparov",
-    "title": "Deep Blue slÃ¥r Kasparov",
-    "description": "En datamaskin slÃ¥r for fÃ¸rste gang verdensmesteren i sjakk.",
+    "title": "Deep Blue slår Kasparov",
+    "description": "En datamaskin slår for første gang verdensmesteren i sjakk.",
     "startDate": 1997,
     "endDate": null,
     "displayDate": "1997",
@@ -2713,7 +2713,7 @@
   {
     "id": "snowden-leaks",
     "title": "Snowden-lekkasjen",
-    "description": "Edward Snowden avslÃ¸rer omfattende digital overvÃ¥king.",
+    "description": "Edward Snowden avslører omfattende digital overvåking.",
     "startDate": 2013,
     "endDate": null,
     "displayDate": "2013",
@@ -2723,7 +2723,7 @@
     "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
     "tags": [
       "ytringsfrihet",
-      "overvÃ¥king"
+      "overvåking"
     ]
   },
   {
@@ -2739,14 +2739,14 @@
     "link": "/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt",
     "tags": [
       "influensere",
-      "Ã¸konomi",
+      "økonomi",
       "media"
     ]
   },
   {
     "id": "frances-haugen-facebook",
     "title": "Facebook-varsleren",
-    "description": "Frances Haugen avslÃ¸rer interne dokumenter om Facebooks algoritmer.",
+    "description": "Frances Haugen avslører interne dokumenter om Facebooks algoritmer.",
     "startDate": 2021,
     "endDate": null,
     "displayDate": "2021",
@@ -2763,7 +2763,7 @@
   {
     "id": "chatgpt-launch",
     "title": "ChatGPT lanseres",
-    "description": "OpenAI lanserer ChatGPT, som starter en bÃ¸lge av AI-interesse.",
+    "description": "OpenAI lanserer ChatGPT, som starter en bølge av AI-interesse.",
     "startDate": 2022,
     "endDate": null,
     "displayDate": "2022",
@@ -2780,7 +2780,7 @@
   {
     "id": "belgia-1914-casus",
     "title": "Invasjonen av Belgia",
-    "description": "Tysklands brudd pÃ¥ Belgias nÃ¸ytralitet gir Storbritannia en legitim Casus Belli for Ã¥ gÃ¥ inn i krigen.",
+    "description": "Tysklands brudd på Belgias nøytralitet gir Storbritannia en legitim Casus Belli for å gå inn i krigen.",
     "startDate": 1914,
     "endDate": null,
     "displayDate": "1914",
@@ -2791,13 +2791,13 @@
     "tags": [
       "krig",
       "diplomati",
-      "fÃ¸rste-verdenskrig"
+      "første-verdenskrig"
     ]
   },
   {
     "id": "mukden-incident-1931",
     "title": "Mukden-hendelsen",
-    "description": "Japan fabrikkerer en eksplosjon i Mandsjuria som pÃ¥skudd for invasjon. En forkastet Casus Belli.",
+    "description": "Japan fabrikkerer en eksplosjon i Mandsjuria som påskudd for invasjon. En forkastet Casus Belli.",
     "startDate": 1931,
     "endDate": null,
     "displayDate": "1931",
@@ -2814,7 +2814,7 @@
   {
     "id": "gleiwitz-1939-casus",
     "title": "Gleiwitz-provokasjonen",
-    "description": "SS utfÃ¸rer et falskt angrep pÃ¥ en tysk radiostasjon for Ã¥ rettferdiggjÃ¸re invasjonen av Polen.",
+    "description": "SS utfører et falskt angrep på en tysk radiostasjon for å rettferdiggjøre invasjonen av Polen.",
     "startDate": 1939,
     "endDate": null,
     "displayDate": "1939",
@@ -2831,7 +2831,7 @@
   {
     "id": "kuwait-1990-casus",
     "title": "Invasjonen av Kuwait",
-    "description": "Iraks invasjon blir mÃ¸tt med en nesten enstemmig internasjonal fordÃ¸mmelse og legitim motaksjon.",
+    "description": "Iraks invasjon blir møtt med en nesten enstemmig internasjonal fordømmelse og legitim motaksjon.",
     "startDate": 1990,
     "endDate": null,
     "displayDate": "1990",
@@ -2842,13 +2842,13 @@
     "tags": [
       "krig",
       "fn",
-      "midtÃ¸sten"
+      "midtøsten"
     ]
   },
   {
     "id": "iraq-2003-casus",
     "title": "Invasjonen av Irak",
-    "description": "USA invaderer Irak med pÃ¥stander om masseÃ¸deleggelseswÃ¥pen. En Casus Belli som senere ble sterkt kritisert.",
+    "description": "USA invaderer Irak med påstander om masseødeleggelseswåpen. En Casus Belli som senere ble sterkt kritisert.",
     "startDate": 2003,
     "endDate": null,
     "displayDate": "2003",
@@ -2865,7 +2865,7 @@
   {
     "id": "peloponnesian-casus",
     "title": "Peloponneserkrigen",
-    "description": "Spartas frykt for Athens makt blir den virkelige Ã¥rsaken til krigen, tross mange offisielle begrunnelser.",
+    "description": "Spartas frykt for Athens makt blir den virkelige årsaken til krigen, tross mange offisielle begrunnelser.",
     "startDate": -431,
     "endDate": null,
     "displayDate": "431 fvt.",
@@ -2882,7 +2882,7 @@
   {
     "id": "praha-defenestrasjon-1618",
     "title": "Defenestrasjonen i Praha",
-    "description": "Tre embetsmenn kastes ut av et vindu, noe som blir den utlÃ¸sende Ã¥rsaken til 30-Ã¥rskrigen.",
+    "description": "Tre embetsmenn kastes ut av et vindu, noe som blir den utløsende årsaken til 30-årskrigen.",
     "startDate": 1618,
     "endDate": null,
     "displayDate": "1618",
@@ -2899,7 +2899,7 @@
   {
     "id": "den-spanske-armada-1588",
     "title": "Den spanske armada",
-    "description": "Filip II invaderer England med religiÃ¸s og politisk legitimering.",
+    "description": "Filip II invaderer England med religiøs og politisk legitimering.",
     "startDate": 1588,
     "endDate": null,
     "displayDate": "1588",
@@ -2916,7 +2916,7 @@
   {
     "id": "sarajevo-1914-casus",
     "title": "Skuddene i Sarajevo",
-    "description": "Attentatet pÃ¥ Franz Ferdinand brukes som Casus Belli for den fÃ¸rste verdenskrig.",
+    "description": "Attentatet på Franz Ferdinand brukes som Casus Belli for den første verdenskrig.",
     "startDate": 1914,
     "endDate": null,
     "displayDate": "1914",
@@ -2927,13 +2927,13 @@
     "tags": [
       "krig",
       "opptakt",
-      "fÃ¸rste-verdenskrig"
+      "første-verdenskrig"
     ]
   },
   {
     "id": "athen-demokrati",
     "title": "Demokratiet i Athen",
-    "description": "Verdens fÃ¸rste direkte demokrati blomstrer i Athen.",
+    "description": "Verdens første direkte demokrati blomstrer i Athen.",
     "startDate": -508,
     "endDate": -322,
     "displayDate": "508 fvt. - 322 fvt.",
@@ -2984,7 +2984,7 @@
   {
     "id": "montesquieu-spirit-laws",
     "title": "Montesquieu: Maktens tredeling",
-    "description": "Verket 'Lovenes Ã¥nd' utgis, som legger grunnlaget for maktfordelingsprinsippet.",
+    "description": "Verket 'Lovenes ånd' utgis, som legger grunnlaget for maktfordelingsprinsippet.",
     "startDate": 1748,
     "endDate": null,
     "displayDate": "1748",
@@ -3018,7 +3018,7 @@
   {
     "id": "norge-grunnlov-1814",
     "title": "Norges Grunnlov",
-    "description": "Norge fÃ¥r sin egen grunnlov pÃ¥ Eidsvoll, basert pÃ¥ opplysningstidens idealer.",
+    "description": "Norge får sin egen grunnlov på Eidsvoll, basert på opplysningstidens idealer.",
     "startDate": 1814,
     "endDate": null,
     "displayDate": "1814",
@@ -3147,8 +3147,8 @@
   },
   {
     "id": "sikhisme-nanak-fodsel",
-    "title": "Guru Nanak blir fÃ¸dt",
-    "description": "Grunnleggeren av sikhismen, Guru Nanak, blir fÃ¸dt i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes Ã©n Gud.",
+    "title": "Guru Nanak blir født",
+    "description": "Grunnleggeren av sikhismen, Guru Nanak, blir født i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes én Gud.",
     "date": 1469,
     "tags": [
       "religion",

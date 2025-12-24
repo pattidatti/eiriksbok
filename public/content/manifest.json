@@ -2075,6 +2075,13 @@
                     "icon": "columns"
                 },
                 {
+                    "id": "philosophy-odyssey",
+                    "title": "Den Filosofiske Odysséen",
+                    "description": "Ditt eget akademi og personlige lærinsportal.",
+                    "link": "/krle/filosofi/odyssey",
+                    "icon": "compass"
+                },
+                {
                     "id": "compare-philosophy",
                     "title": "Sammenlign Filosofer",
                     "description": "Se hvordan ulike filosofer svarer på de store spørsmålene.",
@@ -3060,6 +3067,15 @@
                     "description": "Utforsk de store tankene som har formet vår verden.",
                     "image": "https://images.unsplash.com/photo-1516050748632-ca7a5c110031?auto=format&fit=crop&q=80",
                     "defaultView": "chronological",
+                    "tools": [
+                        {
+                            "id": "philosophy-odyssey",
+                            "title": "Den Filosofiske Odysséen",
+                            "description": "Ditt personlige akademi og læringsportal.",
+                            "link": "/krle/filosofi/odyssey",
+                            "icon": "compass"
+                        }
+                    ],
                     "lessons": [
                         {
                             "id": "intro",

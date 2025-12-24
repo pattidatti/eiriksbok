@@ -46,6 +46,7 @@ const ScannerPage = React.lazy(routeFactories.ScannerPage);
 const WordSorterGame = React.lazy(routeFactories.WordSorterGame);
 const ConceptSnakeGame = React.lazy(routeFactories.ConceptSnakeGame);
 const PersonGallery = React.lazy(routeFactories.PersonGallery);
+const PhilosophyOdyssey = React.lazy(routeFactories.PhilosophyOdyssey);
 const ColonizationMap = React.lazy(routeFactories.ColonizationMap);
 
 import { usePresence } from './hooks/usePresence';
@@ -113,6 +114,7 @@ function AppContent() {
               <Route path="quiz-battle/play/:pin" element={<QuizPlayer />} />
 
               <Route path="krle/sammenlign" element={<ReligionComparisonPage />} />
+              <Route path="krle/filosofi/odyssey" element={<PhilosophyOdyssey />} />
               <Route path="krle/filosofi/sammenlign" element={<PhilosophyComparisonPage />} />
               <Route path="krle/sammenlign/tema/:tag" element={<TopicComparisonPage />} />
               <Route path="krle/religion/:religionId" element={<ReligionPage />} />
