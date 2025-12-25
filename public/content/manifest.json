@@ -857,7 +857,7 @@
                             "id": "casus-belli",
                             "title": "Casus Belli",
                             "description": "Hva gir et land rett til å gå til krig? Utforsk historiens farligste argumenter.",
-                            "image": "/Eiriksbok/images/topics/casus_belli_card.png",
+                            "image": "/images/lessons/ideer/casus_belli_hero.webp",
                             "layout": "rich",
                             "tags": [
                                 "historie",
@@ -885,7 +885,7 @@
                             "id": "fn",
                             "title": "Forente Nasjoner (FN)",
                             "description": "Verdens sikkerhetsråd og kampen for fred etter 1945.",
-                            "image": "https://images.unsplash.com/photo-1594508415392-70678d2cc908?auto=format&fit=crop&q=80",
+                            "image": "/images/lessons/ideer/fn_hero.webp",
                             "layout": "rich",
                             "tags": [
                                 "historie",
@@ -3010,14 +3010,14 @@
                             "id": "sikhisme",
                             "title": "Sikhisme",
                             "description": "Likhet, tjeneste og troen på én Gud.",
-                            "image": "https://images.unsplash.com/photo-1598018554441-b14cc672213e?auto=format&fit=crop&q=80",
+                            "image": "/images/krle/religion/sikhisme_hero.webp",
                             "link": "/krle/religion/sikhisme",
                             "lessons": [
                                 {
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
                                     "description": "Kjernen i sikhismen: Likhet, de fem K-ene og Khalsa.",
-                                    "image": "/images/krle/religion/sikhisme_hero.jpg",
+                                    "image": "/images/krle/religion/sikhisme_hero.webp",
                                     "tags": [
                                         "sikhisme",
                                         "sentrale_trekk"
@@ -3028,7 +3028,7 @@
                                     "id": "grunnleggere",
                                     "title": "Guruene",
                                     "description": "Fra Guru Nanak til den evige Guru Granth Sahib.",
-                                    "image": "/images/krle/religion/sikhisme_hero.jpg",
+                                    "image": "/images/krle/religion/sikhisme_hero.webp",
                                     "tags": [
                                         "sikhisme",
                                         "grunnleggere"
@@ -3039,7 +3039,7 @@
                                     "id": "hellige-tekster",
                                     "title": "Guru Granth Sahib",
                                     "description": "Sikhismens hellige bok og evige lærer.",
-                                    "image": "/images/krle/religion/sikhisme_hero.jpg",
+                                    "image": "/images/krle/religion/sikhisme_hero.webp",
                                     "tags": [
                                         "sikhisme",
                                         "hellige-tekster"
@@ -3050,7 +3050,7 @@
                                     "id": "intro",
                                     "title": "Introduksjon",
                                     "description": "Grunnleggende om sikhismen.",
-                                    "image": "/images/krle/religion/sikhisme_hero.jpg",
+                                    "image": "/images/krle/religion/sikhisme_hero.webp",
                                     "tags": [
                                         "sikhisme",
                                         "intro"
