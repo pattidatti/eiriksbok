@@ -7,7 +7,7 @@ import {
     User,
     FileText
 } from 'lucide-react';
-import type { DetectiveStep, DetectiveSuspect } from './types';
+import type { DetectiveSuspect } from './types';
 
 interface CaseFileProps {
     state: {
