@@ -6,7 +6,6 @@ import {
     MessageCircle,
     Network,
     Zap,
-    ChevronRight,
     Search,
     BrainCircuit,
     ArrowRight,
