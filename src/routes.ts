@@ -43,4 +43,6 @@ export const routeFactories: Record<string, PageFactory> = {
     ConceptSnakeGame: () => import('./games/concept-snake/ConceptSnakeGame'),
     PersonGallery: () => import('./pages/PersonGallery').then(module => ({ default: module.PersonGallery })),
     PhilosophyOdyssey: () => import('./pages/PhilosophyOdysseyPage').then(module => ({ default: module.PhilosophyOdysseyPage })),
+    DetectiveHubPage: () => import('./pages/DetectiveHubPage').then(module => ({ default: module.DetectiveHubPage })),
+    DetectiveCasePage: () => import('./pages/DetectiveCasePage').then(module => ({ default: module.DetectiveCasePage })),
 };

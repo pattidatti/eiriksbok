@@ -1,0 +1,137 @@
+{
+    "id": "viking-gronland-detektiv",
+    "engine": "historical-detective",
+    "title": "Mysteriet på Grønland: Hvor ble de av?",
+    "description": "I 1408 holdes et bryllup i Hvalsey kirke. Så blir det stille. Finn ut hvorfor de norrøne bosettingene forsvant gjennom ekte kilder.",
+    "briefing": {
+        "title": "Oppdrag: Grønlands Gåte",
+        "context": "De norrøne bosetningene på Grønland blomstret i nesten 500 år. De bygde kirker, dømte på tinget og handlet med Europa. Men på 1400-tallet forsvant de plutselig fra alle skriftlige kilder.",
+        "mystery": "Hva skjedde egentlig? Ble de utryddet av sult, drept i krig, eller valgte de å forlate Grønland frivillig?",
+        "mission": "Din oppgave er å gå gjennom det arkeologiske og historiske kildematerialet. Du må skille mellom fakta og tolkning for å finne den mest sannsynlige årsaken til forsvinningen.",
+        "stakes": "Svaret kan lære oss om hvordan samfunn reagerer på klimaendringer og isolasjon – utfordringer som er like relevante i dag."
+    },
+    "status": {
+        "trustLevel": 100,
+        "evidenceCollected": 0,
+        "totalEvidence": 5
+    },
+    "suspects": [
+        {
+            "id": "climate",
+            "name": "Klimaendringer",
+            "description": "Ble det for kaldt til å overleve?",
+            "icon": "❄️"
+        },
+        {
+            "id": "trade",
+            "name": "Økonomisk kollaps",
+            "description": "Forsvant markedet for hvalrosstann?",
+            "icon": "💰"
+        },
+        {
+            "id": "conflict",
+            "name": "Konflikt",
+            "description": "Var det kamp om ressursene med Inuitter?",
+            "icon": "🏹"
+        }
+    ],
+    "steps": [
+        {
+            "id": "step-1-the-last-wedding",
+            "title": "Siste livstegn: Bryllupet i 1408",
+            "content": "Det siste skriftlige beviset på liv er et bryllupsbrev. Etter dette vet vi ingenting sikkert.",
+            "sources": [
+                {
+                    "id": "hvalsey-letter",
+                    "type": "textual",
+                    "title": "Brev fra Hvalsey kirke (1408)",
+                    "metadata": {
+                        "origin": "Diplomatarium Norvegicum",
+                        "date": "September 1408",
+                        "reliability": "high"
+                    },
+                    "provenance": "Dette brevet er en avskrift av et juridisk dokument fra 1408. Det ble sendt for å bekrefte et bryllup som bevis for arv.",
+                    "uncertainty": "Selv om brevet er ekte, forteller det ingenting om hva som skjedde uken etter. Vi vet ikke om alle var friske eller om det var tegn til krise.",
+                    "original": "Sva var ok i tui brupkaupi at hussfreijans oc hionanna uaru j kyrkiugardinum...",
+                    "translation": "Slik var det også i det bryllupet at husfruen og brudeparet var i kirkegården...",
+                    "clues": [
+                        {
+                            "id": "clue-hvalsey-life",
+                            "text": "husfruen og brudeparet",
+                            "insight": "Dette viser at det fremdeles var et fungerende sosialt og religiøst liv så sent som i 1408."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "step-2-the-midden-mounds",
+            "title": "Møddingen forteller: Hva spiste de?",
+            "content": "Arkeologer har gravd i 'møddingene' (søppelhaugene). Her ligger sannheten om deres siste dager.",
+            "sources": [
+                {
+                    "id": "bone-analysis",
+                    "type": "archaeological",
+                    "title": "Isotopanalyse av skjelettfunn",
+                    "metadata": {
+                        "origin": "Københavns Universitet",
+                        "type": "Vitenskapelig data"
+                    },
+                    "provenance": "Fysiske levninger funnet i kirkegården ved Sandnes-gården på Grønland. Analysert med moderne laboratorieteknikk.",
+                    "uncertainty": "Isotopene viser hva de spiste, men ikke *hvorfor* de endret dietten. Var det tvang på grunn av klimaet, eller et bevisst kulturelt valg?",
+                    "original_data": "Økning i C13-verdier fra 20% til 80% over 200 år.",
+                    "interpretation": "Dette betyr at de gikk fra å spise landbruksdyr (kyr/sauer) til nesten utelukkende mat fra havet (sel/hval).",
+                    "clues": [
+                        {
+                            "id": "clue-diet-shift",
+                            "text": "mat fra havet",
+                            "insight": "Dette viser en ekstrem tilpasning til et kaldere klima der tradisjonelt jordbruk ble umulig."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "step-3-walrus-ivory",
+            "title": "Gull fra havet: Hvalrosstann",
+            "content": "Grønlanderne var rike på grunn av hvalrosstann. Men så endret markedet seg.",
+            "sources": [
+                {
+                    "id": "trade-records",
+                    "type": "textual",
+                    "title": "Europeiske tollregistre (1420)",
+                    "metadata": {
+                        "origin": "Bergen/Bremen",
+                        "date": "Ca. 1420"
+                    },
+                    "provenance": "Handelsprotokoller fra Hansabyene i Nord-Tyskland og Norge.",
+                    "uncertainty": "Tollregistrene viser hva som ankom Europa, men ikke nødvendigvis alt som ble handlet ulovlig eller lokalt.",
+                    "original": "Mancipio elephanti ex Africa...",
+                    "interpretation": "Elefantelfenben fra Afrika begynte å flomme inn i Europa. Behovet for den vanskeligere tilgjengelige hvalrosstannen fra Grønland stupte.",
+                    "clues": [
+                        {
+                            "id": "clue-market-crash",
+                            "text": "Elefantelfenben fra Afrika",
+                            "insight": "Dette tyder på at deres viktigste eksportvare mistet verdien sin, noe som isolerte bosetningen økonomisk."
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "conclusion_engine": {
+        "question": "Basert på bevisene: Hva er den mest sannsynlige årsaken til at de forsvant?",
+        "options": [
+            {
+                "id": "a",
+                "text": "De ble utslettet i krig.",
+                "feedback": "Arkeologiske funn viser få tegn på voldelige konflikter som hovedårsak."
+            },
+            {
+                "id": "b",
+                "text": "En kombinasjon av klima, isolasjon og økonomi.",
+                "feedback": "Riktig! Når klimaet ble kaldere, prisene på elfenben falt og skipene sluttet å komme, ble livet for hardt."
+            }
+        ]
+    }
+}

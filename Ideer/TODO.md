@@ -29,7 +29,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [x] Etikk og filosofi-emne. 
 - [ ] Artikkel om sekularisering
 - [x] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
-- [ ] Emne om Sikhismen, utfyllende og ilstrekkelige artikler. Må implementeres i samme struktur som andre emner i krle og med kobling til sammenligningsverktøyene.
+- [x] Emne om Sikhismen, utfyllende og ilstrekkelige artikler. Må implementeres i samme struktur som andre emner i krle og med kobling til sammenligningsverktøyene.
 
 ### Norsk
 - [x] Artikler i norskfaget-litteraturhistorie mangler sidebar. 

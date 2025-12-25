@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane, History, Users } from 'lucide-react';
+import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane, History, Users, Search } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
@@ -99,6 +99,14 @@ export const PracticePage: React.FC = () => {
             icon: Gamepad2,
             color: 'bg-green-600',
             link: '/oving/konsept-snake'
+        },
+        {
+            id: 'detective',
+            title: 'Historisk Detektiv',
+            description: 'Løs ekte gåter fra fortiden ved å undersøke kilder.',
+            icon: Search,
+            color: 'bg-indigo-600',
+            link: '/oving/detektiv'
         }
     ];
 

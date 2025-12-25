@@ -47,6 +47,8 @@ const WordSorterGame = React.lazy(routeFactories.WordSorterGame);
 const ConceptSnakeGame = React.lazy(routeFactories.ConceptSnakeGame);
 const PersonGallery = React.lazy(routeFactories.PersonGallery);
 const PhilosophyOdyssey = React.lazy(routeFactories.PhilosophyOdyssey);
+const DetectiveHubPage = React.lazy(routeFactories.DetectiveHubPage);
+const DetectiveCasePage = React.lazy(routeFactories.DetectiveCasePage);
 const ColonizationMap = React.lazy(routeFactories.ColonizationMap);
 
 import { usePresence } from './hooks/usePresence';
@@ -100,6 +102,9 @@ function AppContent() {
               <Route path="oving/chrono-glider" element={<ChronoGliderPage />} />
               <Route path="oving/tidslinje-td" element={<TimelineTDPage />} />
               <Route path="oving/konsept-snake" element={<ConceptSnakeGame />} />
+              <Route path="oving/detektiv" element={<DetectiveHubPage />} />
+              <Route path="oving/detektiv/:caseId" element={<DetectiveCasePage />} />
+              <Route path="historie/vikingtiden/detektiv" element={<DetectiveCasePage />} />
 
               <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
               <Route path="admin/stats" element={<AdminGuard><StatsPage /></AdminGuard>} />

@@ -1502,6 +1502,13 @@
                             "description": "En omfattende reise gjennom vikingenes verden, frem mot din egen fordypningsoppgave.",
                             "link": "/historie/vikingtiden/vikingtiden-sti",
                             "icon": "map"
+                        },
+                        {
+                            "id": "detective-greenland",
+                            "title": "Historisk Detektiv: Mysteriet på Grønland",
+                            "description": "Hva skjedde med de norrøne bosetningene på Grønland? Undersøk bevisene og løs gåten.",
+                            "link": "/historie/vikingtiden/detektiv",
+                            "icon": "search"
                         }
                     ],
                     "lessons": [
