@@ -4,6 +4,7 @@ export interface ChronosStat {
     icon: string; // lucide icon name
     value: number;
     max: number;
+    category?: 'attribute' | 'relation';
 }
 
 export interface ChronosItem {
@@ -16,6 +17,7 @@ export interface ChronosItem {
 export interface ChronosConfig {
     stats: ChronosStat[];
     items?: ChronosItem[]; // Available items definitions
+    recipes?: ChronosRecipe[]; // Available recipes
     theme?: {
         primaryColor: string;
         font?: string;
@@ -56,15 +58,7 @@ export interface ChronosChoice {
     updateEnvironment?: Partial<ChronosEnvironment>;
 }
 
-export interface ChronosMinigame {
-    type: 'dice';
-    config: {
-        targetScore: number;
-        wager?: number;
-        winNodeId: string;
-        lossNodeId: string;
-    };
-}
+
 
 export interface ChronosMapPoint {
     id: string;
@@ -114,3 +108,60 @@ export interface ChronosScenario {
     startingNodeId: string;
     randomEvents?: string[]; // IDs of nodes that can be triggered randomly
 }
+
+// Phase 9.1: Persistence Types
+export interface ChronosRunLog {
+    id: string;
+    scenarioId: string;
+    date: number;
+    result: 'victory' | 'defeat' | 'retired';
+    daysSurvived: number;
+    score: number;
+    endingNodeId: string;
+}
+
+export interface ChronosProfile {
+    id: string; // "local_user" for now
+    name: string;
+    created: number;
+    unlockedScenarios: string[];
+    trophies: string[];
+    graveyard: ChronosRunLog[];
+    legacyItems: string[];
+    totalRuns: number;
+    totalWins: number;
+}
+
+// Phase 9.3: Advanced Mechanics
+export interface ChronosRecipe {
+    id: string;
+    label: string;
+    ingredients: string[]; // ['herb', 'linen']
+    result: string; // 'bandage'
+}
+
+export interface ChronosBattleConfig {
+    enemyName: string;
+    enemyHealth: number;
+    playerHealth: number;
+    winNodeId: string;
+    lossNodeId: string;
+    moves: Array<{
+        id: string;
+        label: string;
+        type: 'attack' | 'defend' | 'maneuver';
+        counters: string[]; // Types this move beats (rock beats scissors)
+    }>;
+}
+
+export type ChronosMinigame =
+    | {
+        type: 'dice';
+        config: {
+            targetScore: number;
+            wager?: number;
+            winNodeId: string;
+            lossNodeId: string;
+        }
+    }
+    | { type: 'battle'; config: ChronosBattleConfig };

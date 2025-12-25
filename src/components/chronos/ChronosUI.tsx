@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock, CloudRain, Moon, BookOpen, X, Map as MapIcon, Users } from 'lucide-react';
-import type { ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment, ChronosEntry, ChronosMapPoint } from '../../data/chronos/types';
+import { Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock, CloudRain, Moon, BookOpen, X, Map as MapIcon, Users, Hammer } from 'lucide-react';
+import type { ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment, ChronosEntry, ChronosMapPoint, ChronosRecipe } from '../../data/chronos/types';
 import { DiceGame } from './minigames/DiceGame';
+import { BattleGame } from './minigames/BattleGame';
+import { CraftingModal } from './CraftingModal';
 import { ChronosMap } from './ChronosMap'; // Import Map Component
 
 interface ChronosUIProps {
@@ -15,6 +17,7 @@ interface ChronosUIProps {
     config: ChronosConfig;
     onChoice: (choice: ChronosChoice) => void;
     onRestart?: () => void;
+    onCraft?: (recipe: ChronosRecipe) => void;
 }
 
 const IconMap: Record<string, any> = {
@@ -212,6 +215,16 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                         <BookOpen size={20} />
                     </button>
 
+                    {/* Crafting Toggle */}
+                    {config.recipes && config.recipes.length > 0 && onCraft && (
+                        <button
+                            onClick={() => setShowCrafting(true)}
+                            className="p-4 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm text-stone-600 hover:text-stone-900 transition-colors"
+                        >
+                            <Hammer size={20} />
+                        </button>
+                    )}
+
                     {/* Inventory Bag */}
                     <div className="group/bag relative">
                         <div className="p-4 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm text-stone-600 hover:text-stone-900 transition-colors cursor-help">
@@ -314,18 +327,36 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                         </h2>
 
                         {node.minigame ? (
-                            <DiceGame
-                                targetScore={node.minigame.config.targetScore}
-                                wager={node.minigame.config.wager}
-                                onComplete={(success) => {
-                                    const nextId = success ? node.minigame!.config.winNodeId : node.minigame!.config.lossNodeId;
-                                    onChoice({
-                                        id: 'minigame_complete',
-                                        text: 'Minigame Complete',
-                                        nextNodeId: nextId
-                                    });
-                                }}
-                            />
+                            node.minigame.type === 'dice' ? (
+                                <DiceGame
+                                    targetScore={node.minigame.config.targetScore}
+                                    wager={node.minigame.config.wager}
+                                    onComplete={(success: boolean) => {
+                                        if (node.minigame?.type === 'dice') {
+                                            const nextId = success ? node.minigame.config.winNodeId : node.minigame.config.lossNodeId;
+                                            onChoice({
+                                                id: 'minigame_complete',
+                                                text: 'Dice Game Complete',
+                                                nextNodeId: nextId
+                                            });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'battle' ? (
+                                <BattleGame
+                                    config={node.minigame.config}
+                                    onComplete={(success: boolean) => {
+                                        if (node.minigame?.type === 'battle') {
+                                            const nextId = success ? node.minigame.config.winNodeId : node.minigame.config.lossNodeId;
+                                            onChoice({
+                                                id: 'battle_complete',
+                                                text: 'Battle Complete',
+                                                nextNodeId: nextId
+                                            });
+                                        }
+                                    }}
+                                />
+                            ) : null
                         ) : node.uiType === 'map' && node.mapConfig ? (
                             <ChronosMap
                                 config={node.mapConfig}
@@ -360,8 +391,8 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                                             onClick={() => !locked && onChoice(choice)}
                                             disabled={locked}
                                             className={`group relative p-6 text-left rounded-[1.5rem] border transition-all duration-300 overflow-hidden ${locked
-                                                    ? 'bg-stone-100 border-stone-200 opacity-70 cursor-not-allowed'
-                                                    : 'bg-white border-stone-200 hover:border-indigo-200 active:scale-[0.98] shadow-sm hover:shadow-xl hover:shadow-indigo-500/5'
+                                                ? 'bg-stone-100 border-stone-200 opacity-70 cursor-not-allowed'
+                                                : 'bg-white border-stone-200 hover:border-indigo-200 active:scale-[0.98] shadow-sm hover:shadow-xl hover:shadow-indigo-500/5'
                                                 }`}
                                         >
                                             {!locked && <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />}
@@ -379,8 +410,8 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                                                 </div>
 
                                                 <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${locked
-                                                        ? 'bg-stone-200 text-stone-400'
-                                                        : 'bg-stone-100 group-hover:bg-indigo-100 text-stone-400 group-hover:text-indigo-600'
+                                                    ? 'bg-stone-200 text-stone-400'
+                                                    : 'bg-stone-100 group-hover:bg-indigo-100 text-stone-400 group-hover:text-indigo-600'
                                                     }`}>
                                                     {locked ? <Lock size={14} /> : <ArrowRight size={16} />}
                                                 </div>
