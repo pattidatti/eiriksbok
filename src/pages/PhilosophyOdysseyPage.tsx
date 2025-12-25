@@ -20,11 +20,17 @@ import { usePhilosophyProfile } from '../hooks/usePhilosophyProfile';
 import { PhilosophicalQuestEngine } from '../components/content/interactive/philosophy/PhilosophicalQuestEngine';
 import type { PhilosophyQuest } from '../data/philosophy/types';
 import { Stjernekart } from '../components/content/interactive/philosophy/Stjernekart';
+import { QUEST_REGISTRY } from '../data/philosophy/questRegistry';
 
 export const PhilosophyOdysseyPage: React.FC = () => {
     const [selectedTab, setSelectedTab] = useState<'quest' | 'network' | 'profile'>('quest');
     const [scrolled, setScrolled] = useState(false);
+
+    // VISUAL STATE: This triggers the full-screen quest UI
     const [activeQuest, setActiveQuest] = useState<PhilosophyQuest | null>(null);
+
+    // DATA FETCHING STATE: This triggers react-query to go get the JSON
+    const [activeQuestId, setActiveQuestId] = useState<string | null>(null);
 
     const { profile, isLoaded: profileLoaded } = usePhilosophyProfile();
 
@@ -39,14 +45,38 @@ export const PhilosophyOdysseyPage: React.FC = () => {
         queryFn: fetchManifest
     });
 
-    // Mock/Fetch Quest Data (In a real app, this would be a separate fetch or from manifest)
-    const { data: socraticQuest } = useQuery({
-        queryKey: ['quest', 'sokrates'],
+    // Dynamic Quest Loading
+    const { data: fetchedQuest } = useQuery({
+        queryKey: ['quest', activeQuestId],
         queryFn: async () => {
-            const res = await fetch('/public/content/krle/filosofi/quests/socratic_dialogue.json');
-            return res.json() as Promise<PhilosophyQuest>;
-        }
+            if (!activeQuestId) return null;
+            const config = Object.values(QUEST_REGISTRY).find((q: any) => q.philosopherId === activeQuestId);
+            // Default to Sokrates if no specific quest found (FOR DEMO PURPOSE ONLY - should verify later)
+            const path = config ? config.path : QUEST_REGISTRY['sokrates'].path;
+
+            try {
+                const res = await fetch(`/public${path}`); // Try with prefix
+                if (!res.ok) {
+                    // Fallback for dev environment path issues or direct access
+                    const res2 = await fetch(path);
+                    return res2.json() as Promise<PhilosophyQuest>;
+                }
+                return res.json() as Promise<PhilosophyQuest>;
+            } catch (e) {
+                console.error("Failed to load quest", e);
+                return null;
+            }
+        },
+        enabled: !!activeQuestId
     });
+
+    // When quest data is received, mount the UI
+    useEffect(() => {
+        if (fetchedQuest) {
+            setActiveQuest(fetchedQuest);
+            setActiveQuestId(null);
+        }
+    }, [fetchedQuest]);
 
     if (manifestLoading || !profileLoaded) return <PageSkeleton />;
 
@@ -131,6 +161,7 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                         >
                             <PhilosophicalQuestEngine
                                 quest={activeQuest}
+                                mentorImage={lessons.find(l => l.id === activeQuest.id || l.title.includes(activeQuest.mentor))?.image}
                                 onExit={() => setActiveQuest(null)}
                                 onComplete={() => setActiveQuest(null)}
                             />
@@ -167,7 +198,7 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                         </p>
                                         <div className="flex flex-wrap gap-5">
                                             <button
-                                                onClick={() => socraticQuest && setActiveQuest(socraticQuest)}
+                                                onClick={() => setActiveQuestId('sokrates')}
                                                 className="px-12 py-5 rounded-[2rem] bg-white text-indigo-600 font-black text-xs uppercase tracking-[0.2em] hover:bg-black hover:text-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-2xl shadow-indigo-900/20"
                                             >
                                                 Start Dialogen
@@ -298,7 +329,7 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Stjernekart />
+                            <Stjernekart onStartQuest={(id) => setActiveQuestId(id)} />
                         </motion.div>
                     )}
 

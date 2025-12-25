@@ -46,4 +46,6 @@ export const routeFactories: Record<string, PageFactory> = {
     DetectiveHubPage: () => import('./pages/DetectiveHubPage').then(module => ({ default: module.DetectiveHubPage })),
     DetectiveCasePage: () => import('./pages/DetectiveCasePage').then(module => ({ default: module.DetectiveCasePage })),
     EthicsExperimentPage: () => import('./pages/EthicsExperimentPage').then(module => ({ default: module.EthicsExperimentPage })),
+    TimeTravelPage: () => import('./pages/TimeTravelPage').then(module => ({ default: module.TimeTravelPage })),
+    TimeTravelGamePage: () => import('./pages/TimeTravelGamePage').then(module => ({ default: module.TimeTravelGamePage })),
 };

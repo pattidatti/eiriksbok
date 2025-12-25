@@ -1,0 +1,126 @@
+{
+    "id": "platon",
+    "title": "Skygger på Veggen",
+    "description": "Utforsk sannhetens natur gjennom Platons berømte hulelignelse.",
+    "mentor": "Platon",
+    "initialStepId": "intro",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "intro",
+            "speaker": "Platon",
+            "text": "Se for deg at du har levd hele livet lenket fast i en mørk hule. Du kan ikke snu hodet. Rett foran deg ser du skygger som danser på fjellveggen. Hva tror du disse skyggene er?",
+            "choices": [
+                {
+                    "id": "reality",
+                    "text": "De er selve virkeligheten. Det er alt jeg noensinne har sett.",
+                    "nextStepId": "chains",
+                    "impact": {
+                        "empiricism": 10
+                    }
+                },
+                {
+                    "id": "illusion",
+                    "text": "De må være refleksjoner av noe annet, men jeg vet ikke hva.",
+                    "nextStepId": "chains",
+                    "impact": {
+                        "rationalism": 10
+                    }
+                }
+            ]
+        },
+        {
+            "id": "chains",
+            "speaker": "Platon",
+            "text": "Nettopp. For fangene er skyggene den eneste sannheten. Men tenk deg nå at lenkene dine brytes. Du snur deg og ser et bål, og figurer som bæres forbi det. Lyset skjærer i øynene dine. Hva gjør du?",
+            "choices": [
+                {
+                    "id": "return",
+                    "text": "Smerten er for stor. Jeg snur meg tilbake til skyggene som er behagelige og kjente.",
+                    "nextStepId": "cowardice",
+                    "impact": {
+                        "tradition": 10
+                    }
+                },
+                {
+                    "id": "explore",
+                    "text": "Jeg trosser smerten og går mot lyset for å se hva som kaster skyggene.",
+                    "nextStepId": "sunlight",
+                    "impact": {
+                        "liberty": 10,
+                        "rationalism": 10
+                    }
+                }
+            ]
+        },
+        {
+            "id": "cowardice",
+            "speaker": "Platon",
+            "text": "Det er fristende å bli i det kjente. Men er et behagelig liv i uvitenhet verdt mer enn en smertefull sannhet? Hvis du aldri stiller spørsmål ved det du ser, er du da egentlig fri?",
+            "choices": [
+                {
+                    "id": "rethink",
+                    "text": "Kanskje ikke. Jeg vil prøve på nytt. Jeg går mot lyset.",
+                    "nextStepId": "sunlight",
+                    "impact": {
+                        "rationalism": 5
+                    }
+                }
+            ]
+        },
+        {
+            "id": "sunlight",
+            "speaker": "Platon",
+            "text": "Du klatrer ut av hulen. Utenfor ser du den virkelige solen, trærne og himmelen. Du innser at alt du så i hulen bare var bleke kopier. Nå som du har sett sannheten, har du et ansvar overfor de som fortsatt sitter lenket?",
+            "choices": [
+                {
+                    "id": "save_them",
+                    "text": "Ja, jeg må gå tilbake og fortelle dem sannheten, selv om de kanskje ikke tror meg.",
+                    "nextStepId": "conclusion_hero",
+                    "impact": {
+                        "duty": 20,
+                        "altruism": 20
+                    }
+                },
+                {
+                    "id": "stay_free",
+                    "text": "Nei, hvorfor skal jeg tilbake til mørket? De vil bare le av meg. Jeg blir her i lyset.",
+                    "nextStepId": "conclusion_individual",
+                    "impact": {
+                        "individualism": 20
+                    }
+                }
+            ]
+        },
+        {
+            "id": "conclusion_hero",
+            "speaker": "Platon",
+            "text": "Dette er filosofens lodd. Vi må søke sannheten, ikke bare for vår egen del, men for å opplyse samfunnet. Selv om det kan være farlig å utfordre massenes illusjoner (som min lærer Sokrates smertelig fikk erfare!), er det den edleste handling et menneske kan gjøre.",
+            "choices": [
+                {
+                    "id": "finish",
+                    "text": "Jeg forstår. Kunnskap forplikter.",
+                    "nextStepId": "End",
+                    "impact": {
+                        "rationalism": 10
+                    }
+                }
+            ]
+        },
+        {
+            "id": "conclusion_individual",
+            "speaker": "Platon",
+            "text": "Du har funnet visdommen, men holder den for deg selv. Du lever i sannheten, mens dine brødre lever i løgn. Er ikke en del av visdommen å forstå at vi alle er del av det samme fellesskapet? Men du er fri, og det er en start.",
+            "choices": [
+                {
+                    "id": "finish",
+                    "text": "Jeg må tenke mer på dette.",
+                    "nextStepId": "End",
+                    "impact": {
+                        "individualism": 5
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -5,7 +5,11 @@ import type { NetworkNode } from '../../../../data/philosophy/network';
 import { Info, Users, Link as LinkIcon, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-export const Stjernekart: React.FC = () => {
+interface StjernekartProps {
+    onStartQuest?: (philosopherId: string) => void;
+}
+
+export const Stjernekart: React.FC<StjernekartProps> = ({ onStartQuest }) => {
     const [selectedNode, setSelectedNode] = useState<NetworkNode | null>(null);
     const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
@@ -201,12 +205,21 @@ export const Stjernekart: React.FC = () => {
                             </div>
                         </div>
 
-                        <Link
-                            to={`/krle/filosofi/${selectedNode.id}`}
-                            className="w-full py-4 rounded-2xl bg-white text-black font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all mt-auto shadow-xl text-center block"
-                        >
-                            Les Mer i Biblioteket
-                        </Link>
+                        <div className="mt-auto space-y-3">
+                            <button
+                                onClick={() => onStartQuest?.(selectedNode.id)}
+                                className="w-full py-4 rounded-2xl bg-indigo-500 text-white font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-2"
+                            >
+                                <Sparkles size={16} />
+                                Start Dialog
+                            </button>
+                            <Link
+                                to={`/krle/filosofi/${selectedNode.id}`}
+                                className="w-full py-4 rounded-2xl bg-white text-black font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl text-center block"
+                            >
+                                Les Mer i Biblioteket
+                            </Link>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

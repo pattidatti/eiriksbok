@@ -1,0 +1,510 @@
+{
+    "id": "roman_01",
+    "title": "Legionærens Liv",
+    "era": "Antikken",
+    "year": "122 e.Kr.",
+    "role": "Romersk Soldat",
+    "summary": "Lev livet som soldat ved verdens ende. Bygg din karakter, utfør oppdrag, og overlev hverdagen ved Hadrians Mur.",
+    "startingNodeId": "intro_arrival",
+    "randomEvents": [
+        "encounter_picts_ambush",
+        "encounter_merchant",
+        "encounter_ruins"
+    ],
+    "config": {
+        "stats": [
+            {
+                "id": "discipline",
+                "label": "Disiplin",
+                "icon": "shield",
+                "value": 50,
+                "max": 100
+            },
+            {
+                "id": "morale",
+                "label": "Moral",
+                "icon": "heart",
+                "value": 60,
+                "max": 100
+            },
+            {
+                "id": "gold",
+                "label": "Denarer",
+                "icon": "crown",
+                "value": 10,
+                "max": 1000
+            }
+        ],
+        "items": [
+            {
+                "id": "celtic_brooch",
+                "name": "Keltisk Brosje",
+                "description": "Et vakkert smykke av sølv med intrikate mønstre. Verdt mye for samlere.",
+                "icon": "star"
+            },
+            {
+                "id": "gladius_sharp",
+                "name": "Nyslipt Gladius",
+                "description": "Et eksepsjonelt sverd som gir fordel i kamp.",
+                "icon": "sword"
+            }
+        ],
+        "theme": {
+            "primaryColor": "#b45309",
+            "font": "serif"
+        }
+    },
+    "nodes": {
+        "intro_arrival": {
+            "id": "intro_arrival",
+            "text": "Vinden uler over Vindolanda. Du er en nyankommen soldat i IX. Legion Hispana. Muren strekker seg mot horisonten - grensen mellom sivilisasjon og kaos. Din Centurion, en arrete veteran ved navn Crassus, mønstrer deg.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/roman_barracks.jpg",
+            "choices": [
+                {
+                    "id": "c_intro_1",
+                    "text": "Stå i stram givakt (Vis Disiplin)",
+                    "nextNodeId": "camp_hub_morning",
+                    "effects": {
+                        "discipline": 10
+                    },
+                    "updateEnvironment": {
+                        "time": "day"
+                    }
+                },
+                {
+                    "id": "c_intro_2",
+                    "text": "Se ham i øynene (Vis Mot)",
+                    "nextNodeId": "camp_hub_morning",
+                    "effects": {
+                        "morale": 10
+                    },
+                    "updateEnvironment": {
+                        "time": "day"
+                    }
+                }
+            ]
+        },
+        "camp_hub_morning": {
+            "id": "camp_hub_morning",
+            "text": "Morgensolen bryter gjennom tåken. Leiren våkner til liv. Smedene hamrer, hester vrinsker, og lukten av nybakt brød blander seg med latrinene. Hva vil du gjøre i dag?",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/roman_camp_day.jpg",
+            "choices": [
+                {
+                    "id": "hub_patrol",
+                    "text": "Meld deg til patruljetjeneste",
+                    "nextNodeId": "patrol_gate",
+                    "effects": {
+                        "discipline": 5
+                    }
+                },
+                {
+                    "id": "hub_train",
+                    "text": "Tren sverdteknikk på banen",
+                    "nextNodeId": "training_field",
+                    "effects": {
+                        "discipline": 10,
+                        "morale": -5
+                    }
+                },
+                {
+                    "id": "hub_leisure",
+                    "text": "Oppsøk badene og slapp av",
+                    "nextNodeId": "baths",
+                    "effects": {
+                        "morale": 15,
+                        "discipline": -5
+                    }
+                }
+            ]
+        },
+        "camp_hub_evening": {
+            "id": "camp_hub_evening",
+            "text": "Dagen går mot hell. Faklene tennes langs hovedgaten 'Via Principalis'. Soldatene samles for å spise, drikke og spille terninger før natten faller på.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/roman_camp_night.jpg",
+            "choices": [
+                {
+                    "id": "night_gamble",
+                    "text": "Spill terninger med gutta (Sats penger)",
+                    "nextNodeId": "gambling",
+                    "effects": {}
+                },
+                {
+                    "id": "night_sleep",
+                    "text": "Gå til sengs tidlig",
+                    "nextNodeId": "journal_evening_1",
+                    "effects": {
+                        "discipline": 5,
+                        "morale": 5
+                    }
+                }
+            ]
+        },
+        "journal_evening_1": {
+            "id": "journal_evening_1",
+            "text": "Før du sovner, tar du frem vokstavlen din. Det er viktig å huske dagens lærdommer, for i morgen kan de redde livet ditt.",
+            "speaker": "Refleksjon",
+            "journalPrompt": "Hva har du lært i dag, legionær?",
+            "choices": [
+                {
+                    "id": "journal_done",
+                    "text": "Legg deg til å sove",
+                    "nextNodeId": "new_day_transition",
+                    "effects": {}
+                }
+            ]
+        },
+        "new_day_transition": {
+            "id": "new_day_transition",
+            "text": "Du sover tungt og drømmer om Roma. Når trompeten blåser 'Reveille', er du klar for en ny dag i keiserens tjeneste.",
+            "speaker": "Drøm",
+            "backgroundImage": "/images/chronos/roman_dream.jpg",
+            "choices": [
+                {
+                    "id": "wake_up",
+                    "text": "Møt dagen",
+                    "nextNodeId": "camp_hub_morning",
+                    "effects": {},
+                    "updateEnvironment": {
+                        "time": "day"
+                    }
+                }
+            ]
+        },
+        "patrol_gate": {
+            "id": "patrol_gate",
+            "text": "Ved nordporten møter du patruljelederen. 'Vi vet aldri hva som venter der ute,' sier han. 'Vær på vakt.'",
+            "speaker": "Optio",
+            "backgroundImage": "/images/chronos/roman_gate.jpg",
+            "choices": [
+                {
+                    "id": "patrol_start",
+                    "text": "Start Patruljen (Tilfeldig Hendelse)",
+                    "nextNodeId": "RANDOM_EVENT",
+                    "effects": {
+                        "discipline": 5
+                    }
+                },
+                {
+                    "id": "patrol_cancel",
+                    "text": "Bli i leiren i stedet",
+                    "nextNodeId": "camp_hub_morning",
+                    "effects": {
+                        "morale": -5
+                    }
+                }
+            ]
+        },
+        "encounter_picts_ambush": {
+            "id": "encounter_picts_ambush",
+            "text": "Dere beveger dere gjennom høyt gress. Plutselig hviner en slyngestein forbi øret ditt! 'Piktere!' roper sidemannen din. De er over dere!",
+            "speaker": "Kampsituasjon",
+            "backgroundImage": "/images/chronos/roman_battle.jpg",
+            "choices": [
+                {
+                    "id": "fight_1",
+                    "text": "Dann skjoldborg! (Testudo)",
+                    "nextNodeId": "fight_tactics",
+                    "effects": {
+                        "discipline": 15
+                    }
+                },
+                {
+                    "id": "fight_2",
+                    "text": "Storm frem med Gladius trukket!",
+                    "nextNodeId": "fight_aggro",
+                    "effects": {
+                        "morale": 10,
+                        "discipline": -10
+                    }
+                }
+            ]
+        },
+        "fight_tactics": {
+            "id": "fight_tactics",
+            "text": "Disiplinen redder dere. Pikternes angrep bryter mot skjoldveggen som bølger mot en klippe. Dere driver dem tilbake uten tap. Optioen nikker anerkjennende.",
+            "speaker": "Seier",
+            "choices": [
+                {
+                    "id": "return_vic",
+                    "text": "Marsjer tilbake til leiren",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "morale": 10,
+                        "gold": 20
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                }
+            ]
+        },
+        "fight_aggro": {
+            "id": "fight_aggro",
+            "text": "Du kaster deg ut i kampen. Det er blodig og kaotisk. Du feller en fiende, men får et kutt i armen. Dere vinner, men det var nære på.",
+            "speaker": "Dyrekjøpt Seier",
+            "choices": [
+                {
+                    "id": "return_hurt",
+                    "text": "Halt tilbake til leiren",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "morale": -10,
+                        "gold": 30
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                }
+            ]
+        },
+        "encounter_merchant": {
+            "id": "encounter_merchant",
+            "text": "Dere stopper en vogn. Det er en handelsmann fra Gallia som selger 'autentisk romersk vin' til overpris. Han ser nervøs ut.",
+            "speaker": "Handelsmann",
+            "backgroundImage": "/images/chronos/roman_merchant.jpg",
+            "choices": [
+                {
+                    "id": "trade_sell_brooch",
+                    "text": "Selg den keltiske brosjen (+50 Denarer)",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "gold": 50
+                    },
+                    "checkInventory": {
+                        "hasItem": "celtic_brooch"
+                    },
+                    "updateInventory": {
+                        "remove": "celtic_brooch"
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                },
+                {
+                    "id": "trade_tax",
+                    "text": "Krev 'beskyttelsespenger' (Korrupsjon)",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "gold": 50,
+                        "discipline": -20
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                },
+                {
+                    "id": "trade_buy",
+                    "text": "Kjøp vin til gutta (-10 Denarer)",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "gold": -10,
+                        "morale": 20
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                },
+                {
+                    "id": "trade_ignore",
+                    "text": "La ham passere",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "discipline": 5
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                }
+            ]
+        },
+        "encounter_ruins": {
+            "id": "encounter_ruins",
+            "text": "I en tåkelagt dal finner dere steiner reist av de gamle. Det ligger ferske offergaver her. Blant beinrestene glimter det i noe sølv.",
+            "speaker": "Mystikk",
+            "choices": [
+                {
+                    "id": "ruins_loot",
+                    "text": "Ta sølvsmykket (Få 'Keltisk Brosje')",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "morale": 5,
+                        "discipline": -5
+                    },
+                    "updateInventory": {
+                        "add": "celtic_brooch"
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                },
+                {
+                    "id": "ruins_destroy",
+                    "text": "Spark ned offergavene. Vi frykter ingen guder her.",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "morale": 10,
+                        "discipline": 5
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                },
+                {
+                    "id": "ruins_respect",
+                    "text": "La det være. Man vet aldri.",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "morale": -5
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                }
+            ]
+        },
+        "training_field": {
+            "id": "training_field",
+            "text": "Drillinstruktøren er nådeløs. 'Tretti runder med scutum! Hugg! Parér! Igjen!' Svetten renner. Du hater ham nå, men dette vil redde livet ditt en dag.",
+            "speaker": "Trening",
+            "backgroundImage": "/images/chronos/roman_training.jpg",
+            "choices": [
+                {
+                    "id": "train_hard",
+                    "text": "Gi alt du har",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "discipline": 20,
+                        "morale": -5
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                },
+                {
+                    "id": "train_slack",
+                    "text": "Ta det litt med ro når han ikke ser",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "discipline": -5,
+                        "morale": 5
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                }
+            ]
+        },
+        "baths": {
+            "id": "baths",
+            "text": "Varmen i tepidariet løser opp stive muskler. Du skraper huden ren med en strigil og prater skit med de andre. Dette er sivilisasjon.",
+            "speaker": "Avslapping",
+            "backgroundImage": "/images/chronos/roman_baths.jpg",
+            "choices": [
+                {
+                    "id": "bath_relax",
+                    "text": "Nyt stunden",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "morale": 25
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                }
+            ]
+        },
+        "gambling": {
+            "id": "gambling",
+            "text": "Terningene ruller på trebordet. 'Venus!' roper Marcus. Du satser dagslønnen din.",
+            "speaker": "Terningspill",
+            "choices": [
+                {
+                    "id": "gamble_play",
+                    "text": "Kast terningene (Ferdighet)",
+                    "nextNodeId": "gamble_minigame",
+                    "effects": {
+                        "gold": -10
+                    }
+                },
+                {
+                    "id": "gamble_cheat",
+                    "text": "Juks litt (Risiker Disiplin)",
+                    "nextNodeId": "gamble_result_cheat",
+                    "effects": {
+                        "discipline": -10
+                    }
+                }
+            ]
+        },
+        "gamble_minigame": {
+            "id": "gamble_minigame",
+            "text": "Du rister begeret og kaster terningene på bordet. Trenger 8 eller bedre...",
+            "speaker": "Skjebnen",
+            "choices": [],
+            "minigame": {
+                "type": "dice",
+                "config": {
+                    "targetScore": 8,
+                    "winNodeId": "gamble_result_win",
+                    "lossNodeId": "gamble_result_loss"
+                }
+            }
+        },
+        "gamble_result_win": {
+            "id": "gamble_result_win",
+            "text": "Du har flaksen med deg! Du vinner potten og alle jubler.",
+            "speaker": "Gevinst",
+            "choices": [
+                {
+                    "id": "sleep_win",
+                    "text": "Gå til sengs rikere",
+                    "nextNodeId": "journal_evening_1",
+                    "effects": {
+                        "gold": 50,
+                        "morale": 10
+                    },
+                    "updateEnvironment": {
+                        "time": "day"
+                    }
+                }
+            ]
+        },
+        "gamble_result_loss": {
+            "id": "gamble_result_loss",
+            "text": "Terningene viser 'Hundetwist' (Enerne). Du taper innsatsen din.",
+            "speaker": "Tap",
+            "choices": [
+                {
+                    "id": "sleep_loss",
+                    "text": "Gå slukøret til sengs",
+                    "nextNodeId": "new_day_transition",
+                    "effects": {
+                        "morale": -5
+                    },
+                    "updateEnvironment": {
+                        "time": "day"
+                    }
+                }
+            ]
+        },
+        "gamble_result_cheat": {
+            "id": "gamble_result_cheat",
+            "text": "Du blir tatt på fersken! En slåsskamp bryter ut, og Centurionen må bryte inn. Du mister både pengene og respekten.",
+            "speaker": "Skam",
+            "choices": [
+                {
+                    "id": "sleep_shame",
+                    "text": "Snik deg til sengs",
+                    "nextNodeId": "new_day_transition",
+                    "effects": {
+                        "gold": -20,
+                        "morale": -20
+                    }
+                }
+            ]
+        }
+    }
+}

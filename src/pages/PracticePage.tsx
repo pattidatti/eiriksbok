@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane, History, Users, Search, Compass } from 'lucide-react';
+import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane, History, Users, Search, Compass, Hourglass } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
@@ -115,6 +115,14 @@ export const PracticePage: React.FC = () => {
             icon: Compass,
             color: 'bg-gradient-to-br from-indigo-500 to-purple-500',
             link: '/oving/etikk'
+        },
+        {
+            id: 'tidsreise',
+            title: 'Tidsreiser',
+            description: 'Lev deg inn i historiske roller og ta vanskelige valg.',
+            icon: Hourglass,
+            color: 'bg-rose-900',
+            link: '/oving/tidsreise'
         }
     ];
 

@@ -4,24 +4,31 @@ import type { PhilosophyQuest, DialogueChoice } from '../../../../data/philosoph
 import { Sparkles, MessageSquare, ArrowRight, Brain, Zap, History } from 'lucide-react';
 import { usePhilosophyProfile } from '../../../../hooks/usePhilosophyProfile';
 
+import { QuestCompletionScreen } from './QuestCompletionScreen';
+
 interface PhilosophicalQuestEngineProps {
     quest: PhilosophyQuest;
+    mentorImage?: string;
     onComplete?: () => void;
     onExit?: () => void;
 }
 
 export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> = ({
     quest,
+    mentorImage,
     onComplete,
     onExit
 }) => {
     const [currentStepId, setCurrentStepId] = useState(quest.initialStepId);
     const [history, setHistory] = useState<string[]>([]);
+    const [isCompleted, setIsCompleted] = useState(false);
     const { updateAlignment, completeQuest } = usePhilosophyProfile();
 
-    const currentStep = quest.steps.find(s => s.id === currentStepId);
+    if (isCompleted) {
+        return <QuestCompletionScreen quest={quest} onClose={onExit || (() => { })} />;
+    }
 
-    if (!currentStep) return <div>Feil: Steg ikke funnet.</div>;
+    const currentStep = quest.steps.find(s => s.id === currentStepId);
 
     const handleChoice = (choice: DialogueChoice) => {
         // Apply alignment impacts
@@ -30,13 +37,13 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
         }
 
         // Navigate
-        if (choice.nextStepId) {
+        if (choice.nextStepId && choice.nextStepId !== 'End') {
             setHistory(prev => [...prev, currentStepId]);
             setCurrentStepId(choice.nextStepId);
         } else {
             // End of quest
             completeQuest(quest.id, quest.rewardXp);
-            if (onComplete) onComplete();
+            setIsCompleted(true);
         }
     };
 
@@ -48,13 +55,25 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
         }
     };
 
+    if (!currentStep) return (
+        <div className="flex flex-col items-center justify-center p-12 text-center text-red-500">
+            <h3 className="font-bold text-xl mb-2">Feil: Steg ikke funnet</h3>
+            <p className="font-mono bg-red-50 p-2 rounded">ID: "{currentStepId}"</p>
+            <p className="text-sm mt-4 text-slate-400">Vennligst kontakt administrator.</p>
+        </div>
+    );
+
     return (
         <div className="max-w-5xl mx-auto min-h-[600px] flex flex-col">
             {/* Quest Header */}
             <header className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-600/20">
-                        <Brain size={24} />
+                    <div className="w-12 h-12 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-600/20 overflow-hidden">
+                        {mentorImage ? (
+                            <img src={mentorImage} alt={quest.mentor} className="w-full h-full object-cover" />
+                        ) : (
+                            <Brain size={24} />
+                        )}
                     </div>
                     <div>
                         <h2 className="text-xl font-black tracking-tight">{quest.title}</h2>
@@ -88,18 +107,24 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 1.05 }}
-                            className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl bg-slate-900 border border-black/5"
+                            className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl bg-slate-900 border border-black/5 group"
                         >
-                            <img
-                                src={currentStep.image || `/images/filosofi/${quest.mentor.toLowerCase()}_avatar.png`}
-                                alt={quest.mentor}
-                                className="w-full h-full object-cover mix-blend-luminosity opacity-80"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/60 via-transparent to-transparent" />
-                            <div className="absolute bottom-8 left-8 right-8">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-black text-white uppercase tracking-widest mb-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                                    <span>Taler</span>
+                            {/* Background Image */}
+                            {mentorImage && (
+                                <img
+                                    src={mentorImage}
+                                    alt={quest.mentor}
+                                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
+                                />
+                            )}
+
+                            {/* Overlay Gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+                            <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-[10px] font-bold uppercase tracking-widest mb-4">
+                                    <Sparkles size={12} className="text-amber-400" />
+                                    <span>Filosofisk Mentor</span>
                                 </div>
                                 <p className="text-2xl font-display font-black text-white">{currentStep.speaker || quest.mentor}</p>
                             </div>
@@ -121,7 +146,7 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
                                 <div className="absolute -left-4 -top-4 text-indigo-100 opacity-50">
                                     <MessageSquare size={64} fill="currentColor" />
                                 </div>
-                                <p className="relative z-10 text-2xl md:text-3xl font-serif italic text-slate-800 leading-relaxed">
+                                <p className="relative z-10 text-2xl md:text-3xl font-serif text-slate-800 leading-relaxed">
                                     "{currentStep.text}"
                                 </p>
                             </div>
@@ -178,7 +203,7 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
 
             <style dangerouslySetInnerHTML={{
                 __html: `
-                @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,700&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
                 .font-serif { font-family: 'Playfair Display', serif; }
             ` }} />
         </div>
