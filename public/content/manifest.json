@@ -3017,7 +3017,7 @@
                                     "id": "sentrale-trekk",
                                     "title": "Sentrale trekk",
                                     "description": "Kjernen i sikhismen: Likhet, de fem K-ene og Khalsa.",
-                                    "image": "/images/krle/religion/sikhisme_hero.webp",
+                                    "image": "/images/krle/religion/sikhisme_sentrale_trekk_hero.webp",
                                     "tags": [
                                         "sikhisme",
                                         "sentrale_trekk"
@@ -3028,7 +3028,7 @@
                                     "id": "grunnleggere",
                                     "title": "Guruene",
                                     "description": "Fra Guru Nanak til den evige Guru Granth Sahib.",
-                                    "image": "/images/krle/religion/sikhisme_hero.webp",
+                                    "image": "/images/krle/religion/sikhisme_grunnleggere_hero.webp",
                                     "tags": [
                                         "sikhisme",
                                         "grunnleggere"
@@ -3039,7 +3039,7 @@
                                     "id": "hellige-tekster",
                                     "title": "Guru Granth Sahib",
                                     "description": "Sikhismens hellige bok og evige lærer.",
-                                    "image": "/images/krle/religion/sikhisme_hero.webp",
+                                    "image": "/images/krle/religion/sikhisme_tekster_hero.webp",
                                     "tags": [
                                         "sikhisme",
                                         "hellige-tekster"
@@ -3050,7 +3050,7 @@
                                     "id": "intro",
                                     "title": "Introduksjon",
                                     "description": "Grunnleggende om sikhismen.",
-                                    "image": "/images/krle/religion/sikhisme_hero.webp",
+                                    "image": "/images/krle/religion/sikhisme_intro_hero.webp",
                                     "tags": [
                                         "sikhisme",
                                         "intro"
