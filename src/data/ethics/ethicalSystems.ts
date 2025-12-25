@@ -64,17 +64,17 @@ export const ethicalSystems: EthicalSystem[] = [
     },
     {
         id: 'natural-law',
-        name: 'Naturalrett',
+        name: 'Naturrett',
         category: 'secular',
-        description: 'Det finnes en objektiv moralsk lov innebygget i naturen som mennesket kan finne ved hjelp av sin fornuft. Visse verdier, som retten til liv og familie, er biologisk og rasjonelt naturlige for alle mennesker.',
+        description: 'Det finnes en objektiv moralsk lov som er overordnet staten. Loven er ikke skapt, men "oppdaget" gjennom fornuften. Rettigheter til liv, frihet og eiendom er medfødte og ukrenkelige. Krenkelse av disse (aggresjon) er ulovlig uansett hvem som gjør det.',
         keyPrinciples: [
-            'Selvbevaring: Livet er et grunnleggende gode som må beskyttes.',
-            'Fornuftens orden: Naturen har en struktur som fornuften kan avkode for å finne rett og galt.',
-            'Menneskerettigheter: Alle mennesker har krav på respekt fordi de har den samme naturen.'
+            'NAP (Non-Aggression Principle): Ingen har rett til å initiere tvang mot en fredelig person eller deres eiendom.',
+            'Argumentasjonsetikk: Ved å argumentere aksepterer man implisitt at konflikter skal løses med ord, ikke vold. Å argumentere for vold er derfor en selvmotsigelse.',
+            'Selveierskap: Du eier din egen kropp og fruktene av ditt arbeid (Locke).'
         ],
-        motto: 'Gjør det gode, unngå det onde (etter naturens orden).',
-        strategy: 'Velg det som beskytter livets naturlige gang, helse og menneskelig verdighet.',
-        origin: 'Stoikerne og senere Thomas Aquinas (1225–1274)',
+        motto: 'Ingen herre, ingen slave. Det som er urett, kan aldri bli lov.',
+        strategy: 'Avvis handlinger som initierer tvang. Respekter eiendomsrett og selveierskap absolutt.',
+        origin: 'Stoikerne, Aquinas, Locke, Spooner & Hoppe',
         articleLink: '/krle/etikk/naturrett'
     },
     {

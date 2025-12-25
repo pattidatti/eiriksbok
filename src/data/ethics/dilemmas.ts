@@ -30,7 +30,7 @@ export const dilemmas: EthicalDilemma[] = [
                     {
                         systemId: 'natural-law',
                         verdict: 'reject',
-                        explanation: 'Fornuften og naturens orden tilsier at man skal beskytte liv. Å aktivt gripe inn for å ta et uskyldig liv bryter med den naturlige retten til selvbevaring, selv om hensikten er å bevare andre liv.'
+                        explanation: 'Du kan ikke bruke tvang mot en uskyldig person, selv for å redde andre. Å dra i spaken er å initiere aggresjon (bryte NAP) mot arbeideren på sidesporet. Din plikt er å ikke krenke rettigheter, ikke å maksimere antall overlevende.'
                     },
                     {
                         systemId: 'virtue-ethics',
@@ -142,7 +142,7 @@ export const dilemmas: EthicalDilemma[] = [
                     {
                         systemId: 'natural-law',
                         verdict: 'reject',
-                        explanation: 'Mennesket har en naturlig rett til et privat rom for å utvikle sin personlighet og beskytte familien. Masseovervåkning truer menneskets grunnleggende frihet.'
+                        explanation: 'Privatliv er en del av eiendomsretten (selveierskap). Staten har ingen rett til å invadere uskyldige menneskers digitale "eiendom" uten mistanke. Masseovervåkning er en form for aggresjon mot fredelige borgere.'
                     }
                 ]
             },
@@ -189,7 +189,7 @@ export const dilemmas: EthicalDilemma[] = [
                     {
                         systemId: 'natural-law',
                         verdict: 'reject',
-                        explanation: 'Det ligger i menneskets natur å ha sosiale behov som kun kan tilfredsstilles av andre mennesker. Å erstatte menneskelig kontakt med maskiner er "unaturlig" og krenker menneskets sosiale essens.'
+                        explanation: 'Mennesket er av naturen et sosialt vesen (zoon politikon). Å erstatte mellommenneskelig omsorg med maskiner krenker menneskets telos (formål) og verdighet. Omsorg kan ikke reduseres til en mekanisk prosess.'
                     },
                     {
                         systemId: 'hinduism',
@@ -283,7 +283,7 @@ export const dilemmas: EthicalDilemma[] = [
                     {
                         systemId: 'natural-law',
                         verdict: 'accept',
-                        explanation: 'Eiendomsrett er en naturlig rett som sikrer individets og familiens uavhengighet. Staten bør ikke gripe for hardt inn i det som rettmessig er opptjent.'
+                        explanation: 'Skatt er per definisjon tvang (tyveri) av folks rettmessige eiendom. Å ta fra Peter for å gi til Paul bryter med NAP, uansett hvor edelt formålet er. Staten har ingen rettigheter som ikke individer har.'
                     }
                 ]
             }
@@ -317,6 +317,11 @@ export const dilemmas: EthicalDilemma[] = [
                 label: 'Fortell sannheten',
                 description: 'Man skal ikke lyve for politiet, og rettferdighet må skje.',
                 responses: [
+                    {
+                        systemId: 'natural-law',
+                        verdict: 'accept',
+                        explanation: 'Tyveri er et brudd på eiendomsretten og dermed naturretten. Selv om du ikke plikter å hjelpe staten, kan du ikke lyve (brudd på sannhetens natur) for å dekke over en aggresjon (tyveri).'
+                    },
                     {
                         systemId: 'deontology',
                         verdict: 'accept',
@@ -366,6 +371,11 @@ export const dilemmas: EthicalDilemma[] = [
                         systemId: 'deontology',
                         verdict: 'accept',
                         explanation: 'Vi har en plikt til å bevare livsbetingelsene på jorda. Å fortsette å forurense er å handle på en måte som ikke kan gjøres til en universell lov.'
+                    },
+                    {
+                        systemId: 'natural-law',
+                        verdict: 'accept',
+                        explanation: 'Forurensning som skader andres helse eller eiendom er en form for fysisk aggresjon (trespass). Ingen har rett til å forgifte luften naboen puster i for å tjene penger. Verket bryter NAP.'
                     }
                 ]
             },
@@ -424,7 +434,7 @@ export const dilemmas: EthicalDilemma[] = [
                     {
                         systemId: 'natural-law',
                         verdict: 'reject',
-                        explanation: 'Å "designe" barn bryter med den naturlige orden og Guds skaperverk. Barnet skal mottas som en gave, ikke som et produkt som er bestilt.'
+                        explanation: 'Barnet er ikke foreldrenes eiendom, men et selvstendig vesen med rett til sin egen, umanipulerte natur. Å designe et barn gjør det til et objekt for andres vilje, ikke et subjekt i seg selv.'
                     },
                     {
                         systemId: 'deontology',
@@ -460,6 +470,11 @@ export const dilemmas: EthicalDilemma[] = [
                         systemId: 'social-contract',
                         verdict: 'accept',
                         explanation: 'I et liberalt demokrati må vi tåle ytringer vi hater for å sikre vår egen rett til å snakke fritt. Staten har ikke mandat til å sensurere meninger.'
+                    },
+                    {
+                        systemId: 'natural-law',
+                        verdict: 'accept',
+                        explanation: 'Så lenge brenneren eier boken selv, og brannen er forsvarlig (ikke skader andres eiendom), er dette en lovlig handling. Ytringsfrihet er en eiendomsrett – retten til å bruke sin egen eiendom/kropp til å uttrykke seg.'
                     }
                 ]
             },

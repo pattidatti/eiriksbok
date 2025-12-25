@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PHILOSOPHY_NETWORK } from '../../../../data/philosophy/network';
 import type { NetworkNode } from '../../../../data/philosophy/network';
 import { Info, Users, Link as LinkIcon, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Stjernekart: React.FC = () => {
     const [selectedNode, setSelectedNode] = useState<NetworkNode | null>(null);
@@ -200,9 +201,12 @@ export const Stjernekart: React.FC = () => {
                             </div>
                         </div>
 
-                        <button className="w-full py-4 rounded-2xl bg-white text-black font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all mt-auto shadow-xl">
+                        <Link
+                            to={`/krle/filosofi/${selectedNode.id}`}
+                            className="w-full py-4 rounded-2xl bg-white text-black font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all mt-auto shadow-xl text-center block"
+                        >
                             Les Mer i Biblioteket
-                        </button>
+                        </Link>
                     </motion.div>
                 )}
             </AnimatePresence>

@@ -172,10 +172,10 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                             >
                                                 Start Dialogen
                                             </button>
-                                            <button className="group/btn px-10 py-5 rounded-[2rem] bg-white/10 backdrop-blur-xl border border-white/20 text-white font-black text-xs uppercase tracking-[0.2em] hover:bg-white/20 transition-all flex items-center gap-3">
-                                                <MessageCircle size={18} strokeWidth={3} className="group-hover/btn:scale-110 transition-transform" />
+                                            <Link to="/krle/filosofi" className="group/btn px-10 py-5 rounded-[2rem] bg-white/10 backdrop-blur-xl border border-white/20 text-white font-black text-xs uppercase tracking-[0.2em] hover:bg-white/20 transition-all flex items-center gap-3">
+                                                <MessageCircle size={18} strokeWidth={3} className="text-white/70 group-hover/btn:scale-110 transition-transform" />
                                                 <span>Arkivet</span>
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </section>
@@ -207,13 +207,19 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <button className="w-full mt-12 py-5 rounded-3xl bg-slate-50 border border-black/5 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:bg-indigo-500 hover:text-white hover:border-transparent transition-all duration-500">
+                                    <button
+                                        onClick={() => setSelectedTab('profile')}
+                                        className="w-full mt-12 py-5 rounded-3xl bg-slate-50 border border-black/5 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:bg-indigo-500 hover:text-white hover:border-transparent transition-all duration-500"
+                                    >
                                         Se Full Oversikt
                                     </button>
                                 </section>
 
                                 {/* Secondary Row Bento - SOFTENED */}
-                                <section className="md:col-span-4 rounded-[3rem] bg-indigo-50 border border-indigo-100 p-12 text-[#1A1A1A] relative overflow-hidden group hover:bg-indigo-600 hover:text-white transition-all duration-700 shadow-xl shadow-indigo-100/20">
+                                <section
+                                    onClick={() => setSelectedTab('network')}
+                                    className="md:col-span-4 rounded-[3rem] bg-indigo-50 border border-indigo-100 p-12 text-[#1A1A1A] relative overflow-hidden group hover:bg-indigo-600 hover:text-white transition-all duration-700 shadow-xl shadow-indigo-100/20 cursor-pointer"
+                                >
                                     <div className="absolute top-0 right-0 p-8 text-indigo-200/50 group-hover:text-white/20 group-hover:scale-125 transition-all duration-1000">
                                         <Lightbulb size={120} />
                                     </div>
@@ -221,9 +227,9 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                     <p className="text-slate-500 group-hover:text-white/70 text-sm font-medium leading-relaxed mb-10 relative z-10">
                                         Oppdag sammenhengene mellom tankene som har formet historien.
                                     </p>
-                                    <button className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-indigo-600 group-hover:text-white transition-colors">
+                                    <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-indigo-600 group-hover:text-white transition-colors">
                                         Utforsk nettverket <ArrowRight size={16} />
-                                    </button>
+                                    </div>
                                 </section>
 
                                 <section className="md:col-span-8 rounded-[3rem] bg-white border border-black/[0.03] shadow-[0_24px_48px_rgba(0,0,0,0.02)] p-12 lg:p-16">
@@ -386,9 +392,12 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                                     : '"Du stoler på dine sanser og erfaringer som kilde til visdom."'
                                                 }
                                             </p>
-                                            <button className="text-[10px] font-black uppercase tracking-widest text-indigo-500 hover:text-black transition-colors">
+                                            <Link
+                                                to="/krle/filosofi/sammenlign?target=platon"
+                                                className="text-[10px] font-black uppercase tracking-widest text-indigo-500 hover:text-black transition-colors"
+                                            >
                                                 Sammenlign med Platon
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </section>
