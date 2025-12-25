@@ -17,12 +17,25 @@ export const BriefingScreen: React.FC<BriefingScreenProps> = ({ briefing, onStar
                 className="max-w-4xl w-full bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row"
             >
                 {/* Visual / Icon Side */}
-                <div className="md:w-1/3 p-12 bg-indigo-600 flex flex-col items-center justify-center text-white text-center">
-                    <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mb-6 backdrop-blur-md">
+                <div className="md:w-1/3 relative bg-indigo-600 flex flex-col items-center justify-center text-white text-center overflow-hidden">
+                    {briefing.image ? (
+                        <>
+                            <img
+                                src={briefing.image}
+                                alt=""
+                                className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-indigo-900 via-transparent to-indigo-900/50" />
+                        </>
+                    ) : (
+                        <div className="absolute inset-0 bg-indigo-600" />
+                    )}
+
+                    <div className="relative z-10 w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mb-6 backdrop-blur-md border border-white/30 shadow-2xl">
                         <Zap className="w-12 h-12 text-white" />
                     </div>
-                    <h2 className="text-3xl font-display font-bold mb-2">Topphemmelig</h2>
-                    <p className="text-indigo-100 text-base opacity-90 font-medium">Kun for autorisert personell</p>
+                    <h2 className="relative z-10 text-3xl font-display font-bold mb-2">Topphemmelig</h2>
+                    <p className="relative z-10 text-indigo-100 text-base opacity-90 font-medium tracking-wide">Kun for autorisert personell</p>
                 </div>
 
                 {/* Content Side */}

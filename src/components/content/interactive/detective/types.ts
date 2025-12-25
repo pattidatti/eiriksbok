@@ -30,6 +30,7 @@ export interface DetectiveBriefing {
     mystery: string;   // What are we wondering about?
     mission: string;   // What is the student's task?
     stakes: string;    // Why does it matter?
+    image?: string;    // Hero image for the briefing
 }
 
 export interface DetectiveStep {
@@ -51,6 +52,7 @@ export interface DetectiveCase {
     engine: 'historical-detective';
     title: string;
     description: string;
+    image?: string;               // Main hero image
     briefing?: DetectiveBriefing; // New briefing field
     status: {
         trustLevel: number;

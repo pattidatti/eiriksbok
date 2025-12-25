@@ -8,7 +8,8 @@
         "context": "De norrøne bosetningene på Grønland blomstret i nesten 500 år. De bygde kirker, dømte på tinget og handlet med Europa. Men på 1400-tallet forsvant de plutselig fra alle skriftlige kilder.",
         "mystery": "Hva skjedde egentlig? Ble de utryddet av sult, drept i krig, eller valgte de å forlate Grønland frivillig?",
         "mission": "Din oppgave er å gå gjennom det arkeologiske og historiske kildematerialet. Du må skille mellom fakta og tolkning for å finne den mest sannsynlige årsaken til forsvinningen.",
-        "stakes": "Svaret kan lære oss om hvordan samfunn reagerer på klimaendringer og isolasjon – utfordringer som er like relevante i dag."
+        "stakes": "Svaret kan lære oss om hvordan samfunn reagerer på klimaendringer og isolasjon – utfordringer som er like relevante i dag.",
+        "image": "/images/detective/greenland_hero.png"
     },
     "status": {
         "trustLevel": 100,

@@ -1,0 +1,104 @@
+{
+    "id": "stiklestad-detektiv",
+    "engine": "historical-detective",
+    "title": "Slaget ved Stiklestad: Myte eller Virkelighet?",
+    "description": "Hvordan døde Olav Haraldsson egentlig? Undersøk splittelsen mellom samtidens kvad og senere tiders helgenfortellinger.",
+    "briefing": {
+        "title": "Oppdrag: Kongens Fall",
+        "context": "29. juli 1030 møtes kong Olav og en enorm bondehær på Stiklestad. Dette slaget regnes som kristendommens definitive gjennombrudd i Norge, men mye av det vi 'vet' ble skrevet ned 200 år senere.",
+        "mystery": "Døde Olav som en ensom kriger mot overmakten, eller var han offer for et planlagt attentat? Og stemmer fortellingen om den mystiske solformørkelsen?",
+        "mission": "Sammenlign skaldekvad diktet rett etter slaget med Snorres sagaer fra 1200-tallet. Se etter politiske motiver bak kildene.",
+        "stakes": "Å kunne skille mellom primærkilder (kvad) og sekundærkilder (sagaer) er avgjørende for all historisk forståelse.",
+        "image": "/images/detective/stiklestad_hero.png"
+    },
+    "status": {
+        "trustLevel": 100,
+        "evidenceCollected": 0,
+        "totalEvidence": 3
+    },
+    "suspects": [
+        {
+            "id": "assassination",
+            "name": "Attentat",
+            "description": "Ble han drept av spesifikke menn med personlige motiver?",
+            "icon": "🗡️"
+        },
+        {
+            "id": "legend",
+            "name": "Historisk Konstruksjon",
+            "description": "Er detaljene diktet opp for å gjøre ham til helgen?",
+            "icon": "✨"
+        }
+    ],
+    "steps": [
+        {
+            "id": "step-1-the-skaldic-verse",
+            "title": "Øyenvitnet: Sigvat Tordarson",
+            "content": "Sigvat var Olavs skald. Hans kvad er de eldste kildene vi har.",
+            "sources": [
+                {
+                    "id": "sigvat-kvad",
+                    "type": "textual",
+                    "title": "Nesjaviser (Ca. 1030-1040)",
+                    "metadata": {
+                        "origin": "Skaldic Poetry of the Scandinavian Middle Ages",
+                        "link": "https://snl.no/Sigvat_Tordarson"
+                    },
+                    "provenance": "Dette er skaldekvad som ble memorert og fremført muntlig før de ble skrevet ned. De regnes som svært pålitelige fordi versemålet er så strengt at teksten nesten ikke kan endres uten at det merkes.",
+                    "uncertainty": "Sigvat var ikke selv til stede i selve slaget, men snakket med de overlevende rett etterpå. Han skriver lite om spesifikke drapsmenn.",
+                    "original": "Ok unnan rann enni, ormstals, hjorvi bormu...",
+                    "translation": "Og blodet rant fra pannen, sår ble hugget med sverdets stål...",
+                    "clues": [
+                        {
+                            "id": "clue-skald-silence",
+                            "text": "rant fra pannen",
+                            "insight": "Merkverdig nok nevner ikke Sigvat de tre berømte drapsmennene (Tore Hund, Kalv Arnesson, Thorstein Knarresmed) som Snorre fokuserer så sterkt på."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "step-2-the-saga-narrative",
+            "title": "Sagaens makt: Snorre Sturlasson",
+            "content": "200 år senere skriver Snorre en detaljert beretning om kongens siste minutter.",
+            "sources": [
+                {
+                    "id": "snorre-heimskringla",
+                    "type": "textual",
+                    "title": "Heimskringla (Ca. 1230)",
+                    "metadata": {
+                        "origin": "Nasjonalbiblioteket",
+                        "link": "https://stiklestad.no/historien/slaget-i-1030/"
+                    },
+                    "provenance": "Skrevet på Island av Snorre Sturlasson. Han brukte kvad som kilder, men 'fylte ut' historien for å lage en god fortelling.",
+                    "uncertainty": "Snorre hadde en politisk agenda: Han ville styrke kongemakten og kirken. Detaljene om Olavssteinen og de tre sårene passer perfekt inn i en kristen martyrhistorie.",
+                    "original": "Tore Hund stakk spydet opp under brynjen på kongen...",
+                    "interpretation": "Snorre gir oss navn, dialog og nøyaktige bevegelser. Dette gjør historien levende, men er det sant? Ingen av skaldekvadene fra 1030 nevner disse detaljene.",
+                    "clues": [
+                        {
+                            "id": "clue-detailed-narrative",
+                            "text": "stakk spydet opp under brynjen",
+                            "insight": "Disse detaljene dukker først opp i skriftlige kilder over 150 år etter slaget, noe som tyder på en gradvis legendedannelse."
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "conclusion_engine": {
+        "question": "Hvorfor er kildene om Stiklestad så forskjellige?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Sagaforfatterne hadde bedre tilgang til vitner.",
+                "feedback": "Feil. Det er umulig å ha bedre vitner 200 år etterpå enn de som levde mens det skjedde."
+            },
+            {
+                "id": "b",
+                "text": "Historien ble 'pyntet på' for å tjene kirken og kongemakten.",
+                "feedback": "Riktig! Ved å gjøre Olav til en hellig martyr som døde for troen, fikk både kirken og de senere kongene mer makt. Detaljene vi lærer i dag er ofte en blanding av tro og historie."
+            }
+        ]
+    }
+}

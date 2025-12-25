@@ -1,0 +1,110 @@
+{
+    "id": "vardo-hekseprosesser",
+    "engine": "historical-detective",
+    "title": "Heksejakten i Vardø (1662)",
+    "description": "Hva førte til at en liten fiskerlandsby i Finnmark ble åsted for noen av Europas mest brutale hekseprosesser? Gå bak protokollene.",
+    "briefing": {
+        "title": "Oppdrag: Vardø-mysteriet",
+        "context": "Vinteren 1662 herjes Finnmark av frykt. To dusin kvinner i Vardø anklages for å ha inngått pakt med djevelen på fjellet Domen. De anklages for å ha senket skip med trolldom.",
+        "mystery": "Hvorfor skjedde dette akkurat her? Var det religiøs fanatisme, ekstreme værforhold eller juridisk maktmisbruk?",
+        "mission": "Analyser rettsprotokoller og brev fra tiden. Du må vurdere beviskraften i tilståelser avgitt under tortur og se etter underliggende årsaker.",
+        "stakes": "Å forstå hekseprosessene lærer oss om hvordan frykt og gruppepress kan føre til systematiske overgrep i rettssystemet.",
+        "image": "/images/detective/vardo_hero.png"
+    },
+    "status": {
+        "trustLevel": 100,
+        "evidenceCollected": 0,
+        "totalEvidence": 3
+    },
+    "suspects": [
+        {
+            "id": "climate",
+            "name": "Naturkrefter",
+            "description": "Førte ekstremvær til jakt på syndebukker?",
+            "icon": "🌊"
+        },
+        {
+            "id": "legal",
+            "name": "Rettslig Maktmisbruk",
+            "description": "Var det lokale embetsmenn som drev prosessen?",
+            "icon": "⚖️"
+        },
+        {
+            "id": "religion",
+            "name": "Religiøs Frykt",
+            "description": "Frykten for djevelen i nordområdene.",
+            "icon": "📜"
+        }
+    ],
+    "steps": [
+        {
+            "id": "step-1-the-water-test",
+            "title": "Gudsdommen: Vannprøven",
+            "content": "Tingbøkene beskriver hvordan 'bevis' ble samlet inn. Vannprøven var sentral.",
+            "sources": [
+                {
+                    "id": "tingbok-vardo",
+                    "type": "textual",
+                    "title": "Tingbok for Finnmark (Februar 1663)",
+                    "metadata": {
+                        "origin": "Digitalarkivet / Arkivverket",
+                        "link": "https://www.digitalarkivet.no"
+                    },
+                    "provenance": "Dette er den offisielle rettsprotokollen skrevet av sorenskriveren under rettsmøtet i Vardø.",
+                    "uncertainty": "Selv om dokumentet er 100% autentisk, er innholdet basert på tilståelser under 'pinlig forhør' (tortur). Vi kan ikke stole på faktasannheten i det som sies.",
+                    "original": "Ingeborg Iversdatter ble kastet på vannet... Hun fløt opp som en dupp, hvilket var et sikkert tegn på hennes pakt.",
+                    "translation": "Ingeborg Iversdatter ble ført til vannprøven... Hun fløt umiddelbart opp, som bevis på at vannet avviste henne på grunn av synden.",
+                    "clues": [
+                        {
+                            "id": "clue-water-test",
+                            "text": "fløt opp som en dupp",
+                            "insight": "Dette ble ansett som et 'vitenskapelig' bevis i 1662, men viser oss i dag hvordan overtro overstyrte logikk."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "step-2-the-reasonable-judge",
+            "title": "Motstemmen: Mandrup Schønnebøl",
+            "content": "Ikke alle trodde på metodene. Lagmann Mandrup Schønnebøl utfordret rettspraksisen.",
+            "sources": [
+                {
+                    "id": "schonnebol-missive",
+                    "type": "textual",
+                    "title": "Brev fra Lagmann Mandrup Schønnebøl",
+                    "metadata": {
+                        "origin": "Statsarkivet i Tromsø",
+                        "link": "https://snl.no/Mandrup_Pedersen_Sch%C3%B8nneb%C3%B8l"
+                    },
+                    "provenance": "Et formelt klagebrev sendt fra lagmannen til de lokale myndighetene i Finnmark.",
+                    "uncertainty": "Schønnebøl representerer en tidlig opplysningstanke, men han var fremdeles bundet av datidens lover og lojalitet til kongen.",
+                    "original": "Det er mot Guds lov og kongens rett at folk dømmes på annet enn sanne bevis...",
+                    "interpretation": "Schønnebøl kritiserte bruken av tortur og vannprøve, og mente at man ikke kunne dømme noen basert på hva andre 'hekser' sa under smerte.",
+                    "clues": [
+                        {
+                            "id": "clue-legal-critique",
+                            "text": "dømmes på annet enn sanne bevis",
+                            "insight": "Dette viser at rettssystemet var under internt press og at noen innså at bevisene var fabrikkert gjennom tortur."
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "conclusion_engine": {
+        "question": "Hva var den viktigste faktoren som holdt hekseprosessene gående i Vardø?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Ekte magi som truet kongedømmet.",
+                "feedback": "Det finnes ingen historiske bevis for at heksene faktisk utførte magi, kun deres egne torturerte tilståelser."
+            },
+            {
+                "id": "b",
+                "text": "En blanding av overtro, ekstremvær og et rettssystem som godtok tortur.",
+                "feedback": "Riktig! Frykt for havet og stormene kombinert med brutale rettsmetoder skapte en spiral av anklager som var umulig å stoppe uten innblanding ovenfra."
+            }
+        ]
+    }
+}

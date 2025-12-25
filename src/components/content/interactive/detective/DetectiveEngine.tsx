@@ -41,6 +41,45 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
         );
     }
 
+    if (state.isCompleted) {
+        return (
+            <div className="flex-1 flex flex-col items-center justify-center p-12 bg-[#0a0c10] text-center space-y-8 min-h-[600px]">
+                <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="w-24 h-24 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 border border-emerald-500/20"
+                >
+                    <Search className="w-12 h-12" />
+                </motion.div>
+                <div className="space-y-4">
+                    <h2 className="text-4xl font-display font-bold text-white">Oppdrag Fullført!</h2>
+                    <p className="text-slate-400 text-lg max-w-md mx-auto">
+                        Godt jobbet, detektiv! Din sluttrapport er levert og arkivert i statsarkivet.
+                    </p>
+                </div>
+                <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-6 justify-center">
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-emerald-400 font-display">{state.trustScore}%</div>
+                            <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Tillitsscore</div>
+                        </div>
+                        <div className="w-px h-8 bg-slate-800" />
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-indigo-400 font-display">{state.collectedClues.size}</div>
+                            <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Bevis Funnet</div>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    onClick={() => window.location.reload()}
+                    className="px-8 py-3 bg-white text-slate-900 rounded-xl font-bold hover:bg-slate-200 transition-all hover:scale-105"
+                >
+                    Gjenta Oppdrag
+                </button>
+            </div>
+        );
+    }
+
     if (isConclusionVisible) {
         return (
             <div className="relative bg-[#0a0c10] text-slate-200 rounded-2xl border border-slate-800 shadow-2xl min-h-[600px] flex overflow-hidden">
@@ -48,6 +87,7 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
                 <ConclusionScreen
                     conclusionData={data.conclusion_engine}
                     onRestart={() => setIsConclusionVisible(false)}
+                    onSubmit={() => state.setIsCompleted(true)}
                     trustScore={state.trustScore}
                     evidenceCount={state.collectedClues.size}
                 />

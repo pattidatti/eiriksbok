@@ -17,6 +17,7 @@ interface ConclusionScreenProps {
         }[];
     };
     onRestart: () => void;
+    onSubmit: (optionId: string) => void;
     trustScore: number;
     evidenceCount: number;
 }
@@ -24,6 +25,7 @@ interface ConclusionScreenProps {
 export const ConclusionScreen: React.FC<ConclusionScreenProps> = ({
     conclusionData,
     onRestart,
+    onSubmit,
     trustScore,
     evidenceCount
 }) => {
@@ -53,8 +55,8 @@ export const ConclusionScreen: React.FC<ConclusionScreenProps> = ({
                             key={option.id}
                             onClick={() => setSelectedOptionId(option.id)}
                             className={`w-full p-4 rounded-xl border text-left transition-all ${selectedOptionId === option.id
-                                    ? 'bg-indigo-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/20'
-                                    : 'bg-slate-800 border-slate-700 text-slate-300 hover:border-slate-600'
+                                ? 'bg-indigo-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/20'
+                                : 'bg-slate-800 border-slate-700 text-slate-300 hover:border-slate-600'
                                 }`}
                         >
                             <div className="flex items-center gap-4">
@@ -62,7 +64,7 @@ export const ConclusionScreen: React.FC<ConclusionScreenProps> = ({
                                     }`}>
                                     {selectedOptionId === option.id && <div className="w-2 h-2 rounded-full bg-white" />}
                                 </div>
-                                <span className="font-medium">{option.text}</span>
+                                <span className="font-medium text-lg">{option.text}</span>
                             </div>
 
                             <AnimatePresence>
@@ -70,10 +72,10 @@ export const ConclusionScreen: React.FC<ConclusionScreenProps> = ({
                                     <motion.div
                                         initial={{ opacity: 0, height: 0 }}
                                         animate={{ opacity: 1, height: 'auto' }}
-                                        className="mt-4 pt-4 border-t border-white/20 text-indigo-100 text-sm italic"
+                                        className="mt-4 pt-4 border-t border-white/20 text-indigo-100 text-base italic"
                                     >
                                         <div className="flex gap-3">
-                                            <Info className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                                            <Info className="w-5 h-5 flex-shrink-0 mt-0.5" />
                                             <p>{option.feedback}</p>
                                         </div>
                                     </motion.div>
@@ -95,9 +97,10 @@ export const ConclusionScreen: React.FC<ConclusionScreenProps> = ({
 
                 <button
                     disabled={!selectedOptionId}
+                    onClick={() => selectedOptionId && onSubmit(selectedOptionId)}
                     className={`px-8 py-3 rounded-xl font-bold transition-all ${selectedOptionId
-                            ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-500/20 hover:scale-105'
-                            : 'bg-slate-800 text-slate-500 cursor-not-allowed'
+                        ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-500/20 hover:scale-105'
+                        : 'bg-slate-800 text-slate-500 cursor-not-allowed'
                         }`}
                 >
                     Lever Sluttrapport

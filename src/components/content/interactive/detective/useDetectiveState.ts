@@ -7,6 +7,7 @@ export const useDetectiveState = (initialCase: DetectiveCase) => {
     const [trustScore, setTrustScore] = useState(initialCase.status.trustLevel);
     const [isConclusionVisible, setIsConclusionVisible] = useState(false);
     const [isBriefingVisible, setIsBriefingVisible] = useState(!!initialCase.briefing);
+    const [isCompleted, setIsCompleted] = useState(false);
 
     const currentStep = useMemo(() => initialCase.steps[currentStepIndex], [initialCase, currentStepIndex]);
     const isFirstStep = currentStepIndex === 0;
@@ -53,6 +54,8 @@ export const useDetectiveState = (initialCase: DetectiveCase) => {
         adjustTrust,
         setIsConclusionVisible,
         isBriefingVisible,
-        setIsBriefingVisible
+        setIsBriefingVisible,
+        isCompleted,
+        setIsCompleted
     };
 };

@@ -1,0 +1,104 @@
+{
+    "id": "svartedauden-detective",
+    "engine": "historical-detective",
+    "title": "Svartedaudens Ankomst: Da Skipet kom til Vågen",
+    "description": "Kom pesten virkelig med et skip til Bergen i 1349, eller var den i Norge mye tidligere? Løs gåten bak norgeshistoriens største katastrofe.",
+    "briefing": {
+        "title": "Oppdrag: Pestens Spor",
+        "context": "Året er 1349. Et skip fra England seiler inn til Bergen. Kort tid etter dør halve byen. Dette er den klassiske fortellingen om Svartedaudens ankomst til Norge.",
+        "mystery": "Men stemmer det? Nyere forskning og gamle diplomer tyder på at pesten kanskje allerede var i Oslo flere måneder før skipet kom til Bergen.",
+        "mission": "Undersøk kirkelige dokumenter fra Oslo og sammenlign dem med islandske annaler om Bergen. Bruk moderne DNA-fakta for å se om teorien holder vann.",
+        "stakes": "Svartedauden endret alt: maktforhold, religion og språk. Å forstå hvordan den kom, hjelper oss å forstå hvordan pandemier former historien.",
+        "image": "/images/detective/svartedauden_hero.png"
+    },
+    "status": {
+        "trustLevel": 100,
+        "evidenceCollected": 0,
+        "totalEvidence": 3
+    },
+    "suspects": [
+        {
+            "id": "bergen",
+            "name": "Bergen-hypotesen",
+            "description": "Den tradisjonelle historien om pestskipet fra England.",
+            "icon": "🚢"
+        },
+        {
+            "id": "oslo",
+            "name": "Oslo-hypotesen",
+            "description": "Var pesten i Oslo allerede vinteren 1348/49?",
+            "icon": "🏰"
+        }
+    ],
+    "steps": [
+        {
+            "id": "step-1-the-icelandic-annals",
+            "title": "Annalenes tale: Skipet i 1349",
+            "content": "De islandske annalene er vår viktigste kilde til hendelsene i Bergen.",
+            "sources": [
+                {
+                    "id": "lagmannsannalen",
+                    "type": "textual",
+                    "title": "Lagmannsannalen (Lögmannsannáll)",
+                    "metadata": {
+                        "origin": "Island / Nasjonalbiblioteket",
+                        "link": "https://norgeshistorie.no/senmiddelalder/0914-svartedauden.html"
+                    },
+                    "provenance": "Håndskrevne årbøker fra Island. De som skrev annalene hadde god kontakt med handelsfolk i Bergen.",
+                    "uncertainty": "Dette ble skrevet ned et stykke unna hendelsene, men baserer seg på rapporter fra folk som var i Bergen sommeren 1349.",
+                    "original": "Kallat koggr kom af Einglande... oc do alt folk þat a var...",
+                    "translation": "Et skip kalt en kogg kom fra England... og alt folket som var om bord døde, og så begynte pesten i Bergen.",
+                    "clues": [
+                        {
+                            "id": "clue-bergen-start",
+                            "text": "Et skip kalt en kogg",
+                            "insight": "Dette bekrefter den sterke tradisjonen om at Bergen var inngangsporten i 1349."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "step-2-the-oslo-diploma",
+            "title": "Glemte bevis: Alteret i Oslo",
+            "content": "I Diplomatarium Norvegicum finnes et dokument datert 20. februar 1349.",
+            "sources": [
+                {
+                    "id": "oslo-diploma",
+                    "type": "textual",
+                    "title": "Brev om St. Sebastian-alteret (Feb 1349)",
+                    "metadata": {
+                        "origin": "Diplomatarium Norvegicum b.1 nr. 317",
+                        "link": "https://www.dokpro.uio.no/diplomatarium/"
+                    },
+                    "provenance": "Et juridisk dokument (diplom) fra Oslo som beskriver donasjon til et nytt alter i Domkirken.",
+                    "uncertainty": "Dokumentet nevner ikke ordet 'pest' direkte, men St. Sebastian var den viktigste vernehelgenen mot nettopp pest.",
+                    "original": "Til ære for Gud og den hellige martyr Sebastian...",
+                    "interpretation": "Hvorfor bygge et alter til pestens helgen i februar 1349 hvis sykdommen først kom til Bergen i juli? Dette tyder på at folk i Oslo allerede var livredde – eller syke.",
+                    "clues": [
+                        {
+                            "id": "clue-oslo-early",
+                            "text": "hellige martyr Sebastian",
+                            "insight": "Donasjonen til dette alteret skjedde fem måneder før 'pestskipet' i Bergen, noe som sterker teorien om et tidligere utbrudd i Oslo."
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "conclusion_engine": {
+        "question": "Hva viser de samlede bevisene om Svartedaudens ankomst?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Annalene fra Island er de eneste vi kan stole på.",
+                "feedback": "Annalene gir et godt bilde av Bergen, men de overser diplomene fra Oslo som peker mot en tidligere start."
+            },
+            {
+                "id": "b",
+                "text": "Pesten kom sannsynligvis i flere bølger, både til Oslo og Bergen.",
+                "feedback": "Riktig! Bevisene tyder på at pesten kanskje kom til Oslo allerede høsten 1348, lå i dvale over vinteren, og så ble forsterket av skipet som kom til Bergen sommeren 1349."
+            }
+        ]
+    }
+}

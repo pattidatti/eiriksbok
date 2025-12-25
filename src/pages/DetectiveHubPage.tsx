@@ -13,10 +13,45 @@ const cases = [
         difficulty: 'Middels',
         estimatedTime: '20-30 min',
         color: 'bg-emerald-500',
-        image: 'https://images.unsplash.com/photo-1549417229-aa4437a34988?auto=format&fit=crop&q=80',
+        image: '/images/detective/greenland_hero.png',
         link: '/oving/detektiv/greenland'
+    },
+    {
+        id: 'stiklestad',
+        title: 'Slaget ved Stiklestad',
+        description: 'Døde Olav den hellige som en kriger eller en martyr? Finn sannheten i de eldste kildene.',
+        period: '1030',
+        location: 'Nord-Trøndelag',
+        difficulty: 'Middels',
+        estimatedTime: '15-20 min',
+        color: 'bg-blue-500',
+        image: '/images/detective/stiklestad_hero.png',
+        link: '/oving/detektiv/stiklestad'
+    },
+    {
+        id: 'vardo',
+        title: 'Vardø-mysteriet',
+        description: 'Hvorfor ble Vardø sentrum for de verste hekseprosessene i norgeshistorien?',
+        period: '1621 - 1663',
+        location: 'Finnmark',
+        difficulty: 'Høy',
+        estimatedTime: '25-30 min',
+        color: 'bg-red-500',
+        image: '/images/detective/vardo_hero.png',
+        link: '/oving/detektiv/vardo'
+    },
+    {
+        id: 'svartedauden',
+        title: 'Svartedaudens Ankomst',
+        description: 'Kom pesten virkelig med et skip til Bergen, eller er sannheten mer komplisert?',
+        period: '1349',
+        location: 'Bergen / Oslo',
+        difficulty: 'Middels',
+        estimatedTime: '20 min',
+        color: 'bg-slate-900',
+        image: '/images/detective/svartedauden_hero.png',
+        link: '/oving/detektiv/svartedauden'
     }
-    // More cases can be added here
 ];
 
 export const DetectiveHubPage: React.FC = () => {

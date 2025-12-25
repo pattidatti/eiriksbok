@@ -910,6 +910,14 @@
                     "image": "https://images.unsplash.com/photo-1506701169837-036f75628587?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
+                            "id": "detective-vardo",
+                            "title": "Historisk Detektiv: Vardø-mysteriet",
+                            "description": "Hvorfor ble Vardø sentrum for heksejakten? Undersøk rettsprotokollene.",
+                            "link": "/oving/detektiv/vardo",
+                            "image": "/images/detective/vardo_hero.png",
+                            "icon": "search"
+                        },
+                        {
                             "id": "norge-for-vikingene",
                             "title": "Norge før vikingene",
                             "description": "Fra pionerbosetning til folkevandringstid.",
@@ -1508,6 +1516,15 @@
                             "title": "Historisk Detektiv: Mysteriet på Grønland",
                             "description": "Hva skjedde med de norrøne bosetningene på Grønland? Undersøk bevisene og løs gåten.",
                             "link": "/historie/vikingtiden/detektiv",
+                            "image": "/images/detective/greenland_hero.png",
+                            "icon": "search"
+                        },
+                        {
+                            "id": "detective-stiklestad",
+                            "title": "Historisk Detektiv: Slaget ved Stiklestad",
+                            "description": "Døde Olav den hellige som en kriger eller en martyr? Finn sannheten i kildene.",
+                            "link": "/oving/detektiv/stiklestad",
+                            "image": "/images/detective/stiklestad_hero.png",
                             "icon": "search"
                         }
                     ],
@@ -1691,6 +1708,14 @@
                             "description": "En guidet reise gjennom pestens historie med oppgaver og refleksjon.",
                             "link": "/historie/middelalderen/svartedauden-sti",
                             "icon": "map"
+                        },
+                        {
+                            "id": "detective-svartedauden",
+                            "title": "Historisk Detektiv: Svartedaudens Ankomst",
+                            "description": "Kom pesten til Bergen eller Oslo først? Løs mysteriet bak norgeshistoriens største katastrofe.",
+                            "link": "/oving/detektiv/svartedauden",
+                            "image": "/images/detective/svartedauden_hero.png",
+                            "icon": "search"
                         }
                     ],
                     "lessons": [
