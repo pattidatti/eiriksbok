@@ -1526,6 +1526,14 @@
                             "link": "/oving/detektiv/stiklestad",
                             "image": "/images/detective/stiklestad_hero.png",
                             "icon": "search"
+                        },
+                        {
+                            "id": "detective-lindisfarne",
+                            "title": "Historisk Detektiv: Lindisfarne 793",
+                            "description": "Et lyn fra klar himmel? Undersøk om vikingene hadde motiver for angrepet.",
+                            "link": "/oving/detektiv/lindisfarne",
+                            "image": "/images/detective/lindisfarne_hero.png",
+                            "icon": "search"
                         }
                     ],
                     "lessons": [

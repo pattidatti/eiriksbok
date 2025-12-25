@@ -1,0 +1,163 @@
+{
+    "id": "lindisfarne-detective",
+    "engine": "historical-detective",
+    "title": "Lindisfarne 793: Et lyn fra klar himmel?",
+    "description": "Var vikingtiden et plutselig sjokk, eller var 793 bare toppen av isfjellet? Undersøk bevisene for kontakt før det store angrepet.",
+    "briefing": {
+        "title": "Oppdrag: Angrepet på Hellige Øy",
+        "context": "8. juni 793: En dag som rystet den kristne verden. 'Hedenske menn' angriper klosteret på Lindisfarne, plyndrer skattene og dreper munkene. Tradisjonelt regnes dette som starten på vikingtiden.",
+        "mystery": "Var dette det aller første møtet mellom vikingene og England? Og hvorfor angrep de akkurat dette religiøse senteret så brutalt?",
+        "mission": "Finn ut om angrepet var uprovosert eller en del av en lengre konflikt. Du må vurdere om munkene 'glemte' tidligere kontakt for å skape et bilde av et plutselig angrep fra djevelen.",
+        "stakes": "Å forstå motivene bak Lindisfarne endrer hele synet på hvorfor vikingtiden startet.",
+        "image": "/images/detective/lindisfarne_hero.png"
+    },
+    "status": {
+        "trustLevel": 100,
+        "evidenceCollected": 0,
+        "totalEvidence": 4
+    },
+    "suspects": [
+        {
+            "id": "unprovoked",
+            "name": "Plutselig Rovraid",
+            "description": "Opportunistiske sjørøvere på jakt etter lettbytte.",
+            "icon": "💎"
+        },
+        {
+            "id": "retaliation",
+            "name": "Religiøs Krig",
+            "description": "Gjengjeldelse for kristen ekspansjon og tvangsomvending i sør.",
+            "icon": "⚔️"
+        },
+        {
+            "id": "escalation",
+            "name": "Politisk Opptrapping",
+            "description": "Resultatet av langvarig kontakt og økende spenning.",
+            "icon": "📈"
+        }
+    ],
+    "steps": [
+        {
+            "id": "step-1-the-signs",
+            "title": "Tegnene i dypet: Angrepet",
+            "content": "Snorre skrev ingenting om dette, men de engelske krønikene er fulle av skrekk.",
+            "sources": [
+                {
+                    "id": "asc-793",
+                    "type": "textual",
+                    "title": "Den angelsaksiske krønike (793)",
+                    "metadata": {
+                        "origin": "British Library / SNL",
+                        "link": "https://snl.no/Lindisfarne"
+                    },
+                    "provenance": "Hovedkilden til engelsk historie i denne perioden, skrevet av munker i klostre.",
+                    "uncertainty": "Munkene så på historien som Guds vilje. De beskriver ofte hendelser som varsler eller straff, noe som kan farge deres nøyaktighet.",
+                    "original": "793. Her wæron reðe forebeacna cumene ofer Norðanhymbra land... fyrene dracan wæron gesewene on þam lifte fleogende.",
+                    "translation": "793. Her kom grusomme varsler over Nordhymbrandland... brennende drager ble sett i luften flyvende, og snart fulgte et stort uår.",
+                    "clues": [
+                        {
+                            "id": "clue-fiery-dragons",
+                            "text": "brennende drager ble sett i luften",
+                            "insight": "Munkene tolket angrepet som en overnaturlig katastrofe. Dette viser hvor sjokkert og uforberedt de var – eller ønsket å fremstå."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "step-2-alcuins-shock",
+            "title": "Pavens rådgiver: Alkuin av York",
+            "content": "Alkuin var den lærdeste mannen i Europa. Hans brev viser rystelsene i det kristne nettverket.",
+            "sources": [
+                {
+                    "id": "alcuin-letter",
+                    "type": "textual",
+                    "title": "Brev fra Alkuin til kong Æthelred",
+                    "metadata": {
+                        "origin": "Monumenta Germaniae Historica",
+                        "link": "https://norgeshistorie.no/vikingtid/0802-vikingenes-plyndringer.html"
+                    },
+                    "provenance": "Ekte korrespondanse fra Charlemagnes hoff til England rett etter angrepet.",
+                    "uncertainty": "Alkuin var ikke vitne selv, men fikk detaljene fra overlevende munker.",
+                    "original": "Ecce, ecclesia sancti Cuthberti sacerdotum Dei sanguine aspersa, omnibus spoliata ornamentis...",
+                    "interpretation": "Se, kirken til den hellige Cuthbert er stenket med Guds presters blod, plyndret for alle sine prydelser. Aldri før har en slik redsel hendt i Britannia.",
+                    "clues": [
+                        {
+                            "id": "clue-unprecedented",
+                            "text": "Aldri før har en slik redsel hendt",
+                            "insight": "Alkuin hevder dette er helt nytt. Men visste han om det som skjedde fire år tidligere i Portland?"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "step-3-the-silent-precedent",
+            "title": "Det glemte angrepet: Portland 789",
+            "content": "Var Lindisfarne virkelig først? Noen få linjer i krøniken sier noe annet.",
+            "sources": [
+                {
+                    "id": "asc-789",
+                    "type": "textual",
+                    "title": "Den angelsaksiske krønike (789)",
+                    "metadata": {
+                        "origin": "Bodleian Library",
+                        "link": "https://www.norgeshistorie.no/vikingtid/0801-vikingtidens-begynnelse.html"
+                    },
+                    "provenance": "En kortere notis skrevet før det store sjokket i 793.",
+                    "uncertainty": "Notisen er kortfattet og nevner bare tre skip. Det ble kanskje ikke sett på som starten på en 'æra' før Lindisfarne skjedde.",
+                    "original": "...and he wolde hie drifan to þæs cyninges tune... and hiene mon þær ofslog.",
+                    "translation": "...og reeven ville drive dem til kongens gård (for å betale skatt)... og der slo de ham i hjel. Dette var de første skipene fra dansker som oppsøkte landet.",
+                    "clues": [
+                        {
+                            "id": "clue-portland",
+                            "text": "drive dem til kongens gård",
+                            "insight": "Vikingene kom ikke for å plyndre kirker med en gang. De ble møtt som handelsmenn som nektet å betale skatt. Dette tyder på en konflikt som startet med handel, ikke religion."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "step-4-the-frankish-connection",
+            "title": "Hevn for fjellet? Karl den Store og Sakserne",
+            "content": "Samtidig som vikingene begynte sin ekspansjon, drev frankerne med 'hellig krig' mot naboene i sør.",
+            "sources": [
+                {
+                    "id": "frankish-annals",
+                    "type": "textual",
+                    "title": "Frankiske riksannaler (772-782)",
+                    "metadata": {
+                        "origin": "Karl den stores arkiv",
+                        "link": "https://snl.no/saksere"
+                    },
+                    "provenance": "Offisiell historieformidling fra frankernes hoff.",
+                    "uncertainty": "Vikingene skrev ikke ned sin side av saken. Vi må gjette om de visste hva som skjedde med naboene sine, sakserne.",
+                    "interpretation": "Karl den store ødela saksernes helligdom Irminsul i 772 og henrettet 4500 saksere i Verden i 782 fordi de nektet å bli kristne. Danske-kongen Sigfred ga sakserne fristed.",
+                    "clues": [
+                        {
+                            "id": "clue-irminsul",
+                            "text": "ødela saksernes helligdom Irminsul",
+                            "insight": "Når de kristne ødela hedenske helligdommer i sør, kan angrepet på Lindisfarne ha vært et direkte svar – å vise at de kristnes guder var like sårbare."
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "conclusion_engine": {
+        "question": "Var Lindisfarne et lyn fra klar himmel?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Ja, det var et totalt uforutsigbart angrep på uskyldige munker.",
+                "feedback": "Munkene ønsket å fremstille det slik, men Portland-angrepet i 789 og spenningen mot frankerne viser at kontakten og faren var der allerede."
+            },
+            {
+                "id": "b",
+                "text": "Nei, det var sannsynligvis en blanding av økonomisk press og religiøs gjengjeldelse.",
+                "feedback": "Riktig! Bevisene tyder på at vikingene kjente de kristnes svakheter gjennom handel, og at de kan ha følt seg truet av kristendommens aggressive fremmarsj i Saksa og Nord-Tyskland."
+            }
+        ]
+    }
+}

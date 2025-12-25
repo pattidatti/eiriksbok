@@ -51,6 +51,18 @@ const cases = [
         color: 'bg-slate-900',
         image: '/images/detective/svartedauden_hero.png',
         link: '/oving/detektiv/svartedauden'
+    },
+    {
+        id: 'lindisfarne',
+        title: 'Lindisfarne 793',
+        description: 'Var dette vikingenes aller første angrep, eller var det en hevnaksjon for angrep i sør?',
+        period: '793',
+        location: 'Lindisfarne, England',
+        difficulty: 'Middels',
+        estimatedTime: '20-25 min',
+        color: 'bg-amber-900',
+        image: '/images/detective/lindisfarne_hero.png',
+        link: '/oving/detektiv/lindisfarne'
     }
 ];
 
