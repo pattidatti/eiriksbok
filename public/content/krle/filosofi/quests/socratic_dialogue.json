@@ -1,0 +1,116 @@
+{
+    "id": "sokrates_dialogue",
+    "title": "Jakten på Rettferdighet",
+    "description": "Bli med Sokrates på agoraen og utforsk hva det egentlig vil si å være et rettferdig menneske.",
+    "mentor": "Sokrates",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Sokrates",
+            "text": "Ah, en nysgjerrig sjel! Si meg, min venn, vi snakker ofte om å handle 'rettferdig'. Men hva er egentlig rettferdighet? Er det simpelthen å gi hver mann det han har krav på?",
+            "choices": [
+                {
+                    "id": "yes_due",
+                    "text": "Ja, rettferdighet er å betale sin gjeld og gi folk det de fortjener.",
+                    "impact": {
+                        "rationalism": 2,
+                        "stoicism": 1
+                    },
+                    "nextStepId": "weapon_analogy"
+                },
+                {
+                    "id": "no_complex",
+                    "text": "Det virker for enkelt. Noen ganger kan det vel være urettferdig å gi noen det de 'har krav på'?",
+                    "impact": {
+                        "idealism": 3,
+                        "rationalism": 1
+                    },
+                    "nextStepId": "deeper_justice"
+                }
+            ]
+        },
+        {
+            "id": "weapon_analogy",
+            "speaker": "Sokrates",
+            "text": "Interessant. Men sett at en venn har lånt meg et våpen mens han var ved sine fulle fem, men kommer og krever det tilbake i et øyeblikk av galskap. Ville det være rettferdig av meg å gi det tilbake til ham da?",
+            "choices": [
+                {
+                    "id": "give_back",
+                    "text": "Ja, det er hans eiendom. Man må holde sitt ord uansett.",
+                    "impact": {
+                        "stoicism": 5,
+                        "materialism": 2
+                    },
+                    "nextStepId": "rethink_rules"
+                },
+                {
+                    "id": "refuse",
+                    "text": "Nei, det ville jo føre til skade. Fornuften tilsier at vi må hindre ulykke.",
+                    "impact": {
+                        "rationalism": 5,
+                        "epicureanism": 2
+                    },
+                    "nextStepId": "deeper_justice"
+                }
+            ]
+        },
+        {
+            "id": "deeper_justice",
+            "speaker": "Sokrates",
+            "text": "Nettopp! Så rettferdighet kan ikke bare være en blind regel om tilbakebetaling. Den må være knyttet til noe dypere – kanskje til sjelens helse eller samfunnets harmoni? Hva tror du er viktigst: Den sterkes rett, eller den svakes vern?",
+            "choices": [
+                {
+                    "id": "strong_right",
+                    "text": "Naturen lærer oss at den sterke dominerer. Rettferdighet er bare et ord de svake bruker for å holde de sterke nede.",
+                    "impact": {
+                        "materialism": 5,
+                        "empiricism": 3
+                    },
+                    "nextStepId": "challenge_might"
+                },
+                {
+                    "id": "harmony",
+                    "text": "Rettferdighet er harmoni. Når hver del av sjelen og samfunnet gjør sin rette oppgave.",
+                    "impact": {
+                        "idealism": 5,
+                        "stoicism": 3
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "challenge_might",
+            "speaker": "Sokrates",
+            "text": "En dristig påstand! Men er en hersker som bare søker sin egen fordel virkelig en mester i sin kunst? En lege søker jo pasientens vel, ikke sin egen profitt. Bør ikke en rettferdig leder søke undersåttenes vel?",
+            "choices": [
+                {
+                    "id": "agree_leader",
+                    "text": "Du har rett. Makt uten omsorg er bare tyranni, ikke rettferdighet.",
+                    "impact": {
+                        "idealism": 3,
+                        "rationalism": 2
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Sokrates",
+            "text": "Vi har bare så vidt begynt å skrape i overflaten, min venn. Men du har vist at du ikke er redd for å stille spørsmål ved det vedtatte. Det er selve begynnelsen på visdom. Gå nå, men fortsett å utforske de usynlige trådene som binder oss sammen.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Takk, Sokrates. Jeg skal huske dine ord.",
+                    "impact": {
+                        "rationalism": 1,
+                        "idealism": 1
+                    }
+                }
+            ]
+        }
+    ]
+}

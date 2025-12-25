@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import {
     Compass,
     MessageCircle,
-    Network,
     Zap,
     Search,
     BrainCircuit,
@@ -17,10 +16,17 @@ import {
 import { useQuery } from '@tanstack/react-query';
 import { fetchManifest } from '../utils/contentLoader';
 import { PageSkeleton } from '../components/Skeleton';
+import { usePhilosophyProfile } from '../hooks/usePhilosophyProfile';
+import { PhilosophicalQuestEngine } from '../components/content/interactive/philosophy/PhilosophicalQuestEngine';
+import type { PhilosophyQuest } from '../data/philosophy/types';
+import { Stjernekart } from '../components/content/interactive/philosophy/Stjernekart';
 
 export const PhilosophyOdysseyPage: React.FC = () => {
     const [selectedTab, setSelectedTab] = useState<'quest' | 'network' | 'profile'>('quest');
     const [scrolled, setScrolled] = useState(false);
+    const [activeQuest, setActiveQuest] = useState<PhilosophyQuest | null>(null);
+
+    const { profile, isLoaded: profileLoaded } = usePhilosophyProfile();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -28,12 +34,21 @@ export const PhilosophyOdysseyPage: React.FC = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const { data: manifest, isLoading } = useQuery({
+    const { data: manifest, isLoading: manifestLoading } = useQuery({
         queryKey: ['manifest'],
         queryFn: fetchManifest
     });
 
-    if (isLoading) return <PageSkeleton />;
+    // Mock/Fetch Quest Data (In a real app, this would be a separate fetch or from manifest)
+    const { data: socraticQuest } = useQuery({
+        queryKey: ['quest', 'sokrates'],
+        queryFn: async () => {
+            const res = await fetch('/public/content/krle/filosofi/quests/socratic_dialogue.json');
+            return res.json() as Promise<PhilosophyQuest>;
+        }
+    });
+
+    if (manifestLoading || !profileLoaded) return <PageSkeleton />;
 
     const philosophyTopic = manifest?.subjects
         .find(s => s.id === 'krle')
@@ -50,7 +65,7 @@ export const PhilosophyOdysseyPage: React.FC = () => {
             <header className={`sticky top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? 'py-3 bg-white/80 backdrop-blur-2xl border-b border-black/5 shadow-sm' : 'py-5 bg-[#FDFDFC]/90 backdrop-blur-md border-b border-black/[0.03]'
                 }`}>
                 <div className="max-w-7xl mx-auto px-8 flex items-center justify-between">
-                    <div className="flex items-center gap-4 group cursor-pointer">
+                    <Link to="/" className="flex items-center gap-4 group cursor-pointer">
                         <div className="relative">
                             <div className="absolute inset-0 bg-indigo-500 blur-xl opacity-20 group-hover:opacity-40 transition-opacity" />
                             <div className="relative w-12 h-12 rounded-[1.25rem] bg-[#1A1A1A] flex items-center justify-center overflow-hidden shadow-2xl">
@@ -69,7 +84,7 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">Den Filosofiske Odysséen</p>
                             </div>
                         </div>
-                    </div>
+                    </Link>
 
                     <nav className="flex items-center bg-black/5 hover:bg-black-[0.08] backdrop-blur-md rounded-2xl p-1.5 transition-colors">
                         {(['quest', 'network', 'profile'] as const).map((tab) => (
@@ -106,7 +121,21 @@ export const PhilosophyOdysseyPage: React.FC = () => {
 
             <main className="max-w-7xl mx-auto px-8 pt-12 pb-24">
                 <AnimatePresence mode="wait">
-                    {selectedTab === 'quest' && (
+                    {activeQuest ? (
+                        <motion.div
+                            key="active-quest"
+                            initial={{ opacity: 0, scale: 1.05 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            className="py-12"
+                        >
+                            <PhilosophicalQuestEngine
+                                quest={activeQuest}
+                                onExit={() => setActiveQuest(null)}
+                                onComplete={() => setActiveQuest(null)}
+                            />
+                        </motion.div>
+                    ) : selectedTab === 'quest' && (
                         <motion.div
                             key="quest"
                             initial={{ opacity: 0, scale: 0.99, y: 10 }}
@@ -137,12 +166,12 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                             Sokrates har ankommet din agora. Han venter på din første tanke.
                                         </p>
                                         <div className="flex flex-wrap gap-5">
-                                            <Link
-                                                to="/krle/filosofi/sokrates"
+                                            <button
+                                                onClick={() => socraticQuest && setActiveQuest(socraticQuest)}
                                                 className="px-12 py-5 rounded-[2rem] bg-white text-indigo-600 font-black text-xs uppercase tracking-[0.2em] hover:bg-black hover:text-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-2xl shadow-indigo-900/20"
                                             >
                                                 Start Dialogen
-                                            </Link>
+                                            </button>
                                             <button className="group/btn px-10 py-5 rounded-[2rem] bg-white/10 backdrop-blur-xl border border-white/20 text-white font-black text-xs uppercase tracking-[0.2em] hover:bg-white/20 transition-all flex items-center gap-3">
                                                 <MessageCircle size={18} strokeWidth={3} className="group-hover/btn:scale-110 transition-transform" />
                                                 <span>Arkivet</span>
@@ -165,13 +194,13 @@ export const PhilosophyOdysseyPage: React.FC = () => {
 
                                         <div className="space-y-6">
                                             <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest">
-                                                <span className="text-slate-400">Nivå 4: Utforsker</span>
-                                                <span className="text-indigo-600">850 / 2000 XP</span>
+                                                <span className="text-slate-400">Nivå {profile.level}: {profile.level < 5 ? 'Utforsker' : 'Tenker'}</span>
+                                                <span className="text-indigo-600">{profile.xp % 1000} / 1000 XP</span>
                                             </div>
                                             <div className="relative h-2 w-full bg-slate-100 rounded-full overflow-hidden">
                                                 <motion.div
                                                     initial={{ width: 0 }}
-                                                    animate={{ width: "42.5%" }}
+                                                    animate={{ width: `${(profile.xp % 1000) / 10}%` }}
                                                     transition={{ delay: 0.5, duration: 2, ease: "circOut" }}
                                                     className="absolute inset-0 bg-indigo-500 rounded-full"
                                                 />
@@ -246,57 +275,24 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                     {selectedTab === 'network' && (
                         <motion.div
                             key="network"
-                            initial={{ opacity: 0, filter: 'blur(10px)', scale: 1.05 }}
-                            animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
-                            exit={{ opacity: 0, filter: 'blur(10px)', scale: 0.95 }}
-                            transition={{ duration: 0.8 }}
-                            className="min-h-[70vh] rounded-[4rem] bg-[#1A1A1A] flex flex-col items-center justify-center p-20 text-center relative overflow-hidden shadow-3xl"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 1.05 }}
+                            transition={{ duration: 0.6 }}
+                            className="space-y-8"
                         >
-                            {/* Animated Background Elements */}
-                            <div className="absolute inset-0 opacity-20 pointer-events-none">
-                                {[...Array(20)].map((_, i) => (
-                                    <motion.div
-                                        key={i}
-                                        className="absolute w-1 h-1 bg-indigo-400 rounded-full"
-                                        style={{
-                                            left: `${Math.random() * 100}%`,
-                                            top: `${Math.random() * 100}%`
-                                        }}
-                                        animate={{
-                                            opacity: [0, 1, 0],
-                                            scale: [0, 1, 0]
-                                        }}
-                                        transition={{
-                                            duration: 2 + Math.random() * 3,
-                                            repeat: Infinity,
-                                            delay: Math.random() * 5
-                                        }}
-                                    />
-                                ))}
-                            </div>
-
-                            <div className="relative mb-12">
-                                <motion.div
-                                    className="absolute inset-0 bg-indigo-500 blur-[80px] opacity-30"
-                                    animate={{
-                                        scale: [1, 1.2, 1],
-                                        opacity: [0.2, 0.4, 0.2]
-                                    }}
-                                    transition={{ duration: 8, repeat: Infinity }}
-                                />
-                                <div className="relative w-32 h-32 rounded-[2.5rem] bg-gradient-to-br from-indigo-500 to-purple-800 flex items-center justify-center shadow-[0_32px_64px_-16px_rgba(99,102,241,0.5)] rotate-3 group hover:rotate-0 transition-transform duration-700">
-                                    <Network className="text-white" size={56} strokeWidth={1.5} />
+                            <div className="flex items-center justify-between mb-8">
+                                <div>
+                                    <h3 className="text-3xl font-black text-[#1A1A1A]">Den Store Samtalen</h3>
+                                    <p className="text-slate-400 text-sm font-medium">Utforsk hvordan ideer har formet historien gjennom århundrene.</p>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="px-5 py-2 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 text-[10px] font-black uppercase tracking-widest">
+                                        Utforsk 10 Tenkere
+                                    </div>
                                 </div>
                             </div>
-
-                            <h3 className="text-5xl md:text-7xl font-display font-black text-white mb-8 tracking-tighter">Den Store Samtalen</h3>
-                            <p className="text-xl text-white/40 max-w-2xl mb-16 font-medium leading-relaxed mx-auto italic">
-                                "Ingen idé ble født i et vakuum. Se hvordan tankene flyter mellom århundrene."
-                            </p>
-
-                            <button className="px-16 py-6 rounded-[2.5rem] bg-indigo-500 text-white font-black text-xs uppercase tracking-[0.3em] shadow-2xl shadow-indigo-500/30 hover:bg-white hover:text-black hover:scale-110 active:scale-95 transition-all duration-700">
-                                Gå inn i Stjernekartet
-                            </button>
+                            <Stjernekart />
                         </motion.div>
                     )}
 
@@ -331,21 +327,21 @@ export const PhilosophyOdysseyPage: React.FC = () => {
 
                                     <h3 className="text-4xl font-display font-black mb-3">Utforskeren</h3>
                                     <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-slate-50 border border-black/5 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-16">
-                                        <span>Medlemsnummer 2,492</span>
+                                        <span>Medlemsnummer {Math.floor(profile.lastActive / 100000000)}</span>
                                     </div>
 
                                     <div className="grid grid-cols-3 gap-6 pt-16 border-t border-black/5">
                                         <div className="text-center">
-                                            <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] mb-2">Artikler</p>
-                                            <p className="text-3xl font-display font-black">12</p>
+                                            <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] mb-2">Quests</p>
+                                            <p className="text-3xl font-display font-black">{profile.completedQuests.length}</p>
                                         </div>
                                         <div className="text-center">
                                             <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] mb-2">Poeng</p>
-                                            <p className="text-3xl font-display font-black">8.4k</p>
+                                            <p className="text-3xl font-display font-black">{(profile.xp / 1000).toFixed(1)}k</p>
                                         </div>
                                         <div className="text-center">
-                                            <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] mb-2">Dager</p>
-                                            <p className="text-3xl font-display font-black">14</p>
+                                            <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] mb-2">Nivå</p>
+                                            <p className="text-3xl font-display font-black">{profile.level}</p>
                                         </div>
                                     </div>
                                 </section>
@@ -364,18 +360,31 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                     </div>
 
                                     <div className="aspect-[16/7] bg-slate-50/50 rounded-[3rem] border border-black/[0.03] flex items-center justify-center overflow-hidden relative group">
-                                        <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
-                                            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                                <path d="M0,50 Q25,30 50,50 T100,50" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-indigo-500" />
-                                                <path d="M0,60 Q30,40 60,60 T100,60" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-purple-500" />
-                                            </svg>
+                                        <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity flex items-center justify-around px-20">
+                                            {/* Dynamic Alignment Visualization */}
+                                            {Object.entries(profile.alignment).map(([axis, value]) => (
+                                                <div key={axis} className="flex flex-col items-center gap-2">
+                                                    <div className="w-1 bg-slate-200 h-32 rounded-full relative">
+                                                        <motion.div
+                                                            className="absolute bottom-0 left-0 right-0 bg-indigo-500 rounded-full"
+                                                            initial={{ height: 0 }}
+                                                            animate={{ height: `${value}%` }}
+                                                            transition={{ duration: 1, ease: "easeOut" }}
+                                                        />
+                                                    </div>
+                                                    <span className="text-[8px] font-black uppercase text-slate-400 rotate-90 mt-4">{axis}</span>
+                                                </div>
+                                            ))}
                                         </div>
                                         <div className="text-center relative z-10 max-w-sm px-8">
                                             <div className="w-20 h-20 rounded-[2rem] bg-white shadow-xl mx-auto mb-8 flex items-center justify-center text-indigo-500">
                                                 <Zap size={32} />
                                             </div>
                                             <p className="text-slate-500 font-serif italic text-lg leading-relaxed mb-8">
-                                                "Du søker harmoni gjennom fornuft snarere enn nytelse."
+                                                {profile.alignment.rationalism > profile.alignment.empiricism
+                                                    ? '"Du søker harmoni gjennom fornuft snarere enn nytelse."'
+                                                    : '"Du stoler på dine sanser og erfaringer som kilde til visdom."'
+                                                }
                                             </p>
                                             <button className="text-[10px] font-black uppercase tracking-widest text-indigo-500 hover:text-black transition-colors">
                                                 Sammenlign med Platon

@@ -62,7 +62,7 @@ export const MoralCompass: React.FC<MoralCompassProps> = ({ choices }) => {
                         cy={center}
                         r={radius * step}
                         fill="none"
-                        stroke="white"
+                        stroke="black"
                         strokeOpacity="0.05"
                         strokeDasharray={i === 4 ? "0" : "4 4"}
                     />
@@ -78,7 +78,7 @@ export const MoralCompass: React.FC<MoralCompassProps> = ({ choices }) => {
                             y1={center}
                             x2={p.x}
                             y2={p.y}
-                            stroke="white"
+                            stroke="black"
                             strokeOpacity="0.05"
                         />
                     );
@@ -106,7 +106,7 @@ export const MoralCompass: React.FC<MoralCompassProps> = ({ choices }) => {
                             y={p.y}
                             textAnchor="middle"
                             dominantBaseline="middle"
-                            className="text-[10px] font-black uppercase tracking-widest fill-slate-400"
+                            className="text-[10px] font-black uppercase tracking-widest fill-slate-500"
                         >
                             {cat.label}
                         </text>
