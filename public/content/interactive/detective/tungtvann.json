@@ -1,0 +1,104 @@
+{
+    "id": "tungtvann-sabotasje",
+    "engine": "historical-detective",
+    "title": "Jakten på Tungtvannet: Sabotasjen på Vemork",
+    "description": "Hvordan klarte en liten gruppe norske sabotører å stanse Hitlers drøm om en atombombe? Undersøk de topphemmelige rapportene.",
+    "briefing": {
+        "title": "Oppdrag: Operasjon Gunnerside",
+        "context": "Februar 1943. Nazi-Tyskland produserer tungtvann på Vemork. Dette stoffet er helt avgjørende for å kunne bygge en atombombe. De allierte har allerede mislyktes én gang med store tap.",
+        "mystery": "Hvorfor valgte sabotørene å klatre opp den livsfarlige fjellskrenten i stedet for å bruke veien? Og var de egentlig klar over hvor nær tyskerne var målet?",
+        "mission": "Les den originale rapporten fra Joachim Rønneberg og analyser etterretningsloggene til 'arkitekten' Leif Tronstad.",
+        "stakes": "Uten sabotasjeaksjonen kunne utfallet av andre verdenskrig sett helt annerledes ut. Aksjonen regnes som den mest vellykkede i hele krigshistorien.",
+        "image": "/images/detective/tungtvann_hero.png"
+    },
+    "status": {
+        "trustLevel": 100,
+        "evidenceCollected": 0,
+        "totalEvidence": 4
+    },
+    "suspects": [
+        {
+            "id": "stealth",
+            "name": "Lydløs Sabotasje",
+            "description": "Fokus på sniking, klatring og tidsinnstilte lunter.",
+            "icon": "🎿"
+        },
+        {
+            "id": "intelligence",
+            "name": "Vitenskapelig Etterretning",
+            "description": "Fokus på kjemisk kunnskap og industrielle svakheter.",
+            "icon": "🧪"
+        }
+    ],
+    "steps": [
+        {
+            "id": "ronneberg-report",
+            "title": "Rapporten fra mørket",
+            "content": "Etter aksjonen skrev Joachim Rønneberg en detaljert rapport til London.",
+            "sources": [
+                {
+                    "id": "gunnerside-report",
+                    "type": "textual",
+                    "title": "Gunnerside Rapport (Mars 1943)",
+                    "metadata": {
+                        "origin": "Forsvarets Museer / SOE Archives",
+                        "link": "https://www.norsktungtvannsmuseum.no"
+                    },
+                    "introduction": "Det første vi skal undersøke er den originale rapporten skrevet av lederen for aksjonen, Joachim Rønneberg. Han beskriver øyeblikket de klatret opp juvet – en rute tyskerne trodde var umulig.",
+                    "original": "Vi klatret opp juvet under jernbanebroen... Isete skrent, men ubevoktet. Klippet oss gjennom gjerdet ved hjelp av tegninger fra innsiden.",
+                    "translation": "Vi klatret opp juvet under jernbanebroen... Skrenten var isete, men ubevoktet. Vi klippet oss gjennom gjerdet ved hjelp av tegningene vi hadde fått fra kontakter på innsiden.",
+                    "guidance": "Her ser vi den geniale taktikken. Tyskerne hadde forsterket vaktholdet ved broen og veien, men de trodde at juvet var en naturlig mur som ingen kunne bestige om vinteren. Ved å velge den 'umulige' veien, kunne sabotørene snike seg helt inn til fabrikken uten å avfyre et eneste skudd. Dette beviset viser hvordan kjennskap til terrenget og uventede valg var nøkkelen til suksess.",
+                    "clues": [
+                        {
+                            "id": "clue-cliff-climb",
+                            "text": "Ubevoktet fordi den var isete",
+                            "insight": "Sabotørene utnyttet tyskernes overtro på naturens begrensninger, noe som ga dem det nødvendige overraskelsesmomentet."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "tronstad-intel",
+            "title": "Arkitekten bak sabotasjen",
+            "content": "Leif Tronstad satt i London og planla hvert minutt av aksjonen basert på sin kunnskap om fabrikken.",
+            "sources": [
+                {
+                    "id": "tronstad-logs",
+                    "type": "textual",
+                    "title": "Etterretningslogg (1942)",
+                    "metadata": {
+                        "origin": "Digitalarkivet / Forsvarets Overkommando",
+                        "link": "https://snl.no/Leif_Tronstad"
+                    },
+                    "introduction": "Nå skal vi se på loggene til Leif Tronstad. Han var mannen som bygde tungtvannsanlegget før krigen! Han visste nøyaktig hvilke rør og kabler som måtte sprenges for at skaden skulle bli størst mulig.",
+                    "original": "Må sprenges i bunnen av konsentrasjonscellene... Rør nummer 4 er kritisk for syklusen.",
+                    "interpretation": "Eksplosivene må plasseres i bunnen av elektrolysecellene. Hvis rør nummer 4 ødelegges, vil hele produksjonssyklusen stanse i måneder.",
+                    "guidance": "Tronstad er den 'vitenskapelige detektiven'. Han visste at de ikke trengte å sprenge hele fabrikken (som ville vært umulig). Ved å bruke nøyaktig sabotasje mot de mest sårbare delene av maskineriet, oppnådde de maksimal effekt med minimale ressurser. Dette beviset viser at aksjonen ikke bare handlet om mot, men om ekstremt grundig planlegging og ingeniørkunst.",
+                    "clues": [
+                        {
+                            "id": "clue-precision",
+                            "text": "rør nummer 4 er kritisk",
+                            "insight": "Nøyaktigheten i sabotasjen viser at de allierte hadde tilgang til detaljert teknisk informasjon, noe som gjorde sprengningen svært effektiv."
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "conclusion_engine": {
+        "question": "Hva var den viktigste årsaken til at Gunnerside-aksjonen lyktes der andre hadde feilet?",
+        "options": [
+            {
+                "id": "a",
+                "text": "De stormet hovedporten med store styrker.",
+                "feedback": "Feil. En direkte storming ville blitt oppdaget umiddelbart. De forrige aksjonene feilet nettopp fordi de ble oppdaget."
+            },
+            {
+                "id": "b",
+                "text": "En kombinasjon av uventet rutevalg og teknisk presisjon.",
+                "feedback": "Riktig! Ved å klatre juvet unngikk de vakter, og ved å bruke Tronstads tekniske tegninger visste de nøyaktig hva de skulle sprenge."
+            }
+        ]
+    }
+}

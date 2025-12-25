@@ -5,7 +5,10 @@ import {
     Shield,
     Zap,
     User,
-    FileText
+    FileText,
+    Target,
+    CheckCircle2,
+    AlertCircle
 } from 'lucide-react';
 import type { DetectiveSuspect } from './types';
 
@@ -15,10 +18,14 @@ interface CaseFileProps {
         collectedClues: Set<string>;
     };
     suspects: DetectiveSuspect[];
+    mission?: string;
+    totalEvidence?: number;
 }
 
-export const CaseFile: React.FC<CaseFileProps> = ({ state, suspects }) => {
+export const CaseFile: React.FC<CaseFileProps> = ({ state, suspects, mission, totalEvidence }) => {
     const [activeTab, setActiveTab] = useState<'theories' | 'evidence'>('theories');
+    const collectedEvidence = state.collectedClues.size;
+    const isComplete = totalEvidence ? collectedEvidence >= totalEvidence : false;
 
     return (
         <aside className="w-full md:w-80 bg-slate-900 border-r border-slate-800 flex flex-col h-full overflow-hidden">
@@ -32,6 +39,49 @@ export const CaseFile: React.FC<CaseFileProps> = ({ state, suspects }) => {
                         <p className="text-xs text-slate-500 uppercase tracking-widest font-medium">Etterforskning</p>
                     </div>
                 </div>
+
+                {/* Integrated Mission Guide */}
+                {mission && (
+                    <div className="mb-8 p-4 bg-indigo-500/10 rounded-2xl border border-indigo-500/20 shadow-lg shadow-indigo-900/20">
+                        <div className="flex items-center gap-2.5 mb-3">
+                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isComplete ? 'bg-emerald-500/20 text-emerald-400' : 'bg-indigo-500/20 text-indigo-400'}`}>
+                                {isComplete ? <CheckCircle2 className="w-5 h-5" /> : <Target className="w-5 h-5" />}
+                            </div>
+                            <h4 className="text-[10px] font-bold text-white uppercase tracking-widest">Aktivt Oppdrag</h4>
+                        </div>
+                        <p className="text-xs text-white/80 leading-relaxed font-medium mb-4">
+                            {mission}
+                        </p>
+
+                        {totalEvidence !== undefined && (
+                            <div className="space-y-2">
+                                <div className="flex justify-between text-[10px] font-bold uppercase tracking-tighter">
+                                    <span className="text-slate-500">Progresjon</span>
+                                    <span className={isComplete ? 'text-emerald-400' : 'text-indigo-400'}>
+                                        {collectedEvidence} / {totalEvidence}
+                                    </span>
+                                </div>
+                                <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                    <motion.div
+                                        initial={{ width: 0 }}
+                                        animate={{ width: `${(collectedEvidence / totalEvidence) * 100}%` }}
+                                        className={`h-full ${isComplete ? 'bg-emerald-500' : 'bg-indigo-500'}`}
+                                    />
+                                </div>
+                                {isComplete && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 5 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="flex items-center gap-1.5 text-[10px] text-emerald-400 font-bold uppercase tracking-tight pt-1"
+                                    >
+                                        <AlertCircle className="w-3 h-3" />
+                                        Klar for konklusjon
+                                    </motion.div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                )}
 
                 {/* Stats */}
                 <div className="grid grid-cols-2 gap-3 mb-8">

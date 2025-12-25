@@ -1,0 +1,104 @@
+{
+    "id": "karl-xii-mysteriet",
+    "engine": "historical-detective",
+    "title": "Mysteriet i Skyttergraven: Karl XIIs død",
+    "description": "Ble den svenske krigerkongen drept av en norsk kule, eller var det et snikmord fra hans egne rekker? Undersøk bevisene fra 1718.",
+    "briefing": {
+        "title": "Oppdrag: Kongens Fall",
+        "context": "11. desember 1718. Karl XII inspiserer de fremre skyttergravene ved Fredriksten festning i Halden. Plutselig blir han truffet av et skudd i tinningen og dør umiddelbart.",
+        "mystery": "I over 300 år har vi spurt: Hvem skjøt? Var det en heroisk norsk soldat, eller ble han myrdet av en svensk konspiratør som ville ha slutt på krigen?",
+        "mission": "Analyser øyenvitneskildringer fra den skjebnesvangre natten og sammenlign dem med moderne ballistikk og kuleforskning.",
+        "stakes": "Svaret endret Nordens historie. Uten Karl XII falt det svenske stormaktsveldet sammen.",
+        "image": "/images/detective/karl_xii_hero.png"
+    },
+    "status": {
+        "trustLevel": 100,
+        "evidenceCollected": 0,
+        "totalEvidence": 4
+    },
+    "suspects": [
+        {
+            "id": "norway",
+            "name": "Norsk Skytter",
+            "description": "En heldig (eller dyktig) soldat fra festningen.",
+            "icon": "🇳🇴"
+        },
+        {
+            "id": "conspiracy",
+            "name": "Svensk Snikmorder",
+            "description": "Noen i kongens egen stab som ville ha fred.",
+            "icon": "🇸🇪"
+        }
+    ],
+    "steps": [
+        {
+            "id": "eyewitness-reports",
+            "title": "Øyenvitnet i mørket",
+            "content": "Flere offiserer sto nær kongen da det skjedde. Deres beretninger er våre eldste spor.",
+            "sources": [
+                {
+                    "id": "eyewitness-log",
+                    "type": "textual",
+                    "title": "Offisersrapport (Desember 1718)",
+                    "metadata": {
+                        "origin": "Svenska Riksarkivet",
+                        "link": "https://sok.riksarkivet.se/"
+                    },
+                    "introduction": "Det første vi skal undersøke er en rapport fra de som sto rett ved siden av kongen i skyttergraven. Det var mørkt, kaldt, og de hørte en helt bestemt lyd.",
+                    "original": "Det lyød som når man slår to fingre mot hånden, eller kastet en stein i gjørme... Kongen sank sammen uten et ord.",
+                    "translation": "Det hørtes ut som når man slår to fingre mot flat hånd, eller som når en stein kastes i gjørme. Kongen sank sammen umiddelbart.",
+                    "guidance": "Legg merke til lyden. De beskriver et klyp eller et 'splash'-lyd. Eksperter mener dette tyder på en kule med lav fart, kanskje en 'skrå' (en blykule) fra en norsk kanon eller gevær langt unna. Men hvis farten var lav, kunne det da vært et langdistanseskudd fra festningen? Eller ble han skutt på kloss hold av en snikmorder med en mindre pistol?",
+                    "clues": [
+                        {
+                            "id": "clue-sound",
+                            "text": "slår to fingre mot hånden",
+                            "insight": "Lyden av treffet antyder at prosjektilet ikke hadde ekstremt høy fart, noe som er viktig for å vurdere avstanden skytteren sto på."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "modern-forensics",
+            "title": "Den mystiske kuleknappen",
+            "content": "Var 'kulen' egentlig en knapp fra kongens egen uniform?",
+            "sources": [
+                {
+                    "id": "the-button-theory",
+                    "type": "scientific",
+                    "title": "Ballistisk undersøkelse av 'Kulknappen'",
+                    "metadata": {
+                        "origin": "Historisk Museum",
+                        "link": "https://snl.no/Karl_12"
+                    },
+                    "introduction": "Neste bevis er kanskje det merkeligste i hele norgeshistorien. En svensk soldat hevdet han fant en 'kule' i skyttergraven som viste seg å være en omgjort uniformsknapp.",
+                    "original": "Blykule fylt med jern, formet som en knapp... DNA-spor antyder kongens blod.",
+                    "interpretation": "En teori sier at kongen ble skutt med sin egen uniformsknapp. Overtroen sa nemlig at han var 'skuddsikker' og bare kunne drepes av noe han selv eide.",
+                    "guidance": "Kulknappen er et klassisk eksempel på hvordan myter og fakta blandes. Nyere DNA-analyser bekrefter at knappen har spor av Karl XIIs blod, men ballistiske tester viser at denne knappen ikke passer til såret i hodeskallen. Er knappen et ekte bevis, eller ble den plantet av noen for å skape en spennende historie? De fleste moderne historikere mener nå at kongen ble truffet av en 'norsk' blykule fra festningen, men mysteriet lever videre.",
+                    "clues": [
+                        {
+                            "id": "clue-button-dna",
+                            "text": "DNA-spor antyder kongens blod",
+                            "insight": "Selv om det er kongens blod på knappen, betyr det ikke nødvendigvis at det var denne som drepte ham – den kan ha vært i kontakt med såret etterpå."
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "conclusion_engine": {
+        "question": "Hva er den mest sannsynlige forklaringen på Karl XIIs død basert på bevisene?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Han ble drept av en snikmorder med en magisk kuleknapp.",
+                "feedback": "Dette er en spennende legende, men ballistikken støtter ikke at en knapp kunne forårsake de skadene kongen fikk."
+            },
+            {
+                "id": "b",
+                "text": "Han ble truffet av et tilfeldig skudd fra den norske festningen.",
+                "feedback": "Riktig! De fleste bevis peker på at kongen stakk hodet for høyt opp fra skyttergraven og ble truffet av en blykule eller en kanonskrå fra de norske forsvarerne."
+            }
+        ]
+    }
+}

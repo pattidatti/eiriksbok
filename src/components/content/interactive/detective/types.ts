@@ -14,6 +14,7 @@ export interface DetectiveSource {
         reliability?: 'high' | 'medium' | 'low';
         type?: string;
     };
+    introduction?: string;
     provenance?: string; // Where does it come from?
     uncertainty?: string; // What is debated or unknown?
     original?: string; // The "Raw" source (text, image path, etc)
@@ -21,6 +22,8 @@ export interface DetectiveSource {
     original_data?: string;
     interpretation?: string; // For archaeological/visual
     image?: string;
+    guidance?: string; // Deep context and expert guidance for the source
+    hint?: string;     // A subtle hint for students
     clues: DetectiveClue[];
 }
 

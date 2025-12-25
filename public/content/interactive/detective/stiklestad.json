@@ -46,8 +46,11 @@
                     },
                     "provenance": "Dette er skaldekvad som ble memorert og fremført muntlig før de ble skrevet ned. De regnes som svært pålitelige fordi versemålet er så strengt at teksten nesten ikke kan endres uten at det merkes.",
                     "uncertainty": "Sigvat var ikke selv til stede i selve slaget, men snakket med de overlevende rett etterpå. Han skriver lite om spesifikke drapsmenn.",
+                    "introduction": "Det første vi skal undersøke er et 'skaldekvad'. På Olavs tid fantes det ikke bøker i Norge, så historier ble fortalt gjennom dikt med faste rytmer, nesten som en rap. Sigvat Tordarson var kongens egen skald, en slags offisiell historieforteller. Han diktet dette rett etter at han hørte om kongens fall.",
                     "original": "Ok unnan rann enni, ormstals, hjorvi bormu...",
                     "translation": "Og blodet rant fra pannen, sår ble hugget med sverdets stål...",
+                    "guidance": "Skaldekvad er de viktigste bevisene vi har, fordi de er 'ferskvare'. Siden de har så streng rytme og rim, er det nesten umulig å endre på ordene uten at diktet faller fra hverandre. Legg merke til hva Sigvat skriver: Han fokuserer på de fysiske sårene og den dramatiske hendelsen, men han nevner *ingen* spesielle drapsmenn. For de som levde i 1030 var det tydeligvis ikke så viktig hvem som slo det siste slaget, men at kongen faktisk falt i strid. Dette gir oss et rått og ufiltrert bilde av slaget, uten all 'pynten' som kom senere.",
+                    "hint": "Sigvat var kongens venn. Hvorfor tror du han ikke nevner navn på de som drepte kongen?",
                     "clues": [
                         {
                             "id": "clue-skald-silence",
@@ -73,8 +76,11 @@
                     },
                     "provenance": "Skrevet på Island av Snorre Sturlasson. Han brukte kvad som kilder, men 'fylte ut' historien for å lage en god fortelling.",
                     "uncertainty": "Snorre hadde en politisk agenda: Han ville styrke kongemakten og kirken. Detaljene om Olavssteinen og de tre sårene passer perfekt inn i en kristen martyrhistorie.",
+                    "introduction": "Nå skal vi hoppe 200 år fram i tid! Vi ser på Snorre Sturlassons 'Heimskringla'. Dette er en saga, en lang fortelling om de norske kongene. Snorre hadde ikke sett slaget selv, men han ønsket å lage en helhetlig og spennende historie om hvordan Olav ble til Olav den hellige.",
                     "original": "Tore Hund stakk spydet opp under brynjen på kongen...",
-                    "interpretation": "Snorre gir oss navn, dialog og nøyaktige bevegelser. Dette gjør historien levende, men er det sant? Ingen av skaldekvadene fra 1030 nevner disse detaljene.",
+                    "interpretation": "Tore Hund ga kongen et stikk med spydet sitt, og Olav falt mot en stein. Han fikk tre dødelige sår: ett i pannen, ett i siden og ett i magen.",
+                    "guidance": "Ser du forskjellen? Hos Snorre får vi plutselig vite *nøyaktig* hvem som drepte kongen, og akkurat hvor han ble truffet. Dette er typisk for sagalitteratur. Snorre bygger opp en historie der Olav dør som en kristen martyr. De tre sårene minner om Jesus på korset, og drapsmennene blir gjort til tydelige 'skurker'. Snorre bruker skaldekvadene som grunnmur, men han bygger et stort luksushus av detaljer oppå, for å gjøre historien mer kraftfull og politisk viktig for kirken og kongemakten i hans egen tid.",
+                    "hint": "Tenk på Snorre som en regissør som lager en historisk dramafilm. Han må gjøre det spennende, men han tar seg noen friheter.",
                     "clues": [
                         {
                             "id": "clue-detailed-narrative",

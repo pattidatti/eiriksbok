@@ -9,7 +9,6 @@ import { SourceViewer } from './SourceViewer';
 import { CaseFile } from './CaseFile';
 import { ConclusionScreen } from './ConclusionScreen';
 import { BriefingScreen } from './BriefingScreen';
-import { MissionGuide } from './MissionGuide';
 import type { DetectiveCase } from './types';
 
 interface DetectiveEngineProps {
@@ -98,18 +97,15 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
     return (
         <div className="relative bg-[#0a0c10] text-slate-200 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl min-h-[600px] flex flex-col md:flex-row">
             {/* Sidebar / Case File */}
-            <CaseFile state={state} suspects={data.suspects} />
+            <CaseFile
+                state={state}
+                suspects={data.suspects}
+                mission={data.briefing?.mission}
+                totalEvidence={data.status.totalEvidence}
+            />
 
             {/* Main Investigation Area */}
             <main className="flex-1 flex flex-col relative overflow-hidden">
-                {/* Mission Guide Overlay */}
-                {data.briefing && (
-                    <MissionGuide
-                        mission={data.briefing.mission}
-                        totalEvidence={data.status.totalEvidence}
-                        collectedEvidence={state.collectedClues.size}
-                    />
-                )}
 
                 {/* Header */}
                 <header className="p-6 border-b border-slate-800 bg-slate-900/50 backdrop-blur-md flex items-center justify-between">
@@ -133,10 +129,6 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
                         animate={{ opacity: 1, y: 0 }}
                         className="max-w-3xl mx-auto"
                     >
-                        <p className="text-slate-400 text-lg leading-relaxed mb-8 italic border-l-2 border-indigo-500/50 pl-6">
-                            "{currentStep.content}"
-                        </p>
-
                         <div className="space-y-12">
                             {currentStep.sources.map(source => (
                                 <SourceViewer

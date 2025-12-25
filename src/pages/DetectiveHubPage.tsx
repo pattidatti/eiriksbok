@@ -63,6 +63,54 @@ const cases = [
         color: 'bg-amber-900',
         image: '/images/detective/lindisfarne_hero.png',
         link: '/oving/detektiv/lindisfarne'
+    },
+    {
+        id: 'karl-xii',
+        title: 'Karl XIIs død',
+        description: 'Ble krigerkongen skutt av sine egne ved Fredriksten festning? Undersøk kuler og øyenvitner.',
+        period: '1718',
+        location: 'Halden',
+        difficulty: 'Middels',
+        estimatedTime: '15-20 min',
+        color: 'bg-blue-900',
+        image: '/images/detective/karl_xii_hero.png',
+        link: '/oving/detektiv/karl-xii'
+    },
+    {
+        id: 'isdalskvinnen',
+        title: 'Isdalskvinnen',
+        description: 'Hvem var kvinnen som ble funnet i Isdalen i 1970? Kalde krigen møter moderne vitenskap.',
+        period: '1970',
+        location: 'Bergen',
+        difficulty: 'Høy',
+        estimatedTime: '25-30 min',
+        color: 'bg-indigo-900',
+        image: '/images/detective/isdalskvinnen_hero.png',
+        link: '/oving/detektiv/isdalskvinnen'
+    },
+    {
+        id: 'tungtvann',
+        title: 'Tungtvannsaksjonen',
+        description: 'Hvor nær var Tyskland en atombombe i 1943? Undersøk etterretningen bak sabotasjen.',
+        period: '1942 - 1944',
+        location: 'Rjukan',
+        difficulty: 'Høy',
+        estimatedTime: '25-30 min',
+        color: 'bg-cyan-900',
+        image: '/images/detective/tungtvann_hero.png',
+        link: '/oving/detektiv/tungtvann'
+    },
+    {
+        id: 'berlinmuren',
+        title: 'Berlinmurens fall',
+        description: 'Var det en gigantisk tabbe under en pressekonferanse som åpnet muren? Finn sannheten i dokumentene.',
+        period: '1989',
+        location: 'Berlin',
+        difficulty: 'Middels',
+        estimatedTime: '20-25 min',
+        color: 'bg-slate-700',
+        image: '/images/detective/berlin_wall_hero.png',
+        link: '/oving/detektiv/berlinmuren'
     }
 ];
 

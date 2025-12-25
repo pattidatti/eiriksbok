@@ -45,4 +45,5 @@ export const routeFactories: Record<string, PageFactory> = {
     PhilosophyOdyssey: () => import('./pages/PhilosophyOdysseyPage').then(module => ({ default: module.PhilosophyOdysseyPage })),
     DetectiveHubPage: () => import('./pages/DetectiveHubPage').then(module => ({ default: module.DetectiveHubPage })),
     DetectiveCasePage: () => import('./pages/DetectiveCasePage').then(module => ({ default: module.DetectiveCasePage })),
+    EthicsExperimentPage: () => import('./pages/EthicsExperimentPage').then(module => ({ default: module.EthicsExperimentPage })),
 };

@@ -918,6 +918,30 @@
                             "icon": "search"
                         },
                         {
+                            "id": "detective-karl-xii",
+                            "title": "Historisk Detektiv: Karl XIIs død",
+                            "description": "Ble krigerkongen skutt av sine egne ved Fredriksten festning?",
+                            "link": "/oving/detektiv/karl-xii",
+                            "image": "/images/detective/karl_xii_hero.png",
+                            "icon": "search"
+                        },
+                        {
+                            "id": "detective-isdalskvinnen",
+                            "title": "Historisk Detektiv: Isdalskvinnen",
+                            "description": "Hvem var kvinnen i Isdalen? Løs norgeshistoriens største krimgåte.",
+                            "link": "/oving/detektiv/isdalskvinnen",
+                            "image": "/images/detective/isdalskvinnen_hero.png",
+                            "icon": "search"
+                        },
+                        {
+                            "id": "detective-tungtvann",
+                            "title": "Historisk Detektiv: Sabotasjen på Vemork",
+                            "description": "Hvor nær var Hitler atombomben? Undersøk etterretningen bak Tungtvannsaksjonen.",
+                            "link": "/oving/detektiv/tungtvann",
+                            "image": "/images/detective/tungtvann_hero.png",
+                            "icon": "search"
+                        },
+                        {
                             "id": "norge-for-vikingene",
                             "title": "Norge før vikingene",
                             "description": "Fra pionerbosetning til folkevandringstid.",
@@ -1821,6 +1845,14 @@
                             ],
                             "createdDate": "2025-12-21T14:45:00Z",
                             "lastUpdated": "2025-12-21T14:45:00Z"
+                        },
+                        {
+                            "id": "detective-berlinmuren",
+                            "title": "Historisk Detektiv: Berlinmurens fall",
+                            "description": "Var det en tilfeldig tabbe som åpnet muren? Undersøk bevisene.",
+                            "link": "/oving/detektiv/berlinmuren",
+                            "image": "/images/detective/berlin_wall_hero.png",
+                            "icon": "search"
                         }
                     ]
                 },
@@ -3114,6 +3146,13 @@
                             "description": "Ditt personlige akademi og læringsportal.",
                             "link": "/krle/filosofi/odyssey",
                             "icon": "compass"
+                        },
+                        {
+                            "id": "etikk-eksperimentet",
+                            "title": "Etikk-Eksperimentet",
+                            "description": "Utforsk dype dilemmaer og se dine valg fra ulike perspektiver.",
+                            "link": "/oving/etikk",
+                            "icon": "compass"
                         }
                     ],
                     "lessons": [
@@ -3348,6 +3387,15 @@
                     "description": "Hva er rett og galt? Utforsk de store etiske systemene.",
                     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
                     "defaultView": "chronological",
+                    "tools": [
+                        {
+                            "id": "etikk-eksperimentet",
+                            "title": "Etikk-Eksperimentet",
+                            "description": "Utforsk dype dilemmaer og se dine valg fra ulike perspektiver.",
+                            "link": "/oving/etikk",
+                            "icon": "compass"
+                        }
+                    ],
                     "lessons": [
                         {
                             "id": "intro",

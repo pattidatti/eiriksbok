@@ -46,13 +46,16 @@
                     },
                     "provenance": "Håndskrevne årbøker fra Island. De som skrev annalene hadde god kontakt med handelsfolk i Bergen.",
                     "uncertainty": "Dette ble skrevet ned et stykke unna hendelsene, men baserer seg på rapporter fra folk som var i Bergen sommeren 1349.",
+                    "introduction": "Det første vi skal undersøke er de 'Islandske annalene'. Dette er en slags historisk nyhetssending fra middelalderen. Siden Island hadde tette bånd til Bergen gjennom handel, skrev de ned viktige nyheter som kom med skipene. Dette er kilden til den mest kjente historien om hvordan pesten kom til Norge.",
                     "original": "Kallat koggr kom af Einglande... oc do alt folk þat a var...",
                     "translation": "Et skip kalt en kogg kom fra England... og alt folket som var om bord døde, og så begynte pesten i Bergen.",
+                    "guidance": "Her ser vi opphavet til 'legenden' om pestskipet i Bergen. Kilden beskriver en 'kogg' (et typisk handelsskip) som driver inn i Vågen med et dødt mannskap. Dette beviset er veldig sterkt fordi det forklarer hvorfor Bergen ble rammet så hardt i 1349. Men husk: Dette ble skrevet på Island. Kan det hende at de som bodde i Bergen bare *trodde* det startet der, fordi det var her de så de mest dramatiske dødsfallene først? Dette beviset låser fortellingen til Bergen, men vi må lete videre for å se om saken er mer komplisert.",
+                    "hint": "Kilden forteller om hva som skjedde i Bergen. Men viste folk i Bergen hva som foregikk i Oslo på samme tid?",
                     "clues": [
                         {
                             "id": "clue-bergen-start",
                             "text": "Et skip kalt en kogg",
-                            "insight": "Dette bekrefter den sterke tradisjonen om at Bergen var inngangsporten i 1349."
+                            "insight": "Dette bekrefter den sterke tradisjonen om at Bergen var inngangsporten i 1349. Men det utelukker ikke at pesten fantes andre steder."
                         }
                     ]
                 }
@@ -73,13 +76,16 @@
                     },
                     "provenance": "Et juridisk dokument (diplom) fra Oslo som beskriver donasjon til et nytt alter i Domkirken.",
                     "uncertainty": "Dokumentet nevner ikke ordet 'pest' direkte, men St. Sebastian var den viktigste vernehelgenen mot nettopp pest.",
+                    "introduction": "Nå skal vi se på et 'diplom' fra Oslo. Et diplom var et juridisk dokument i middelalderen, ofte skrevet på skinn (pergament). Dette dokumentet er datert februar 1349 – hele fem måneder FØR pestskipet visstnok kom til Bergen.",
                     "original": "Til ære for Gud og den hellige martyr Sebastian...",
-                    "interpretation": "Hvorfor bygge et alter til pestens helgen i februar 1349 hvis sykdommen først kom til Bergen i juli? Dette tyder på at folk i Oslo allerede var livredde – eller syke.",
+                    "interpretation": "Dette er et brev som beskriver at noen gir penger og land til kirken i Oslo for å bygge et nytt alter. Alteret skal være til ære for Sankt Sebastian.",
+                    "guidance": "Dette beviset er en 'skjult ledetråd'. Sankt Sebastian var ikke en hvilken som helst helgen; han var den personen folk ba til når de var redde for pest. Spørsmålet en detektiv må stille er: Hvorfor bygge et helt nytt alter til pest-helgenen i Oslo i februar, hvis pesten ikke skulle komme til landet før i juli? Dette beviset tyder kraftig på at Svartedauden kanskje allerede herjet i Oslo-området vinteren 1348/1349. Kanskje den kom landveien fra Sverige eller med et annet skip vi ikke har hørt om? Det utfordrer hele ideen om at Bergen var først.",
+                    "hint": "Se på datoen og helgenen. Sebastian ble ofte avbildet med piler i kroppen, som symboliserte hvordan pesten 'skjøt' folk ned.",
                     "clues": [
                         {
                             "id": "clue-oslo-early",
                             "text": "hellige martyr Sebastian",
-                            "insight": "Donasjonen til dette alteret skjedde fem måneder før 'pestskipet' i Bergen, noe som sterker teorien om et tidligere utbrudd i Oslo."
+                            "insight": "Donasjonen til dette alteret skjedde fem måneder før 'pestskipet' i Bergen, noe som styrker teorien om et tidligere utbrudd i Oslo."
                         }
                     ]
                 }

@@ -1,0 +1,104 @@
+{
+    "id": "berlinmuren-fall",
+    "engine": "historical-detective",
+    "title": "Muren som falt ved en feil: Berlin 1989",
+    "description": "Var det massivt folkeopprør eller en klønete byråkrat som egentlig åpnet Berlinmuren? Undersøk kaoset den 9. november.",
+    "briefing": {
+        "title": "Oppdrag: Portene åpnes",
+        "context": "9. november 1989. Berlin har vært delt i to i 28 år. Presset mot DDR-regimet er enormt, men ingen forventer at muren skal falle akkurat i kveld. Under en direktesendt pressekonferanse skjer det utrolige.",
+        "mystery": "Hva sa talsmannen Günter Schabowski egentlig? Var det meningen at muren skulle åpnes umiddelbart, eller leste han feil fra et dokument han knapt hadde sett?",
+        "mission": "Analyser ordrett transkripsjon av pressekonferansen og sammenlign med de hemmelige reisebestemmelsene fra SED-partiet.",
+        "stakes": "Berlinmurens fall markerte slutten på den kalde krigen. Å forstå hvordan det skjedde ved en tilfeldighet, lærer oss om historiens uforutsigbarhet.",
+        "image": "/images/detective/berlin_wall_hero.png"
+    },
+    "status": {
+        "trustLevel": 100,
+        "evidenceCollected": 0,
+        "totalEvidence": 4
+    },
+    "suspects": [
+        {
+            "id": "human-error",
+            "name": "Menneskelig Svikt",
+            "description": "En travel byråkrat som ikke hadde lest notatene sine.",
+            "icon": "📝"
+        },
+        {
+            "id": "people-power",
+            "name": "Folkets Press",
+            "description": "Demonstrasjonene tvang regimet til å gi etter uansett.",
+            "icon": "✊"
+        }
+    ],
+    "steps": [
+        {
+            "id": "schabowski-transcript",
+            "title": "Pressekonferansen som endret alt",
+            "content": "Günter Schabowski holdt en rutinemessig pressekonferanse på kvelden. Svaret på ett spørsmål endret verden.",
+            "sources": [
+                {
+                    "id": "press-transcript",
+                    "type": "textual",
+                    "title": "Transkripsjon av Pressekonferanse (9. nov 1989)",
+                    "metadata": {
+                        "origin": "DDR TV / Chronik der Mauer",
+                        "link": "https://www.chronik-der-mauer.de"
+                    },
+                    "introduction": "Det første vi skal undersøke er ordene som startet stormingen av muren. Günter Schabowski har nettopp lest opp noen nye regler for reise, og en journalist stiller et kritisk spørsmål.",
+                    "original": "Journalist: Wann tritt das in Kraft? Schabowski: Das tritt nach meiner Kenntnis... ist das sofort. Unverzüglich.",
+                    "translation": "Journalist: Når trer dette i kraft? Schabowski: Det trer, så vidt jeg vet... skjer det med en gang. Umiddelbart.",
+                    "guidance": "Her ser vi historiens kanskje mest berømte 'glipp'. Schabowski hadde nettopp fått utdelt et papir med nye regler, men han hadde ikke rukket å lese dem før han gikk på TV. Da han svarte 'umiddelbart', trodde tusenvis av østberlinere at muren var åpen. Han brukte ordet 'unverzüglich' (uten forsinkelse), som er et veldig kraftig ord i tysk byråkrati. Dette beviset viser hvordan én setning under en direktesendt sending kan utløse en hendelse som ingen har planlagt for.",
+                    "clues": [
+                        {
+                            "id": "clue-immediately",
+                            "text": "med en gang. Umiddelbart.",
+                            "insight": "Dette var den utløsende faktoren. Svaret var ikke planlagt, men det ga folkemengden det klarsignalet de trengte for å dra til grenseovergangene."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "the-secret-memo",
+            "title": "Dokumentet i lommen",
+            "content": "Hva sto det egentlig på lappen Schabowski hadde med seg?",
+            "sources": [
+                {
+                    "id": "sed-document",
+                    "type": "textual",
+                    "title": "Utkast til Reisebestemmelser (SED, 9. nov 1989)",
+                    "metadata": {
+                        "origin": "Stiftelse for arkivene til DDR",
+                        "link": "https://www.bstu.de/"
+                    },
+                    "introduction": "Neste bevis er selve dokumentet Schabowski leste fra. Det ble funnet i arkivene etter murens fall. Det viser at planene til regimet var helt annerledes enn det Schabowski sa på TV.",
+                    "original": "Privatreisen nach dem Ausland können ohne Vorliegen av Voraussetzungen beantragt werden... Ab morgen, den 10. November.",
+                    "interpretation": "Privatreiser til utlandet kan søkes om uten spesielle krav... Gjelder fra i morgen, 10. november, for å sikre kontrollert behandling.",
+                    "guidance": "Ser du datoen? Regimet hadde planlagt at muren skulle åpnes *dagen etter*, slik at passkontrollørene og grensevaktene kunne forberede seg. Ved å annonsere det feilaktig 'umiddelbart' samme kveld, fanget Schabowski grensevaktene på sengen. De hadde ingen ordre og visste ikke hva de skulle gjøre. Til slutt ga de bare opp og åpnet portene for å unngå vold. Dette beviset bekrefter at murens fall den kvelden var en byråkratisk ulykke, selv om presse fra folket var den bakenforliggende årsaken.",
+                    "clues": [
+                        {
+                            "id": "clue-tomorrow",
+                            "text": "Ab morgen, den 10. November",
+                            "insight": "Dette beviser at Schabowski leste feil eller ignorerte tidsbegrensningen i dokumentet, noe som skapte det totale kaoset ved muren."
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "conclusion_engine": {
+        "question": "Hvorfor falt muren akkurat kvelden den 9. november?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Regimet hadde bestemt seg for å rive muren den kvelden som en gave til folket.",
+                "feedback": "Feil. Dokumentene viser at de ønsket en kontrollert prosess som skulle starte dagen etter med søknader."
+            },
+            {
+                "id": "b",
+                "text": "En feilaktig uttalelse på TV tvang fram en åpning som vaktene ikke var klare for.",
+                "feedback": "Riktig! Schabowskis svar 'umiddelbart' skapte et press ved grensen som vaktene ikke kunne håndtere uten ordre, og de valgte til slutt å åpne portene."
+            }
+        ]
+    }
+}

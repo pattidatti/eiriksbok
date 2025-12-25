@@ -52,13 +52,16 @@
                     },
                     "provenance": "Dette er den offisielle rettsprotokollen skrevet av sorenskriveren under rettsmøtet i Vardø.",
                     "uncertainty": "Selv om dokumentet er 100% autentisk, er innholdet basert på tilståelser under 'pinlig forhør' (tortur). Vi kan ikke stole på faktasannheten i det som sies.",
+                    "introduction": "Det første vi skal undersøke er en 'tingbok' fra Vardø. En tingbok er en slags dagbok fra rettssalen, der sorenskriveren skrev ned alt som skjedde under rettssakene. I denne kilden fra 1663 møter vi Ingeborg Iversdatter, som er anklaget for å være en heks.",
                     "original": "Ingeborg Iversdatter ble kastet på vannet... Hun fløt opp som en dupp, hvilket var et sikkert tegn på hennes pakt.",
                     "translation": "Ingeborg Iversdatter ble ført til vannprøven... Hun fløt umiddelbart opp, som bevis på at vannet avviste henne på grunn av synden.",
+                    "guidance": "Her ser vi 'vannprøven' i bruk. I middelalderen og tidlig nytid trodde man at vannet var et hellig element som ville avvise alt som var urent eller syndig. Hvis en kvinne fløt, betydde det at vannet 'spyttet henne ut' fordi hun var en heks. Hvis hun sank, var hun uskyldig. Dette beviset viser oss hvordan overtro ble brukt som en juridisk sannhet. Legg merke til hvordan Ingeborg beskrives som 'en dupp' – en dehumaniserende måte å beskrive et menneske i en livsfarlig situasjon på. Dette er ikke en rettferdig rettssak, men en prosess drevet av religiøs frykt.",
+                    "hint": "Dette ble ansett som et 'vitenskapelig' bevis i 1662, men viser oss i dag hvordan overtro overstyrte logikk.",
                     "clues": [
                         {
                             "id": "clue-water-test",
                             "text": "fløt opp som en dupp",
-                            "insight": "Dette ble ansett som et 'vitenskapelig' bevis i 1662, men viser oss i dag hvordan overtro overstyrte logikk."
+                            "insight": "Vannprøven var et 'omvendt bevis'. Uansett hva som skjedde, var kvinnen i livsfare. Dette viser hvordan rettssystemet ble brukt til å bekrefte overtro."
                         }
                     ]
                 }
@@ -79,13 +82,43 @@
                     },
                     "provenance": "Et formelt klagebrev sendt fra lagmannen til de lokale myndighetene i Finnmark.",
                     "uncertainty": "Schønnebøl representerer en tidlig opplysningstanke, men han var fremdeles bundet av datidens lover og lojalitet til kongen.",
+                    "introduction": "Neste kilde er et brev fra en som sa pent NEI. Dette er Mandrup Schønnebøl, en lagmann (høyere dommer) som begynte å tvile på det som skjedde i Vardø. Han skrev et brev for å kritisere hvordan de lokale lederne behandlet de anklagede kvinnene.",
                     "original": "Det er mot Guds lov og kongens rett at folk dømmes på annet enn sanne bevis...",
-                    "interpretation": "Schønnebøl kritiserte bruken av tortur og vannprøve, og mente at man ikke kunne dømme noen basert på hva andre 'hekser' sa under smerte.",
+                    "interpretation": "Det er i strid med både Guds og kongens lover at mennesker blir dømt uten sanne bevis. Man kan ikke stole på det som sies under tortur, eller hva en angivelig heks sier om en annen.",
+                    "guidance": "Schønnebøl er en 'detektiv' i sin egen tid. Han peker på det store problemet: Bevisene mot kvinnene er ikke sanne, fordi de er presset frem gjennom smerte (tortur). Når han skriver 'sanne bevis', utfordrer han hele grunnlaget for hekseprosessene. Dette viser oss at det fantes kritiske stemmer selv da heksejakten var på sitt verste. Han prøvde å dra rettssystemet bort fra overtro og tilbake til rettssikkerhet, men han kjempet mot en sterk bølge av lokal frykt og maktlystne embetsmenn.",
+                    "hint": "Legg merke til at han bruker 'Guds lov' for å kjempe MOT heksejakten. Det var altså ikke bare sekulær tankegang som stoppet prosessene.",
                     "clues": [
                         {
                             "id": "clue-legal-critique",
                             "text": "dømmes på annet enn sanne bevis",
                             "insight": "Dette viser at rettssystemet var under internt press og at noen innså at bevisene var fabrikkert gjennom tortur."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "the-domen-myth",
+            "title": "Fjellet Domen: Djevelens samlingsplass",
+            "content": "De anklagede kvinnene fortalte utrolige historier om hva som skjedde på fjellet Domen.",
+            "sources": [
+                {
+                    "id": "domen-confession",
+                    "type": "textual",
+                    "title": "Tilståelse fra Siri Kven (1662)",
+                    "metadata": {
+                        "origin": "Arkivverket",
+                        "link": "https://snl.no/Hekseprosessene_i_Finnmark"
+                    },
+                    "introduction": "Det siste vi skal undersøke er en 'tilståelse'. Siri Kven ble anklaget for å ha fløyet til fjellet Domen for å møte djevelen. Dette beviset er spesielt fordi det inneholder så mange detaljer om magi og monstre.",
+                    "original": "Vi fløy på koster og hunder til Domen... Der drakk vi øl med den onde selv, og han spilte fele for oss.",
+                    "translation": "Vi fløy på koster og hunder til fjellet Domen. Der drakk vi øl med djevelen, og han spilte fele mens vi danset.",
+                    "guidance": "Hvorfor ville noen tilstå noe så absurd? Svaret ligger i 'kollektiv panikk'. Når folk utsettes for ekstremt press og tortur, begynner de ofte å bekrefte det de tror forfølgerne vil høre. Historiene om Domen fungerte som bevis på at det fantes en organisert 'hær' av hekser. Dette beviset viser oss kraften i rykter og hvordan en hel kultur kan begynne å tro på det som i dag fremstår som eventyr, spesielt når myndighetene bruker makt for å bekrefte historiene.",
+                    "clues": [
+                        {
+                            "id": "clue-collective-myth",
+                            "text": "fløy på koster og hunder",
+                            "insight": "Disse fantastiske elementene viser at tilståelsene ikke var basert på virkelighet, men på kjente eventyrmotiver som ble presset fram under avhør."
                         }
                     ]
                 }

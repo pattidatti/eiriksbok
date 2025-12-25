@@ -52,8 +52,11 @@
                     },
                     "provenance": "Hovedkilden til engelsk historie i denne perioden, skrevet av munker i klostre.",
                     "uncertainty": "Munkene så på historien som Guds vilje. De beskriver ofte hendelser som varsler eller straff, noe som kan farge deres nøyaktighet.",
+                    "introduction": "Det første vi skal undersøke er en kilde fra 'Den angelsaksiske krønike'. Dette er en samling tekster som ble skrevet av munker for å holde styr på hva som skjedde i England for over tusen år siden. Munkene levde i klostre og brukte mye tid på å skrive ned viktige hendelser.",
                     "original": "793. Her wæron reðe forebeacna cumene ofer Norðanhymbra land... fyrene dracan wæron gesewene on þam lifte fleogende.",
                     "translation": "793. Her kom grusomme varsler over Nordhymbrandland... brennende drager ble sett i luften flyvende, og snart fulgte et stort uår.",
+                    "guidance": "Her ser vi hvordan munkene husker året 793. De skriver ikke bare om skip og krigere, men om 'brennende drager' på himmelen. Dette er en viktig nøkkel: I middelalderen trodde man at katastrofer som vikingangrep var sendt av Gud som en straff for synder. Ved å skrive om overnaturlige tegn på himmelen, prøver munkene å fortelle oss at dette ikke bare var et ran, men en religiøs og moralsk dom. De presenterer angrepet som noe helt uventet og uforståelig, kanskje for å dekke over at de faktisk hadde hatt kontakt med vikingene før.",
+                    "hint": "Se på ordbruken. 'Grusomme varsler' kan tyde på at de visste at noe var i gjære, men ikke ville innrømme det.",
                     "clues": [
                         {
                             "id": "clue-fiery-dragons",
@@ -79,8 +82,11 @@
                     },
                     "provenance": "Ekte korrespondanse fra Charlemagnes hoff til England rett etter angrepet.",
                     "uncertainty": "Alkuin var ikke vitne selv, men fikk detaljene fra overlevende munker.",
+                    "introduction": "Det neste sporet er et personlig brev skrevet av Alkuin av York. Alkuin var en av de lærdeste mennene i sin tid, og han fungerte som rådgiver for den mektige kongen Karl den store i det som i dag er Tyskland og Frankrike. Da han hørte om angrepet på Lindisfarne, ble han rystet og skrev straks hjem til den engelske kongen.",
                     "original": "Ecce, ecclesia sancti Cuthberti sacerdotum Dei sanguine aspersa, omnibus spoliata ornamentis...",
-                    "interpretation": "Se, kirken til den hellige Cuthbert er stenket med Guds presters blod, plyndret for alle sine prydelser. Aldri før har en slik redsel hendt i Britannia.",
+                    "interpretation": "Se, kirken til den hellige Cuthbert er stenket med Guds presters blod, plyndret for alle sine prydelser. Aldri før har en slik redsel hendt i Britannia som den vi nå har lidd fra et hedensk folk.",
+                    "guidance": "I dette brevet bruker Alkuin sterke ord for å beskrive sjokket. Setningen 'Se, kirken til den hellige Cuthbert er stenket med Guds presters blod' er et direkte sitat fra hans brev, opprinnelig skrevet på latin. Ved å kalle vikingene for et 'hedensk folk' (folk som ikke er kristne), rammer han inn hele konflikten som en krig mot kristendommen selv. Men husk: Alkuin var en politisk strateg. Ved å hevde at 'aldri før har en slik redsel hendt', kan han bevisst ha overdrevet for å samle de kristne kongene i Europa mot en felles ytre fiende. Han visste sannsynligvis om tidligere trefninger, men valgte å kalle dette 'det første' for å skape en kraftfull fortelling.",
+                    "hint": "Alkuin var opptatt av å styrke kirken. Kan han ha brukt dette angrepet som propaganda?",
                     "clues": [
                         {
                             "id": "clue-unprecedented",
@@ -106,8 +112,11 @@
                     },
                     "provenance": "En kortere notis skrevet før det store sjokket i 793.",
                     "uncertainty": "Notisen er kortfattet og nevner bare tre skip. Det ble kanskje ikke sett på som starten på en 'æra' før Lindisfarne skjedde.",
+                    "introduction": "Sporet som endrer alt: Vi må se på en annen notis i 'Den angelsaksiske krønike', men denne gangen fra år 789 – fire år FØR Lindisfarne. Dette er et bevis som ofte blir glemt fordi det ikke skjedde ved et kjent kloster. Det beskriver et møte på sørkysten av England.",
                     "original": "...and he wolde hie drifan to þæs cyninges tune... and hiene mon þær ofslog.",
-                    "translation": "...og reeven ville drive dem til kongens gård (for å betale skatt)... og der slo de ham i hjel. Dette var de første skipene fra dansker som oppsøkte landet.",
+                    "translation": "...og reeven (en lokal embetsmann) ville drive dem til kongens gård fordi han trodde de var handelsmenn som skulle betale skatt... og der slo de ham i hjel. Dette var de første skipene fra dansker som oppsøkte landet.",
+                    "guidance": "Dette er røykteppet vårt! Her ser vi at 'vikingene' (som her faktisk kom fra Hordaland i Norge) ikke kom som monstre eller straff fra Gud, men som handelsmenn. De ble møtt av en lokal tjenestemann (en 'reeve') som krevde skatt. Konflikten startet altså ikke med religion, men med penger og byråkrati. Vikingene nektet å bli styrt, og drepte tjenestemannen. Dette beviser at Lindisfarne ikke var det første møtet, men kanskje det første angrepet som var planlagt som et hevnraid eller en plyndring etter at de hadde blitt dårlig behandlet tidligere.",
+                    "hint": "Legg merke til at de ble tatt for å være vanlige handelsfolk. Hvorfor reagerte de med drap?",
                     "clues": [
                         {
                             "id": "clue-portland",
@@ -133,7 +142,10 @@
                     },
                     "provenance": "Offisiell historieformidling fra frankernes hoff.",
                     "uncertainty": "Vikingene skrev ikke ned sin side av saken. Vi må gjette om de visste hva som skjedde med naboene sine, sakserne.",
-                    "interpretation": "Karl den store ødela saksernes helligdom Irminsul i 772 og henrettet 4500 saksere i Verden i 782 fordi de nektet å bli kristne. Danske-kongen Sigfred ga sakserne fristed.",
+                    "introduction": "Det siste vi skal undersøke er de 'Frankiske riksannalene'. Dette er den offisielle historien til frankerne (forfedrene til dagens tyskere og franskmenn). På slutten av 700-tallet var de ledet av Karl den store, som drev en brutal krig for å kristne naboene sine, sakserne. Dette skjedde rett sør for Danmark.",
+                    "interpretation": "Karl den store ødela saksernes helligdom Irminsul i 772 (et hellig tre som symboliserte verden). Han henrettet 4500 saksere i Verden i 782 fordi de nektet å bli kristne. Danske-kongen Sigfred ga de saksiske flyktningene fristed og beskyttelse.",
+                    "guidance": "Her må vi koble punktene! Mens Alkuin og munkene i England snakket om angrepet som 'umotivert', ser vi her en helt annen sammenheng. Karl den Store (som Alkuin jobbet for!) massakrerte saksere fordi de var hedninger, og ødela deres helligste symbol, verdenstreet Irminsul. Vikingene delte samme religion som sakserne. Angrepet på Lindisfarne – de kristnes helligste øy i Nord-England – kan sees på som et 'øye for øye'-svar. Ved å brenne klosteret, viste vikingene at de kunne slå tilbake mot de kristnes helligdommer, akkurat som Karl den store hadde gjort mot deres.",
+                    "hint": "Tenk på symbolikken. Hva skjer hvis en konge ødelegger din helligdom? Hvor angriper du tilbake?",
                     "clues": [
                         {
                             "id": "clue-irminsul",

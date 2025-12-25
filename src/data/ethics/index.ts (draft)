@@ -1,0 +1,75 @@
+export type EthicalSystemCategory = 'secular' | 'religious';
+
+export interface EthicalSystem {
+  id: string;
+  name: string;
+  category: EthicalSystemCategory;
+  description: string;
+  articleLink?: string;
+  icon?: string;
+}
+
+export interface SystemResponse {
+  systemId: string;
+  verdict: 'accept' | 'reject' | 'complex';
+  explanation: string;
+}
+
+export interface DilemmaChoice {
+  id: string;
+  label: string;
+  responses: SystemResponse[];
+}
+
+export interface EthicalDilemma {
+  id: string;
+  title: string;
+  scenario: string;
+  image?: string;
+  choices: DilemmaChoice[];
+}
+
+export const ethicalSystems: EthicalSystem[] = [
+  {
+    id: 'utilitarianism',
+    name: 'Utilititarisme',
+    category: 'secular',
+    description: 'Størst mulig lykke for flest mulig.',
+    articleLink: '/krle/etikk/utilitarisme'
+  },
+  {
+    id: 'christianity',
+    name: 'Kristendom',
+    category: 'religious',
+    description: 'Basert på Guds bud, kjærlighetsbudet og Jesu lære.',
+    articleLink: '/krle/religion/kristendom/sentrale-trekk'
+  },
+  // ... many more can be added here
+];
+
+export const dilemmas: EthicalDilemma[] = [
+  {
+    id: 'trolley-1',
+    title: 'Sporvognsproblemet',
+    scenario: 'Et løpsk tog kommer mot fem arbeidere. Du kan dra i en spak for å lede toget inn på et sidespor der det står én person.',
+    choices: [
+      {
+        id: 'pull-lever',
+        label: 'Dra i spaken (Drep 1, redd 5)',
+        responses: [
+          {
+            systemId: 'utilitarianism',
+            verdict: 'accept',
+            explanation: 'Dette er det riktige valget fordi det maksimerer antallet overlevende (5 vs 1).'
+          },
+          {
+            systemId: 'christianity',
+            verdict: 'complex',
+            explanation: 'Selv om det er godt å redde liv, er det problematisk å aktivt velge å ta et liv ("Du skal ikke slå ihjel"). Mange ville vektlagt kjærligheten til de fem, men det er ingen enkel løsning.'
+          }
+        ]
+      }
+      // ... 
+    ]
+  }
+];

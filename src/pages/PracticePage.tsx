@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane, History, Users, Search } from 'lucide-react';
+import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane, History, Users, Search, Compass } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
@@ -107,6 +107,14 @@ export const PracticePage: React.FC = () => {
             icon: Search,
             color: 'bg-indigo-600',
             link: '/oving/detektiv'
+        },
+        {
+            id: 'etikk-eksperimentet',
+            title: 'Etikk-Eksperimentet',
+            description: 'Utforsk dype dilemmaer og se dine valg fra ulike perspektiver.',
+            icon: Compass,
+            color: 'bg-gradient-to-br from-indigo-500 to-purple-500',
+            link: '/oving/etikk'
         }
     ];
 

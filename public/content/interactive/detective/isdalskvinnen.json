@@ -1,0 +1,104 @@
+{
+    "id": "isdalskvinnen-mysteriet",
+    "engine": "historical-detective",
+    "title": "Gåten i Isdalen: Spion eller tragisk skjebne?",
+    "description": "I 1970 ble en kvinne funnet død i en isolert dal i Bergen. Alle merker var fjernet fra klærne hennes. Hvem var hun egentlig?",
+    "briefing": {
+        "title": "Oppdrag: Den ukjente kvinnen",
+        "context": "November 1970. En turgåer finner liket av en kvinne i Isdalen. Rundt henne ligger krukker med sovemedisin, brente objekter og en mystisk koffert på jernbanestasjonen i Bergen.",
+        "mystery": "Hvorfor reiste hun med åtte ulike pass? Hvorfor var alle merker på klær og medisiner fjernet? Var hun en kaldkrigs-spion, eller en kvinne på flukt fra noe annet?",
+        "mission": "Dekod hennes hemmelige reiselogg og analyser de rettsmedisinske funnene fra tennene hennes for å finne ut hvor hun kom fra.",
+        "stakes": "Isdalskvinnen er et av Norges største mysterier. Saken gir oss et unikt innblikk i frykten og paranoiaen under den kalde krigen.",
+        "image": "/images/detective/isdalskvinnen_hero.png"
+    },
+    "status": {
+        "trustLevel": 100,
+        "evidenceCollected": 0,
+        "totalEvidence": 4
+    },
+    "suspects": [
+        {
+            "id": "spy",
+            "name": "Kaldkrigs-spion",
+            "description": "Hun overvåket kanskje de norske Penguin-missilene for en fremmed makt.",
+            "icon": "🕵️‍♀️"
+        },
+        {
+            "id": "criminal",
+            "name": "Kriminell på flukt",
+            "description": "En person involvert i diamanthandel eller sjekksvindel.",
+            "icon": "💼"
+        }
+    ],
+    "steps": [
+        {
+            "id": "the-suitcase-code",
+            "title": "Kofferten på jernbanestasjonen",
+            "content": "Politiet fant to kofferter som tilhørte kvinnen. Inne i foret lå en hemmelig kodet logg.",
+            "sources": [
+                {
+                    "id": "coded-log",
+                    "type": "textual",
+                    "title": "Håndskrevet kodeliste (Funnet 1970)",
+                    "metadata": {
+                        "origin": "Bergenspolitiet / KRIPOS",
+                        "link": "https://www.nrk.no/isdal"
+                    },
+                    "introduction": "Det første vi skal undersøke er den mystiske loggen politiet fant i kofferten hennes. Ved første øyekast ser det bare ut som tilfeldige bokstaver og tall, men det er et system bak.",
+                    "original": "N 24 M ... O 30 M ... ST 29 O ... B 30 O ...",
+                    "translation": "Norge 24. mars ... Odense 30. mars ... Stavanger 29. oktober ... Bergen 30. oktober ...",
+                    "guidance": "Dette er en reiserekke. Da politiet dekodet loggen, så de at bokstavene sto for byer og datoer hun hadde besøkt. Legg merke til hvor ofte hun bytter sted. Dette er ikke reisevanene til en vanlig turist i 1970. Spioner og operatører bruker ofte slike logger for å holde styr på tidsfrister og møtepunkter uten at andre kan lese det. Hvorfor følte hun behov for å kryptere reisene sine så grundig?",
+                    "clues": [
+                        {
+                            "id": "clue-encryption",
+                            "text": "bokstavene sto for byer og datoer",
+                            "insight": "Dette beviser at kvinnen var svært bevisst på å skjule reisemønsteret sitt for utenforstående, noe som er typisk for etterretningsvirksomhet."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "dna-isotope-test",
+            "title": "Tennene som forteller sannheten",
+            "content": "Moderne vitenskap har gitt politiet svar som var umulige å finne i 1970.",
+            "sources": [
+                {
+                    "id": "isotope-analysis",
+                    "type": "scientific",
+                    "title": "Isotopanalyse av tannemalje (2016)",
+                    "metadata": {
+                        "origin": "Universitetet i Bergen / KRIPOS",
+                        "link": "https://snl.no/Isdalskvinnen"
+                    },
+                    "introduction": "I 2016 ble saken åpnet igjen. Forskere brukte moderne teknologi for å analysere atomene i tennene hennes. Svarene de fant endret alt vi trodde om hvem hun var.",
+                    "original": "Høye verdier av strontium og oksygenisotoper... Barndom i grenseområdet Frankrike/Tyskland.",
+                    "interpretation": "Tennene viser at hun vokste opp i Sentral-Europa, sannsynligvis i grenseområdene mellom Frankrike og Tyskland, og flyttet vestover i ung alder.",
+                    "guidance": "Tennene fungerer som et kjemisk arkiv. Siden hun drakk vann og spiste mat fra spesifikke områder mens tennene vokste, kan vi nå med sikkerhet si at hun ikke var norsk. Den geografiske plasseringen (Nürnberg/Lorraine) er interessant fordi dette var områder med mye konflikt og spionasje etter andre verdenskrig. De vitenskapelige bevisene gir oss den geografiske sannheten, mens den kodede loggen gir oss den operative sannheten. Begge peker mot en person som ikke ønsket å bli funnet.",
+                    "clues": [
+                        {
+                            "id": "clue-central-europe",
+                            "text": "Frankrike/Tyskland",
+                            "insight": "Opprinnelsen i hjertet av Europa stemmer godt overens med teoriene om at hun jobbet for en europeisk etterretningstjeneste under den kalde krigen."
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "conclusion_engine": {
+        "question": "Hvilken konklusjon støttes best av både de kodede loggene og de moderne isotopanalysene?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Hun var en lokal kvinne fra Bergen med psykiske problemer.",
+                "feedback": "Feil. Vitenskapen beviser at de vokste opp i Sentral-Europa, og koffertene hennes viser et profesjonelt system for å skjule identitet."
+            },
+            {
+                "id": "b",
+                "text": "Hun var sannsynligvis en kurer eller agent involvert i etterretning.",
+                "feedback": "Riktig! De mange identitetene, den kodede reiseloggen og de fjernede merkelappene peker alle mot en person som levde et farlig og uoffisielt liv under den kalde krigen."
+            }
+        ]
+    }
+}

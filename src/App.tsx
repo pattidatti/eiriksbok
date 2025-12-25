@@ -50,6 +50,7 @@ const PhilosophyOdyssey = React.lazy(routeFactories.PhilosophyOdyssey);
 const DetectiveHubPage = React.lazy(routeFactories.DetectiveHubPage);
 const DetectiveCasePage = React.lazy(routeFactories.DetectiveCasePage);
 const ColonizationMap = React.lazy(routeFactories.ColonizationMap);
+const EthicsExperimentPage = React.lazy(routeFactories.EthicsExperimentPage);
 
 import { usePresence } from './hooks/usePresence';
 
@@ -104,6 +105,7 @@ function AppContent() {
               <Route path="oving/konsept-snake" element={<ConceptSnakeGame />} />
               <Route path="oving/detektiv" element={<DetectiveHubPage />} />
               <Route path="oving/detektiv/:caseId" element={<DetectiveCasePage />} />
+              <Route path="oving/etikk" element={<EthicsExperimentPage />} />
               <Route path="historie/vikingtiden/detektiv" element={<DetectiveCasePage />} />
 
               <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />

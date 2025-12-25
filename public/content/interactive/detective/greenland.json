@@ -1,119 +1,155 @@
 {
-    "id": "viking-gronland-detektiv",
+    "id": "greenland-detective",
     "engine": "historical-detective",
-    "title": "Mysteriet på Grønland: Hvor ble de av?",
-    "description": "I 1408 holdes et bryllup i Hvalsey kirke. Så blir det stille. Finn ut hvorfor de norrøne bosettingene forsvant gjennom ekte kilder.",
+    "title": "Mysteriet på Grønland",
+    "description": "Hvorfor forsvant den norrøne bosetningen på Grønland etter 500 år? Undersøk sporene de etterlot seg.",
     "briefing": {
-        "title": "Oppdrag: Grønlands Gåte",
-        "context": "De norrøne bosetningene på Grønland blomstret i nesten 500 år. De bygde kirker, dømte på tinget og handlet med Europa. Men på 1400-tallet forsvant de plutselig fra alle skriftlige kilder.",
-        "mystery": "Hva skjedde egentlig? Ble de utryddet av sult, drept i krig, eller valgte de å forlate Grønland frivillig?",
-        "mission": "Din oppgave er å gå gjennom det arkeologiske og historiske kildematerialet. Du må skille mellom fakta og tolkning for å finne den mest sannsynlige årsaken til forsvinningen.",
-        "stakes": "Svaret kan lære oss om hvordan samfunn reagerer på klimaendringer og isolasjon – utfordringer som er like relevante i dag.",
+        "title": "Oppdrag: Grønlands forsvunne nordboere",
+        "context": "Rundt år 985 slo Erik Raude seg ned på Grønland. I nesten 500 år blomstret samfunnet, med kirker, gårder og handel. Men på 1400-tallet ble det helt stille. Da skipene fra Norge endelig kom tilbake på 1700-tallet, var alle borte.",
+        "mystery": "Hva skjedde med de norrøne på Grønland? Døde de ut, ble de drept, eller dro de sin vei?",
+        "mission": "Analyser kildene og finn ut hva som var den viktigste årsaken til at kolonien kollapset. Se etter tegn på miljøendringer og økonomisk krise.",
+        "stakes": "Å løse dette mysteriet hjelper oss å forstå hvordan samfunn reagerer på dramatiske klimaendringer.",
         "image": "/images/detective/greenland_hero.png"
     },
     "status": {
         "trustLevel": 100,
         "evidenceCollected": 0,
-        "totalEvidence": 5
+        "totalEvidence": 4
     },
     "suspects": [
         {
             "id": "climate",
             "name": "Klimaendringer",
-            "description": "Ble det for kaldt til å overleve?",
+            "description": "Den lille istid gjorde det umulig å drive landbruk.",
             "icon": "❄️"
         },
         {
-            "id": "trade",
-            "name": "Økonomisk kollaps",
-            "description": "Forsvant markedet for hvalrosstann?",
+            "id": "economy",
+            "name": "Økonomisk Kollaps",
+            "description": "Markedet for hvalrosstann forsvant på grunn av elfenben fra Afrika.",
             "icon": "💰"
         },
         {
             "id": "conflict",
             "name": "Konflikt",
-            "description": "Var det kamp om ressursene med Inuitter?",
-            "icon": "🏹"
+            "description": "Angrep fra inuitter eller sjørøvere utryddet bosetningen.",
+            "icon": "⚔️"
         }
     ],
     "steps": [
         {
-            "id": "step-1-the-last-wedding",
-            "title": "Siste livstegn: Bryllupet i 1408",
-            "content": "Det siste skriftlige beviset på liv er et bryllupsbrev. Etter dette vet vi ingenting sikkert.",
+            "id": "step-1-the-signs",
+            "title": "Tegnene i dypet: Angrepet",
+            "content": "Snorre skrev ingenting om dette, men de engelske krønikene er fulle av skrekk.",
             "sources": [
                 {
-                    "id": "hvalsey-letter",
+                    "id": "asc-793",
                     "type": "textual",
-                    "title": "Brev fra Hvalsey kirke (1408)",
+                    "title": "Den angelsaksiske krønike (793)",
                     "metadata": {
-                        "origin": "Diplomatarium Norvegicum",
-                        "date": "September 1408",
-                        "reliability": "high"
+                        "origin": "British Library / SNL",
+                        "link": "https://snl.no/Lindisfarne"
                     },
-                    "provenance": "Dette brevet er en avskrift av et juridisk dokument fra 1408. Det ble sendt for å bekrefte et bryllup som bevis for arv.",
-                    "uncertainty": "Selv om brevet er ekte, forteller det ingenting om hva som skjedde uken etter. Vi vet ikke om alle var friske eller om det var tegn til krise.",
-                    "original": "Sva var ok i tui brupkaupi at hussfreijans oc hionanna uaru j kyrkiugardinum...",
-                    "translation": "Slik var det også i det bryllupet at husfruen og brudeparet var i kirkegården...",
+                    "provenance": "Hovedkilden til engelsk historie i denne perioden, skrevet av munker i klostre.",
+                    "uncertainty": "Munkene så på historien som Guds vilje. De beskriver ofte hendelser som varsler eller straff, noe som kan farge deres nøyaktighet.",
+                    "introduction": "For å forstå hva som skjedde på Grønland, må vi først se på hvordan kriser ble beskrevet andre steder. Det første vi skal undersøke er en kilde fra England fra år 793. Dette er skrevet av munker som opplevde et sjokkangrep fra vikingene.",
+                    "original": "793. Her wæron reðe forebeacna cumene ofer Norðanhymbra land... fyrene dracan wæron gesewene on þam lifte fleogende.",
+                    "translation": "793. Her kom grusomme varsler over Nordhymbrandland... brennende drager ble sett i luften flyvende, og snart fulgte et stort uår.",
+                    "guidance": "Selv om dette handler om Lindisfarne i England, bruker vi det som en sammenligning. Legg merke til hvordan munkene beskriver vikingene som monstre og varsler om dommedag. Da de norrøne på Grønland forsvant, var det ingen munker der som kunne skrive ned historien. Stillheten på Grønland er kanskje det mest skremmende sporet av alle. Ble deres forsvinning også sett på som en religiøs straff, eller var det ingen igjen til å fortelle?",
+                    "hint": "Sammenlign frykten i England med stillheten på Grønland. Hvorfor skrev ingen om Grønlands fall?",
                     "clues": [
                         {
-                            "id": "clue-hvalsey-life",
-                            "text": "husfruen og brudeparet",
-                            "insight": "Dette viser at det fremdeles var et fungerende sosialt og religiøst liv så sent som i 1408."
+                            "id": "clue-fiery-dragons",
+                            "text": "brennende drager ble sett i luften",
+                            "insight": "Munkene tolket angrepet som en overnaturlig katastrofe. Dette viser hvor sjokkert og uforberedt de var – eller ønsket å fremstå."
                         }
                     ]
                 }
             ]
         },
         {
-            "id": "step-2-the-midden-mounds",
-            "title": "Møddingen forteller: Hva spiste de?",
-            "content": "Arkeologer har gravd i 'møddingene' (søppelhaugene). Her ligger sannheten om deres siste dager.",
+            "id": "step-2-the-last-wedding",
+            "title": "Det siste livstegnet: Bryllupet i Hvalsey",
+            "content": "Det siste skriftlige beviset på liv fra de norrøne på Grønland kommer fra et bryllup i 1408.",
             "sources": [
                 {
-                    "id": "bone-analysis",
-                    "type": "archaeological",
-                    "title": "Isotopanalyse av skjelettfunn",
+                    "id": "hvalsey-record",
+                    "type": "textual",
+                    "title": "Kirkebok fra Hvalsey kirke (1408)",
                     "metadata": {
-                        "origin": "Københavns Universitet",
-                        "type": "Vitenskapelig data"
+                        "origin": "Islandske annaler",
+                        "link": "https://snl.no/Gr%C3%B8nland_-_historie"
                     },
-                    "provenance": "Fysiske levninger funnet i kirkegården ved Sandnes-gården på Grønland. Analysert med moderne laboratorieteknikk.",
-                    "uncertainty": "Isotopene viser hva de spiste, men ikke *hvorfor* de endret dietten. Var det tvang på grunn av klimaet, eller et bevisst kulturelt valg?",
-                    "original_data": "Økning i C13-verdier fra 20% til 80% over 200 år.",
-                    "interpretation": "Dette betyr at de gikk fra å spise landbruksdyr (kyr/sauer) til nesten utelukkende mat fra havet (sel/hval).",
+                    "provenance": "Offisiell registrering av et bryllup mellom Thorstein Olafsson og Sigrid Björnsdóttir.",
+                    "uncertainty": "Dette er det siste vi hører. Hvorfor stoppet alle skipene å komme etter dette?",
+                    "introduction": "Det neste beviset er en kirkebok fra Hvalsey kirke på Grønland. Dette er det aller siste skriftlige livstegnet vi har fra de norrøne menneskene som bodde der. Brevet forteller om et bryllup som skjedde i år 1408.",
+                    "original": "Anno Domini 1408... copulati sunt matrimonio Thorsteinus Olavi et Sigrida Bjornonis...",
+                    "interpretation": "I 1408 ble Thorstein Olafsson og Sigrid Björnsdóttir gift i Hvalsey kirke. Det var mange vitner til stede, og alt virket normalt i den norrøne kolonien.",
+                    "guidance": "Dette bryllupet er et av historiens mest gåtefulle spor. Kilden er en offisiell kirkebok som registrerer ekteskapet mellom to virkelige personer. Det som er viktig her, er at alt virker helt normalt. Det er ingen tegn til frykt, krig eller hungersnød i 1408. Likevel var dette de siste ordene som nådde omverdenen før kolonien ble helt tyst. Det betyr at hva enn som skjedde, så skjedde det sannsynligvis gradvis etter dette bryllupet, eller så var krisen allerede der, men de prøvde å holde på hverdagen så lenge som mulig.",
+                    "hint": "Hvis alt var normalt i 1408, hva kan ha endret seg så drastisk de neste tiårene? Se etter økonomiske faktorer.",
                     "clues": [
                         {
-                            "id": "clue-diet-shift",
-                            "text": "mat fra havet",
-                            "insight": "Dette viser en ekstrem tilpasning til et kaldere klima der tradisjonelt jordbruk ble umulig."
+                            "id": "clue-hvalsey-normal",
+                            "text": "alt virket normalt",
+                            "insight": "Ingen tegn til nød eller krig i 1408. Dette svekker teorien om at de ble utryddet av inuitter eller sjørøvere på dette tidspunktet."
                         }
                     ]
                 }
             ]
         },
         {
-            "id": "step-3-walrus-ivory",
-            "title": "Gull fra havet: Hvalrosstann",
-            "content": "Grønlanderne var rike på grunn av hvalrosstann. Men så endret markedet seg.",
+            "id": "step-3-the-ivory-trade",
+            "title": "Hvit gull: Handelen som stoppet",
+            "content": "Grønland overlevde på eksport av hvalrosstann. Men så kom konkurransen fra Afrika.",
             "sources": [
                 {
-                    "id": "trade-records",
-                    "type": "textual",
-                    "title": "Europeiske tollregistre (1420)",
+                    "id": "ivory-trade-data",
+                    "type": "scientific",
+                    "title": "Markedsoversikt: Elfenben i Europa",
                     "metadata": {
-                        "origin": "Bergen/Bremen",
-                        "date": "Ca. 1420"
+                        "origin": "University of Cambridge / Quaternary Science Reviews",
+                        "link": "https://www.nature.com/articles/d41586-020-00041-w"
                     },
-                    "provenance": "Handelsprotokoller fra Hansabyene i Nord-Tyskland og Norge.",
-                    "uncertainty": "Tollregistrene viser hva som ankom Europa, men ikke nødvendigvis alt som ble handlet ulovlig eller lokalt.",
-                    "original": "Mancipio elephanti ex Africa...",
-                    "interpretation": "Elefantelfenben fra Afrika begynte å flomme inn i Europa. Behovet for den vanskeligere tilgjengelige hvalrosstannen fra Grønland stupte.",
+                    "provenance": "Moderne vitenskapelig analyse av elfenben funnet i middelalderens Europa.",
+                    "uncertainty": "Vi kan ikke vite nøyaktig når markedet kollapset, men vi ser en klar trend mot afrikansk elfenben på 1400-tallet.",
+                    "introduction": "Nyt bevis: For å forstå hvorfor nordboerne forsvant, må vi se på pengene. Det første vi skal se på her er data fra handelen med 'hvit gull' – altså hvalrosstann og elfenben. Det var dette menneskene på Grønland levde av.",
+                    "interpretation": "Før 1300 kom nesten alt elfenben i Europa fra Grønland. Etter 1400 ble markedet oversvømt av billigere elfenben fra elefanter i Afrika. Prisen på hvalrosstann stupte.",
+                    "guidance": "Her ser vi den økonomiske katastrofen svart på hvitt. Menneskene på Grønland var helt avhengige av å bytte til seg jern og tømmer fra Europa ved å selge hvalrosstann. Da afrikansk elefant-elfenben ble mer tilgjengelig og billigere på 1400-tallet, mistet grønlendingene sin eneste 'inntekt'. Uten penger kom det ingen skip, og uten skip fikk de ikke verktøyene de trengte for å overleve. Dette beviset tyder på at de ikke ble drept, men at de rett og slett ble fattige og isolerte.",
+                    "hint": "Tenk på Grønland som en bedrift som mistet sin eneste kunde. Hva gjør de ansatte da?",
                     "clues": [
                         {
-                            "id": "clue-market-crash",
-                            "text": "Elefantelfenben fra Afrika",
-                            "insight": "Dette tyder på at deres viktigste eksportvare mistet verdien sin, noe som isolerte bosetningen økonomisk."
+                            "id": "clue-ivory-collapse",
+                            "text": "Prisen på hvalrosstann stupte",
+                            "insight": "Dette beviser en økonomisk krise. Uten handel kunne de ikke få tak i jern eller tømmer, som var nødvendig for å overleve på Grønland."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "step-4-the-climate-shift",
+            "title": "Den lille istid: Kulden kommer",
+            "content": "Isotopanalyser av iskjerneprøver viser en drastisk temperaturendring.",
+            "sources": [
+                {
+                    "id": "ice-core-data",
+                    "type": "scientific",
+                    "title": "Iskjerneprøver fra GISP2",
+                    "metadata": {
+                        "origin": "Greenland Ice Sheet Project",
+                        "link": "https://en.wikipedia.org/wiki/Little_Ice_Age"
+                    },
+                    "provenance": "Data hentet fra boring dypt ned i grønlandsisen.",
+                    "uncertainty": "Temperaturendringer skjer over tid, men vi ser en klar kuldeperiode som starter rundt 1350 og forverres på 1400-tallet.",
+                    "introduction": "Det siste sporet tar oss dypt ned i selve grønlandsisen. Dette er vitenskapelige målinger fra iskjerneprøver. Ved å bore kilometervis ned i isen, kan forskere lese av hvordan temperaturen var for hundrevis av år siden.",
+                    "interpretation": "Temperaturen på Grønland sank med flere grader på 1400-tallet. Vekstsesongen for gress (fôr til kuer) ble kortere, og havisen gjorde skipstrafikk mye farligere.",
+                    "guidance": "Dette beviset viser oss naturens makt. Samtidig som økonomien kollapset (kilde 3), satte kulden inn for fullt. Dette kalles 'Den lille istid'. Resultatet var at de ikke lenger kunne drive med kuer og sauer, slik de var vant til fra Norge. I tillegg frøs havet til, slik at skipene fra Norge ikke engang kunne nå frem til Grønland for å hjelpe. De ble låst inne i kulden uten verktøy og uten handel.",
+                    "hint": "Kilden viser at livet ble fysisk hardere. Hvordan ville du reagert hvis vinteren aldri tok slutt?",
+                    "clues": [
+                        {
+                            "id": "clue-little-ice-age",
+                            "text": "havisen gjorde skipstrafikk mye farligere",
+                            "insight": "Isolering var kanskje den viktigste årsaken. Uten kontakt med omverdenen var kolonien dødsdømt."
                         }
                     ]
                 }
@@ -121,17 +157,17 @@
         }
     ],
     "conclusion_engine": {
-        "question": "Basert på bevisene: Hva er den mest sannsynlige årsaken til at de forsvant?",
+        "question": "Hvorfor forsvant de norrøne fra Grønland?",
         "options": [
             {
                 "id": "a",
-                "text": "De ble utslettet i krig.",
-                "feedback": "Arkeologiske funn viser få tegn på voldelige konflikter som hovedårsak."
+                "text": "De ble utryddet i krig med inuitter og sjørøvere.",
+                "feedback": "Det finnes lite arkeologisk bevis for store slag. Bryllupet i 1408 tyder på et fredelig samfunn helt mot slutten."
             },
             {
                 "id": "b",
-                "text": "En kombinasjon av klima, isolasjon og økonomi.",
-                "feedback": "Riktig! Når klimaet ble kaldere, prisene på elfenben falt og skipene sluttet å komme, ble livet for hardt."
+                "text": "En kombinasjon av økonomisk kollaps (elfenben) og klimaendringer gjorde det umulig å bli.",
+                "feedback": "Riktig! Bevisene tyder på en gradvis forlatelse av øya ettersom livsgrunnlaget forsvant og kulden tok over."
             }
         ]
     }
