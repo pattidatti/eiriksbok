@@ -1,0 +1,91 @@
+{
+    "id": "hume_quest",
+    "title": "Solen Går Ned",
+    "description": "David Hume utfordrer det vi tar for gitt om årsak og virkning.",
+    "mentor": "Hume",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "David Hume",
+            "text": "Vi ser solen stå opp hver morgen. Derfor sier vi: 'Solen vil stå opp i morgen også'. Men kan vi være helt sikre?",
+            "choices": [
+                {
+                    "id": "sure",
+                    "text": "Selvfølgelig. Det er en naturlov.",
+                    "impact": {
+                        "rationalism": 3,
+                        "empiricism": 2
+                    },
+                    "nextStepId": "challenge_law"
+                },
+                {
+                    "id": "uncertain",
+                    "text": "Vi kan vel ikke være 100% sikre, men det er veldig sannsynlig.",
+                    "impact": {
+                        "skepticism": 4,
+                        "empiricism": 3
+                    },
+                    "nextStepId": "habit"
+                }
+            ]
+        },
+        {
+            "id": "challenge_law",
+            "speaker": "David Hume",
+            "text": "Men hvor kommer denne 'loven' fra? Vi har bare sett at det HAR skjedd mange ganger. Vi ser ikke noe nødvendig bånd mellom i dag og i morgen.",
+            "choices": [
+                {
+                    "id": "habit_realization",
+                    "text": "Så vi forventer det bare av vane?",
+                    "impact": {
+                        "skepticism": 5,
+                        "empiricism": 2
+                    },
+                    "nextStepId": "habit"
+                }
+            ]
+        },
+        {
+            "id": "habit",
+            "speaker": "David Hume",
+            "text": "Nettopp! Det er vanen som er livets store veiviser, ikke fornuften. Vi føler at ting henger sammen, vi ser det ikke. Fornuften er, og bør bare være, følelsenes slave.",
+            "choices": [
+                {
+                    "id": "shock",
+                    "text": "Det er en urovekkende tanke at vitenskap bygger på vane.",
+                    "impact": {
+                        "rationalism": -2,
+                        "skepticism": 4
+                    },
+                    "nextStepId": "conclusion"
+                },
+                {
+                    "id": "liberating",
+                    "text": "Det gjør oss mer ydmyke overfor naturen.",
+                    "impact": {
+                        "empiricism": 4,
+                        "humility": 3
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "David Hume",
+            "text": "Ikke la dette gjøre deg motløs. Vær en filosof, men midt i all din filosofi: vær fremdeles et menneske. Spill litt backgammon med vennene dine!",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg skal prøve å balansere tvil og liv. Takk, Hume.",
+                    "impact": {
+                        "pragmatism": 3
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

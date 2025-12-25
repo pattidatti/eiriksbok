@@ -1,0 +1,82 @@
+{
+    "id": "arendt_quest",
+    "title": "Ondskapens Banalitet",
+    "description": "Hannah Arendt advarer om hva som skjer når vi slutter å tenke og bare følger ordre.",
+    "mentor": "Arendt",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Hannah Arendt",
+            "text": "Jeg så Eichmann i Jerusalem. Han var ikke et monster med horn. Han var... skremmende normal. En byråkrat. Han gjorde bare jobben sin. Forstår du hva det betyr?",
+            "choices": [
+                {
+                    "id": "banality",
+                    "text": "At ondskap kan begås av helt vanlige mennesker som ikke tenker seg om.",
+                    "impact": {
+                        "rationalism": 3,
+                        "idealism": 2
+                    },
+                    "nextStepId": "thoughtlessness"
+                },
+                {
+                    "id": "monster",
+                    "text": "Han må ha vært ond innerst inne for å gjøre det han gjorde.",
+                    "impact": {
+                        "idealism": 2,
+                        "authoritarianism": 1
+                    },
+                    "nextStepId": "challenge_monster"
+                }
+            ]
+        },
+        {
+            "id": "challenge_monster",
+            "speaker": "Hannah Arendt",
+            "text": "Det er behagelig å tro det. Da er vi trygge, for vi er ikke monstre. Men sannheten er verre: Det var tankeløsheten som gjorde ham til en massemorder. Han reflekterte aldri over hva han gjorde.",
+            "choices": [
+                {
+                    "id": "scary",
+                    "text": "Det betyr at det kan skje igjen, med hvem som helst.",
+                    "impact": {
+                        "rationalism": 4,
+                        "skepticism": 2
+                    },
+                    "nextStepId": "action"
+                }
+            ]
+        },
+        {
+            "id": "thoughtlessness",
+            "speaker": "Hannah Arendt",
+            "text": "Nettopp. 'Ondskapens banalitet'. Når systemet tar over, og vi slutter å ha en indre dialog med oss selv, da er vi i stand til alt.",
+            "choices": [
+                {
+                    "id": "prevention",
+                    "text": "Hvordan hindrer vi det?",
+                    "impact": {
+                        "pragmatism": 2
+                    },
+                    "nextStepId": "action"
+                }
+            ]
+        },
+        {
+            "id": "action",
+            "speaker": "Hannah Arendt",
+            "text": "Vi må tenke. Og vi må handle. Politikk er frihet – å tre frem i det offentlige rom og handle sammen med andre, som likeverdige. Ikke bare adlyde.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg skal aldri slutte å tenke selv.",
+                    "impact": {
+                        "individualism": 3,
+                        "liberalism": 3
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

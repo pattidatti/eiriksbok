@@ -1,0 +1,83 @@
+{
+    "id": "kant_quest",
+    "title": "Pliktens Kall",
+    "description": "Immanuel Kant stiller det ultimate spørsmålet om moral: Hva om alle gjorde som deg?",
+    "mentor": "Kant",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Immanuel Kant",
+            "text": "To ting fyller sinnet med stadig ny og økende beundring: stjernehimmelen over meg og moralloven i meg. Men si meg, er det noen ganger greit å lyve?",
+            "choices": [
+                {
+                    "id": "white_lie",
+                    "text": "Ja, hvis det redder noen fra smerte eller fare.",
+                    "impact": {
+                        "utilitarianism": 4,
+                        "pragmatism": 2
+                    },
+                    "nextStepId": "challenge_consequences"
+                },
+                {
+                    "id": "never",
+                    "text": "Nei, sannhet er en absolutt plikt.",
+                    "impact": {
+                        "deontology": 5,
+                        "idealism": 2
+                    },
+                    "nextStepId": "categorical"
+                }
+            ]
+        },
+        {
+            "id": "challenge_consequences",
+            "speaker": "Immanuel Kant",
+            "text": "Men du kan ikke vite konsekvensene. Hva om din løgn fører til noe enda verre ved en tilfeldighet? Da har du skylden. Men hvis du gjør din plikt, er din samvittighet ren, uansett utfall.",
+            "choices": [
+                {
+                    "id": "hard_truth",
+                    "text": "Det er hardt, men logisk. Plikten må komme først.",
+                    "impact": {
+                        "deontology": 3,
+                        "rationalism": 2
+                    },
+                    "nextStepId": "categorical"
+                }
+            ]
+        },
+        {
+            "id": "categorical",
+            "speaker": "Immanuel Kant",
+            "text": "Her er loven: Handle bare etter den regel som du samtidig kan ønske skal bli en allmenn lov. Kan du ønske at alle lyver når det passer dem?",
+            "choices": [
+                {
+                    "id": "no_universal",
+                    "text": "Nei, da ville ingen stolt på noen, og løgn ville mistet sin hensikt.",
+                    "impact": {
+                        "rationalism": 5,
+                        "deontology": 3
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Immanuel Kant",
+            "text": "Akkurat. Det ville være en selvmotsigelse. Mennesket er fornuftig, og derfor fritt til å følge denne loven vi gir oss selv. Det gir oss verdighet. Behandle alltid mennesket som et mål i seg selv, aldri bare som et middel.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg skal forsøke å leve etter moralloven. Takk, Herr Professor.",
+                    "impact": {
+                        "deontology": 2,
+                        "idealism": 2
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

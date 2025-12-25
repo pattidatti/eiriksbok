@@ -1,0 +1,91 @@
+{
+    "id": "aquinas_quest",
+    "title": "Fornuftens Stige",
+    "description": "Utforsk forholdet mellom tro og viten med Thomas Aquinas.",
+    "mentor": "Aquinas",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Thomas Aquinas",
+            "text": "Velkommen. Mange tror at tro og fornuft er fiender. Men jeg sier at sannheten ikke kan motsi sannhet. Hva tror du?",
+            "choices": [
+                {
+                    "id": "conflict",
+                    "text": "Vitenskap og religion vil alltid være i konflikt.",
+                    "impact": {
+                        "empiricism": 3,
+                        "rationalism": 2
+                    },
+                    "nextStepId": "harmony_defense"
+                },
+                {
+                    "id": "harmony",
+                    "text": "Begge er gaver som kan lede oss til forståelse.",
+                    "impact": {
+                        "rationalism": 3,
+                        "idealism": 2
+                    },
+                    "nextStepId": "five_ways"
+                }
+            ]
+        },
+        {
+            "id": "harmony_defense",
+            "speaker": "Thomas Aquinas",
+            "text": "Men hvis Gud skapte verden og ga oss fornuft, ville han da lure oss? Ved å studere skaperverket (vitenskap), ærer vi Skaperen.",
+            "choices": [
+                {
+                    "id": "see_point",
+                    "text": "Jeg ser poenget ditt. Naturen er som en bok vi kan lese.",
+                    "impact": {
+                        "rationalism": 2
+                    },
+                    "nextStepId": "five_ways"
+                }
+            ]
+        },
+        {
+            "id": "five_ways",
+            "speaker": "Thomas Aquinas",
+            "text": "Se på verden. Alt som beveger seg, må beveges av noe annet. Men rekken kan ikke gå evig tilbake. Det må finnes en Første Beveger. Er dette logisk for deg?",
+            "choices": [
+                {
+                    "id": "logic_god",
+                    "text": "Det virker logisk at alt må ha en årsak.",
+                    "impact": {
+                        "rationalism": 4,
+                        "idealism": 2
+                    },
+                    "nextStepId": "conclusion"
+                },
+                {
+                    "id": "skeptic",
+                    "text": "Kanskje universet alltid har eksistert, eller oppstod av seg selv?",
+                    "impact": {
+                        "empiricism": 4,
+                        "skepticism": 3
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Thomas Aquinas",
+            "text": "Det er godt å bruke fornuften. Fornuften kan ta oss langt, opp mot himmelen som en stige. Men de siste trinnene... der må troen ta over. Fortsett å klatre.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Takk for innsikten, Thomas.",
+                    "impact": {
+                        "rationalism": 1,
+                        "idealism": 1
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

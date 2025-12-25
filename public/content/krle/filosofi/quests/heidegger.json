@@ -1,0 +1,81 @@
+{
+    "id": "heidegger_quest",
+    "title": "Væren og Tiden",
+    "description": "Martin Heidegger utforsker hva det vil si å 'være' og hvordan døden gir livet mening.",
+    "mentor": "Heidegger",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Martin Heidegger",
+            "text": "Vi er kastet inn i verden. Vi er 'Dasein' – tilstedeværelse. Men ofte glemmer vi det. Vi lever i 'det man gjør'. Man spiser, man snakker, man dør. Er du deg selv, eller er du bare 'man'?",
+            "choices": [
+                {
+                    "id": "the_they",
+                    "text": "Jeg følger nok ofte strømmen, ja.",
+                    "impact": {
+                        "existentialism": 2,
+                        "stoicism": 1
+                    },
+                    "nextStepId": "inauthentic"
+                },
+                {
+                    "id": "authentic",
+                    "text": "Jeg prøver å leve mitt eget liv, autentisk.",
+                    "impact": {
+                        "existentialism": 4,
+                        "individualism": 2
+                    },
+                    "nextStepId": "death"
+                }
+            ]
+        },
+        {
+            "id": "inauthentic",
+            "speaker": "Martin Heidegger",
+            "text": "Dette er uegentlig eksistens. Du flykter fra ansvaret for din egen væren. Hva vekker deg fra denne dvalen? Angsten.",
+            "choices": [
+                {
+                    "id": "anxiety_awakens",
+                    "text": "Angsten viser meg intetheten. At jeg står alene.",
+                    "impact": {
+                        "existentialism": 3
+                    },
+                    "nextStepId": "death"
+                }
+            ]
+        },
+        {
+            "id": "death",
+            "speaker": "Martin Heidegger",
+            "text": "Og den ultimate muligheten som gjør alle andre muligheter mulige: Døden. Du må leve som 'Væren-mot-døden'. Når du innser at tiden er knapp, blir øyeblikket viktig.",
+            "choices": [
+                {
+                    "id": "accept_death",
+                    "text": "Døden gjør livet alvorlig og verdifullt.",
+                    "impact": {
+                        "existentialism": 5,
+                        "stoicism": 3
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Martin Heidegger",
+            "text": "Ta vare på din væren. Vær en hyrde for væren. Ikke la teknologien gjøre verden til et kaldt lager av ressurser. Tenk!",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg skal huske å være til stede.",
+                    "impact": {
+                        "existentialism": 3
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

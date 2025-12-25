@@ -1,0 +1,81 @@
+{
+    "id": "augustin_quest",
+    "title": "Tidens Mysterium",
+    "description": "Bli med Augustin i hans grublerier om tid, minner og sjelens indre liv.",
+    "mentor": "Augustin",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Augustin",
+            "text": "Mitt hjerte er urolig. Jeg spør meg selv: Hva er tid? Hvis ingen spør meg, vet jeg det. Men hvis jeg skal forklare det til noen som spør, vet jeg det ikke. Hva sier du?",
+            "choices": [
+                {
+                    "id": "physical",
+                    "text": "Tid er bevegelse. Solens gang over himmelen.",
+                    "impact": {
+                        "empiricism": 3,
+                        "materialism": 2
+                    },
+                    "nextStepId": "challenge_physical"
+                },
+                {
+                    "id": "mental",
+                    "text": "Tid finnes kanskje bare i sinnet vårt? Fortid er minne, fremtid er forventning.",
+                    "impact": {
+                        "idealism": 4,
+                        "rationalism": 2
+                    },
+                    "nextStepId": "inner_time"
+                }
+            ]
+        },
+        {
+            "id": "challenge_physical",
+            "speaker": "Augustin",
+            "text": "Men hvis solen stanset, ville vi ikke fortsatt merke at tiden gikk mens vi ventet på at den skulle bevege seg igjen? Så tid er mer enn bare ytre bevegelse.",
+            "choices": [
+                {
+                    "id": "agree_mental",
+                    "text": "Da må tiden være noe vi opplever innvendig.",
+                    "impact": {
+                        "idealism": 2
+                    },
+                    "nextStepId": "inner_time"
+                }
+            ]
+        },
+        {
+            "id": "inner_time",
+            "speaker": "Augustin",
+            "text": "Ja. Det er i sjelen vi måler tiden. Fortiden er ikke lenger, fremtiden er ennå ikke. Det eneste som finnes er nået. Men minnet holder fortiden levende i nået. Er det ikke rart?",
+            "choices": [
+                {
+                    "id": "memory",
+                    "text": "Det er et mysterium hvordan vi kan bære hele vårt liv i øyeblikket.",
+                    "impact": {
+                        "idealism": 3,
+                        "existentialism": 2
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Augustin",
+            "text": "Gud er utenfor tiden, i et evig nå. Men vi vandrer i tidens strøm, søkende etter hvile. Takk for samtalen, reisende. Måtte du finne ro i ditt eget urolige hjerte.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Fred være med deg, Augustin.",
+                    "impact": {
+                        "idealism": 3
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

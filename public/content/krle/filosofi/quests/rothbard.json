@@ -1,0 +1,81 @@
+{
+    "id": "rothbard_quest",
+    "title": "Statens Anatomi",
+    "description": "Murray Rothbard kler av staten dens mytologi og avslører dens sanne natur.",
+    "mentor": "Rothbard",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Murray Rothbard",
+            "text": "Hva er staten? Mange sier 'staten, det er oss'. Men er det sant? Hvis staten tar pengene dine, kaller vi det skatt. Hvis naboen gjør det, kaller vi det tyveri. Hva er forskjellen?",
+            "choices": [
+                {
+                    "id": "legitimacy",
+                    "text": "Staten har lov til det, fordi vi har valgt den.",
+                    "impact": {
+                        "idealism": 2,
+                        "authoritarianism": 2
+                    },
+                    "nextStepId": "challenge_contract"
+                },
+                {
+                    "id": "force",
+                    "text": "Forskjellen er bare at staten har makt til å slippe unna med det.",
+                    "impact": {
+                        "liberalism": 5,
+                        "skepticism": 3
+                    },
+                    "nextStepId": "monopoly"
+                }
+            ]
+        },
+        {
+            "id": "challenge_contract",
+            "speaker": "Murray Rothbard",
+            "text": "Har du noen gang signert en kontrakt med staten? Nei. Staten er ikke et frivillig samfunn. Det er den organisasjonen i samfunnet som skaffer sine inntekter ved tvang.",
+            "choices": [
+                {
+                    "id": "monopoly_violence",
+                    "text": "Den har monopol på bruk av vold.",
+                    "impact": {
+                        "liberalism": 4
+                    },
+                    "nextStepId": "monopoly"
+                }
+            ]
+        },
+        {
+            "id": "monopoly",
+            "speaker": "Murray Rothbard",
+            "text": "Akkurat. Staten definerer seg selv som uunnværlig, og bruker intellektuelle til å bygge murer av myter for å skjule sin nakne makt. Når staten går til krig, sier den at DU må forsvare deg. Men det er staten som beskytter sin egen makt.",
+            "choices": [
+                {
+                    "id": "rights",
+                    "text": "Hva er alternativet?",
+                    "impact": {
+                        "pragmatism": 2
+                    },
+                    "nextStepId": "liberty"
+                }
+            ]
+        },
+        {
+            "id": "liberty",
+            "speaker": "Murray Rothbard",
+            "text": "Alternativet er frihet. Et samfunn bygget utelukkende på frivillige bytter. Enhver aggressjon mot fredelige mennesker er en forbrytelse, uansett om den begås av en gatebande eller en politiker. Ikke la dem lure deg.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "En radikal tanke. Jeg skal være på vakt.",
+                    "impact": {
+                        "liberalism": 5,
+                        "individualism": 4
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

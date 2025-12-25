@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock, CloudRain, Moon, BookOpen, X } from 'lucide-react';
-import type { ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment, ChronosEntry } from '../../data/chronos/types';
-import { DiceGame } from './minigames/DiceGame'; // Import DiceGame
+import { Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock, CloudRain, Moon, BookOpen, X, Map as MapIcon, Users } from 'lucide-react';
+import type { ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment, ChronosEntry, ChronosMapPoint } from '../../data/chronos/types';
+import { DiceGame } from './minigames/DiceGame';
+import { ChronosMap } from './ChronosMap'; // Import Map Component
 
 interface ChronosUIProps {
     node: ChronosNode;
@@ -26,7 +27,9 @@ const IconMap: Record<string, any> = {
     star: Star,
     backpack: Backpack,
     sword: Zap,
-    book: BookOpen
+    book: BookOpen,
+    map: MapIcon,
+    users: Users
 };
 
 const WeatherOverlay: React.FC<{ environment?: Partial<ChronosEnvironment> }> = ({ environment }) => {
@@ -75,6 +78,10 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
     const [journalText, setJournalText] = useState('');
     const [showJournal, setShowJournal] = useState(false);
 
+    // Filter Stats
+    const attributes = stats.filter(s => !s.category || s.category === 'attribute');
+    const relations = stats.filter(s => s.category === 'relation');
+
     // Dynamic Icon resolver
     const getIcon = (iconName: string) => {
         const Icon = IconMap[iconName] || Star;
@@ -101,10 +108,18 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
             onAddJournalEntry(journalText);
         }
         setJournalText('');
-        // Proceed to next node (assume first choice is the exit)
         if (node.choices.length > 0) {
             onChoice(node.choices[0]);
         }
+    };
+
+    // Handle Map Point Click
+    const handleMapPointClick = (point: ChronosMapPoint) => {
+        onChoice({
+            id: `map_click_${point.id}`,
+            text: point.label,
+            nextNodeId: point.nextNodeId
+        });
     };
 
     const isEnd = node.isEnd;
@@ -143,25 +158,49 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
 
             {/* HUD Layer (Relative, Top) */}
             <div className="relative z-20 p-8 w-full flex justify-between items-start">
-                {/* Stats */}
-                <div className="flex flex-wrap gap-4 p-3 pl-5 pr-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm shadow-stone-200/50 w-fit">
-                    {stats.map(stat => (
-                        <div key={stat.id} className="flex flex-col gap-1.5">
-                            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-stone-500">
-                                {getIcon(stat.icon)}
-                                <span>{stat.label}</span>
+                <div className="flex gap-4">
+                    {/* Attributes */}
+                    <div className="flex flex-wrap gap-4 p-3 pl-5 pr-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm shadow-stone-200/50 w-fit">
+                        {attributes.map(stat => (
+                            <div key={stat.id} className="flex flex-col gap-1.5">
+                                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-stone-500">
+                                    {getIcon(stat.icon)}
+                                    <span>{stat.label}</span>
+                                </div>
+                                <div className="w-32 h-2 bg-stone-200 rounded-full overflow-hidden shadow-inner">
+                                    <motion.div
+                                        className="h-full"
+                                        initial={{ width: 0 }}
+                                        animate={{ width: `${(stat.value / stat.max) * 100}%` }}
+                                        transition={{ type: "spring", stiffness: 50, damping: 20 }}
+                                        style={{ backgroundColor: config.theme?.primaryColor || '#6366f1' }}
+                                    />
+                                </div>
                             </div>
-                            <div className="w-32 h-2 bg-stone-200 rounded-full overflow-hidden shadow-inner">
-                                <motion.div
-                                    className="h-full"
-                                    initial={{ width: 0 }}
-                                    animate={{ width: `${(stat.value / stat.max) * 100}%` }}
-                                    transition={{ type: "spring", stiffness: 50, damping: 20 }}
-                                    style={{ backgroundColor: config.theme?.primaryColor || '#6366f1' }}
-                                />
-                            </div>
+                        ))}
+                    </div>
+
+                    {/* Relations - Only show if exist */}
+                    {relations.length > 0 && (
+                        <div className="flex flex-wrap gap-4 p-3 pl-5 pr-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm shadow-stone-200/50 w-fit">
+                            {relations.map(stat => (
+                                <div key={stat.id} className="flex flex-col gap-1.5">
+                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-indigo-500">
+                                        {getIcon(stat.icon)}
+                                        <span>{stat.label}</span>
+                                    </div>
+                                    <div className="w-24 h-2 bg-stone-200 rounded-full overflow-hidden shadow-inner">
+                                        <motion.div
+                                            className="h-full bg-indigo-500"
+                                            initial={{ width: 0 }}
+                                            animate={{ width: `${(stat.value / stat.max) * 100}%` }}
+                                            transition={{ type: "spring", stiffness: 50, damping: 20 }}
+                                        />
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    )}
                 </div>
 
                 <div className="flex gap-4">
@@ -266,7 +305,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                             </div>
                         )}
 
-                        {/* Main Text */}
+                        {/* Main Text & Content */}
                         <h2
                             className="text-2xl md:text-4xl font-medium text-stone-900 mb-8 md:mb-10 leading-[1.35] tracking-tight"
                             style={{ fontFamily: config.theme?.font || 'serif' }}
@@ -286,6 +325,11 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                                         nextNodeId: nextId
                                     });
                                 }}
+                            />
+                        ) : node.uiType === 'map' && node.mapConfig ? (
+                            <ChronosMap
+                                config={node.mapConfig}
+                                onPointClick={handleMapPointClick}
                             />
                         ) : node.journalPrompt ? (
                             <div className="space-y-4">

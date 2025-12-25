@@ -1,0 +1,83 @@
+{
+    "id": "beauvoir_quest",
+    "title": "Det Annet Kjønn",
+    "description": "Simone de Beauvoir utforsker kvinnefrigjøring og eksistensiell frihet.",
+    "mentor": "Beauvoir",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Simone de Beauvoir",
+            "text": "Man fødes ikke som kvinne, man blir det. Hva legger jeg i det, tror du?",
+            "choices": [
+                {
+                    "id": "social",
+                    "text": "At samfunnet og oppdragelsen former oss til å fylle en rolle.",
+                    "impact": {
+                        "existentialism": 4,
+                        "liberalism": 3
+                    },
+                    "nextStepId": "object"
+                },
+                {
+                    "id": "biology",
+                    "text": "At biologi ikke er skjebne.",
+                    "impact": {
+                        "rationalism": 3,
+                        "materialism": 1
+                    },
+                    "nextStepId": "object"
+                }
+            ]
+        },
+        {
+            "id": "object",
+            "speaker": "Simone de Beauvoir",
+            "text": "Kvinnen har blitt definert som 'Den Andre'. Mannen er Subjektet, det Absolutte. Kvinnen er objektet. Hun defineres i forhold til ham. Er dette frihet?",
+            "choices": [
+                {
+                    "id": "no_freedom",
+                    "text": "Nei, frihet krever at man definerer seg selv.",
+                    "impact": {
+                        "existentialism": 5,
+                        "individualism": 2
+                    },
+                    "nextStepId": "immanence"
+                }
+            ]
+        },
+        {
+            "id": "immanence",
+            "speaker": "Simone de Beauvoir",
+            "text": "Mange kvinner lokkes til å bli værende i 'immanensen' – i passivitet og huslige sysler. Det er trygt, men det er å gi avkall på sin menneskelighet. Målet er transcendens! Å overskride seg selv gjennom handling.",
+            "choices": [
+                {
+                    "id": "project",
+                    "text": "Vi må skape våre egne prosjekter og ta ansvar for våre liv.",
+                    "impact": {
+                        "existentialism": 4,
+                        "pragmatism": 3
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Simone de Beauvoir",
+            "text": "Frihet er en byrde, men det er den eneste veien til et autentisk liv. Krev din plass som subjekt i verden!",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg vil definere meg selv.",
+                    "impact": {
+                        "individualism": 3,
+                        "existentialism": 2
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

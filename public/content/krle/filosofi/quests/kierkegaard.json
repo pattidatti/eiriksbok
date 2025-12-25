@@ -1,0 +1,89 @@
+{
+    "id": "kierkegaard_quest",
+    "title": "Spranget",
+    "description": "Søren Kierkegaard utfordrer deg til å velge. Ikke bare tenke, men velge med hele din eksistens.",
+    "mentor": "Kierkegaard",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Søren Kierkegaard",
+            "text": "De fleste lever som 'spissborgere', de bare flyter med strømmen. Eller de nyter livet som estetikere, flykter fra kjedsomhet. Men føler du noen gang at noe mangler? En angst, en svimmelhet?",
+            "choices": [
+                {
+                    "id": "yes_anxiety",
+                    "text": "Ja, av og til føles alt tomt, selv om jeg har det gøy.",
+                    "impact": {
+                        "existentialism": 4,
+                        "idealism": 1
+                    },
+                    "nextStepId": "choice"
+                },
+                {
+                    "id": "no_happy",
+                    "text": "Nei, jeg trives godt med livet mitt som det er.",
+                    "impact": {
+                        "materialism": 3,
+                        "epicureanism": 2
+                    },
+                    "nextStepId": "despair"
+                }
+            ]
+        },
+        {
+            "id": "despair",
+            "speaker": "Søren Kierkegaard",
+            "text": "Det er den farligste formen for fortvilelse: Å ikke vite at man er fortvilet. Å miste sitt *selv* uten å merke det. Du trenger å våkne! Du trenger å velge!",
+            "choices": [
+                {
+                    "id": "wake_up",
+                    "text": "Hva mener du med å velge?",
+                    "impact": {
+                        "existentialism": 2
+                    },
+                    "nextStepId": "choice"
+                }
+            ]
+        },
+        {
+            "id": "choice",
+            "speaker": "Søren Kierkegaard",
+            "text": "Etikken krever at du tar ansvar. At du velger deg selv. Men selv det er ikke nok. Sannheten er subjektiv. Den er noe du må leve og dø for. Tør du ta spranget ut på de 70 000 favners dyp?",
+            "choices": [
+                {
+                    "id": "leap",
+                    "text": "Du snakker om troen. Det absurde spranget.",
+                    "impact": {
+                        "existentialism": 5,
+                        "idealism": 3
+                    },
+                    "nextStepId": "conclusion"
+                },
+                {
+                    "id": "hesitate",
+                    "text": "Det høres farlig og irrasjonelt ut.",
+                    "impact": {
+                        "rationalism": 4
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Søren Kierkegaard",
+            "text": "Livet er ikke et problem som skal løses, men en virkelighet som skal oppleves. Du står ved stupet. Valget er ditt, og bare ditt. Ingen kan ta det for deg.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg forstår alvoret. Takk, Søren.",
+                    "impact": {
+                        "existentialism": 3
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

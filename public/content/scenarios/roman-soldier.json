@@ -33,6 +33,22 @@
                 "icon": "crown",
                 "value": 10,
                 "max": 1000
+            },
+            {
+                "id": "rel_centurion",
+                "label": "Centurion",
+                "icon": "users",
+                "value": 50,
+                "max": 100,
+                "category": "relation"
+            },
+            {
+                "id": "rel_locals",
+                "label": "Lokalbefolkning",
+                "icon": "users",
+                "value": 30,
+                "max": 100,
+                "category": "relation"
             }
         ],
         "items": [
@@ -66,7 +82,8 @@
                     "text": "Stå i stram givakt (Vis Disiplin)",
                     "nextNodeId": "camp_hub_morning",
                     "effects": {
-                        "discipline": 10
+                        "discipline": 10,
+                        "rel_centurion": 10
                     },
                     "updateEnvironment": {
                         "time": "day"
@@ -77,7 +94,8 @@
                     "text": "Se ham i øynene (Vis Mot)",
                     "nextNodeId": "camp_hub_morning",
                     "effects": {
-                        "morale": 10
+                        "morale": 10,
+                        "rel_centurion": -5
                     },
                     "updateEnvironment": {
                         "time": "day"
@@ -87,37 +105,48 @@
         },
         "camp_hub_morning": {
             "id": "camp_hub_morning",
-            "text": "Morgensolen bryter gjennom tåken. Leiren våkner til liv. Smedene hamrer, hester vrinsker, og lukten av nybakt brød blander seg med latrinene. Hva vil du gjøre i dag?",
+            "text": "Morgensolen bryter gjennom tåken. Leiren våkner til liv. Hvor vil du gå?",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/roman_camp_day.jpg",
-            "choices": [
-                {
-                    "id": "hub_patrol",
-                    "text": "Meld deg til patruljetjeneste",
-                    "nextNodeId": "patrol_gate",
-                    "effects": {
-                        "discipline": 5
+            "choices": [],
+            "uiType": "map",
+            "mapConfig": {
+                "image": "/images/chronos/roman_fort_map.png",
+                "points": [
+                    {
+                        "id": "point_gate",
+                        "x": 50,
+                        "y": 10,
+                        "label": "Nordporten (Patrulje)",
+                        "icon": "shield",
+                        "nextNodeId": "patrol_gate"
+                    },
+                    {
+                        "id": "point_training",
+                        "x": 20,
+                        "y": 60,
+                        "label": "Treningsfeltet",
+                        "icon": "swords",
+                        "nextNodeId": "training_field"
+                    },
+                    {
+                        "id": "point_baths",
+                        "x": 80,
+                        "y": 60,
+                        "label": "Badehuset",
+                        "icon": "water",
+                        "nextNodeId": "baths"
+                    },
+                    {
+                        "id": "point_hq",
+                        "x": 50,
+                        "y": 40,
+                        "label": "Hovedkvarteret",
+                        "icon": "tent",
+                        "nextNodeId": "camp_hub_evening"
                     }
-                },
-                {
-                    "id": "hub_train",
-                    "text": "Tren sverdteknikk på banen",
-                    "nextNodeId": "training_field",
-                    "effects": {
-                        "discipline": 10,
-                        "morale": -5
-                    }
-                },
-                {
-                    "id": "hub_leisure",
-                    "text": "Oppsøk badene og slapp av",
-                    "nextNodeId": "baths",
-                    "effects": {
-                        "morale": 15,
-                        "discipline": -5
-                    }
-                }
-            ]
+                ]
+            }
         },
         "camp_hub_evening": {
             "id": "camp_hub_evening",
@@ -164,7 +193,7 @@
             "choices": [
                 {
                     "id": "wake_up",
-                    "text": "Møt dagen",
+                    "text": "Møt dagen (Til Kartet)",
                     "nextNodeId": "camp_hub_morning",
                     "effects": {},
                     "updateEnvironment": {
@@ -192,7 +221,8 @@
                     "text": "Bli i leiren i stedet",
                     "nextNodeId": "camp_hub_morning",
                     "effects": {
-                        "morale": -5
+                        "morale": -5,
+                        "rel_centurion": -10
                     }
                 }
             ]
@@ -208,7 +238,8 @@
                     "text": "Dann skjoldborg! (Testudo)",
                     "nextNodeId": "fight_tactics",
                     "effects": {
-                        "discipline": 15
+                        "discipline": 15,
+                        "rel_centurion": 5
                     }
                 },
                 {
@@ -217,7 +248,8 @@
                     "nextNodeId": "fight_aggro",
                     "effects": {
                         "morale": 10,
-                        "discipline": -10
+                        "discipline": -10,
+                        "rel_centurion": -5
                     }
                 }
             ]
@@ -233,7 +265,8 @@
                     "nextNodeId": "camp_hub_evening",
                     "effects": {
                         "morale": 10,
-                        "gold": 20
+                        "gold": 20,
+                        "rel_centurion": 10
                     },
                     "updateEnvironment": {
                         "time": "night"
@@ -289,7 +322,8 @@
                     "nextNodeId": "camp_hub_evening",
                     "effects": {
                         "gold": 50,
-                        "discipline": -20
+                        "discipline": -20,
+                        "rel_locals": -20
                     },
                     "updateEnvironment": {
                         "time": "night"
@@ -312,7 +346,8 @@
                     "text": "La ham passere",
                     "nextNodeId": "camp_hub_evening",
                     "effects": {
-                        "discipline": 5
+                        "discipline": 5,
+                        "rel_locals": 5
                     },
                     "updateEnvironment": {
                         "time": "night"
@@ -331,7 +366,8 @@
                     "nextNodeId": "camp_hub_evening",
                     "effects": {
                         "morale": 5,
-                        "discipline": -5
+                        "discipline": -5,
+                        "rel_locals": -10
                     },
                     "updateInventory": {
                         "add": "celtic_brooch"
@@ -346,7 +382,8 @@
                     "nextNodeId": "camp_hub_evening",
                     "effects": {
                         "morale": 10,
-                        "discipline": 5
+                        "discipline": 5,
+                        "rel_locals": -30
                     },
                     "updateEnvironment": {
                         "time": "night"
@@ -357,7 +394,8 @@
                     "text": "La det være. Man vet aldri.",
                     "nextNodeId": "camp_hub_evening",
                     "effects": {
-                        "morale": -5
+                        "morale": -5,
+                        "rel_locals": 10
                     },
                     "updateEnvironment": {
                         "time": "night"
@@ -377,7 +415,8 @@
                     "nextNodeId": "camp_hub_evening",
                     "effects": {
                         "discipline": 20,
-                        "morale": -5
+                        "morale": -5,
+                        "rel_centurion": 10
                     },
                     "updateEnvironment": {
                         "time": "night"
@@ -389,7 +428,8 @@
                     "nextNodeId": "camp_hub_evening",
                     "effects": {
                         "discipline": -5,
-                        "morale": 5
+                        "morale": 5,
+                        "rel_centurion": -5
                     },
                     "updateEnvironment": {
                         "time": "night"
@@ -408,7 +448,8 @@
                     "text": "Nyt stunden",
                     "nextNodeId": "camp_hub_evening",
                     "effects": {
-                        "morale": 25
+                        "morale": 25,
+                        "rel_locals": 5
                     },
                     "updateEnvironment": {
                         "time": "night"
@@ -434,7 +475,8 @@
                     "text": "Juks litt (Risiker Disiplin)",
                     "nextNodeId": "gamble_result_cheat",
                     "effects": {
-                        "discipline": -10
+                        "discipline": -10,
+                        "rel_centurion": -5
                     }
                 }
             ]
@@ -480,7 +522,7 @@
                 {
                     "id": "sleep_loss",
                     "text": "Gå slukøret til sengs",
-                    "nextNodeId": "new_day_transition",
+                    "nextNodeId": "journal_evening_1",
                     "effects": {
                         "morale": -5
                     },
@@ -498,10 +540,14 @@
                 {
                     "id": "sleep_shame",
                     "text": "Snik deg til sengs",
-                    "nextNodeId": "new_day_transition",
+                    "nextNodeId": "journal_evening_1",
                     "effects": {
                         "gold": -20,
-                        "morale": -20
+                        "morale": -20,
+                        "rel_centurion": -20
+                    },
+                    "updateEnvironment": {
+                        "time": "day"
                     }
                 }
             ]

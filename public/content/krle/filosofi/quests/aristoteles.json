@@ -1,0 +1,98 @@
+{
+    "id": "aristoteles_quest",
+    "title": "Den Gylne Middelvei",
+    "description": "Utforsk Aristoteles' lære om hvordan man oppnår lykke gjennom balanse.",
+    "mentor": "Aristoteles",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Aristoteles",
+            "text": "Velkommen til Lykeion. Vi studerer her det viktigste av alle mål: Eudaimonia – lykken. Men fortell meg, hva tror du er hemmeligheten til et godt liv?",
+            "choices": [
+                {
+                    "id": "pleasure",
+                    "text": "Å nyte livet mest mulig og unngå smerte.",
+                    "impact": {
+                        "epicureanism": 3,
+                        "materialism": 2
+                    },
+                    "nextStepId": "critique_pleasure"
+                },
+                {
+                    "id": "virtue",
+                    "text": "Å utvikle gode karaktertrekk og leve dydig.",
+                    "impact": {
+                        "idealism": 3,
+                        "rationalism": 2
+                    },
+                    "nextStepId": "virtue_path"
+                }
+            ]
+        },
+        {
+            "id": "critique_pleasure",
+            "speaker": "Aristoteles",
+            "text": "Nytelse er godt, men er det nok? Selv kveget kan føle nytelse. Men mennesket har fornuft. Er ikke vår lykke knyttet til det som er unikt for oss?",
+            "choices": [
+                {
+                    "id": "reason_agree",
+                    "text": "Jo, vi må bruke våre evner til det fulle.",
+                    "impact": {
+                        "rationalism": 3,
+                        "idealism": 1
+                    },
+                    "nextStepId": "virtue_path"
+                }
+            ]
+        },
+        {
+            "id": "virtue_path",
+            "speaker": "Aristoteles",
+            "text": "Nettopp. Men dyd er ikke ekstremisme. Tenk deg mot. Hva skjer om man har for lite av det?",
+            "choices": [
+                {
+                    "id": "cowardice",
+                    "text": "Da blir man feig.",
+                    "impact": {
+                        "rationalism": 1
+                    },
+                    "nextStepId": "golden_mean"
+                }
+            ]
+        },
+        {
+            "id": "golden_mean",
+            "speaker": "Aristoteles",
+            "text": "Riktig. Og hvis man har for mye mot, uten frykt?",
+            "choices": [
+                {
+                    "id": "foolhardy",
+                    "text": "Da blir man dumdristig.",
+                    "impact": {
+                        "rationalism": 2,
+                        "stoicism": 1
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Aristoteles",
+            "text": "Du forstår. Dyden – og lykken – finnes i midten. I balansen mellom to ekstremer. Gå nå, og finn din egen middelvei.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Takk, Aristoteles.",
+                    "impact": {
+                        "rationalism": 2,
+                        "stoicism": 2
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

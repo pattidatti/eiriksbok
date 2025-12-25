@@ -1,0 +1,91 @@
+{
+    "id": "nietzsche_quest",
+    "title": "Gud er Død",
+    "description": "Friedrich Nietzsche forkynner en skremmende frihet: Når gamle verdier faller, må vi skape våre egne.",
+    "mentor": "Nietzsche",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Friedrich Nietzsche",
+            "text": "Gud er død! Og vi har drept ham. De gamle horisontene er visket bort. Føler du kulden? Tomrommet? Hva skal vi gjøre nå?",
+            "choices": [
+                {
+                    "id": "despair",
+                    "text": "Hvis ingenting har mening, er alt lov. Det er kaos.",
+                    "impact": {
+                        "nihilism": 4,
+                        "existentialism": 2
+                    },
+                    "nextStepId": "nihilism"
+                },
+                {
+                    "id": "create",
+                    "text": "Vi må finne nye verdier å leve etter.",
+                    "impact": {
+                        "existentialism": 4,
+                        "individualism": 3
+                    },
+                    "nextStepId": "ubermensch"
+                }
+            ]
+        },
+        {
+            "id": "nihilism",
+            "speaker": "Friedrich Nietzsche",
+            "text": "Pass deg for nihilismen! Å si nei til livet. Religionen var en krykke, men den ga mening. Nå må du være sterk nok til å skape mening selv, uten Guds blikk.",
+            "choices": [
+                {
+                    "id": "strength",
+                    "text": "Jeg vil være sterk. Jeg vil si ja til livet.",
+                    "impact": {
+                        "individualism": 4,
+                        "stoicism": 2
+                    },
+                    "nextStepId": "ubermensch"
+                }
+            ]
+        },
+        {
+            "id": "ubermensch",
+            "speaker": "Friedrich Nietzsche",
+            "text": "Mennesket er en line spent mellom dyret og overmennesket. Du må overvinne deg selv! Du må elske din skjebne – Amor Fati. Kan du ville at dette øyeblikket skal gjentas i evighet?",
+            "choices": [
+                {
+                    "id": "eternal_return",
+                    "text": "Ja! Jeg vil leve slik at jeg ønsker det evige tilbakekomst.",
+                    "impact": {
+                        "existentialism": 5,
+                        "individualism": 5
+                    },
+                    "nextStepId": "conclusion"
+                },
+                {
+                    "id": "hesitate_return",
+                    "text": "Det er en tung byrde å bære.",
+                    "impact": {
+                        "stoicism": 2,
+                        "skepticism": 2
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Friedrich Nietzsche",
+            "text": "Bli hvem du er! Ikke følg flokken, ikke følg slavmoralen. Skap dine egne dyder. Vær en danser i kaoset!",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg hører deg, Zarathustra.",
+                    "impact": {
+                        "individualism": 3
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

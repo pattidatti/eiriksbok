@@ -1,0 +1,82 @@
+{
+    "id": "mises_quest",
+    "title": "Det Handlende Menneske",
+    "description": "Ludwig von Mises forklarer at all menneskelig handling er et forsøk på å bytte en tilstand med en bedre.",
+    "mentor": "Mises",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Ludwig von Mises",
+            "text": "Mennesket handler. Det er det grunnleggende aksiomet. Vi handler alltid for å fjerne et ubehag. Hva forteller det oss?",
+            "choices": [
+                {
+                    "id": "purpose",
+                    "text": "At all handling er målrettet og rasjonell fra aktørens perspektiv.",
+                    "impact": {
+                        "rationalism": 4,
+                        "liberalism": 2
+                    },
+                    "nextStepId": "value_subjective"
+                },
+                {
+                    "id": "chaos",
+                    "text": "At folk gjør mye rart.",
+                    "impact": {
+                        "empiricism": 2
+                    },
+                    "nextStepId": "value_subjective"
+                }
+            ]
+        },
+        {
+            "id": "value_subjective",
+            "speaker": "Ludwig von Mises",
+            "text": "Og siden handling springer ut av individets ønsker, er verdi subjektivt. En flaske vann er verdt lite ved elven, men alt i ørkenen. Ingen sentral planlegger kan vite hva ting er verdt for deg.",
+            "choices": [
+                {
+                    "id": "planning_impossible",
+                    "text": "Så en stat kan ikke beregne økonomien riktig?",
+                    "impact": {
+                        "liberalism": 4,
+                        "rationalism": 3
+                    },
+                    "nextStepId": "calc_problem"
+                }
+            ]
+        },
+        {
+            "id": "calc_problem",
+            "speaker": "Ludwig von Mises",
+            "text": "Korrekt! Uten markedspriser – som oppstår gjennom frie bytter av privat eiendom – er økonomisk kalkulasjon umulig. Sosialisme er ikke bare dårlig moral, det er umulig i praksis. Det fører til kaos.",
+            "choices": [
+                {
+                    "id": "freedom",
+                    "text": "Frihet er altså en forutsetning for orden.",
+                    "impact": {
+                        "liberalism": 5,
+                        "rationalism": 2
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Ludwig von Mises",
+            "text": "Kun i et fritt marked, der mennesker handler frivillig, kan samfunnet blomstre. Ideer er viktigere enn våpen. Kampen står om menneskenes sinn.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg skal handle klokt.",
+                    "impact": {
+                        "individualism": 3,
+                        "liberalism": 2
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

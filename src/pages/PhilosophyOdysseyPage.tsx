@@ -21,6 +21,7 @@ import { PhilosophicalQuestEngine } from '../components/content/interactive/phil
 import type { PhilosophyQuest } from '../data/philosophy/types';
 import { Stjernekart } from '../components/content/interactive/philosophy/Stjernekart';
 import { QUEST_REGISTRY } from '../data/philosophy/questRegistry';
+import { QuestList } from '../components/content/interactive/philosophy/QuestList';
 
 export const PhilosophyOdysseyPage: React.FC = () => {
     const [selectedTab, setSelectedTab] = useState<'quest' | 'network' | 'profile'>('quest');
@@ -50,7 +51,7 @@ export const PhilosophyOdysseyPage: React.FC = () => {
         queryKey: ['quest', activeQuestId],
         queryFn: async () => {
             if (!activeQuestId) return null;
-            const config = Object.values(QUEST_REGISTRY).find((q: any) => q.philosopherId === activeQuestId);
+            const config = Object.values(QUEST_REGISTRY).find((q: any) => q.id === activeQuestId);
             // Default to Sokrates if no specific quest found (FOR DEMO PURPOSE ONLY - should verify later)
             const path = config ? config.path : QUEST_REGISTRY['sokrates'].path;
 
@@ -264,45 +265,20 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                 </section>
 
                                 <section className="md:col-span-8 rounded-[3rem] bg-white border border-black/[0.03] shadow-[0_24px_48px_rgba(0,0,0,0.02)] p-12 lg:p-16">
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
+                                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-6">
                                         <div>
-                                            <h3 className="text-3xl font-black tracking-tight">Læringsstien</h3>
-                                            <p className="text-slate-400 text-sm font-medium mt-1">Følg den gylne tråden gjennom tidene.</p>
+                                            <h3 className="text-3xl font-black tracking-tight">Dine Reiser</h3>
+                                            <p className="text-slate-400 text-sm font-medium mt-1">Velg en vismann for å starte en dialog.</p>
                                         </div>
                                         <div className="flex items-center gap-4">
-                                            <button className="p-3 rounded-2xl bg-slate-50 hover:bg-slate-100 transition-colors">
-                                                <History size={20} className="text-slate-400" />
-                                            </button>
                                             <Link to="/krle/filosofi" className="px-6 py-3 rounded-2xl border border-black/5 text-[10px] font-black uppercase tracking-widest hover:bg-black hover:text-white transition-all">
                                                 Biblioteket
                                             </Link>
                                         </div>
                                     </div>
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        {lessons.slice(0, 4).map((lesson, idx) => (
-                                            <motion.div
-                                                key={lesson.id}
-                                                whileHover={{ y: -4 }}
-                                                className="group/card relative flex items-center gap-6 p-6 rounded-[2.5rem] border border-black/[0.03] hover:border-indigo-500/20 hover:bg-indigo-50/[0.3] transition-all duration-500"
-                                            >
-                                                <div className="w-20 h-20 rounded-3xl overflow-hidden shrink-0 border border-black/5">
-                                                    <img
-                                                        src={lesson.image || `/images/filosofi/${lesson.id}_hero.png`}
-                                                        alt={lesson.title}
-                                                        className="w-full h-full object-cover group-hover/card:scale-110 transition-transform duration-700"
-                                                    />
-                                                </div>
-                                                <div className="flex-1">
-                                                    <h4 className="font-black text-lg group-hover/card:text-indigo-600 transition-colors">{lesson.title}</h4>
-                                                    <div className="flex items-center gap-3 mt-2">
-                                                        <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">{idx === 0 ? 'Fullført' : idx === 1 ? 'Neste' : 'Låst'}</span>
-                                                        <div className={`w-1.5 h-1.5 rounded-full ${idx === 0 ? 'bg-green-500' : idx === 1 ? 'bg-indigo-500' : 'bg-slate-200'}`} />
-                                                    </div>
-                                                </div>
-                                                <Link to={`/krle/filosofi/${lesson.id}`} className="absolute inset-0 opacity-0">Start</Link>
-                                            </motion.div>
-                                        ))}
+                                    <div className="-mx-6">
+                                        <QuestList onSelectQuest={setActiveQuestId} />
                                     </div>
                                 </section>
                             </div>

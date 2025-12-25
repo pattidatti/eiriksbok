@@ -1,0 +1,82 @@
+{
+    "id": "descartes_quest",
+    "title": "Drøm eller Virkelighet?",
+    "description": "Bli med René Descartes og skrell bort alt du trodde du visste i jakten på en sikker sannhet.",
+    "mentor": "Descartes",
+    "initialStepId": "start",
+    "rewardXp": 500,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "René Descartes",
+            "text": "Jeg sitter her ved peisen, men hvordan kan jeg vite at jeg ikke drømmer? Har du aldri hatt en drøm som føltes helt virkelig?",
+            "choices": [
+                {
+                    "id": "yes_dream",
+                    "text": "Jo, det har skjedd. Det er skremmende hvor ekte det kan føles.",
+                    "impact": {
+                        "skepticism": 3,
+                        "idealism": 1
+                    },
+                    "nextStepId": "demon"
+                },
+                {
+                    "id": "senses_trust",
+                    "text": "Jeg stoler på sansene mine. Ilden varmer, bordet er hardt.",
+                    "impact": {
+                        "empiricism": 4,
+                        "materialism": 2
+                    },
+                    "nextStepId": "deceit"
+                }
+            ]
+        },
+        {
+            "id": "deceit",
+            "speaker": "René Descartes",
+            "text": "Men sansene har lurt oss før! En stokk ser bøyd ut i vann. Kan vi bygge vitenskap på noe som kan ta feil?",
+            "choices": [
+                {
+                    "id": "doubt_all",
+                    "text": "Kanskje ikke. Vi må tvile på alt for å være sikre.",
+                    "impact": {
+                        "rationalism": 3,
+                        "skepticism": 3
+                    },
+                    "nextStepId": "demon"
+                }
+            ]
+        },
+        {
+            "id": "demon",
+            "speaker": "René Descartes",
+            "text": "Tenk deg at en ond demon lurer oss. At alt vi ser er en illusjon. Finnes det NOE denne demonen ikke kan lure meg til å tro?",
+            "choices": [
+                {
+                    "id": "cogito",
+                    "text": "Hvis han lurer deg, så må du jo eksistere for å bli lurt.",
+                    "impact": {
+                        "rationalism": 5,
+                        "existentialism": 2
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "René Descartes",
+            "text": "Eureka! Cogito, ergo sum. Jeg tenker, altså er jeg. Dette er fundamentet. På denne klippen kan vi bygge verden opp igjen.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "En kraftig tanke, René.",
+                    "impact": {
+                        "rationalism": 3
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

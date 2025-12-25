@@ -66,16 +66,32 @@ export interface ChronosMinigame {
     };
 }
 
+export interface ChronosMapPoint {
+    id: string;
+    x: number; // Percentage 0-100
+    y: number; // Percentage 0-100
+    label: string;
+    icon?: string; // Lucide icon name
+    nextNodeId: string;
+}
+
 export interface ChronosNode {
     id: string;
     text: string;
+    choices: ChronosChoice[];
     speaker?: string;
     backgroundImage?: string;
-    choices: ChronosChoice[];
     isEnd?: boolean;
     endType?: 'victory' | 'defeat';
     minigame?: ChronosMinigame;
     journalPrompt?: string; // If present, shows text area before choices
+
+    // Map System
+    uiType?: 'default' | 'map';
+    mapConfig?: {
+        image: string;
+        points: ChronosMapPoint[];
+    };
 }
 
 export interface ChronosEntry {
