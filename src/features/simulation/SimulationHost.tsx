@@ -108,7 +108,8 @@ export const SimulationHost: React.FC = () => {
         setIsLoading(true);
         try {
             const kingTax = roomData.world.taxRateDetails.kingTax || 20;
-            const { updatedPlayers, results } = collectTaxes(roomData.players, kingTax, 15);
+            const { updatedPlayers, results } = collectTaxes(roomData.players, kingTax);
+
             await update(ref(db, `simulation_rooms/${pin}/players`), updatedPlayers);
             alert(`Suksess! ${results.length} bønder og baroner ble skattlagt.`);
         } catch (e) {
