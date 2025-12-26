@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import type { SimulationPlayer, SimulationRoom } from './types';
 import { ACTION_COSTS, SEASONS, WEATHER } from './constants';
-import { TAVERN_NPCS, TavernNPC } from './TavernData';
+import { TAVERN_NPCS } from './TavernData';
+import type { TavernNPC } from './TavernData';
 
 interface POI {
     id: string;
@@ -169,6 +170,8 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
     const [viewMode, setViewMode] = useState<string>('global');
     const [viewingRegionId, setViewingRegionId] = useState<string>(player.regionId || 'capital');
+    const [dialogNPC, setDialogNPC] = useState<TavernNPC | null>(null);
+    const [dialogStep, setDialogStep] = useState<string>('start');
 
     // Reset viewing region to player's region when opening action (optional, but keeps context safe)
     // Actually, we want persistence during browsing.
@@ -202,6 +205,10 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
         } else if (actionId.startsWith('GAMBLE_')) {
             const amount = parseInt(actionId.replace('GAMBLE_', ''), 10);
             onAction({ type: 'GAMBLE', amount });
+        } else if (actionId === 'CHAT_LOCAL') {
+            const randomNPC = TAVERN_NPCS[Math.floor(Math.random() * TAVERN_NPCS.length)];
+            setDialogNPC(randomNPC);
+            setDialogStep('start');
         } else {
             onAction(actionId);
         }

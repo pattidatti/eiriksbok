@@ -586,37 +586,17 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     room.messages.push(`[${timestamp}] 🛡️ ${actor.name} fullførte en patruljerunde. +${goldReward}g.`);
                 }
 
-            } else if (actionType === 'GAMBLE') {
-                const amount = action.amount || 10;
-                if ((actor.resources.gold || 0) < amount) {
-                    room.messages.push(`[${timestamp}] ❌ Du har ikke nok gull til å gamble!`);
-                    return;
-                }
+            } else if (actionType === 'GAMBLE_RESULT') {
+                const { amount, isWin, playerRoll, houseRoll } = action;
 
-                // Roll two dice
-                const d1 = Math.floor(Math.random() * 6) + 1;
-                const d2 = Math.floor(Math.random() * 6) + 1;
-                const total = d1 + d2;
-
-                if (total >= 7) {
-                    // Win (House Edge: only win on 7+? No, usually 7 is common. Let's say > 7 wins, 7 pushes? No simple win/loss.
-                    // Let's try: Win on 8, 9, 10, 11, 12. (15/36 ~ 41.6%). 2x Payout.
-                    // Or keep it simple: Win on > 7. (15/36). 
-                    // Let's make it friendly: Win on >= 7? (21/36 ~ 58%). Too easy.
-                    // Let's standard craps-ish: Win on 7, 11 on first roll? 
-                    // Simple High/Low: Roll > 7 Wins.
-                    if (total > 7) {
-                        actor.resources.gold += amount;
-                        actor.stats.xp += 5;
-                        room.messages.push(`[${timestamp}] 🎲 ${actor.name} vant ${amount}g med terningkast ${total}!`);
-                    } else {
-                        actor.resources.gold -= amount;
-                        room.messages.push(`[${timestamp}] 💸 ${actor.name} tapte ${amount}g med terningkast ${total}.`);
-                    }
+                if (isWin) {
+                    actor.resources.gold = (actor.resources.gold || 0) + amount;
+                    actor.stats.xp += 5;
+                    room.messages.push(`[${timestamp}] 🎲 ${actor.name} vant ${amount}g! (Kast: ${playerRoll} mot ${houseRoll})`);
                 } else {
-                    // Roll <= 7 Loses
-                    actor.resources.gold -= amount;
-                    room.messages.push(`[${timestamp}] 💸 ${actor.name} tapte ${amount}g med terningkast ${total}.`);
+                    // Deduct gold (it wasn't deducted at start of game to allow for animation cancelling)
+                    actor.resources.gold = Math.max(0, (actor.resources.gold || 0) - amount);
+                    room.messages.push(`[${timestamp}] 💸 ${actor.name} tapte ${amount}g. (Kast: ${playerRoll} mot ${houseRoll})`);
                 }
 
             } else if (actionType === 'BUY_MEAL') {
