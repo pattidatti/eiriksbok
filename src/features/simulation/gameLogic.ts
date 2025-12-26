@@ -52,3 +52,64 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
 
     return updatedPlayers;
 };
+
+export const collectTaxes = (
+    players: Record<string, SimulationPlayer>,
+    kingTaxRate: number,
+    baronTaxRate: number
+): { updatedPlayers: Record<string, SimulationPlayer>, results: string[] } => {
+    const updatedPlayers = { ...players };
+    const results: string[] = [];
+
+    // 1. Peasants pay to Barons
+    Object.values(updatedPlayers).forEach(p => {
+        if (p.role === 'PEASANT') {
+            const baronTaxRate = 15; // default or from settings
+            const grainTax = Math.ceil((p.resources.grain || 0) * (baronTaxRate / 100));
+            const goldTax = Math.ceil((p.resources.gold || 0) * (baronTaxRate / 100));
+
+            if (grainTax > 0 || goldTax > 0) {
+                // Find the Baron for this region (with TEST fallback)
+                const baron = Object.values(updatedPlayers).find(b =>
+                    b.role === 'BARON' && (b.regionId === p.regionId || (p.regionId === 'test_region' && b.regionId === 'test_region'))
+                );
+
+                if (baron) {
+                    p.resources.grain = Math.max(0, p.resources.grain - grainTax);
+                    p.resources.gold = Math.max(0, p.resources.gold - goldTax);
+
+                    updatedPlayers[baron.id].resources.grain += grainTax;
+                    updatedPlayers[baron.id].resources.gold += goldTax;
+
+                    results.push(`${p.name} betalte ${grainTax} korn og ${goldTax} gull i skatt til ${baron.name}`);
+                }
+            }
+        }
+
+    });
+
+    // 2. Barons pay to King
+    Object.values(updatedPlayers).forEach(p => {
+        if (p.role === 'BARON') {
+            const grainTax = Math.ceil((p.resources.grain || 0) * (kingTaxRate / 100));
+            const goldTax = Math.ceil((p.resources.gold || 0) * (kingTaxRate / 100));
+
+            if (grainTax > 0 || goldTax > 0) {
+                const king = Object.values(updatedPlayers).find(k => k.role === 'KING');
+                if (king) {
+                    p.resources.grain = Math.max(0, p.resources.grain - grainTax);
+                    p.resources.gold = Math.max(0, p.resources.gold - goldTax);
+
+                    updatedPlayers[king.id].resources.grain += grainTax;
+                    updatedPlayers[king.id].resources.gold += goldTax;
+
+                    results.push(`${p.name} betalte ${grainTax} korn og ${goldTax} gull i skatt til Kongen`);
+                }
+            }
+        }
+
+    });
+
+    return { updatedPlayers, results };
+};
+

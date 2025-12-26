@@ -19,9 +19,19 @@ export interface PlayerStats {
 export interface PlayerStatus {
     hp: number;
     morale: number;
+    stamina: number; // Used to limit rapid actions
     isJailed: boolean;
     isFrozen: boolean; // e.g. awaiting judgement
 }
+
+export interface PlayerUpgrade {
+    id: string;
+    name: string;
+    description: string;
+    cost: Partial<Resources>;
+    benefit: string;
+}
+
 
 export interface SimulationPlayer {
     id: string;
@@ -31,7 +41,9 @@ export interface SimulationPlayer {
     resources: Resources;
     stats: PlayerStats;
     status: PlayerStatus;
+    upgrades: string[]; // List of IDs of purchased upgrades
     avatar?: string;
+
     lastActive: number;
 }
 
