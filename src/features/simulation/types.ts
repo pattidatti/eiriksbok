@@ -5,12 +5,20 @@ export type ResourceType = 'gold' | 'grain' | 'wood' | 'iron' | 'manpower';
 export interface Resources {
     gold: number;
     grain: number;
-    flour: number; // Processed grain
+    flour: number;
     wood: number;
     iron: number;
-    swords: number; // Crafted from iron + wood
+    swords: number;
+    armor: number; // New item type
+    tools: number; // New item type
     manpower: number;
-    favor: number; // For religious mechanics (monastery)
+    favor: number;
+}
+
+export interface EquipmentItem {
+    id: string;
+    durability: number;
+    maxDurability: number;
 }
 
 
@@ -54,6 +62,7 @@ export interface SimulationPlayer {
     stats: PlayerStats;
     status: PlayerStatus;
     upgrades: string[]; // List of IDs of purchased upgrades
+    equipment: Record<string, EquipmentItem>; // Track durability
     avatar?: string;
 
     lastActive: number;
@@ -67,8 +76,12 @@ export interface MarketItem {
 
 export interface SimulationMarket {
     grain: MarketItem;
+    flour: MarketItem;
     wood: MarketItem;
     iron: MarketItem;
+    swords: MarketItem;
+    armor: MarketItem;
+    tools: MarketItem;
 }
 
 export interface SimulationRegion {

@@ -13,6 +13,12 @@ export const performAction = async (pin: string, playerId: string, action: any) 
             if (!room || !room.players || !room.players[playerId]) return;
 
             const actor = room.players[playerId];
+            if (!actor.equipment) actor.equipment = {
+                tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                weapon: { id: 'swords', durability: 100, maxDurability: 100 },
+                armor: { id: 'armor', durability: 100, maxDurability: 100 }
+            };
+
             if (!room.messages) room.messages = [];
             const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
@@ -60,6 +66,13 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
             // 2. Perform Action Logic
             if (actionType === 'WORK') {
+                // Durability check
+                if (actor.equipment.tools.durability <= 0) {
+                    room.messages.push(`[${timestamp}] ❌ ${actor.name}s verktøy er ødelagt! Må repareres.`);
+                    return;
+                }
+                actor.equipment.tools.durability = Math.max(0, actor.equipment.tools.durability - GAME_BALANCE.DURABILITY.LOSS_WORK);
+
                 let yieldAmount = GAME_BALANCE.YIELD.WORK_GRAIN;
                 if (actor.upgrades?.includes('iron_plow')) yieldAmount += GAME_BALANCE.YIELD.PLOW_BONUS;
 
@@ -88,6 +101,13 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     room.messages.push(`[${timestamp}] 🌾 ${actor.name} viste eminente ferdigheter og høstet ${yieldAmount} korn!`);
                 }
             } else if (actionType === 'CHOP') {
+                // Durability check
+                if (actor.equipment.tools.durability <= 0) {
+                    room.messages.push(`[${timestamp}] ❌ ${actor.name}s øks er sløv og ødelagt!`);
+                    return;
+                }
+                actor.equipment.tools.durability = Math.max(0, actor.equipment.tools.durability - GAME_BALANCE.DURABILITY.LOSS_WORK);
+
                 let yieldAmount = GAME_BALANCE.YIELD.CHOP_WOOD;
                 if (currentSeason === 'Summer') yieldAmount += GAME_BALANCE.YIELD.SUMMER_WOOD_BONUS; // Summer bonus
 
@@ -104,6 +124,26 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     room.messages.push(`[${timestamp}] 🪵 ${actor.name} hogg ved som en kjempe! +${yieldAmount} trevirke.`);
                 }
 
+            } else if (actionType === 'MINE') {
+                if (actor.role !== 'PEASANT') return;
+                // Durability check
+                if (actor.equipment.tools.durability <= 0) {
+                    room.messages.push(`[${timestamp}] ❌ Hakken din er knekt!`);
+                    return;
+                }
+                actor.equipment.tools.durability = Math.max(0, actor.equipment.tools.durability - GAME_BALANCE.DURABILITY.LOSS_WORK);
+
+                let yieldAmount = GAME_BALANCE.YIELD.MINE_IRON;
+
+                const performance = action.performance || 1.0;
+                const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.PERFORMANCE_WEIGHT);
+                yieldAmount = Math.ceil(yieldAmount * finalMultiplier);
+
+                actor.resources.iron = (actor.resources.iron || 0) + yieldAmount;
+                actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.WORK.xp * finalMultiplier);
+
+                room.messages.push(`[${timestamp}] ⚒️ ${actor.name} fant ${yieldAmount} jern i gruva.`);
+
             } else if (actionType === 'MILL') {
                 const performance = action.performance || 1.0;
                 const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.CRAFTING_WEIGHT);
@@ -119,19 +159,25 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     room.messages.push(`[${timestamp}] 🥖 ${actor.name} malte korn til mel.`);
                 }
             } else if (actionType === 'CRAFT') {
+                const subType = action.subType || 'SWORDS';
                 const performance = action.performance || 1.0;
                 const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.CRAFTING_WEIGHT);
-                const yieldAmount = Math.ceil(GAME_BALANCE.YIELD.CRAFT_WORDS * finalMultiplier);
 
-
-                actor.resources.swords = (actor.resources.swords || 0) + yieldAmount;
-                actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(15 * finalMultiplier);
-
-                if (performance > 0.8) {
-                    room.messages.push(`[${timestamp}] ⚔️ ${actor.name} smidde sverd av legendarisk kvalitet! +${yieldAmount} sverd.`);
-                } else {
-                    room.messages.push(`[${timestamp}] ⚔️ ${actor.name} smidde nye sverd.`);
+                if (subType === 'SWORDS') {
+                    const yieldAmount = Math.ceil(GAME_BALANCE.YIELD.CRAFT_SWORDS * finalMultiplier);
+                    actor.resources.swords = (actor.resources.swords || 0) + yieldAmount;
+                    room.messages.push(`[${timestamp}] ⚔️ ${actor.name} smidde ${yieldAmount} sverd.`);
+                } else if (subType === 'ARMOR') {
+                    const yieldAmount = Math.ceil(GAME_BALANCE.YIELD.CRAFT_ARMOR * finalMultiplier);
+                    actor.resources.armor = (actor.resources.armor || 0) + yieldAmount;
+                    room.messages.push(`[${timestamp}] 🛡️ ${actor.name} banket ut ${yieldAmount} rustninger.`);
+                } else if (subType === 'TOOLS') {
+                    const yieldAmount = Math.ceil(GAME_BALANCE.YIELD.CRAFT_TOOLS * finalMultiplier);
+                    actor.resources.tools = (actor.resources.tools || 0) + yieldAmount;
+                    room.messages.push(`[${timestamp}] 🔨 ${actor.name} laget ${yieldAmount} solide verktøy.`);
                 }
+
+                actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(15 * finalMultiplier);
 
             } else if (actionType === 'TAX_PEASANTS') {
 
@@ -193,15 +239,17 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 actor.stats.xp += 20;
             } else if (actionType === 'BUY_GRAIN') {
                 const costMarket = room.market.grain.price;
-                if (actor.resources.gold >= costMarket) {
+                if (actor.resources.gold >= costMarket && room.market.grain.stock > 0) {
                     actor.resources.gold -= costMarket;
                     actor.resources.grain += 1;
+                    room.market.grain.stock -= 1;
                     room.market.grain.price += GAME_BALANCE.MARKET.GRAIN_VOLATILITY;
                 }
             } else if (actionType === 'SELL_GRAIN') {
                 if (actor.resources.grain >= 1) {
                     const price = room.market.grain.price;
                     actor.resources.grain -= 1;
+                    room.market.grain.stock += 1;
                     const payout = Math.floor(price * GAME_BALANCE.MARKET.SELL_RATIO);
                     actor.resources.gold += payout;
                     room.market.grain.price = Math.max(1, room.market.grain.price - GAME_BALANCE.MARKET.GRAIN_VOLATILITY);
@@ -209,15 +257,17 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 }
             } else if (actionType === 'BUY_WOOD') {
                 const costMarket = room.market.wood.price;
-                if (actor.resources.gold >= costMarket) {
+                if (actor.resources.gold >= costMarket && room.market.wood.stock > 0) {
                     actor.resources.gold -= costMarket;
                     actor.resources.wood += 5;
+                    room.market.wood.stock -= 5;
                     room.market.wood.price += GAME_BALANCE.MARKET.WOOD_VOLATILITY;
                 }
             } else if (actionType === 'SELL_WOOD') {
                 if (actor.resources.wood >= 5) {
                     const price = room.market.wood.price;
                     actor.resources.wood -= 5;
+                    room.market.wood.stock += 5;
                     const payout = Math.floor(price * GAME_BALANCE.MARKET.SELL_RATIO * 5);
                     actor.resources.gold += payout;
                     room.market.wood.price = Math.max(2, room.market.wood.price - GAME_BALANCE.MARKET.WOOD_VOLATILITY);
@@ -242,6 +292,10 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
                     // Upgrade: Stone Keep increases defense
                     if (targetBaron.upgrades?.includes('stone_keep')) targetPower += 20;
+
+                    // Durability checks for combat
+                    actor.equipment.weapon.durability = Math.max(0, actor.equipment.weapon.durability - GAME_BALANCE.DURABILITY.LOSS_COMBAT_WEAPON);
+                    actor.equipment.armor.durability = Math.max(0, actor.equipment.armor.durability - GAME_BALANCE.DURABILITY.LOSS_COMBAT_ARMOR);
 
                     const roll = Math.random() * 0.5 + 0.75;
 
@@ -290,6 +344,12 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                         room.messages.push(`[${timestamp}] ✨ ${actor.name} har oppgradert: ${upgrade.name}!`);
                     }
                 }
+            } else if (actionType === 'REPAIR') {
+                const target = action.target || 'tools';
+                if (actor.equipment[target]) {
+                    actor.equipment[target].durability = Math.min(actor.equipment[target].maxDurability, actor.equipment[target].durability + GAME_BALANCE.DURABILITY.REPAIR_AMOUNT);
+                    room.messages.push(`[${timestamp}] ⚒️ ${actor.name} reparerte ${target}. Durability: ${actor.equipment[target].durability}%`);
+                }
             } else if (actionType === 'REST') {
                 actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + 30);
                 actor.resources.flour = Math.max(0, (actor.resources.flour || 0) - 1);
@@ -315,6 +375,10 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 actor.stats.xp += 25;
             }
             else if (actionType === 'DEFEND') {
+                // Durability loss in defense
+                actor.equipment.weapon.durability = Math.max(0, actor.equipment.weapon.durability - GAME_BALANCE.DURABILITY.LOSS_COMBAT_WEAPON);
+                actor.equipment.armor.durability = Math.max(0, actor.equipment.armor.durability - GAME_BALANCE.DURABILITY.LOSS_COMBAT_ARMOR);
+
                 const performance = action.performance || 0;
                 const goldGained = Math.ceil(GAME_BALANCE.COMBAT.DEFEND_GOLD_BASE * performance);
                 actor.resources.gold = (actor.resources.gold || 0) + goldGained;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../../lib/firebase';
 import { ref, set, onValue, update, get } from 'firebase/database';
 
-import { INITIAL_MARKET, ROLE_DEFINITIONS } from './constants';
+import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES } from './constants';
 import type { SimulationRoom } from './types';
 import { assignRoles, collectTaxes } from './gameLogic';
 
@@ -273,6 +273,39 @@ export const SimulationHost: React.FC = () => {
 
 
 
+    const resetGame = async () => {
+        if (!window.confirm("Er du sikker på at du vil starte spillet på nytt? Alle fremdrift slettes.")) return;
+        setIsLoading(true);
+        try {
+            const updates: any = {};
+            updates[`simulation_rooms/${pin}/status`] = 'LOBBY';
+            updates[`simulation_rooms/${pin}/worldEvents`] = {};
+            updates[`simulation_rooms/${pin}/messages`] = [];
+            updates[`simulation_rooms/${pin}/market`] = INITIAL_MARKET;
+            updates[`simulation_rooms/${pin}/world/monumentProgress`] = 0;
+            updates[`simulation_rooms/${pin}/world/activeLaws`] = [];
+
+            // Reset players
+            Object.keys(roomData?.players || {}).forEach(id => {
+                updates[`simulation_rooms/${pin}/players/${id}/resources`] = INITIAL_RESOURCES.PEASANT; // Reset to base
+                updates[`simulation_rooms/${pin}/players/${id}/status`] = { stamina: 100, legitimacy: 100, authority: 50 };
+                updates[`simulation_rooms/${pin}/players/${id}/equipment`] = {
+                    tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                    weapon: { id: 'swords', durability: 100, maxDurability: 100 },
+                    armor: { id: 'armor', durability: 100, maxDurability: 100 }
+                };
+            });
+
+            await update(ref(db), updates);
+            alert("Spillet er nullstilt!");
+        } catch (e) {
+            console.error(e);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+
     if (view === 'LIST') {
         return (
             <div className="min-h-screen bg-slate-50 p-8">
@@ -364,6 +397,21 @@ export const SimulationHost: React.FC = () => {
                     </div>
 
                     <div className="bg-white p-6 rounded-2xl shadow-sm">
+                        <h2 className="text-xl font-bold mb-4">Markedets Lagerbeholdning</h2>
+                        <div className="grid grid-cols-2 gap-2">
+                            {Object.entries(roomData.market || {}).map(([res, data]: [string, any]) => (
+                                <div key={res} className="p-2 bg-slate-50 rounded-lg border">
+                                    <div className="text-[10px] font-black uppercase text-slate-400">{res}</div>
+                                    <div className="flex justify-between items-center">
+                                        <span className="font-bold">{data.stock}</span>
+                                        <span className="text-indigo-600 text-xs">{data.price.toFixed(1)}💰</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="bg-white p-6 rounded-2xl shadow-sm">
                         <h2 className="text-xl font-bold mb-4">Kontrollpanel</h2>
                         <div className="grid grid-cols-1 gap-4">
                             <button onClick={startGame} disabled={roomData.status === 'PLAYING'} className="bg-green-600 text-white py-4 rounded-xl font-bold">
@@ -400,6 +448,12 @@ export const SimulationHost: React.FC = () => {
                                 </button>
                                 <button onClick={startTing} disabled={roomData.status !== 'PLAYING' || !!roomData.activeVote} className="flex-1 bg-amber-600 text-white py-4 rounded-xl font-black uppercase tracking-[0.05em] text-xs shadow-lg hover:bg-amber-700 transition-all disabled:opacity-50">
                                     ⚖️ Start Tinget
+                                </button>
+                            </div>
+
+                            <div className="pt-4 border-t border-slate-100 mt-2 text-center">
+                                <button onClick={resetGame} className="text-rose-600 font-bold text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity">
+                                    ⚠ Nullstill Hele Spillet
                                 </button>
                             </div>
                         </div>

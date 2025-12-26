@@ -42,8 +42,22 @@ const POINTS_OF_INTEREST: POI[] = [
         id: 'village', label: 'Landsbyen', icon: '🏠', top: '42%', left: '42%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'],
         actions: [
             { id: 'REST', label: 'Hvile & Spise', cost: '-1🥖 +30⚡' },
-            { id: 'CRAFT', label: 'Smie Sverd', cost: '-30⚡ -10⛏️ -5🪵' },
+            { id: 'REPAIR', label: 'Reparer Utstyr', cost: '-5g -2⛏️ -2🪵' },
             { id: 'FEAST', label: 'Arranger Gjestebud', cost: '-100g -30🥖' }
+        ]
+    },
+    {
+        id: 'blacksmith', label: 'Smien', icon: '⚒️', top: '45%', left: '32%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'],
+        actions: [
+            { id: 'CRAFT_SWORDS', label: 'Smie Sverd', cost: '-30⚡ -10⛏️ -5🪵' },
+            { id: 'CRAFT_ARMOR', label: 'Smie Rustninger', cost: '-40⚡ -15⛏️ -2🪵' },
+            { id: 'CRAFT_TOOLS', label: 'Lage Verktøy', cost: '-25⚡ -5⛏️ -10🪵' }
+        ]
+    },
+    {
+        id: 'mine', label: 'Jern-gruva', icon: '⛏️', top: '8%', left: '60%', roles: ['PEASANT'],
+        actions: [
+            { id: 'MINE', label: 'Bryte Malm', cost: '-25⚡ -1🥖' }
         ]
     },
     {
@@ -77,6 +91,9 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
     const handlePOIAction = (_poiId: string, actionId: string) => {
         if (actionId === 'MARKET_VIEW') {
             onOpenMarket();
+        } else if (actionId.startsWith('CRAFT_')) {
+            const subType = actionId.replace('CRAFT_', '');
+            onAction({ type: 'CRAFT', subType });
         } else {
             onAction(actionId);
         }

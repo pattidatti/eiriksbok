@@ -1,9 +1,13 @@
 import type { Resources, Role, SimulationMarket, PlayerUpgrade } from './types';
 
 export const INITIAL_MARKET: SimulationMarket = {
-    grain: { price: 10, stock: 1000, demand: 1.0 },
-    wood: { price: 15, stock: 500, demand: 1.0 },
-    iron: { price: 25, stock: 200, demand: 1.0 },
+    grain: { price: 10, stock: 500, demand: 1.0 },
+    flour: { price: 15, stock: 100, demand: 1.0 },
+    wood: { price: 15, stock: 300, demand: 1.0 },
+    iron: { price: 25, stock: 150, demand: 1.0 },
+    swords: { price: 80, stock: 20, demand: 1.0 },
+    armor: { price: 120, stock: 10, demand: 1.0 },
+    tools: { price: 60, stock: 30, demand: 1.0 },
 };
 
 export const ROLE_DEFINITIONS: Record<Role, { label: string, description: string }> = {
@@ -15,12 +19,11 @@ export const ROLE_DEFINITIONS: Record<Role, { label: string, description: string
 };
 
 export const INITIAL_RESOURCES: Record<Role, Resources> = {
-    KING: { gold: 1000, grain: 500, flour: 200, wood: 200, iron: 100, swords: 50, manpower: 50, favor: 0 },
-    BARON: { gold: 300, grain: 100, flour: 50, wood: 50, iron: 20, swords: 10, manpower: 10, favor: 0 },
-    PEASANT: { gold: 20, grain: 30, flour: 5, wood: 0, iron: 0, swords: 0, manpower: 1, favor: 0 },
-    SOLDIER: { gold: 50, grain: 10, flour: 10, wood: 0, iron: 10, swords: 5, manpower: 1, favor: 0 },
-    MERCHANT: { gold: 500, grain: 50, flour: 50, wood: 50, iron: 50, swords: 0, manpower: 0, favor: 0 }
-
+    KING: { gold: 1000, grain: 500, flour: 200, wood: 200, iron: 100, swords: 50, armor: 20, tools: 10, manpower: 50, favor: 0 },
+    BARON: { gold: 300, grain: 100, flour: 50, wood: 50, iron: 20, swords: 10, armor: 10, tools: 5, manpower: 10, favor: 0 },
+    PEASANT: { gold: 20, grain: 30, flour: 5, wood: 0, iron: 0, swords: 0, armor: 0, tools: 1, manpower: 1, favor: 0 },
+    SOLDIER: { gold: 50, grain: 10, flour: 10, wood: 0, iron: 10, swords: 5, armor: 2, tools: 0, manpower: 1, favor: 0 },
+    MERCHANT: { gold: 500, grain: 50, flour: 50, wood: 50, iron: 50, swords: 5, armor: 2, tools: 5, manpower: 0, favor: 0 }
 };
 
 
@@ -49,12 +52,16 @@ export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
 };
 
 export const ACTION_COSTS = {
-    WORK: { flour: 1, stamina: 10 }, // Need flour to work efficiently
+    WORK: { flour: 1, stamina: 10 },
     CHOP: { flour: 1, stamina: 15 },
+    MINE: { flour: 1, stamina: 25 },
     RAID: { flour: 5, stamina: 40 },
     TAX: { stamina: 20 },
-    MILL: { grain: 10, stamina: 20 }, // 10 grain -> 10 flour
-    CRAFT: { iron: 10, wood: 5, stamina: 30 }, // 10 iron + 5 wood -> 10 swords
+    MILL: { grain: 10, stamina: 20 },
+    CRAFT: { iron: 10, wood: 5, stamina: 30 },
+    CRAFT_ARMOR: { iron: 15, wood: 2, stamina: 40 },
+    CRAFT_TOOLS: { iron: 5, wood: 10, stamina: 25 },
+    REPAIR: { iron: 2, wood: 2, gold: 5, stamina: 15 },
     PRAY: { stamina: 15 },
     FEAST: { flour: 30, gold: 100, stamina: 10 },
     CONTRIBUTE: { grain: 30, wood: 20, gold: 50, stamina: 25 }
@@ -124,10 +131,20 @@ export const GAME_BALANCE = {
     YIELD: {
         WORK_GRAIN: 10,
         CHOP_WOOD: 5,
+        MINE_IRON: 4, // New
         MILL_FLOUR: 10,
-        CRAFT_WORDS: 10,
+        CRAFT_SWORDS: 5, // Adjusted from 10
+        CRAFT_ARMOR: 2,
+        CRAFT_TOOLS: 5,
         PLOW_BONUS: 5,
         SUMMER_WOOD_BONUS: 2
+    },
+    DURABILITY: {
+        MAX: 100,
+        LOSS_WORK: 5,
+        LOSS_COMBAT_WEAPON: 10,
+        LOSS_COMBAT_ARMOR: 15,
+        REPAIR_AMOUNT: 30
     },
     MARKET: {
         GRAIN_VOLATILITY: 0.1,

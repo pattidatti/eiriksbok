@@ -17,9 +17,7 @@ export const SimulationPlayer: React.FC = () => {
     const [room, setRoom] = useState<SimulationRoom | null>(null);
     const [activeTab, setActiveTab] = useState<'MAP' | 'MARKET' | 'UPGRADES' | 'DIPLOMACY'>('MAP');
     const [actionLoading, setActionLoading] = useState<string | null>(null);
-    const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | null>(null);
-
-
+    const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | null>(null);
 
 
     useEffect(() => {
@@ -50,18 +48,18 @@ export const SimulationPlayer: React.FC = () => {
 
         const actionType = typeof action === 'string' ? action : action.type;
 
-        // Trigger Minigame for work/chop/mill/craft/defend/explore if not already in one
-        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE'];
+        // Trigger Minigame for work/chop/mill/craft/defend/explore/mine if not already in one
+        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE'];
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
             setActiveMinigame(actionType as any);
             return;
         }
 
-
-
         setActionLoading(actionType);
         const result = await performAction(pin, player.id, action);
-        if (!result.success) alert("Handling mislyktes");
+        if (!result.success) {
+            // Error handled by actions.ts messages mostly, but can alert if needed
+        }
         setActionLoading(null);
         setActiveMinigame(null);
     };
@@ -94,59 +92,39 @@ export const SimulationPlayer: React.FC = () => {
             {/* Minigame Overlay */}
             {activeMinigame && (
                 <MinigameOverlay
-                    type={activeMinigame}
+                    type={activeMinigame === 'MINE' ? 'WORK' : activeMinigame} // Re-use WORK minigame for MINE for now
                     playerUpgrades={player.upgrades}
                     onComplete={(score) => handleAction({ type: activeMinigame, performance: score })}
                     onCancel={() => setActiveMinigame(null)}
                 />
-
             )}
 
             {/* Header */}
-            <div className="bg-indigo-900 text-white p-4 shadow-lg sticky top-0 z-50">
-                <div className="flex justify-between items-center mb-2">
-                    <div className="flex items-center gap-3">
-                        <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-indigo-400 bg-indigo-800 shadow-sm shrink-0">
-                            <img
-                                src={`/avatars/${player.role.toLowerCase()}.png`}
-                                alt={player.role}
-                                className="w-full h-full object-cover relative z-10"
-                                onError={(e) => {
-                                    e.currentTarget.style.display = 'none';
-                                    const fallback = e.currentTarget.parentElement?.querySelector('.avatar-fallback');
-                                    if (fallback) fallback.classList.remove('hidden');
-                                }}
-                            />
-                            <div className="avatar-fallback hidden absolute inset-0 flex items-center justify-center text-3xl z-0">
-                                {RoleIcon}
-                            </div>
+            <div className="bg-indigo-900 text-white p-6 rounded-b-[2rem] shadow-xl border-b-4 border-indigo-700">
+                <div className="flex justify-between items-start mb-6">
+                    <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl border-2 border-white/10 shadow-inner overflow-hidden">
+                            {player.avatar ? (
+                                <img src={player.avatar} alt={player.role} className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+                            ) : RoleIcon}
                         </div>
                         <div>
-
-                            <div className="font-bold text-2xl leading-none">{player.name}</div>
-                            <div className="flex gap-2 items-center mt-1">
-                                <span className="text-indigo-300 text-xs font-mono uppercase tracking-widest">{ROLE_DEFINITIONS[player.role]?.label}</span>
-                                {room.world?.weather && (
-                                    <span className="text-xs uppercase font-black px-2 py-0.5 bg-blue-500/30 text-blue-200 rounded flex items-center gap-1">
-                                        {room.world.weather === 'Rain' ? '🌧️' : room.world.weather === 'Storm' ? '⛈️' : room.world.weather === 'Fog' ? '🌫️' : '☀️'} {room.world.weather}
-                                    </span>
-                                )}
+                            <div className="text-2xl font-black tracking-tighter">{player.name}</div>
+                            <div className="text-xs font-black uppercase tracking-widest opacity-60 text-indigo-300">
+                                {ROLE_TITLES[player.role]} • NIVÅ {player.stats.level}
                             </div>
                         </div>
                     </div>
-
                     <div className="text-right">
-                        <div className="font-mono text-3xl font-black text-yellow-400">{player.resources.gold} 💰</div>
-                        <div className="text-xs text-indigo-300 font-bold">Nivå {player.stats.level || 1} {ROLE_TITLES[player.role]?.[(player.stats.level || 1) - 1]}</div>
+                        <div className="text-3xl font-black text-amber-400 drop-shadow-md">{player.resources.gold}💰</div>
+                        <div className="text-[10px] font-black uppercase opacity-60">Kongerikets Mynt</div>
                     </div>
                 </div>
 
-                {/* Season & XP Bar */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
-                    {/* Season Badge */}
-                    <div className="flex items-center gap-3 bg-black/20 p-2 rounded-xl">
-                        <div className="text-4xl" style={{ color: (SEASONS as any)[room.world?.season || 'Spring']?.color }}>
-                            {room.world?.season === 'Winter' ? '❄️' : room.world?.season === 'Autumn' ? '🍂' : room.world?.season === 'Summer' ? '☀️' : '🌱'}
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div className="bg-white/10 p-3 rounded-2xl flex items-center gap-3 border border-white/5">
+                        <div className="text-4xl text-amber-300">
+                            {{ Spring: '🌱', Summer: '☀️', Autumn: '🍂', Winter: '❄️' }[room.world?.season || 'Spring']}
                         </div>
                         <div>
                             <div className="text-xs uppercase font-black opacity-50">Årstid</div>
@@ -194,7 +172,6 @@ export const SimulationPlayer: React.FC = () => {
                 )}
 
                 {/* Stamina Bar */}
-
                 <div className="space-y-1">
                     <div className="flex justify-between text-xs font-bold uppercase tracking-tighter text-indigo-400">
                         <span>Energi / Utholdenhet</span>
@@ -207,6 +184,26 @@ export const SimulationPlayer: React.FC = () => {
                         />
                     </div>
                 </div>
+
+                {/* Equipment Durability */}
+                {player.equipment && (
+                    <div className="grid grid-cols-3 gap-2 mt-4">
+                        {Object.entries(player.equipment).map(([key, item]) => (
+                            <div key={key} className="bg-black/20 p-1.5 rounded-lg border border-white/5">
+                                <div className="flex justify-between text-[10px] font-black uppercase opacity-60 mb-0.5">
+                                    <span>{{ tools: 'Verktøy', weapon: 'Sverd', armor: 'Rustning' }[key] || key}</span>
+                                    <span>{item.durability}%</span>
+                                </div>
+                                <div className="h-1 bg-black/40 rounded-full overflow-hidden">
+                                    <div
+                                        className={`h-full transition-all duration-500 ${item.durability > 50 ? 'bg-indigo-400' : item.durability > 20 ? 'bg-amber-400' : 'bg-red-500'}`}
+                                        style={{ width: `${item.durability}%` }}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
 
             {/* Main Content Area */}
@@ -229,20 +226,20 @@ export const SimulationPlayer: React.FC = () => {
                     })}
                 </div>
 
-
-
                 {activeTab === 'MAP' ? (
                     <div className="space-y-4">
                         {/* Resource Summary */}
                         <div className="grid grid-cols-4 gap-2">
                             {Object.entries(player.resources).map(([res, amount]) => {
                                 if (res === 'gold' || res === 'manpower') return null;
-                                const Icon = { grain: '🌾', flour: '🥖', wood: '🪵', iron: '⛏️', swords: '⚔️', favor: '⛪' }[res] || '📦';
+                                const icons: any = { grain: '🌾', flour: '🥖', wood: '🪵', iron: '⛏️', swords: '⚔️', armor: '🛡️', tools: '🔨', favor: '⛪' };
+                                const names: any = { grain: 'Korn', flour: 'Mel', wood: 'Ved', iron: 'Jern', swords: 'Sverd', armor: 'Rustning', tools: 'Verktøy', favor: 'Bønn' };
+                                const Icon = icons[res] || '📦';
 
                                 return (
                                     <div key={res} className="bg-white p-2 rounded-xl shadow-sm border border-slate-200 text-center">
-                                        <div className="text-xs uppercase text-slate-400 font-black mb-0.5">{res}</div>
-                                        <div className="font-black text-lg text-slate-800">{Icon} {amount}</div>
+                                        <div className="text-[10px] uppercase text-slate-400 font-black mb-0.5">{names[res] || res}</div>
+                                        <div className="font-black text-base text-slate-800">{Icon} {amount}</div>
                                     </div>
                                 );
                             })}
@@ -266,64 +263,57 @@ export const SimulationPlayer: React.FC = () => {
                 ) : activeTab === 'MARKET' ? (
                     <div className="space-y-4">
                         <div className="bg-white p-6 rounded-3xl shadow-md border-b-4 border-amber-100">
-                            <h2 className="text-3xl font-black text-slate-800 mb-6 text-center">Markedsplassen ⚖️</h2>
+                            <h2 className="text-3xl font-black text-slate-800 mb-2 text-center">Markedsplassen ⚖️</h2>
+                            <p className="text-slate-500 text-center text-sm mb-6 font-bold uppercase tracking-widest">Fysisk Lagerbeholdning</p>
 
-                            {/* Grain Card */}
-                            <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 mb-4">
-                                <div className="flex justify-between items-center mb-5">
-                                    <div className="font-black text-xl flex items-center gap-2">Korn 🌾</div>
-                                    <div className="text-4xl font-black text-indigo-600">{room.market.grain.price.toFixed(1)} <span className="text-lg font-mono tracking-tight text-slate-400">💰</span></div>
-                                </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <button
-                                        onClick={() => handleAction('BUY_GRAIN')}
-                                        disabled={!!actionLoading || player.resources.gold < room.market.grain.price}
-                                        className="bg-green-600 text-white py-4 rounded-xl text-lg font-black shadow-lg disabled:opacity-40"
-                                    >
-                                        KJØP 1
-                                    </button>
-                                    <button
-                                        onClick={() => handleAction('SELL_GRAIN')}
-                                        disabled={!!actionLoading || (player.resources.grain || 0) < 1}
-                                        className="bg-amber-600 text-white py-4 rounded-xl text-lg font-black shadow-lg disabled:opacity-40"
-                                    >
-                                        SELG 1
-                                    </button>
-                                </div>
-                            </div>
+                            <div className="space-y-4">
+                                {Object.entries(room.market).map(([key, item]: [string, any]) => {
+                                    const icons: any = { grain: '🌾', flour: '🥖', wood: '🪵', iron: '⛏️', swords: '⚔️', armor: '🛡️', tools: '🔨' };
+                                    const names: any = { grain: 'Korn', flour: 'Mel', wood: 'Ved', iron: 'Jern', swords: 'Sverd', armor: 'Rustning', tools: 'Verktøy' };
+                                    const amountToTrade = key === 'wood' ? 5 : 1;
 
-                            {/* Wood Card */}
-                            <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-                                <div className="flex justify-between items-center mb-5">
-                                    <div className="font-black text-xl flex items-center gap-2">Treverk 🪵</div>
-                                    <div className="text-4xl font-black text-indigo-600">{room.market.wood.price.toFixed(1)} <span className="text-lg font-mono tracking-tight text-slate-400">💰</span></div>
-                                </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <button
-                                        onClick={() => handleAction('BUY_WOOD')}
-                                        disabled={!!actionLoading || player.resources.gold < room.market.wood.price}
-                                        className="bg-green-600 text-white py-4 rounded-xl text-lg font-black shadow-lg disabled:opacity-40"
-                                    >
-                                        KJØP 5
-                                    </button>
-                                    <button
-                                        onClick={() => handleAction('SELL_WOOD')}
-                                        disabled={!!actionLoading || (player.resources.wood || 0) < 5}
-                                        className="bg-amber-600 text-white py-4 rounded-xl text-lg font-black shadow-lg disabled:opacity-40"
-                                    >
-                                        SELG 5
-                                    </button>
-                                </div>
+                                    return (
+                                        <div key={key} className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                                            <div className="flex justify-between items-start mb-3">
+                                                <div>
+                                                    <div className="font-black text-xl flex items-center gap-2">{names[key]} {icons[key]}</div>
+                                                    <div className={`text-xs font-black uppercase ${item.stock > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                                                        På Lager: {item.stock} stk
+                                                    </div>
+                                                </div>
+                                                <div className="text-right">
+                                                    <div className="text-3xl font-black text-indigo-600">{item.price.toFixed(1)} <span className="text-sm font-mono tracking-tight text-slate-400">💰</span></div>
+                                                    <div className="text-[10px] text-slate-400 font-black">PRIS PER ENHET</div>
+                                                </div>
+                                            </div>
+                                            <div className="grid grid-cols-2 gap-3">
+                                                <button
+                                                    onClick={() => handleAction(`BUY_${key.toUpperCase()}`)}
+                                                    disabled={!!actionLoading || player.resources.gold < item.price * amountToTrade || item.stock < amountToTrade}
+                                                    className="bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl text-base font-black shadow-md disabled:opacity-30 transition-colors"
+                                                >
+                                                    KJØP {amountToTrade}
+                                                </button>
+                                                <button
+                                                    onClick={() => handleAction(`SELL_${key.toUpperCase()}`)}
+                                                    disabled={!!actionLoading || (player.resources[key as keyof typeof player.resources] || 0) < amountToTrade}
+                                                    className="bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-xl text-base font-black shadow-md disabled:opacity-30 transition-colors"
+                                                >
+                                                    SELG {amountToTrade}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
                 ) : activeTab === 'UPGRADES' ? (
-
                     <div className="space-y-4">
                         <div className="bg-white p-6 rounded-3xl shadow-md border-b-4 border-emerald-100">
                             <h2 className="text-3xl font-black text-slate-800 mb-6 text-center">Oppgraderinger 🏗️</h2>
                             <div className="space-y-3">
-                                {UPGRADES_LIST[player.role]?.map(upg => {
+                                {(UPGRADES_LIST as any)[player.role]?.map((upg: any) => {
                                     const isOwned = player.upgrades?.includes(upg.id);
                                     let canAfford = true;
                                     Object.entries(upg.cost || {}).forEach(([res, amt]) => {
@@ -364,9 +354,9 @@ export const SimulationPlayer: React.FC = () => {
 
                             <div className="space-y-4 max-h-[400px] overflow-y-auto mb-6 p-4 bg-slate-50 rounded-2xl border flex flex-col">
                                 {room.diplomacy ? Object.values(room.diplomacy)
-                                    .filter(m => m.receiverId === 'ALL_RULERS' || m.receiverId === player.id || m.senderId === player.id)
-                                    .sort((a, b) => a.timestamp - b.timestamp)
-                                    .map(m => (
+                                    .filter((m: any) => m.receiverId === 'ALL_RULERS' || m.receiverId === player.id || m.senderId === player.id)
+                                    .sort((a: any, b: any) => a.timestamp - b.timestamp)
+                                    .map((m: any) => (
                                         <div key={m.id} className={`p-3 rounded-xl border-2 mb-2 ${m.senderId === player.id ? 'bg-indigo-50 border-indigo-100 self-end ml-8' : 'bg-white border-slate-100 self-start mr-8'}`}>
                                             <div className="flex justify-between items-center mb-1 gap-4">
                                                 <span className="text-xs font-black uppercase text-indigo-500">{m.senderName}</span>
@@ -433,11 +423,11 @@ export const SimulationPlayer: React.FC = () => {
                         <h3 className="text-indigo-500 font-black uppercase tracking-widest">Global Logg</h3>
                         <div className="animate-pulse w-2 h-2 bg-red-500 rounded-full"></div>
                     </div>
-                    <div className="space-y-1.5">
+                    <div className="space-y-1.5" id="simulation-feed">
                         {room.messages?.slice().reverse().map((msg: any, idx: number) => (
-                            <div key={idx} className="opacity-80 border-l-2 border-indigo-800 pl-3 py-1 bg-white/5 rounded-r-md">{msg}</div>
+                            <div key={idx} className="opacity-80 border-l-2 border-indigo-800 pl-3 py-1 bg-white/5 rounded-r-md leading-relaxed">{msg}</div>
                         ))}
-                        {(!room.messages || room.messages.length === 0) && <div className="text-slate-600 italic py-8 text-center">Riket er foreløpig stille...</div>}
+                        {(!room.messages || room.messages.length === 0) && <div className="text-slate-600 italic py-8 text-center">Riket er foreløvig stille...</div>}
                     </div>
                 </div>
             </div>
@@ -485,7 +475,6 @@ export const SimulationPlayer: React.FC = () => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 };

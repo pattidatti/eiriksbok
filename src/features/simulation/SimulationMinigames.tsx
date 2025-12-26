@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 interface MinigameProps {
-    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE';
+    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE';
     onComplete: (score: number) => void;
     onCancel: () => void;
     playerUpgrades?: string[];
@@ -21,8 +21,8 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                     ✕
                 </button>
 
-                {type === 'WORK' ? (
-                    <HarvestingGame onComplete={onComplete} />
+                {type === 'WORK' || type === 'MINE' ? (
+                    <HarvestingGame onComplete={onComplete} isMining={type === 'MINE'} />
                 ) : type === 'CHOP' ? (
                     <WoodcuttingGame onComplete={onComplete} />
                 ) : type === 'CRAFT' ? (
@@ -42,29 +42,46 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
     );
 };
 
+interface HarvestingGameProps {
+    onComplete: (score: number) => void;
+    isMining?: boolean;
+}
+
 /* --- HARVESTING MINIGAME (Rhythm Timing) --- */
-const HarvestingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+const HarvestingGame: React.FC<HarvestingGameProps> = ({ onComplete, isMining }) => {
     const [progress, setProgress] = useState(0);
     const [pointerPos, setPointerPos] = useState(0);
-    const [direction, setDirection] = useState(1);
     const [strikes, setStrikes] = useState<number[]>([]);
     const [message, setMessage] = useState('Trykk når streken er i det grønne feltet!');
     const [isFinished, setIsFinished] = useState(false);
 
+    // Keyboard support
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.code === 'Space' || e.code === 'Enter') {
+                e.preventDefault();
+                handleStrike();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [strikes.length, isFinished, pointerPos]);
+
     // Animation loop for the pointer
+    const dirRef = React.useRef(1);
     useEffect(() => {
         if (strikes.length >= 5 || isFinished) return;
 
         const interval = setInterval(() => {
             setPointerPos(prev => {
-                let next = prev + (2 * direction);
-                if (next > 100) { setDirection(-1); return 100; }
-                if (next < 0) { setDirection(1); return 0; }
+                let next = prev + (2 * dirRef.current);
+                if (next > 100) { dirRef.current = -1; return 100; }
+                if (next < 0) { dirRef.current = 1; return 0; }
                 return next;
             });
         }, 16);
         return () => clearInterval(interval);
-    }, [direction, strikes.length, isFinished]);
+    }, [strikes.length, isFinished]);
 
     const handleStrike = () => {
         if (strikes.length >= 5 || isFinished) return;
@@ -88,15 +105,30 @@ const HarvestingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onC
         }
     };
 
+    const title = isMining ? 'Gruvedrift ⛏️' : 'Kornhøsting 🌾';
+    const resourceIcon = isMining ? '⛏️' : '🌾';
+    const resourceName = isMining ? 'Jern' : 'Korn';
+    const yieldBase = isMining ? 5 : 10;
+
     return (
         <div className="p-8 text-center min-h-[400px] flex flex-col items-center justify-center">
-            <h2 className="text-3xl font-black text-slate-800 mb-2 border-b-4 border-amber-200 inline-block px-4">Kornhøsting 🌾</h2>
+            <h2 className="text-3xl font-black text-slate-800 mb-2 border-b-4 border-amber-200 inline-block px-4">{title}</h2>
 
             {isFinished ? (
                 <div className="py-12 animate-in zoom-in duration-300">
-                    <div className="text-6xl mb-4">🌾✨</div>
-                    <h3 className="text-4xl font-black text-amber-600 mb-2">HØSTET!</h3>
-                    <p className="text-slate-500 font-bold text-xl">Du fikk fylt låven!</p>
+                    <div className="text-6xl mb-4">{resourceIcon}✨</div>
+                    <h3 className="text-4xl font-black text-amber-600 mb-2">{isMining ? 'UTGRAVD!' : 'HØSTET!'}</h3>
+                    <div className="bg-amber-50 p-4 rounded-2xl border-2 border-amber-100 mb-4">
+                        <div className="flex justify-between items-center text-lg font-bold">
+                            <span className="text-slate-500">Brukt:</span>
+                            <span className="text-rose-600">-1 🥖 Mel</span>
+                        </div>
+                        <div className="flex justify-between items-center text-2xl font-black">
+                            <span className="text-slate-700">Produsert:</span>
+                            <span className="text-green-600">+{Math.ceil(yieldBase * (0.5 + (strikes.reduce((a, b) => a + b, 0) / 5) * 1.0))} {resourceIcon} {resourceName}</span>
+                        </div>
+                    </div>
+                    <p className="text-slate-500 font-bold text-xl">{isMining ? 'Du fant rike forekomster!' : 'Du fikk fylt låven!'}</p>
                     <div className="mt-4 text-sm text-slate-400 uppercase tracking-widest font-black">Lagrer resultat...</div>
                 </div>
             ) : (
@@ -147,15 +179,20 @@ const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void }> = ({ on
 
     useEffect(() => {
         let timer: any;
-        if (gameStarted && timeLeft > 0 && !isFinished) {
+        if (gameStarted && !isFinished) {
             timer = setInterval(() => {
-                setTimeLeft(prev => prev - 1);
+                setTimeLeft(prev => {
+                    if (prev <= 1) {
+                        clearInterval(timer);
+                        handleGameOver();
+                        return 0;
+                    }
+                    return prev - 1;
+                });
             }, 1000);
-        } else if (timeLeft === 0 && gameStarted && !isFinished) {
-            handleGameOver();
         }
         return () => clearInterval(timer);
-    }, [gameStarted, timeLeft, isFinished]);
+    }, [gameStarted, isFinished]);
 
     const startGame = () => {
         setGameStarted(true);
@@ -204,6 +241,16 @@ const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void }> = ({ on
                 <div className="py-12 animate-in zoom-in duration-300">
                     <div className="text-6xl mb-4">🪓✨</div>
                     <h3 className="text-4xl font-black text-indigo-600 mb-2">FERDIG!</h3>
+                    <div className="bg-indigo-50 p-4 rounded-2xl border-2 border-indigo-100 mb-4">
+                        <div className="flex justify-between items-center text-lg font-bold">
+                            <span className="text-slate-500">Brukt:</span>
+                            <span className="text-rose-600">-1 🥖 Mel</span>
+                        </div>
+                        <div className="flex justify-between items-center text-2xl font-black">
+                            <span className="text-slate-700">Produsert:</span>
+                            <span className="text-green-600">+{Math.ceil(5 * (0.5 + (Math.min(1.0, hits / 15)) * 1.0))} 🪵 Ved</span>
+                        </div>
+                    </div>
                     <p className="text-slate-500 font-bold text-xl">Du hogg {hits} biter ved!</p>
                     <div className="mt-4 text-sm text-slate-400 uppercase tracking-widest font-black">Lagrer resultat...</div>
                 </div>
@@ -223,8 +270,8 @@ const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void }> = ({ on
                             <button
                                 key={t.id}
                                 onClick={() => handleHit(t.id)}
-                                className="absolute w-14 h-14 bg-red-500 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.6)] border-4 border-white transition-transform active:scale-95 z-20 flex items-center justify-center text-white text-sm font-black"
-                                style={{ top: `${t.y}%`, left: `${t.x}%` }}
+                                className="absolute w-20 h-20 bg-red-500 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.6)] border-4 border-white transition-transform active:scale-95 z-20 flex items-center justify-center text-white text-sm font-black"
+                                style={{ top: `${t.y}%`, left: `${t.x}%`, transform: 'translate(-50%, -50%)' }}
                             >
                                 HIT
                             </button>
@@ -241,37 +288,53 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCom
     const [nodes, setNodes] = useState<{ id: number, pos: number, type: 'HIT' }[]>([]);
     const [score, setScore] = useState(0);
     const [hits, setHits] = useState(0);
-    const [totalPossible, setTotalPossible] = useState(0);
     const [gameStarted, setGameStarted] = useState(false);
     const [isFinished, setIsFinished] = useState(false);
 
+    // Keyboard support
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.code === 'Space' || e.code === 'Enter') {
+                e.preventDefault();
+                handleHit();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [nodes, isFinished]);
+
+    const totalRef = React.useRef(0);
     useEffect(() => {
         if (!gameStarted || isFinished) return;
 
         // Spawn nodes
         const spawnInterval = setInterval(() => {
-            if (totalPossible >= 10) return;
+            if (totalRef.current >= 10) return;
             setNodes(prev => [...prev, { id: Date.now(), pos: 0, type: 'HIT' }]);
-            setTotalPossible(t => t + 1);
-        }, 1500);
+            totalRef.current += 1;
+        }, 1200);
 
         // Move nodes
         const moveInterval = setInterval(() => {
             setNodes(prev => {
-                const updated = prev.map(n => ({ ...n, pos: n.pos + 2 }));
-                return updated.filter(n => n.pos <= 100);
+                const updated = prev.map(n => ({ ...n, pos: n.pos + 2.5 }));
+                const filtered = updated.filter(n => n.pos <= 100);
+
+                // If we've spawned all 10 and none are left on screen
+                if (totalRef.current >= 10 && filtered.length === 0) {
+                    clearInterval(spawnInterval);
+                    clearInterval(moveInterval);
+                    handleGameOver();
+                }
+                return filtered;
             });
         }, 32);
-
-        if (totalPossible >= 10 && nodes.length === 0) {
-            handleGameOver();
-        }
 
         return () => {
             clearInterval(spawnInterval);
             clearInterval(moveInterval);
         };
-    }, [gameStarted, totalPossible, nodes.length, isFinished]);
+    }, [gameStarted, isFinished]);
 
     const handleHit = () => {
         if (isFinished) return;
@@ -309,6 +372,22 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCom
                 <div className="py-12 animate-in zoom-in duration-300">
                     <div className="text-6xl mb-4">⚔️⚒️</div>
                     <h3 className="text-4xl font-black text-slate-800 mb-2">SMIING FERDIG!</h3>
+                    <div className="bg-slate-100 p-4 rounded-2xl border-2 border-slate-200 mb-4 text-left">
+                        <div className="space-y-1 mb-2">
+                            <div className="flex justify-between items-center text-lg font-bold">
+                                <span className="text-slate-500">Brukt:</span>
+                                <span className="text-rose-600">-10 ⛏️ Jern</span>
+                            </div>
+                            <div className="flex justify-between items-center text-lg font-bold">
+                                <span className="text-slate-500">Brukt:</span>
+                                <span className="text-rose-600">-5 🪵 Ved</span>
+                            </div>
+                        </div>
+                        <div className="flex justify-between items-center text-2xl font-black border-t pt-2">
+                            <span className="text-slate-700">Produsert:</span>
+                            <span className="text-indigo-600">+{Math.ceil(10 * (0.5 + (score / 8) * 1.5))} ⚔️ Sverd</span>
+                        </div>
+                    </div>
                     <p className="text-slate-500 font-bold text-xl">Våpenet er herdet!</p>
                 </div>
             ) : (
@@ -347,16 +426,38 @@ const MillingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComp
     const [gameStarted, setGameStarted] = useState(false);
     const [isFinished, setIsFinished] = useState(false);
 
+    const velRef = React.useRef(velocity);
+    useEffect(() => { velRef.current = velocity; }, [velocity]);
+
+    // Keyboard support
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                setVelocity(v => v - 1.5);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                setVelocity(v => v + 1.5);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
     useEffect(() => {
         if (!gameStarted || isFinished) return;
 
         const interval = setInterval(() => {
             setPointer(p => {
-                const next = p + velocity;
-                if (next < 0 || next > 100) return next < 0 ? 0 : 100;
+                const next = p + velRef.current;
+                if (next <= 0 || next >= 100) {
+                    // Punish for hitting edges
+                    setTotalScore(s => s - 1);
+                    return next <= 0 ? 0 : 100;
+                }
                 return next;
             });
-            setVelocity(v => v + (Math.random() - 0.5) * 0.2);
+            setVelocity(v => v + (Math.random() - 0.5) * 0.4);
             setPointer(p => {
                 if (p > 40 && p < 60) {
                     setTotalScore(s => s + 1);
@@ -370,8 +471,6 @@ const MillingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComp
         const timer = setInterval(() => {
             setDuration(d => {
                 if (d <= 1) {
-                    clearInterval(interval);
-                    clearInterval(timer);
                     setIsFinished(true);
                     return 0;
                 }
@@ -383,7 +482,7 @@ const MillingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComp
             clearInterval(interval);
             clearInterval(timer);
         };
-    }, [gameStarted, velocity, isFinished]);
+    }, [gameStarted, isFinished]);
 
     useEffect(() => {
         if (isFinished) {
@@ -405,6 +504,16 @@ const MillingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComp
                 <div className="py-12 animate-in zoom-in duration-300">
                     <div className="text-6xl mb-4">🥖🎡</div>
                     <h3 className="text-4xl font-black text-indigo-600 mb-2">FERDIG MALT!</h3>
+                    <div className="bg-indigo-50 p-4 rounded-2xl border-2 border-indigo-100 mb-4">
+                        <div className="flex justify-between items-center text-lg font-bold">
+                            <span className="text-slate-500">Brukt:</span>
+                            <span className="text-rose-600">-10 🌾 Korn</span>
+                        </div>
+                        <div className="flex justify-between items-center text-2xl font-black">
+                            <span className="text-slate-700">Produsert:</span>
+                            <span className="text-green-600">+{Math.ceil(10 * (0.5 + (Math.min(1.0, Math.max(0, totalScore / 120))) * 1.5))} 🥖 Mel</span>
+                        </div>
+                    </div>
                     <p className="text-slate-500 font-bold text-xl">Melet er silkemykt.</p>
                 </div>
             ) : (
