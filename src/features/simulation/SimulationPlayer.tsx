@@ -45,23 +45,23 @@ export const SimulationPlayer: React.FC = () => {
             if (data) setRoom(data);
         });
 
-        useEffect(() => {
-            if (player) {
-                const roleLabel = (ROLE_DEFINITIONS as any)[player.role]?.label || player.role;
-                document.title = `${player.name} (${roleLabel}) | Eiriksbok`;
-            } else {
-                document.title = 'Rikesimulator | Eiriksbok';
-            }
-            return () => {
-                document.title = 'Eiriksbok';
-            };
-        }, [player]);
-
         return () => {
             unsubPlayer();
             unsubRoom();
         };
     }, [pin]);
+
+    useEffect(() => {
+        if (player) {
+            const roleLabel = (ROLE_DEFINITIONS as any)[player.role]?.label || player.role;
+            document.title = `${player.name} (${roleLabel}) | Eiriksbok`;
+        } else {
+            document.title = 'Rikesimulator | Eiriksbok';
+        }
+        return () => {
+            document.title = 'Eiriksbok';
+        };
+    }, [player]);
 
     const handleAction = async (action: any) => {
         if (!pin || !player || actionLoading) return;
