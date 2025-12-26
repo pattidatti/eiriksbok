@@ -89,10 +89,11 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
         <div className={`relative w-full aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-900/20 bg-amber-50 transition-all duration-1000 ${weather === 'Rain' ? 'brightness-90 contrast-110' : weather === 'Storm' ? 'brightness-75 contrast-125' : weather === 'Fog' ? 'sepia-[0.3] contrast-75' : ''}`}>
             {/* The Map Background */}
             <img
-                src="/simulation_map.png"
+                src="/simulation_map_v2.png"
                 alt="Kingdom Map"
                 className={`w-full h-full object-cover opacity-90 transition-all duration-1000 ${weather === 'Fog' ? 'blur-sm' : ''}`}
             />
+
 
             {/* Weather Overlay Effects */}
             {weather === 'Rain' && (
@@ -192,14 +193,32 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
             {/* Action Popup */}
             {selectedPOI && (
                 <div className="absolute inset-x-4 bottom-4 z-30 animate-in slide-in-from-bottom-4 duration-300">
-                    <div className="bg-white rounded-2xl shadow-2xl border-t-4 border-amber-600 p-4">
-                        <div className="flex justify-between items-center mb-4">
-                            <h3 className="font-black text-slate-800 flex items-center gap-2">
-                                <span className="text-2xl">{selectedPOI.icon}</span> {selectedPOI.label}
-                            </h3>
-                            <button onClick={() => setSelectedPOI(null)} className="text-slate-400 p-1">✕</button>
+                    <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-t-4 border-amber-600">
+
+                        {/* POI Illustration Header */}
+                        <div className="h-24 w-full bg-slate-200 relative">
+                            <img
+                                src={`/poi/${selectedPOI.id}.png`}
+                                alt={selectedPOI.label}
+                                className="w-full h-full object-cover"
+                                onError={(e) => e.currentTarget.style.display = 'none'}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+                            <div className="absolute bottom-2 left-4 text-white">
+                                <h3 className="font-black flex items-center gap-2 text-shadow-sm">
+                                    <span className="text-2xl">{selectedPOI.icon}</span> {selectedPOI.label}
+                                </h3>
+                            </div>
+                            <button
+                                onClick={() => setSelectedPOI(null)}
+                                className="absolute top-2 right-2 bg-black/30 hover:bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center backdrop-blur-sm transition-colors"
+                            >
+                                ✕
+                            </button>
                         </div>
-                        <div className="grid grid-cols-1 gap-2">
+
+                        <div className="p-4 pt-2">
+
                             {selectedPOI.actions
                                 .filter(a => {
                                     if (a.id === 'TAX_PEASANTS' && player.role !== 'BARON') return false;

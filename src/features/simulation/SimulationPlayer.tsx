@@ -106,8 +106,23 @@ export const SimulationPlayer: React.FC = () => {
             <div className="bg-indigo-900 text-white p-4 shadow-lg sticky top-0 z-50">
                 <div className="flex justify-between items-center mb-2">
                     <div className="flex items-center gap-3">
-                        <div className="text-4xl">{RoleIcon}</div>
+                        <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-indigo-400 bg-indigo-800 shadow-sm shrink-0">
+                            <img
+                                src={`/avatars/${player.role.toLowerCase()}.png`}
+                                alt={player.role}
+                                className="w-full h-full object-cover relative z-10"
+                                onError={(e) => {
+                                    e.currentTarget.style.display = 'none';
+                                    const fallback = e.currentTarget.parentElement?.querySelector('.avatar-fallback');
+                                    if (fallback) fallback.classList.remove('hidden');
+                                }}
+                            />
+                            <div className="avatar-fallback hidden absolute inset-0 flex items-center justify-center text-3xl z-0">
+                                {RoleIcon}
+                            </div>
+                        </div>
                         <div>
+
                             <div className="font-bold text-lg leading-none">{player.name}</div>
                             <div className="flex gap-2 items-center mt-1">
                                 <span className="text-indigo-300 text-[10px] font-mono uppercase tracking-widest">{ROLE_DEFINITIONS[player.role]?.label}</span>
