@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 interface MinigameProps {
-    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY';
+    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL';
     onComplete: (score: number) => void;
     onCancel: () => void;
     playerUpgrades?: string[];
@@ -31,6 +31,8 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                     <MillingGame onComplete={onComplete} />
                 ) : type === 'DEFEND' ? (
                     <CombatGame onComplete={onComplete} isKnight={playerUpgrades?.includes('warhorse')} />
+                ) : type === 'PATROL' ? (
+                    <PatrolMinigameRouter onComplete={onComplete} />
                 ) : (
                     <QuestGame onComplete={onComplete} />
                 )}
@@ -698,4 +700,23 @@ const QuestGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComple
             )}
         </div>
     );
+};
+
+/* --- PATROL ROUTER (Random Minigame) --- */
+const PatrolMinigameRouter: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+    const [subGame, setSubGame] = useState<'COMBAT' | 'QUEST' | 'SEARCH' | null>(null);
+
+    useEffect(() => {
+        // Randomly pick a minigame
+        const rand = Math.random();
+        if (rand < 0.4) setSubGame('COMBAT');
+        else if (rand < 0.7) setSubGame('QUEST');
+        else setSubGame('SEARCH');
+    }, []);
+
+    if (subGame === 'COMBAT') return <CombatGame onComplete={onComplete} />;
+    if (subGame === 'QUEST') return <QuestGame onComplete={onComplete} />;
+    if (subGame === 'SEARCH') return <WoodcuttingGame onComplete={onComplete} />; // Reusing woodcutting as "Clearing debris"
+
+    return <div className="p-8 text-center">Laster patrulje...</div>;
 };

@@ -18,7 +18,7 @@ export const SimulationPlayer: React.FC = () => {
     const [room, setRoom] = useState<SimulationRoom | null>(null);
     const [activeTab, setActiveTab] = useState<'MAP' | 'VILLAGE' | 'INVENTORY' | 'MARKET' | 'UPGRADES' | 'DIPLOMACY' | 'HIERARCHY'>('MAP');
     const [actionLoading, setActionLoading] = useState<string | null>(null);
-    const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | null>(null);
+    const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | null>(null);
     const { setFullWidth } = useLayout();
 
     // Handle Layout
@@ -68,8 +68,8 @@ export const SimulationPlayer: React.FC = () => {
 
         const actionType = typeof action === 'string' ? action : action.type;
 
-        // Trigger Minigame for work/chop/mill/craft/defend/explore/mine/quarry if not already in one
-        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY'];
+        // Trigger Minigame for work/chop/mill/craft/defend/explore/mine/quarry/patrol if not already in one
+        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL'];
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
             setActiveMinigame(actionType as any);
             return;
@@ -267,7 +267,7 @@ export const SimulationPlayer: React.FC = () => {
                                 <div className="space-y-6">
                                     <div className="flex justify-between items-end border-b-2 border-white/5 pb-4">
                                         <h2 className="text-4xl font-black text-white tracking-tighter">Markedshandel</h2>
-                                        <div className="text-amber-500 font-black text-2xl">💰 {player.resources.gold || 0}g</div>
+                                        <div className="text-amber-500 font-black text-2xl">💰 {(player.resources.gold || 0).toFixed(2)}g</div>
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         {Object.entries(room.market || {}).map(([resId, item]: [string, any]) => {
@@ -303,6 +303,72 @@ export const SimulationPlayer: React.FC = () => {
                                             );
                                         })}
                                     </div>
+
+                                    {/* MERCHANT: FOREIGN MARKETS (Trade Routes) */}
+                                    {player.role === 'MERCHANT' && (
+                                        <div className="mt-12 space-y-6">
+                                            <h3 className="text-2xl font-black text-white flex items-center gap-2">
+                                                <span>🚢</span> Handelsruter (Utland)
+                                                <span className="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded-full uppercase ml-auto">Oppdateres hvert minutt</span>
+                                            </h3>
+                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                                {['Bjørgvin', 'Nidaros', 'Tønsberg'].map(city => {
+                                                    // Deterministic Price Mock (Client Side)
+                                                    const timeSeed = Math.floor(Date.now() / 60000);
+                                                    const prices: any = {
+                                                        'Bjørgvin': { grain: 12, wood: 18, iron: 30 },
+                                                        'Nidaros': { grain: 8, wood: 12, iron: 20 },
+                                                        'Tønsberg': { grain: 10, wood: 15, iron: 25 }
+                                                    };
+                                                    return (
+                                                        <div key={city} className="bg-indigo-900/10 border border-indigo-500/10 p-6 rounded-[2rem]">
+                                                            <div className="text-xl font-black text-white mb-4 border-b border-white/5 pb-2">{city}</div>
+                                                            <div className="space-y-4">
+                                                                {['grain', 'wood', 'iron'].map(res => {
+                                                                    const basePrice = (prices[city]?.[res] || 10);
+                                                                    const noise = (timeSeed % 5) - 2;
+                                                                    const foreignPrice = Math.max(1, basePrice + noise);
+                                                                    const label = (RESOURCE_DETAILS as any)[res]?.label || res;
+                                                                    const icon = (RESOURCE_DETAILS as any)[res]?.icon || '📦';
+
+                                                                    return (
+                                                                        <div key={res} className="flex justify-between items-center bg-slate-900/50 p-2 rounded-xl">
+                                                                            <div className="flex items-center gap-2">
+                                                                                <span>{icon}</span>
+                                                                                <div className="text-xs font-bold text-slate-400">{label}</div>
+                                                                            </div>
+                                                                            <div className="flex items-center gap-2">
+                                                                                <span className="text-amber-500 font-black">{foreignPrice}g</span>
+                                                                                <div className="flex flex-col gap-1">
+                                                                                    <button
+                                                                                        onClick={() => handleAction({ type: 'TRADE_ROUTE', city, resource: res, action: 'IMPORT' })}
+                                                                                        disabled={!!actionLoading}
+                                                                                        className="px-2 py-0.5 bg-emerald-600/20 text-emerald-400 text-[10px] font-black rounded hover:bg-emerald-600 hover:text-white transition-colors"
+                                                                                        title="Kjøp 10 (Import)"
+                                                                                    >
+                                                                                        IMP
+                                                                                    </button>
+                                                                                    <button
+                                                                                        onClick={() => handleAction({ type: 'TRADE_ROUTE', city, resource: res, action: 'EXPORT' })}
+                                                                                        disabled={!!actionLoading}
+                                                                                        className="px-2 py-0.5 bg-rose-600/20 text-rose-400 text-[10px] font-black rounded hover:bg-rose-600 hover:text-white transition-colors"
+                                                                                        title="Selg 10 (Eksport)"
+                                                                                    >
+                                                                                        EKSP
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    )}
+
                                 </div>
                             ) : activeTab === 'INVENTORY' ? (
                                 <div className="space-y-6">
@@ -382,6 +448,23 @@ export const SimulationPlayer: React.FC = () => {
                                         <div className="bg-slate-800/30 p-8 rounded-[2rem] text-center border-2 border-dashed border-white/5 mb-8">
                                             <p className="text-slate-500 font-bold">Ingen aktive byggeprosjekter.</p>
                                             <p className="text-[10px] uppercase text-slate-600 font-black mt-2 tracking-widest">Kongen må stake ut kursen</p>
+                                        </div>
+                                    )}
+
+                                    {/* Soldier: Patrol Action */}
+                                    {player.role === 'SOLDIER' && (
+                                        <div className="bg-slate-800/50 border border-white/10 p-6 rounded-3xl mb-8 flex items-center justify-between">
+                                            <div>
+                                                <h3 className="text-xl font-black text-white">Vakthold & Patrulje</h3>
+                                                <p className="text-xs text-slate-400">Gå runder i landsbyen for å sikre ro og orden. (Tilfeldig minispill)</p>
+                                            </div>
+                                            <button
+                                                onClick={() => handleAction({ type: 'PATROL' })}
+                                                disabled={!!actionLoading}
+                                                className="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-xl font-black uppercase text-sm shadow-lg transition-all active:scale-95"
+                                            >
+                                                Start Patrulje ⚔️
+                                            </button>
                                         </div>
                                     )}
 
@@ -543,6 +626,20 @@ export const SimulationPlayer: React.FC = () => {
                                     <h2 className="text-4xl font-black text-white tracking-tighter border-b-2 border-white/5 pb-4">Samfunnsstruktur</h2>
 
                                     {/* 1. THE KING */}
+                                    <div className="flex justify-end px-8">
+                                        {player.role !== 'PEASANT' && (
+                                            <button
+                                                onClick={() => {
+                                                    if (window.confirm('Er du sikker? Du vil miste din rang og bli en simpel bonde.')) {
+                                                        handleAction({ type: 'RETIRE' });
+                                                    }
+                                                }}
+                                                className="text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-rose-500 transition-colors border border-slate-700 hover:border-rose-500 px-4 py-2 rounded-lg"
+                                            >
+                                                Frasi Tittel (Bli Bonde)
+                                            </button>
+                                        )}
+                                    </div>
                                     <div className="flex justify-center">
                                         {Object.values(room.players || {}).filter(p => p.role === 'KING').map(king => (
                                             <div key={king.id} className="relative group">
@@ -645,46 +742,48 @@ export const SimulationPlayer: React.FC = () => {
 
 
                 {/* The Ting Voting Overlay (Integrated as Portal-like centered UI) */}
-                {room.activeVote && !room.activeVote.votes?.[player.id] && (
-                    <div className="absolute inset-0 z-[100] bg-slate-950/80 backdrop-blur-xl flex items-center justify-center p-8 animate-in fade-in duration-300">
-                        <div className="bg-slate-900 w-full max-w-lg rounded-[3rem] p-10 border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.8)] border-t-8 border-t-amber-600 text-center scale-in-center overflow-hidden relative">
-                            <div className="absolute top-[-20%] right-[-10%] text-[15rem] opacity-[0.03] pointer-events-none">⚖️</div>
-                            <span className="text-6xl block mb-6 drop-shadow-lg">⚖️</span>
-                            <h2 className="text-4xl font-black text-white tracking-tighter mb-4">TINGET ER SATT</h2>
-                            <p className="text-slate-400 mb-10 leading-relaxed font-bold">Riket skal nå stemme over en foreslått lovendring.</p>
+                {
+                    room.activeVote && !room.activeVote.votes?.[player.id] && (
+                        <div className="absolute inset-0 z-[100] bg-slate-950/80 backdrop-blur-xl flex items-center justify-center p-8 animate-in fade-in duration-300">
+                            <div className="bg-slate-900 w-full max-w-lg rounded-[3rem] p-10 border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.8)] border-t-8 border-t-amber-600 text-center scale-in-center overflow-hidden relative">
+                                <div className="absolute top-[-20%] right-[-10%] text-[15rem] opacity-[0.03] pointer-events-none">⚖️</div>
+                                <span className="text-6xl block mb-6 drop-shadow-lg">⚖️</span>
+                                <h2 className="text-4xl font-black text-white tracking-tighter mb-4">TINGET ER SATT</h2>
+                                <p className="text-slate-400 mb-10 leading-relaxed font-bold">Riket skal nå stemme over en foreslått lovendring.</p>
 
-                            <div className="bg-amber-900/10 border-2 border-amber-900/20 rounded-3xl p-8 mb-10 text-left relative overflow-hidden">
-                                <div className="text-[10px] font-black uppercase text-amber-500 tracking-[0.2em] mb-2 font-mono">LOVFORSLAG</div>
-                                <h3 className="text-2xl font-black text-amber-500 mb-4 uppercase tracking-tighter">{room.activeVote.title}</h3>
-                                <p className="text-lg text-slate-200 font-medium italic border-l-4 border-amber-600/50 pl-4 py-1 leading-relaxed">
-                                    "{room.activeVote.lawId === 'tax_cut' ? 'Skattene halveres for å sikre folkets velvære.' :
-                                        room.activeVote.lawId === 'peace' ? 'All krigføring og plyndring forbys umiddelbart.' :
-                                            room.activeVote.lawId === 'salt_tax' ? 'Prisen på varer øker for å fylle kongens kister.' :
-                                                'Verneplikt innføres for å styrke rikets forsvar.'}"
-                                </p>
-                            </div>
+                                <div className="bg-amber-900/10 border-2 border-amber-900/20 rounded-3xl p-8 mb-10 text-left relative overflow-hidden">
+                                    <div className="text-[10px] font-black uppercase text-amber-500 tracking-[0.2em] mb-2 font-mono">LOVFORSLAG</div>
+                                    <h3 className="text-2xl font-black text-amber-500 mb-4 uppercase tracking-tighter">{room.activeVote.title}</h3>
+                                    <p className="text-lg text-slate-200 font-medium italic border-l-4 border-amber-600/50 pl-4 py-1 leading-relaxed">
+                                        "{room.activeVote.lawId === 'tax_cut' ? 'Skattene halveres for å sikre folkets velvære.' :
+                                            room.activeVote.lawId === 'peace' ? 'All krigføring og plyndring forbys umiddelbart.' :
+                                                room.activeVote.lawId === 'salt_tax' ? 'Prisen på varer øker for å fylle kongens kister.' :
+                                                    'Verneplikt innføres for å styrke rikets forsvar.'}"
+                                    </p>
+                                </div>
 
-                            <div className="grid grid-cols-2 gap-4">
-                                <button
-                                    onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'YES' })}
-                                    className="bg-emerald-600 text-white h-24 rounded-2xl font-black text-xl hover:bg-emerald-500 transition-all shadow-lg active:scale-95 outline-none ring-offset-2 ring-offset-slate-900 focus:ring-2 ring-emerald-400"
-                                >
-                                    ✅ VEDTA
-                                </button>
-                                <button
-                                    onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'NO' })}
-                                    className="bg-rose-600 text-white h-24 rounded-2xl font-black text-xl hover:bg-rose-500 transition-all shadow-lg active:scale-95 outline-none ring-offset-2 ring-offset-slate-900 focus:ring-2 ring-rose-400"
-                                >
-                                    ❌ AVSLÅ
-                                </button>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <button
+                                        onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'YES' })}
+                                        className="bg-emerald-600 text-white h-24 rounded-2xl font-black text-xl hover:bg-emerald-500 transition-all shadow-lg active:scale-95 outline-none ring-offset-2 ring-offset-slate-900 focus:ring-2 ring-emerald-400"
+                                    >
+                                        ✅ VEDTA
+                                    </button>
+                                    <button
+                                        onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'NO' })}
+                                        className="bg-rose-600 text-white h-24 rounded-2xl font-black text-xl hover:bg-rose-500 transition-all shadow-lg active:scale-95 outline-none ring-offset-2 ring-offset-slate-900 focus:ring-2 ring-rose-400"
+                                    >
+                                        ❌ AVSLÅ
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )}
-            </main>
+                    )
+                }
+            </main >
 
             {/* RIGHT PANEL: INFO & FEED */}
-            <aside className="w-80 border-l border-white/10 bg-slate-900/50 backdrop-blur-xl flex flex-col z-20">
+            < aside className="w-80 border-l border-white/10 bg-slate-900/50 backdrop-blur-xl flex flex-col z-20" >
                 <div className="p-6 border-b border-white/5">
                     <h3 className="text-xs font-black uppercase tracking-[0.2em] text-indigo-400 mb-6 flex items-center justify-between">
                         Sekkens Innhold
@@ -709,7 +808,7 @@ export const SimulationPlayer: React.FC = () => {
                     </div>
                     <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
                         <span className="text-xs font-black text-slate-500 uppercase tracking-widest italic">Beholdning</span>
-                        <div className="text-amber-500 font-black text-xl drop-shadow-[0_0_10px_rgba(245,158,11,0.3)]">{player.resources.gold || 0}g</div>
+                        <div className="text-amber-500 font-black text-xl drop-shadow-[0_0_10px_rgba(245,158,11,0.3)]">{(player.resources.gold || 0).toFixed(2)}g</div>
                     </div>
                 </div>
 
@@ -747,10 +846,10 @@ export const SimulationPlayer: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </aside>
+            </aside >
 
             {/* Global Styles for custom scrollbar */}
-            <style dangerouslySetInnerHTML={{
+            < style dangerouslySetInnerHTML={{
                 __html: `
                 .custom-scrollbar::-webkit-scrollbar {
                     width: 4px;
@@ -766,6 +865,6 @@ export const SimulationPlayer: React.FC = () => {
                     background: rgba(255, 255, 255, 0.2);
                 }
             `}} />
-        </div>
+        </div >
     );
 };

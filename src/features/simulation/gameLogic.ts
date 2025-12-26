@@ -10,7 +10,8 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
 
     // Config (can be moved to settings later)
     // 1 Baron per 5-10 peasants? Let's say 1 Baron per 5 players, min 1 if > 3 players 
-    let BARON_COUNT = Math.max(0, Math.floor((totalPlayers - 1) / 5));
+    // USER REQ: Limit to 2 baronies max
+    let BARON_COUNT = Math.min(2, Math.max(0, Math.floor((totalPlayers - 1) / 5)));
     if (totalPlayers >= 3 && BARON_COUNT === 0) BARON_COUNT = 1;
 
     // 1. Assign King

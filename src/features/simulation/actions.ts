@@ -485,6 +485,83 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
                 actor.stats.xp += (recipe.xp || 0);
                 room.messages.push(`[${timestamp}] ⚙️ ${actor.name} produserte ${Object.keys(recipe.output).join(', ')}.`);
+            } else if (actionType === 'TRADE_ROUTE') {
+                if (actor.role !== 'MERCHANT') return;
+
+                // Simple Trade Route: Spend stamina and time to get resources or gold diff
+                // We'll simulate a trade run to a foreign city.
+                const { city, resource, action: direction } = action; // direction: 'IMPORT' (Buy foreign, bring home) or 'EXPORT' (Sell home, get gold)
+
+                // Deterministic Price Mock (should match client)
+                const timeSeed = Math.floor(Date.now() / 60000); // Changes every minute
+                const prices: any = {
+                    'Bjørgvin': { grain: 12, wood: 18, iron: 30 },
+                    'Nidaros': { grain: 8, wood: 12, iron: 20 },
+                    'Tønsberg': { grain: 10, wood: 15, iron: 25 }
+                };
+
+                // Add some noise based on seed + city len + resource len
+                const basePrice = (prices[city]?.[resource] || 10);
+                const noise = (timeSeed % 5) - 2;
+                const finalForeignPrice = Math.max(1, basePrice + noise);
+
+                const amount = 10;
+
+                if (direction === 'IMPORT') {
+                    // Buy 10 at Foreign Price
+                    const cost = finalForeignPrice * amount;
+                    if (actor.resources.gold >= cost) {
+                        actor.resources.gold -= cost;
+                        (actor.resources as any)[resource] = ((actor.resources as any)[resource] || 0) + amount;
+                        actor.stats.xp += 15;
+                        room.messages.push(`[${timestamp}] 🚢 ${actor.name} importerte ${amount} ${resource} fra ${city} (Kjøpt for ${cost}g).`);
+                    }
+                } else {
+                    // Export: Sell 10 at Foreign Price
+                    if ((actor.resources as any)[resource] >= amount) {
+                        (actor.resources as any)[resource] -= amount;
+                        const income = finalForeignPrice * amount;
+                        actor.resources.gold += income;
+                        actor.stats.xp += 15;
+                        room.messages.push(`[${timestamp}] 🚢 ${actor.name} eksporterte ${amount} ${resource} til ${city} (Solgt for ${income}g).`);
+                    }
+                }
+
+                if (actor.role !== 'SOLDIER') return;
+
+                // Durability
+                actor.equipment.weapon.durability = Math.max(0, actor.equipment.weapon.durability - 2);
+
+                const performance = action.performance || 0.5;
+                const goldReward = Math.ceil(15 * performance);
+                actor.resources.gold = (actor.resources.gold || 0) + goldReward;
+                actor.stats.xp += Math.ceil(10 * performance);
+
+                // Chance to find "Contraband" (extra loot)
+                if (performance > 0.8 && Math.random() > 0.7) {
+                    const extraGold = 10;
+                    actor.resources.gold += extraGold;
+                    room.messages.push(`[${timestamp}] ⚔️ ${actor.name} fant smuglervarer under patruljen! +${goldReward + extraGold}g.`);
+                } else {
+                    room.messages.push(`[${timestamp}] 🛡️ ${actor.name} fullførte en patruljerunde. +${goldReward}g.`);
+                }
+
+            } else if (actionType === 'RETIRE') {
+                // Downgrade to Peasant
+                if (actor.role === 'PEASANT') return; // Can't retire if already peasant
+
+                const oldRole = actor.role;
+                actor.role = 'PEASANT';
+                actor.regionId = 'retired_wastes'; // Or just keep region? User said "become peasant", implying simpler life.
+                // Reset status/stats? Maybe keep XP/Gold but reset Authority/Legitimacy
+                actor.status.authority = 0;
+                actor.status.legitimacy = 0;
+
+                // Give peasant starter kit if missing
+                if (!actor.resources.grain) actor.resources.grain = 10;
+                if (!actor.equipment.tools) actor.equipment.tools = { id: 'tools', durability: 100, maxDurability: 100 };
+
+                room.messages.push(`[${timestamp}] 📉 ${actor.name} har frasagt seg sin tittel som ${oldRole} og lever nå som simpel bonde.`);
             }
 
 
