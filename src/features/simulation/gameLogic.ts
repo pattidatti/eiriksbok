@@ -5,17 +5,12 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
     const playerIds = Object.keys(players);
     const shuffledIds = [...playerIds].sort(() => Math.random() - 0.5);
     const updatedPlayers = { ...players };
-
     const totalPlayers = playerIds.length;
 
-    // Config (can be moved to settings later)
-    // 1 Baron per 5-10 peasants? Let's say 1 Baron per 5 players, min 1 if > 3 players 
-    // USER REQ: Limit to 2 baronies max
-    let BARON_COUNT = Math.min(2, Math.max(0, Math.floor((totalPlayers - 1) / 5)));
-    if (totalPlayers >= 3 && BARON_COUNT === 0) BARON_COUNT = 1;
+    if (totalPlayers === 0) return updatedPlayers;
 
     // 1. Assign King
-    const kingId = shuffledIds[0];
+    const kingId = shuffledIds.shift();
     if (kingId) {
         updatedPlayers[kingId] = {
             ...updatedPlayers[kingId],
@@ -32,88 +27,122 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
         };
     }
 
-    // 2. Assign Barons
-    const baronIds = shuffledIds.slice(1, 1 + BARON_COUNT);
-    baronIds.forEach((id, index) => {
-        updatedPlayers[id] = {
-            ...updatedPlayers[id],
-            role: 'BARON',
-            resources: INITIAL_RESOURCES.BARON,
-            regionId: `region_baron_${index}`,
-            status: { hp: 100, stamina: 100, morale: 100, legitimacy: 80, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
-            stats: { level: 1, xp: 0, reputation: 40, contribution: 0 },
-            equipment: {
-                tools: { id: 'tools', durability: 100, maxDurability: 100 },
-                weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
-                armor: { id: 'armor', durability: 100, maxDurability: 100 }
-            }
-        };
-    });
+    // 2. Assign Barons (Max 2, force creation if players available)
+    const baronIds: string[] = [];
+    const maxBarons = 2;
+    // We want to force 2 barons if we have enough players (e.g. King + 2 Barons = 3 players)
+    // If we only have 2 players total: 1 King, 1 Baron.
+    const potentialBarons = Math.min(maxBarons, shuffledIds.length);
 
-    let nextIndex = 1 + BARON_COUNT;
+    for (let i = 0; i < potentialBarons; i++) {
+        const baronId = shuffledIds.shift();
+        if (baronId) {
+            baronIds.push(baronId);
+            updatedPlayers[baronId] = {
+                ...updatedPlayers[baronId],
+                role: 'BARON',
+                resources: INITIAL_RESOURCES.BARON,
+                regionId: `region_baron_${i}`,
+                status: { hp: 100, stamina: 100, morale: 100, legitimacy: 80, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
+                stats: { level: 1, xp: 0, reputation: 40, contribution: 0 },
+                equipment: {
+                    tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                    weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                    armor: { id: 'armor', durability: 100, maxDurability: 100 }
+                }
+            };
+        }
+    }
 
-    // 3. Assign Merchants (1 per 6, min 1 if > 4 players)
-    let MERCHANT_COUNT = Math.floor(totalPlayers / 6);
-    if (totalPlayers >= 5 && MERCHANT_COUNT === 0) MERCHANT_COUNT = 1;
-    const merchantIds = shuffledIds.slice(nextIndex, nextIndex + MERCHANT_COUNT);
-    merchantIds.forEach(id => {
-        updatedPlayers[id] = {
-            ...updatedPlayers[id],
-            role: 'MERCHANT',
-            resources: INITIAL_RESOURCES.MERCHANT,
-            regionId: 'marketplace',
-            status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 30, loyalty: 100, isJailed: false, isFrozen: false },
-            stats: { level: 1, xp: 0, reputation: 30, contribution: 0 },
-            equipment: {
-                tools: { id: 'tools', durability: 100, maxDurability: 100 },
-                weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
-                armor: { id: 'armor', durability: 100, maxDurability: 100 }
-            }
-        };
-    });
-    nextIndex += MERCHANT_COUNT;
+    // Helper to distribute remaining players to regions
+    let regionIndex = 0;
+    const getNextRegionId = () => {
+        if (baronIds.length === 0) return 'capital';
+        const id = `region_baron_${regionIndex}`;
+        regionIndex = (regionIndex + 1) % baronIds.length;
+        return id;
+    };
 
-    // 4. Assign Soldiers (1 per 5)
-    let SOLDIER_COUNT = Math.floor(totalPlayers / 5);
-    const soldierIds = shuffledIds.slice(nextIndex, nextIndex + SOLDIER_COUNT);
-    soldierIds.forEach(id => {
-        const rulerIds = baronIds.length > 0 ? baronIds : [kingId];
-        const randomRuler = rulerIds[Math.floor(Math.random() * rulerIds.length)];
-        updatedPlayers[id] = {
-            ...updatedPlayers[id],
-            role: 'SOLDIER',
-            resources: INITIAL_RESOURCES.SOLDIER,
-            regionId: updatedPlayers[randomRuler].regionId,
-            status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
-            stats: { level: 1, xp: 0, reputation: 20, contribution: 0 },
-            equipment: {
-                tools: { id: 'tools', durability: 100, maxDurability: 100 },
-                weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
-                armor: { id: 'armor', durability: 100, maxDurability: 100 }
-            }
-        };
-    });
-    nextIndex += SOLDIER_COUNT;
+    // 3. Assign Remaining Roles
+    // remaining players in shuffledIds
+    const remainingCount = shuffledIds.length;
 
-    // 5. Assign Peasants (Rest)
-    const peasantIds = shuffledIds.slice(nextIndex);
-    peasantIds.forEach(id => {
-        const rulerIds = baronIds.length > 0 ? baronIds : [kingId];
-        const randomRuler = rulerIds[Math.floor(Math.random() * rulerIds.length)];
-        updatedPlayers[id] = {
-            ...updatedPlayers[id],
-            role: 'PEASANT',
-            resources: INITIAL_RESOURCES.PEASANT,
-            regionId: updatedPlayers[randomRuler].regionId,
-            status: { hp: 100, stamina: 100, morale: 80, legitimacy: 100, authority: 10, loyalty: 100, isJailed: false, isFrozen: false },
-            stats: { level: 1, xp: 0, reputation: 10, contribution: 0 },
-            equipment: {
-                tools: { id: 'tools', durability: 100, maxDurability: 100 },
-                weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
-                armor: { id: 'armor', durability: 100, maxDurability: 100 }
-            }
-        };
-    });
+    // Config: 
+    // If < 4 remaining: All Peasants
+    // If >= 4 remaining: 1 Merchant, 1 Soldier, rest Peasants
+    // If large scale, use ratios. For now, prioritize filling roles.
+
+    let merchantCount = 0;
+    let soldierCount = 0;
+
+    if (remainingCount >= 4) {
+        merchantCount = Math.max(1, Math.floor(remainingCount / 6));
+        soldierCount = Math.max(1, Math.floor(remainingCount / 5));
+    } else if (remainingCount > 0 && remainingCount < 4) {
+        // Tiny game: maybe just peasants
+        merchantCount = 0;
+        soldierCount = 0;
+    }
+
+    // Assign Merchants
+    for (let i = 0; i < merchantCount; i++) {
+        const id = shuffledIds.shift();
+        if (id) {
+            updatedPlayers[id] = {
+                ...updatedPlayers[id],
+                role: 'MERCHANT',
+                resources: INITIAL_RESOURCES.MERCHANT,
+                regionId: 'marketplace', // Merchants live in the marketplace/capital technically or travel
+                status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 30, loyalty: 100, isJailed: false, isFrozen: false },
+                stats: { level: 1, xp: 0, reputation: 30, contribution: 0 },
+                equipment: {
+                    tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                    weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                    armor: { id: 'armor', durability: 100, maxDurability: 100 }
+                }
+            };
+        }
+    }
+
+    // Assign Soldiers
+    for (let i = 0; i < soldierCount; i++) {
+        const id = shuffledIds.shift();
+        if (id) {
+            updatedPlayers[id] = {
+                ...updatedPlayers[id],
+                role: 'SOLDIER',
+                resources: INITIAL_RESOURCES.SOLDIER,
+                regionId: getNextRegionId(), // Assigned to a baron
+                status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
+                stats: { level: 1, xp: 0, reputation: 20, contribution: 0 },
+                equipment: {
+                    tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                    weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                    armor: { id: 'armor', durability: 100, maxDurability: 100 }
+                }
+            };
+        }
+    }
+
+    // Assign Peasants (Everyone else)
+    while (shuffledIds.length > 0) {
+        const id = shuffledIds.shift();
+        if (id) {
+            updatedPlayers[id] = {
+                ...updatedPlayers[id],
+                role: 'PEASANT',
+                resources: INITIAL_RESOURCES.PEASANT,
+                regionId: getNextRegionId(), // Assigned to a baron
+                status: { hp: 100, stamina: 100, morale: 80, legitimacy: 100, authority: 10, loyalty: 100, isJailed: false, isFrozen: false },
+                stats: { level: 1, xp: 0, reputation: 10, contribution: 0 },
+                equipment: {
+                    tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                    weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                    armor: { id: 'armor', durability: 100, maxDurability: 100 }
+                }
+            };
+        }
+    }
 
     return updatedPlayers;
 };

@@ -129,7 +129,8 @@ export interface SimulationRoom {
     settings: string; // 'feudal_europe'
 
     // Global State
-    market: SimulationMarket;
+    market: SimulationMarket; // @deprecated Use markets
+    markets: Record<string, SimulationMarket>; // Keyed by regionId
     regions: Record<string, SimulationRegion>;
     players: Record<string, SimulationPlayer>;
 

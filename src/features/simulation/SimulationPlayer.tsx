@@ -5,7 +5,7 @@ import { useLayout } from '../../context/LayoutContext';
 
 import { db } from '../../lib/firebase';
 import type { SimulationPlayer as SimulationPlayerType, SimulationRoom } from './types';
-import { UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES, VILLAGE_BUILDINGS, REFINERY_RECIPES, RESOURCE_DETAILS, ROLE_DEFINITIONS } from './constants';
+import { UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES, VILLAGE_BUILDINGS, REFINERY_RECIPES, RESOURCE_DETAILS, ROLE_DEFINITIONS, ACTION_COSTS } from './constants';
 
 import { performAction } from './actions';
 import { WorldMap } from './WorldMap';
@@ -16,6 +16,25 @@ export const SimulationPlayer: React.FC = () => {
     const { pin } = useParams();
     const [player, setPlayer] = useState<SimulationPlayerType | null>(null);
     const [room, setRoom] = useState<SimulationRoom | null>(null);
+
+    // Helper to get friendly region name
+    const getRegionName = (rId: string) => {
+        if (!rId || rId === 'unassigned') return 'Ingen Region';
+        if (rId === 'capital') return 'Kongeriket (Hovedstaden)';
+        if (rId === 'test_region') return 'Test Baroniet';
+
+        if (room?.players && rId.startsWith('region_')) {
+            // Priority 1: Find Baron with matching regionId (Robust)
+            const baronOwner = Object.values(room.players).find(p => p.role === 'BARON' && p.regionId === rId);
+            if (baronOwner) return `${baronOwner.name}s Baroni`;
+
+            // Priority 2: Try ID extraction (Legacy support)
+            const baronId = rId.replace('region_', '');
+            const baronById = room.players[baronId];
+            if (baronById) return `${baronById.name}s Baroni`;
+        }
+        return rId;
+    };
     const [activeTab, setActiveTab] = useState<'MAP' | 'VILLAGE' | 'INVENTORY' | 'MARKET' | 'UPGRADES' | 'DIPLOMACY' | 'HIERARCHY'>('MAP');
     const [actionLoading, setActionLoading] = useState<string | null>(null);
     const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | null>(null);
@@ -29,7 +48,7 @@ export const SimulationPlayer: React.FC = () => {
 
 
     useEffect(() => {
-        const playerId = sessionStorage.getItem('sim_player_id');
+        const playerId = localStorage.getItem('sim_player_id');
         if (!playerId || !pin) return;
 
         const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
@@ -63,13 +82,57 @@ export const SimulationPlayer: React.FC = () => {
         };
     }, [player]);
 
+    // --- RESOURCE ANIMATION SYSTEM ---
+    const [floatingItems, setFloatingItems] = useState<{ id: string, label: string, icon: string, amount: number }[]>([]);
+    const prevResourcesRef = React.useRef<Record<string, number> | null>(null);
+    const initialLoadRef = React.useRef(true);
+
+    useEffect(() => {
+        if (!player || !player.resources) return;
+
+        if (initialLoadRef.current) {
+            prevResourcesRef.current = { ...player.resources };
+            initialLoadRef.current = false;
+            return;
+        }
+
+        const prev = prevResourcesRef.current || {};
+        const current = player.resources;
+        const newItems: { id: string, label: string, icon: string, amount: number }[] = [];
+
+        Object.keys(current).forEach((key) => {
+            // Only care about increases
+            const diff = (current[key as keyof typeof current] || 0) - (prev[key as keyof typeof prev] || 0);
+            if (diff > 0 && key !== 'manpower') { // Ignore manpower usually not floating
+                const details = (RESOURCE_DETAILS as any)[key] || { label: key, icon: '📦' };
+                newItems.push({
+                    id: Math.random().toString(36).substr(2, 9),
+                    label: details.label,
+                    icon: details.icon,
+                    amount: diff
+                });
+            }
+        });
+
+        if (newItems.length > 0) {
+            setFloatingItems(prevItems => [...prevItems, ...newItems]);
+            // Auto remove after animation
+            setTimeout(() => {
+                setFloatingItems(prevItems => prevItems.slice(newItems.length));
+            }, 2000);
+        }
+
+        prevResourcesRef.current = { ...player.resources };
+    }, [player?.resources]); // Deep check usually needed but player object changes ref every update
+    // -------------------------------
+
     const handleAction = async (action: any) => {
         if (!pin || !player || actionLoading) return;
 
         const actionType = typeof action === 'string' ? action : action.type;
 
-        // Trigger Minigame for work/chop/mill/craft/defend/explore/mine/quarry/patrol if not already in one
-        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL'];
+        // Trigger Minigame for work/chop/mill/craft/defend/explore/mine/quarry/patrol/forage if not already in one
+        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE'];
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
             setActiveMinigame(actionType as any);
             return;
@@ -131,6 +194,38 @@ export const SimulationPlayer: React.FC = () => {
                     onCancel={() => setActiveMinigame(null)}
                 />
             )}
+
+            {/* FLOATING RESOURCES ANIMATION LAYER */}
+            <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+                {floatingItems.map((item, i) => (
+                    <div
+                        key={item.id}
+                        className="absolute left-1/2 top-1/2 flex items-center gap-2 px-4 py-2 bg-slate-900/90 border border-amber-500/30 rounded-full shadow-2xl animate-fly-resource"
+                        style={{
+                            animationDelay: `${i * 100}ms`,
+                            animationFillMode: 'forwards'
+                        }}
+                    >
+                        <span className="text-3xl filter drop-shadow-md">{item.icon}</span>
+                        <div className="flex flex-col leading-none">
+                            <span className="text-amber-400 font-black text-lg">+{item.amount}</span>
+                            <span className="text-xs font-bold text-slate-300 uppercase tracking-wide">{item.label}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <style>{`
+                @keyframes fly-resource {
+                    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+                    10% { opacity: 1; transform: translate(-50%, -150%) scale(1.2); }
+                    80% { opacity: 1; transform: translate(-40vw, 0) scale(0.8); }
+                    100% { opacity: 0; transform: translate(-45vw, 10vh) scale(0); }
+                }
+                .animate-fly-resource {
+                    animation: fly-resource 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+                }
+            `}</style>
 
             {/* LEFT PANEL: PLAYER CONSOLE */}
             <aside className="w-80 border-r border-white/10 bg-slate-900/50 backdrop-blur-xl flex flex-col z-20 shadow-2xl">
@@ -247,6 +342,31 @@ export const SimulationPlayer: React.FC = () => {
                                 </div>
                             </div>
                         )}
+                        {/* BARONY BADGE */}
+                        {player.regionId && player.regionId !== 'capital' && (
+                            <div className="hidden md:flex items-center gap-2 bg-indigo-500/10 px-4 py-2 rounded-xl border border-indigo-500/20">
+                                <span className="text-xl">🏰</span>
+                                <div>
+                                    <div className="text-[8px] font-black uppercase text-indigo-400 tracking-widest leading-none mb-0.5">Baroni</div>
+                                    <div className="text-sm font-black text-white leading-none">
+                                        {room.regions?.[player.regionId]?.name || player.regionId}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* KINGDOM BADGE (Always visible or to the right as requested) */}
+                        <div className="hidden md:flex items-center gap-2 bg-amber-500/10 px-4 py-2 rounded-xl border border-amber-500/20">
+                            <span className="text-xl">👑</span>
+                            <div>
+                                <div className="text-[8px] font-black uppercase text-amber-500 tracking-widest leading-none mb-0.5">Kongerike</div>
+                                <div className="text-sm font-black text-white leading-none">
+                                    {room.players?.[Object.keys(room.players).find(id => room.players[id].role === 'KING') || '']?.name
+                                        ? `Kong ${room.players[Object.keys(room.players).find(id => room.players[id].role === 'KING') || ''].name}s Rike`
+                                        : 'Kongeriket'}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     {actionLoading && (
                         <div className="flex items-center gap-2 text-indigo-400 font-black text-xs animate-pulse uppercase tracking-widest">
@@ -270,7 +390,7 @@ export const SimulationPlayer: React.FC = () => {
                                         <div className="text-amber-500 font-black text-2xl">💰 {(player.resources.gold || 0).toFixed(2)}g</div>
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        {Object.entries(room.market || {}).map(([resId, item]: [string, any]) => {
+                                        {Object.entries((room.markets?.[player.regionId || 'capital'] || room.market) || {}).map(([resId, item]: [string, any]) => {
                                             const details = (RESOURCE_DETAILS as any)[resId] || { label: resId, icon: '📦' };
                                             const price = item.price || 0;
                                             const stock = item.stock || 0;
@@ -308,63 +428,70 @@ export const SimulationPlayer: React.FC = () => {
                                     {player.role === 'MERCHANT' && (
                                         <div className="mt-12 space-y-6">
                                             <h3 className="text-2xl font-black text-white flex items-center gap-2">
-                                                <span>🚢</span> Handelsruter (Utland)
-                                                <span className="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded-full uppercase ml-auto">Oppdateres hvert minutt</span>
+                                                <span>🚢</span> Handelsruter (Andre Baronier)
+                                                <span className="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded-full uppercase ml-auto">Sanntids prising</span>
                                             </h3>
-                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                                {['Bjørgvin', 'Nidaros', 'Tønsberg'].map(city => {
-                                                    // Deterministic Price Mock (Client Side)
-                                                    const timeSeed = Math.floor(Date.now() / 60000);
-                                                    const prices: any = {
-                                                        'Bjørgvin': { grain: 12, wood: 18, iron: 30 },
-                                                        'Nidaros': { grain: 8, wood: 12, iron: 20 },
-                                                        'Tønsberg': { grain: 10, wood: 15, iron: 25 }
-                                                    };
-                                                    return (
-                                                        <div key={city} className="bg-indigo-900/10 border border-indigo-500/10 p-6 rounded-[2rem]">
-                                                            <div className="text-xl font-black text-white mb-4 border-b border-white/5 pb-2">{city}</div>
-                                                            <div className="space-y-4">
-                                                                {['grain', 'wood', 'iron'].map(res => {
-                                                                    const basePrice = (prices[city]?.[res] || 10);
-                                                                    const noise = (timeSeed % 5) - 2;
-                                                                    const foreignPrice = Math.max(1, basePrice + noise);
-                                                                    const label = (RESOURCE_DETAILS as any)[res]?.label || res;
-                                                                    const icon = (RESOURCE_DETAILS as any)[res]?.icon || '📦';
+                                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                                {/* List all regions EXCEPT my own */}
+                                                {Object.values(room.regions || {})
+                                                    .concat([{ id: 'capital', name: 'Kongeriket (Hovedstaden)' } as any]) // Add capital manually if needed
+                                                    .filter((r: any) => r.id !== player.regionId && r.id !== undefined)
+                                                    .map((region: any) => {
+                                                        const targetMarket = room.markets?.[region.id];
+                                                        if (!targetMarket) return null;
 
-                                                                    return (
-                                                                        <div key={res} className="flex justify-between items-center bg-slate-900/50 p-2 rounded-xl">
-                                                                            <div className="flex items-center gap-2">
-                                                                                <span>{icon}</span>
-                                                                                <div className="text-xs font-bold text-slate-400">{label}</div>
-                                                                            </div>
-                                                                            <div className="flex items-center gap-2">
-                                                                                <span className="text-amber-500 font-black">{foreignPrice}g</span>
-                                                                                <div className="flex flex-col gap-1">
-                                                                                    <button
-                                                                                        onClick={() => handleAction({ type: 'TRADE_ROUTE', city, resource: res, action: 'IMPORT' })}
-                                                                                        disabled={!!actionLoading}
-                                                                                        className="px-2 py-0.5 bg-emerald-600/20 text-emerald-400 text-[10px] font-black rounded hover:bg-emerald-600 hover:text-white transition-colors"
-                                                                                        title="Kjøp 10 (Import)"
-                                                                                    >
-                                                                                        IMP
-                                                                                    </button>
-                                                                                    <button
-                                                                                        onClick={() => handleAction({ type: 'TRADE_ROUTE', city, resource: res, action: 'EXPORT' })}
-                                                                                        disabled={!!actionLoading}
-                                                                                        className="px-2 py-0.5 bg-rose-600/20 text-rose-400 text-[10px] font-black rounded hover:bg-rose-600 hover:text-white transition-colors"
-                                                                                        title="Selg 10 (Eksport)"
-                                                                                    >
-                                                                                        EKSP
-                                                                                    </button>
+                                                        return (
+                                                            <div key={region.id} className="bg-indigo-900/10 border border-indigo-500/10 p-6 rounded-[2rem]">
+                                                                <div className="text-xl font-black text-white mb-4 border-b border-white/5 pb-2 truncate" title={region.name}>{region.name}</div>
+                                                                <div className="space-y-4">
+                                                                    {['grain', 'wood', 'iron'].map(res => {
+                                                                        const item = (targetMarket as any)[res];
+                                                                        if (!item) return null;
+
+                                                                        const foreignPrice = item.price;
+                                                                        const label = (RESOURCE_DETAILS as any)[res]?.label || res;
+                                                                        const icon = (RESOURCE_DETAILS as any)[res]?.icon || '📦';
+
+                                                                        return (
+                                                                            <div key={res} className="flex justify-between items-center bg-slate-900/50 p-2 rounded-xl">
+                                                                                <div className="flex items-center gap-2">
+                                                                                    <span>{icon}</span>
+                                                                                    <div className="text-xs font-bold text-slate-400">{label}</div>
+                                                                                </div>
+                                                                                <div className="flex items-center gap-2">
+                                                                                    <span className="text-amber-500 font-black">{foreignPrice.toFixed(0)}g</span>
+                                                                                    <div className="flex flex-col gap-1">
+                                                                                        <button
+                                                                                            onClick={() => handleAction({ type: 'TRADE_ROUTE', targetRegionId: region.id, resource: res, action: 'IMPORT' })}
+                                                                                            disabled={!!actionLoading}
+                                                                                            className="px-2 py-0.5 bg-emerald-600/20 text-emerald-400 text-[10px] font-black rounded hover:bg-emerald-600 hover:text-white transition-colors"
+                                                                                            title="Kjøp 10 (Import)"
+                                                                                        >
+                                                                                            IMP
+                                                                                        </button>
+                                                                                        <button
+                                                                                            onClick={() => handleAction({ type: 'TRADE_ROUTE', targetRegionId: region.id, resource: res, action: 'EXPORT' })}
+                                                                                            disabled={!!actionLoading}
+                                                                                            className="px-2 py-0.5 bg-rose-600/20 text-rose-400 text-[10px] font-black rounded hover:bg-rose-600 hover:text-white transition-colors"
+                                                                                            title="Selg 10 (Eksport)"
+                                                                                        >
+                                                                                            EKSP
+                                                                                        </button>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                    );
-                                                                })}
+                                                                        );
+                                                                    })}
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    );
-                                                })}
+                                                        );
+                                                    })}
+                                                {/* Fallback if no other regions */}
+                                                {Object.keys(room.regions || {}).length < 2 && (
+                                                    <div className="col-span-full text-center text-slate-500 italic py-8">
+                                                        Ingen andre baronier å handle med ennå...
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     )}
@@ -426,10 +553,10 @@ export const SimulationPlayer: React.FC = () => {
                                                     </div>
                                                     <button
                                                         onClick={() => handleAction({ type: 'CONSTRUCT' })}
-                                                        disabled={!!actionLoading}
-                                                        className="bg-emerald-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-lg shadow-emerald-600/20 active:scale-95 transition-all outline-none ring-2 ring-emerald-400/20"
+                                                        disabled={!!actionLoading || (player.status.stamina || 0) < (ACTION_COSTS.CONSTRUCT.stamina || 0)}
+                                                        className={`bg-emerald-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-lg shadow-emerald-600/20 active:scale-95 transition-all outline-none ring-2 ring-emerald-400/20 ${((player.status.stamina || 0) < (ACTION_COSTS.CONSTRUCT.stamina || 0)) ? 'opacity-50 grayscale cursor-not-allowed' : ''}`}
                                                     >
-                                                        Bidra (-15⚡)
+                                                        Bidra (-{ACTION_COSTS.CONSTRUCT.stamina}⚡)
                                                     </button>
                                                 </div>
                                                 <div className="w-full h-3 bg-black/40 rounded-full overflow-hidden border border-white/5">
@@ -485,13 +612,16 @@ export const SimulationPlayer: React.FC = () => {
                                                                 .filter(([, r]: [string, any]) => r.buildingId === building.id)
                                                                 .map(([recipeId, recipe]: [string, any]) => {
                                                                     const details = (RESOURCE_DETAILS as any)[recipeId] || { label: recipeId };
-                                                                    const canAfford = Object.entries(recipe.input).every(([res, amt]) => (player.resources as any)[res] >= (amt as number));
+                                                                    const canAfford = Object.entries(recipe.input).every(([res, amt]) => (player.resources as any)[res] >= (amt as number))
+                                                                        && (player.status.stamina || 0) >= (recipe.stamina || 0)
+                                                                        && ((player.resources.bread || 0) >= (recipe.bread || 0)); // Recipes don't usually cost bread, but just in case
+
                                                                     return (
                                                                         <button
                                                                             key={recipeId}
                                                                             onClick={() => handleAction({ type: 'REFINE', recipeId })}
                                                                             disabled={!canAfford || !!actionLoading}
-                                                                            className={`flex justify-between items-center px-4 py-3 rounded-xl border-2 transition-all ${canAfford ? 'bg-slate-900 border-indigo-500/30 hover:border-indigo-500' : 'opacity-40 grayscale pointer-events-none border-transparent bg-black/20'}`}
+                                                                            className={`flex justify-between items-center px-4 py-3 rounded-xl border-2 transition-all ${canAfford ? 'bg-slate-900 border-indigo-500/30 hover:border-indigo-500' : 'opacity-40 grayscale cursor-not-allowed border-transparent bg-black/20'}`}
                                                                         >
                                                                             <div className="text-left">
                                                                                 <div className="text-xs font-black text-indigo-300 uppercase italic">START &rarr; {details.label}</div>
@@ -499,7 +629,7 @@ export const SimulationPlayer: React.FC = () => {
                                                                                     Krever: {Object.entries(recipe.input).map(([r, a]) => {
                                                                                         const d = (RESOURCE_DETAILS as any)[r] || { label: r };
                                                                                         return `${a} ${d.label}`;
-                                                                                    }).join(', ')}
+                                                                                    }).join(', ')} • {recipe.stamina}⚡
                                                                                 </div>
                                                                             </div>
                                                                         </button>
@@ -676,7 +806,7 @@ export const SimulationPlayer: React.FC = () => {
                                                         <div className="text-4xl">🏰</div>
                                                         <div>
                                                             <h4 className="text-lg font-black text-white">{baron.name}</h4>
-                                                            <div className="text-[10px] font-black uppercase text-indigo-400 tracking-widest">Baron av {baron.regionId}</div>
+                                                            <div className="text-[10px] font-black uppercase text-indigo-400 tracking-widest">{getRegionName(baron.regionId)}</div>
                                                         </div>
                                                     </div>
 
@@ -833,7 +963,7 @@ export const SimulationPlayer: React.FC = () => {
                     <div className="flex flex-col gap-3">
                         <div className="flex justify-between items-center text-xs">
                             <span className="font-black text-slate-500 uppercase tracking-widest leading-none">Region</span>
-                            <span className="text-white font-bold">{player.regionId}</span>
+                            <span className="text-white font-bold">{getRegionName(player.regionId)}</span>
                         </div>
                         <div className="flex justify-between items-center text-xs">
                             <span className="font-black text-slate-500 uppercase tracking-widest leading-none">Legitimitet</span>

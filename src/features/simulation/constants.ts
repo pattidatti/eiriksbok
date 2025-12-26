@@ -77,6 +77,7 @@ export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
 export const ACTION_COSTS = {
     WORK: { bread: 1, stamina: 10 },
     CHOP: { bread: 1, stamina: 15 },
+    FORAGE: { stamina: 40 }, // Emergency action: High effort, small reward
     MINE: { bread: 1, stamina: 25 },
     RAID: { bread: 3, stamina: 40 },
     TAX: { stamina: 20 },
@@ -123,6 +124,7 @@ export const ROLE_TITLES: Record<Role, string[]> = {
 export const REWARDS = {
     WORK: { grain: 10, xp: 5 },
     CHOP: { wood: 5, xp: 5 },
+    FORAGE: { bread: 1, xp: 2 }, // Emergency food
 };
 
 export const EVENTS = {

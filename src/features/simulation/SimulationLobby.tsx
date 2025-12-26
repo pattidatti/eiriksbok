@@ -22,6 +22,13 @@ export const SimulationLobby: React.FC = () => {
         return () => setFullWidth(false);
     }, [setFullWidth]);
 
+    useEffect(() => {
+        const savedPin = localStorage.getItem('sim_room_pin');
+        const savedName = localStorage.getItem('sim_player_name');
+        if (savedPin) setPin(savedPin);
+        if (savedName) setName(savedName);
+    }, []);
+
     const isTestRoom = pin.toUpperCase() === 'TEST';
 
     const joinGame = async (e: React.FormEvent) => {
@@ -80,52 +87,86 @@ export const SimulationLobby: React.FC = () => {
 
             // For normal rooms, status must be LOBBY. For TEST room, we allow PLAYING.
             if (cleanPin !== 'TEST' && roomData.status !== 'LOBBY') {
-                setError('Spillet har allerede startet eller er ferdig.');
-                setJoining(false);
-                return;
+                // Allow re-joining if we can match the player ID
+                const savedId = localStorage.getItem('sim_player_id');
+                const players = roomData.players || {};
+                const playerExists = savedId && players[savedId];
+
+                if (!playerExists) {
+                    setError('Spillet har allerede startet eller er ferdig.');
+                    setJoining(false);
+                    return;
+                }
             }
 
-            // Create Player ID
-            const playerId = `${name.replace(/[^a-zA-Z0-9]/g, '')}_${Date.now()}`;
-            sessionStorage.setItem('sim_player_id', playerId);
-            sessionStorage.setItem('sim_room_pin', cleanPin);
+            // Create Player ID (Reuse if exists in local storage and name matches, otherwise create new)
+            let playerId = localStorage.getItem('sim_player_id');
+            // If the name in box is different from saved name, force new ID? 
+            // Better: If we are joining a new room, we might want a new ID.
+            // But if we are rejoining the SAME room, keep the ID.
+
+            const savedRoomForId = localStorage.getItem('sim_room_pin');
+            if (!playerId || savedRoomForId !== cleanPin) {
+                playerId = `${name.replace(/[^a-zA-Z0-9]/g, '')}_${Date.now()}`;
+            }
+
+            // ALWAYS UPDATE STORAGE
+            localStorage.setItem('sim_player_id', playerId);
+            localStorage.setItem('sim_room_pin', cleanPin);
+            localStorage.setItem('sim_player_name', name);
 
             // Role assignment (Role selection for TEST, PEASANT for others)
             const role: Role = cleanPin === 'TEST' ? selectedRole : 'PEASANT';
 
             // Region Assignment
             let regionId = 'unassigned';
-            if (cleanPin === 'TEST') {
-                regionId = 'test_region'; // Shared region for easy testing
-            } else if (role === 'BARON') {
+
+            if (role === 'BARON') {
                 regionId = `region_${playerId}`;
             } else if (role === 'KING') {
                 regionId = 'capital';
+            } else if (cleanPin === 'TEST') {
+                // In TEST room, try to assign to an existing Baron's region
+                const players = roomData.players || {};
+                const existingBarons = Object.values(players).filter((p: any) => p.role === 'BARON');
+
+                if (existingBarons.length > 0) {
+                    // Distribute roughly evenly or just random
+                    const randomBaron = existingBarons[Math.floor(Math.random() * existingBarons.length)] as any;
+                    regionId = randomBaron.regionId;
+                } else {
+                    regionId = 'test_region'; // Fallback if no Barons exist
+                }
             }
 
-            const newPlayer: SimulationPlayer = {
-                id: playerId,
-                name: name,
-                role: role,
-                regionId: regionId,
-                resources: INITIAL_RESOURCES[role] || INITIAL_RESOURCES.PEASANT,
+            // Check if player already exists in room to avoid overwriting state on rejoin
+            const playerSnapshot = await get(child(roomRef, `players/${playerId}`));
 
-                stats: { xp: 0, level: 1, reputation: 50, contribution: 0 },
-                status: { hp: 100, morale: 100, stamina: 50, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
-                equipment: {
-                    tools: { id: 'tools', durability: 100, maxDurability: 100 },
-                    weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
-                    armor: { id: 'armor', durability: 100, maxDurability: 100 }
-                },
+            if (!playerSnapshot.exists()) {
+                const newPlayer: SimulationPlayer = {
+                    id: playerId,
+                    name: name,
+                    role: role,
+                    regionId: regionId,
+                    resources: INITIAL_RESOURCES[role] || INITIAL_RESOURCES.PEASANT,
 
-
-                upgrades: [],
-                lastActive: Date.now()
-            };
-
+                    stats: { xp: 0, level: 1, reputation: 50, contribution: 0 },
+                    status: { hp: 100, morale: 100, stamina: 50, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
+                    equipment: {
+                        tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                        weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                        armor: { id: 'armor', durability: 100, maxDurability: 100 }
+                    },
 
 
-            await set(child(roomRef, `players/${playerId}`), newPlayer);
+                    upgrades: [],
+                    lastActive: Date.now()
+                };
+                await set(child(roomRef, `players/${playerId}`), newPlayer);
+            } else {
+                console.log("Rejoining existing player session...");
+            }
+
             navigate(`/sim/play/${cleanPin}`);
 
         } catch (err) {

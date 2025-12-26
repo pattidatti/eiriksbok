@@ -44,19 +44,20 @@ export const SimulationHost: React.FC = () => {
             const data = snapshot.val();
             if (data) setRoomData(data);
         });
-        useEffect(() => {
-            if (pin && view === 'MANAGE') {
-                document.title = `Host: ${pin} | Eiriksbok`;
-            } else {
-                document.title = 'Simuleringshallen | Eiriksbok';
-            }
-            return () => {
-                document.title = 'Eiriksbok';
-            };
-        }, [pin, view]);
-
         return () => unsubscribe();
     }, [pin]);
+
+    // Handle Title Change (Moved from inside previous useEffect)
+    useEffect(() => {
+        if (pin && view === 'MANAGE') {
+            document.title = `Host: ${pin} | Eiriksbok`;
+        } else {
+            document.title = 'Simuleringshallen | Eiriksbok';
+        }
+        return () => {
+            document.title = 'Eiriksbok';
+        };
+    }, [pin, view]);
 
     const createRoom = async () => {
         setIsLoading(true);
@@ -66,6 +67,9 @@ export const SimulationHost: React.FC = () => {
             status: 'LOBBY',
             settings: 'feudal_europe',
             market: INITIAL_MARKET,
+            markets: {
+                'capital': INITIAL_MARKET
+            },
             regions: {},
             players: {},
             world: {
@@ -104,6 +108,11 @@ export const SimulationHost: React.FC = () => {
         try {
             const updatedPlayers = assignRoles(roomData.players);
             const newRegions: any = {};
+            const newMarkets: any = { ...roomData.markets };
+
+            // Ensure capital market exists
+            if (!newMarkets['capital']) newMarkets['capital'] = INITIAL_MARKET;
+
             Object.values(updatedPlayers).forEach(p => {
                 if (p.role === 'BARON') {
                     newRegions[p.regionId] = {
@@ -113,12 +122,23 @@ export const SimulationHost: React.FC = () => {
                         defenseLevel: 50,
                         rulerName: p.name
                     };
+                    // Create Local Market for this Baron
+                    // Add some variance to prices
+                    const localMarket: any = JSON.parse(JSON.stringify(INITIAL_MARKET));
+                    Object.keys(localMarket).forEach(key => {
+                        const item = localMarket[key];
+                        // Random +/- 20% price and stock
+                        item.price = Math.floor(item.price * (0.8 + Math.random() * 0.4));
+                        item.stock = Math.floor(item.stock * (0.8 + Math.random() * 0.4));
+                    });
+                    newMarkets[p.regionId] = localMarket;
                 }
             });
 
             const updates: any = {};
             updates[`simulation_rooms/${pin}/players`] = updatedPlayers;
             updates[`simulation_rooms/${pin}/regions`] = newRegions;
+            updates[`simulation_rooms/${pin}/markets`] = newMarkets;
             updates[`simulation_rooms/${pin}/status`] = 'PLAYING';
             await update(ref(db), updates);
         } catch (e) {
@@ -306,14 +326,21 @@ export const SimulationHost: React.FC = () => {
     };
 
     const resetGame = async () => {
-        if (!window.confirm("Er du sikker på at du vil starte spillet på nytt? Alle fremdrift slettes.")) return;
+        console.log("Attempting resetGame...");
+        if (!window.confirm("Er du sikker på at du vil starte spillet på nytt? Alle fremdrift slettes.")) {
+            console.log("Reset cancelled by user.");
+            return;
+        }
+        console.log("Reset confirmed. Pin:", pin);
         setIsLoading(true);
         try {
             const updates: any = {};
-            updates[`simulation_rooms/${pin}/status`] = 'LOBBY';
+            updates[`simulation_rooms / ${pin}/status`] = 'LOBBY';
             updates[`simulation_rooms/${pin}/worldEvents`] = {};
             updates[`simulation_rooms/${pin}/messages`] = [];
             updates[`simulation_rooms/${pin}/market`] = INITIAL_MARKET;
+            updates[`simulation_rooms/${pin}/markets`] = { 'capital': INITIAL_MARKET };
+            updates[`simulation_rooms/${pin}/regions`] = {}; // Clear regions
             updates[`simulation_rooms/${pin}/world/monumentProgress`] = 0;
             updates[`simulation_rooms/${pin}/world/activeLaws`] = [];
             updates[`simulation_rooms/${pin}/world/settlement`] = {
@@ -326,6 +353,8 @@ export const SimulationHost: React.FC = () => {
 
             // Reset players
             Object.keys(roomData?.players || {}).forEach(id => {
+                updates[`simulation_rooms/${pin}/players/${id}/role`] = 'PEASANT'; // Reset role
+                updates[`simulation_rooms/${pin}/players/${id}/regionId`] = 'capital'; // Reset region
                 updates[`simulation_rooms/${pin}/players/${id}/resources`] = INITIAL_RESOURCES.PEASANT;
                 updates[`simulation_rooms/${pin}/players/${id}/status`] = { stamina: 100, legitimacy: 100, authority: 50 };
                 updates[`simulation_rooms/${pin}/players/${id}/equipment`] = {
@@ -335,14 +364,49 @@ export const SimulationHost: React.FC = () => {
                 };
             });
 
+            console.log("Constructed updates:", updates);
             await update(ref(db), updates);
+
+            // Force immediate local state update to reflect changes
+            if (roomData) {
+                setRoomData({ ...roomData, status: 'LOBBY', messages: [] });
+            }
+
+            console.log("Update successful!");
+            alert("Spillet er nullstilt!");
         } catch (e) {
-            console.error(e);
+            console.error("Reset failed:", e);
+            alert("Kunne ikke nullstille spill: " + e);
         } finally {
             setIsLoading(false);
         }
     };
 
+
+    const kickPlayer = async (playerId: string, playerName: string) => {
+        if (!window.confirm(`Er du sikker på at du vil kaste ut ${playerName}?`)) return;
+        try {
+            const updates: any = {};
+            updates[`simulation_rooms/${pin}/players/${playerId}`] = null;
+            await update(ref(db), updates);
+        } catch (e) {
+            console.error(e);
+            alert("Kunne ikke kaste ut spiller.");
+        }
+    };
+
+    const kickAllPlayers = async () => {
+        if (!window.confirm("ER DU SIKKER? Dette vil kaste ut ALLE spillere fra rommet!")) return;
+        try {
+            const updates: any = {};
+            updates[`simulation_rooms/${pin}/players`] = {};
+            await update(ref(db), updates);
+            alert("Alle spillere er kastet ut.");
+        } catch (e) {
+            console.error(e);
+            alert("Kunne ikke utføre handlingen.");
+        }
+    };
 
     if (view === 'LIST') {
         return (
@@ -471,6 +535,9 @@ export const SimulationHost: React.FC = () => {
                             <button onClick={regenAllStamina} className="w-full bg-blue-600/10 hover:bg-blue-600 text-blue-500 hover:text-white border border-blue-600/20 py-4 rounded-2xl font-black uppercase text-[10px] transition-all flex items-center justify-center gap-2 text-center">
                                 ⚡ Gjenopprett Stamina
                             </button>
+                            <button onClick={kickAllPlayers} className="w-full bg-rose-600/10 hover:bg-rose-600 text-rose-500 hover:text-white border border-rose-600/20 py-4 rounded-2xl font-black uppercase text-[10px] transition-all flex items-center justify-center gap-2 text-center mt-2">
+                                ☠️ Kast ut alle
+                            </button>
                         </div>
                     </section>
 
@@ -529,7 +596,14 @@ export const SimulationHost: React.FC = () => {
                         <h2 className="text-3xl font-black text-white px-2 mb-8 tracking-tighter">Innbyggere i Riket</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {Object.values(roomData.players || {}).map(p => (
-                                <div key={p.id} className="bg-slate-900/80 border border-white/5 p-6 rounded-[2rem] hover:border-indigo-500/30 transition-all group">
+                                <div key={p.id} className="relative bg-slate-900/80 border border-white/5 p-6 rounded-[2rem] hover:border-indigo-500/30 transition-all group">
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); kickPlayer(p.id, p.name); }}
+                                        className="absolute top-4 right-4 w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 opacity-0 group-hover:opacity-100 transition-all hover:bg-rose-500 hover:text-white flex items-center justify-center font-bold text-xs"
+                                        title="Kast ut spiller"
+                                    >
+                                        ✕
+                                    </button>
                                     <div className="flex items-center gap-4 mb-4">
                                         <div className="w-12 h-12 bg-indigo-600/20 rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform overflow-hidden">
                                             {p.avatar ? <img src={p.avatar} alt={p.role} className="w-full h-full object-cover" /> : ({

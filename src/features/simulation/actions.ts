@@ -1,6 +1,6 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
-import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, LEVEL_XP, WEATHER, GAME_BALANCE, REFINERY_RECIPES } from './constants';
+import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, LEVEL_XP, WEATHER, GAME_BALANCE, REFINERY_RECIPES, RESOURCE_DETAILS } from './constants';
 import type { SimulationMarket } from './types';
 
 
@@ -66,9 +66,16 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 // Resource check
                 for (const [res, amt] of Object.entries(cost)) {
                     if (res === 'stamina') continue;
-                    if ((actor.resources[res as keyof typeof actor.resources] || 0) < (amt as number)) return;
+                    if ((actor.resources[res as keyof typeof actor.resources] || 0) < (amt as number)) {
+                        const resLabel = (RESOURCE_DETAILS as any)[res]?.label || res;
+                        room.messages.push(`[${timestamp}] ❌ Du mangler ${amt} ${resLabel} for å gjøre dette!`);
+                        return;
+                    }
                 }
-                if ((actor.status.stamina || 0) < finalStaminaCost) return;
+                if ((actor.status.stamina || 0) < finalStaminaCost) {
+                    room.messages.push(`[${timestamp}] 💤 Du er for sliten! (${finalStaminaCost}⚡ kreves)`);
+                    return;
+                }
 
                 // Deduct resources
                 for (const [res, amt] of Object.entries(cost)) {
@@ -148,8 +155,21 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     room.messages.push(`[${timestamp}] 🪵 ${actor.name} hogg ved som en kjempe! +${yieldAmount} trevirke.`);
                 }
 
+            } else if (actionType === 'FORAGE') {
+                // Emergency action: Gathering scraps of food
+                // Must do at least okay (performance > 0.5) to find something
+                const performance = action.performance || 0;
+                const forageYield = performance > 0.5 ? 1 : 0;
+
+                if (forageYield > 0) {
+                    actor.resources.bread = (actor.resources.bread || 0) + forageYield;
+                    room.messages.push(`[${timestamp}] 🍓 ${actor.name} fant mat i skogen! (+${forageYield} Brød)`);
+                } else {
+                    room.messages.push(`[${timestamp}] 🍂 ${actor.name} fant ingenting spiselig i skogen...`);
+                }
+                actor.stats.xp = (actor.stats.xp || 0) + (REWARDS.FORAGE?.xp || 2);
+
             } else if (actionType === 'MINE') {
-                if (actor.role !== 'PEASANT') return;
                 // Durability check
                 if (actor.equipment.tools.durability <= 0) {
                     room.messages.push(`[${timestamp}] ❌ Hakken din er knekt!`);
@@ -163,13 +183,14 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.PERFORMANCE_WEIGHT);
                 yieldAmount = Math.ceil(yieldAmount * finalMultiplier);
 
+                console.log(`[MINE_DEBUG] Yield: ${yieldAmount}, Before: ${actor.resources.iron_ore}`);
                 actor.resources.iron_ore = (actor.resources.iron_ore || 0) + yieldAmount;
+                console.log(`[MINE_DEBUG] After: ${actor.resources.iron_ore}`);
                 actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.WORK.xp * finalMultiplier);
 
                 room.messages.push(`[${timestamp}] ⚒️ ${actor.name} fant ${yieldAmount} jernmalm i gruva.`);
 
             } else if (actionType === 'QUARRY') {
-                if (actor.role !== 'PEASANT') return;
                 let yieldAmount = GAME_BALANCE.YIELD.QUARRY_STONE;
 
                 const performance = action.performance || 1.0;
@@ -275,7 +296,10 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 actor.stats.xp += 20;
             } else if (actionType === 'BUY' || actionType === 'SELL') {
                 const res = action.resource as keyof SimulationMarket;
-                const item = room.market[res];
+                // Use Local Market based on Region
+                const marketId = actor.regionId || 'capital';
+                const market = room.markets?.[marketId] || room.market; // Fallback to global
+                const item = market[res];
                 if (!item) return;
 
                 const isMerchant = actor.role === 'MERCHANT';
@@ -488,42 +512,58 @@ export const performAction = async (pin: string, playerId: string, action: any) 
             } else if (actionType === 'TRADE_ROUTE') {
                 if (actor.role !== 'MERCHANT') return;
 
-                // Simple Trade Route: Spend stamina and time to get resources or gold diff
-                // We'll simulate a trade run to a foreign city.
-                const { city, resource, action: direction } = action; // direction: 'IMPORT' (Buy foreign, bring home) or 'EXPORT' (Sell home, get gold)
+                // REAL TRADE ROUTE: Trade with another player region
+                const { targetRegionId, resource, action: direction } = action;
+                // direction: 'IMPORT' (Buy from foreign market, bring home) or 'EXPORT' (Sell to foreign market, get gold)
 
-                // Deterministic Price Mock (should match client)
-                const timeSeed = Math.floor(Date.now() / 60000); // Changes every minute
-                const prices: any = {
-                    'Bjørgvin': { grain: 12, wood: 18, iron: 30 },
-                    'Nidaros': { grain: 8, wood: 12, iron: 20 },
-                    'Tønsberg': { grain: 10, wood: 15, iron: 25 }
-                };
+                const targetMarket = room.markets?.[targetRegionId];
+                if (!targetMarket) {
+                    room.messages.push(`[${timestamp}] ❌ Handelsrute feilet. Fant ikke markedet i ${targetRegionId}.`);
+                    return;
+                }
 
-                // Add some noise based on seed + city len + resource len
-                const basePrice = (prices[city]?.[resource] || 10);
-                const noise = (timeSeed % 5) - 2;
-                const finalForeignPrice = Math.max(1, basePrice + noise);
+                const item = targetMarket[resource as keyof SimulationMarket];
+                if (!item) return;
 
                 const amount = 10;
 
+                // Price logic using the REAL foreign market price
+                const foreignPrice = item.price;
+                const totalCost = Math.ceil(foreignPrice * amount);
+
                 if (direction === 'IMPORT') {
                     // Buy 10 at Foreign Price
-                    const cost = finalForeignPrice * amount;
-                    if (actor.resources.gold >= cost) {
-                        actor.resources.gold -= cost;
+                    if (actor.resources.gold >= totalCost && item.stock >= amount) {
+                        actor.resources.gold -= totalCost;
                         (actor.resources as any)[resource] = ((actor.resources as any)[resource] || 0) + amount;
+
+                        // Update Foreign Market
+                        item.stock -= amount;
+                        item.price += (item.price * 0.05 * item.demand);
+
                         actor.stats.xp += 15;
-                        room.messages.push(`[${timestamp}] 🚢 ${actor.name} importerte ${amount} ${resource} fra ${city} (Kjøpt for ${cost}g).`);
+                        room.messages.push(`[${timestamp}] 🚢 ${actor.name} importerte ${amount} ${resource} fra ${targetRegionId} (Kjøpt for ${totalCost}g).`);
+                    } else {
+                        room.messages.push(`[${timestamp}] ❌ ${actor.name} prøvde å importere, men manglet gull eller varene var utsolgt i ${targetRegionId}.`);
                     }
                 } else {
                     // Export: Sell 10 at Foreign Price
                     if ((actor.resources as any)[resource] >= amount) {
                         (actor.resources as any)[resource] -= amount;
-                        const income = finalForeignPrice * amount;
+
+                        // We sell to them, so they gain stock, we gain gold
+                        // However, we get paid by "the market" (void), but the market logic implies someone bought it.
+                        // In simulation, we just dump it into their market stock.
+                        const income = Math.floor(totalCost * GAME_BALANCE.MARKET.SELL_RATIO); // Export tax/tariffs? Let's say standard sell ratio applies.
+
                         actor.resources.gold += income;
+
+                        // Update Foreign Market
+                        item.stock += amount;
+                        item.price = Math.max(1, item.price - (item.price * 0.03));
+
                         actor.stats.xp += 15;
-                        room.messages.push(`[${timestamp}] 🚢 ${actor.name} eksporterte ${amount} ${resource} til ${city} (Solgt for ${income}g).`);
+                        room.messages.push(`[${timestamp}] 🚢 ${actor.name} eksporterte ${amount} ${resource} til ${targetRegionId} (Solgt for ${income}g).`);
                     }
                 }
 
@@ -545,6 +585,64 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 } else {
                     room.messages.push(`[${timestamp}] 🛡️ ${actor.name} fullførte en patruljerunde. +${goldReward}g.`);
                 }
+
+            } else if (actionType === 'GAMBLE') {
+                const amount = action.amount || 10;
+                if ((actor.resources.gold || 0) < amount) {
+                    room.messages.push(`[${timestamp}] ❌ Du har ikke nok gull til å gamble!`);
+                    return;
+                }
+
+                // Roll two dice
+                const d1 = Math.floor(Math.random() * 6) + 1;
+                const d2 = Math.floor(Math.random() * 6) + 1;
+                const total = d1 + d2;
+
+                if (total >= 7) {
+                    // Win (House Edge: only win on 7+? No, usually 7 is common. Let's say > 7 wins, 7 pushes? No simple win/loss.
+                    // Let's try: Win on 8, 9, 10, 11, 12. (15/36 ~ 41.6%). 2x Payout.
+                    // Or keep it simple: Win on > 7. (15/36). 
+                    // Let's make it friendly: Win on >= 7? (21/36 ~ 58%). Too easy.
+                    // Let's standard craps-ish: Win on 7, 11 on first roll? 
+                    // Simple High/Low: Roll > 7 Wins.
+                    if (total > 7) {
+                        actor.resources.gold += amount;
+                        actor.stats.xp += 5;
+                        room.messages.push(`[${timestamp}] 🎲 ${actor.name} vant ${amount}g med terningkast ${total}!`);
+                    } else {
+                        actor.resources.gold -= amount;
+                        room.messages.push(`[${timestamp}] 💸 ${actor.name} tapte ${amount}g med terningkast ${total}.`);
+                    }
+                } else {
+                    // Roll <= 7 Loses
+                    actor.resources.gold -= amount;
+                    room.messages.push(`[${timestamp}] 💸 ${actor.name} tapte ${amount}g med terningkast ${total}.`);
+                }
+
+            } else if (actionType === 'BUY_MEAL') {
+                const cost = 5;
+                if ((actor.resources.gold || 0) < cost) {
+                    room.messages.push(`[${timestamp}] ❌ En pils og lapskaus koster ${cost}g.`);
+                    return;
+                }
+                actor.resources.gold -= cost;
+                actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + 15);
+                actor.status.hp = Math.min(100, (actor.status.hp || 100) + 5);
+                room.messages.push(`[${timestamp}] 🍗 ${actor.name} nøt et varmt måltid og fikk tilbake kreftene.`);
+
+            } else if (actionType === 'CHAT_LOCAL') {
+                const gossip = [
+                    "Jeg hørte at Baron Elvin planlegger en stor fest...",
+                    "Avlingene i nord har slått feil i år, sies det.",
+                    "Har du sett de nye soldatene til Kongen? De ser skumle ut.",
+                    "Det er farlig i skogen om natten. Ulvene uler.",
+                    "Prisen på jern har gått opp, har du merket det?",
+                    "Noen sier at det spøker i den gamle gruva.",
+                    "Smeden lager de beste sverdene i hele riket.",
+                    "Jeg skulle ønske jeg var adelig, da kunne jeg sovet hele dagen."
+                ];
+                const msg = gossip[Math.floor(Math.random() * gossip.length)];
+                room.messages.push(`[${timestamp}] 🗣️ ${actor.name} snakker med en lokal: "${msg}"`);
 
             } else if (actionType === 'RETIRE') {
                 // Downgrade to Peasant

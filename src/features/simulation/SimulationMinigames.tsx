@@ -109,8 +109,8 @@ const HarvestingGame: React.FC<HarvestingGameProps> = ({ onComplete, isMining, i
     };
 
     const title = isQuarrying ? 'Steinhugger 🪨' : (isMining ? 'Gruvedrift ⛏️' : 'Kornhøsting 🌾');
-    const resourceIcon = isQuarrying ? '🪨' : (isMining ? '⛏️' : '🌾');
-    const resourceName = isQuarrying ? 'Stein' : (isMining ? 'Jern' : 'Korn');
+    const resourceIcon = isQuarrying ? '🪨' : (isMining ? '🪨' : '🌾');
+    const resourceName = isQuarrying ? 'Stein' : (isMining ? 'Jernmalm' : 'Korn');
     const yieldBase = isQuarrying ? 8 : (isMining ? 5 : 10);
 
     return (
