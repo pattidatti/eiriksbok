@@ -198,11 +198,16 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                         {/* POI Illustration Header */}
                         <div className="h-24 w-full bg-slate-200 relative">
                             <img
-                                src={`/poi/${selectedPOI.id}.png`}
+                                src={
+                                    selectedPOI.id === 'monument'
+                                        ? ((room.world.monumentProgress || 0) >= 1000 ? '/poi/monument_finished.png' : '/poi/monument.png')
+                                        : `/poi/${selectedPOI.id}.png`
+                                }
                                 alt={selectedPOI.label}
                                 className="w-full h-full object-cover"
                                 onError={(e) => e.currentTarget.style.display = 'none'}
                             />
+
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
                             <div className="absolute bottom-2 left-4 text-white">
                                 <h3 className="font-black flex items-center gap-2 text-shadow-sm">
