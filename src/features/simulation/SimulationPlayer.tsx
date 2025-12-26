@@ -123,11 +123,11 @@ export const SimulationPlayer: React.FC = () => {
                         </div>
                         <div>
 
-                            <div className="font-bold text-lg leading-none">{player.name}</div>
+                            <div className="font-bold text-2xl leading-none">{player.name}</div>
                             <div className="flex gap-2 items-center mt-1">
-                                <span className="text-indigo-300 text-[10px] font-mono uppercase tracking-widest">{ROLE_DEFINITIONS[player.role]?.label}</span>
+                                <span className="text-indigo-300 text-xs font-mono uppercase tracking-widest">{ROLE_DEFINITIONS[player.role]?.label}</span>
                                 {room.world?.weather && (
-                                    <span className="text-[10px] uppercase font-black px-2 py-0.5 bg-blue-500/30 text-blue-200 rounded flex items-center gap-1">
+                                    <span className="text-xs uppercase font-black px-2 py-0.5 bg-blue-500/30 text-blue-200 rounded flex items-center gap-1">
                                         {room.world.weather === 'Rain' ? '🌧️' : room.world.weather === 'Storm' ? '⛈️' : room.world.weather === 'Fog' ? '🌫️' : '☀️'} {room.world.weather}
                                     </span>
                                 )}
@@ -136,8 +136,8 @@ export const SimulationPlayer: React.FC = () => {
                     </div>
 
                     <div className="text-right">
-                        <div className="font-mono text-xl font-black text-yellow-400">{player.resources.gold} 💰</div>
-                        <div className="text-[10px] text-indigo-300 font-bold">Nivå {player.stats.level || 1} {ROLE_TITLES[player.role]?.[(player.stats.level || 1) - 1]}</div>
+                        <div className="font-mono text-3xl font-black text-yellow-400">{player.resources.gold} 💰</div>
+                        <div className="text-xs text-indigo-300 font-bold">Nivå {player.stats.level || 1} {ROLE_TITLES[player.role]?.[(player.stats.level || 1) - 1]}</div>
                     </div>
                 </div>
 
@@ -145,18 +145,18 @@ export const SimulationPlayer: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                     {/* Season Badge */}
                     <div className="flex items-center gap-3 bg-black/20 p-2 rounded-xl">
-                        <div className="text-2xl" style={{ color: (SEASONS as any)[room.world?.season || 'Spring']?.color }}>
+                        <div className="text-4xl" style={{ color: (SEASONS as any)[room.world?.season || 'Spring']?.color }}>
                             {room.world?.season === 'Winter' ? '❄️' : room.world?.season === 'Autumn' ? '🍂' : room.world?.season === 'Summer' ? '☀️' : '🌱'}
                         </div>
                         <div>
-                            <div className="text-[10px] uppercase font-black opacity-50">Årstid</div>
-                            <div className="font-bold text-xs">{(SEASONS as any)[room.world?.season || 'Spring']?.label}</div>
+                            <div className="text-xs uppercase font-black opacity-50">Årstid</div>
+                            <div className="font-bold text-sm">{(SEASONS as any)[room.world?.season || 'Spring']?.label}</div>
                         </div>
                     </div>
 
                     {/* XP Progress */}
                     <div className="flex flex-col justify-center">
-                        <div className="flex justify-between text-[8px] font-black uppercase opacity-50 mb-1">
+                        <div className="flex justify-between text-xs font-black uppercase opacity-50 mb-1">
                             <span>Erfaring (XP)</span>
                             <span>{player.stats.xp} / {LEVEL_XP[player.stats.level || 1] || 'MAX'}</span>
                         </div>
@@ -173,21 +173,21 @@ export const SimulationPlayer: React.FC = () => {
                 {(player.role === 'KING' || player.role === 'BARON') && (
                     <div className="grid grid-cols-2 gap-3 mb-3">
                         <div className="bg-white/10 p-2 rounded-lg border border-white/5">
-                            <div className="text-[8px] uppercase font-black opacity-50 text-indigo-300">Legitimitet</div>
+                            <div className="text-xs uppercase font-black opacity-50 text-indigo-300">Legitimitet</div>
                             <div className="flex items-center gap-2">
                                 <div className="flex-1 h-1 bg-black/20 rounded-full overflow-hidden">
                                     <div className="h-full bg-purple-400" style={{ width: `${player.status.legitimacy || 100}%` }} />
                                 </div>
-                                <span className="text-[10px] font-mono">{player.status.legitimacy || 100}%</span>
+                                <span className="text-xs font-mono">{player.status.legitimacy || 100}%</span>
                             </div>
                         </div>
                         <div className="bg-white/10 p-2 rounded-lg border border-white/5">
-                            <div className="text-[8px] uppercase font-black opacity-50 text-indigo-300">Autoritet</div>
+                            <div className="text-xs uppercase font-black opacity-50 text-indigo-300">Autoritet</div>
                             <div className="flex items-center gap-2">
                                 <div className="flex-1 h-1 bg-black/20 rounded-full overflow-hidden">
                                     <div className="h-full bg-red-400" style={{ width: `${player.status.authority || 50}%` }} />
                                 </div>
-                                <span className="text-[10px] font-mono">{player.status.authority || 50}%</span>
+                                <span className="text-xs font-mono">{player.status.authority || 50}%</span>
                             </div>
                         </div>
                     </div>
@@ -196,7 +196,7 @@ export const SimulationPlayer: React.FC = () => {
                 {/* Stamina Bar */}
 
                 <div className="space-y-1">
-                    <div className="flex justify-between text-[10px] font-bold uppercase tracking-tighter text-indigo-400">
+                    <div className="flex justify-between text-xs font-bold uppercase tracking-tighter text-indigo-400">
                         <span>Energi / Utholdenhet</span>
                         <span>{Math.round(staminaWidth)}%</span>
                     </div>
@@ -221,7 +221,7 @@ export const SimulationPlayer: React.FC = () => {
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(tab as any)}
-                                className={`flex-1 min-w-[80px] py-3 rounded-xl font-bold transition-all text-[11px] whitespace-nowrap ${activeTab === tab ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-500'}`}
+                                className={`flex-1 min-w-[100px] py-4 rounded-xl font-bold transition-all text-sm whitespace-nowrap ${activeTab === tab ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-500'}`}
                             >
                                 {label}
                             </button>
@@ -241,8 +241,8 @@ export const SimulationPlayer: React.FC = () => {
 
                                 return (
                                     <div key={res} className="bg-white p-2 rounded-xl shadow-sm border border-slate-200 text-center">
-                                        <div className="text-[8px] uppercase text-slate-400 font-black mb-0.5">{res}</div>
-                                        <div className="font-black text-sm text-slate-800">{Icon} {amount}</div>
+                                        <div className="text-xs uppercase text-slate-400 font-black mb-0.5">{res}</div>
+                                        <div className="font-black text-lg text-slate-800">{Icon} {amount}</div>
                                     </div>
                                 );
                             })}
@@ -258,7 +258,7 @@ export const SimulationPlayer: React.FC = () => {
                         />
 
                         {actionLoading && (
-                            <div className="fixed bottom-24 left-1/2 -translate-x-1/2 bg-indigo-600 text-white px-6 py-2 rounded-full shadow-2xl z-50 animate-bounce text-sm font-bold">
+                            <div className="fixed bottom-24 left-1/2 -translate-x-1/2 bg-indigo-600 text-white px-6 py-2 rounded-full shadow-2xl z-50 animate-bounce text-base font-bold">
                                 Utfører handling... ⏳
                             </div>
                         )}
@@ -266,26 +266,26 @@ export const SimulationPlayer: React.FC = () => {
                 ) : activeTab === 'MARKET' ? (
                     <div className="space-y-4">
                         <div className="bg-white p-6 rounded-3xl shadow-md border-b-4 border-amber-100">
-                            <h2 className="text-2xl font-black text-slate-800 mb-6 text-center">Markedsplassen ⚖️</h2>
+                            <h2 className="text-3xl font-black text-slate-800 mb-6 text-center">Markedsplassen ⚖️</h2>
 
                             {/* Grain Card */}
                             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 mb-4">
                                 <div className="flex justify-between items-center mb-5">
-                                    <div className="font-black text-lg flex items-center gap-2">Korn 🌾</div>
-                                    <div className="text-3xl font-black text-indigo-600">{room.market.grain.price.toFixed(1)} <span className="text-sm font-mono tracking-tight text-slate-400">💰</span></div>
+                                    <div className="font-black text-xl flex items-center gap-2">Korn 🌾</div>
+                                    <div className="text-4xl font-black text-indigo-600">{room.market.grain.price.toFixed(1)} <span className="text-lg font-mono tracking-tight text-slate-400">💰</span></div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     <button
                                         onClick={() => handleAction('BUY_GRAIN')}
                                         disabled={!!actionLoading || player.resources.gold < room.market.grain.price}
-                                        className="bg-green-600 text-white py-4 rounded-xl font-black shadow-lg disabled:opacity-40"
+                                        className="bg-green-600 text-white py-4 rounded-xl text-lg font-black shadow-lg disabled:opacity-40"
                                     >
                                         KJØP 1
                                     </button>
                                     <button
                                         onClick={() => handleAction('SELL_GRAIN')}
                                         disabled={!!actionLoading || (player.resources.grain || 0) < 1}
-                                        className="bg-amber-600 text-white py-4 rounded-xl font-black shadow-lg disabled:opacity-40"
+                                        className="bg-amber-600 text-white py-4 rounded-xl text-lg font-black shadow-lg disabled:opacity-40"
                                     >
                                         SELG 1
                                     </button>
@@ -295,21 +295,21 @@ export const SimulationPlayer: React.FC = () => {
                             {/* Wood Card */}
                             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
                                 <div className="flex justify-between items-center mb-5">
-                                    <div className="font-black text-lg flex items-center gap-2">Treverk 🪵</div>
-                                    <div className="text-3xl font-black text-indigo-600">{room.market.wood.price.toFixed(1)} <span className="text-sm font-mono tracking-tight text-slate-400">💰</span></div>
+                                    <div className="font-black text-xl flex items-center gap-2">Treverk 🪵</div>
+                                    <div className="text-4xl font-black text-indigo-600">{room.market.wood.price.toFixed(1)} <span className="text-lg font-mono tracking-tight text-slate-400">💰</span></div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     <button
                                         onClick={() => handleAction('BUY_WOOD')}
                                         disabled={!!actionLoading || player.resources.gold < room.market.wood.price}
-                                        className="bg-green-600 text-white py-4 rounded-xl font-black shadow-lg disabled:opacity-40"
+                                        className="bg-green-600 text-white py-4 rounded-xl text-lg font-black shadow-lg disabled:opacity-40"
                                     >
                                         KJØP 5
                                     </button>
                                     <button
                                         onClick={() => handleAction('SELL_WOOD')}
                                         disabled={!!actionLoading || (player.resources.wood || 0) < 5}
-                                        className="bg-amber-600 text-white py-4 rounded-xl font-black shadow-lg disabled:opacity-40"
+                                        className="bg-amber-600 text-white py-4 rounded-xl text-lg font-black shadow-lg disabled:opacity-40"
                                     >
                                         SELG 5
                                     </button>
@@ -321,7 +321,7 @@ export const SimulationPlayer: React.FC = () => {
 
                     <div className="space-y-4">
                         <div className="bg-white p-6 rounded-3xl shadow-md border-b-4 border-emerald-100">
-                            <h2 className="text-2xl font-black text-slate-800 mb-6 text-center">Oppgraderinger 🏗️</h2>
+                            <h2 className="text-3xl font-black text-slate-800 mb-6 text-center">Oppgraderinger 🏗️</h2>
                             <div className="space-y-3">
                                 {UPGRADES_LIST[player.role]?.map(upg => {
                                     const isOwned = player.upgrades?.includes(upg.id);
@@ -333,19 +333,19 @@ export const SimulationPlayer: React.FC = () => {
                                     return (
                                         <div key={upg.id} className={`p-4 rounded-2xl border-2 transition-all ${isOwned ? 'bg-emerald-50 border-emerald-200' : 'bg-slate-50 border-slate-100'}`}>
                                             <div className="flex justify-between items-start mb-1">
-                                                <h3 className="font-bold text-slate-800">{upg.name} {isOwned && '✅'}</h3>
+                                                <h3 className="text-xl font-bold text-slate-800">{upg.name} {isOwned && '✅'}</h3>
                                                 <div className="flex gap-2">
                                                     {Object.entries(upg.cost || {}).map(([res, amt]) => (
-                                                        <span key={res} className="text-[10px] bg-white px-2 py-0.5 rounded border border-slate-200 font-mono font-bold">{amt} {res}</span>
+                                                        <span key={res} className="text-xs bg-white px-2 py-0.5 rounded border border-slate-200 font-mono font-bold">{amt} {res}</span>
                                                     ))}
                                                 </div>
                                             </div>
-                                            <p className="text-xs text-slate-500 mb-4">{upg.description}</p>
+                                            <p className="text-sm text-slate-500 mb-4">{upg.description}</p>
                                             {!isOwned && (
                                                 <button
                                                     onClick={() => handleAction({ type: 'UPGRADE', upgradeId: upg.id })}
                                                     disabled={!!actionLoading || !canAfford}
-                                                    className={`w-full py-3 rounded-xl font-black uppercase tracking-widest transition-all ${canAfford ? 'bg-emerald-600 text-white shadow-lg active:scale-95' : 'bg-slate-200 text-slate-400'}`}
+                                                    className={`w-full py-3 rounded-xl text-lg font-black uppercase tracking-widest transition-all ${canAfford ? 'bg-emerald-600 text-white shadow-lg active:scale-95' : 'bg-slate-200 text-slate-400'}`}
                                                 >
                                                     Utfør Oppgradering
                                                 </button>
@@ -359,8 +359,8 @@ export const SimulationPlayer: React.FC = () => {
                 ) : activeTab === 'DIPLOMACY' ? (
                     <div className="space-y-4">
                         <div className="bg-white p-6 rounded-3xl shadow-md border-b-4 border-indigo-100">
-                            <h2 className="text-2xl font-black text-slate-800 mb-6 text-center">Diplomati & Pakter 🕊️</h2>
-                            <p className="text-sm text-slate-500 mb-8 italic">Send hemmelige meldinger til andre herrer. Kun synlig for mottakeren.</p>
+                            <h2 className="text-3xl font-black text-slate-800 mb-6 text-center">Diplomati & Pakter 🕊️</h2>
+                            <p className="text-base text-slate-500 mb-8 italic">Send hemmelige meldinger til andre herrer. Kun synlig for mottakeren.</p>
 
                             <div className="space-y-4 max-h-[400px] overflow-y-auto mb-6 p-4 bg-slate-50 rounded-2xl border flex flex-col">
                                 {room.diplomacy ? Object.values(room.diplomacy)
@@ -369,10 +369,10 @@ export const SimulationPlayer: React.FC = () => {
                                     .map(m => (
                                         <div key={m.id} className={`p-3 rounded-xl border-2 mb-2 ${m.senderId === player.id ? 'bg-indigo-50 border-indigo-100 self-end ml-8' : 'bg-white border-slate-100 self-start mr-8'}`}>
                                             <div className="flex justify-between items-center mb-1 gap-4">
-                                                <span className="text-[10px] font-black uppercase text-indigo-500">{m.senderName}</span>
-                                                <span className="text-[8px] text-slate-400">{new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                                                <span className="text-xs font-black uppercase text-indigo-500">{m.senderName}</span>
+                                                <span className="text-xs text-slate-400">{new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                                             </div>
-                                            <p className="text-sm text-slate-700">{m.content}</p>
+                                            <p className="text-base text-slate-700">{m.content}</p>
                                         </div>
                                     )) : <p className="text-center text-slate-400 text-xs py-8">Ingen meldinger ennå...</p>
                                 }
@@ -383,7 +383,7 @@ export const SimulationPlayer: React.FC = () => {
                                     type="text"
                                     id="diplomacyInput"
                                     placeholder="Skriv melding..."
-                                    className="flex-1 bg-slate-100 border-2 border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-indigo-500 text-sm"
+                                    className="flex-1 bg-slate-100 border-2 border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-indigo-500 text-base"
                                     onKeyDown={async (e) => {
                                         if (e.key === 'Enter' && (e.target as HTMLInputElement).value) {
                                             const content = (e.target as HTMLInputElement).value;
@@ -417,7 +417,7 @@ export const SimulationPlayer: React.FC = () => {
                                             });
                                         }
                                     }}
-                                    className="bg-indigo-600 text-white px-6 rounded-xl font-bold text-sm"
+                                    className="bg-indigo-600 text-white px-6 rounded-xl font-bold text-base"
                                 >
                                     SEND
                                 </button>
@@ -428,7 +428,7 @@ export const SimulationPlayer: React.FC = () => {
 
 
                 {/* World Feed */}
-                <div className="bg-slate-900 text-indigo-300 p-5 rounded-3xl shadow-inner max-h-56 overflow-y-auto font-mono text-[10px] border border-slate-800">
+                <div className="bg-slate-900 text-indigo-300 p-5 rounded-3xl shadow-inner max-h-56 overflow-y-auto font-mono text-xs border border-slate-800">
                     <div className="flex justify-between items-center mb-3">
                         <h3 className="text-indigo-500 font-black uppercase tracking-widest">Global Logg</h3>
                         <div className="animate-pulse w-2 h-2 bg-red-500 rounded-full"></div>
@@ -448,13 +448,13 @@ export const SimulationPlayer: React.FC = () => {
                     <div className="bg-white w-full max-w-sm rounded-[2.5rem] p-8 shadow-2xl border-t-8 border-amber-600 animate-in zoom-in-95 duration-300">
                         <div className="text-center mb-8">
                             <span className="text-4xl mb-4 block">⚖️</span>
-                            <h2 className="text-2xl font-black text-slate-900 tracking-tighter mb-2">TINGET ER SATT</h2>
-                            <p className="text-sm text-slate-500">Hele riket skal nå stemme over en foreslått lovendring.</p>
+                            <h2 className="text-3xl font-black text-slate-900 tracking-tighter mb-2">TINGET ER SATT</h2>
+                            <p className="text-base text-slate-500">Hele riket skal nå stemme over en foreslått lovendring.</p>
                         </div>
 
                         <div className="bg-amber-50 rounded-3xl p-6 border-2 border-amber-100 mb-8">
-                            <h3 className="text-xl font-black text-amber-900 mb-2 uppercase tracking-wide">{room.activeVote.title}</h3>
-                            <p className="text-sm text-amber-800 font-medium leading-relaxed italic">
+                            <h3 className="text-2xl font-black text-amber-900 mb-2 uppercase tracking-wide">{room.activeVote.title}</h3>
+                            <p className="text-lg text-amber-800 font-medium leading-relaxed italic">
                                 "{room.activeVote.lawId === 'tax_cut' ? 'Skattene halveres for å sikre folkets velvære.' :
                                     room.activeVote.lawId === 'peace' ? 'All krigføring og plyndring forbys umiddelbart.' :
                                         room.activeVote.lawId === 'salt_tax' ? 'Prisen på varer øker for å fylle kongens kister.' :
@@ -465,19 +465,19 @@ export const SimulationPlayer: React.FC = () => {
                         <div className="grid grid-cols-1 gap-3">
                             <button
                                 onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'YES' })}
-                                className="w-full bg-emerald-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all text-sm"
+                                className="w-full bg-emerald-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all text-lg"
                             >
                                 ✅ VEDTA LOVEN
                             </button>
                             <button
                                 onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'NO' })}
-                                className="w-full bg-rose-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all text-sm"
+                                className="w-full bg-rose-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all text-lg"
                             >
                                 ❌ FORKAST LOVEN
                             </button>
                             <button
                                 onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'ABSTAIN' })}
-                                className="w-full bg-slate-200 text-slate-500 py-4 rounded-2xl font-black uppercase tracking-widest active:scale-95 transition-all text-[10px]"
+                                className="w-full bg-slate-200 text-slate-500 py-4 rounded-2xl font-black uppercase tracking-widest active:scale-95 transition-all text-sm"
                             >
                                 Avstå fra stemme
                             </button>

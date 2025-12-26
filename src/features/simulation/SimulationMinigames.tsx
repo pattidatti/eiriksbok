@@ -90,18 +90,18 @@ const HarvestingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onC
 
     return (
         <div className="p-8 text-center min-h-[400px] flex flex-col items-center justify-center">
-            <h2 className="text-2xl font-black text-slate-800 mb-2 border-b-4 border-amber-200 inline-block px-4">Kornhøsting 🌾</h2>
+            <h2 className="text-3xl font-black text-slate-800 mb-2 border-b-4 border-amber-200 inline-block px-4">Kornhøsting 🌾</h2>
 
             {isFinished ? (
                 <div className="py-12 animate-in zoom-in duration-300">
                     <div className="text-6xl mb-4">🌾✨</div>
-                    <h3 className="text-3xl font-black text-amber-600 mb-2">HØSTET!</h3>
-                    <p className="text-slate-500 font-bold text-lg">Du fikk fylt låven!</p>
-                    <div className="mt-4 text-[10px] text-slate-400 uppercase tracking-widest font-black">Lagrer resultat...</div>
+                    <h3 className="text-4xl font-black text-amber-600 mb-2">HØSTET!</h3>
+                    <p className="text-slate-500 font-bold text-xl">Du fikk fylt låven!</p>
+                    <div className="mt-4 text-sm text-slate-400 uppercase tracking-widest font-black">Lagrer resultat...</div>
                 </div>
             ) : (
                 <>
-                    <p className="text-slate-500 text-sm mb-8">{message}</p>
+                    <p className="text-slate-500 text-lg mb-8">{message}</p>
 
                     {/* Progress Bar */}
                     <div className="w-full h-1 bg-slate-100 rounded-full mb-4 overflow-hidden">
@@ -121,7 +121,7 @@ const HarvestingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onC
 
                     <button
                         onClick={handleStrike}
-                        className="w-full bg-amber-500 hover:bg-amber-600 text-white py-6 rounded-2xl font-black text-xl shadow-lg active:scale-95 transition-all"
+                        className="w-full bg-amber-500 hover:bg-amber-600 text-white py-6 rounded-2xl font-black text-2xl shadow-lg active:scale-95 transition-all"
                     >
                         HØST! 🛠️
                     </button>
@@ -188,14 +188,14 @@ const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void }> = ({ on
 
     return (
         <div className="p-8 text-center min-h-[400px] flex flex-col items-center justify-center">
-            <h2 className="text-2xl font-black text-slate-800 mb-2 border-b-4 border-amber-800 inline-block px-4">Vedhogging 🪵</h2>
+            <h2 className="text-3xl font-black text-slate-800 mb-2 border-b-4 border-amber-800 inline-block px-4">Vedhogging 🪵</h2>
 
             {!gameStarted ? (
                 <div className="py-12">
-                    <p className="text-slate-500 mb-8 italic text-sm">Klikk på de røde sirklene for å hogge veden så raskt du kan!</p>
+                    <p className="text-slate-500 mb-8 italic text-lg">Klikk på de røde sirklene for å hogge veden så raskt du kan!</p>
                     <button
                         onClick={startGame}
-                        className="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-black text-xl shadow-xl animate-bounce"
+                        className="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-black text-2xl shadow-xl animate-bounce"
                     >
                         START HOGGING! 🪓
                     </button>
@@ -203,13 +203,13 @@ const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void }> = ({ on
             ) : isFinished ? (
                 <div className="py-12 animate-in zoom-in duration-300">
                     <div className="text-6xl mb-4">🪓✨</div>
-                    <h3 className="text-3xl font-black text-indigo-600 mb-2">FERDIG!</h3>
-                    <p className="text-slate-500 font-bold text-lg">Du hogg {hits} biter ved!</p>
-                    <div className="mt-4 text-[10px] text-slate-400 uppercase tracking-widest font-black">Lagrer resultat...</div>
+                    <h3 className="text-4xl font-black text-indigo-600 mb-2">FERDIG!</h3>
+                    <p className="text-slate-500 font-bold text-xl">Du hogg {hits} biter ved!</p>
+                    <div className="mt-4 text-sm text-slate-400 uppercase tracking-widest font-black">Lagrer resultat...</div>
                 </div>
             ) : (
                 <>
-                    <div className="flex justify-between w-full mb-4 font-mono font-black text-lg">
+                    <div className="flex justify-between w-full mb-4 font-mono font-black text-xl">
                         <div className="text-red-500">⏳ {timeLeft}s</div>
                         <div className="text-indigo-600">🪓 {hits}</div>
                     </div>
@@ -223,7 +223,7 @@ const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void }> = ({ on
                             <button
                                 key={t.id}
                                 onClick={() => handleHit(t.id)}
-                                className="absolute w-14 h-14 bg-red-500 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.6)] border-4 border-white transition-transform active:scale-95 z-20 flex items-center justify-center text-white text-[10px] font-black"
+                                className="absolute w-14 h-14 bg-red-500 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.6)] border-4 border-white transition-transform active:scale-95 z-20 flex items-center justify-center text-white text-sm font-black"
                                 style={{ top: `${t.y}%`, left: `${t.x}%` }}
                             >
                                 HIT
@@ -298,18 +298,18 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCom
 
     return (
         <div className="p-8 text-center min-h-[400px] flex flex-col items-center justify-center">
-            <h2 className="text-2xl font-black text-slate-800 mb-2 border-b-4 border-slate-400 inline-block px-4">Smiing ⚒️</h2>
+            <h2 className="text-3xl font-black text-slate-800 mb-2 border-b-4 border-slate-400 inline-block px-4">Smiing ⚒️</h2>
 
             {!gameStarted ? (
                 <div className="py-12">
-                    <p className="text-slate-500 mb-8 italic text-sm">Slå på ambolten akkurat når bladet er rødglødende!</p>
-                    <button onClick={() => setGameStarted(true)} className="bg-slate-800 text-white px-8 py-4 rounded-2xl font-black text-xl">START SMING! ⚒️</button>
+                    <p className="text-slate-500 mb-8 italic text-lg">Slå på ambolten akkurat når bladet er rødglødende!</p>
+                    <button onClick={() => setGameStarted(true)} className="bg-slate-800 text-white px-8 py-4 rounded-2xl font-black text-2xl">START SMING! ⚒️</button>
                 </div>
             ) : isFinished ? (
                 <div className="py-12 animate-in zoom-in duration-300">
                     <div className="text-6xl mb-4">⚔️⚒️</div>
-                    <h3 className="text-3xl font-black text-slate-800 mb-2">SMIING FERDIG!</h3>
-                    <p className="text-slate-500 font-bold text-lg">Våpenet er herdet!</p>
+                    <h3 className="text-4xl font-black text-slate-800 mb-2">SMIING FERDIG!</h3>
+                    <p className="text-slate-500 font-bold text-xl">Våpenet er herdet!</p>
                 </div>
             ) : (
                 <div className="w-full">
@@ -327,11 +327,11 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCom
                     </div>
                     <button
                         onClick={handleHit}
-                        className="w-full bg-slate-800 text-white py-6 rounded-2xl font-black text-xl active:scale-95 transition-all shadow-xl"
+                        className="w-full bg-slate-800 text-white py-6 rounded-2xl font-black text-2xl active:scale-95 transition-all shadow-xl"
                     >
                         SLÅ TIL! 🔨
                     </button>
-                    <div className="mt-4 text-xs font-black uppercase text-slate-400">Treff: {hits} / 10</div>
+                    <div className="mt-4 text-sm font-black uppercase text-slate-400">Treff: {hits} / 10</div>
                 </div>
             )}
         </div>
@@ -394,22 +394,22 @@ const MillingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComp
 
     return (
         <div className="p-8 text-center min-h-[400px] flex flex-col items-center justify-center">
-            <h2 className="text-2xl font-black text-slate-800 mb-2 border-b-4 border-indigo-200 inline-block px-4">Kverning 🎡</h2>
+            <h2 className="text-3xl font-black text-slate-800 mb-2 border-b-4 border-indigo-200 inline-block px-4">Kverning 🎡</h2>
 
             {!gameStarted ? (
                 <div className="py-12">
-                    <p className="text-slate-500 mb-8 italic text-sm">Hold kverna gående jevnt! Trykk på knappene for å holde markøren i midten.</p>
-                    <button onClick={() => setGameStarted(true)} className="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-black text-xl">START KVERNING! 🎡</button>
+                    <p className="text-slate-500 mb-8 italic text-lg">Hold kverna gående jevnt! Trykk på knappene for å holde markøren i midten.</p>
+                    <button onClick={() => setGameStarted(true)} className="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-black text-2xl">START KVERNING! 🎡</button>
                 </div>
             ) : isFinished ? (
                 <div className="py-12 animate-in zoom-in duration-300">
                     <div className="text-6xl mb-4">🥖🎡</div>
-                    <h3 className="text-3xl font-black text-indigo-600 mb-2">FERDIG MALT!</h3>
-                    <p className="text-slate-500 font-bold text-lg">Melet er silkemykt.</p>
+                    <h3 className="text-4xl font-black text-indigo-600 mb-2">FERDIG MALT!</h3>
+                    <p className="text-slate-500 font-bold text-xl">Melet er silkemykt.</p>
                 </div>
             ) : (
                 <div className="w-full">
-                    <div className="flex justify-between mb-4 font-black font-mono">
+                    <div className="flex justify-between mb-4 font-black font-mono text-xl">
                         <div className="text-indigo-600">🎡 TURBO: {(velocity * 10).toFixed(1)}</div>
                         <div className="text-red-500">⏳ {duration}s</div>
                     </div>
@@ -423,18 +423,18 @@ const MillingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComp
                     <div className="grid grid-cols-2 gap-4">
                         <button
                             onMouseDown={() => setVelocity(v => v - 1.5)}
-                            className="bg-slate-800 text-white py-6 rounded-2xl font-black text-xl active:bg-indigo-600 transition-colors shadow-lg"
+                            className="bg-slate-800 text-white py-6 rounded-2xl font-black text-2xl active:bg-indigo-600 transition-colors shadow-lg"
                         >
                             &larr; VENSTRE
                         </button>
                         <button
                             onMouseDown={() => setVelocity(v => v + 1.5)}
-                            className="bg-slate-800 text-white py-6 rounded-2xl font-black text-xl active:bg-indigo-600 transition-colors shadow-lg"
+                            className="bg-slate-800 text-white py-6 rounded-2xl font-black text-2xl active:bg-indigo-600 transition-colors shadow-lg"
                         >
                             HØYRE &rarr;
                         </button>
                     </div>
-                    <p className="mt-6 text-[10px] text-slate-400 font-black uppercase tracking-widest">Hold markøren i det grønne feltet!</p>
+                    <p className="mt-6 text-xs text-slate-400 font-black uppercase tracking-widest">Hold markøren i det grønne feltet!</p>
                 </div>
             )}
         </div>
@@ -488,22 +488,22 @@ const CombatGame: React.FC<{ onComplete: (score: number) => void, isKnight?: boo
 
     return (
         <div className="p-8 text-center min-h-[400px] flex flex-col items-center justify-center bg-red-50">
-            <h2 className="text-2xl font-black text-red-800 mb-2 border-b-4 border-red-200 inline-block px-4">KAMP! ⚔️</h2>
+            <h2 className="text-3xl font-black text-red-800 mb-2 border-b-4 border-red-200 inline-block px-4">KAMP! ⚔️</h2>
             {!gameStarted ? (
                 <div className="py-12">
-                    <p className="text-red-900/60 mb-8 italic text-sm">Blokker angrepene ved å trykke på de røde merkene før de forsvinner!</p>
-                    <button onClick={() => setGameStarted(true)} className="bg-red-600 text-white px-8 py-4 rounded-2xl font-black text-xl shadow-xl">FORSVAR DEG! ⚔️</button>
+                    <p className="text-red-900/60 mb-8 italic text-lg">Blokker angrepene ved å trykke på de røde merkene før de forsvinner!</p>
+                    <button onClick={() => setGameStarted(true)} className="bg-red-600 text-white px-8 py-4 rounded-2xl font-black text-2xl shadow-xl">FORSVAR DEG! ⚔️</button>
                 </div>
             ) : isFinished ? (
                 <div className="py-12 animate-in zoom-in duration-300">
                     <div className="text-6xl mb-4">🛡️💥</div>
-                    <h3 className="text-3xl font-black text-red-600 mb-2">STRID FERDIG!</h3>
-                    <p className="text-red-900/60 font-bold text-lg">Du holdt stand.</p>
+                    <h3 className="text-4xl font-black text-red-600 mb-2">STRID FERDIG!</h3>
+                    <p className="text-red-900/60 font-bold text-xl">Du holdt stand.</p>
                 </div>
             ) : (
                 <div className="w-full relative aspect-square bg-white rounded-3xl border-4 border-red-100 overflow-hidden">
-                    <div className="absolute top-4 left-4 font-black font-mono text-red-600">⏳ {timeLeft}s</div>
-                    <div className="absolute top-4 right-4 font-black font-mono text-red-600">🛡️ {hits}</div>
+                    <div className="absolute top-4 left-4 font-black font-mono text-xl text-red-600">⏳ {timeLeft}s</div>
+                    <div className="absolute top-4 right-4 font-black font-mono text-xl text-red-600">🛡️ {hits}</div>
                     {targets.map(t => (
                         <button
                             key={t.id}
@@ -561,29 +561,29 @@ const QuestGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComple
 
     return (
         <div className="p-8 text-center min-h-[400px] flex flex-col items-center justify-center bg-indigo-50">
-            <h2 className="text-2xl font-black text-indigo-800 mb-2 border-b-4 border-indigo-200 inline-block px-4">UTFORSKING 🧭</h2>
+            <h2 className="text-3xl font-black text-indigo-800 mb-2 border-b-4 border-indigo-200 inline-block px-4">UTFORSKING 🧭</h2>
             {isFinished ? (
                 <div className="py-12 animate-in zoom-in duration-300">
                     <div className="text-6xl mb-4">💎✨</div>
-                    <h3 className="text-3xl font-black text-indigo-600 mb-2">FUNNET!</h3>
-                    <p className="text-indigo-900/60 font-bold text-lg">Du fant det du lette etter.</p>
+                    <h3 className="text-4xl font-black text-indigo-600 mb-2">FUNNET!</h3>
+                    <p className="text-indigo-900/60 font-bold text-xl">Du fant det du lette etter.</p>
                 </div>
             ) : (
                 <div className="w-full">
-                    <p className="text-indigo-900/60 mb-8 italic text-sm">Finn 5 skjulte spor i området!</p>
+                    <p className="text-indigo-900/60 mb-8 italic text-lg">Finn 5 skjulte spor i området!</p>
                     <div className="relative aspect-video bg-indigo-900/10 rounded-3xl overflow-hidden cursor-crosshair border-4 border-indigo-200">
                         {sparkles.map(s => (
                             <button
                                 key={s.id}
                                 onClick={() => handleFound(s.id)}
-                                className="absolute text-2xl animate-pulse"
+                                className="absolute text-4xl animate-pulse"
                                 style={{ top: `${s.y}%`, left: `${s.x}%` }}
                             >
                                 ✨
                             </button>
                         ))}
                     </div>
-                    <div className="mt-4 text-xs font-black text-indigo-400 uppercase">Spor funnet: {found} / 5</div>
+                    <div className="mt-4 text-sm font-black text-indigo-400 uppercase">Spor funnet: {found} / 5</div>
                 </div>
             )}
         </div>

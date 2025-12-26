@@ -20,11 +20,11 @@ const POINTS_OF_INTEREST: POI[] = [
         ]
     },
     {
-        id: 'forest', label: 'Skogen', icon: '🌲', top: '18%', left: '65%', roles: ['PEASANT'],
+        id: 'forest', label: 'Skogen', icon: '🌲', top: '18%', left: '80%', roles: ['PEASANT'],
         actions: [{ id: 'CHOP', label: 'Hugge Ved', cost: '-15⚡ -1🥖' }]
     },
     {
-        id: 'castle', label: 'Slottet', icon: '🏰', top: '48%', left: '72%', roles: ['BARON', 'KING'],
+        id: 'castle', label: 'Slottet', icon: '🏰', top: '55%', left: '80%', roles: ['BARON', 'KING'],
         actions: [
             { id: 'TAX_PEASANTS', label: 'Regjonal Skatt', cost: 'Baron Only' },
             { id: 'TAX_ROYAL', label: 'Kongelig Skatt', cost: 'King Only' },
@@ -33,13 +33,13 @@ const POINTS_OF_INTEREST: POI[] = [
         ]
     },
     {
-        id: 'market', label: 'Markedet', icon: '⚖️', top: '68%', left: '38%', roles: ['PEASANT', 'BARON', 'KING'],
+        id: 'market', label: 'Markedet', icon: '⚖️', top: '70%', left: '30%', roles: ['PEASANT', 'BARON', 'KING'],
         actions: [
             { id: 'MARKET_VIEW', label: 'Åpne Handel', cost: 'Gratis' }
         ]
     },
     {
-        id: 'village', label: 'Landsbyen', icon: '🏠', top: '45%', left: '40%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'],
+        id: 'village', label: 'Landsbyen', icon: '🏠', top: '42%', left: '42%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'],
         actions: [
             { id: 'REST', label: 'Hvile & Spise', cost: '-1🥖 +30⚡' },
             { id: 'CRAFT', label: 'Smie Sverd', cost: '-30⚡ -10⛏️ -5🪵' },
@@ -86,7 +86,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
     const weather = room.world?.weather || 'Clear';
 
     return (
-        <div className={`relative w-full aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-900/20 bg-amber-50 transition-all duration-1000 ${weather === 'Rain' ? 'brightness-90 contrast-110' : weather === 'Storm' ? 'brightness-75 contrast-125' : weather === 'Fog' ? 'sepia-[0.3] contrast-75' : ''}`}>
+        <div className={`relative w-full max-w-2xl mx-auto aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-900/20 bg-amber-50 transition-all duration-1000 ${weather === 'Rain' ? 'brightness-90 contrast-110' : weather === 'Storm' ? 'brightness-75 contrast-125' : weather === 'Fog' ? 'sepia-[0.3] contrast-75' : ''}`}>
             {/* The Map Background */}
             <img
                 src="/simulation_map_v2.png"
@@ -143,11 +143,11 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                             onClick={() => setSelectedPOI(poi)}
                             className={`flex flex-col items-center transition-all ${isRelevant ? 'scale-100' : 'scale-75 opacity-40 grayscale'}`}
                         >
-                            <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-lg border-2 border-white transition-all ${selectedPOI?.id === poi.id ? 'bg-amber-500 scale-125 ring-4 ring-amber-500/30' : 'bg-white/90 hover:bg-amber-100'}`}>
+                            <div className={`w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-lg border-2 border-white transition-all ${selectedPOI?.id === poi.id ? 'bg-amber-500 scale-125 ring-4 ring-amber-500/30' : 'bg-white/90 hover:bg-amber-100'}`}>
                                 {poi.id === 'monument' && (room.world.monumentProgress || 0) >= 1000 ? '🏛️' : poi.icon}
                             </div>
                             {poi.id === 'monument' && (
-                                <div className="w-8 h-1 bg-slate-200 rounded-full mt-0.5 overflow-hidden">
+                                <div className="w-10 h-1.5 bg-slate-200 rounded-full mt-1 overflow-hidden">
                                     <div
                                         className="h-full bg-emerald-500"
                                         style={{ width: `${(room.world.monumentProgress || 0) / 10}%` }}
@@ -155,7 +155,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                                 </div>
                             )}
 
-                            <span className="bg-amber-900/80 text-white text-[8px] font-black uppercase px-2 py-0.5 rounded-full mt-1 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                            <span className="bg-amber-900/80 text-white text-xs font-black uppercase px-2 py-0.5 rounded-full mt-1 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                                 {poi.label}
                             </span>
                         </button>
@@ -166,23 +166,23 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
             {/* Event Info Modal */}
             {selectedEvent && (
                 <div className="absolute inset-x-4 bottom-4 z-40 animate-in slide-in-from-bottom-4 duration-300">
-                    <div className="bg-white rounded-2xl shadow-2xl border-t-4 border-red-600 p-5">
-                        <div className="flex justify-between items-start mb-2">
+                    <div className="bg-white rounded-2xl shadow-2xl border-t-4 border-red-600 p-6">
+                        <div className="flex justify-between items-start mb-3">
                             <div>
-                                <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${selectedEvent.type === 'RAID' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'}`}>
+                                <span className={`text-xs font-black uppercase px-2 py-1 rounded-full ${selectedEvent.type === 'RAID' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'}`}>
                                     {selectedEvent.type === 'RAID' ? 'Raid i gang' : 'Sagnomsust Oppdrag'}
                                 </span>
-                                <h3 className="text-lg font-black text-slate-900 mt-1">{selectedEvent.title}</h3>
+                                <h3 className="text-2xl font-black text-slate-900 mt-2">{selectedEvent.title}</h3>
                             </div>
-                            <button onClick={() => setSelectedEvent(null)} className="text-slate-400">✕</button>
+                            <button onClick={() => setSelectedEvent(null)} className="text-slate-400 text-xl">✕</button>
                         </div>
-                        <p className="text-sm text-slate-500 mb-4">{selectedEvent.description}</p>
+                        <p className="text-base text-slate-600 mb-6 leading-relaxed">{selectedEvent.description}</p>
                         <button
                             onClick={() => {
                                 onAction({ type: selectedEvent.type === 'RAID' ? 'DEFEND' : 'EXPLORE', eventId: selectedEvent.id });
                                 setSelectedEvent(null);
                             }}
-                            className={`w-full py-3 rounded-xl font-black uppercase text-sm shadow-lg ${selectedEvent.type === 'RAID' ? 'bg-red-600 text-white' : 'bg-yellow-400 text-slate-900'}`}
+                            className={`w-full py-4 rounded-xl font-black uppercase text-base shadow-lg ${selectedEvent.type === 'RAID' ? 'bg-red-600 text-white' : 'bg-yellow-400 text-slate-900'}`}
                         >
                             {selectedEvent.type === 'RAID' ? 'KJEMP MOT INNTRERNGERNE! ⚔️' : 'UTFORSK OMRÅDET! 🧭'}
                         </button>
@@ -196,7 +196,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                     <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-t-4 border-amber-600">
 
                         {/* POI Illustration Header */}
-                        <div className="h-24 w-full bg-slate-200 relative">
+                        <div className="h-32 w-full bg-slate-200 relative">
                             <img
                                 src={
                                     selectedPOI.id === 'monument'
@@ -209,20 +209,20 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                             />
 
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-                            <div className="absolute bottom-2 left-4 text-white">
-                                <h3 className="font-black flex items-center gap-2 text-shadow-sm">
-                                    <span className="text-2xl">{selectedPOI.icon}</span> {selectedPOI.label}
+                            <div className="absolute bottom-3 left-5 text-white">
+                                <h3 className="font-black flex items-center gap-3 text-shadow-md text-xl">
+                                    <span className="text-4xl">{selectedPOI.icon}</span> {selectedPOI.label}
                                 </h3>
                             </div>
                             <button
                                 onClick={() => setSelectedPOI(null)}
-                                className="absolute top-2 right-2 bg-black/30 hover:bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center backdrop-blur-sm transition-colors"
+                                className="absolute top-3 right-3 bg-black/30 hover:bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm transition-colors text-xl"
                             >
                                 ✕
                             </button>
                         </div>
 
-                        <div className="p-4 pt-2">
+                        <div className="p-5 pt-3">
 
                             {selectedPOI.actions
                                 .filter(a => {
@@ -240,10 +240,10 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                                     <button
                                         key={action.id}
                                         onClick={() => handlePOIAction(selectedPOI.id, action.id)}
-                                        className="flex justify-between items-center w-full bg-slate-50 hover:bg-amber-50 p-4 rounded-xl border border-slate-100 transition-colors text-left"
+                                        className="flex justify-between items-center w-full bg-slate-50 hover:bg-amber-50 p-5 mb-2 last:mb-0 rounded-xl border border-slate-100 transition-colors text-left"
                                     >
-                                        <span className="font-bold text-slate-700">{action.label}</span>
-                                        <span className="text-[10px] font-mono text-slate-400">{action.cost}</span>
+                                        <span className="font-bold text-slate-800 text-lg">{action.label}</span>
+                                        <span className="text-xs font-mono text-slate-500 bg-white px-2 py-1 rounded border border-slate-200">{action.cost}</span>
                                     </button>
                                 ))
                             }
