@@ -1,0 +1,116 @@
+{
+    "id": "descartes_dualism",
+    "title": "Spøkelset i Maskinen",
+    "description": "Descartes graver i forholdet mellom kropp og sinn. Er du bare en maskin av kjøtt?",
+    "mentor": "Descartes",
+    "initialStepId": "start",
+    "rewardXp": 600,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Descartes",
+            "text": "Se på din hånd. Du kan bevege den med din vilje. Men hvordan kan en tanke (som ikke er fysisk) bevege materie (som er fysisk)?",
+            "choices": [
+                {
+                    "id": "mystery",
+                    "text": "Det er et mysterium jeg aldri har tenkt over.",
+                    "impact": {
+                        "idealism": 2,
+                        "skepticism": 1
+                    },
+                    "nextStepId": "machine"
+                },
+                {
+                    "id": "brain",
+                    "text": "Det er vel bare elektriske signaler i hjernen?",
+                    "impact": {
+                        "materialism": 4,
+                        "empiricism": 3
+                    },
+                    "nextStepId": "challenge_materialism"
+                }
+            ]
+        },
+        {
+            "id": "machine",
+            "speaker": "Descartes",
+            "text": "Kroppen er som en maskin, et urverk av bein og muskler. Dyr er bare slike maskiner. Men vi har sjel. Vi har bevissthet. Kan en maskin ha sjel?",
+            "choices": [
+                {
+                    "id": "ai",
+                    "text": "Kanskje i fremtiden?",
+                    "impact": {
+                        "materialism": 3,
+                        "skepticism": 2
+                    },
+                    "nextStepId": "distinct"
+                },
+                {
+                    "id": "no_soul",
+                    "text": "Nei, materie kan ikke tenke.",
+                    "impact": {
+                        "idealism": 4,
+                        "rationalism": 2
+                    },
+                    "nextStepId": "distinct"
+                }
+            ]
+        },
+        {
+            "id": "challenge_materialism",
+            "speaker": "Descartes",
+            "text": "Men hvis "jeg" bare er hjernen, da er jeg ikke fri. Da er jeg bare dominobrikker som faller. Føler du deg ikke fri?",
+            "choices": [
+                {
+                    "id": "free_will",
+                    "text": "Jo, jeg føler at jeg velger selv.",
+                    "impact": {
+                        "idealism": 3,
+                        "existentialism": 2
+                    },
+                    "nextStepId": "distinct"
+                }
+            ]
+        },
+        {
+            "id": "distinct",
+            "speaker": "Descartes",
+            "text": "Derfor må sjelen og kroppen være to forskjellige substanser. Det tenkende ting (res cogitans) og det utstrakte ting (res extensa). De møtes kanskje i konglekjertelen...",
+            "choices": [
+                {
+                    "id": "doubt_gland",
+                    "text": "Konglekjertelen? Det høres litt rart ut.",
+                    "impact": {
+                        "skepticism": 3,
+                        "empiricism": 2
+                    },
+                    "nextStepId": "conclusion"
+                },
+                {
+                    "id": "accept_dualism",
+                    "text": "At vi er delvis ånd og delvis maskin gir mening.",
+                    "impact": {
+                        "idealism": 4,
+                        "rationalism": 3
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Descartes",
+            "text": "Uansett forklaring, husk at din fornuft er uavhengig av kroppen. Du er ikke din kropp, du HAR en kropp.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg er mer enn bare atomer.",
+                    "impact": {
+                        "idealism": 3
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

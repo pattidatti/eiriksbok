@@ -55,10 +55,8 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
         }
     }, [scenario, profile]); // Added profile dep to ensure legacy items load
 
-    const handleJournalEntry = (text: string) => {
-        const day = journal.length + 1;
-        setJournal(prev => [...prev, { day, text, timestamp: Date.now() }]);
-    };
+
+
 
     const handleChoice = (choice: ChronosChoice) => {
         if (!scenario) return;

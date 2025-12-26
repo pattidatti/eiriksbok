@@ -1,0 +1,129 @@
+{
+    "id": "nietzsche_abyss",
+    "title": "Avgrunnen",
+    "description": "Nietzsche utfordrer deg til å stirre inn i avgrunnen uten å blunke.",
+    "mentor": "Nietzsche",
+    "initialStepId": "start",
+    "rewardXp": 600,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Friedrich Nietzsche",
+            "text": "Når du stirrer lenge inn i en avgrunn, stirrer avgrunnen også inn i deg. Har du kjent det? Det øyeblikket hvor all mening forsvinner?",
+            "choices": [
+                {
+                    "id": "yes_stared",
+                    "text": "Ja, det er en svimlende følelse.",
+                    "impact": {
+                        "existentialism": 4,
+                        "skepticism": 2
+                    },
+                    "nextStepId": "monsters"
+                },
+                {
+                    "id": "no_faith",
+                    "text": "Min tro beskytter meg mot slikt.",
+                    "impact": {
+                        "idealism": 3,
+                        "rationalism": -1
+                    },
+                    "nextStepId": "illusion"
+                }
+            ]
+        },
+        {
+            "id": "monsters",
+            "speaker": "Friedrich Nietzsche",
+            "text": "Den som kjemper mot uhyrer, må se til at han ikke selv blir et uhyre. I din kamp mot løgnen, har du blitt hard? Har du glemt å danse?",
+            "choices": [
+                {
+                    "id": "hardness",
+                    "text": "Kanskje jeg har blitt kynisk.",
+                    "impact": {
+                        "nihilism": 3
+                    },
+                    "nextStepId": "dancing_star"
+                },
+                {
+                    "id": "joy",
+                    "text": "Jeg prøver å beholde gleden.",
+                    "impact": {
+                        "individualism": 3
+                    },
+                    "nextStepId": "dancing_star"
+                }
+            ]
+        },
+        {
+            "id": "illusion",
+            "speaker": "Friedrich Nietzsche",
+            "text": "En vakker løgn! Men sannheten er grusom. Livet er vilje til makt, ingenting annet. Tør du se det i øynene? Uten guder, uten moral, bare ren energi?",
+            "choices": [
+                {
+                    "id": "scary",
+                    "text": "Det høres ensomt og kaldt ut.",
+                    "impact": {
+                        "stoicism": 2
+                    },
+                    "nextStepId": "create_values"
+                },
+                {
+                    "id": "liberating",
+                    "text": "Det er befriende å vite at vi er alene.",
+                    "impact": {
+                        "existentialism": 4,
+                        "individualism": 4
+                    },
+                    "nextStepId": "create_values"
+                }
+            ]
+        },
+        {
+            "id": "dancing_star",
+            "speaker": "Friedrich Nietzsche",
+            "text": "Man må ha kaos i seg for å kunne føde en dansende stjerne. Ikke frykt kaoset! Omfavn det!",
+            "choices": [
+                {
+                    "id": "embrace",
+                    "text": "Jeg vil skape min egen stjerne.",
+                    "impact": {
+                        "individualism": 5,
+                        "existentialism": 3
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "create_values",
+            "speaker": "Friedrich Nietzsche",
+            "text": "Ja! Du er din egen lovgiver. Knus de gamle steintavlene! Skriv nye! Hva er godt? Alt som høyner følelsen av makt i mennesket. Hva er ondt? Alt som stammer fra svakhet.",
+            "choices": [
+                {
+                    "id": "power",
+                    "text": "Jeg forstår. Viljen skaper verden.",
+                    "impact": {
+                        "individualism": 4,
+                        "nihilism": 2
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Friedrich Nietzsche",
+            "text": "Gå nå. Og husk: Det som ikke dreper deg, gjør deg sterkere. Lev farlig!",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Farvel, profet.",
+                    "impact": {
+                        "individualism": 2
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

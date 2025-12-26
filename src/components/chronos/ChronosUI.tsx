@@ -77,9 +77,10 @@ const WeatherOverlay: React.FC<{ environment?: Partial<ChronosEnvironment> }> = 
     );
 };
 
-export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [], environment = { time: 'day', weather: 'clear' }, journal = [], onAddJournalEntry, config, onChoice, onRestart }) => {
+export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [], environment = { time: 'day', weather: 'clear' }, journal = [], onAddJournalEntry, config, onChoice, onRestart, onCraft }) => {
     const [journalText, setJournalText] = useState('');
     const [showJournal, setShowJournal] = useState(false);
+    const [showCrafting, setShowCrafting] = useState(false);
 
     // Filter Stats
     const attributes = stats.filter(s => !s.category || s.category === 'attribute');
@@ -296,6 +297,20 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            <CraftingModal
+                isOpen={showCrafting}
+                onClose={() => setShowCrafting(false)}
+                recipes={config.recipes || []}
+                inventory={inventory}
+                items={config.items || []}
+                onCraft={(recipe) => {
+                    if (onCraft) {
+                        onCraft(recipe);
+                        // Optional: close on craft? or keep open. Keeping open is usually better for multi-craft
+                    }
+                }}
+            />
 
             {/* Spacer to push content down if needed, but flex-col justify-between handles most */}
             <div className="flex-grow z-10" />

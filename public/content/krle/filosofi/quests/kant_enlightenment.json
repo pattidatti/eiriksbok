@@ -1,0 +1,90 @@
+{
+    "id": "kant_enlightenment",
+    "title": "Våg å Vite!",
+    "description": "Kant utfordrer deg til å tenke selv og kaste av deg umyndighetens lenker.",
+    "mentor": "Kant",
+    "initialStepId": "start",
+    "rewardXp": 600,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Immanuel Kant",
+            "text": "Opplysning er menneskets utgang av dets selvforskyldte umyndighet. Umyndighet er manglende evne til å bruke sin forstand uten en annens ledelse. Er du myndig?",
+            "choices": [
+                {
+                    "id": "yes_think",
+                    "text": "Jeg prøver å tenke selv.",
+                    "impact": {
+                        "individualism": 3,
+                        "rationalism": 2
+                    },
+                    "nextStepId": "laziness"
+                },
+                {
+                    "id": "follow",
+                    "text": "Jeg stoler ofte på eksperter og ledere.",
+                    "impact": {
+                        "authoritarianism": 2,
+                        "pragmatism": 2
+                    },
+                    "nextStepId": "laziness"
+                }
+            ]
+        },
+        {
+            "id": "laziness",
+            "speaker": "Immanuel Kant",
+            "text": "Det er så behagelig å være umyndig. Hvis jeg har en bok som har forstand for meg, en sjelesørger som har samvittighet for meg, så trenger jeg ikke å tenke selv. Latskap og feighet er årsakene.",
+            "choices": [
+                {
+                    "id": "guilty",
+                    "text": "Au, den traff.",
+                    "impact": {
+                        "humility": 2
+                    },
+                    "nextStepId": "sapere_aude"
+                },
+                {
+                    "id": "defend",
+                    "text": "Men vi kan ikke vite alt selv!",
+                    "impact": {
+                        "pragmatism": 3
+                    },
+                    "nextStepId": "public_use"
+                }
+            ]
+        },
+        {
+            "id": "public_use",
+            "speaker": "Immanuel Kant",
+            "text": "Nei, men du må ha motet til å bruke din EGEN forstand. Offentlig bruk av fornuften må alltid være fri. Bare slik kan opplysning skje blant mennesker.",
+            "choices": [
+                {
+                    "id": "freedom_speech",
+                    "text": "Ytringsfrihet er altså nøkkelen.",
+                    "impact": {
+                        "liberalism": 5,
+                        "rationalism": 2
+                    },
+                    "nextStepId": "sapere_aude"
+                }
+            ]
+        },
+        {
+            "id": "sapere_aude",
+            "speaker": "Immanuel Kant",
+            "text": "Sapere Aude! Ha mot til å bruke din egen forstand! Dette er opplysningens valgspråk. Tør du å stå alene med dine tanker?",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg tør.",
+                    "impact": {
+                        "individualism": 4,
+                        "rationalism": 3
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

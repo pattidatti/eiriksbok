@@ -1,0 +1,105 @@
+{
+    "id": "sokrates_gadfly",
+    "title": "Kleggen i Aten",
+    "description": "Sokrates forklarer hvorfor han irriterer makteliten – og hvorfor det er nødvendig.",
+    "mentor": "Sokrates",
+    "initialStepId": "start",
+    "rewardXp": 600,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Sokrates",
+            "text": "Aten er som en stor og edel hest, men den er treg og trenger å bli vekket. Jeg er kleggen som stikker den for å holde den våken. Mange hater meg for dette. Forstår du hvorfor?",
+            "choices": [
+                {
+                    "id": "annoying",
+                    "text": "Ja, ingen liker å bli fortalt at de tar feil, spesielt ikke mektige menn.",
+                    "impact": {
+                        "rationalism": 3,
+                        "skepticism": 2
+                    },
+                    "nextStepId": "truth_vs_comfort"
+                },
+                {
+                    "id": "danger",
+                    "text": "Du risikerer livet ditt ved å provosere dem. Er det verdt det?",
+                    "impact": {
+                        "pragmatism": 3
+                    },
+                    "nextStepId": "danger_response"
+                }
+            ]
+        },
+        {
+            "id": "truth_vs_comfort",
+            "speaker": "Sokrates",
+            "text": "Nettopp. De vil heller sove i sin uvitenhet. Men et liv uten prøvelse er ikke verdt å leve. Er det bedre å leve trygt i en løgn, eller farlig i sannheten?",
+            "choices": [
+                {
+                    "id": "truth",
+                    "text": "Sannheten er viktigst, uansett pris.",
+                    "impact": {
+                        "idealism": 5,
+                        "stoicism": 2
+                    },
+                    "nextStepId": "trial"
+                },
+                {
+                    "id": "safety",
+                    "text": "Noen ganger må man være pragmatisk for å overleve.",
+                    "impact": {
+                        "pragmatism": 4,
+                        "mockery": 1
+                    },
+                    "nextStepId": "trial"
+                }
+            ]
+        },
+        {
+            "id": "danger_response",
+            "speaker": "Sokrates",
+            "text": "Hva er døden? Kanskje er den en dyp søvn, eller en reise til et annet sted. Ingen vet. Å frykte den som om den var det største onde, er arroganse. Jeg frykter bare å gjøre urett.",
+            "choices": [
+                {
+                    "id": "brave",
+                    "text": "Det krever stort mot å tenke slik.",
+                    "impact": {
+                        "stoicism": 4
+                    },
+                    "nextStepId": "trial"
+                }
+            ]
+        },
+        {
+            "id": "trial",
+            "speaker": "Sokrates",
+            "text": "Nå har de dømt meg til døden. De tror de blir kvitt meg. Men hvis dere dreper meg, vil dere skade dere selv mer enn meg. For dere vil ikke lett finne en annen som meg, sendt av gudene for å vekke byen.",
+            "choices": [
+                {
+                    "id": "escape",
+                    "text": "Men dine venner kan hjelpe deg å rømme! Hvorfor bli?",
+                    "impact": {
+                        "pragmatism": 3
+                    },
+                    "nextStepId": "laws"
+                }
+            ]
+        },
+        {
+            "id": "laws",
+            "speaker": "Sokrates",
+            "text": "Skal jeg møte urett med urett? Jeg har levd hele mitt liv under Atens lover. Hvis jeg nå bryter dem fordi dommen gikk meg imot, ville jeg ødelegge lovens respekt. Jeg må dø som en lovlydig borger.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Ditt eksempel vil aldri bli glemt, Sokrates.",
+                    "impact": {
+                        "idealism": 5,
+                        "stoicism": 5
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,105 @@
+{
+    "id": "platon_ring",
+    "title": "Gyges Ring",
+    "description": "Platon tester din moral: Hva ville du gjort hvis du kunne bli usynlig?",
+    "mentor": "Platon",
+    "initialStepId": "start",
+    "rewardXp": 600,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Platon",
+            "text": "Tenk deg gjeteren Gyges, som fant en ring som gjorde ham usynlig. Med denne makten drepte han kongen og tok dronningen. Fortell meg: Hvis DU hadde en slik ring, og ingen noensinne kunne straffe deg... ville du fortsatt handlet rettferdig?",
+            "choices": [
+                {
+                    "id": "temptation",
+                    "text": "Jeg ville kanskje gjort ting jeg ellers ikke tør... hvem ville ikke?",
+                    "impact": {
+                        "skepticism": 3,
+                        "materialism": 2
+                    },
+                    "nextStepId": "glaucon"
+                },
+                {
+                    "id": "virtue",
+                    "text": "Jeg ville prøvd å gjøre det rette, for min egen sjel skyld.",
+                    "impact": {
+                        "idealism": 5,
+                        "stoicism": 3
+                    },
+                    "nextStepId": "inner_justice"
+                }
+            ]
+        },
+        {
+            "id": "glaucon",
+            "speaker": "Platon",
+            "text": "Min bror Glaukon mener at alle, både den rettferdige og den urettferdige, ville endt opp med å stjele og begå urett hvis de var usynlige. At vi bare er 'gode' fordi vi er redde for straff.",
+            "choices": [
+                {
+                    "id": "agree_glaucon",
+                    "text": "Det høres sannsynlig ut. Mennesket er egoistisk av natur.",
+                    "impact": {
+                        "materialism": 4,
+                        "authoritarianism": 2
+                    },
+                    "nextStepId": "beast"
+                },
+                {
+                    "id": "disagree",
+                    "text": "Nei, det finnes de som elsker det gode for dets egen skyld.",
+                    "impact": {
+                        "idealism": 4
+                    },
+                    "nextStepId": "inner_justice"
+                }
+            ]
+        },
+        {
+            "id": "beast",
+            "speaker": "Platon",
+            "text": "Men tenk litt etter. Hvis du lar begjæret ditt styre deg helt fritt, blir du ikke da en slave av dine lyster? Sjelen din blir ubalansert, som et samfunn styrt av en tyrann.",
+            "choices": [
+                {
+                    "id": "harmony",
+                    "text": "Så sann frihet er å styre seg selv?",
+                    "impact": {
+                        "rationalism": 3,
+                        "stoicism": 3
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "inner_justice",
+            "speaker": "Platon",
+            "text": "Nettopp! Rettferdighet er ikke bare ytre handlinger, det er sjelens helse. Den urettferdige mannen er syk i sjelen, selv om han er rik og mektig. Den rettferdige er lykkelig, selv om han lider.",
+            "choices": [
+                {
+                    "id": "health",
+                    "text": "Jeg vil heller ha en sunn sjel enn all verdens rikdom.",
+                    "impact": {
+                        "idealism": 5
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Platon",
+            "text": "Husk dette. Dyd er sin egen lønn. Ikke fordi andre ser deg, men fordi du ser deg selv.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg skal huske Gyges.",
+                    "impact": {
+                        "idealism": 2
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}

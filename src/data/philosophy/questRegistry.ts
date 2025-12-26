@@ -102,5 +102,42 @@ export const QUEST_REGISTRY: Record<string, QuestConfig> = {
         philosopherId: 'rothbard',
         title: 'Statens Anatomi',
         path: '/content/krle/filosofi/quests/rothbard.json'
+    },
+    // --- SECONDARY DIALOGUES ---
+    'sokrates_gadfly': {
+        id: 'socratic-gadfly',
+        philosopherId: 'sokrates',
+        title: 'Kleggen i Aten',
+        path: '/content/krle/filosofi/quests/sokrates_gadfly.json'
+    },
+    'platon_ring': {
+        id: 'ring-of-gyges',
+        philosopherId: 'platon',
+        title: 'Gyges Ring',
+        path: '/content/krle/filosofi/quests/platon_ring.json'
+    },
+    'nietzsche_abyss': {
+        id: 'nietzsche-abyss',
+        philosopherId: 'nietzsche',
+        title: 'Avgrunnen',
+        path: '/content/krle/filosofi/quests/nietzsche_abyss.json'
+    },
+    'aristoteles_friendship': {
+        id: 'aristoteles-friendship',
+        philosopherId: 'aristoteles',
+        title: 'Ekte Vennskap',
+        path: '/content/krle/filosofi/quests/aristoteles_friendship.json'
+    },
+    'descartes_dualism': {
+        id: 'descartes-dualism',
+        philosopherId: 'descartes',
+        title: 'Spøkelset i Maskinen',
+        path: '/content/krle/filosofi/quests/descartes_dualism.json'
+    },
+    'kant_enlightenment': {
+        id: 'kant-enlightenment',
+        philosopherId: 'kant',
+        title: 'Våg å Vite!',
+        path: '/content/krle/filosofi/quests/kant_enlightenment.json'
     }
 };

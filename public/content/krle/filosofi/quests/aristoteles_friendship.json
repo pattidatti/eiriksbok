@@ -1,0 +1,113 @@
+{
+    "id": "aristoteles_friendship",
+    "title": "Ekte Vennskap",
+    "description": "Aristoteles skiller mellom tre typer vennskap. Har du opplevd den høyeste formen?",
+    "mentor": "Aristoteles",
+    "initialStepId": "start",
+    "rewardXp": 600,
+    "steps": [
+        {
+            "id": "start",
+            "speaker": "Aristoteles",
+            "text": "Uten venner ville ingen ønske å leve, selv om han hadde alle andre goder. Men si meg, hvorfor er du venn med dine venner?",
+            "choices": [
+                {
+                    "id": "fun",
+                    "text": "Fordi vi har det gøy sammen.",
+                    "impact": {
+                        "epicureanism": 3,
+                        "materialism": 1
+                    },
+                    "nextStepId": "utility_pleasure"
+                },
+                {
+                    "id": "utility",
+                    "text": "Fordi vi hjelper hverandre.",
+                    "impact": {
+                        "pragmatism": 3,
+                        "rationalism": 1
+                    },
+                    "nextStepId": "utility_pleasure"
+                },
+                {
+                    "id": "character",
+                    "text": "Fordi jeg beundrer hvem de er som personer.",
+                    "impact": {
+                        "idealism": 4,
+                        "stoicism": 2
+                    },
+                    "nextStepId": "true_friendship"
+                }
+            ]
+        },
+        {
+            "id": "utility_pleasure",
+            "speaker": "Aristoteles",
+            "text": "Dette er vennskap basert på nytte eller nytelse. Slike vennskap er skjøre. De oppløses lett når nytten eller gleden forsvinner. Mener du at dette er ekte vennskap?",
+            "choices": [
+                {
+                    "id": "defend",
+                    "text": "Er det ikke greit å bare ha det gøy da?",
+                    "impact": {
+                        "epicureanism": 2
+                    },
+                    "nextStepId": "imperfect"
+                },
+                {
+                    "id": "seek_more",
+                    "text": "Nei, jeg ønsker noe dypere.",
+                    "impact": {
+                        "idealism": 3
+                    },
+                    "nextStepId": "true_friendship"
+                }
+            ]
+        },
+        {
+            "id": "imperfect",
+            "speaker": "Aristoteles",
+            "text": "Det er ikke dårlig, men det er ufullkomment. De elsker ikke deg for din egen skyld, men for hva de får av deg.",
+            "choices": [
+                {
+                    "id": "understand",
+                    "text": "Jeg forstår forskjellen.",
+                    "impact": {
+                        "rationalism": 2
+                    },
+                    "nextStepId": "true_friendship"
+                }
+            ]
+        },
+        {
+            "id": "true_friendship",
+            "speaker": "Aristoteles",
+            "text": "Det fullkomne vennskap er mellom gode mennesker som er like i dyd. De ønsker hverandre vel for den andres skyld. En venn er 'et annet selv'. Slike vennskap tar tid å bygge.",
+            "choices": [
+                {
+                    "id": "rare",
+                    "text": "Slike venner er sjeldne.",
+                    "impact": {
+                        "stoicism": 2,
+                        "rationalism": 2
+                    },
+                    "nextStepId": "conclusion"
+                }
+            ]
+        },
+        {
+            "id": "conclusion",
+            "speaker": "Aristoteles",
+            "text": "Ja, de er sjeldne. Og man kan ikke være venn med mange på denne måten. Ta vare på de få, ekte vennene du har.",
+            "choices": [
+                {
+                    "id": "end",
+                    "text": "Jeg skal verdsette dem.",
+                    "impact": {
+                        "idealism": 3
+                    },
+                    "nextStepId": "End"
+                }
+            ]
+        }
+    ]
+}
