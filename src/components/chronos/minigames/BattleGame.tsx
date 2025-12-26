@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Sword, RefreshCw, Skull, Heart } from 'lucide-react';
-import type { ChronosBattleConfig } from '../../data/chronos/types';
+import type { ChronosBattleConfig } from '../../../data/chronos/types';
 
 interface BattleGameProps {
     config: ChronosBattleConfig;

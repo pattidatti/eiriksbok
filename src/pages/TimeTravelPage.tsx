@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Clock, Shield, Anchor, Sword, Trophy, History } from 'lucide-react';
+import { Clock, Shield, Sword, Trophy, History, Crown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { TimeTravelProfileProvider, useTimeTravelProfile } from '../components/chronos/context/TimeTravelProfileContext';
 import type { ChronosRunLog } from '../data/chronos/types';
@@ -25,17 +25,19 @@ const TimeTravelHub: React.FC = () => {
             description: 'Stå vakt ved Hadrians mur og hold barbarene unna.',
             icon: Shield,
             color: 'bg-red-900',
-            image: '/images/chronos/hadrian_mist.jpg'
+            image: '/images/chronos/hadrian_mist.jpg',
+            disabled: false
         },
         {
-            id: 'feudal-peasant',
-            title: 'Bonde i 1349 (Kommer snart)',
-            era: '1349',
-            difficulty: 'Høy',
-            description: 'Overlev Svartedauden.',
-            icon: Anchor,
-            color: 'bg-amber-800',
-            disabled: true
+            id: 'medieval-baron',
+            title: 'Baron av Rhinen',
+            era: '1250 e.Kr.',
+            difficulty: 'Vanskelig',
+            description: 'Styr ditt len, døm dine bønder og sikre din ætt i det tysk-romerske riket.',
+            icon: Crown,
+            color: 'bg-red-950',
+            image: '/images/chronos/medieval_castle_view.jpg',
+            disabled: false
         }
     ];
 
@@ -84,7 +86,7 @@ const TimeTravelHub: React.FC = () => {
                         <motion.div
                             key={scenario.id}
                             whileHover={!scenario.disabled ? { y: -5 } : {}}
-                            className={`group relative rounded-3xl overflow-hidden bg-white shadow-sm border border-slate-100 ${scenario.disabled ? 'opacity-60 grayscale cursor-not-allowed' : 'hover:shadow-xl transition-all duration-300'}`}
+                            className={`group relative rounded-3xl overflow-hidden bg-white shadow-sm border border-slate-100 ${scenario.disabled ? 'opacity-60 grayscale cursor-not-allowed' : 'hover:shadow-xl transition-all duration-300'} `}
                         >
                             {!scenario.disabled ? (
                                 <Link to={`/oving/tidsreise/${scenario.id}`} className="block h-full">
@@ -154,7 +156,7 @@ const ScenarioCardContent: React.FC<{ scenario: any }> = ({ scenario }) => (
                 <span className={`px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wide ${scenario.difficulty === 'Lett' ? 'bg-green-100 text-green-700' :
                     scenario.difficulty === 'Middels' ? 'bg-amber-100 text-amber-700' :
                         'bg-red-100 text-red-700'
-                    }`}>
+                    } `}>
                     {scenario.difficulty}
                 </span>
             </div>

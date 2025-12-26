@@ -1,0 +1,236 @@
+{
+    "id": "medieval_baron_01",
+    "title": "Baron av Rhinen",
+    "era": "Middelalderen",
+    "year": "1250 e.Kr.",
+    "role": "Baron (Freiherr)",
+    "summary": "Tyskland i Interregnum. Keisertronen står tom. Som Baron von Falconberg må du beskytte dine land, dømme dine bønder og manøvrere i et lovløst rike.",
+    "startingNodeId": "intro_coronation",
+    "randomEvents": [],
+    "config": {
+        "stats": [
+            {
+                "id": "prestige",
+                "label": "Anseelse",
+                "icon": "star",
+                "value": 40,
+                "max": 100
+            },
+            {
+                "id": "piety",
+                "label": "Fromhet",
+                "icon": "scroll",
+                "value": 50,
+                "max": 100
+            },
+            {
+                "id": "gold",
+                "label": "Gullmark",
+                "icon": "crown",
+                "value": 100,
+                "max": 10000
+            },
+            {
+                "id": "legitimacy",
+                "label": "Legitimitet",
+                "icon": "shield",
+                "value": 60,
+                "max": 100
+            },
+            {
+                "id": "manpower",
+                "label": "Væpnere",
+                "icon": "users",
+                "value": 20,
+                "max": 200
+            }
+        ],
+        "items": [
+            {
+                "id": "family_seal",
+                "name": "Falconberg Segl",
+                "description": "Din families signetring. Brukes til å forsegle offisielle dokumenter.",
+                "icon": "shield"
+            },
+            {
+                "id": "longsword",
+                "name": "Riddersverd",
+                "description": "Et vakkert sverd arvet fra din far.",
+                "icon": "sword"
+            }
+        ],
+        "recipes": [],
+        "theme": {
+            "primaryColor": "#7f1d1d",
+            "font": "serif"
+        }
+    },
+    "nodes": {
+        "intro_coronation": {
+            "id": "intro_coronation",
+            "text": "Året er 1250. Keiser Fredrik II er død. Riket splittes av rivaliserende konger. I Rhinland klamrer du deg til din fars gamle borg, Falkenberg. En budbringer fra Erkebiskopen av Köln venter i hallen.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/medieval_hall.jpg",
+            "choices": [
+                {
+                    "id": "intro_accept",
+                    "text": "Ta imot ham med verdighet",
+                    "nextNodeId": "castle_hub",
+                    "effects": {
+                        "prestige": 5,
+                        "piety": 5
+                    }
+                },
+                {
+                    "id": "intro_wait",
+                    "text": "La ham vente. Jeg er herre her.",
+                    "nextNodeId": "castle_hub",
+                    "effects": {
+                        "prestige": 10,
+                        "piety": -10,
+                        "legitimacy": 5
+                    }
+                }
+            ]
+        },
+        "castle_hub": {
+            "id": "castle_hub",
+            "text": "Falkenberg Borg. Dine forfedres sete. Herfra styrer du dalen. Hva vil du gjøre, min herre?",
+            "speaker": "Slottsforvalter",
+            "backgroundImage": "/images/chronos/medieval_castle_view.jpg",
+            "uiType": "map",
+            "mapConfig": {
+                "image": "/images/chronos/medieval_castle_map.png",
+                "points": [
+                    {
+                        "id": "pt_throne",
+                        "x": 50,
+                        "y": 30,
+                        "label": "Tronsalen (Døm)",
+                        "icon": "crown",
+                        "nextNodeId": "hall_justice"
+                    },
+                    {
+                        "id": "pt_chapel",
+                        "x": 80,
+                        "y": 40,
+                        "label": "Kapellet (Bønn)",
+                        "icon": "scroll",
+                        "nextNodeId": "chapel_pray"
+                    },
+                    {
+                        "id": "pt_villlage",
+                        "x": 50,
+                        "y": 80,
+                        "label": "Landsbyen",
+                        "icon": "users",
+                        "nextNodeId": "village_visit"
+                    }
+                ]
+            },
+            "choices": []
+        },
+        "hall_justice": {
+            "id": "hall_justice",
+            "text": "Bøndene samles i hallen for å høre din dom.",
+            "speaker": "Hoff",
+            "backgroundImage": "/images/chronos/medieval_court.jpg",
+            "choices": [],
+            "minigame": {
+                "type": "justice",
+                "config": {
+                    "onComplete": {
+                        "nextNodeId": "castle_hub"
+                    },
+                    "cases": [
+                        {
+                            "id": "case_goose",
+                            "title": "Tyveriet av Gåsa",
+                            "description": "En bonde anklager en annen for å stjele en gås.",
+                            "accused": "Gamle Hans",
+                            "crime": "Tyveri",
+                            "options": {
+                                "mercy": {
+                                    "label": "Piskeslag",
+                                    "feedback": "Bøndene mumler, men aksepterer.",
+                                    "effects": {
+                                        "piety": 5,
+                                        "legitimacy": 5,
+                                        "prestige": -5
+                                    }
+                                },
+                                "harsh": {
+                                    "label": "Henging",
+                                    "feedback": "Stillhet i salen. Loven er håndhevet.",
+                                    "effects": {
+                                        "legitimacy": 10,
+                                        "piety": -5
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "chapel_pray": {
+            "id": "chapel_pray",
+            "text": "Du kneler i det kalde steinkapellet. Presten mumler på latin. Du søker Guds veiledning i disse mørke tider.",
+            "speaker": "Bønn",
+            "backgroundImage": "/images/chronos/medieval_chapel.jpg",
+            "choices": [
+                {
+                    "id": "chapel_done",
+                    "text": "Amen",
+                    "nextNodeId": "castle_hub",
+                    "effects": {
+                        "piety": 10
+                    }
+                },
+                {
+                    "id": "chapel_donate",
+                    "text": "Doner til kirken (50 Gull)",
+                    "nextNodeId": "castle_hub",
+                    "effects": {
+                        "piety": 25,
+                        "gold": -50
+                    }
+                }
+            ]
+        },
+        "village_visit": {
+            "id": "village_visit",
+            "text": "Landsbyen Falconheim ligger ved elvebredden. Røyken stiger fra skorsteinene. Smeden hamrer, og møllen maler korn.",
+            "speaker": "Inspeksjon",
+            "backgroundImage": "/images/chronos/medieval_village.jpg",
+            "choices": [
+                {
+                    "id": "village_tax",
+                    "text": "Krev inn ekstraskatt",
+                    "nextNodeId": "castle_hub",
+                    "effects": {
+                        "gold": 100,
+                        "legitimacy": -10,
+                        "piety": -5
+                    }
+                },
+                {
+                    "id": "village_festival",
+                    "text": "Hold en fest for folket (-50 Gull)",
+                    "nextNodeId": "castle_hub",
+                    "effects": {
+                        "gold": -50,
+                        "legitimacy": 15,
+                        "manpower": 5
+                    }
+                },
+                {
+                    "id": "village_return",
+                    "text": "Ri tilbake til borgen",
+                    "nextNodeId": "castle_hub",
+                    "effects": {}
+                }
+            ]
+        }
+    }
+}

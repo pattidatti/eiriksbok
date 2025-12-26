@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Tent, Swords, Droplets, Shield, Scroll, Castle } from 'lucide-react';
-import type { ChronosMapPoint, ChronosNode } from '../../../data/chronos/types';
+import type { ChronosMapPoint, ChronosNode } from '../../data/chronos/types';
 
 interface ChronosMapProps {
     config: NonNullable<ChronosNode['mapConfig']>;
@@ -34,7 +34,7 @@ export const ChronosMap: React.FC<ChronosMapProps> = ({ config, onPointClick }) 
             </div>
 
             {/* Map Points */}
-            {config.points.map((point) => {
+            {config.points.map((point: ChronosMapPoint) => {
                 const Icon = point.icon && IconMap[point.icon] ? IconMap[point.icon] : MapPin;
 
                 return (

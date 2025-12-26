@@ -56,9 +56,14 @@ export const DiceGame: React.FC<DiceGameProps> = ({ targetScore, wager, onComple
 
     return (
         <div className="flex flex-col items-center justify-center p-8 bg-stone-100 rounded-3xl border border-stone-200 shadow-inner">
-            <h3 className="text-xl font-bold text-stone-700 mb-6 uppercase tracking-wider">
+            <h3 className="text-xl font-bold text-stone-700 mb-2 uppercase tracking-wider">
                 Mål: {targetScore} eller høyere
             </h3>
+            {wager && (
+                <p className="text-sm font-bold text-indigo-500 mb-6 uppercase tracking-widest">
+                    Innsats: {wager} XP
+                </p>
+            )}
 
             <div className="flex gap-8 mb-8">
                 <motion.div

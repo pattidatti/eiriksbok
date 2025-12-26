@@ -44,6 +44,7 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
             // End of quest
             completeQuest(quest.id, quest.rewardXp);
             setIsCompleted(true);
+            onComplete?.();
         }
     };
 

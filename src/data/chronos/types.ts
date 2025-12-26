@@ -164,4 +164,21 @@ export type ChronosMinigame =
             lossNodeId: string;
         }
     }
-    | { type: 'battle'; config: ChronosBattleConfig };
+    | { type: 'battle'; config: ChronosBattleConfig }
+    | {
+        type: 'justice';
+        config: {
+            onComplete: { nextNodeId: string };
+            cases: Array<{
+                id: string;
+                title: string;
+                description: string;
+                accused: string;
+                crime: string;
+                options: {
+                    mercy: { label: string; feedback: string; effects?: ChronosEffect };
+                    harsh: { label: string; feedback: string; effects?: ChronosEffect };
+                };
+            }>;
+        };
+    };

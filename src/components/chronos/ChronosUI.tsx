@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock, CloudRain, Moon, BookOpen, X, Map as MapIcon, Users, Hammer } from 'lucide-react';
+import { Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock, CloudRain, Moon, BookOpen, X, Map as MapIcon, Users, Hammer, Scale } from 'lucide-react';
 import type { ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment, ChronosEntry, ChronosMapPoint, ChronosRecipe } from '../../data/chronos/types';
 import { DiceGame } from './minigames/DiceGame';
 import { BattleGame } from './minigames/BattleGame';
+import { JusticeGame } from './minigames/JusticeGame';
 import { CraftingModal } from './CraftingModal';
 import { ChronosMap } from './ChronosMap'; // Import Map Component
 
@@ -33,7 +34,8 @@ const IconMap: Record<string, any> = {
     book: BookOpen,
     map: MapIcon,
     users: Users,
-    hammer: Hammer
+    hammer: Hammer,
+    scale: Scale
 };
 
 const WeatherOverlay: React.FC<{ environment?: Partial<ChronosEnvironment> }> = ({ environment }) => {
@@ -385,6 +387,19 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                                                 id: 'battle_complete',
                                                 text: 'Battle Complete',
                                                 nextNodeId: nextId
+                                            });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'justice' ? (
+                                <JusticeGame
+                                    config={node.minigame.config}
+                                    onComplete={() => {
+                                        if (node.minigame?.type === 'justice') {
+                                            onChoice({
+                                                id: 'justice_complete',
+                                                text: 'Court Adjourned',
+                                                nextNodeId: node.minigame.config.onComplete.nextNodeId
                                             });
                                         }
                                     }}

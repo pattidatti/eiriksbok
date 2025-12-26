@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import type { ChronosProfile, ChronosRunLog } from '../../data/chronos/types';
+import type { ChronosProfile, ChronosRunLog } from '../../../data/chronos/types';
 
 interface TimeTravelProfileContextType {
     profile: ChronosProfile | null;

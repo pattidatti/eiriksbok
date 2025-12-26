@@ -9,7 +9,6 @@ import {
     BrainCircuit,
     ArrowRight,
     Star,
-    History,
     GraduationCap,
     Lightbulb
 } from 'lucide-react';
