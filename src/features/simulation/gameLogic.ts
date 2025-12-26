@@ -55,9 +55,9 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
 
 export const collectTaxes = (
     players: Record<string, SimulationPlayer>,
-    kingTaxRate: number,
-    baronTaxRate: number
+    kingTaxRate: number
 ): { updatedPlayers: Record<string, SimulationPlayer>, results: string[] } => {
+
     const updatedPlayers = { ...players };
     const results: string[] = [];
 

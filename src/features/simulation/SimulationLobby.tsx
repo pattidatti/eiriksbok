@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../lib/firebase';
-import { ref, get, set, child, update } from 'firebase/database';
+import { ref, get, set, child } from 'firebase/database';
+
 import { INITIAL_RESOURCES } from './constants';
 import type { SimulationPlayer, Role } from './types';
 
