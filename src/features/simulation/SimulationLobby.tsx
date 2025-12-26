@@ -112,6 +112,11 @@ export const SimulationLobby: React.FC = () => {
 
                 stats: { xp: 0, level: 1, reputation: 50, contribution: 0 },
                 status: { hp: 100, morale: 100, stamina: 50, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
+                equipment: {
+                    tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                    weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                    armor: { id: 'armor', durability: 100, maxDurability: 100 }
+                },
 
 
                 upgrades: [],

@@ -44,6 +44,17 @@ export const SimulationHost: React.FC = () => {
             const data = snapshot.val();
             if (data) setRoomData(data);
         });
+        useEffect(() => {
+            if (pin && view === 'MANAGE') {
+                document.title = `Host: ${pin} | Eiriksbok`;
+            } else {
+                document.title = 'Simuleringshallen | Eiriksbok';
+            }
+            return () => {
+                document.title = 'Eiriksbok';
+            };
+        }, [pin, view]);
+
         return () => unsubscribe();
     }, [pin]);
 

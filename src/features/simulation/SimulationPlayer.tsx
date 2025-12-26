@@ -5,7 +5,7 @@ import { useLayout } from '../../context/LayoutContext';
 
 import { db } from '../../lib/firebase';
 import type { SimulationPlayer as SimulationPlayerType, SimulationRoom } from './types';
-import { UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES, VILLAGE_BUILDINGS, REFINERY_RECIPES, RESOURCE_DETAILS } from './constants';
+import { UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES, VILLAGE_BUILDINGS, REFINERY_RECIPES, RESOURCE_DETAILS, ROLE_DEFINITIONS } from './constants';
 
 import { performAction } from './actions';
 import { WorldMap } from './WorldMap';
@@ -44,6 +44,18 @@ export const SimulationPlayer: React.FC = () => {
             const data = snap.val();
             if (data) setRoom(data);
         });
+
+        useEffect(() => {
+            if (player) {
+                const roleLabel = (ROLE_DEFINITIONS as any)[player.role]?.label || player.role;
+                document.title = `${player.name} (${roleLabel}) | Eiriksbok`;
+            } else {
+                document.title = 'Rikesimulator | Eiriksbok';
+            }
+            return () => {
+                document.title = 'Eiriksbok';
+            };
+        }, [player]);
 
         return () => {
             unsubPlayer();
@@ -360,7 +372,7 @@ export const SimulationPlayer: React.FC = () => {
                                                     />
                                                 </div>
                                                 <p className="mt-3 text-[10px] font-black text-emerald-500/60 uppercase tracking-widest">
-                                                    Status: {room.world.settlement.buildings[room.world.settlement.activeProjectId].progress} / {room.world.settlement.buildings[room.world.settlement.activeProjectId].target}
+                                                    Status: {room.world.settlement?.buildings[room.world.settlement?.activeProjectId ?? '']?.progress} / {room.world.settlement?.buildings[room.world.settlement?.activeProjectId ?? '']?.target}
                                                 </p>
                                             </div>
                                             <div className="absolute top-[-20%] right-[-10%] text-[12rem] text-emerald-500 opacity-[0.03] pointer-events-none group-hover:scale-110 transition-transform duration-1000">🏗️</div>
@@ -373,7 +385,7 @@ export const SimulationPlayer: React.FC = () => {
                                     )}
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        {Object.values(room.world.settlement.buildings).map((building: any) => {
+                                        {room.world.settlement && Object.values(room.world.settlement.buildings).map((building: any) => {
                                             const meta = (VILLAGE_BUILDINGS as any)[building.id];
                                             return (
                                                 <div key={building.id} className="bg-slate-800/50 border border-white/10 p-6 rounded-3xl">
