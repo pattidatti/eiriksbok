@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 interface MinigameProps {
-    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL';
+    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE';
     onComplete: (score: number) => void;
     onCancel: () => void;
 }
+
 
 
 export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel }) => {
@@ -24,9 +25,14 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                     <WoodcuttingGame onComplete={onComplete} />
                 ) : type === 'CRAFT' ? (
                     <CraftingGame onComplete={onComplete} />
-                ) : (
+                ) : type === 'MILL' ? (
                     <MillingGame onComplete={onComplete} />
+                ) : type === 'DEFEND' ? (
+                    <CombatGame onComplete={onComplete} />
+                ) : (
+                    <QuestGame onComplete={onComplete} />
                 )}
+
 
             </div>
         </div>
@@ -432,3 +438,148 @@ const MillingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComp
     );
 };
 
+/* --- COMBAT MINIGAME (Reflex Parry) --- */
+const CombatGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+    const [targets, setTargets] = useState<{ id: number, x: number, y: number, size: number }[]>([]);
+    const [hits, setHits] = useState(0);
+    const [timeLeft, setTimeLeft] = useState(10);
+    const [gameStarted, setGameStarted] = useState(false);
+    const [isFinished, setIsFinished] = useState(false);
+
+    useEffect(() => {
+        if (!gameStarted || isFinished) return;
+
+        const spawn = () => {
+            const id = Date.now();
+            setTargets(prev => [...prev, { id, x: 20 + Math.random() * 60, y: 20 + Math.random() * 60, size: 1 }]);
+            setTimeout(() => {
+                setTargets(prev => prev.filter(t => t.id !== id));
+            }, 800); // Very fast!
+        };
+
+        const interval = setInterval(spawn, 600);
+        const timer = setInterval(() => {
+            setTimeLeft(t => {
+                if (t <= 1) {
+                    clearInterval(interval);
+                    clearInterval(timer);
+                    setIsFinished(true);
+                    return 0;
+                }
+                return t - 1;
+            });
+        }, 1000);
+
+        return () => { clearInterval(interval); clearInterval(timer); };
+    }, [gameStarted, isFinished]);
+
+    useEffect(() => {
+        if (isFinished) {
+            const finalScore = Math.min(1.0, hits / 12);
+            setTimeout(() => onComplete(finalScore), 2000);
+        }
+    }, [isFinished]);
+
+    return (
+        <div className="p-8 text-center min-h-[400px] flex flex-col items-center justify-center bg-red-50">
+            <h2 className="text-2xl font-black text-red-800 mb-2 border-b-4 border-red-200 inline-block px-4">KAMP! ⚔️</h2>
+            {!gameStarted ? (
+                <div className="py-12">
+                    <p className="text-red-900/60 mb-8 italic text-sm">Blokker angrepene ved å trykke på de røde merkene før de forsvinner!</p>
+                    <button onClick={() => setGameStarted(true)} className="bg-red-600 text-white px-8 py-4 rounded-2xl font-black text-xl shadow-xl">FORSVAR DEG! ⚔️</button>
+                </div>
+            ) : isFinished ? (
+                <div className="py-12 animate-in zoom-in duration-300">
+                    <div className="text-6xl mb-4">🛡️💥</div>
+                    <h3 className="text-3xl font-black text-red-600 mb-2">STRID FERDIG!</h3>
+                    <p className="text-red-900/60 font-bold text-lg">Du holdt stand.</p>
+                </div>
+            ) : (
+                <div className="w-full relative aspect-square bg-white rounded-3xl border-4 border-red-100 overflow-hidden">
+                    <div className="absolute top-4 left-4 font-black font-mono text-red-600">⏳ {timeLeft}s</div>
+                    <div className="absolute top-4 right-4 font-black font-mono text-red-600">🛡️ {hits}</div>
+                    {targets.map(t => (
+                        <button
+                            key={t.id}
+                            onClick={() => {
+                                setHits(h => h + 1);
+                                setTargets(prev => prev.filter(tar => tar.id !== t.id));
+                            }}
+                            className="absolute bg-red-600 rounded-full border-4 border-white animate-ping"
+                            style={{
+                                top: `${t.y}%`,
+                                left: `${t.x}%`,
+                                width: '60px',
+                                height: '60px',
+                                marginLeft: '-30px',
+                                marginTop: '-30px'
+                            }}
+                        />
+                    ))}
+                    <div className="absolute inset-0 border-[20px] border-red-500/5 pointer-events-none" />
+                </div>
+            )}
+        </div>
+    );
+};
+
+/* --- QUEST MINIGAME (Search for Clues) --- */
+const QuestGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+    const [sparkles, setSparkles] = useState<{ id: number, x: number, y: number }[]>([]);
+    const [found, setFound] = useState(0);
+    const [isFinished, setIsFinished] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (sparkles.length < 5 && Math.random() > 0.5) {
+                setSparkles(prev => [...prev, { id: Date.now(), x: 10 + Math.random() * 80, y: 10 + Math.random() * 80 }]);
+            }
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [sparkles.length]);
+
+    const handleFound = (id: number) => {
+        setFound(f => {
+            const next = f + 1;
+            if (next >= 5) setIsFinished(true);
+            return next;
+        });
+        setSparkles(prev => prev.filter(s => s.id !== id));
+    };
+
+    useEffect(() => {
+        if (isFinished) {
+            setTimeout(() => onComplete(1.0), 2000);
+        }
+    }, [isFinished]);
+
+    return (
+        <div className="p-8 text-center min-h-[400px] flex flex-col items-center justify-center bg-indigo-50">
+            <h2 className="text-2xl font-black text-indigo-800 mb-2 border-b-4 border-indigo-200 inline-block px-4">UTFORSKING 🧭</h2>
+            {isFinished ? (
+                <div className="py-12 animate-in zoom-in duration-300">
+                    <div className="text-6xl mb-4">💎✨</div>
+                    <h3 className="text-3xl font-black text-indigo-600 mb-2">FUNNET!</h3>
+                    <p className="text-indigo-900/60 font-bold text-lg">Du fant det du lette etter.</p>
+                </div>
+            ) : (
+                <div className="w-full">
+                    <p className="text-indigo-900/60 mb-8 italic text-sm">Finn 5 skjulte spor i området!</p>
+                    <div className="relative aspect-video bg-indigo-900/10 rounded-3xl overflow-hidden cursor-crosshair border-4 border-indigo-200">
+                        {sparkles.map(s => (
+                            <button
+                                key={s.id}
+                                onClick={() => handleFound(s.id)}
+                                className="absolute text-2xl animate-pulse"
+                                style={{ top: `${s.y}%`, left: `${s.x}%` }}
+                            >
+                                ✨
+                            </button>
+                        ))}
+                    </div>
+                    <div className="mt-4 text-xs font-black text-indigo-400 uppercase">Spor funnet: {found} / 5</div>
+                </div>
+            )}
+        </div>
+    );
+};

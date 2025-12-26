@@ -51,9 +51,13 @@ export const SimulationHost: React.FC = () => {
             world: {
                 year: 1100,
                 season: 'Spring',
+                weather: 'Clear',
                 taxRateDetails: { kingTax: 20 }
             },
+            worldEvents: {},
+            diplomacy: {},
             messages: []
+
         };
         try {
             await set(ref(db, `simulation_rooms/${newPin}`), initialRoomState);
@@ -151,6 +155,47 @@ export const SimulationHost: React.FC = () => {
             setIsLoading(false);
         }
     };
+
+    const changeWeather = async () => {
+        if (!roomData) return;
+        const weatherList: ('Clear' | 'Rain' | 'Storm' | 'Fog')[] = ['Clear', 'Rain', 'Storm', 'Fog'];
+        const currentIdx = weatherList.indexOf(roomData.world.weather || 'Clear');
+        const nextIdx = (currentIdx + 1) % weatherList.length;
+        const nextWeather = weatherList[nextIdx];
+
+        try {
+            await update(ref(db, `simulation_rooms/${pin}/world`), { weather: nextWeather });
+            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const msg = `[${timestamp}] ☁️ Været har skiftet til ${nextWeather}!`;
+            const updatedMessages = roomData.messages ? [...roomData.messages, msg] : [msg];
+            await update(ref(db, `simulation_rooms/${pin}`), { messages: updatedMessages });
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    const spawnRandomEvent = async () => {
+        if (!roomData) return;
+        const { WORLD_EVENT_TEMPLATES } = await import('./constants');
+        const template = WORLD_EVENT_TEMPLATES[Math.floor(Math.random() * WORLD_EVENT_TEMPLATES.length)];
+        const eventId = `event_${Date.now()}`;
+        const newEvent = {
+            ...template,
+            id: eventId,
+            expiresAt: Date.now() + (5 * 60 * 1000) // 5 minutes
+        };
+
+        try {
+            await update(ref(db, `simulation_rooms/${pin}/worldEvents`), { [eventId]: newEvent });
+            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const msg = `[${timestamp}] 🔔 HENDELSE: ${template.title}! Sjekk kartet!`;
+            const updatedMessages = roomData.messages ? [...roomData.messages, msg] : [msg];
+            await update(ref(db, `simulation_rooms/${pin}`), { messages: updatedMessages });
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
 
 
 
@@ -256,17 +301,31 @@ export const SimulationHost: React.FC = () => {
                             <button onClick={regenAllStamina} disabled={roomData.status !== 'PLAYING'} className="bg-amber-500 text-white py-4 rounded-xl font-bold">
                                 Gjenopprett All Energi ⚡
                             </button>
-                            <div className="mt-4 p-4 bg-indigo-50 rounded-xl border border-indigo-200">
-                                <div className="flex justify-between items-center mb-2">
-                                    <span className="font-bold text-indigo-900">Nåværende Årstid: {roomData.world.season}</span>
-                                    <span className="text-2xl">{roomData.world.season === 'Winter' ? '❄️' : roomData.world.season === 'Autumn' ? '🍂' : roomData.world.season === 'Summer' ? '☀️' : '🌱'}</span>
+                            <div className="mt-4 grid grid-cols-2 gap-4">
+                                <div className="p-4 bg-indigo-50 rounded-xl border border-indigo-200">
+                                    <div className="flex justify-between items-center mb-2">
+                                        <span className="font-bold text-indigo-900">Årstid: {roomData.world.season}</span>
+                                    </div>
+                                    <button onClick={nextSeason} className="w-full bg-white text-indigo-700 py-3 rounded-lg font-black uppercase tracking-widest text-xs border border-indigo-200">
+                                        Neste Årstid ⏳
+                                    </button>
                                 </div>
-                                <button onClick={nextSeason} disabled={isLoading} className="w-full bg-indigo-100 text-indigo-700 py-3 rounded-lg font-black uppercase tracking-widest hover:bg-indigo-200 transition-colors">
-                                    Neste Årstid ⏳
-                                </button>
+                                <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+                                    <div className="flex justify-between items-center mb-2">
+                                        <span className="font-bold text-blue-900">Vær: {roomData.world.weather || 'Clear'}</span>
+                                    </div>
+                                    <button onClick={changeWeather} className="w-full bg-white text-blue-700 py-3 rounded-lg font-black uppercase tracking-widest text-xs border border-blue-200">
+                                        Skift Vær ☁️
+                                    </button>
+                                </div>
                             </div>
+
+                            <button onClick={spawnRandomEvent} disabled={roomData.status !== 'PLAYING'} className="w-full bg-red-600 text-white py-4 rounded-xl font-black uppercase tracking-widest shadow-lg hover:bg-red-700 transition-all">
+                                🎲 Trigge Tilfeldig Hendelse (Raid/Quest)
+                            </button>
                         </div>
                     </div>
+
 
 
                 </div>

@@ -14,9 +14,10 @@ export const SimulationPlayer: React.FC = () => {
     const { pin } = useParams();
     const [player, setPlayer] = useState<SimulationPlayerType | null>(null);
     const [room, setRoom] = useState<SimulationRoom | null>(null);
-    const [activeTab, setActiveTab] = useState<'MAP' | 'MARKET' | 'UPGRADES'>('MAP');
+    const [activeTab, setActiveTab] = useState<'MAP' | 'MARKET' | 'UPGRADES' | 'DIPLOMACY'>('MAP');
     const [actionLoading, setActionLoading] = useState<string | null>(null);
-    const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | null>(null);
+    const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | null>(null);
+
 
 
 
@@ -48,12 +49,13 @@ export const SimulationPlayer: React.FC = () => {
 
         const actionType = typeof action === 'string' ? action : action.type;
 
-        // Trigger Minigame for work/chop/mill/craft if not already in one
-        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT'];
+        // Trigger Minigame for work/chop/mill/craft/defend/explore if not already in one
+        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE'];
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
             setActiveMinigame(actionType as any);
             return;
         }
+
 
 
         setActionLoading(actionType);
@@ -104,9 +106,17 @@ export const SimulationPlayer: React.FC = () => {
                         <div className="text-4xl">{RoleIcon}</div>
                         <div>
                             <div className="font-bold text-lg leading-none">{player.name}</div>
-                            <div className="text-indigo-300 text-[10px] font-mono uppercase tracking-widest">{ROLE_DEFINITIONS[player.role]?.label}</div>
+                            <div className="flex gap-2 items-center mt-1">
+                                <span className="text-indigo-300 text-[10px] font-mono uppercase tracking-widest">{ROLE_DEFINITIONS[player.role]?.label}</span>
+                                {room.world?.weather && (
+                                    <span className="text-[10px] uppercase font-black px-2 py-0.5 bg-blue-500/30 text-blue-200 rounded flex items-center gap-1">
+                                        {room.world.weather === 'Rain' ? '🌧️' : room.world.weather === 'Storm' ? '⛈️' : room.world.weather === 'Fog' ? '🌫️' : '☀️'} {room.world.weather}
+                                    </span>
+                                )}
+                            </div>
                         </div>
                     </div>
+
                     <div className="text-right">
                         <div className="font-mono text-xl font-black text-yellow-400">{player.resources.gold} 💰</div>
                         <div className="text-[10px] text-indigo-300 font-bold">Nivå {player.stats.level || 1} {ROLE_TITLES[player.role]?.[(player.stats.level || 1) - 1]}</div>
@@ -184,26 +194,24 @@ export const SimulationPlayer: React.FC = () => {
             {/* Main Content Area */}
             <div className="p-4 space-y-4">
                 {/* Tabs */}
-                <div className="flex bg-white rounded-2xl p-1.5 shadow-sm border border-slate-200">
-                    <button
-                        onClick={() => setActiveTab('MAP')}
-                        className={`flex-1 py-3 rounded-xl font-bold transition-all text-sm ${activeTab === 'MAP' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-500'}`}
-                    >
-                        Verden 🗺️
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('MARKET')}
-                        className={`flex-1 py-3 rounded-xl font-bold transition-all text-sm ${activeTab === 'MARKET' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-500'}`}
-                    >
-                        Marked ⚖️
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('UPGRADES')}
-                        className={`flex-1 py-3 rounded-xl font-bold transition-all text-sm ${activeTab === 'UPGRADES' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-500'}`}
-                    >
-                        Bygg 🏗️
-                    </button>
+                <div className="flex bg-white rounded-2xl p-1.5 shadow-sm border border-slate-200 overflow-x-auto no-scrollbar gap-1">
+                    {['MAP', 'MARKET', 'UPGRADES', 'DIPLOMACY'].map((tab) => {
+                        if (tab === 'DIPLOMACY' && player.role === 'PEASANT') return null;
+                        const labels: Record<string, string> = { MAP: 'Verden 🗺️', MARKET: 'Marked ⚖️', UPGRADES: 'Bygg ⚒️', DIPLOMACY: 'Pakter 🕊️' };
+                        const label = labels[tab] || tab;
+                        return (
+                            <button
+                                key={tab}
+                                onClick={() => setActiveTab(tab as any)}
+                                className={`flex-1 min-w-[80px] py-3 rounded-xl font-bold transition-all text-[11px] whitespace-nowrap ${activeTab === tab ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-500'}`}
+                            >
+                                {label}
+                            </button>
+                        );
+                    })}
                 </div>
+
+
 
                 {activeTab === 'MAP' ? (
                     <div className="space-y-4">
@@ -290,7 +298,8 @@ export const SimulationPlayer: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                ) : (
+                ) : activeTab === 'UPGRADES' ? (
+
                     <div className="space-y-4">
                         <div className="bg-white p-6 rounded-3xl shadow-md border-b-4 border-emerald-100">
                             <h2 className="text-2xl font-black text-slate-800 mb-6 text-center">Oppgraderinger 🏗️</h2>
@@ -328,7 +337,76 @@ export const SimulationPlayer: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                )}
+                ) : activeTab === 'DIPLOMACY' ? (
+                    <div className="space-y-4">
+                        <div className="bg-white p-6 rounded-3xl shadow-md border-b-4 border-indigo-100">
+                            <h2 className="text-2xl font-black text-slate-800 mb-6 text-center">Diplomati & Pakter 🕊️</h2>
+                            <p className="text-sm text-slate-500 mb-8 italic">Send hemmelige meldinger til andre herrer. Kun synlig for mottakeren.</p>
+
+                            <div className="space-y-4 max-h-[400px] overflow-y-auto mb-6 p-4 bg-slate-50 rounded-2xl border flex flex-col">
+                                {room.diplomacy ? Object.values(room.diplomacy)
+                                    .filter(m => m.receiverId === 'ALL_RULERS' || m.receiverId === player.id || m.senderId === player.id)
+                                    .sort((a, b) => a.timestamp - b.timestamp)
+                                    .map(m => (
+                                        <div key={m.id} className={`p-3 rounded-xl border-2 mb-2 ${m.senderId === player.id ? 'bg-indigo-50 border-indigo-100 self-end ml-8' : 'bg-white border-slate-100 self-start mr-8'}`}>
+                                            <div className="flex justify-between items-center mb-1 gap-4">
+                                                <span className="text-[10px] font-black uppercase text-indigo-500">{m.senderName}</span>
+                                                <span className="text-[8px] text-slate-400">{new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                                            </div>
+                                            <p className="text-sm text-slate-700">{m.content}</p>
+                                        </div>
+                                    )) : <p className="text-center text-slate-400 text-xs py-8">Ingen meldinger ennå...</p>
+                                }
+                            </div>
+
+                            <div className="flex gap-2">
+                                <input
+                                    type="text"
+                                    id="diplomacyInput"
+                                    placeholder="Skriv melding..."
+                                    className="flex-1 bg-slate-100 border-2 border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-indigo-500 text-sm"
+                                    onKeyDown={async (e) => {
+                                        if (e.key === 'Enter' && (e.target as HTMLInputElement).value) {
+                                            const content = (e.target as HTMLInputElement).value;
+                                            (e.target as HTMLInputElement).value = '';
+                                            const msgId = `msg_${Date.now()}`;
+                                            await update(ref(db, `simulation_rooms/${pin}/diplomacy/${msgId}`), {
+                                                id: msgId,
+                                                senderId: player.id,
+                                                senderName: player.name,
+                                                receiverId: 'ALL_RULERS',
+                                                content,
+                                                timestamp: Date.now()
+                                            });
+                                        }
+                                    }}
+                                />
+                                <button
+                                    onClick={async () => {
+                                        const input = document.getElementById('diplomacyInput') as HTMLInputElement;
+                                        if (input && input.value) {
+                                            const content = input.value;
+                                            input.value = '';
+                                            const msgId = `msg_${Date.now()}`;
+                                            await update(ref(db, `simulation_rooms/${pin}/diplomacy/${msgId}`), {
+                                                id: msgId,
+                                                senderId: player.id,
+                                                senderName: player.name,
+                                                receiverId: 'ALL_RULERS',
+                                                content,
+                                                timestamp: Date.now()
+                                            });
+                                        }
+                                    }}
+                                    className="bg-indigo-600 text-white px-6 rounded-xl font-bold text-sm"
+                                >
+                                    SEND
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ) : null}
+
 
                 {/* World Feed */}
                 <div className="bg-slate-900 text-indigo-300 p-5 rounded-3xl shadow-inner max-h-56 overflow-y-auto font-mono text-[10px] border border-slate-800">

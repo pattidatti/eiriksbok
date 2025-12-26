@@ -59,6 +59,14 @@ export const SEASONS = {
     Winter: { label: 'Vinter', yieldMod: 0.0, staminaMod: 1.5, color: '#38bdf8' }
 };
 
+export const WEATHER = {
+    Clear: { label: 'Klart Vær', desc: 'Ideelle forhold for alt arbeid.', mod: 1.0, icon: '☀️', speedMod: 1.0, staminaMod: 1.0 },
+    Rain: { label: 'Regn', desc: 'Glatte forhold. Minispill går litt fortere.', mod: 0.9, icon: '🌧️', speedMod: 1.2, staminaMod: 1.0 },
+    Storm: { label: 'Storm', desc: 'Farlig vær. Høy stamina-kostnad og lavt utbytte!', mod: 0.5, icon: '⛈️', speedMod: 1.5, staminaMod: 2.0 },
+    Fog: { label: 'Tåke', desc: 'Dårlig sikt. Vanskeligere å treffe blinker.', mod: 0.8, icon: '🌫️', speedMod: 0.8, staminaMod: 1.0 }
+};
+
+
 export const LEVEL_XP = [0, 100, 300, 700, 1500, 3000, 6000];
 
 export const ROLE_TITLES: Record<Role, string[]> = {
@@ -80,3 +88,11 @@ export const EVENTS = {
     MARKET_UPDATE: 'MARKET_UPDATE',
     WAR_DECLARED: 'WAR_DECLARED',
 };
+
+export const WORLD_EVENT_TEMPLATES = [
+    { type: 'RAID', title: 'Vikinger på horisonten!', description: 'Et vikingskip er sett nær kysten. Forsvar jordene før de stjeler kornet!', locationId: 'fields' },
+    { type: 'RAID', title: 'Banditt-leir funnet', description: 'Banditter har slått seg ned i skogen. De stjeler ved hver time!', locationId: 'forest' },
+    { type: 'QUEST', title: 'Den Hellige Gral?', description: 'Rykter sier en eremitt ved klosteret har funnet noe verdifullt.', locationId: 'village' },
+    { type: 'QUEST', title: 'Markedsdag i nabolaget', description: 'En sjelden mulighet for god handel på grensen.', locationId: 'marketplace' }
+];
+

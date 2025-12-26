@@ -59,8 +59,9 @@ interface WorldMapProps {
     onOpenMarket: () => void;
 }
 
-export const WorldMap: React.FC<WorldMapProps> = ({ player, onAction, onOpenMarket }) => {
+export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOpenMarket }) => {
     const [selectedPOI, setSelectedPOI] = useState<POI | null>(null);
+    const [selectedEvent, setSelectedEvent] = useState<any>(null);
 
     const handlePOIAction = (_poiId: string, actionId: string) => {
         if (actionId === 'MARKET_VIEW') {
@@ -71,15 +72,49 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, onAction, onOpenMark
         setSelectedPOI(null);
     };
 
+    const weather = room.world?.weather || 'Clear';
 
     return (
-        <div className="relative w-full aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-900/20 bg-amber-50">
+        <div className={`relative w-full aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-900/20 bg-amber-50 transition-all duration-1000 ${weather === 'Rain' ? 'brightness-90 contrast-110' : weather === 'Storm' ? 'brightness-75 contrast-125' : weather === 'Fog' ? 'sepia-[0.3] contrast-75' : ''}`}>
             {/* The Map Background */}
             <img
                 src="/simulation_map.png"
                 alt="Kingdom Map"
-                className="w-full h-full object-cover opacity-90"
+                className={`w-full h-full object-cover opacity-90 transition-all duration-1000 ${weather === 'Fog' ? 'blur-sm' : ''}`}
             />
+
+            {/* Weather Overlay Effects */}
+            {weather === 'Rain' && (
+                <div className="absolute inset-0 pointer-events-none z-10 opacity-30">
+                    <div className="w-full h-full animate-pulse bg-blue-500/10" />
+                </div>
+            )}
+            {weather === 'Storm' && (
+                <div className="absolute inset-0 pointer-events-none z-10 transition-colors duration-100">
+                    <div className="w-full h-full animate-[pulse_0.1s_infinite] bg-white/5 opacity-0 group-hover:opacity-100" />
+                </div>
+            )}
+
+            {/* Event Markers (Dynamic) */}
+            {room.worldEvents && Object.values(room.worldEvents).map((event: any) => {
+                const poi = POINTS_OF_INTEREST.find(p => p.id === event.locationId);
+                if (!poi) return null;
+
+                return (
+                    <div
+                        key={event.id}
+                        style={{ top: poi.top, left: poi.left }}
+                        className="absolute -translate-x-1/2 -translate-y-[150%] z-30"
+                    >
+                        <button
+                            onClick={() => setSelectedEvent(event)}
+                            className={`w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(255,255,255,0.8)] border-4 animate-bounce ${event.type === 'RAID' ? 'bg-red-600 border-red-900 text-white' : 'bg-yellow-400 border-yellow-700 text-slate-800'}`}
+                        >
+                            {event.type === 'RAID' ? '☠️' : '⭐'}
+                        </button>
+                    </div>
+                );
+            })}
 
 
             {/* Overlay Grid / Pins */}
@@ -106,6 +141,33 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, onAction, onOpenMark
                     </div>
                 );
             })}
+
+            {/* Event Info Modal */}
+            {selectedEvent && (
+                <div className="absolute inset-x-4 bottom-4 z-40 animate-in slide-in-from-bottom-4 duration-300">
+                    <div className="bg-white rounded-2xl shadow-2xl border-t-4 border-red-600 p-5">
+                        <div className="flex justify-between items-start mb-2">
+                            <div>
+                                <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${selectedEvent.type === 'RAID' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'}`}>
+                                    {selectedEvent.type === 'RAID' ? 'Raid i gang' : 'Sagnomsust Oppdrag'}
+                                </span>
+                                <h3 className="text-lg font-black text-slate-900 mt-1">{selectedEvent.title}</h3>
+                            </div>
+                            <button onClick={() => setSelectedEvent(null)} className="text-slate-400">✕</button>
+                        </div>
+                        <p className="text-sm text-slate-500 mb-4">{selectedEvent.description}</p>
+                        <button
+                            onClick={() => {
+                                onAction({ type: selectedEvent.type === 'RAID' ? 'DEFEND' : 'EXPLORE', eventId: selectedEvent.id });
+                                setSelectedEvent(null);
+                            }}
+                            className={`w-full py-3 rounded-xl font-black uppercase text-sm shadow-lg ${selectedEvent.type === 'RAID' ? 'bg-red-600 text-white' : 'bg-yellow-400 text-slate-900'}`}
+                        >
+                            {selectedEvent.type === 'RAID' ? 'KJEMP MOT INNTRERNGERNE! ⚔️' : 'UTFORSK OMRÅDET! 🧭'}
+                        </button>
+                    </div>
+                </div>
+            )}
 
             {/* Action Popup */}
             {selectedPOI && (
@@ -146,6 +208,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, onAction, onOpenMark
                     </div>
                 </div>
             )}
+
         </div>
     );
 };

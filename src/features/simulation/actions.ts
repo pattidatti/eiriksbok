@@ -1,6 +1,7 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
-import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, LEVEL_XP } from './constants';
+import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, LEVEL_XP, WEATHER } from './constants';
+
 
 
 export const performAction = async (pin: string, playerId: string, action: any) => {
@@ -23,18 +24,23 @@ export const performAction = async (pin: string, playerId: string, action: any) 
             const currentSeason = room.world?.season || 'Spring';
             const seasonData = (SEASONS as any)[currentSeason];
 
+            const currentWeather = room.world?.weather || 'Clear';
+            const weatherData = (WEATHER as any)[currentWeather];
+
             // 1. Handle Costs (Resources & Stamina)
             const cost = (ACTION_COSTS as any)[actionType];
             if (cost) {
-                // Stamina penalty in winter
-                const staminaMod = seasonData?.staminaMod || 1.0;
-                const finalStaminaCost = Math.ceil((cost.stamina || 0) * staminaMod);
+                // Season & Weather modifiers
+                const baseStaminaMod = seasonData?.staminaMod || 1.0;
+                const weatherStaminaMod = weatherData?.staminaMod || 1.0;
+                const finalStaminaCost = Math.ceil((cost.stamina || 0) * baseStaminaMod * weatherStaminaMod);
 
                 if ((actor.resources.grain || 0) < (cost.grain || 0)) return;
                 if ((actor.resources.flour || 0) < (cost.flour || 0)) return;
                 if ((actor.resources.iron || 0) < (cost.iron || 0)) return;
                 if ((actor.resources.wood || 0) < (cost.wood || 0)) return;
                 if ((actor.status.stamina || 0) < finalStaminaCost) return;
+
 
                 actor.resources.grain -= (cost.grain || 0);
                 actor.resources.flour -= (cost.flour || 0);
@@ -49,13 +55,16 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 let yieldAmount = REWARDS.WORK.grain;
                 if (actor.upgrades?.includes('iron_plow')) yieldAmount += 5;
 
-                // Season modifier
-                yieldAmount = Math.floor(yieldAmount * (seasonData?.yieldMod || 1.0));
+                // Season & Weather modifier
+                const seasonYMod = seasonData?.yieldMod || 1.0;
+                const weatherYMod = weatherData?.yieldMod || 1.0;
+                yieldAmount = Math.floor(yieldAmount * seasonYMod * weatherYMod);
 
                 // PERFORMANCE MULTIPLIER (from minigame)
                 const performance = action.performance || 1.0; // 0-1.0 from minigame
                 const finalMultiplier = 0.5 + (performance * 1.0); // Range 0.5x to 1.5x
                 yieldAmount = Math.ceil(yieldAmount * finalMultiplier);
+
 
                 actor.resources.grain = (actor.resources.grain || 0) + yieldAmount;
                 actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.WORK.xp * finalMultiplier);
@@ -126,6 +135,10 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                         actor.resources.gold += goldTax;
                         totalGold += goldTax;
                         count++;
+
+                        // Loyalty Penalty
+                        p.status.loyalty = Math.max(0, (p.status.loyalty || 100) - 10);
+
                     }
                 });
 
@@ -148,6 +161,10 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                         actor.resources.gold += goldTax;
                         totalGold += goldTax;
                         count++;
+
+                        // Loyalty Penalty (Barons also lose loyalty to King)
+                        p.status.loyalty = Math.max(0, (p.status.loyalty || 100) - 5);
+
                     }
                 });
 
@@ -256,7 +273,30 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 actor.resources.flour = Math.max(0, (actor.resources.flour || 0) - 1);
                 actor.status.legitimacy = Math.min(100, (actor.status.legitimacy || 100) + 2);
                 room.messages.push(`[${timestamp}] 💤 ${actor.name} hviler og spiser.`);
+            } else if (actionType === 'DEFEND') {
+                const performance = action.performance || 0;
+                const goldGained = Math.ceil(20 * performance);
+                actor.resources.gold = (actor.resources.gold || 0) + goldGained;
+                actor.stats.xp = (actor.stats.xp || 0) + 20;
+
+                room.messages.push(`[${timestamp}] 🛡️ ${actor.name} forsvarte seg mot et raid! +${goldGained}g.`);
+
+                // Remove event after interaction
+                if (action.eventId && room.worldEvents) {
+                    delete room.worldEvents[action.eventId];
+                }
+            } else if (actionType === 'EXPLORE') {
+                const goldGained = 50;
+                actor.resources.gold = (actor.resources.gold || 0) + goldGained;
+                actor.stats.xp = (actor.stats.xp || 0) + 30;
+
+                room.messages.push(`[${timestamp}] 🧭 ${actor.name} fullførte et oppdrag! +${goldGained}g.`);
+
+                if (action.eventId && room.worldEvents) {
+                    delete room.worldEvents[action.eventId];
+                }
             }
+
 
             // 3. Level Up Check
             const currentLevel = actor.stats.level || 1;

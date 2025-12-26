@@ -27,9 +27,11 @@ export interface PlayerStatus {
     stamina: number; // Used to limit rapid actions
     legitimacy: number; // For Kings/Barons (0-100)
     authority: number; // Power to command (0-100)
+    loyalty: number; // For Peasants/Barons (0-100)
     isJailed: boolean;
     isFrozen: boolean; // e.g. awaiting judgement
 }
+
 
 
 export interface PlayerUpgrade {
@@ -75,9 +77,32 @@ export interface SimulationRegion {
     rulerName: string;
 }
 
+export type WeatherType = 'Clear' | 'Rain' | 'Storm' | 'Fog';
+
+export interface WorldEvent {
+    id: string;
+    type: 'RAID' | 'QUEST';
+    title: string;
+    description: string;
+    locationId: string; // POI ID (e.g. 'fields')
+    expiresAt: number;
+    payload?: any; // Extra data (rewards, threat level)
+}
+
+export interface DiplomacyMessage {
+    id: string;
+    senderId: string;
+    senderName: string;
+    receiverId: string; // Can be 'ALL_RULERS' or specific player ID
+    content: string;
+    timestamp: number;
+}
+
+
 export type GameStatus = 'LOBBY' | 'PLAYING' | 'PAUSED' | 'FINISHED';
 
 export interface SimulationRoom {
+
     pin: string;
     status: GameStatus;
     settings: string; // 'feudal_europe'
@@ -90,14 +115,18 @@ export interface SimulationRoom {
     world: {
         year: number;
         season: 'Spring' | 'Summer' | 'Autumn' | 'Winter';
+        weather: WeatherType;
         taxRateDetails: {
             kingTax: number; // Tax Barons pay to King
         }
     };
 
+    worldEvents: Record<string, WorldEvent>;
+    diplomacy: Record<string, DiplomacyMessage>;
     messages: string[];
     questionStartTime?: number; // reusing logic for sync
 }
+
 
 export type EventType = 'THEFT' | 'TRADE' | 'WAR' | 'JUDGEMENT' | 'MARKET_UPDATE' | 'GLOBAL_ALERT' | 'LEGITIMACY' | 'MILL' | 'CRAFT';
 
