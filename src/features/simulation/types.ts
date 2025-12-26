@@ -8,6 +8,7 @@ export interface Resources {
     flour: number;
     wood: number;
     iron: number;
+    stone: number; // New
     swords: number;
     armor: number; // New item type
     tools: number; // New item type
@@ -79,6 +80,7 @@ export interface SimulationMarket {
     flour: MarketItem;
     wood: MarketItem;
     iron: MarketItem;
+    stone: MarketItem;
     swords: MarketItem;
     armor: MarketItem;
     tools: MarketItem;

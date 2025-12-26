@@ -5,6 +5,7 @@ export const INITIAL_MARKET: SimulationMarket = {
     flour: { price: 15, stock: 100, demand: 1.0 },
     wood: { price: 15, stock: 300, demand: 1.0 },
     iron: { price: 25, stock: 150, demand: 1.0 },
+    stone: { price: 20, stock: 200, demand: 1.0 },
     swords: { price: 80, stock: 20, demand: 1.0 },
     armor: { price: 120, stock: 10, demand: 1.0 },
     tools: { price: 60, stock: 30, demand: 1.0 },
@@ -19,11 +20,11 @@ export const ROLE_DEFINITIONS: Record<Role, { label: string, description: string
 };
 
 export const INITIAL_RESOURCES: Record<Role, Resources> = {
-    KING: { gold: 1000, grain: 500, flour: 200, wood: 200, iron: 100, swords: 50, armor: 20, tools: 10, manpower: 50, favor: 0 },
-    BARON: { gold: 300, grain: 100, flour: 50, wood: 50, iron: 20, swords: 10, armor: 10, tools: 5, manpower: 10, favor: 0 },
-    PEASANT: { gold: 20, grain: 30, flour: 5, wood: 0, iron: 0, swords: 0, armor: 0, tools: 1, manpower: 1, favor: 0 },
-    SOLDIER: { gold: 50, grain: 10, flour: 10, wood: 0, iron: 10, swords: 5, armor: 2, tools: 0, manpower: 1, favor: 0 },
-    MERCHANT: { gold: 500, grain: 50, flour: 50, wood: 50, iron: 50, swords: 5, armor: 2, tools: 5, manpower: 0, favor: 0 }
+    KING: { gold: 1000, grain: 500, flour: 200, wood: 200, iron: 100, stone: 100, swords: 50, armor: 20, tools: 10, manpower: 50, favor: 0 },
+    BARON: { gold: 300, grain: 100, flour: 50, wood: 50, iron: 20, stone: 20, swords: 10, armor: 10, tools: 5, manpower: 10, favor: 0 },
+    PEASANT: { gold: 20, grain: 30, flour: 5, wood: 0, iron: 0, stone: 0, swords: 0, armor: 0, tools: 1, manpower: 1, favor: 0 },
+    SOLDIER: { gold: 50, grain: 10, flour: 10, wood: 0, iron: 10, stone: 0, swords: 5, armor: 2, tools: 0, manpower: 1, favor: 0 },
+    MERCHANT: { gold: 500, grain: 50, flour: 50, wood: 50, iron: 50, stone: 50, swords: 5, armor: 2, tools: 5, manpower: 0, favor: 0 }
 };
 
 
@@ -48,7 +49,11 @@ export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
         { id: 'warhorse', name: 'Stridshest', description: 'Gjør deg til en Ridder. 2x XP fra kamp.', cost: { gold: 200, grain: 100 }, benefit: 'KNIGHT' }
     ],
 
-    MERCHANT: []
+    MERCHANT: [
+        { id: 'trade_license', name: 'Handelsbrev', description: 'Bedre salgspriser på markedet.', cost: { gold: 150 }, benefit: 'MARKET_BONUS' },
+        { id: 'accounting_books', name: 'Regnskapsbøker', description: 'Gir passivt 5 gull per minutt.', cost: { gold: 200, wood: 20 }, benefit: 'PASSIVE_GOLD_HIGH' },
+        { id: 'caravan', name: 'Karavane', description: 'Tjen penger på handel med utlandet.', cost: { gold: 300, wood: 50, tools: 5 }, benefit: 'CARAVAN' }
+    ]
 };
 
 export const ACTION_COSTS = {
@@ -61,10 +66,11 @@ export const ACTION_COSTS = {
     CRAFT: { iron: 10, wood: 5, stamina: 30 },
     CRAFT_ARMOR: { iron: 15, wood: 2, stamina: 40 },
     CRAFT_TOOLS: { iron: 5, wood: 10, stamina: 25 },
+    QUARRY: { flour: 1, stamina: 20 },
     REPAIR: { iron: 2, wood: 2, gold: 5, stamina: 15 },
     PRAY: { stamina: 15 },
     FEAST: { flour: 30, gold: 100, stamina: 10 },
-    CONTRIBUTE: { grain: 30, wood: 20, gold: 50, stamina: 25 }
+    CONTRIBUTE: { grain: 30, wood: 20, stone: 20, gold: 50, stamina: 25 }
 };
 
 
@@ -131,9 +137,10 @@ export const GAME_BALANCE = {
     YIELD: {
         WORK_GRAIN: 10,
         CHOP_WOOD: 5,
-        MINE_IRON: 4, // New
+        MINE_IRON: 4,
+        QUARRY_STONE: 8,
         MILL_FLOUR: 10,
-        CRAFT_SWORDS: 5, // Adjusted from 10
+        CRAFT_SWORDS: 5,
         CRAFT_ARMOR: 2,
         CRAFT_TOOLS: 5,
         PLOW_BONUS: 5,

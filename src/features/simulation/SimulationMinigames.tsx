@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 interface MinigameProps {
-    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE';
+    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY';
     onComplete: (score: number) => void;
     onCancel: () => void;
     playerUpgrades?: string[];
@@ -21,8 +21,8 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                     ✕
                 </button>
 
-                {type === 'WORK' || type === 'MINE' ? (
-                    <HarvestingGame onComplete={onComplete} isMining={type === 'MINE'} />
+                {type === 'WORK' || type === 'MINE' || type === 'QUARRY' ? (
+                    <HarvestingGame onComplete={onComplete} isMining={type === 'MINE'} isQuarrying={type === 'QUARRY'} />
                 ) : type === 'CHOP' ? (
                     <WoodcuttingGame onComplete={onComplete} />
                 ) : type === 'CRAFT' ? (
@@ -45,10 +45,11 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
 interface HarvestingGameProps {
     onComplete: (score: number) => void;
     isMining?: boolean;
+    isQuarrying?: boolean;
 }
 
 /* --- HARVESTING MINIGAME (Rhythm Timing) --- */
-const HarvestingGame: React.FC<HarvestingGameProps> = ({ onComplete, isMining }) => {
+const HarvestingGame: React.FC<HarvestingGameProps> = ({ onComplete, isMining, isQuarrying }) => {
     const [progress, setProgress] = useState(0);
     const [pointerPos, setPointerPos] = useState(0);
     const [strikes, setStrikes] = useState<number[]>([]);
@@ -105,10 +106,10 @@ const HarvestingGame: React.FC<HarvestingGameProps> = ({ onComplete, isMining })
         }
     };
 
-    const title = isMining ? 'Gruvedrift ⛏️' : 'Kornhøsting 🌾';
-    const resourceIcon = isMining ? '⛏️' : '🌾';
-    const resourceName = isMining ? 'Jern' : 'Korn';
-    const yieldBase = isMining ? 5 : 10;
+    const title = isQuarrying ? 'Steinhugger 🪨' : (isMining ? 'Gruvedrift ⛏️' : 'Kornhøsting 🌾');
+    const resourceIcon = isQuarrying ? '🪨' : (isMining ? '⛏️' : '🌾');
+    const resourceName = isQuarrying ? 'Stein' : (isMining ? 'Jern' : 'Korn');
+    const yieldBase = isQuarrying ? 8 : (isMining ? 5 : 10);
 
     return (
         <div className="p-8 text-center min-h-[400px] flex flex-col items-center justify-center">
@@ -117,7 +118,7 @@ const HarvestingGame: React.FC<HarvestingGameProps> = ({ onComplete, isMining })
             {isFinished ? (
                 <div className="py-12 animate-in zoom-in duration-300">
                     <div className="text-6xl mb-4">{resourceIcon}✨</div>
-                    <h3 className="text-4xl font-black text-amber-600 mb-2">{isMining ? 'UTGRAVD!' : 'HØSTET!'}</h3>
+                    <h3 className="text-4xl font-black text-amber-600 mb-2">{isQuarrying ? 'UTSNIDD!' : (isMining ? 'UTGRAVD!' : 'HØSTET!')}</h3>
                     <div className="bg-amber-50 p-4 rounded-2xl border-2 border-amber-100 mb-4">
                         <div className="flex justify-between items-center text-lg font-bold">
                             <span className="text-slate-500">Brukt:</span>
@@ -128,7 +129,7 @@ const HarvestingGame: React.FC<HarvestingGameProps> = ({ onComplete, isMining })
                             <span className="text-green-600">+{Math.ceil(yieldBase * (0.5 + (strikes.reduce((a, b) => a + b, 0) / 5) * 1.0))} {resourceIcon} {resourceName}</span>
                         </div>
                     </div>
-                    <p className="text-slate-500 font-bold text-xl">{isMining ? 'Du fant rike forekomster!' : 'Du fikk fylt låven!'}</p>
+                    <p className="text-slate-500 font-bold text-xl">{isQuarrying ? 'Du hogg ut de fineste blokkene!' : (isMining ? 'Du fant rike forekomster!' : 'Du fikk fylt låven!')}</p>
                     <div className="mt-4 text-sm text-slate-400 uppercase tracking-widest font-black">Lagrer resultat...</div>
                 </div>
             ) : (

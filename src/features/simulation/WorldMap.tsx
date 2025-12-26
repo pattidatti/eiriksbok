@@ -61,6 +61,10 @@ const POINTS_OF_INTEREST: POI[] = [
         ]
     },
     {
+        id: 'quarry', label: 'Steinhuggeriet', icon: '🪨', top: '35%', left: '15%', roles: ['PEASANT'],
+        actions: [{ id: 'QUARRY', label: 'Hugge Stein', cost: '-20⚡ -1🥖' }]
+    },
+    {
         id: 'monastery', label: 'Klosteret', icon: '⛪', top: '10%', left: '45%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
         actions: [{ id: 'PRAY', label: 'Be en Bønn', cost: '-15⚡' }]
     },

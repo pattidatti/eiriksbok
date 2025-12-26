@@ -1,6 +1,7 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
 import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, LEVEL_XP, WEATHER, GAME_BALANCE } from './constants';
+import type { SimulationMarket } from './types';
 
 
 
@@ -22,10 +23,23 @@ export const performAction = async (pin: string, playerId: string, action: any) 
             if (!room.messages) room.messages = [];
             const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-            // Passively regen stamina based on time since last action?
-            // Actually, let's keep it simple: setiap kali melakukan aksi, stamina berkurang.
-            // Regenerasi stamina bisa dilakukan lewat aksi "REST" atau pasif di UI.
-            // Untuk sekarang, kita implementasikan konsumsi dulu.
+            // 0. Passive Income & Regeneration
+            const now = Date.now();
+            const elapsedMs = now - (actor.lastActive || now);
+            const elapsedMinutes = Math.min(60, elapsedMs / 60000); // Cap at 60 mins of offline progress
+
+            if (elapsedMinutes > 0.1) {
+                let passiveGold = 0;
+                if (actor.upgrades?.includes('cow')) passiveGold += elapsedMinutes * 2;
+                if (actor.upgrades?.includes('accounting_books')) passiveGold += elapsedMinutes * 5;
+                if (actor.upgrades?.includes('caravan')) passiveGold += elapsedMinutes * 10;
+
+                actor.resources.gold = (actor.resources.gold || 0) + Math.floor(passiveGold);
+
+                // Slow stamina regen
+                const staminaRegen = elapsedMinutes * 2; // 2 stamina per minute
+                actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaRegen);
+            }
 
             const actionType = typeof action === 'string' ? action : action.type;
             const currentSeason = room.world?.season || 'Spring';
@@ -143,6 +157,18 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.WORK.xp * finalMultiplier);
 
                 room.messages.push(`[${timestamp}] ⚒️ ${actor.name} fant ${yieldAmount} jern i gruva.`);
+
+            } else if (actionType === 'QUARRY') {
+                if (actor.role !== 'PEASANT') return;
+                let yieldAmount = GAME_BALANCE.YIELD.QUARRY_STONE;
+
+                const performance = action.performance || 1.0;
+                const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.PERFORMANCE_WEIGHT);
+                yieldAmount = Math.ceil(yieldAmount * finalMultiplier);
+
+                actor.resources.stone = (actor.resources.stone || 0) + yieldAmount;
+                actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.WORK.xp * finalMultiplier);
+                room.messages.push(`[${timestamp}] 🪨 ${actor.name} hogg ut ${yieldAmount} stein fra fjellet.`);
 
             } else if (actionType === 'MILL') {
                 const performance = action.performance || 1.0;
@@ -273,6 +299,34 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     room.market.wood.price = Math.max(2, room.market.wood.price - GAME_BALANCE.MARKET.WOOD_VOLATILITY);
                     room.messages.push(`[${timestamp}] 🪵 ${actor.name} solgte trevirke.`);
                 }
+            } else if (actionType === 'BUY' || actionType === 'SELL') {
+                const res = action.resource as keyof SimulationMarket;
+                const item = room.market[res];
+                if (!item) return;
+
+                const isMerchant = actor.role === 'MERCHANT';
+                let sellRatio = GAME_BALANCE.MARKET.SELL_RATIO;
+                if (isMerchant || actor.upgrades?.includes('trade_license')) sellRatio = 0.9;
+
+                if (actionType === 'BUY') {
+                    if (actor.resources.gold >= item.price && item.stock > 0) {
+                        actor.resources.gold -= item.price;
+                        (actor.resources as any)[res] += 1;
+                        item.stock -= 1;
+                        // Dynamic price increase
+                        item.price += (item.price * 0.05 * item.demand);
+                    }
+                } else {
+                    if ((actor.resources as any)[res] >= 1) {
+                        (actor.resources as any)[res] -= 1;
+                        item.stock += 1;
+                        const payout = Math.floor(item.price * sellRatio);
+                        actor.resources.gold += payout;
+                        // Dynamic price decrease
+                        item.price = Math.max(1, item.price - (item.price * 0.03));
+                        room.messages.push(`[${timestamp}] ⚖️ ${actor.name} solgte ${String(res)} for ${payout}g.`);
+                    }
+                }
             } else if (actionType === 'DRAFT') {
                 if (actor.role !== 'BARON' && actor.role !== 'KING') return;
                 const costGold = 5;
@@ -289,15 +343,16 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 if (targetBaron) {
                     const myPower = actor.resources.manpower || 0;
                     let targetPower = targetBaron.resources.manpower || 0;
+                    let roll = Math.random() * 0.5 + 0.75;
 
-                    // Upgrade: Stone Keep increases defense
-                    if (targetBaron.upgrades?.includes('stone_keep')) targetPower += 20;
+                    // Upgrade effects
+                    if (targetBaron.upgrades?.includes('stone_keep')) targetPower += 30;
+                    if (targetBaron.upgrades?.includes('fence')) targetPower += 10;
+                    if (actor.upgrades?.includes('stables')) roll += 0.1;
 
                     // Durability checks for combat
                     actor.equipment.weapon.durability = Math.max(0, actor.equipment.weapon.durability - GAME_BALANCE.DURABILITY.LOSS_COMBAT_WEAPON);
                     actor.equipment.armor.durability = Math.max(0, actor.equipment.armor.durability - GAME_BALANCE.DURABILITY.LOSS_COMBAT_ARMOR);
-
-                    const roll = Math.random() * 0.5 + 0.75;
 
                     if (myPower * roll > targetPower) {
                         const lootGold = Math.floor(targetBaron.resources.gold * GAME_BALANCE.COMBAT.RAID_LOOT_FACTOR);
@@ -351,7 +406,10 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     room.messages.push(`[${timestamp}] ⚒️ ${actor.name} reparerte ${target}. Durability: ${actor.equipment[target].durability}%`);
                 }
             } else if (actionType === 'REST') {
-                actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + 30);
+                let staminaGain = 30;
+                if (actor.upgrades?.includes('roof')) staminaGain = 50;
+
+                actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaGain);
                 actor.resources.flour = Math.max(0, (actor.resources.flour || 0) - 1);
                 actor.status.legitimacy = Math.min(100, (actor.status.legitimacy || 100) + 2);
                 room.messages.push(`[${timestamp}] 💤 ${actor.name} hviler og spiser.`);

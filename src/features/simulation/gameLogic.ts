@@ -13,7 +13,7 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
     let BARON_COUNT = Math.max(0, Math.floor((totalPlayers - 1) / 5));
     if (totalPlayers >= 3 && BARON_COUNT === 0) BARON_COUNT = 1;
 
-    // Assign King
+    // 1. Assign King
     const kingId = shuffledIds[0];
     if (kingId) {
         updatedPlayers[kingId] = {
@@ -24,7 +24,7 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
         };
     }
 
-    // Assign Barons
+    // 2. Assign Barons
     const baronIds = shuffledIds.slice(1, 1 + BARON_COUNT);
     baronIds.forEach((id, index) => {
         updatedPlayers[id] = {
@@ -35,13 +35,42 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
         };
     });
 
-    // Assign Peasants (Rest)
-    const peasantIds = shuffledIds.slice(1 + BARON_COUNT);
-    peasantIds.forEach(id => {
-        // Assign peasant to a random Baron or King if no barons
+    let nextIndex = 1 + BARON_COUNT;
+
+    // 3. Assign Merchants (1 per 6, min 1 if > 4 players)
+    let MERCHANT_COUNT = Math.floor(totalPlayers / 6);
+    if (totalPlayers >= 5 && MERCHANT_COUNT === 0) MERCHANT_COUNT = 1;
+    const merchantIds = shuffledIds.slice(nextIndex, nextIndex + MERCHANT_COUNT);
+    merchantIds.forEach(id => {
+        updatedPlayers[id] = {
+            ...updatedPlayers[id],
+            role: 'MERCHANT',
+            resources: INITIAL_RESOURCES.MERCHANT,
+            regionId: 'marketplace'
+        };
+    });
+    nextIndex += MERCHANT_COUNT;
+
+    // 4. Assign Soldiers (1 per 5)
+    let SOLDIER_COUNT = Math.floor(totalPlayers / 5);
+    const soldierIds = shuffledIds.slice(nextIndex, nextIndex + SOLDIER_COUNT);
+    soldierIds.forEach(id => {
         const rulerIds = baronIds.length > 0 ? baronIds : [kingId];
         const randomRuler = rulerIds[Math.floor(Math.random() * rulerIds.length)];
+        updatedPlayers[id] = {
+            ...updatedPlayers[id],
+            role: 'SOLDIER',
+            resources: INITIAL_RESOURCES.SOLDIER,
+            regionId: updatedPlayers[randomRuler].regionId
+        };
+    });
+    nextIndex += SOLDIER_COUNT;
 
+    // 5. Assign Peasants (Rest)
+    const peasantIds = shuffledIds.slice(nextIndex);
+    peasantIds.forEach(id => {
+        const rulerIds = baronIds.length > 0 ? baronIds : [kingId];
+        const randomRuler = rulerIds[Math.floor(Math.random() * rulerIds.length)];
         updatedPlayers[id] = {
             ...updatedPlayers[id],
             role: 'PEASANT',
@@ -108,6 +137,23 @@ export const collectTaxes = (
             }
         }
 
+    });
+
+    // 3. Merchants and Soldiers pay to King
+    Object.values(updatedPlayers).forEach(p => {
+        if (p.role === 'MERCHANT' || p.role === 'SOLDIER') {
+            const taxRate = p.role === 'MERCHANT' ? (kingTaxRate / 50) : (kingTaxRate / 100);
+            const goldTax = Math.ceil((p.resources.gold || 0) * taxRate);
+
+            if (goldTax > 0) {
+                const king = Object.values(updatedPlayers).find(k => k.role === 'KING');
+                if (king) {
+                    p.resources.gold = Math.max(0, p.resources.gold - goldTax);
+                    updatedPlayers[king.id].resources.gold += goldTax;
+                    results.push(`${p.name} (${p.role}) betalte ${goldTax} gull i skatt til Kongen`);
+                }
+            }
+        }
     });
 
     return { updatedPlayers, results };

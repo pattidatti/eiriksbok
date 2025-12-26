@@ -4,7 +4,7 @@ import { ref, onValue, update } from 'firebase/database';
 
 import { db } from '../../lib/firebase';
 import type { SimulationPlayer as SimulationPlayerType, SimulationRoom } from './types';
-import { ROLE_DEFINITIONS, UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES } from './constants';
+import { UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES } from './constants';
 
 import { performAction } from './actions';
 import { WorldMap } from './WorldMap';
@@ -17,7 +17,7 @@ export const SimulationPlayer: React.FC = () => {
     const [room, setRoom] = useState<SimulationRoom | null>(null);
     const [activeTab, setActiveTab] = useState<'MAP' | 'MARKET' | 'UPGRADES' | 'DIPLOMACY'>('MAP');
     const [actionLoading, setActionLoading] = useState<string | null>(null);
-    const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | null>(null);
+    const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | null>(null);
 
 
     useEffect(() => {
@@ -48,8 +48,8 @@ export const SimulationPlayer: React.FC = () => {
 
         const actionType = typeof action === 'string' ? action : action.type;
 
-        // Trigger Minigame for work/chop/mill/craft/defend/explore/mine if not already in one
-        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE'];
+        // Trigger Minigame for work/chop/mill/craft/defend/explore/mine/quarry if not already in one
+        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY'];
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
             setActiveMinigame(actionType as any);
             return;
@@ -111,7 +111,7 @@ export const SimulationPlayer: React.FC = () => {
                         <div>
                             <div className="text-2xl font-black tracking-tighter">{player.name}</div>
                             <div className="text-xs font-black uppercase tracking-widest opacity-60 text-indigo-300">
-                                {ROLE_TITLES[player.role]} • NIVÅ {player.stats.level}
+                                {ROLE_TITLES[player.role][Math.min(player.stats.level || 1, ROLE_TITLES[player.role].length) - 1]} • NIVÅ {player.stats.level}
                             </div>
                         </div>
                     </div>
@@ -232,8 +232,8 @@ export const SimulationPlayer: React.FC = () => {
                         <div className="grid grid-cols-4 gap-2">
                             {Object.entries(player.resources).map(([res, amount]) => {
                                 if (res === 'gold' || res === 'manpower') return null;
-                                const icons: any = { grain: '🌾', flour: '🥖', wood: '🪵', iron: '⛏️', swords: '⚔️', armor: '🛡️', tools: '🔨', favor: '⛪' };
-                                const names: any = { grain: 'Korn', flour: 'Mel', wood: 'Ved', iron: 'Jern', swords: 'Sverd', armor: 'Rustning', tools: 'Verktøy', favor: 'Bønn' };
+                                const icons: any = { grain: '🌾', flour: '🥖', wood: '🪵', iron: '⛏️', stone: '🪨', swords: '⚔️', armor: '🛡️', tools: '🔨', favor: '⛪' };
+                                const names: any = { grain: 'Korn', flour: 'Mel', wood: 'Ved', iron: 'Jern', stone: 'Stein', swords: 'Sverd', armor: 'Rustning', tools: 'Verktøy', favor: 'Bønn' };
                                 const Icon = icons[res] || '📦';
 
                                 return (
@@ -268,8 +268,8 @@ export const SimulationPlayer: React.FC = () => {
 
                             <div className="space-y-4">
                                 {Object.entries(room.market).map(([key, item]: [string, any]) => {
-                                    const icons: any = { grain: '🌾', flour: '🥖', wood: '🪵', iron: '⛏️', swords: '⚔️', armor: '🛡️', tools: '🔨' };
-                                    const names: any = { grain: 'Korn', flour: 'Mel', wood: 'Ved', iron: 'Jern', swords: 'Sverd', armor: 'Rustning', tools: 'Verktøy' };
+                                    const icons: any = { grain: '🌾', flour: '🥖', wood: '🪵', iron: '⛏️', stone: '🪨', swords: '⚔️', armor: '🛡️', tools: '🔨' };
+                                    const names: any = { grain: 'Korn', flour: 'Mel', wood: 'Ved', iron: 'Jern', stone: 'Stein', swords: 'Sverd', armor: 'Rustning', tools: 'Verktøy' };
                                     const amountToTrade = key === 'wood' ? 5 : 1;
 
                                     return (
@@ -288,14 +288,14 @@ export const SimulationPlayer: React.FC = () => {
                                             </div>
                                             <div className="grid grid-cols-2 gap-3">
                                                 <button
-                                                    onClick={() => handleAction(`BUY_${key.toUpperCase()}`)}
+                                                    onClick={() => handleAction({ type: 'BUY', resource: key })}
                                                     disabled={!!actionLoading || player.resources.gold < item.price * amountToTrade || item.stock < amountToTrade}
                                                     className="bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl text-base font-black shadow-md disabled:opacity-30 transition-colors"
                                                 >
                                                     KJØP {amountToTrade}
                                                 </button>
                                                 <button
-                                                    onClick={() => handleAction(`SELL_${key.toUpperCase()}`)}
+                                                    onClick={() => handleAction({ type: 'SELL', resource: key })}
                                                     disabled={!!actionLoading || (player.resources[key as keyof typeof player.resources] || 0) < amountToTrade}
                                                     className="bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-xl text-base font-black shadow-md disabled:opacity-30 transition-colors"
                                                 >
@@ -326,7 +326,7 @@ export const SimulationPlayer: React.FC = () => {
                                                 <h3 className="text-xl font-bold text-slate-800">{upg.name} {isOwned && '✅'}</h3>
                                                 <div className="flex gap-2">
                                                     {Object.entries(upg.cost || {}).map(([res, amt]) => (
-                                                        <span key={res} className="text-xs bg-white px-2 py-0.5 rounded border border-slate-200 font-mono font-bold">{amt} {res}</span>
+                                                        <span key={res} className="text-xs bg-white px-2 py-0.5 rounded border border-slate-200 font-mono font-bold">{String(amt)} {res}</span>
                                                     ))}
                                                 </div>
                                             </div>
