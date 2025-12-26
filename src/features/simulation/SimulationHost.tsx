@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../../lib/firebase';
 import { ref, set, onValue, update, get } from 'firebase/database';
 
-import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES } from './constants';
+import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES, VILLAGE_BUILDINGS } from './constants';
 import type { SimulationRoom } from './types';
 import { assignRoles, collectTaxes } from './gameLogic';
 
@@ -53,7 +53,14 @@ export const SimulationHost: React.FC = () => {
                 year: 1100,
                 season: 'Spring',
                 weather: 'Clear',
-                taxRateDetails: { kingTax: 20 }
+                taxRateDetails: { kingTax: 20 },
+                settlement: {
+                    buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id, b]: [string, any]) => ({
+                        ...acc,
+                        [id]: { id, level: 0, progress: 0, target: 200 } // Level 1 is always 200 progress
+                    }), {}),
+                    activeProjectId: 'sawmill'
+                }
             },
             worldEvents: {},
             diplomacy: {},
@@ -273,6 +280,27 @@ export const SimulationHost: React.FC = () => {
 
 
 
+    const initializeSettlement = async () => {
+        if (!roomData) return;
+        setIsLoading(true);
+        try {
+            await update(ref(db, `simulation_rooms/${pin}/world`), {
+                settlement: {
+                    buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id, b]: [string, any]) => ({
+                        ...acc,
+                        [id]: { id, level: 0, progress: 0, target: 200 }
+                    }), {}),
+                    activeProjectId: 'sawmill'
+                }
+            });
+            alert("Landsby-status har blitt initialisert!");
+        } catch (e) {
+            console.error(e);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     const resetGame = async () => {
         if (!window.confirm("Er du sikker på at du vil starte spillet på nytt? Alle fremdrift slettes.")) return;
         setIsLoading(true);
@@ -284,6 +312,13 @@ export const SimulationHost: React.FC = () => {
             updates[`simulation_rooms/${pin}/market`] = INITIAL_MARKET;
             updates[`simulation_rooms/${pin}/world/monumentProgress`] = 0;
             updates[`simulation_rooms/${pin}/world/activeLaws`] = [];
+            updates[`simulation_rooms/${pin}/world/settlement`] = {
+                buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id, b]: [string, any]) => ({
+                    ...acc,
+                    [id]: { id, level: 0, progress: 0, target: 200 }
+                }), {}),
+                activeProjectId: 'sawmill'
+            };
 
             // Reset players
             Object.keys(roomData?.players || {}).forEach(id => {
@@ -347,124 +382,173 @@ export const SimulationHost: React.FC = () => {
                 <div className="text-3xl font-bold">{Object.keys(roomData.players || {}).length} Spillere</div>
             </header>
 
-            <main className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-white p-6 rounded-2xl shadow-sm">
-                    <h2 className="text-xl font-bold mb-4">Lobby / Spillere</h2>
-                    <div className="space-y-3">
-                        {Object.values(roomData.players || {}).map(p => (
-                            <div key={p.id} className="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                <div className="flex justify-between items-start mb-2">
-                                    <span className="font-bold">{p.name}</span>
-                                    <span className="text-[10px] uppercase font-black bg-indigo-100 text-indigo-700 px-2 py-1 rounded">
-                                        {ROLE_DEFINITIONS[p.role]?.label || p.role}
-                                    </span>
-                                </div>
-
-                                {/* Mini Stamina Bar */}
-                                <div className="w-full h-1 bg-slate-200 rounded-full mb-2 overflow-hidden">
-                                    <div
-                                        className="h-full bg-green-500"
-                                        style={{ width: `${p.status.stamina || 0}%` }}
-                                    />
-                                </div>
-
-                                <div className="flex flex-wrap gap-1">
-                                    {p.upgrades?.map((upgId: string) => (
-                                        <span key={upgId} className="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold border border-emerald-200">
-                                            {upgId}
-                                        </span>
-                                    ))}
-                                    {(!p.upgrades || p.upgrades.length === 0) && <span className="text-[9px] text-slate-400">Ingen oppgraderinger</span>}
-                                </div>
+            <main className="px-8 pb-12">
+                {!roomData.world.settlement && (
+                    <div className="mb-8 bg-red-600 text-white p-6 rounded-3xl shadow-2xl animate-in slide-in-from-top-4 duration-500 border-4 border-red-400 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div className="flex items-center gap-4">
+                            <span className="text-5xl">🏠</span>
+                            <div>
+                                <h2 className="text-2xl font-black uppercase tracking-widest">Landsby-data Mangler!</h2>
+                                <p className="opacity-80 font-bold">Riket trenger en bosetning for å fungere. Trykk på knappen for å fikse dette nå.</p>
                             </div>
-                        ))}
+                        </div>
+                        <button
+                            onClick={initializeSettlement}
+                            className="w-full md:w-auto bg-white text-red-600 px-12 py-5 rounded-2xl font-black text-lg shadow-xl hover:bg-slate-100 active:scale-95 transition-all"
+                        >
+                            GRUNNLEGG LANDSBY NÅ 🏗️
+                        </button>
                     </div>
+                )}
 
-                </div>
-
-                <div className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="bg-white p-6 rounded-2xl shadow-sm">
-                        <h2 className="text-xl font-bold mb-4">Ledertavle (Gull)</h2>
-                        {Object.values(roomData.players || {})
-                            .sort((a, b) => b.resources.gold - a.resources.gold)
-                            .map((p, i) => (
-                                <div key={p.id} className="flex justify-between text-sm py-1 border-b">
-                                    <span>#{i + 1} {p.name}</span>
-                                    <span className="font-bold text-yellow-600">{p.resources.gold}💰</span>
+                        <h2 className="text-xl font-bold mb-4">Lobby / Spillere</h2>
+                        <div className="space-y-3">
+                            {Object.values(roomData.players || {}).map(p => (
+                                <div key={p.id} className="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                    <div className="flex justify-between items-start mb-2">
+                                        <span className="font-bold">{p.name}</span>
+                                        <span className="text-[10px] uppercase font-black bg-indigo-100 text-indigo-700 px-2 py-1 rounded">
+                                            {ROLE_DEFINITIONS[p.role]?.label || p.role}
+                                        </span>
+                                    </div>
+
+                                    {/* Mini Stamina Bar */}
+                                    <div className="w-full h-1 bg-slate-200 rounded-full mb-2 overflow-hidden">
+                                        <div
+                                            className="h-full bg-green-500"
+                                            style={{ width: `${p.status.stamina || 0}%` }}
+                                        />
+                                    </div>
+
+                                    <div className="flex flex-wrap gap-1">
+                                        {p.upgrades?.map((upgId: string) => (
+                                            <span key={upgId} className="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold border border-emerald-200">
+                                                {upgId}
+                                            </span>
+                                        ))}
+                                        {(!p.upgrades || p.upgrades.length === 0) && <span className="text-[9px] text-slate-400">Ingen oppgraderinger</span>}
+                                    </div>
                                 </div>
-                            ))
-                        }
+                            ))}
+                        </div>
+
                     </div>
 
-                    <div className="bg-white p-6 rounded-2xl shadow-sm">
-                        <h2 className="text-xl font-bold mb-4">Markedets Lagerbeholdning</h2>
-                        <div className="grid grid-cols-2 gap-2">
-                            {Object.entries(roomData.market || {}).map(([res, data]: [string, any]) => {
-                                const names: any = { grain: 'Korn', flour: 'Mel', wood: 'Ved', iron: 'Jern', stone: 'Stein', swords: 'Sverd', armor: 'Rustning', tools: 'Verktøy' };
-                                return (
-                                    <div key={res} className="p-2 bg-slate-50 rounded-lg border">
-                                        <div className="text-[10px] font-black uppercase text-slate-400">{names[res] || res}</div>
-                                        <div className="flex justify-between items-center">
-                                            <span className="font-bold">{data.stock}</span>
-                                            <span className="text-indigo-600 text-xs">{data.price.toFixed(1)}💰</span>
+                    <div className="space-y-8">
+                        <div className="bg-white p-6 rounded-2xl shadow-sm">
+                            <h2 className="text-xl font-bold mb-4">Ledertavle (Gull)</h2>
+                            {Object.values(roomData.players || {})
+                                .sort((a, b) => b.resources.gold - a.resources.gold)
+                                .map((p, i) => (
+                                    <div key={p.id} className="flex justify-between text-sm py-1 border-b">
+                                        <span>#{i + 1} {p.name}</span>
+                                        <span className="font-bold text-yellow-600">{p.resources.gold}💰</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+
+                        <div className="bg-white p-6 rounded-2xl shadow-sm">
+                            <h2 className="text-xl font-bold mb-4">Markedets Lagerbeholdning</h2>
+                            <div className="grid grid-cols-2 gap-2">
+                                {Object.entries(roomData.market || {}).map(([res, data]: [string, any]) => {
+                                    const names: any = { grain: 'Korn', flour: 'Mel', wood: 'Ved', iron: 'Jern', stone: 'Stein', swords: 'Sverd', armor: 'Rustning', tools: 'Verktøy' };
+                                    return (
+                                        <div key={res} className="p-2 bg-slate-50 rounded-lg border">
+                                            <div className="text-[10px] font-black uppercase text-slate-400">{names[res] || res}</div>
+                                            <div className="flex justify-between items-center">
+                                                <span className="font-bold">{data.stock}</span>
+                                                <span className="text-indigo-600 text-xs">{data.price.toFixed(1)}💰</span>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-6 rounded-2xl shadow-sm">
+                            <h2 className="text-xl font-bold mb-4">Kontrollpanel</h2>
+                            <div className="grid grid-cols-1 gap-4">
+                                {!roomData.world.settlement && (
+                                    <button
+                                        onClick={initializeSettlement}
+                                        className="bg-red-600 text-white py-4 rounded-xl font-black uppercase tracking-widest animate-bounce shadow-xl border-4 border-red-200"
+                                    >
+                                        Initialiser Landsby 🏠
+                                    </button>
+                                )}
+                                <button onClick={startGame} disabled={roomData.status === 'PLAYING'} className="bg-green-600 text-white py-4 rounded-xl font-bold">
+                                    {roomData.status === 'PLAYING' ? 'Spill i gang' : 'Start Spill 🚀'}
+                                </button>
+                                <button onClick={handleTaxation} disabled={roomData.status !== 'PLAYING'} className="bg-indigo-600 text-white py-4 rounded-xl font-bold">
+                                    Skattlegg Alle 💰
+                                </button>
+                                <button onClick={regenAllStamina} disabled={roomData.status !== 'PLAYING'} className="bg-amber-500 text-white py-4 rounded-xl font-bold">
+                                    Gjenopprett All Energi ⚡
+                                </button>
+                                <div className="mt-4 grid grid-cols-2 gap-4">
+                                    <div className="p-4 bg-indigo-50 rounded-xl border border-indigo-200">
+                                        <div className="flex justify-between items-center mb-2">
+                                            <span className="font-bold text-indigo-900">Årstid: {roomData.world.season}</span>
+                                        </div>
+                                        <button onClick={nextSeason} className="w-full bg-white text-indigo-700 py-3 rounded-lg font-black uppercase tracking-widest text-xs border border-indigo-200">
+                                            Neste Årstid ⏳
+                                        </button>
+                                    </div>
+                                    <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+                                        <div className="flex justify-between items-center mb-2">
+                                            <span className="font-bold text-blue-900">Vær: {roomData.world.weather || 'Clear'}</span>
+                                        </div>
+                                        <button onClick={changeWeather} className="w-full bg-white text-blue-700 py-3 rounded-lg font-black uppercase tracking-widest text-xs border border-blue-200">
+                                            Skift Vær ☁️
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-4 mb-4">
+                                    <button onClick={spawnRandomEvent} disabled={roomData.status !== 'PLAYING'} className="flex-1 bg-red-600 text-white py-4 rounded-xl font-black uppercase tracking-[0.05em] text-xs shadow-lg hover:bg-red-700 transition-all">
+                                        🎲 Hendelse
+                                    </button>
+                                    <button onClick={startTing} disabled={roomData.status !== 'PLAYING' || !!roomData.activeVote} className="flex-1 bg-amber-600 text-white py-4 rounded-xl font-black uppercase tracking-[0.05em] text-xs shadow-lg hover:bg-amber-700 transition-all disabled:opacity-50">
+                                        ⚖️ Start Tinget
+                                    </button>
+                                </div>
+
+                                {roomData.world.settlement && (
+                                    <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-200 mb-4">
+                                        <h3 className="text-sm font-bold text-indigo-900 mb-1">Aktivt Byggeprosjekt</h3>
+                                        <p className="text-[10px] text-indigo-600/60 mb-3">Velg hvilken bygning riket skal samarbeide om å bygge nå.</p>
+                                        <div className="grid grid-cols-2 gap-2">
+                                            {Object.entries(VILLAGE_BUILDINGS).map(([id, b]: [string, any]) => (
+                                                <button
+                                                    key={id}
+                                                    onClick={() => update(ref(db, `simulation_rooms/${pin}/world/settlement`), { activeProjectId: id })}
+                                                    className={`p-2 rounded-lg text-[10px] font-bold uppercase border-2 transition-all ${roomData.world.settlement?.activeProjectId === id
+                                                        ? 'bg-indigo-600 text-white border-indigo-600'
+                                                        : 'bg-white text-indigo-400 border-indigo-100'
+                                                        }`}
+                                                >
+                                                    {b.name}
+                                                </button>
+                                            ))}
                                         </div>
                                     </div>
-                                );
-                            })}
-                        </div>
-                    </div>
+                                )}
 
-                    <div className="bg-white p-6 rounded-2xl shadow-sm">
-                        <h2 className="text-xl font-bold mb-4">Kontrollpanel</h2>
-                        <div className="grid grid-cols-1 gap-4">
-                            <button onClick={startGame} disabled={roomData.status === 'PLAYING'} className="bg-green-600 text-white py-4 rounded-xl font-bold">
-                                {roomData.status === 'PLAYING' ? 'Spill i gang' : 'Start Spill 🚀'}
-                            </button>
-                            <button onClick={handleTaxation} disabled={roomData.status !== 'PLAYING'} className="bg-indigo-600 text-white py-4 rounded-xl font-bold">
-                                Skattlegg Alle 💰
-                            </button>
-                            <button onClick={regenAllStamina} disabled={roomData.status !== 'PLAYING'} className="bg-amber-500 text-white py-4 rounded-xl font-bold">
-                                Gjenopprett All Energi ⚡
-                            </button>
-                            <div className="mt-4 grid grid-cols-2 gap-4">
-                                <div className="p-4 bg-indigo-50 rounded-xl border border-indigo-200">
-                                    <div className="flex justify-between items-center mb-2">
-                                        <span className="font-bold text-indigo-900">Årstid: {roomData.world.season}</span>
-                                    </div>
-                                    <button onClick={nextSeason} className="w-full bg-white text-indigo-700 py-3 rounded-lg font-black uppercase tracking-widest text-xs border border-indigo-200">
-                                        Neste Årstid ⏳
-                                    </button>
-                                </div>
-                                <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
-                                    <div className="flex justify-between items-center mb-2">
-                                        <span className="font-bold text-blue-900">Vær: {roomData.world.weather || 'Clear'}</span>
-                                    </div>
-                                    <button onClick={changeWeather} className="w-full bg-white text-blue-700 py-3 rounded-lg font-black uppercase tracking-widest text-xs border border-blue-200">
-                                        Skift Vær ☁️
+                                <div className="pt-4 border-t border-slate-100 mt-2 text-center">
+                                    <button onClick={resetGame} className="text-rose-600 font-bold text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity">
+                                        ⚠ Nullstill Hele Spillet
                                     </button>
                                 </div>
                             </div>
-
-                            <div className="grid grid-cols-2 gap-4 mb-4">
-                                <button onClick={spawnRandomEvent} disabled={roomData.status !== 'PLAYING'} className="flex-1 bg-red-600 text-white py-4 rounded-xl font-black uppercase tracking-[0.05em] text-xs shadow-lg hover:bg-red-700 transition-all">
-                                    🎲 Hendelse
-                                </button>
-                                <button onClick={startTing} disabled={roomData.status !== 'PLAYING' || !!roomData.activeVote} className="flex-1 bg-amber-600 text-white py-4 rounded-xl font-black uppercase tracking-[0.05em] text-xs shadow-lg hover:bg-amber-700 transition-all disabled:opacity-50">
-                                    ⚖️ Start Tinget
-                                </button>
-                            </div>
-
-                            <div className="pt-4 border-t border-slate-100 mt-2 text-center">
-                                <button onClick={resetGame} className="text-rose-600 font-bold text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity">
-                                    ⚠ Nullstill Hele Spillet
-                                </button>
-                            </div>
                         </div>
+
+
+
+
                     </div>
-
-
-
-
                 </div>
             </main>
         </div>

@@ -20,11 +20,11 @@ export const ROLE_DEFINITIONS: Record<Role, { label: string, description: string
 };
 
 export const INITIAL_RESOURCES: Record<Role, Resources> = {
-    KING: { gold: 1000, grain: 500, flour: 200, wood: 200, iron: 100, stone: 100, swords: 50, armor: 20, tools: 10, manpower: 50, favor: 0 },
-    BARON: { gold: 300, grain: 100, flour: 50, wood: 50, iron: 20, stone: 20, swords: 10, armor: 10, tools: 5, manpower: 10, favor: 0 },
-    PEASANT: { gold: 20, grain: 30, flour: 5, wood: 0, iron: 0, stone: 0, swords: 0, armor: 0, tools: 1, manpower: 1, favor: 0 },
-    SOLDIER: { gold: 50, grain: 10, flour: 10, wood: 0, iron: 10, stone: 0, swords: 5, armor: 2, tools: 0, manpower: 1, favor: 0 },
-    MERCHANT: { gold: 500, grain: 50, flour: 50, wood: 50, iron: 50, stone: 50, swords: 5, armor: 2, tools: 5, manpower: 0, favor: 0 }
+    KING: { gold: 1000, grain: 500, flour: 200, bread: 50, wood: 200, timber: 50, iron_ore: 0, iron_ingot: 20, iron: 100, stone: 100, swords: 50, armor: 20, tools: 10, manpower: 50, favor: 0 },
+    BARON: { gold: 300, grain: 100, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 10, iron: 20, stone: 20, swords: 10, armor: 10, tools: 5, manpower: 10, favor: 0 },
+    PEASANT: { gold: 20, grain: 30, flour: 5, bread: 5, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 0, stone: 0, swords: 0, armor: 0, tools: 1, manpower: 1, favor: 0 },
+    SOLDIER: { gold: 50, grain: 10, flour: 10, bread: 10, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 10, stone: 0, swords: 5, armor: 2, tools: 0, manpower: 1, favor: 0 },
+    MERCHANT: { gold: 500, grain: 50, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 5, iron: 50, stone: 50, swords: 5, armor: 2, tools: 5, manpower: 0, favor: 0 }
 };
 
 
@@ -57,20 +57,21 @@ export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
 };
 
 export const ACTION_COSTS = {
-    WORK: { flour: 1, stamina: 10 },
-    CHOP: { flour: 1, stamina: 15 },
-    MINE: { flour: 1, stamina: 25 },
-    RAID: { flour: 5, stamina: 40 },
+    WORK: { bread: 1, stamina: 10 },
+    CHOP: { bread: 1, stamina: 15 },
+    MINE: { bread: 1, stamina: 25 },
+    RAID: { bread: 3, stamina: 40 },
     TAX: { stamina: 20 },
     MILL: { grain: 10, stamina: 20 },
-    CRAFT: { iron: 10, wood: 5, stamina: 30 },
-    CRAFT_ARMOR: { iron: 15, wood: 2, stamina: 40 },
-    CRAFT_TOOLS: { iron: 5, wood: 10, stamina: 25 },
-    QUARRY: { flour: 1, stamina: 20 },
-    REPAIR: { iron: 2, wood: 2, gold: 5, stamina: 15 },
+    CRAFT: { iron_ingot: 5, timber: 10, stamina: 30 },
+    CRAFT_ARMOR: { iron_ingot: 10, timber: 5, stamina: 40 },
+    CRAFT_TOOLS: { iron_ingot: 2, timber: 5, stamina: 25 },
+    QUARRY: { bread: 1, stamina: 20 },
+    REPAIR: { iron_ingot: 1, timber: 1, gold: 5, stamina: 15 },
     PRAY: { stamina: 15 },
-    FEAST: { flour: 30, gold: 100, stamina: 10 },
-    CONTRIBUTE: { grain: 30, wood: 20, stone: 20, gold: 50, stamina: 25 }
+    FEAST: { bread: 30, gold: 100, stamina: 10 },
+    CONTRIBUTE: { stamina: 10 },
+    CONSTRUCT: { stamina: 20 }
 };
 
 
@@ -126,6 +127,51 @@ export const LAW_TEMPLATES = [
     { id: 'conscription', label: 'Verneplikt', description: 'Soldater koster mindre å verve, men bønder jobber 20% tregere.' }
 ];
 
+export const VILLAGE_BUILDINGS: Record<string, any> = {
+    sawmill: {
+        id: 'sawmill',
+        name: 'Sagbruk',
+        description: 'Gjør det mulig å foredle Ved til Tømmer.',
+        requirements: { wood: 100, stone: 50 },
+        unlocks: ['REFINE_TIMBER']
+    },
+    windmill: {
+        id: 'windmill',
+        name: 'Vindmølle',
+        description: 'Gjør det mulig å foredle Korn til Mel mer effektivt.',
+        requirements: { timber: 50, stone: 100 },
+        unlocks: ['REFINE_FLOUR_ADVANCED']
+    },
+    smeltery: {
+        id: 'smeltery',
+        name: 'Smeltehytte',
+        description: 'Gjør det mulig å smelte Jernmalm til Jernbarrer.',
+        requirements: { stone: 150, wood: 100 },
+        unlocks: ['REFINE_IRON_INGOT']
+    },
+    great_forge: {
+        id: 'great_forge',
+        name: 'Storsmie',
+        description: 'Gjør det mulig å lage avanserte verktøy og våpen.',
+        requirements: { iron_ingot: 50, timber: 50, stone: 100 },
+        unlocks: ['CRAFT_ADVANCED']
+    },
+    bakery: {
+        id: 'bakery',
+        name: 'Bakeri',
+        description: 'Gjør det mulig å bake Brød fra Mel.',
+        requirements: { stone: 50, timber: 20 },
+        unlocks: ['CRAFT_BREAD']
+    }
+};
+
+export const REFINERY_RECIPES: Record<string, any> = {
+    timber: { input: { wood: 5 }, output: { timber: 1 }, buildingId: 'sawmill', stamina: 10, xp: 5 },
+    flour: { input: { grain: 10 }, output: { flour: 10 }, buildingId: 'windmill', stamina: 15, xp: 8 },
+    iron_ingot: { input: { iron_ore: 5, wood: 2 }, output: { iron_ingot: 1 }, buildingId: 'smeltery', stamina: 20, xp: 12 },
+    bread: { input: { flour: 2 }, output: { bread: 1 }, buildingId: 'bakery', stamina: 5, xp: 3 }
+};
+
 export const GAME_BALANCE = {
     TAX: {
         PEASANT_RATE_DEFAULT: 0.15,
@@ -137,12 +183,8 @@ export const GAME_BALANCE = {
     YIELD: {
         WORK_GRAIN: 10,
         CHOP_WOOD: 5,
-        MINE_IRON: 4,
+        MINE_ORE: 5,
         QUARRY_STONE: 8,
-        MILL_FLOUR: 10,
-        CRAFT_SWORDS: 5,
-        CRAFT_ARMOR: 2,
-        CRAFT_TOOLS: 5,
         PLOW_BONUS: 5,
         SUMMER_WOOD_BONUS: 2
     },

@@ -1,6 +1,6 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
-import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, LEVEL_XP, WEATHER, GAME_BALANCE } from './constants';
+import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, LEVEL_XP, WEATHER, GAME_BALANCE, REFINERY_RECIPES } from './constants';
 import type { SimulationMarket } from './types';
 
 
@@ -63,17 +63,18 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 const weatherStaminaMod = weatherData?.staminaMod || 1.0;
                 const finalStaminaCost = Math.ceil((cost.stamina || 0) * baseStaminaMod * weatherStaminaMod);
 
-                if ((actor.resources.grain || 0) < (cost.grain || 0)) return;
-                if ((actor.resources.flour || 0) < (cost.flour || 0)) return;
-                if ((actor.resources.iron || 0) < (cost.iron || 0)) return;
-                if ((actor.resources.wood || 0) < (cost.wood || 0)) return;
+                // Resource check
+                for (const [res, amt] of Object.entries(cost)) {
+                    if (res === 'stamina') continue;
+                    if ((actor.resources[res as keyof typeof actor.resources] || 0) < (amt as number)) return;
+                }
                 if ((actor.status.stamina || 0) < finalStaminaCost) return;
 
-
-                actor.resources.grain -= (cost.grain || 0);
-                actor.resources.flour -= (cost.flour || 0);
-                actor.resources.iron -= (cost.iron || 0);
-                actor.resources.wood -= (cost.wood || 0);
+                // Deduct resources
+                for (const [res, amt] of Object.entries(cost)) {
+                    if (res === 'stamina') continue;
+                    (actor.resources as any)[res] -= (amt as number);
+                }
                 actor.status.stamina -= finalStaminaCost;
             }
 
@@ -156,16 +157,16 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 }
                 actor.equipment.tools.durability = Math.max(0, actor.equipment.tools.durability - GAME_BALANCE.DURABILITY.LOSS_WORK);
 
-                let yieldAmount = GAME_BALANCE.YIELD.MINE_IRON;
+                let yieldAmount = GAME_BALANCE.YIELD.MINE_ORE;
 
                 const performance = action.performance || 1.0;
                 const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.PERFORMANCE_WEIGHT);
                 yieldAmount = Math.ceil(yieldAmount * finalMultiplier);
 
-                actor.resources.iron = (actor.resources.iron || 0) + yieldAmount;
+                actor.resources.iron_ore = (actor.resources.iron_ore || 0) + yieldAmount;
                 actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.WORK.xp * finalMultiplier);
 
-                room.messages.push(`[${timestamp}] ⚒️ ${actor.name} fant ${yieldAmount} jern i gruva.`);
+                room.messages.push(`[${timestamp}] ⚒️ ${actor.name} fant ${yieldAmount} jernmalm i gruva.`);
 
             } else if (actionType === 'QUARRY') {
                 if (actor.role !== 'PEASANT') return;
@@ -182,7 +183,7 @@ export const performAction = async (pin: string, playerId: string, action: any) 
             } else if (actionType === 'MILL') {
                 const performance = action.performance || 1.0;
                 const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.CRAFTING_WEIGHT);
-                const yieldAmount = Math.ceil(GAME_BALANCE.YIELD.MILL_FLOUR * finalMultiplier);
+                const yieldAmount = 10; // Base flour yield
 
 
                 actor.resources.flour = (actor.resources.flour || 0) + yieldAmount;
@@ -199,15 +200,15 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.CRAFTING_WEIGHT);
 
                 if (subType === 'SWORDS') {
-                    const yieldAmount = Math.ceil(GAME_BALANCE.YIELD.CRAFT_SWORDS * finalMultiplier);
+                    const yieldAmount = 5; // Base
                     actor.resources.swords = (actor.resources.swords || 0) + yieldAmount;
                     room.messages.push(`[${timestamp}] ⚔️ ${actor.name} smidde ${yieldAmount} sverd.`);
                 } else if (subType === 'ARMOR') {
-                    const yieldAmount = Math.ceil(GAME_BALANCE.YIELD.CRAFT_ARMOR * finalMultiplier);
+                    const yieldAmount = 2; // Base
                     actor.resources.armor = (actor.resources.armor || 0) + yieldAmount;
                     room.messages.push(`[${timestamp}] 🛡️ ${actor.name} banket ut ${yieldAmount} rustninger.`);
                 } else if (subType === 'TOOLS') {
-                    const yieldAmount = Math.ceil(GAME_BALANCE.YIELD.CRAFT_TOOLS * finalMultiplier);
+                    const yieldAmount = 5; // Base
                     actor.resources.tools = (actor.resources.tools || 0) + yieldAmount;
                     room.messages.push(`[${timestamp}] 🔨 ${actor.name} laget ${yieldAmount} solide verktøy.`);
                 }
@@ -387,7 +388,7 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 if (actor.upgrades?.includes('roof')) staminaGain = 50;
 
                 actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaGain);
-                actor.resources.flour = Math.max(0, (actor.resources.flour || 0) - 1);
+                actor.resources.bread = Math.max(0, (actor.resources.bread || 0) - 1);
                 actor.status.legitimacy = Math.min(100, (actor.status.legitimacy || 100) + 2);
                 room.messages.push(`[${timestamp}] 💤 ${actor.name} hviler og spiser.`);
             } else if (actionType === 'PRAY') {
@@ -436,16 +437,54 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 if (action.eventId && room.worldEvents) {
                     delete room.worldEvents[action.eventId];
                 }
-            } else if (actionType === 'CONTRIBUTE') {
-                const progress = GAME_BALANCE.MONUMENT.STEP_PROGRESS;
-                room.world.monumentProgress = (room.world.monumentProgress || 0) + progress;
-                actor.stats.xp += GAME_BALANCE.MONUMENT.XP_REWARD;
-                room.messages.push(`[${timestamp}] 🏗️ ${actor.name} bidro til rikets monument! +${progress} fremgang.`);
+            } else if (actionType === 'CONSTRUCT') {
+                const projectId = action.projectId || room.world.settlement?.activeProjectId;
+                if (!projectId) return;
 
-                if (room.world.monumentProgress >= GAME_BALANCE.MONUMENT.TARGET) {
-                    room.messages.push(`[${timestamp}] 🏛️ MONUMENTET ER FERDIGSTILT! Riket går inn i en ny gullalder!`);
+                const building = room.world.settlement?.buildings?.[projectId];
+                if (!building) return;
+
+                const progress = 10; // Base progress per construct action
+                building.progress += progress;
+                actor.stats.xp += 10;
+                room.messages.push(`[${timestamp}] 🏗️ ${actor.name} arbeidet på ${projectId}. ${building.progress}/${building.target}`);
+
+                if (building.progress >= building.target) {
+                    building.level += 1;
+                    building.progress = 0;
+                    building.target *= 2; // Next level is harder
+                    room.messages.push(`[${timestamp}] 🎉 BYGNING FERDIG: ${projectId} har nådd nivå ${building.level}!`);
+                }
+            } else if (actionType === 'REFINE') {
+                const recipeId = action.recipeId;
+                const recipe = (REFINERY_RECIPES as any)[recipeId];
+                if (!recipe) return;
+
+                // Check building requirement
+                const building = room.world.settlement?.buildings?.[recipe.buildingId];
+                if (!building || building.level < 1) {
+                    room.messages.push(`[${timestamp}] ❌ Vi trenger en ${recipe.buildingId} for å gjøre dette!`);
+                    return;
                 }
 
+                // Check inputs
+                for (const [res, amt] of Object.entries(recipe.input)) {
+                    if ((actor.resources as any)[res] < (amt as number)) return;
+                }
+
+                // Deduct inputs
+                for (const [res, amt] of Object.entries(recipe.input)) {
+                    (actor.resources as any)[res] -= (amt as number);
+                }
+
+                // Add outputs
+                for (const [res, amt] of Object.entries(recipe.output)) {
+                    (actor.resources as any)[res] = (actor.resources as any)[res] || 0;
+                    (actor.resources as any)[res] += (amt as number);
+                }
+
+                actor.stats.xp += (recipe.xp || 0);
+                room.messages.push(`[${timestamp}] ⚙️ ${actor.name} produserte ${Object.keys(recipe.output).join(', ')}.`);
             }
 
 

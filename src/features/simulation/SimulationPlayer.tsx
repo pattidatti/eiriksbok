@@ -4,7 +4,7 @@ import { ref, onValue, update } from 'firebase/database';
 
 import { db } from '../../lib/firebase';
 import type { SimulationPlayer as SimulationPlayerType, SimulationRoom } from './types';
-import { UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES } from './constants';
+import { UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES, VILLAGE_BUILDINGS, REFINERY_RECIPES } from './constants';
 
 import { performAction } from './actions';
 import { WorldMap } from './WorldMap';
@@ -15,7 +15,7 @@ export const SimulationPlayer: React.FC = () => {
     const { pin } = useParams();
     const [player, setPlayer] = useState<SimulationPlayerType | null>(null);
     const [room, setRoom] = useState<SimulationRoom | null>(null);
-    const [activeTab, setActiveTab] = useState<'MAP' | 'MARKET' | 'UPGRADES' | 'DIPLOMACY'>('MAP');
+    const [activeTab, setActiveTab] = useState<'MAP' | 'VILLAGE' | 'INVENTORY' | 'MARKET' | 'UPGRADES' | 'DIPLOMACY'>('MAP');
     const [actionLoading, setActionLoading] = useState<string | null>(null);
     const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | null>(null);
 
@@ -210,9 +210,16 @@ export const SimulationPlayer: React.FC = () => {
             <div className="p-4 space-y-4">
                 {/* Tabs */}
                 <div className="flex bg-white rounded-2xl p-1.5 shadow-sm border border-slate-200 overflow-x-auto no-scrollbar gap-1">
-                    {['MAP', 'MARKET', 'UPGRADES', 'DIPLOMACY'].map((tab) => {
+                    {['MAP', 'VILLAGE', 'INVENTORY', 'MARKET', 'UPGRADES', 'DIPLOMACY'].map((tab) => {
                         if (tab === 'DIPLOMACY' && player.role === 'PEASANT') return null;
-                        const labels: Record<string, string> = { MAP: 'Verden 🗺️', MARKET: 'Marked ⚖️', UPGRADES: 'Bygg ⚒️', DIPLOMACY: 'Pakter 🕊️' };
+                        const labels: Record<string, string> = {
+                            MAP: 'Kart 🗺️',
+                            VILLAGE: 'Landsby 🏠',
+                            INVENTORY: 'Sekk 🎒',
+                            MARKET: 'Marked ⚖️',
+                            UPGRADES: 'Bygg ⚒️',
+                            DIPLOMACY: 'Pakter 🕊️'
+                        };
                         const label = labels[tab] || tab;
                         return (
                             <button
@@ -344,6 +351,146 @@ export const SimulationPlayer: React.FC = () => {
                                     );
                                 })}
                             </div>
+                        </div>
+                    </div>
+                ) : activeTab === 'INVENTORY' ? (
+                    <div className="space-y-4">
+                        <div className="bg-white p-6 rounded-3xl shadow-md">
+                            <h2 className="text-2xl font-black text-slate-800 mb-6 text-center">Din Oppakning 🎒</h2>
+                            <div className="grid grid-cols-2 gap-4">
+                                {Object.entries(player.resources).map(([res, amount]) => {
+                                    const icons: any = {
+                                        gold: '💰', grain: '🌾', flour: '🥖', bread: '🍞',
+                                        wood: '🪵', timber: '🪵', iron_ore: '⛏️', iron_ingot: '🔗',
+                                        stone: '🪨', swords: '⚔️', armor: '🛡️', tools: '🔨',
+                                        manpower: '👥', favor: '⛪', iron: '⛓️'
+                                    };
+                                    const names: any = {
+                                        gold: 'Gull', grain: 'Korn', flour: 'Mel', bread: 'Brød',
+                                        wood: 'Ved', timber: 'Tømmer', iron_ore: 'Jernmalm', iron_ingot: 'Jernbarre',
+                                        stone: 'Stein', swords: 'Sverd', armor: 'Rustning', tools: 'Verktøy',
+                                        manpower: 'Manpower', favor: 'Velvilje', iron: 'Jern (Gml)'
+                                    };
+                                    if (amount === 0 && res !== 'gold') return null;
+
+                                    return (
+                                        <div key={res} className="bg-slate-50 p-4 rounded-2xl border-2 border-slate-100 flex items-center gap-4">
+                                            <div className="text-3xl">{icons[res] || '📦'}</div>
+                                            <div>
+                                                <div className="text-[10px] font-black uppercase text-slate-400">{names[res] || res}</div>
+                                                <div className="text-xl font-black text-slate-800">{amount}</div>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                ) : activeTab === 'VILLAGE' ? (
+                    <div className="space-y-4">
+                        <div className="bg-white p-6 rounded-3xl shadow-md border-b-4 border-indigo-100">
+                            <h2 className="text-2xl font-black text-slate-800 mb-2 text-center">Landsbyutvikling 🏠</h2>
+                            <p className="text-slate-500 text-center text-xs font-bold uppercase tracking-widest mb-6">Samarbeid for å låse opp nye muligheter</p>
+
+                            {!room.world.settlement ? (
+                                <div className="p-12 text-center bg-indigo-50 rounded-3xl border-2 border-dashed border-indigo-200">
+                                    <div className="text-5xl mb-4">🏰</div>
+                                    <h3 className="text-xl font-black text-indigo-900 mb-2">Ingen Bosetning Funnet</h3>
+                                    <p className="text-sm text-indigo-700/60 leading-relaxed">
+                                        Riket har ennå ikke grunnlagt en sentral bosetning.
+                                        Be Kongen eller administratoren om å «Initialisere Landsby» i kontrollpanelet.
+                                    </p>
+                                </div>
+                            ) : (
+                                <>
+                                    {!room.world.settlement.activeProjectId ? (
+                                        <div className="p-8 text-center bg-amber-50 rounded-3xl border-2 border-amber-200 mb-8">
+                                            <div className="text-4xl mb-3">⏳</div>
+                                            <h3 className="text-lg font-black text-amber-900">Venter på Prosjekt</h3>
+                                            <p className="text-sm text-amber-800/60">
+                                                Byggmesteren venter på ordre. Kongen må velge det neste byggeprosjektet.
+                                            </p>
+                                        </div>
+                                    ) : (
+                                        <div className="bg-indigo-900 text-white p-6 rounded-3xl mb-8 shadow-xl relative overflow-hidden">
+                                            <div className="relative z-10">
+                                                <div className="flex justify-between items-start mb-4">
+                                                    <div>
+                                                        <div className="text-xs font-black uppercase tracking-[0.2em] opacity-60">Aktivt Prosjekt</div>
+                                                        <h3 className="text-3xl font-black italic">{(VILLAGE_BUILDINGS as any)[room.world.settlement.activeProjectId]?.name}</h3>
+                                                    </div>
+                                                    <div className="text-4xl">🏗️</div>
+                                                </div>
+
+                                                <div className="mb-6">
+                                                    <div className="flex justify-between text-xs font-black uppercase opacity-60 mb-2">
+                                                        <span>Fremdrift</span>
+                                                        <span>{room.world.settlement.buildings[room.world.settlement.activeProjectId].progress} / {room.world.settlement.buildings[room.world.settlement.activeProjectId].target}</span>
+                                                    </div>
+                                                    <div className="h-4 bg-black/30 rounded-full overflow-hidden border border-white/10 p-1">
+                                                        <div
+                                                            className="h-full bg-indigo-400 rounded-full transition-all duration-1000 shadow-[0_0_15px_rgba(129,140,248,0.5)]"
+                                                            style={{ width: `${(room.world.settlement.buildings[room.world.settlement.activeProjectId].progress / room.world.settlement.buildings[room.world.settlement.activeProjectId].target) * 100}%` }}
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                <button
+                                                    onClick={() => handleAction({ type: 'CONSTRUCT', projectId: room.world.settlement?.activeProjectId })}
+                                                    className="w-full bg-white text-indigo-900 py-4 rounded-2xl font-black uppercase tracking-widest text-lg shadow-lg active:scale-95 transition-all"
+                                                >
+                                                    Bidra til Bygget (-20⚡)
+                                                </button>
+                                            </div>
+                                            <div className="absolute top-0 right-0 p-8 opacity-10 text-9xl pointer-events-none">🔨</div>
+                                        </div>
+                                    )}
+
+                                    <div className="space-y-4">
+                                        <h3 className="text-sm font-black uppercase text-slate-400 tracking-widest px-2">Bygninger i Riket</h3>
+                                        {Object.values(room.world.settlement.buildings).map((building: any) => {
+                                            const meta = (VILLAGE_BUILDINGS as any)[building.id];
+                                            return (
+                                                <div key={building.id} className="bg-slate-50 p-4 rounded-2xl border-2 border-slate-100">
+                                                    <div className="flex justify-between items-center mb-2">
+                                                        <h4 className="text-xl font-bold text-slate-800">{meta?.name}</h4>
+                                                        <span className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-[10px] font-black uppercase">Nivå {building.level}</span>
+                                                    </div>
+                                                    <p className="text-xs text-slate-500 italic mb-4">{meta?.description}</p>
+
+                                                    {/* Refinery Actions if level > 0 */}
+                                                    {building.level > 0 && (
+                                                        <div className="grid grid-cols-1 gap-2 pt-4 border-t border-slate-200">
+                                                            {Object.entries(REFINERY_RECIPES)
+                                                                .filter(([id, r]: [string, any]) => r.buildingId === building.id)
+                                                                .map(([recipeId, recipe]: [string, any]) => {
+                                                                    const canAfford = Object.entries(recipe.input).every(([res, amt]) => (player.resources as any)[res] >= (amt as number));
+                                                                    return (
+                                                                        <button
+                                                                            key={recipeId}
+                                                                            onClick={() => handleAction({ type: 'REFINE', recipeId })}
+                                                                            disabled={!canAfford || !!actionLoading}
+                                                                            className={`flex justify-between items-center p-3 rounded-xl border-2 transition-all ${canAfford ? 'bg-white border-slate-200 shadow-sm active:border-indigo-500' : 'bg-slate-100 border-slate-100 opacity-50'}`}
+                                                                        >
+                                                                            <div className="text-left">
+                                                                                <div className="text-sm font-black text-slate-800 uppercase">Produser {recipeId}</div>
+                                                                                <div className="text-[10px] text-slate-400 font-bold">
+                                                                                    Krever: {Object.entries(recipe.input).map(([r, a]) => `${a} ${r}`).join(', ')}
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className="text-indigo-600 font-black">START &rarr;</div>
+                                                                        </button>
+                                                                    );
+                                                                })
+                                                            }
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </>
+                            )}
                         </div>
                     </div>
                 ) : activeTab === 'DIPLOMACY' ? (

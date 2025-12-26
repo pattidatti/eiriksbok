@@ -6,12 +6,16 @@ export interface Resources {
     gold: number;
     grain: number;
     flour: number;
+    bread: number; // Tiered food
     wood: number;
-    iron: number;
-    stone: number; // New
+    timber: number; // Refined wood
+    iron_ore: number; // Raw iron
+    iron_ingot: number; // Refined iron
+    iron: number; // Legacy, will migrate or keep as generic
+    stone: number;
     swords: number;
-    armor: number; // New item type
-    tools: number; // New item type
+    armor: number;
+    tools: number;
     manpower: number;
     favor: number;
 }
@@ -138,6 +142,15 @@ export interface SimulationRoom {
         };
         monumentProgress?: number; // Shared construction
         activeLaws?: string[]; // Global modifiers
+        settlement?: {
+            buildings: Record<string, {
+                id: string;
+                level: number;
+                progress: number;
+                target: number;
+            }>;
+            activeProjectId?: string;
+        };
     };
 
 
