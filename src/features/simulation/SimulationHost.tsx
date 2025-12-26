@@ -52,7 +52,8 @@ export const SimulationHost: React.FC = () => {
                 year: 1100,
                 season: 'Spring',
                 taxRateDetails: { kingTax: 20 }
-            }
+            },
+            messages: []
         };
         try {
             await set(ref(db, `simulation_rooms/${newPin}`), initialRoomState);
@@ -128,6 +129,29 @@ export const SimulationHost: React.FC = () => {
             setIsLoading(false);
         }
     };
+
+    const nextSeason = async () => {
+        if (!roomData) return;
+        const seasonsList: ('Spring' | 'Summer' | 'Autumn' | 'Winter')[] = ['Spring', 'Summer', 'Autumn', 'Winter'];
+        const currentIdx = seasonsList.indexOf(roomData.world.season);
+        const nextIdx = (currentIdx + 1) % seasonsList.length;
+        const nextSeasonVal = seasonsList[nextIdx];
+
+        setIsLoading(true);
+        try {
+            await update(ref(db, `simulation_rooms/${pin}/world`), { season: nextSeasonVal });
+            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const msg = `[${timestamp}] 🌍 Årstiden har skiftet til ${nextSeasonVal}!`;
+            const updatedMessages = roomData.messages ? [...roomData.messages, msg] : [msg];
+            if (updatedMessages.length > 30) updatedMessages.shift();
+            await update(ref(db, `simulation_rooms/${pin}`), { messages: updatedMessages });
+        } catch (e) {
+            console.error(e);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
 
 
     if (view === 'LIST') {
@@ -232,8 +256,18 @@ export const SimulationHost: React.FC = () => {
                             <button onClick={regenAllStamina} disabled={roomData.status !== 'PLAYING'} className="bg-amber-500 text-white py-4 rounded-xl font-bold">
                                 Gjenopprett All Energi ⚡
                             </button>
+                            <div className="mt-4 p-4 bg-indigo-50 rounded-xl border border-indigo-200">
+                                <div className="flex justify-between items-center mb-2">
+                                    <span className="font-bold text-indigo-900">Nåværende Årstid: {roomData.world.season}</span>
+                                    <span className="text-2xl">{roomData.world.season === 'Winter' ? '❄️' : roomData.world.season === 'Autumn' ? '🍂' : roomData.world.season === 'Summer' ? '☀️' : '🌱'}</span>
+                                </div>
+                                <button onClick={nextSeason} disabled={isLoading} className="w-full bg-indigo-100 text-indigo-700 py-3 rounded-lg font-black uppercase tracking-widest hover:bg-indigo-200 transition-colors">
+                                    Neste Årstid ⏳
+                                </button>
+                            </div>
                         </div>
                     </div>
+
 
                 </div>
             </main>

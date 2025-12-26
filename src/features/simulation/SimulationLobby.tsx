@@ -94,12 +94,13 @@ export const SimulationLobby: React.FC = () => {
                 regionId: regionId,
                 resources: INITIAL_RESOURCES[role] || INITIAL_RESOURCES.PEASANT,
 
-                stats: { xp: 0, reputation: 50, contribution: 0 },
-                status: { hp: 100, morale: 100, stamina: 50, isJailed: false, isFrozen: false },
+                stats: { xp: 0, level: 1, reputation: 50, contribution: 0 },
+                status: { hp: 100, morale: 100, stamina: 50, legitimacy: 100, authority: 50, isJailed: false, isFrozen: false },
 
                 upgrades: [],
                 lastActive: Date.now()
             };
+
 
 
             await set(child(roomRef, `players/${playerId}`), newPlayer);

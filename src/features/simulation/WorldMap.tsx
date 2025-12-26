@@ -14,18 +14,21 @@ interface POI {
 const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'fields', label: 'Åkrene', icon: '🌾', top: '22%', left: '28%', roles: ['PEASANT'],
-        actions: [{ id: 'WORK', label: 'Høste Korn', cost: '-10⚡ -1🌾' }]
+        actions: [
+            { id: 'WORK', label: 'Høste Korn', cost: '-10⚡ -1🥖' },
+            { id: 'MILL', label: 'Male Korn', cost: '-20⚡ -10🌾' }
+        ]
     },
     {
         id: 'forest', label: 'Skogen', icon: '🌲', top: '18%', left: '65%', roles: ['PEASANT'],
-        actions: [{ id: 'CHOP', label: 'Hugge Ved', cost: '-15⚡ -1🌾' }]
+        actions: [{ id: 'CHOP', label: 'Hugge Ved', cost: '-15⚡ -1🥖' }]
     },
     {
         id: 'castle', label: 'Slottet', icon: '🏰', top: '48%', left: '72%', roles: ['BARON', 'KING'],
         actions: [
             { id: 'TAX_PEASANTS', label: 'Regjonal Skatt', cost: 'Baron Only' },
             { id: 'TAX_ROYAL', label: 'Kongelig Skatt', cost: 'King Only' },
-            { id: 'DRAFT', label: 'Verve Soldater', cost: '-5g -10🌾' },
+            { id: 'DRAFT', label: 'Verve Soldater', cost: '-5g -10🥖' },
             { id: 'DECREE', label: 'Utsted Dekret', cost: 'King Only' }
         ]
     },
@@ -36,14 +39,18 @@ const POINTS_OF_INTEREST: POI[] = [
         ]
     },
     {
-        id: 'village', label: 'Landsbyen', icon: '🏠', top: '45%', left: '40%', roles: ['PEASANT', 'BARON', 'KING'],
-        actions: [{ id: 'REST', label: 'Hvile & Spise', cost: '-1🌾 +30⚡' }]
+        id: 'village', label: 'Landsbyen', icon: '🏠', top: '45%', left: '40%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'],
+        actions: [
+            { id: 'REST', label: 'Hvile & Spise', cost: '-1🥖 +30⚡' },
+            { id: 'CRAFT', label: 'Smie Sverd', cost: '-30⚡ -10⛏️ -5🪵' }
+        ]
     },
     {
         id: 'border', label: 'Grensen', icon: '⚔️', top: '85%', left: '80%', roles: ['BARON'],
         actions: [{ id: 'RAID', label: 'Plyndre Nabo', cost: '-40⚡' }]
     }
 ];
+
 
 interface WorldMapProps {
     player: SimulationPlayer;

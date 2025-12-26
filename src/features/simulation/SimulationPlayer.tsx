@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ref, onValue } from 'firebase/database';
 import { db } from '../../lib/firebase';
-import type { SimulationPlayer, SimulationRoom } from './types';
-import { ROLE_DEFINITIONS, UPGRADES_LIST } from './constants';
+import type { SimulationPlayer as SimulationPlayerType, SimulationRoom } from './types';
+import { ROLE_DEFINITIONS, UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES } from './constants';
+
 import { performAction } from './actions';
 import { WorldMap } from './WorldMap';
 
 export const SimulationPlayer: React.FC = () => {
     const { pin } = useParams();
-    const [player, setPlayer] = useState<SimulationPlayer | null>(null);
+    const [player, setPlayer] = useState<SimulationPlayerType | null>(null);
     const [room, setRoom] = useState<SimulationRoom | null>(null);
     const [activeTab, setActiveTab] = useState<'MAP' | 'MARKET' | 'UPGRADES'>('MAP');
     const [actionLoading, setActionLoading] = useState<string | null>(null);
@@ -82,9 +83,64 @@ export const SimulationPlayer: React.FC = () => {
                     </div>
                     <div className="text-right">
                         <div className="font-mono text-xl font-black text-yellow-400">{player.resources.gold} 💰</div>
+                        <div className="text-[10px] text-indigo-300 font-bold">Nivå {player.stats.level || 1} {ROLE_TITLES[player.role]?.[(player.stats.level || 1) - 1]}</div>
                     </div>
                 </div>
+
+                {/* Season & XP Bar */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                    {/* Season Badge */}
+                    <div className="flex items-center gap-3 bg-black/20 p-2 rounded-xl">
+                        <div className="text-2xl" style={{ color: (SEASONS as any)[room.world?.season || 'Spring']?.color }}>
+                            {room.world?.season === 'Winter' ? '❄️' : room.world?.season === 'Autumn' ? '🍂' : room.world?.season === 'Summer' ? '☀️' : '🌱'}
+                        </div>
+                        <div>
+                            <div className="text-[10px] uppercase font-black opacity-50">Årstid</div>
+                            <div className="font-bold text-xs">{(SEASONS as any)[room.world?.season || 'Spring']?.label}</div>
+                        </div>
+                    </div>
+
+                    {/* XP Progress */}
+                    <div className="flex flex-col justify-center">
+                        <div className="flex justify-between text-[8px] font-black uppercase opacity-50 mb-1">
+                            <span>Erfaring (XP)</span>
+                            <span>{player.stats.xp} / {LEVEL_XP[player.stats.level || 1] || 'MAX'}</span>
+                        </div>
+                        <div className="h-1.5 bg-black/40 rounded-full overflow-hidden">
+                            <div
+                                className="h-full bg-indigo-400 transition-all duration-1000"
+                                style={{ width: `${Math.min(100, (player.stats.xp / (LEVEL_XP[player.stats.level || 1] || 1)) * 100)}%` }}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Ruler Stats (Legitimacy / Authority) */}
+                {(player.role === 'KING' || player.role === 'BARON') && (
+                    <div className="grid grid-cols-2 gap-3 mb-3">
+                        <div className="bg-white/10 p-2 rounded-lg border border-white/5">
+                            <div className="text-[8px] uppercase font-black opacity-50 text-indigo-300">Legitimitet</div>
+                            <div className="flex items-center gap-2">
+                                <div className="flex-1 h-1 bg-black/20 rounded-full overflow-hidden">
+                                    <div className="h-full bg-purple-400" style={{ width: `${player.status.legitimacy || 100}%` }} />
+                                </div>
+                                <span className="text-[10px] font-mono">{player.status.legitimacy || 100}%</span>
+                            </div>
+                        </div>
+                        <div className="bg-white/10 p-2 rounded-lg border border-white/5">
+                            <div className="text-[8px] uppercase font-black opacity-50 text-indigo-300">Autoritet</div>
+                            <div className="flex items-center gap-2">
+                                <div className="flex-1 h-1 bg-black/20 rounded-full overflow-hidden">
+                                    <div className="h-full bg-red-400" style={{ width: `${player.status.authority || 50}%` }} />
+                                </div>
+                                <span className="text-[10px] font-mono">{player.status.authority || 50}%</span>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
                 {/* Stamina Bar */}
+
                 <div className="space-y-1">
                     <div className="flex justify-between text-[10px] font-bold uppercase tracking-tighter text-indigo-400">
                         <span>Energi / Utholdenhet</span>
@@ -126,17 +182,19 @@ export const SimulationPlayer: React.FC = () => {
                 {activeTab === 'MAP' ? (
                     <div className="space-y-4">
                         {/* Resource Summary */}
-                        <div className="grid grid-cols-3 gap-2">
+                        <div className="grid grid-cols-4 gap-2">
                             {Object.entries(player.resources).map(([res, amount]) => {
-                                if (res === 'gold') return null;
+                                if (res === 'gold' || res === 'manpower') return null;
+                                const Icon = { grain: '🌾', flour: '🥖', wood: '🪵', iron: '⛏️', swords: '⚔️' }[res] || '📦';
                                 return (
-                                    <div key={res} className="bg-white p-3 rounded-xl shadow-sm border border-slate-200 text-center">
-                                        <div className="text-[10px] uppercase text-slate-400 font-black mb-1">{res}</div>
-                                        <div className="font-black text-lg text-slate-800">{amount}</div>
+                                    <div key={res} className="bg-white p-2 rounded-xl shadow-sm border border-slate-200 text-center">
+                                        <div className="text-[8px] uppercase text-slate-400 font-black mb-0.5">{res}</div>
+                                        <div className="font-black text-sm text-slate-800">{Icon} {amount}</div>
                                     </div>
                                 );
                             })}
                         </div>
+
 
                         {/* The Map Component */}
                         <WorldMap

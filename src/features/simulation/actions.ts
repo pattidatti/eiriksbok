@@ -1,6 +1,7 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
-import { ACTION_COSTS, UPGRADES_LIST, REWARDS } from './constants';
+import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, LEVEL_XP } from './constants';
+
 
 export const performAction = async (pin: string, playerId: string, action: any) => {
     const roomRef = ref(db, `simulation_rooms/${pin}`);
@@ -19,33 +20,59 @@ export const performAction = async (pin: string, playerId: string, action: any) 
             // Untuk sekarang, kita implementasikan konsumsi dulu.
 
             const actionType = typeof action === 'string' ? action : action.type;
+            const currentSeason = room.world?.season || 'Spring';
+            const seasonData = (SEASONS as any)[currentSeason];
 
-            // 1. Handle Costs (Grain & Stamina)
+            // 1. Handle Costs (Resources & Stamina)
             const cost = (ACTION_COSTS as any)[actionType];
             if (cost) {
-                if ((actor.resources.grain || 0) < (cost.grain || 0)) {
-                    // Fail if not enough grain
-                    return;
-                }
-                if ((actor.status.stamina || 0) < (cost.stamina || 0)) {
-                    // Fail if not enough stamina
-                    return;
-                }
+                // Stamina penalty in winter
+                const staminaMod = seasonData?.staminaMod || 1.0;
+                const finalStaminaCost = Math.ceil((cost.stamina || 0) * staminaMod);
+
+                if ((actor.resources.grain || 0) < (cost.grain || 0)) return;
+                if ((actor.resources.flour || 0) < (cost.flour || 0)) return;
+                if ((actor.resources.iron || 0) < (cost.iron || 0)) return;
+                if ((actor.resources.wood || 0) < (cost.wood || 0)) return;
+                if ((actor.status.stamina || 0) < finalStaminaCost) return;
+
                 actor.resources.grain -= (cost.grain || 0);
-                actor.status.stamina -= (cost.stamina || 0);
+                actor.resources.flour -= (cost.flour || 0);
+                actor.resources.iron -= (cost.iron || 0);
+                actor.resources.wood -= (cost.wood || 0);
+                actor.status.stamina -= finalStaminaCost;
             }
+
 
             // 2. Perform Action Logic
             if (actionType === 'WORK') {
                 let yieldAmount = REWARDS.WORK.grain;
                 if (actor.upgrades?.includes('iron_plow')) yieldAmount += 5;
 
+                // Season modifier
+                yieldAmount = Math.floor(yieldAmount * (seasonData?.yieldMod || 1.0));
+
                 actor.resources.grain = (actor.resources.grain || 0) + yieldAmount;
                 actor.stats.xp = (actor.stats.xp || 0) + REWARDS.WORK.xp;
+
+                if (yieldAmount === 0 && currentSeason === 'Winter') {
+                    room.messages.push(`[${timestamp}] ❄️ ${actor.name} prøvde å så korn, men jorda er frossen!`);
+                }
             } else if (actionType === 'CHOP') {
-                actor.resources.wood = (actor.resources.wood || 0) + REWARDS.CHOP.wood;
+                let yieldAmount = REWARDS.CHOP.wood;
+                if (currentSeason === 'Summer') yieldAmount += 2; // Summer bonus
+                actor.resources.wood = (actor.resources.wood || 0) + yieldAmount;
                 actor.stats.xp = (actor.stats.xp || 0) + REWARDS.CHOP.xp;
+            } else if (actionType === 'MILL') {
+                actor.resources.flour = (actor.resources.flour || 0) + 10;
+                actor.stats.xp = (actor.stats.xp || 0) + 10;
+                room.messages.push(`[${timestamp}] 🥖 ${actor.name} malte korn til mel.`);
+            } else if (actionType === 'CRAFT') {
+                actor.resources.swords = (actor.resources.swords || 0) + 10;
+                actor.stats.xp = (actor.stats.xp || 0) + 15;
+                room.messages.push(`[${timestamp}] ⚔️ ${actor.name} smidde nye sverd.`);
             } else if (actionType === 'TAX_PEASANTS') {
+
                 if (actor.role !== 'BARON') return;
                 let count = 0;
                 let totalGold = 0;
@@ -67,7 +94,10 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
                 room.messages.push(`[${timestamp}] 🏰 Baron ${actor.name} krevde inn ${totalGold} gull fra ${count} bønder.`);
                 actor.stats.xp += 10;
+                // Legitimacy penalty for taxing
+                actor.status.legitimacy = Math.max(0, (actor.status.legitimacy || 100) - 5);
             } else if (actionType === 'TAX_ROYAL') {
+
                 if (actor.role !== 'KING') return;
                 let totalGold = 0;
                 let count = 0;
@@ -186,9 +216,20 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 }
             } else if (actionType === 'REST') {
                 actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + 30);
-                actor.resources.grain = Math.max(0, (actor.resources.grain || 0) - 1);
-                room.messages.push(`[${timestamp}] 💤 ${actor.name} hviler ut.`);
+                actor.resources.flour = Math.max(0, (actor.resources.flour || 0) - 1);
+                actor.status.legitimacy = Math.min(100, (actor.status.legitimacy || 100) + 2);
+                room.messages.push(`[${timestamp}] 💤 ${actor.name} hviler og spiser.`);
             }
+
+            // 3. Level Up Check
+            const currentLevel = actor.stats.level || 1;
+            const nextLevelXp = LEVEL_XP[currentLevel];
+            if (nextLevelXp && actor.stats.xp >= nextLevelXp) {
+                actor.stats.level = currentLevel + 1;
+                actor.status.hp = 100; // Heal on level up
+                room.messages.push(`[${timestamp}] ⭐ ${actor.name} nådde nivå ${actor.stats.level}!`);
+            }
+
 
             if (room.messages.length > 30) room.messages.shift();
 

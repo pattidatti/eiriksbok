@@ -15,12 +15,13 @@ export const ROLE_DEFINITIONS: Record<Role, { label: string, description: string
 };
 
 export const INITIAL_RESOURCES: Record<Role, Resources> = {
-    KING: { gold: 1000, grain: 500, wood: 200, iron: 100, manpower: 50 },
-    BARON: { gold: 300, grain: 100, wood: 50, iron: 20, manpower: 10 },
-    PEASANT: { gold: 10, grain: 10, wood: 0, iron: 0, manpower: 1 },
-    SOLDIER: { gold: 20, grain: 10, wood: 0, iron: 5, manpower: 1 },
-    MERCHANT: { gold: 200, grain: 50, wood: 50, iron: 50, manpower: 0 }
+    KING: { gold: 1000, grain: 500, flour: 200, wood: 200, iron: 100, swords: 50, manpower: 50 },
+    BARON: { gold: 300, grain: 100, flour: 50, wood: 50, iron: 20, swords: 10, manpower: 10 },
+    PEASANT: { gold: 20, grain: 30, flour: 5, wood: 0, iron: 0, swords: 0, manpower: 1 },
+    SOLDIER: { gold: 50, grain: 10, flour: 10, wood: 0, iron: 10, swords: 5, manpower: 1 },
+    MERCHANT: { gold: 500, grain: 50, flour: 50, wood: 50, iron: 50, swords: 0, manpower: 0 }
 };
+
 
 export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
     PEASANT: [
@@ -43,11 +44,31 @@ export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
 };
 
 export const ACTION_COSTS = {
-    WORK: { grain: 1, stamina: 10 },
-    CHOP: { grain: 1, stamina: 15 },
-    RAID: { grain: 5, stamina: 40 },
-    TAX: { stamina: 20 }
+    WORK: { flour: 1, stamina: 10 }, // Need flour to work efficiently
+    CHOP: { flour: 1, stamina: 15 },
+    RAID: { flour: 5, stamina: 40 },
+    TAX: { stamina: 20 },
+    MILL: { grain: 10, stamina: 20 }, // 10 grain -> 10 flour
+    CRAFT: { iron: 10, wood: 5, stamina: 30 }, // 10 iron + 5 wood -> 10 swords
 };
+
+export const SEASONS = {
+    Spring: { label: 'Vår', yieldMod: 1.0, staminaMod: 1.0, color: '#4ade80' },
+    Summer: { label: 'Sommer', yieldMod: 1.2, staminaMod: 1.0, color: '#fbbf24' },
+    Autumn: { label: 'Høst', yieldMod: 1.5, staminaMod: 1.0, color: '#f97316' },
+    Winter: { label: 'Vinter', yieldMod: 0.0, staminaMod: 1.5, color: '#38bdf8' }
+};
+
+export const LEVEL_XP = [0, 100, 300, 700, 1500, 3000, 6000];
+
+export const ROLE_TITLES: Record<Role, string[]> = {
+    PEASANT: ['Trell', 'Leilending', 'Selveier', 'Storbondi', 'Odalbonde'],
+    BARON: ['Landmann', 'Væpner', 'Ridder', 'Baron', 'Grev'],
+    KING: ['Prins', 'Hertug', 'Konungr'],
+    SOLDIER: ['Rekrutt', 'Vakt', 'Kjempe', 'Høvding'],
+    MERCHANT: ['Gutt', 'Svenn', 'Mester', 'Hanseat']
+};
+
 
 export const REWARDS = {
     WORK: { grain: 10, xp: 5 },

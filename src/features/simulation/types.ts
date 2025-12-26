@@ -5,24 +5,32 @@ export type ResourceType = 'gold' | 'grain' | 'wood' | 'iron' | 'manpower';
 export interface Resources {
     gold: number;
     grain: number;
+    flour: number; // Processed grain
     wood: number;
     iron: number;
+    swords: number; // Crafted from iron + wood
     manpower: number;
 }
 
+
 export interface PlayerStats {
     xp: number;
+    level: number;
     reputation: number;
     contribution: number;
 }
+
 
 export interface PlayerStatus {
     hp: number;
     morale: number;
     stamina: number; // Used to limit rapid actions
+    legitimacy: number; // For Kings/Barons (0-100)
+    authority: number; // Power to command (0-100)
     isJailed: boolean;
     isFrozen: boolean; // e.g. awaiting judgement
 }
+
 
 export interface PlayerUpgrade {
     id: string;
@@ -87,10 +95,13 @@ export interface SimulationRoom {
         }
     };
 
+    messages: string[];
     questionStartTime?: number; // reusing logic for sync
 }
 
-export type EventType = 'THEFT' | 'TRADE' | 'WAR' | 'JUDGEMENT' | 'MARKET_UPDATE' | 'GLOBAL_ALERT';
+export type EventType = 'THEFT' | 'TRADE' | 'WAR' | 'JUDGEMENT' | 'MARKET_UPDATE' | 'GLOBAL_ALERT' | 'LEGITIMACY' | 'MILL' | 'CRAFT';
+
+
 
 export interface SimulationEvent {
     id: string;
