@@ -48,4 +48,9 @@ export const routeFactories: Record<string, PageFactory> = {
     EthicsExperimentPage: () => import('./pages/EthicsExperimentPage').then(module => ({ default: module.EthicsExperimentPage })),
     TimeTravelPage: () => import('./pages/TimeTravelPage').then(module => ({ default: module.TimeTravelPage })),
     TimeTravelGamePage: () => import('./pages/TimeTravelGamePage').then(module => ({ default: module.TimeTravelGamePage })),
+
+    // Simulation Game
+    SimulationLobby: () => import('./features/simulation/SimulationLobby').then(module => ({ default: module.SimulationLobby })),
+    SimulationHost: () => import('./features/simulation/SimulationHost').then(module => ({ default: module.SimulationHost })),
+    SimulationPlayer: () => import('./features/simulation/SimulationPlayer').then(module => ({ default: module.SimulationPlayer })),
 };

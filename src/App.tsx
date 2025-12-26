@@ -54,6 +54,10 @@ const EthicsExperimentPage = React.lazy(routeFactories.EthicsExperimentPage);
 const TimeTravelPage = React.lazy(routeFactories.TimeTravelPage);
 const TimeTravelGamePage = React.lazy(routeFactories.TimeTravelGamePage);
 
+const SimulationLobby = React.lazy(routeFactories.SimulationLobby);
+const SimulationHost = React.lazy(routeFactories.SimulationHost);
+const SimulationPlayer = React.lazy(routeFactories.SimulationPlayer);
+
 import { usePresence } from './hooks/usePresence';
 
 function App() {
@@ -111,6 +115,11 @@ function AppContent() {
               <Route path="oving/tidsreise" element={<TimeTravelPage />} />
               <Route path="oving/tidsreise/:scenarioId" element={<TimeTravelGamePage />} />
               <Route path="historie/vikingtiden/detektiv" element={<DetectiveCasePage />} />
+
+              {/* Simulation Game Routes */}
+              <Route path="sim" element={<SimulationLobby />} />
+              <Route path="sim/host/setup" element={<SimulationHost />} />
+              <Route path="sim/play/:pin" element={<SimulationPlayer />} />
 
               <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
               <Route path="admin/stats" element={<AdminGuard><StatsPage /></AdminGuard>} />
