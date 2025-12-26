@@ -32,7 +32,8 @@ const IconMap: Record<string, any> = {
     sword: Zap,
     book: BookOpen,
     map: MapIcon,
-    users: Users
+    users: Users,
+    hammer: Hammer
 };
 
 const WeatherOverlay: React.FC<{ environment?: Partial<ChronosEnvironment> }> = ({ environment }) => {
@@ -81,6 +82,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
     const [journalText, setJournalText] = useState('');
     const [showJournal, setShowJournal] = useState(false);
     const [showCrafting, setShowCrafting] = useState(false);
+    const [showInventory, setShowInventory] = useState(false);
 
     // Filter Stats
     const attributes = stats.filter(s => !s.category || s.category === 'attribute');
@@ -227,40 +229,56 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                     )}
 
                     {/* Inventory Bag */}
-                    <div className="group/bag relative">
-                        <div className="p-4 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm text-stone-600 hover:text-stone-900 transition-colors cursor-help">
+                    <div className="relative">
+                        <button
+                            onClick={() => setShowInventory(!showInventory)}
+                            className={`p-4 rounded-2xl border transition-colors relative ${showInventory ? 'bg-indigo-100 text-indigo-900 border-indigo-200' : 'bg-white/80 backdrop-blur-xl border-stone-200/50 text-stone-600 hover:text-stone-900'}`}
+                        >
                             <Backpack size={20} />
                             {inventory.length > 0 && (
                                 <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-stone-800 text-[10px] font-bold text-white">
                                     {inventory.length}
                                 </span>
                             )}
-                        </div>
+                        </button>
 
-                        {/* Inventory Tooltip */}
-                        <div className="absolute right-0 top-full mt-4 w-64 p-4 rounded-2xl bg-white shadow-xl border border-stone-100 opacity-0 group-hover/bag:opacity-100 transition-opacity pointer-events-none group-hover/bag:pointer-events-auto z-50">
-                            <h4 className="text-xs font-black uppercase tracking-widest text-stone-400 mb-3">Ryggsekk</h4>
-                            {inventory.length === 0 ? (
-                                <p className="text-sm text-stone-500 italic">Tomt...</p>
-                            ) : (
-                                <div className="space-y-3">
-                                    {inventory.map(itemId => {
-                                        const item = getItemDetails(itemId);
-                                        return (
-                                            <div key={itemId} className="flex items-start gap-3 p-2 rounded-lg bg-stone-50">
-                                                <div className="p-1.5 bg-white rounded-md shadow-sm text-stone-400">
-                                                    {item?.icon ? getIcon(item.icon) : <Star size={12} />}
-                                                </div>
-                                                <div>
-                                                    <p className="text-xs font-bold text-stone-800">{item?.name || itemId}</p>
-                                                    <p className="text-[10px] text-stone-500 leading-tight">{item?.description}</p>
-                                                </div>
+                        {/* Inventory Popover */}
+                        <AnimatePresence>
+                            {showInventory && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                    className="absolute right-0 top-full mt-4 w-72 p-1 rounded-2xl bg-white shadow-xl border border-stone-100 z-50 overflow-hidden"
+                                >
+                                    <div className="p-4 bg-stone-50 border-b border-stone-100">
+                                        <h4 className="text-xs font-black uppercase tracking-widest text-stone-400">Ryggsekk</h4>
+                                    </div>
+                                    <div className="p-2 max-h-64 overflow-y-auto">
+                                        {inventory.length === 0 ? (
+                                            <p className="p-4 text-sm text-stone-500 italic text-center">Sekken er tom.</p>
+                                        ) : (
+                                            <div className="space-y-1">
+                                                {inventory.map((itemId, idx) => {
+                                                    const item = getItemDetails(itemId);
+                                                    return (
+                                                        <div key={`${itemId}-${idx}`} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-stone-100 shadow-sm">
+                                                            <div className="p-2 bg-stone-50 rounded-lg text-stone-400">
+                                                                {item?.icon ? getIcon(item.icon) : <Star size={14} />}
+                                                            </div>
+                                                            <div>
+                                                                <p className="text-sm font-bold text-stone-800">{item?.name || itemId}</p>
+                                                                <p className="text-[10px] text-stone-500 leading-relaxed mt-0.5">{item?.description}</p>
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
                                             </div>
-                                        );
-                                    })}
-                                </div>
+                                        )}
+                                    </div>
+                                </motion.div>
                             )}
-                        </div>
+                        </AnimatePresence>
                     </div>
                 </div>
             </div>

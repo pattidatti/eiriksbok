@@ -63,6 +63,28 @@
                 "name": "Nyslipt Gladius",
                 "description": "Et eksepsjonelt sverd som gir fordel i kamp.",
                 "icon": "sword"
+            },
+            {
+                "id": "gladius_dull",
+                "name": "Sløv Gladius",
+                "description": "Standard utlevering. Trenger sliping.",
+                "icon": "sword"
+            },
+            {
+                "id": "whetstone",
+                "name": "Bryne",
+                "description": "For å holde eggen skarp.",
+                "icon": "gem"
+            }
+        ],
+        "recipes": [
+            {
+                "id": "rec_sharpen_gladius",
+                "result": "gladius_sharp",
+                "ingredients": [
+                    "gladius_dull",
+                    "whetstone"
+                ]
             }
         ],
         "theme": {
@@ -87,6 +109,9 @@
                     },
                     "updateEnvironment": {
                         "time": "day"
+                    },
+                    "updateInventory": {
+                        "add": "gladius_dull"
                     }
                 },
                 {
@@ -99,6 +124,9 @@
                     },
                     "updateEnvironment": {
                         "time": "day"
+                    },
+                    "updateInventory": {
+                        "add": "gladius_dull"
                     }
                 }
             ]
@@ -143,7 +171,23 @@
                         "y": 40,
                         "label": "Hovedkvarteret",
                         "icon": "tent",
-                        "nextNodeId": "camp_hub_evening"
+                        "nextNodeId": "hq_meeting"
+                    },
+                    {
+                        "id": "point_blacksmith",
+                        "x": 80,
+                        "y": 20,
+                        "label": "Smeden (Fabrica)",
+                        "icon": "hammer",
+                        "nextNodeId": "location_blacksmith"
+                    },
+                    {
+                        "id": "point_market",
+                        "x": 20,
+                        "y": 20,
+                        "label": "Markedet (Canabae)",
+                        "icon": "crown",
+                        "nextNodeId": "location_market"
                     }
                 ]
             }
@@ -234,22 +278,74 @@
             "backgroundImage": "/images/chronos/roman_battle.jpg",
             "choices": [
                 {
-                    "id": "fight_1",
-                    "text": "Dann skjoldborg! (Testudo)",
-                    "nextNodeId": "fight_tactics",
-                    "effects": {
-                        "discipline": 15,
-                        "rel_centurion": 5
-                    }
-                },
+                    "id": "fight_start",
+                    "text": "Til våpen! (Start Kamp)",
+                    "nextNodeId": "picts_battle_minigame",
+                    "effects": {}
+                }
+            ]
+        },
+        "picts_battle_minigame": {
+            "id": "picts_battle_minigame",
+            "text": "En tatovert kriger kaster seg mot deg med øks. Det er ham eller deg.",
+            "speaker": "Duell",
+            "choices": [],
+            "minigame": {
+                "type": "battle",
+                "config": {
+                    "enemyName": "Pikterkriger",
+                    "playerHealth": 20,
+                    "enemyHealth": 20,
+                    "winNodeId": "fight_tactics",
+                    "lossNodeId": "picts_defeat",
+                    "moves": [
+                        {
+                            "id": "stab",
+                            "label": "Stikk (Gladius)",
+                            "type": "attack",
+                            "damage": 4,
+                            "counters": [
+                                "charge"
+                            ]
+                        },
+                        {
+                            "id": "block",
+                            "label": "Blokker (Scutum)",
+                            "type": "defend",
+                            "damage": 1,
+                            "counters": [
+                                "attack"
+                            ]
+                        },
+                        {
+                            "id": "bash",
+                            "label": "Skjoldstøt",
+                            "type": "charge",
+                            "damage": 5,
+                            "counters": [
+                                "defend"
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "picts_defeat": {
+            "id": "picts_defeat",
+            "text": "Du blir overmannet og slått i bakken. Verden svartner. Når du våkner, er du i sykestuen. Du overlevde, men æren har fått en knekk.",
+            "speaker": "Nederlag",
+            "choices": [
                 {
-                    "id": "fight_2",
-                    "text": "Storm frem med Gladius trukket!",
-                    "nextNodeId": "fight_aggro",
+                    "id": "recover_defeat",
+                    "text": "Hvil deg",
+                    "nextNodeId": "camp_hub_evening",
                     "effects": {
-                        "morale": 10,
+                        "morale": -20,
                         "discipline": -10,
-                        "rel_centurion": -5
+                        "rel_centurion": -15
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
                     }
                 }
             ]
@@ -411,25 +507,158 @@
             "choices": [
                 {
                     "id": "train_hard",
-                    "text": "Gi alt du har",
-                    "nextNodeId": "camp_hub_evening",
-                    "effects": {
-                        "discipline": 20,
-                        "morale": -5,
-                        "rel_centurion": 10
-                    },
-                    "updateEnvironment": {
-                        "time": "night"
-                    }
+                    "text": "Utfordre instruktøren til en duell (Kamp)",
+                    "nextNodeId": "training_sparring",
+                    "effects": {}
                 },
                 {
                     "id": "train_slack",
                     "text": "Ta det litt med ro når han ikke ser",
+                    "nextNodeId": "training_slack_result",
+                    "effects": {
+                        "discipline": -5
+                    }
+                }
+            ]
+        },
+        "training_sparring": {
+            "id": "training_sparring",
+            "text": "Instruktøren gliser. 'Vil du prøve deg, rekrutt? Kom igjen da!' Han hever tre-sverdet.",
+            "speaker": "Sparring",
+            "choices": [],
+            "minigame": {
+                "type": "battle",
+                "config": {
+                    "enemyName": "Instruktør",
+                    "playerHealth": 15,
+                    "enemyHealth": 15,
+                    "winNodeId": "training_success",
+                    "lossNodeId": "training_failure",
+                    "moves": [
+                        {
+                            "id": "thrust",
+                            "label": "Hugg",
+                            "type": "attack",
+                            "damage": 3,
+                            "counters": [
+                                "charge"
+                            ]
+                        },
+                        {
+                            "id": "parry",
+                            "label": "Parér",
+                            "type": "defend",
+                            "damage": 0,
+                            "counters": [
+                                "attack"
+                            ]
+                        },
+                        {
+                            "id": "shove",
+                            "label": "Spark",
+                            "type": "charge",
+                            "damage": 4,
+                            "counters": [
+                                "defend"
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "training_success": {
+            "id": "training_success",
+            "text": "Med et smart trekk vipper du instruktøren av balanse og markerer et treff mot brystet hans. 'Ikke verst,' mumler han. De andre rekruttene måper.",
+            "speaker": "Respekt",
+            "choices": [
+                {
+                    "id": "train_end_win",
+                    "text": "Tørk svetten og gå",
                     "nextNodeId": "camp_hub_evening",
                     "effects": {
-                        "discipline": -5,
+                        "discipline": 25,
+                        "rel_centurion": 15,
+                        "morale": 10
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    },
+                    "updateInventory": {
+                        "add": "whetstone"
+                    }
+                }
+            ]
+        },
+        "training_failure": {
+            "id": "training_failure",
+            "text": "Du ligger i støvet. Instruktøren ler. 'Mer grøt i armene, gutt! Opp med deg!' Det gjør vondt, både i kroppen og stoltheten.",
+            "speaker": "Ydmykelse",
+            "choices": [
+                {
+                    "id": "train_end_loss",
+                    "text": "Halt bort",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "discipline": 10,
+                        "morale": -10
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                }
+            ]
+        },
+        "training_slack_result": {
+            "id": "training_slack_result",
+            "text": "Du sparer krefter, men lærer ingenting. En dag vil denne latskapen koste deg dyrt.",
+            "speaker": "Latskap",
+            "choices": [
+                {
+                    "id": "train_end_slack",
+                    "text": "Snik deg unna",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "discipline": -10,
                         "morale": 5,
                         "rel_centurion": -5
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                }
+            ]
+        },
+        "hq_meeting": {
+            "id": "hq_meeting",
+            "text": "I hovedkvarteret (Principia) er stemningen spent. Offiserene diskuterer rykter om en stor pikter-hær i nord. Du plukker opp nyttig informasjon.",
+            "speaker": "Etterretning",
+            "choices": [
+                {
+                    "id": "hq_done",
+                    "text": "Gå tilbake til barakkene",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "discipline": 5,
+                        "rel_centurion": 5
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                }
+            ]
+        },
+        "baths_gossip": {
+            "id": "baths_gossip",
+            "text": "Dampen er tykk. Du hører to senatorer diskutere Roma. 'Keiseren er syk,' hvisker den ene. 'Hvem vil etterfølge ham?'",
+            "speaker": "Sladder",
+            "choices": [
+                {
+                    "id": "baths_done",
+                    "text": "Kle på deg og gå",
+                    "nextNodeId": "camp_hub_evening",
+                    "effects": {
+                        "morale": 10,
+                        "rel_locals": 5
                     },
                     "updateEnvironment": {
                         "time": "night"
@@ -446,13 +675,9 @@
                 {
                     "id": "bath_relax",
                     "text": "Nyt stunden",
-                    "nextNodeId": "camp_hub_evening",
+                    "nextNodeId": "baths_gossip",
                     "effects": {
-                        "morale": 25,
-                        "rel_locals": 5
-                    },
-                    "updateEnvironment": {
-                        "time": "night"
+                        "morale": 20
                     }
                 }
             ]
@@ -549,6 +774,83 @@
                     "updateEnvironment": {
                         "time": "day"
                     }
+                }
+            ]
+        },
+        "location_blacksmith": {
+            "id": "location_blacksmith",
+            "text": "Smien er varm og bråkete. Luften smaker av kull og jern. Smeden, en stor mann med sotsvertet fjes, ser på utstyret ditt.",
+            "speaker": "Smed",
+            "backgroundImage": "/images/chronos/roman_blacksmith.jpg",
+            "choices": [
+                {
+                    "id": "blacksmith_buy_whetstone",
+                    "text": "Kjøp Bryne (10 Denarer)",
+                    "nextNodeId": "camp_hub_morning",
+                    "effects": {
+                        "gold": -10
+                    },
+                    "updateInventory": {
+                        "add": "whetstone"
+                    }
+                },
+                {
+                    "id": "blacksmith_sharpen",
+                    "text": "Få sverdet slipt (20 Denarer)",
+                    "nextNodeId": "camp_hub_morning",
+                    "effects": {
+                        "gold": -20
+                    },
+                    "updateInventory": {
+                        "add": "gladius_sharp",
+                        "remove": "gladius_dull"
+                    },
+                    "checkInventory": {
+                        "hasItem": "gladius_dull"
+                    }
+                },
+                {
+                    "id": "blacksmith_leave",
+                    "text": "Gå tilbake til leiren",
+                    "nextNodeId": "camp_hub_morning",
+                    "effects": {}
+                }
+            ]
+        },
+        "location_market": {
+            "id": "location_market",
+            "text": "Markedet utenfor muren myldrer av folk. Her kan du kjøpe alt fra vin til slaver. En handelsmann roper ut tilbudene sine.",
+            "speaker": "Marked",
+            "backgroundImage": "/images/chronos/roman_market.jpg",
+            "choices": [
+                {
+                    "id": "market_sell_brooch",
+                    "text": "Selg Keltisk Brosje (+50 Denarer)",
+                    "nextNodeId": "location_market",
+                    "effects": {
+                        "gold": 50
+                    },
+                    "checkInventory": {
+                        "hasItem": "celtic_brooch"
+                    },
+                    "updateInventory": {
+                        "remove": "celtic_brooch"
+                    }
+                },
+                {
+                    "id": "market_buy_wine",
+                    "text": "Kjøp fin vin (Gave til Centurion - 20 Denarer)",
+                    "nextNodeId": "location_market",
+                    "effects": {
+                        "gold": -20,
+                        "rel_centurion": 10
+                    }
+                },
+                {
+                    "id": "market_leave",
+                    "text": "Gå tilbake til leiren",
+                    "nextNodeId": "camp_hub_morning",
+                    "effects": {}
                 }
             ]
         }
