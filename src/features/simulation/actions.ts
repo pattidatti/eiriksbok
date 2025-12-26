@@ -52,25 +52,62 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 // Season modifier
                 yieldAmount = Math.floor(yieldAmount * (seasonData?.yieldMod || 1.0));
 
+                // PERFORMANCE MULTIPLIER (from minigame)
+                const performance = action.performance || 1.0; // 0-1.0 from minigame
+                const finalMultiplier = 0.5 + (performance * 1.0); // Range 0.5x to 1.5x
+                yieldAmount = Math.ceil(yieldAmount * finalMultiplier);
+
                 actor.resources.grain = (actor.resources.grain || 0) + yieldAmount;
-                actor.stats.xp = (actor.stats.xp || 0) + REWARDS.WORK.xp;
+                actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.WORK.xp * finalMultiplier);
 
                 if (yieldAmount === 0 && currentSeason === 'Winter') {
                     room.messages.push(`[${timestamp}] ❄️ ${actor.name} prøvde å så korn, men jorda er frossen!`);
+                } else if (performance > 0.8) {
+                    room.messages.push(`[${timestamp}] 🌾 ${actor.name} viste eminente ferdigheter og høstet ${yieldAmount} korn!`);
                 }
             } else if (actionType === 'CHOP') {
                 let yieldAmount = REWARDS.CHOP.wood;
                 if (currentSeason === 'Summer') yieldAmount += 2; // Summer bonus
+
+                // PERFORMANCE MULTIPLIER (from minigame)
+                const performance = action.performance || 1.0;
+                const finalMultiplier = 0.5 + (performance * 1.0);
+                yieldAmount = Math.ceil(yieldAmount * finalMultiplier);
+
                 actor.resources.wood = (actor.resources.wood || 0) + yieldAmount;
-                actor.stats.xp = (actor.stats.xp || 0) + REWARDS.CHOP.xp;
+                actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.CHOP.xp * finalMultiplier);
+
+                if (performance > 0.8) {
+                    room.messages.push(`[${timestamp}] 🪵 ${actor.name} hogg ved som en kjempe! +${yieldAmount} trevirke.`);
+                }
+
             } else if (actionType === 'MILL') {
-                actor.resources.flour = (actor.resources.flour || 0) + 10;
-                actor.stats.xp = (actor.stats.xp || 0) + 10;
-                room.messages.push(`[${timestamp}] 🥖 ${actor.name} malte korn til mel.`);
+                const performance = action.performance || 1.0;
+                const finalMultiplier = 0.5 + (performance * 1.5); // Range 0.5x to 2.0x for processing
+                const yieldAmount = Math.ceil(10 * finalMultiplier);
+
+                actor.resources.flour = (actor.resources.flour || 0) + yieldAmount;
+                actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(10 * finalMultiplier);
+
+                if (performance > 0.8) {
+                    room.messages.push(`[${timestamp}] 🥖 ${actor.name} er en mestermøller! +${yieldAmount} mel.`);
+                } else {
+                    room.messages.push(`[${timestamp}] 🥖 ${actor.name} malte korn til mel.`);
+                }
             } else if (actionType === 'CRAFT') {
-                actor.resources.swords = (actor.resources.swords || 0) + 10;
-                actor.stats.xp = (actor.stats.xp || 0) + 15;
-                room.messages.push(`[${timestamp}] ⚔️ ${actor.name} smidde nye sverd.`);
+                const performance = action.performance || 1.0;
+                const finalMultiplier = 0.5 + (performance * 1.5);
+                const yieldAmount = Math.ceil(10 * finalMultiplier);
+
+                actor.resources.swords = (actor.resources.swords || 0) + yieldAmount;
+                actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(15 * finalMultiplier);
+
+                if (performance > 0.8) {
+                    room.messages.push(`[${timestamp}] ⚔️ ${actor.name} smidde sverd av legendarisk kvalitet! +${yieldAmount} sverd.`);
+                } else {
+                    room.messages.push(`[${timestamp}] ⚔️ ${actor.name} smidde nye sverd.`);
+                }
+
             } else if (actionType === 'TAX_PEASANTS') {
 
                 if (actor.role !== 'BARON') return;

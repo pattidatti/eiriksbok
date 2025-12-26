@@ -7,6 +7,8 @@ import { ROLE_DEFINITIONS, UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES } from 
 
 import { performAction } from './actions';
 import { WorldMap } from './WorldMap';
+import { MinigameOverlay } from './SimulationMinigames';
+
 
 export const SimulationPlayer: React.FC = () => {
     const { pin } = useParams();
@@ -14,6 +16,9 @@ export const SimulationPlayer: React.FC = () => {
     const [room, setRoom] = useState<SimulationRoom | null>(null);
     const [activeTab, setActiveTab] = useState<'MAP' | 'MARKET' | 'UPGRADES'>('MAP');
     const [actionLoading, setActionLoading] = useState<string | null>(null);
+    const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | null>(null);
+
+
 
     useEffect(() => {
         const playerId = sessionStorage.getItem('sim_player_id');
@@ -41,11 +46,23 @@ export const SimulationPlayer: React.FC = () => {
     const handleAction = async (action: any) => {
         if (!pin || !player || actionLoading) return;
 
-        setActionLoading(typeof action === 'string' ? action : action.type);
+        const actionType = typeof action === 'string' ? action : action.type;
+
+        // Trigger Minigame for work/chop/mill/craft if not already in one
+        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT'];
+        if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
+            setActiveMinigame(actionType as any);
+            return;
+        }
+
+
+        setActionLoading(actionType);
         const result = await performAction(pin, player.id, action);
         if (!result.success) alert("Handling mislyktes");
         setActionLoading(null);
+        setActiveMinigame(null);
     };
+
 
     if (!player || !room) return <div className="p-8 text-center text-white">Laster data...</div>;
 
@@ -71,6 +88,15 @@ export const SimulationPlayer: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-slate-100 pb-24">
+            {/* Minigame Overlay */}
+            {activeMinigame && (
+                <MinigameOverlay
+                    type={activeMinigame}
+                    onComplete={(score) => handleAction({ type: activeMinigame, performance: score })}
+                    onCancel={() => setActiveMinigame(null)}
+                />
+            )}
+
             {/* Header */}
             <div className="bg-indigo-900 text-white p-4 shadow-lg sticky top-0 z-50">
                 <div className="flex justify-between items-center mb-2">
