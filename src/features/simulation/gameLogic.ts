@@ -20,7 +20,14 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
             ...updatedPlayers[kingId],
             role: 'KING',
             resources: INITIAL_RESOURCES.KING,
-            regionId: 'capital'
+            regionId: 'capital',
+            status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 100, loyalty: 100, isJailed: false, isFrozen: false },
+            stats: { level: 1, xp: 0, reputation: 50, contribution: 0 },
+            equipment: {
+                tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                armor: { id: 'armor', durability: 100, maxDurability: 100 }
+            }
         };
     }
 
@@ -31,7 +38,14 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
             ...updatedPlayers[id],
             role: 'BARON',
             resources: INITIAL_RESOURCES.BARON,
-            regionId: `region_baron_${index}`
+            regionId: `region_baron_${index}`,
+            status: { hp: 100, stamina: 100, morale: 100, legitimacy: 80, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
+            stats: { level: 1, xp: 0, reputation: 40, contribution: 0 },
+            equipment: {
+                tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                armor: { id: 'armor', durability: 100, maxDurability: 100 }
+            }
         };
     });
 
@@ -46,7 +60,14 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
             ...updatedPlayers[id],
             role: 'MERCHANT',
             resources: INITIAL_RESOURCES.MERCHANT,
-            regionId: 'marketplace'
+            regionId: 'marketplace',
+            status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 30, loyalty: 100, isJailed: false, isFrozen: false },
+            stats: { level: 1, xp: 0, reputation: 30, contribution: 0 },
+            equipment: {
+                tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                armor: { id: 'armor', durability: 100, maxDurability: 100 }
+            }
         };
     });
     nextIndex += MERCHANT_COUNT;
@@ -61,7 +82,14 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
             ...updatedPlayers[id],
             role: 'SOLDIER',
             resources: INITIAL_RESOURCES.SOLDIER,
-            regionId: updatedPlayers[randomRuler].regionId
+            regionId: updatedPlayers[randomRuler].regionId,
+            status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
+            stats: { level: 1, xp: 0, reputation: 20, contribution: 0 },
+            equipment: {
+                tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                armor: { id: 'armor', durability: 100, maxDurability: 100 }
+            }
         };
     });
     nextIndex += SOLDIER_COUNT;
@@ -75,7 +103,14 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
             ...updatedPlayers[id],
             role: 'PEASANT',
             resources: INITIAL_RESOURCES.PEASANT,
-            regionId: updatedPlayers[randomRuler].regionId
+            regionId: updatedPlayers[randomRuler].regionId,
+            status: { hp: 100, stamina: 100, morale: 80, legitimacy: 100, authority: 10, loyalty: 100, isJailed: false, isFrozen: false },
+            stats: { level: 1, xp: 0, reputation: 10, contribution: 0 },
+            equipment: {
+                tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                armor: { id: 'armor', durability: 100, maxDurability: 100 }
+            }
         };
     });
 

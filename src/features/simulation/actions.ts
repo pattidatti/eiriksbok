@@ -78,6 +78,15 @@ export const performAction = async (pin: string, playerId: string, action: any) 
             }
 
 
+            // Ensure equipment exists (defensive)
+            if (!actor.equipment) {
+                actor.equipment = {
+                    tools: { id: 'tools', durability: 100, maxDurability: 100 },
+                    weapon: { id: 'weapon', durability: 100, maxDurability: 100 },
+                    armor: { id: 'armor', durability: 100, maxDurability: 100 }
+                };
+            }
+
             // 2. Perform Action Logic
             if (actionType === 'WORK') {
                 // Durability check
@@ -263,42 +272,6 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
                 room.messages.push(`[${timestamp}] 👑 Kong ${actor.name} krevde inn ${totalGold} gull i kongelig skatt.`);
                 actor.stats.xp += 20;
-            } else if (actionType === 'BUY_GRAIN') {
-                const costMarket = room.market.grain.price;
-                if (actor.resources.gold >= costMarket && room.market.grain.stock > 0) {
-                    actor.resources.gold -= costMarket;
-                    actor.resources.grain += 1;
-                    room.market.grain.stock -= 1;
-                    room.market.grain.price += GAME_BALANCE.MARKET.GRAIN_VOLATILITY;
-                }
-            } else if (actionType === 'SELL_GRAIN') {
-                if (actor.resources.grain >= 1) {
-                    const price = room.market.grain.price;
-                    actor.resources.grain -= 1;
-                    room.market.grain.stock += 1;
-                    const payout = Math.floor(price * GAME_BALANCE.MARKET.SELL_RATIO);
-                    actor.resources.gold += payout;
-                    room.market.grain.price = Math.max(1, room.market.grain.price - GAME_BALANCE.MARKET.GRAIN_VOLATILITY);
-                    room.messages.push(`[${timestamp}] 🌾 ${actor.name} solgte korn for ${payout} gull.`);
-                }
-            } else if (actionType === 'BUY_WOOD') {
-                const costMarket = room.market.wood.price;
-                if (actor.resources.gold >= costMarket && room.market.wood.stock > 0) {
-                    actor.resources.gold -= costMarket;
-                    actor.resources.wood += 5;
-                    room.market.wood.stock -= 5;
-                    room.market.wood.price += GAME_BALANCE.MARKET.WOOD_VOLATILITY;
-                }
-            } else if (actionType === 'SELL_WOOD') {
-                if (actor.resources.wood >= 5) {
-                    const price = room.market.wood.price;
-                    actor.resources.wood -= 5;
-                    room.market.wood.stock += 5;
-                    const payout = Math.floor(price * GAME_BALANCE.MARKET.SELL_RATIO * 5);
-                    actor.resources.gold += payout;
-                    room.market.wood.price = Math.max(2, room.market.wood.price - GAME_BALANCE.MARKET.WOOD_VOLATILITY);
-                    room.messages.push(`[${timestamp}] 🪵 ${actor.name} solgte trevirke.`);
-                }
             } else if (actionType === 'BUY' || actionType === 'SELL') {
                 const res = action.resource as keyof SimulationMarket;
                 const item = room.market[res];
@@ -309,22 +282,26 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 if (isMerchant || actor.upgrades?.includes('trade_license')) sellRatio = 0.9;
 
                 if (actionType === 'BUY') {
-                    if (actor.resources.gold >= item.price && item.stock > 0) {
-                        actor.resources.gold -= item.price;
-                        (actor.resources as any)[res] += 1;
-                        item.stock -= 1;
-                        // Dynamic price increase
+                    const amount = res === 'wood' ? 5 : 1;
+                    const totalCost = item.price * amount;
+                    if (actor.resources.gold >= totalCost && item.stock >= amount) {
+                        actor.resources.gold -= totalCost;
+                        (actor.resources as any)[res] += amount;
+                        item.stock -= amount;
+                        // Dynamic price increase (scaled)
                         item.price += (item.price * 0.05 * item.demand);
+                        room.messages.push(`[${timestamp}] ⚖️ ${actor.name} kjøpte ${amount} ${String(res)}.`);
                     }
                 } else {
-                    if ((actor.resources as any)[res] >= 1) {
-                        (actor.resources as any)[res] -= 1;
-                        item.stock += 1;
-                        const payout = Math.floor(item.price * sellRatio);
+                    const amount = res === 'wood' ? 5 : 1;
+                    if ((actor.resources as any)[res] >= amount) {
+                        (actor.resources as any)[res] -= amount;
+                        item.stock += amount;
+                        const payout = Math.floor(item.price * sellRatio * amount);
                         actor.resources.gold += payout;
                         // Dynamic price decrease
                         item.price = Math.max(1, item.price - (item.price * 0.03));
-                        room.messages.push(`[${timestamp}] ⚖️ ${actor.name} solgte ${String(res)} for ${payout}g.`);
+                        room.messages.push(`[${timestamp}] ⚖️ ${actor.name} solgte ${amount} ${String(res)} for ${payout}g.`);
                     }
                 }
             } else if (actionType === 'DRAFT') {

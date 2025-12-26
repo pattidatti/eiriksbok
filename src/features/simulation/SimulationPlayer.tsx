@@ -92,7 +92,7 @@ export const SimulationPlayer: React.FC = () => {
             {/* Minigame Overlay */}
             {activeMinigame && (
                 <MinigameOverlay
-                    type={activeMinigame === 'MINE' ? 'WORK' : activeMinigame} // Re-use WORK minigame for MINE for now
+                    type={activeMinigame}
                     playerUpgrades={player.upgrades}
                     onComplete={(score) => handleAction({ type: activeMinigame, performance: score })}
                     onCancel={() => setActiveMinigame(null)}

@@ -399,15 +399,18 @@ export const SimulationHost: React.FC = () => {
                     <div className="bg-white p-6 rounded-2xl shadow-sm">
                         <h2 className="text-xl font-bold mb-4">Markedets Lagerbeholdning</h2>
                         <div className="grid grid-cols-2 gap-2">
-                            {Object.entries(roomData.market || {}).map(([res, data]: [string, any]) => (
-                                <div key={res} className="p-2 bg-slate-50 rounded-lg border">
-                                    <div className="text-[10px] font-black uppercase text-slate-400">{res}</div>
-                                    <div className="flex justify-between items-center">
-                                        <span className="font-bold">{data.stock}</span>
-                                        <span className="text-indigo-600 text-xs">{data.price.toFixed(1)}💰</span>
+                            {Object.entries(roomData.market || {}).map(([res, data]: [string, any]) => {
+                                const names: any = { grain: 'Korn', flour: 'Mel', wood: 'Ved', iron: 'Jern', stone: 'Stein', swords: 'Sverd', armor: 'Rustning', tools: 'Verktøy' };
+                                return (
+                                    <div key={res} className="p-2 bg-slate-50 rounded-lg border">
+                                        <div className="text-[10px] font-black uppercase text-slate-400">{names[res] || res}</div>
+                                        <div className="flex justify-between items-center">
+                                            <span className="font-bold">{data.stock}</span>
+                                            <span className="text-indigo-600 text-xs">{data.price.toFixed(1)}💰</span>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
 
