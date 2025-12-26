@@ -13,6 +13,7 @@ export const Breadcrumbs: React.FC = () => {
     }, []);
 
     if (location.pathname === '/') return null;
+    if (location.pathname.startsWith('/sim')) return null;
 
     const pathSegments = location.pathname.split('/').filter(Boolean);
 

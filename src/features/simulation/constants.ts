@@ -11,6 +11,24 @@ export const INITIAL_MARKET: SimulationMarket = {
     tools: { price: 60, stock: 30, demand: 1.0 },
 };
 
+export const RESOURCE_DETAILS: Record<string, { label: string, icon: string }> = {
+    gold: { label: 'Gull', icon: '💰' },
+    grain: { label: 'Korn', icon: '🌾' },
+    flour: { label: 'Mel', icon: '🧂' },
+    bread: { label: 'Brød', icon: '🍞' },
+    wood: { label: 'Ved', icon: '🪵' },
+    timber: { label: 'Tømmer', icon: '🪜' },
+    iron_ore: { label: 'Jernmalm', icon: '🪨' },
+    iron_ingot: { label: 'Jernbarre', icon: '🧱' },
+    iron: { label: 'Jern', icon: '⛓️' },
+    stone: { label: 'Stein', icon: '🏔️' },
+    swords: { label: 'Sverd', icon: '⚔️' },
+    armor: { label: 'Rustning', icon: '🛡️' },
+    tools: { label: 'Verktøy', icon: '⚒️' },
+    manpower: { label: 'Arbeidskraft', icon: '👥' },
+    favor: { label: 'Gunst', icon: '✨' }
+};
+
 export const ROLE_DEFINITIONS: Record<Role, { label: string, description: string }> = {
     KING: { label: 'Konge', description: 'Styrer riket, krever skatt og dømmer i store saker.' },
     BARON: { label: 'Baron', description: 'Styrer en region, krever inn skatt fra bønder, og beskytter mot krig.' },
@@ -115,7 +133,7 @@ export const EVENTS = {
 
 export const WORLD_EVENT_TEMPLATES = [
     { type: 'RAID', title: 'Vikinger på horisonten!', description: 'Et vikingskip er sett nær kysten. Forsvar jordene før de stjeler kornet!', locationId: 'fields' },
-    { type: 'RAID', title: 'Banditt-leir funnet', description: 'Banditter har slått seg ned i skogen. De stjeler ved hver time!', locationId: 'forest' },
+    { type: 'RAID', title: 'Bandittleir funnet', description: 'Banditter har slått seg ned i skogen. De stjeler ved hver time!', locationId: 'forest' },
     { type: 'QUEST', title: 'Den Hellige Gral?', description: 'Rykter sier en eremitt ved klosteret har funnet noe verdifullt.', locationId: 'village' },
     { type: 'QUEST', title: 'Markedsdag i nabolaget', description: 'En sjelden mulighet for god handel på grensen.', locationId: 'marketplace' }
 ];

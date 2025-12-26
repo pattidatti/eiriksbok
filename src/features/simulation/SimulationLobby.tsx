@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../lib/firebase';
 import { ref, get, set, child } from 'firebase/database';
+import { useLayout } from '../../context/LayoutContext';
+import { useEffect } from 'react';
 
 import { INITIAL_RESOURCES } from './constants';
 import type { SimulationPlayer, Role } from './types';
@@ -13,6 +15,12 @@ export const SimulationLobby: React.FC = () => {
     const [error, setError] = useState('');
     const [joining, setJoining] = useState(false);
     const navigate = useNavigate();
+    const { setFullWidth } = useLayout();
+
+    useEffect(() => {
+        setFullWidth(true);
+        return () => setFullWidth(false);
+    }, [setFullWidth]);
 
     const isTestRoom = pin.toUpperCase() === 'TEST';
 
@@ -124,7 +132,7 @@ export const SimulationLobby: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-slate-900 text-white p-4">
+        <div className="fixed inset-0 top-16 bg-slate-900 text-white flex flex-col items-center justify-center p-4 z-20 overflow-y-auto">
             <h1 className="text-4xl md:text-6xl font-black mb-2 tracking-tighter text-indigo-400 italic">FEUDAL SIM</h1>
             <p className="text-slate-500 mb-8 font-mono text-sm uppercase tracking-widest">v1.0 Strategic Era</p>
 
