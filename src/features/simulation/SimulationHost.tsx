@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../lib/firebase';
-import { ref, set, onValue, update } from 'firebase/database';
+import { ref, set, onValue, update, get } from 'firebase/database';
+
 import { INITIAL_MARKET, ROLE_DEFINITIONS } from './constants';
 import type { SimulationRoom } from './types';
 import { assignRoles, collectTaxes } from './gameLogic';
@@ -174,7 +175,79 @@ export const SimulationHost: React.FC = () => {
         }
     };
 
+    const startTing = async () => {
+        if (!roomData) return;
+        const { LAW_TEMPLATES } = await import('./constants');
+        const law = LAW_TEMPLATES[Math.floor(Math.random() * LAW_TEMPLATES.length)];
+
+        const activeVote = {
+            lawId: law.id,
+            title: law.label,
+            votes: {},
+            expiresAt: Date.now() + (60 * 1000) // 1 minute to vote
+        };
+
+        try {
+            await update(ref(db, `simulation_rooms/${pin}`), { activeVote });
+            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const msg = `[${timestamp}] ⚖️ TINGET ER SATT! Det skal stemmes over loven: "${law.label}"!`;
+            const updatedMessages = roomData.messages ? [...roomData.messages, msg] : [msg];
+            await update(ref(db, `simulation_rooms/${pin}`), { messages: updatedMessages });
+
+            // Auto resolve after 1 minute
+            setTimeout(() => resolveVote(law.id), 60000);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    const resolveVote = async (lawId: string) => {
+        const snapshot = await get(ref(db, `simulation_rooms/${pin}/activeVote`));
+        if (!snapshot.exists()) return;
+        const voteData = snapshot.val();
+
+        const votes = Object.values(voteData.votes || {}) as ('YES' | 'NO' | 'ABSTAIN')[];
+        const yesVotes = votes.filter(v => v === 'YES').length;
+        const noVotes = votes.filter(v => v === 'NO').length;
+
+        const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        let msg = '';
+        let activeLaws = roomData?.world.activeLaws || [];
+
+        if (yesVotes > noVotes) {
+            msg = `[${timestamp}] ✅ LOVEN ER VEDTATT! "${voteData.title}" er nå gjeldende.`;
+            activeLaws = [...activeLaws, lawId];
+        } else {
+            msg = `[${timestamp}] ❌ LOVEN BLE FORKASTET. "${voteData.title}" ble nedstemt.`;
+        }
+
+        try {
+            await update(ref(db, `simulation_rooms/${pin}/world`), { activeLaws });
+            await update(ref(db, `simulation_rooms/${pin}`), {
+                activeVote: null,
+                messages: [...(roomData?.messages || []), msg].slice(-30)
+            });
+
+            // Remove law after 10 minutes
+            if (yesVotes > noVotes) {
+                setTimeout(async () => {
+                    const currentSnap = await get(ref(db, `simulation_rooms/${pin}/world/activeLaws`));
+                    const currentLaws = currentSnap.val() || [];
+                    const filtered = currentLaws.filter((id: string) => id !== lawId);
+                    await update(ref(db, `simulation_rooms/${pin}/world`), { activeLaws: filtered });
+                    const expireMsg = `[${timestamp}] ⚖️ Loven "${voteData.title}" har utløpt.`;
+                    await update(ref(db, `simulation_rooms/${pin}`), {
+                        messages: [...(roomData?.messages || []), expireMsg].slice(-30)
+                    });
+                }, 10 * 60 * 1000);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
     const spawnRandomEvent = async () => {
+
         if (!roomData) return;
         const { WORLD_EVENT_TEMPLATES } = await import('./constants');
         const template = WORLD_EVENT_TEMPLATES[Math.floor(Math.random() * WORLD_EVENT_TEMPLATES.length)];
@@ -320,11 +393,17 @@ export const SimulationHost: React.FC = () => {
                                 </div>
                             </div>
 
-                            <button onClick={spawnRandomEvent} disabled={roomData.status !== 'PLAYING'} className="w-full bg-red-600 text-white py-4 rounded-xl font-black uppercase tracking-widest shadow-lg hover:bg-red-700 transition-all">
-                                🎲 Trigge Tilfeldig Hendelse (Raid/Quest)
-                            </button>
+                            <div className="grid grid-cols-2 gap-4 mb-4">
+                                <button onClick={spawnRandomEvent} disabled={roomData.status !== 'PLAYING'} className="flex-1 bg-red-600 text-white py-4 rounded-xl font-black uppercase tracking-[0.05em] text-xs shadow-lg hover:bg-red-700 transition-all">
+                                    🎲 Hendelse
+                                </button>
+                                <button onClick={startTing} disabled={roomData.status !== 'PLAYING' || !!roomData.activeVote} className="flex-1 bg-amber-600 text-white py-4 rounded-xl font-black uppercase tracking-[0.05em] text-xs shadow-lg hover:bg-amber-700 transition-all disabled:opacity-50">
+                                    ⚖️ Start Tinget
+                                </button>
+                            </div>
                         </div>
                     </div>
+
 
 
 

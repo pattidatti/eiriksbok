@@ -47,10 +47,13 @@ export const SimulationLobby: React.FC = () => {
                         year: 1066,
                         season: 'Spring',
                         weather: 'Clear',
-                        taxRateDetails: { kingTax: 20 }
+                        taxRateDetails: { kingTax: 20 },
+                        monumentProgress: 0,
+                        activeLaws: []
                     },
                     worldEvents: {},
-                    diplomacy: {}
+                    diplomacy: {},
+                    messages: []
 
                 };
                 await set(roomRef, initialRoom);

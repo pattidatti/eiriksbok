@@ -10,7 +10,9 @@ export interface Resources {
     iron: number;
     swords: number; // Crafted from iron + wood
     manpower: number;
+    favor: number; // For religious mechanics (monastery)
 }
+
 
 
 export interface PlayerStats {
@@ -118,11 +120,21 @@ export interface SimulationRoom {
         weather: WeatherType;
         taxRateDetails: {
             kingTax: number; // Tax Barons pay to King
-        }
+        };
+        monumentProgress?: number; // Shared construction
+        activeLaws?: string[]; // Global modifiers
     };
+
 
     worldEvents: Record<string, WorldEvent>;
     diplomacy: Record<string, DiplomacyMessage>;
+    activeVote?: {
+        lawId: string;
+        title: string;
+        votes: Record<string, 'YES' | 'NO' | 'ABSTAIN'>;
+        expiresAt: number;
+    };
+
     messages: string[];
     questionStartTime?: number; // reusing logic for sync
 }

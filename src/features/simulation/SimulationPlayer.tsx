@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { ref, onValue } from 'firebase/database';
+import { ref, onValue, update } from 'firebase/database';
+
 import { db } from '../../lib/firebase';
 import type { SimulationPlayer as SimulationPlayerType, SimulationRoom } from './types';
 import { ROLE_DEFINITIONS, UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES } from './constants';
@@ -94,9 +95,11 @@ export const SimulationPlayer: React.FC = () => {
             {activeMinigame && (
                 <MinigameOverlay
                     type={activeMinigame}
+                    playerUpgrades={player.upgrades}
                     onComplete={(score) => handleAction({ type: activeMinigame, performance: score })}
                     onCancel={() => setActiveMinigame(null)}
                 />
+
             )}
 
             {/* Header */}
@@ -219,7 +222,8 @@ export const SimulationPlayer: React.FC = () => {
                         <div className="grid grid-cols-4 gap-2">
                             {Object.entries(player.resources).map(([res, amount]) => {
                                 if (res === 'gold' || res === 'manpower') return null;
-                                const Icon = { grain: '🌾', flour: '🥖', wood: '🪵', iron: '⛏️', swords: '⚔️' }[res] || '📦';
+                                const Icon = { grain: '🌾', flour: '🥖', wood: '🪵', iron: '⛏️', swords: '⚔️', favor: '⛪' }[res] || '📦';
+
                                 return (
                                     <div key={res} className="bg-white p-2 rounded-xl shadow-sm border border-slate-200 text-center">
                                         <div className="text-[8px] uppercase text-slate-400 font-black mb-0.5">{res}</div>
@@ -422,6 +426,51 @@ export const SimulationPlayer: React.FC = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Voting Overlay (The Ting) */}
+            {room.activeVote && !room.activeVote.votes?.[player.id] && (
+                <div className="fixed inset-0 z-[100] bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-6">
+                    <div className="bg-white w-full max-w-sm rounded-[2.5rem] p-8 shadow-2xl border-t-8 border-amber-600 animate-in zoom-in-95 duration-300">
+                        <div className="text-center mb-8">
+                            <span className="text-4xl mb-4 block">⚖️</span>
+                            <h2 className="text-2xl font-black text-slate-900 tracking-tighter mb-2">TINGET ER SATT</h2>
+                            <p className="text-sm text-slate-500">Hele riket skal nå stemme over en foreslått lovendring.</p>
+                        </div>
+
+                        <div className="bg-amber-50 rounded-3xl p-6 border-2 border-amber-100 mb-8">
+                            <h3 className="text-xl font-black text-amber-900 mb-2 uppercase tracking-wide">{room.activeVote.title}</h3>
+                            <p className="text-sm text-amber-800 font-medium leading-relaxed italic">
+                                "{room.activeVote.lawId === 'tax_cut' ? 'Skattene halveres for å sikre folkets velvære.' :
+                                    room.activeVote.lawId === 'peace' ? 'All krigføring og plyndring forbys umiddelbart.' :
+                                        room.activeVote.lawId === 'salt_tax' ? 'Prisen på varer øker for å fylle kongens kister.' :
+                                            'Verneplikt innføres for å styrke rikets forsvar.'}"
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-3">
+                            <button
+                                onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'YES' })}
+                                className="w-full bg-emerald-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all text-sm"
+                            >
+                                ✅ VEDTA LOVEN
+                            </button>
+                            <button
+                                onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'NO' })}
+                                className="w-full bg-rose-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all text-sm"
+                            >
+                                ❌ FORKAST LOVEN
+                            </button>
+                            <button
+                                onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'ABSTAIN' })}
+                                className="w-full bg-slate-200 text-slate-500 py-4 rounded-2xl font-black uppercase tracking-widest active:scale-95 transition-all text-[10px]"
+                            >
+                                Avstå fra stemme
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </div>
     );
 };

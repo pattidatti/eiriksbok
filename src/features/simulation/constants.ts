@@ -15,11 +15,12 @@ export const ROLE_DEFINITIONS: Record<Role, { label: string, description: string
 };
 
 export const INITIAL_RESOURCES: Record<Role, Resources> = {
-    KING: { gold: 1000, grain: 500, flour: 200, wood: 200, iron: 100, swords: 50, manpower: 50 },
-    BARON: { gold: 300, grain: 100, flour: 50, wood: 50, iron: 20, swords: 10, manpower: 10 },
-    PEASANT: { gold: 20, grain: 30, flour: 5, wood: 0, iron: 0, swords: 0, manpower: 1 },
-    SOLDIER: { gold: 50, grain: 10, flour: 10, wood: 0, iron: 10, swords: 5, manpower: 1 },
-    MERCHANT: { gold: 500, grain: 50, flour: 50, wood: 50, iron: 50, swords: 0, manpower: 0 }
+    KING: { gold: 1000, grain: 500, flour: 200, wood: 200, iron: 100, swords: 50, manpower: 50, favor: 0 },
+    BARON: { gold: 300, grain: 100, flour: 50, wood: 50, iron: 20, swords: 10, manpower: 10, favor: 0 },
+    PEASANT: { gold: 20, grain: 30, flour: 5, wood: 0, iron: 0, swords: 0, manpower: 1, favor: 0 },
+    SOLDIER: { gold: 50, grain: 10, flour: 10, wood: 0, iron: 10, swords: 5, manpower: 1, favor: 0 },
+    MERCHANT: { gold: 500, grain: 50, flour: 50, wood: 50, iron: 50, swords: 0, manpower: 0, favor: 0 }
+
 };
 
 
@@ -39,7 +40,11 @@ export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
         { id: 'cathedral', name: 'Katedral', description: 'Øker din legitimitet og skattevilje.', cost: { gold: 500, stone: 200 } as any, benefit: 'ROYAL_AUTHORITY' },
         { id: 'royal_guard', name: 'Kongelig Garde', description: 'Uovervinnelig defensiv styrke.', cost: { gold: 400, iron: 100 }, benefit: 'ELITE_DEFENSE' }
     ],
-    SOLDIER: [],
+    SOLDIER: [
+        { id: 'knight_armor', name: 'Ridderrustning', description: 'Du tar mindre skade og ser tøffere ut.', cost: { gold: 100, swords: 5 }, benefit: 'ARMOR' },
+        { id: 'warhorse', name: 'Stridshest', description: 'Gjør deg til en Ridder. 2x XP fra kamp.', cost: { gold: 200, grain: 100 }, benefit: 'KNIGHT' }
+    ],
+
     MERCHANT: []
 };
 
@@ -50,7 +55,12 @@ export const ACTION_COSTS = {
     TAX: { stamina: 20 },
     MILL: { grain: 10, stamina: 20 }, // 10 grain -> 10 flour
     CRAFT: { iron: 10, wood: 5, stamina: 30 }, // 10 iron + 5 wood -> 10 swords
+    PRAY: { stamina: 15 },
+    FEAST: { flour: 30, gold: 100, stamina: 10 },
+    CONTRIBUTE: { grain: 30, wood: 20, gold: 50, stamina: 25 }
 };
+
+
 
 export const SEASONS = {
     Spring: { label: 'Vår', yieldMod: 1.0, staminaMod: 1.0, color: '#4ade80' },
@@ -95,4 +105,12 @@ export const WORLD_EVENT_TEMPLATES = [
     { type: 'QUEST', title: 'Den Hellige Gral?', description: 'Rykter sier en eremitt ved klosteret har funnet noe verdifullt.', locationId: 'village' },
     { type: 'QUEST', title: 'Markedsdag i nabolaget', description: 'En sjelden mulighet for god handel på grensen.', locationId: 'marketplace' }
 ];
+
+export const LAW_TEMPLATES = [
+    { id: 'tax_cut', label: 'Skattekutt', description: 'Alle skatter halveres i 10 minutter. Lojaliteten stiger.' },
+    { id: 'peace', label: 'Fredsavtale', description: 'Ingen raids tillatt de neste 10 minuttene.' },
+    { id: 'salt_tax', label: 'Saltskatt', description: 'Øker kornprisene, men reduserer lojalitet.' },
+    { id: 'conscription', label: 'Verneplikt', description: 'Soldater koster mindre å verve, men bønder jobber 20% tregere.' }
+];
+
 

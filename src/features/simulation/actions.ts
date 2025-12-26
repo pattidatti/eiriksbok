@@ -26,6 +26,13 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
             const currentWeather = room.world?.weather || 'Clear';
             const weatherData = (WEATHER as any)[currentWeather];
+            const activeLaws = room.world?.activeLaws || [];
+
+            // 0. Law Checks (Interrupts)
+            if (actionType === 'RAID' && activeLaws.includes('peace')) {
+                room.messages.push(`[${timestamp}] 🕊️ RAID BLOKKERT: Fredsavtalen gjelder!`);
+                return;
+            }
 
             // 1. Handle Costs (Resources & Stamina)
             const cost = (ACTION_COSTS as any)[actionType];
@@ -58,7 +65,11 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 // Season & Weather modifier
                 const seasonYMod = seasonData?.yieldMod || 1.0;
                 const weatherYMod = weatherData?.yieldMod || 1.0;
-                yieldAmount = Math.floor(yieldAmount * seasonYMod * weatherYMod);
+                let lawYMod = 1.0;
+                if (activeLaws.includes('conscription')) lawYMod = 0.8;
+
+                yieldAmount = Math.floor(yieldAmount * seasonYMod * weatherYMod * lawYMod);
+
 
                 // PERFORMANCE MULTIPLIER (from minigame)
                 const performance = action.performance || 1.0; // 0-1.0 from minigame
@@ -127,8 +138,12 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     const peasantRegion = p.regionId || 'unassigned';
 
                     if (p.role === 'PEASANT' && (peasantRegion === baronRegion || (room.pin === 'TEST' && peasantRegion === 'test_region'))) {
-                        const grainTax = Math.ceil((p.resources.grain || 0) * 0.15);
-                        const goldTax = Math.ceil((p.resources.gold || 0) * 0.15);
+                        let taxRate = 0.15;
+                        if (activeLaws.includes('tax_cut')) taxRate = 0.07;
+
+                        const grainTax = Math.ceil((p.resources.grain || 0) * taxRate);
+                        const goldTax = Math.ceil((p.resources.gold || 0) * taxRate);
+
                         p.resources.grain = Math.max(0, p.resources.grain - grainTax);
                         p.resources.gold = Math.max(0, p.resources.gold - goldTax);
                         actor.resources.grain += grainTax;
@@ -273,7 +288,23 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 actor.resources.flour = Math.max(0, (actor.resources.flour || 0) - 1);
                 actor.status.legitimacy = Math.min(100, (actor.status.legitimacy || 100) + 2);
                 room.messages.push(`[${timestamp}] 💤 ${actor.name} hviler og spiser.`);
-            } else if (actionType === 'DEFEND') {
+            } else if (actionType === 'PRAY') {
+                const favorGained = Math.floor(Math.random() * 5) + 1;
+                actor.resources.favor = (actor.resources.favor || 0) + favorGained;
+                actor.stats.xp += 2;
+                room.messages.push(`[${timestamp}] ⛪ ${actor.name} ba en bønn ved klosteret. +${favorGained} velvilje.`);
+            } else if (actionType === 'FEAST') {
+                // Rulers can host feasts to reset regional loyalty
+                const regionId = actor.regionId;
+                Object.values(room.players).forEach((p: any) => {
+                    if (p.regionId === regionId) {
+                        p.status.loyalty = 100;
+                    }
+                });
+                room.messages.push(`[${timestamp}] 🍻 ${actor.name} arrangerte et storslått gjestebud! Lojaliteten i regionen er gjenopprettet.`);
+                actor.stats.xp += 25;
+            }
+            else if (actionType === 'DEFEND') {
                 const performance = action.performance || 0;
                 const goldGained = Math.ceil(20 * performance);
                 actor.resources.gold = (actor.resources.gold || 0) + goldGained;
@@ -295,7 +326,17 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 if (action.eventId && room.worldEvents) {
                     delete room.worldEvents[action.eventId];
                 }
+            } else if (actionType === 'CONTRIBUTE') {
+                const progress = 10;
+                room.world.monumentProgress = (room.world.monumentProgress || 0) + progress;
+                actor.stats.xp += 15;
+                room.messages.push(`[${timestamp}] 🏗️ ${actor.name} bidro til rikets monument! +${progress} fremgang.`);
+
+                if (room.world.monumentProgress >= 1000) {
+                    room.messages.push(`[${timestamp}] 🏛️ MONUMENTET ER FERDIGSTILT! Riket går inn i en ny gullalder!`);
+                }
             }
+
 
 
             // 3. Level Up Check

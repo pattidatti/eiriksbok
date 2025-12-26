@@ -42,13 +42,24 @@ const POINTS_OF_INTEREST: POI[] = [
         id: 'village', label: 'Landsbyen', icon: '🏠', top: '45%', left: '40%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'],
         actions: [
             { id: 'REST', label: 'Hvile & Spise', cost: '-1🥖 +30⚡' },
-            { id: 'CRAFT', label: 'Smie Sverd', cost: '-30⚡ -10⛏️ -5🪵' }
+            { id: 'CRAFT', label: 'Smie Sverd', cost: '-30⚡ -10⛏️ -5🪵' },
+            { id: 'FEAST', label: 'Arranger Gjestebud', cost: '-100g -30🥖' }
         ]
+    },
+    {
+        id: 'monastery', label: 'Klosteret', icon: '⛪', top: '10%', left: '45%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
+        actions: [{ id: 'PRAY', label: 'Be en Bønn', cost: '-15⚡' }]
+    },
+
+    {
+        id: 'monument', label: 'Rikets Monument', icon: '🏗️', top: '50%', left: '50%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
+        actions: [{ id: 'CONTRIBUTE', label: 'Bidra til Bygget', cost: '-30🌾 -20🪵 -50g' }]
     },
     {
         id: 'border', label: 'Grensen', icon: '⚔️', top: '85%', left: '80%', roles: ['BARON'],
         actions: [{ id: 'RAID', label: 'Plyndre Nabo', cost: '-40⚡' }]
     }
+
 ];
 
 
@@ -132,8 +143,17 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                             className={`flex flex-col items-center transition-all ${isRelevant ? 'scale-100' : 'scale-75 opacity-40 grayscale'}`}
                         >
                             <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-lg border-2 border-white transition-all ${selectedPOI?.id === poi.id ? 'bg-amber-500 scale-125 ring-4 ring-amber-500/30' : 'bg-white/90 hover:bg-amber-100'}`}>
-                                {poi.icon}
+                                {poi.id === 'monument' && (room.world.monumentProgress || 0) >= 1000 ? '🏛️' : poi.icon}
                             </div>
+                            {poi.id === 'monument' && (
+                                <div className="w-8 h-1 bg-slate-200 rounded-full mt-0.5 overflow-hidden">
+                                    <div
+                                        className="h-full bg-emerald-500"
+                                        style={{ width: `${(room.world.monumentProgress || 0) / 10}%` }}
+                                    />
+                                </div>
+                            )}
+
                             <span className="bg-amber-900/80 text-white text-[8px] font-black uppercase px-2 py-0.5 rounded-full mt-1 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                                 {poi.label}
                             </span>
@@ -186,9 +206,11 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                                     if (a.id === 'TAX_ROYAL' && player.role !== 'KING') return false;
                                     if (a.id === 'DECREE' && player.role !== 'KING') return false;
                                     if (a.id === 'RAID' && player.role !== 'BARON') return false;
+                                    if (a.id === 'FEAST' && player.role !== 'KING' && player.role !== 'BARON') return false;
                                     if (selectedPOI.id === 'fields' && player.role !== 'PEASANT') return false;
                                     if (selectedPOI.id === 'forest' && player.role !== 'PEASANT') return false;
                                     return true;
+
                                 })
                                 .map(action => (
                                     <button

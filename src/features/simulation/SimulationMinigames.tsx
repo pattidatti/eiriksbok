@@ -4,11 +4,13 @@ interface MinigameProps {
     type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE';
     onComplete: (score: number) => void;
     onCancel: () => void;
+    playerUpgrades?: string[];
 }
 
 
 
-export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel }) => {
+
+export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, playerUpgrades }) => {
     return (
         <div className="fixed inset-0 z-[100] bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-4">
             <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden relative">
@@ -28,10 +30,11 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                 ) : type === 'MILL' ? (
                     <MillingGame onComplete={onComplete} />
                 ) : type === 'DEFEND' ? (
-                    <CombatGame onComplete={onComplete} />
+                    <CombatGame onComplete={onComplete} isKnight={playerUpgrades?.includes('warhorse')} />
                 ) : (
                     <QuestGame onComplete={onComplete} />
                 )}
+
 
 
             </div>
@@ -439,7 +442,8 @@ const MillingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComp
 };
 
 /* --- COMBAT MINIGAME (Reflex Parry) --- */
-const CombatGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+const CombatGame: React.FC<{ onComplete: (score: number) => void, isKnight?: boolean }> = ({ onComplete, isKnight }) => {
+
     const [targets, setTargets] = useState<{ id: number, x: number, y: number, size: number }[]>([]);
     const [hits, setHits] = useState(0);
     const [timeLeft, setTimeLeft] = useState(10);
@@ -451,10 +455,12 @@ const CombatGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCompl
 
         const spawn = () => {
             const id = Date.now();
-            setTargets(prev => [...prev, { id, x: 20 + Math.random() * 60, y: 20 + Math.random() * 60, size: 1 }]);
+            const size = isKnight ? 1.5 : 1;
+            setTargets(prev => [...prev, { id, x: 20 + Math.random() * 60, y: 20 + Math.random() * 60, size }]);
             setTimeout(() => {
                 setTargets(prev => prev.filter(t => t.id !== id));
-            }, 800); // Very fast!
+            }, isKnight ? 1200 : 800); // Easier for Knights
+
         };
 
         const interval = setInterval(spawn, 600);
