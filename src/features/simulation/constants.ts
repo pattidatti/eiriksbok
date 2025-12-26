@@ -113,4 +113,50 @@ export const LAW_TEMPLATES = [
     { id: 'conscription', label: 'Verneplikt', description: 'Soldater koster mindre å verve, men bønder jobber 20% tregere.' }
 ];
 
+export const GAME_BALANCE = {
+    TAX: {
+        PEASANT_RATE_DEFAULT: 0.15,
+        PEASANT_RATE_CUT: 0.07,
+        ROYAL_RATE: 0.20,
+        LOYALTY_PENALTY_PEASANT: 10,
+        LOYALTY_PENALTY_BARON: 5
+    },
+    YIELD: {
+        WORK_GRAIN: 10,
+        CHOP_WOOD: 5,
+        MILL_FLOUR: 10,
+        CRAFT_WORDS: 10,
+        PLOW_BONUS: 5,
+        SUMMER_WOOD_BONUS: 2
+    },
+    MARKET: {
+        GRAIN_VOLATILITY: 0.1,
+        WOOD_VOLATILITY: 0.2,
+        SELL_RATIO: 0.8
+    },
+    MINIGAME: {
+        BASE_MULTIPLIER: 0.5, // Even if you fail completely, you get 50%
+        PERFORMANCE_WEIGHT: 1.0, // 100% score adds 100% -> Total 1.5x
+        CRAFTING_WEIGHT: 1.5, // Crafting can yield up to 2.0x
+        THRESHOLD_GREAT: 0.8 // Score needed for "Great!" message
+    },
+    RELIGION: {
+        PRAY_MIN: 1,
+        PRAY_MAX: 5,
+        XP_PRAY: 2
+    },
+    MONUMENT: {
+        STEP_PROGRESS: 10,
+        TARGET: 1000,
+        XP_REWARD: 15
+    },
+    COMBAT: {
+        RAID_LOOT_FACTOR: 0.4, // Takes 40% of victim's resources
+        DEFEND_GOLD_BASE: 20,
+        XP_WIN: 20,
+        XP_LOSS: 0
+    }
+};
+
+
 

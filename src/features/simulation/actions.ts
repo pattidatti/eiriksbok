@@ -1,6 +1,7 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
-import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, LEVEL_XP, WEATHER } from './constants';
+import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, LEVEL_XP, WEATHER, GAME_BALANCE } from './constants';
+
 
 
 
@@ -59,8 +60,9 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
             // 2. Perform Action Logic
             if (actionType === 'WORK') {
-                let yieldAmount = REWARDS.WORK.grain;
-                if (actor.upgrades?.includes('iron_plow')) yieldAmount += 5;
+                let yieldAmount = GAME_BALANCE.YIELD.WORK_GRAIN;
+                if (actor.upgrades?.includes('iron_plow')) yieldAmount += GAME_BALANCE.YIELD.PLOW_BONUS;
+
 
                 // Season & Weather modifier
                 const seasonYMod = seasonData?.yieldMod || 1.0;
@@ -73,7 +75,7 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
                 // PERFORMANCE MULTIPLIER (from minigame)
                 const performance = action.performance || 1.0; // 0-1.0 from minigame
-                const finalMultiplier = 0.5 + (performance * 1.0); // Range 0.5x to 1.5x
+                const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.PERFORMANCE_WEIGHT);
                 yieldAmount = Math.ceil(yieldAmount * finalMultiplier);
 
 
@@ -86,12 +88,13 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     room.messages.push(`[${timestamp}] 🌾 ${actor.name} viste eminente ferdigheter og høstet ${yieldAmount} korn!`);
                 }
             } else if (actionType === 'CHOP') {
-                let yieldAmount = REWARDS.CHOP.wood;
-                if (currentSeason === 'Summer') yieldAmount += 2; // Summer bonus
+                let yieldAmount = GAME_BALANCE.YIELD.CHOP_WOOD;
+                if (currentSeason === 'Summer') yieldAmount += GAME_BALANCE.YIELD.SUMMER_WOOD_BONUS; // Summer bonus
+
 
                 // PERFORMANCE MULTIPLIER (from minigame)
                 const performance = action.performance || 1.0;
-                const finalMultiplier = 0.5 + (performance * 1.0);
+                const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.PERFORMANCE_WEIGHT);
                 yieldAmount = Math.ceil(yieldAmount * finalMultiplier);
 
                 actor.resources.wood = (actor.resources.wood || 0) + yieldAmount;
@@ -103,8 +106,9 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
             } else if (actionType === 'MILL') {
                 const performance = action.performance || 1.0;
-                const finalMultiplier = 0.5 + (performance * 1.5); // Range 0.5x to 2.0x for processing
-                const yieldAmount = Math.ceil(10 * finalMultiplier);
+                const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.CRAFTING_WEIGHT);
+                const yieldAmount = Math.ceil(GAME_BALANCE.YIELD.MILL_FLOUR * finalMultiplier);
+
 
                 actor.resources.flour = (actor.resources.flour || 0) + yieldAmount;
                 actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(10 * finalMultiplier);
@@ -116,8 +120,9 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 }
             } else if (actionType === 'CRAFT') {
                 const performance = action.performance || 1.0;
-                const finalMultiplier = 0.5 + (performance * 1.5);
-                const yieldAmount = Math.ceil(10 * finalMultiplier);
+                const finalMultiplier = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (performance * GAME_BALANCE.MINIGAME.CRAFTING_WEIGHT);
+                const yieldAmount = Math.ceil(GAME_BALANCE.YIELD.CRAFT_WORDS * finalMultiplier);
+
 
                 actor.resources.swords = (actor.resources.swords || 0) + yieldAmount;
                 actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(15 * finalMultiplier);
@@ -138,8 +143,9 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     const peasantRegion = p.regionId || 'unassigned';
 
                     if (p.role === 'PEASANT' && (peasantRegion === baronRegion || (room.pin === 'TEST' && peasantRegion === 'test_region'))) {
-                        let taxRate = 0.15;
-                        if (activeLaws.includes('tax_cut')) taxRate = 0.07;
+                        let taxRate = GAME_BALANCE.TAX.PEASANT_RATE_DEFAULT;
+                        if (activeLaws.includes('tax_cut')) taxRate = GAME_BALANCE.TAX.PEASANT_RATE_CUT;
+
 
                         const grainTax = Math.ceil((p.resources.grain || 0) * taxRate);
                         const goldTax = Math.ceil((p.resources.gold || 0) * taxRate);
@@ -152,7 +158,7 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                         count++;
 
                         // Loyalty Penalty
-                        p.status.loyalty = Math.max(0, (p.status.loyalty || 100) - 10);
+                        p.status.loyalty = Math.max(0, (p.status.loyalty || 100) - GAME_BALANCE.TAX.LOYALTY_PENALTY_PEASANT);
 
                     }
                 });
@@ -168,8 +174,8 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 let count = 0;
                 Object.values(room.players).forEach((p: any) => {
                     if (p.role === 'BARON') {
-                        const grainTax = Math.ceil((p.resources.grain || 0) * 0.20);
-                        const goldTax = Math.ceil((p.resources.gold || 0) * 0.20);
+                        const grainTax = Math.ceil((p.resources.grain || 0) * GAME_BALANCE.TAX.ROYAL_RATE);
+                        const goldTax = Math.ceil((p.resources.gold || 0) * GAME_BALANCE.TAX.ROYAL_RATE);
                         p.resources.grain = Math.max(0, p.resources.grain - grainTax);
                         p.resources.gold = Math.max(0, p.resources.gold - goldTax);
                         actor.resources.grain += grainTax;
@@ -178,7 +184,7 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                         count++;
 
                         // Loyalty Penalty (Barons also lose loyalty to King)
-                        p.status.loyalty = Math.max(0, (p.status.loyalty || 100) - 5);
+                        p.status.loyalty = Math.max(0, (p.status.loyalty || 100) - GAME_BALANCE.TAX.LOYALTY_PENALTY_BARON);
 
                     }
                 });
@@ -190,15 +196,15 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 if (actor.resources.gold >= costMarket) {
                     actor.resources.gold -= costMarket;
                     actor.resources.grain += 1;
-                    room.market.grain.price += 0.1;
+                    room.market.grain.price += GAME_BALANCE.MARKET.GRAIN_VOLATILITY;
                 }
             } else if (actionType === 'SELL_GRAIN') {
                 if (actor.resources.grain >= 1) {
                     const price = room.market.grain.price;
                     actor.resources.grain -= 1;
-                    const payout = Math.floor(price * 0.8);
+                    const payout = Math.floor(price * GAME_BALANCE.MARKET.SELL_RATIO);
                     actor.resources.gold += payout;
-                    room.market.grain.price = Math.max(1, room.market.grain.price - 0.1);
+                    room.market.grain.price = Math.max(1, room.market.grain.price - GAME_BALANCE.MARKET.GRAIN_VOLATILITY);
                     room.messages.push(`[${timestamp}] 🌾 ${actor.name} solgte korn for ${payout} gull.`);
                 }
             } else if (actionType === 'BUY_WOOD') {
@@ -206,15 +212,15 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 if (actor.resources.gold >= costMarket) {
                     actor.resources.gold -= costMarket;
                     actor.resources.wood += 5;
-                    room.market.wood.price += 0.2;
+                    room.market.wood.price += GAME_BALANCE.MARKET.WOOD_VOLATILITY;
                 }
             } else if (actionType === 'SELL_WOOD') {
                 if (actor.resources.wood >= 5) {
                     const price = room.market.wood.price;
                     actor.resources.wood -= 5;
-                    const payout = Math.floor(price * 0.8 * 5);
+                    const payout = Math.floor(price * GAME_BALANCE.MARKET.SELL_RATIO * 5);
                     actor.resources.gold += payout;
-                    room.market.wood.price = Math.max(2, room.market.wood.price - 0.2);
+                    room.market.wood.price = Math.max(2, room.market.wood.price - GAME_BALANCE.MARKET.WOOD_VOLATILITY);
                     room.messages.push(`[${timestamp}] 🪵 ${actor.name} solgte trevirke.`);
                 }
             } else if (actionType === 'DRAFT') {
@@ -240,10 +246,11 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     const roll = Math.random() * 0.5 + 0.75;
 
                     if (myPower * roll > targetPower) {
-                        const lootGold = Math.floor(targetBaron.resources.gold * 0.4);
-                        const lootGrain = Math.floor(targetBaron.resources.grain * 0.4);
+                        const lootGold = Math.floor(targetBaron.resources.gold * GAME_BALANCE.COMBAT.RAID_LOOT_FACTOR);
+                        const lootGrain = Math.floor(targetBaron.resources.grain * GAME_BALANCE.COMBAT.RAID_LOOT_FACTOR);
                         targetBaron.resources.gold -= lootGold;
                         targetBaron.resources.grain -= lootGrain;
+
                         actor.resources.gold += lootGold;
                         actor.resources.grain += lootGrain;
                         actor.resources.manpower = Math.max(0, actor.resources.manpower - 5);
@@ -289,11 +296,14 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 actor.status.legitimacy = Math.min(100, (actor.status.legitimacy || 100) + 2);
                 room.messages.push(`[${timestamp}] 💤 ${actor.name} hviler og spiser.`);
             } else if (actionType === 'PRAY') {
-                const favorGained = Math.floor(Math.random() * 5) + 1;
+                const max = GAME_BALANCE.RELIGION.PRAY_MAX;
+                const min = GAME_BALANCE.RELIGION.PRAY_MIN;
+                const favorGained = Math.floor(Math.random() * (max - min + 1)) + min;
                 actor.resources.favor = (actor.resources.favor || 0) + favorGained;
-                actor.stats.xp += 2;
+                actor.stats.xp += GAME_BALANCE.RELIGION.XP_PRAY;
                 room.messages.push(`[${timestamp}] ⛪ ${actor.name} ba en bønn ved klosteret. +${favorGained} velvilje.`);
             } else if (actionType === 'FEAST') {
+
                 // Rulers can host feasts to reset regional loyalty
                 const regionId = actor.regionId;
                 Object.values(room.players).forEach((p: any) => {
@@ -306,11 +316,12 @@ export const performAction = async (pin: string, playerId: string, action: any) 
             }
             else if (actionType === 'DEFEND') {
                 const performance = action.performance || 0;
-                const goldGained = Math.ceil(20 * performance);
+                const goldGained = Math.ceil(GAME_BALANCE.COMBAT.DEFEND_GOLD_BASE * performance);
                 actor.resources.gold = (actor.resources.gold || 0) + goldGained;
-                actor.stats.xp = (actor.stats.xp || 0) + 20;
+                actor.stats.xp = (actor.stats.xp || 0) + GAME_BALANCE.COMBAT.XP_WIN;
 
                 room.messages.push(`[${timestamp}] 🛡️ ${actor.name} forsvarte seg mot et raid! +${goldGained}g.`);
+
 
                 // Remove event after interaction
                 if (action.eventId && room.worldEvents) {
@@ -327,14 +338,15 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                     delete room.worldEvents[action.eventId];
                 }
             } else if (actionType === 'CONTRIBUTE') {
-                const progress = 10;
+                const progress = GAME_BALANCE.MONUMENT.STEP_PROGRESS;
                 room.world.monumentProgress = (room.world.monumentProgress || 0) + progress;
-                actor.stats.xp += 15;
+                actor.stats.xp += GAME_BALANCE.MONUMENT.XP_REWARD;
                 room.messages.push(`[${timestamp}] 🏗️ ${actor.name} bidro til rikets monument! +${progress} fremgang.`);
 
-                if (room.world.monumentProgress >= 1000) {
+                if (room.world.monumentProgress >= GAME_BALANCE.MONUMENT.TARGET) {
                     room.messages.push(`[${timestamp}] 🏛️ MONUMENTET ER FERDIGSTILT! Riket går inn i en ny gullalder!`);
                 }
+
             }
 
 
