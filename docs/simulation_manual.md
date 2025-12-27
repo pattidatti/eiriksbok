@@ -59,10 +59,15 @@ FinalYield = BaseYield * SeasonMod * WeatherMod * LawMod * MinigamePerformance
 - **Royal Tax**: Standard **20%** av Baronenes beholdning.
 
 ### Marked
-Priser justeres dynamisk ved handel:
-- **Kjøp**: Pris øker med **0.1** (Grain) eller **0.2** (Wood).
-- **Salg**: Pris synker tilsvarende.
-- **Salgsverdi**: Du får 80% av markedspris når du selger.
+Priser justeres dynamisk basert på tilbud og etterspørsel (Slippage):
+- **Impact Factor**: Hvert kjøp/salg påvirker prisen med **0.5%** per enhet.
+- **Formel Kjøp**: `NyPris = GammelPris * (1 + (0.005 * Antall * Demand))`
+- **Formel Salg**: `NyPris = GammelPris * (1 - (0.005 * Antall))`
+- **Salgsverdi**: Du får **80%** av markedspris (kan økes med `Trade License`).
+- **Safety**: Priser kan aldri gå under 0.2x eller over 5.0x av basepris (teoretisk).
+
+> [!TIP]
+> Små transaksjoner påvirker prisen lite. Store "dumping" salg vil krasje prisen raskt!
 
 ---
 

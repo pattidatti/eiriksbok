@@ -248,6 +248,14 @@ export const REFINERY_RECIPES: Record<string, any> = {
 };
 
 export const GAME_BALANCE = {
+    MARKET: {
+        SELL_RATIO: 0.8,
+        PRICE_IMPACT_BUY: 0.005, // 0.5% price increase per unit bought
+        PRICE_IMPACT_SELL: 0.005, // 0.5% price decrease per unit sold
+        MIN_PRICE_MULTIPLIER: 0.2, // Min price is 20% of base
+        MAX_PRICE_MULTIPLIER: 5.0, // Max price is 500% of base
+        VISCOSITY: 100 // Dampening factor if we used a more complex model, but we stick to linear % for now
+    },
     TAX: {
         PEASANT_RATE_DEFAULT: 0.15,
         PEASANT_RATE_CUT: 0.07,
@@ -269,11 +277,6 @@ export const GAME_BALANCE = {
         LOSS_COMBAT_WEAPON: 10,
         LOSS_COMBAT_ARMOR: 15,
         REPAIR_AMOUNT: 30
-    },
-    MARKET: {
-        GRAIN_VOLATILITY: 0.1,
-        WOOD_VOLATILITY: 0.2,
-        SELL_RATIO: 0.8
     },
     MINIGAME: {
         BASE_MULTIPLIER: 0.5, // Even if you fail completely, you get 50%

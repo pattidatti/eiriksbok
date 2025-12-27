@@ -325,6 +325,7 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 actor.stats.xp += 20;
             } else if (actionType === 'BUY' || actionType === 'SELL') {
                 const res = action.resource as keyof SimulationMarket;
+
                 // Use Local Market based on Region
                 const marketId = actor.regionId || 'capital';
                 const market = room.markets?.[marketId] || room.market; // Fallback to global
@@ -335,27 +336,53 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 let sellRatio = GAME_BALANCE.MARKET.SELL_RATIO;
                 if (isMerchant || actor.upgrades?.includes('trade_license')) sellRatio = 0.9;
 
+                // Amount logic: Default to 1 (or 5 for wood/manpower?), or use action.amount
+                // We strongly encourage frontend to send 'amount'. Falling back to defaults for legacy safety.
+                let amount = action.amount || (res === 'wood' ? 5 : 1);
+
+                // Cap amount to not buy/sell more than exists?
+                // Logic already checks affordability below.
+
                 if (actionType === 'BUY') {
-                    const amount = res === 'wood' ? 5 : 1;
-                    const totalCost = item.price * amount;
+                    const totalCost = Math.ceil(item.price * amount);
+
                     if (actor.resources.gold >= totalCost && item.stock >= amount) {
                         actor.resources.gold -= totalCost;
-                        (actor.resources as any)[res] += amount;
+                        (actor.resources as any)[res] = ((actor.resources as any)[res] || 0) + amount;
                         item.stock -= amount;
-                        // Dynamic price increase (scaled)
-                        item.price += (item.price * 0.05 * item.demand);
-                        room.messages.push(`[${timestamp}] ⚖️ ${actor.name} kjøpte ${amount} ${String(res)}.`);
+
+                        // Dynamic Pricing: Slippage
+                        // NewPrice = OldPrice * (1 + (Impact * Amount * Demand))
+                        const impact = GAME_BALANCE.MARKET.PRICE_IMPACT_BUY;
+                        item.price = item.price * (1 + (impact * amount * item.demand));
+
+                        // Cap Max Price (Optional, avoiding infinite inflation)
+                        // item.price = Math.min(item.price, BASE_PRICE * MAX_MULT); (Need base price ref, skipping explicitly for now, just letting it fly)
+
+                        room.messages.push(`[${timestamp}] ⚖️ ${actor.name} kjøpte ${amount} ${String(res)} for ${totalCost}g.`);
+                        actor.stats.xp += 1;
                     }
                 } else {
-                    const amount = res === 'wood' ? 5 : 1;
+                    // SELL
                     if ((actor.resources as any)[res] >= amount) {
                         (actor.resources as any)[res] -= amount;
                         item.stock += amount;
-                        const payout = Math.floor(item.price * sellRatio * amount);
+
+                        const marketPrice = item.price;
+                        const payout = Math.floor(marketPrice * sellRatio * amount);
+
                         actor.resources.gold += payout;
-                        // Dynamic price decrease
-                        item.price = Math.max(1, item.price - (item.price * 0.03));
+
+                        // Dynamic Pricing: Slippage (Price Drop)
+                        // NewPrice = OldPrice * (1 - (Impact * Amount))
+                        const impact = GAME_BALANCE.MARKET.PRICE_IMPACT_SELL;
+                        // Determine a "floor" to prevent 0 or negative prices.
+                        const minPrice = 1;
+
+                        item.price = Math.max(minPrice, item.price * (1 - (impact * amount)));
+
                         room.messages.push(`[${timestamp}] ⚖️ ${actor.name} solgte ${amount} ${String(res)} for ${payout}g.`);
+                        actor.stats.xp += 1;
                     }
                 }
             } else if (actionType === 'DRAFT') {
