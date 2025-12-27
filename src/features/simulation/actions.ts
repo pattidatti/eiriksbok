@@ -1,6 +1,7 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
-import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, WEATHER, GAME_BALANCE, REFINERY_RECIPES, INITIAL_SKILLS, CRAFTING_RECIPES, ITEM_TEMPLATES } from './constants';
+import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, WEATHER, GAME_BALANCE, REFINERY_RECIPES, INITIAL_SKILLS, CRAFTING_RECIPES, ITEM_TEMPLATES, LEVEL_XP } from './constants';
+
 import type { SkillType, SimulationPlayer, EquipmentItem, EquipmentSlot } from './simulationTypes';
 
 
@@ -60,8 +61,19 @@ const addXp = (actor: SimulationPlayer, skillType: SkillType, amount: number, me
     // 2. Character XP (Rank)
     actor.stats.xp = (actor.stats.xp || 0) + amount;
 
-    // Character level up check is handled main loop
+    // character level calculation (matches frontend)
+    const getLevel = (xp: number) => {
+        const index = LEVEL_XP.findIndex(req => xp < req);
+        return index === -1 ? LEVEL_XP.length : index;
+    };
+
+    const newLevel = getLevel(actor.stats.xp);
+    if (newLevel > (actor.stats.level || 1)) {
+        actor.stats.level = newLevel;
+        messages.push(`🏰 ${actor.name} har steget i rang til Nivå ${newLevel}!`);
+    }
 };
+
 
 
 

@@ -138,6 +138,7 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
             if (item.stats?.yieldBonus) equipBonus += item.stats.yieldBonus;
         });
 
+
         total += equipBonus;
 
         const seasonData = SEASONS[currentSeason as keyof typeof SEASONS] as any;
@@ -547,40 +548,102 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
     const [nodes, setNodes] = useState<{ id: number, pos: number }[]>([]);
     const [hits, setHits] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
+    const [feedback, setFeedback] = useState<{ text: string, color: string } | null>(null);
 
     useEffect(() => {
         if (isFinished) return;
         const spawn = setInterval(() => {
-            if (hits < 10) setNodes(n => [...n, { id: Date.now(), pos: 0 }]);
-        }, 1500);
+            setNodes(n => {
+                if (n.length > 5) return n; // Max 5 nodes on screen
+                return [...n, { id: Date.now(), pos: 0 }];
+            });
+        }, 1500 / speedMultiplier);
+
         const move = setInterval(() => {
-            setNodes(n => n.map(node => ({ ...node, pos: node.pos + (2 / speedMultiplier) })).filter(node => node.pos < 110)); // Slower nodes = easier
+            setNodes(n => n.map(node => ({ ...node, pos: node.pos + (2 * speedMultiplier) })).filter(node => node.pos < 110));
         }, 32);
-        return () => { clearInterval(spawn); clearInterval(move); };
-    }, [hits, isFinished]);
+
+        const handleKeys = (e: KeyboardEvent) => {
+            if (e.code === 'Space' || e.code === 'Enter') {
+                e.preventDefault();
+                handleHit();
+            }
+        };
+        window.addEventListener('keydown', handleKeys);
+        return () => {
+            clearInterval(spawn);
+            clearInterval(move);
+            window.removeEventListener('keydown', handleKeys);
+        };
+    }, [isFinished, speedMultiplier]);
 
     const handleHit = () => {
-        const idx = nodes.findIndex(n => n.pos > 80 && n.pos < 100);
-        if (idx !== -1) {
-            setHits(h => {
-                if (h + 1 >= 10) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
-                return h + 1;
-            });
-            setNodes(n => n.filter((_, i) => i !== idx));
-        }
+        if (isFinished) return;
+        setNodes(currentNodes => {
+            const idx = currentNodes.findIndex(n => n.pos > 75 && n.pos < 98); // Slightly more generous window
+            if (idx !== -1) {
+                setHits(h => {
+                    const next = h + 1;
+                    if (next >= 10) {
+                        setIsFinished(true);
+                        setFeedback({ text: 'FERDIG! ⚒️', color: 'text-emerald-400' });
+                        setTimeout(() => onComplete(1.0), 1000);
+                    } else {
+                        setFeedback({ text: 'TREFF! ✨', color: 'text-amber-400' });
+                        setTimeout(() => setFeedback(null), 500);
+                    }
+                    return next;
+                });
+                return currentNodes.filter((_, i) => i !== idx);
+            } else {
+                setFeedback({ text: 'BOM! ✕', color: 'text-rose-500' });
+                setTimeout(() => setFeedback(null), 500);
+                return currentNodes;
+            }
+        });
     };
 
     return (
         <div className="p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/smithing_bg.png")', backgroundSize: 'cover' }}>
-            <div className="absolute inset-0 bg-black/50 z-0" />
-            <div className="relative z-10 w-full h-32 bg-white/10 rounded-3xl mb-8 border border-white/20 overflow-hidden flex items-center">
-                <div className="absolute right-[5%] w-16 h-24 bg-red-500/20 border-2 border-red-500 rounded-xl" />
-                {nodes.map(n => <div key={n.id} className="absolute w-8 h-8 bg-orange-500 rounded-full border-2 border-white shadow-[0_0_15px_orange]" style={{ left: `${n.pos}%` }} />)}
+            <div className="absolute inset-0 bg-black/60 z-0" />
+
+            <div className="relative z-10 mb-12 flex flex-col items-center">
+                <div className={`text-5xl font-black mb-4 h-16 transition-all duration-300 ${feedback ? 'scale-125 opacity-100' : 'scale-90 opacity-0'} ${feedback?.color}`}>
+                    {feedback?.text}
+                </div>
+                <div className="text-white/60 font-bold uppercase tracking-widest text-sm mb-2">Fremgang</div>
+                <div className="text-4xl font-black text-white">{hits} <span className="text-white/30 text-2xl">/ 10</span></div>
             </div>
-            <button onClick={handleHit} className="relative z-10 w-full bg-slate-800 text-white py-6 rounded-2xl font-black text-2xl">SLÅ! ⚒️</button>
+
+            <div className="relative z-10 w-full max-w-2xl h-32 bg-white/5 backdrop-blur-md rounded-[2rem] border-2 border-white/10 overflow-hidden flex items-center mb-12 px-2 shadow-2xl">
+                {/* Hit Zone */}
+                <div className="absolute right-[5%] w-24 h-24 bg-amber-500/20 border-4 border-amber-500/50 rounded-2xl animate-pulse flex items-center justify-center">
+                    <div className="w-16 h-16 bg-amber-500/40 rounded-xl blur-lg" />
+                </div>
+
+                {/* Nodes */}
+                {nodes.map(n => (
+                    <div
+                        key={n.id}
+                        className="absolute w-12 h-12 bg-white rounded-full border-4 border-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.8)] flex items-center justify-center text-xl"
+                        style={{ left: `${n.pos}%`, transform: 'translateX(-50%)', transition: 'left 32ms linear' }}
+                    >
+                        🔥
+                    </div>
+                ))}
+            </div>
+
+            <button
+                onClick={handleHit}
+                className="relative z-10 w-full max-w-sm bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white py-8 rounded-3xl font-black text-3xl shadow-[0_20px_50px_rgba(79,70,229,0.4)] transition-all border-b-8 border-indigo-800"
+            >
+                SLÅ! ⚒️
+                <div className="text-[10px] opacity-50 mt-2 font-bold uppercase tracking-widest">Klikk eller bruk Mellomrom</div>
+            </button>
         </div>
     );
 };
+
 
 /* --- PLACEHOLDERS --- */
 const MillingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {

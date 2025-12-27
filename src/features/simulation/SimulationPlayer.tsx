@@ -34,7 +34,9 @@ const SimulationGame: React.FC = () => {
     const {
         activeMinigame, setActiveMinigame,
         activeMinigameMethod, setActiveMinigameMethod,
+        activeMinigameAction, setActiveMinigameAction,
         actionLoading, setActionLoading
+
     } = useSimulation();
 
     // Data State
@@ -168,8 +170,10 @@ const SimulationGame: React.FC = () => {
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
             setActiveMinigame(actionType as any);
             if (actionMethod) setActiveMinigameMethod(actionMethod);
+            setActiveMinigameAction(action);
             return;
         }
+
 
         setActionLoading(actionType);
         const result = await performAction(pin, player.id, action);
@@ -189,9 +193,10 @@ const SimulationGame: React.FC = () => {
         }
 
         setActionLoading(null);
-        setActionLoading(null);
         setActiveMinigame(null);
+        setActiveMinigameAction(null);
         setActiveMinigameMethod(null);
+
     };
 
     if (!player || !room) return <div className="p-8 text-center text-white">Laster data...</div>;
@@ -244,8 +249,9 @@ const SimulationGame: React.FC = () => {
                                     equipment={Object.values(player.equipment || {})}
                                     skills={player.skills}
                                     selectedMethod={activeMinigameMethod || undefined}
-                                    onComplete={(score) => handleAction({ type: activeMinigame, performance: score, method: activeMinigameMethod })}
-                                    onCancel={() => { setActiveMinigame(null); setActiveMinigameMethod(null); }}
+                                    onComplete={(score) => handleAction({ ...(activeMinigameAction || {}), type: activeMinigame, performance: score, method: activeMinigameMethod })}
+                                    onCancel={() => { setActiveMinigame(null); setActiveMinigameAction(null); setActiveMinigameMethod(null); }}
+
                                     currentSeason={(room.world?.season || 'Spring') as any}
                                     currentWeather={(room.world?.weather || 'Clear') as any}
                                 />

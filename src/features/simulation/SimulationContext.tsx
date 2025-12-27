@@ -1,8 +1,9 @@
-import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import React, { createContext, useContext, useState, type ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
 
 type TabType = 'MAP' | 'VILLAGE' | 'INVENTORY' | 'MARKET' | 'UPGRADES' | 'SKILLS' | 'DIPLOMACY' | 'HIERARCHY' | 'PROFILE';
-type MinigameType = 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | null;
+type MinigameType = 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE' | null;
+
 
 interface SimulationContextType {
     activeTab: TabType;
@@ -15,9 +16,12 @@ interface SimulationContextType {
     setActiveMinigame: (game: MinigameType) => void;
     activeMinigameMethod: string | null;
     setActiveMinigameMethod: (method: string | null) => void;
+    activeMinigameAction: any | null;
+    setActiveMinigameAction: (action: any | null) => void;
     actionLoading: string | null;
     setActionLoading: (action: string | null) => void;
 }
+
 
 const SimulationContext = createContext<SimulationContextType | undefined>(undefined);
 
@@ -39,9 +43,11 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
     const [activeTab, setActiveTabState] = useState<TabType>(() => getTabFromUrl(tab));
 
     const [viewMode, setViewMode] = useState<string>('global');
+
     const [isMarketOpen, setMarketOpen] = useState(false);
     const [activeMinigame, setActiveMinigame] = useState<MinigameType>(null);
     const [activeMinigameMethod, setActiveMinigameMethod] = useState<string | null>(null);
+    const [activeMinigameAction, setActiveMinigameAction] = useState<any | null>(null);
     const [actionLoading, setActionLoading] = useState<string | null>(null);
 
     // Custom setter that updates state + silently updates URL
@@ -73,6 +79,8 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
             setActiveMinigame,
             activeMinigameMethod,
             setActiveMinigameMethod,
+            activeMinigameAction,
+            setActiveMinigameAction,
             actionLoading,
             setActionLoading
         }}>
@@ -80,6 +88,7 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
         </SimulationContext.Provider>
     );
 };
+
 
 export const useSimulation = () => {
     const context = useContext(SimulationContext);
