@@ -1,6 +1,14 @@
 // Types definition for Simulation
 export type Role = 'KING' | 'BARON' | 'PEASANT' | 'SOLDIER' | 'MERCHANT';
 
+export type SkillType = 'FARMING' | 'WOODCUTTING' | 'MINING' | 'CRAFTING' | 'STEWARDSHIP' | 'COMBAT' | 'TRADING' | 'THEOLOGY';
+
+export interface SkillData {
+    level: number;
+    xp: number;
+    maxXp: number;
+}
+
 export type ResourceType = 'gold' | 'grain' | 'wood' | 'iron' | 'manpower';
 
 export interface Resources {
@@ -23,14 +31,26 @@ export interface Resources {
     cloth: number;
 }
 
+export type EquipmentSlot = 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET' | 'TRINKET';
+
+export interface ItemStats {
+    yieldBonus?: number;
+    speedBonus?: number; // 1.0 is base, 1.1 is 10% faster
+    luckBonus?: number; // 0-100%
+    defense?: number;
+    attack?: number;
+}
+
 export interface EquipmentItem {
     id: string;
     name: string;
     icon: string;
-    type: 'WEAPON' | 'ARMOR' | 'TOOL' | 'HEAD' | 'BODY';
+    type: EquipmentSlot;
+    description?: string;
+    stats?: ItemStats;
     durability: number;
     maxDurability: number;
-    level: number;
+    level: number; // Item level requirement or tier
 }
 
 export interface PlayerStats {
@@ -84,7 +104,8 @@ export interface SimulationPlayer {
     stats: PlayerStats;
     status: PlayerStatus;
     upgrades: string[]; // List of IDs of purchased upgrades
-    equipment: Record<string, EquipmentItem>; // Keyed by slot (e.g., 'weapon', 'armor')
+    skills: Record<SkillType, SkillData>;
+    equipment: Partial<Record<EquipmentSlot, EquipmentItem>>;
     achievements?: Achievement[];
     quests?: Quest[];
     history?: string[];
@@ -204,4 +225,26 @@ export interface SimulationEvent {
     payload: any;
     timestamp: number;
     expiresAt: number;
+}
+
+export interface ActionResult {
+    success: boolean;
+    timestamp: number;
+    message: string;
+    yields: {
+        resource: string;
+        amount: number;
+        bonus?: boolean;
+    }[];
+    xp: {
+        skill: string;
+        amount: number;
+        levelUp?: boolean;
+    }[];
+    durability: {
+        slot: string;
+        item: string;
+        amount: number;
+        broken?: boolean;
+    }[];
 }

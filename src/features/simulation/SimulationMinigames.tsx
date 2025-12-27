@@ -1,15 +1,46 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { getActionCostString } from './utils/actionUtils';
+import { getActionCostString, getActionEquipment } from './utils/actionUtils';
 import { SEASONS, WEATHER } from './constants';
+import type { EquipmentItem } from './simulationTypes';
 
 interface MinigameProps {
     type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE';
     onComplete: (score: number) => void;
     onCancel: () => void;
     playerUpgrades?: string[];
+    equipment?: EquipmentItem[];
+    selectedMethod?: string; // New prop to skip selection
     currentSeason?: keyof typeof SEASONS;
     currentWeather?: keyof typeof WEATHER;
 }
+
+export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon: string, desc: string }[]> = {
+    WORK: [
+        { id: 'rhythm', label: 'Rytme', icon: '🌾', desc: 'Trykk i takt med svingene.' },
+        { id: 'sweep', label: 'Feiing', icon: '🧹', desc: 'Følg sirkelen med musa.' }
+    ],
+    MINE: [
+        { id: 'rhythm', label: 'Rytme', icon: '⛏️', desc: 'Sikt deg inn på de rike årene.' }
+    ],
+    QUARRY: [
+        { id: 'rhythm', label: 'Rytme', icon: '🪨', desc: 'Presisjonshugging.' }
+    ],
+    CHOP: [
+        { id: 'target', label: 'Presisjon (Klassisk)', icon: '🎯', desc: 'Klikk på hoggepunktene.' },
+        { id: 'saw', label: 'Saging', icon: '🪚', desc: 'Dra saga frem og tilbake.' }
+    ],
+    CRAFT: [
+        { id: 'rhythm', label: 'Smiing', icon: '⚒️', desc: 'Slå mens jernet er varmt.' }
+    ],
+    MILL: [{ id: 'balance', label: 'Balanse', icon: '🎡', desc: 'Hold kverna i gang.' }],
+    DEFEND: [{ id: 'combat', label: 'Kamp', icon: '⚔️', desc: 'Forsvar baroniet.' }],
+    PATROL: [{ id: 'patrol', label: 'Patrulje', icon: '🛡️', desc: 'Vokt grensene.' }],
+    EXPLORE: [{ id: 'quest', label: 'Oppdrag', icon: '🧭', desc: 'Utforsk det ukjente.' }],
+    FORAGE: [
+        { id: 'berries', label: 'Bærplukking', icon: '🍓', desc: 'Sank bær og sopp.' },
+        { id: 'traps', label: 'Snarefiske', icon: '🎣', desc: 'Sjekk fellene dine.' }
+    ]
+};
 
 /* --- VISUAL FEEDBACK HELPERS --- */
 const FloatingText: React.FC<{ text: string, color?: string, x?: number, y?: number, onComplete: () => void }> = ({ text, color = 'text-amber-500', x = 50, y = 50, onComplete }) => {
@@ -50,42 +81,18 @@ const ParticleEffect: React.FC<{ x: number, y: number, color?: string }> = ({ x,
 };
 /* ------------------------------- */
 
-export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, playerUpgrades, currentSeason = 'Spring', currentWeather = 'Clear' }) => {
-    const [method, setMethod] = useState<string | null>(null);
+export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, playerUpgrades, equipment = [], selectedMethod, currentSeason = 'Spring', currentWeather = 'Clear' }) => {
+    const [method, setMethod] = useState<string | null>(selectedMethod || null);
 
-    const methods: Record<string, { id: string, label: string, icon: string, desc: string }[]> = {
-        WORK: [
-            { id: 'rhythm', label: 'Rytme', icon: '🌾', desc: 'Trykk i takt med svingene.' },
-            { id: 'sweep', label: 'Feiing', icon: '🧹', desc: 'Følg sirkelen med musa.' }
-        ],
-        MINE: [
-            { id: 'rhythm', label: 'Rytme', icon: '⛏️', desc: 'Sikt deg inn på de rike årene.' }
-        ],
-        QUARRY: [
-            { id: 'rhythm', label: 'Rytme', icon: '🪨', desc: 'Presisjonshugging.' }
-        ],
-        CHOP: [
-            { id: 'target', label: 'Presisjon (Klassisk)', icon: '🎯', desc: 'Klikk på hoggepunktene.' },
-            { id: 'saw', label: 'Saging', icon: '🪚', desc: 'Dra saga frem og tilbake.' }
-        ],
-        CRAFT: [
-            { id: 'rhythm', label: 'Smiing', icon: '⚒️', desc: 'Slå mens jernet er varmt.' }
-        ],
-        MILL: [{ id: 'balance', label: 'Balanse', icon: '🎡', desc: 'Hold kverna i gang.' }],
-        DEFEND: [{ id: 'combat', label: 'Kamp', icon: '⚔️', desc: 'Forsvar baroniet.' }],
-        PATROL: [{ id: 'patrol', label: 'Patrulje', icon: '🛡️', desc: 'Vokt grensene.' }],
-        EXPLORE: [{ id: 'quest', label: 'Oppdrag', icon: '🧭', desc: 'Utforsk det ukjente.' }],
-        FORAGE: [
-            { id: 'berries', label: 'Bærplukking', icon: '🍓', desc: 'Sank bær og sopp.' },
-            { id: 'traps', label: 'Snarefiske', icon: '🎣', desc: 'Sjekk fellene dine.' }
-        ]
-    };
-
-    const currentMethods = methods[type] || [];
+    const currentMethods = MINIGAME_VARIANTS[type] || [];
 
     useEffect(() => {
-        if (currentMethods.length === 1) setMethod(currentMethods[0].id);
-    }, [type]);
+        if (selectedMethod) {
+            setMethod(selectedMethod);
+        } else if (currentMethods.length === 1 && !method) {
+            setMethod(currentMethods[0].id);
+        }
+    }, [type, selectedMethod]);
 
     const getSelectionBackground = () => {
         switch (type) {
@@ -98,6 +105,14 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
             default: return '/images/minigames/quest_bg.png';
         }
     };
+
+    // Calculate speed bonus from relevant equipment
+    const actionEquipment = equipment.filter(item => {
+        // Simplified check: if it's a tool/weapon relevant to the action, use its stats
+        // For now use raw stats from whatever is passed
+        return true;
+    });
+    const speedMultiplier = actionEquipment.reduce((acc, item) => acc * (item.stats?.speedBonus || 1.0), 1.0);
 
     return (
         <div className="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-2xl flex items-center justify-center p-4">
@@ -127,8 +142,26 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                         </div>
                                     );
                                 }
-                                return <div className="mb-10" />;
+                                return null;
                             })()}
+
+                            {/* EQUIPMENT DISPLAY */}
+                            {actionEquipment.length > 0 && (
+                                <div className="mb-10 flex flex-wrap justify-center gap-4">
+                                    {actionEquipment.map((item) => (
+                                        <div key={item.id} className="flex items-center gap-3 px-5 py-3 bg-indigo-500/10 border border-indigo-500/30 rounded-2xl backdrop-blur-md shadow-lg animate-in slide-in-from-bottom-2">
+                                            <span className="text-2xl">{item.icon}</span>
+                                            <div className="flex flex-col items-start">
+                                                <span className="text-xs font-black text-indigo-300 uppercase tracking-widest leading-none mb-1">{item.name}</span>
+                                                <div className="flex gap-2">
+                                                    {(item.stats?.yieldBonus || 0) > 0 && <span className="text-[10px] font-bold text-emerald-400">+{item.stats?.yieldBonus} Utbytte</span>}
+                                                    {(item.stats?.speedBonus || 0) > 1 && <span className="text-[10px] font-bold text-blue-400">+{Math.round(((item.stats?.speedBonus || 1) - 1) * 100)}% Fart</span>}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
 
                             <div className="grid grid-cols-1 gap-4 w-full">
                                 {currentMethods.map(m => (
@@ -155,13 +188,13 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                 ) : (
                     <>
                         {type === 'WORK' || type === 'MINE' || type === 'QUARRY' || type === 'FORAGE' ? (
-                            method === 'sweep' ? <ScytheSweepGame onComplete={onComplete} /> :
-                                method === 'traps' ? <TrappingGame onComplete={onComplete} /> :
-                                    <HarvestingGame onComplete={onComplete} isMining={type === 'MINE'} isQuarrying={type === 'QUARRY'} isForaging={type === 'FORAGE'} />
+                            method === 'sweep' ? <ScytheSweepGame onComplete={onComplete} speedMultiplier={speedMultiplier} /> :
+                                method === 'traps' ? <TrappingGame onComplete={onComplete} speedMultiplier={speedMultiplier} /> :
+                                    <HarvestingGame onComplete={onComplete} isMining={type === 'MINE'} isQuarrying={type === 'QUARRY'} isForaging={type === 'FORAGE'} speedMultiplier={speedMultiplier} />
                         ) : type === 'CHOP' ? (
-                            method === 'saw' ? <SawingGame onComplete={onComplete} /> : <WoodcuttingGame onComplete={onComplete} />
+                            method === 'saw' ? <SawingGame onComplete={onComplete} speedMultiplier={speedMultiplier} /> : <WoodcuttingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />
                         ) : type === 'CRAFT' ? (
-                            <CraftingGame onComplete={onComplete} />
+                            <CraftingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />
                         ) : type === 'MILL' ? (
                             <MillingGame onComplete={onComplete} />
                         ) : type === 'DEFEND' ? (
@@ -175,12 +208,12 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                 )}
                 <MinigameStyles />
             </div>
-        </div>
+        </div >
     );
 };
 
 /* --- HARVESTING MINIGAME (Rhythm Timing) --- */
-const HarvestingGame: React.FC<{ onComplete: (score: number) => void, isMining?: boolean, isQuarrying?: boolean, isForaging?: boolean }> = ({ onComplete, isMining, isQuarrying, isForaging }) => {
+const HarvestingGame: React.FC<{ onComplete: (score: number) => void, isMining?: boolean, isQuarrying?: boolean, isForaging?: boolean, speedMultiplier?: number }> = ({ onComplete, isMining, isQuarrying, isForaging, speedMultiplier = 1.0 }) => {
     const [pointerPos, setPointerPos] = useState(0);
     const [strikes, setStrikes] = useState<number[]>([]);
     const [isFinished, setIsFinished] = useState(false);
@@ -192,7 +225,13 @@ const HarvestingGame: React.FC<{ onComplete: (score: number) => void, isMining?:
         if (strikes.length >= 5 || isFinished) return;
         const interval = setInterval(() => {
             setPointerPos(prev => {
-                let next = prev + (2 * dirRef.current);
+                // Base speed is 2. Multiplier < 1 means SLOWER (easier), > 1 means FASTER (harder but faster completion? No, this is skill check)
+                // Actually, "Speed Bonus" usually means "Work Faster", implying easier/faster resource gain. 
+                // For a rhythm game, "Faster" cursor might be harder.
+                // Let's interpret "Speed Bonus" as "Wider Success Zone" OR "Slower Cursor".
+                // Let's go with Slower Cursor for precision tools.
+                let speed = 2 / speedMultiplier;
+                let next = prev + (speed * dirRef.current);
                 if (next > 100) { dirRef.current = -1; return 100; }
                 if (next < 0) { dirRef.current = 1; return 0; }
                 return next;
@@ -241,7 +280,7 @@ const HarvestingGame: React.FC<{ onComplete: (score: number) => void, isMining?:
 };
 
 /* --- TRAPPING GAME --- */
-const TrappingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+const TrappingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
     const [pos, setPos] = useState(0);
     const [captured, setCaptured] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
@@ -252,7 +291,8 @@ const TrappingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCom
         if (isFinished) return;
         const interval = setInterval(() => {
             setPos(p => {
-                let next = p + (3 * dir);
+                let speed = 3 / speedMultiplier; // Slower is easier
+                let next = p + (speed * dir);
                 if (next > 100) { setDir(-1); return 100; }
                 if (next < 0) { setDir(1); return 0; }
                 return next;
@@ -296,7 +336,7 @@ const TrappingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCom
 };
 
 /* --- SCYTHE SWEEP VARIANT --- */
-const ScytheSweepGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+const ScytheSweepGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
     const [progress, setProgress] = useState(0);
     const [swings, setSwings] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
@@ -305,7 +345,7 @@ const ScytheSweepGame: React.FC<{ onComplete: (score: number) => void }> = ({ on
     const handleMove = () => {
         if (isFinished) return;
         setProgress(p => {
-            const next = p + 2;
+            const next = p + (2 * speedMultiplier); // Faster progress per pixel moved
             if (next >= 100) {
                 setSwings(s => {
                     if (s + 1 >= 5) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
@@ -336,7 +376,7 @@ const ScytheSweepGame: React.FC<{ onComplete: (score: number) => void }> = ({ on
 };
 
 /* --- WOODCUTTING CLASSIC --- */
-const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
     const [target, setTarget] = useState({ x: 50, y: 50 });
     const [hits, setHits] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
@@ -365,7 +405,7 @@ const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void }> = ({ on
 };
 
 /* --- SAWING VARIANT --- */
-const SawingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+const SawingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
     const [pos, setPos] = useState(50);
     const [strokes, setStrokes] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
@@ -377,9 +417,17 @@ const SawingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCompl
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         setPos(x);
         if ((lastPos.current < 30 && x > 70) || (lastPos.current > 70 && x < 30)) {
+            // Speed Bonus makes you complete strokes faster/easier? Or requires FEWER strokes?
+            // Let's say fewer strokes needed if multiplier is high? Or just consistent behavior.
+            // Let's stick to standard behavior for Sawing, maybe bonus score?
             setStrokes(s => {
-                if (s + 1 >= 10) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
-                return s + 1;
+                let increment = 1;
+                // Chance for double stroke count with high speed
+                if (Math.random() < (speedMultiplier - 1.0)) increment = 2;
+
+                let newS = s + increment;
+                if (newS >= 10) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
+                return newS;
             });
             lastPos.current = x;
         }
@@ -400,7 +448,7 @@ const SawingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCompl
 };
 
 /* --- CRAFTING GAME --- */
-const CraftingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+const CraftingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
     const [nodes, setNodes] = useState<{ id: number, pos: number }[]>([]);
     const [hits, setHits] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
@@ -411,7 +459,7 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCom
             if (hits < 10) setNodes(n => [...n, { id: Date.now(), pos: 0 }]);
         }, 1500);
         const move = setInterval(() => {
-            setNodes(n => n.map(node => ({ ...node, pos: node.pos + 2 })).filter(node => node.pos < 110));
+            setNodes(n => n.map(node => ({ ...node, pos: node.pos + (2 / speedMultiplier) })).filter(node => node.pos < 110)); // Slower nodes = easier
         }, 32);
         return () => { clearInterval(spawn); clearInterval(move); };
     }, [hits, isFinished]);

@@ -13,6 +13,8 @@ interface SimulationContextType {
     setMarketOpen: (isOpen: boolean) => void;
     activeMinigame: MinigameType;
     setActiveMinigame: (game: MinigameType) => void;
+    activeMinigameMethod: string | null;
+    setActiveMinigameMethod: (method: string | null) => void;
     actionLoading: string | null;
     setActionLoading: (action: string | null) => void;
 }
@@ -39,6 +41,7 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
     const [viewMode, setViewMode] = useState<string>('global');
     const [isMarketOpen, setMarketOpen] = useState(false);
     const [activeMinigame, setActiveMinigame] = useState<MinigameType>(null);
+    const [activeMinigameMethod, setActiveMinigameMethod] = useState<string | null>(null);
     const [actionLoading, setActionLoading] = useState<string | null>(null);
 
     // Custom setter that updates state + silently updates URL
@@ -68,6 +71,8 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
             setMarketOpen: handleSetMarketOpen,
             activeMinigame,
             setActiveMinigame,
+            activeMinigameMethod,
+            setActiveMinigameMethod,
             actionLoading,
             setActionLoading
         }}>

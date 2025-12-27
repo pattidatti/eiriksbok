@@ -1,4 +1,4 @@
-import type { Resources, Role, SimulationMarket, PlayerUpgrade } from './simulationTypes';
+import type { Resources, Role, SimulationMarket, PlayerUpgrade, SkillType, SkillData, EquipmentItem, EquipmentSlot } from './simulationTypes';
 
 export const INITIAL_MARKET: SimulationMarket = {
     grain: { price: 10, stock: 500, demand: 1.0 },
@@ -301,5 +301,90 @@ export const GAME_BALANCE = {
     }
 };
 
+export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
+    PEASANT: {
+        FARMING: { level: 1, xp: 0, maxXp: 100 },
+        WOODCUTTING: { level: 1, xp: 0, maxXp: 100 },
+        MINING: { level: 0, xp: 0, maxXp: 100 },
+        CRAFTING: { level: 0, xp: 0, maxXp: 100 },
+        STEWARDSHIP: { level: 0, xp: 0, maxXp: 100 },
+        COMBAT: { level: 0, xp: 0, maxXp: 100 },
+        TRADING: { level: 0, xp: 0, maxXp: 100 }
+    },
+    BARON: {
+        FARMING: { level: 3, xp: 0, maxXp: 300 },
+        WOODCUTTING: { level: 3, xp: 0, maxXp: 300 },
+        MINING: { level: 1, xp: 0, maxXp: 100 },
+        CRAFTING: { level: 1, xp: 0, maxXp: 100 },
+        STEWARDSHIP: { level: 5, xp: 0, maxXp: 1000 },
+        COMBAT: { level: 3, xp: 0, maxXp: 300 },
+        TRADING: { level: 3, xp: 0, maxXp: 300 }
+    },
+    KING: {
+        FARMING: { level: 1, xp: 0, maxXp: 100 },
+        WOODCUTTING: { level: 1, xp: 0, maxXp: 100 },
+        MINING: { level: 1, xp: 0, maxXp: 100 },
+        CRAFTING: { level: 1, xp: 0, maxXp: 100 },
+        STEWARDSHIP: { level: 10, xp: 0, maxXp: 5000 },
+        COMBAT: { level: 5, xp: 0, maxXp: 1500 },
+        TRADING: { level: 5, xp: 0, maxXp: 1500 }
+    },
+    SOLDIER: {
+        FARMING: { level: 1, xp: 0, maxXp: 100 },
+        WOODCUTTING: { level: 1, xp: 0, maxXp: 100 },
+        MINING: { level: 0, xp: 0, maxXp: 100 },
+        CRAFTING: { level: 1, xp: 0, maxXp: 100 },
+        STEWARDSHIP: { level: 0, xp: 0, maxXp: 100 },
+        COMBAT: { level: 5, xp: 0, maxXp: 1500 },
+        TRADING: { level: 0, xp: 0, maxXp: 100 }
+    },
+    MERCHANT: {
+        FARMING: { level: 1, xp: 0, maxXp: 100 },
+        WOODCUTTING: { level: 1, xp: 0, maxXp: 100 },
+        MINING: { level: 0, xp: 0, maxXp: 100 },
+        CRAFTING: { level: 2, xp: 0, maxXp: 200 },
+        STEWARDSHIP: { level: 1, xp: 0, maxXp: 100 },
+        COMBAT: { level: 0, xp: 0, maxXp: 100 },
+        TRADING: { level: 5, xp: 0, maxXp: 1500 }
+    }
+};
 
+export const INITIAL_EQUIPMENT: Record<Role, Partial<Record<EquipmentSlot, EquipmentItem>>> = {
+    PEASANT: {
+        MAIN_HAND: { id: 'rusty_axe', name: 'Rusten Øks', icon: '🪓', type: 'MAIN_HAND', durability: 50, maxDurability: 50, level: 1, stats: { yieldBonus: 0 } },
+        BODY: { id: 'tunic', name: 'Slitt Tunika', icon: '👕', type: 'BODY', durability: 20, maxDurability: 20, level: 1, stats: { defense: 1 } }
+    },
+    BARON: {
+        MAIN_HAND: { id: 'iron_sword', name: 'Jernsverd', icon: '⚔️', type: 'MAIN_HAND', durability: 100, maxDurability: 100, level: 5, stats: { attack: 10 } },
+        BODY: { id: 'fine_clothes', name: 'Fie Klær', icon: '👘', type: 'BODY', durability: 50, maxDurability: 50, level: 5, stats: { defense: 2, speedBonus: 1.1 } }
+    },
+    KING: {
+        MAIN_HAND: { id: 'royal_scepter', name: 'Kongens Septer', icon: '👑', type: 'MAIN_HAND', durability: 200, maxDurability: 200, level: 10, stats: { luckBonus: 0.2 } },
+        HEAD: { id: 'crown', name: 'Krone', icon: '👑', type: 'HEAD', durability: 100, maxDurability: 100, level: 10, stats: { luckBonus: 0.1 } }
+    },
+    SOLDIER: {
+        MAIN_HAND: { id: 'iron_sword', name: 'Jernsverd', icon: '⚔️', type: 'MAIN_HAND', durability: 100, maxDurability: 100, level: 3, stats: { attack: 8 } },
+        OFF_HAND: { id: 'wooden_shield', name: 'Treskjold', icon: '🛡️', type: 'OFF_HAND', durability: 50, maxDurability: 50, level: 2, stats: { defense: 5 } },
+        BODY: { id: 'leather_armor', name: 'Lærrustning', icon: '🧥', type: 'BODY', durability: 80, maxDurability: 80, level: 2, stats: { defense: 5 } }
+    },
+    MERCHANT: {
+        MAIN_HAND: { id: 'walking_stick', name: 'Vandrestav', icon: '🦯', type: 'MAIN_HAND', durability: 50, maxDurability: 50, level: 2, stats: { speedBonus: 1.05 } },
+        TRINKET: { id: 'abacus', name: 'Kuleramme', icon: '🧮', type: 'TRINKET', durability: 100, maxDurability: 100, level: 3, stats: { yieldBonus: 2 } }
+    }
+};
 
+export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
+    // Tools
+    rusty_axe: { id: 'rusty_axe', name: 'Rusten Øks', icon: '🪓', type: 'MAIN_HAND', durability: 50, maxDurability: 50, level: 1, stats: { yieldBonus: 0 } },
+    iron_axe: { id: 'iron_axe', name: 'Jernøks', icon: '🪓', type: 'MAIN_HAND', durability: 100, maxDurability: 100, level: 3, stats: { yieldBonus: 3 } },
+    steel_hja: { id: 'steel_hja', name: 'Stålhjå', icon: '🌾', type: 'MAIN_HAND', durability: 120, maxDurability: 120, level: 4, stats: { yieldBonus: 5, speedBonus: 1.1 } }, // High yield farming tool
+    iron_pickaxe: { id: 'iron_pickaxe', name: 'Jernhakke', icon: '⛏️', type: 'MAIN_HAND', durability: 100, maxDurability: 100, level: 3, stats: { yieldBonus: 3 } },
+    blacksmith_hammer: { id: 'blacksmith_hammer', name: 'Smedhammer', icon: '🔨', type: 'MAIN_HAND', durability: 200, maxDurability: 200, level: 5, stats: { speedBonus: 1.2 } },
+
+    // Armor / Clothing
+    tunic: { id: 'tunic', name: 'Slitt Tunika', icon: '👕', type: 'BODY', durability: 20, maxDurability: 20, level: 1, stats: { defense: 1 } },
+    leather_armor: { id: 'leather_armor', name: 'Lærrustning', icon: '🧥', type: 'BODY', durability: 80, maxDurability: 80, level: 3, stats: { defense: 5 } },
+
+    // Offhand
+    whetstone: { id: 'whetstone', name: 'Bryne', icon: '🪨', type: 'OFF_HAND', durability: 10, maxDurability: 10, level: 1, stats: { yieldBonus: 1 } }
+};

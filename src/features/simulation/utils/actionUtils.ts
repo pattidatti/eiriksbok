@@ -1,10 +1,31 @@
-import type { SimulationPlayer, Role, EquipmentItem } from '../simulationTypes';
+import type { SimulationPlayer, Role, EquipmentItem, EquipmentSlot } from '../simulationTypes';
 import { ACTION_COSTS, SEASONS, WEATHER, GAME_BALANCE } from '../constants';
 
 interface ValidationResult {
     success: boolean;
     reason?: string;
 }
+
+export const ACTION_EQUIPMENT_MAP: Record<string, EquipmentSlot[]> = {
+    'CHOP': ['MAIN_HAND'],
+    'MINE': ['MAIN_HAND'],
+    'QUARRY': ['MAIN_HAND'],
+    'WORK': ['MAIN_HAND'],
+    'RAID': ['MAIN_HAND', 'OFF_HAND', 'BODY', 'HEAD', 'FEET'], // Combat uses all
+    'DEFEND': ['MAIN_HAND', 'OFF_HAND', 'BODY', 'HEAD', 'FEET'],
+    'PATROL': ['MAIN_HAND', 'OFF_HAND', 'BODY'],
+    // Crafting might use main hand tools if we define them, e.g. Hammer
+    'CRAFT': ['MAIN_HAND']
+};
+
+export const getActionEquipment = (player: SimulationPlayer, actionId: string): EquipmentItem[] => {
+    const slots = ACTION_EQUIPMENT_MAP[actionId];
+    if (!slots || !player.equipment) return [];
+
+    return slots
+        .map(slot => player.equipment?.[slot])
+        .filter((item): item is EquipmentItem => !!item);
+};
 
 export const checkActionRequirements = (
     player: SimulationPlayer,
@@ -16,23 +37,10 @@ export const checkActionRequirements = (
     // Removed strict role check here as UI handles visibility usually.
 
     // 2. Durability Check
-    // Map actions to equipment slots
-    const actionEquipmentMap: Record<string, string> = {
-        'CHOP': 'tools',
-        'MINE': 'tools',
-        'QUARRY': 'tools',
-        'WORK': 'tools',
-        'RAID': 'weapon', // Also armor on hit
-        'DEFEND': 'weapon',
-        'PATROL': 'weapon'
-    };
-
-    const requiredEquipment = actionEquipmentMap[actionId];
-    if (requiredEquipment && player.equipment) {
-        // Safe access in case equipment is partial
-        const item = (player.equipment as any)[requiredEquipment] as EquipmentItem | undefined;
-        if (item && item.durability <= 0) {
-            return { success: false, reason: `Ødelagt ${requiredEquipment === 'tools' ? 'Verktøy' : 'Våpen'}` };
+    const equipment = getActionEquipment(player, actionId);
+    for (const item of equipment) {
+        if (item.durability <= 0) {
+            return { success: false, reason: `Ødelagt: ${item.name}` };
         }
     }
 

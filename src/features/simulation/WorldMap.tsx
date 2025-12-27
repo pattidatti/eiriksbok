@@ -4,7 +4,8 @@ import { VILLAGE_BUILDINGS } from './constants';
 import { TAVERN_NPCS } from './TavernData';
 import type { TavernNPC } from './TavernData';
 import { TavernDiceGame } from './TavernDiceGame';
-import { checkActionRequirements, getActionCostString } from './utils/actionUtils';
+import { MINIGAME_VARIANTS } from './SimulationMinigames';
+import { checkActionRequirements, getActionCostString, getActionEquipment } from './utils/actionUtils';
 
 interface POI {
     id: string;
@@ -535,12 +536,6 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                                 onClick={() => {
                                     if (poi.isHub) {
                                         setViewMode(poi.id);
-                                    } else if (isResourceNode) {
-                                        if (poi.actions.length === 1) {
-                                            handlePOIAction(poi.id, poi.actions[0].id);
-                                        } else {
-                                            setSelectedPOI(poi);
-                                        }
                                     } else {
                                         setSelectedPOI(poi);
                                     }
@@ -592,18 +587,19 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                         <div
                             style={{
                                 top: (viewingRegionId === 'region_ost' && selectedPOI.ost ? selectedPOI.ost.top : selectedPOI.top),
-                                left: (viewingRegionId === 'region_ost' && selectedPOI.ost ? selectedPOI.ost.left : selectedPOI.left)
+                                left: (viewingRegionId === 'region_ost' && selectedPOI.ost ? selectedPOI.ost.left : selectedPOI.left),
+                                transform: `translate(${parseFloat(selectedPOI.left) > 80 ? '-95%' : parseFloat(selectedPOI.left) < 20 ? '-5%' : '-50%'}, ${parseFloat(selectedPOI.top) < 25 ? '3rem' : 'calc(-100% - 1rem)'})`
                             }}
-                            className={`absolute z-[100] -translate-x-1/2 ${parseFloat(selectedPOI.top) < 25 ? 'translate-y-[3rem]' : '-translate-y-[calc(100%+3.5rem)]'} animate-in fade-in zoom-in duration-200 pointer-events-auto`}
+                            className="absolute z-[100] animate-in fade-in zoom-in duration-200 pointer-events-auto"
                         >
-                            <div className="bg-slate-900/98 backdrop-blur-3xl border border-white/20 rounded-[1.8rem] p-6 shadow-[0_25px_60px_rgba(0,0,0,0.6)] min-w-[280px] w-max max-w-[340px] relative">
+                            <div className="bg-slate-900/98 backdrop-blur-3xl border border-white/20 rounded-[1.8rem] p-4 shadow-[0_25px_60px_rgba(0,0,0,0.6)] min-w-[260px] w-max max-w-[320px] relative">
                                 {/* Header */}
-                                <div className="flex items-center justify-between mb-5 pb-4 border-b border-white/10">
-                                    <div className="flex items-center gap-4">
+                                <div className="flex items-center justify-between mb-3 pb-3 border-b border-white/10">
+                                    <div className="flex items-center gap-3">
                                         <span className="text-3xl drop-shadow-md">{selectedPOI.icon}</span>
-                                        <h3 className="font-black text-white text-[11px] uppercase tracking-[0.25em] leading-tight opacity-90">{selectedPOI.label}</h3>
+                                        <h3 className="font-black text-white text-sm uppercase tracking-[0.15em] leading-tight opacity-90">{selectedPOI.label}</h3>
                                     </div>
-                                    <button onClick={() => setSelectedPOI(null)} className="text-white/40 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full w-8 h-8 flex items-center justify-center">✕</button>
+                                    <button onClick={() => setSelectedPOI(null)} className="text-white/40 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full w-7 h-7 flex items-center justify-center">✕</button>
                                 </div>
 
                                 {/* Actions */}
@@ -649,23 +645,97 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
                                             const costLabel = getActionCostString(action.id, currentSeason, currentWeather) || action.cost;
 
+                                            const equipment = getActionEquipment(player, action.id);
+                                            const variants = MINIGAME_VARIANTS[action.id];
+
                                             return (
-                                                <button
-                                                    key={action.id}
-                                                    onClick={() => handlePOIAction(selectedPOI.id, action.id)}
-                                                    disabled={!canAfford}
-                                                    className={`group flex justify-between items-center w-full px-5 py-4 rounded-2xl border transition-all text-left gap-4 ${canAfford ? 'bg-white/5 hover:bg-indigo-600/90 border-white/5 shadow-sm active:scale-[0.98]' : 'bg-black/20 border-white/5 opacity-50 cursor-not-allowed'}`}
-                                                >
-                                                    <div className="flex flex-col flex-1 min-w-0">
-                                                        <span className={`text-sm font-bold transition-transform truncate ${canAfford ? 'text-white' : 'text-slate-400'}`}>{action.label}</span>
-                                                        {!canAfford && <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest mt-1 opacity-90">{missingReason}</span>}
-                                                    </div>
-                                                    {costLabel && (
-                                                        <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-xl border flex-shrink-0 ${canAfford ? 'text-amber-400 bg-amber-500/10 border-amber-500/20 group-hover:text-white group-hover:bg-amber-500/30' : 'text-slate-600 border-white/5'}`}>
-                                                            {costLabel}
-                                                        </span>
+                                                <div key={action.id} className="w-full">
+                                                    {/* Main Action Button (If no variants, or purely as header if variants exist?) 
+                                                        Actually, if variants exist, we DO NOT want a single main button that starts nothing.
+                                                        If variants exist, we show the header/cost/equipment as a block, then the buttons below.
+                                                     */}
+
+                                                    {!variants || variants.length === 0 ? (
+                                                        <button
+                                                            onClick={() => handlePOIAction(selectedPOI.id, action.id)}
+                                                            disabled={!canAfford}
+                                                            className={`group flex flex-col w-full px-4 py-3 rounded-xl border transition-all text-left gap-1.5 ${canAfford ? 'bg-white/5 hover:bg-indigo-600/90 border-white/5 shadow-sm active:scale-[0.98]' : 'bg-black/20 border-white/5 opacity-50 cursor-not-allowed'}`}
+                                                        >
+                                                            <div className="flex justify-between items-center w-full">
+                                                                <div className="flex flex-col min-w-0">
+                                                                    <span className={`text-base font-bold transition-transform truncate ${canAfford ? 'text-white' : 'text-slate-400'}`}>{action.label}</span>
+                                                                    {!canAfford && <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest mt-0.5 opacity-90">{missingReason}</span>}
+                                                                </div>
+                                                                {costLabel && (
+                                                                    <span className={`text-xs font-black uppercase tracking-tight px-2 py-1 rounded-lg border flex-shrink-0 ${canAfford ? 'text-amber-400 bg-amber-500/10 border-amber-500/20 group-hover:text-white group-hover:bg-amber-500/30' : 'text-slate-600 border-white/5'}`}>
+                                                                        {costLabel}
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                            {/* Equipment Info */}
+                                                            {equipment.length > 0 && (
+                                                                <div className="flex flex-wrap gap-2 mt-1 pt-2 border-t border-white/5">
+                                                                    {equipment.map((item) => (
+                                                                        <div key={item.id} className="flex items-center gap-1.5 text-[10px] bg-black/20 px-2 py-1 rounded-lg border border-white/5">
+                                                                            <span>{item.icon}</span>
+                                                                            <span className="text-slate-300 font-bold">{item.name}</span>
+                                                                            {(item.stats?.yieldBonus || 0) > 0 && <span className="text-emerald-400 font-bold">+{item.stats?.yieldBonus} Utbytte</span>}
+                                                                            {(item.stats?.speedBonus || 0) > 1 && <span className="text-blue-400 font-bold">+{Math.round(((item.stats?.speedBonus || 1) - 1) * 100)}% Fart</span>}
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            )}
+                                                        </button>
+                                                    ) : (
+                                                        /* VARIANTS DISPLAY */
+                                                        <div className={`flex flex-col w-full p-3 rounded-xl border gap-2 ${canAfford ? 'bg-slate-950/50 border-white/10' : 'bg-black/20 border-white/5 opacity-50'}`}>
+                                                            {/* Header & Cost */}
+                                                            <div className="flex justify-between items-center w-full border-b border-white/5 pb-2">
+                                                                <div className="flex flex-col min-w-0">
+                                                                    <span className={`text-sm font-bold truncate ${canAfford ? 'text-white' : 'text-slate-500'}`}>{action.label}</span>
+                                                                    {!canAfford && <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest mt-0.5 opacity-90">{missingReason}</span>}
+                                                                </div>
+                                                                {costLabel && (
+                                                                    <span className={`text-xs font-black uppercase tracking-tight px-2 py-1 rounded-lg border flex-shrink-0 ${canAfford ? 'text-amber-400 bg-amber-500/10 border-amber-500/20' : 'text-slate-600 border-white/5'}`}>
+                                                                        {costLabel}
+                                                                    </span>
+                                                                )}
+                                                            </div>
+
+                                                            {/* Equipment Info (Shared) */}
+                                                            {equipment.length > 0 && (
+                                                                <div className="flex flex-wrap gap-2">
+                                                                    {equipment.map((item) => (
+                                                                        <div key={item.id} className="flex items-center gap-1.5 text-[10px] bg-black/20 px-2 py-1 rounded-lg border border-white/5">
+                                                                            <span>{item.icon}</span>
+                                                                            <span className="text-slate-300 font-bold">{item.name}</span>
+                                                                            {(item.stats?.yieldBonus || 0) > 0 && <span className="text-emerald-400 font-bold">+{item.stats?.yieldBonus} Utbytte</span>}
+                                                                            {(item.stats?.speedBonus || 0) > 1 && <span className="text-blue-400 font-bold">+{Math.round(((item.stats?.speedBonus || 1) - 1) * 100)}% Fart</span>}
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            )}
+
+                                                            {/* Variant Buttons */}
+                                                            <div className="grid grid-cols-1 gap-1.5 mt-1">
+                                                                {variants.map(variant => (
+                                                                    <button
+                                                                        key={variant.id}
+                                                                        onClick={() => onAction({ type: action.id, method: variant.id })}
+                                                                        disabled={!canAfford}
+                                                                        className={`flex items-center gap-3 p-2.5 rounded-lg border transition-all text-left group ${canAfford ? 'bg-white/5 hover:bg-indigo-600 border-white/5 hover:border-indigo-400 active:scale-[0.98]' : 'bg-transparent border-transparent cursor-not-allowed'}`}
+                                                                    >
+                                                                        <span className="text-xl opacity-80 group-hover:opacity-100 transition-opacity">{variant.icon}</span>
+                                                                        <div className="flex flex-col">
+                                                                            <span className="font-bold text-sm text-white group-hover:text-white">{variant.label}</span>
+                                                                            <span className="text-[10px] text-slate-400 group-hover:text-indigo-200 leading-none mt-0.5">{variant.desc}</span>
+                                                                        </div>
+                                                                    </button>
+                                                                ))}
+                                                            </div>
+                                                        </div>
                                                     )}
-                                                </button>
+                                                </div>
                                             );
                                         })
                                     }

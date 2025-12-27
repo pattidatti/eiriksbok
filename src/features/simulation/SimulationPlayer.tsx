@@ -4,12 +4,14 @@ import { ref, onValue } from 'firebase/database';
 import { useLayout } from '../../context/LayoutContext';
 
 import { db } from '../../lib/firebase';
-import type { SimulationPlayer as SimulationPlayerType, SimulationRoom } from './simulationTypes';
+import type { SimulationPlayer as SimulationPlayerType, SimulationRoom, ActionResult } from './simulationTypes';
 import { LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS } from './constants';
 
 import { performAction } from './actions';
 import { MinigameOverlay } from './SimulationMinigames';
 import { SimulationProvider, useSimulation } from './SimulationContext';
+
+import { ActionResultOverlay } from './components/ActionResultOverlay';
 
 // Components
 import { SimulationHeader } from './components/SimulationHeader';
@@ -29,12 +31,17 @@ const SimulationGame: React.FC = () => {
     const { pin } = useParams();
     const [searchParams] = useSearchParams();
     const impersonateId = searchParams.get('impersonate');
-    const { activeMinigame, setActiveMinigame, actionLoading, setActionLoading } = useSimulation();
+    const {
+        activeMinigame, setActiveMinigame,
+        activeMinigameMethod, setActiveMinigameMethod,
+        actionLoading, setActionLoading
+    } = useSimulation();
 
     // Data State
     const [player, setPlayer] = useState<SimulationPlayerType | null>(null);
     const [room, setRoom] = useState<SimulationRoom | null>(null);
     const [levelUpData, setLevelUpData] = useState<{ level: number, title: string } | null>(null);
+    const [actionResult, setActionResult] = useState<ActionResult | null>(null);
 
     // Layout Context
     const { setFullWidth } = useLayout();
@@ -154,20 +161,36 @@ const SimulationGame: React.FC = () => {
         if (!pin || !player || actionLoading) return;
 
         const actionType = typeof action === 'string' ? action : action.type;
+        const actionMethod = typeof action === 'object' ? action.method : null;
 
         const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE'];
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
             setActiveMinigame(actionType as any);
+            if (actionMethod) setActiveMinigameMethod(actionMethod);
             return;
         }
 
         setActionLoading(actionType);
         const result = await performAction(pin, player.id, action);
-        if (!result.success) {
-            // Error handled by actions.ts messages
+
+        if (result.data) {
+            setActionResult(result.data);
+        } else if (!result.success) {
+            // Fallback error if no data
+            setActionResult({
+                success: false,
+                timestamp: Date.now(),
+                message: "Handlingen feilet (ukjent feil)",
+                yields: [],
+                xp: [],
+                durability: []
+            });
         }
+
+        setActionLoading(null);
         setActionLoading(null);
         setActiveMinigame(null);
+        setActiveMinigameMethod(null);
     };
 
     if (!player || !room) return <div className="p-8 text-center text-white">Laster data...</div>;
@@ -217,12 +240,15 @@ const SimulationGame: React.FC = () => {
                                 <MinigameOverlay
                                     type={activeMinigame}
                                     playerUpgrades={player.upgrades}
+                                    equipment={Object.values(player.equipment || {})}
+                                    selectedMethod={activeMinigameMethod || undefined}
                                     onComplete={(score) => handleAction({ type: activeMinigame, performance: score })}
-                                    onCancel={() => setActiveMinigame(null)}
+                                    onCancel={() => { setActiveMinigame(null); setActiveMinigameMethod(null); }}
                                     currentSeason={(room.world?.season || 'Spring') as any}
                                     currentWeather={(room.world?.weather || 'Clear') as any}
                                 />
                             )
+
                         }
 
                         {/* FLOATING RESOURCES ANIMATION LAYER */}
@@ -279,6 +305,11 @@ const SimulationGame: React.FC = () => {
                     onClose={() => setLevelUpData(null)}
                 />
             )}
+
+            <ActionResultOverlay
+                result={actionResult}
+                onClear={() => setActionResult(null)}
+            />
         </div>
     );
 };

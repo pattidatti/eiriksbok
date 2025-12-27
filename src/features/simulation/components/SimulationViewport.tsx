@@ -1,7 +1,7 @@
 import React from 'react';
 import { ref, update } from 'firebase/database';
 import { db } from '../../../lib/firebase';
-import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
+import type { SimulationPlayer, SimulationRoom, EquipmentItem } from '../simulationTypes';
 import { RESOURCE_DETAILS, UPGRADES_LIST, ROLE_TITLES } from '../constants';
 import { useSimulation } from '../SimulationContext';
 import { WorldMap } from '../WorldMap';
@@ -322,9 +322,10 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                             </div>
                         ) : activeTab === 'PROFILE' ? (
                             <div className="space-y-8 pb-20 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                {/* PROFILE HEADER */}
                                 <div className="bg-gradient-to-br from-indigo-900/40 to-slate-900/60 p-8 rounded-[3rem] border border-white/10 relative overflow-hidden shadow-2xl">
                                     <div className="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
-                                        <div className="w-32 h-32 bg-slate-800 rounded-3xl flex items-center justify-center text-6xl border-4 border-amber-500/30">
+                                        <div className="w-32 h-32 bg-slate-800 rounded-3xl flex items-center justify-center text-6xl border-4 border-amber-500/30 shadow-2xl">
                                             {player.role === 'KING' ? '👑' : player.role === 'BARON' ? '🏰' : player.role === 'SOLDIER' ? '⚔️' : '🌾'}
                                         </div>
                                         <div className="flex-1">
@@ -339,29 +340,96 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                                         </div>
                                     </div>
                                     <div className="mt-8 pt-8 border-t border-white/5">
+                                        <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">
+                                            <span>Neste Rang</span>
+                                            <span>{Math.floor((player.stats.xp % 100))}%</span>
+                                        </div>
                                         <div className="w-full h-4 bg-black/40 rounded-full overflow-hidden border border-white/5">
-                                            <div className="h-full bg-indigo-600 shadow-[0_0_15px_rgba(99,102,241,0.5)]" style={{ width: `${(player.stats.xp % 100)}%` }}></div>
+                                            <div className="h-full bg-indigo-600 shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-all duration-1000" style={{ width: `${(player.stats.xp % 100)}%` }}></div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                    {/* EQUIPMENT PAPER DOLL */}
                                     <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10">
-                                        <h3 className="text-xl font-black text-white mb-8 tracking-widest uppercase flex items-center gap-3">🛡️ Utstyr</h3>
-                                        <div className="grid grid-cols-2 gap-4">
-                                            {['HEAD', 'BODY', 'WEAPON', 'TOOL'].map(slot => (
-                                                <div key={slot} className="p-4 rounded-3xl border-2 border-white/5 bg-black/20 flex flex-col items-center justify-center min-h-[140px]">
-                                                    <span className="text-3xl opacity-20 grayscale">📦</span>
-                                                    <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest">{slot}</span>
+                                        <h3 className="text-xl font-black text-white mb-8 tracking-widest uppercase flex items-center gap-3">
+                                            <span className="text-2xl">🛡️</span> Utstyr
+                                        </h3>
+
+                                        <div className="relative aspect-square max-w-sm mx-auto bg-black/20 rounded-full border-4 border-white/5 p-8 flex items-center justify-center">
+                                            {/* Human Outline Placeholder */}
+                                            <div className="absolute inset-0 opacity-10 flex items-center justify-center pointer-events-none">
+                                                <div className="w-32 h-64 bg-slate-500/50 rounded-full blur-xl"></div>
+                                            </div>
+
+                                            {/* Slots Positioning Grid */}
+                                            <div className="w-full h-full relative">
+                                                {/* HEAD */}
+                                                <div className="absolute top-0 left-1/2 -translate-x-1/2">
+                                                    <EquipmentSlotItem slot="HEAD" item={player.equipment?.HEAD} />
                                                 </div>
-                                            ))}
+
+                                                {/* BODY */}
+                                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                                    <EquipmentSlotItem slot="BODY" item={player.equipment?.BODY} />
+                                                </div>
+
+                                                {/* MAIN HAND */}
+                                                <div className="absolute top-1/2 left-4 -translate-y-1/2">
+                                                    <EquipmentSlotItem slot="MAIN_HAND" item={player.equipment?.MAIN_HAND} />
+                                                </div>
+
+                                                {/* OFF HAND */}
+                                                <div className="absolute top-1/2 right-4 -translate-y-1/2">
+                                                    <EquipmentSlotItem slot="OFF_HAND" item={player.equipment?.OFF_HAND} />
+                                                </div>
+
+                                                {/* FEET */}
+                                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+                                                    <EquipmentSlotItem slot="FEET" item={player.equipment?.FEET} />
+                                                </div>
+
+                                                {/* TRINKET */}
+                                                <div className="absolute top-8 right-8">
+                                                    <EquipmentSlotItem slot="TRINKET" item={player.equipment?.TRINKET} />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10">
-                                        <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">📜 Krønike</h3>
-                                        <div className="space-y-4">
-                                            {(player.history || []).map((entry, idx) => (
-                                                <div key={idx} className="border-l-2 border-indigo-500/20 pl-4 py-1 text-xs text-slate-300 italic">"{entry}"</div>
-                                            ))}
+
+                                    {/* SKILLS LIST */}
+                                    <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10 flex flex-col">
+                                        <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">
+                                            <span className="text-2xl">🔥</span> Ferdigheter
+                                        </h3>
+                                        <div className="space-y-4 flex-1 overflow-y-auto custom-scrollbar pr-2">
+                                            {player.skills ? Object.entries(player.skills).map(([type, skill]) => (
+                                                <div key={type} className="bg-black/20 p-4 rounded-2xl border border-white/5">
+                                                    <div className="flex justify-between items-center mb-2">
+                                                        <div className="flex items-center gap-3">
+                                                            <span className="text-2xl bg-slate-800 w-10 h-10 flex items-center justify-center rounded-lg border border-white/5 shadow-inner">
+                                                                {type === 'FARMING' ? '🌾' : type === 'WOODCUTTING' ? '🪓' : type === 'MINING' ? '⛏️' : type === 'CRAFTING' ? '⚒️' : type === 'COMBAT' ? '⚔️' : type === 'STEWARDSHIP' ? '📜' : '💰'}
+                                                            </span>
+                                                            <div>
+                                                                <div className="font-bold text-slate-200 text-sm">{type}</div>
+                                                                <div className="text-[10px] uppercase text-slate-500 font-black tracking-widest">Nivå {skill.level}</div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="text-right">
+                                                            <div className="text-xs font-mono text-indigo-400 font-bold">{skill.xp} / {skill.maxXp} XP</div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                                        <div
+                                                            className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
+                                                            style={{ width: `${Math.min(100, (skill.xp / skill.maxXp) * 100)}%` }}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            )) : (
+                                                <div className="text-center text-slate-500 italic py-10">Ingen ferdigheter registrert...</div>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -399,5 +467,48 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                 </div>
             )}
         </main>
+    );
+};
+
+const EquipmentSlotItem: React.FC<{ slot: string, item?: EquipmentItem }> = ({ slot, item }) => {
+    if (!item) {
+        return (
+            <div className="w-20 h-20 rounded-2xl bg-black/40 border-2 border-dashed border-white/5 flex flex-col items-center justify-center gap-1 group overflow-hidden relative">
+                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="text-2xl opacity-20 grayscale">
+                    {slot === 'HEAD' ? '👑' : slot === 'BODY' ? '👕' : slot === 'MAIN_HAND' ? '⚔️' : slot === 'OFF_HAND' ? '🛡️' : slot === 'FEET' ? '👢' : '💍'}
+                </span>
+                <span className="text-[8px] font-black uppercase text-slate-600 tracking-widest">{slot.replace('_', ' ')}</span>
+            </div>
+        );
+    }
+
+    const durabilityPct = (item.durability / item.maxDurability) * 100;
+
+    return (
+        <div className="w-20 h-20 rounded-2xl bg-slate-800 border-2 border-indigo-500/30 flex flex-col items-center justify-center relative overflow-hidden group shadow-lg hover:scale-110 transition-transform z-10 cursor-help">
+            <div className="absolute top-0 right-0 p-1">
+                <span className="text-[8px] font-black bg-indigo-600 text-white px-1.5 py-0.5 rounded-bl-lg">{item.level || 1}</span>
+            </div>
+            <span className="text-3xl drop-shadow-md mb-1">{item.icon}</span>
+            <span className="text-[7px] font-bold text-slate-300 w-full text-center truncate px-1 leading-tight">{item.name}</span>
+
+            {/* Durability Bar */}
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-black/50">
+                <div
+                    className={`h-full ${durabilityPct > 50 ? 'bg-emerald-500' : durabilityPct > 20 ? 'bg-amber-500' : 'bg-red-500'}`}
+                    style={{ width: `${durabilityPct}%` }}
+                />
+            </div>
+
+            {/* Tooltip on Hover (Simple CSS based) */}
+            <div className="absolute inset-0 bg-slate-900/95 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity p-2 text-center pointer-events-none backdrop-blur-sm border border-white/10 z-20">
+                <div className="text-[8px] text-slate-500 mb-1 font-bold uppercase tracking-widest">Stats</div>
+                {Object.entries(item.stats || {}).map(([key, val]) => (
+                    <div key={key} className="text-[9px] font-black text-emerald-400 uppercase tracking-wide">{key}: +{val as any}</div>
+                ))}
+                <div className="mt-1 text-[8px] text-slate-500">{item.durability}/{item.maxDurability}</div>
+            </div>
+        </div>
     );
 };
