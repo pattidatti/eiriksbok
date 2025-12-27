@@ -4,7 +4,7 @@ import { VILLAGE_BUILDINGS } from './constants';
 import { TAVERN_NPCS } from './TavernData';
 import type { TavernNPC } from './TavernData';
 import { TavernDiceGame } from './TavernDiceGame';
-import { MINIGAME_VARIANTS } from './SimulationMinigames';
+import { FloatingActionTooltip } from './components/FloatingActionTooltip';
 import { checkActionRequirements, getActionCostString, getActionEquipment } from './utils/actionUtils';
 
 interface POI {
@@ -582,178 +582,23 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
                 {/* Action Tooltip (Floating) */}
                 {selectedPOI && (
-                    <>
-                        <div className="absolute inset-0 z-[90]" onClick={() => setSelectedPOI(null)} />
-                        <div
-                            style={{
-                                top: (viewingRegionId === 'region_ost' && selectedPOI.ost ? selectedPOI.ost.top : selectedPOI.top),
-                                left: (viewingRegionId === 'region_ost' && selectedPOI.ost ? selectedPOI.ost.left : selectedPOI.left),
-                                transform: `translate(${parseFloat(selectedPOI.left) > 80 ? '-95%' : parseFloat(selectedPOI.left) < 20 ? '-5%' : '-50%'}, ${parseFloat(selectedPOI.top) < 25 ? '3rem' : 'calc(-100% - 1rem)'})`
-                            }}
-                            className="absolute z-[100] animate-in fade-in zoom-in duration-200 pointer-events-auto"
-                        >
-                            <div className="bg-slate-900/98 backdrop-blur-3xl border border-white/20 rounded-[1.8rem] p-4 shadow-[0_25px_60px_rgba(0,0,0,0.6)] min-w-[260px] w-max max-w-[320px] relative">
-                                {/* Header */}
-                                <div className="flex items-center justify-between mb-3 pb-3 border-b border-white/10">
-                                    <div className="flex items-center gap-3">
-                                        <span className="text-3xl drop-shadow-md">{selectedPOI.icon}</span>
-                                        <h3 className="font-black text-white text-sm uppercase tracking-[0.15em] leading-tight opacity-90">{selectedPOI.label}</h3>
-                                    </div>
-                                    <button onClick={() => setSelectedPOI(null)} className="text-white/40 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full w-7 h-7 flex items-center justify-center">✕</button>
-                                </div>
-
-                                {/* Actions */}
-                                <div className="space-y-2.5">
-                                    {selectedPOI.actions
-                                        .filter(a => {
-                                            if (a.id === 'TAX_PEASANTS' && player.role !== 'BARON') return false;
-                                            if (a.id === 'TAX_ROYAL' && player.role !== 'KING') return false;
-                                            if (a.id === 'DECREE' && player.role !== 'KING') return false;
-                                            if (a.id === 'RAID' && player.role !== 'BARON') return false;
-                                            if (a.id === 'REST' && selectedPOI.id === 'village_square' && (player.role === 'KING' || player.role === 'BARON')) return false;
-                                            if (a.id === 'FEAST' && player.role !== 'KING' && player.role !== 'BARON') return false;
-                                            return true;
-                                        })
-                                        .map(action => {
-                                            // CHECK: Is this a building specific action?
-                                            const buildingId = selectedPOI.id;
-                                            const isBuildingAction = ['bakery', 'windmill', 'sawmill', 'smeltery', 'blacksmith', 'weaving_mill', 'watchtower', 'stables', 'well', 'apothecary'].includes(buildingId);
-                                            const isBuilt = (room.world.settlement?.buildings?.[buildingId]?.level || 0) >= 1;
-
-                                            // If it's a building action but the building isn't built, show ONLY construction option (unless it IS the construction action)
-                                            if (isBuildingAction && !isBuilt && action.id !== 'CONSTRUCT_BUILDING') return null;
-                                            if (isBuildingAction && isBuilt && action.id === 'CONSTRUCT_BUILDING') return null;
-
-                                            // Use Centralized Validation
-                                            const currentSeason = (room.world?.season || 'Spring') as any;
-                                            const currentWeather = (room.world?.weather || 'Clear') as any;
-
-                                            // Permission Check override (not handled deeply in util)
-                                            let canAfford = true;
-                                            let missingReason = '';
-
-                                            if (viewingRegionId !== player.regionId && player.role !== 'KING' && action.id !== 'MARKET_VIEW') {
-                                                canAfford = false;
-                                                missingReason = "Ikke ditt baroni";
-                                            } else {
-                                                const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
-                                                if (!check.success) {
-                                                    canAfford = false;
-                                                    missingReason = check.reason || 'Krav ikke møtt';
-                                                }
-                                            }
-
-                                            const costLabel = getActionCostString(action.id, currentSeason, currentWeather) || action.cost;
-
-                                            const equipment = getActionEquipment(player, action.id);
-                                            const variants = MINIGAME_VARIANTS[action.id];
-
-                                            return (
-                                                <div key={action.id} className="w-full">
-                                                    {/* Main Action Button (If no variants, or purely as header if variants exist?) 
-                                                        Actually, if variants exist, we DO NOT want a single main button that starts nothing.
-                                                        If variants exist, we show the header/cost/equipment as a block, then the buttons below.
-                                                     */}
-
-                                                    {!variants || variants.length === 0 ? (
-                                                        <button
-                                                            onClick={() => handlePOIAction(selectedPOI.id, action.id)}
-                                                            disabled={!canAfford}
-                                                            className={`group flex flex-col w-full px-4 py-3 rounded-xl border transition-all text-left gap-1.5 ${canAfford ? 'bg-white/5 hover:bg-indigo-600/90 border-white/5 shadow-sm active:scale-[0.98]' : 'bg-black/20 border-white/5 opacity-50 cursor-not-allowed'}`}
-                                                        >
-                                                            <div className="flex justify-between items-center w-full">
-                                                                <div className="flex flex-col min-w-0">
-                                                                    <span className={`text-base font-bold transition-transform truncate ${canAfford ? 'text-white' : 'text-slate-400'}`}>{action.label}</span>
-                                                                    {!canAfford && <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest mt-0.5 opacity-90">{missingReason}</span>}
-                                                                </div>
-                                                                {costLabel && (
-                                                                    <span className={`text-xs font-black uppercase tracking-tight px-2 py-1 rounded-lg border flex-shrink-0 ${canAfford ? 'text-amber-400 bg-amber-500/10 border-amber-500/20 group-hover:text-white group-hover:bg-amber-500/30' : 'text-slate-600 border-white/5'}`}>
-                                                                        {costLabel}
-                                                                    </span>
-                                                                )}
-                                                            </div>
-                                                            {/* Equipment Info */}
-                                                            {equipment.length > 0 && (
-                                                                <div className="flex flex-wrap gap-2 mt-1 pt-2 border-t border-white/5">
-                                                                    {equipment.map((item) => (
-                                                                        <div key={item.id} className="flex items-center gap-1.5 text-[10px] bg-black/20 px-2 py-1 rounded-lg border border-white/5">
-                                                                            <span>{item.icon}</span>
-                                                                            <span className="text-slate-300 font-bold">{item.name}</span>
-                                                                            {(item.stats?.yieldBonus || 0) > 0 && <span className="text-emerald-400 font-bold">+{item.stats?.yieldBonus} Utbytte</span>}
-                                                                            {(item.stats?.speedBonus || 0) > 1 && <span className="text-blue-400 font-bold">+{Math.round(((item.stats?.speedBonus || 1) - 1) * 100)}% Fart</span>}
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            )}
-                                                        </button>
-                                                    ) : (
-                                                        /* VARIANTS DISPLAY */
-                                                        <div className={`flex flex-col w-full p-3 rounded-xl border gap-2 ${canAfford ? 'bg-slate-950/50 border-white/10' : 'bg-black/20 border-white/5 opacity-50'}`}>
-                                                            {/* Header & Cost */}
-                                                            <div className="flex justify-between items-center w-full border-b border-white/5 pb-2">
-                                                                <div className="flex flex-col min-w-0">
-                                                                    <span className={`text-sm font-bold truncate ${canAfford ? 'text-white' : 'text-slate-500'}`}>{action.label}</span>
-                                                                    {!canAfford && <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest mt-0.5 opacity-90">{missingReason}</span>}
-                                                                </div>
-                                                                {costLabel && (
-                                                                    <span className={`text-xs font-black uppercase tracking-tight px-2 py-1 rounded-lg border flex-shrink-0 ${canAfford ? 'text-amber-400 bg-amber-500/10 border-amber-500/20' : 'text-slate-600 border-white/5'}`}>
-                                                                        {costLabel}
-                                                                    </span>
-                                                                )}
-                                                            </div>
-
-                                                            {/* Equipment Info (Shared) */}
-                                                            {equipment.length > 0 && (
-                                                                <div className="flex flex-wrap gap-2">
-                                                                    {equipment.map((item) => (
-                                                                        <div key={item.id} className="flex items-center gap-1.5 text-[10px] bg-black/20 px-2 py-1 rounded-lg border border-white/5">
-                                                                            <span>{item.icon}</span>
-                                                                            <span className="text-slate-300 font-bold">{item.name}</span>
-                                                                            {(item.stats?.yieldBonus || 0) > 0 && <span className="text-emerald-400 font-bold">+{item.stats?.yieldBonus} Utbytte</span>}
-                                                                            {(item.stats?.speedBonus || 0) > 1 && <span className="text-blue-400 font-bold">+{Math.round(((item.stats?.speedBonus || 1) - 1) * 100)}% Fart</span>}
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            )}
-
-                                                            {/* Variant Buttons */}
-                                                            <div className="grid grid-cols-1 gap-1.5 mt-1">
-                                                                {variants.map(variant => (
-                                                                    <button
-                                                                        key={variant.id}
-                                                                        onClick={() => onAction({ type: action.id, method: variant.id })}
-                                                                        disabled={!canAfford}
-                                                                        className={`flex items-center gap-3 p-2.5 rounded-lg border transition-all text-left group ${canAfford ? 'bg-white/5 hover:bg-indigo-600 border-white/5 hover:border-indigo-400 active:scale-[0.98]' : 'bg-transparent border-transparent cursor-not-allowed'}`}
-                                                                    >
-                                                                        <span className="text-xl opacity-80 group-hover:opacity-100 transition-opacity">{variant.icon}</span>
-                                                                        <div className="flex flex-col">
-                                                                            <span className="font-bold text-sm text-white group-hover:text-white">{variant.label}</span>
-                                                                            <span className="text-[10px] text-slate-400 group-hover:text-indigo-200 leading-none mt-0.5">{variant.desc}</span>
-                                                                        </div>
-                                                                    </button>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            );
-                                        })
-                                    }
-                                    {selectedPOI.actions.length === 0 && (
-                                        <div className="text-center py-4 text-[10px] text-slate-500 font-bold uppercase tracking-widest italic opacity-50">
-                                            Ingen handlinger her
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-
-
-                            {/* Tooltip Tail */}
-                            <div className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-slate-900/98 rotate-45 border-white/20 ${parseFloat(selectedPOI.top) < 25 ? '-top-2 border-l border-t' : '-bottom-2 border-r border-b'} shadow-2xl`} />
-                        </div>
-                    </>
-                )
-                }
+                    <FloatingActionTooltip
+                        poi={selectedPOI}
+                        player={player}
+                        room={room}
+                        viewingRegionId={viewingRegionId}
+                        onAction={(actionPayload) => {
+                            if (typeof actionPayload === 'string') {
+                                handlePOIAction(selectedPOI.id, actionPayload);
+                            } else {
+                                // Direct object dispatch for complex actions (e.g. Minigame variants)
+                                onAction(actionPayload);
+                                setSelectedPOI(null);
+                            }
+                        }}
+                        onClose={() => setSelectedPOI(null)}
+                    />
+                )}
 
 
                 {/* CONSTRUCTION OVERLAY SITE */}
