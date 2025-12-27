@@ -302,6 +302,90 @@ export const GAME_BALANCE = {
     }
 };
 
+export const SKILL_DETAILS: Record<SkillType, { label: string, description: string, xpSource: string, bonuses: Record<number, string> }> = {
+    FARMING: {
+        label: 'Jordbruk',
+        description: 'Evnen til å dyrke jorden og høste korn.',
+        xpSource: 'Høst korn på jordene eller arbeid i vindmøllen.',
+        bonuses: {
+            2: '+5% kornhøst',
+            5: '+15% kornhøst, låser opp Stålhjå',
+            10: '+30% kornhøst, mulighet for dobbel avling'
+        }
+    },
+    WOODCUTTING: {
+        label: 'Skogbruk',
+        description: 'Felling av trær og foredling av tømmer.',
+        xpSource: 'Hugg ved i skogen eller arbeid på sagbruket.',
+        bonuses: {
+            2: '+10% ved-yield',
+            5: '+25% ved-yield, låser opp Jernøks',
+            10: 'Sjanse for å finne sjelden tømmer'
+        }
+    },
+    MINING: {
+        label: 'Gruvedrift',
+        description: 'Utvinning av malm og verdifulle mineraler.',
+        xpSource: 'Arbeid i gruvene eller steinbruddet.',
+        bonuses: {
+            3: '+10% malm-utbytte',
+            7: 'Redusert stamina-bruk ved graving',
+            10: 'Låser opp utvinning av edle metaller'
+        }
+    },
+    CRAFTING: {
+        label: 'Håndverk',
+        description: 'Smiing av våpen, rustninger og verktøy.',
+        xpSource: 'Lag gjenstander i smia eller bakeriet.',
+        bonuses: {
+            2: 'Bedre sjanse for høyere kvalitet',
+            5: 'Redusert materialkostnad (-10%)',
+            10: 'Mesterhåndverk: Gjenstander har +20% holdbarhet'
+        }
+    },
+    STEWARDSHIP: {
+        label: 'Forvaltning',
+        description: 'Ledelse, økonomi og styring av landområder.',
+        xpSource: 'Samle inn skatt, passere lover eller styre regioner.',
+        bonuses: {
+            5: '+10% skatteinntekter',
+            10: 'Redusert lojalitetstap ved høy skatt',
+            15: 'Låser opp avanserte lover'
+        }
+    },
+    COMBAT: {
+        label: 'Strid',
+        description: 'Kampferdighet og forsvar av riket.',
+        xpSource: 'Delta i raids, forsvar regionen eller tren på vaktposten.',
+        bonuses: {
+            3: '+10% angrepsstyrke',
+            7: 'Bedre forsvar med skjold',
+            10: 'Låser opp spesialangrep'
+        }
+    },
+    TRADING: {
+        label: 'Handel',
+        description: 'Kjøp og salg av varer på markedet.',
+        xpSource: 'Kjøp og selg varer, eller send ut karavaner.',
+        bonuses: {
+            2: '5% bedre priser',
+            5: '15% bedre priser, se markedstrender',
+            10: 'Ingen markedsavgifter'
+        }
+    },
+    THEOLOGY: {
+        label: 'Teologi',
+        description: 'Tro og forståelse av det guddommelige.',
+        xpSource: 'Be i kirken eller bidra til katedralen.',
+        bonuses: {
+            5: 'Økt stamina-regenerering',
+            10: 'Låser opp mirakler',
+            15: 'Guds gunst beskytter mot ulykker'
+        }
+    }
+};
+
+
 export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
     PEASANT: {
         FARMING: { level: 1, xp: 0, maxXp: 100 },
@@ -310,7 +394,8 @@ export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
         CRAFTING: { level: 0, xp: 0, maxXp: 100 },
         STEWARDSHIP: { level: 0, xp: 0, maxXp: 100 },
         COMBAT: { level: 0, xp: 0, maxXp: 100 },
-        TRADING: { level: 0, xp: 0, maxXp: 100 }
+        TRADING: { level: 0, xp: 0, maxXp: 100 },
+        THEOLOGY: { level: 0, xp: 0, maxXp: 100 }
     },
     BARON: {
         FARMING: { level: 3, xp: 0, maxXp: 300 },
@@ -319,7 +404,8 @@ export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
         CRAFTING: { level: 1, xp: 0, maxXp: 100 },
         STEWARDSHIP: { level: 5, xp: 0, maxXp: 1000 },
         COMBAT: { level: 3, xp: 0, maxXp: 300 },
-        TRADING: { level: 3, xp: 0, maxXp: 300 }
+        TRADING: { level: 3, xp: 0, maxXp: 300 },
+        THEOLOGY: { level: 1, xp: 0, maxXp: 100 }
     },
     KING: {
         FARMING: { level: 1, xp: 0, maxXp: 100 },
@@ -328,7 +414,8 @@ export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
         CRAFTING: { level: 1, xp: 0, maxXp: 100 },
         STEWARDSHIP: { level: 10, xp: 0, maxXp: 5000 },
         COMBAT: { level: 5, xp: 0, maxXp: 1500 },
-        TRADING: { level: 5, xp: 0, maxXp: 1500 }
+        TRADING: { level: 5, xp: 0, maxXp: 1500 },
+        THEOLOGY: { level: 5, xp: 0, maxXp: 1500 }
     },
     SOLDIER: {
         FARMING: { level: 1, xp: 0, maxXp: 100 },
@@ -337,7 +424,8 @@ export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
         CRAFTING: { level: 1, xp: 0, maxXp: 100 },
         STEWARDSHIP: { level: 0, xp: 0, maxXp: 100 },
         COMBAT: { level: 5, xp: 0, maxXp: 1500 },
-        TRADING: { level: 0, xp: 0, maxXp: 100 }
+        TRADING: { level: 0, xp: 0, maxXp: 100 },
+        THEOLOGY: { level: 0, xp: 0, maxXp: 100 }
     },
     MERCHANT: {
         FARMING: { level: 1, xp: 0, maxXp: 100 },
@@ -346,9 +434,11 @@ export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
         CRAFTING: { level: 2, xp: 0, maxXp: 200 },
         STEWARDSHIP: { level: 1, xp: 0, maxXp: 100 },
         COMBAT: { level: 0, xp: 0, maxXp: 100 },
-        TRADING: { level: 5, xp: 0, maxXp: 1500 }
+        TRADING: { level: 5, xp: 0, maxXp: 1500 },
+        THEOLOGY: { level: 0, xp: 0, maxXp: 100 }
     }
 };
+
 
 export const INITIAL_EQUIPMENT: Record<Role, Partial<Record<EquipmentSlot, EquipmentItem>>> = {
     PEASANT: {
@@ -376,16 +466,97 @@ export const INITIAL_EQUIPMENT: Record<Role, Partial<Record<EquipmentSlot, Equip
 
 export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
     // Tools
-    rusty_axe: { id: 'rusty_axe', name: 'Rusten Øks', icon: '🪓', type: 'MAIN_HAND', durability: 50, maxDurability: 50, level: 1, stats: { yieldBonus: 0 } },
-    iron_axe: { id: 'iron_axe', name: 'Jernøks', icon: '🪓', type: 'MAIN_HAND', durability: 100, maxDurability: 100, level: 3, stats: { yieldBonus: 3 } },
-    steel_hja: { id: 'steel_hja', name: 'Stålhjå', icon: '🌾', type: 'MAIN_HAND', durability: 120, maxDurability: 120, level: 4, stats: { yieldBonus: 5, speedBonus: 1.1 } }, // High yield farming tool
-    iron_pickaxe: { id: 'iron_pickaxe', name: 'Jernhakke', icon: '⛏️', type: 'MAIN_HAND', durability: 100, maxDurability: 100, level: 3, stats: { yieldBonus: 3 } },
-    blacksmith_hammer: { id: 'blacksmith_hammer', name: 'Smedhammer', icon: '🔨', type: 'MAIN_HAND', durability: 200, maxDurability: 200, level: 5, stats: { speedBonus: 1.2 } },
+    rusty_axe: {
+        id: 'rusty_axe',
+        name: 'Rusten Øks',
+        icon: '🪓',
+        type: 'MAIN_HAND',
+        durability: 50,
+        maxDurability: 50,
+        level: 1,
+        description: 'En gammel og sløv øks. Bedre enn ingenting.',
+        stats: { yieldBonus: 0 }
+    },
+    iron_axe: {
+        id: 'iron_axe',
+        name: 'Jernøks',
+        icon: '🪓',
+        type: 'MAIN_HAND',
+        durability: 100,
+        maxDurability: 100,
+        level: 3,
+        description: 'En solid øks smidd av jern. Hugger ved mer effektivt.',
+        stats: { yieldBonus: 3 }
+    },
+    steel_hja: {
+        id: 'steel_hja',
+        name: 'Stålhjå',
+        icon: '🌾',
+        type: 'MAIN_HAND',
+        durability: 120,
+        maxDurability: 120,
+        level: 4,
+        description: 'En sylskarp hjå for effektiv innhøsting.',
+        stats: { yieldBonus: 5, speedBonus: 1.1 }
+    },
+    iron_pickaxe: {
+        id: 'iron_pickaxe',
+        name: 'Jernhakke',
+        icon: '⛏️',
+        type: 'MAIN_HAND',
+        durability: 100,
+        maxDurability: 100,
+        level: 3,
+        description: 'Nødvendig for å utvinne malm i gruvene.',
+        stats: { yieldBonus: 3 }
+    },
+    blacksmith_hammer: {
+        id: 'blacksmith_hammer',
+        name: 'Smedhammer',
+        icon: '🔨',
+        type: 'MAIN_HAND',
+        durability: 200,
+        maxDurability: 200,
+        level: 5,
+        description: 'Et verktøy for en mestersmed.',
+        stats: { speedBonus: 1.2 }
+    },
 
     // Armor / Clothing
-    tunic: { id: 'tunic', name: 'Slitt Tunika', icon: '👕', type: 'BODY', durability: 20, maxDurability: 20, level: 1, stats: { defense: 1 } },
-    leather_armor: { id: 'leather_armor', name: 'Lærrustning', icon: '🧥', type: 'BODY', durability: 80, maxDurability: 80, level: 3, stats: { defense: 5 } },
+    tunic: {
+        id: 'tunic',
+        name: 'Slitt Tunika',
+        icon: '👕',
+        type: 'BODY',
+        durability: 20,
+        maxDurability: 20,
+        level: 1,
+        description: 'Gammel og hullete, men dekker det viktigste.',
+        stats: { defense: 1 }
+    },
+    leather_armor: {
+        id: 'leather_armor',
+        name: 'Lærrustning',
+        icon: '🧥',
+        type: 'BODY',
+        durability: 80,
+        maxDurability: 80,
+        level: 3,
+        description: 'Laget av herdet skinn. Gir god beskyttelse.',
+        stats: { defense: 5 }
+    },
 
     // Offhand
-    whetstone: { id: 'whetstone', name: 'Bryne', icon: '🪨', type: 'OFF_HAND', durability: 10, maxDurability: 10, level: 1, stats: { yieldBonus: 1 } }
+    whetstone: {
+        id: 'whetstone',
+        name: 'Bryne',
+        icon: '🪨',
+        type: 'OFF_HAND',
+        durability: 10,
+        maxDurability: 10,
+        level: 1,
+        description: 'Bruk denne for å holde verktøyene dine skarpe.',
+        stats: { yieldBonus: 1 }
+    }
 };
+

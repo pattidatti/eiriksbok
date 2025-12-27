@@ -2,11 +2,14 @@ import React from 'react';
 import { ref, update } from 'firebase/database';
 import { db } from '../../../lib/firebase';
 import type { SimulationPlayer, SimulationRoom, EquipmentItem } from '../simulationTypes';
-import { RESOURCE_DETAILS, UPGRADES_LIST, ROLE_TITLES } from '../constants';
+import { RESOURCE_DETAILS, UPGRADES_LIST } from '../constants';
+
 import { useSimulation } from '../SimulationContext';
 import { WorldMap } from '../WorldMap';
 import { SimulationMarket } from './SimulationMarket';
-import { SimulationInventory } from './SimulationInventory';
+import { SimulationVault } from './SimulationVault';
+import { SimulationSkills } from './SimulationSkills';
+
 
 interface SimulationViewportProps {
     player: SimulationPlayer;
@@ -35,7 +38,6 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
         return rId;
     };
 
-    const roleTitle = (ROLE_TITLES as any)[player.role][Math.min(player.stats.level || 1, (ROLE_TITLES as any)[player.role].length) - 1];
 
     // Main Content Switcher
     return (
@@ -48,8 +50,9 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                         {activeTab === 'MARKET' ? (
                             <SimulationMarket player={player} room={room} onAction={onAction} />
                         ) : activeTab === 'INVENTORY' ? (
-                            <SimulationInventory player={player} />
+                            <SimulationVault player={player} />
                         ) : activeTab === 'VILLAGE' ? (
+
                             <div className="w-full h-full min-h-[500px] flex flex-col gap-6">
                                 <div className="flex justify-between items-center bg-slate-900/60 p-6 rounded-[2rem] border border-white/10">
                                     <div>
@@ -104,54 +107,9 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                                 </div>
                             </div>
                         ) : activeTab === 'SKILLS' ? (
-                            <div className="space-y-8 pb-20">
-                                <h2 className="text-4xl font-black text-white tracking-tighter border-b-2 border-white/5 pb-4">Mine Ferdigheter</h2>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    {/* XP and Titles Summary */}
-                                    <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10">
-                                        <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">
-                                            <span className="text-2xl">📜</span> Rang & Erfaring
-                                        </h3>
-                                        <div className="space-y-6">
-                                            <div className="bg-black/20 p-6 rounded-3xl border border-white/5">
-                                                <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Gjeldende Tittel</div>
-                                                <div className="text-3xl font-black text-white">{roleTitle}</div>
-                                            </div>
-                                            <div className="bg-black/20 p-6 rounded-3xl border border-white/5">
-                                                <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Total Erfaring</div>
-                                                <div className="text-3xl font-black text-indigo-400">{player.stats.xp} XP</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Passive Bonuses Overview */}
-                                    <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10">
-                                        <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">
-                                            <span className="text-2xl">✨</span> Passive Bonuser
-                                        </h3>
-                                        <div className="space-y-4">
-                                            {(player.upgrades || []).map(id => {
-                                                const upg = (UPGRADES_LIST as any)[player.role]?.find((u: any) => u.id === id);
-                                                if (!upg) return null;
-                                                return (
-                                                    <div key={id} className="flex items-center gap-4 bg-emerald-500/10 p-4 rounded-2xl border border-emerald-500/20">
-                                                        <span className="text-2xl">⚡</span>
-                                                        <div>
-                                                            <div className="font-bold text-emerald-400 text-sm">{upg.name}</div>
-                                                            <div className="text-[10px] text-slate-400 font-medium italic">{upg.benefit}</div>
-                                                        </div>
-                                                    </div>
-                                                );
-                                            })}
-                                            {(!player.upgrades || player.upgrades.length === 0) && (
-                                                <div className="text-center text-slate-500 italic py-8">Lås opp oppgraderinger for å se bonuser her...</div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <SimulationSkills player={player} />
                         ) : activeTab === 'DIPLOMACY' ? (
+
                             <div className="space-y-6 h-full flex flex-col">
                                 <h2 className="text-4xl font-black text-white tracking-tighter border-b-2 border-white/5 pb-4 flex items-center justify-between">
                                     Diplomati
@@ -398,40 +356,17 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                                         </div>
                                     </div>
 
-                                    {/* SKILLS LIST */}
+                                    {/* ACHIEVEMENTS / RECENT HISTORY */}
                                     <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10 flex flex-col">
                                         <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">
-                                            <span className="text-2xl">🔥</span> Ferdigheter
+                                            <span className="text-2xl">🏆</span> Prestasjoner
                                         </h3>
-                                        <div className="space-y-4 flex-1 overflow-y-auto custom-scrollbar pr-2">
-                                            {player.skills ? Object.entries(player.skills).map(([type, skill]) => (
-                                                <div key={type} className="bg-black/20 p-4 rounded-2xl border border-white/5">
-                                                    <div className="flex justify-between items-center mb-2">
-                                                        <div className="flex items-center gap-3">
-                                                            <span className="text-2xl bg-slate-800 w-10 h-10 flex items-center justify-center rounded-lg border border-white/5 shadow-inner">
-                                                                {type === 'FARMING' ? '🌾' : type === 'WOODCUTTING' ? '🪓' : type === 'MINING' ? '⛏️' : type === 'CRAFTING' ? '⚒️' : type === 'COMBAT' ? '⚔️' : type === 'STEWARDSHIP' ? '📜' : '💰'}
-                                                            </span>
-                                                            <div>
-                                                                <div className="font-bold text-slate-200 text-sm">{type}</div>
-                                                                <div className="text-[10px] uppercase text-slate-500 font-black tracking-widest">Nivå {skill.level}</div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="text-right">
-                                                            <div className="text-xs font-mono text-indigo-400 font-bold">{skill.xp} / {skill.maxXp} XP</div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                                                        <div
-                                                            className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
-                                                            style={{ width: `${Math.min(100, (skill.xp / skill.maxXp) * 100)}%` }}
-                                                        />
-                                                    </div>
-                                                </div>
-                                            )) : (
-                                                <div className="text-center text-slate-500 italic py-10">Ingen ferdigheter registrert...</div>
-                                            )}
+                                        <div className="flex-1 flex flex-col items-center justify-center opacity-40 text-center py-12">
+                                            <div className="text-5xl mb-4">🎖️</div>
+                                            <p className="text-sm font-medium italic">Ingen prestasjoner låst opp ennå...</p>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         ) : null}

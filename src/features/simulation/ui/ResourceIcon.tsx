@@ -12,10 +12,12 @@ export const ResourceIcon: React.FC<ResourceIconProps> = ({ resource, amount, si
     const details = RESOURCE_DETAILS[resource] || { label: resource, icon: '❓' };
 
     const sizeClasses = {
-        sm: "text-base",
-        md: "text-2xl",
-        lg: "text-4xl"
+        sm: "text-xl",
+        md: "text-3xl",
+        lg: "text-7xl"
     };
+
+
 
     return (
         <div className="flex items-center gap-2" title={details.label}>
