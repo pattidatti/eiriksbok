@@ -219,6 +219,8 @@ const SimulationGame: React.FC = () => {
                                     playerUpgrades={player.upgrades}
                                     onComplete={(score) => handleAction({ type: activeMinigame, performance: score })}
                                     onCancel={() => setActiveMinigame(null)}
+                                    currentSeason={(room.world?.season || 'Spring') as any}
+                                    currentWeather={(room.world?.weather || 'Clear') as any}
                                 />
                             )
                         }

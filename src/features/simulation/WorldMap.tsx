@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import type { SimulationPlayer, SimulationRoom } from './simulationTypes';
-import { ACTION_COSTS, SEASONS, WEATHER, VILLAGE_BUILDINGS } from './constants';
+import { VILLAGE_BUILDINGS } from './constants';
 import { TAVERN_NPCS } from './TavernData';
 import type { TavernNPC } from './TavernData';
 import { TavernDiceGame } from './TavernDiceGame';
+import { checkActionRequirements, getActionCostString } from './utils/actionUtils';
 
 interface POI {
     id: string;
@@ -627,55 +628,41 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                                             if (isBuildingAction && !isBuilt && action.id !== 'CONSTRUCT_BUILDING') return null;
                                             if (isBuildingAction && isBuilt && action.id === 'CONSTRUCT_BUILDING') return null;
 
-                                            const actionType = action.id;
-                                            const costData = (ACTION_COSTS as any)[actionType];
+                                            // Use Centralized Validation
+                                            const currentSeason = (room.world?.season || 'Spring') as any;
+                                            const currentWeather = (room.world?.weather || 'Clear') as any;
+
+                                            // Permission Check override (not handled deeply in util)
                                             let canAfford = true;
                                             let missingReason = '';
 
                                             if (viewingRegionId !== player.regionId && player.role !== 'KING' && action.id !== 'MARKET_VIEW') {
                                                 canAfford = false;
                                                 missingReason = "Ikke ditt baroni";
-                                            } else if (costData) {
-                                                const currentSeason = (room.world?.season || 'Spring') as keyof typeof SEASONS;
-                                                const seasonData = SEASONS[currentSeason];
-                                                const currentWeather = (room.world?.weather || 'Clear') as keyof typeof WEATHER;
-                                                const weatherData = WEATHER[currentWeather];
-
-                                                const baseStaminaMod = seasonData?.staminaMod || 1.0;
-                                                const weatherStaminaMod = weatherData?.staminaMod || 1.0;
-                                                const finalStaminaCost = Math.ceil((costData.stamina || 0) * baseStaminaMod * weatherStaminaMod);
-
-                                                if ((player.status.stamina || 0) < finalStaminaCost) {
+                                            } else {
+                                                const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
+                                                if (!check.success) {
                                                     canAfford = false;
-                                                    missingReason = `${finalStaminaCost}⚡`;
-                                                }
-
-                                                if (canAfford) {
-                                                    for (const [res, amt] of Object.entries(costData)) {
-                                                        if (res === 'stamina') continue;
-                                                        if ((player.resources[res as keyof typeof player.resources] || 0) < (amt as number)) {
-                                                            canAfford = false;
-                                                            missingReason = `Mangler ${res}`;
-                                                            break;
-                                                        }
-                                                    }
+                                                    missingReason = check.reason || 'Krav ikke møtt';
                                                 }
                                             }
+
+                                            const costLabel = getActionCostString(action.id, currentSeason, currentWeather) || action.cost;
 
                                             return (
                                                 <button
                                                     key={action.id}
                                                     onClick={() => handlePOIAction(selectedPOI.id, action.id)}
                                                     disabled={!canAfford}
-                                                    className={`group flex justify-between items-center w-full px-5 py-4 rounded-2xl border transition-all text-left gap-4 ${canAfford ? 'bg-white/5 hover:bg-indigo-600/90 border-white/5 shadow-sm active:scale-[0.98]' : 'bg-black/20 border-white/5 opacity-50'}`}
+                                                    className={`group flex justify-between items-center w-full px-5 py-4 rounded-2xl border transition-all text-left gap-4 ${canAfford ? 'bg-white/5 hover:bg-indigo-600/90 border-white/5 shadow-sm active:scale-[0.98]' : 'bg-black/20 border-white/5 opacity-50 cursor-not-allowed'}`}
                                                 >
                                                     <div className="flex flex-col flex-1 min-w-0">
                                                         <span className={`text-sm font-bold transition-transform truncate ${canAfford ? 'text-white' : 'text-slate-400'}`}>{action.label}</span>
                                                         {!canAfford && <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest mt-1 opacity-90">{missingReason}</span>}
                                                     </div>
-                                                    {action.cost && (
+                                                    {costLabel && (
                                                         <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-xl border flex-shrink-0 ${canAfford ? 'text-amber-400 bg-amber-500/10 border-amber-500/20 group-hover:text-white group-hover:bg-amber-500/30' : 'text-slate-600 border-white/5'}`}>
-                                                            {action.cost}
+                                                            {costLabel}
                                                         </span>
                                                     )}
                                                 </button>

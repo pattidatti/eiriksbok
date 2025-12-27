@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { getActionCostString } from './utils/actionUtils';
+import { SEASONS, WEATHER } from './constants';
 
 interface MinigameProps {
     type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE';
     onComplete: (score: number) => void;
     onCancel: () => void;
     playerUpgrades?: string[];
+    currentSeason?: keyof typeof SEASONS;
+    currentWeather?: keyof typeof WEATHER;
 }
 
 /* --- VISUAL FEEDBACK HELPERS --- */
@@ -46,7 +50,7 @@ const ParticleEffect: React.FC<{ x: number, y: number, color?: string }> = ({ x,
 };
 /* ------------------------------- */
 
-export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, playerUpgrades }) => {
+export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, playerUpgrades, currentSeason = 'Spring', currentWeather = 'Clear' }) => {
     const [method, setMethod] = useState<string | null>(null);
 
     const methods: Record<string, { id: string, label: string, icon: string, desc: string }[]> = {
@@ -110,7 +114,21 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
 
                         <div className="relative z-10 w-full">
                             <h2 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-4">Velg utførelse</h2>
-                            <h3 className="text-5xl font-black text-white mb-10 tracking-tighter uppercase">{type}</h3>
+                            <h3 className="text-5xl font-black text-white mb-4 tracking-tighter uppercase">{type}</h3>
+
+                            {/* COST DISPLAY */}
+                            {(() => {
+                                const costLabel = getActionCostString(type, currentSeason, currentWeather);
+                                if (costLabel) {
+                                    return (
+                                        <div className="mb-10 inline-flex items-center gap-2 px-6 py-3 bg-black/40 rounded-full border border-white/10 backdrop-blur-md shadow-lg">
+                                            <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mr-2">Kostnad</span>
+                                            <span className="text-base font-black text-amber-400 font-mono tracking-tight">{costLabel}</span>
+                                        </div>
+                                    );
+                                }
+                                return <div className="mb-10" />;
+                            })()}
 
                             <div className="grid grid-cols-1 gap-4 w-full">
                                 {currentMethods.map(m => (
