@@ -82,7 +82,7 @@ const ParticleEffect: React.FC<{ x: number, y: number, color?: string }> = ({ x,
 };
 /* ------------------------------- */
 
-export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, playerUpgrades, equipment = [], selectedMethod, currentSeason = 'Spring', currentWeather = 'Clear' }) => {
+export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, playerUpgrades, equipment = [], skills, selectedMethod, currentSeason = 'Spring', currentWeather = 'Clear' }) => {
     const [method, setMethod] = useState<string | null>(selectedMethod || null);
 
     const currentMethods = MINIGAME_VARIANTS[type] || [];
