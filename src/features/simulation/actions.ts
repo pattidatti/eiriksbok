@@ -1,7 +1,7 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
 import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, WEATHER, GAME_BALANCE, REFINERY_RECIPES, INITIAL_SKILLS } from './constants';
-import type { SimulationMarket, SkillType, SimulationPlayer } from './simulationTypes';
+import type { SkillType, SimulationPlayer } from './simulationTypes';
 
 /* --- HELPERS --- */
 const calculateYield = (
@@ -196,7 +196,6 @@ export const performAction = async (pin: string, playerId: string, action: any):
             if (actionType === 'WORK') {
                 if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
 
-                const tool = actor.equipment?.MAIN_HAND;
                 damageTool('MAIN_HAND', GAME_BALANCE.DURABILITY.LOSS_WORK);
                 if (localResult.success === false) { result = localResult; return room; } // Tool broke
 
@@ -252,20 +251,40 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     localResult.message += ` + ${bonus} FLAKS!`;
                 }
 
-            } else if (actionType === 'MINE') {
+            } else if (actionType === 'MINE' || actionType === 'QUARRY') {
                 if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
                 damageTool('MAIN_HAND', GAME_BALANCE.DURABILITY.LOSS_WORK);
                 if (localResult.success === false) { result = localResult; return room; }
 
-                const base = GAME_BALANCE.YIELD.MINE_ORE;
+                const skill = actionType === 'MINE' ? 'MINING' : 'MINING'; // Both use mining skill for now
+                const base = actionType === 'MINE' ? GAME_BALANCE.YIELD.MINE_ORE : GAME_BALANCE.YIELD.QUARRY_STONE;
+                const resource = actionType === 'MINE' ? 'iron_ore' : 'stone';
+
                 const performance = action.performance || 0.5;
-                const yieldAmount = calculateYield(actor, base, 'MINING', { performance });
+                const yieldAmount = calculateYield(actor, base, skill, { performance });
 
-                actor.resources.iron_ore = (actor.resources.iron_ore || 0) + yieldAmount;
-                localResult.yields.push({ resource: 'iron_ore', amount: yieldAmount });
-                localResult.message = `Utvant ${yieldAmount} jernmalm`;
+                (actor.resources as any)[resource] = ((actor.resources as any)[resource] || 0) + yieldAmount;
+                localResult.yields.push({ resource, amount: yieldAmount });
+                localResult.message = actionType === 'MINE' ? `Utvant ${yieldAmount} jernmalm` : `Hogde ${yieldAmount} stein`;
 
-                trackXp('MINING', Math.ceil(REWARDS.WORK.xp * (1 + performance)));
+                trackXp(skill, Math.ceil(REWARDS.WORK.xp * (1 + performance)));
+
+            } else if (actionType === 'FORAGE') {
+                if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
+
+                // Foraging is easier, maybe less durability loss or none? Let's say 2.
+                damageTool('MAIN_HAND', 2);
+                if (localResult.success === false) { result = localResult; return room; }
+
+                const base = GAME_BALANCE.YIELD.FORAGE_BREAD;
+                const performance = action.performance || 0.5;
+                const yieldAmount = calculateYield(actor, base, 'FARMING', { performance }); // Use farming skill
+
+                actor.resources.bread = (actor.resources.bread || 0) + yieldAmount;
+                localResult.yields.push({ resource: 'bread', amount: yieldAmount });
+                localResult.message = `Sanket ${yieldAmount} nødproviant (brød/bær)`;
+
+                trackXp('FARMING', Math.ceil(REWARDS.FORAGE.xp * (1 + performance)));
 
             } else if (actionType === 'CRAFT') {
                 const subType = action.subType || 'SWORDS';
@@ -297,7 +316,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 localResult.yields.push({ resource: 'stamina', amount: staminaGain });
             } else if (actionType === 'REFINE') {
                 const recipeId = action.recipeId;
-                const recipe = REFINERY_RECIPES.find(r => r.id === recipeId);
+                const recipe = (REFINERY_RECIPES as any)[recipeId];
 
                 if (recipe) {
                     let canAfford = true;
@@ -313,7 +332,10 @@ export const performAction = async (pin: string, playerId: string, action: any):
 
                         // Yield Output
                         const performance = action.performance || 0.5;
-                        let yieldAmount = Math.floor(recipe.outputAmount * (1 + (performance * 0.5))); // Up to 50% bonus
+                        const baseOutput = recipe.output?.amount || recipe.outputAmount || 1;
+                        const outRes = recipe.output?.resource || recipe.outputResource || recipeId;
+
+                        let yieldAmount = Math.floor(baseOutput * (1 + (performance * 0.5))); // Up to 50% bonus
 
                         // Skill Bonus? Refining might be crafting
                         if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
@@ -556,7 +578,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 }
             } else if (actionType === 'TRADE_ROUTE') {
                 // Merchant logic
-                const { targetRegionId, resource, action: direction } = action;
+                const { resource, action: direction } = action;
                 // (Simplified logic to match restoration need)
                 localResult.message = `Handelsrute ${direction} ${resource} utført.`;
                 trackXp('TRADING', 20); // Using new skill

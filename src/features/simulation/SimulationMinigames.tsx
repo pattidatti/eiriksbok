@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { getActionCostString, getActionEquipment } from './utils/actionUtils';
 import { SEASONS, WEATHER } from './constants';
-import type { EquipmentItem } from './simulationTypes';
+import type { EquipmentItem, SkillType, SimulationPlayer } from './simulationTypes';
 
 interface MinigameProps {
     type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE';
@@ -9,6 +9,7 @@ interface MinigameProps {
     onCancel: () => void;
     playerUpgrades?: string[];
     equipment?: EquipmentItem[];
+    skills?: Record<string, { level: number }>;
     selectedMethod?: string; // New prop to skip selection
     currentSeason?: keyof typeof SEASONS;
     currentWeather?: keyof typeof WEATHER;
@@ -114,6 +115,36 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
     });
     const speedMultiplier = actionEquipment.reduce((acc, item) => acc * (item.stats?.speedBonus || 1.0), 1.0);
 
+    // Calculate Yield Estimate (Match actions.ts calculateYield)
+    const possibleYield = useMemo(() => {
+        const balance = (window as any).GAME_BALANCE || { YIELD: { WORK_GRAIN: 10, CHOP_WOOD: 5, MINE_ORE: 5, QUARRY_STONE: 8, FORAGE_BREAD: 1 } };
+        let base = 10;
+        let skillType = 'FARMING';
+        if (type === 'CHOP') { base = 5; skillType = 'WOODCUTTING'; }
+        if (type === 'MINE') { base = 5; skillType = 'MINING'; }
+        if (type === 'QUARRY') { base = 8; skillType = 'MINING'; }
+        if (type === 'FORAGE') { base = 1; skillType = 'FARMING'; }
+
+        const skillLevel = skills?.[skillType]?.level || 0;
+        let total = base * (1 + (skillLevel * 0.1));
+
+        let equipBonus = 0;
+        equipment.forEach(item => {
+            if (item.stats?.yieldBonus) equipBonus += item.stats.yieldBonus;
+        });
+        total += equipBonus;
+
+        const seasonData = SEASONS[currentSeason as keyof typeof SEASONS] as any;
+        const weatherData = WEATHER[currentWeather as keyof typeof WEATHER] as any;
+        total *= (seasonData?.yieldMod || 1) * (weatherData?.yieldMod || 1);
+
+        return total;
+    }, [type, skills, equipment, currentSeason, currentWeather]);
+
+    const resourceNameMap: Record<string, string> = {
+        WORK: 'Korn', CHOP: 'Ved', MINE: 'Malm', QUARRY: 'Stein', FORAGE: 'Brød'
+    };
+
     return (
         <div className="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-2xl flex items-center justify-center p-4">
             <div className="bg-slate-900 rounded-[3rem] shadow-[0_50px_120px_rgba(0,0,0,0.9)] w-full max-w-5xl overflow-hidden relative border-2 border-white/10">
@@ -187,12 +218,51 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                     </div>
                 ) : (
                     <>
-                        {type === 'WORK' || type === 'MINE' || type === 'QUARRY' || type === 'FORAGE' ? (
-                            method === 'sweep' ? <ScytheSweepGame onComplete={onComplete} speedMultiplier={speedMultiplier} /> :
-                                method === 'traps' ? <TrappingGame onComplete={onComplete} speedMultiplier={speedMultiplier} /> :
-                                    <HarvestingGame onComplete={onComplete} isMining={type === 'MINE'} isQuarrying={type === 'QUARRY'} isForaging={type === 'FORAGE'} speedMultiplier={speedMultiplier} />
+                        {type === 'WORK' ? (
+                            method === 'sweep' ? <ScytheSweepGame
+                                onComplete={onComplete}
+                                speedMultiplier={speedMultiplier}
+                                possibleYield={possibleYield}
+                                resourceName={resourceNameMap[type]}
+                            /> :
+                                <HarvestingGame
+                                    onComplete={onComplete}
+                                    isMining={type === 'MINE'}
+                                    isQuarrying={type === 'QUARRY'}
+                                    isForaging={type === 'FORAGE'}
+                                    speedMultiplier={speedMultiplier}
+                                    possibleYield={possibleYield}
+                                    resourceName={resourceNameMap[type]}
+                                />
+                        ) : type === 'FORAGE' ? (
+                            method === 'traps' ? <TrappingGame onComplete={onComplete} speedMultiplier={speedMultiplier} /> :
+                                <HarvestingGame
+                                    onComplete={onComplete}
+                                    isMining={type === 'MINE'}
+                                    isQuarrying={type === 'QUARRY'}
+                                    isForaging={type === 'FORAGE'}
+                                    speedMultiplier={speedMultiplier}
+                                    possibleYield={possibleYield}
+                                    resourceName={resourceNameMap[type]}
+                                />
+                        ) : type === 'MINE' || type === 'QUARRY' ? (
+                            <HarvestingGame
+                                onComplete={onComplete}
+                                isMining={type === 'MINE'}
+                                isQuarrying={type === 'QUARRY'}
+                                isForaging={type === 'FORAGE'}
+                                speedMultiplier={speedMultiplier}
+                                possibleYield={possibleYield}
+                                resourceName={resourceNameMap[type]}
+                            />
                         ) : type === 'CHOP' ? (
-                            method === 'saw' ? <SawingGame onComplete={onComplete} speedMultiplier={speedMultiplier} /> : <WoodcuttingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />
+                            method === 'saw' ? <SawingGame onComplete={onComplete} speedMultiplier={speedMultiplier} /> :
+                                <WoodcuttingGame
+                                    onComplete={onComplete}
+                                    speedMultiplier={speedMultiplier}
+                                    possibleYield={possibleYield}
+                                    resourceName={resourceNameMap[type]}
+                                />
                         ) : type === 'CRAFT' ? (
                             <CraftingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />
                         ) : type === 'MILL' ? (
@@ -213,7 +283,15 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
 };
 
 /* --- HARVESTING MINIGAME (Rhythm Timing) --- */
-const HarvestingGame: React.FC<{ onComplete: (score: number) => void, isMining?: boolean, isQuarrying?: boolean, isForaging?: boolean, speedMultiplier?: number }> = ({ onComplete, isMining, isQuarrying, isForaging, speedMultiplier = 1.0 }) => {
+const HarvestingGame: React.FC<{
+    onComplete: (score: number) => void,
+    isMining?: boolean,
+    isQuarrying?: boolean,
+    isForaging?: boolean,
+    speedMultiplier?: number,
+    possibleYield?: number,
+    resourceName?: string
+}> = ({ onComplete, isMining, isQuarrying, isForaging, speedMultiplier = 1.0, possibleYield = 10, resourceName = 'Ressurs' }) => {
     const [pointerPos, setPointerPos] = useState(0);
     const [strikes, setStrikes] = useState<number[]>([]);
     const [isFinished, setIsFinished] = useState(false);
@@ -226,7 +304,7 @@ const HarvestingGame: React.FC<{ onComplete: (score: number) => void, isMining?:
         const interval = setInterval(() => {
             setPointerPos(prev => {
                 // Base speed is 2. Multiplier < 1 means SLOWER (easier), > 1 means FASTER (harder but faster completion? No, this is skill check)
-                // Actually, "Speed Bonus" usually means "Work Faster", implying easier/faster resource gain. 
+                // Actually, "Speed Bonus" usually means "Work Faster", implying easier/faster resource gain.
                 // For a rhythm game, "Faster" cursor might be harder.
                 // Let's interpret "Speed Bonus" as "Wider Success Zone" OR "Slower Cursor".
                 // Let's go with Slower Cursor for precision tools.
@@ -244,9 +322,14 @@ const HarvestingGame: React.FC<{ onComplete: (score: number) => void, isMining?:
         if (strikes.length >= 5 || isFinished) return;
         const distance = Math.abs(pointerPos - 50);
         let score = distance < 5 ? 1.0 : distance < 15 ? 0.7 : distance < 25 ? 0.4 : 0.1;
-        let msg = distance < 5 ? "PERFEKT! ✨" : distance < 15 ? "Bra! 👍" : "Ok... 🤷";
+
+        // Calculate yield for this hit (Simplified: (possible / 5) * (0.5 base + score * 1.0 perf weight))
+        // Match actions.ts logic: total = Math.ceil(total * (0.5 + score))
+        const hitYield = Math.ceil((possibleYield / 5) * (0.5 + score));
+
+        let msg = distance < 5 ? `PERFEKT! +${hitYield}` : distance < 15 ? `Bra! +${hitYield}` : `Ok... +${hitYield}`;
         if (distance < 5) { setShake(true); setTimeout(() => setShake(false), 200); }
-        setFloatingTexts(p => [...p, { id: Date.now(), text: msg }]);
+        setFloatingTexts(p => [...p, { id: Date.now(), text: msg, color: distance < 5 ? 'text-amber-400' : 'text-slate-200' }]);
         const newStrikes = [...strikes, score];
         setStrikes(newStrikes);
         if (newStrikes.length === 5) {
@@ -336,7 +419,12 @@ const TrappingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
 };
 
 /* --- SCYTHE SWEEP VARIANT --- */
-const ScytheSweepGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
+const ScytheSweepGame: React.FC<{
+    onComplete: (score: number) => void,
+    speedMultiplier?: number,
+    possibleYield?: number,
+    resourceName?: string
+}> = ({ onComplete, speedMultiplier = 1.0, possibleYield = 10, resourceName = 'Korn' }) => {
     const [progress, setProgress] = useState(0);
     const [swings, setSwings] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
@@ -347,11 +435,13 @@ const ScytheSweepGame: React.FC<{ onComplete: (score: number) => void, speedMult
         setProgress(p => {
             const next = p + (2 * speedMultiplier); // Faster progress per pixel moved
             if (next >= 100) {
+                const hitYield = Math.ceil((possibleYield / 5) * 1.25); // 5 swings, slightly higher per hit for this mode
+                setFloatingTexts(prev => [...prev, { id: Date.now(), text: `+${hitYield} ${resourceName}` }]);
+
                 setSwings(s => {
                     if (s + 1 >= 5) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
                     return s + 1;
                 });
-                setFloatingTexts(prev => [...prev, { id: Date.now(), text: "SVING! 🗡️" }]);
                 return 0;
             }
             return next;
@@ -376,14 +466,23 @@ const ScytheSweepGame: React.FC<{ onComplete: (score: number) => void, speedMult
 };
 
 /* --- WOODCUTTING CLASSIC --- */
-const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
+const WoodcuttingGame: React.FC<{
+    onComplete: (score: number) => void,
+    speedMultiplier?: number,
+    possibleYield?: number,
+    resourceName?: string
+}> = ({ onComplete, speedMultiplier = 1.0, possibleYield = 5, resourceName = 'Ved' }) => {
     const [target, setTarget] = useState({ x: 50, y: 50 });
     const [hits, setHits] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
+    const [floatingTexts, setFloatingTexts] = useState<{ id: number, text: string }[]>([]);
 
     const spawn = () => setTarget({ x: 20 + Math.random() * 60, y: 20 + Math.random() * 60 });
 
     const handleHit = () => {
+        const hitYield = Math.ceil((possibleYield / 10) * 1.5); // 10 hits, each fixed performance for now
+        setFloatingTexts(prev => [...prev, { id: Date.now(), text: `+${hitYield} ${resourceName}` }]);
+
         setHits(h => {
             if (h + 1 >= 10) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
             return h + 1;
@@ -393,16 +492,32 @@ const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void, speedMult
 
     return (
         <div className="p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/forestry_bg.png")', backgroundSize: 'cover' }}>
-            <div className="absolute inset-0 bg-black/50 z-0" />
-            <div className="relative z-10 w-full h-64 bg-white/5 rounded-3xl border border-white/10">
-                {!isFinished ? (
-                    <button onClick={handleHit} className="absolute w-16 h-16 bg-red-500 rounded-full border-4 border-white shadow-xl animate-pulse" style={{ left: `${target.x}%`, top: `${target.y}%`, transform: 'translate(-50%, -50%)' }}>HOGG!</button>
-                ) : <div className="flex items-center justify-center h-full text-4xl font-black text-indigo-400">HOGGET! 🪵</div>}
+            <div className="absolute inset-0 bg-black/60 z-0" />
+
+            {floatingTexts.map(ft => <FloatingText key={ft.id} text={ft.text} onComplete={() => setFloatingTexts(p => p.filter(i => i.id !== ft.id))} />)}
+
+            <div className="relative z-10 w-full mb-8">
+                <h2 className="text-4xl font-black text-white drop-shadow-lg tracking-tighter uppercase">Tømmerhogging</h2>
+                <div className="text-amber-400 font-bold uppercase tracking-widest text-xs mt-2 px-4 py-1 bg-black/40 rounded-full inline-block">Hugg på merkene! ({hits}/10)</div>
             </div>
-            <div className="mt-4 text-white font-black uppercase tracking-widest">Treff: {hits} / 10</div>
+
+            <div className="relative z-10 w-full h-96 bg-white/5 rounded-[3rem] border border-white/10 shadow-inner overflow-hidden">
+                {!isFinished ? (
+                    <button
+                        onClick={handleHit}
+                        className="absolute w-20 h-20 bg-rose-500 rounded-full border-4 border-white shadow-[0_0_30px_rose] animate-pulse transition-all active:scale-90"
+                        style={{ left: `${target.x}%`, top: `${target.y}%`, transform: 'translate(-50%, -50%)' }}
+                    >
+                        🪓
+                    </button>
+                ) : (
+                    <div className="flex items-center justify-center h-full animate-bounce text-5xl font-black text-amber-500 uppercase tracking-tighter">VEDHOGST FERDIG! 🪵</div>
+                )}
+            </div>
         </div>
     );
 };
+
 
 /* --- SAWING VARIANT --- */
 const SawingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {

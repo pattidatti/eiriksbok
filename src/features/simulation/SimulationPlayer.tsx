@@ -241,8 +241,9 @@ const SimulationGame: React.FC = () => {
                                     type={activeMinigame}
                                     playerUpgrades={player.upgrades}
                                     equipment={Object.values(player.equipment || {})}
+                                    skills={player.skills}
                                     selectedMethod={activeMinigameMethod || undefined}
-                                    onComplete={(score) => handleAction({ type: activeMinigame, performance: score })}
+                                    onComplete={(score) => handleAction({ type: activeMinigame, performance: score, method: activeMinigameMethod })}
                                     onCancel={() => { setActiveMinigame(null); setActiveMinigameMethod(null); }}
                                     currentSeason={(room.world?.season || 'Spring') as any}
                                     currentWeather={(room.world?.weather || 'Clear') as any}

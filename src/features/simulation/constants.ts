@@ -268,6 +268,7 @@ export const GAME_BALANCE = {
         CHOP_WOOD: 5,
         MINE_ORE: 5,
         QUARRY_STONE: 8,
+        FORAGE_BREAD: 1,
         PLOW_BONUS: 5,
         SUMMER_WOOD_BONUS: 2
     },
