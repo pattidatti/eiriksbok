@@ -241,6 +241,10 @@ export const GAME_BALANCE = {
         DEFEND_GOLD_BASE: 20,
         XP_WIN: 20,
         XP_LOSS: 0
+    },
+    LUCKY_DROP: {
+        CHANCE: 0.05, // 5% chance for a lucky drop
+        MULTIPLIER: 2.0 // Lucky drop double the resource yield
     }
 };
 

@@ -126,6 +126,14 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 actor.resources.grain = (actor.resources.grain || 0) + yieldAmount;
                 actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.WORK.xp * finalMultiplier);
 
+                // Lucky Drop
+                const isLucky = Math.random() < GAME_BALANCE.LUCKY_DROP.CHANCE;
+                if (isLucky) {
+                    const bonus = Math.ceil(yieldAmount * (GAME_BALANCE.LUCKY_DROP.MULTIPLIER - 1));
+                    actor.resources.grain += bonus;
+                    room.messages.push(`[${timestamp}] ✨ FLAKS! ${actor.name} fant en eksepsjonelt fruktbar flekk! +${bonus} ekstra korn.`);
+                }
+
                 if (yieldAmount === 0 && currentSeason === 'Winter') {
                     room.messages.push(`[${timestamp}] ❄️ ${actor.name} prøvde å så korn, men jorda er frossen!`);
                 } else if (performance > 0.8) {
@@ -150,6 +158,13 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
                 actor.resources.wood = (actor.resources.wood || 0) + yieldAmount;
                 actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.CHOP.xp * finalMultiplier);
+
+                // Lucky Drop
+                if (Math.random() < GAME_BALANCE.LUCKY_DROP.CHANCE) {
+                    const bonus = Math.ceil(yieldAmount * (GAME_BALANCE.LUCKY_DROP.MULTIPLIER - 1));
+                    actor.resources.wood += bonus;
+                    room.messages.push(`[${timestamp}] ✨ FLAKS! ${actor.name} fant et spesielt godt tre! +${bonus} ekstra ved.`);
+                }
 
                 if (performance > 0.8) {
                     room.messages.push(`[${timestamp}] 🪵 ${actor.name} hogg ved som en kjempe! +${yieldAmount} trevirke.`);
@@ -185,8 +200,14 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
                 console.log(`[MINE_DEBUG] Yield: ${yieldAmount}, Before: ${actor.resources.iron_ore}`);
                 actor.resources.iron_ore = (actor.resources.iron_ore || 0) + yieldAmount;
-                console.log(`[MINE_DEBUG] After: ${actor.resources.iron_ore}`);
                 actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.WORK.xp * finalMultiplier);
+
+                // Lucky Drop
+                if (Math.random() < GAME_BALANCE.LUCKY_DROP.CHANCE) {
+                    const bonus = Math.ceil(yieldAmount * (GAME_BALANCE.LUCKY_DROP.MULTIPLIER - 1));
+                    actor.resources.iron_ore += bonus;
+                    room.messages.push(`[${timestamp}] ✨ FLAKS! ${actor.name} fant en kjempeåre med jern! +${bonus} ekstra malm.`);
+                }
 
                 room.messages.push(`[${timestamp}] ⚒️ ${actor.name} fant ${yieldAmount} jernmalm i gruva.`);
 
@@ -199,6 +220,14 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
                 actor.resources.stone = (actor.resources.stone || 0) + yieldAmount;
                 actor.stats.xp = (actor.stats.xp || 0) + Math.ceil(REWARDS.WORK.xp * finalMultiplier);
+
+                // Lucky Drop
+                if (Math.random() < GAME_BALANCE.LUCKY_DROP.CHANCE) {
+                    const bonus = Math.ceil(yieldAmount * (GAME_BALANCE.LUCKY_DROP.MULTIPLIER - 1));
+                    actor.resources.stone += bonus;
+                    room.messages.push(`[${timestamp}] ✨ FLAKS! ${actor.name} hogg ut en perfekt marmorblokk! +${bonus} ekstra stein.`);
+                }
+
                 room.messages.push(`[${timestamp}] 🪨 ${actor.name} hogg ut ${yieldAmount} stein fra fjellet.`);
 
             } else if (actionType === 'MILL') {
@@ -588,15 +617,17 @@ export const performAction = async (pin: string, playerId: string, action: any) 
 
             } else if (actionType === 'GAMBLE_RESULT') {
                 const { amount, isWin, playerRoll, houseRoll } = action;
+                const betAmount = parseFloat(amount as any);
 
                 if (isWin) {
-                    actor.resources.gold = (actor.resources.gold || 0) + amount;
+                    actor.resources.gold = (parseFloat(actor.resources.gold as any) || 0) + betAmount;
                     actor.stats.xp += 5;
-                    room.messages.push(`[${timestamp}] 🎲 ${actor.name} vant ${amount}g! (Kast: ${playerRoll} mot ${houseRoll})`);
+                    room.messages.push(`[${timestamp}] 🎲 ${actor.name} vant ${betAmount}g! (Kast: ${playerRoll} mot ${houseRoll})`);
                 } else {
-                    // Deduct gold (it wasn't deducted at start of game to allow for animation cancelling)
-                    actor.resources.gold = Math.max(0, (actor.resources.gold || 0) - amount);
-                    room.messages.push(`[${timestamp}] 💸 ${actor.name} tapte ${amount}g. (Kast: ${playerRoll} mot ${houseRoll})`);
+                    // Deduct gold
+                    const currentGold = parseFloat(actor.resources.gold as any) || 0;
+                    actor.resources.gold = Math.max(0, currentGold - betAmount);
+                    room.messages.push(`[${timestamp}] 💸 ${actor.name} tapte ${betAmount}g. (Kast: ${playerRoll} mot ${houseRoll})`);
                 }
 
             } else if (actionType === 'BUY_MEAL') {

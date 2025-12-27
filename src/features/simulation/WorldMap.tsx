@@ -3,6 +3,7 @@ import type { SimulationPlayer, SimulationRoom } from './types';
 import { ACTION_COSTS, SEASONS, WEATHER } from './constants';
 import { TAVERN_NPCS } from './TavernData';
 import type { TavernNPC } from './TavernData';
+import { TavernDiceGame } from './TavernDiceGame';
 
 interface POI {
     id: string;
@@ -113,7 +114,7 @@ const POINTS_OF_INTEREST: POI[] = [
     },
     {
         id: 'tavern_gambling', label: 'Spillebordet', icon: '🎲', top: '50%', left: '50%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'tavern',
-        actions: [{ id: 'GAMBLE_10', label: 'Kast Terninger (10g)', cost: '10g' }]
+        actions: [{ id: 'OPEN_DICE_GAME', label: 'Spill Terninger', cost: 'Min. 0.5g' }]
     },
     {
         id: 'tavern_gossip', label: 'Lokalbefolkningen', icon: '🗣️', top: '40%', left: '70%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'tavern',
@@ -172,6 +173,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
     const [viewingRegionId, setViewingRegionId] = useState<string>(player.regionId || 'capital');
     const [dialogNPC, setDialogNPC] = useState<TavernNPC | null>(null);
     const [dialogStep, setDialogStep] = useState<string>('start');
+    const [isDiceGameOpen, setIsDiceGameOpen] = useState(false);
 
     // Reset viewing region to player's region when opening action (optional, but keeps context safe)
     // Actually, we want persistence during browsing.
@@ -202,9 +204,8 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
         } else if (actionId.startsWith('CRAFT_')) {
             const subType = actionId.replace('CRAFT_', '');
             onAction({ type: 'CRAFT', subType });
-        } else if (actionId.startsWith('GAMBLE_')) {
-            const amount = parseInt(actionId.replace('GAMBLE_', ''), 10);
-            onAction({ type: 'GAMBLE', amount });
+        } else if (actionId === 'OPEN_DICE_GAME') {
+            setIsDiceGameOpen(true);
         } else if (actionId === 'CHAT_LOCAL') {
             const randomNPC = TAVERN_NPCS[Math.floor(Math.random() * TAVERN_NPCS.length)];
             setDialogNPC(randomNPC);
@@ -620,6 +621,17 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                         </div>
                     </div>
                 </div>
+            )}
+
+            {/* Dice Game Overlay */}
+            {isDiceGameOpen && (
+                <TavernDiceGame
+                    playerGold={player.resources.gold || 0}
+                    onClose={() => setIsDiceGameOpen(false)}
+                    onPlay={(result) => {
+                        onAction({ type: 'GAMBLE_RESULT', ...result });
+                    }}
+                />
             )}
 
         </div>
