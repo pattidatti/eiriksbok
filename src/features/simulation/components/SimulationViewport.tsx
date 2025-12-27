@@ -5,6 +5,8 @@ import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
 import { RESOURCE_DETAILS, UPGRADES_LIST, ROLE_TITLES } from '../constants';
 import { useSimulation } from '../SimulationContext';
 import { WorldMap } from '../WorldMap';
+import { SimulationMarket } from './SimulationMarket';
+import { SimulationInventory } from './SimulationInventory';
 
 interface SimulationViewportProps {
     player: SimulationPlayer;
@@ -44,125 +46,9 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                 ) : (
                     <div className="max-w-4xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 duration-500">
                         {activeTab === 'MARKET' ? (
-                            <div className="space-y-6">
-                                <div className="flex justify-between items-end border-b-2 border-white/5 pb-4">
-                                    <h2 className="text-4xl font-black text-white tracking-tighter">Markedshandel</h2>
-                                    <div className="text-amber-500 font-black text-2xl">💰 {(player.resources.gold || 0).toFixed(2)}g</div>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    {Object.entries((room.markets?.[player.regionId || 'capital'] || room.market) || {}).map(([resId, item]: [string, any]) => {
-                                        const details = (RESOURCE_DETAILS as any)[resId] || { label: resId, icon: '📦' };
-                                        const price = item.price || 0;
-                                        const stock = item.stock || 0;
-                                        return (
-                                            <div key={resId} className="bg-slate-800/50 border border-white/10 p-5 rounded-3xl flex items-center justify-between group hover:border-indigo-500 transition-all">
-                                                <div className="flex items-center gap-5">
-                                                    <span className="text-4xl filter drop-shadow-md transition-transform group-hover:rotate-12">{details.icon}</span>
-                                                    <div>
-                                                        <div className="font-black text-xl text-white capitalize">{details.label}</div>
-                                                        <div className="text-sm text-slate-500 font-bold uppercase tracking-tight">Pris: <span className="text-amber-500 font-black">{price.toFixed(1)}g</span> | Lager: <span className="text-white">{stock}</span></div>
-                                                    </div>
-                                                </div>
-                                                <div className="flex gap-2 text-center">
-                                                    <button
-                                                        onClick={() => onAction({ type: 'BUY', resource: resId })}
-                                                        disabled={(player.resources.gold || 0) < price || stock <= 0 || !!actionLoading}
-                                                        className="bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white px-4 py-2 rounded-xl font-black text-sm transition-all disabled:opacity-10 shrink-0"
-                                                    >
-                                                        KJØP
-                                                    </button>
-                                                    <button
-                                                        onClick={() => onAction({ type: 'SELL', resource: resId })}
-                                                        disabled={((player.resources as any)[resId] || 0) < 1 || !!actionLoading}
-                                                        className="bg-rose-600/20 hover:bg-rose-600 text-rose-400 hover:text-white px-4 py-2 rounded-xl font-black text-sm transition-all disabled:opacity-10 shrink-0"
-                                                    >
-                                                        SELG
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-
-                                {/* MERCHANT: FOREIGN MARKETS */}
-                                {player.role === 'MERCHANT' && (
-                                    <div className="mt-12 space-y-6">
-                                        <h3 className="text-2xl font-black text-white flex items-center gap-2">
-                                            <span>🚢</span> Handelsruter (Andre Baronier)
-                                            <span className="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded-full uppercase ml-auto">Sanntids prising</span>
-                                        </h3>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                            {Object.values(room.regions || {})
-                                                .concat([{ id: 'capital', name: 'Kongeriket (Hovedstaden)' } as any])
-                                                .filter((r: any) => r.id !== player.regionId && r.id !== undefined)
-                                                .map((region: any) => {
-                                                    const targetMarket = room.markets?.[region.id];
-                                                    if (!targetMarket) return null;
-
-                                                    return (
-                                                        <div key={region.id} className="bg-indigo-900/10 border border-indigo-500/10 p-6 rounded-[2rem]">
-                                                            <div className="text-xl font-black text-white mb-4 border-b border-white/5 pb-2 truncate" title={region.name}>{region.name}</div>
-                                                            <div className="space-y-4">
-                                                                {['grain', 'wood', 'iron'].map(res => {
-                                                                    const item = (targetMarket as any)[res];
-                                                                    if (!item) return null;
-                                                                    const foreignPrice = item.price;
-                                                                    const label = (RESOURCE_DETAILS as any)[res]?.label || res;
-                                                                    const icon = (RESOURCE_DETAILS as any)[res]?.icon || '📦';
-
-                                                                    return (
-                                                                        <div key={res} className="flex justify-between items-center bg-slate-900/50 p-2 rounded-xl">
-                                                                            <div className="flex items-center gap-2">
-                                                                                <span>{icon}</span>
-                                                                                <div className="text-xs font-bold text-slate-400">{label}</div>
-                                                                            </div>
-                                                                            <div className="flex items-center gap-2">
-                                                                                <span className="text-amber-500 font-black">{foreignPrice.toFixed(0)}g</span>
-                                                                                <div className="flex flex-col gap-1">
-                                                                                    <button
-                                                                                        onClick={() => onAction({ type: 'TRADE_ROUTE', targetRegionId: region.id, resource: res, action: 'IMPORT' })}
-                                                                                        disabled={!!actionLoading}
-                                                                                        className="px-2 py-0.5 bg-emerald-600/20 text-emerald-400 text-[10px] font-black rounded hover:bg-emerald-600 hover:text-white transition-colors"
-                                                                                    >
-                                                                                        IMP
-                                                                                    </button>
-                                                                                    <button
-                                                                                        onClick={() => onAction({ type: 'TRADE_ROUTE', targetRegionId: region.id, resource: res, action: 'EXPORT' })}
-                                                                                        disabled={!!actionLoading}
-                                                                                        className="px-2 py-0.5 bg-rose-600/20 text-rose-400 text-[10px] font-black rounded hover:bg-rose-600 hover:text-white transition-colors"
-                                                                                    >
-                                                                                        EKSP
-                                                                                    </button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    );
-                                                                })}
-                                                            </div>
-                                                        </div>
-                                                    );
-                                                })}
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
+                            <SimulationMarket player={player} room={room} onAction={onAction} />
                         ) : activeTab === 'INVENTORY' ? (
-                            <div className="space-y-6">
-                                <h2 className="text-4xl font-black text-white tracking-tighter border-b-2 border-white/5 pb-4">Min Oppakning</h2>
-                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                                    {Object.entries(player.resources || {}).map(([resId, amount]) => {
-                                        if (resId === 'gold') return null;
-                                        const details = (RESOURCE_DETAILS as any)[resId] || { label: resId, icon: '📦' };
-                                        return (
-                                            <div key={resId} className="bg-slate-800/50 border border-white/5 p-6 rounded-3xl flex flex-col items-center text-center group hover:bg-slate-800 transition-all">
-                                                <span className="text-6xl mb-4 transform group-hover:scale-110 transition-transform">{details.icon}</span>
-                                                <div className="text-3xl font-black text-white">{amount as number}</div>
-                                                <div className="text-xs font-black uppercase text-slate-500 tracking-widest mt-1">{details.label}</div>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
+                            <SimulationInventory player={player} />
                         ) : activeTab === 'VILLAGE' ? (
                             <div className="w-full h-full min-h-[500px] flex flex-col gap-6">
                                 <div className="flex justify-between items-center bg-slate-900/60 p-6 rounded-[2rem] border border-white/10">

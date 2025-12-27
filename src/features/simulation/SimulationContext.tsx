@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, type ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { useParams } from 'react-router-dom';
 
 type TabType = 'MAP' | 'VILLAGE' | 'INVENTORY' | 'MARKET' | 'UPGRADES' | 'SKILLS' | 'DIPLOMACY' | 'HIERARCHY' | 'PROFILE';
 type MinigameType = 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | null;
@@ -19,14 +20,38 @@ interface SimulationContextType {
 const SimulationContext = createContext<SimulationContextType | undefined>(undefined);
 
 export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [activeTab, setActiveTab] = useState<TabType>('MAP');
+    const { pin, tab } = useParams<{ pin: string; tab?: string }>();
+
+    // Helper: URL slug <-> Internal State
+    const getTabFromUrl = (urlTab?: string): TabType => {
+        if (!urlTab) return 'MAP';
+        return urlTab.toUpperCase() as TabType;
+    };
+
+    const getUrlFromTab = (t: TabType): string => {
+        return t.toLowerCase();
+    };
+
+    // State is initialized ONCE from the URL. 
+    // Subsequent updates are local to prevent router re-renders (immersion breaking).
+    const [activeTab, setActiveTabState] = useState<TabType>(() => getTabFromUrl(tab));
+
     const [viewMode, setViewMode] = useState<string>('global');
     const [isMarketOpen, setMarketOpen] = useState(false);
     const [activeMinigame, setActiveMinigame] = useState<MinigameType>(null);
     const [actionLoading, setActionLoading] = useState<string | null>(null);
 
+    // Custom setter that updates state + silently updates URL
+    const setActiveTab = (newTab: TabType) => {
+        setActiveTabState(newTab);
+
+        // Silently update URL without triggering React Router navigation/suspense
+        const slug = getUrlFromTab(newTab);
+        const newUrl = `/sim/play/${pin}/${slug}`;
+        window.history.replaceState({ ...window.history.state, idx: window.history.length }, '', newUrl);
+    };
+
     // Sync activeTab with interactions
-    // e.g. opening market might switch tab or overlay
     const handleSetMarketOpen = (isOpen: boolean) => {
         setMarketOpen(isOpen);
         if (isOpen) setActiveTab('MARKET');

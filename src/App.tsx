@@ -119,7 +119,7 @@ function AppContent() {
               {/* Simulation Game Routes */}
               <Route path="sim" element={<SimulationLobby />} />
               <Route path="sim/host/setup" element={<SimulationHost />} />
-              <Route path="sim/play/:pin" element={<SimulationPlayer />} />
+              <Route path="sim/play/:pin/:tab?" element={<SimulationPlayer />} />
 
               <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
               <Route path="admin/stats" element={<AdminGuard><StatsPage /></AdminGuard>} />
