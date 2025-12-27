@@ -97,11 +97,11 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
 
     return (
         <div className="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-2xl flex items-center justify-center p-4">
-            <div className="bg-slate-900 rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.8)] w-full max-w-xl overflow-hidden relative border-2 border-white/10">
+            <div className="bg-slate-900 rounded-[3rem] shadow-[0_50px_120px_rgba(0,0,0,0.9)] w-full max-w-5xl overflow-hidden relative border-2 border-white/10">
                 <button onClick={onCancel} className="absolute top-6 right-6 text-white/50 hover:text-white z-20 p-3 bg-white/5 hover:bg-white/10 rounded-full transition-all">✕</button>
 
                 {!method ? (
-                    <div className="relative min-h-[450px] flex flex-col items-center justify-center p-12 text-center animate-in fade-in zoom-in duration-500 overflow-hidden">
+                    <div className="relative min-h-[600px] flex flex-col items-center justify-center p-12 text-center animate-in fade-in zoom-in duration-500 overflow-hidden">
                         {/* Background with overlay */}
                         <div className="absolute inset-0 z-0">
                             <img src={getSelectionBackground()} className="w-full h-full object-cover grayscale-[0.5] opacity-30" alt="" />
@@ -201,7 +201,7 @@ const HarvestingGame: React.FC<{ onComplete: (score: number) => void, isMining?:
     const bg = isMining || isQuarrying ? 'url("/images/minigames/mining_bg.png")' : isForaging ? 'url("/images/minigames/foraging_bg.png")' : 'url("/images/minigames/agriculture_bg.png")';
 
     return (
-        <div className={`p-8 text-center min-h-[450px] relative flex flex-col items-center justify-center overflow-hidden ${shake ? 'animate-shake' : ''}`} style={{ backgroundImage: bg, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className={`p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden ${shake ? 'animate-shake' : ''}`} style={{ backgroundImage: bg, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="absolute inset-0 bg-black/70 z-0" />
             <div className="relative z-10 w-full flex flex-col items-center">
                 <h2 className="text-4xl font-black text-white mb-8 drop-shadow-lg tracking-tighter uppercase">{isMining ? 'Gruvedrift' : isQuarrying ? 'Steinhugger' : isForaging ? 'Sanking' : 'Kornhøsting'}</h2>
@@ -255,7 +255,7 @@ const TrappingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCom
     };
 
     return (
-        <div className="p-12 text-center min-h-[450px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/foraging_bg.png")', backgroundSize: 'cover' }}>
+        <div className="p-12 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/foraging_bg.png")', backgroundSize: 'cover' }}>
             <div className="absolute inset-0 bg-black/70 z-0" />
             <h2 className="relative z-10 text-4xl font-black text-white mb-12 tracking-tighter uppercase italic">Snarefiske 🎣</h2>
 
@@ -301,7 +301,7 @@ const ScytheSweepGame: React.FC<{ onComplete: (score: number) => void }> = ({ on
     };
 
     return (
-        <div onMouseMove={handleMove} className="p-8 text-center min-h-[450px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/agriculture_bg.png")', backgroundSize: 'cover' }}>
+        <div onMouseMove={handleMove} className="p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/agriculture_bg.png")', backgroundSize: 'cover' }}>
             <div className="absolute inset-0 bg-black/50 z-0" />
             <div className="relative z-10 w-full flex flex-col items-center">
                 <h2 className="text-3xl font-black text-white mb-4">Scythe Sweep</h2>
@@ -334,7 +334,7 @@ const WoodcuttingGame: React.FC<{ onComplete: (score: number) => void }> = ({ on
     };
 
     return (
-        <div className="p-8 text-center min-h-[450px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/forestry_bg.png")', backgroundSize: 'cover' }}>
+        <div className="p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/forestry_bg.png")', backgroundSize: 'cover' }}>
             <div className="absolute inset-0 bg-black/50 z-0" />
             <div className="relative z-10 w-full h-64 bg-white/5 rounded-3xl border border-white/10">
                 {!isFinished ? (
@@ -368,7 +368,7 @@ const SawingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCompl
     };
 
     return (
-        <div onMouseMove={handleMove} className="p-8 text-center min-h-[450px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/forestry_bg.png")', backgroundSize: 'cover' }}>
+        <div onMouseMove={handleMove} className="p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/forestry_bg.png")', backgroundSize: 'cover' }}>
             <div className="absolute inset-0 bg-black/60 z-0" />
             <h2 className="relative z-10 text-3xl font-black text-white mb-8">Saging 🪚</h2>
             <div className="relative z-10 w-full h-24 bg-white/10 rounded-full border-2 border-white/20 flex items-center px-4">
@@ -410,7 +410,7 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCom
     };
 
     return (
-        <div className="p-8 text-center min-h-[450px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/smithing_bg.png")', backgroundSize: 'cover' }}>
+        <div className="p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/smithing_bg.png")', backgroundSize: 'cover' }}>
             <div className="absolute inset-0 bg-black/50 z-0" />
             <div className="relative z-10 w-full h-32 bg-white/10 rounded-3xl mb-8 border border-white/20 overflow-hidden flex items-center">
                 <div className="absolute right-[5%] w-16 h-24 bg-red-500/20 border-2 border-red-500 rounded-xl" />

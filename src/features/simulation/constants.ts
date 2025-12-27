@@ -9,6 +9,8 @@ export const INITIAL_MARKET: SimulationMarket = {
     swords: { price: 80, stock: 20, demand: 1.0 },
     armor: { price: 120, stock: 10, demand: 1.0 },
     tools: { price: 60, stock: 30, demand: 1.0 },
+    wool: { price: 12, stock: 200, demand: 1.0 },
+    cloth: { price: 45, stock: 50, demand: 1.0 },
 };
 
 export const RESOURCE_DETAILS: Record<string, { label: string, icon: string }> = {
@@ -38,11 +40,11 @@ export const ROLE_DEFINITIONS: Record<Role, { label: string, description: string
 };
 
 export const INITIAL_RESOURCES: Record<Role, Resources> = {
-    KING: { gold: 1000, grain: 500, flour: 200, bread: 50, wood: 200, timber: 50, iron_ore: 0, iron_ingot: 20, iron: 100, stone: 100, swords: 50, armor: 20, tools: 10, manpower: 50, favor: 0 },
-    BARON: { gold: 300, grain: 100, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 10, iron: 20, stone: 20, swords: 10, armor: 10, tools: 5, manpower: 10, favor: 0 },
-    PEASANT: { gold: 20, grain: 30, flour: 5, bread: 5, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 0, stone: 0, swords: 0, armor: 0, tools: 1, manpower: 1, favor: 0 },
-    SOLDIER: { gold: 50, grain: 10, flour: 10, bread: 10, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 10, stone: 0, swords: 5, armor: 2, tools: 0, manpower: 1, favor: 0 },
-    MERCHANT: { gold: 500, grain: 50, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 5, iron: 50, stone: 50, swords: 5, armor: 2, tools: 5, manpower: 0, favor: 0 }
+    KING: { gold: 1000, grain: 500, flour: 200, bread: 50, wood: 200, timber: 50, iron_ore: 0, iron_ingot: 20, iron: 100, stone: 100, swords: 50, armor: 20, tools: 10, manpower: 50, favor: 0, wool: 50, cloth: 20 },
+    BARON: { gold: 300, grain: 100, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 10, iron: 20, stone: 20, swords: 10, armor: 10, tools: 5, manpower: 10, favor: 0, wool: 20, cloth: 5 },
+    PEASANT: { gold: 20, grain: 30, flour: 5, bread: 5, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 0, stone: 0, swords: 0, armor: 0, tools: 1, manpower: 1, favor: 0, wool: 10, cloth: 0 },
+    SOLDIER: { gold: 50, grain: 10, flour: 10, bread: 10, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 10, stone: 0, swords: 5, armor: 2, tools: 0, manpower: 1, favor: 0, wool: 0, cloth: 0 },
+    MERCHANT: { gold: 500, grain: 50, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 5, iron: 50, stone: 50, swords: 5, armor: 2, tools: 5, manpower: 0, favor: 0, wool: 20, cloth: 10 }
 };
 
 
@@ -90,7 +92,9 @@ export const ACTION_COSTS = {
     PRAY: { stamina: 15 },
     FEAST: { bread: 30, gold: 100, stamina: 10 },
     CONTRIBUTE: { stamina: 10 },
-    CONSTRUCT: { stamina: 20 }
+    CONSTRUCT: { stamina: 20 },
+    SLEEP: { stamina: 0 },
+    EAT: { bread: 1, stamina: 0 }
 };
 
 
@@ -182,6 +186,21 @@ export const VILLAGE_BUILDINGS: Record<string, any> = {
         description: 'Gjør det mulig å bake Brød fra Mel.',
         requirements: { stone: 50, timber: 20 },
         unlocks: ['CRAFT_BREAD']
+    },
+    tavern: {
+        id: 'tavern',
+        name: 'Vertshuset',
+        description: 'Et sted for hvile og rykter. Øker stamina-regenerering.',
+        requirements: { wood: 100, stone: 50 }, // For construction if not already built
+        unlocks: ['TAVERN_ACCESS'],
+        isDefaulted: true // Mark as starting building
+    },
+    weaving_mill: {
+        id: 'weaving_mill',
+        name: 'Veveriet',
+        description: 'Foredler Ull til Stoff for videre salg eller klær.',
+        requirements: { timber: 40, stone: 30 },
+        unlocks: ['REFINE_CLOTH']
     }
 };
 
@@ -189,7 +208,8 @@ export const REFINERY_RECIPES: Record<string, any> = {
     timber: { input: { wood: 5 }, output: { timber: 1 }, buildingId: 'sawmill', stamina: 10, xp: 5 },
     flour: { input: { grain: 10 }, output: { flour: 10 }, buildingId: 'windmill', stamina: 15, xp: 8 },
     iron_ingot: { input: { iron_ore: 5, wood: 2 }, output: { iron_ingot: 1 }, buildingId: 'smeltery', stamina: 20, xp: 12 },
-    bread: { input: { flour: 2 }, output: { bread: 1 }, buildingId: 'bakery', stamina: 5, xp: 3 }
+    bread: { input: { flour: 2 }, output: { bread: 1 }, buildingId: 'bakery', stamina: 5, xp: 3 },
+    cloth: { input: { wool: 5 }, output: { cloth: 1 }, buildingId: 'weaving_mill', stamina: 15, xp: 10 }
 };
 
 export const GAME_BALANCE = {

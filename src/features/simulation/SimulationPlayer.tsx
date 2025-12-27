@@ -5,7 +5,7 @@ import { useLayout } from '../../context/LayoutContext';
 
 import { db } from '../../lib/firebase';
 import type { SimulationPlayer as SimulationPlayerType, SimulationRoom } from './types';
-import { UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES, VILLAGE_BUILDINGS, REFINERY_RECIPES, RESOURCE_DETAILS, ROLE_DEFINITIONS, ACTION_COSTS } from './constants';
+import { UPGRADES_LIST, SEASONS, LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS } from './constants';
 
 import { performAction } from './actions';
 import { WorldMap } from './WorldMap';
@@ -37,7 +37,7 @@ export const SimulationPlayer: React.FC = () => {
         }
         return rId;
     };
-    const [activeTab, setActiveTab] = useState<'MAP' | 'VILLAGE' | 'INVENTORY' | 'MARKET' | 'UPGRADES' | 'DIPLOMACY' | 'HIERARCHY' | 'PROFILE'>('MAP');
+    const [activeTab, setActiveTab] = useState<'MAP' | 'VILLAGE' | 'INVENTORY' | 'MARKET' | 'UPGRADES' | 'SKILLS' | 'DIPLOMACY' | 'HIERARCHY' | 'PROFILE'>('MAP');
     const [actionLoading, setActionLoading] = useState<string | null>(null);
     const [activeMinigame, setActiveMinigame] = useState<'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | null>(null);
     const [levelUpData, setLevelUpData] = useState<{ level: number, title: string } | null>(null);
@@ -344,10 +344,9 @@ export const SimulationPlayer: React.FC = () => {
                             <nav className="flex-1 p-4 space-y-1 overflow-y-auto custom-scrollbar">
                                 {[
                                     { id: 'MAP', label: 'Verdenskart', icon: '🗺️' },
-                                    { id: 'MAP', label: 'Verden', icon: '🌍' },
                                     { id: 'PROFILE', label: 'Profil', icon: '👤' },
-                                    { id: 'VILLAGE', label: 'Landsby', icon: '🏘️' },
-                                    { id: 'UPGRADES', label: 'Ferdigheter', icon: '📜' },
+                                    { id: 'VILLAGE', label: 'Byggeprosjekter', icon: '🏗️' },
+                                    { id: 'SKILLS', label: 'Ferdigheter', icon: '📜' },
                                     { id: 'DIPLOMACY', label: 'Diplomati', icon: '🕊️' },
                                     { id: 'HIERARCHY', label: 'Struktur', icon: '🏛️' },
                                     { id: 'UPGRADES', label: 'Oppgraderinger', icon: '⚒️' },
@@ -392,7 +391,7 @@ export const SimulationPlayer: React.FC = () => {
                                                 <div
                                                     className="h-full bg-emerald-500"
                                                     style={{ width: `${(room.world.settlement.buildings[room.world.settlement.activeProjectId]?.progress / room.world.settlement.buildings[room.world.settlement.activeProjectId]?.target) * 100}%` }}
-                                                />
+                                                ></div>
                                             </div>
                                         </div>
                                     )}
@@ -409,7 +408,7 @@ export const SimulationPlayer: React.FC = () => {
                                         </div>
                                     )}
 
-                                    {/* KINGDOM BADGE (Always visible or to the right as requested) */}
+                                    {/* KINGDOM BADGE */}
                                     <div className="hidden md:flex items-center gap-2 bg-amber-500/10 px-4 py-2 rounded-xl border border-amber-500/20">
                                         <span className="text-xl">👑</span>
                                         <div>
@@ -436,7 +435,6 @@ export const SimulationPlayer: React.FC = () => {
                                     <WorldMap player={player} room={room} onAction={handleAction} onOpenMarket={() => setActiveTab('MARKET')} />
                                 ) : (
                                     <div className="max-w-4xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 duration-500">
-                                        {/* Generic Tab Container Design */}
                                         {activeTab === 'MARKET' ? (
                                             <div className="space-y-6">
                                                 <div className="flex justify-between items-end border-b-2 border-white/5 pb-4">
@@ -478,7 +476,7 @@ export const SimulationPlayer: React.FC = () => {
                                                     })}
                                                 </div>
 
-                                                {/* MERCHANT: FOREIGN MARKETS (Trade Routes) */}
+                                                {/* MERCHANT: FOREIGN MARKETS */}
                                                 {player.role === 'MERCHANT' && (
                                                     <div className="mt-12 space-y-6">
                                                         <h3 className="text-2xl font-black text-white flex items-center gap-2">
@@ -486,9 +484,8 @@ export const SimulationPlayer: React.FC = () => {
                                                             <span className="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded-full uppercase ml-auto">Sanntids prising</span>
                                                         </h3>
                                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                                            {/* List all regions EXCEPT my own */}
                                                             {Object.values(room.regions || {})
-                                                                .concat([{ id: 'capital', name: 'Kongeriket (Hovedstaden)' } as any]) // Add capital manually if needed
+                                                                .concat([{ id: 'capital', name: 'Kongeriket (Hovedstaden)' } as any])
                                                                 .filter((r: any) => r.id !== player.regionId && r.id !== undefined)
                                                                 .map((region: any) => {
                                                                     const targetMarket = room.markets?.[region.id];
@@ -501,7 +498,6 @@ export const SimulationPlayer: React.FC = () => {
                                                                                 {['grain', 'wood', 'iron'].map(res => {
                                                                                     const item = (targetMarket as any)[res];
                                                                                     if (!item) return null;
-
                                                                                     const foreignPrice = item.price;
                                                                                     const label = (RESOURCE_DETAILS as any)[res]?.label || res;
                                                                                     const icon = (RESOURCE_DETAILS as any)[res]?.icon || '📦';
@@ -519,7 +515,6 @@ export const SimulationPlayer: React.FC = () => {
                                                                                                         onClick={() => handleAction({ type: 'TRADE_ROUTE', targetRegionId: region.id, resource: res, action: 'IMPORT' })}
                                                                                                         disabled={!!actionLoading}
                                                                                                         className="px-2 py-0.5 bg-emerald-600/20 text-emerald-400 text-[10px] font-black rounded hover:bg-emerald-600 hover:text-white transition-colors"
-                                                                                                        title="Kjøp 10 (Import)"
                                                                                                     >
                                                                                                         IMP
                                                                                                     </button>
@@ -527,7 +522,6 @@ export const SimulationPlayer: React.FC = () => {
                                                                                                         onClick={() => handleAction({ type: 'TRADE_ROUTE', targetRegionId: region.id, resource: res, action: 'EXPORT' })}
                                                                                                         disabled={!!actionLoading}
                                                                                                         className="px-2 py-0.5 bg-rose-600/20 text-rose-400 text-[10px] font-black rounded hover:bg-rose-600 hover:text-white transition-colors"
-                                                                                                        title="Selg 10 (Eksport)"
                                                                                                     >
                                                                                                         EKSP
                                                                                                     </button>
@@ -540,16 +534,9 @@ export const SimulationPlayer: React.FC = () => {
                                                                         </div>
                                                                     );
                                                                 })}
-                                                            {/* Fallback if no other regions */}
-                                                            {Object.keys(room.regions || {}).length < 2 && (
-                                                                <div className="col-span-full text-center text-slate-500 italic py-8">
-                                                                    Ingen andre baronier å handle med ennå...
-                                                                </div>
-                                                            )}
                                                         </div>
                                                     </div>
                                                 )}
-
                                             </div>
                                         ) : activeTab === 'INVENTORY' ? (
                                             <div className="space-y-6">
@@ -567,107 +554,23 @@ export const SimulationPlayer: React.FC = () => {
                                                         );
                                                     })}
                                                 </div>
-
-                                                {/* Equipment Status */}
-                                                {player.equipment && (
-                                                    <div className="mt-12 space-y-6">
-                                                        <h3 className="text-xs font-black uppercase tracking-[0.2em] text-indigo-400">Utstyr & Tilstand</h3>
-                                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                                            {Object.entries(player.equipment).map(([key, item]) => (
-                                                                <div key={key} className="bg-indigo-900/10 border border-indigo-500/10 p-6 rounded-[2rem]">
-                                                                    <div className="text-[10px] font-black uppercase text-indigo-500/60 mb-2 leading-none">{{ tools: 'Verktøy', weapon: 'Sverd', armor: 'Rustning' }[key] || key}</div>
-                                                                    <div className="flex justify-between items-end mb-4">
-                                                                        <div className="text-2xl font-black text-white">{(item as any).name || 'Håndverk'}</div>
-                                                                        <div className="text-base font-black text-white opacity-40">{(item as any).durability}%</div>
-                                                                    </div>
-                                                                    <div className="h-1.5 bg-black/40 rounded-full overflow-hidden">
-                                                                        <div
-                                                                            className={`h-full transition-all duration-500 ${(item as any).durability > 50 ? 'bg-emerald-500' : (item as any).durability > 20 ? 'bg-amber-500' : 'bg-rose-500 animate-pulse'}`}
-                                                                            style={{ width: `${(item as any).durability}%` }}
-                                                                        />
-                                                                    </div>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                )}
                                             </div>
                                         ) : activeTab === 'VILLAGE' ? (
-                                            <div className="space-y-6">
-                                                <h2 className="text-4xl font-black text-white tracking-tighter border-b-2 border-white/5 pb-4">Bosetningen</h2>
-
-                                                {/* Settlement Progress Banner */}
-                                                {(room.world.settlement?.activeProjectId) ? (
-                                                    <div className="bg-emerald-900/10 p-8 rounded-[2rem] border-2 border-emerald-900/20 mb-8 relative overflow-hidden group">
-                                                        <div className="relative z-10">
-                                                            <div className="flex justify-between items-center mb-4">
-                                                                <div>
-                                                                    <div className="text-[10px] font-black text-emerald-500 uppercase tracking-widest mb-1">Aktivt Prosjekt</div>
-                                                                    <h3 className="text-3xl font-black text-white uppercase tracking-tighter">{room.world.settlement.activeProjectId}</h3>
-                                                                </div>
-                                                                <button
-                                                                    onClick={() => handleAction({ type: 'CONSTRUCT' })}
-                                                                    disabled={!!actionLoading || (player.status.stamina || 0) < (ACTION_COSTS.CONSTRUCT.stamina || 0)}
-                                                                    className={`bg-emerald-600 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs shadow-lg shadow-emerald-600/20 active:scale-95 transition-all outline-none ring-2 ring-emerald-400/20 ${((player.status.stamina || 0) < (ACTION_COSTS.CONSTRUCT.stamina || 0)) ? 'opacity-50 grayscale cursor-not-allowed' : ''}`}
-                                                                >
-                                                                    Bidra (-{ACTION_COSTS.CONSTRUCT.stamina}⚡)
-                                                                </button>
-                                                            </div>
-                                                            <div className="w-full h-3 bg-black/40 rounded-full overflow-hidden border border-white/5">
-                                                                <div
-                                                                    className="h-full bg-emerald-500 transition-all duration-1000 shadow-[0_0_15px_rgba(16,185,129,0.5)]"
-                                                                    style={{ width: `${(room.world.settlement.buildings[room.world.settlement.activeProjectId].progress / room.world.settlement.buildings[room.world.settlement.activeProjectId].target) * 100}%` }}
-                                                                />
-                                                            </div>
-                                                            <p className="mt-3 text-[10px] font-black text-emerald-500/60 uppercase tracking-widest">
-                                                                Status: {room.world.settlement?.buildings[room.world.settlement?.activeProjectId ?? '']?.progress} / {room.world.settlement?.buildings[room.world.settlement?.activeProjectId ?? '']?.target}
-                                                            </p>
-                                                        </div>
-                                                        <div className="absolute top-[-20%] right-[-10%] text-[12rem] text-emerald-500 opacity-[0.03] pointer-events-none group-hover:scale-110 transition-transform duration-1000">🏗️</div>
+                                            <div className="w-full h-full min-h-[500px] flex flex-col gap-6">
+                                                <div className="flex justify-between items-center bg-slate-900/60 p-6 rounded-[2rem] border border-white/10">
+                                                    <div>
+                                                        <h2 className="text-3xl font-black text-white tracking-tighter uppercase flex items-center gap-3">🏗️ Byggeprosjekter</h2>
+                                                        <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mt-1">Landsbyens ekspansjon & vedlikehold</p>
                                                     </div>
-                                                ) : (
-                                                    <div className="bg-slate-800/30 p-8 rounded-[2rem] text-center border-2 border-dashed border-white/5 mb-8">
-                                                        <p className="text-slate-500 font-bold">Ingen aktive byggeprosjekter.</p>
-                                                        <p className="text-[10px] uppercase text-slate-600 font-black mt-2 tracking-widest">Kongen må stake ut kursen</p>
-                                                    </div>
-                                                )}
-
-                                                {/* Soldier: Patrol Action */}
-                                                {player.role === 'SOLDIER' && (
-                                                    <div className="bg-slate-800/50 border border-white/10 p-6 rounded-3xl mb-8 flex items-center justify-between">
-                                                        <div>
-                                                            <h3 className="text-xl font-black text-white">Vakthold & Patrulje</h3>
-                                                            <p className="text-xs text-slate-400">Gå runder i landsbyen for å sikre ro og orden. (Tilfeldig minispill)</p>
-                                                        </div>
-                                                        <button
-                                                            onClick={() => handleAction({ type: 'PATROL' })}
-                                                            disabled={!!actionLoading}
-                                                            className="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-xl font-black uppercase text-sm shadow-lg transition-all active:scale-95"
-                                                        >
-                                                            Start Patrulje ⚔️
-                                                        </button>
-                                                    </div>
-                                                )}
-
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                    {room.world.settlement && Object.values(room.world.settlement.buildings).map((building: any) => {
-                                                        const meta = (VILLAGE_BUILDINGS as any)[building.id];
-                                                        return (
-                                                            <div key={building.id} className="bg-slate-800/50 border border-white/10 p-6 rounded-3xl">
-                                                                <div className="flex justify-between items-center mb-2">
-                                                                    <h4 className="text-xl font-black text-white">{meta?.name}</h4>
-                                                                    <span className="bg-indigo-600 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest text-white shadow-lg shadow-indigo-600/30">Nivå {building.level}</span>
-                                                                </div>
-                                                                <p className="text-xs text-slate-400 mb-6 leading-relaxed italic opacity-70">{meta?.description}</p>
-
-                                                                <div className="pt-4 border-t border-white/5">
-                                                                    <div className="flex items-center gap-2 text-indigo-400 font-bold text-[10px] uppercase tracking-widest bg-indigo-500/10 px-3 py-1 rounded-lg w-fit">
-                                                                        <span>📍 Lokasjon Aktiv</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        );
-                                                    })}
+                                                </div>
+                                                <div className="flex-1 relative rounded-[3rem] overflow-hidden border-2 border-white/5 shadow-2xl">
+                                                    <WorldMap
+                                                        player={player}
+                                                        room={room}
+                                                        onAction={handleAction}
+                                                        onOpenMarket={() => setActiveTab('MARKET')}
+                                                        initialViewMode="village_construction"
+                                                    />
                                                 </div>
                                             </div>
                                         ) : activeTab === 'UPGRADES' ? (
@@ -678,7 +581,7 @@ export const SimulationPlayer: React.FC = () => {
                                                         const isOwned = player.upgrades?.includes(upg.id);
                                                         let canAfford = true;
                                                         Object.entries(upg.cost || {}).forEach(([res, amt]) => {
-                                                            if ((player.resources as any)[res] < (amt as number)) canAfford = false;
+                                                            if (((player.resources as any)[res] || 0) < (amt as number)) canAfford = false;
                                                         });
                                                         return (
                                                             <div key={upg.id} className={`p-6 rounded-3xl border-2 transition-all ${isOwned ? 'bg-indigo-900/20 border-indigo-500 shadow-lg shadow-indigo-500/10' : 'bg-slate-800/40 border-white/5'}`}>
@@ -697,30 +600,74 @@ export const SimulationPlayer: React.FC = () => {
                                                                 <button
                                                                     onClick={() => handleAction({ type: 'UPGRADE', upgradeId: upg.id })}
                                                                     disabled={isOwned || !canAfford || !!actionLoading}
-                                                                    className={`w-full py-3 rounded-xl font-black uppercase tracking-widest text-xs transition-all ${isOwned ? 'bg-emerald-600/10 text-emerald-500 cursor-default p-4' : canAfford ? 'bg-indigo-600 text-white shadow-xl hover:bg-indigo-50 shadow-indigo-600/20' : 'bg-slate-700 text-slate-500 opacity-50'}`}
+                                                                    className={`w-full py-3 rounded-xl font-black uppercase tracking-widest text-xs transition-all ${isOwned ? 'bg-emerald-600/10 text-emerald-500 cursor-default' : canAfford ? 'bg-indigo-600 text-white shadow-xl hover:bg-indigo-500' : 'bg-slate-700 text-slate-500 opacity-50'}`}
                                                                 >
                                                                     {isOwned ? '✅ AKTIV' : canAfford ? 'KJØP OPPGRADERING' : 'MANGLER RESSURSER'}
                                                                 </button>
                                                             </div>
                                                         );
                                                     })}
-                                                    {/* If no role upgrades yet */}
-                                                    {(!(UPGRADES_LIST as any)[player.role]) && (
-                                                        <div className="col-span-full py-12 text-center text-slate-500 italic font-bold">Ferdigheter planlegges for din rolle...</div>
-                                                    )}
+                                                </div>
+                                            </div>
+                                        ) : activeTab === 'SKILLS' ? (
+                                            <div className="space-y-8 pb-20">
+                                                <h2 className="text-4xl font-black text-white tracking-tighter border-b-2 border-white/5 pb-4">Mine Ferdigheter</h2>
+
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                                    {/* XP and Titles Summary */}
+                                                    <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10">
+                                                        <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">
+                                                            <span className="text-2xl">📜</span> Rang & Erfaring
+                                                        </h3>
+                                                        <div className="space-y-6">
+                                                            <div className="bg-black/20 p-6 rounded-3xl border border-white/5">
+                                                                <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Gjeldende Tittel</div>
+                                                                <div className="text-3xl font-black text-white">{roleTitle}</div>
+                                                            </div>
+                                                            <div className="bg-black/20 p-6 rounded-3xl border border-white/5">
+                                                                <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Total Erfaring</div>
+                                                                <div className="text-3xl font-black text-indigo-400">{player.stats.xp} XP</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Passive Bonuses Overview */}
+                                                    <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10">
+                                                        <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">
+                                                            <span className="text-2xl">✨</span> Passive Bonuser
+                                                        </h3>
+                                                        <div className="space-y-4">
+                                                            {(player.upgrades || []).map(id => {
+                                                                const upg = (UPGRADES_LIST as any)[player.role]?.find((u: any) => u.id === id);
+                                                                if (!upg) return null;
+                                                                return (
+                                                                    <div key={id} className="flex items-center gap-4 bg-emerald-500/10 p-4 rounded-2xl border border-emerald-500/20">
+                                                                        <span className="text-2xl">⚡</span>
+                                                                        <div>
+                                                                            <div className="font-bold text-emerald-400 text-sm">{upg.name}</div>
+                                                                            <div className="text-[10px] text-slate-400 font-medium italic">{upg.benefit}</div>
+                                                                        </div>
+                                                                    </div>
+                                                                );
+                                                            })}
+                                                            {(!player.upgrades || player.upgrades.length === 0) && (
+                                                                <div className="text-center text-slate-500 italic py-8">Lås opp oppgraderinger for å se bonuser her...</div>
+                                                            )}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         ) : activeTab === 'DIPLOMACY' ? (
                                             <div className="space-y-6 h-full flex flex-col">
                                                 <h2 className="text-4xl font-black text-white tracking-tighter border-b-2 border-white/5 pb-4 flex items-center justify-between">
                                                     Diplomati
-                                                    <span className="text-xs font-black uppercase text-indigo-500 tracking-widest bg-indigo-500/10 px-4 py-1 rounded-full uppercase">Kryptert Kanal</span>
+                                                    <span className="text-xs font-black uppercase text-indigo-500 tracking-widest bg-indigo-500/10 px-4 py-1 rounded-full">Kryptert Kanal</span>
                                                 </h2>
 
                                                 <div className="flex-1 min-h-[400px] flex flex-col gap-4 p-6 bg-black/20 rounded-3xl border border-white/5 overflow-y-auto custom-scrollbar">
                                                     {room.diplomacy ? Object.values(room.diplomacy)
                                                         .filter((m: any) => m.receiverId === 'ALL_RULERS' || m.receiverId === player.id || m.senderId === player.id)
-                                                        .sort((a: any, b: any) => a.timestamp - b.timestamp)
+                                                        .sort((a: any, b: any) => (a.timestamp || 0) - (b.timestamp || 0))
                                                         .map((m: any) => (
                                                             <div key={m.id} className={`p-4 rounded-2xl max-w-[80%] ${m.senderId === player.id ? 'bg-indigo-600 text-white self-end rounded-br-none shadow-lg shadow-indigo-600/20' : 'bg-slate-800/80 text-slate-200 self-start rounded-bl-none border border-white/5'}`}>
                                                                 <div className="flex items-center gap-3 mb-1">
@@ -811,23 +758,17 @@ export const SimulationPlayer: React.FC = () => {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            {/* Connector to next layer */}
                                                             <div className="absolute top-full left-1/2 -translate-x-1/2 h-12 w-1 bg-gradient-to-b from-amber-600 to-slate-700 opacity-50"></div>
                                                         </div>
                                                     ))}
                                                 </div>
 
-                                                {/* 2. THE NOBILITY (BARONS) & THEIR SUBJECTS */}
+                                                {/* 2. THE NOBILITY & SUBJECTS */}
                                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative pt-8">
-                                                    {/* Connector horizontal line */}
                                                     <div className="absolute top-0 left-10 right-10 h-1 bg-slate-700 opacity-30 rounded-full"></div>
-
                                                     {Object.values(room.players || {}).filter(p => p.role === 'BARON').map(baron => (
                                                         <div key={baron.id} className="flex flex-col gap-4 relative">
-                                                            {/* Vertical connector from horizontal line */}
                                                             <div className="absolute top-[-32px] left-1/2 -translate-x-1/2 h-8 w-1 bg-slate-700 opacity-30"></div>
-
-                                                            {/* Baron Card */}
                                                             <div className="bg-slate-800/80 p-6 rounded-3xl border border-white/5 shadow-xl relative z-10">
                                                                 <div className="flex items-center gap-4 mb-4 border-b border-white/5 pb-4">
                                                                     <div className="text-4xl">🏰</div>
@@ -836,8 +777,6 @@ export const SimulationPlayer: React.FC = () => {
                                                                         <div className="text-[10px] font-black uppercase text-indigo-400 tracking-widest">{getRegionName(baron.regionId)}</div>
                                                                     </div>
                                                                 </div>
-
-                                                                {/* Subjects List */}
                                                                 <div className="space-y-3">
                                                                     <div className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-2">Underståtte</div>
                                                                     {Object.values(room.players || {}).filter(p => (p.role === 'PEASANT' || p.role === 'SOLDIER') && p.regionId === baron.regionId).map(subject => (
@@ -845,11 +784,11 @@ export const SimulationPlayer: React.FC = () => {
                                                                             <div className="w-8 h-8 flex items-center justify-center bg-slate-700 rounded-lg text-lg shadow-inner">
                                                                                 {subject.role === 'SOLDIER' ? '⚔️' : '🌾'}
                                                                             </div>
-                                                                            <div>
+                                                                            <div className="flex-1">
                                                                                 <div className="text-sm font-bold text-slate-200">{subject.name}</div>
                                                                                 <div className="text-[10px] uppercase text-slate-500 font-bold">{subject.role === 'SOLDIER' ? 'Soldat' : 'Bonde'}</div>
                                                                             </div>
-                                                                            <div className={`ml-auto w-2 h-2 rounded-full ${subject.lastActive > Date.now() - 60000 ? 'bg-emerald-500 shadow-[0_0_5px_#10b981]' : 'bg-slate-600'}`} title={subject.lastActive > Date.now() - 60000 ? 'Online' : 'Offline'} />
+                                                                            <div className={`w-2 h-2 rounded-full ${subject.lastActive > Date.now() - 60000 ? 'bg-emerald-500 shadow-[0_0_5px_#10b981]' : 'bg-slate-600'}`}></div>
                                                                         </div>
                                                                     ))}
                                                                     {Object.values(room.players || {}).filter(p => (p.role === 'PEASANT' || p.role === 'SOLDIER') && p.regionId === baron.regionId).length === 0 && (
@@ -859,8 +798,6 @@ export const SimulationPlayer: React.FC = () => {
                                                             </div>
                                                         </div>
                                                     ))}
-
-                                                    {/* Unassigned / Freemen / Merchants (grouped separately) */}
                                                     <div className="flex flex-col gap-4 relative">
                                                         <div className="absolute top-[-32px] left-1/2 -translate-x-1/2 h-8 w-1 bg-slate-700 opacity-30"></div>
                                                         <div className="bg-slate-800/40 p-6 rounded-3xl border-2 border-dashed border-white/5 relative z-10">
@@ -877,16 +814,13 @@ export const SimulationPlayer: React.FC = () => {
                                                                         <div className="w-8 h-8 flex items-center justify-center bg-slate-800 rounded-lg text-lg">
                                                                             {free.role === 'MERCHANT' ? '💰' : '👤'}
                                                                         </div>
-                                                                        <div>
+                                                                        <div className="flex-1">
                                                                             <div className="text-sm font-bold text-slate-300">{free.name}</div>
                                                                             <div className="text-[10px] uppercase text-slate-500 font-bold">{free.role}</div>
                                                                         </div>
-                                                                        <div className={`ml-auto w-2 h-2 rounded-full ${free.lastActive > Date.now() - 60000 ? 'bg-emerald-500' : 'bg-slate-600'}`} />
+                                                                        <div className={`w-2 h-2 rounded-full ${free.lastActive > Date.now() - 60000 ? 'bg-emerald-500' : 'bg-slate-600'}`}></div>
                                                                     </div>
                                                                 ))}
-                                                                {Object.values(room.players || {}).filter(p => !['KING', 'BARON'].includes(p.role) && !p.regionId.startsWith('region_')).length === 0 && (
-                                                                    <div className="text-xs text-slate-600 italic text-center py-4">Ingen frie menn...</div>
-                                                                )}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -894,11 +828,9 @@ export const SimulationPlayer: React.FC = () => {
                                             </div>
                                         ) : activeTab === 'PROFILE' ? (
                                             <div className="space-y-8 pb-20 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                                {/* Hero Header */}
                                                 <div className="bg-gradient-to-br from-indigo-900/40 to-slate-900/60 p-8 rounded-[3rem] border border-white/10 relative overflow-hidden shadow-2xl">
-                                                    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[100px] -z-10" />
                                                     <div className="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
-                                                        <div className="w-32 h-32 bg-slate-800 rounded-3xl flex items-center justify-center text-6xl shadow-2xl border-4 border-amber-500/30">
+                                                        <div className="w-32 h-32 bg-slate-800 rounded-3xl flex items-center justify-center text-6xl border-4 border-amber-500/30">
                                                             {player.role === 'KING' ? '👑' : player.role === 'BARON' ? '🏰' : player.role === 'SOLDIER' ? '⚔️' : '🌾'}
                                                         </div>
                                                         <div className="flex-1">
@@ -909,90 +841,33 @@ export const SimulationPlayer: React.FC = () => {
                                                             <div className="flex flex-wrap gap-4 text-slate-400 font-bold text-sm">
                                                                 <span className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/5">Nivå {player.stats.level}</span>
                                                                 <span className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/5">{player.stats.xp} Totalt XP</span>
-                                                                <span className="flex items-center gap-2 bg-emerald-500/10 text-emerald-400 px-4 py-2 rounded-xl border border-emerald-500/10">{getRegionName(player.regionId)}</span>
                                                             </div>
                                                         </div>
                                                     </div>
-
-                                                    {/* XP Progress Bar */}
                                                     <div className="mt-8 pt-8 border-t border-white/5">
-                                                        <div className="flex justify-between items-end mb-3">
-                                                            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-none">Status for neste nivå</span>
-                                                            <span className="text-white font-black text-lg">{(player.stats.xp % 100)} / 100</span>
-                                                        </div>
-                                                        <div className="w-full h-4 bg-black/40 rounded-full overflow-hidden border border-white/5 shadow-inner">
-                                                            <div
-                                                                className="h-full bg-gradient-to-r from-indigo-600 to-indigo-400 transition-all duration-1000 shadow-[0_0_15px_rgba(99,102,241,0.5)]"
-                                                                style={{ width: `${(player.stats.xp % 100)}%` }}
-                                                            />
+                                                        <div className="w-full h-4 bg-black/40 rounded-full overflow-hidden border border-white/5">
+                                                            <div className="h-full bg-indigo-600 shadow-[0_0_15px_rgba(99,102,241,0.5)]" style={{ width: `${(player.stats.xp % 100)}%` }}></div>
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                                    {/* Equipment Grid */}
                                                     <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10">
-                                                        <h3 className="text-xl font-black text-white mb-8 tracking-widest uppercase flex items-center gap-3">
-                                                            <span className="text-2xl">🛡️</span> Utstyr & Verktøy
-                                                        </h3>
+                                                        <h3 className="text-xl font-black text-white mb-8 tracking-widest uppercase flex items-center gap-3">🛡️ Utstyr</h3>
                                                         <div className="grid grid-cols-2 gap-4">
-                                                            {['HEAD', 'BODY', 'WEAPON', 'TOOL'].map(slot => {
-                                                                const item = Object.values(player.equipment || {}).find(i => i.type === slot);
-                                                                const slotLabels: any = { HEAD: 'Hode', BODY: 'Kropp', WEAPON: 'Høyre hånd', TOOL: 'Venstre hånd' };
-                                                                const slotIcons: any = { HEAD: '👒', BODY: '👔', WEAPON: '🧤', TOOL: '👜' };
-
-                                                                return (
-                                                                    <div key={slot} className={`p-4 rounded-3xl border-2 transition-all flex flex-col items-center justify-center min-h-[140px] relative overflow-hidden group ${item ? 'bg-indigo-900/20 border-indigo-500/50' : 'bg-black/20 border-white/5 border-dashed'}`}>
-                                                                        {item ? (
-                                                                            <>
-                                                                                <span className="text-4xl mb-3 group-hover:scale-110 transition-transform">{item.icon}</span>
-                                                                                <span className="text-xs font-black text-white text-center line-clamp-1">{item.name}</span>
-                                                                                <div className="mt-3 w-full max-w-[60px] h-1 bg-black/40 rounded-full overflow-hidden">
-                                                                                    <div className="h-full bg-emerald-500" style={{ width: `${(item.durability / item.maxDurability) * 100}%` }} />
-                                                                                </div>
-                                                                            </>
-                                                                        ) : (
-                                                                            <>
-                                                                                <span className="text-3xl mb-3 opacity-10 grayscale">{slotIcons[slot]}</span>
-                                                                                <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest">{slotLabels[slot]}</span>
-                                                                            </>
-                                                                        )}
-                                                                        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                                                                    </div>
-                                                                );
-                                                            })}
+                                                            {['HEAD', 'BODY', 'WEAPON', 'TOOL'].map(slot => (
+                                                                <div key={slot} className="p-4 rounded-3xl border-2 border-white/5 bg-black/20 flex flex-col items-center justify-center min-h-[140px]">
+                                                                    <span className="text-3xl opacity-20 grayscale">📦</span>
+                                                                    <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest">{slot}</span>
+                                                                </div>
+                                                            ))}
                                                         </div>
                                                     </div>
-
-                                                    {/* Achievements & History */}
-                                                    <div className="flex flex-col gap-6">
-                                                        {/* Accomplishments */}
-                                                        <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10 flex-1">
-                                                            <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">
-                                                                <span className="text-2xl">📜</span> Krønike
-                                                            </h3>
-                                                            <div className="space-y-4">
-                                                                {(player.history || ['Velkommen til riket', 'Startet reisen som ' + player.role]).map((entry, idx) => (
-                                                                    <div key={idx} className="flex gap-4 items-start border-l-2 border-indigo-500/20 pl-4 py-1">
-                                                                        <span className="text-[10px] font-black text-indigo-500/60 mt-1 opacity-50">{idx + 1}</span>
-                                                                        <p className="text-xs text-slate-300 font-medium italic">"{entry}"</p>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-
-                                                        {/* Medals */}
-                                                        <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10">
-                                                            <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">
-                                                                <span className="text-2xl">⭐</span> Utmerkelser
-                                                            </h3>
-                                                            <div className="flex flex-wrap gap-4">
-                                                                {player.achievements?.map(ach => (
-                                                                    <div key={ach.id} className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-2xl border border-amber-500/20 shadow-lg" title={ach.name}>
-                                                                        {ach.icon}
-                                                                    </div>
-                                                                )) || <div className="text-xs text-slate-600 italic font-bold">Ingen meritter ennå...</div>}
-                                                            </div>
+                                                    <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10">
+                                                        <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">📜 Krønike</h3>
+                                                        <div className="space-y-4">
+                                                            {(player.history || []).map((entry, idx) => (
+                                                                <div key={idx} className="border-l-2 border-indigo-500/20 pl-4 py-1 text-xs text-slate-300 italic">"{entry}"</div>
+                                                            ))}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1002,46 +877,33 @@ export const SimulationPlayer: React.FC = () => {
                                 )}
                             </div>
 
-
-                            {/* The Ting Voting Overlay (Integrated as Portal-like centered UI) */}
-                            {
-                                room.activeVote && !room.activeVote.votes?.[player.id] && (
-                                    <div className="absolute inset-0 z-[100] bg-slate-950/80 backdrop-blur-xl flex items-center justify-center p-8 animate-in fade-in duration-300">
-                                        <div className="bg-slate-900 w-full max-w-lg rounded-[3rem] p-10 border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.8)] border-t-8 border-t-amber-600 text-center scale-in-center overflow-hidden relative">
-                                            <div className="absolute top-[-20%] right-[-10%] text-[15rem] opacity-[0.03] pointer-events-none">⚖️</div>
-                                            <span className="text-6xl block mb-6 drop-shadow-lg">⚖️</span>
-                                            <h2 className="text-4xl font-black text-white tracking-tighter mb-4">TINGET ER SATT</h2>
-                                            <p className="text-slate-400 mb-10 leading-relaxed font-bold">Riket skal nå stemme over en foreslått lovendring.</p>
-
-                                            <div className="bg-amber-900/10 border-2 border-amber-900/20 rounded-3xl p-8 mb-10 text-left relative overflow-hidden">
-                                                <div className="text-[10px] font-black uppercase text-amber-500 tracking-[0.2em] mb-2 font-mono">LOVFORSLAG</div>
-                                                <h3 className="text-2xl font-black text-amber-500 mb-4 uppercase tracking-tighter">{room.activeVote.title}</h3>
-                                                <p className="text-lg text-slate-200 font-medium italic border-l-4 border-amber-600/50 pl-4 py-1 leading-relaxed">
-                                                    "{room.activeVote.lawId === 'tax_cut' ? 'Skattene halveres for å sikre folkets velvære.' :
-                                                        room.activeVote.lawId === 'peace' ? 'All krigføring og plyndring forbys umiddelbart.' :
-                                                            room.activeVote.lawId === 'salt_tax' ? 'Prisen på varer øker for å fylle kongens kister.' :
-                                                                'Verneplikt innføres for å styrke rikets forsvar.'}"
-                                                </p>
-                                            </div>
-
-                                            <div className="grid grid-cols-2 gap-4">
-                                                <button
-                                                    onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'YES' })}
-                                                    className="bg-emerald-600 text-white h-24 rounded-2xl font-black text-xl hover:bg-emerald-500 transition-all shadow-lg active:scale-95 outline-none ring-offset-2 ring-offset-slate-900 focus:ring-2 ring-emerald-400"
-                                                >
-                                                    ✅ VEDTA
-                                                </button>
-                                                <button
-                                                    onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'NO' })}
-                                                    className="bg-rose-600 text-white h-24 rounded-2xl font-black text-xl hover:bg-rose-500 transition-all shadow-lg active:scale-95 outline-none ring-offset-2 ring-offset-slate-900 focus:ring-2 ring-rose-400"
-                                                >
-                                                    ❌ AVSLÅ
-                                                </button>
-                                            </div>
+                            {/* Ting Voting Overlay */}
+                            {room.activeVote && !room.activeVote.votes?.[player.id] && (
+                                <div className="absolute inset-0 z-[100] flex items-center justify-center p-8 bg-slate-950/80 backdrop-blur-xl animate-in fade-in duration-500">
+                                    <div className="max-w-xl w-full bg-slate-900 rounded-[3rem] border-2 border-indigo-500/30 p-12 shadow-[0_0_100px_rgba(79,70,229,0.3)] relative overflow-hidden">
+                                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
+                                        <div className="mb-10 text-center">
+                                            <div className="text-sm font-black text-indigo-400 uppercase tracking-[0.4em] mb-4">Tinget er satt</div>
+                                            <h2 className="text-4xl font-black text-white tracking-tighter mb-4">{room.activeVote.title}</h2>
+                                            <p className="text-slate-400 font-medium leading-relaxed">{room.activeVote.description}</p>
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <button
+                                                onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'YES' })}
+                                                className="bg-emerald-600 text-white h-24 rounded-2xl font-black text-xl hover:bg-emerald-500 transition-all shadow-lg active:scale-95 outline-none ring-offset-2 ring-offset-slate-900 focus:ring-2 ring-emerald-400"
+                                            >
+                                                ✅ VEDTA
+                                            </button>
+                                            <button
+                                                onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'NO' })}
+                                                className="bg-rose-600 text-white h-24 rounded-2xl font-black text-xl hover:bg-rose-500 transition-all shadow-lg active:scale-95 outline-none ring-offset-2 ring-offset-slate-900 focus:ring-2 ring-rose-400"
+                                            >
+                                                ❌ AVSLÅ
+                                            </button>
                                         </div>
                                     </div>
-                                )
-                            }
+                                </div>
+                            )}
                         </main>
 
                         {/* RIGHT PANEL: INFO & FEED */}
@@ -1051,25 +913,25 @@ export const SimulationPlayer: React.FC = () => {
                                     Sekkens Innhold
                                     <span className="text-[8px] bg-indigo-500/20 px-2 py-0.5 rounded text-indigo-300">{(Object.keys(player.resources || {}).filter(k => (player.resources as any)[k] > 0).length)} Typer</span>
                                 </h3>
-                                <div className="grid grid-cols-1 gap-2">
+                                <div className="grid grid-cols-2 gap-2">
                                     {Object.entries(player.resources || {}).map(([resId, amount]) => {
                                         if (resId === 'gold') return null;
                                         const details = (RESOURCE_DETAILS as any)[resId] || { label: resId, icon: '📦' };
                                         if ((amount as number) <= 0) return null;
                                         return (
-                                            <div key={resId} className="flex items-center gap-3 bg-black/20 p-2 rounded-xl border border-white/5 group relative hover:bg-slate-800 transition-all">
-                                                <span className="text-2xl group-hover:scale-110 transition-transform duration-300 drop-shadow-md">{details.icon}</span>
-                                                <div className="flex flex-col">
-                                                    <span className="text-[10px] font-black text-white">{amount as number}</span>
-                                                    <span className="text-[8px] font-bold text-slate-500 uppercase tracking-tighter">{details.label}</span>
+                                            <div key={resId} className="flex flex-col items-center justify-center bg-black/40 p-5 rounded-2xl border border-white/5 group relative hover:bg-slate-800 transition-all shadow-inner">
+                                                <span className="text-4xl group-hover:scale-110 transition-transform duration-300 drop-shadow-md mb-2">{details.icon}</span>
+                                                <div className="flex flex-col items-center">
+                                                    <span className="text-3xl font-black text-white leading-none">{amount as number}</span>
+                                                    <span className="text-xs font-black text-slate-500 uppercase tracking-widest mt-2">{details.label}</span>
                                                 </div>
                                             </div>
                                         );
                                     })}
                                 </div>
-                                <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
-                                    <span className="text-xs font-black text-slate-500 uppercase tracking-widest italic">Beholdning</span>
-                                    <div className="text-amber-500 font-black text-xl drop-shadow-[0_0_10px_rgba(245,158,11,0.3)]">{(player.resources.gold || 0).toFixed(2)}g</div>
+                                <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-between">
+                                    <span className="text-xs font-black text-slate-500 uppercase tracking-widest italic">Total Beholdning</span>
+                                    <div className="text-amber-500 font-black text-2xl drop-shadow-[0_0_20px_rgba(245,158,11,0.3)]">{(player.resources.gold || 0).toFixed(2)}g</div>
                                 </div>
                             </div>
 
@@ -1100,7 +962,7 @@ export const SimulationPlayer: React.FC = () => {
                                         <span className="font-black text-slate-500 uppercase tracking-widest leading-none">Legitimitet</span>
                                         <div className="flex items-center gap-2">
                                             <div className="w-16 h-1 bg-slate-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]" style={{ width: `${player.status.legitimacy || 100}%` }} />
+                                                <div className="h-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]" style={{ width: `${player.status.legitimacy || 100}% ` }}></div>
                                             </div>
                                             <span className="text-white font-bold">{player.status.legitimacy || 100}%</span>
                                         </div>
@@ -1111,32 +973,34 @@ export const SimulationPlayer: React.FC = () => {
 
                         <style dangerouslySetInnerHTML={{
                             __html: `
-                .custom-scrollbar::-webkit-scrollbar {
-                    width: 4px;
-                }
-                .custom-scrollbar::-webkit-scrollbar-track {
-                    background: transparent;
-                }
-                .custom-scrollbar::-webkit-scrollbar-thumb {
-                    background: rgba(255, 255, 255, 0.1);
-                    border-radius: 10px;
-                }
-                .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-                    background: rgba(255, 255, 255, 0.2);
-                }
-            `}} />
+                                    .custom-scrollbar::-webkit-scrollbar {
+                                        width: 4px;
+                                    }
+                                    .custom-scrollbar::-webkit-scrollbar-track {
+                                        background: transparent;
+                                    }
+                                    .custom-scrollbar::-webkit-scrollbar-thumb {
+                                        background: rgba(255, 255, 255, 0.1);
+                                        border-radius: 10px;
+                                    }
+                                    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                                        background: rgba(255, 255, 255, 0.2);
+                                    }
+                                `}} />
                     </div>
-                </div>
+                </div >
             )}
 
-            {levelUpData && (
-                <LevelUpOverlay
-                    level={levelUpData.level}
-                    title={levelUpData.title}
-                    onClose={() => setLevelUpData(null)}
-                />
-            )}
-        </div>
+            {
+                levelUpData && (
+                    <LevelUpOverlay
+                        level={levelUpData.level}
+                        title={levelUpData.title}
+                        onClose={() => setLevelUpData(null)}
+                    />
+                )
+            }
+        </div >
     );
 };
 
@@ -1183,11 +1047,11 @@ const LevelUpOverlay: React.FC<{ level: number, title: string, onClose: () => vo
             </div>
             <style dangerouslySetInnerHTML={{
                 __html: `
-                @keyframes ping-slow {
-                    0% { transform: scale(1); opacity: 0.8; }
-                    100% { transform: scale(3); opacity: 0; }
-                }
-            `}} />
+                    @keyframes ping-slow {
+                        0% { transform: scale(1); opacity: 0.8; }
+                        100% { transform: scale(3); opacity: 0; }
+                    }
+                `}} />
         </div>
     );
 };

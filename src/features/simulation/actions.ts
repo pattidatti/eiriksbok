@@ -444,6 +444,16 @@ export const performAction = async (pin: string, playerId: string, action: any) 
                 actor.resources.bread = Math.max(0, (actor.resources.bread || 0) - 1);
                 actor.status.legitimacy = Math.min(100, (actor.status.legitimacy || 100) + 2);
                 room.messages.push(`[${timestamp}] 💤 ${actor.name} hviler og spiser.`);
+            } else if (actionType === 'SLEEP') {
+                const staminaGain = 60;
+                actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaGain);
+                actor.status.hp = Math.min(100, (actor.status.hp || 100) + 10);
+                room.messages.push(`[${timestamp}] 🛌 ${actor.name} sov tungt i senga og føler seg uthvilt.`);
+            } else if (actionType === 'EAT') {
+                const staminaGain = 40;
+                actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaGain);
+                actor.status.legitimacy = Math.min(100, (actor.status.legitimacy || 100) + 5);
+                room.messages.push(`[${timestamp}] 🍲 ${actor.name} spiste et godt måltid ved peisen.`);
             } else if (actionType === 'PRAY') {
                 const max = GAME_BALANCE.RELIGION.PRAY_MAX;
                 const min = GAME_BALANCE.RELIGION.PRAY_MIN;

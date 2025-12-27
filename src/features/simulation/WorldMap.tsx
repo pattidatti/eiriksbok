@@ -22,33 +22,32 @@ interface POI {
 const POINTS_OF_INTEREST: POI[] = [
     // --- GLOBAL HUBS ---
     {
-        id: 'fields', label: 'Åkrene', icon: '🌾', top: '22%', left: '28%', roles: ['PEASANT', 'BARON', 'KING'],
-        actions: [], isHub: true
-    },
-    {
-        id: 'forest', label: 'Skogen', icon: '🌲', top: '18%', left: '80%',
-        ost: { top: '25%', left: '65%' },
+        id: 'fields', label: 'Åkrene', icon: '🌾', top: '22%', left: '28%',
+        ost: { top: '25%', left: '32%' },
         roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
-        id: 'castle', label: 'Slottet', icon: '🏰', top: '55%', left: '80%',
-        ost: { top: '35%', left: '72%' },
+        id: 'forest', label: 'Skogen', icon: '🌲', top: '25%', left: '80%',
+        ost: { top: '20%', left: '65%' },
+        roles: ['PEASANT', 'BARON', 'KING'],
+        actions: [], isHub: true
+    },
+    {
+        id: 'castle', label: 'Slottet', icon: '🏰', top: '66%', left: '86%',
+        ost: { top: '35%', left: '85%' },
         roles: ['BARON', 'KING', 'SOLDIER'],
         actions: [], isHub: true
     },
     {
-        id: 'peasant_farm', label: 'Husmannsplassen', icon: '🛖', top: '75%', left: '25%',
-        ost: { top: '62%', left: '42%' },
+        id: 'peasant_farm', label: 'Husmannsplassen', icon: '🛖', top: '30%', left: '60%',
+        ost: { top: '62%', left: '35%' },
         roles: ['PEASANT', 'BARON', 'KING'],
-        actions: [
-            { id: 'FARM_UPGRADE', label: 'Utbedre Gården', cost: 'Varierer' },
-            { id: 'FARM_REST', label: 'Sove hjemme', cost: '+40⚡' }
-        ]
+        actions: [], isHub: true
     },
     {
-        id: 'market', label: 'Markedet', icon: '⚖️', top: '15%', left: '25%',
-        ost: { top: '73%', left: '52%' },
+        id: 'market', label: 'Markedet', icon: '⚖️', top: '70%', left: '25%',
+        ost: { top: '77%', left: '45%' },
         roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
         actions: [{ id: 'MARKET_VIEW', label: 'Åpne Handel', cost: 'Gratis' }]
     },
@@ -57,14 +56,14 @@ const POINTS_OF_INTEREST: POI[] = [
         actions: [], isHub: true
     },
     {
-        id: 'mine', label: 'Gruve-distriktet', icon: '⛏️', top: '8%', left: '60%',
-        ost: { top: '22%', left: '40%' },
+        id: 'mine', label: 'Gruve-distriktet', icon: '⛏️', top: '12%', left: '25%',
+        ost: { top: '12%', left: '30%' },
         roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
-        id: 'monastery', label: 'Klosteret', icon: '⛪', top: '10%', left: '45%',
-        ost: { top: '60%', left: '75%' },
+        id: 'monastery', label: 'Klosteret', icon: '⛪', top: '16%', left: '55%',
+        ost: { top: '60%', left: '90%' },
         roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
         actions: [], isHub: true
     },
@@ -150,21 +149,21 @@ const POINTS_OF_INTEREST: POI[] = [
 
     // --- INDUSTRY LOCAL ---
     {
-        id: 'mine_shaft', label: 'Jern-gruva', icon: '⛏️', top: '40%', left: '40%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'mine',
+        id: 'mine_shaft', label: 'Jern-gruva', icon: '⛏️', top: '50%', left: '12%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'mine',
         actions: [{ id: 'MINE', label: 'Bryte Malm', cost: '-25⚡ -1🍞' }]
     },
     {
-        id: 'quarry_poi', label: 'Steinhuggeriet', icon: '🪨', top: '60%', left: '60%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'mine',
+        id: 'quarry_poi', label: 'Steinhuggeriet', icon: '🪨', top: '40%', left: '85%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'mine',
         actions: [{ id: 'QUARRY', label: 'Hugge Stein', cost: '-20⚡ -1🍞' }]
     },
 
     // --- FOREST LOCAL ---
     {
-        id: 'forest_clearing', label: 'Hogstfeltet', icon: '🪓', top: '50%', left: '30%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'forest',
+        id: 'forest_clearing', label: 'Hogstfeltet', icon: '🪓', top: '60%', left: '40%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'forest',
         actions: [{ id: 'CHOP', label: 'Hugge Ved', cost: '-15⚡ -1🍞' }]
     },
     {
-        id: 'forest_forage', label: 'Bærplukking', icon: '🍓', top: '30%', left: '70%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'forest',
+        id: 'forest_forage', label: 'Bærplukking', icon: '🍓', top: '60%', left: '90%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'forest',
         actions: [{ id: 'FORAGE', label: 'Sanke Mat (Nød)', cost: '-40⚡' }]
     },
 
@@ -172,6 +171,34 @@ const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'monastery_chapel', label: 'Klosterkirken', icon: '⛪', top: '50%', left: '50%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'monastery',
         actions: [{ id: 'PRAY', label: 'Be en Bønn', cost: '-15⚡' }]
+    },
+
+    // --- PEASANT FARM LOCAL ---
+    {
+        id: 'farm_house', label: 'Inne i Stugo', icon: '🏠', top: '52%', left: '58%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'peasant_farm',
+        actions: [], isHub: true
+    },
+    {
+        id: 'stugo_bed', label: 'Senga', icon: '🛌', top: '65%', left: '42%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'farm_house',
+        actions: [{ id: 'SLEEP', label: 'Sove tungt', cost: '+60⚡' }]
+    },
+    {
+        id: 'stugo_fireplace', label: 'Peisen', icon: '🔥', top: '55%', left: '80%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'farm_house',
+        actions: [{ id: 'EAT', label: 'Sitte ved varmen', cost: '-1🍞 +40⚡' }]
+    },
+    {
+        id: 'farm_well', label: 'Brønnen', icon: '💧', top: '60%', left: '27%', roles: ['PEASANT'], parentId: 'peasant_farm',
+        actions: [{ id: 'REST', label: 'Drikke vann', cost: '+5⚡' }]
+    },
+    {
+        id: 'farm_upgrade_spot', label: 'Utvidelser', icon: '🏗️', top: '55%', left: '80%', roles: ['PEASANT'], parentId: 'peasant_farm',
+        actions: [{ id: 'UPGRADE_FARM', label: 'Bygg ut gården', cost: 'Varierer' }]
+    },
+
+    // --- VILLAGE CONSTRUCTION LOCAL ---
+    {
+        id: 'construction_site', label: 'Byggeplass', icon: '🏗️', top: '50%', left: '50%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'village_construction',
+        actions: [{ id: 'CONSTRUCT', label: 'Bidra til prosjektet', cost: '-20⚡' }]
     }
 ];
 
@@ -181,12 +208,13 @@ interface WorldMapProps {
     room: SimulationRoom;
     onAction: (action: any) => void;
     onOpenMarket: () => void;
+    initialViewMode?: string;
 }
 
-export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOpenMarket }) => {
+export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOpenMarket, initialViewMode = 'global' }) => {
     const [selectedPOI, setSelectedPOI] = useState<POI | null>(null);
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
-    const [viewMode, setViewMode] = useState<string>('global');
+    const [viewMode, setViewMode] = useState<string>(initialViewMode);
     const [viewingRegionId, setViewingRegionId] = useState<string>(player.regionId || 'capital');
     const [dialogNPC, setDialogNPC] = useState<TavernNPC | null>(null);
     const [dialogStep, setDialogStep] = useState<string>('start');
@@ -244,8 +272,11 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
         switch (viewMode) {
             case 'village': return '/map_village_street.png';
+            case 'village_construction': return '/map_village_construction.png';
             case 'castle': return '/map_castle_interior.png';
             case 'fields': return '/map_farm_fields.png';
+            case 'peasant_farm': return '/map_peasant_farm.png';
+            case 'farm_house': return '/map_stugo_interior.jpg';
             case 'mine': return '/map_mountain_pass.png';
             case 'forest': return '/map_forest.png';
             case 'monastery': return '/map_monastery.png';
@@ -424,7 +455,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                 if (!isCorrectView) return null;
 
                 const isRelevant = poi.roles.includes(player.role) || poi.id === 'market' || poi.isHub;
-                const settlementBuildings = ['sawmill', 'windmill', 'smeltery', 'bakery'];
+                const settlementBuildings = ['sawmill', 'windmill', 'smeltery', 'bakery', 'weaving_mill', 'tavern'];
                 if (settlementBuildings.includes(poi.id)) {
                     const b = room.world.settlement?.buildings?.[poi.id];
                     if (!b || b.level < 1) return null;
@@ -497,39 +528,29 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                 </div>
             )}
 
-            {/* Action Popup */}
+            {/* Action Tooltip (Floating) */}
             {selectedPOI && (
-                <div className="absolute inset-x-6 bottom-6 z-30 animate-in slide-in-from-bottom-8 duration-500">
-                    <div className="bg-slate-900/95 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.8)] overflow-hidden border border-white/10">
-
-                        {/* POI Illustration Header */}
-                        <div className="h-40 w-full bg-slate-800 relative overflow-hidden">
-                            <img
-                                src={`/poi/${selectedPOI.id}.png`}
-                                alt={selectedPOI.label}
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                                onError={(e) => e.currentTarget.style.display = 'none'}
-                            />
-
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent pointer-events-none" />
-                            <div className="absolute bottom-6 left-8 text-white">
-                                <span className="text-xs font-black uppercase text-indigo-400 tracking-[0.2em] mb-1 block">
-                                    {(player.regionId !== viewingRegionId && player.role !== 'KING') ? 'FREMMED TERRITORIUM' : 'Lokasjon'}
-                                </span>
-                                <h3 className="font-black flex items-center gap-3 text-4xl tracking-tighter">
-                                    {selectedPOI.label}
-                                </h3>
+                <>
+                    <div className="absolute inset-0 z-[90]" onClick={() => setSelectedPOI(null)} />
+                    <div
+                        style={{
+                            top: (viewingRegionId === 'region_ost' && selectedPOI.ost ? selectedPOI.ost.top : selectedPOI.top),
+                            left: (viewingRegionId === 'region_ost' && selectedPOI.ost ? selectedPOI.ost.left : selectedPOI.left)
+                        }}
+                        className={`absolute z-[100] -translate-x-1/2 ${parseFloat(selectedPOI.top) < 25 ? 'translate-y-[3rem]' : '-translate-y-[calc(100%+3.5rem)]'} animate-in fade-in zoom-in duration-200 pointer-events-auto`}
+                    >
+                        <div className="bg-slate-900/98 backdrop-blur-3xl border border-white/20 rounded-[1.8rem] p-6 shadow-[0_25px_60px_rgba(0,0,0,0.6)] min-w-[280px] w-max max-w-[340px] relative">
+                            {/* Header */}
+                            <div className="flex items-center justify-between mb-5 pb-4 border-b border-white/10">
+                                <div className="flex items-center gap-4">
+                                    <span className="text-3xl drop-shadow-md">{selectedPOI.icon}</span>
+                                    <h3 className="font-black text-white text-[11px] uppercase tracking-[0.25em] leading-tight opacity-90">{selectedPOI.label}</h3>
+                                </div>
+                                <button onClick={() => setSelectedPOI(null)} className="text-white/40 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full w-8 h-8 flex items-center justify-center">✕</button>
                             </div>
-                            <button
-                                onClick={() => setSelectedPOI(null)}
-                                className="absolute top-6 right-6 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm transition-colors"
-                            >
-                                ✕
-                            </button>
-                        </div>
 
-                        <div className="p-8">
-                            <div className="space-y-3">
+                            {/* Actions */}
+                            <div className="space-y-2.5">
                                 {selectedPOI.actions
                                     .filter(a => {
                                         if (a.id === 'TAX_PEASANTS' && player.role !== 'BARON') return false;
@@ -541,13 +562,11 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                                         return true;
                                     })
                                     .map(action => {
-                                        // Determine cost and affordability
                                         const actionType = action.id;
                                         const costData = (ACTION_COSTS as any)[actionType];
                                         let canAfford = true;
                                         let missingReason = '';
 
-                                        // PERMISSION CHECK for visualization
                                         if (viewingRegionId !== player.regionId && player.role !== 'KING' && action.id !== 'MARKET_VIEW') {
                                             canAfford = false;
                                             missingReason = "Ikke ditt baroni";
@@ -563,7 +582,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
                                             if ((player.status.stamina || 0) < finalStaminaCost) {
                                                 canAfford = false;
-                                                missingReason = `Krever ${finalStaminaCost} energi`;
+                                                missingReason = `${finalStaminaCost}⚡`;
                                             }
 
                                             if (canAfford) {
@@ -583,30 +602,33 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                                                 key={action.id}
                                                 onClick={() => handlePOIAction(selectedPOI.id, action.id)}
                                                 disabled={!canAfford}
-                                                className={`group flex justify-between items-center w-full p-6 rounded-2xl border transition-all outline-none relative overflow-hidden ${canAfford ? 'bg-white/5 hover:bg-indigo-600 border-white/5' : 'bg-black/40 border-white/5 opacity-50 cursor-not-allowed'}`}
+                                                className={`group flex justify-between items-center w-full px-5 py-4 rounded-2xl border transition-all text-left gap-4 ${canAfford ? 'bg-white/5 hover:bg-indigo-600/90 border-white/5 shadow-sm active:scale-[0.98]' : 'bg-black/20 border-white/5 opacity-50'}`}
                                             >
-                                                <div className="flex flex-col items-start z-10">
-                                                    <span className={`font-black text-lg transition-transform ${canAfford ? 'text-white group-hover:translate-x-1' : 'text-slate-500'}`}>{action.label}</span>
-                                                    {!canAfford && <span className="text-[10px] font-bold text-rose-400 uppercase tracking-widest mt-1">❌ {missingReason}</span>}
+                                                <div className="flex flex-col flex-1 min-w-0">
+                                                    <span className={`text-sm font-bold transition-transform truncate ${canAfford ? 'text-white' : 'text-slate-400'}`}>{action.label}</span>
+                                                    {!canAfford && <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest mt-1 opacity-90">{missingReason}</span>}
                                                 </div>
-                                                <span className={`text-base font-black uppercase tracking-widest px-4 py-2 rounded-xl border transition-colors uppercase flex items-center gap-2 ${canAfford ? 'text-amber-400 group-hover:text-white bg-amber-500/10 border-amber-500/20' : 'text-slate-600 border-white/5 bg-transparent'}`}>
-                                                    {action.cost}
-                                                </span>
+                                                {action.cost && (
+                                                    <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-xl border flex-shrink-0 ${canAfford ? 'text-amber-400 bg-amber-500/10 border-amber-500/20 group-hover:text-white group-hover:bg-amber-500/30' : 'text-slate-600 border-white/5'}`}>
+                                                        {action.cost}
+                                                    </span>
+                                                )}
                                             </button>
                                         );
                                     })
                                 }
                                 {selectedPOI.actions.length === 0 && (
-                                    <div className="text-center py-8 bg-black/20 rounded-2xl border border-white/5">
-                                        <p className="text-xs text-slate-500 font-bold uppercase tracking-widest italic leading-relaxed">
-                                            Handlingsrommet er begrenset.<br />Dine plikter ligger et annet sted.
-                                        </p>
+                                    <div className="text-center py-4 text-[10px] text-slate-500 font-bold uppercase tracking-widest italic opacity-50">
+                                        Ingen handlinger her
                                     </div>
                                 )}
                             </div>
+
+                            {/* Tooltip Tail */}
+                            <div className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-slate-900/98 rotate-45 border-white/20 ${parseFloat(selectedPOI.top) < 25 ? '-top-2 border-l border-t' : '-bottom-2 border-r border-b'} shadow-2xl`} />
                         </div>
                     </div>
-                </div>
+                </>
             )}
 
             {/* Dialog Overlay */}

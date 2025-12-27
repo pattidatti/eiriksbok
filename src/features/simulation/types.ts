@@ -18,6 +18,8 @@ export interface Resources {
     tools: number;
     manpower: number;
     favor: number;
+    wool: number;
+    cloth: number;
 }
 
 export interface EquipmentItem {
@@ -105,6 +107,8 @@ export interface SimulationMarket {
     swords: MarketItem;
     armor: MarketItem;
     tools: MarketItem;
+    wool: MarketItem;
+    cloth: MarketItem;
 }
 
 export interface SimulationRegion {
@@ -177,6 +181,7 @@ export interface SimulationRoom {
     activeVote?: {
         lawId: string;
         title: string;
+        description: string;
         votes: Record<string, 'YES' | 'NO' | 'ABSTAIN'>;
         expiresAt: number;
     };
