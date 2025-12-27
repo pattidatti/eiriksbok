@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import type { SimulationPlayer, Role } from '../simulationTypes';
+import type { SimulationPlayer } from '../simulationTypes';
+import { VILLAGE_BUILDINGS } from '../constants';
+
 import { MINIGAME_VARIANTS } from '../SimulationMinigames';
 import { checkActionRequirements, getActionCostString, getActionEquipment } from '../utils/actionUtils';
 import { UPGRADES_LIST } from '../constants';
@@ -34,16 +36,38 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
 
     // Filter Actions
     const availableActions = useMemo(() => {
+        // Find building context
+        const buildingId = (poi.id in VILLAGE_BUILDINGS) ? poi.id : poi.parentId;
+        const buildingDef = VILLAGE_BUILDINGS[buildingId];
+        const settlement = room.world?.settlement || {};
+        const buildingLevel = (settlement.buildings?.[buildingId]?.level as number) || 1;
+
+        // Get all unlocked action IDs for current and lower levels
+        let unlockedActions: string[] = [];
+        if (buildingDef) {
+            for (let i = 1; i <= buildingLevel; i++) {
+                if (buildingDef.levels[i]) {
+                    unlockedActions = [...unlockedActions, ...buildingDef.levels[i].unlocks];
+                }
+            }
+        }
+
         return poi.actions.filter((a: any) => {
+            // General hardcoded filters
             if (a.id === 'TAX_PEASANTS' && player.role !== 'BARON') return false;
             if (a.id === 'TAX_ROYAL' && player.role !== 'KING') return false;
             if (a.id === 'DECREE' && player.role !== 'KING') return false;
             if (a.id === 'RAID' && player.role !== 'BARON') return false;
             if (a.id === 'REST' && poi.id === 'village_square' && (player.role === 'KING' || player.role === 'BARON')) return false;
             if (a.id === 'FEAST' && player.role !== 'KING' && player.role !== 'BARON') return false;
+
+            // Building level filtering
+            if (buildingDef && !unlockedActions.includes(a.id)) return false;
+
             return true;
         });
-    }, [poi, player.role]);
+    }, [poi, player.role, room.world?.settlement]);
+
 
     // Helper to get detailed bonuses for an action
     const getBonusDetails = (actionId: string) => {
@@ -74,11 +98,10 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
         });
 
         // Upgrades (Match specific IDs or patterns)
-        // Hardcoded upgrade mapping for visual feedback
         if (player.upgrades) {
-            const roleUpgrades = UPGRADES_LIST[player.role as Role] || [];
-            player.upgrades.forEach(uId => {
-                const upg = roleUpgrades.find(u => u.id === uId);
+            const roleUpgrades = (UPGRADES_LIST as any)[player.role] || [];
+            player.upgrades.forEach((uId: string) => {
+                const upg = roleUpgrades.find((u: any) => u.id === uId);
                 if (upg) {
                     if (upg.benefit === 'YIELD_GRAIN' && (actionId === 'WORK' || actionId === 'MILL')) {
                         details.push({ source: upg.name, type: 'Utbytte', value: '+5', icon: '📜', isBonus: true });
@@ -89,6 +112,19 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                 }
             });
         }
+
+        // Building Level Bonuses
+        const buildingId = poi.id === 'tavern' || poi.id === 'bakery' || poi.id === 'great_forge' || poi.id === 'weavery' || poi.id === 'sawmill' || poi.id === 'windmill' || poi.id === 'smeltery' ? poi.id : poi.parentId;
+        const settlement = room.world?.settlement || {};
+        const buildingLevel = (settlement.buildings?.[buildingId]?.level as number) || 1;
+
+        if (buildingLevel >= 2) {
+            details.push({ source: 'Bygningsbonus (Lvl 2)', type: 'Utbytte', value: '+10% XP', icon: '🏛️', isBonus: true });
+        }
+        if (buildingLevel >= 3) {
+            details.push({ source: 'Bygningsbonus (Lvl 3)', type: 'Utbytte', value: 'Master Tier', icon: '🏆', isBonus: true });
+        }
+
 
         return details;
     };

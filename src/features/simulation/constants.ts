@@ -151,93 +151,93 @@ export const LAW_TEMPLATES = [
     { id: 'conscription', label: 'Verneplikt', description: 'Soldater koster mindre å verve, men bønder jobber 20% tregere.' }
 ];
 
-export const VILLAGE_BUILDINGS: Record<string, any> = {
+export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon: string, locationId: string, description: string, levels: Record<number, { requirements: Partial<Resources>, unlocks: string[], bonus: string }> }> = {
     sawmill: {
         id: 'sawmill',
         name: 'Sagbruk',
+        icon: '🪚',
+        locationId: 'forest', // Moved to Forest hub
         description: 'Gjør det mulig å foredle Ved til Tømmer.',
-        requirements: { wood: 100, stone: 50 },
-        unlocks: ['REFINE_TIMBER']
+        levels: {
+            1: { requirements: {}, unlocks: ['REFINE_TIMBER_BASIC'], bonus: 'Base produksjon' },
+            2: { requirements: { wood: 100, stone: 50, gold: 100 }, unlocks: ['REFINE_TIMBER_FAST'], bonus: '+10% Woodcutting XP' },
+            3: { requirements: { timber: 50, stone: 150, gold: 300 }, unlocks: ['REFINE_TIMBER_MASTER'], bonus: 'Låser opp Tier 3 verktøy' }
+        }
     },
     windmill: {
         id: 'windmill',
         name: 'Vindmølle',
+        icon: '🌬️',
+        locationId: 'village',
         description: 'Gjør det mulig å foredle Korn til Mel mer effektivt.',
-        requirements: { timber: 50, stone: 100 },
-        unlocks: ['REFINE_FLOUR_ADVANCED']
+        levels: {
+            1: { requirements: {}, unlocks: ['REFINE_FLOUR_BASIC'], bonus: 'Base produksjon' },
+            2: { requirements: { timber: 30, stone: 50, gold: 150 }, unlocks: ['REFINE_FLOUR_FAST'], bonus: '+10% Farming XP' },
+            3: { requirements: { timber: 100, stone: 200, gold: 500 }, unlocks: ['REFINE_FLOUR_AUTO'], bonus: 'Sjanse for dobbel avling' }
+        }
     },
     smeltery: {
         id: 'smeltery',
         name: 'Smeltehytte',
+        icon: '🔥',
+        locationId: 'mine', // Moved to Mine hub
         description: 'Gjør det mulig å smelte Jernmalm til Jernbarrer.',
-        requirements: { stone: 150, wood: 100 },
-        unlocks: ['REFINE_IRON_INGOT']
+        levels: {
+            1: { requirements: {}, unlocks: ['REFINE_IRON_BASIC'], bonus: 'Base produksjon' },
+            2: { requirements: { stone: 150, wood: 100, gold: 200 }, unlocks: ['REFINE_IRON_FAST'], bonus: '+10% Mining XP' },
+            3: { requirements: { stone: 300, timber: 50, gold: 600 }, unlocks: ['REFINE_STEEL'], bonus: 'Låser opp Stål-smelting' }
+        }
     },
     great_forge: {
         id: 'great_forge',
         name: 'Storsmie',
+        icon: '⚒️',
+        locationId: 'village',
         description: 'Gjør det mulig å lage avanserte verktøy og våpen.',
-        requirements: { iron_ingot: 50, timber: 50, stone: 100 },
-        unlocks: ['CRAFT_ADVANCED']
+        levels: {
+            1: { requirements: {}, unlocks: ['CRAFT_BASIC'], bonus: 'Base produksjon' },
+            2: { requirements: { iron_ingot: 20, timber: 30, gold: 300 }, unlocks: ['CRAFT_ADVANCED'], bonus: '+10% Crafting XP' },
+            3: { requirements: { iron_ingot: 100, timber: 100, gold: 1000 }, unlocks: ['CRAFT_MASTER'], bonus: 'Låser opp Mester-utstyr' }
+        }
     },
     bakery: {
         id: 'bakery',
         name: 'Bakeri',
+        icon: '🍞',
+        locationId: 'village',
         description: 'Gjør det mulig å bake Brød fra Mel.',
-        requirements: { stone: 50, timber: 20 },
-        unlocks: ['CRAFT_BREAD']
+        levels: {
+            1: { requirements: {}, unlocks: ['CRAFT_BREAD'], bonus: 'Base produksjon' },
+            2: { requirements: { stone: 50, timber: 20, gold: 100 }, unlocks: ['CRAFT_PIE'], bonus: 'Bedre stamina fra mat' },
+            3: { requirements: { stone: 150, timber: 50, gold: 400 }, unlocks: ['CRAFT_FEAST'], bonus: 'Låser opp Gildemåltid' }
+        }
     },
     tavern: {
         id: 'tavern',
         name: 'Vertshuset',
+        icon: '🍺',
+        locationId: 'village',
         description: 'Et sted for hvile og rykter. Øker stamina-regenerering.',
-        requirements: { wood: 100, stone: 50 }, // For construction if not already built
-        unlocks: ['TAVERN_ACCESS'],
-        isDefaulted: true // Mark as starting building
+        levels: {
+            1: { requirements: {}, unlocks: ['REST_BASIC'], bonus: 'Standard hvile' },
+            2: { requirements: { wood: 100, stone: 50, gold: 250 }, unlocks: ['REST_COMFY'], bonus: 'Dobbel stamina-regen' },
+            3: { requirements: { timber: 50, stone: 150, gold: 750 }, unlocks: ['REST_ROYAL'], bonus: 'Gjenoppretter all stamina raskt' }
+        }
     },
-    weaving_mill: {
-        id: 'weaving_mill',
-        name: 'Veveriet',
+    weavery: {
+        id: 'weavery',
+        name: 'Veveri',
+        icon: '🧶',
+        locationId: 'village',
         description: 'Foredler Ull til Stoff for videre salg eller klær.',
-        requirements: { timber: 40, stone: 30 },
-        unlocks: ['REFINE_CLOTH']
-    },
-    watchtower: {
-        id: 'watchtower',
-        name: 'Vaktårn',
-        description: 'Gir oversikt og beskyttelse. Låser opp patruljering.',
-        requirements: { stone: 200, timber: 50 },
-        unlocks: ['ACTION_PATROL']
-    },
-    stables: {
-        id: 'stables',
-        name: 'Stallen',
-        description: 'Huser hester for raskere reise og ridderoppdrag.',
-        requirements: { timber: 150, grain: 50 },
-        unlocks: ['MOUNT_HORSE']
-    },
-    well: {
-        id: 'well',
-        name: 'Brønnen',
-        description: 'Sentral vannkilde. Øker helse i landsbyen.',
-        requirements: { stone: 80, wood: 20 },
-        unlocks: ['ACTION_GATHER_WATER']
-    },
-    apothecary: {
-        id: 'apothecary',
-        name: 'Apoteker',
-        description: 'Urter og medisiner for å lindre sykdom.',
-        requirements: { timber: 80, stone: 20 },
-        unlocks: ['CRAFT_MEDICINE']
-    },
-    roads: {
-        id: 'roads',
-        name: 'Brosteinveier',
-        description: 'Forbedrer infrastruktur og handelshastighet.',
-        requirements: { stone: 300 },
-        unlocks: ['TRAVEL_SPEED_BOOST']
+        levels: {
+            1: { requirements: {}, unlocks: ['REFINE_CLOTH_BASIC'], bonus: 'Base produksjon' },
+            2: { requirements: { timber: 40, stone: 30, gold: 150 }, unlocks: ['REFINE_CLOTH_FAST'], bonus: '+10% Trading XP' },
+            3: { requirements: { timber: 100, stone: 100, gold: 400 }, unlocks: ['REFINE_CLOTH_MASTER'], bonus: 'Låser opp Silke-produksjon' }
+        }
     }
 };
+
 
 export const REFINERY_RECIPES: Record<string, any> = {
     timber: { input: { wood: 5 }, output: { timber: 1 }, buildingId: 'sawmill', stamina: 10, xp: 5 },

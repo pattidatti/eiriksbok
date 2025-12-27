@@ -1,14 +1,65 @@
 import React from 'react';
 import { ref, update } from 'firebase/database';
 import { db } from '../../../lib/firebase';
-import type { SimulationPlayer, SimulationRoom, EquipmentItem } from '../simulationTypes';
-import { RESOURCE_DETAILS, UPGRADES_LIST } from '../constants';
+import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
+import { RESOURCE_DETAILS, UPGRADES_LIST, ROLE_TITLES, LEVEL_XP } from '../constants';
+import { Badge } from '../ui/Badge';
+
 
 import { useSimulation } from '../SimulationContext';
 import { WorldMap } from '../WorldMap';
 import { SimulationMarket } from './SimulationMarket';
 import { SimulationVault } from './SimulationVault';
 import { SimulationSkills } from './SimulationSkills';
+
+
+
+const RANK_BENEFITS: Record<string, string[][]> = {
+    PEASANT: [
+        ['Basis rettigheter som bonde.'],
+        ['+10% resurseffektivitet ved innhøsting.'],
+        ['Redusert skattetreff (-5%) fra din lensherre.'],
+        ['Låser opp bruk av spesialverktøy og ploger.'],
+        ['Fullstendig selveie: Maksimal frihet og prestisje.']
+    ],
+    BARON: [
+        ['Rett til å kreve inn skatt i din region.'],
+        ['+20% forsvarsstyrke for dine vakter.'],
+        ['Låser opp bygging av avanserte steinborger.'],
+        ['Høyere status i Tinget: Dine stemmer teller mer.'],
+        ['Maksimal autoritet og kontroll over landegrenser.']
+    ],
+    KING: [
+        ['Gunst fra undersåttene og rett til tronen.'],
+        ['Nasjonal autoritet: Kan passere lover uten Tinget.'],
+        ['Gudegitt makt: Maksimal legitimitet og kontroll.']
+    ],
+    SOLDIER: [
+        ['Grunnleggende kamptrening og utstyr.'],
+        ['+15% skade i raids og forsvar.'],
+        ['Låser opp bruk av tunge rustninger og hester.'],
+        ['Elite-kriger: Fryktet over hele riket.']
+    ],
+    MERCHANT: [
+        ['Rett til å drive handel på markedsplassen.'],
+        ['Bedre priser ved kjøp og salg (+10%).'],
+        ['Låser opp utlandshandel og karavaner.'],
+        ['Finansfyrste: Kontrollerer markedstrender.']
+    ]
+};
+
+const ACHIEVEMENT_TITLES: Record<string, string> = {
+    'Første korn': 'Den Flittige',
+    'Mesterbygger': 'Arkitekten',
+    'Kriger': 'Den Tapre',
+    'Rikmann': 'Den Velstående',
+    'Diplomat': 'Budbringeren',
+    'Helgen': 'Den Hellige',
+    'Storbruker': 'Odalbonden',
+    'Smed': 'Hammermesteren'
+};
+
+
 
 
 interface SimulationViewportProps {
@@ -51,26 +102,8 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                             <SimulationMarket player={player} room={room} onAction={onAction} />
                         ) : activeTab === 'INVENTORY' ? (
                             <SimulationVault player={player} />
-                        ) : activeTab === 'VILLAGE' ? (
-
-                            <div className="w-full h-full min-h-[500px] flex flex-col gap-6">
-                                <div className="flex justify-between items-center bg-slate-900/60 p-6 rounded-[2rem] border border-white/10">
-                                    <div>
-                                        <h2 className="text-3xl font-black text-white tracking-tighter uppercase flex items-center gap-3">🏗️ Byggeprosjekter</h2>
-                                        <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mt-1">Landsbyens ekspansjon & vedlikehold</p>
-                                    </div>
-                                </div>
-                                <div className="flex-1 relative rounded-[3rem] overflow-hidden border-2 border-white/5 shadow-2xl">
-                                    <WorldMap
-                                        player={player}
-                                        room={room}
-                                        onAction={onAction}
-                                        onOpenMarket={() => setActiveTab('MARKET')}
-                                        initialViewMode="village_construction"
-                                    />
-                                </div>
-                            </div>
                         ) : activeTab === 'UPGRADES' ? (
+
                             <div className="space-y-6">
                                 <h2 className="text-4xl font-black text-white tracking-tighter border-b-2 border-white/5 pb-4">Oppgraderinger</h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -279,97 +312,244 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                                 </div>
                             </div>
                         ) : activeTab === 'PROFILE' ? (
-                            <div className="space-y-8 pb-20 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                            <div className="space-y-8 pb-20 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-5xl mx-auto">
                                 {/* PROFILE HEADER */}
-                                <div className="bg-gradient-to-br from-indigo-900/40 to-slate-900/60 p-8 rounded-[3rem] border border-white/10 relative overflow-hidden shadow-2xl">
-                                    <div className="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
-                                        <div className="w-32 h-32 bg-slate-800 rounded-3xl flex items-center justify-center text-6xl border-4 border-amber-500/30 shadow-2xl">
-                                            {player.role === 'KING' ? '👑' : player.role === 'BARON' ? '🏰' : player.role === 'SOLDIER' ? '⚔️' : '🌾'}
+                                <div className="bg-gradient-to-br from-indigo-900/40 to-slate-900/60 p-10 rounded-[3rem] border border-white/10 relative overflow-hidden shadow-2xl">
+                                    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[100px] -mr-32 -mt-32 rounded-full" />
+
+                                    <div className="flex flex-col md:flex-row gap-10 items-center md:items-start text-center md:text-left relative z-10">
+                                        <div className="w-40 h-40 bg-slate-950 rounded-[2.5rem] flex items-center justify-center text-7xl border-4 border-indigo-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)] ring-1 ring-white/10 overflow-hidden group">
+                                            {player.avatar ? (
+                                                <img src={player.avatar} alt={player.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                            ) : (
+                                                <span className="group-hover:scale-110 transition-transform duration-500">
+                                                    {player.role === 'KING' ? '👑' : player.role === 'BARON' ? '🏰' : player.role === 'SOLDIER' ? '⚔️' : player.role === 'MERCHANT' ? '💰' : '🌾'}
+                                                </span>
+                                            )}
                                         </div>
-                                        <div className="flex-1">
-                                            <div className="flex flex-col md:flex-row md:items-center gap-4 mb-4">
-                                                <h2 className="text-5xl font-black text-white tracking-tighter uppercase">{player.name}</h2>
-                                                <span className="bg-amber-500 text-slate-950 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest">{player.role}</span>
+
+                                        <div className="flex-1 space-y-6">
+                                            <div className="space-y-2">
+                                                <div className="flex flex-col md:flex-row md:items-center gap-4">
+                                                    <div className="flex flex-col">
+                                                        <h2 className="text-6xl font-black text-white tracking-tighter uppercase drop-shadow-lg flex items-center gap-4">
+                                                            {player.name}
+                                                            {player.achievements && player.achievements.length > 0 && (
+                                                                <span className="text-2xl font-black text-indigo-400 italic lowercase tracking-tight opacity-80 ring-1 ring-white/10 px-3 py-1 rounded-xl bg-black/40">
+                                                                    "{ACHIEVEMENT_TITLES[player.achievements[player.achievements.length - 1].name] || player.achievements[player.achievements.length - 1].name}"
+                                                                </span>
+                                                            )}
+                                                        </h2>
+                                                    </div>
+                                                    <Badge variant="role" className="scale-125 origin-left px-6 py-2">
+                                                        {(ROLE_TITLES as any)[player.role][Math.min(player.stats.level, (ROLE_TITLES as any)[player.role].length) - 1]}
+                                                    </Badge>
+                                                </div>
+
+                                                {/* HIERARCHY INFO */}
+                                                <div className="flex flex-wrap gap-x-6 gap-y-2 text-[10px] font-black tracking-[0.2em] uppercase text-slate-400 opacity-60">
+                                                    <div className="flex items-center gap-2">
+                                                        <span className="w-1.5 h-1.5 bg-slate-500 rounded-full" />
+                                                        Medlem av {room.regions?.[player.regionId]?.name || 'Kongeriket'}
+                                                    </div>
+                                                    {player.role !== 'KING' && (
+                                                        <>
+                                                            {player.regionId && player.regionId !== 'capital' && (
+                                                                <div className="flex items-center gap-2">
+                                                                    <span className="w-1.5 h-1.5 bg-amber-500/50 rounded-full" />
+                                                                    Styres av: <span className="text-white">
+                                                                        {Object.values(room.players || {}).find(p => p.role === 'BARON' && p.regionId === player.regionId)?.name || 'Vakant'}
+                                                                    </span>
+                                                                </div>
+                                                            )}
+                                                            <div className="flex items-center gap-2">
+                                                                <span className="w-1.5 h-1.5 bg-indigo-500/50 rounded-full" />
+                                                                Konungr: <span className="text-white">
+                                                                    {Object.values(room.players || {}).find(p => p.role === 'KING')?.name || 'Ingen'}
+                                                                </span>
+                                                            </div>
+                                                        </>
+                                                    )}
+                                                </div>
                                             </div>
-                                            <div className="flex flex-wrap gap-4 text-slate-400 font-bold text-sm">
-                                                <span className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/5">Nivå {player.stats.level}</span>
-                                                <span className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/5">{player.stats.xp} Totalt XP</span>
+
+
+                                            {/* XP PROGRESSION (RAW NUMBERS) */}
+                                            <div className="space-y-4 max-w-xl">
+                                                <div className="flex justify-between items-end">
+                                                    <div className="space-y-1">
+                                                        <span className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.3em]">Rang-erfaring</span>
+                                                        <div className="text-3xl font-black text-white flex items-baseline gap-2">
+                                                            <span>{player.stats.xp}</span>
+                                                            <span className="text-slate-600 text-lg">/ {LEVEL_XP[player.stats.level] || 'MAX'} XP</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="text-right">
+                                                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em]">Nivå</span>
+                                                        <div className="text-3xl font-black text-white italic">Lvl {player.stats.level}</div>
+                                                    </div>
+                                                </div>
+                                                <div className="h-4 bg-black/60 rounded-full p-1 border border-white/10 shadow-inner group">
+                                                    <div
+                                                        className="h-full bg-gradient-to-r from-indigo-500 via-indigo-400 to-white rounded-full transition-all duration-1000 shadow-[0_0_20px_rgba(99,102,241,0.6)] relative overflow-hidden"
+                                                        style={{ width: `${Math.min(100, (player.stats.xp / (LEVEL_XP[player.stats.level] || player.stats.xp)) * 100)}%` }}
+                                                    >
+                                                        <div className="absolute inset-0 bg-white/20 animate-pulse" />
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div className="mt-8 pt-8 border-t border-white/5">
-                                        <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">
-                                            <span>Neste Rang</span>
-                                            <span>{Math.floor((player.stats.xp % 100))}%</span>
-                                        </div>
-                                        <div className="w-full h-4 bg-black/40 rounded-full overflow-hidden border border-white/5">
-                                            <div className="h-full bg-indigo-600 shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-all duration-1000" style={{ width: `${(player.stats.xp % 100)}%` }}></div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                    {/* EQUIPMENT PAPER DOLL */}
-                                    <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10">
-                                        <h3 className="text-xl font-black text-white mb-8 tracking-widest uppercase flex items-center gap-3">
-                                            <span className="text-2xl">🛡️</span> Utstyr
-                                        </h3>
+                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                                    {/* RANK MILESTONES & BENEFITS */}
+                                    <div className="lg:col-span-12 xl:col-span-8 bg-slate-900/60 p-8 rounded-[3rem] border border-white/10">
+                                        <div className="flex items-center justify-between mb-8 border-b border-white/5 pb-6">
+                                            <h3 className="text-2xl font-black text-white uppercase tracking-widest flex items-center gap-4">
+                                                <span className="w-10 h-10 bg-indigo-500/20 rounded-xl flex items-center justify-center text-xl">📈</span>
+                                                Din Reise & Rang
+                                            </h3>
+                                        </div>
 
-                                        <div className="relative aspect-square max-w-sm mx-auto bg-black/20 rounded-full border-4 border-white/5 p-8 flex items-center justify-center">
-                                            {/* Human Outline Placeholder */}
-                                            <div className="absolute inset-0 opacity-10 flex items-center justify-center pointer-events-none">
-                                                <div className="w-32 h-64 bg-slate-500/50 rounded-full blur-xl"></div>
-                                            </div>
+                                        <div className="space-y-4">
+                                            {(ROLE_TITLES as any)[player.role].map((title: string, index: number) => {
+                                                const lvlReq = index + 1;
+                                                const isUnlocked = player.stats.level >= lvlReq;
+                                                const isCurrent = player.stats.level === lvlReq;
+                                                const roleBenefits = RANK_BENEFITS[player.role] || [];
+                                                const currentBenefits = roleBenefits[index] || ['Låser opp unike fordeler for din rolle.'];
 
-                                            {/* Slots Positioning Grid */}
-                                            <div className="w-full h-full relative">
-                                                {/* HEAD */}
-                                                <div className="absolute top-0 left-1/2 -translate-x-1/2">
-                                                    <EquipmentSlotItem slot="HEAD" item={player.equipment?.HEAD} />
-                                                </div>
 
-                                                {/* BODY */}
-                                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                                    <EquipmentSlotItem slot="BODY" item={player.equipment?.BODY} />
-                                                </div>
+                                                return (
+                                                    <div
+                                                        key={title}
+                                                        className={`
+                                                            relative p-6 rounded-2xl border transition-all duration-300 flex items-center gap-6
+                                                            ${isCurrent ? 'bg-indigo-600/20 border-indigo-500 shadow-[0_10px_30px_rgba(79,70,229,0.2)]' :
+                                                                isUnlocked ? 'bg-white/5 border-white/10 opacity-70' :
+                                                                    'bg-black/20 border-white/5 opacity-30 grayscale'}
+                                                        `}
+                                                    >
+                                                        <div className={`
+                                                            w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-black shadow-inner
+                                                            ${isUnlocked ? 'bg-indigo-500 text-white' : 'bg-slate-800 text-slate-500'}
+                                                        `}>
+                                                            {lvlReq}
+                                                        </div>
+                                                        <div className="flex-1">
+                                                            <div className="flex items-baseline gap-3">
+                                                                <h4 className={`text-xl font-black uppercase tracking-tight ${isUnlocked ? 'text-white' : 'text-slate-500'}`}>
+                                                                    {title}
+                                                                </h4>
+                                                                {isCurrent && <span className="bg-white text-indigo-600 text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest">Aktiv</span>}
+                                                            </div>
+                                                            <div className="space-y-1 mt-1">
+                                                                {currentBenefits.map((b: string, i: number) => (
+                                                                    <p key={i} className="text-xs font-medium text-slate-400 flex items-center gap-2">
+                                                                        <span className="w-1 h-1 bg-indigo-500 rounded-full" />
+                                                                        {b}
+                                                                    </p>
+                                                                ))}
+                                                            </div>
 
-                                                {/* MAIN HAND */}
-                                                <div className="absolute top-1/2 left-4 -translate-y-1/2">
-                                                    <EquipmentSlotItem slot="MAIN_HAND" item={player.equipment?.MAIN_HAND} />
-                                                </div>
 
-                                                {/* OFF HAND */}
-                                                <div className="absolute top-1/2 right-4 -translate-y-1/2">
-                                                    <EquipmentSlotItem slot="OFF_HAND" item={player.equipment?.OFF_HAND} />
-                                                </div>
-
-                                                {/* FEET */}
-                                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                                                    <EquipmentSlotItem slot="FEET" item={player.equipment?.FEET} />
-                                                </div>
-
-                                                {/* TRINKET */}
-                                                <div className="absolute top-8 right-8">
-                                                    <EquipmentSlotItem slot="TRINKET" item={player.equipment?.TRINKET} />
-                                                </div>
-                                            </div>
+                                                        </div>
+                                                        {!isUnlocked && (
+                                                            <div className="text-right">
+                                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-1">Mål</span>
+                                                                <span className="text-sm font-black text-white">{LEVEL_XP[lvlReq - 1]} XP</span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
                                     </div>
 
-                                    {/* ACHIEVEMENTS / RECENT HISTORY */}
-                                    <div className="bg-slate-900/60 p-8 rounded-[2.5rem] border border-white/10 flex flex-col">
-                                        <h3 className="text-xl font-black text-white mb-6 uppercase tracking-widest flex items-center gap-3">
-                                            <span className="text-2xl">🏆</span> Prestasjoner
-                                        </h3>
-                                        <div className="flex-1 flex flex-col items-center justify-center opacity-40 text-center py-12">
-                                            <div className="text-5xl mb-4">🎖️</div>
-                                            <p className="text-sm font-medium italic">Ingen prestasjoner låst opp ennå...</p>
+                                    {/* STATUS BARS & ACHIEVEMENTS */}
+                                    <div className="lg:col-span-12 xl:col-span-4 space-y-8">
+                                        {/* Status Vitals */}
+                                        <div className="bg-slate-900/60 p-8 rounded-[3rem] border border-white/10 space-y-6">
+                                            <h3 className="text-xl font-black text-white uppercase tracking-widest flex items-center gap-3">
+                                                <span className="text-xl">⚖️</span> Status
+                                            </h3>
+
+                                            <div className="space-y-4">
+                                                {/* Loyalty / Legitimacy */}
+                                                <div>
+                                                    <div className="flex justify-between text-[10px] font-black tracking-[0.2em] mb-2 uppercase">
+                                                        <span className="text-slate-400">{player.role === 'PEASANT' || player.role === 'SOLDIER' ? 'Lojalitet' : 'Legitimitet'}</span>
+                                                        <span className="text-white">{(player.status as any).loyalty || (player.status as any).legitimacy || 100}%</span>
+                                                    </div>
+                                                    <div className="h-2 bg-black/40 rounded-full overflow-hidden">
+                                                        <div
+                                                            className="h-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)] transition-all duration-700"
+                                                            style={{ width: `${(player.status as any).loyalty || (player.status as any).legitimacy || 100}%` }}
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                {/* Contribution */}
+                                                <div>
+                                                    <div className="flex justify-between text-[10px] font-black tracking-[0.2em] mb-2 uppercase">
+                                                        <span className="text-slate-400">Bidrag til Riket</span>
+                                                        <span className="text-white">{player.stats.contribution || 0}%</span>
+                                                    </div>
+                                                    <div className="h-2 bg-black/40 rounded-full overflow-hidden">
+                                                        <div
+                                                            className="h-full bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.5)] transition-all duration-700"
+                                                            style={{ width: `${player.stats.contribution || 10}%` }}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* ACHIEVEMENTS / PRESENTASJONER */}
+                                        <div className="bg-slate-900/60 p-8 rounded-[3rem] border border-white/10 flex flex-col min-h-[400px]">
+                                            <h3 className="text-xl font-black text-white mb-8 uppercase tracking-widest flex items-center gap-4">
+                                                <span className="text-xl">🏆</span> Presentasjoner
+                                            </h3>
+
+                                            <div className="grid grid-cols-3 gap-4">
+                                                {/* Unlocked */}
+                                                {(player.achievements || []).map(ach => (
+                                                    <div key={ach.id} className="group/ach relative aspect-square bg-indigo-500/10 border border-indigo-500/30 rounded-2xl flex flex-col items-center justify-center shadow-lg transform hover:scale-105 transition-all cursor-help overflow-hidden">
+                                                        <div className="absolute inset-0 bg-indigo-500/5 opacity-0 group-hover/ach:opacity-100 transition-opacity" />
+                                                        <div className="text-4xl mb-1 drop-shadow-md">{ach.icon}</div>
+                                                        <div className="text-[8px] font-black text-indigo-300 uppercase tracking-tighter text-center px-1">
+                                                            {ACHIEVEMENT_TITLES[ach.name] || ach.name}
+                                                        </div>
+
+                                                        {/* Tooltip */}
+                                                        <div className="absolute inset-0 bg-slate-900/95 opacity-0 group-hover/ach:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center pointer-events-none">
+                                                            <div className="text-[10px] font-black text-white uppercase">{ach.name}</div>
+                                                            <div className="text-[8px] text-indigo-400 font-bold mt-1 tracking-widest uppercase">Tittel låst opp</div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+
+
+                                                {/* Placeholders / Locked */}
+                                                {[...Array(Math.max(0, 9 - (player.achievements?.length || 0)))].map((_, i) => (
+                                                    <div key={i} className="aspect-square bg-black/40 border border-white/5 rounded-2xl flex items-center justify-center text-2xl opacity-10 grayscale">
+                                                        🎖️
+                                                    </div>
+                                                ))}
+                                            </div>
+
+                                            {(player.achievements?.length || 0) === 0 && (
+                                                <div className="mt-8 text-center px-4">
+                                                    <p className="text-xs font-bold text-slate-500 italic">Du har ikke samlet noen utmerkelser ennå. Fortsett å spille for å fylle galleriet!</p>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         ) : null}
+
                     </div>
                 )}
             </div>
@@ -405,45 +585,4 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
     );
 };
 
-const EquipmentSlotItem: React.FC<{ slot: string, item?: EquipmentItem }> = ({ slot, item }) => {
-    if (!item) {
-        return (
-            <div className="w-20 h-20 rounded-2xl bg-black/40 border-2 border-dashed border-white/5 flex flex-col items-center justify-center gap-1 group overflow-hidden relative">
-                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="text-2xl opacity-20 grayscale">
-                    {slot === 'HEAD' ? '👑' : slot === 'BODY' ? '👕' : slot === 'MAIN_HAND' ? '⚔️' : slot === 'OFF_HAND' ? '🛡️' : slot === 'FEET' ? '👢' : '💍'}
-                </span>
-                <span className="text-[8px] font-black uppercase text-slate-600 tracking-widest">{slot.replace('_', ' ')}</span>
-            </div>
-        );
-    }
 
-    const durabilityPct = (item.durability / item.maxDurability) * 100;
-
-    return (
-        <div className="w-20 h-20 rounded-2xl bg-slate-800 border-2 border-indigo-500/30 flex flex-col items-center justify-center relative overflow-hidden group shadow-lg hover:scale-110 transition-transform z-10 cursor-help">
-            <div className="absolute top-0 right-0 p-1">
-                <span className="text-[8px] font-black bg-indigo-600 text-white px-1.5 py-0.5 rounded-bl-lg">{item.level || 1}</span>
-            </div>
-            <span className="text-3xl drop-shadow-md mb-1">{item.icon}</span>
-            <span className="text-[7px] font-bold text-slate-300 w-full text-center truncate px-1 leading-tight">{item.name}</span>
-
-            {/* Durability Bar */}
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-black/50">
-                <div
-                    className={`h-full ${durabilityPct > 50 ? 'bg-emerald-500' : durabilityPct > 20 ? 'bg-amber-500' : 'bg-red-500'}`}
-                    style={{ width: `${durabilityPct}%` }}
-                />
-            </div>
-
-            {/* Tooltip on Hover (Simple CSS based) */}
-            <div className="absolute inset-0 bg-slate-900/95 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity p-2 text-center pointer-events-none backdrop-blur-sm border border-white/10 z-20">
-                <div className="text-[8px] text-slate-500 mb-1 font-bold uppercase tracking-widest">Stats</div>
-                {Object.entries(item.stats || {}).map(([key, val]) => (
-                    <div key={key} className="text-[9px] font-black text-emerald-400 uppercase tracking-wide">{key}: +{val as any}</div>
-                ))}
-                <div className="mt-1 text-[8px] text-slate-500">{item.durability}/{item.maxDurability}</div>
-            </div>
-        </div>
-    );
-};

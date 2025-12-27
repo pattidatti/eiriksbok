@@ -91,98 +91,81 @@ const POINTS_OF_INTEREST: POI[] = [
         actions: [{ id: 'REST', label: 'Hvile i Kammeret', cost: '-1🍞 +30⚡' }]
     },
 
-    // --- VILLAGE LOCAL HUB ---
+    // --- VILLAGE LOCAL HUB (CITY) ---
     {
         id: 'village_square', label: 'Landsbytorg', icon: '⛲', top: '50%', left: '50%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'village',
         actions: [
-            { id: 'REST', label: 'Hvile på torget', cost: '+10⚡' },
-            { id: 'CONSTRUCT_BUILDING', label: 'Oppgrader Torget', cost: 'Se Bygg' }
+            { id: 'REST', label: 'Hvile på torget', cost: '+10⚡' }
         ]
     },
     {
         id: 'tavern', label: 'Vertshuset', icon: '🍺', top: '35%', left: '75%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'], parentId: 'village',
-        actions: [{ id: 'ENTER_TAVERN', label: 'Gå inn', cost: 'Gratis' }], isHub: true
+        actions: [
+            { id: 'ENTER_TAVERN', label: 'Gå inn', cost: 'Gratis' },
+            { id: 'REST_BASIC', label: 'Hvile i Salen', cost: 'Gratis' },
+            { id: 'REST_COMFY', label: 'Bestille Kammer', cost: '-5g' },
+            { id: 'REST_ROYAL', label: 'Kongelig Suite', cost: '-20g' }
+        ], isHub: true
     },
+
     {
         id: 'bakery', label: 'Bakeri', icon: '🍞', top: '55%', left: '75%', roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [
-            { id: 'REFINE_BREAD', label: 'Bake Brød', cost: '-10⚡ -2mel' },
-            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Bakeri', cost: 'Se Bygg' }
+            { id: 'CRAFT_BREAD', label: 'Bake Brød', cost: '-10⚡ -2mel' },
+            { id: 'CRAFT_PIE', label: 'Bake Pai', cost: '-20⚡ -4mel' },
+            { id: 'CRAFT_FEAST', label: 'Gildemåltid', cost: '-50⚡ -10mel' }
         ],
         isHub: true
     },
+
     {
-        id: 'blacksmith', label: 'Storsmie', icon: '⚒️', top: '35%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'great_forge', label: 'Storsmie', icon: '⚒️', top: '35%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [
-            { id: 'CRAFT', label: 'Smi Utstyr', cost: 'Varierer' },
-            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Smie', cost: 'Se Bygg' }
+            { id: 'CRAFT_BASIC', label: 'Smi Grunnleggende', cost: 'Varierer' },
+            { id: 'CRAFT_ADVANCED', label: 'Smi Avansert', cost: 'Varierer' },
+            { id: 'CRAFT_MASTER', label: 'Smi Mesterverk', cost: 'Varierer' }
         ],
         isHub: true
     },
+
     {
-        id: 'sawmill', label: 'Sagbruk', icon: '🪚', top: '65%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'weavery', label: 'Veveri', icon: '🧶', top: '75%', left: '85%', roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'village',
         actions: [
-            { id: 'REFINE', label: 'Sag Tømmer', cost: '-10⚡ -5ved' },
-            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Sagbruk', cost: 'Se Bygg' }
+            { id: 'REFINE_CLOTH_BASIC', label: 'Vev Stoff', cost: '-15⚡ -5ull' },
+            { id: 'REFINE_CLOTH_FAST', label: 'Hurtig-veving', cost: '-20⚡ -5ull' }
         ],
         isHub: true
     },
-    {
-        id: 'windmill', label: 'Vindmølle', icon: '🌬️', top: '20%', left: '35%', roles: ['PEASANT', 'BARON'], parentId: 'village',
-        actions: [
-            { id: 'REFINE_FLOUR', label: 'Male Mel', cost: '-15⚡ -10korn' },
-            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Mølle', cost: 'Se Bygg' }
-        ],
-        isHub: true
-    },
-    {
-        id: 'smeltery', label: 'Smeltehytte', icon: '🔥', top: '75%', left: '85%', roles: ['PEASANT', 'BARON'], parentId: 'village',
-        actions: [
-            { id: 'REFINE_IRON', label: 'Smelte Jern', cost: '-20⚡ -5malm' },
-            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Hytte', cost: 'Se Bygg' }
-        ],
-        isHub: true
-    },
-    {
-        id: 'weaving_mill', label: 'Veveri', icon: '🧶', top: '65%', left: '60%', roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'village',
-        actions: [
-            { id: 'REFINE_CLOTH', label: 'Vev Stoff', cost: '-15⚡ -5ull' },
-            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Veveri', cost: 'Se Bygg' }
-        ],
-        isHub: true
-    },
+
     {
         id: 'watchtower', label: 'Vaktårn', icon: '🏰', top: '15%', left: '60%', roles: ['BARON', 'SOLDIER'], parentId: 'village',
         actions: [
-            { id: 'PATROL', label: 'Patruljer', cost: '-30⚡' },
-            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Tårn', cost: 'Se Bygg' }
+            { id: 'PATROL', label: 'Patruljer', cost: '-30⚡' }
         ],
         isHub: true
     },
     {
         id: 'stables', label: 'Stall', icon: '🐴', top: '80%', left: '35%', roles: ['BARON', 'SOLDIER', 'KING'], parentId: 'village',
         actions: [
-            { id: 'MOUNT_HORSE', label: 'Ri ut', cost: '-5⚡' },
-            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Stall', cost: 'Se Bygg' }
+            { id: 'MOUNT_HORSE', label: 'Ri ut', cost: '-5⚡' }
         ],
         isHub: true
     },
     {
-        id: 'well', label: 'Bybrønn', icon: '💧', top: '50%', left: '50%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'well', label: 'Bybrønn', icon: '💧', top: '65%', left: '60%', roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [
-            { id: 'GATHER_WATER', label: 'Hent Vann', cost: '-10⚡' },
-            { id: 'CONSTRUCT_BUILDING', label: 'Grav Brønn', cost: 'Se Bygg' }
+            { id: 'GATHER_WATER', label: 'Hent Vann', cost: '-10⚡' }
         ],
         isHub: true
     },
     {
         id: 'apothecary', label: 'Apotek', icon: '🌿', top: '45%', left: '85%', roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [
-            { id: 'CRAFT_MEDICINE', label: 'Lag Medisin', cost: '-20⚡' },
-            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Apotek', cost: 'Se Bygg' }
+            { id: 'CRAFT_MEDICINE', label: 'Lag Medisin', cost: '-20⚡' }
         ],
         isHub: true
     },
+
 
     // --- TAVERN LOCAL ---
     {
@@ -204,9 +187,14 @@ const POINTS_OF_INTEREST: POI[] = [
         actions: [{ id: 'WORK', label: 'Høste Korn', cost: '-10⚡ -1🍞' }]
     },
     {
-        id: 'windmill', label: 'Vindmølle', icon: '⚙️', top: '40%', left: '65%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'fields',
-        actions: [{ id: 'REFINE_FLOUR', label: 'Male Mel', cost: 'Mel' }]
+        id: 'windmill', label: 'Vindmølle', icon: '🌬️', top: '40%', left: '65%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'fields',
+        actions: [
+            { id: 'REFINE_FLOUR_BASIC', label: 'Male Mel', cost: '-15⚡ -10korn' },
+            { id: 'REFINE_FLOUR_FAST', label: 'Hurtig-maling', cost: '-20⚡ -15korn' }
+        ], isHub: true
     },
+
+
 
     // --- INDUSTRY LOCAL ---
     {
@@ -217,6 +205,17 @@ const POINTS_OF_INTEREST: POI[] = [
         id: 'quarry_poi', label: 'Steinhuggeriet', icon: '🪨', top: '40%', left: '85%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'mine',
         actions: [{ id: 'QUARRY', label: 'Hugge Stein', cost: '-20⚡ -1🍞' }]
     },
+    {
+        id: 'smeltery', label: 'Smeltehytte', icon: '🔥', top: '45%', left: '50%', roles: ['PEASANT', 'BARON'], parentId: 'mine',
+        actions: [
+            { id: 'REFINE_IRON_BASIC', label: 'Smelte Jern', cost: '-20⚡ -5malm' },
+            { id: 'REFINE_IRON_FAST', label: 'Industri-smelting', cost: '-30⚡ -10malm' },
+            { id: 'REFINE_STEEL', label: 'Smelte Stål', cost: '-50⚡ -20malm' }
+        ], isHub: true
+    },
+
+
+
 
     // --- FOREST LOCAL ---
     {
@@ -227,6 +226,16 @@ const POINTS_OF_INTEREST: POI[] = [
         id: 'forest_forage', label: 'Bærplukking', icon: '🍓', top: '60%', left: '90%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'forest',
         actions: [{ id: 'FORAGE', label: 'Sanke Mat (Nød)', cost: '-40⚡' }]
     },
+    {
+        id: 'sawmill', label: 'Sagbruk', icon: '🪚', top: '40%', left: '65%', roles: ['PEASANT', 'BARON'], parentId: 'forest',
+        actions: [
+            { id: 'REFINE_TIMBER_BASIC', label: 'Sag Tømmer', cost: '-10⚡ -5ved' },
+            { id: 'REFINE_TIMBER_FAST', label: 'Hurtig-saging', cost: '-15⚡ -5ved' }
+        ], isHub: true
+    },
+
+
+
 
     // --- MONASTERY LOCAL ---
     {
@@ -601,63 +610,97 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                 )}
 
 
-                {/* CONSTRUCTION OVERLAY SITE */}
+                {/* BUILDING DEVELOPMENT OVERLAY */}
                 {
                     (() => {
                         const buildingDef = VILLAGE_BUILDINGS[viewMode];
-                        const currentLevel = (room.world.settlement?.buildings?.[viewMode]?.level || 0);
+                        if (!buildingDef) return null;
 
-                        if (buildingDef && currentLevel < 1) {
-                            return (
-                                <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-500">
-                                    <div className="bg-slate-900 border-2 border-dashed border-white/20 rounded-[3rem] p-12 max-w-2xl w-full text-center relative overflow-hidden group">
-                                        <div className="absolute inset-0 bg-[url('/patterns/grid.png')] opacity-10" />
+                        const settlement = room.world?.settlement;
+                        const currentLevel = (settlement?.buildings?.[viewMode]?.level as number) || 1; // Defaults to 1 as per new req
 
-                                        <div className="relative z-10 w-full flex flex-col items-center">
-                                            <div className="w-24 h-24 bg-indigo-500/20 text-indigo-300 rounded-full flex items-center justify-center text-5xl mb-6 border-2 border-indigo-500/40 shadow-[0_0_40px_rgba(99,102,241,0.3)] animate-pulse">
-                                                🏗️
-                                            </div>
-                                            <h2 className="text-4xl font-black text-white mb-2 tracking-tighter uppercase">{buildingDef.name}</h2>
-                                            <div className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-8">Under Planlegging</div>
 
-                                            <p className="text-slate-300 text-lg leading-relaxed mb-10 max-w-md italic">
+                        const nextLevel = currentLevel + 1;
+                        const nextLevelDef = buildingDef.levels[nextLevel];
+                        const currentLevelDef = buildingDef.levels[currentLevel];
+
+                        return (
+                            <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-slate-950/90 backdrop-blur-xl animate-in fade-in duration-500">
+                                <div className="bg-slate-900/80 border border-white/10 rounded-[3rem] p-10 max-w-2xl w-full text-center relative overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
+                                    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[100px] -mr-32 -mt-32 rounded-full" />
+
+                                    <div className="relative z-10 w-full flex flex-col items-center">
+                                        <div className="w-20 h-20 bg-indigo-600/20 text-indigo-400 rounded-2xl flex items-center justify-center text-5xl mb-6 shadow-2xl border border-indigo-500/20">
+                                            {buildingDef.icon}
+                                        </div>
+                                        <h2 className="text-4xl font-black text-white mb-2 tracking-tighter uppercase">{buildingDef.name}</h2>
+                                        <div className="flex items-center gap-3 mb-8">
+                                            <span className="bg-indigo-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Nivå {currentLevel}</span>
+                                            {nextLevelDef && <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">→ Neste: Nivå {nextLevel}</span>}
+                                        </div>
+
+                                        <div className="bg-black/40 rounded-3xl p-6 w-full mb-10 border border-white/5">
+                                            <p className="text-indigo-300 text-sm font-bold mb-4 uppercase tracking-widest flex items-center justify-center gap-2">
+                                                <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
+                                                Gjeldende Bonus: {currentLevelDef?.bonus || 'Base produksjon'}
+                                            </p>
+                                            <p className="text-slate-400 text-sm leading-relaxed italic opacity-80">
                                                 "{buildingDef.description}"
                                             </p>
-
-                                            <div className="grid grid-cols-2 gap-4 mb-10 w-full">
-                                                {Object.entries(buildingDef.requirements || {}).map(([res, amt]) => {
-                                                    const hasEnough = (player.resources[res as keyof typeof player.resources] || 0) >= (amt as number);
-                                                    return (
-                                                        <div key={res} className={`flex items-center justify-between p-4 rounded-xl border ${hasEnough ? 'bg-emerald-500/10 border-emerald-500/30' : 'bg-rose-500/10 border-rose-500/30'}`}>
-                                                            <span className="capitalize text-sm font-bold text-slate-300">{res}</span>
-                                                            <span className={`text-xl font-black ${hasEnough ? 'text-emerald-400' : 'text-rose-400'}`}>
-                                                                {amt as number}
-                                                            </span>
-                                                        </div>
-                                                    );
-                                                })}
-                                            </div>
-
-                                            <button
-                                                onClick={() => {
-                                                    handlePOIAction(viewMode, 'CONSTRUCT_BUILDING');
-                                                }}
-                                                className="w-full py-5 bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-indigo-600/20 transition-all active:scale-95 text-lg"
-                                            >
-                                                Start Bygging
-                                            </button>
-
-                                            <button onClick={() => setViewMode('village')} className="mt-6 text-slate-500 hover:text-white text-xs font-bold uppercase tracking-widest">
-                                                Avbryt
-                                            </button>
                                         </div>
+
+                                        {nextLevelDef ? (
+                                            <div className="w-full space-y-6">
+                                                <div className="text-left">
+                                                    <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Oppgraderingskrav (Nivå {nextLevel})</div>
+                                                    <div className="grid grid-cols-2 gap-3">
+                                                        {Object.entries(nextLevelDef.requirements || {}).map(([res, amt]) => {
+                                                            const hasEnough = ((player.resources as any)[res] || 0) >= (amt as number);
+                                                            return (
+                                                                <div key={res} className={`flex items-center justify-between px-4 py-3 rounded-xl border ${hasEnough ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-rose-500/5 border-rose-500/20'}`}>
+                                                                    <span className="capitalize text-[10px] font-black text-slate-400">{res}</span>
+                                                                    <span className={`text-sm font-black ${hasEnough ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                                        {amt as number}
+                                                                    </span>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+
+                                                <button
+                                                    onClick={() => {
+                                                        onAction({ type: 'CONSTRUCT_BUILDING', buildingId: viewMode });
+                                                    }}
+                                                    className="w-full py-5 bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest rounded-2xl shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3"
+                                                >
+                                                    Oppgrader til Nivå {nextLevel} 🛠️
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <div className="py-6 px-10 bg-emerald-500/10 border border-emerald-500/30 rounded-3xl">
+                                                <div className="text-emerald-400 font-black uppercase tracking-widest text-xs">Maksimalt Nivå Nådd 🏆</div>
+                                                <div className="text-slate-400 text-[10px] font-bold mt-1">Dette mesterverket kan ikke forbedres ytterligere.</div>
+                                            </div>
+                                        )}
+
+                                        <button
+                                            onClick={() => {
+                                                const poi = POINTS_OF_INTEREST.find(p => p.id === viewMode);
+                                                if (poi?.parentId) setViewMode(poi.parentId);
+                                                else setViewMode('global');
+                                            }}
+                                            className="mt-8 text-slate-500 hover:text-white text-[10px] font-black uppercase tracking-[0.2em] transition-colors"
+                                        >
+                                            Avbryt
+                                        </button>
                                     </div>
                                 </div>
-                            );
-                        }
-                        return null;
+                            </div>
+                        );
                     })()
                 }
+
 
                 {/* Dialog Overlay */}
                 {

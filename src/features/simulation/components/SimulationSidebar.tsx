@@ -4,7 +4,7 @@ import { ROLE_TITLES, LEVEL_XP, SEASONS } from '../constants';
 import { useSimulation } from '../SimulationContext';
 import { Badge } from '../ui/Badge';
 import { GameCard } from '../ui/GameCard';
-import { Map, User, Home, Scroll, MessageSquare, LayoutGrid, Hammer, Sun, Package } from 'lucide-react';
+import { Map, User, Scroll, MessageSquare, LayoutGrid, Hammer, Sun, Package } from 'lucide-react';
 
 interface SimulationSidebarProps {
     player: SimulationPlayer;
@@ -35,8 +35,8 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
         { id: 'MAP', label: 'Verdenskart', icon: Map },
         { id: 'PROFILE', label: 'Profil', icon: User },
         { id: 'INVENTORY', label: 'Eiendele', icon: Package },
-        { id: 'VILLAGE', label: 'Byggeprosjekter', icon: Home },
         { id: 'SKILLS', label: 'Ferdigheter', icon: Scroll },
+
         { id: 'DIPLOMACY', label: 'Diplomati', icon: MessageSquare },
         { id: 'HIERARCHY', label: 'Struktur', icon: LayoutGrid },
         { id: 'UPGRADES', label: 'Oppgraderinger', icon: Hammer },
