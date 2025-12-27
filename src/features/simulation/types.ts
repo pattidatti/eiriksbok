@@ -22,11 +22,13 @@ export interface Resources {
 
 export interface EquipmentItem {
     id: string;
+    name: string;
+    icon: string;
+    type: 'WEAPON' | 'ARMOR' | 'TOOL' | 'HEAD' | 'BODY';
     durability: number;
     maxDurability: number;
+    level: number;
 }
-
-
 
 export interface PlayerStats {
     xp: number;
@@ -34,7 +36,6 @@ export interface PlayerStats {
     reputation: number;
     contribution: number;
 }
-
 
 export interface PlayerStatus {
     hp: number;
@@ -47,8 +48,6 @@ export interface PlayerStatus {
     isFrozen: boolean; // e.g. awaiting judgement
 }
 
-
-
 export interface PlayerUpgrade {
     id: string;
     name: string;
@@ -57,6 +56,21 @@ export interface PlayerUpgrade {
     benefit: string;
 }
 
+export interface Achievement {
+    id: string;
+    name: string;
+    icon: string;
+    unlockedAt: number;
+}
+
+export interface Quest {
+    id: string;
+    name: string;
+    description: string;
+    status: 'ACTIVE' | 'COMPLETED' | 'FAILED';
+    progress: number;
+    target: number;
+}
 
 export interface SimulationPlayer {
     id: string;
@@ -67,7 +81,10 @@ export interface SimulationPlayer {
     stats: PlayerStats;
     status: PlayerStatus;
     upgrades: string[]; // List of IDs of purchased upgrades
-    equipment: Record<string, EquipmentItem>; // Track durability
+    equipment: Record<string, EquipmentItem>; // Keyed by slot (e.g., 'weapon', 'armor')
+    achievements?: Achievement[];
+    quests?: Quest[];
+    history?: string[];
     avatar?: string;
 
     lastActive: number;

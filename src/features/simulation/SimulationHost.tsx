@@ -115,9 +115,10 @@ export const SimulationHost: React.FC = () => {
 
             Object.values(updatedPlayers).forEach(p => {
                 if (p.role === 'BARON') {
+                    const isVest = p.regionId === 'region_vest';
                     newRegions[p.regionId] = {
                         id: p.id,
-                        name: `Baroniet ${p.name}`,
+                        name: isVest ? 'Baroniet Vest' : 'Baroniet Øst',
                         taxRate: 10,
                         defenseLevel: 50,
                         rulerName: p.name
@@ -408,6 +409,11 @@ export const SimulationHost: React.FC = () => {
         }
     };
 
+    const controlPlayer = (playerId: string) => {
+        const url = `${window.location.origin}/sim/play/${pin}?impersonate=${playerId}`;
+        window.open(url, '_blank');
+    };
+
     if (view === 'LIST') {
         return (
             <div className="fixed inset-0 top-16 bg-slate-950 text-slate-200 p-12 overflow-y-auto custom-scrollbar font-sans z-20">
@@ -636,12 +642,20 @@ export const SimulationHost: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    <div className="flex flex-wrap gap-1">
+                                    <div className="flex flex-wrap gap-1 mb-6">
                                         {p.upgrades?.map((upg: string) => (
                                             <span key={upg} className="text-[7px] font-black bg-indigo-500/10 text-indigo-400 px-1.5 py-0.5 rounded border border-indigo-500/20 uppercase tracking-tighter">{upg}</span>
                                         ))}
                                         {(!p.upgrades || p.upgrades.length === 0) && <span className="text-[7px] font-bold text-slate-700 uppercase italic">Ingen oppgraderinger</span>}
                                     </div>
+
+                                    <button
+                                        onClick={() => controlPlayer(p.id)}
+                                        className="w-full py-4 rounded-2xl bg-indigo-600/10 hover:bg-indigo-600 text-indigo-400 hover:text-white font-black uppercase text-[10px] tracking-widest transition-all border border-indigo-500/20 flex items-center justify-center gap-2 group/btn"
+                                    >
+                                        <span className="group-hover/btn:scale-125 transition-transform">🎮</span>
+                                        Styr spiller
+                                    </button>
                                 </div>
                             ))}
                             {Object.keys(roomData.players || {}).length === 0 && (

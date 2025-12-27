@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 interface MinigameProps {
-    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL';
+    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE';
     onComplete: (score: number) => void;
     onCancel: () => void;
     playerUpgrades?: string[];
@@ -70,7 +70,11 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
         MILL: [{ id: 'balance', label: 'Balanse', icon: '🎡', desc: 'Hold kverna i gang.' }],
         DEFEND: [{ id: 'combat', label: 'Kamp', icon: '⚔️', desc: 'Forsvar baroniet.' }],
         PATROL: [{ id: 'patrol', label: 'Patrulje', icon: '🛡️', desc: 'Vokt grensene.' }],
-        EXPLORE: [{ id: 'quest', label: 'Oppdrag', icon: '🧭', desc: 'Utforsk det ukjente.' }]
+        EXPLORE: [{ id: 'quest', label: 'Oppdrag', icon: '🧭', desc: 'Utforsk det ukjente.' }],
+        FORAGE: [
+            { id: 'berries', label: 'Bærplukking', icon: '🍓', desc: 'Sank bær og sopp.' },
+            { id: 'traps', label: 'Snarefiske', icon: '🎣', desc: 'Sjekk fellene dine.' }
+        ]
     };
 
     const currentMethods = methods[type] || [];
@@ -79,32 +83,63 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
         if (currentMethods.length === 1) setMethod(currentMethods[0].id);
     }, [type]);
 
+    const getSelectionBackground = () => {
+        switch (type) {
+            case 'WORK': return '/images/minigames/agriculture_bg.png';
+            case 'CHOP': return '/images/minigames/forestry_bg.png';
+            case 'MINE':
+            case 'QUARRY': return '/images/minigames/mining_bg.png';
+            case 'CRAFT': return '/images/minigames/smithing_bg.png';
+            case 'FORAGE': return '/images/minigames/foraging_bg.png';
+            default: return '/images/minigames/quest_bg.png';
+        }
+    };
+
     return (
-        <div className="fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-lg flex items-center justify-center p-4">
-            <div className="bg-white rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.5)] w-full max-w-lg overflow-hidden relative border-4 border-indigo-500/10">
-                <button onClick={onCancel} className="absolute top-6 right-6 text-slate-400 hover:text-slate-600 z-10 p-2 bg-slate-100 rounded-full transition-colors">✕</button>
+        <div className="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-2xl flex items-center justify-center p-4">
+            <div className="bg-slate-900 rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.8)] w-full max-w-xl overflow-hidden relative border-2 border-white/10">
+                <button onClick={onCancel} className="absolute top-6 right-6 text-white/50 hover:text-white z-20 p-3 bg-white/5 hover:bg-white/10 rounded-full transition-all">✕</button>
 
                 {!method ? (
-                    <div className="p-10 text-center animate-in fade-in zoom-in duration-300">
-                        <h2 className="text-sm font-black text-indigo-500 uppercase tracking-[0.3em] mb-4">Velg Metode</h2>
-                        <h3 className="text-4xl font-black text-slate-800 mb-2">{type}</h3>
-                        <div className="grid grid-cols-1 gap-4 mt-8">
-                            {currentMethods.map(m => (
-                                <button key={m.id} onClick={() => setMethod(m.id)} className="group flex items-center gap-6 p-6 bg-slate-50 hover:bg-slate-900 hover:text-white rounded-[1.8rem] text-left transition-all active:scale-95 border-2 border-slate-100">
-                                    <span className="text-5xl group-hover:scale-110 transition-transform">{m.icon}</span>
-                                    <div>
-                                        <div className="font-black text-xl group-hover:text-amber-400">{m.label}</div>
-                                        <div className="text-sm opacity-60 font-medium">{m.desc}</div>
-                                    </div>
-                                    <span className="ml-auto group-hover:translate-x-2 transition-transform">&rarr;</span>
-                                </button>
-                            ))}
+                    <div className="relative min-h-[450px] flex flex-col items-center justify-center p-12 text-center animate-in fade-in zoom-in duration-500 overflow-hidden">
+                        {/* Background with overlay */}
+                        <div className="absolute inset-0 z-0">
+                            <img src={getSelectionBackground()} className="w-full h-full object-cover grayscale-[0.5] opacity-30" alt="" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+                        </div>
+
+                        <div className="relative z-10 w-full">
+                            <h2 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-4">Velg utførelse</h2>
+                            <h3 className="text-5xl font-black text-white mb-10 tracking-tighter uppercase">{type}</h3>
+
+                            <div className="grid grid-cols-1 gap-4 w-full">
+                                {currentMethods.map(m => (
+                                    <button
+                                        key={m.id}
+                                        onClick={() => setMethod(m.id)}
+                                        className="group flex items-center gap-6 p-6 bg-white/5 hover:bg-white/10 rounded-[2rem] text-left transition-all active:scale-[0.98] border border-white/5 hover:border-amber-500/50 shadow-xl"
+                                    >
+                                        <div className="w-20 h-20 bg-slate-800 rounded-2xl flex items-center justify-center text-5xl group-hover:scale-110 transition-transform shadow-inner border border-white/5">
+                                            {m.icon}
+                                        </div>
+                                        <div className="flex-1">
+                                            <div className="font-black text-2xl text-white group-hover:text-amber-400 transition-colors">{m.label}</div>
+                                            <div className="text-sm text-slate-400 font-medium">{m.desc}</div>
+                                        </div>
+                                        <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center group-hover:translate-x-2 transition-transform opacity-30 group-hover:opacity-100">
+                                            <span className="text-white text-xl">→</span>
+                                        </div>
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 ) : (
                     <>
-                        {type === 'WORK' || type === 'MINE' || type === 'QUARRY' ? (
-                            method === 'sweep' ? <ScytheSweepGame onComplete={onComplete} /> : <HarvestingGame onComplete={onComplete} isMining={type === 'MINE'} isQuarrying={type === 'QUARRY'} />
+                        {type === 'WORK' || type === 'MINE' || type === 'QUARRY' || type === 'FORAGE' ? (
+                            method === 'sweep' ? <ScytheSweepGame onComplete={onComplete} /> :
+                                method === 'traps' ? <TrappingGame onComplete={onComplete} /> :
+                                    <HarvestingGame onComplete={onComplete} isMining={type === 'MINE'} isQuarrying={type === 'QUARRY'} isForaging={type === 'FORAGE'} />
                         ) : type === 'CHOP' ? (
                             method === 'saw' ? <SawingGame onComplete={onComplete} /> : <WoodcuttingGame onComplete={onComplete} />
                         ) : type === 'CRAFT' ? (
@@ -127,7 +162,7 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
 };
 
 /* --- HARVESTING MINIGAME (Rhythm Timing) --- */
-const HarvestingGame: React.FC<{ onComplete: (score: number) => void, isMining?: boolean, isQuarrying?: boolean }> = ({ onComplete, isMining, isQuarrying }) => {
+const HarvestingGame: React.FC<{ onComplete: (score: number) => void, isMining?: boolean, isQuarrying?: boolean, isForaging?: boolean }> = ({ onComplete, isMining, isQuarrying, isForaging }) => {
     const [pointerPos, setPointerPos] = useState(0);
     const [strikes, setStrikes] = useState<number[]>([]);
     const [isFinished, setIsFinished] = useState(false);
@@ -163,26 +198,81 @@ const HarvestingGame: React.FC<{ onComplete: (score: number) => void, isMining?:
         }
     };
 
-    const bg = isMining || isQuarrying ? 'url("/images/minigames/mining_bg.png")' : 'url("/images/minigames/agriculture_bg.png")';
+    const bg = isMining || isQuarrying ? 'url("/images/minigames/mining_bg.png")' : isForaging ? 'url("/images/minigames/foraging_bg.png")' : 'url("/images/minigames/agriculture_bg.png")';
 
     return (
         <div className={`p-8 text-center min-h-[450px] relative flex flex-col items-center justify-center overflow-hidden ${shake ? 'animate-shake' : ''}`} style={{ backgroundImage: bg, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="absolute inset-0 bg-black/50 z-0" />
+            <div className="absolute inset-0 bg-black/70 z-0" />
             <div className="relative z-10 w-full flex flex-col items-center">
-                <h2 className="text-3xl font-black text-white mb-8 drop-shadow-lg">{isMining ? 'Gruvedrift' : isQuarrying ? 'Steinhugger' : 'Kornhøsting'}</h2>
+                <h2 className="text-4xl font-black text-white mb-8 drop-shadow-lg tracking-tighter uppercase">{isMining ? 'Gruvedrift' : isQuarrying ? 'Steinhugger' : isForaging ? 'Sanking' : 'Kornhøsting'}</h2>
                 {floatingTexts.map(ft => <FloatingText key={ft.id} text={ft.text} onComplete={() => setFloatingTexts(p => p.filter(i => i.id !== ft.id))} />)}
                 {!isFinished ? (
                     <>
-                        <div className="w-full h-12 bg-white/10 rounded-full mb-8 relative border-2 border-white/20 overflow-hidden">
-                            <div className="absolute inset-y-0 left-[40%] right-[40%] bg-emerald-400/20 border-x border-emerald-400/50" />
-                            <div className="absolute inset-y-0 w-1 bg-white shadow-[0_0_15px_white]" style={{ left: `${pointerPos}%` }} />
+                        <div className="w-full h-8 bg-white/5 rounded-full mb-12 relative border border-white/10 overflow-hidden shadow-inner">
+                            <div className="absolute inset-y-0 left-[42%] right-[42%] bg-amber-500/30 border-x border-amber-500/50" />
+                            <div className="absolute inset-y-0 w-1 bg-white shadow-[0_0_20px_white]" style={{ left: `${pointerPos}%` }} />
                         </div>
-                        <button onClick={handleStrike} className="w-full bg-amber-500 hover:bg-amber-600 text-white py-6 rounded-2xl font-black text-2xl shadow-xl active:scale-95 transition-all">HØST! 🛠️</button>
+                        <button onClick={handleStrike} className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 py-7 rounded-[2rem] font-black text-2xl shadow-2xl active:scale-95 transition-all uppercase tracking-widest border-b-4 border-amber-700">KLIKK NÅ! ⚡</button>
                     </>
                 ) : (
-                    <div className="py-12 animate-bounce text-4xl font-black text-amber-500">FERDIG! 🌾✨</div>
+                    <div className="py-12 animate-bounce text-5xl font-black text-amber-500 uppercase tracking-tighter drop-shadow-[0_0_20px_rgba(245,158,11,0.5)]">FERDIG! ✨</div>
                 )}
             </div>
+        </div>
+    );
+};
+
+/* --- TRAPPING GAME --- */
+const TrappingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+    const [pos, setPos] = useState(0);
+    const [captured, setCaptured] = useState(0);
+    const [isFinished, setIsFinished] = useState(false);
+    const [targetPos, setTargetPos] = useState(50);
+    const [dir, setDir] = useState(1);
+
+    useEffect(() => {
+        if (isFinished) return;
+        const interval = setInterval(() => {
+            setPos(p => {
+                let next = p + (3 * dir);
+                if (next > 100) { setDir(-1); return 100; }
+                if (next < 0) { setDir(1); return 0; }
+                return next;
+            });
+        }, 16);
+        return () => clearInterval(interval);
+    }, [dir, isFinished]);
+
+    const handleCatch = () => {
+        const dist = Math.abs(pos - targetPos);
+        if (dist < 10) {
+            setCaptured(c => {
+                if (c + 1 >= 3) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
+                return c + 1;
+            });
+            setTargetPos(20 + Math.random() * 60);
+        }
+    };
+
+    return (
+        <div className="p-12 text-center min-h-[450px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/foraging_bg.png")', backgroundSize: 'cover' }}>
+            <div className="absolute inset-0 bg-black/70 z-0" />
+            <h2 className="relative z-10 text-4xl font-black text-white mb-12 tracking-tighter uppercase italic">Snarefiske 🎣</h2>
+
+            <div className="relative z-10 w-full max-w-sm h-12 bg-white/5 rounded-full border border-white/10 mb-12 shadow-inner">
+                <div className="absolute inset-y-0 w-20 bg-amber-500/40 border-x-2 border-amber-500/50 rounded-lg blur-[2px]" style={{ left: `${targetPos}%`, transform: 'translateX(-50%)' }} />
+                <div className="absolute inset-y-0 w-2 bg-white shadow-[0_0_15px_white]" style={{ left: `${pos}%` }} />
+            </div>
+
+            <div className="relative z-10 flex gap-4 mb-12">
+                {[...Array(3)].map((_, i) => (
+                    <div key={i} className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl border-2 transition-all ${captured > i ? 'bg-amber-500 border-amber-300 scale-110' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'}`}>
+                        🐟
+                    </div>
+                ))}
+            </div>
+
+            <button onClick={handleCatch} className="relative z-10 w-full max-w-md bg-sky-500 hover:bg-sky-400 text-white py-7 rounded-[2rem] font-black text-2xl shadow-2xl active:scale-95 transition-all uppercase tracking-widest border-b-4 border-sky-700">HAL INN! ⚓</button>
         </div>
     );
 };

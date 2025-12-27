@@ -11,6 +11,8 @@ interface POI {
     icon: string;
     top: string;
     left: string;
+    // Overrides for Ost/Coastal map style
+    ost?: { top: string, left: string };
     roles: string[];
     actions: { id: string, label: string, cost?: string }[];
     parentId?: string; // Links to a hub POI
@@ -24,15 +26,30 @@ const POINTS_OF_INTEREST: POI[] = [
         actions: [], isHub: true
     },
     {
-        id: 'forest', label: 'Skogen', icon: '🌲', top: '18%', left: '80%', roles: ['PEASANT', 'BARON', 'KING'],
+        id: 'forest', label: 'Skogen', icon: '🌲', top: '18%', left: '80%',
+        ost: { top: '25%', left: '65%' },
+        roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
-        id: 'castle', label: 'Slottet', icon: '🏰', top: '55%', left: '80%', roles: ['BARON', 'KING', 'SOLDIER'],
+        id: 'castle', label: 'Slottet', icon: '🏰', top: '55%', left: '80%',
+        ost: { top: '35%', left: '72%' },
+        roles: ['BARON', 'KING', 'SOLDIER'],
         actions: [], isHub: true
     },
     {
-        id: 'market', label: 'Markedet', icon: '⚖️', top: '70%', left: '30%', roles: ['PEASANT', 'BARON', 'KING', 'MERCHANT'],
+        id: 'peasant_farm', label: 'Husmannsplassen', icon: '🛖', top: '75%', left: '25%',
+        ost: { top: '62%', left: '42%' },
+        roles: ['PEASANT', 'BARON', 'KING'],
+        actions: [
+            { id: 'FARM_UPGRADE', label: 'Utbedre Gården', cost: 'Varierer' },
+            { id: 'FARM_REST', label: 'Sove hjemme', cost: '+40⚡' }
+        ]
+    },
+    {
+        id: 'market', label: 'Markedet', icon: '⚖️', top: '15%', left: '25%',
+        ost: { top: '73%', left: '52%' },
+        roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
         actions: [{ id: 'MARKET_VIEW', label: 'Åpne Handel', cost: 'Gratis' }]
     },
     {
@@ -40,16 +57,16 @@ const POINTS_OF_INTEREST: POI[] = [
         actions: [], isHub: true
     },
     {
-        id: 'mine', label: 'Gruve-distriktet', icon: '⛏️', top: '8%', left: '60%', roles: ['PEASANT', 'BARON', 'KING'],
+        id: 'mine', label: 'Gruve-distriktet', icon: '⛏️', top: '8%', left: '60%',
+        ost: { top: '22%', left: '40%' },
+        roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
-        id: 'monastery', label: 'Klosteret', icon: '⛪', top: '10%', left: '45%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
+        id: 'monastery', label: 'Klosteret', icon: '⛪', top: '10%', left: '45%',
+        ost: { top: '60%', left: '75%' },
+        roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
         actions: [], isHub: true
-    },
-    {
-        id: 'monument', label: 'Rikets Monument', icon: '🏗️', top: '50%', left: '50%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
-        actions: [{ id: 'CONTRIBUTE', label: 'Bidra til Bygget', cost: '-30🌾 -20🪵 -50g' }]
     },
     {
         id: 'border', label: 'Grensen', icon: '⚔️', top: '85%', left: '80%', roles: ['BARON'],
@@ -100,7 +117,7 @@ const POINTS_OF_INTEREST: POI[] = [
     },
     {
         id: 'bakery', label: 'Bakeri', icon: '🥐', top: '65%', left: '45%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'village',
-        actions: [{ id: 'REFINE_BREAD', label: 'Bake Brød', cost: 'Brød' }]
+        actions: [{ id: 'REFINE_BREAD', label: 'Bake Brød', cost: '-10⚡ -2🍯' }]
     },
     {
         id: 'tavern', label: 'Vertshuset', icon: '🍺', top: '70%', left: '20%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'village',
@@ -181,7 +198,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
     const handlePOIAction = (_poiId: string, actionId: string) => {
         // PERMISSION CHECK: STRICT
         // Players (except maybe King?) cannot act in other regions
-        // Allow King to act everywhere? User said "player from another barony". King is usually above.
+        // Allow King to act anywhere? User said "player from another barony". King is usually above.
         // Let's assume King can act anywhere, others only at home.
         const isHomeRegion = viewingRegionId === player.regionId;
         const isKing = player.role === 'KING';
@@ -193,17 +210,20 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
         if (actionId === 'MARKET_VIEW') {
             onOpenMarket();
-        } else if (actionId === 'REFINE') {
-            onAction({ type: 'REFINE', recipeId: 'timber' });
-        } else if (actionId === 'REFINE_FLOUR') {
-            onAction({ type: 'REFINE', recipeId: 'flour' });
-        } else if (actionId === 'REFINE_IRON') {
-            onAction({ type: 'REFINE', recipeId: 'iron_ingot' });
-        } else if (actionId === 'REFINE_BREAD') {
-            onAction({ type: 'REFINE', recipeId: 'bread' });
+        } else if (actionId === 'REFINE' || actionId === 'REFINE_FLOUR' || actionId === 'REFINE_IRON' || actionId === 'REFINE_BREAD') {
+            const recipeMap: any = {
+                'REFINE': 'timber',
+                'REFINE_FLOUR': 'flour',
+                'REFINE_IRON': 'iron_ingot',
+                'REFINE_BREAD': 'bread'
+            };
+            onAction({ type: 'REFINE', recipeId: recipeMap[actionId] });
         } else if (actionId.startsWith('CRAFT_')) {
-            const subType = actionId.replace('CRAFT_', '');
-            onAction({ type: 'CRAFT', subType });
+            const itemType = actionId.replace('CRAFT_', '').toLowerCase();
+            onAction({ type: 'CRAFT', itemType });
+        } else if (actionId === 'FARM_UPGRADE') {
+            // Check if player has farm upgrades
+            onAction({ type: 'UPGRADE', upgradeId: 'peasant_farm_level' });
         } else if (actionId === 'OPEN_DICE_GAME') {
             setIsDiceGameOpen(true);
         } else if (actionId === 'CHAT_LOCAL') {
@@ -231,22 +251,19 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
             case 'monastery': return '/map_monastery.png';
             case 'tavern': return '/map_tavern_interior.png';
             case 'global':
-                // Check region style for viewingRegionId
-                if (viewingRegionId && viewingRegionId !== 'capital' && room.regions) {
-                    const sortedRegionIds = Object.keys(room.regions).sort();
-                    const index = sortedRegionIds.indexOf(viewingRegionId);
-                    // Even index = Barony 2 map (Coastal/Viking style)
-                    if (index >= 0 && index % 2 !== 0) {
-                        return '/map_barony_2.png';
-                    }
+                // Check region ID for viewingRegionId
+                if (viewingRegionId === 'region_ost') {
+                    return '/map_barony_2.png';
                 }
-                return '/simulation_map_v2.png'; // Default Green Valley
+                return '/simulation_map_v2.png'; // Default Green Valley (Vest)
             default: return '/simulation_map_v2.png';
         }
     };
 
-    // Helper to find Barons for map pins
-    const barons = Object.values(room.players || {}).filter(p => p.role === 'BARON').sort((a, b) => a.id.localeCompare(b.id));
+    // Find specific barons for map layout
+    const playersArr = Object.values(room.players || {});
+    const baronVest = playersArr.find(p => p.role === 'BARON' && p.regionId === 'region_vest');
+    const baronOst = playersArr.find(p => p.role === 'BARON' && p.regionId === 'region_ost');
 
     return (
         <div className={`relative h-full max-h-full max-w-full aspect-square rounded-[3rem] overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.5)] border-4 border-white/5 bg-slate-900 transition-all duration-1000 ${weather === 'Rain' ? 'brightness-90 contrast-110' : weather === 'Storm' ? 'brightness-75 contrast-125' : weather === 'Fog' ? 'sepia-[0.3] contrast-75' : ''}`}>
@@ -319,37 +336,37 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                         </button>
                     </div>
 
-                    {/* BARONY 1 PIN (Left) */}
-                    {barons[0] && (
-                        <div className="absolute top-[60%] left-[20%] -translate-x-1/2 -translate-y-1/2 z-30 group">
+                    {/* BARONY VEST PIN (West/Left map region) */}
+                    {baronVest && (
+                        <div className="absolute top-[60%] left-[25%] -translate-x-1/2 -translate-y-1/2 z-30 group">
                             <button
                                 onClick={() => {
-                                    setViewingRegionId(barons[0].regionId);
+                                    setViewingRegionId(baronVest.regionId);
                                     setViewMode('global');
                                 }}
                                 className="flex flex-col items-center hover:scale-110 transition-transform"
                             >
                                 <div className="text-5xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🏯</div>
                                 <div className="bg-black/80 text-indigo-300 px-3 py-1 rounded-xl mt-2 font-bold text-[10px] uppercase tracking-wider border border-white/10 shadow-xl backdrop-blur-md whitespace-nowrap">
-                                    {barons[0].name}s Baroni
+                                    {baronVest.name} (Vest)
                                 </div>
                             </button>
                         </div>
                     )}
 
-                    {/* BARONY 2 PIN (Right) */}
-                    {barons[1] && (
-                        <div className="absolute top-[60%] left-[80%] -translate-x-1/2 -translate-y-1/2 z-30 group">
+                    {/* BARONY OST PIN (East/Right map region) */}
+                    {baronOst && (
+                        <div className="absolute top-[40%] left-[75%] -translate-x-1/2 -translate-y-1/2 z-30 group">
                             <button
                                 onClick={() => {
-                                    setViewingRegionId(barons[1].regionId);
+                                    setViewingRegionId(baronOst.regionId);
                                     setViewMode('global');
                                 }}
                                 className="flex flex-col items-center hover:scale-110 transition-transform"
                             >
                                 <div className="text-5xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🏘️</div>
                                 <div className="bg-black/80 text-emerald-300 px-3 py-1 rounded-xl mt-2 font-bold text-[10px] uppercase tracking-wider border border-white/10 shadow-xl backdrop-blur-md whitespace-nowrap">
-                                    {barons[1].name}s Baroni
+                                    {baronOst.name} (Øst)
                                 </div>
                             </button>
                         </div>
@@ -379,10 +396,15 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                 const isCorrectView = viewMode === 'global' ? !poi.parentId : poi.parentId === viewMode;
                 if (!isCorrectView) return null;
 
+                const isOst = viewingRegionId === 'region_ost';
+
+                const top = isOst && poi.ost ? poi.ost.top : poi.top;
+                const left = isOst && poi.ost ? poi.ost.left : poi.left;
+
                 return (
                     <div
                         key={event.id}
-                        style={{ top: poi.top, left: poi.left }}
+                        style={{ top, left }}
                         className="absolute -translate-x-1/2 -translate-y-[150%] z-30"
                     >
                         <button
@@ -408,16 +430,29 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                     if (!b || b.level < 1) return null;
                 }
 
+                const isResourceNode = ['grain_fields', 'forest_clearing', 'mine_shaft', 'quarry_poi', 'forest_forage'].includes(poi.id);
+
+                const isOst = viewingRegionId === 'region_ost';
+
+                const top = isOst && poi.ost ? poi.ost.top : poi.top;
+                const left = isOst && poi.ost ? poi.ost.left : poi.left;
+
                 return (
                     <div
                         key={poi.id}
-                        style={{ top: poi.top, left: poi.left }}
+                        style={{ top, left }}
                         className="absolute -translate-x-1/2 -translate-y-1/2 group z-20"
                     >
                         <button
                             onClick={() => {
                                 if (poi.isHub) {
                                     setViewMode(poi.id);
+                                } else if (isResourceNode) {
+                                    if (poi.actions.length === 1) {
+                                        handlePOIAction(poi.id, poi.actions[0].id);
+                                    } else {
+                                        setSelectedPOI(poi);
+                                    }
                                 } else {
                                     setSelectedPOI(poi);
                                 }
@@ -425,10 +460,10 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                             className={`flex flex-col items-center transition-all ${isRelevant ? 'scale-100' : 'scale-75 opacity-40 grayscale pointer-events-none'}`}
                         >
                             <div className={`w-16 h-16 rounded-3xl flex items-center justify-center text-4xl shadow-2xl border-2 transition-all group-hover:rotate-12 ${selectedPOI?.id === poi.id ? 'bg-indigo-600 border-indigo-400 ring-4 ring-indigo-500/30' : 'bg-slate-900/90 backdrop-blur-xl border-white/10 hover:border-indigo-500 hover:bg-slate-800'}`}>
-                                {poi.id === 'monument_poi' && (room.world.monumentProgress || 0) >= 1000 ? '🏛️' : poi.icon}
+                                {poi.icon}
                             </div>
                             <span className="bg-indigo-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mt-2 shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-indigo-600/30">
-                                {poi.label}
+                                {isResourceNode ? 'KLIKK FOR Å STARTE' : poi.label}
                             </span>
                         </button>
                     </div>
@@ -470,11 +505,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                         {/* POI Illustration Header */}
                         <div className="h-40 w-full bg-slate-800 relative overflow-hidden">
                             <img
-                                src={
-                                    selectedPOI.id === 'monument'
-                                        ? ((room.world.monumentProgress || 0) >= 1000 ? '/poi/monument_finished.png' : '/poi/monument.png')
-                                        : `/poi/${selectedPOI.id}.png`
-                                }
+                                src={`/poi/${selectedPOI.id}.png`}
                                 alt={selectedPOI.label}
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                                 onError={(e) => e.currentTarget.style.display = 'none'}
@@ -558,7 +589,9 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                                                     <span className={`font-black text-lg transition-transform ${canAfford ? 'text-white group-hover:translate-x-1' : 'text-slate-500'}`}>{action.label}</span>
                                                     {!canAfford && <span className="text-[10px] font-bold text-rose-400 uppercase tracking-widest mt-1">❌ {missingReason}</span>}
                                                 </div>
-                                                <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-lg border transition-colors uppercase ${canAfford ? 'text-indigo-400 group-hover:text-white bg-indigo-500/10 border-indigo-500/20' : 'text-slate-600 border-white/5 bg-transparent'}`}>{action.cost}</span>
+                                                <span className={`text-base font-black uppercase tracking-widest px-4 py-2 rounded-xl border transition-colors uppercase flex items-center gap-2 ${canAfford ? 'text-amber-400 group-hover:text-white bg-amber-500/10 border-amber-500/20' : 'text-slate-600 border-white/5 bg-transparent'}`}>
+                                                    {action.cost}
+                                                </span>
                                             </button>
                                         );
                                     })

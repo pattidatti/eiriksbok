@@ -231,11 +231,6 @@ export const GAME_BALANCE = {
         PRAY_MAX: 5,
         XP_PRAY: 2
     },
-    MONUMENT: {
-        STEP_PROGRESS: 10,
-        TARGET: 1000,
-        XP_REWARD: 15
-    },
     COMBAT: {
         RAID_LOOT_FACTOR: 0.4, // Takes 40% of victim's resources
         DEFEND_GOLD_BASE: 20,
