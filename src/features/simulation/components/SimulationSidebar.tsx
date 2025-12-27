@@ -1,6 +1,6 @@
 import React from 'react';
 import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
-import { ROLE_DEFINITIONS, ROLE_TITLES, LEVEL_XP, SEASONS } from '../constants';
+import { ROLE_TITLES, LEVEL_XP, SEASONS } from '../constants';
 import { useSimulation } from '../SimulationContext';
 
 interface SimulationSidebarProps {

@@ -1,4 +1,5 @@
-import React from 'react';
+// No React import needed if no JSX is used or if using new transform
+// import React from 'react';
 
 // Game Types
 export interface GameDefinition {
