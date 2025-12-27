@@ -17,12 +17,13 @@ export const InventoryGrid: React.FC<InventoryGridProps> = ({ player, onSlotClic
     const totalSlots = 25;
 
     // Flatten resources into the grid for visualization
-    const gridItems = Object.entries(player.resources || {})
-        .filter(([_, amount]) => (amount as number) > 0)
-        .map(([id, amount]) => ({ type: 'resource', data: { id, amount: amount as number } }));
+    const gridItems = [
+        ...Object.entries(player.resources || {})
+            .filter(([_, amount]) => (amount as number) > 0)
+            .map(([id, amount]) => ({ type: 'resource', data: { id, amount: amount as number } })),
+        ...(player.inventory || []).map(item => ({ type: 'equipment', data: item }))
+    ];
 
-    // Placeholder for other loose items if they existed beyond equipment
-    // For now, we'll just fill the grid with resources and then empty slots
 
     return (
         <div className="grid grid-cols-5 gap-3 p-4 bg-white/5 rounded-3xl border border-white/10 shadow-inner">
@@ -31,15 +32,17 @@ export const InventoryGrid: React.FC<InventoryGridProps> = ({ player, onSlotClic
                 return (
                     <InventorySlot
                         key={i}
-                        resource={item?.type === 'resource' ? item.data : undefined}
+                        item={item?.type === 'equipment' ? item.data as any : undefined}
+                        resource={item?.type === 'resource' ? item.data as any : undefined}
                         isEmpty={!item}
                         onClick={() => onSlotClick(i, item)}
                         onMouseEnter={(e) => onSlotHover(e, item)}
                         onMouseLeave={onSlotLeave}
                         onMouseMove={(e) => onSlotHover(e, item)}
                     />
-
                 );
+
+
             })}
         </div>
     );

@@ -28,8 +28,12 @@ export const RESOURCE_DETAILS: Record<string, { label: string, icon: string }> =
     armor: { label: 'Rustning', icon: '🛡️' },
     tools: { label: 'Verktøy', icon: '⚒️' },
     manpower: { label: 'Arbeidskraft', icon: '👥' },
-    favor: { label: 'Gunst', icon: '✨' }
+    favor: { label: 'Gunst', icon: '✨' },
+    honey: { label: 'Honning', icon: '🍯' },
+    meat: { label: 'Kjøtt', icon: '🍗' },
+    glass: { label: 'Glass', icon: '🥛' }
 };
+
 
 export const ROLE_DEFINITIONS: Record<Role, { label: string, description: string }> = {
     KING: { label: 'Konge', description: 'Styrer riket, krever skatt og dømmer i store saker.' },
@@ -40,11 +44,12 @@ export const ROLE_DEFINITIONS: Record<Role, { label: string, description: string
 };
 
 export const INITIAL_RESOURCES: Record<Role, Resources> = {
-    KING: { gold: 1000, grain: 500, flour: 200, bread: 50, wood: 200, timber: 50, iron_ore: 0, iron_ingot: 20, iron: 100, stone: 100, swords: 50, armor: 20, tools: 10, manpower: 50, favor: 0, wool: 50, cloth: 20 },
-    BARON: { gold: 300, grain: 100, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 10, iron: 20, stone: 20, swords: 10, armor: 10, tools: 5, manpower: 10, favor: 0, wool: 20, cloth: 5 },
-    PEASANT: { gold: 20, grain: 30, flour: 5, bread: 5, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 0, stone: 0, swords: 0, armor: 0, tools: 1, manpower: 1, favor: 0, wool: 10, cloth: 0 },
-    SOLDIER: { gold: 50, grain: 10, flour: 10, bread: 10, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 10, stone: 0, swords: 5, armor: 2, tools: 0, manpower: 1, favor: 0, wool: 0, cloth: 0 },
-    MERCHANT: { gold: 500, grain: 50, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 5, iron: 50, stone: 50, swords: 5, armor: 2, tools: 5, manpower: 0, favor: 0, wool: 20, cloth: 10 }
+    KING: { gold: 1000, grain: 500, flour: 200, bread: 50, wood: 200, timber: 50, iron_ore: 0, iron_ingot: 20, iron: 100, stone: 100, swords: 50, armor: 20, tools: 10, manpower: 50, favor: 0, wool: 50, cloth: 20, honey: 0, meat: 0, glass: 0 },
+    BARON: { gold: 300, grain: 100, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 10, iron: 20, stone: 20, swords: 10, armor: 10, tools: 5, manpower: 10, favor: 0, wool: 20, cloth: 5, honey: 0, meat: 0, glass: 0 },
+    PEASANT: { gold: 20, grain: 30, flour: 5, bread: 5, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 0, stone: 0, swords: 0, armor: 0, tools: 1, manpower: 1, favor: 0, wool: 10, cloth: 0, honey: 0, meat: 0, glass: 0 },
+    SOLDIER: { gold: 50, grain: 10, flour: 10, bread: 10, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 10, stone: 0, swords: 5, armor: 2, tools: 0, manpower: 1, favor: 0, wool: 0, cloth: 0, honey: 0, meat: 0, glass: 0 },
+    MERCHANT: { gold: 500, grain: 50, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 5, iron: 50, stone: 50, swords: 5, armor: 2, tools: 5, manpower: 0, favor: 0, wool: 20, cloth: 10, honey: 0, meat: 0, glass: 0 }
+
 };
 
 
@@ -195,10 +200,11 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
         locationId: 'village',
         description: 'Gjør det mulig å lage avanserte verktøy og våpen.',
         levels: {
-            1: { requirements: {}, unlocks: ['CRAFT_BASIC'], bonus: 'Base produksjon' },
-            2: { requirements: { iron_ingot: 20, timber: 30, gold: 300 }, unlocks: ['CRAFT_ADVANCED'], bonus: '+10% Crafting XP' },
-            3: { requirements: { iron_ingot: 100, timber: 100, gold: 1000 }, unlocks: ['CRAFT_MASTER'], bonus: 'Låser opp Mester-utstyr' }
+            1: { requirements: {}, unlocks: ['stone_axe', 'stone_pickaxe'], bonus: 'Base produksjon' },
+            2: { requirements: { iron_ingot: 20, timber: 30, gold: 300 }, unlocks: ['iron_axe', 'iron_pickaxe', 'iron_sword'], bonus: '+10% Crafting XP' },
+            3: { requirements: { iron_ingot: 100, timber: 100, gold: 1000 }, unlocks: ['steel_axe', 'steel_sword', 'repair_advanced'], bonus: 'Låser opp Mester-utstyr' }
         }
+
     },
     bakery: {
         id: 'bakery',
@@ -235,17 +241,85 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
             2: { requirements: { timber: 40, stone: 30, gold: 150 }, unlocks: ['REFINE_CLOTH_FAST'], bonus: '+10% Trading XP' },
             3: { requirements: { timber: 100, stone: 100, gold: 400 }, unlocks: ['REFINE_CLOTH_MASTER'], bonus: 'Låser opp Silke-produksjon' }
         }
+    },
+    well: {
+        id: 'well',
+        name: 'Bybrønn',
+        icon: '💧',
+        locationId: 'village',
+        description: 'Gir tilgang til ferskvann for baking og hygiene.',
+        levels: {
+            1: { requirements: {}, unlocks: ['GATHER_WATER'], bonus: 'Basiskilde' },
+            2: { requirements: { stone: 50, gold: 50 }, unlocks: ['GATHER_WATER_FAST'], bonus: 'Bedre vanntilgang' },
+            3: { requirements: { stone: 150, gold: 200 }, unlocks: ['GATHER_WATER_MASTER'], bonus: 'Hellig kilde: +5 Stamina ved drikking' }
+        }
+    },
+    apothecary: {
+        id: 'apothecary',
+        name: 'Apoteker',
+        icon: '🌿',
+        locationId: 'village',
+        description: 'Fremstiller medisin og salver.',
+        levels: {
+            1: { requirements: {}, unlocks: ['CRAFT_MEDICINE'], bonus: 'Basis urter' },
+            2: { requirements: { timber: 20, wood: 50, gold: 150 }, unlocks: ['CRAFT_POISON'], bonus: 'Kunnskap om gift' },
+            3: { requirements: { timber: 50, glass: 20, gold: 500 }, unlocks: ['CRAFT_ELIXIR'], bonus: 'Livseliksir' }
+        }
+    },
+    watchtower: {
+        id: 'watchtower',
+        name: 'Vaktårn',
+        icon: '🏰',
+        locationId: 'village',
+        description: 'Bedre oversikt og forsvar av landsbyen.',
+        levels: {
+            1: { requirements: {}, unlocks: ['PATROL'], bonus: '+5 Forsvar' },
+            2: { requirements: { stone: 100, timber: 50, gold: 200 }, unlocks: ['SCOUT'], bonus: '+15 Forsvar' },
+            3: { requirements: { stone: 300, timber: 100, gold: 800 }, unlocks: ['VOLLEY'], bonus: 'Bueskytter-støtte i kamp' }
+        }
+    },
+    stables: {
+        id: 'stables',
+        name: 'Stall',
+        icon: '🐴',
+        locationId: 'village',
+        description: 'Muliggjør raskere reise og kavaleri.',
+        levels: {
+            1: { requirements: {}, unlocks: ['MOUNT_HORSE'], bonus: 'Transport' },
+            2: { requirements: { timber: 50, wood: 50, gold: 150 }, unlocks: ['BREED_WARHORSE'], bonus: 'Stridshester' },
+            3: { requirements: { timber: 150, iron_ingot: 20, gold: 400 }, unlocks: ['KNIGHT_TRAINING'], bonus: 'Riddere' }
+        }
     }
 };
 
 
+
 export const REFINERY_RECIPES: Record<string, any> = {
-    timber: { input: { wood: 5 }, output: { timber: 1 }, buildingId: 'sawmill', stamina: 10, xp: 5 },
-    flour: { input: { grain: 10 }, output: { flour: 10 }, buildingId: 'windmill', stamina: 15, xp: 8 },
-    iron_ingot: { input: { iron_ore: 5, wood: 2 }, output: { iron_ingot: 1 }, buildingId: 'smeltery', stamina: 20, xp: 12 },
-    bread: { input: { flour: 2 }, output: { bread: 1 }, buildingId: 'bakery', stamina: 5, xp: 3 },
-    cloth: { input: { wool: 5 }, output: { cloth: 1 }, buildingId: 'weaving_mill', stamina: 15, xp: 10 }
+    timber: { input: { wood: 5 }, outputResource: 'timber', outputAmount: 1, buildingId: 'sawmill', stamina: 10, xp: 5 },
+    flour: { input: { grain: 10 }, outputResource: 'flour', outputAmount: 10, buildingId: 'windmill', stamina: 15, xp: 8 },
+    iron_ingot: { input: { iron_ore: 5, wood: 2 }, outputResource: 'iron_ingot', outputAmount: 1, buildingId: 'smeltery', stamina: 20, xp: 12 },
+    bread: { input: { flour: 2 }, outputResource: 'bread', outputAmount: 5, buildingId: 'bakery', stamina: 5, xp: 3 },
+    pie: { input: { flour: 4, meat: 2 }, outputResource: 'bread', outputAmount: 15, buildingId: 'bakery', stamina: 15, xp: 10 },
+    mead: { input: { honey: 5 }, outputResource: 'stamina', outputAmount: 20, buildingId: 'tavern', stamina: 5, xp: 5 },
+    cloth: { input: { wool: 5 }, outputResource: 'cloth', outputAmount: 1, buildingId: 'weavery', stamina: 15, xp: 10 }
 };
+
+
+export const CRAFTING_RECIPES: Record<string, { input: Partial<Resources>, outputItemId: string, buildingId: string, level: number }> = {
+    // TIER 1 - Stone/Wood (Lvl 1 Forge)
+    stone_axe: { input: { stone: 10, wood: 5, gold: 5 }, outputItemId: 'stone_axe', buildingId: 'great_forge', level: 1 },
+    stone_pickaxe: { input: { stone: 10, wood: 5, gold: 5 }, outputItemId: 'stone_pickaxe', buildingId: 'great_forge', level: 1 },
+
+    // TIER 2 - Iron (Lvl 2 Forge)
+    iron_axe: { input: { iron_ingot: 5, timber: 2, gold: 50 }, outputItemId: 'iron_axe', buildingId: 'great_forge', level: 2 },
+    iron_pickaxe: { input: { iron_ingot: 5, timber: 2, gold: 50 }, outputItemId: 'iron_pickaxe', buildingId: 'great_forge', level: 2 },
+    iron_sword: { input: { iron_ingot: 10, timber: 2, gold: 100 }, outputItemId: 'iron_sword', buildingId: 'great_forge', level: 2 },
+
+    // TIER 3 - Steel/Master (Lvl 3 Forge)
+    steel_axe: { input: { iron_ingot: 20, timber: 10, gold: 250 }, outputItemId: 'steel_axe', buildingId: 'great_forge', level: 3 },
+    steel_sword: { input: { iron_ingot: 30, timber: 5, gold: 500 }, outputItemId: 'steel_sword', buildingId: 'great_forge', level: 3 }
+};
+
 
 export const GAME_BALANCE = {
     MARKET: {
@@ -465,7 +539,29 @@ export const INITIAL_EQUIPMENT: Record<Role, Partial<Record<EquipmentSlot, Equip
 };
 
 export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
-    // Tools
+    // --- TOOLS ---
+    stone_axe: {
+        id: 'stone_axe',
+        name: 'Steinøks',
+        icon: '🪓',
+        type: 'MAIN_HAND',
+        durability: 30,
+        maxDurability: 30,
+        level: 1,
+        description: 'En primitiv øks av stein og tre.',
+        stats: { yieldBonus: 1 }
+    },
+    stone_pickaxe: {
+        id: 'stone_pickaxe',
+        name: 'Steinhakke',
+        icon: '⛏️',
+        type: 'MAIN_HAND',
+        durability: 30,
+        maxDurability: 30,
+        level: 1,
+        description: 'Primitiv hakke for overfladisk graving.',
+        stats: { yieldBonus: 1 }
+    },
     rusty_axe: {
         id: 'rusty_axe',
         name: 'Rusten Øks',
@@ -488,17 +584,6 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         description: 'En solid øks smidd av jern. Hugger ved mer effektivt.',
         stats: { yieldBonus: 3 }
     },
-    steel_hja: {
-        id: 'steel_hja',
-        name: 'Stålhjå',
-        icon: '🌾',
-        type: 'MAIN_HAND',
-        durability: 120,
-        maxDurability: 120,
-        level: 4,
-        description: 'En sylskarp hjå for effektiv innhøsting.',
-        stats: { yieldBonus: 5, speedBonus: 1.1 }
-    },
     iron_pickaxe: {
         id: 'iron_pickaxe',
         name: 'Jernhakke',
@@ -509,6 +594,28 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         level: 3,
         description: 'Nødvendig for å utvinne malm i gruvene.',
         stats: { yieldBonus: 3 }
+    },
+    steel_axe: {
+        id: 'steel_axe',
+        name: 'Ståløks',
+        icon: '🪓',
+        type: 'MAIN_HAND',
+        durability: 200,
+        maxDurability: 200,
+        level: 8,
+        description: 'Et mesterstykke av stål. Den ultimate huggeren.',
+        stats: { yieldBonus: 8, speedBonus: 1.2 }
+    },
+    steel_hja: {
+        id: 'steel_hja',
+        name: 'Stålhjå',
+        icon: '🌾',
+        type: 'MAIN_HAND',
+        durability: 120,
+        maxDurability: 120,
+        level: 4,
+        description: 'En sylskarp hjå for effektiv innhøsting.',
+        stats: { yieldBonus: 5, speedBonus: 1.1 }
     },
     blacksmith_hammer: {
         id: 'blacksmith_hammer',
@@ -521,6 +628,31 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         description: 'Et verktøy for en mestersmed.',
         stats: { speedBonus: 1.2 }
     },
+
+    // --- WEAPONS ---
+    iron_sword: {
+        id: 'iron_sword',
+        name: 'Jernsverd',
+        icon: '⚔️',
+        type: 'MAIN_HAND',
+        durability: 100,
+        maxDurability: 100,
+        level: 5,
+        description: 'Et standard sverd for en væpnet borger.',
+        stats: { attack: 10 }
+    },
+    steel_sword: {
+        id: 'steel_sword',
+        name: 'Stålsverd',
+        icon: '⚔️',
+        type: 'MAIN_HAND',
+        durability: 250,
+        maxDurability: 250,
+        level: 10,
+        description: 'Et dødelig våpen av fineste stål.',
+        stats: { attack: 25, speedBonus: 1.1 }
+    },
+
 
     // Armor / Clothing
     tunic: {

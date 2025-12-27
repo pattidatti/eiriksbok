@@ -8,6 +8,7 @@ import { Shield, Package } from 'lucide-react';
 
 interface SimulationVaultProps {
     player: SimulationPlayer;
+    onAction: (action: any) => void;
 }
 
 const SLOT_LABELS: Record<EquipmentSlotType, string> = {
@@ -19,13 +20,29 @@ const SLOT_LABELS: Record<EquipmentSlotType, string> = {
     TRINKET: 'Tilbehør'
 };
 
-export const SimulationVault: React.FC<SimulationVaultProps> = ({ player }) => {
+export const SimulationVault: React.FC<SimulationVaultProps> = ({ player, onAction }) => {
     const [tooltipContent, setTooltipContent] = useState<any>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-    const handleSlotClick = (_index: number, _content: any) => {
-        // Potentially handle equip/move logic here later
+    const handleSlotClick = (_index: number, content: any) => {
+        if (!content) return;
+
+        if (content.type === 'equipment') {
+            // Either click in inventory or ragdoll
+            if (content.slot) {
+                // Clicked an equipped slot
+                onAction({ type: 'UNEQUIP_ITEM', slot: content.slot });
+            } else {
+                // Clicked an item in inventory
+                // We need to know which slot it goes to
+                const item = content.data as any;
+                if (item && item.type) {
+                    onAction({ type: 'EQUIP_ITEM', itemId: item.id, slot: item.type });
+                }
+            }
+        }
     };
+
 
     const handleSlotHover = (e: React.MouseEvent, content: any) => {
         if (!content) {

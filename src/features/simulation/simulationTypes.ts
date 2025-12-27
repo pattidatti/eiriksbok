@@ -29,7 +29,11 @@ export interface Resources {
     favor: number;
     wool: number;
     cloth: number;
+    honey: number;
+    meat: number;
+    glass: number;
 }
+
 
 export type EquipmentSlot = 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET' | 'TRINKET';
 
@@ -107,12 +111,13 @@ export interface SimulationPlayer {
     skills: Record<SkillType, SkillData>;
     equipment: Partial<Record<EquipmentSlot, EquipmentItem>>;
     achievements?: Achievement[];
-    quests?: Quest[];
+    inventory?: EquipmentItem[];
     history?: string[];
     avatar?: string;
 
     lastActive: number;
 }
+
 
 export interface MarketItem {
     price: number;

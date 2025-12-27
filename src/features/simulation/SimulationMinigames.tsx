@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { getActionCostString, getActionEquipment } from './utils/actionUtils';
+import { getActionCostString } from './utils/actionUtils';
 import { SEASONS, WEATHER } from './constants';
-import type { EquipmentItem, SkillType, SimulationPlayer } from './simulationTypes';
+import type { EquipmentItem } from './simulationTypes';
 
 interface MinigameProps {
-    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE';
+    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE';
+
+
     onComplete: (score: number) => void;
     onCancel: () => void;
     playerUpgrades?: string[];
@@ -35,13 +37,16 @@ export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon
     ],
     MILL: [{ id: 'balance', label: 'Balanse', icon: '🎡', desc: 'Hold kverna i gang.' }],
     DEFEND: [{ id: 'combat', label: 'Kamp', icon: '⚔️', desc: 'Forsvar baroniet.' }],
+
     PATROL: [{ id: 'patrol', label: 'Patrulje', icon: '🛡️', desc: 'Vokt grensene.' }],
     EXPLORE: [{ id: 'quest', label: 'Oppdrag', icon: '🧭', desc: 'Utforsk det ukjente.' }],
     FORAGE: [
         { id: 'berries', label: 'Bærplukking', icon: '🍓', desc: 'Sank bær og sopp.' },
         { id: 'traps', label: 'Snarefiske', icon: '🎣', desc: 'Sjekk fellene dine.' }
-    ]
+    ],
+    REFINE: [{ id: 'rhythm', label: 'Foredling', icon: '⚗️', desc: 'Smi eller bearbeid råvarene.' }]
 };
+
 
 /* --- VISUAL FEEDBACK HELPERS --- */
 const FloatingText: React.FC<{ text: string, color?: string, x?: number, y?: number, onComplete: () => void }> = ({ text, color = 'text-amber-500', x = 50, y = 50, onComplete }) => {
@@ -132,6 +137,7 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
         equipment.forEach(item => {
             if (item.stats?.yieldBonus) equipBonus += item.stats.yieldBonus;
         });
+
         total += equipBonus;
 
         const seasonData = SEASONS[currentSeason as keyof typeof SEASONS] as any;
@@ -142,8 +148,9 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
     }, [type, skills, equipment, currentSeason, currentWeather]);
 
     const resourceNameMap: Record<string, string> = {
-        WORK: 'Korn', CHOP: 'Ved', MINE: 'Malm', QUARRY: 'Stein', FORAGE: 'Brød'
+        WORK: 'Korn', CHOP: 'Ved', MINE: 'Malm', QUARRY: 'Stein', FORAGE: 'Brød', REFINE: 'Produkt'
     };
+
 
     return (
         <div className="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-2xl flex items-center justify-center p-4">
@@ -217,65 +224,38 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                         </div>
                     </div>
                 ) : (
-                    <>
-                        {type === 'WORK' ? (
-                            method === 'sweep' ? <ScytheSweepGame
-                                onComplete={onComplete}
-                                speedMultiplier={speedMultiplier}
-                                possibleYield={possibleYield}
-                                resourceName={resourceNameMap[type]}
-                            /> :
-                                <HarvestingGame
-                                    onComplete={onComplete}
-                                    isMining={type === 'MINE'}
-                                    isQuarrying={type === 'QUARRY'}
-                                    isForaging={type === 'FORAGE'}
-                                    speedMultiplier={speedMultiplier}
-                                    possibleYield={possibleYield}
-                                    resourceName={resourceNameMap[type]}
-                                />
-                        ) : type === 'FORAGE' ? (
-                            method === 'traps' ? <TrappingGame onComplete={onComplete} speedMultiplier={speedMultiplier} /> :
-                                <HarvestingGame
-                                    onComplete={onComplete}
-                                    isMining={type === 'MINE'}
-                                    isQuarrying={type === 'QUARRY'}
-                                    isForaging={type === 'FORAGE'}
-                                    speedMultiplier={speedMultiplier}
-                                    possibleYield={possibleYield}
-                                    resourceName={resourceNameMap[type]}
-                                />
-                        ) : type === 'MINE' || type === 'QUARRY' ? (
-                            <HarvestingGame
-                                onComplete={onComplete}
-                                isMining={type === 'MINE'}
-                                isQuarrying={type === 'QUARRY'}
-                                isForaging={type === 'FORAGE'}
-                                speedMultiplier={speedMultiplier}
-                                possibleYield={possibleYield}
-                                resourceName={resourceNameMap[type]}
-                            />
-                        ) : type === 'CHOP' ? (
-                            method === 'saw' ? <SawingGame onComplete={onComplete} speedMultiplier={speedMultiplier} /> :
-                                <WoodcuttingGame
-                                    onComplete={onComplete}
-                                    speedMultiplier={speedMultiplier}
-                                    possibleYield={possibleYield}
-                                    resourceName={resourceNameMap[type]}
-                                />
-                        ) : type === 'CRAFT' ? (
-                            <CraftingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />
-                        ) : type === 'MILL' ? (
-                            <MillingGame onComplete={onComplete} />
-                        ) : type === 'DEFEND' ? (
-                            <CombatGame onComplete={onComplete} isKnight={playerUpgrades?.includes('warhorse')} />
-                        ) : type === 'PATROL' ? (
-                            <PatrolMinigameRouter onComplete={onComplete} />
-                        ) : (
-                            <QuestGame onComplete={onComplete} />
-                        )}
-                    </>
+                    (() => {
+                        switch (type) {
+                            case 'WORK':
+                                if (method === 'sweep') return <ScytheSweepGame onComplete={onComplete} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                                return <HarvestingGame onComplete={onComplete} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                            case 'MINE':
+                                return <HarvestingGame onComplete={onComplete} isMining speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                            case 'QUARRY':
+                                return <HarvestingGame onComplete={onComplete} isQuarrying speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                            case 'FORAGE':
+                                if (method === 'traps') return <TrappingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                                return <HarvestingGame onComplete={onComplete} isForaging speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                            case 'CHOP':
+                                if (method === 'saw') return <SawingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                                return <WoodcuttingGame onComplete={onComplete} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                            case 'CRAFT':
+                            case 'REFINE':
+                                return <CraftingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                            case 'MILL':
+                                return <MillingGame onComplete={onComplete} />;
+                            case 'DEFEND':
+                                return <CombatGame onComplete={onComplete} isKnight={playerUpgrades?.includes('warhorse')} />;
+                            case 'PATROL':
+                                return <PatrolMinigameRouter onComplete={onComplete} />;
+                            case 'EXPLORE':
+                                return <QuestGame onComplete={onComplete} />;
+                            default:
+                                return <div className="text-white">Ukjent minispill-type: {type}</div>;
+                        }
+                    })()
                 )}
+
                 <MinigameStyles />
             </div>
         </div >

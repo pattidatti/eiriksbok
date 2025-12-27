@@ -163,7 +163,8 @@ const SimulationGame: React.FC = () => {
         const actionType = typeof action === 'string' ? action : action.type;
         const actionMethod = typeof action === 'object' ? action.method : null;
 
-        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE'];
+        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE'];
+
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
             setActiveMinigame(actionType as any);
             if (actionMethod) setActiveMinigameMethod(actionMethod);

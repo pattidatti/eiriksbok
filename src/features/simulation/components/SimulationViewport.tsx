@@ -101,7 +101,8 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                         {activeTab === 'MARKET' ? (
                             <SimulationMarket player={player} room={room} onAction={onAction} />
                         ) : activeTab === 'INVENTORY' ? (
-                            <SimulationVault player={player} />
+                            <SimulationVault player={player} onAction={onAction} />
+
                         ) : activeTab === 'UPGRADES' ? (
 
                             <div className="space-y-6">

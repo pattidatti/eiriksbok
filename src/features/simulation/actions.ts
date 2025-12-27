@@ -1,7 +1,8 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
-import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, WEATHER, GAME_BALANCE, REFINERY_RECIPES, INITIAL_SKILLS } from './constants';
-import type { SkillType, SimulationPlayer } from './simulationTypes';
+import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, WEATHER, GAME_BALANCE, REFINERY_RECIPES, INITIAL_SKILLS, CRAFTING_RECIPES, ITEM_TEMPLATES } from './constants';
+import type { SkillType, SimulationPlayer, EquipmentItem, EquipmentSlot } from './simulationTypes';
+
 
 /* --- HELPERS --- */
 const calculateYield = (
@@ -287,23 +288,101 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 trackXp('FARMING', Math.ceil(REWARDS.FORAGE.xp * (1 + performance)));
 
             } else if (actionType === 'CRAFT') {
-                const subType = action.subType || 'SWORDS';
-                const performance = action.performance || 0.5;
-                let base = 1;
-                if (subType === 'SWORDS' || subType === 'TOOLS') base = 5;
-                if (subType === 'ARMOR') base = 2;
+                const subType = action.subType; // e.g. 'stone_axe', 'iron_sword'
+                const recipe = CRAFTING_RECIPES[subType];
 
-                const yieldAmount = calculateYield(actor, base, 'CRAFTING', { performance });
+                if (recipe) {
+                    // Check building level
+                    const settlement = room.world?.settlement || {};
+                    const buildLevel = settlement.buildings?.[recipe.buildingId]?.level || 1;
 
-                let resName = 'swords';
-                if (subType === 'ARMOR') resName = 'armor';
-                if (subType === 'TOOLS') resName = 'tools';
+                    if (buildLevel < recipe.level) {
+                        localResult.success = false;
+                        localResult.message = `Mangler bygningsnivå ${recipe.level} for å lage dette.`;
+                        result = localResult; return room;
+                    }
 
-                (actor.resources as any)[resName] = ((actor.resources as any)[resName] || 0) + yieldAmount;
-                localResult.yields.push({ resource: resName, amount: yieldAmount });
-                localResult.message = `Smidde ${yieldAmount} ${resName}`;
+                    // Check resources
+                    let canAfford = true;
+                    Object.entries(recipe.input).forEach(([res, amt]) => {
+                        if ((actor.resources as any)[res] < (amt as number)) canAfford = false;
+                    });
 
-                trackXp('CRAFTING', Math.ceil(15 * (1 + performance)));
+                    if (canAfford) {
+                        // Consume
+                        Object.entries(recipe.input).forEach(([res, amt]) => {
+                            (actor.resources as any)[res] -= (amt as number);
+                        });
+
+                        // Create Item
+                        const template = ITEM_TEMPLATES[recipe.outputItemId];
+                        if (template) {
+                            const newItem: EquipmentItem = {
+                                ...template,
+                                id: `${template.id}_${Date.now()}_${Math.floor(Math.random() * 1000)}`
+                            };
+                            if (!actor.inventory) actor.inventory = [];
+                            actor.inventory.push(newItem);
+
+                            localResult.message = `Smidde ${newItem.name}!`;
+                            trackXp('CRAFTING', 25 * recipe.level);
+                        }
+                    } else {
+                        localResult.success = false;
+                        localResult.message = "Mangler ressurser for å smi.";
+                    }
+                } else {
+                    // Legacy stackable crafting fallback
+                    const legacySubType = action.subType || 'SWORDS';
+                    const performance = action.performance || 0.5;
+                    let base = 1;
+                    if (legacySubType === 'SWORDS' || legacySubType === 'TOOLS') base = 5;
+                    if (legacySubType === 'ARMOR') base = 2;
+
+                    const yieldAmount = calculateYield(actor, base, 'CRAFTING', { performance });
+
+                    let resName = 'swords';
+                    if (legacySubType === 'ARMOR') resName = 'armor';
+                    if (legacySubType === 'TOOLS') resName = 'tools';
+
+                    (actor.resources as any)[resName] = ((actor.resources as any)[resName] || 0) + yieldAmount;
+                    localResult.yields.push({ resource: resName, amount: yieldAmount });
+                    localResult.message = `Smidde ${yieldAmount} ${resName}`;
+                    trackXp('CRAFTING', Math.ceil(15 * (1 + performance)));
+                }
+
+            } else if (actionType === 'EQUIP_ITEM') {
+                const { itemId, slot } = action;
+                const invIndex = actor.inventory?.findIndex((i: any) => i.id === itemId);
+
+                if (invIndex !== undefined && invIndex !== -1) {
+                    const itemToEquip = actor.inventory[invIndex];
+                    const currentEquipped = actor.equipment[slot as EquipmentSlot];
+
+                    // Remove from inventory
+                    actor.inventory.splice(invIndex, 1);
+
+                    // Equip
+                    actor.equipment[slot as EquipmentSlot] = itemToEquip;
+
+                    // Put old back in inventory
+                    if (currentEquipped) {
+                        actor.inventory.push(currentEquipped);
+                    }
+
+                    localResult.message = `Utstyrte ${itemToEquip.name}`;
+                }
+
+            } else if (actionType === 'UNEQUIP_ITEM') {
+                const { slot } = action;
+                const item = actor.equipment[slot as EquipmentSlot];
+                if (item) {
+                    actor.equipment[slot as EquipmentSlot] = null as any;
+                    if (!actor.inventory) actor.inventory = [];
+                    actor.inventory.push(item);
+                    localResult.message = `Tok av ${item.name}`;
+                }
+
 
             } else if (actionType === 'BUY' || actionType === 'SELL') {
                 // Keep minimal for market as the main feedback is the transaction log, but ideally we add visual too
@@ -333,7 +412,8 @@ export const performAction = async (pin: string, playerId: string, action: any):
                         // Yield Output
                         const performance = action.performance || 0.5;
                         const baseOutput = recipe.output?.amount || recipe.outputAmount || 1;
-                        const outRes = recipe.output?.resource || recipe.outputResource || recipeId;
+
+
 
                         let yieldAmount = Math.floor(baseOutput * (1 + (performance * 0.5))); // Up to 50% bonus
 
@@ -519,14 +599,24 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 if (actor.equipment && actor.equipment[target]) {
                     const item = actor.equipment[target];
                     if (item) {
-                        // Cost to repair? Assuming free or handled in UI checks, but typically costs resources.
-                        // For now, simple restore to match legacy.
-                        const repairAmount = GAME_BALANCE.DURABILITY.REPAIR_AMOUNT || 50;
-                        item.durability = Math.min(item.maxDurability, item.durability + repairAmount);
-                        localResult.durability.push({ slot: target, item: item.name, amount: -repairAmount }); // Negative amount implies gain? Or just current status.
-                        localResult.message = `Reparerte ${item.name}.`;
+                        const costGold = 5;
+                        const costIron = 10;
+                        if ((actor.resources.gold || 0) >= costGold && ((actor.resources.iron_ingot || 0) >= costIron || (actor.resources.iron || 0) >= costIron)) {
+                            actor.resources.gold -= costGold;
+                            if ((actor.resources.iron_ingot || 0) >= costIron) actor.resources.iron_ingot -= costIron;
+                            else actor.resources.iron -= costIron;
+
+                            const repairAmount = GAME_BALANCE.DURABILITY.REPAIR_AMOUNT || 50;
+                            item.durability = Math.min(item.maxDurability, item.durability + repairAmount);
+                            localResult.durability.push({ slot: target, item: item.name, amount: -repairAmount });
+                            localResult.message = `Reparerte ${item.name} for ${costGold}g og ${costIron} jern.`;
+                        } else {
+                            localResult.success = false;
+                            localResult.message = `Mangler gull (${costGold}) eller jern (${costIron}) for å reparere.`;
+                        }
                     }
                 }
+
 
             } else if (actionType === 'REST' || actionType === 'EAT' || actionType === 'FEAST') {
                 // Simplified restoration
@@ -595,7 +685,8 @@ export const performAction = async (pin: string, playerId: string, action: any):
         });
 
         // Return Data
-        return { success: !!result?.success, data: result || undefined };
+        return { success: !!(result as any)?.success, data: (result as any) || undefined };
+
 
     } catch (e) {
         console.error("Action failed", e);

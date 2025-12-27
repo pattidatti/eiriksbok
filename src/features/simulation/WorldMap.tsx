@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import type { SimulationPlayer, SimulationRoom } from './simulationTypes';
-import { VILLAGE_BUILDINGS } from './constants';
+import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from './constants';
+
 import { TAVERN_NPCS } from './TavernData';
 import type { TavernNPC } from './TavernData';
 import { TavernDiceGame } from './TavernDiceGame';
 import { FloatingActionTooltip } from './components/FloatingActionTooltip';
-import { checkActionRequirements, getActionCostString, getActionEquipment } from './utils/actionUtils';
+import { checkActionRequirements, getActionCostString } from './utils/actionUtils';
+
 
 interface POI {
     id: string;
@@ -121,12 +123,19 @@ const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'great_forge', label: 'Storsmie', icon: '⚒️', top: '35%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [
-            { id: 'CRAFT_BASIC', label: 'Smi Grunnleggende', cost: 'Varierer' },
-            { id: 'CRAFT_ADVANCED', label: 'Smi Avansert', cost: 'Varierer' },
-            { id: 'CRAFT_MASTER', label: 'Smi Mesterverk', cost: 'Varierer' }
+            { id: 'stone_axe', label: 'Smi Steinøks', cost: '-10stein -5ved' },
+            { id: 'stone_pickaxe', label: 'Smi Steinhakke', cost: '-10stein -5ved' },
+            { id: 'iron_axe', label: 'Smi Jernøks', cost: '-5b -2t' },
+            { id: 'iron_pickaxe', label: 'Smi Jernhakke', cost: '-5b -2t' },
+            { id: 'iron_sword', label: 'Smi Jernsverd', cost: '-10b -2t' },
+            { id: 'steel_axe', label: 'Smi Ståløks', cost: '-20b -10t' },
+            { id: 'steel_sword', label: 'Smi Stålsverd', cost: '-30b -5t' },
+            { id: 'REPAIR', label: 'Reparer Utstyr', cost: '-5g -10jern' }
         ],
+
         isHub: true
     },
+
 
     {
         id: 'weavery', label: 'Veveri', icon: '🧶', top: '75%', left: '85%', roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'village',
@@ -285,7 +294,9 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
     const [selectedPOI, setSelectedPOI] = useState<POI | null>(null);
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
     const [viewMode, setViewMode] = useState<string>(initialViewMode);
+    const [buildingTab, setBuildingTab] = useState<'ACTIONS' | 'UPGRADE'>('ACTIONS');
     const [viewingRegionId, setViewingRegionId] = useState<string>(player.regionId || 'capital');
+
     const [dialogNPC, setDialogNPC] = useState<TavernNPC | null>(null);
     const [dialogStep, setDialogStep] = useState<string>('start');
     const [isDiceGameOpen, setIsDiceGameOpen] = useState(false);
@@ -308,17 +319,27 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
         if (actionId === 'MARKET_VIEW') {
             onOpenMarket();
-        } else if (actionId === 'REFINE' || actionId === 'REFINE_FLOUR' || actionId === 'REFINE_IRON' || actionId === 'REFINE_BREAD') {
+        } else if (actionId.startsWith('REFINE_')) {
+            const recipeKey = actionId.replace('REFINE_', '').split('_')[0].toLowerCase();
             const recipeMap: any = {
-                'REFINE': 'timber',
-                'REFINE_FLOUR': 'flour',
-                'REFINE_IRON': 'iron_ingot',
-                'REFINE_BREAD': 'bread'
+                'timber': 'timber',
+                'flour': 'flour',
+                'iron': 'iron_ingot',
+                'steel': 'iron_ingot', // Currently same, could be different later
+                'cloth': 'cloth'
             };
-            onAction({ type: 'REFINE', recipeId: recipeMap[actionId] });
+            onAction({ type: 'REFINE', recipeId: recipeMap[recipeKey] || recipeKey });
         } else if (actionId.startsWith('CRAFT_')) {
-            const itemType = actionId.replace('CRAFT_', '').toLowerCase();
-            onAction({ type: 'CRAFT', itemType });
+            const subType = actionId.replace('CRAFT_', '').toLowerCase();
+            // Check if it's a refinery recipe (like bread/pie) or item crafting
+            if (subType === 'bread' || subType === 'pie' || subType === 'mead') {
+                onAction({ type: 'REFINE', recipeId: subType });
+            } else {
+                onAction({ type: 'CRAFT', subType });
+            }
+        } else if (actionId in CRAFTING_RECIPES) {
+            onAction({ type: 'CRAFT', subType: actionId });
+
         } else if (actionId === 'FARM_UPGRADE') {
             // Check if player has farm upgrades
             onAction({ type: 'UPGRADE', upgradeId: 'peasant_farm_level' });
@@ -610,96 +631,174 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                 )}
 
 
-                {/* BUILDING DEVELOPMENT OVERLAY */}
+                {/* BUILDING HUB OVERLAY */}
                 {
                     (() => {
                         const buildingDef = VILLAGE_BUILDINGS[viewMode];
                         if (!buildingDef) return null;
 
                         const settlement = room.world?.settlement;
-                        const currentLevel = (settlement?.buildings?.[viewMode]?.level as number) || 1; // Defaults to 1 as per new req
+                        const currentLevel = (settlement?.buildings?.[viewMode]?.level as number) || 1;
 
-
+                        const poi = POINTS_OF_INTEREST.find(p => p.id === viewMode);
                         const nextLevel = currentLevel + 1;
                         const nextLevelDef = buildingDef.levels[nextLevel];
                         const currentLevelDef = buildingDef.levels[currentLevel];
 
+                        // Filtering actions by building level
+                        let unlockedActionIds: string[] = [];
+                        for (let i = 1; i <= currentLevel; i++) {
+                            if (buildingDef.levels[i]) {
+                                unlockedActionIds = [...unlockedActionIds, ...buildingDef.levels[i].unlocks];
+                            }
+                        }
+
+                        // Filter actions from POI data
+                        const availableActions = (poi?.actions || []).filter(a => unlockedActionIds.includes(a.id));
+
                         return (
-                            <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-slate-950/90 backdrop-blur-xl animate-in fade-in duration-500">
-                                <div className="bg-slate-900/80 border border-white/10 rounded-[3rem] p-10 max-w-2xl w-full text-center relative overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
+                            <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-slate-950/95 backdrop-blur-xl animate-in fade-in duration-500">
+                                <div className="bg-slate-900 border border-white/10 rounded-[3rem] max-w-2xl w-full h-[85%] flex flex-col relative overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
                                     <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[100px] -mr-32 -mt-32 rounded-full" />
 
-                                    <div className="relative z-10 w-full flex flex-col items-center">
-                                        <div className="w-20 h-20 bg-indigo-600/20 text-indigo-400 rounded-2xl flex items-center justify-center text-5xl mb-6 shadow-2xl border border-indigo-500/20">
-                                            {buildingDef.icon}
-                                        </div>
-                                        <h2 className="text-4xl font-black text-white mb-2 tracking-tighter uppercase">{buildingDef.name}</h2>
-                                        <div className="flex items-center gap-3 mb-8">
-                                            <span className="bg-indigo-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Nivå {currentLevel}</span>
-                                            {nextLevelDef && <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">→ Neste: Nivå {nextLevel}</span>}
-                                        </div>
-
-                                        <div className="bg-black/40 rounded-3xl p-6 w-full mb-10 border border-white/5">
-                                            <p className="text-indigo-300 text-sm font-bold mb-4 uppercase tracking-widest flex items-center justify-center gap-2">
-                                                <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
-                                                Gjeldende Bonus: {currentLevelDef?.bonus || 'Base produksjon'}
-                                            </p>
-                                            <p className="text-slate-400 text-sm leading-relaxed italic opacity-80">
-                                                "{buildingDef.description}"
-                                            </p>
-                                        </div>
-
-                                        {nextLevelDef ? (
-                                            <div className="w-full space-y-6">
-                                                <div className="text-left">
-                                                    <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Oppgraderingskrav (Nivå {nextLevel})</div>
-                                                    <div className="grid grid-cols-2 gap-3">
-                                                        {Object.entries(nextLevelDef.requirements || {}).map(([res, amt]) => {
-                                                            const hasEnough = ((player.resources as any)[res] || 0) >= (amt as number);
-                                                            return (
-                                                                <div key={res} className={`flex items-center justify-between px-4 py-3 rounded-xl border ${hasEnough ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-rose-500/5 border-rose-500/20'}`}>
-                                                                    <span className="capitalize text-[10px] font-black text-slate-400">{res}</span>
-                                                                    <span className={`text-sm font-black ${hasEnough ? 'text-emerald-400' : 'text-rose-400'}`}>
-                                                                        {amt as number}
-                                                                    </span>
-                                                                </div>
-                                                            );
-                                                        })}
-                                                    </div>
+                                    {/* Header */}
+                                    <div className="p-8 pb-4 flex items-center justify-between z-10">
+                                        <div className="flex items-center gap-6">
+                                            <div className="w-20 h-20 bg-indigo-600/20 text-indigo-400 rounded-3xl flex items-center justify-center text-5xl shadow-2xl border border-indigo-500/20">
+                                                {buildingDef.icon}
+                                            </div>
+                                            <div>
+                                                <h2 className="text-4xl font-black text-white tracking-tighter uppercase">{buildingDef.name}</h2>
+                                                <div className="flex items-center gap-3 mt-1">
+                                                    <span className="bg-indigo-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Nivå {currentLevel}</span>
+                                                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{currentLevelDef?.bonus}</span>
                                                 </div>
-
-                                                <button
-                                                    onClick={() => {
-                                                        onAction({ type: 'CONSTRUCT_BUILDING', buildingId: viewMode });
-                                                    }}
-                                                    className="w-full py-5 bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest rounded-2xl shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3"
-                                                >
-                                                    Oppgrader til Nivå {nextLevel} 🛠️
-                                                </button>
                                             </div>
-                                        ) : (
-                                            <div className="py-6 px-10 bg-emerald-500/10 border border-emerald-500/30 rounded-3xl">
-                                                <div className="text-emerald-400 font-black uppercase tracking-widest text-xs">Maksimalt Nivå Nådd 🏆</div>
-                                                <div className="text-slate-400 text-[10px] font-bold mt-1">Dette mesterverket kan ikke forbedres ytterligere.</div>
-                                            </div>
-                                        )}
-
+                                        </div>
                                         <button
                                             onClick={() => {
-                                                const poi = POINTS_OF_INTEREST.find(p => p.id === viewMode);
                                                 if (poi?.parentId) setViewMode(poi.parentId);
                                                 else setViewMode('global');
                                             }}
-                                            className="mt-8 text-slate-500 hover:text-white text-[10px] font-black uppercase tracking-[0.2em] transition-colors"
+                                            className="w-12 h-12 bg-white/5 hover:bg-white/10 text-white rounded-full flex items-center justify-center transition-all active:scale-95"
                                         >
-                                            Avbryt
+                                            ✕
                                         </button>
+                                    </div>
+
+                                    {/* Tabs */}
+                                    <div className="px-8 flex gap-2 z-10 border-b border-white/5 pb-2">
+                                        <button
+                                            onClick={() => setBuildingTab('ACTIONS')}
+                                            className={`px-6 py-3 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all ${buildingTab === 'ACTIONS' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-500 hover:text-white hover:bg-white/5'}`}
+                                        >
+                                            Handlinger
+                                        </button>
+                                        <button
+                                            onClick={() => setBuildingTab('UPGRADE')}
+                                            className={`px-6 py-3 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all ${buildingTab === 'UPGRADE' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-500 hover:text-white hover:bg-white/5'}`}
+                                        >
+                                            Oppgradering
+                                        </button>
+                                    </div>
+
+                                    {/* Scrollable Content */}
+                                    <div className="flex-1 overflow-y-auto p-8 z-10 custom-scrollbar">
+                                        {buildingTab === 'ACTIONS' ? (
+                                            <div className="space-y-4">
+                                                <div className="grid gap-3">
+                                                    {availableActions.map(action => {
+                                                        const currentSeason = (room.world?.season || 'Spring') as any;
+                                                        const currentWeather = (room.world?.weather || 'Clear') as any;
+                                                        const costLabel = getActionCostString(action.id, currentSeason, currentWeather) || action.cost;
+                                                        const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
+                                                        const canAfford = check.success;
+
+                                                        return (
+                                                            <button
+                                                                key={action.id}
+                                                                disabled={!canAfford}
+                                                                onClick={() => handlePOIAction(viewMode, action.id)}
+                                                                className={`group w-full flex items-center justify-between p-6 rounded-3xl border transition-all active:scale-[0.98] ${canAfford
+                                                                    ? 'bg-slate-800/50 border-white/5 hover:border-indigo-500/50 hover:bg-slate-800'
+                                                                    : 'bg-black/20 border-transparent opacity-50 cursor-not-allowed'
+                                                                    }`}
+                                                            >
+                                                                <div className="flex items-center gap-4">
+                                                                    <div className="text-3xl grayscale group-hover:grayscale-0 transition-all">✨</div>
+                                                                    <div className="text-left">
+                                                                        <div className="font-black text-white uppercase tracking-wider text-base">{action.label}</div>
+                                                                        {!canAfford && <div className="text-[10px] text-rose-400 font-bold uppercase">{check.reason}</div>}
+                                                                    </div>
+                                                                </div>
+                                                                <div className="bg-black/40 px-4 py-2 rounded-2xl border border-white/5 font-black text-sm text-indigo-300">
+                                                                    {costLabel}
+                                                                </div>
+                                                            </button>
+                                                        );
+                                                    })}
+                                                    {availableActions.length === 0 && (
+                                                        <div className="text-center py-20 text-slate-500 italic">
+                                                            <div className="text-5xl mb-4 opacity-20">🏗️</div>
+                                                            Ingen handlinger låst opp ennå.<br />
+                                                            Oppgrader bygningen for å få flere funksjoner!
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <div className="flex flex-col items-center">
+                                                <div className="bg-black/40 rounded-[2rem] p-8 w-full mb-8 border border-white/5 text-center">
+                                                    <p className="text-indigo-300 text-sm font-bold mb-4 uppercase tracking-widest flex items-center justify-center gap-2">
+                                                        <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
+                                                        Bonus ved neste nivå: {nextLevelDef?.bonus || 'Maksimal effekt'}
+                                                    </p>
+                                                    <p className="text-slate-400 text-sm leading-relaxed italic opacity-80">
+                                                        "{buildingDef.description}"
+                                                    </p>
+                                                </div>
+
+                                                {nextLevelDef ? (
+                                                    <div className="w-full space-y-8">
+                                                        <div className="text-left">
+                                                            <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Oppgraderingskrav (Nivå {nextLevel})</div>
+                                                            <div className="grid grid-cols-2 gap-4">
+                                                                {Object.entries(nextLevelDef.requirements || {}).map(([res, amt]) => {
+                                                                    const hasEnough = ((player.resources as any)[res] || 0) >= (amt as number);
+                                                                    return (
+                                                                        <div key={res} className={`flex items-center justify-between px-6 py-4 rounded-2xl border ${hasEnough ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-rose-500/5 border-rose-500/20'}`}>
+                                                                            <span className="capitalize text-[10px] font-black text-slate-400">{res}</span>
+                                                                            <span className={`text-lg font-black ${hasEnough ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                                                {amt as number}
+                                                                            </span>
+                                                                        </div>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                        </div>
+
+                                                        <button
+                                                            onClick={() => onAction({ type: 'CONSTRUCT_BUILDING', buildingId: viewMode })}
+                                                            className="w-full py-6 bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest rounded-[1.5rem] shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3"
+                                                        >
+                                                            Oppgrader til Nivå {nextLevel} 🛠️
+                                                        </button>
+                                                    </div>
+                                                ) : (
+                                                    <div className="py-12 px-10 bg-emerald-500/10 border border-emerald-500/20 rounded-[2.5rem] text-center w-full">
+                                                        <div className="text-emerald-400 font-black uppercase tracking-widest text-lg mb-2">Mesterverk fullført! 🏆</div>
+                                                        <div className="text-slate-400 text-sm font-medium">Denne bygningen har nådd sitt maksimale potensial.</div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
                         );
                     })()
                 }
+
 
 
                 {/* Dialog Overlay */}
