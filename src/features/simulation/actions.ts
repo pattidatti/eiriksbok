@@ -1,7 +1,7 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
 import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, LEVEL_XP, WEATHER, GAME_BALANCE, REFINERY_RECIPES, RESOURCE_DETAILS } from './constants';
-import type { SimulationMarket } from './types';
+import type { SimulationMarket } from './simulationTypes';
 
 
 

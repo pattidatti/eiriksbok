@@ -6,7 +6,7 @@ import { useLayout } from '../../context/LayoutContext';
 import { useEffect } from 'react';
 
 import { INITIAL_RESOURCES } from './constants';
-import type { SimulationPlayer, Role } from './types';
+import type { SimulationPlayer, Role } from './simulationTypes';
 
 export const SimulationLobby: React.FC = () => {
     const [pin, setPin] = useState('');

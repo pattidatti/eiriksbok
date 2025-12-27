@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { GameCanvas } from '../features/timeline-td/components/GameCanvas';
-import { useGameStore } from '../features/timeline-td/store/gameStore';
-import type { TowerType } from '../features/timeline-td/types';
-import { useGameEngine } from '../features/timeline-td/hooks/useGameEngine';
-import { TowerSelector } from '../features/timeline-td/components/TowerSelector';
-import { TOWER_STATS } from '../features/timeline-td/data/gameData';
+import { GameCanvas } from '../games/timeline-td/components/GameCanvas';
+import { useGameStore } from '../games/timeline-td/store/gameStore';
+import type { TowerType } from '../games/timeline-td/types';
+import { useGameEngine } from '../games/timeline-td/hooks/useGameEngine';
+import { TowerSelector } from '../games/timeline-td/components/TowerSelector';
+import { TOWER_STATS } from '../games/timeline-td/data/gameData';
 import { ArrowLeft, Pause, Play, RefreshCw, Coins, Heart, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLayout } from '../context/LayoutContext';

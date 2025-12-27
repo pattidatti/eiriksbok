@@ -4,7 +4,7 @@ import { db } from '../../lib/firebase';
 import { useLayout } from '../../context/LayoutContext';
 
 import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES, VILLAGE_BUILDINGS, SEASONS, RESOURCE_DETAILS } from './constants';
-import type { SimulationRoom } from './types';
+import type { SimulationRoom } from './simulationTypes';
 import { assignRoles, collectTaxes } from './gameLogic';
 
 export const SimulationHost: React.FC = () => {

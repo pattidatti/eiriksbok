@@ -1,4 +1,4 @@
-import type { Resources, Role, SimulationMarket, PlayerUpgrade } from './types';
+import type { Resources, Role, SimulationMarket, PlayerUpgrade } from './simulationTypes';
 
 export const INITIAL_MARKET: SimulationMarket = {
     grain: { price: 10, stock: 500, demand: 1.0 },

@@ -1,4 +1,4 @@
-import type { SimulationPlayer } from './types';
+import type { SimulationPlayer } from './simulationTypes';
 import { INITIAL_RESOURCES } from './constants';
 
 export const assignRoles = (players: Record<string, SimulationPlayer>): Record<string, SimulationPlayer> => {

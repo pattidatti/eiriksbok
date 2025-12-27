@@ -1,3 +1,4 @@
+// Types definition for Simulation
 export type Role = 'KING' | 'BARON' | 'PEASANT' | 'SOLDIER' | 'MERCHANT';
 
 export type ResourceType = 'gold' | 'grain' | 'wood' | 'iron' | 'manpower';
