@@ -201,6 +201,41 @@ export const VILLAGE_BUILDINGS: Record<string, any> = {
         description: 'Foredler Ull til Stoff for videre salg eller klær.',
         requirements: { timber: 40, stone: 30 },
         unlocks: ['REFINE_CLOTH']
+    },
+    watchtower: {
+        id: 'watchtower',
+        name: 'Vaktårn',
+        description: 'Gir oversikt og beskyttelse. Låser opp patruljering.',
+        requirements: { stone: 200, timber: 50 },
+        unlocks: ['ACTION_PATROL']
+    },
+    stables: {
+        id: 'stables',
+        name: 'Stallen',
+        description: 'Huser hester for raskere reise og ridderoppdrag.',
+        requirements: { timber: 150, grain: 50 },
+        unlocks: ['MOUNT_HORSE']
+    },
+    well: {
+        id: 'well',
+        name: 'Brønnen',
+        description: 'Sentral vannkilde. Øker helse i landsbyen.',
+        requirements: { stone: 80, wood: 20 },
+        unlocks: ['ACTION_GATHER_WATER']
+    },
+    apothecary: {
+        id: 'apothecary',
+        name: 'Apoteker',
+        description: 'Urter og medisiner for å lindre sykdom.',
+        requirements: { timber: 80, stone: 20 },
+        unlocks: ['CRAFT_MEDICINE']
+    },
+    roads: {
+        id: 'roads',
+        name: 'Brosteinveier',
+        description: 'Forbedrer infrastruktur og handelshastighet.',
+        requirements: { stone: 300 },
+        unlocks: ['TRAVEL_SPEED_BOOST']
     }
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { SimulationPlayer, SimulationRoom } from './types';
-import { ACTION_COSTS, SEASONS, WEATHER } from './constants';
+import { ACTION_COSTS, SEASONS, WEATHER, VILLAGE_BUILDINGS } from './constants';
 import { TAVERN_NPCS } from './TavernData';
 import type { TavernNPC } from './TavernData';
 import { TavernDiceGame } from './TavernDiceGame';
@@ -89,38 +89,97 @@ const POINTS_OF_INTEREST: POI[] = [
         actions: [{ id: 'REST', label: 'Hvile i Kammeret', cost: '-1🍞 +30⚡' }]
     },
 
-    // --- VILLAGE LOCAL ---
+    // --- VILLAGE LOCAL HUB ---
     {
-        id: 'village_square', label: 'Landsbytorg', icon: '🗺️', top: '50%', left: '50%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'village',
+        id: 'village_square', label: 'Landsbytorg', icon: '⛲', top: '50%', left: '50%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'village',
         actions: [
-            { id: 'REST', label: 'Hvile & Spise', cost: '-1🍞 +30⚡' },
-            { id: 'REPAIR', label: 'Reparer Utstyr', cost: '-5g -1⛓️ -1🪵' },
-            { id: 'FEAST', label: 'Arranger Gjestebud', cost: '-100g -30🍞' }
+            { id: 'REST', label: 'Hvile på torget', cost: '+10⚡' },
+            { id: 'CONSTRUCT_BUILDING', label: 'Oppgrader Torget', cost: 'Se Bygg' }
         ]
     },
     {
-        id: 'blacksmith', label: 'Smien', icon: '⚒️', top: '30%', left: '30%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'], parentId: 'village',
+        id: 'tavern', label: 'Vertshuset', icon: '🍺', top: '35%', left: '75%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'], parentId: 'village',
+        actions: [{ id: 'ENTER_TAVERN', label: 'Gå inn', cost: 'Gratis' }], isHub: true
+    },
+    {
+        id: 'bakery', label: 'Bakeri', icon: '🍞', top: '55%', left: '75%', roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [
-            { id: 'CRAFT_SWORDS', label: 'Smie Sverd', cost: '-30⚡ -5⛓️ -10🪵' },
-            { id: 'CRAFT_ARMOR', label: 'Smie Rustninger', cost: '-40⚡ -10⛓️ -5🪵' },
-            { id: 'CRAFT_TOOLS', label: 'Lage Verktøy', cost: '-25⚡ -2⛓️ -5🪵' }
-        ]
+            { id: 'REFINE_BREAD', label: 'Bake Brød', cost: '-10⚡ -2mel' },
+            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Bakeri', cost: 'Se Bygg' }
+        ],
+        isHub: true
     },
     {
-        id: 'sawmill', label: 'Sagbruk', icon: '🪚', top: '25%', left: '70%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'village',
-        actions: [{ id: 'REFINE', label: 'Produser Tømmer', cost: 'Tømmer' }]
+        id: 'blacksmith', label: 'Storsmie', icon: '⚒️', top: '35%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [
+            { id: 'CRAFT', label: 'Smi Utstyr', cost: 'Varierer' },
+            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Smie', cost: 'Se Bygg' }
+        ],
+        isHub: true
     },
     {
-        id: 'smeltery', label: 'Smeltehytte', icon: '🔥', top: '15%', left: '55%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'village',
-        actions: [{ id: 'REFINE_IRON', label: 'Smelte Jern', cost: 'Jernbarrer' }]
+        id: 'sawmill', label: 'Sagbruk', icon: '🪚', top: '65%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [
+            { id: 'REFINE', label: 'Sag Tømmer', cost: '-10⚡ -5ved' },
+            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Sagbruk', cost: 'Se Bygg' }
+        ],
+        isHub: true
     },
     {
-        id: 'bakery', label: 'Bakeri', icon: '🥐', top: '65%', left: '45%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'village',
-        actions: [{ id: 'REFINE_BREAD', label: 'Bake Brød', cost: '-10⚡ -2🍯' }]
+        id: 'windmill', label: 'Vindmølle', icon: '🌬️', top: '20%', left: '35%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [
+            { id: 'REFINE_FLOUR', label: 'Male Mel', cost: '-15⚡ -10korn' },
+            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Mølle', cost: 'Se Bygg' }
+        ],
+        isHub: true
     },
     {
-        id: 'tavern', label: 'Vertshuset', icon: '🍺', top: '70%', left: '20%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'village',
-        actions: [], isHub: true
+        id: 'smeltery', label: 'Smeltehytte', icon: '🔥', top: '75%', left: '85%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [
+            { id: 'REFINE_IRON', label: 'Smelte Jern', cost: '-20⚡ -5malm' },
+            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Hytte', cost: 'Se Bygg' }
+        ],
+        isHub: true
+    },
+    {
+        id: 'weaving_mill', label: 'Veveri', icon: '🧶', top: '65%', left: '60%', roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'village',
+        actions: [
+            { id: 'REFINE_CLOTH', label: 'Vev Stoff', cost: '-15⚡ -5ull' },
+            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Veveri', cost: 'Se Bygg' }
+        ],
+        isHub: true
+    },
+    {
+        id: 'watchtower', label: 'Vaktårn', icon: '🏰', top: '15%', left: '60%', roles: ['BARON', 'SOLDIER'], parentId: 'village',
+        actions: [
+            { id: 'PATROL', label: 'Patruljer', cost: '-30⚡' },
+            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Tårn', cost: 'Se Bygg' }
+        ],
+        isHub: true
+    },
+    {
+        id: 'stables', label: 'Stall', icon: '🐴', top: '80%', left: '35%', roles: ['BARON', 'SOLDIER', 'KING'], parentId: 'village',
+        actions: [
+            { id: 'MOUNT_HORSE', label: 'Ri ut', cost: '-5⚡' },
+            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Stall', cost: 'Se Bygg' }
+        ],
+        isHub: true
+    },
+    {
+        id: 'well', label: 'Bybrønn', icon: '💧', top: '50%', left: '50%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [
+            { id: 'GATHER_WATER', label: 'Hent Vann', cost: '-10⚡' },
+            { id: 'CONSTRUCT_BUILDING', label: 'Grav Brønn', cost: 'Se Bygg' }
+        ],
+        isHub: true
+    },
+    {
+        id: 'apothecary', label: 'Apotek', icon: '🌿', top: '45%', left: '85%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [
+            { id: 'CRAFT_MEDICINE', label: 'Lag Medisin', cost: '-20⚡' },
+            { id: 'CONSTRUCT_BUILDING', label: 'Bygg Apotek', cost: 'Se Bygg' }
+        ],
+        isHub: true
     },
 
     // --- TAVERN LOCAL ---
@@ -271,7 +330,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
         if (viewMode === 'kingdom') return '/map_kingdom.png';
 
         switch (viewMode) {
-            case 'village': return '/map_village_street.png';
+            case 'village': return '/map_village_hub.png';
             case 'village_construction': return '/map_village_construction.png';
             case 'castle': return '/map_castle_interior.png';
             case 'fields': return '/map_farm_fields.png';
@@ -455,11 +514,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                 if (!isCorrectView) return null;
 
                 const isRelevant = poi.roles.includes(player.role) || poi.id === 'market' || poi.isHub;
-                const settlementBuildings = ['sawmill', 'windmill', 'smeltery', 'bakery', 'weaving_mill', 'tavern'];
-                if (settlementBuildings.includes(poi.id)) {
-                    const b = room.world.settlement?.buildings?.[poi.id];
-                    if (!b || b.level < 1) return null;
-                }
+                // Removed hiding logic to allow construction UI
 
                 const isResourceNode = ['grain_fields', 'forest_clearing', 'mine_shaft', 'quarry_poi', 'forest_forage'].includes(poi.id);
 
@@ -562,6 +617,15 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                                         return true;
                                     })
                                     .map(action => {
+                                        // CHECK: Is this a building specific action?
+                                        const buildingId = selectedPOI.id;
+                                        const isBuildingAction = ['bakery', 'windmill', 'sawmill', 'smeltery', 'blacksmith', 'weaving_mill', 'watchtower', 'stables', 'well', 'apothecary'].includes(buildingId);
+                                        const isBuilt = (room.world.settlement?.buildings?.[buildingId]?.level || 0) >= 1;
+
+                                        // If it's a building action but the building isn't built, show ONLY construction option (unless it IS the construction action)
+                                        if (isBuildingAction && !isBuilt && action.id !== 'CONSTRUCT_BUILDING') return null;
+                                        if (isBuildingAction && isBuilt && action.id === 'CONSTRUCT_BUILDING') return null;
+
                                         const actionType = action.id;
                                         const costData = (ACTION_COSTS as any)[actionType];
                                         let canAfford = true;
@@ -623,72 +687,137 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                                     </div>
                                 )}
                             </div>
-
-                            {/* Tooltip Tail */}
-                            <div className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-slate-900/98 rotate-45 border-white/20 ${parseFloat(selectedPOI.top) < 25 ? '-top-2 border-l border-t' : '-bottom-2 border-r border-b'} shadow-2xl`} />
                         </div>
+
+
+                        {/* Tooltip Tail */}
+                        <div className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-slate-900/98 rotate-45 border-white/20 ${parseFloat(selectedPOI.top) < 25 ? '-top-2 border-l border-t' : '-bottom-2 border-r border-b'} shadow-2xl`} />
                     </div>
-                </>
-            )}
+                </div >
+        </>
+    )
+}
 
-            {/* Dialog Overlay */}
-            {dialogNPC && (
-                <div className="absolute inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
-                    <div className="bg-slate-900 border-2 border-amber-600/30 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl">
-                        {/* Header */}
-                        <div className="bg-slate-950 p-6 border-b border-white/5 flex gap-4 items-center">
-                            <div className="w-16 h-16 rounded-full bg-slate-800 border-2 border-amber-500/50 flex items-center justify-center text-3xl shadow-inner">
-                                👤
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-black text-amber-500">{dialogNPC.name}</h3>
-                                <p className="text-sm text-slate-400 italic font-medium">{dialogNPC.role}</p>
-                            </div>
-                        </div>
+{/* CONSTRUCTION OVERLAY SITE */ }
+{
+    (() => {
+        const buildingDef = VILLAGE_BUILDINGS[viewMode];
+        const currentLevel = (room.world.settlement?.buildings?.[viewMode]?.level || 0);
 
-                        {/* Content */}
-                        <div className="p-8 space-y-6">
-                            <div className="text-xs text-slate-500 uppercase tracking-widest mb-2 opacity-50">{dialogNPC.description}</div>
-                            <p className="text-slate-300 text-lg leading-relaxed italic border-l-4 border-amber-500/20 pl-4 py-2">
-                                "{dialogNPC.conversation[dialogStep]?.text || "..."}"
+        if (buildingDef && currentLevel < 1) {
+            return (
+                <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-500">
+                    <div className="bg-slate-900 border-2 border-dashed border-white/20 rounded-[3rem] p-12 max-w-2xl w-full text-center relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-[url('/patterns/grid.png')] opacity-10" />
+
+                        <div className="relative z-10 w-full flex flex-col items-center">
+                            <div className="w-24 h-24 bg-indigo-500/20 text-indigo-300 rounded-full flex items-center justify-center text-5xl mb-6 border-2 border-indigo-500/40 shadow-[0_0_40px_rgba(99,102,241,0.3)] animate-pulse">
+                                🏗️
+                            </div>
+                            <h2 className="text-4xl font-black text-white mb-2 tracking-tighter uppercase">{buildingDef.name}</h2>
+                            <div className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-8">Under Planlegging</div>
+
+                            <p className="text-slate-300 text-lg leading-relaxed mb-10 max-w-md italic">
+                                "{buildingDef.description}"
                             </p>
 
-                            {/* Options */}
-                            <div className="grid gap-3 pt-4">
-                                {dialogNPC.conversation[dialogStep]?.options.map((opt, idx) => (
-                                    <button
-                                        key={idx}
-                                        onClick={() => {
-                                            if (opt.nextId === 'EXIT') {
-                                                setDialogNPC(null);
-                                                // Optional: Award a small XP for talking
-                                                onAction({ type: 'CHAT_LOCAL', performance: 1.0 });
-                                            } else {
-                                                setDialogStep(opt.nextId);
-                                            }
-                                        }}
-                                        className="w-full text-left bg-white/5 hover:bg-amber-500/10 hover:border-amber-500/50 border border-white/10 p-4 rounded-xl transition-all font-medium text-slate-200 active:scale-[0.98]"
-                                    >
-                                        <span className="text-amber-500 mr-2">💬</span> {opt.label}
-                                    </button>
-                                ))}
+                            <div className="grid grid-cols-2 gap-4 mb-10 w-full">
+                                {Object.entries(buildingDef.requirements || {}).map(([res, amt]) => {
+                                    const hasEnough = (player.resources[res as keyof typeof player.resources] || 0) >= (amt as number);
+                                    return (
+                                        <div key={res} className={`flex items-center justify-between p-4 rounded-xl border ${hasEnough ? 'bg-emerald-500/10 border-emerald-500/30' : 'bg-rose-500/10 border-rose-500/30'}`}>
+                                            <span className="capitalize text-sm font-bold text-slate-300">{res}</span>
+                                            <span className={`text-xl font-black ${hasEnough ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                {amt as number}
+                                            </span>
+                                        </div>
+                                    );
+                                })}
                             </div>
+
+                            <button
+                                onClick={() => {
+                                    handlePOIAction(viewMode, 'CONSTRUCT_BUILDING');
+                                }}
+                                className="w-full py-5 bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-indigo-600/20 transition-all active:scale-95 text-lg"
+                            >
+                                Start Bygging
+                            </button>
+
+                            <button onClick={() => setViewMode('village')} className="mt-6 text-slate-500 hover:text-white text-xs font-bold uppercase tracking-widest">
+                                Avbryt
+                            </button>
                         </div>
                     </div>
                 </div>
-            )}
+            );
+        }
+        return null;
+    })()
+}
 
-            {/* Dice Game Overlay */}
-            {isDiceGameOpen && (
-                <TavernDiceGame
-                    playerGold={player.resources.gold || 0}
-                    onClose={() => setIsDiceGameOpen(false)}
-                    onPlay={(result) => {
-                        onAction({ type: 'GAMBLE_RESULT', ...result });
-                    }}
-                />
-            )}
+{/* Dialog Overlay */ }
+{
+    dialogNPC && (
+        <div className="absolute inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
+            <div className="bg-slate-900 border-2 border-amber-600/30 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl">
+                {/* Header */}
+                <div className="bg-slate-950 p-6 border-b border-white/5 flex gap-4 items-center">
+                    <div className="w-16 h-16 rounded-full bg-slate-800 border-2 border-amber-500/50 flex items-center justify-center text-3xl shadow-inner">
+                        👤
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-black text-amber-500">{dialogNPC.name}</h3>
+                        <p className="text-sm text-slate-400 italic font-medium">{dialogNPC.role}</p>
+                    </div>
+                </div>
 
+                {/* Content */}
+                <div className="p-8 space-y-6">
+                    <div className="text-xs text-slate-500 uppercase tracking-widest mb-2 opacity-50">{dialogNPC.description}</div>
+                    <p className="text-slate-300 text-lg leading-relaxed italic border-l-4 border-amber-500/20 pl-4 py-2">
+                        "{dialogNPC.conversation[dialogStep]?.text || "..."}"
+                    </p>
+
+                    {/* Options */}
+                    <div className="grid gap-3 pt-4">
+                        {dialogNPC.conversation[dialogStep]?.options.map((opt, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => {
+                                    if (opt.nextId === 'EXIT') {
+                                        setDialogNPC(null);
+                                        // Optional: Award a small XP for talking
+                                        onAction({ type: 'CHAT_LOCAL', performance: 1.0 });
+                                    } else {
+                                        setDialogStep(opt.nextId);
+                                    }
+                                }}
+                                className="w-full text-left bg-white/5 hover:bg-amber-500/10 hover:border-amber-500/50 border border-white/10 p-4 rounded-xl transition-all font-medium text-slate-200 active:scale-[0.98]"
+                            >
+                                <span className="text-amber-500 mr-2">💬</span> {opt.label}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
+    )
+}
+
+{/* Dice Game Overlay */ }
+{
+    isDiceGameOpen && (
+        <TavernDiceGame
+            playerGold={player.resources.gold || 0}
+            onClose={() => setIsDiceGameOpen(false)}
+            onPlay={(result) => {
+                onAction({ type: 'GAMBLE_RESULT', ...result });
+            }}
+        />
+    )
+}
+
+        </div >
     );
 };
