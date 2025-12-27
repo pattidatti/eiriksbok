@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
-import { ref, onValue } from 'firebase/database';
+import { ref, onValue, update } from 'firebase/database';
+
 import { useLayout } from '../../context/LayoutContext';
 
 import { db } from '../../lib/firebase';
@@ -17,7 +18,6 @@ import { ActionResultOverlay } from './components/ActionResultOverlay';
 import { SimulationHeader } from './components/SimulationHeader';
 import { SimulationSidebar } from './components/SimulationSidebar';
 import { SimulationViewport } from './components/SimulationViewport';
-import { SimulationRightPanel } from './components/SimulationRightPanel';
 
 export const SimulationPlayer: React.FC = () => {
     return (
@@ -62,8 +62,9 @@ const SimulationGame: React.FC = () => {
 
         const unsubPlayer = onValue(playerRef, (snap) => {
             const data = snap.val();
-            if (data) setPlayer(data);
+            if (data) setPlayer({ ...data, id: playerId });
         });
+
 
         const unsubRoom = onValue(roomRef, (snap) => {
             const data = snap.val();
@@ -157,6 +158,24 @@ const SimulationGame: React.FC = () => {
 
         prevXpRef.current = currentXp;
     }, [player?.stats.xp, player?.role]);
+
+    // --- LEVEL SYNC (RETROACTIVE) ---
+    useEffect(() => {
+        if (!player || !pin || !player.id) return;
+
+        const getLevel = (xp: number) => {
+            const index = LEVEL_XP.findIndex(req => xp < req);
+            return index === -1 ? LEVEL_XP.length : index;
+        };
+
+        const correctLevel = getLevel(player.stats.xp || 0);
+        if ((player.stats.level || 1) !== correctLevel) {
+            const statsRef = ref(db, `simulation_rooms/${pin}/players/${player.id}/stats`);
+            update(statsRef, { level: correctLevel });
+        }
+    }, [player?.stats.xp, pin, player?.id, player?.stats?.level]);
+
+
 
     // --- ACTION HANDLER ---
     const handleAction = async (action: any) => {
@@ -298,7 +317,6 @@ const SimulationGame: React.FC = () => {
                             <div className="flex flex-1 overflow-hidden">
                                 <SimulationSidebar player={player} room={room} />
                                 <SimulationViewport player={player} room={room} pin={pin} onAction={handleAction} />
-                                <SimulationRightPanel player={player} room={room} />
                             </div>
                         </div>
 

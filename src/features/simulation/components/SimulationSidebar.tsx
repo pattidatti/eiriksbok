@@ -30,17 +30,22 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
     const xpPercent = Math.min(100, (currentXp / targetXp) * 100);
 
     const roleTitle = (ROLE_TITLES as any)[player.role][Math.min(currentLvl, (ROLE_TITLES as any)[player.role].length) - 1];
+    const getRegionName = (rId: string) => {
+        if (!rId || rId === 'unassigned') return 'Ingen Region';
+        if (rId === 'capital') return 'Kongeriket (Hovedstaden)';
+        if (rId === 'test_region') return 'Test Baroniet';
 
-    const navItems = [
-        { id: 'MAP', label: 'Verdenskart', icon: Map },
-        { id: 'PROFILE', label: 'Profil', icon: User },
-        { id: 'INVENTORY', label: 'Eiendele', icon: Package },
-        { id: 'SKILLS', label: 'Ferdigheter', icon: Scroll },
+        if (room?.players && rId.startsWith('region_')) {
+            const baronOwner = Object.values(room.players).find(p => p.role === 'BARON' && p.regionId === rId);
+            if (baronOwner) return `${baronOwner.name}s Baroni`;
 
-        { id: 'DIPLOMACY', label: 'Diplomati', icon: MessageSquare },
-        { id: 'HIERARCHY', label: 'Struktur', icon: LayoutGrid },
-        { id: 'UPGRADES', label: 'Oppgraderinger', icon: Hammer },
-    ];
+            const baronId = rId.replace('region_', '');
+            const baronById = room.players[baronId];
+            if (baronById) return `${baronById.name}s Baroni`;
+        }
+        return rId;
+    };
+
 
 
     return (
@@ -55,7 +60,10 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                     </div>
                     <div>
                         <h1 className="text-xl font-display font-bold text-white leading-tight">{player.name}</h1>
-                        <Badge variant="role" className="mt-1">{roleTitle}</Badge>
+                        <div className="flex flex-col gap-1 mt-1">
+                            <Badge variant="role">{roleTitle}</Badge>
+                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter truncate max-w-[160px]">📍 {getRegionName(player.regionId)}</span>
+                        </div>
                     </div>
                 </div>
 
@@ -103,34 +111,130 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                         </div>
                     </div>
                 </GameCard>
-            </div>
+            </div >
 
             {/* Navigation */}
-            <nav className="flex-1 p-4 space-y-1 overflow-y-auto custom-scrollbar">
-                {navItems.map((tab) => {
-                    if (tab.id === 'DIPLOMACY' && player.role === 'PEASANT') return null;
-                    const isActive = activeTab === tab.id;
-                    const Icon = tab.icon;
-                    return (
-                        <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id as any)}
-                            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all text-sm uppercase tracking-wide
-                                ${isActive
-                                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20 translate-x-1'
-                                    : 'text-slate-400 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1'
-                                }
-                            `}
-                        >
-                            <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
-                            <span>{tab.label}</span>
-                        </button>
-                    );
-                })}
-            </nav>
+            < nav className="flex-1 p-4 space-y-6 overflow-y-auto custom-scrollbar" >
+                {/* Group 1: World */}
+                < div className="space-y-1" >
+                    <div className="px-4 text-[10px] font-black uppercase text-slate-600 tracking-widest mb-2">Verden</div>
+                    {
+                        [
+                            { id: 'MAP', label: 'Verdenskart', icon: Map },
+                            { id: 'ACTIVITY', label: 'Live Hendelser', icon: MessageSquare },
+                        ].map((tab) => {
+                            const isActive = activeTab === tab.id;
+                            const Icon = tab.icon;
+                            return (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id as any)}
+                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all text-sm uppercase tracking-wide
+                                    ${isActive
+                                            ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20 translate-x-1'
+                                            : 'text-slate-400 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1'
+                                        }
+                                `}
+                                >
+                                    <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                                    <span>{tab.label}</span>
+                                </button>
+                            );
+                        })
+                    }
+                </div >
+
+                {/* Group 2: Personal */}
+                < div className="space-y-1" >
+                    <div className="px-4 text-[10px] font-black uppercase text-slate-600 tracking-widest mb-2">Deg selv</div>
+                    {
+                        [
+                            { id: 'PROFILE', label: 'Profil', icon: User },
+                            { id: 'INVENTORY', label: 'Eiendeler', icon: Package },
+                            { id: 'SKILLS', label: 'Ferdigheter', icon: Scroll },
+                        ].map((tab) => {
+                            const isActive = activeTab === tab.id;
+                            const Icon = tab.icon;
+                            return (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id as any)}
+                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all text-sm uppercase tracking-wide
+                                    ${isActive
+                                            ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20 translate-x-1'
+                                            : 'text-slate-400 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1'
+                                        }
+                                `}
+                                >
+                                    <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                                    <span>{tab.label}</span>
+                                </button>
+                            );
+                        })
+                    }
+                </div >
+
+                {/* Group 3: Society & Politics */}
+                < div className="space-y-1" >
+                    <div className="px-4 text-[10px] font-black uppercase text-slate-600 tracking-widest mb-2">Samfunn</div>
+                    {
+                        [
+                            { id: 'DIPLOMACY', label: 'Diplomati', icon: MessageSquare },
+                            { id: 'HIERARCHY', label: 'Samfunnsstruktur', icon: LayoutGrid },
+                        ].map((tab) => {
+                            if (tab.id === 'DIPLOMACY' && player.role === 'PEASANT') return null;
+                            const isActive = activeTab === tab.id;
+                            const Icon = tab.icon;
+                            return (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id as any)}
+                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all text-sm uppercase tracking-wide
+                                    ${isActive
+                                            ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20 translate-x-1'
+                                            : 'text-slate-400 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1'
+                                        }
+                                `}
+                                >
+                                    <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                                    <span>{tab.label}</span>
+                                </button>
+                            );
+                        })
+                    }
+                </div >
+
+                {/* Group 4: Misc */}
+                < div className="space-y-1" >
+                    <div className="px-4 text-[10px] font-black uppercase text-slate-600 tracking-widest mb-2">Annet</div>
+                    {
+                        [
+                            { id: 'UPGRADES', label: 'Oppgraderinger', icon: Hammer },
+                        ].map((tab) => {
+                            const isActive = activeTab === tab.id;
+                            const Icon = tab.icon;
+                            return (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id as any)}
+                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all text-sm uppercase tracking-wide
+                                    ${isActive
+                                            ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20 translate-x-1'
+                                            : 'text-slate-400 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1'
+                                        }
+                                `}
+                                >
+                                    <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                                    <span>{tab.label}</span>
+                                </button>
+                            );
+                        })
+                    }
+                </div >
+            </nav >
 
             {/* Footer */}
-            <div className="p-6 bg-black/20 border-t border-white/5">
+            < div className="p-6 bg-black/20 border-t border-white/5" >
                 <div className="flex items-center justify-between text-xs font-bold text-slate-500 mb-2 uppercase tracking-tighter">
                     <span>År {room.world.year}</span>
                     <span className="text-amber-500">{(SEASONS as any)[room.world.season]?.label}</span>
@@ -139,7 +243,7 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                     <Sun className="w-4 h-4 text-amber-500" />
                     <span>{room.world.weather}</span>
                 </div>
-            </div>
-        </aside>
+            </div >
+        </aside >
     );
 };

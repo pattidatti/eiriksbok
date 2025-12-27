@@ -1,6 +1,7 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
-import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, WEATHER, GAME_BALANCE, REFINERY_RECIPES, INITIAL_SKILLS, CRAFTING_RECIPES, ITEM_TEMPLATES, LEVEL_XP } from './constants';
+import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, WEATHER, GAME_BALANCE, REFINERY_RECIPES, INITIAL_SKILLS, CRAFTING_RECIPES, ITEM_TEMPLATES, LEVEL_XP, VILLAGE_BUILDINGS } from './constants';
+
 
 import type { SkillType, SimulationPlayer, EquipmentItem, EquipmentSlot } from './simulationTypes';
 
@@ -410,7 +411,20 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 const recipe = (REFINERY_RECIPES as any)[recipeId];
 
                 if (recipe) {
+                    // Check building level
+                    const settlement = room.world?.settlement || {};
+                    const buildLevel = settlement.buildings?.[recipe.buildingId]?.level || 1;
+
+                    // Some advanced recipes might require higher levels
+                    if (recipe.requiredLevel && buildLevel < recipe.requiredLevel) {
+                        localResult.success = false;
+                        localResult.message = `Utvidelse kreves: ${recipe.buildingId} må være Nivå ${recipe.requiredLevel}.`;
+                        return localResult;
+                    }
+
                     let canAfford = true;
+
+
                     Object.entries(recipe.input).forEach(([res, amt]) => {
                         if ((actor.resources as any)[res] < (amt as number)) canAfford = false;
                     });
@@ -684,6 +698,47 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 // (Simplified logic to match restoration need)
                 localResult.message = `Handelsrute ${direction} ${resource} utført.`;
                 trackXp('TRADING', 20); // Using new skill
+            } else if (actionType === 'UPGRADE_BUILDING' || actionType === 'CONSTRUCT_BUILDING') {
+                const bId = action.buildingId || actionType.replace('UPGRADE_BUILDING_', '');
+                const buildingDef = VILLAGE_BUILDINGS[bId];
+
+                if (buildingDef) {
+                    if (!room.world) room.world = { settlement: { buildings: {} } };
+                    if (!room.world.settlement) room.world.settlement = { buildings: {} };
+                    if (!room.world.settlement.buildings) room.world.settlement.buildings = {};
+
+                    const currentLevel = room.world.settlement.buildings[bId]?.level || 1;
+                    const nextLevel = currentLevel + 1;
+                    const nextLevelDef = buildingDef.levels[nextLevel];
+
+                    if (nextLevelDef) {
+                        // Check requirements
+                        let canAfford = true;
+                        Object.entries(nextLevelDef.requirements || {}).map(([res, amt]) => {
+                            if (((actor.resources as any)[res] || 0) < (amt as number)) canAfford = false;
+                        });
+
+                        if (canAfford) {
+                            // Deduct
+                            Object.entries(nextLevelDef.requirements || {}).map(([res, amt]) => {
+                                (actor.resources as any)[res] -= (amt as number);
+                            });
+
+                            // Level up
+                            if (!room.world.settlement.buildings[bId]) room.world.settlement.buildings[bId] = { id: bId, level: 1 };
+                            room.world.settlement.buildings[bId].level = nextLevel;
+
+                            localResult.message = `⚒️ OPPGRADERING: ${buildingDef.name} har nådd Nivå ${nextLevel}!`;
+                            room.messages.push(`[${timestamp}] ${localResult.message}`);
+                        } else {
+                            localResult.success = false;
+                            localResult.message = "Mangler ressurser for oppgradering.";
+                        }
+                    } else {
+                        localResult.success = false;
+                        localResult.message = "Maksimum nivå nådd.";
+                    }
+                }
             }
 
             if (!localResult.message) localResult.message = "Handling utført.";

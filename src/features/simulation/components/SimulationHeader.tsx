@@ -42,9 +42,11 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
             </div>
 
             <div className="flex items-center gap-6">
-                {/* Money Display */}
-                <div className="bg-slate-900/80 px-4 py-1.5 rounded-full border border-amber-500/20 shadow-lg">
+                {/* Money & Resources Display */}
+                <div className="flex items-center gap-3 bg-slate-900/80 px-4 py-1.5 rounded-full border border-amber-500/20 shadow-lg">
                     <ResourceIcon resource="gold" amount={player.resources.gold} size="md" />
+                    <div className="w-px h-4 bg-white/10 mx-1" />
+                    <ResourceIcon resource="bread" amount={player.resources.bread || 0} size="md" />
                 </div>
 
                 <div className="w-px h-8 bg-white/10" />

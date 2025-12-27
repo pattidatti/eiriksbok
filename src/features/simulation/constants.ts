@@ -157,11 +157,24 @@ export const LAW_TEMPLATES = [
 ];
 
 export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon: string, locationId: string, description: string, levels: Record<number, { requirements: Partial<Resources>, unlocks: string[], bonus: string }> }> = {
+    farm_house: {
+        id: 'farm_house',
+        name: 'Gårdshuset',
+        icon: '🏠',
+        locationId: 'peasant_farm',
+        description: 'Ditt personlige hjem. Oppgraderinger gir bedre hvile og mer matlagingsplass.',
+        levels: {
+            1: { requirements: {}, unlocks: [], bonus: 'Base hvile' },
+            2: { requirements: { wood: 50, gold: 100 }, unlocks: ['FARM_UPGRADE'], bonus: '+20% Stamina fra peisen' },
+            3: { requirements: { timber: 20, stone: 50, gold: 300 }, unlocks: ['FARM_UPGRADE_MASTER'], bonus: '+30% Stamina fra senga' }
+        }
+    },
     sawmill: {
+
         id: 'sawmill',
         name: 'Sagbruk',
         icon: '🪚',
-        locationId: 'forest', // Moved to Forest hub
+        locationId: 'village', // Moved to Village hub
         description: 'Gjør det mulig å foredle Ved til Tømmer.',
         levels: {
             1: { requirements: {}, unlocks: ['REFINE_TIMBER_BASIC'], bonus: 'Base produksjon' },
@@ -185,7 +198,7 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
         id: 'smeltery',
         name: 'Smeltehytte',
         icon: '🔥',
-        locationId: 'mine', // Moved to Mine hub
+        locationId: 'village', // Moved to Village hub
         description: 'Gjør det mulig å smelte Jernmalm til Jernbarrer.',
         levels: {
             1: { requirements: {}, unlocks: ['REFINE_IRON_BASIC'], bonus: 'Base produksjon' },

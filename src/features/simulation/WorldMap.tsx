@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import type { SimulationPlayer, SimulationRoom } from './simulationTypes';
 import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from './constants';
 
+
+
 import { TAVERN_NPCS } from './TavernData';
 import type { TavernNPC } from './TavernData';
 import { TavernDiceGame } from './TavernDiceGame';
 import { FloatingActionTooltip } from './components/FloatingActionTooltip';
-import { checkActionRequirements, getActionCostString } from './utils/actionUtils';
+
+
 
 
 interface POI {
@@ -112,68 +115,195 @@ const POINTS_OF_INTEREST: POI[] = [
 
     {
         id: 'bakery', label: 'Bakeri', icon: '🍞', top: '55%', left: '75%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [],
+        isHub: true
+    },
+
+
+    {
+        id: 'great_forge', label: 'Storsmie', icon: '⚒️', top: '35%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [],
+        isHub: true
+    },
+    {
+        id: 'windmill', label: 'Vindmølle', icon: '🌬️', top: '20%', left: '25%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'village',
         actions: [
-            { id: 'CRAFT_BREAD', label: 'Bake Brød', cost: '-10⚡ -2mel' },
-            { id: 'CRAFT_PIE', label: 'Bake Pai', cost: '-20⚡ -4mel' },
-            { id: 'CRAFT_FEAST', label: 'Gildemåltid', cost: '-50⚡ -10mel' }
-        ],
+            { id: 'REFINE_FLOUR_BASIC', label: 'Male Mel', cost: '-15⚡ -10korn' },
+            { id: 'REFINE_FLOUR_FAST', label: 'Hurtig-maling', cost: '-20⚡ -15korn' }
+        ], isHub: true
+    },
+    {
+        id: 'smeltery', label: 'Smeltehytte', icon: '🔥', top: '50%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [
+            { id: 'REFINE_IRON_BASIC', label: 'Smelte Jern', cost: '-20⚡ -5malm' },
+            { id: 'REFINE_IRON_FAST', label: 'Industri-smelting', cost: '-30⚡ -10malm' },
+            { id: 'REFINE_STEEL', label: 'Smelte Stål', cost: '-50⚡ -20malm' }
+        ], isHub: true
+    },
+    {
+        id: 'sawmill', label: 'Sagbruk', icon: '🪚', top: '70%', left: '20%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [
+            { id: 'REFINE_TIMBER_BASIC', label: 'Sag Tømmer', cost: '-10⚡ -5ved' },
+            { id: 'REFINE_TIMBER_FAST', label: 'Hurtig-saging', cost: '-15⚡ -5ved' }
+        ], isHub: true
+    },
+
+
+
+    {
+        id: 'weavery', label: 'Veveri', icon: '🧶', top: '75%', left: '85%', roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'village',
+        actions: [],
+        isHub: true
+    },
+
+
+    {
+        id: 'watchtower', label: 'Vaktårn', icon: '🏰', top: '15%', left: '60%', roles: ['BARON', 'SOLDIER'], parentId: 'village',
+        actions: [],
         isHub: true
     },
 
     {
-        id: 'great_forge', label: 'Storsmie', icon: '⚒️', top: '35%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'stables', label: 'Stall', icon: '🐴', top: '80%', left: '35%', roles: ['BARON', 'SOLDIER', 'KING'], parentId: 'village',
+        actions: [],
+        isHub: true
+    },
+
+    {
+        id: 'well', label: 'Bybrønn', icon: '💧', top: '65%', left: '60%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [],
+        isHub: true
+    },
+
+    {
+        id: 'apothecary', label: 'Apotek', icon: '🌿', top: '45%', left: '85%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        actions: [],
+        isHub: true
+    },
+    // --- GREAT FORGE INTERIOR ---
+    {
+        id: 'forge_anvil', label: 'Ambolt', icon: '🔨', top: '50%', left: '40%', roles: ['PEASANT', 'BARON'], parentId: 'great_forge',
         actions: [
             { id: 'stone_axe', label: 'Smi Steinøks', cost: '-10stein -5ved' },
             { id: 'stone_pickaxe', label: 'Smi Steinhakke', cost: '-10stein -5ved' },
             { id: 'iron_axe', label: 'Smi Jernøks', cost: '-5b -2t' },
             { id: 'iron_pickaxe', label: 'Smi Jernhakke', cost: '-5b -2t' },
             { id: 'iron_sword', label: 'Smi Jernsverd', cost: '-10b -2t' },
-            { id: 'steel_axe', label: 'Smi Ståløks', cost: '-20b -10t' },
-            { id: 'steel_sword', label: 'Smi Stålsverd', cost: '-30b -5t' },
             { id: 'REPAIR', label: 'Reparer Utstyr', cost: '-5g -10jern' }
-        ],
-
-        isHub: true
+        ]
     },
-
-
     {
-        id: 'weavery', label: 'Veveri', icon: '🧶', top: '75%', left: '85%', roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'village',
+        id: 'forge_upgrades', label: 'Tegneark', icon: '📜', top: '40%', left: '75%', roles: ['PEASANT', 'BARON'], parentId: 'great_forge',
+        actions: [{ id: 'BUILDING_UPGRADE_great_forge', label: 'Oppgrader Smia', cost: 'Varierer' }]
+    },
+    // --- BAKERY INTERIOR ---
+    {
+        id: 'bakery_oven', label: 'Bakerovn', icon: '🔥', top: '50%', left: '50%', roles: ['PEASANT', 'BARON'], parentId: 'bakery',
+        actions: [
+            { id: 'CRAFT_BREAD', label: 'Bake Brød', cost: '-10⚡ -2mel' },
+            { id: 'CRAFT_PIE', label: 'Bake Pai', cost: '-20⚡ -4mel' },
+            { id: 'CRAFT_FEAST', label: 'Gildemåltid', cost: '-50⚡ -10mel' }
+        ]
+    },
+    {
+        id: 'bakery_upgrades', label: 'Tegneark', icon: '📜', top: '30%', left: '80%', roles: ['PEASANT', 'BARON'], parentId: 'bakery',
+        actions: [{ id: 'BUILDING_UPGRADE_bakery', label: 'Oppgrader Bakeriet', cost: 'Varierer' }]
+    },
+    // --- WINDMILL INTERIOR ---
+    {
+        id: 'windmill_stones', label: 'Kvernsteiner', icon: '⚙️', top: '50%', left: '40%', roles: ['PEASANT', 'BARON'], parentId: 'windmill',
+        actions: [
+            { id: 'REFINE_FLOUR_BASIC', label: 'Male Mel', cost: '-15⚡ -10korn' },
+            { id: 'REFINE_FLOUR_FAST', label: 'Hurtig-maling', cost: '-20⚡ -15korn' }
+        ]
+    },
+    {
+        id: 'windmill_upgrades', label: 'Tegneark', icon: '📜', top: '40%', left: '80%', roles: ['PEASANT', 'BARON'], parentId: 'windmill',
+        actions: [{ id: 'BUILDING_UPGRADE_windmill', label: 'Oppgrader Mølla', cost: 'Varierer' }]
+    },
+    // --- SAWMILL INTERIOR ---
+    {
+        id: 'sawmill_blade', label: 'Saga', icon: '🪚', top: '50%', left: '40%', roles: ['PEASANT', 'BARON'], parentId: 'sawmill',
+        actions: [
+            { id: 'REFINE_TIMBER_BASIC', label: 'Sag Tømmer', cost: '-10⚡ -5ved' },
+            { id: 'REFINE_TIMBER_FAST', label: 'Hurtig-saging', cost: '-15⚡ -5ved' }
+        ]
+    },
+    {
+        id: 'sawmill_upgrades', label: 'Tegneark', icon: '📜', top: '40%', left: '80%', roles: ['PEASANT', 'BARON'], parentId: 'sawmill',
+        actions: [{ id: 'BUILDING_UPGRADE_sawmill', label: 'Oppgrader Sagbruket', cost: 'Varierer' }]
+    },
+    // --- SMELTERY INTERIOR ---
+    {
+        id: 'smeltery_furnace', label: 'Smelteovn', icon: '🔥', top: '50%', left: '30%', roles: ['PEASANT', 'BARON'], parentId: 'smeltery',
+        actions: [
+            { id: 'REFINE_IRON_BASIC', label: 'Smelte Jern', cost: '-20⚡ -5malm' },
+            { id: 'REFINE_IRON_FAST', label: 'Industri-smelting', cost: '-30⚡ -10malm' },
+            { id: 'REFINE_STEEL', label: 'Smelte Stål', cost: '-50⚡ -20malm' }
+        ]
+    },
+    {
+        id: 'smeltery_upgrades', label: 'Tegneark', icon: '📜', top: '40%', left: '80%', roles: ['PEASANT', 'BARON'], parentId: 'smeltery',
+        actions: [{ id: 'BUILDING_UPGRADE_smeltery', label: 'Oppgrader Smeltehytta', cost: 'Varierer' }]
+    },
+    // --- WEAVERY INTERIOR ---
+    {
+        id: 'weavery_loom', label: 'Vevstol', icon: '🧶', top: '50%', left: '40%', roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'weavery',
         actions: [
             { id: 'REFINE_CLOTH_BASIC', label: 'Vev Stoff', cost: '-15⚡ -5ull' },
             { id: 'REFINE_CLOTH_FAST', label: 'Hurtig-veving', cost: '-20⚡ -5ull' }
-        ],
-        isHub: true
-    },
-
-    {
-        id: 'watchtower', label: 'Vaktårn', icon: '🏰', top: '15%', left: '60%', roles: ['BARON', 'SOLDIER'], parentId: 'village',
-        actions: [
-            { id: 'PATROL', label: 'Patruljer', cost: '-30⚡' }
-        ],
-        isHub: true
+        ]
     },
     {
-        id: 'stables', label: 'Stall', icon: '🐴', top: '80%', left: '35%', roles: ['BARON', 'SOLDIER', 'KING'], parentId: 'village',
+        id: 'weavery_upgrades', label: 'Tegneark', icon: '📜', top: '40%', left: '80%', roles: ['PEASANT', 'BARON'], parentId: 'weavery',
+        actions: [{ id: 'BUILDING_UPGRADE_weavery', label: 'Oppgrader Veveriet', cost: 'Varierer' }]
+    },
+    // --- STABLES INTERIOR ---
+    {
+        id: 'stables_stall', label: 'Stallplass', icon: '🐴', top: '50%', left: '40%', roles: ['BARON', 'SOLDIER', 'KING'], parentId: 'stables',
         actions: [
             { id: 'MOUNT_HORSE', label: 'Ri ut', cost: '-5⚡' }
-        ],
-        isHub: true
+        ]
     },
     {
-        id: 'well', label: 'Bybrønn', icon: '💧', top: '65%', left: '60%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'stables_upgrades', label: 'Tegneark', icon: '📜', top: '40%', left: '80%', roles: ['BARON', 'KING'], parentId: 'stables',
+        actions: [{ id: 'BUILDING_UPGRADE_stables', label: 'Oppgrader Stallen', cost: 'Varierer' }]
+    },
+    // --- WATCHTOWER INTERIOR ---
+    {
+        id: 'watchtower_top', label: 'Vaktpost', icon: '🏰', top: '30%', left: '50%', roles: ['BARON', 'SOLDIER'], parentId: 'watchtower',
         actions: [
-            { id: 'GATHER_WATER', label: 'Hent Vann', cost: '-10⚡' }
-        ],
-        isHub: true
+            { id: 'PATROL', label: 'Patruljer', cost: '-30⚡' }
+        ]
     },
     {
-        id: 'apothecary', label: 'Apotek', icon: '🌿', top: '45%', left: '85%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'watchtower_upgrades', label: 'Tegneark', icon: '📜', top: '50%', left: '80%', roles: ['BARON'], parentId: 'watchtower',
+        actions: [{ id: 'BUILDING_UPGRADE_watchtower', label: 'Oppgrader Tårnet', cost: 'Varierer' }]
+    },
+    // --- APOTHECARY INTERIOR ---
+    {
+        id: 'apothecary_bench', label: 'Arbeidsbenk', icon: '🧪', top: '50%', left: '40%', roles: ['PEASANT', 'BARON'], parentId: 'apothecary',
         actions: [
             { id: 'CRAFT_MEDICINE', label: 'Lag Medisin', cost: '-20⚡' }
-        ],
-        isHub: true
+        ]
     },
+    {
+        id: 'apothecary_upgrades', label: 'Tegneark', icon: '📜', top: '40%', left: '80%', roles: ['PEASANT', 'BARON'], parentId: 'apothecary',
+        actions: [{ id: 'BUILDING_UPGRADE_apothecary', label: 'Oppgrader Apoteket', cost: 'Varierer' }]
+    },
+    // --- WELL INTERIOR (Courtyard) ---
+    {
+        id: 'well_water', label: 'Brønnkum', icon: '💧', top: '50%', left: '50%', roles: ['PEASANT', 'BARON'], parentId: 'well',
+        actions: [
+            { id: 'GATHER_WATER', label: 'Hent Vann', cost: '-10⚡' }
+        ]
+    },
+    {
+        id: 'well_upgrades', label: 'Tegneark', icon: '📜', top: '40%', left: '80%', roles: ['PEASANT', 'BARON'], parentId: 'well',
+        actions: [{ id: 'BUILDING_UPGRADE_well', label: 'Oppgrader Brønnen', cost: 'Varierer' }]
+    },
+
+
 
 
     // --- TAVERN LOCAL ---
@@ -195,13 +325,7 @@ const POINTS_OF_INTEREST: POI[] = [
         id: 'grain_fields', label: 'Kornåker', icon: '🌾', top: '50%', left: '30%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'fields',
         actions: [{ id: 'WORK', label: 'Høste Korn', cost: '-10⚡ -1🍞' }]
     },
-    {
-        id: 'windmill', label: 'Vindmølle', icon: '🌬️', top: '40%', left: '65%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'fields',
-        actions: [
-            { id: 'REFINE_FLOUR_BASIC', label: 'Male Mel', cost: '-15⚡ -10korn' },
-            { id: 'REFINE_FLOUR_FAST', label: 'Hurtig-maling', cost: '-20⚡ -15korn' }
-        ], isHub: true
-    },
+
 
 
 
@@ -214,14 +338,7 @@ const POINTS_OF_INTEREST: POI[] = [
         id: 'quarry_poi', label: 'Steinhuggeriet', icon: '🪨', top: '40%', left: '85%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'mine',
         actions: [{ id: 'QUARRY', label: 'Hugge Stein', cost: '-20⚡ -1🍞' }]
     },
-    {
-        id: 'smeltery', label: 'Smeltehytte', icon: '🔥', top: '45%', left: '50%', roles: ['PEASANT', 'BARON'], parentId: 'mine',
-        actions: [
-            { id: 'REFINE_IRON_BASIC', label: 'Smelte Jern', cost: '-20⚡ -5malm' },
-            { id: 'REFINE_IRON_FAST', label: 'Industri-smelting', cost: '-30⚡ -10malm' },
-            { id: 'REFINE_STEEL', label: 'Smelte Stål', cost: '-50⚡ -20malm' }
-        ], isHub: true
-    },
+
 
 
 
@@ -235,13 +352,7 @@ const POINTS_OF_INTEREST: POI[] = [
         id: 'forest_forage', label: 'Bærplukking', icon: '🍓', top: '60%', left: '90%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'forest',
         actions: [{ id: 'FORAGE', label: 'Sanke Mat (Nød)', cost: '-40⚡' }]
     },
-    {
-        id: 'sawmill', label: 'Sagbruk', icon: '🪚', top: '40%', left: '65%', roles: ['PEASANT', 'BARON'], parentId: 'forest',
-        actions: [
-            { id: 'REFINE_TIMBER_BASIC', label: 'Sag Tømmer', cost: '-10⚡ -5ved' },
-            { id: 'REFINE_TIMBER_FAST', label: 'Hurtig-saging', cost: '-15⚡ -5ved' }
-        ], isHub: true
-    },
+
 
 
 
@@ -270,9 +381,10 @@ const POINTS_OF_INTEREST: POI[] = [
         actions: [{ id: 'REST', label: 'Drikke vann', cost: '+5⚡' }]
     },
     {
-        id: 'farm_upgrade_spot', label: 'Utvidelser', icon: '🏗️', top: '55%', left: '80%', roles: ['PEASANT'], parentId: 'peasant_farm',
-        actions: [{ id: 'UPGRADE_FARM', label: 'Bygg ut gården', cost: 'Varierer' }]
+        id: 'farm_upgrade_spot', label: 'Tegneark', icon: '📜', top: '40%', left: '15%', roles: ['PEASANT'], parentId: 'farm_house',
+        actions: [{ id: 'BUILDING_UPGRADE_farm_house', label: 'Bygg ut gården', cost: 'Varierer' }]
     },
+
 
     // --- VILLAGE CONSTRUCTION LOCAL ---
     {
@@ -294,8 +406,10 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
     const [selectedPOI, setSelectedPOI] = useState<POI | null>(null);
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
     const [viewMode, setViewMode] = useState<string>(initialViewMode);
-    const [buildingTab, setBuildingTab] = useState<'ACTIONS' | 'UPGRADE'>('ACTIONS');
     const [viewingRegionId, setViewingRegionId] = useState<string>(player.regionId || 'capital');
+    const [upgradingBuildingId, setUpgradingBuildingId] = useState<string | null>(null);
+
+
 
     const [dialogNPC, setDialogNPC] = useState<TavernNPC | null>(null);
     const [dialogStep, setDialogStep] = useState<string>('start');
@@ -340,9 +454,11 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
         } else if (actionId in CRAFTING_RECIPES) {
             onAction({ type: 'CRAFT', subType: actionId });
 
-        } else if (actionId === 'FARM_UPGRADE') {
-            // Check if player has farm upgrades
-            onAction({ type: 'UPGRADE', upgradeId: 'peasant_farm_level' });
+        } else if (actionId.startsWith('BUILDING_UPGRADE_')) {
+            const bId = actionId.replace('BUILDING_UPGRADE_', '');
+            setUpgradingBuildingId(bId);
+
+
         } else if (actionId === 'OPEN_DICE_GAME') {
             setIsDiceGameOpen(true);
         } else if (actionId === 'CHAT_LOCAL') {
@@ -372,7 +488,19 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
             case 'forest': return '/map_forest.png';
             case 'monastery': return '/map_monastery.png';
             case 'tavern': return '/map_tavern_interior.png';
+            case 'great_forge': return '/map_forge_interior.png';
+            case 'bakery': return '/map_bakery_interior.png';
+            case 'windmill': return '/map_windmill_interior.png';
+            case 'sawmill': return '/map_sawmill_interior.png';
+            case 'smeltery': return '/map_smeltery_interior.png';
+            case 'weavery': return '/map_weavery_interior.png';
+            case 'stables': return '/map_stables_interior.png';
+            case 'watchtower': return '/map_watchtower_interior.png';
+            case 'well': return '/map_well_interior.png';
+            case 'apothecary': return '/map_apothecary_interior.png';
+
             case 'global':
+
                 // Check region ID for viewingRegionId
                 if (viewingRegionId === 'region_ost') {
                     return '/map_barony_2.png';
@@ -631,173 +759,8 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                 )}
 
 
-                {/* BUILDING HUB OVERLAY */}
-                {
-                    (() => {
-                        const buildingDef = VILLAGE_BUILDINGS[viewMode];
-                        if (!buildingDef) return null;
+                {/* BUILDING HUB OVERLAY REMOVED IN FAVOR OF IMMERSIVE HUBS */}
 
-                        const settlement = room.world?.settlement;
-                        const currentLevel = (settlement?.buildings?.[viewMode]?.level as number) || 1;
-
-                        const poi = POINTS_OF_INTEREST.find(p => p.id === viewMode);
-                        const nextLevel = currentLevel + 1;
-                        const nextLevelDef = buildingDef.levels[nextLevel];
-                        const currentLevelDef = buildingDef.levels[currentLevel];
-
-                        // Filtering actions by building level
-                        let unlockedActionIds: string[] = [];
-                        for (let i = 1; i <= currentLevel; i++) {
-                            if (buildingDef.levels[i]) {
-                                unlockedActionIds = [...unlockedActionIds, ...buildingDef.levels[i].unlocks];
-                            }
-                        }
-
-                        // Filter actions from POI data
-                        const availableActions = (poi?.actions || []).filter(a => unlockedActionIds.includes(a.id));
-
-                        return (
-                            <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-slate-950/95 backdrop-blur-xl animate-in fade-in duration-500">
-                                <div className="bg-slate-900 border border-white/10 rounded-[3rem] max-w-2xl w-full h-[85%] flex flex-col relative overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
-                                    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[100px] -mr-32 -mt-32 rounded-full" />
-
-                                    {/* Header */}
-                                    <div className="p-8 pb-4 flex items-center justify-between z-10">
-                                        <div className="flex items-center gap-6">
-                                            <div className="w-20 h-20 bg-indigo-600/20 text-indigo-400 rounded-3xl flex items-center justify-center text-5xl shadow-2xl border border-indigo-500/20">
-                                                {buildingDef.icon}
-                                            </div>
-                                            <div>
-                                                <h2 className="text-4xl font-black text-white tracking-tighter uppercase">{buildingDef.name}</h2>
-                                                <div className="flex items-center gap-3 mt-1">
-                                                    <span className="bg-indigo-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Nivå {currentLevel}</span>
-                                                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{currentLevelDef?.bonus}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button
-                                            onClick={() => {
-                                                if (poi?.parentId) setViewMode(poi.parentId);
-                                                else setViewMode('global');
-                                            }}
-                                            className="w-12 h-12 bg-white/5 hover:bg-white/10 text-white rounded-full flex items-center justify-center transition-all active:scale-95"
-                                        >
-                                            ✕
-                                        </button>
-                                    </div>
-
-                                    {/* Tabs */}
-                                    <div className="px-8 flex gap-2 z-10 border-b border-white/5 pb-2">
-                                        <button
-                                            onClick={() => setBuildingTab('ACTIONS')}
-                                            className={`px-6 py-3 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all ${buildingTab === 'ACTIONS' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-500 hover:text-white hover:bg-white/5'}`}
-                                        >
-                                            Handlinger
-                                        </button>
-                                        <button
-                                            onClick={() => setBuildingTab('UPGRADE')}
-                                            className={`px-6 py-3 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all ${buildingTab === 'UPGRADE' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-500 hover:text-white hover:bg-white/5'}`}
-                                        >
-                                            Oppgradering
-                                        </button>
-                                    </div>
-
-                                    {/* Scrollable Content */}
-                                    <div className="flex-1 overflow-y-auto p-8 z-10 custom-scrollbar">
-                                        {buildingTab === 'ACTIONS' ? (
-                                            <div className="space-y-4">
-                                                <div className="grid gap-3">
-                                                    {availableActions.map(action => {
-                                                        const currentSeason = (room.world?.season || 'Spring') as any;
-                                                        const currentWeather = (room.world?.weather || 'Clear') as any;
-                                                        const costLabel = getActionCostString(action.id, currentSeason, currentWeather) || action.cost;
-                                                        const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
-                                                        const canAfford = check.success;
-
-                                                        return (
-                                                            <button
-                                                                key={action.id}
-                                                                disabled={!canAfford}
-                                                                onClick={() => handlePOIAction(viewMode, action.id)}
-                                                                className={`group w-full flex items-center justify-between p-6 rounded-3xl border transition-all active:scale-[0.98] ${canAfford
-                                                                    ? 'bg-slate-800/50 border-white/5 hover:border-indigo-500/50 hover:bg-slate-800'
-                                                                    : 'bg-black/20 border-transparent opacity-50 cursor-not-allowed'
-                                                                    }`}
-                                                            >
-                                                                <div className="flex items-center gap-4">
-                                                                    <div className="text-3xl grayscale group-hover:grayscale-0 transition-all">✨</div>
-                                                                    <div className="text-left">
-                                                                        <div className="font-black text-white uppercase tracking-wider text-base">{action.label}</div>
-                                                                        {!canAfford && <div className="text-[10px] text-rose-400 font-bold uppercase">{check.reason}</div>}
-                                                                    </div>
-                                                                </div>
-                                                                <div className="bg-black/40 px-4 py-2 rounded-2xl border border-white/5 font-black text-sm text-indigo-300">
-                                                                    {costLabel}
-                                                                </div>
-                                                            </button>
-                                                        );
-                                                    })}
-                                                    {availableActions.length === 0 && (
-                                                        <div className="text-center py-20 text-slate-500 italic">
-                                                            <div className="text-5xl mb-4 opacity-20">🏗️</div>
-                                                            Ingen handlinger låst opp ennå.<br />
-                                                            Oppgrader bygningen for å få flere funksjoner!
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            </div>
-                                        ) : (
-                                            <div className="flex flex-col items-center">
-                                                <div className="bg-black/40 rounded-[2rem] p-8 w-full mb-8 border border-white/5 text-center">
-                                                    <p className="text-indigo-300 text-sm font-bold mb-4 uppercase tracking-widest flex items-center justify-center gap-2">
-                                                        <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
-                                                        Bonus ved neste nivå: {nextLevelDef?.bonus || 'Maksimal effekt'}
-                                                    </p>
-                                                    <p className="text-slate-400 text-sm leading-relaxed italic opacity-80">
-                                                        "{buildingDef.description}"
-                                                    </p>
-                                                </div>
-
-                                                {nextLevelDef ? (
-                                                    <div className="w-full space-y-8">
-                                                        <div className="text-left">
-                                                            <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Oppgraderingskrav (Nivå {nextLevel})</div>
-                                                            <div className="grid grid-cols-2 gap-4">
-                                                                {Object.entries(nextLevelDef.requirements || {}).map(([res, amt]) => {
-                                                                    const hasEnough = ((player.resources as any)[res] || 0) >= (amt as number);
-                                                                    return (
-                                                                        <div key={res} className={`flex items-center justify-between px-6 py-4 rounded-2xl border ${hasEnough ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-rose-500/5 border-rose-500/20'}`}>
-                                                                            <span className="capitalize text-[10px] font-black text-slate-400">{res}</span>
-                                                                            <span className={`text-lg font-black ${hasEnough ? 'text-emerald-400' : 'text-rose-400'}`}>
-                                                                                {amt as number}
-                                                                            </span>
-                                                                        </div>
-                                                                    );
-                                                                })}
-                                                            </div>
-                                                        </div>
-
-                                                        <button
-                                                            onClick={() => onAction({ type: 'CONSTRUCT_BUILDING', buildingId: viewMode })}
-                                                            className="w-full py-6 bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest rounded-[1.5rem] shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3"
-                                                        >
-                                                            Oppgrader til Nivå {nextLevel} 🛠️
-                                                        </button>
-                                                    </div>
-                                                ) : (
-                                                    <div className="py-12 px-10 bg-emerald-500/10 border border-emerald-500/20 rounded-[2.5rem] text-center w-full">
-                                                        <div className="text-emerald-400 font-black uppercase tracking-widest text-lg mb-2">Mesterverk fullført! 🏆</div>
-                                                        <div className="text-slate-400 text-sm font-medium">Denne bygningen har nådd sitt maksimale potensial.</div>
-                                                    </div>
-                                                )}
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })()
-                }
 
 
 
@@ -863,7 +826,104 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                     )
                 }
 
+
+                {/* BUILDING UPGRADE MODAL */}
+                {
+                    upgradingBuildingId && (() => {
+                        const buildingDef = VILLAGE_BUILDINGS[upgradingBuildingId];
+                        if (!buildingDef) return null;
+
+                        const settlement = room.world?.settlement;
+                        const currentLevel = (settlement?.buildings?.[upgradingBuildingId]?.level as number) || 1;
+                        const nextLevel = currentLevel + 1;
+                        const nextLevelDef = buildingDef.levels[nextLevel];
+                        const currentLevelDef = buildingDef.levels[currentLevel];
+
+                        return (
+                            <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-slate-950/95 backdrop-blur-xl animate-in fade-in duration-500">
+                                <div className="bg-slate-900 border border-white/10 rounded-[3rem] max-w-2xl w-full flex flex-col relative overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
+                                    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[100px] -mr-32 -mt-32 rounded-full" />
+
+                                    {/* Header */}
+                                    <div className="p-8 flex items-center justify-between z-10">
+                                        <div className="flex items-center gap-6">
+                                            <div className="w-20 h-20 bg-indigo-600/20 text-indigo-400 rounded-3xl flex items-center justify-center text-5xl shadow-2xl border border-indigo-500/20">
+                                                {buildingDef.icon}
+                                            </div>
+                                            <div>
+                                                <h2 className="text-4xl font-black text-white tracking-tighter uppercase">{buildingDef.name}</h2>
+                                                <div className="flex items-center gap-3 mt-1">
+                                                    <span className="bg-indigo-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Nivå {currentLevel}</span>
+                                                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{currentLevelDef?.bonus}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button
+                                            onClick={() => setUpgradingBuildingId(null)}
+                                            className="w-12 h-12 bg-white/5 hover:bg-white/10 text-white rounded-full flex items-center justify-center transition-all active:scale-95"
+                                        >
+                                            ✕
+                                        </button>
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="flex-1 overflow-y-auto p-8 z-10 custom-scrollbar pt-0">
+                                        <div className="flex flex-col items-center">
+                                            <div className="bg-black/40 rounded-[2rem] p-8 w-full mb-8 border border-white/5 text-center">
+                                                <p className="text-indigo-300 text-sm font-bold mb-4 uppercase tracking-widest flex items-center justify-center gap-2">
+                                                    <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
+                                                    Bonus ved neste nivå: {nextLevelDef?.bonus || 'Maksimal effekt'}
+                                                </p>
+                                                <p className="text-slate-400 text-sm leading-relaxed italic opacity-80">
+                                                    "{buildingDef.description}"
+                                                </p>
+                                            </div>
+
+                                            {nextLevelDef ? (
+                                                <div className="w-full space-y-8">
+                                                    <div className="text-left">
+                                                        <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Oppgraderingskrav (Nivå {nextLevel})</div>
+                                                        <div className="grid grid-cols-2 gap-4">
+                                                            {Object.entries(nextLevelDef.requirements || {}).map(([res, amt]) => {
+                                                                const hasEnough = ((player.resources as any)[res] || 0) >= (amt as number);
+                                                                return (
+                                                                    <div key={res} className={`flex items-center justify-between px-6 py-4 rounded-2xl border ${hasEnough ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-rose-500/5 border-rose-500/20'}`}>
+                                                                        <span className="capitalize text-[10px] font-black text-slate-400">{res}</span>
+                                                                        <span className={`text-lg font-black ${hasEnough ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                                            {amt as number}
+                                                                        </span>
+                                                                    </div>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    </div>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            onAction({ type: 'UPGRADE_BUILDING', buildingId: upgradingBuildingId });
+                                                            setUpgradingBuildingId(null);
+                                                        }}
+                                                        className="w-full py-6 bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest rounded-[1.5rem] shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3"
+                                                    >
+                                                        Oppgrader til Nivå {nextLevel} 🛠️
+                                                    </button>
+                                                </div>
+                                            ) : (
+                                                <div className="py-12 px-10 bg-emerald-500/10 border border-emerald-500/20 rounded-[2.5rem] text-center w-full">
+                                                    <div className="text-emerald-400 font-black uppercase tracking-widest text-lg mb-2">Mesterverk fullført! 🏆</div>
+                                                    <div className="text-slate-400 text-sm font-medium">Denne bygningen har nådd sitt maksimale potensial.</div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })()
+                }
+
             </div >
+
         </>
     );
 };

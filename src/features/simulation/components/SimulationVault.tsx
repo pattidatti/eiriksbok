@@ -68,7 +68,7 @@ export const SimulationVault: React.FC<SimulationVaultProps> = ({ player, onActi
                 <div>
                     <h2 className="text-4xl font-display font-black text-white tracking-tighter uppercase flex items-center gap-4">
                         <Package className="w-10 h-10 text-indigo-400" />
-                        Eiendele
+                        Eiendeler
                     </h2>
                     <p className="text-slate-400 mt-1 font-medium italic">Forvalt dine ressurser og utrustning</p>
                 </div>

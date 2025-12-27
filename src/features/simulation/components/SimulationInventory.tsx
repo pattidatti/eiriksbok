@@ -21,7 +21,7 @@ export const SimulationInventory: React.FC<SimulationInventoryProps> = ({ player
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {Object.entries(player.resources || {}).map(([resId, amount]) => {
                     // Gold is often shown in header, but we can show it here too or skip it
-                    // if (resId === 'gold') return null; 
+                    if (resId === 'manpower') return null;
 
                     return (
                         <GameCard key={resId} className="flex flex-col items-center text-center p-6 group hover:bg-white/5 transition-colors">

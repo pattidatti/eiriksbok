@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, type ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
 
-type TabType = 'MAP' | 'VILLAGE' | 'INVENTORY' | 'MARKET' | 'UPGRADES' | 'SKILLS' | 'DIPLOMACY' | 'HIERARCHY' | 'PROFILE';
+type TabType = 'MAP' | 'VILLAGE' | 'INVENTORY' | 'MARKET' | 'UPGRADES' | 'SKILLS' | 'DIPLOMACY' | 'HIERARCHY' | 'PROFILE' | 'ACTIVITY';
 type MinigameType = 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE' | null;
 
 
@@ -31,7 +31,9 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
     // Helper: URL slug <-> Internal State
     const getTabFromUrl = (urlTab?: string): TabType => {
         if (!urlTab) return 'MAP';
-        return urlTab.toUpperCase() as TabType;
+        const t = urlTab.toUpperCase();
+        if (t === 'ACTIVITY' || t === 'LOG') return 'ACTIVITY';
+        return t as TabType;
     };
 
     const getUrlFromTab = (t: TabType): string => {
