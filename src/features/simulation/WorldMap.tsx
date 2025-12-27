@@ -114,7 +114,7 @@ const POINTS_OF_INTEREST: POI[] = [
     },
 
     {
-        id: 'bakery', label: 'Bakeri', icon: '🍞', top: '55%', left: '75%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'bakery', label: 'Bakeri', icon: '🍞', top: '80%', left: '30%', roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [],
         isHub: true
     },
@@ -126,14 +126,14 @@ const POINTS_OF_INTEREST: POI[] = [
         isHub: true
     },
     {
-        id: 'windmill', label: 'Vindmølle', icon: '🌬️', top: '20%', left: '25%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'village',
+        id: 'windmill', label: 'Vindmølle', icon: '🌬️', top: '20%', left: '37%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'village',
         actions: [
             { id: 'REFINE_FLOUR_BASIC', label: 'Male Mel', cost: '-15⚡ -10korn' },
             { id: 'REFINE_FLOUR_FAST', label: 'Hurtig-maling', cost: '-20⚡ -15korn' }
         ], isHub: true
     },
     {
-        id: 'smeltery', label: 'Smeltehytte', icon: '🔥', top: '50%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'smeltery', label: 'Smeltehytte', icon: '🔥', top: '60%', left: '95%', roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [
             { id: 'REFINE_IRON_BASIC', label: 'Smelte Jern', cost: '-20⚡ -5malm' },
             { id: 'REFINE_IRON_FAST', label: 'Industri-smelting', cost: '-30⚡ -10malm' },
@@ -141,7 +141,7 @@ const POINTS_OF_INTEREST: POI[] = [
         ], isHub: true
     },
     {
-        id: 'sawmill', label: 'Sagbruk', icon: '🪚', top: '70%', left: '20%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'sawmill', label: 'Sagbruk', icon: '🪚', top: '55%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [
             { id: 'REFINE_TIMBER_BASIC', label: 'Sag Tømmer', cost: '-10⚡ -5ved' },
             { id: 'REFINE_TIMBER_FAST', label: 'Hurtig-saging', cost: '-15⚡ -5ved' }
@@ -151,32 +151,32 @@ const POINTS_OF_INTEREST: POI[] = [
 
 
     {
-        id: 'weavery', label: 'Veveri', icon: '🧶', top: '75%', left: '85%', roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'village',
+        id: 'weavery', label: 'Veveri', icon: '🧶', top: '50%', left: '85%', roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'village',
         actions: [],
         isHub: true
     },
 
 
     {
-        id: 'watchtower', label: 'Vaktårn', icon: '🏰', top: '15%', left: '60%', roles: ['BARON', 'SOLDIER'], parentId: 'village',
+        id: 'watchtower', label: 'Vaktårn', icon: '🏰', top: '15%', left: '68%', roles: ['BARON', 'SOLDIER'], parentId: 'village',
         actions: [],
         isHub: true
     },
 
     {
-        id: 'stables', label: 'Stall', icon: '🐴', top: '80%', left: '35%', roles: ['BARON', 'SOLDIER', 'KING'], parentId: 'village',
+        id: 'stables', label: 'Stall', icon: '🐴', top: '80%', left: '80%', roles: ['BARON', 'SOLDIER', 'KING'], parentId: 'village',
         actions: [],
         isHub: true
     },
 
     {
-        id: 'well', label: 'Bybrønn', icon: '💧', top: '65%', left: '60%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'well', label: 'Bybrønn', icon: '💧', top: '69%', left: '60%', roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [],
         isHub: true
     },
 
     {
-        id: 'apothecary', label: 'Apotek', icon: '🌿', top: '45%', left: '85%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'apothecary', label: 'Apotek', icon: '🌿', top: '30%', left: '85%', roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [],
         isHub: true
     },
@@ -465,6 +465,8 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
             const randomNPC = TAVERN_NPCS[Math.floor(Math.random() * TAVERN_NPCS.length)];
             setDialogNPC(randomNPC);
             setDialogStep('start');
+        } else if (actionId === 'BUY_MEAL') {
+            onAction({ type: 'BUY_MEAL' });
         } else {
             onAction(actionId);
         }
@@ -746,12 +748,28 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                         room={room}
                         viewingRegionId={viewingRegionId}
                         onAction={(actionPayload) => {
-                            if (typeof actionPayload === 'string') {
-                                handlePOIAction(selectedPOI.id, actionPayload);
+                            const actionType = typeof actionPayload === 'string' ? actionPayload : actionPayload.type;
+
+                            // Local UI Actions (Must go through handlePOIAction)
+                            if (
+                                actionType === 'OPEN_DICE_GAME' ||
+                                actionType === 'CHAT_LOCAL' ||
+                                actionType === 'MARKET_VIEW' ||
+                                actionType === 'BUY_MEAL' ||
+                                actionType.startsWith('BUILDING_UPGRADE_') ||
+                                actionType.startsWith('REFINE_') ||
+                                actionType.startsWith('CRAFT_') ||
+                                (typeof CRAFTING_RECIPES !== 'undefined' && actionType in CRAFTING_RECIPES)
+                            ) {
+                                handlePOIAction(selectedPOI.id, actionType);
                             } else {
-                                // Direct object dispatch for complex actions (e.g. Minigame variants)
-                                onAction(actionPayload);
-                                setSelectedPOI(null);
+                                // Direct dispatch for others (incl. variants objects)
+                                if (typeof actionPayload === 'string') {
+                                    handlePOIAction(selectedPOI.id, actionPayload);
+                                } else {
+                                    onAction(actionPayload);
+                                    setSelectedPOI(null);
+                                }
                             }
                         }}
                         onClose={() => setSelectedPOI(null)}

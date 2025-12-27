@@ -59,23 +59,23 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                         ) : RoleIcon}
                     </div>
                     <div>
-                        <h1 className="text-xl font-display font-bold text-white leading-tight">{player.name}</h1>
+                        <h1 className="text-2xl font-display font-bold text-white leading-tight">{player.name}</h1>
                         <div className="flex flex-col gap-1 mt-1">
-                            <Badge variant="role">{roleTitle}</Badge>
-                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter truncate max-w-[160px]">📍 {getRegionName(player.regionId)}</span>
+                            <Badge variant="role" className="text-sm px-3 py-1 w-fit">{roleTitle}</Badge>
+                            <span className="text-sm font-bold text-slate-500 uppercase tracking-tighter truncate max-w-[160px]">📍 {getRegionName(player.regionId)}</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Vitals */}
-                <GameCard className="!p-4 !bg-black/20 space-y-3">
+                <GameCard className="!p-4 !bg-black/20 space-y-4">
                     {/* Stamina */}
                     <div>
-                        <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest mb-1 text-slate-400">
+                        <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
                             <span>⚡ Stamina</span>
                             <span className="text-white">{Math.round(staminaWidth)}%</span>
                         </div>
-                        <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                        <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
                             <div
                                 className={`h-full transition-all duration-500 shadow-[0_0_10px_rgba(245,158,11,0.5)] ${staminaWidth > 50 ? 'bg-amber-400' : staminaWidth > 20 ? 'bg-amber-600' : 'bg-red-500 animate-pulse'}`}
                                 style={{ width: `${staminaWidth}%` }}
@@ -85,11 +85,11 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
 
                     {/* Health */}
                     <div>
-                        <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest mb-1 text-slate-400">
+                        <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
                             <span>❤️ Helse</span>
                             <span className="text-white">{healthWidth}%</span>
                         </div>
-                        <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                        <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
                             <div
                                 className="h-full bg-gradient-to-r from-rose-500 to-rose-700 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(225,29,72,0.5)]"
                                 style={{ width: `${healthWidth}%` }}
@@ -99,11 +99,11 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
 
                     {/* XP */}
                     <div>
-                        <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest mb-1 text-slate-400">
+                        <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
                             <span>Nivå {currentLvl}</span>
                             <span className="text-indigo-400">{Math.floor(xpPercent)}%</span>
                         </div>
-                        <div className="h-1 bg-slate-800 rounded-full overflow-hidden">
+                        <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
                             <div
                                 className="h-full bg-indigo-500 transition-all duration-1000"
                                 style={{ width: `${xpPercent}%` }}

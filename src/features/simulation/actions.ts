@@ -644,6 +644,20 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 }
 
 
+
+            } else if (actionType === 'BUY_MEAL') {
+                const cost = 5;
+                if ((actor.resources.gold || 0) >= cost) {
+                    actor.resources.gold -= cost;
+                    const staminaGain = 10;
+                    actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaGain);
+                    localResult.yields.push({ resource: 'stamina', amount: staminaGain });
+                    localResult.message = "Kjøpte et måltid i baren. (+10 Stamina)";
+                } else {
+                    localResult.success = false;
+                    localResult.message = "Har ikke råd til mat (koster 5g).";
+                }
+
             } else if (actionType === 'REST' || actionType === 'EAT' || actionType === 'FEAST') {
                 // Simplified restoration
                 let stam = 30;
