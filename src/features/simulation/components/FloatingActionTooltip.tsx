@@ -289,9 +289,94 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                             );
                         })}
 
-                        {availableActions.length === 0 && (
-                            <div className="text-center py-6 text-slate-500 italic text-xs">Ingen handlinger tilgjengelig</div>
-                        )}
+                        {(() => {
+                            const bId = (poi.id in VILLAGE_BUILDINGS) ? poi.id : (poi.parentId in VILLAGE_BUILDINGS ? poi.parentId : null);
+                            if (!bId) {
+                                if (availableActions.length === 0) {
+                                    return <div className="text-center py-6 text-slate-500 italic text-xs">Ingen handlinger tilgjengelig</div>;
+                                }
+                                return null;
+                            }
+
+                            const buildingDef = VILLAGE_BUILDINGS[bId];
+                            const isPrivate = bId === 'farm_house';
+
+                            const buildingState = isPrivate
+                                ? (player.buildings?.[bId] || { level: 1, progress: {} })
+                                : (room.world?.settlement?.buildings?.[bId] || { level: 1, progress: {}, contributions: {} });
+
+                            const nextLevel = buildingState.level + 1;
+                            const nextLevelDef = buildingDef.levels[nextLevel];
+
+                            if (!nextLevelDef) {
+                                if (availableActions.length === 0) {
+                                    return <div className="text-center py-6 text-slate-500 italic text-xs">Maksimalt nivå nådd</div>;
+                                }
+                                return null;
+                            }
+
+                            return (
+                                <div className="mt-4 pt-4 border-t border-white/10 space-y-4">
+                                    <div className="flex items-center justify-between">
+                                        <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500">Oppgradering til Nivå {nextLevel}</h4>
+                                        {nextLevelDef.bonus && <span className="text-[10px] text-slate-500 italic">"{nextLevelDef.bonus}"</span>}
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        {Object.entries(nextLevelDef.requirements).map(([res, targetAmt]: [any, any]) => {
+                                            const currentAmt = (buildingState.progress as any)[res] || 0;
+                                            const progress = Math.min(100, (currentAmt / targetAmt) * 100);
+                                            const playerHas = (player.resources as any)[res] || 0;
+                                            const canGive = playerHas > 0 && currentAmt < targetAmt;
+
+                                            return (
+                                                <div key={res} className="space-y-1.5">
+                                                    <div className="flex justify-between items-end text-[10px]">
+                                                        <span className="font-bold uppercase tracking-widest text-slate-300">{res} ({currentAmt}/{targetAmt})</span>
+                                                        <span className="text-slate-500">{Math.round(progress)}%</span>
+                                                    </div>
+                                                    <div className="flex gap-2 items-center">
+                                                        <div className="flex-1 h-2 bg-black/40 rounded-full overflow-hidden border border-white/5">
+                                                            <div
+                                                                className="h-full bg-gradient-to-r from-amber-600 to-amber-400 transition-all duration-1000"
+                                                                style={{ width: `${progress}%` }}
+                                                            />
+                                                        </div>
+                                                        {canGive && (
+                                                            <button
+                                                                onClick={() => onAction({ type: 'CONTRIBUTE_TO_UPGRADE', buildingId: bId, resource: res, amount: Math.min(playerHas, targetAmt - currentAmt) })}
+                                                                className="px-3 py-1 bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-black rounded-lg transition-colors active:scale-95"
+                                                            >
+                                                                BIDRA
+                                                            </button>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+
+                                    {/* Contributors List for Global Buildings */}
+                                    {!isPrivate && (buildingState as any).contributions && Object.keys((buildingState as any).contributions).length > 0 && (
+                                        <div className="bg-black/20 rounded-xl p-3 border border-white/5">
+                                            <div className="text-[9px] font-black uppercase tracking-widest text-slate-500 mb-2">Siste Bidrag</div>
+                                            <div className="space-y-1">
+                                                {Object.entries((buildingState as any).contributions).slice(0, 3).map(([pId, data]: [string, any]) => (
+                                                    <div key={pId} className="flex justify-between items-center text-[10px]">
+                                                        <span className="text-slate-300 font-bold">{data.name}</span>
+                                                        <div className="flex gap-2">
+                                                            {Object.entries(data.resources).map(([r, a]: [any, any]) => (
+                                                                <span key={r} className="text-indigo-400">+{a} {r}</span>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })()}
                     </div>
                 </div>
             </div>

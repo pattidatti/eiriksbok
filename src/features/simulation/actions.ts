@@ -722,6 +722,86 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     actor.resources.gold = Math.max(0, (actor.resources.gold || 0) - amount);
                     localResult.message = `Tapte ${amount}g på terninger. (${playerRoll} mot ${houseRoll})`;
                 }
+            } else if (actionType === 'CONTRIBUTE_TO_UPGRADE') {
+                const { buildingId, resource, amount } = action;
+                const buildingDef = VILLAGE_BUILDINGS[buildingId];
+                if (!buildingDef) return actor;
+
+                // 1. Determine if it's private or shared
+                const isPrivate = buildingId === 'farm_house';
+
+                // 2. Get current state
+                let buildingState: { level: number; progress: Partial<Resources>; contributions?: any };
+                if (isPrivate) {
+                    if (!actor.buildings) actor.buildings = {};
+                    if (!actor.buildings[buildingId]) actor.buildings[buildingId] = { level: 1, progress: {} };
+                    buildingState = actor.buildings[buildingId];
+                } else {
+                    if (!room.world.settlement) room.world.settlement = { buildings: {} };
+                    if (!room.world.settlement.buildings[buildingId]) {
+                        room.world.settlement.buildings[buildingId] = { id: buildingId, level: 1, progress: {}, contributions: {} };
+                    }
+                    buildingState = room.world.settlement.buildings[buildingId] as any;
+                }
+
+                // 3. Get requirements for next level
+                const nextLevel = buildingState.level + 1;
+                const nextLevelDef = buildingDef.levels[nextLevel];
+                if (!nextLevelDef) {
+                    localResult.success = false;
+                    localResult.message = "Maksimum nivå nådd.";
+                    return actor;
+                }
+
+                const reqAmount = (nextLevelDef.requirements as any)[resource] || 0;
+                const currentProg = (buildingState.progress as any)[resource] || 0;
+                const needed = reqAmount - currentProg;
+
+                if (needed <= 0) {
+                    localResult.success = false;
+                    localResult.message = "Dette bygget trenger ikke mer av denne ressursen.";
+                    return actor;
+                }
+
+                // 4. Validate player has resource
+                const playerHas = (actor.resources as any)[resource] || 0;
+                const giveAmount = Math.min(amount, needed, playerHas);
+
+                if (giveAmount <= 0) {
+                    localResult.success = false;
+                    localResult.message = `Du har ikke nok ${resource}.`;
+                    return actor;
+                }
+
+                // 5. Apply contribution
+                (actor.resources as any)[resource] -= giveAmount;
+                (buildingState.progress as any)[resource] = currentProg + giveAmount;
+
+                if (!isPrivate) {
+                    if (!buildingState.contributions) buildingState.contributions = {};
+                    if (!buildingState.contributions[actor.id]) {
+                        buildingState.contributions[actor.id] = { name: actor.name, resources: {} };
+                    }
+                    const pCont = buildingState.contributions[actor.id].resources;
+                    pCont[resource] = (pCont[resource] || 0) + giveAmount;
+                }
+
+                localResult.message = `Bidro med ${giveAmount} ${resource} til ${buildingDef.name}.`;
+                localResult.yields.push({ resource, amount: -giveAmount });
+
+                // 6. Check for level up
+                let finished = true;
+                Object.entries(nextLevelDef.requirements).forEach(([res, amt]) => {
+                    if (((buildingState.progress as any)[res] || 0) < (amt as number)) finished = false;
+                });
+
+                if (finished) {
+                    buildingState.level = nextLevel;
+                    buildingState.progress = {};
+                    if (!isPrivate) buildingState.contributions = {};
+                    localResult.message += ` ⚒️ NYTT NIVÅ: ${buildingDef.name} nådde Nivå ${nextLevel}!`;
+                }
+
             } else if (actionType === 'UPGRADE_BUILDING' || actionType === 'CONSTRUCT_BUILDING') {
                 const bId = action.buildingId || actionType.replace('UPGRADE_BUILDING_', '');
                 const buildingDef = VILLAGE_BUILDINGS[bId];

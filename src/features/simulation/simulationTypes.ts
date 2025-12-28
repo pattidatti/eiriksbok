@@ -115,6 +115,11 @@ export interface SimulationPlayer {
     history?: string[];
     avatar?: string;
 
+    buildings?: Record<string, {
+        level: number;
+        progress: Partial<Resources>;
+    }>;
+
     lastActive: number;
 }
 
@@ -195,8 +200,8 @@ export interface SimulationRoom {
             buildings: Record<string, {
                 id: string;
                 level: number;
-                progress: number;
-                target: number;
+                progress: Partial<Resources>; // current resources contributed for next level
+                contributions: Record<string, { name: string, resources: Partial<Resources> }>; // player contributions
             }>;
             activeProjectId?: string;
         };
