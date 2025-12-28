@@ -4,7 +4,7 @@ import { ROLE_TITLES, LEVEL_XP, SEASONS } from '../constants';
 import { useSimulation } from '../SimulationContext';
 import { Badge } from '../ui/Badge';
 import { GameCard } from '../ui/GameCard';
-import { Map, User, Scroll, MessageSquare, LayoutGrid, Hammer, Sun, Package } from 'lucide-react';
+import { Map, User, Scroll, MessageSquare, LayoutGrid, Sun, Package } from 'lucide-react';
 
 interface SimulationSidebarProps {
     player: SimulationPlayer;
@@ -205,32 +205,7 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                 </div >
 
                 {/* Group 4: Misc */}
-                < div className="space-y-1" >
-                    <div className="px-4 text-[10px] font-black uppercase text-slate-600 tracking-widest mb-2">Annet</div>
-                    {
-                        [
-                            { id: 'UPGRADES', label: 'Oppgraderinger', icon: Hammer },
-                        ].map((tab) => {
-                            const isActive = activeTab === tab.id;
-                            const Icon = tab.icon;
-                            return (
-                                <button
-                                    key={tab.id}
-                                    onClick={() => setActiveTab(tab.id as any)}
-                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all text-sm uppercase tracking-wide
-                                    ${isActive
-                                            ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20 translate-x-1'
-                                            : 'text-slate-400 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1'
-                                        }
-                                `}
-                                >
-                                    <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
-                                    <span>{tab.label}</span>
-                                </button>
-                            );
-                        })
-                    }
-                </div >
+                {/* UPGRADES moved to Map POIs */}
             </nav >
 
             {/* Footer */}

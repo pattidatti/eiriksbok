@@ -2,7 +2,7 @@ import React from 'react';
 import { ref, update } from 'firebase/database';
 import { db } from '../../../lib/firebase';
 import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
-import { RESOURCE_DETAILS, UPGRADES_LIST, ROLE_TITLES, LEVEL_XP } from '../constants';
+import { ROLE_TITLES, LEVEL_XP } from '../constants';
 import { Badge } from '../ui/Badge';
 
 
@@ -70,7 +70,7 @@ interface SimulationViewportProps {
 }
 
 export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, room, pin, onAction }) => {
-    const { activeTab, setActiveTab, actionLoading } = useSimulation();
+    const { activeTab, setActiveTab } = useSimulation();
 
     // Helper to get friendly region name
     const getRegionName = (rId: string) => {
@@ -120,43 +120,6 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                                             <p className="text-slate-500 font-bold uppercase tracking-widest">Riket er stille... Ingen hendelser arkivert ennå.</p>
                                         </div>
                                     )}
-                                </div>
-                            </div>
-                        ) : activeTab === 'UPGRADES' ? (
-
-                            <div className="space-y-6">
-                                <h2 className="text-4xl font-black text-white tracking-tighter border-b-2 border-white/5 pb-4">Oppgraderinger</h2>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    {(UPGRADES_LIST as any)[player.role]?.map((upg: any) => {
-                                        const isOwned = player.upgrades?.includes(upg.id);
-                                        let canAfford = true;
-                                        Object.entries(upg.cost || {}).forEach(([res, amt]) => {
-                                            if (((player.resources as any)[res] || 0) < (amt as number)) canAfford = false;
-                                        });
-                                        return (
-                                            <div key={upg.id} className={`p-6 rounded-3xl border-2 transition-all ${isOwned ? 'bg-indigo-900/20 border-indigo-500 shadow-lg shadow-indigo-500/10' : 'bg-slate-800/40 border-white/5'}`}>
-                                                <div className="flex justify-between items-start mb-4">
-                                                    <h3 className="text-2xl font-black text-white">{upg.name}</h3>
-                                                    <div className="flex flex-col items-end gap-1.5">
-                                                        {Object.entries(upg.cost || {}).map(([res, amt]) => {
-                                                            const det = (RESOURCE_DETAILS as any)[res] || { label: res };
-                                                            return (
-                                                                <span key={res} className="text-xs font-black px-3 py-1 bg-black/40 rounded-full text-indigo-400 font-mono uppercase tracking-widest border border-indigo-500/20">{amt} {det.label}</span>
-                                                            );
-                                                        })}
-                                                    </div>
-                                                </div>
-                                                <p className="text-sm text-slate-300 mb-8 leading-relaxed italic opacity-90">{upg.description}</p>
-                                                <button
-                                                    onClick={() => onAction({ type: 'UPGRADE', upgradeId: upg.id })}
-                                                    disabled={isOwned || !canAfford || !!actionLoading}
-                                                    className={`w-full py-3 rounded-xl font-black uppercase tracking-widest text-xs transition-all ${isOwned ? 'bg-emerald-600/10 text-emerald-500 cursor-default' : canAfford ? 'bg-indigo-600 text-white shadow-xl hover:bg-indigo-500' : 'bg-slate-700 text-slate-500 opacity-50'}`}
-                                                >
-                                                    {isOwned ? '✅ AKTIV' : canAfford ? 'KJØP OPPGRADERING' : 'MANGLER RESSURSER'}
-                                                </button>
-                                            </div>
-                                        );
-                                    })}
                                 </div>
                             </div>
                         ) : activeTab === 'SKILLS' ? (

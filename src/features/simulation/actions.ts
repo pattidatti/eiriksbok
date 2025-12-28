@@ -712,6 +712,16 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 // (Simplified logic to match restoration need)
                 localResult.message = `Handelsrute ${direction} ${resource} utført.`;
                 trackXp('TRADING', 20); // Using new skill
+            } else if (actionType === 'GAMBLE_RESULT') {
+                const { amount, isWin, playerRoll, houseRoll } = action;
+                if (isWin) {
+                    actor.resources.gold = (actor.resources.gold || 0) + amount;
+                    localResult.yields.push({ resource: 'gold', amount });
+                    localResult.message = `Vant ${amount}g på terninger! (${playerRoll} mot ${houseRoll})`;
+                } else {
+                    actor.resources.gold = Math.max(0, (actor.resources.gold || 0) - amount);
+                    localResult.message = `Tapte ${amount}g på terninger. (${playerRoll} mot ${houseRoll})`;
+                }
             } else if (actionType === 'UPGRADE_BUILDING' || actionType === 'CONSTRUCT_BUILDING') {
                 const bId = action.buildingId || actionType.replace('UPGRADE_BUILDING_', '');
                 const buildingDef = VILLAGE_BUILDINGS[bId];

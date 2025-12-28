@@ -309,7 +309,12 @@ const POINTS_OF_INTEREST: POI[] = [
     // --- TAVERN LOCAL ---
     {
         id: 'tavern_bar', label: 'Baren', icon: '🍗', top: '30%', left: '30%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'tavern',
-        actions: [{ id: 'BUY_MEAL', label: 'Kjøp Måltid', cost: '-5g +10⚡' }]
+        actions: [
+            { id: 'BUY_MEAL', label: 'Kjøp Måltid', cost: '-5g +10⚡' },
+            { id: 'REST_BASIC', label: 'Hvile i Salen', cost: 'Gratis' },
+            { id: 'REST_COMFY', label: 'Bestille Kammer', cost: '-5g' },
+            { id: 'REST_ROYAL', label: 'Kongelig Suite', cost: '-20g' }
+        ]
     },
     {
         id: 'tavern_gambling', label: 'Spillebordet', icon: '🎲', top: '50%', left: '50%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'tavern',
@@ -488,8 +493,16 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
             case 'village_construction': return '/map_village_construction.png';
             case 'castle': return '/map_castle_interior.png';
             case 'fields': return '/map_farm_fields.png';
-            case 'peasant_farm': return '/map_peasant_farm.png';
-            case 'farm_house': return '/map_stugo_interior.jpg';
+            case 'peasant_farm': {
+                const level = room.world?.settlement?.buildings?.farm_house?.level || 1;
+                if (level > 1) return `/map_peasant_farm_lvl${level}.png`;
+                return '/map_peasant_farm.png';
+            }
+            case 'farm_house': {
+                const level = room.world?.settlement?.buildings?.farm_house?.level || 1;
+                if (level > 1) return `/map_stugo_interior_lvl${level}.png`;
+                return '/map_stugo_interior.jpg';
+            }
             case 'mine': return '/map_mountain_pass.png';
             case 'forest': return '/map_forest.png';
             case 'monastery': return '/map_monastery.png';

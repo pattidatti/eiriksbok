@@ -164,9 +164,11 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
         locationId: 'peasant_farm',
         description: 'Ditt personlige hjem. Oppgraderinger gir bedre hvile og mer matlagingsplass.',
         levels: {
-            1: { requirements: {}, unlocks: [], bonus: 'Base hvile' },
+            1: { requirements: {}, unlocks: ['SLEEP', 'EAT'], bonus: 'Base hvile' },
             2: { requirements: { wood: 50, gold: 100 }, unlocks: ['FARM_UPGRADE'], bonus: '+20% Stamina fra peisen' },
-            3: { requirements: { timber: 20, stone: 50, gold: 300 }, unlocks: ['FARM_UPGRADE_MASTER'], bonus: '+30% Stamina fra senga' }
+            3: { requirements: { timber: 20, stone: 50, gold: 300 }, unlocks: ['FARM_UPGRADE_MASTER'], bonus: '+30% Stamina fra senga' },
+            4: { requirements: { timber: 50, stone: 100, gold: 600, tools: 5 }, unlocks: ['FARM_UPGRADE_ELITE'], bonus: '+50% Stamina fra hvile' },
+            5: { requirements: { timber: 100, stone: 200, gold: 1000, iron_ingot: 20, tools: 10 }, unlocks: ['FARM_UPGRADE_GODLY'], bonus: 'Restaurerer all Stamina ved hvile' }
         }
     },
     sawmill: {
@@ -238,7 +240,7 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
         locationId: 'village',
         description: 'Et sted for hvile og rykter. Øker stamina-regenerering.',
         levels: {
-            1: { requirements: {}, unlocks: ['REST_BASIC'], bonus: 'Standard hvile' },
+            1: { requirements: {}, unlocks: ['ENTER_TAVERN', 'REST_BASIC', 'BUY_MEAL', 'OPEN_DICE_GAME', 'CHAT_LOCAL'], bonus: 'Standard hvile' },
             2: { requirements: { wood: 100, stone: 50, gold: 250 }, unlocks: ['REST_COMFY'], bonus: 'Dobbel stamina-regen' },
             3: { requirements: { timber: 50, stone: 150, gold: 750 }, unlocks: ['REST_ROYAL'], bonus: 'Gjenoppretter all stamina raskt' }
         }
