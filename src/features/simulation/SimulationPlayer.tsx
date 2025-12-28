@@ -184,10 +184,23 @@ const SimulationGame: React.FC = () => {
         const actionType = typeof action === 'string' ? action : action.type;
         const actionMethod = typeof action === 'object' ? action.method : null;
 
-        const minigameTypes = ['WORK', 'CHOP', 'MILL', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE'];
+        const minigameTypes = ['WORK', 'CHOP', 'CRAFT', 'MILL', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE', 'SMELT', 'BAKE', 'WEAVE', 'MIX'];
 
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
-            setActiveMinigame(actionType as any);
+            let actualType = actionType;
+
+            // Map refined actions to thematic games
+            if (actionType === 'REFINE') {
+                if (action.recipeId === 'flour') actualType = 'MILL';
+                if (action.recipeId === 'iron_ingot') actualType = 'SMELT';
+                if (action.recipeId === 'bread' || action.recipeId === 'pie' || action.recipeId === 'mead') actualType = 'BAKE';
+                if (action.recipeId === 'cloth') actualType = 'WEAVE';
+            }
+            if (actionType === 'CRAFT' && (action.id === 'CRAFT_MEDICINE' || action.id === 'CRAFT_POISON')) {
+                actualType = 'MIX';
+            }
+
+            setActiveMinigame(actualType as any);
             if (actionMethod) setActiveMinigameMethod(actionMethod);
             setActiveMinigameAction(action);
             return;

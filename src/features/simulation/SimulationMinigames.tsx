@@ -4,7 +4,7 @@ import { SEASONS, WEATHER } from './constants';
 import type { EquipmentItem } from './simulationTypes';
 
 interface MinigameProps {
-    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE';
+    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE' | 'SMELT' | 'BAKE' | 'WEAVE' | 'MIX';
 
 
     onComplete: (score: number) => void;
@@ -35,16 +35,12 @@ export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon
     CRAFT: [
         { id: 'rhythm', label: 'Smiing', icon: '⚒️', desc: 'Slå mens jernet er varmt.' }
     ],
-    MILL: [{ id: 'balance', label: 'Balanse', icon: '🎡', desc: 'Hold kverna i gang.' }],
-    DEFEND: [{ id: 'combat', label: 'Kamp', icon: '⚔️', desc: 'Forsvar baroniet.' }],
-
-    PATROL: [{ id: 'patrol', label: 'Patrulje', icon: '🛡️', desc: 'Vokt grensene.' }],
-    EXPLORE: [{ id: 'quest', label: 'Oppdrag', icon: '🧭', desc: 'Utforsk det ukjente.' }],
-    FORAGE: [
-        { id: 'berries', label: 'Bærplukking', icon: '🍓', desc: 'Sank bær og sopp.' },
-        { id: 'traps', label: 'Snarefiske', icon: '🎣', desc: 'Sjekk fellene dine.' }
-    ],
-    REFINE: [{ id: 'rhythm', label: 'Foredling', icon: '⚗️', desc: 'Smi eller bearbeid råvarene.' }]
+    REFINE: [{ id: 'rhythm', label: 'Foredling', icon: '⚗️', desc: 'Smi eller bearbeid råvarene.' }],
+    SMELT: [{ id: 'bellows', label: 'Belgpumping', icon: '🔥', desc: 'Hold temperaturen oppe.' }],
+    BAKE: [{ id: 'oven', label: 'Steking', icon: '🍞', desc: 'Pass på at det ikke brenner seg.' }],
+    MILL: [{ id: 'wind', label: 'Vindbalanse', icon: '🌬️', desc: 'Finn den rette vinden.' }],
+    WEAVE: [{ id: 'shuttle', label: 'Vevstol', icon: '🧶', desc: 'Styr skyttelen i rytme.' }],
+    MIX: [{ id: 'herbs', label: 'Urteblanding', icon: '🌿', desc: 'Følg oppskriften nøyaktig.' }]
 };
 
 
@@ -113,16 +109,14 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
     };
 
     // Calculate speed bonus from relevant equipment
-    const actionEquipment = equipment.filter(item => {
+    const actionEquipment = equipment.filter(_item => {
         // Simplified check: if it's a tool/weapon relevant to the action, use its stats
         // For now use raw stats from whatever is passed
         return true;
     });
     const speedMultiplier = actionEquipment.reduce((acc, item) => acc * (item.stats?.speedBonus || 1.0), 1.0);
 
-    // Calculate Yield Estimate (Match actions.ts calculateYield)
     const possibleYield = useMemo(() => {
-        const balance = (window as any).GAME_BALANCE || { YIELD: { WORK_GRAIN: 10, CHOP_WOOD: 5, MINE_ORE: 5, QUARRY_STONE: 8, FORAGE_BREAD: 1 } };
         let base = 10;
         let skillType = 'FARMING';
         if (type === 'CHOP') { base = 5; skillType = 'WOODCUTTING'; }
@@ -137,7 +131,6 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
         equipment.forEach(item => {
             if (item.stats?.yieldBonus) equipBonus += item.stats.yieldBonus;
         });
-
 
         total += equipBonus;
 
@@ -251,6 +244,16 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                 return <PatrolMinigameRouter onComplete={onComplete} />;
                             case 'EXPLORE':
                                 return <QuestGame onComplete={onComplete} />;
+                            case 'MILL':
+                                return <MillingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                            case 'SMELT':
+                                return <SmeltingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                            case 'BAKE':
+                                return <BakingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                            case 'WEAVE':
+                                return <WeavingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                            case 'MIX':
+                                return <ApothecaryGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
                             default:
                                 return <div className="text-white">Ukjent minispill-type: {type}</div>;
                         }
@@ -329,6 +332,7 @@ const HarvestingGame: React.FC<{
                 {floatingTexts.map(ft => <FloatingText key={ft.id} text={ft.text} onComplete={() => setFloatingTexts(p => p.filter(i => i.id !== ft.id))} />)}
                 {!isFinished ? (
                     <>
+                        <div className="mb-4 text-xs font-black text-amber-500 uppercase tracking-widest">{resourceName}</div>
                         <div className="w-full h-8 bg-white/5 rounded-full mb-12 relative border border-white/10 overflow-hidden shadow-inner">
                             <div className="absolute inset-y-0 left-[42%] right-[42%] bg-amber-500/30 border-x border-amber-500/50" />
                             <div className="absolute inset-y-0 w-1 bg-white shadow-[0_0_20px_white]" style={{ left: `${pointerPos}%` }} />
@@ -452,7 +456,7 @@ const WoodcuttingGame: React.FC<{
     speedMultiplier?: number,
     possibleYield?: number,
     resourceName?: string
-}> = ({ onComplete, speedMultiplier = 1.0, possibleYield = 5, resourceName = 'Ved' }) => {
+}> = ({ onComplete, speedMultiplier: _speedMultiplier = 1.0, possibleYield = 5, resourceName = 'Ved' }) => {
     const [target, setTarget] = useState({ x: 50, y: 50 });
     const [hits, setHits] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
@@ -645,9 +649,367 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
 };
 
 
-/* --- PLACEHOLDERS --- */
-const MillingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
-    return <div onClick={() => onComplete(0.5)} className="p-12 text-center font-black text-2xl cursor-pointer">Milling Game placeholder (Click to finish)</div>;
+/* --- MILLING GAME (Wind Balance) --- */
+const MillingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
+    const [wind, setWind] = useState(50);
+    const [progress, setProgress] = useState(0);
+    const [isFinished, setIsFinished] = useState(false);
+    const [fluctuation, setFluctuation] = useState(0);
+
+    useEffect(() => {
+        if (isFinished) return;
+        const interval = setInterval(() => {
+            setFluctuation(f => f + 0.1);
+            setWind(w => {
+                const change = Math.sin(fluctuation) * 2 + (Math.random() - 0.5) * 4;
+                const next = Math.max(0, Math.min(100, w + change));
+
+                // If wind is in "sweet spot" (40-60), increase progress
+                if (next > 35 && next < 65) {
+                    setProgress(p => {
+                        const nextP = p + (0.5 * speedMultiplier);
+                        if (nextP >= 100) {
+                            setIsFinished(true);
+                            setTimeout(() => onComplete(1.0), 1000);
+                            return 100;
+                        }
+                        return nextP;
+                    });
+                }
+                return next;
+            });
+        }, 100);
+        return () => clearInterval(interval);
+    }, [isFinished, fluctuation, speedMultiplier]);
+
+    const adjustWind = (amt: number) => {
+        setWind(w => Math.max(0, Math.min(100, w + amt)));
+    };
+
+    return (
+        <div className="p-12 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden"
+            style={{ backgroundImage: 'url("/images/minigames/agriculture_bg.png")', backgroundSize: 'cover' }}>
+            <div className="absolute inset-0 bg-black/70 z-0" />
+            <h2 className="relative z-10 text-4xl font-black text-white mb-8 tracking-tighter uppercase italic">Vindmølle: Maling 🌬️</h2>
+
+            <div className="relative z-10 w-full max-w-sm h-64 bg-black/40 rounded-[2rem] border border-white/10 p-8 flex flex-col items-center mb-12">
+                <div className="flex-1 w-4 bg-white/10 rounded-full relative">
+                    <div className="absolute inset-x-0 h-16 bg-amber-500/30 border-y border-amber-500/50" style={{ bottom: '40%' }} />
+                    <div className="absolute w-8 h-8 bg-white border-4 border-amber-500 rounded-full shadow-[0_0_20px_white] -left-2 transition-all duration-100" style={{ bottom: `${wind}%`, transform: 'translateY(50%)' }} />
+                </div>
+                <div className="mt-6 text-xs font-black text-amber-500 uppercase tracking-widest">Hold vinden i midten</div>
+            </div>
+
+            <div className="relative z-10 flex gap-4 mb-8">
+                <button onMouseDown={() => adjustWind(-10)} className="w-20 h-20 bg-white/10 hover:bg-white/20 rounded-2xl flex items-center justify-center text-3xl border border-white/10">⬇️</button>
+                <button onMouseDown={() => adjustWind(10)} className="w-20 h-20 bg-white/10 hover:bg-white/20 rounded-2xl flex items-center justify-center text-3xl border border-white/10">⬆️</button>
+            </div>
+
+            <div className="relative z-10 w-full max-w-md h-4 bg-white/10 rounded-full overflow-hidden border border-white/10">
+                <div className="h-full bg-emerald-500 transition-all duration-300" style={{ width: `${progress}%` }} />
+            </div>
+        </div>
+    );
+};
+
+/* --- SMELTING GAME (Bellows Pumping) --- */
+const SmeltingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
+    const [temp, setTemp] = useState(20);
+    const [progress, setProgress] = useState(0);
+    const [isFinished, setIsFinished] = useState(false);
+
+    useEffect(() => {
+        if (isFinished) return;
+        const decay = setInterval(() => {
+            setTemp(t => {
+                const next = Math.max(0, t - 1);
+                if (next > 60 && next < 90) {
+                    setProgress(p => {
+                        const nextP = p + (0.8 * speedMultiplier);
+                        if (nextP >= 100) {
+                            setIsFinished(true);
+                            setTimeout(() => onComplete(1.0), 1000);
+                            return 100;
+                        }
+                        return nextP;
+                    });
+                }
+                return next;
+            });
+        }, 100);
+
+        const handleKeys = (e: KeyboardEvent) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                setTemp(t => Math.min(100, t + 10));
+            }
+        };
+        window.addEventListener('keydown', handleKeys);
+        return () => {
+            clearInterval(decay);
+            window.removeEventListener('keydown', handleKeys);
+        };
+    }, [isFinished, speedMultiplier]);
+
+    return (
+        <div className="p-12 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden"
+            style={{ backgroundImage: 'url("/images/minigames/smithing_bg.png")', backgroundSize: 'cover' }}>
+            <div className="absolute inset-0 bg-black/70 z-0" />
+            <h2 className="relative z-10 text-4xl font-black text-white mb-8 tracking-tighter uppercase italic">Smeltehytte: Belger ⚒️</h2>
+
+            <div className="relative z-10 w-full max-w-md h-12 bg-black/40 rounded-full border border-white/10 mb-12 flex items-center px-2 overflow-hidden">
+                <div className="absolute inset-y-0 left-[60%] right-[10%] bg-orange-500/20 border-x border-orange-500/50" />
+                <div className={`h-8 transition-all duration-100 rounded-full ${temp > 60 && temp < 90 ? 'bg-orange-500 shadow-[0_0_20px_orange]' : 'bg-slate-600'}`}
+                    style={{ width: `${temp}%` }} />
+            </div>
+
+            <div className="relative z-10 mb-12">
+                <div className="w-32 h-32 bg-slate-800 rounded-full border-4 border-white/10 flex flex-col items-center justify-center animate-bounce">
+                    <span className="text-5xl">💨</span>
+                </div>
+                <div className="mt-4 text-white font-black uppercase tracking-widest animate-pulse">Trykk SPACE for å pumpe!</div>
+            </div>
+
+            <div className="relative z-10 w-full max-w-md h-4 bg-white/10 rounded-full overflow-hidden border border-white/10">
+                <div className="h-full bg-orange-500 transition-all duration-300" style={{ width: `${progress}%` }} />
+            </div>
+        </div>
+    );
+};
+
+/* --- BAKING GAME (Golden Timing) --- */
+const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
+    const [progress, setProgress] = useState(0);
+    const [isFinished, setIsFinished] = useState(false);
+    const [batch, setBatch] = useState(0);
+    const [feedback, setFeedback] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (isFinished || feedback) return;
+        const interval = setInterval(() => {
+            setProgress(p => {
+                const next = p + (1.2 * speedMultiplier);
+                if (next >= 100) {
+                    setFeedback('BRENT! 🔥');
+                    setTimeout(() => { setFeedback(null); setProgress(0); }, 1000);
+                    return 0;
+                }
+                return next;
+            });
+        }, 50);
+        return () => clearInterval(interval);
+    }, [isFinished, feedback, speedMultiplier]);
+
+    const pullOut = () => {
+        if (isFinished || feedback) return;
+        // Sweet spot 70-90
+        if (progress > 65 && progress < 92) {
+            setFeedback('PERFEKT GYLLEN! ✨');
+            setBatch(b => {
+                const next = b + 1;
+                if (next >= 3) {
+                    setIsFinished(true);
+                    setTimeout(() => onComplete(1.0), 1000);
+                }
+                return next;
+            });
+        } else if (progress < 65) {
+            setFeedback('RÅ... 🥖');
+        } else {
+            setFeedback('LITT BRENT... 🥯');
+        }
+        setTimeout(() => { setFeedback(null); setProgress(0); }, 1000);
+    };
+
+    return (
+        <div className="p-12 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden"
+            style={{ backgroundImage: 'url("/images/minigames/bakery_bg.png")', backgroundSize: 'cover' }}>
+            <div className="absolute inset-0 bg-black/70 z-0" />
+            <h2 className="relative z-10 text-4xl font-black text-white mb-8 tracking-tighter uppercase italic">Bakeri: Steking 🍞</h2>
+
+            <div className="relative z-10 w-64 h-64 bg-slate-900 border-8 border-amber-900 rounded-3xl flex items-center justify-center overflow-hidden mb-12 shadow-2xl">
+                <div className="absolute inset-0 bg-orange-500/10 animate-pulse" />
+                <div className="text-8xl transition-all duration-300 transform"
+                    style={{
+                        filter: `grayscale(${100 - progress}%) sepia(${progress}%)`,
+                        transform: `scale(${0.8 + (progress / 500)})`
+                    }}>
+                    🥖
+                </div>
+                {feedback && (
+                    <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-black text-2xl p-4 animate-in zoom-in">
+                        {feedback}
+                    </div>
+                )}
+            </div>
+
+            <div className="relative z-10 w-full max-w-sm h-4 bg-white/10 rounded-full mb-12 border border-white/10 overflow-hidden">
+                <div className="absolute inset-y-0 left-[70%] right-[10%] bg-emerald-500/30 border-x border-emerald-500/50" />
+                <div className="h-full bg-orange-500 transition-all duration-75" style={{ width: `${progress}%` }} />
+            </div>
+
+            <div className="relative z-10 flex gap-4 mb-8">
+                {[...Array(3)].map((_, i) => (
+                    <div key={i} className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl border-2 transition-all ${batch > i ? 'bg-amber-500 border-amber-300 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30'}`}>
+                        🥖
+                    </div>
+                ))}
+            </div>
+
+            <button onClick={pullOut} className="relative z-10 w-full max-w-sm bg-amber-600 hover:bg-amber-500 text-white py-6 rounded-2xl font-black text-2xl shadow-xl active:scale-95 transition-all uppercase tracking-widest border-b-8 border-amber-800">
+                TA UT NÅ! 🧤
+            </button>
+        </div>
+    );
+};
+
+/* --- WEAVING GAME (Shuttle Rhythm) --- */
+const WeavingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
+    const [lastSide, setLastSide] = useState<'left' | 'right'>('right');
+    const [progress, setProgress] = useState(0);
+    const [isFinished, setIsFinished] = useState(false);
+    const [feedback, setFeedback] = useState<string | null>(null);
+
+    const handleKey = (side: 'left' | 'right') => {
+        if (isFinished) return;
+        if (side !== lastSide) {
+            setLastSide(side);
+            setProgress(p => {
+                const next = p + (5 * speedMultiplier);
+                if (next >= 100) {
+                    setIsFinished(true);
+                    setTimeout(() => onComplete(1.0), 1000);
+                    return 100;
+                }
+                return next;
+            });
+            setFeedback(side === 'left' ? '⬅️' : '➡️');
+            setTimeout(() => setFeedback(null), 200);
+        }
+    };
+
+    useEffect(() => {
+        const handleDown = (e: KeyboardEvent) => {
+            if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') handleKey('left');
+            if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') handleKey('right');
+        };
+        window.addEventListener('keydown', handleDown);
+        return () => window.removeEventListener('keydown', handleDown);
+    }, [lastSide, isFinished]);
+
+    return (
+        <div className="p-12 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden"
+            style={{ backgroundImage: 'url("/images/minigames/weavery_bg.png")', backgroundSize: 'cover' }}>
+            <div className="absolute inset-0 bg-black/70 z-0" />
+            <h2 className="relative z-10 text-4xl font-black text-white mb-8 tracking-tighter uppercase italic">Veveri: Vevstol 🧶</h2>
+
+            <div className="relative z-10 w-full max-w-lg aspect-video bg-slate-900/50 border-4 border-white/10 rounded-3xl p-8 mb-12 flex flex-col justify-between overflow-hidden">
+                <div className="flex justify-between items-center mb-8 relative h-32">
+                    <div className={`text-6xl transition-all duration-300 ${lastSide === 'left' ? 'translate-x-0' : 'translate-x-64 opacity-20'}`}>🧵</div>
+                    <div className="absolute inset-x-0 h-1 bg-white/20 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <div className={`text-6xl transition-all duration-300 ${lastSide === 'right' ? 'translate-x-0' : '-translate-x-64 opacity-20'}`}>🧵</div>
+                </div>
+
+                <div className="text-sm font-black text-indigo-300 uppercase tracking-[0.3em] h-8">
+                    {feedback || 'Veksle mellom Venstre / Høyre'}
+                </div>
+            </div>
+
+            <div className="relative z-10 flex gap-4 mb-8">
+                <button onClick={() => handleKey('left')} className={`w-24 h-24 rounded-3xl flex items-center justify-center text-4xl border-4 transition-all ${lastSide === 'right' ? 'bg-indigo-600 border-indigo-400 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'}`}>
+                    ⬅️
+                </button>
+                <button onClick={() => handleKey('right')} className={`w-24 h-24 rounded-3xl flex items-center justify-center text-4xl border-4 transition-all ${lastSide === 'left' ? 'bg-indigo-600 border-indigo-400 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'}`}>
+                    ➡️
+                </button>
+            </div>
+
+            <div className="relative z-10 w-full max-w-sm h-4 bg-white/10 rounded-full border border-white/10 overflow-hidden">
+                <div className="h-full bg-indigo-500 transition-all duration-300" style={{ width: `${progress}%` }} />
+            </div>
+        </div>
+    );
+};
+
+/* --- APOTHECARY GAME (Mixing Sequence) --- */
+const ApothecaryGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier: _speedMultiplier = 1.0 }) => {
+    const [sequence, setSequence] = useState<string[]>([]);
+    const [_playerSeq, setPlayerSeq] = useState<string[]>([]);
+    const [step, setStep] = useState(0);
+    const [isFinished, setIsFinished] = useState(false);
+    const [feedback, setFeedback] = useState<string | null>(null);
+
+    const ingredients = [
+        { id: 'red', icon: '🔴', label: 'Rødurt' },
+        { id: 'blue', icon: '🔵', label: 'Blåbær' },
+        { id: 'green', icon: '🟢', label: 'Grønnmose' },
+        { id: 'yellow', icon: '🟡', label: 'Gulrot' }
+    ];
+
+    useEffect(() => {
+        const newSeq = [];
+        for (let i = 0; i < 5; i++) {
+            newSeq.push(ingredients[Math.floor(Math.random() * ingredients.length)].id);
+        }
+        setSequence(newSeq);
+    }, []);
+
+    const handleMix = (id: string) => {
+        if (isFinished || feedback) return;
+
+        if (id === sequence[step]) {
+            const nextStep = step + 1;
+            setPlayerSeq(p => [...p, id]);
+            setStep(nextStep);
+            setFeedback('RIKTIG! ✨');
+            setTimeout(() => setFeedback(null), 500);
+
+            if (nextStep >= sequence.length) {
+                setIsFinished(true);
+                setTimeout(() => onComplete(1.0), 1000);
+            }
+        } else {
+            setFeedback('FEIL... 💥');
+            setStep(0);
+            setPlayerSeq([]);
+            setTimeout(() => setFeedback(null), 1000);
+        }
+    };
+
+    return (
+        <div className="p-12 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden"
+            style={{ backgroundImage: 'url("/images/minigames/apothecary_bg.png")', backgroundSize: 'cover' }}>
+            <div className="absolute inset-0 bg-black/70 z-0" />
+            <h2 className="relative z-10 text-4xl font-black text-white mb-8 tracking-tighter uppercase italic">Apoteker: Brygging 🌿</h2>
+
+            <div className="relative z-10 mb-12 flex gap-4 h-24 items-center">
+                {sequence.map((id, i) => (
+                    <div key={i} className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl transition-all border-2 border-white/10 ${step > i ? 'opacity-10 scale-90' : 'bg-black/40 scale-100'}`}>
+                        {ingredients.find(ing => ing.id === id)?.icon}
+                    </div>
+                ))}
+            </div>
+
+            {feedback && (
+                <div className={`relative z-10 text-3xl font-black mb-8 animate-in zoom-in ${feedback.includes('FEIL') ? 'text-rose-500' : 'text-emerald-400'}`}>
+                    {feedback}
+                </div>
+            )}
+
+            <div className="relative z-10 grid grid-cols-2 gap-6 w-full max-w-sm">
+                {ingredients.map(ing => (
+                    <button
+                        key={ing.id}
+                        onClick={() => handleMix(ing.id)}
+                        className="p-6 bg-slate-900 border-2 border-white/10 rounded-3xl flex flex-col items-center gap-2 hover:bg-slate-800 hover:border-indigo-500/50 transition-all active:scale-95 shadow-xl group"
+                    >
+                        <span className="text-4xl group-hover:scale-110 transition-transform">{ing.icon}</span>
+                        <span className="text-[10px] font-black uppercase text-slate-400 tracking-widest">{ing.label}</span>
+                    </button>
+                ))}
+            </div>
+        </div>
+    );
 };
 
 const CombatGame: React.FC<{ onComplete: (score: number) => void, isKnight?: boolean }> = ({ onComplete }) => {
