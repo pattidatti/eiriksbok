@@ -176,7 +176,8 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                 if (!check.success) { canAfford = false; missingReason = check.reason || 'Krav ikke møtt'; }
                             }
 
-                            const costLabel = getActionCostString(action.id, currentSeason, currentWeather) || action.cost;
+                            // Simplified cost display for basic resources/stamina
+                            const costLabel = getActionCostString(action.id, currentSeason, currentWeather);
                             const variants = MINIGAME_VARIANTS[action.id];
 
                             return (

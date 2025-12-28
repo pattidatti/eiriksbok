@@ -1,9 +1,9 @@
 import { ref, runTransaction } from 'firebase/database';
-import { db } from '../../lib/firebase';
+import { simulationDb as db } from './simulationFirebase';
 import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, WEATHER, GAME_BALANCE, REFINERY_RECIPES, INITIAL_SKILLS, CRAFTING_RECIPES, ITEM_TEMPLATES, LEVEL_XP, VILLAGE_BUILDINGS, RESOURCE_DETAILS } from './constants';
 
 
-import type { SkillType, SimulationPlayer, EquipmentItem, EquipmentSlot } from './simulationTypes';
+import type { SkillType, SimulationPlayer, EquipmentItem, EquipmentSlot, Resources } from './simulationTypes';
 
 
 /* --- HELPERS --- */
@@ -726,7 +726,8 @@ export const performAction = async (pin: string, playerId: string, action: any):
             } else if (actionType === 'CONTRIBUTE_TO_UPGRADE') {
                 const { buildingId, resource, amount } = action;
                 const buildingDef = VILLAGE_BUILDINGS[buildingId];
-                if (!buildingDef) return actor;
+                if (!buildingDef) return;
+
 
                 // 1. Determine if it's private or shared
                 const isPrivate = buildingId === 'farm_house';
@@ -750,8 +751,9 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 const nextLevelDef = buildingDef.levels[nextLevel];
                 if (!nextLevelDef) {
                     localResult.success = false;
-                    localResult.message = "Maksimum nivå nådd.";
-                    return actor;
+                    result = localResult;
+                    return;
+
                 }
 
                 const reqAmount = (nextLevelDef.requirements as any)[resource] || 0;
@@ -760,8 +762,9 @@ export const performAction = async (pin: string, playerId: string, action: any):
 
                 if (needed <= 0) {
                     localResult.success = false;
-                    localResult.message = "Dette bygget trenger ikke mer av denne ressursen.";
-                    return actor;
+                    result = localResult;
+                    return;
+
                 }
 
                 // 4. Validate player has resource
@@ -770,8 +773,9 @@ export const performAction = async (pin: string, playerId: string, action: any):
 
                 if (giveAmount <= 0) {
                     localResult.success = false;
-                    localResult.message = `Du har ikke nok ${resource}.`;
-                    return actor;
+                    result = localResult;
+                    return;
+
                 }
 
                 // 5. Apply contribution

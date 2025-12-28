@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ref, set, onValue, update, get } from 'firebase/database';
-import { db } from '../../lib/firebase';
+import { ref, set, onValue, update, get, remove } from 'firebase/database';
+import { simulationDb as db } from './simulationFirebase';
 import { useLayout } from '../../context/LayoutContext';
 
 import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES, VILLAGE_BUILDINGS, SEASONS, RESOURCE_DETAILS } from './constants';
@@ -15,6 +15,20 @@ export const SimulationHost: React.FC = () => {
     const [view, setView] = useState<'LIST' | 'MANAGE'>('LIST');
     const { setFullWidth } = useLayout();
 
+    const deleteRoom = async (roomPin: string) => {
+        if (!window.confirm(`ER DU SIKKER? Dette vil slette rommet ${roomPin} permanent! Denne handlingen kan ikke angres.`)) return;
+        setIsLoading(true);
+        try {
+            await remove(ref(db, `simulation_rooms/${roomPin}`));
+        } catch (e) {
+            console.error(e);
+            alert("Kunne ikke slette rommet.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+
     // Handle Layout
     useEffect(() => {
         setFullWidth(true);
@@ -27,8 +41,12 @@ export const SimulationHost: React.FC = () => {
         const unsubscribe = onValue(roomsRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
-                const roomList = Object.values(data) as SimulationRoom[];
-                setAllRooms(roomList.reverse());
+                const roomList = Object.entries(data).map(([key, val]: [string, any]) => ({
+                    ...val,
+                    pin: val.pin || key
+                }));
+                // Sort by pin or creation? Reverse seems to be the intent
+                setAllRooms(roomList.reverse() as any[]);
             } else {
                 setAllRooms([]);
             }
@@ -80,7 +98,7 @@ export const SimulationHost: React.FC = () => {
                 settlement: {
                     buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id]: [string, any]) => ({
                         ...acc,
-                        [id]: { id, level: 0, progress: 0, target: 200 }
+                        [id]: { id, level: 0, progress: {}, target: 200 }
                     }), {}),
                     activeProjectId: 'sawmill'
                 }
@@ -314,7 +332,7 @@ export const SimulationHost: React.FC = () => {
                 settlement: {
                     buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id]: [string, any]) => ({
                         ...acc,
-                        [id]: { id, level: 0, progress: 0, target: 200 }
+                        [id]: { id, level: 0, progress: {}, target: 200 }
                     }), {}),
                     activeProjectId: 'sawmill'
                 }
@@ -336,7 +354,7 @@ export const SimulationHost: React.FC = () => {
         setIsLoading(true);
         try {
             const updates: any = {};
-            updates[`simulation_rooms / ${pin}/status`] = 'LOBBY';
+            updates[`simulation_rooms/${pin}/status`] = 'LOBBY';
             updates[`simulation_rooms/${pin}/worldEvents`] = {};
             updates[`simulation_rooms/${pin}/messages`] = [];
             updates[`simulation_rooms/${pin}/market`] = INITIAL_MARKET;
@@ -347,7 +365,7 @@ export const SimulationHost: React.FC = () => {
             updates[`simulation_rooms/${pin}/world/settlement`] = {
                 buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id]: [string, any]) => ({
                     ...acc,
-                    [id]: { id, level: 0, progress: 0, target: 200 }
+                    [id]: { id, level: 0, progress: {}, target: 200 }
                 }), {}),
                 activeProjectId: 'sawmill'
             };
@@ -443,7 +461,7 @@ export const SimulationHost: React.FC = () => {
                                 <div className="flex justify-between items-start mb-6">
                                     <div className="text-5xl font-mono font-black text-white group-hover:text-indigo-400 transition-colors">{r.pin}</div>
                                     <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${r.status === 'PLAYING' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400'}`}>
-                                        {r.status}
+                                        {typeof r.status === 'string' ? r.status : 'KORRUPT'}
                                     </span>
                                 </div>
                                 <div className="space-y-4 mb-8">
@@ -453,26 +471,47 @@ export const SimulationHost: React.FC = () => {
                                     </div>
                                     <div className="flex items-center justify-between text-sm font-bold text-slate-500">
                                         <span>Årstid:</span>
-                                        <span className="text-indigo-300">{(INITIAL_MARKET as any)[r.world?.season] || r.world?.season}</span>
+                                        <span className="text-indigo-300">{(INITIAL_MARKET as any)[r.world?.season] || r.world?.season || 'Ukjent'}</span>
                                     </div>
                                 </div>
-                                <button
-                                    onClick={() => { setPin(r.pin); setView('MANAGE'); }}
-                                    className="w-full bg-white/5 hover:bg-white/10 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all border border-white/5"
-                                >
-                                    Administrer &rarr;
-                                </button>
+
+                                <div className="flex gap-3">
+                                    <button
+                                        onClick={() => { setPin(r.pin); setView('MANAGE'); }}
+                                        className="flex-1 bg-white/5 hover:bg-white/10 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all border border-white/5"
+                                    >
+                                        Administrer &rarr;
+                                    </button>
+                                    <button
+                                        onClick={() => deleteRoom(r.pin)}
+                                        className="bg-rose-500/10 hover:bg-rose-500/20 text-rose-500 w-16 rounded-2xl flex items-center justify-center border border-rose-500/20 transition-all hover:scale-105 active:scale-95"
+                                        title="Slett rom"
+                                    >
+                                        🗑️
+                                    </button>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
-            </div>
+            </div >
         );
     }
     if (!roomData) return null;
 
+    // DATA INTEGRITY CHECK (Non-blocking warning)
+    const isCorrupted = typeof roomData.status !== 'string' || !roomData.world;
+
     return (
         <div className="fixed inset-0 top-16 bg-slate-950 text-slate-200 flex overflow-hidden font-sans selection:bg-indigo-500/30 z-20">
+            {/* Warning Banner */}
+            {isCorrupted && (
+                <div className="absolute top-0 inset-x-0 z-50 bg-rose-600 text-white px-4 py-2 text-center text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-4">
+                    <span>⚠ ADVARSEL: Dette rommet inneholder ugyldig data.</span>
+                    <button onClick={resetGame} className="bg-white text-rose-600 px-3 py-1 rounded hover:bg-slate-100 transition-colors">NULLSTILL NÅ</button>
+                </div>
+            )}
+
             {/* Atmosphere */}
             <div className="fixed inset-0 pointer-events-none opacity-20">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/20 blur-[120px] rounded-full animate-pulse" />
@@ -489,7 +528,9 @@ export const SimulationHost: React.FC = () => {
                         <h1 className="text-4xl font-mono font-black text-white">{pin}</h1>
                         <span className="text-[10px] font-black uppercase text-indigo-500 tracking-widest bg-indigo-500/10 px-3 py-1 rounded-full">Admin</span>
                     </div>
-                    <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">{roomData.status} MODUS</p>
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">
+                        {typeof roomData.status === 'string' ? roomData.status : 'FEIL: DATA KORRUPT'} MODUS
+                    </p>
 
                     <div className="grid grid-cols-1 gap-3">
                         <button
@@ -516,14 +557,14 @@ export const SimulationHost: React.FC = () => {
                         <div className="grid grid-cols-1 gap-3">
                             <div className="bg-white/5 p-4 rounded-2xl border border-white/5 group">
                                 <div className="flex justify-between items-center mb-3">
-                                    <span className="text-xs font-bold text-slate-400 italic">Årstid: {(SEASONS as any)[roomData.world.season]?.label}</span>
-                                    <span className="text-2xl group-hover:rotate-12 transition-transform">{{ Spring: '🌱', Summer: '☀️', Autumn: '🍂', Winter: '❄️' }[roomData.world.season]}</span>
+                                    <span className="text-xs font-bold text-slate-400 italic">Årstid: {(SEASONS as any)[roomData.world?.season]?.label || 'Ukjent'}</span>
+                                    <span className="text-2xl group-hover:rotate-12 transition-transform">{{ Spring: '🌱', Summer: '☀️', Autumn: '🍂', Winter: '❄️' }[roomData.world?.season || 'Spring']}</span>
                                 </div>
                                 <button onClick={nextSeason} className="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded-lg font-black uppercase text-[10px] transition-all">Neste Årstid</button>
                             </div>
                             <div className="bg-white/5 p-4 rounded-2xl border border-white/5 group">
                                 <div className="flex justify-between items-center mb-3">
-                                    <span className="text-xs font-bold text-slate-400 italic">Vær: {roomData.world.weather || 'Klart'}</span>
+                                    <span className="text-xs font-bold text-slate-400 italic">Vær: {roomData.world?.weather || 'Klart'}</span>
                                     <span className="text-2xl group-hover:scale-110 transition-transform">☁️</span>
                                 </div>
                                 <button onClick={changeWeather} className="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded-lg font-black uppercase text-[10px] transition-all">Endre Vær</button>
@@ -686,7 +727,9 @@ export const SimulationHost: React.FC = () => {
                                                         <h4 className="text-sm font-black text-white uppercase">{meta?.name}</h4>
                                                         <p className="text-[10px] text-slate-500 font-bold tracking-tight">Nivå {building.level}</p>
                                                     </div>
-                                                    <span className="text-xs font-mono text-indigo-500">{building.progress} / {building.target || 200}</span>
+                                                    <span className="text-xs font-mono text-indigo-500">
+                                                        {Object.values(building.progress || {}).reduce((sum: number, val: any) => sum + (val as number), 0)} / {building.target || 200}
+                                                    </span>
                                                 </div>
                                                 <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-white/5">
                                                     <div className={`h-full bg-indigo-500 transition-all duration-1000 shadow-[0_0_10px_rgba(99,102,241,0.5)]`} style={{ width: `${progress}%` }} />
@@ -758,7 +801,9 @@ export const SimulationHost: React.FC = () => {
                     <div className="flex-1 overflow-y-auto px-6 space-y-3 pb-8 custom-scrollbar">
                         {roomData.messages?.slice().reverse().map((msg: any, idx: number) => (
                             <div key={idx} className="bg-indigo-950/20 border-l-2 border-indigo-500/50 p-4 rounded-r-2xl animate-in slide-in-from-right-4 duration-300">
-                                <p className="text-[10px] font-medium leading-relaxed text-slate-400 antialiased italic font-serif opacity-80">{msg}</p>
+                                <p className="text-[10px] font-medium leading-relaxed text-slate-400 antialiased italic font-serif opacity-80">
+                                    {typeof msg === 'object' ? JSON.stringify(msg) : msg}
+                                </p>
                             </div>
                         ))}
                         {(!roomData.messages || roomData.messages.length === 0) && (

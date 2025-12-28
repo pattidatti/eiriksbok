@@ -4,6 +4,7 @@ import { Badge } from '../ui/Badge';
 import { ResourceIcon } from '../ui/ResourceIcon';
 import { GameButton } from '../ui/GameButton';
 import { X } from 'lucide-react';
+import { VILLAGE_BUILDINGS } from '../constants';
 
 interface SimulationHeaderProps {
     room: SimulationRoom;
@@ -25,7 +26,27 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
                             <div className="w-24 h-1.5 bg-slate-800 rounded-full overflow-hidden">
                                 <div
                                     className="h-full bg-emerald-500"
-                                    style={{ width: `${(room.world.settlement.buildings[room.world.settlement.activeProjectId]?.progress / room.world.settlement.buildings[room.world.settlement.activeProjectId]?.target) * 100}%` }}
+                                    style={{
+                                        width: (() => {
+                                            const bId = room.world.settlement?.activeProjectId;
+                                            if (!bId) return '0%';
+                                            const building = room.world.settlement?.buildings[bId];
+                                            if (!building) return '0%';
+                                            const def = VILLAGE_BUILDINGS[bId];
+                                            const nextLevelReqs = def?.levels[building.level + 1]?.requirements;
+                                            if (!nextLevelReqs) return '100%';
+
+                                            const reqEntries = Object.entries(nextLevelReqs);
+                                            if (reqEntries.length === 0) return '100%';
+
+                                            let totalTarget = 0;
+                                            let totalCurrent = 0;
+                                            reqEntries.forEach(([_, target]) => { totalTarget += (target as number); });
+                                            Object.entries(building.progress || {}).forEach(([_, current]) => { totalCurrent += (current as number); });
+
+                                            return `${Math.min(100, (totalCurrent / totalTarget) * 100)}%`;
+                                        })()
+                                    }}
                                 ></div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { db } from '../../lib/firebase';
+import { simulationDb as db } from './simulationFirebase';
 import { ref, get, set, child } from 'firebase/database';
 import { useLayout } from '../../context/LayoutContext';
 import { useEffect } from 'react';
@@ -106,7 +106,13 @@ export const SimulationLobby: React.FC = () => {
             // But if we are rejoining the SAME room, keep the ID.
 
             const savedRoomForId = localStorage.getItem('sim_room_pin');
-            if (!playerId || savedRoomForId !== cleanPin) {
+            const savedName = localStorage.getItem('sim_player_name');
+
+            // Force new ID if:
+            // 1. No ID exists
+            // 2. Joining a different room
+            // 3. Name has changed (This allows creating multiple test users)
+            if (!playerId || savedRoomForId !== cleanPin || savedName !== name) {
                 playerId = `${name.replace(/[^a-zA-Z0-9]/g, '')}_${Date.now()}`;
             }
 

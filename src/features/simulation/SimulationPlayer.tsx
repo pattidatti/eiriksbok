@@ -4,7 +4,7 @@ import { ref, onValue, update } from 'firebase/database';
 
 import { useLayout } from '../../context/LayoutContext';
 
-import { db } from '../../lib/firebase';
+import { simulationDb as db } from './simulationFirebase';
 import type { SimulationPlayer as SimulationPlayerType, SimulationRoom, ActionResult } from './simulationTypes';
 import { LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS } from './constants';
 
@@ -191,9 +191,14 @@ const SimulationGame: React.FC = () => {
             // PRE-CHECK REQUIREMENTS
             const currentSeason = (room?.world?.season || 'Spring') as any;
             const currentWeather = (room?.world?.weather || 'Clear') as any;
-            const check = checkActionRequirements(player, action, currentSeason, currentWeather);
 
+            // We must temporarily map "REFINE" to the specific cost ID if needed, 
+            // but checkActionRequirements handles the 'action.id' vs 'action.type' 
+            // The tooltip uses action.id. Here we use action object which should contain the ID.
+
+            const check = checkActionRequirements(player, action, currentSeason, currentWeather);
             if (!check.success) {
+                alert(`Du har ikke råd til dette: ${check.reason}`);
                 setActionResult({
                     success: false,
                     timestamp: Date.now(),
@@ -250,6 +255,7 @@ const SimulationGame: React.FC = () => {
     };
 
     if (!player || !room) return <div className="p-8 text-center text-white">Laster data...</div>;
+
 
     // --- RENDER ---
     return (
