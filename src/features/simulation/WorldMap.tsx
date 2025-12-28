@@ -596,13 +596,13 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
     return (
         <>
-            <div className={`relative w-full h-full overflow-hidden bg-slate-900 transition-all duration-1000`}>
+            <div className={`relative w-full max-w-full max-h-full mx-auto aspect-video rounded-[2rem] overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.5)] border-4 border-white/5 bg-slate-900 transition-all duration-1000`}>
 
                 {/* The Map Background */}
                 <img
                     src={getBackground()}
                     alt="Map View"
-                    className={`w-full h-full object-cover transition-all duration-1000 ${weather === 'Fog' ? 'blur-sm' : ''}`}
+                    className={`w-full h-full object-contain transition-all duration-1000 ${weather === 'Fog' ? 'blur-sm' : ''}`}
                     onError={(e) => {
                         e.currentTarget.src = '/simulation_map_v2.png';
                         e.currentTarget.className += ' opacity-30';
