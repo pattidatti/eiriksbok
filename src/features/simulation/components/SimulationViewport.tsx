@@ -94,7 +94,7 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
     // Main Content Switcher
     return (
         <main className="flex-1 relative flex flex-col bg-slate-900 overflow-hidden">
-            <div className={`flex-1 relative p-8 ${activeTab === 'MAP' || activeTab === 'PRODUCTION' || activeTab === 'MARKET' ? 'overflow-hidden flex items-center justify-center' : 'overflow-y-auto overflow-x-hidden custom-scrollbar'}`}>
+            <div className={`flex-1 relative ${activeTab === 'MAP' || activeTab === 'PRODUCTION' || activeTab === 'MARKET' ? 'overflow-hidden' : 'p-8 overflow-y-auto overflow-x-hidden custom-scrollbar'}`}>
                 {/* Always render WorldMap when in MAP, PRODUCTION or MARKET to keep it as background */}
                 {(activeTab === 'MAP' || activeTab === 'PRODUCTION' || activeTab === 'MARKET') && (
                     <WorldMap player={player} room={room} onAction={onAction} onOpenMarket={() => setActiveTab('MARKET')} />

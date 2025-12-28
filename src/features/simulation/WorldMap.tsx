@@ -19,8 +19,11 @@ interface POI {
     icon: string;
     top: string;
     left: string;
-    // Overrides for Ost/Coastal map style
+    // Overrides for specific regions in Barony View
     ost?: { top: string, left: string };
+    vest?: { top: string, left: string };
+    // Overrides for specific hubs in Village View
+    village?: { top: string, left: string };
     roles: string[];
     actions: { id: string, label: string, cost?: string }[];
     parentId?: string; // Links to a hub POI
@@ -31,52 +34,65 @@ const POINTS_OF_INTEREST: POI[] = [
     // --- GLOBAL HUBS ---
     {
         id: 'fields', label: 'Åkrene', icon: '🌾', top: '22%', left: '28%',
-        ost: { top: '25%', left: '32%' },
+        vest: { top: '35%', left: '70%' },
+        ost: { top: '25%', left: '80%' },
         roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
         id: 'forest', label: 'Skogen', icon: '🌲', top: '25%', left: '80%',
-        ost: { top: '20%', left: '65%' },
+        vest: { top: '25%', left: '55%' },
+        ost: { top: '55%', left: '20%' },
         roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
         id: 'castle', label: 'Slottet', icon: '🏰', top: '66%', left: '86%',
-        ost: { top: '35%', left: '85%' },
+        vest: { top: '45%', left: '20%' },
+        ost: { top: '55%', left: '45%' },
         roles: ['BARON', 'KING', 'SOLDIER'],
         actions: [], isHub: true
     },
     {
         id: 'peasant_farm', label: 'Husmannsplassen', icon: '🛖', top: '30%', left: '60%',
-        ost: { top: '62%', left: '35%' },
+        vest: { top: '25%', left: '85%' },
+        ost: { top: '80%', left: '20%' },
         roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
         id: 'market', label: 'Markedet', icon: '⚖️', top: '70%', left: '25%',
-        ost: { top: '77%', left: '45%' },
+        vest: { top: '52%', left: '48%' },
+        ost: { top: '40%', left: '60%' },
         roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
         actions: [{ id: 'MARKET_VIEW', label: 'Åpne Handel', cost: 'Gratis' }]
     },
     {
-        id: 'village', label: 'Landsbyen', icon: '🏠', top: '42%', left: '42%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
+        id: 'village', label: 'Landsbyen', icon: '🏠', top: '42%', left: '42%',
+        vest: { top: '45%', left: '52%' },
+        ost: { top: '35%', left: '65%' },
+        roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
         actions: [], isHub: true
     },
     {
         id: 'mine', label: 'Gruve-distriktet', icon: '⛏️', top: '12%', left: '25%',
-        ost: { top: '12%', left: '30%' },
+        vest: { top: '10%', left: '38%' },
+        ost: { top: '12%', left: '25%' },
         roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
         id: 'monastery', label: 'Klosteret', icon: '⛪', top: '16%', left: '55%',
-        ost: { top: '60%', left: '90%' },
+        vest: { top: '35%', left: '78%' },
+        ost: { top: '45%', left: '85%' },
         roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
         actions: [], isHub: true
     },
     {
-        id: 'border', label: 'Grensen', icon: '⚔️', top: '85%', left: '80%', roles: ['BARON'],
+        id: 'border', label: 'Grensen', icon: '⚔️', top: '85%', left: '80%',
+        vest: { top: '15%', left: '10%' },
+        ost: { top: '15%', left: '10%' },
+        roles: ['BARON'],
         actions: [{ id: 'RAID', label: 'Plyndre Nabo', cost: '-40⚡' }]
     },
 
@@ -99,13 +115,17 @@ const POINTS_OF_INTEREST: POI[] = [
 
     // --- VILLAGE LOCAL HUB (CITY) ---
     {
-        id: 'village_square', label: 'Landsbytorg', icon: '⛲', top: '50%', left: '50%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'village',
+        id: 'village_square', label: 'Landsbytorg', icon: '⛲', top: '50%', left: '50%',
+        village: { top: '48%', left: '50%' },
+        roles: ['PEASANT', 'BARON', 'KING'], parentId: 'village',
         actions: [
             { id: 'REST', label: 'Hvile på torget', cost: '+10⚡' }
         ]
     },
     {
-        id: 'tavern', label: 'Vertshuset', icon: '🍺', top: '35%', left: '75%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'], parentId: 'village',
+        id: 'tavern', label: 'Vertshuset', icon: '🍺', top: '35%', left: '75%',
+        village: { top: '75%', left: '80%' },
+        roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'], parentId: 'village',
         actions: [
             { id: 'ENTER_TAVERN', label: 'Gå inn', cost: 'Gratis' },
             { id: 'REST_BASIC', label: 'Hvile i Salen', cost: 'Gratis' },
@@ -115,26 +135,34 @@ const POINTS_OF_INTEREST: POI[] = [
     },
 
     {
-        id: 'bakery', label: 'Bakeri', icon: '🍞', top: '80%', left: '30%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'bakery', label: 'Bakeri', icon: '🍞', top: '80%', left: '30%',
+        village: { top: '38%', left: '35%' },
+        roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [],
         isHub: true
     },
 
 
     {
-        id: 'great_forge', label: 'Storsmie', icon: '⚒️', top: '35%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'great_forge', label: 'Storsmie', icon: '⚒️', top: '35%', left: '15%',
+        village: { top: '48%', left: '23%' },
+        roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [],
         isHub: true
     },
     {
-        id: 'windmill', label: 'Vindmølle', icon: '🌬️', top: '20%', left: '37%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'village',
+        id: 'windmill', label: 'Vindmølle', icon: '🌬️', top: '20%', left: '37%',
+        village: { top: '25%', left: '17%' },
+        roles: ['PEASANT', 'BARON', 'KING'], parentId: 'village',
         actions: [
             { id: 'REFINE_FLOUR_BASIC', label: 'Male Mel', cost: '-15⚡ -10korn' },
             { id: 'REFINE_FLOUR_FAST', label: 'Hurtig-maling', cost: '-20⚡ -15korn' }
         ], isHub: true
     },
     {
-        id: 'smeltery', label: 'Smeltehytte', icon: '🔥', top: '60%', left: '95%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'smeltery', label: 'Smeltehytte', icon: '🔥', top: '60%', left: '95%',
+        village: { top: '75%', left: '12%' },
+        roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [
             { id: 'REFINE_IRON_BASIC', label: 'Smelte Jern', cost: '-20⚡ -5malm' },
             { id: 'REFINE_IRON_FAST', label: 'Industri-smelting', cost: '-30⚡ -10malm' },
@@ -142,7 +170,9 @@ const POINTS_OF_INTEREST: POI[] = [
         ], isHub: true
     },
     {
-        id: 'sawmill', label: 'Sagbruk', icon: '🪚', top: '55%', left: '15%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'sawmill', label: 'Sagbruk', icon: '🪚', top: '55%', left: '15%',
+        village: { top: '70%', left: '45%' },
+        roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [
             { id: 'REFINE_TIMBER_BASIC', label: 'Sag Tømmer', cost: '-10⚡ -5ved' },
             { id: 'REFINE_TIMBER_FAST', label: 'Hurtig-saging', cost: '-15⚡ -5ved' }
@@ -152,32 +182,42 @@ const POINTS_OF_INTEREST: POI[] = [
 
 
     {
-        id: 'weavery', label: 'Veveri', icon: '🧶', top: '50%', left: '85%', roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'village',
+        id: 'weavery', label: 'Veveri', icon: '🧶', top: '50%', left: '85%',
+        village: { top: '45%', left: '65%' },
+        roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'village',
         actions: [],
         isHub: true
     },
 
 
     {
-        id: 'watchtower', label: 'Vaktårn', icon: '🏰', top: '15%', left: '68%', roles: ['BARON', 'SOLDIER'], parentId: 'village',
+        id: 'watchtower', label: 'Vaktårn', icon: '🏰', top: '15%', left: '68%',
+        village: { top: '25%', left: '82%' },
+        roles: ['BARON', 'SOLDIER'], parentId: 'village',
         actions: [],
         isHub: true
     },
 
     {
-        id: 'stables', label: 'Stall', icon: '🐴', top: '80%', left: '80%', roles: ['BARON', 'SOLDIER', 'KING'], parentId: 'village',
+        id: 'stables', label: 'Stall', icon: '🐴', top: '80%', left: '80%',
+        village: { top: '45%', left: '90%' },
+        roles: ['BARON', 'SOLDIER', 'KING'], parentId: 'village',
         actions: [],
         isHub: true
     },
 
     {
-        id: 'well', label: 'Bybrønn', icon: '💧', top: '69%', left: '60%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'well', label: 'Bybrønn', icon: '💧', top: '69%', left: '60%',
+        village: { top: '48%', left: '50%' },
+        roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [],
         isHub: true
     },
 
     {
-        id: 'apothecary', label: 'Apotek', icon: '🌿', top: '30%', left: '85%', roles: ['PEASANT', 'BARON'], parentId: 'village',
+        id: 'apothecary', label: 'Apoteker', icon: '🌿', top: '20%', left: '82%',
+        village: { top: '60%', left: '92%' },
+        roles: ['PEASANT', 'BARON', 'KING', 'MERCHANT'], parentId: 'village',
         actions: [],
         isHub: true
     },
@@ -508,10 +548,10 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
     // Get current map background
     const getBackground = () => {
-        if (viewMode === 'kingdom') return '/map_kingdom.png';
+        if (viewMode === 'kingdom') return '/map_kingdom_1610.png';
 
         switch (viewMode) {
-            case 'village': return '/map_village_hub.png';
+            case 'village': return '/map_village_hub_1610.png';
             case 'village_construction': return '/map_village_construction.png';
             case 'castle': return '/map_castle_interior.png';
             case 'fields': return '/map_farm_fields.png';
@@ -541,13 +581,11 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
             case 'apothecary': return '/map_apothecary_interior.png';
 
             case 'global':
-
-                // Check region ID for viewingRegionId
                 if (viewingRegionId === 'region_ost') {
-                    return '/map_barony_2.png';
+                    return '/map_barony_ost_1610.png';
                 }
-                return '/simulation_map_v2.png'; // Default Green Valley (Vest)
-            default: return '/simulation_map_v2.png';
+                return '/map_barony_vest_v2_1610.png';
+            default: return '/map_barony_vest_v2_1610.png';
         }
     };
 
@@ -558,13 +596,13 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
     return (
         <>
-            <div className={`relative h-full max-h-full max-w-full aspect-square rounded-[3rem] overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.5)] border-4 border-white/5 bg-slate-900 transition-all duration-1000 ${weather === 'Rain' ? 'brightness-90 contrast-110' : weather === 'Storm' ? 'brightness-75 contrast-125' : weather === 'Fog' ? 'sepia-[0.3] contrast-75' : ''}`}>
+            <div className={`relative w-full h-full overflow-hidden bg-slate-900 transition-all duration-1000`}>
 
                 {/* The Map Background */}
                 <img
                     src={getBackground()}
                     alt="Map View"
-                    className={`w-full h-full object-cover transition-all duration-1000 ${weather === 'Fog' ? 'blur-sm' : ''} ${viewMode !== 'global' && viewMode !== 'kingdom' ? 'grayscale-[0.2]' : 'opacity-80'}`}
+                    className={`w-full h-full object-cover transition-all duration-1000 ${weather === 'Fog' ? 'blur-sm' : ''}`}
                     onError={(e) => {
                         e.currentTarget.src = '/simulation_map_v2.png';
                         e.currentTarget.className += ' opacity-30';
@@ -613,7 +651,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                 {viewMode === 'kingdom' && (
                     <>
                         {/* CAPITAL PIN (Center) */}
-                        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-30 group">
+                        <div className="absolute top-[35%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-30 group">
                             <button
                                 onClick={() => {
                                     setViewingRegionId('capital');
@@ -630,7 +668,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
                         {/* BARONY VEST PIN (West/Left map region) */}
                         {baronVest && (
-                            <div className="absolute top-[60%] left-[25%] -translate-x-1/2 -translate-y-1/2 z-30 group">
+                            <div className="absolute top-[75%] left-[10%] -translate-x-1/2 -translate-y-1/2 z-30 group">
                                 <button
                                     onClick={() => {
                                         setViewingRegionId(baronVest.regionId);
@@ -648,7 +686,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
                         {/* BARONY OST PIN (East/Right map region) */}
                         {baronOst && (
-                            <div className="absolute top-[40%] left-[75%] -translate-x-1/2 -translate-y-1/2 z-30 group">
+                            <div className="absolute top-[75%] left-[90%] -translate-x-1/2 -translate-y-1/2 z-30 group">
                                 <button
                                     onClick={() => {
                                         setViewingRegionId(baronOst.regionId);
@@ -688,10 +726,24 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                     const isCorrectView = viewMode === 'global' ? !poi.parentId : poi.parentId === viewMode;
                     if (!isCorrectView) return null;
 
-                    const isOst = viewingRegionId === 'region_ost';
+                    const isBarony = viewMode === 'global';
+                    const isOst = isBarony && viewingRegionId === 'region_ost';
+                    const isVest = isBarony && (viewingRegionId === 'region_vest' || viewingRegionId === 'capital');
+                    const isVillage = viewMode === 'village';
 
-                    const top = isOst && poi.ost ? poi.ost.top : poi.top;
-                    const left = isOst && poi.ost ? poi.ost.left : poi.left;
+                    let top = poi.top;
+                    let left = poi.left;
+
+                    if (isVillage && poi.village) {
+                        top = poi.village.top;
+                        left = poi.village.left;
+                    } else if (isOst && poi.ost) {
+                        top = poi.ost.top;
+                        left = poi.ost.left;
+                    } else if (isVest && poi.vest) {
+                        top = poi.vest.top;
+                        left = poi.vest.left;
+                    }
 
                     return (
                         <div
@@ -720,10 +772,24 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
                     const isResourceNode = ['grain_fields', 'forest_clearing', 'mine_shaft', 'quarry_poi', 'forest_forage'].includes(poi.id);
 
-                    const isOst = viewingRegionId === 'region_ost';
+                    const isBarony = viewMode === 'global';
+                    const isOst = isBarony && viewingRegionId === 'region_ost';
+                    const isVest = isBarony && (viewingRegionId === 'region_vest' || viewingRegionId === 'capital');
+                    const isVillage = viewMode === 'village';
 
-                    const top = isOst && poi.ost ? poi.ost.top : poi.top;
-                    const left = isOst && poi.ost ? poi.ost.left : poi.left;
+                    let top = poi.top;
+                    let left = poi.left;
+
+                    if (isVillage && poi.village) {
+                        top = poi.village.top;
+                        left = poi.village.left;
+                    } else if (isOst && poi.ost) {
+                        top = poi.ost.top;
+                        left = poi.ost.left;
+                    } else if (isVest && poi.vest) {
+                        top = poi.vest.top;
+                        left = poi.vest.left;
+                    }
 
                     return (
                         <div
