@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { SimulationPlayer, SimulationRoom } from './simulationTypes';
 import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from './constants';
+import { useSimulation } from './SimulationContext';
 
 
 
@@ -412,6 +413,7 @@ interface WorldMapProps {
 }
 
 export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOpenMarket, initialViewMode = 'global' }) => {
+    const { setActiveTab, setProductionContext } = useSimulation();
     const [selectedPOI, setSelectedPOI] = useState<POI | null>(null);
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
     const [viewMode, setViewMode] = useState<string>(initialViewMode);
@@ -427,7 +429,27 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
     // Reset viewing region to player's region when opening action (optional, but keeps context safe)
     // Actually, we want persistence during browsing.
 
-    const handlePOIAction = (_poiId: string, actionId: string) => {
+    const handlePOIAction = (poiId: string, actionId: string) => {
+
+        // Helper: Is this a production workstation?
+        const getProductionContext = (pId: string): { buildingId: string, type: 'REFINE' | 'CRAFT' } | null => {
+            if (pId === 'windmill_stones') return { buildingId: 'windmill', type: 'REFINE' };
+            if (pId === 'sawmill_blade') return { buildingId: 'sawmill', type: 'REFINE' };
+            if (pId === 'smeltery_furnace') return { buildingId: 'smeltery', type: 'REFINE' };
+            if (pId === 'bakery_oven') return { buildingId: 'bakery', type: 'REFINE' };
+            if (pId === 'weavery_loom') return { buildingId: 'weavery', type: 'REFINE' };
+            if (pId === 'forge_anvil') return { buildingId: 'great_forge', type: 'CRAFT' };
+            return null;
+        };
+
+        const prodCtx = getProductionContext(poiId);
+        if (prodCtx && (actionId.startsWith('REFINE_') || actionId.startsWith('CRAFT_') || CRAFTING_RECIPES[actionId])) {
+            setProductionContext(prodCtx);
+            setActiveTab('PRODUCTION');
+            setSelectedPOI(null);
+            return;
+        }
+
         // PERMISSION CHECK: STRICT
         // Players (except maybe King?) cannot act in other regions
         // Allow King to act anywhere? User said "player from another barony". King is usually above.

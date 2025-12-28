@@ -140,7 +140,13 @@ export const getActionCostString = (
         flour: '🧂',
         grain: '🌾',
         iron_ingot: '🧱',
-        timber: '🪜'
+        timber: '🪜',
+        stone: '🪨',
+        meat: '🥩',
+        honey: '🍯',
+        wool: '🧶',
+        iron_ore: '⛏️',
+        cloth: '👕'
     };
 
     for (const [res, amt] of Object.entries(costs)) {

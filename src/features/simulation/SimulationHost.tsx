@@ -432,6 +432,24 @@ export const SimulationHost: React.FC = () => {
         window.open(url, '_blank');
     };
 
+    const handleRoleChange = async (playerId: string, newRole: any) => {
+        try {
+            await update(ref(db, `simulation_rooms/${pin}/players/${playerId}`), { role: newRole });
+        } catch (e) {
+            console.error(e);
+            alert("Kunne ikke endre rolle.");
+        }
+    };
+
+    const handleRegionChange = async (playerId: string, newRegion: string) => {
+        try {
+            await update(ref(db, `simulation_rooms/${pin}/players/${playerId}`), { regionId: newRegion });
+        } catch (e) {
+            console.error(e);
+            alert("Kunne ikke endre baroni.");
+        }
+    };
+
     if (view === 'LIST') {
         return (
             <div className="fixed inset-0 top-16 bg-slate-950 text-slate-200 p-12 overflow-y-auto custom-scrollbar font-sans z-20">
@@ -661,9 +679,29 @@ export const SimulationHost: React.FC = () => {
                                                 MERCHANT: '💰'
                                             } as any)[p.role] || '👤'}
                                         </div>
-                                        <div className="min-w-0">
+                                        <div className="min-w-0 flex-1">
                                             <h3 className="text-lg font-black text-white truncate">{p.name}</h3>
-                                            <p className="text-[10px] font-black text-indigo-400 uppercase tracking-widest leading-none">{ROLE_DEFINITIONS[p.role]?.label || p.role}</p>
+                                            <div className="flex flex-col gap-1 mt-1">
+                                                <select
+                                                    value={p.role}
+                                                    onChange={(e) => handleRoleChange(p.id, e.target.value)}
+                                                    className="bg-indigo-500/10 text-indigo-400 text-[10px] font-black uppercase tracking-widest border-none p-0 focus:ring-0 cursor-pointer hover:text-white transition-colors w-full text-left"
+                                                >
+                                                    {Object.entries(ROLE_DEFINITIONS).map(([id, def]) => (
+                                                        <option key={id} value={id} className="bg-slate-900">{def.label}</option>
+                                                    ))}
+                                                </select>
+                                                <select
+                                                    value={p.regionId || 'capital'}
+                                                    onChange={(e) => handleRegionChange(p.id, e.target.value)}
+                                                    className="bg-white/5 text-slate-500 text-[9px] font-bold uppercase tracking-wider border-none p-0 focus:ring-0 cursor-pointer hover:text-slate-300 transition-colors w-full text-left"
+                                                >
+                                                    <option value="capital" className="bg-slate-900">Hovedstaden</option>
+                                                    <option value="region_ost" className="bg-slate-900">Baroniet Øst</option>
+                                                    <option value="region_vest" className="bg-slate-900">Baroniet Vest</option>
+                                                    <option value="marketplace" className="bg-slate-900">Markedsplassen</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
 

@@ -315,29 +315,29 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
 
 
 export const REFINERY_RECIPES: Record<string, any> = {
-    timber: { input: { wood: 5 }, outputResource: 'timber', outputAmount: 1, buildingId: 'sawmill', stamina: 10, xp: 5 },
-    flour: { input: { grain: 10 }, outputResource: 'flour', outputAmount: 10, buildingId: 'windmill', stamina: 15, xp: 8 },
-    iron_ingot: { input: { iron_ore: 5, wood: 2 }, outputResource: 'iron_ingot', outputAmount: 1, buildingId: 'smeltery', stamina: 20, xp: 12 },
-    bread: { input: { flour: 2 }, outputResource: 'bread', outputAmount: 5, buildingId: 'bakery', stamina: 5, xp: 3 },
-    pie: { input: { flour: 4, meat: 2 }, outputResource: 'bread', outputAmount: 15, buildingId: 'bakery', stamina: 15, xp: 10 },
-    mead: { input: { honey: 5 }, outputResource: 'stamina', outputAmount: 20, buildingId: 'tavern', stamina: 5, xp: 5 },
-    cloth: { input: { wool: 5 }, outputResource: 'cloth', outputAmount: 1, buildingId: 'weavery', stamina: 15, xp: 10 }
+    timber: { label: 'Tømmer', icon: '🪜', input: { wood: 5 }, outputResource: 'timber', outputAmount: 1, buildingId: 'sawmill', stamina: 10, xp: 5 },
+    flour: { label: 'Fint Mel', icon: '🧂', input: { grain: 10 }, outputResource: 'flour', outputAmount: 10, buildingId: 'windmill', stamina: 15, xp: 8 },
+    iron_ingot: { label: 'Jernbarre', icon: '🧱', input: { iron_ore: 5, wood: 2 }, outputResource: 'iron_ingot', outputAmount: 1, buildingId: 'smeltery', stamina: 20, xp: 12 },
+    bread: { label: 'Bondebrød', icon: '🍞', input: { flour: 2 }, outputResource: 'bread', outputAmount: 5, buildingId: 'bakery', stamina: 5, xp: 3 },
+    pie: { label: 'Kjøttpai', icon: '🥧', input: { flour: 4, meat: 2 }, outputResource: 'bread', outputAmount: 15, buildingId: 'bakery', stamina: 15, xp: 10 },
+    mead: { label: 'Mjød', icon: '🍺', input: { honey: 5 }, outputResource: 'stamina', outputAmount: 20, buildingId: 'tavern', stamina: 5, xp: 5 },
+    cloth: { label: 'Lin-stoff', icon: '🧶', input: { wool: 5 }, outputResource: 'cloth', outputAmount: 1, buildingId: 'weavery', stamina: 15, xp: 10 }
 };
 
 
-export const CRAFTING_RECIPES: Record<string, { input: Partial<Resources>, outputItemId: string, buildingId: string, level: number }> = {
+export const CRAFTING_RECIPES: Record<string, any> = {
     // TIER 1 - Stone/Wood (Lvl 1 Forge)
-    stone_axe: { input: { stone: 10, wood: 5, gold: 5 }, outputItemId: 'stone_axe', buildingId: 'great_forge', level: 1 },
-    stone_pickaxe: { input: { stone: 10, wood: 5, gold: 5 }, outputItemId: 'stone_pickaxe', buildingId: 'great_forge', level: 1 },
+    stone_axe: { label: 'Steinøks', icon: '🪓', input: { stone: 10, wood: 5, gold: 5 }, outputItemId: 'stone_axe', buildingId: 'great_forge', level: 1, stamina: 15, xp: 10, description: 'Et enkelt redskap for tømmerhogst.' },
+    stone_pickaxe: { label: 'Steinhakke', icon: '⛏️', input: { stone: 10, wood: 5, gold: 5 }, outputItemId: 'stone_pickaxe', buildingId: 'great_forge', level: 1, stamina: 15, xp: 10, description: 'En primitiv hakke for gruvearbeid.' },
 
     // TIER 2 - Iron (Lvl 2 Forge)
-    iron_axe: { input: { iron_ingot: 5, timber: 2, gold: 50 }, outputItemId: 'iron_axe', buildingId: 'great_forge', level: 2 },
-    iron_pickaxe: { input: { iron_ingot: 5, timber: 2, gold: 50 }, outputItemId: 'iron_pickaxe', buildingId: 'great_forge', level: 2 },
-    iron_sword: { input: { iron_ingot: 10, timber: 2, gold: 100 }, outputItemId: 'iron_sword', buildingId: 'great_forge', level: 2 },
+    iron_axe: { label: 'Jernøks', icon: '🪓', input: { iron_ingot: 5, timber: 2, gold: 50 }, outputItemId: 'iron_axe', buildingId: 'great_forge', level: 2, stamina: 25, xp: 20, description: 'Et solid verktøy av jern.' },
+    iron_pickaxe: { label: 'Jernhakke', icon: '⛏️', input: { iron_ingot: 5, timber: 2, gold: 50 }, outputItemId: 'iron_pickaxe', buildingId: 'great_forge', level: 2, stamina: 25, xp: 20, description: 'Effektiv hakke for dypere graving.' },
+    iron_sword: { label: 'Jernsverd', icon: '⚔️', input: { iron_ingot: 10, timber: 2, gold: 100 }, outputItemId: 'iron_sword', buildingId: 'great_forge', level: 2, stamina: 40, xp: 35, description: 'Et skarpt sverd for krigere.' },
 
     // TIER 3 - Steel/Master (Lvl 3 Forge)
-    steel_axe: { input: { iron_ingot: 20, timber: 10, gold: 250 }, outputItemId: 'steel_axe', buildingId: 'great_forge', level: 3 },
-    steel_sword: { input: { iron_ingot: 30, timber: 5, gold: 500 }, outputItemId: 'steel_sword', buildingId: 'great_forge', level: 3 }
+    steel_axe: { label: 'Ståløks', icon: '🪓', input: { iron_ingot: 20, timber: 10, gold: 250 }, outputItemId: 'steel_axe', buildingId: 'great_forge', level: 3, stamina: 50, xp: 50, description: 'Mesterlig utformet øks av herdet stål.' },
+    steel_sword: { label: 'Stålsverd', icon: '⚔️', input: { iron_ingot: 30, timber: 5, gold: 500 }, outputItemId: 'steel_sword', buildingId: 'great_forge', level: 3, stamina: 80, xp: 100, description: 'Det ultimate våpenet for en herre.' }
 };
 
 

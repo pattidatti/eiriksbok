@@ -1,8 +1,13 @@
 import React, { createContext, useContext, useState, type ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
 
-type TabType = 'MAP' | 'VILLAGE' | 'INVENTORY' | 'MARKET' | 'UPGRADES' | 'SKILLS' | 'DIPLOMACY' | 'HIERARCHY' | 'PROFILE' | 'ACTIVITY';
+type TabType = 'MAP' | 'VILLAGE' | 'INVENTORY' | 'MARKET' | 'UPGRADES' | 'SKILLS' | 'DIPLOMACY' | 'HIERARCHY' | 'PROFILE' | 'ACTIVITY' | 'PRODUCTION';
 type MinigameType = 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE' | null;
+
+interface ProductionContext {
+    buildingId: string;
+    type: 'REFINE' | 'CRAFT';
+}
 
 
 interface SimulationContextType {
@@ -20,6 +25,8 @@ interface SimulationContextType {
     setActiveMinigameAction: (action: any | null) => void;
     actionLoading: string | null;
     setActionLoading: (action: string | null) => void;
+    productionContext: ProductionContext | null;
+    setProductionContext: (ctx: ProductionContext | null) => void;
 }
 
 
@@ -51,6 +58,7 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
     const [activeMinigameMethod, setActiveMinigameMethod] = useState<string | null>(null);
     const [activeMinigameAction, setActiveMinigameAction] = useState<any | null>(null);
     const [actionLoading, setActionLoading] = useState<string | null>(null);
+    const [productionContext, setProductionContext] = useState<ProductionContext | null>(null);
 
     // Custom setter that updates state + silently updates URL
     const setActiveTab = (newTab: TabType) => {
@@ -84,7 +92,9 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
             activeMinigameAction,
             setActiveMinigameAction,
             actionLoading,
-            setActionLoading
+            setActionLoading,
+            productionContext,
+            setProductionContext
         }}>
             {children}
         </SimulationContext.Provider>

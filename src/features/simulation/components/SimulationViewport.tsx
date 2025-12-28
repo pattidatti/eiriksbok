@@ -11,6 +11,7 @@ import { WorldMap } from '../WorldMap';
 import { SimulationMarket } from './SimulationMarket';
 import { SimulationVault } from './SimulationVault';
 import { SimulationSkills } from './SimulationSkills';
+import { SimulationProduction } from './SimulationProduction';
 
 
 
@@ -100,6 +101,8 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                     <div className="max-w-4xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 duration-500">
                         {activeTab === 'MARKET' ? (
                             <SimulationMarket player={player} room={room} onAction={onAction} />
+                        ) : activeTab === 'PRODUCTION' ? (
+                            <SimulationProduction player={player} onAction={onAction} />
                         ) : activeTab === 'INVENTORY' ? (
                             <SimulationVault player={player} onAction={onAction} />
                         ) : activeTab === 'ACTIVITY' ? (

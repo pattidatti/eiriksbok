@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import type { SimulationPlayer } from '../simulationTypes';
-import { VILLAGE_BUILDINGS } from '../constants';
+import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from '../constants';
 
 import { MINIGAME_VARIANTS } from '../SimulationMinigames';
 import { checkActionRequirements, getActionCostString, getActionEquipment } from '../utils/actionUtils';
@@ -178,6 +178,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
 
                             // Simplified cost display for basic resources/stamina
                             const costLabel = getActionCostString(action.id, currentSeason, currentWeather);
+                            const isProduction = action.id.startsWith('REFINE_') || action.id.startsWith('CRAFT_') || action.id in CRAFTING_RECIPES;
                             const variants = MINIGAME_VARIANTS[action.id];
 
                             return (
@@ -197,10 +198,13 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                     >
                                                         <div className="flex justify-between items-center">
                                                             <div>
-                                                                <span className={`text-lg font-bold truncate block ${canAfford ? 'text-white group-hover:text-amber-400 transition-colors' : 'text-slate-400'}`}>{action.label}</span>
+                                                                <span className={`text-lg font-bold truncate block ${canAfford ? isProduction ? 'text-indigo-400 group-hover:text-indigo-300 transition-colors' : 'text-white group-hover:text-amber-400 transition-colors' : 'text-slate-400'}`}>
+                                                                    {action.label} {isProduction ? '🔨' : ''}
+                                                                </span>
+                                                                {isProduction && canAfford && <span className="text-[10px] font-black text-indigo-500 uppercase tracking-widest mt-0.5">Åpne Verksted</span>}
                                                                 {!canAfford && <span className="text-xs font-black text-rose-400 uppercase tracking-widest mt-0.5">{missingReason}</span>}
                                                             </div>
-                                                            {costLabel && <span className="text-lg font-black bg-black/30 px-2 py-1 rounded-lg border border-white/5">{costLabel}</span>}
+                                                            {costLabel && <span className={`text-lg font-black bg-black/30 px-2 py-1 rounded-lg border ${isProduction ? 'border-indigo-500/30 text-indigo-400' : 'border-white/5'}`}>{costLabel}</span>}
                                                         </div>
                                                     </button>
                                                 ) : (
