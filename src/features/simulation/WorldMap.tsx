@@ -868,11 +868,15 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                         const buildingDef = VILLAGE_BUILDINGS[upgradingBuildingId];
                         if (!buildingDef) return null;
 
-                        const settlement = room.world?.settlement;
-                        const currentLevel = (settlement?.buildings?.[upgradingBuildingId]?.level as number) || 1;
+                        const isPrivate = upgradingBuildingId === 'farm_house';
+                        const buildingState = isPrivate
+                            ? (player.buildings?.[upgradingBuildingId] || { level: 1, progress: {} })
+                            : (room.world?.settlement?.buildings?.[upgradingBuildingId] || { id: upgradingBuildingId, level: 1, progress: {}, contributions: {} });
+
+                        const currentLevel = (buildingState.level as number) || 1;
                         const nextLevel = currentLevel + 1;
-                        const nextLevelDef = buildingDef.levels[nextLevel];
                         const currentLevelDef = buildingDef.levels[currentLevel];
+                        const nextLevelDef = buildingDef.levels[nextLevel];
 
                         return (
                             <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-slate-950/95 backdrop-blur-xl animate-in fade-in duration-500">
@@ -917,31 +921,88 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                                             {nextLevelDef ? (
                                                 <div className="w-full space-y-8">
                                                     <div className="text-left">
-                                                        <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Oppgraderingskrav (Nivå {nextLevel})</div>
-                                                        <div className="grid grid-cols-2 gap-4">
-                                                            {Object.entries(nextLevelDef.requirements || {}).map(([res, amt]) => {
-                                                                const hasEnough = ((player.resources as any)[res] || 0) >= (amt as number);
+                                                        <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Byggeprogresjon (Nivå {nextLevel})</div>
+                                                        <div className="space-y-4">
+                                                            {Object.entries(nextLevelDef.requirements || {}).map(([res, targetAmt]: [any, any]) => {
+                                                                const currentAmt = (buildingState.progress as any)[res] || 0;
+                                                                const progress = Math.min(100, (currentAmt / targetAmt) * 100);
+                                                                const playerHas = (player.resources as any)[res] || 0;
+                                                                const canGive = playerHas > 0 && currentAmt < targetAmt;
+
                                                                 return (
-                                                                    <div key={res} className={`flex items-center justify-between px-6 py-4 rounded-2xl border ${hasEnough ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-rose-500/5 border-rose-500/20'}`}>
-                                                                        <span className="capitalize text-[10px] font-black text-slate-400">{res}</span>
-                                                                        <span className={`text-lg font-black ${hasEnough ? 'text-emerald-400' : 'text-rose-400'}`}>
-                                                                            {amt as number}
-                                                                        </span>
+                                                                    <div key={res} className="p-4 bg-black/20 rounded-2xl border border-white/5 space-y-3">
+                                                                        <div className="flex justify-between items-end">
+                                                                            <span className="text-xs font-black uppercase text-slate-300 tracking-widest">{res}</span>
+                                                                            <span className="text-xs font-bold text-slate-500">{currentAmt} / {targetAmt}</span>
+                                                                        </div>
+                                                                        <div className="flex gap-3 items-center">
+                                                                            <div className="flex-1 h-3 bg-black/40 rounded-full overflow-hidden border border-white/5 shadow-inner">
+                                                                                <div
+                                                                                    className="h-full bg-gradient-to-r from-indigo-600 to-indigo-400 transition-all duration-1000 shadow-[0_0_15px_rgba(79,70,229,0.4)]"
+                                                                                    style={{ width: `${progress}%` }}
+                                                                                />
+                                                                            </div>
+                                                                            {canGive && (
+                                                                                <button
+                                                                                    onClick={() => onAction({
+                                                                                        type: 'CONTRIBUTE_TO_UPGRADE',
+                                                                                        buildingId: upgradingBuildingId,
+                                                                                        resource: res,
+                                                                                        amount: Math.min(playerHas, targetAmt - currentAmt)
+                                                                                    })}
+                                                                                    className="px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-[10px] font-black rounded-xl transition-all active:scale-95 shadow-lg shadow-indigo-600/20 uppercase tracking-widest"
+                                                                                >
+                                                                                    BIDRA ({Math.min(playerHas, targetAmt - currentAmt)})
+                                                                                </button>
+                                                                            )}
+                                                                        </div>
+                                                                        {playerHas > 0 && !canGive && currentAmt >= targetAmt && (
+                                                                            <div className="text-[10px] text-emerald-500 font-bold uppercase tracking-widest text-right">Ferdig levert! ✓</div>
+                                                                        )}
                                                                     </div>
                                                                 );
                                                             })}
                                                         </div>
                                                     </div>
 
-                                                    <button
-                                                        onClick={() => {
-                                                            onAction({ type: 'UPGRADE_BUILDING', buildingId: upgradingBuildingId });
-                                                            setUpgradingBuildingId(null);
-                                                        }}
-                                                        className="w-full py-6 bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-widest rounded-[1.5rem] shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3"
-                                                    >
-                                                        Oppgrader til Nivå {nextLevel} 🛠️
-                                                    </button>
+                                                    {/* Contributors List for Global Buildings */}
+                                                    {!isPrivate && (buildingState as any).contributions && Object.keys((buildingState as any).contributions).length > 0 && (
+                                                        <div className="w-full bg-indigo-500/5 rounded-3xl p-6 border border-indigo-500/10">
+                                                            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 mb-4 flex items-center gap-2">
+                                                                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full" />
+                                                                Siste bidrag fra baroniet
+                                                            </div>
+                                                            <div className="space-y-3">
+                                                                {Object.entries((buildingState as any).contributions).slice(0, 5).map(([pId, data]: [string, any]) => (
+                                                                    <div key={pId} className="flex justify-between items-center bg-black/20 px-4 py-3 rounded-xl border border-white/5">
+                                                                        <span className="text-sm font-bold text-slate-200">{data.name}</span>
+                                                                        <div className="flex gap-3">
+                                                                            {Object.entries(data.resources).map(([r, a]: [any, any]) => (
+                                                                                <span key={r} className="text-xs font-black text-emerald-400">+{a} {r}</span>
+                                                                            ))}
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {/* Final Upgrade Button (Only if all requirements met and building didn't auto-level) */}
+                                                    {(() => {
+                                                        const isReady = Object.entries(nextLevelDef.requirements).every(([res, amt]) => ((buildingState.progress as any)[res] || 0) >= (amt as number));
+                                                        if (!isReady) return null;
+                                                        return (
+                                                            <button
+                                                                onClick={() => {
+                                                                    onAction({ type: 'CONTRIBUTE_TO_UPGRADE', buildingId: upgradingBuildingId, resource: 'dummy', amount: 0 }); // Trigger check
+                                                                    setUpgradingBuildingId(null);
+                                                                }}
+                                                                className="w-full py-6 bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase tracking-widest rounded-[1.5rem] shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3 animate-bounce"
+                                                            >
+                                                                Fullfør Oppgradering 🏗️
+                                                            </button>
+                                                        );
+                                                    })()}
                                                 </div>
                                             ) : (
                                                 <div className="py-12 px-10 bg-emerald-500/10 border border-emerald-500/20 rounded-[2.5rem] text-center w-full">
