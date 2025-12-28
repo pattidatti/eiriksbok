@@ -548,7 +548,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
     // Get current map background
     const getBackground = () => {
-        if (viewMode === 'kingdom') return '/map_kingdom_1610.png';
+        if (viewMode === 'kingdom') return '/map_kingdom_169.png';
 
         switch (viewMode) {
             case 'village': return '/map_village_hub_1610.png';
@@ -582,7 +582,10 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
             case 'global':
                 if (viewingRegionId === 'region_ost') {
-                    return '/map_barony_ost_1610.png';
+                    return '/map_barony_ost_169.png';
+                }
+                if (viewingRegionId === 'capital') {
+                    return '/map_hovedstad_169.png';
                 }
                 return '/map_barony_vest_v2_1610.png';
             default: return '/map_barony_vest_v2_1610.png';
@@ -667,40 +670,36 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                         </div>
 
                         {/* BARONY VEST PIN (West/Left map region) */}
-                        {baronVest && (
-                            <div className="absolute top-[75%] left-[10%] -translate-x-1/2 -translate-y-1/2 z-30 group">
-                                <button
-                                    onClick={() => {
-                                        setViewingRegionId(baronVest.regionId);
-                                        setViewMode('global');
-                                    }}
-                                    className="flex flex-col items-center hover:scale-110 transition-transform"
-                                >
-                                    <div className="text-5xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🏯</div>
-                                    <div className="bg-black/80 text-indigo-300 px-3 py-1 rounded-xl mt-2 font-bold text-[10px] uppercase tracking-wider border border-white/10 shadow-xl backdrop-blur-md whitespace-nowrap">
-                                        {baronVest.name} (Vest)
-                                    </div>
-                                </button>
-                            </div>
-                        )}
+                        <div className="absolute top-[65%] left-[15%] -translate-x-1/2 -translate-y-1/2 z-30 group">
+                            <button
+                                onClick={() => {
+                                    setViewingRegionId('region_vest');
+                                    setViewMode('global');
+                                }}
+                                className="flex flex-col items-center hover:scale-110 transition-transform"
+                            >
+                                <div className="text-5xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🏯</div>
+                                <div className="bg-black/80 text-indigo-300 px-3 py-1 rounded-xl mt-2 font-bold text-[10px] uppercase tracking-wider border border-white/10 shadow-xl backdrop-blur-md whitespace-nowrap">
+                                    {baronVest?.name || 'Baroni Vest'}
+                                </div>
+                            </button>
+                        </div>
 
                         {/* BARONY OST PIN (East/Right map region) */}
-                        {baronOst && (
-                            <div className="absolute top-[75%] left-[90%] -translate-x-1/2 -translate-y-1/2 z-30 group">
-                                <button
-                                    onClick={() => {
-                                        setViewingRegionId(baronOst.regionId);
-                                        setViewMode('global');
-                                    }}
-                                    className="flex flex-col items-center hover:scale-110 transition-transform"
-                                >
-                                    <div className="text-5xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🏘️</div>
-                                    <div className="bg-black/80 text-emerald-300 px-3 py-1 rounded-xl mt-2 font-bold text-[10px] uppercase tracking-wider border border-white/10 shadow-xl backdrop-blur-md whitespace-nowrap">
-                                        {baronOst.name} (Øst)
-                                    </div>
-                                </button>
-                            </div>
-                        )}
+                        <div className="absolute top-[65%] left-[85%] -translate-x-1/2 -translate-y-1/2 z-30 group">
+                            <button
+                                onClick={() => {
+                                    setViewingRegionId('region_ost');
+                                    setViewMode('global');
+                                }}
+                                className="flex flex-col items-center hover:scale-110 transition-transform"
+                            >
+                                <div className="text-5xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🏘️</div>
+                                <div className="bg-black/80 text-emerald-300 px-3 py-1 rounded-xl mt-2 font-bold text-[10px] uppercase tracking-wider border border-white/10 shadow-xl backdrop-blur-md whitespace-nowrap">
+                                    {baronOst?.name || 'Baroni Øst'}
+                                </div>
+                            </button>
+                        </div>
 
                         {/* More Barons? Stack them or place randomly if needed. For now 2 is requirement. */}
                     </>
