@@ -52,7 +52,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
             }
         }
 
-        return poi.actions.filter((a: any) => {
+        const availableActionsRaw = poi.actions.filter((a: any) => {
             // General hardcoded filters
             if (a.id === 'TAX_PEASANTS' && player.role !== 'BARON') return false;
             if (a.id === 'TAX_ROYAL' && player.role !== 'KING') return false;
@@ -66,6 +66,21 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
 
             return true;
         });
+
+        // SPECIAL: For production Primary POIs (like anvil, sawmill blade), 
+        // we only want to show the production entry point, not individual recipes.
+        const isProductionPOIRoot = [
+            'windmill_stones', 'sawmill_blade', 'smeltery_furnace',
+            'bakery_oven', 'weavery_loom', 'forge_anvil'
+        ].includes(poi.id);
+
+        if (isProductionPOIRoot) {
+            // Only keep one action that represents the building's main function
+            // This button will trigger the PRODUCTION tab in handlePOIAction
+            return availableActionsRaw.filter((a: any) => a.id.startsWith('REFINE_') || a.id.startsWith('CRAFT_') || a.id in CRAFTING_RECIPES).slice(0, 1);
+        }
+
+        return availableActionsRaw;
     }, [poi, player.role, room.world?.settlement]);
 
 

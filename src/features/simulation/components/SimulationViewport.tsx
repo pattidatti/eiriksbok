@@ -102,7 +102,9 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                         {activeTab === 'MARKET' ? (
                             <SimulationMarket player={player} room={room} onAction={onAction} />
                         ) : activeTab === 'PRODUCTION' ? (
-                            <SimulationProduction player={player} onAction={onAction} />
+                            <div className="fixed inset-0 z-50 overflow-y-auto overflow-x-hidden custom-scrollbar bg-slate-950/80 backdrop-blur-md p-8 animate-in fade-in duration-500">
+                                <SimulationProduction player={player} room={room} onAction={onAction} />
+                            </div>
                         ) : activeTab === 'INVENTORY' ? (
                             <SimulationVault player={player} onAction={onAction} />
                         ) : activeTab === 'ACTIVITY' ? (

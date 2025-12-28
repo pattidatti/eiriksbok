@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useSimulation } from '../SimulationContext';
 import { REFINERY_RECIPES, CRAFTING_RECIPES, RESOURCE_DETAILS, ITEM_TEMPLATES, VILLAGE_BUILDINGS } from '../constants';
-import type { SimulationPlayer } from '../simulationTypes';
+import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
 import { GameButton } from '../ui/GameButton';
 import { ResourceIcon } from '../ui/ResourceIcon';
-import { ChevronRight, Info, Zap, TrendingUp, Package } from 'lucide-react';
+import { ChevronRight, Info, Zap, TrendingUp, Package, Settings } from 'lucide-react';
 import { checkActionRequirements } from '../utils/actionUtils';
 
 interface SimulationProductionProps {
     player: SimulationPlayer;
+    room: SimulationRoom;
     onAction: (action: any) => void;
 }
 
-export const SimulationProduction: React.FC<SimulationProductionProps> = ({ player, onAction }) => {
+export const SimulationProduction: React.FC<SimulationProductionProps> = ({ player, room, onAction }) => {
     const { productionContext, setActiveTab, actionLoading } = useSimulation();
     const [selectedRecipeId, setSelectedRecipeId] = useState<string | null>(null);
 
@@ -29,13 +30,27 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = ({ play
     const building = VILLAGE_BUILDINGS[buildingId];
 
     // Filter recipes
-    const recipes = type === 'REFINE'
-        ? Object.entries(REFINERY_RECIPES).filter(([_, r]) => r.buildingId === buildingId)
-        : Object.entries(CRAFTING_RECIPES).filter(([_, r]) => r.buildingId === buildingId);
+    const recipes = useMemo(() => {
+        return type === 'REFINE'
+            ? Object.entries(REFINERY_RECIPES).filter(([_, r]) => r.buildingId === buildingId)
+            : Object.entries(CRAFTING_RECIPES).filter(([_, r]) => r.buildingId === buildingId);
+    }, [buildingId, type]);
 
-    const selectedRecipe = selectedRecipeId
-        ? (type === 'REFINE' ? REFINERY_RECIPES[selectedRecipeId] : CRAFTING_RECIPES[selectedRecipeId])
-        : null;
+    // Group recipes by level
+    const recipesByLevel = useMemo(() => {
+        const groups: Record<number, [string, any][]> = {};
+        recipes.forEach(([id, r]) => {
+            const lvl = r.level || 1;
+            if (!groups[lvl]) groups[lvl] = [];
+            groups[lvl].push([id, r]);
+        });
+        return Object.entries(groups).sort(([a], [b]) => parseInt(a) - parseInt(b));
+    }, [recipes]);
+
+    const selectedRecipe = useMemo(() => {
+        if (!selectedRecipeId) return null;
+        return type === 'REFINE' ? REFINERY_RECIPES[selectedRecipeId] : CRAFTING_RECIPES[selectedRecipeId];
+    }, [selectedRecipeId, type]);
 
     // Derived info for selected recipe
     const getOutputInfo = (_id: string, r: any) => {
@@ -57,8 +72,17 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = ({ play
         }
     };
 
+    const settlement = (room?.world?.settlement || {}) as any;
+    const currentBuildingLevel = (settlement.buildings?.[buildingId]?.level as number) || 1;
+
     const handleProduce = () => {
         if (!selectedRecipeId) return;
+        const recipe = type === 'REFINE' ? REFINERY_RECIPES[selectedRecipeId] : CRAFTING_RECIPES[selectedRecipeId];
+        if (!recipe) return;
+
+        // Locking check
+        if ((recipe.level || 1) > currentBuildingLevel) return;
+
         if (type === 'REFINE') {
             onAction({ type: 'REFINE', recipeId: selectedRecipeId });
         } else {
@@ -70,7 +94,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = ({ play
         <div className="flex flex-col lg:flex-row gap-8 animate-in fade-in slide-in-from-bottom-6 duration-700 max-w-7xl mx-auto pb-20">
 
             {/* LEFT: RECIPE LIST */}
-            <div className="flex-1 space-y-6">
+            <div className="flex-1 space-y-8">
                 <div className="flex items-center justify-between border-b border-white/10 pb-4">
                     <div className="flex items-center gap-4">
                         <div className="w-14 h-14 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-3xl shadow-lg border border-indigo-500/30">
@@ -78,43 +102,71 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = ({ play
                         </div>
                         <div>
                             <h2 className="text-3xl font-black text-white tracking-tighter uppercase">{building?.name || 'Produksjon'}</h2>
-                            <p className="text-slate-400 text-sm font-medium">{building?.description}</p>
+                            <p className="text-slate-400 text-sm font-medium">{building?.description} (Nivå {currentBuildingLevel})</p>
                         </div>
                     </div>
                     <GameButton variant="ghost" size="sm" onClick={() => setActiveTab('MAP')} className="border border-white/10">Tilbake</GameButton>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {recipes.map(([id, r]) => {
-                        const info = getOutputInfo(id, r);
-                        const isSelected = selectedRecipeId === id;
-                        const actionPayload = type === 'REFINE' ? { type: 'REFINE', recipeId: id } : { type: 'CRAFT', subType: id };
-                        const check = checkActionRequirements(player, actionPayload);
-                        const canAfford = check.success;
+                <div className="space-y-10">
+                    {recipesByLevel.map(([levelStr, levelRecipes]) => {
+                        const levelNum = parseInt(levelStr);
+                        const isLocked = levelNum > currentBuildingLevel;
 
                         return (
-                            <button
-                                key={id}
-                                onClick={() => setSelectedRecipeId(id)}
-                                className={`flex items-center gap-4 p-4 rounded-[2rem] border-2 transition-all group ${isSelected
-                                    ? 'bg-indigo-600/20 border-indigo-500/50 shadow-[0_0_30px_rgba(79,70,229,0.2)]'
-                                    : 'bg-slate-900/50 border-white/5 hover:border-white/10 hover:bg-slate-800/80 shadow-xl'
-                                    }`}
-                            >
-                                <div className="w-16 h-16 bg-black/40 rounded-2xl flex items-center justify-center text-4xl shadow-inner group-hover:scale-110 transition-transform">
-                                    {info.icon}
-                                </div>
-                                <div className="flex-1 text-left">
-                                    <div className="text-lg font-black text-white leading-tight">{info.name}</div>
-                                    <div className="flex items-center gap-2 mt-1">
-                                        <div className={`w-2 h-2 rounded-full ${canAfford ? 'bg-emerald-500' : 'bg-rose-500 animate-pulse'}`}></div>
-                                        <span className={`text-[10px] font-black uppercase tracking-widest ${canAfford ? 'text-emerald-500/70' : 'text-rose-500/70'}`}>
-                                            {canAfford ? 'Klar til produksjon' : 'Mangler ressurser'}
-                                        </span>
+                            <div key={levelStr} className="space-y-4">
+                                <div className="flex items-center gap-3">
+                                    <div className={`px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase ${isLocked ? 'bg-slate-800 text-slate-500' : 'bg-indigo-600 text-white'}`}>
+                                        Tier {levelStr}
                                     </div>
+                                    <div className="flex-1 h-px bg-white/5"></div>
+                                    {isLocked && (
+                                        <span className="text-[10px] font-bold text-slate-600 italic flex items-center gap-1">
+                                            <Package className="w-3 h-3" /> Oppgrader {building?.name} til Nivå {levelStr}
+                                        </span>
+                                    )}
                                 </div>
-                                <ChevronRight className={`w-5 h-5 transition-transform ${isSelected ? 'text-indigo-400 translate-x-1' : 'text-slate-600'}`} />
-                            </button>
+
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {levelRecipes.map(([id, r]: [string, any]) => {
+                                        const info = getOutputInfo(id, r);
+                                        const isSelected = selectedRecipeId === id;
+                                        const actionPayload = type === 'REFINE' ? { type: 'REFINE', recipeId: id } : { type: 'CRAFT', subType: id };
+                                        const check = checkActionRequirements(player, actionPayload);
+                                        const canAfford = check.success;
+
+                                        return (
+                                            <button
+                                                key={id}
+                                                onClick={() => setSelectedRecipeId(id)}
+                                                className={`flex items-center gap-4 p-4 rounded-[2rem] border-2 transition-all group relative overflow-hidden ${isLocked ? 'grayscale opacity-60 cursor-not-allowed bg-black/20 border-white/5' : isSelected
+                                                    ? 'bg-indigo-600/20 border-indigo-500/50 shadow-[0_0_30px_rgba(79,70,229,0.2)]'
+                                                    : 'bg-slate-900/50 border-white/5 hover:border-white/10 hover:bg-slate-800/80 shadow-xl'
+                                                    }`}
+                                            >
+                                                {isLocked && (
+                                                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-[1px]">
+                                                        <Settings className="w-6 h-6 text-slate-600 animate-spin-slow" />
+                                                    </div>
+                                                )}
+                                                <div className="w-16 h-16 bg-black/40 rounded-2xl flex items-center justify-center text-4xl shadow-inner group-hover:scale-110 transition-transform">
+                                                    {info.icon}
+                                                </div>
+                                                <div className="flex-1 text-left">
+                                                    <div className="text-lg font-black text-white leading-tight">{info.name}</div>
+                                                    <div className="flex items-center gap-2 mt-1">
+                                                        <div className={`w-2 h-2 rounded-full ${isLocked ? 'bg-slate-700' : canAfford ? 'bg-emerald-500' : 'bg-rose-500 animate-pulse'}`}></div>
+                                                        <span className={`text-[10px] font-black uppercase tracking-widest ${isLocked ? 'text-slate-600' : canAfford ? 'text-emerald-500/70' : 'text-rose-500/70'}`}>
+                                                            {isLocked ? 'Låst' : canAfford ? 'Klar til produksjon' : 'Mangler ressurser'}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                {!isLocked && <ChevronRight className={`w-5 h-5 transition-transform ${isSelected ? 'text-indigo-400 translate-x-1' : 'text-slate-600'}`} />}
+                                            </button>
+                                        );
+                                    })}
+                                </div>
+                            </div>
                         );
                     })}
                 </div>
@@ -195,9 +247,9 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = ({ play
                                 size="lg"
                                 className="h-20 text-xl w-full"
                                 onClick={handleProduce}
-                                disabled={!!actionLoading || !checkActionRequirements(player, type === 'REFINE' ? { type: 'REFINE', recipeId: selectedRecipeId } : { type: 'CRAFT', subType: selectedRecipeId }).success}
+                                disabled={!!actionLoading || (selectedRecipe.level || 1) > currentBuildingLevel || !checkActionRequirements(player, type === 'REFINE' ? { type: 'REFINE', recipeId: selectedRecipeId } : { type: 'CRAFT', subType: selectedRecipeId }).success}
                             >
-                                START PRODUKSJON
+                                {(selectedRecipe.level || 1) > currentBuildingLevel ? 'KREVER OPPGRADERING' : 'START PRODUKSJON'}
                             </GameButton>
                         </div>
                     </div>
