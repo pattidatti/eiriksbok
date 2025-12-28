@@ -1,6 +1,6 @@
 import { ref, runTransaction } from 'firebase/database';
 import { db } from '../../lib/firebase';
-import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, WEATHER, GAME_BALANCE, REFINERY_RECIPES, INITIAL_SKILLS, CRAFTING_RECIPES, ITEM_TEMPLATES, LEVEL_XP, VILLAGE_BUILDINGS } from './constants';
+import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, WEATHER, GAME_BALANCE, REFINERY_RECIPES, INITIAL_SKILLS, CRAFTING_RECIPES, ITEM_TEMPLATES, LEVEL_XP, VILLAGE_BUILDINGS, RESOURCE_DETAILS } from './constants';
 
 
 import type { SkillType, SimulationPlayer, EquipmentItem, EquipmentSlot } from './simulationTypes';
@@ -336,7 +336,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                             };
                             if (!actor.inventory) actor.inventory = [];
                             actor.inventory.push(newItem);
-
+                            localResult.yields.push({ resource: recipe.outputItemId, amount: 1 });
                             localResult.message = `Smidde ${newItem.name}!`;
                             trackXp('CRAFTING', 25 * recipe.level);
                         }
@@ -450,8 +450,9 @@ export const performAction = async (pin: string, playerId: string, action: any):
 
                         (actor.resources as any)[recipe.outputResource] = ((actor.resources as any)[recipe.outputResource] || 0) + yieldAmount;
 
+                        const outputName = (RESOURCE_DETAILS as any)[recipe.outputResource]?.label || recipe.outputResource;
                         localResult.yields.push({ resource: recipe.outputResource, amount: yieldAmount });
-                        localResult.message = `Raffinerte ${yieldAmount} ${recipe.outputResource}`;
+                        localResult.message = `Produserte ${yieldAmount} ${outputName}`;
                         trackXp('CRAFTING', 10);
                     } else {
                         localResult.success = false;

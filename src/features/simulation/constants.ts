@@ -31,6 +31,8 @@ export const RESOURCE_DETAILS: Record<string, { label: string, icon: string }> =
     favor: { label: 'Gunst', icon: '✨' },
     honey: { label: 'Honning', icon: '🍯' },
     meat: { label: 'Kjøtt', icon: '🍗' },
+    wool: { label: 'Ull', icon: '🧶' },
+    cloth: { label: 'Stoff', icon: '📜' },
     glass: { label: 'Glass', icon: '🥛' }
 };
 

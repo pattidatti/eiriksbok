@@ -11,6 +11,7 @@ import { LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS } from './con
 import { performAction } from './actions';
 import { MinigameOverlay } from './SimulationMinigames';
 import { SimulationProvider, useSimulation } from './SimulationContext';
+import { checkActionRequirements } from './utils/actionUtils';
 
 import { ActionResultOverlay } from './components/ActionResultOverlay';
 
@@ -187,6 +188,23 @@ const SimulationGame: React.FC = () => {
         const minigameTypes = ['WORK', 'CHOP', 'CRAFT', 'MILL', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE', 'SMELT', 'BAKE', 'WEAVE', 'MIX'];
 
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
+            // PRE-CHECK REQUIREMENTS
+            const currentSeason = (room?.world?.season || 'Spring') as any;
+            const currentWeather = (room?.world?.weather || 'Clear') as any;
+            const check = checkActionRequirements(player, action, currentSeason, currentWeather);
+
+            if (!check.success) {
+                setActionResult({
+                    success: false,
+                    timestamp: Date.now(),
+                    message: `Kan ikke utføre: ${check.reason}`,
+                    yields: [],
+                    xp: [],
+                    durability: []
+                });
+                return;
+            }
+
             let actualType = actionType;
 
             // Map refined actions to thematic games

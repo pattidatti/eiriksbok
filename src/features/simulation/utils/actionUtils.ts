@@ -1,5 +1,5 @@
 import type { SimulationPlayer, EquipmentItem, EquipmentSlot } from '../simulationTypes';
-import { ACTION_COSTS, SEASONS, WEATHER } from '../constants';
+import { ACTION_COSTS, SEASONS, WEATHER, REFINERY_RECIPES, CRAFTING_RECIPES } from '../constants';
 
 interface ValidationResult {
     success: boolean;
@@ -29,14 +29,13 @@ export const getActionEquipment = (player: SimulationPlayer, actionId: string): 
 
 export const checkActionRequirements = (
     player: SimulationPlayer,
-    actionId: string,
+    action: any, // Can be string (actionId) or payload object
     currentSeason: keyof typeof SEASONS = 'Spring',
     currentWeather: keyof typeof WEATHER = 'Clear'
 ): ValidationResult => {
-    // 1. Role Check (Basic Validation already done in UI mostly, but good for safety)
-    // Removed strict role check here as UI handles visibility usually.
+    const actionId = typeof action === 'string' ? action : action.type;
 
-    // 2. Durability Check
+    // 1. Durability Check
     const equipment = getActionEquipment(player, actionId);
     for (const item of equipment) {
         if (item.durability <= 0) {
@@ -44,16 +43,34 @@ export const checkActionRequirements = (
         }
     }
 
-    // 3. Cost Check
-    const costData = (ACTION_COSTS as any)[actionId];
-    if (costData) {
+    // 2. Cost Check
+    let costs: Record<string, number> = {};
+    const baseCostData = (ACTION_COSTS as any)[actionId];
+    if (baseCostData) costs = { ...baseCostData };
+
+    // Supplement with Recipe Costs for Production
+    if (actionId === 'REFINE' || actionId === 'CRAFT') {
+        const payload = typeof action === 'object' ? action : {};
+        let recipe;
+        if (actionId === 'REFINE') recipe = REFINERY_RECIPES[payload.recipeId];
+        if (actionId === 'CRAFT') recipe = CRAFTING_RECIPES[payload.subType];
+
+        if (recipe && recipe.input) {
+            Object.entries(recipe.input).forEach(([res, amt]) => {
+                costs[res] = (costs[res] || 0) + (amt as number);
+            });
+            if (recipe.stamina) costs.stamina = (costs.stamina || 0) + recipe.stamina;
+        }
+    }
+
+    if (Object.keys(costs).length > 0) {
         // Stamina calculation
         const seasonData = SEASONS[currentSeason];
         const weatherData = WEATHER[currentWeather];
         const baseStaminaMod = seasonData?.staminaMod || 1.0;
         const weatherStaminaMod = weatherData?.staminaMod || 1.0;
 
-        const baseStaminaCost = costData.stamina || 0;
+        const baseStaminaCost = costs.stamina || 0;
         const finalStaminaCost = Math.ceil(baseStaminaCost * baseStaminaMod * weatherStaminaMod);
 
         if ((player.status.stamina || 0) < finalStaminaCost) {
@@ -61,7 +78,7 @@ export const checkActionRequirements = (
         }
 
         // Resource Check
-        for (const [res, amt] of Object.entries(costData)) {
+        for (const [res, amt] of Object.entries(costs)) {
             if (res === 'stamina') continue;
             const playerRes = (player.resources as any)[res] || 0;
             if (playerRes < (amt as number)) {
@@ -74,39 +91,63 @@ export const checkActionRequirements = (
 };
 
 export const getActionCostString = (
-    actionId: string,
+    action: any,
     currentSeason: keyof typeof SEASONS = 'Spring',
     currentWeather: keyof typeof WEATHER = 'Clear'
 ): string | null => {
-    const costData = (ACTION_COSTS as any)[actionId];
-    if (!costData) return null;
+    const actionId = typeof action === 'string' ? action : action.type;
+
+    let costs: Record<string, number> = {};
+    const baseCostData = (ACTION_COSTS as any)[actionId];
+    if (baseCostData) costs = { ...baseCostData };
+
+    if (actionId === 'REFINE' || actionId === 'CRAFT') {
+        const payload = typeof action === 'object' ? action : {};
+        let recipe;
+        if (actionId === 'REFINE') recipe = REFINERY_RECIPES[payload.recipeId];
+        if (actionId === 'CRAFT') recipe = CRAFTING_RECIPES[payload.subType];
+
+        if (recipe && recipe.input) {
+            Object.entries(recipe.input).forEach(([res, amt]) => {
+                costs[res] = (costs[res] || 0) + (amt as number);
+            });
+            if (recipe.stamina) costs.stamina = (costs.stamina || 0) + recipe.stamina;
+        }
+    }
+
+    if (Object.keys(costs).length === 0) return null;
 
     const parts: string[] = [];
 
     // Stamina
-    if (costData.stamina) {
+    if (costs.stamina) {
         const seasonData = SEASONS[currentSeason];
         const weatherData = WEATHER[currentWeather];
         const mod = (seasonData?.staminaMod || 1.0) * (weatherData?.staminaMod || 1.0);
-        const finalStamina = Math.ceil(costData.stamina * mod);
+        const finalStamina = Math.ceil(costs.stamina * mod);
 
         let prefix = '-';
-        if (costData.stamina < 0) prefix = '+'; // Negative cost = gain (sleep)
+        if (costs.stamina < 0) prefix = '+'; // Negative cost = gain (sleep)
 
         parts.push(`${prefix}${Math.abs(finalStamina)}⚡`);
     }
 
     // Resources
-    for (const [res, amt] of Object.entries(costData)) {
+    const ICONS: Record<string, string> = {
+        bread: '🍞',
+        gold: '💰',
+        wood: '🪵',
+        flour: '🧂',
+        grain: '🌾',
+        iron_ingot: '🧱',
+        timber: '🪜'
+    };
+
+    for (const [res, amt] of Object.entries(costs)) {
         if (res === 'stamina') continue;
         const amount = amt as number;
-        let icon = '';
-        if (res === 'bread') icon = '🍞';
-        else if (res === 'gold') icon = '💰';
-        else if (res === 'wood') icon = '🪵';
-
-        // Handle gains vs costs in string? Usually costs are positive in this object.
-        parts.push(`-${amount}${icon || res}`);
+        const icon = ICONS[res] || res;
+        parts.push(`-${amount}${icon}`);
     }
 
     return parts.join(' ');
