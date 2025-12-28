@@ -319,6 +319,10 @@ const POINTS_OF_INTEREST: POI[] = [
         id: 'tavern_gossip', label: 'Lokalbefolkningen', icon: '🗣️', top: '40%', left: '70%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'tavern',
         actions: [{ id: 'CHAT_LOCAL', label: 'Snakk med folk', cost: 'Gratis' }]
     },
+    {
+        id: 'tavern_upgrades', label: 'Tegneark', icon: '📜', top: '25%', left: '85%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'tavern',
+        actions: [{ id: 'BUILDING_UPGRADE_tavern', label: 'Oppgrader Vertshuset', cost: 'Varierer' }]
+    },
 
     // --- FIELDS LOCAL ---
     {
