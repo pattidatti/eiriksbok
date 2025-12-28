@@ -62,7 +62,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
             if (a.id === 'FEAST' && player.role !== 'KING' && player.role !== 'BARON') return false;
 
             // Building level filtering
-            if (buildingDef && !unlockedActions.includes(a.id)) return false;
+            if (buildingDef && !a.id.startsWith('BUILDING_UPGRADE_') && !unlockedActions.includes(a.id)) return false;
 
             return true;
         });
