@@ -94,18 +94,29 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
     // Main Content Switcher
     return (
         <main className="flex-1 relative flex flex-col bg-slate-900 overflow-hidden">
-            <div className={`flex-1 relative p-8 ${activeTab === 'MAP' ? 'overflow-hidden flex items-center justify-center' : 'overflow-y-auto overflow-x-hidden custom-scrollbar'}`}>
-                {activeTab === 'MAP' ? (
+            <div className={`flex-1 relative p-8 ${activeTab === 'MAP' || activeTab === 'PRODUCTION' || activeTab === 'MARKET' ? 'overflow-hidden flex items-center justify-center' : 'overflow-y-auto overflow-x-hidden custom-scrollbar'}`}>
+                {/* Always render WorldMap when in MAP, PRODUCTION or MARKET to keep it as background */}
+                {(activeTab === 'MAP' || activeTab === 'PRODUCTION' || activeTab === 'MARKET') && (
                     <WorldMap player={player} room={room} onAction={onAction} onOpenMarket={() => setActiveTab('MARKET')} />
-                ) : (
-                    <div className="max-w-4xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 duration-500">
-                        {activeTab === 'MARKET' ? (
-                            <SimulationMarket player={player} room={room} onAction={onAction} />
-                        ) : activeTab === 'PRODUCTION' ? (
-                            <div className="fixed inset-0 z-50 overflow-y-auto overflow-x-hidden custom-scrollbar bg-slate-950/80 backdrop-blur-md p-8 animate-in fade-in duration-500">
-                                <SimulationProduction player={player} room={room} onAction={onAction} />
-                            </div>
-                        ) : activeTab === 'INVENTORY' ? (
+                )}
+
+                {/* Overlays */}
+                {activeTab === 'PRODUCTION' && (
+                    <div className="fixed inset-0 z-50 overflow-y-auto overflow-x-hidden custom-scrollbar bg-slate-950/60 backdrop-blur-md p-8 animate-in fade-in duration-500 flex items-center justify-center">
+                        <SimulationProduction player={player} room={room} onAction={onAction} />
+                    </div>
+                )}
+
+                {activeTab === 'MARKET' && (
+                    <div className="fixed inset-0 z-50 overflow-y-auto overflow-x-hidden custom-scrollbar bg-slate-950/60 backdrop-blur-md p-8 animate-in fade-in duration-500 flex items-center justify-center">
+                        <SimulationMarket player={player} room={room} onAction={onAction} />
+                    </div>
+                )}
+
+                {/* Other Tabs (Fullscreen/Full Viewport) */}
+                {activeTab !== 'MAP' && activeTab !== 'PRODUCTION' && activeTab !== 'MARKET' && (
+                    <div className="max-w-4xl mx-auto w-full space-y-8 animate-in slide-in-from-bottom-4 duration-500">
+                        {activeTab === 'INVENTORY' ? (
                             <SimulationVault player={player} onAction={onAction} />
                         ) : activeTab === 'ACTIVITY' ? (
                             <div className="space-y-6">
@@ -130,7 +141,6 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                         ) : activeTab === 'SKILLS' ? (
                             <SimulationSkills player={player} />
                         ) : activeTab === 'DIPLOMACY' ? (
-
                             <div className="space-y-6 h-full flex flex-col">
                                 <h2 className="text-4xl font-black text-white tracking-tighter border-b-2 border-white/5 pb-4 flex items-center justify-between">
                                     Diplomati

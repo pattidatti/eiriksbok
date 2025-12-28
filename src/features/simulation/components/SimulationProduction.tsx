@@ -19,9 +19,15 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = ({ play
 
     if (!productionContext) {
         return (
-            <div className="flex flex-col items-center justify-center h-64 text-slate-500 italic">
-                Seksjonen er utilgjengelig. Vennligst velg en produksjonsstasjon på kartet.
-                <GameButton variant="ghost" onClick={() => setActiveTab('MAP')} className="mt-4 border border-white/10">Tilbake til Kartet</GameButton>
+            <div className="bg-slate-900/90 border border-white/10 rounded-[3rem] p-12 shadow-2xl relative w-full max-w-lg animate-in zoom-in-95 duration-300">
+                <div className="flex flex-col items-center justify-center text-center space-y-6">
+                    <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center text-4xl">⚠️</div>
+                    <div className="space-y-2">
+                        <h3 className="text-xl font-black text-white uppercase tracking-tighter">Utilgjengelig</h3>
+                        <p className="text-slate-500 italic max-w-xs">Vennligst velg en produksjonsstasjon på kartet for å starte.</p>
+                    </div>
+                    <GameButton variant="ghost" onClick={() => setActiveTab('MAP')} className="border border-white/10">Tilbake til Kartet</GameButton>
+                </div>
             </div>
         );
     }
@@ -91,177 +97,187 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = ({ play
     };
 
     return (
-        <div className="flex flex-col lg:flex-row gap-8 animate-in fade-in slide-in-from-bottom-6 duration-700 max-w-7xl mx-auto pb-20">
+        <div className="bg-slate-900/90 border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-2xl relative w-full max-w-7xl max-h-[90vh] overflow-y-auto custom-scrollbar animate-in zoom-in-95 duration-300">
+            {/* Close Button Trigger */}
+            <button
+                onClick={() => setActiveTab('MAP')}
+                className="absolute top-8 right-8 w-12 h-12 bg-white/5 hover:bg-rose-500/20 text-slate-400 hover:text-rose-500 rounded-full flex items-center justify-center transition-all z-10 group"
+                title="Lukk"
+            >
+                <span className="text-2xl group-hover:rotate-90 transition-transform">✕</span>
+            </button>
 
-            {/* LEFT: RECIPE LIST */}
-            <div className="flex-1 space-y-8">
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                    <div className="flex items-center gap-4">
-                        <div className="w-14 h-14 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-3xl shadow-lg border border-indigo-500/30">
-                            {building?.icon || '🏢'}
-                        </div>
-                        <div>
-                            <h2 className="text-3xl font-black text-white tracking-tighter uppercase">{building?.name || 'Produksjon'}</h2>
-                            <p className="text-slate-400 text-sm font-medium">{building?.description} (Nivå {currentBuildingLevel})</p>
+            <div className="flex flex-col lg:flex-row gap-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
+
+                {/* LEFT: RECIPE LIST */}
+                <div className="flex-1 space-y-8">
+                    <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                        <div className="flex items-center gap-4">
+                            <div className="w-14 h-14 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-3xl shadow-lg border border-indigo-500/30">
+                                {building?.icon || '🏢'}
+                            </div>
+                            <div>
+                                <h2 className="text-3xl font-black text-white tracking-tighter uppercase">{building?.name || 'Produksjon'}</h2>
+                                <p className="text-slate-400 text-sm font-medium">{building?.description} (Nivå {currentBuildingLevel})</p>
+                            </div>
                         </div>
                     </div>
-                    <GameButton variant="ghost" size="sm" onClick={() => setActiveTab('MAP')} className="border border-white/10">Tilbake</GameButton>
-                </div>
 
-                <div className="space-y-10">
-                    {recipesByLevel.map(([levelStr, levelRecipes]) => {
-                        const levelNum = parseInt(levelStr);
-                        const isLocked = levelNum > currentBuildingLevel;
+                    <div className="space-y-10">
+                        {recipesByLevel.map(([levelStr, levelRecipes]) => {
+                            const levelNum = parseInt(levelStr);
+                            const isLocked = levelNum > currentBuildingLevel;
 
-                        return (
-                            <div key={levelStr} className="space-y-4">
-                                <div className="flex items-center gap-3">
-                                    <div className={`px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase ${isLocked ? 'bg-slate-800 text-slate-500' : 'bg-indigo-600 text-white'}`}>
-                                        Tier {levelStr}
-                                    </div>
-                                    <div className="flex-1 h-px bg-white/5"></div>
-                                    {isLocked && (
-                                        <span className="text-[10px] font-bold text-slate-600 italic flex items-center gap-1">
-                                            <Package className="w-3 h-3" /> Oppgrader {building?.name} til Nivå {levelStr}
-                                        </span>
-                                    )}
-                                </div>
-
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    {levelRecipes.map(([id, r]: [string, any]) => {
-                                        const info = getOutputInfo(id, r);
-                                        const isSelected = selectedRecipeId === id;
-                                        const actionPayload = type === 'REFINE' ? { type: 'REFINE', recipeId: id } : { type: 'CRAFT', subType: id };
-                                        const check = checkActionRequirements(player, actionPayload);
-                                        const canAfford = check.success;
-
-                                        return (
-                                            <button
-                                                key={id}
-                                                onClick={() => setSelectedRecipeId(id)}
-                                                className={`flex items-center gap-4 p-4 rounded-[2rem] border-2 transition-all group relative overflow-hidden ${isLocked ? 'grayscale opacity-60 cursor-not-allowed bg-black/20 border-white/5' : isSelected
-                                                    ? 'bg-indigo-600/20 border-indigo-500/50 shadow-[0_0_30px_rgba(79,70,229,0.2)]'
-                                                    : 'bg-slate-900/50 border-white/5 hover:border-white/10 hover:bg-slate-800/80 shadow-xl'
-                                                    }`}
-                                            >
-                                                {isLocked && (
-                                                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-[1px]">
-                                                        <Settings className="w-6 h-6 text-slate-600 animate-spin-slow" />
-                                                    </div>
-                                                )}
-                                                <div className="w-16 h-16 bg-black/40 rounded-2xl flex items-center justify-center text-4xl shadow-inner group-hover:scale-110 transition-transform">
-                                                    {info.icon}
-                                                </div>
-                                                <div className="flex-1 text-left">
-                                                    <div className="text-lg font-black text-white leading-tight">{info.name}</div>
-                                                    <div className="flex items-center gap-2 mt-1">
-                                                        <div className={`w-2 h-2 rounded-full ${isLocked ? 'bg-slate-700' : canAfford ? 'bg-emerald-500' : 'bg-rose-500 animate-pulse'}`}></div>
-                                                        <span className={`text-[10px] font-black uppercase tracking-widest ${isLocked ? 'text-slate-600' : canAfford ? 'text-emerald-500/70' : 'text-rose-500/70'}`}>
-                                                            {isLocked ? 'Låst' : canAfford ? 'Klar til produksjon' : 'Mangler ressurser'}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                {!isLocked && <ChevronRight className={`w-5 h-5 transition-transform ${isSelected ? 'text-indigo-400 translate-x-1' : 'text-slate-600'}`} />}
-                                            </button>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-
-            {/* RIGHT: DETAILS PANEL */}
-            <div className={`w-full lg:w-[450px] shrink-0 transition-opacity duration-300 ${!selectedRecipe ? 'opacity-30 pointer-events-none grayscale' : 'opacity-100'}`}>
-                {selectedRecipe ? (
-                    <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-[3rem] p-8 shadow-2xl sticky top-8">
-                        {/* Header */}
-                        <div className="text-center mb-8">
-                            <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-[2rem] flex items-center justify-center text-6xl mx-auto shadow-2xl border-4 border-white/10 mb-6 group-hover:rotate-6 transition-transform">
-                                {getOutputInfo(selectedRecipeId!, selectedRecipe).icon}
-                            </div>
-                            <h3 className="text-3xl font-black text-white tracking-tighter mb-2">{getOutputInfo(selectedRecipeId!, selectedRecipe).name}</h3>
-                            <p className="text-slate-400 text-sm font-medium px-4">{getOutputInfo(selectedRecipeId!, selectedRecipe).description}</p>
-                        </div>
-
-                        {/* Requirements */}
-                        <div className="space-y-6">
-                            <div className="space-y-3">
-                                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
-                                    <Package className="w-3 h-3" /> Ressurskrav
-                                </div>
-                                <div className="grid grid-cols-1 gap-2">
-                                    {Object.entries(selectedRecipe.input).map(([resId, amt]) => {
-                                        const playerHas = (player.resources as any)[resId] || 0;
-                                        const targets = amt as number;
-                                        const isMet = playerHas >= targets;
-                                        return (
-                                            <div key={resId} className={`flex items-center justify-between p-3 rounded-2xl border ${isMet ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-rose-500/5 border-rose-500/20'}`}>
-                                                <div className="flex items-center gap-3">
-                                                    <ResourceIcon resource={resId} size="sm" />
-                                                    <span className={`text-sm font-bold ${isMet ? 'text-slate-200' : 'text-slate-400'}`}>{(RESOURCE_DETAILS as any)[resId]?.label || resId}</span>
-                                                </div>
-                                                <div className="flex items-center gap-2">
-                                                    <span className={`text-sm font-black ${isMet ? 'text-emerald-400' : 'text-rose-400'}`}>{playerHas}</span>
-                                                    <span className="text-slate-600">/</span>
-                                                    <span className="text-sm font-black text-slate-200">{targets}</span>
-                                                </div>
-                                            </div>
-                                        );
-                                    })}
-                                    {/* Stamina */}
-                                    <div className="flex items-center justify-between p-3 rounded-2xl border bg-indigo-500/5 border-indigo-500/20">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 flex items-center justify-center text-xl">⚡</div>
-                                            <span className="text-sm font-bold text-slate-200">Stamina-kostnad</span>
+                            return (
+                                <div key={levelStr} className="space-y-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className={`px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase ${isLocked ? 'bg-slate-800 text-slate-500' : 'bg-indigo-600 text-white'}`}>
+                                            Tier {levelStr}
                                         </div>
-                                        <span className="text-sm font-black text-indigo-400">-{selectedRecipe.stamina || 0}</span>
+                                        <div className="flex-1 h-px bg-white/5"></div>
+                                        {isLocked && (
+                                            <span className="text-[10px] font-bold text-slate-600 italic flex items-center gap-1">
+                                                <Package className="w-3 h-3" /> Oppgrader {building?.name} til Nivå {levelStr}
+                                            </span>
+                                        )}
+                                    </div>
+
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        {levelRecipes.map(([id, r]: [string, any]) => {
+                                            const info = getOutputInfo(id, r);
+                                            const isSelected = selectedRecipeId === id;
+                                            const actionPayload = type === 'REFINE' ? { type: 'REFINE', recipeId: id } : { type: 'CRAFT', subType: id };
+                                            const check = checkActionRequirements(player, actionPayload);
+                                            const canAfford = check.success;
+
+                                            return (
+                                                <button
+                                                    key={id}
+                                                    onClick={() => setSelectedRecipeId(id)}
+                                                    className={`flex items-center gap-4 p-4 rounded-[2rem] border-2 transition-all group relative overflow-hidden ${isLocked ? 'grayscale opacity-60 cursor-not-allowed bg-black/20 border-white/5' : isSelected
+                                                        ? 'bg-indigo-600/20 border-indigo-500/50 shadow-[0_0_30px_rgba(79,70,229,0.2)]'
+                                                        : 'bg-slate-900/50 border-white/5 hover:border-white/10 hover:bg-slate-800/80 shadow-xl'
+                                                        }`}
+                                                >
+                                                    {isLocked && (
+                                                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-[1px]">
+                                                            <Settings className="w-6 h-6 text-slate-600 animate-spin-slow" />
+                                                        </div>
+                                                    )}
+                                                    <div className="w-16 h-16 bg-black/40 rounded-2xl flex items-center justify-center text-4xl shadow-inner group-hover:scale-110 transition-transform">
+                                                        {info.icon}
+                                                    </div>
+                                                    <div className="flex-1 text-left">
+                                                        <div className="text-lg font-black text-white leading-tight">{info.name}</div>
+                                                        <div className="flex items-center gap-2 mt-1">
+                                                            <div className={`w-2 h-2 rounded-full ${isLocked ? 'bg-slate-700' : canAfford ? 'bg-emerald-500' : 'bg-rose-500 animate-pulse'}`}></div>
+                                                            <span className={`text-[10px] font-black uppercase tracking-widest ${isLocked ? 'text-slate-600' : canAfford ? 'text-emerald-500/70' : 'text-rose-500/70'}`}>
+                                                                {isLocked ? 'Låst' : canAfford ? 'Klar til produksjon' : 'Mangler ressurser'}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    {!isLocked && <ChevronRight className={`w-5 h-5 transition-transform ${isSelected ? 'text-indigo-400 translate-x-1' : 'text-slate-600'}`} />}
+                                                </button>
+                                            );
+                                        })}
                                     </div>
                                 </div>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                {/* RIGHT: DETAILS PANEL */}
+                <div className={`w-full lg:w-[450px] shrink-0 transition-opacity duration-300 ${!selectedRecipe ? 'opacity-30 pointer-events-none grayscale' : 'opacity-100'}`}>
+                    {selectedRecipe ? (
+                        <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-[3rem] p-8 shadow-2xl sticky top-8">
+                            {/* Header */}
+                            <div className="text-center mb-8">
+                                <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-[2rem] flex items-center justify-center text-6xl mx-auto shadow-2xl border-4 border-white/10 mb-6 group-hover:rotate-6 transition-transform">
+                                    {getOutputInfo(selectedRecipeId!, selectedRecipe).icon}
+                                </div>
+                                <h3 className="text-3xl font-black text-white tracking-tighter mb-2">{getOutputInfo(selectedRecipeId!, selectedRecipe).name}</h3>
+                                <p className="text-slate-400 text-sm font-medium px-4">{getOutputInfo(selectedRecipeId!, selectedRecipe).description}</p>
                             </div>
 
-                            {/* Production Stats / Bonuses */}
-                            <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-4">
-                                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
-                                    <TrendingUp className="w-3 h-3" /> Forventet Utbytte
-                                </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-1">
-                                        <div className="text-[10px] text-slate-500 font-bold uppercase">Base Yield</div>
-                                        <div className="text-xl font-black text-white">+{selectedRecipe.outputAmount || selectedRecipe.output?.amount || 1}</div>
+                            {/* Requirements */}
+                            <div className="space-y-6">
+                                <div className="space-y-3">
+                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                        <Package className="w-3 h-3" /> Ressurskrav
                                     </div>
-                                    <div className="space-y-1">
-                                        <div className="text-[10px] text-emerald-500 font-bold uppercase">Skill Bonus</div>
-                                        <div className="text-xl font-black text-emerald-400">+{Math.floor((selectedRecipe.outputAmount || 1) * (player.skills?.CRAFTING?.level || 0) * 0.05)}</div>
+                                    <div className="grid grid-cols-1 gap-2">
+                                        {Object.entries(selectedRecipe.input).map(([resId, amt]) => {
+                                            const playerHas = (player.resources as any)[resId] || 0;
+                                            const targets = amt as number;
+                                            const isMet = playerHas >= targets;
+                                            return (
+                                                <div key={resId} className={`flex items-center justify-between p-3 rounded-2xl border ${isMet ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-rose-500/5 border-rose-500/20'}`}>
+                                                    <div className="flex items-center gap-3">
+                                                        <ResourceIcon resource={resId} size="sm" />
+                                                        <span className={`text-sm font-bold ${isMet ? 'text-slate-200' : 'text-slate-400'}`}>{(RESOURCE_DETAILS as any)[resId]?.label || resId}</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        <span className={`text-sm font-black ${isMet ? 'text-emerald-400' : 'text-rose-400'}`}>{playerHas}</span>
+                                                        <span className="text-slate-600">/</span>
+                                                        <span className="text-sm font-black text-slate-200">{targets}</span>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                        {/* Stamina */}
+                                        <div className="flex items-center justify-between p-3 rounded-2xl border bg-indigo-500/5 border-indigo-500/20">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 flex items-center justify-center text-xl">⚡</div>
+                                                <span className="text-sm font-bold text-slate-200">Stamina-kostnad</span>
+                                            </div>
+                                            <span className="text-sm font-black text-indigo-400">-{selectedRecipe.stamina || 0}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs">
-                                    <span className="text-slate-500 font-bold flex items-center gap-1.5"><Zap className="w-3 h-3 text-amber-500" /> XP Gevinst:</span>
-                                    <span className="text-amber-500 font-black">+{selectedRecipe.xp || 10} Krafting XP</span>
-                                </div>
-                            </div>
 
-                            <GameButton
-                                variant="primary"
-                                size="lg"
-                                className="h-20 text-xl w-full"
-                                onClick={handleProduce}
-                                disabled={!!actionLoading || (selectedRecipe.level || 1) > currentBuildingLevel || !checkActionRequirements(player, type === 'REFINE' ? { type: 'REFINE', recipeId: selectedRecipeId } : { type: 'CRAFT', subType: selectedRecipeId }).success}
-                            >
-                                {(selectedRecipe.level || 1) > currentBuildingLevel ? 'KREVER OPPGRADERING' : 'START PRODUKSJON'}
-                            </GameButton>
+                                {/* Production Stats / Bonuses */}
+                                <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-4">
+                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                        <TrendingUp className="w-3 h-3" /> Forventet Utbytte
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="space-y-1">
+                                            <div className="text-[10px] text-slate-500 font-bold uppercase">Base Yield</div>
+                                            <div className="text-xl font-black text-white">+{selectedRecipe.outputAmount || selectedRecipe.output?.amount || 1}</div>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <div className="text-[10px] text-emerald-500 font-bold uppercase">Skill Bonus</div>
+                                            <div className="text-xl font-black text-emerald-400">+{Math.floor((selectedRecipe.outputAmount || 1) * (player.skills?.CRAFTING?.level || 0) * 0.05)}</div>
+                                        </div>
+                                    </div>
+                                    <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs">
+                                        <span className="text-slate-500 font-bold flex items-center gap-1.5"><Zap className="w-3 h-3 text-amber-500" /> XP Gevinst:</span>
+                                        <span className="text-amber-500 font-black">+{selectedRecipe.xp || 10} Krafting XP</span>
+                                    </div>
+                                </div>
+
+                                <GameButton
+                                    variant="primary"
+                                    size="lg"
+                                    className="h-20 text-xl w-full"
+                                    onClick={handleProduce}
+                                    disabled={!!actionLoading || (selectedRecipe.level || 1) > currentBuildingLevel || !checkActionRequirements(player, type === 'REFINE' ? { type: 'REFINE', recipeId: selectedRecipeId } : { type: 'CRAFT', subType: selectedRecipeId }).success}
+                                >
+                                    {(selectedRecipe.level || 1) > currentBuildingLevel ? 'KREVER OPPGRADERING' : 'START PRODUKSJON'}
+                                </GameButton>
+                            </div>
                         </div>
-                    </div>
-                ) : (
-                    <div className="h-full flex flex-col items-center justify-center text-center p-12 bg-slate-900/20 border-2 border-dashed border-white/10 rounded-[3rem]">
-                        <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6">
-                            <Info className="w-10 h-10 text-slate-600" />
+                    ) : (
+                        <div className="h-full flex flex-col items-center justify-center text-center p-12 bg-slate-900/20 border-2 border-dashed border-white/10 rounded-[3rem]">
+                            <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6">
+                                <Info className="w-10 h-10 text-slate-600" />
+                            </div>
+                            <h4 className="text-xl font-black text-slate-400 mb-2">Ingen oppskrift valgt</h4>
+                            <p className="text-sm text-slate-500 font-medium">Velg en gjenstand fra listen til venstre for å se detaljer og starte produksjon.</p>
                         </div>
-                        <h4 className="text-xl font-black text-slate-400 mb-2">Ingen oppskrift valgt</h4>
-                        <p className="text-sm text-slate-500 font-medium">Velg en gjenstand fra listen til venstre for å se detaljer og starte produksjon.</p>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     );
