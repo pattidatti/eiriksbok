@@ -1,7 +1,6 @@
-import React from 'react';
-import { SimulationPlayer, SimulationRoom } from '../simulationTypes';
+import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
 import { checkActionRequirements, getActionCostString } from '../utils/actionUtils';
-import { ACTION_COSTS, SEASONS, WEATHER } from '../constants';
+import { SEASONS, WEATHER } from '../constants';
 
 interface ActionTooltipProps {
     poi: any; // Using any for now to match WorldMap POI structure, or import POI interface

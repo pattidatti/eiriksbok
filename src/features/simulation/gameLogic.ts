@@ -20,9 +20,9 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
             status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 100, loyalty: 100, isJailed: false, isFrozen: false },
             stats: { level: 1, xp: 0, reputation: 50, contribution: 0 },
             equipment: {
-                tools: { id: 'tools', name: 'Kongens Verktøy', icon: '🛠️', type: 'TOOL', level: 1, durability: 100, maxDurability: 100 },
-                weapon: { id: 'weapon', name: 'Kongens Sverd', icon: '⚔️', type: 'WEAPON', level: 1, durability: 100, maxDurability: 100 },
-                armor: { id: 'armor', name: 'Kongens Rustning', icon: '🛡️', type: 'BODY', level: 1, durability: 100, maxDurability: 100 }
+                MAIN_HAND: { id: 'tools', name: 'Kongens Verktøy', icon: '🛠️', type: 'MAIN_HAND', level: 1, durability: 100, maxDurability: 100 },
+                OFF_HAND: { id: 'weapon', name: 'Kongens Sverd', icon: '⚔️', type: 'OFF_HAND', level: 1, durability: 100, maxDurability: 100 },
+                BODY: { id: 'armor', name: 'Kongens Rustning', icon: '🛡️', type: 'BODY', level: 1, durability: 100, maxDurability: 100 }
             }
         };
     }
@@ -47,9 +47,9 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
                 status: { hp: 100, stamina: 100, morale: 100, legitimacy: 80, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
                 stats: { level: 1, xp: 0, reputation: 40, contribution: 0 },
                 equipment: {
-                    tools: { id: 'tools', name: 'Baronens Verktøy', icon: '🛠️', type: 'TOOL', level: 1, durability: 100, maxDurability: 100 },
-                    weapon: { id: 'weapon', name: 'Baronens Sverd', icon: '⚔️', type: 'WEAPON', level: 1, durability: 100, maxDurability: 100 },
-                    armor: { id: 'armor', name: 'Baronens Rustning', icon: '🛡️', type: 'BODY', level: 1, durability: 100, maxDurability: 100 }
+                    MAIN_HAND: { id: 'tools', name: 'Baronens Verktøy', icon: '🛠️', type: 'MAIN_HAND', level: 1, durability: 100, maxDurability: 100 },
+                    OFF_HAND: { id: 'weapon', name: 'Baronens Sverd', icon: '⚔️', type: 'OFF_HAND', level: 1, durability: 100, maxDurability: 100 },
+                    BODY: { id: 'armor', name: 'Baronens Rustning', icon: '🛡️', type: 'BODY', level: 1, durability: 100, maxDurability: 100 }
                 }
             };
         }
@@ -97,9 +97,9 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
                 status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 30, loyalty: 100, isJailed: false, isFrozen: false },
                 stats: { level: 1, xp: 0, reputation: 30, contribution: 0 },
                 equipment: {
-                    tools: { id: 'tools', name: 'Håndverktøy', icon: '🛠️', type: 'TOOL', level: 1, durability: 100, maxDurability: 100 },
-                    weapon: { id: 'weapon', name: 'Kort sverd', icon: '⚔️', type: 'WEAPON', level: 1, durability: 100, maxDurability: 100 },
-                    armor: { id: 'armor', name: 'Kjøpmannskappe', icon: '🛡️', type: 'BODY', level: 1, durability: 100, maxDurability: 100 }
+                    MAIN_HAND: { id: 'tools', name: 'Håndverktøy', icon: '🛠️', type: 'MAIN_HAND', level: 1, durability: 100, maxDurability: 100 },
+                    OFF_HAND: { id: 'weapon', name: 'Kort sverd', icon: '⚔️', type: 'OFF_HAND', level: 1, durability: 100, maxDurability: 100 },
+                    BODY: { id: 'armor', name: 'Kjøpmannskappe', icon: '🛡️', type: 'BODY', level: 1, durability: 100, maxDurability: 100 }
                 }
             };
         }
@@ -117,9 +117,9 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
                 status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
                 stats: { level: 1, xp: 0, reputation: 20, contribution: 0 },
                 equipment: {
-                    tools: { id: 'tools', name: 'Feltverktøy', icon: '🛠️', type: 'TOOL', level: 1, durability: 100, maxDurability: 100 },
-                    weapon: { id: 'weapon', name: 'Soldatens Sverd', icon: '⚔️', type: 'WEAPON', level: 1, durability: 100, maxDurability: 100 },
-                    armor: { id: 'armor', name: 'Brynjekofte', icon: '🛡️', type: 'BODY', level: 1, durability: 100, maxDurability: 100 }
+                    MAIN_HAND: { id: 'tools', name: 'Feltverktøy', icon: '🛠️', type: 'MAIN_HAND', level: 1, durability: 100, maxDurability: 100 },
+                    OFF_HAND: { id: 'weapon', name: 'Soldatens Sverd', icon: '⚔️', type: 'OFF_HAND', level: 1, durability: 100, maxDurability: 100 },
+                    BODY: { id: 'armor', name: 'Brynjekofte', icon: '🛡️', type: 'BODY', level: 1, durability: 100, maxDurability: 100 }
                 }
             };
         }
@@ -137,9 +137,9 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
                 status: { hp: 100, stamina: 100, morale: 80, legitimacy: 100, authority: 10, loyalty: 100, isJailed: false, isFrozen: false },
                 stats: { level: 1, xp: 0, reputation: 10, contribution: 0 },
                 equipment: {
-                    tools: { id: 'tools', name: 'Bondeverktøy', icon: '🛠️', type: 'TOOL', level: 1, durability: 100, maxDurability: 100 },
-                    weapon: { id: 'weapon', name: 'Gammel Øks', icon: '⚔️', type: 'WEAPON', level: 1, durability: 100, maxDurability: 100 },
-                    armor: { id: 'armor', name: 'Lærkofte', icon: '🛡️', type: 'BODY', level: 1, durability: 100, maxDurability: 100 }
+                    MAIN_HAND: { id: 'tools', name: 'Bondeverktøy', icon: '🛠️', type: 'MAIN_HAND', level: 1, durability: 100, maxDurability: 100 },
+                    OFF_HAND: { id: 'weapon', name: 'Gammel Øks', icon: '⚔️', type: 'OFF_HAND', level: 1, durability: 100, maxDurability: 100 },
+                    BODY: { id: 'armor', name: 'Lærkofte', icon: '🛡️', type: 'BODY', level: 1, durability: 100, maxDurability: 100 }
                 }
             };
         }

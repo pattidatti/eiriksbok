@@ -1,6 +1,6 @@
 import React from 'react';
 import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
-import { RESOURCE_DETAILS, ROLE_TITLES } from '../constants';
+import { RESOURCE_DETAILS } from '../constants';
 import { useSimulation } from '../SimulationContext';
 import { GameCard } from '../ui/GameCard';
 import { GameButton } from '../ui/GameButton';

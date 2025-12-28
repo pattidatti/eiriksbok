@@ -5,7 +5,7 @@ import { ref, get, set, child } from 'firebase/database';
 import { useLayout } from '../../context/LayoutContext';
 import { useEffect } from 'react';
 
-import { INITIAL_RESOURCES } from './constants';
+import { INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT } from './constants';
 import type { SimulationPlayer, Role } from './simulationTypes';
 
 export const SimulationLobby: React.FC = () => {
@@ -149,15 +149,11 @@ export const SimulationLobby: React.FC = () => {
                     role: role,
                     regionId: regionId,
                     resources: INITIAL_RESOURCES[role] || INITIAL_RESOURCES.PEASANT,
+                    skills: INITIAL_SKILLS[role] || INITIAL_SKILLS.PEASANT,
 
                     stats: { xp: 0, level: 1, reputation: 50, contribution: 0 },
                     status: { hp: 100, morale: 100, stamina: 50, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
-                    equipment: {
-                        tools: { id: 'tools', name: 'Standard Verktøy', icon: '⚒️', type: 'TOOL', level: 1, durability: 100, maxDurability: 100 },
-                        weapon: { id: 'weapon', name: 'Rusten Dolk', icon: '🗡️', type: 'WEAPON', level: 1, durability: 100, maxDurability: 100 },
-                        armor: { id: 'armor', name: 'Skinnvest', icon: '🛡️', type: 'ARMOR', level: 1, durability: 100, maxDurability: 100 }
-                    },
-
+                    equipment: INITIAL_EQUIPMENT[role] || INITIAL_EQUIPMENT.PEASANT,
 
                     upgrades: [],
                     lastActive: Date.now()
