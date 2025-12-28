@@ -1,5 +1,5 @@
-import type { SimulationPlayer, Role, EquipmentItem, EquipmentSlot } from '../simulationTypes';
-import { ACTION_COSTS, SEASONS, WEATHER, GAME_BALANCE } from '../constants';
+import type { SimulationPlayer, EquipmentItem, EquipmentSlot } from '../simulationTypes';
+import { ACTION_COSTS, SEASONS, WEATHER } from '../constants';
 
 interface ValidationResult {
     success: boolean;
