@@ -22,10 +22,39 @@ import { SimulationViewport } from './components/SimulationViewport';
 import { SimulationAnimationLayer } from './components/SimulationAnimationLayer';
 import { animationManager } from './logic/AnimationManager';
 
+// Premium Tool UI Effects
+const premiumStyles = `
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite linear;
+  }
+  .tool-glow {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3), inset 0 0 10px rgba(99, 102, 241, 0.1);
+  }
+  .upgrade-glow {
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.4), inset 0 0 15px rgba(245, 158, 11, 0.2);
+  }
+`;
+
+export default function SimulationPlayerWrapper() {
+    return (
+        <>
+            <style>{premiumStyles}</style>
+            <SimulationPlayer />
+        </>
+    );
+}
+
 export const SimulationPlayer: React.FC = () => {
     return (
         <SimulationProvider>
             <SimulationAudioProvider>
+                <style>{premiumStyles}</style>
                 <SimulationGame />
             </SimulationAudioProvider>
         </SimulationProvider>

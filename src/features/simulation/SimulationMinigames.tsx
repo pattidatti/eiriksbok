@@ -89,8 +89,9 @@ const getBestToolForAction = (type: string, equipment: (EquipmentItem | undefine
     if (!equipment) return undefined;
     return equipment.find(item => {
         if (!item) return false;
-        const template = ITEM_TEMPLATES[item.id] as any;
-        return template?.relevantActions?.includes(type);
+        const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_'));
+        const template = tid ? ITEM_TEMPLATES[tid] : null;
+        return (template as any)?.relevantActions?.includes(type);
     });
 };
 
@@ -199,18 +200,18 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                     if (bestTool) {
                                         const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
                                         return (
-                                            <div className="flex items-center gap-4 bg-indigo-500/10 border border-indigo-500/30 px-6 py-3 rounded-2xl backdrop-blur-xl">
-                                                <div className="text-3xl">{bestTool.icon}</div>
+                                            <div className="flex items-center gap-4 bg-slate-800/80 border-2 border-indigo-500/30 px-6 py-4 rounded-3xl backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] group hover:border-indigo-400 transition-all animate-shimmer tool-glow">
+                                                <div className="text-4xl group-hover:scale-110 group-hover:rotate-3 transition-transform drop-shadow-[0_0_10px_rgba(79,70,229,0.5)]">{bestTool.icon}</div>
                                                 <div className="text-left">
-                                                    <div className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">{bestTool.name}</div>
-                                                    <div className="flex items-center gap-2">
-                                                        <div className="w-16 h-1 bg-white/10 rounded-full overflow-hidden">
+                                                    <div className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-1">{bestTool.name}</div>
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="w-24 h-2 bg-black/60 rounded-full overflow-hidden p-[1px] border border-white/10 shadow-inner">
                                                             <div
-                                                                className={`h-full ${durabilityPct > 50 ? 'bg-emerald-500' : durabilityPct > 20 ? 'bg-amber-500' : 'bg-rose-500'} `}
+                                                                className={`h-full rounded-full transition-all duration-1000 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'} `}
                                                                 style={{ width: `${durabilityPct}% ` }}
                                                             />
                                                         </div>
-                                                        <span className="text-[10px] font-bold text-slate-500">{Math.round(durabilityPct)}%</span>
+                                                        <span className="text-[10px] font-black text-slate-500 uppercase">{Math.round(durabilityPct)}%</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -261,26 +262,60 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                             {/* PROGRESSION FOOTER */}
                             {(() => {
                                 const bestTool = getBestToolForAction(type, equipment);
-                                const currentId = bestTool?.id || (type === 'CHOP' ? 'rusty_axe' : null);
+                                const currentId = bestTool ? (Object.keys(ITEM_TEMPLATES).find(k => bestTool.id === k || bestTool.id.startsWith(k + '_'))) : (type === 'CHOP' ? 'rusty_axe' : null);
                                 const nextId = (ITEM_TEMPLATES[currentId as any] as any)?.nextTierId;
                                 const nextTemplate = nextId ? ITEM_TEMPLATES[nextId] : null;
 
                                 if (nextTemplate) {
                                     return (
-                                        <div className="mt-12 pt-8 border-t border-white/5 w-full">
-                                            <div className="bg-gradient-to-r from-amber-500/5 to-transparent border border-amber-500/20 rounded-[2rem] p-4 flex items-center justify-between group max-w-xl mx-auto">
-                                                <div className="flex items-center gap-4">
-                                                    <div className="relative">
-                                                        <span className="text-3xl grayscale group-hover:grayscale-0 transition-all block">{nextTemplate.icon}</span>
-                                                        <Sparkles className="absolute -top-1 -right-1 w-3 h-3 text-amber-400 animate-pulse" />
-                                                    </div>
-                                                    <div className="text-left">
-                                                        <div className="text-[10px] font-black text-amber-500 uppercase tracking-[0.2em] mb-1">Anbefalt Oppgradering</div>
-                                                        <div className="text-sm font-bold text-slate-300">Smid <span className="text-white">{nextTemplate.name}</span> for høyere utbytte</div>
-                                                    </div>
+                                        <div className="mt-12 pt-8 border-t border-white/5 w-full flex flex-col gap-4">
+                                            <div className="flex items-center justify-between max-w-xl mx-auto w-full px-2">
+                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em]">Mesterlig Progresjon</span>
+                                                <div className="flex items-center gap-2">
+                                                    <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+                                                    <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Oppgradering i Smia</span>
                                                 </div>
-                                                <div className="flex items-center gap-2 text-amber-500 font-black text-[10px] uppercase tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">
-                                                    Sjekk Smia <ArrowRight className="w-3 h-3" />
+                                            </div>
+
+                                            <div className="bg-slate-950/60 border border-white/10 rounded-[2.5rem] p-6 flex items-center justify-between group max-w-xl mx-auto w-full relative overflow-hidden backdrop-blur-sm shadow-2xl">
+                                                {/* Ambient Shimmer */}
+                                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+
+                                                {/* Current Tool Preview */}
+                                                <div className="flex flex-col items-center gap-2 z-10 opacity-40">
+                                                    <div className="w-16 h-16 bg-white/5 rounded-3xl flex items-center justify-center text-3xl border border-white/10">
+                                                        {bestTool?.icon || '❓'}
+                                                    </div>
+                                                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Nå</span>
+                                                </div>
+
+                                                {/* Animated Transition Path */}
+                                                <div className="flex flex-col items-center gap-2 flex-1">
+                                                    <div className="flex items-center gap-1">
+                                                        {[1, 2, 3, 4, 5].map(i => (
+                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
+                                                        ))}
+                                                        <ArrowRight className="w-6 h-6 text-indigo-500/40 mx-4 group-hover:translate-x-2 transition-transform" />
+                                                        {[1, 2, 3, 4, 5].map(i => (
+                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
+                                                        ))}
+                                                    </div>
+                                                    {nextTemplate.stats?.yieldBonus && (
+                                                        <div className="bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
+                                                            <span className="text-[10px] font-black text-emerald-400 uppercase">+{nextTemplate.stats.yieldBonus} Utbytte</span>
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {/* Recommended Tool Preview */}
+                                                <div className="flex flex-col items-center gap-2 z-10 animate-shimmer">
+                                                    <div className="relative">
+                                                        <div className="w-20 h-20 bg-indigo-600/20 rounded-3xl flex items-center justify-center text-5xl border-2 border-indigo-500/40 shadow-[0_0_30px_rgba(79,70,229,0.3)] group-hover:scale-110 transition-transform duration-500 upgrade-glow">
+                                                            {nextTemplate.icon}
+                                                        </div>
+                                                        <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-amber-500 animate-pulse drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
+                                                    </div>
+                                                    <span className="text-[11px] font-black text-amber-500 uppercase tracking-widest">{nextTemplate.name}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1116,25 +1151,5 @@ const PatrolMinigameRouter: React.FC<{ onComplete: (score: number) => void }> = 
     return <div onClick={() => onComplete(0.5)} className="p-12 text-center font-black text-2xl cursor-pointer">Patrol Router placeholder (Click)</div>;
 };
 
-const MinigameStyles = () => (
-    <style>{`
-@keyframes float-up {
-    0% { transform: translate(-50%, 0); opacity: 0; }
-    30% { opacity: 1; }
-    100% { transform: translate(-50%, -100px); opacity: 0; }
-}
-@keyframes particle {
-    0% { transform: translate(0, 0) rotate(0); opacity: 1; }
-    100% { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); opacity: 0; }
-}
-@keyframes shake {
-    0%, 100% { transform: translate(0, 0); }
-    25% { transform: translate(-5px, 5px); }
-    50% { transform: translate(5px, -5px); }
-    75% { transform: translate(-5px, -5px); }
-}
-.animate-float-up { animation: float-up 1s ease-out forwards; }
-.animate-particle { animation: particle 0.8s ease-out forwards; }
-.animate-shake { animation: shake 0.2s ease-in-out infinite; }
-`}</style>
-);
+
+// Export MinigameOverlay as named export (already does at line 100)

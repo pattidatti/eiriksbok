@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useLayoutEffect } from 'react';
 import type { SimulationPlayer } from '../simulationTypes';
 import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from '../constants';
 
@@ -27,14 +27,12 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
     // Actually, WorldMap renders the container `absolute`. This component will be the content `div`.
     // Wait, let's make this component render the WHOLE container for encapsulation.
 
-    // Position Logic
+    const containerRef = useRef<HTMLDivElement>(null);
     const top = (viewingRegionId === 'region_ost' && poi.ost ? poi.ost.top : poi.top);
     const left = (viewingRegionId === 'region_ost' && poi.ost ? poi.ost.left : poi.left);
-    const xPos = parseFloat(left);
-    const yPos = parseFloat(top);
 
-    const transformX = xPos > 80 ? '-95%' : xPos < 20 ? '-5%' : '-50%';
-    const transformY = yPos < 25 ? '3rem' : 'calc(-100% - 1rem)';
+    const [adjustedTransform, setAdjustedTransform] = useState({ x: '3rem', y: '-50%' });
+    const [isReady, setIsReady] = useState(false);
 
     // Filter Actions
     const availableActions = useMemo(() => {
@@ -84,6 +82,44 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
 
         return availableActionsRaw;
     }, [poi, player.role, room.world?.settlement]);
+
+    useLayoutEffect(() => {
+        if (!containerRef.current) return;
+
+        const rect = containerRef.current.getBoundingClientRect();
+        const parent = containerRef.current.offsetParent;
+        if (!parent) {
+            setIsReady(true);
+            return;
+        }
+        const parentRect = parent.getBoundingClientRect();
+
+        const xPos = parseFloat(left);
+        const yPos = parseFloat(top);
+
+        // 1. Horizontal Logic - Pivot to side with most space
+        // Use a 50% threshold to decide side
+        const xShift = xPos < 50 ? '3rem' : 'calc(-100% - 3rem)';
+
+        // 2. Vertical Containment - Start centered, then clamp
+        // We calculate the theoretical top/bottom based on current top and height
+        const theoreticalTop = (yPos / 100) * parentRect.height - (rect.height / 2);
+        const theoreticalBottom = theoreticalTop + rect.height;
+
+        let yShift = '-50%';
+
+        // Manual Clamping relative to parent
+        if (theoreticalTop < 20) {
+            const nudge = 20 - theoreticalTop;
+            yShift = `calc(-50% + ${nudge}px)`;
+        } else if (theoreticalBottom > parentRect.height - 20) {
+            const nudge = theoreticalBottom - (parentRect.height - 20);
+            yShift = `calc(-50% - ${nudge}px)`;
+        }
+
+        setAdjustedTransform({ x: xShift, y: yShift });
+        setIsReady(true);
+    }, [top, left, availableActions.length, showDetails]);
 
 
     // Helper to get detailed bonuses for an action
@@ -150,8 +186,14 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
         <>
             <div className="absolute inset-0 z-[90]" onClick={onClose} />
             <div
-                style={{ top, left, transform: `translate(${transformX}, ${transformY})` }}
-                className="absolute z-[100] animate-in fade-in zoom-in duration-200 pointer-events-auto"
+                ref={containerRef}
+                style={{
+                    top, left,
+                    transform: `translate(${adjustedTransform.x}, ${adjustedTransform.y})`,
+                    visibility: isReady ? 'visible' : 'hidden',
+                    opacity: isReady ? 1 : 0
+                }}
+                className={`absolute z-[100] ${isReady ? 'animate-in fade-in zoom-in' : ''} duration-200 pointer-events-auto`}
             >
                 <div className="bg-slate-900/98 backdrop-blur-3xl border border-white/20 rounded-[1.8rem] p-4 shadow-[0_25px_60px_rgba(0,0,0,0.6)] min-w-[280px] w-max max-w-[360px] relative transition-all duration-300">
 
@@ -227,17 +269,19 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                                 {(() => {
                                                                     const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
                                                                     const bestTool = equipment.find((item: any) => {
-                                                                        const template = ITEM_TEMPLATES[item.id] as any;
-                                                                        return template?.relevantActions?.includes(action.id);
+                                                                        if (!item) return false;
+                                                                        const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_'));
+                                                                        const template = tid ? ITEM_TEMPLATES[tid] : null;
+                                                                        return (template as any)?.relevantActions?.includes(action.id);
                                                                     });
                                                                     if (bestTool) {
                                                                         const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
                                                                         return (
-                                                                            <div className="flex items-center gap-2 bg-white/5 px-2 py-1 rounded-lg border border-white/10" title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
-                                                                                <span className="text-sm">{bestTool.icon}</span>
-                                                                                <div className="w-8 h-1 bg-white/10 rounded-full overflow-hidden">
+                                                                            <div className="flex items-center gap-2 bg-slate-800/80 px-2 py-1.5 rounded-xl border border-white/20 shadow-lg animate-shimmer tool-glow" title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
+                                                                                <span className="text-base drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">{bestTool.icon}</span>
+                                                                                <div className="w-10 h-1.5 bg-black/40 rounded-full overflow-hidden p-[1px] border border-white/5">
                                                                                     <div
-                                                                                        className={`h-full ${durabilityPct > 50 ? 'bg-emerald-500' : durabilityPct > 20 ? 'bg-amber-500' : 'bg-rose-500'}`}
+                                                                                        className={`h-full rounded-full transition-all duration-500 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
                                                                                         style={{ width: `${durabilityPct}%` }}
                                                                                     />
                                                                                 </div>
@@ -262,17 +306,19 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                             {(() => {
                                                                 const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
                                                                 const bestTool = equipment.find((item: any) => {
-                                                                    const template = ITEM_TEMPLATES[item.id] as any;
-                                                                    return template?.relevantActions?.includes(action.id);
+                                                                    if (!item) return false;
+                                                                    const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_'));
+                                                                    const template = tid ? ITEM_TEMPLATES[tid] : null;
+                                                                    return (template as any)?.relevantActions?.includes(action.id);
                                                                 });
                                                                 if (bestTool) {
                                                                     const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
                                                                     return (
-                                                                        <div className="flex items-center gap-1.5 opacity-60">
-                                                                            <span className="text-base">{bestTool.icon}</span>
-                                                                            <div className="w-10 h-1 bg-white/10 rounded-full overflow-hidden">
+                                                                        <div className="flex items-center gap-2 bg-slate-800/80 px-2 py-1.5 rounded-xl border border-white/20 shadow-lg animate-shimmer tool-glow" title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
+                                                                            <span className="text-base drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">{bestTool.icon}</span>
+                                                                            <div className="w-10 h-1.5 bg-black/40 rounded-full overflow-hidden p-[1px] border border-white/5">
                                                                                 <div
-                                                                                    className={`h-full ${durabilityPct > 50 ? 'bg-emerald-500' : durabilityPct > 20 ? 'bg-amber-500' : 'bg-rose-500'}`}
+                                                                                    className={`h-full rounded-full transition-all duration-500 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
                                                                                     style={{ width: `${durabilityPct}%` }}
                                                                                 />
                                                                             </div>
@@ -329,36 +375,94 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                             const primaryActions = availableActions.map((a: any) => a.id);
                             const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
 
-                            // Get all next-tier templates for relevant tools
-                            const nextUpgrades = equipment
-                                .filter((item: any) => {
-                                    const template = ITEM_TEMPLATES[item.id] as any;
-                                    return template?.relevantActions?.some((ra: string) => primaryActions.includes(ra));
-                                })
-                                .map((item: any) => {
-                                    const nextId = (ITEM_TEMPLATES[item.id] as any)?.nextTierId;
-                                    return nextId ? ITEM_TEMPLATES[nextId] : null;
-                                })
-                                .filter(Boolean);
+                            // 1. Identify relevant tools for these actions
+                            const relevantTools = Object.values(ITEM_TEMPLATES).filter(t =>
+                                t.relevantActions?.some(ra => primaryActions.includes(ra))
+                            );
 
-                            if (nextUpgrades.length > 0) {
-                                const upg = nextUpgrades[0];
+                            // 2. For each tool type, find if player has it OR find the lowest level one
+                            const recommendations = relevantTools.map(template => {
+                                const playerItem = equipment.find((item: any) => item.id === template.id || item.id.startsWith(template.id + '_'));
+
+                                if (playerItem) {
+                                    // Player has it, recommend NEXT tier
+                                    const nextId = template.nextTierId;
+                                    return nextId ? ITEM_TEMPLATES[nextId] : null;
+                                } else {
+                                    // Player DOES NOT have it, recommend THIS tier if it's the starter (lvl 1)
+                                    // Actually, let's recommend the lowest level version of this tool type
+                                    return template.level === 1 ? template : null;
+                                }
+                            }).filter(Boolean);
+
+                            // 3. Remove duplicates and pick the most relevant one
+                            const finalUpgrades = recommendations.filter((v, i, a) => a.findIndex(t => t?.id === v?.id) === i);
+
+                            if (finalUpgrades.length > 0) {
+                                const upg = finalUpgrades[0];
+                                const currentItem = equipment.find((item: any) => {
+                                    if (!item) return false;
+                                    const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_'));
+                                    const template = tid ? ITEM_TEMPLATES[tid] : null;
+                                    return (template as any)?.relevantActions?.some((ra: string) => primaryActions.includes(ra));
+                                });
+
                                 return (
-                                    <div className="mt-4 pt-4 border-t border-white/10">
-                                        <div className="bg-gradient-to-r from-amber-500/10 to-transparent border border-amber-500/20 rounded-2xl p-3 flex items-center justify-between group cursor-help">
-                                            <div className="flex items-center gap-3">
-                                                <div className="relative">
-                                                    <span className="text-2xl drop-shadow-lg group-hover:scale-110 transition-transform block">{upg.icon}</span>
-                                                    <TrendingUp className="absolute -bottom-1 -right-2 w-3 h-3 text-amber-400" />
-                                                </div>
-                                                <div className="flex flex-col">
-                                                    <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest leading-none mb-1">Anbefalt Oppgradering</span>
-                                                    <span className="text-[11px] font-bold text-slate-300">Smid {upg.name} i Smia</span>
+                                    <div className="mt-5 pt-5 border-t border-white/10">
+                                        <div className="flex flex-col gap-3">
+                                            <div className="flex items-center justify-between px-1">
+                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Din Arsenal-Vei</span>
+                                                <div className="flex items-center gap-1.5">
+                                                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                                                    <span className="text-[10px] font-bold text-amber-500/80 uppercase">Oppgradering Tilgjengelig</span>
                                                 </div>
                                             </div>
-                                            <div className="w-6 h-6 rounded-full bg-amber-500/10 flex items-center justify-center group-hover:translate-x-1 transition-transform">
-                                                <ArrowRight className="w-3.5 h-3.5 text-amber-500" />
+
+                                            <div className="bg-slate-950/40 border border-white/10 rounded-2xl p-4 flex items-center justify-between relative overflow-hidden group">
+                                                {/* Background Shimmer */}
+                                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+
+                                                {/* Current */}
+                                                <div className="flex flex-col items-center gap-1 z-10">
+                                                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-2xl border border-white/10 opacity-60">
+                                                        {currentItem?.icon || '❓'}
+                                                    </div>
+                                                    <span className="text-[9px] font-bold text-slate-500 uppercase">Nå</span>
+                                                </div>
+
+                                                {/* Progress Arrow */}
+                                                <div className="flex flex-col items-center gap-1 flex-1">
+                                                    <div className="flex items-center gap-0.5">
+                                                        {[1, 2, 3].map(i => (
+                                                            <div key={i} className={`w-1 h-1 rounded-full bg-indigo-500/30 animate-pulse`} style={{ animationDelay: `${i * 200}ms` }} />
+                                                        ))}
+                                                        <ArrowRight className="w-4 h-4 text-indigo-500/50 mx-2" />
+                                                        {[1, 2, 3].map(i => (
+                                                            <div key={i} className={`w-1 h-1 rounded-full bg-indigo-500/30 animate-pulse`} style={{ animationDelay: `${i * 200}ms` }} />
+                                                        ))}
+                                                    </div>
+                                                    {upg.stats?.yieldBonus && (
+                                                        <span className="text-[10px] font-black text-emerald-400">+{upg.stats.yieldBonus} Yield</span>
+                                                    )}
+                                                </div>
+
+                                                {/* Next Tier */}
+                                                <div className="flex flex-col items-center gap-1 z-10 transition-transform group-hover:scale-105 duration-300">
+                                                    <div className="relative">
+                                                        <div className="w-14 h-14 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-3xl border border-indigo-500/40 shadow-[0_0_20px_rgba(79,70,229,0.2)] animate-shimmer upgrade-glow">
+                                                            {upg.icon}
+                                                        </div>
+                                                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-amber-500 rounded-full flex items-center justify-center border-2 border-slate-900 shadow-lg">
+                                                            <TrendingUp className="w-3 h-3 text-slate-900" strokeWidth={3} />
+                                                        </div>
+                                                    </div>
+                                                    <span className="text-[10px] font-black text-amber-500 uppercase tracking-tighter">{upg.name}</span>
+                                                </div>
                                             </div>
+
+                                            <p className="text-[10px] text-slate-400 text-center font-medium italic">
+                                                Besøk "Storsmia" i landsbyen for å smi denne.
+                                            </p>
                                         </div>
                                     </div>
                                 );
