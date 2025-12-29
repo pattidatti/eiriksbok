@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useCallback } from 'react';
 import { audioManager } from './logic/AudioManager';
 
 interface AudioContextType {
@@ -22,36 +22,36 @@ export const SimulationAudioProvider: React.FC<{ children: React.ReactNode }> = 
     const [musicVolume, setMusicVolumeState] = useState(audioManager.getMusicVolume());
     const [isMuffled, setIsMuffledState] = useState(audioManager.isMuffled());
 
-    const setSfxVolume = (vol: number) => {
+    const setSfxVolume = useCallback((vol: number) => {
         audioManager.setSfxVolume(vol);
         setSfxVolumeState(vol);
-    };
+    }, []);
 
-    const setMusicVolume = (vol: number) => {
+    const setMusicVolume = useCallback((vol: number) => {
         audioManager.setMusicVolume(vol);
         setMusicVolumeState(vol);
-    };
+    }, []);
 
-    const setMuffled = (muffled: boolean) => {
+    const setMuffled = useCallback((muffled: boolean) => {
         audioManager.setMuffled(muffled);
         setIsMuffledState(muffled);
-    };
+    }, []);
 
-    const playSfx = (key: string) => {
+    const playSfx = useCallback((key: string) => {
         audioManager.playSfx(key);
-    };
+    }, []);
 
-    const playMusic = (key: string) => {
+    const playMusic = useCallback((key: string) => {
         audioManager.playMusic(key);
-    };
+    }, []);
 
-    const stopMusic = () => {
+    const stopMusic = useCallback(() => {
         audioManager.stopMusic();
-    };
+    }, []);
 
-    const startPlaylist = () => {
+    const startPlaylist = useCallback(() => {
         audioManager.startPlaylist();
-    };
+    }, []);
 
     return (
         <AudioContext.Provider value={{

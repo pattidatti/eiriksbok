@@ -21,6 +21,7 @@ class AudioManager {
     private audioContext: AudioContext | null = null;
     private filterNode: BiquadFilterNode | null = null;
     private isMuffledState: boolean = false;
+    private activeFades: Map<HTMLAudioElement, number> = new Map();
 
     private constructor() {
         const savedSfx = localStorage.getItem('sim_sfx_volume');
@@ -41,7 +42,7 @@ class AudioManager {
                 this.audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
                 this.filterNode = this.audioContext.createBiquadFilter();
                 this.filterNode.type = 'lowpass';
-                this.filterNode.frequency.setValueAtTime(this.isMuffledState ? 15000 : 20000, this.audioContext.currentTime);
+                this.filterNode.frequency.setValueAtTime(this.isMuffledState ? 12000 : 20000, this.audioContext.currentTime);
                 this.filterNode.connect(this.audioContext.destination);
             } catch (e) {
                 console.error("Failed to initialize AudioContext", e);
@@ -77,7 +78,6 @@ class AudioManager {
         localStorage.setItem('sim_music_muffled', muffled.toString());
 
         if (this.filterNode && this.audioContext) {
-            // Smooth transition for the filter
             this.filterNode.frequency.setTargetAtTime(
                 muffled ? 15000 : 20000,
                 this.audioContext.currentTime,
@@ -100,12 +100,12 @@ class AudioManager {
         audio.volume = this.sfxVolume;
 
         audio.play().catch(() => {
-            // Expected if file doesn't exist
+            // Expected
         });
     }
 
     public startPlaylist() {
-        if (this.isPlaylistActive && this.currentMusic) return;
+        if (this.isPlaylistActive) return;
         this.isPlaylistActive = true;
         this.playNextInPlaylist();
     }
@@ -124,38 +124,35 @@ class AudioManager {
             this.isPlaylistActive = false;
         }
 
-        if (this.currentMusicKey === key) return;
+        if (this.currentMusicKey === key && this.currentMusic) return;
 
         const filename = key.includes('.') ? key : `${key}.mp3`;
         const path = `/sounds/music/${filename}`;
 
         const newMusic = new Audio(path);
-        newMusic.crossOrigin = "anonymous"; // May be needed for Web Audio API if files are on different domain
+        newMusic.crossOrigin = "anonymous";
         newMusic.loop = !this.isPlaylistActive;
         newMusic.volume = 0;
 
-        // Route through Web Audio API for filtering
         this.initAudioContext();
         if (this.audioContext && this.filterNode) {
             try {
                 const source = this.audioContext.createMediaElementSource(newMusic);
                 source.connect(this.filterNode);
             } catch (e) {
-                console.warn("Could not route through Web Audio API, playing directly", e);
+                console.warn("Could not route through Web Audio API", e);
             }
         }
 
-        // Add ended listener for playlist progression
         if (this.isPlaylistActive) {
-            newMusic.addEventListener('ended', () => {
+            newMusic.onended = () => {
                 this.playNextInPlaylist();
-            });
+            };
         }
 
-        // Fade out current
+        // Clean up current
         if (this.currentMusic) {
-            const oldMusic = this.currentMusic;
-            this.fadeOut(oldMusic, fadeDuration);
+            this.fadeOut(this.currentMusic, fadeDuration);
         }
 
         this.currentMusic = newMusic;
@@ -165,10 +162,11 @@ class AudioManager {
             this.fadeIn(newMusic, this.musicVolume, fadeDuration);
         }).catch(e => {
             console.warn(`Failed to play music: ${key}`, e);
-            this.currentMusic = null;
-            this.currentMusicKey = null;
+            if (this.currentMusic === newMusic) {
+                this.currentMusic = null;
+                this.currentMusicKey = null;
+            }
             if (this.isPlaylistActive) {
-                // Try next track if this one fails
                 this.playNextInPlaylist();
             }
         });
@@ -184,6 +182,11 @@ class AudioManager {
     }
 
     private fadeOut(audio: HTMLAudioElement, duration: number) {
+        // Stop any existing fade on this element
+        if (this.activeFades.has(audio)) {
+            clearInterval(this.activeFades.get(audio));
+        }
+
         const startVolume = audio.volume;
         const steps = 20;
         const stepTime = duration / steps;
@@ -192,21 +195,21 @@ class AudioManager {
         let currentStep = 0;
         const interval = setInterval(() => {
             currentStep++;
-            const newVol = startVolume - (volStep * currentStep);
+            const newVol = Math.max(0, startVolume - (volStep * currentStep));
+            audio.volume = newVol;
+
             if (newVol <= 0) {
-                audio.volume = 0;
                 audio.pause();
+                audio.src = ""; // Force cleanup
                 clearInterval(interval);
-            } else {
-                audio.volume = newVol;
+                this.activeFades.delete(audio);
             }
         }, stepTime);
+
+        this.activeFades.set(audio, interval as any);
     }
 
     private fadeIn(audio: HTMLAudioElement, targetVolume: number, duration: number) {
-        if (targetVolume === 0) return;
-        audio.volume = 0;
-
         const steps = 20;
         const stepTime = duration / steps;
         const volStep = targetVolume / steps;
@@ -214,12 +217,11 @@ class AudioManager {
         let currentStep = 0;
         const interval = setInterval(() => {
             currentStep++;
-            const newVol = volStep * currentStep;
-            if (newVol >= targetVolume) {
-                audio.volume = targetVolume;
+            const newVol = Math.min(targetVolume, volStep * currentStep);
+            audio.volume = newVol;
+
+            if (newVol >= targetVolume || audio.paused) {
                 clearInterval(interval);
-            } else {
-                audio.volume = newVol;
             }
         }, stepTime);
     }
