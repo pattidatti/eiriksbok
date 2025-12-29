@@ -57,6 +57,7 @@ const TimeTravelGamePage = React.lazy(routeFactories.TimeTravelGamePage);
 const SimulationLobby = React.lazy(routeFactories.SimulationLobby);
 const SimulationHost = React.lazy(routeFactories.SimulationHost);
 const SimulationPlayer = React.lazy(routeFactories.SimulationPlayer);
+const SimulationLayout = React.lazy(() => import('./features/simulation/SimulationLayout').then(module => ({ default: module.SimulationLayout })));
 
 import { usePresence } from './hooks/usePresence';
 
@@ -117,9 +118,11 @@ function AppContent() {
               <Route path="historie/vikingtiden/detektiv" element={<DetectiveCasePage />} />
 
               {/* Simulation Game Routes */}
-              <Route path="sim" element={<SimulationLobby />} />
-              <Route path="sim/host/setup" element={<SimulationHost />} />
-              <Route path="sim/play/:pin/:tab?" element={<SimulationPlayer />} />
+              <Route path="sim" element={<SimulationLayout />}>
+                <Route index element={<SimulationLobby />} />
+                <Route path="host/setup" element={<SimulationHost />} />
+                <Route path="play/:pin/:tab?" element={<SimulationPlayer />} />
+              </Route>
 
               <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
               <Route path="admin/stats" element={<AdminGuard><StatsPage /></AdminGuard>} />

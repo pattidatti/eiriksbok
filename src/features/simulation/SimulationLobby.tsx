@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { simulationDb as db } from './simulationFirebase';
 import { ref, get, set, child } from 'firebase/database';
 import { useLayout } from '../../context/LayoutContext';
-import { useEffect } from 'react';
 
 import { INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT } from './constants';
 import type { SimulationPlayer, Role } from './simulationTypes';
+import { useSimulationAuth } from './SimulationAuthContext';
+import { SimulationServerBrowser } from './SimulationServerBrowser';
+import { Globe, Hash, User as UserIcon, Shield, ChevronRight, Trophy, Star } from 'lucide-react';
 
 export const SimulationLobby: React.FC = () => {
     const [pin, setPin] = useState('');
@@ -14,8 +16,11 @@ export const SimulationLobby: React.FC = () => {
     const [selectedRole, setSelectedRole] = useState<Role>('PEASANT');
     const [error, setError] = useState('');
     const [joining, setJoining] = useState(false);
+    const [lobbyTab, setLobbyTab] = useState<'PIN' | 'BROWSER'>('BROWSER');
+
     const navigate = useNavigate();
     const { setFullWidth, setHideHeader } = useLayout();
+    const { user, account, loading: authLoading } = useSimulationAuth();
 
     useEffect(() => {
         setFullWidth(true);
@@ -28,12 +33,9 @@ export const SimulationLobby: React.FC = () => {
 
     useEffect(() => {
         const savedPin = localStorage.getItem('sim_room_pin');
-        const savedName = localStorage.getItem('sim_player_name');
         if (savedPin) setPin(savedPin);
-        if (savedName) setName(savedName);
-    }, []);
-
-    const isTestRoom = pin.toUpperCase() === 'TEST';
+        if (account?.displayName) setName(account.displayName);
+    }, [account]);
 
     const joinGame = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -52,126 +54,44 @@ export const SimulationLobby: React.FC = () => {
             const roomRef = ref(db, `simulation_rooms/${cleanPin}`);
             const snapshot = await get(roomRef);
 
-            // Handle TEST room auto-initialization
-            if (cleanPin === 'TEST' && !snapshot.exists()) {
-                const initialRoom = {
-                    pin: 'TEST',
-                    status: 'PLAYING',
-                    settings: 'feudal_europe',
-                    market: {
-                        grain: { price: 10, stock: 100, demand: 1 },
-                        wood: { price: 5, stock: 100, demand: 1 },
-                        iron: { price: 15, stock: 50, demand: 1 }
-                    },
-                    world: {
-                        year: 1066,
-                        season: 'Spring',
-                        weather: 'Clear',
-                        taxRateDetails: { kingTax: 20 },
-                        monumentProgress: 0,
-                        activeLaws: []
-                    },
-                    worldEvents: {},
-                    diplomacy: {},
-                    messages: []
-
-                };
-                await set(roomRef, initialRoom);
-            }
-
-            // Fetch snapshot again to be sure (or use initialRoom if we just made it)
-            const activeSnapshot = await get(roomRef);
-            if (!activeSnapshot.exists()) {
+            if (!snapshot.exists() && cleanPin !== 'TEST') {
                 setError('Rommet finnes ikke');
                 setJoining(false);
                 return;
             }
 
-            const roomData = activeSnapshot.val();
-
-            // For normal rooms, status must be LOBBY. For TEST room, we allow PLAYING.
-            if (cleanPin !== 'TEST' && roomData.status !== 'LOBBY') {
-                // Allow re-joining if we can match the player ID
-                const savedId = localStorage.getItem('sim_player_id');
-                const players = roomData.players || {};
-                const playerExists = savedId && players[savedId];
-
-                if (!playerExists) {
-                    setError('Spillet har allerede startet eller er ferdig.');
-                    setJoining(false);
-                    return;
-                }
-            }
-
-            // Create Player ID (Reuse if exists in local storage and name matches, otherwise create new)
-            let playerId = localStorage.getItem('sim_player_id');
-            // If the name in box is different from saved name, force new ID? 
-            // Better: If we are joining a new room, we might want a new ID.
-            // But if we are rejoining the SAME room, keep the ID.
-
-            const savedRoomForId = localStorage.getItem('sim_room_pin');
-            const savedName = localStorage.getItem('sim_player_name');
-
-            // Force new ID if:
-            // 1. No ID exists
-            // 2. Joining a different room
-            // 3. Name has changed (This allows creating multiple test users)
-            if (!playerId || savedRoomForId !== cleanPin || savedName !== name) {
-                playerId = `${name.replace(/[^a-zA-Z0-9]/g, '')}_${Date.now()}`;
-            }
-
-            // ALWAYS UPDATE STORAGE
-            localStorage.setItem('sim_player_id', playerId);
-            localStorage.setItem('sim_room_pin', cleanPin);
-            localStorage.setItem('sim_player_name', name);
-
-            // Role assignment (Role selection for TEST, PEASANT for others)
-            const role: Role = cleanPin === 'TEST' ? selectedRole : 'PEASANT';
-
-            // Region Assignment
-            let regionId = 'unassigned';
-
-            if (role === 'BARON') {
-                regionId = `region_${playerId}`;
-            } else if (role === 'KING') {
-                regionId = 'capital';
-            } else if (cleanPin === 'TEST') {
-                // In TEST room, try to assign to an existing Baron's region
-                const players = roomData.players || {};
-                const existingBarons = Object.values(players).filter((p: any) => p.role === 'BARON');
-
-                if (existingBarons.length > 0) {
-                    // Distribute roughly evenly or just random
-                    const randomBaron = existingBarons[Math.floor(Math.random() * existingBarons.length)] as any;
-                    regionId = randomBaron.regionId;
-                } else {
-                    regionId = 'test_region'; // Fallback if no Barons exist
-                }
-            }
+            const playerId = user?.uid || `guest_${Date.now()}`;
 
             // Check if player already exists in room to avoid overwriting state on rejoin
             const playerSnapshot = await get(child(roomRef, `players/${playerId}`));
 
             if (!playerSnapshot.exists()) {
+                const role: Role = cleanPin === 'TEST' ? selectedRole : 'PEASANT';
+
+                // Simple Logic for region assignment
+                let regionId = 'unassigned';
+                if (role === 'BARON') regionId = `region_${playerId}`;
+                else if (role === 'KING') regionId = 'capital';
+
                 const newPlayer: SimulationPlayer = {
                     id: playerId,
+                    uid: user?.uid,
                     name: name,
                     role: role,
                     regionId: regionId,
                     resources: INITIAL_RESOURCES[role] || INITIAL_RESOURCES.PEASANT,
                     skills: INITIAL_SKILLS[role] || INITIAL_SKILLS.PEASANT,
-
                     stats: { xp: 0, level: 1, reputation: 50, contribution: 0 },
                     status: { hp: 100, morale: 100, stamina: 50, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
                     equipment: INITIAL_EQUIPMENT[role] || INITIAL_EQUIPMENT.PEASANT,
-
                     upgrades: [],
                     lastActive: Date.now()
                 };
                 await set(child(roomRef, `players/${playerId}`), newPlayer);
-            } else {
-                console.log("Rejoining existing player session...");
             }
+
+            localStorage.setItem('sim_player_id', playerId);
+            localStorage.setItem('sim_room_pin', cleanPin);
 
             navigate(`/sim/play/${cleanPin}`);
 
@@ -183,75 +103,163 @@ export const SimulationLobby: React.FC = () => {
         }
     };
 
+    if (authLoading) {
+        return (
+            <div className="fixed inset-0 bg-slate-950 flex items-center justify-center">
+                <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+            </div>
+        );
+    }
+
     return (
-        <div className="fixed inset-0 top-0 bg-slate-900 text-white flex flex-col items-center justify-center p-4 z-20 overflow-y-auto">
-            <h1 className="text-4xl md:text-6xl font-black mb-2 tracking-tighter text-indigo-400 italic">FEUDAL SIM</h1>
-            <p className="text-slate-500 mb-8 font-mono text-sm uppercase tracking-widest">v1.0 Strategic Era</p>
+        <div className="min-h-screen bg-slate-950 text-white overflow-x-hidden p-6 md:p-12">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
 
-            <div className="bg-slate-800 p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-full max-w-md border border-slate-700/50 backdrop-blur-sm">
-                <form onSubmit={joinGame} className="space-y-6">
+                {/* Left Side: Branding & Profile */}
+                <div className="lg:col-span-5 space-y-8">
                     <div>
-                        <label className="block text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-2">Room Entry PIN</label>
-                        <input
-                            type="text"
-                            placeholder="TEST"
-                            value={pin}
-                            onChange={(e) => setPin(e.target.value)}
-                            className="w-full bg-slate-900/50 text-center text-4xl font-mono p-5 rounded-2xl border-2 border-slate-700 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-800 text-white shadow-inner"
-                        />
+                        <h1 className="text-6xl font-black tracking-tighter text-indigo-400 italic mb-2">FEUDAL SIM</h1>
+                        <p className="text-slate-500 font-mono text-sm uppercase tracking-[0.3em]">v1.2 Meta-Era</p>
                     </div>
 
-                    <div>
-                        <label className="block text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-2">Character Name</label>
-                        <input
-                            type="text"
-                            placeholder="Navn..."
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className="w-full bg-slate-900/50 text-center text-xl font-bold p-5 rounded-2xl border-2 border-slate-700 focus:border-indigo-500 outline-none transition-all text-white shadow-inner"
-                        />
-                    </div>
+                    {/* Global Profile Card */}
+                    <div className="bg-slate-900/40 backdrop-blur-3xl border border-white/5 p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <Shield size={120} className="text-indigo-500" />
+                        </div>
 
-                    {isTestRoom && (
-                        <div className="bg-slate-900/30 p-4 rounded-2xl border border-indigo-500/20">
-                            <label className="block text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-3 text-center">Velg Test Rolle</label>
-                            <div className="flex gap-2">
-                                {(['PEASANT', 'BARON', 'KING'] as Role[]).map(r => (
-                                    <button
-                                        key={r}
-                                        type="button"
-                                        onClick={() => setSelectedRole(r)}
-                                        className={`flex-1 py-3 rounded-xl text-xs font-bold transition-all ${selectedRole === r ? 'bg-indigo-600 text-white shadow-lg' : 'bg-slate-900 text-slate-500 hover:text-slate-400'}`}
-                                    >
-                                        {r === 'KING' ? '👑' : r === 'BARON' ? '🏰' : '🌾'} {r}
-                                    </button>
-                                ))}
+                        <div className="relative z-10 space-y-6">
+                            <div className="flex items-center gap-4">
+                                <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-900/40">
+                                    <UserIcon size={32} className="text-white" />
+                                </div>
+                                <div>
+                                    <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest">Global Profil</p>
+                                    <h2 className="text-2xl font-black text-white">{account?.displayName || 'Eventyrer'}</h2>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="bg-slate-950/50 p-4 rounded-2xl border border-white/5">
+                                    <div className="flex items-center gap-2 text-indigo-400 mb-1">
+                                        <Trophy size={14} />
+                                        <span className="text-[10px] font-black uppercase tracking-widest">Global Level</span>
+                                    </div>
+                                    <p className="text-2xl font-black">Nivå {account?.globalLevel || 1}</p>
+                                </div>
+                                <div className="bg-slate-950/50 p-4 rounded-2xl border border-white/5">
+                                    <div className="flex items-center gap-2 text-yellow-500 mb-1">
+                                        <Star size={14} />
+                                        <span className="text-[10px] font-black uppercase tracking-widest">Global XP</span>
+                                    </div>
+                                    <p className="text-2xl font-black">{account?.globalXp || 0}</p>
+                                </div>
+                            </div>
+
+                            <div className="pt-4 flex items-center justify-between text-slate-500 text-[10px] font-black uppercase tracking-widest">
+                                <span>Achievements: {account?.unlockedAchievements?.length || 0}</span>
+                                <span>Lives Lived: {account?.characterHistory?.length || 0}</span>
                             </div>
                         </div>
-                    )}
+                    </div>
 
-                    {error && (
-                        <div className="bg-red-500/10 text-red-400 p-4 rounded-xl text-xs font-bold text-center border border-red-500/20 animate-bounce">
-                            ⚠️ {error}
-                        </div>
-                    )}
+                    <div className="hidden lg:block space-y-4 pt-4">
+                        <p className="text-slate-500 text-xs font-medium leading-relaxed max-w-xs">
+                            Velkommen til den nye æraen av Feudal Sim. Dine bragder lagres nå på tvers av alle verdener.
+                        </p>
+                        <button
+                            onClick={() => navigate('/sim/host/setup')}
+                            className="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-bold text-sm transition-colors group"
+                        >
+                            Host ditt eget rike <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    </div>
+                </div>
 
-                    <button
-                        type="submit"
-                        disabled={joining}
-                        className="w-full bg-gradient-to-br from-indigo-600 to-blue-700 hover:from-indigo-500 hover:to-blue-600 py-5 rounded-2xl font-black text-xl transition-all shadow-xl shadow-indigo-900/40 active:scale-[0.98] disabled:opacity-50"
-                    >
-                        {joining ? 'Connecting...' : 'START SIMULATION ⚔️'}
-                    </button>
-                </form>
+                {/* Right Side: Tabbed Interface */}
+                <div className="lg:col-span-7 space-y-6">
+                    <div className="flex p-1.5 bg-slate-900/60 rounded-2xl border border-white/5 w-fit">
+                        <button
+                            onClick={() => setLobbyTab('BROWSER')}
+                            className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all ${lobbyTab === 'BROWSER' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
+                        >
+                            <Globe size={18} /> Server Browser
+                        </button>
+                        <button
+                            onClick={() => setLobbyTab('PIN')}
+                            className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all ${lobbyTab === 'PIN' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
+                        >
+                            <Hash size={18} /> Join via PIN
+                        </button>
+                    </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-700/50 text-center">
-                    <button
-                        onClick={() => navigate('/sim/host/setup')}
-                        className="text-slate-500 hover:text-indigo-400 text-[10px] font-bold uppercase tracking-widest transition-colors"
-                    >
-                        Host Dashboard (Admin Only)
-                    </button>
+                    <div className="transition-all duration-300">
+                        {lobbyTab === 'BROWSER' ? (
+                            <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
+                                <h2 className="text-3xl font-black italic text-white mb-6 tracking-tight">Oppdag Verdener 🌍</h2>
+                                <SimulationServerBrowser />
+                            </div>
+                        ) : (
+                            <div className="animate-in fade-in slide-in-from-bottom-2 duration-300 bg-slate-900/40 p-10 rounded-[2.5rem] border border-white/5">
+                                <h2 className="text-3xl font-black italic text-white mb-8 tracking-tight">Privat Tilkobling 🔑</h2>
+                                <form onSubmit={joinGame} className="space-y-6">
+                                    <div>
+                                        <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 ml-2">Rom-PIN</label>
+                                        <input
+                                            type="text"
+                                            placeholder="XXXX"
+                                            value={pin}
+                                            onChange={(e) => setPin(e.target.value)}
+                                            className="w-full bg-slate-950/80 text-center text-5xl font-mono p-6 rounded-3xl border-2 border-slate-800 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-900 text-indigo-400 shadow-inner"
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 ml-2">Karakternavn</label>
+                                        <input
+                                            type="text"
+                                            placeholder="Navn..."
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                            className="w-full bg-slate-950/80 text-center text-xl font-bold p-6 rounded-3xl border-2 border-slate-800 focus:border-indigo-500 outline-none transition-all text-white shadow-inner"
+                                        />
+                                    </div>
+
+                                    {pin.toUpperCase() === 'TEST' && (
+                                        <div className="bg-slate-900/30 p-4 rounded-2xl border border-indigo-500/20">
+                                            <label className="block text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-3 text-center">Velg Test Rolle</label>
+                                            <div className="flex gap-2">
+                                                {(['PEASANT', 'BARON', 'KING'] as Role[]).map(r => (
+                                                    <button
+                                                        key={r}
+                                                        type="button"
+                                                        onClick={() => setSelectedRole(r)}
+                                                        className={`flex-1 py-3 rounded-xl text-xs font-bold transition-all ${selectedRole === r ? 'bg-indigo-600 text-white shadow-lg' : 'bg-slate-900 text-slate-500 hover:text-slate-400'}`}
+                                                    >
+                                                        {r === 'KING' ? '👑' : r === 'BARON' ? '🏰' : '🌾'} {r}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {error && (
+                                        <div className="bg-red-500/10 text-red-400 p-4 rounded-2xl text-xs font-bold text-center border border-red-500/20 animate-bounce">
+                                            ⚠️ {error}
+                                        </div>
+                                    )}
+
+                                    <button
+                                        type="submit"
+                                        disabled={joining}
+                                        className="w-full bg-gradient-to-br from-indigo-600 to-blue-700 hover:from-indigo-500 hover:to-blue-600 py-6 rounded-3xl font-black text-xl transition-all shadow-2xl shadow-indigo-900/40 active:scale-[0.98] disabled:opacity-50"
+                                    >
+                                        {joining ? 'Kobler til...' : 'DRA TIL VERDENEN ⚔️'}
+                                    </button>
+                                </form>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

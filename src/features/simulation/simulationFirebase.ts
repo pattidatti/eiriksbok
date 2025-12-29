@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
 // --- INSTRUKSJONER ---
@@ -22,7 +23,8 @@ const simulationConfig = {
 // Initialize the distinct simulation app
 const simApp = initializeApp(simulationConfig, "simulationApp"); // "simulationApp" name is important to keep it separate
 
-// Export the specific database instance
+// Export the specific instances
 export const simulationDb = getDatabase(simApp);
+export const simulationAuth = getAuth(simApp);
 
 export default simApp;

@@ -6,6 +6,26 @@ import { useLayout } from '../../context/LayoutContext';
 import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES, VILLAGE_BUILDINGS, SEASONS, RESOURCE_DETAILS } from './constants';
 import type { SimulationRoom } from './simulationTypes';
 import { assignRoles, collectTaxes } from './gameLogic';
+import { Globe, Shield, Users, Clock, Lock, Unlock, Eye, Trash2, LayoutDashboard, Database, RefreshCw } from 'lucide-react';
+
+const syncServerMetadata = async (pin: string, data: SimulationRoom | null) => {
+    if (!pin || !data) return;
+    const metadataRef = ref(db, `simulation_server_metadata/${pin}`);
+    if (data.isPublic === false) {
+        await set(metadataRef, null);
+        return;
+    }
+    await set(metadataRef, {
+        pin: pin,
+        status: data.status,
+        playerCount: Object.keys(data.players || {}).length,
+        worldYear: data.world.year,
+        season: data.world.season,
+        isPublic: !!data.isPublic,
+        hostName: data.hostName || "Anonym Host",
+        lastUpdated: Date.now()
+    });
+};
 
 export const SimulationHost: React.FC = () => {
     const [pin, setPin] = useState<string>('');
@@ -97,6 +117,8 @@ export const SimulationHost: React.FC = () => {
             pin: newPin,
             status: 'LOBBY',
             settings: 'feudal_europe',
+            hostName: 'Admin',
+            isPublic: true,
             market: JSON.parse(JSON.stringify(INITIAL_MARKET)),
             markets: {
                 'capital': JSON.parse(JSON.stringify(INITIAL_MARKET))
@@ -111,7 +133,7 @@ export const SimulationHost: React.FC = () => {
                 settlement: {
                     buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id]: [string, any]) => ({
                         ...acc,
-                        [id]: { id, level: 0, progress: {}, target: 200 }
+                        [id]: { id, level: 0, progress: {}, target: 200, contributions: {} }
                     }), {}),
                     activeProjectId: 'sawmill'
                 }
@@ -119,10 +141,10 @@ export const SimulationHost: React.FC = () => {
             worldEvents: {},
             diplomacy: {},
             messages: []
-
         };
         try {
             await set(ref(db, `simulation_rooms/${newPin}`), initialRoomState);
+            await syncServerMetadata(newPin, initialRoomState);
             setPin(newPin);
             setView('MANAGE');
         } catch (error) {
@@ -173,6 +195,9 @@ export const SimulationHost: React.FC = () => {
             updates[`simulation_rooms/${pin}/markets`] = newMarkets;
             updates[`simulation_rooms/${pin}/status`] = 'PLAYING';
             await update(ref(db), updates);
+            // Sync metadata
+            const updatedRoom = { ...roomData, status: 'PLAYING' } as SimulationRoom;
+            await syncServerMetadata(pin, updatedRoom);
         } catch (e) {
             console.error(e);
             alert("Klarte ikke starte.");
@@ -472,6 +497,17 @@ export const SimulationHost: React.FC = () => {
         }
     };
 
+    const togglePublicRoom = async () => {
+        if (!roomData) return;
+        const newVal = !roomData.isPublic;
+        try {
+            await update(ref(db, `simulation_rooms/${pin}`), { isPublic: newVal });
+            await syncServerMetadata(pin, { ...roomData, isPublic: newVal });
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
     if (view === 'LIST') {
         return (
             <div className="fixed inset-0 top-0 bg-slate-950 text-slate-200 p-12 overflow-y-auto custom-scrollbar font-sans z-20">
@@ -579,6 +615,14 @@ export const SimulationHost: React.FC = () => {
                             className={`w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm transition-all shadow-lg ${roomData.status === 'PLAYING' ? 'bg-emerald-600/20 text-emerald-500 cursor-default' : 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/20'}`}
                         >
                             {roomData.status === 'PLAYING' ? '✅ SPILL AKTIVT' : '🚀 START SPILL'}
+                        </button>
+                        <button
+                            onClick={togglePublicRoom}
+                            disabled={isLoading}
+                            className={`w-full py-3 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all border flex items-center justify-center gap-2 ${roomData.isPublic ? 'bg-indigo-600/10 text-indigo-400 border-indigo-500/20 hover:bg-indigo-600 hover:text-white' : 'bg-slate-800 text-slate-500 border-white/5 hover:border-indigo-500/20'}`}
+                        >
+                            {roomData.isPublic ? <Globe size={14} /> : <Lock size={14} />}
+                            {roomData.isPublic ? 'OFFENTLIG SERVER' : 'PRIVAT (KUN PIN)'}
                         </button>
                         <button
                             onClick={resetGame}

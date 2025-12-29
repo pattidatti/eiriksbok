@@ -100,8 +100,26 @@ export interface Quest {
     target: number;
 }
 
+export interface SimulationAccount {
+    uid: string;
+    displayName: string;
+    globalXp: number;
+    globalLevel: number;
+    totalGoldEarned: number;
+    unlockedAchievements: string[];
+    characterHistory: {
+        roomPin: string;
+        name: string;
+        role: Role;
+        level: number;
+        timestamp: number;
+    }[];
+    lastActive: number;
+}
+
 export interface SimulationPlayer {
-    id: string;
+    id: string; // Room-specific character ID
+    uid?: string; // Global User ID (nullable for legacy/guest)
     name: string;
     role: Role;
     regionId: string; // Which Baron they belong to (or 'capital' for King)
@@ -181,6 +199,8 @@ export interface SimulationRoom {
     pin: string;
     status: GameStatus;
     settings: string; // 'feudal_europe'
+    hostName?: string;
+    isPublic?: boolean;
 
     // Global State
     market: SimulationMarket; // @deprecated Use markets
