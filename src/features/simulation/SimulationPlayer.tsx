@@ -11,7 +11,7 @@ import { LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS } from './con
 import { performAction } from './actions';
 import { MinigameOverlay } from './SimulationMinigames';
 import { SimulationProvider, useSimulation } from './SimulationContext';
-import { SimulationAudioProvider } from './SimulationAudioContext';
+import { SimulationAudioProvider, useAudio } from './SimulationAudioContext';
 import { checkActionRequirements } from './utils/actionUtils';
 
 
@@ -41,11 +41,18 @@ const SimulationGame: React.FC = () => {
         activeMinigameMethod, setActiveMinigameMethod,
         activeMinigameAction, setActiveMinigameAction,
         actionLoading, setActionLoading
-
     } = useSimulation();
+
+    const { playMusic, stopMusic } = useAudio();
 
     // Data State
     const [player, setPlayer] = useState<SimulationPlayerType | null>(null);
+
+    // Play Music on Mount
+    useEffect(() => {
+        playMusic('Candlelit Keep.mp3');
+        return () => stopMusic();
+    }, [playMusic, stopMusic]);
     const [world, setWorld] = useState<SimulationRoom['world'] | null>(null);
     const [players, setPlayers] = useState<Record<string, SimulationPlayerType>>({});
     const [roomStatus, setRoomStatus] = useState<SimulationRoom['status']>('LOBBY');

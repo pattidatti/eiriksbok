@@ -45,10 +45,10 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
             if (tabMap[key]) {
                 if (key === 'd' && player.role === 'PEASANT') return;
                 setActiveTab(tabMap[key]);
-                playSfx('ui_click');
+                playSfx('ui_click.ogg');
             } else if (key === 'b') {
                 setIsCollapsed(prev => !prev);
-                playSfx('ui_toggle');
+                playSfx('ui_toggle.ogg');
             }
         };
 
@@ -92,7 +92,7 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                 key={tab.id}
                 onClick={() => {
                     setActiveTab(tab.id as any);
-                    playSfx('ui_click');
+                    playSfx('ui_click.ogg');
                 }}
                 title={isCollapsed ? tab.label : undefined}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all text-sm uppercase tracking-wide group
@@ -125,7 +125,7 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
             <button
                 onClick={() => {
                     setIsCollapsed(!isCollapsed);
-                    playSfx('ui_toggle');
+                    playSfx('ui_toggle.ogg');
                 }}
                 className="absolute -right-3 top-8 w-6 h-6 bg-slate-800 border border-white/20 rounded-full flex items-center justify-center text-white/50 hover:text-white z-50 shadow-lg hover:scale-110 transition-all"
             >

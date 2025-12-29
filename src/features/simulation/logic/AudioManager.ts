@@ -44,7 +44,9 @@ class AudioManager {
         // But for rapid fire (typing/mining), we might need clones to allow overlap
         // cloning node is better for overlap
 
-        const path = `/sounds/sfx/${key}.mp3`; // Assumes .mp3 for now, could be passed in config
+        // Detect extension or default to .mp3
+        const filename = key.includes('.') ? key : `${key}.mp3`;
+        const path = `/sounds/sfx/${filename}`;
 
         const audio = new Audio(path);
         audio.volume = this.sfxVolume;
@@ -58,7 +60,8 @@ class AudioManager {
     public playMusic(key: string, fadeDuration: number = 1000) {
         if (this.currentMusicKey === key) return; // Already playing
 
-        const path = `/sounds/music/${key}.mp3`;
+        const filename = key.includes('.') ? key : `${key}.mp3`;
+        const path = `/sounds/music/${filename}`;
 
         const newMusic = new Audio(path);
         newMusic.loop = true;
