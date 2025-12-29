@@ -113,3 +113,80 @@ body.dyslexia-mode h6 {
   font-family: 'OpenDyslexic', sans-serif !important;
   letter-spacing: 0.05em;
 }
+
+/* --- Atmospheric Overlays --- */
+@keyframes cloud-drift {
+  from {
+    transform: translateX(-100%) translateY(0);
+  }
+
+  to {
+    transform: translateX(200vw) translateY(20px);
+  }
+}
+
+@keyframes sunbeam-pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes mist-drift {
+  0% {
+    transform: translateX(-20%) translateY(0);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateX(20%) translateY(10px);
+    opacity: 0;
+  }
+}
+
+.animate-cloud-drift {
+  animation: cloud-drift linear infinite;
+}
+
+.animate-sunbeam {
+  animation: sunbeam-pulse ease-in-out infinite;
+}
+
+.animate-particle {
+  animation: particle-float linear infinite;
+}
+
+.animate-mist {
+  animation: mist-drift ease-in-out infinite alternate;
+}

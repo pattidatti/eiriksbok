@@ -9,6 +9,7 @@ import { TAVERN_NPCS } from './TavernData';
 import type { TavernNPC } from './TavernData';
 import { TavernDiceGame } from './TavernDiceGame';
 import { FloatingActionTooltip } from './components/FloatingActionTooltip';
+import { SimulationAtmosphereLayer } from './components/SimulationAtmosphereLayer';
 
 
 
@@ -631,6 +632,12 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                     }}
                 />
 
+                {/* Atmospheric Overlays */}
+                <SimulationAtmosphereLayer
+                    weather={weather as any}
+                    season={world?.season || 'Spring'}
+                />
+
                 {/* Navigation Buttons */}
                 {viewMode === 'global' ? (
                     // Show "To Kingdom" button
@@ -725,17 +732,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                 )}
 
 
-                {/* Weather Overlay Effects */}
-                {weather === 'Rain' && (
-                    <div className="absolute inset-0 pointer-events-none z-10 opacity-30">
-                        <div className="w-full h-full animate-pulse bg-blue-500/10" />
-                    </div>
-                )}
-                {weather === 'Storm' && (
-                    <div className="absolute inset-0 pointer-events-none z-10">
-                        <div className="w-full h-full animate-[pulse_0.1s_infinite] bg-white/5" />
-                    </div>
-                )}
+                {/* Atmospheric overlays handled by SimulationAtmosphereLayer */}
 
                 {/* Event Markers (Dynamic) - ONLY IN GLOBAL/LOCAL VIEW, NOT KINGDOM */}
                 {viewMode !== 'kingdom' && worldEvents && Object.values(worldEvents).map((event: any) => {
