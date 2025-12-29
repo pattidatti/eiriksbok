@@ -2,6 +2,7 @@ import React from 'react';
 import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
 import { ROLE_TITLES, LEVEL_XP, SEASONS } from '../constants';
 import { useSimulation } from '../SimulationContext';
+import { useAudio } from '../SimulationAudioContext';
 import { Badge } from '../ui/Badge';
 import { GameCard } from '../ui/GameCard';
 import { Map, User, Scroll, MessageSquare, LayoutGrid, Sun, Package, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -13,6 +14,7 @@ interface SimulationSidebarProps {
 
 export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, room }) => {
     const { activeTab, setActiveTab } = useSimulation();
+    const { playSfx } = useAudio();
     const [isCollapsed, setIsCollapsed] = React.useState(false);
 
     const RoleIcon = {
@@ -29,21 +31,30 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
             // Ignore if typing in input
             if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
 
-            switch (e.key.toLowerCase()) {
-                case 'm': setActiveTab('MAP'); break;
-                case 'l': setActiveTab('ACTIVITY'); break;
-                case 'p': setActiveTab('PROFILE'); break;
-                case 'i': setActiveTab('INVENTORY'); break;
-                case 'f': setActiveTab('SKILLS'); break;
-                case 'd': if (player.role !== 'PEASANT') setActiveTab('DIPLOMACY'); break;
-                case 'h': setActiveTab('HIERARCHY'); break;
-                case 'b': setIsCollapsed(prev => !prev); break;
+            const key = e.key.toLowerCase();
+            const tabMap: Record<string, any> = {
+                'm': 'MAP',
+                'l': 'ACTIVITY',
+                'p': 'PROFILE',
+                'i': 'INVENTORY',
+                'f': 'SKILLS',
+                'd': 'DIPLOMACY',
+                'h': 'HIERARCHY'
+            };
+
+            if (tabMap[key]) {
+                if (key === 'd' && player.role === 'PEASANT') return;
+                setActiveTab(tabMap[key]);
+                playSfx('ui_click');
+            } else if (key === 'b') {
+                setIsCollapsed(prev => !prev);
+                playSfx('ui_toggle');
             }
         };
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [setActiveTab, player.role]);
+    }, [setActiveTab, player.role, playSfx]);
 
     const staminaWidth = player.status.stamina || 0;
     const healthWidth = player.status.hp || 0;
@@ -79,7 +90,10 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
         return (
             <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => {
+                    setActiveTab(tab.id as any);
+                    playSfx('ui_click');
+                }}
                 title={isCollapsed ? tab.label : undefined}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all text-sm uppercase tracking-wide group
                 ${isActive
@@ -109,7 +123,10 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
 
             {/* Toggle Button */}
             <button
-                onClick={() => setIsCollapsed(!isCollapsed)}
+                onClick={() => {
+                    setIsCollapsed(!isCollapsed);
+                    playSfx('ui_toggle');
+                }}
                 className="absolute -right-3 top-8 w-6 h-6 bg-slate-800 border border-white/20 rounded-full flex items-center justify-center text-white/50 hover:text-white z-50 shadow-lg hover:scale-110 transition-all"
             >
                 {isCollapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}

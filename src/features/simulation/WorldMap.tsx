@@ -452,10 +452,9 @@ interface WorldMapProps {
     onAction: (action: any) => void;
     onOpenMarket: () => void;
     room: any;
-    initialViewMode?: string;
 }
 
-export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, world, worldEvents, players, onAction, onOpenMarket, initialViewMode = 'global' }) => {
+export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, world, worldEvents, players, onAction, onOpenMarket }) => {
 
     const {
         setActiveTab,

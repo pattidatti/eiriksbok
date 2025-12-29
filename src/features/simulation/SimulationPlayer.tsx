@@ -11,6 +11,7 @@ import { LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS } from './con
 import { performAction } from './actions';
 import { MinigameOverlay } from './SimulationMinigames';
 import { SimulationProvider, useSimulation } from './SimulationContext';
+import { SimulationAudioProvider } from './SimulationAudioContext';
 import { checkActionRequirements } from './utils/actionUtils';
 
 
@@ -24,7 +25,9 @@ import { animationManager } from './logic/AnimationManager';
 export const SimulationPlayer: React.FC = () => {
     return (
         <SimulationProvider>
-            <SimulationGame />
+            <SimulationAudioProvider>
+                <SimulationGame />
+            </SimulationAudioProvider>
         </SimulationProvider>
     );
 };
