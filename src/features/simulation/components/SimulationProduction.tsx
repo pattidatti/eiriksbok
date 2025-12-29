@@ -4,7 +4,7 @@ import { REFINERY_RECIPES, CRAFTING_RECIPES, RESOURCE_DETAILS, ITEM_TEMPLATES, V
 import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
 import { GameButton } from '../ui/GameButton';
 import { ResourceIcon } from '../ui/ResourceIcon';
-import { ChevronRight, Info, Zap, TrendingUp, Package, Settings } from 'lucide-react';
+import { ChevronRight, Info, Zap, TrendingUp, Package, Settings, ArrowRight } from 'lucide-react';
 import { checkActionRequirements } from '../utils/actionUtils';
 
 interface SimulationProductionProps {
@@ -238,10 +238,58 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                 </div>
 
                                 {/* Production Stats / Bonuses */}
-                                <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-4">
+                                <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-6">
                                     <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
-                                        <TrendingUp className="w-3 h-3" /> Forventet Utbytte
+                                        <TrendingUp className="w-3 h-3" /> Utbytte & Sammenligning
                                     </div>
+
+                                    {/* Stats Comparison */}
+                                    {(() => {
+                                        if (type !== 'CRAFT') return null;
+                                        const nextItem = ITEM_TEMPLATES[selectedRecipe.outputItemId];
+                                        if (!nextItem) return null;
+
+                                        const currentItem = Object.values(player.equipment || {}).find(e => e && e.type === nextItem.type);
+
+                                        return (
+                                            <div className="space-y-4 pb-4 border-b border-white/5">
+                                                <div className="flex items-center justify-between text-xs">
+                                                    <span className="text-slate-500 font-bold uppercase tracking-wider">Sammenlignet med ditt utstyr:</span>
+                                                    {currentItem ? (
+                                                        <span className="text-white font-black flex items-center gap-1">{currentItem.icon} {currentItem.name}</span>
+                                                    ) : (
+                                                        <span className="text-slate-600 italic">Ingenting utstyrt</span>
+                                                    )}
+                                                </div>
+
+                                                <div className="grid grid-cols-1 gap-2">
+                                                    {/* Yield Bonus comparison */}
+                                                    {((nextItem.stats?.yieldBonus || 0) > 0 || (currentItem?.stats?.yieldBonus || 0) > 0) && (
+                                                        <div className="flex items-center justify-between p-2 bg-white/5 rounded-xl border border-white/5">
+                                                            <span className="text-[10px] font-black uppercase text-slate-400">Utbytte-bonus</span>
+                                                            <div className="flex items-center gap-2">
+                                                                <span className="text-slate-500">{currentItem?.stats?.yieldBonus || 0}</span>
+                                                                <ArrowRight className="w-3 h-3 text-indigo-400" />
+                                                                <span className="text-emerald-400 font-black">+{nextItem.stats?.yieldBonus || 0}</span>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                    {/* Speed Bonus comparison */}
+                                                    {((nextItem.stats?.speedBonus || 1) > 1 || (currentItem?.stats?.speedBonus || 1) > 1) && (
+                                                        <div className="flex items-center justify-between p-2 bg-white/5 rounded-xl border border-white/5">
+                                                            <span className="text-[10px] font-black uppercase text-slate-400">Arbeidshastighet</span>
+                                                            <div className="flex items-center gap-2">
+                                                                <span className="text-slate-500">{Math.round(((currentItem?.stats?.speedBonus || 1) - 1) * 100)}%</span>
+                                                                <ArrowRight className="w-3 h-3 text-indigo-400" />
+                                                                <span className="text-blue-400 font-black">+{Math.round(((nextItem.stats?.speedBonus || 1) - 1) * 100)}%</span>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        );
+                                    })()}
+
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1">
                                             <div className="text-[10px] text-slate-500 font-bold uppercase">Base Yield</div>

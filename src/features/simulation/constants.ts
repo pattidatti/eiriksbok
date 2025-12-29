@@ -626,8 +626,11 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 30,
         maxDurability: 30,
         level: 1,
-        description: 'En primitiv øks av stein og tre.',
-        stats: { yieldBonus: 1 }
+        description: 'Primitiv øks. +1 Utbytte ved tømmerhogst.',
+        stats: { yieldBonus: 1 },
+        // @ts-ignore
+        relevantActions: ['CHOP'],
+        nextTierId: 'iron_axe'
     },
     stone_pickaxe: {
         id: 'stone_pickaxe',
@@ -637,8 +640,11 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 30,
         maxDurability: 30,
         level: 1,
-        description: 'Primitiv hakke for overfladisk graving.',
-        stats: { yieldBonus: 1 }
+        description: 'Enkel hakke. +1 Utbytte ved gruvedrift.',
+        stats: { yieldBonus: 1 },
+        // @ts-ignore
+        relevantActions: ['MINE', 'QUARRY'],
+        nextTierId: 'iron_pickaxe'
     },
     rusty_axe: {
         id: 'rusty_axe',
@@ -648,8 +654,11 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 50,
         maxDurability: 50,
         level: 1,
-        description: 'En gammel og sløv øks. Bedre enn ingenting.',
-        stats: { yieldBonus: 0 }
+        description: 'Gammel og sløv. Gir ingen utbytte-bonus.',
+        stats: { yieldBonus: 0 },
+        // @ts-ignore
+        relevantActions: ['CHOP'],
+        nextTierId: 'stone_axe'
     },
     iron_axe: {
         id: 'iron_axe',
@@ -659,8 +668,11 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 100,
         maxDurability: 100,
         level: 3,
-        description: 'En solid øks smidd av jern. Hugger ved mer effektivt.',
-        stats: { yieldBonus: 3 }
+        description: 'Solid jernøks. +3 Utbytte ved tømmerhogst.',
+        stats: { yieldBonus: 3 },
+        // @ts-ignore
+        relevantActions: ['CHOP'],
+        nextTierId: 'steel_axe'
     },
     iron_pickaxe: {
         id: 'iron_pickaxe',
@@ -670,8 +682,11 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 100,
         maxDurability: 100,
         level: 3,
-        description: 'Nødvendig for å utvinne malm i gruvene.',
-        stats: { yieldBonus: 3 }
+        description: 'Effektiv hakke. +3 Utbytte ved gruvedrift.',
+        stats: { yieldBonus: 3 },
+        // @ts-ignore
+        relevantActions: ['MINE', 'QUARRY'],
+        nextTierId: 'steel_pickaxe'
     },
     steel_axe: {
         id: 'steel_axe',
@@ -681,8 +696,10 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 200,
         maxDurability: 200,
         level: 8,
-        description: 'Et mesterstykke av stål. Den ultimate huggeren.',
-        stats: { yieldBonus: 8, speedBonus: 1.2 }
+        description: 'Mesterlig stål. +8 Utbytte, 20% raskere arbeid.',
+        stats: { yieldBonus: 8, speedBonus: 1.2 },
+        // @ts-ignore
+        relevantActions: ['CHOP']
     },
     steel_hja: {
         id: 'steel_hja',
@@ -692,8 +709,10 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 120,
         maxDurability: 120,
         level: 4,
-        description: 'En sylskarp hjå for effektiv innhøsting.',
-        stats: { yieldBonus: 5, speedBonus: 1.1 }
+        description: 'Sylskarp hjå. +5 Utbytte, 10% raskere høsting.',
+        stats: { yieldBonus: 5, speedBonus: 1.1 },
+        // @ts-ignore
+        relevantActions: ['WORK']
     },
     blacksmith_hammer: {
         id: 'blacksmith_hammer',
@@ -703,8 +722,10 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 200,
         maxDurability: 200,
         level: 5,
-        description: 'Et verktøy for en mestersmed.',
-        stats: { speedBonus: 1.2 }
+        description: 'Mesterverktøy. 20% raskere smiing.',
+        stats: { speedBonus: 1.2 },
+        // @ts-ignore
+        relevantActions: ['CRAFT', 'REFINE', 'SMELT']
     },
 
     // --- WEAPONS ---
@@ -716,8 +737,11 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 100,
         maxDurability: 100,
         level: 5,
-        description: 'Et standard sverd for en væpnet borger.',
-        stats: { attack: 10 }
+        description: 'Standard sverd. +10 Angrepskraft.',
+        stats: { attack: 10 },
+        // @ts-ignore
+        relevantActions: ['DEFEND', 'PATROL', 'EXPLORE'],
+        nextTierId: 'steel_sword'
     },
     steel_sword: {
         id: 'steel_sword',
@@ -727,8 +751,10 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 250,
         maxDurability: 250,
         level: 10,
-        description: 'Et dødelig våpen av fineste stål.',
-        stats: { attack: 25, speedBonus: 1.1 }
+        description: 'Dødelig stål. +25 Angrep, 10% raskere hugg.',
+        stats: { attack: 25, speedBonus: 1.1 },
+        // @ts-ignore
+        relevantActions: ['DEFEND', 'PATROL', 'EXPLORE']
     },
 
 
@@ -741,8 +767,11 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 20,
         maxDurability: 20,
         level: 1,
-        description: 'Gammel og hullete, men dekker det viktigste.',
-        stats: { defense: 1 }
+        description: 'Gammel og hullete. Minimal beskyttelse.',
+        stats: { defense: 1 },
+        // @ts-ignore
+        relevantActions: ['DEFEND', 'PATROL'],
+        nextTierId: 'leather_armor'
     },
     leather_armor: {
         id: 'leather_armor',
@@ -752,8 +781,11 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 80,
         maxDurability: 80,
         level: 3,
-        description: 'Laget av herdet skinn. Gir god beskyttelse.',
-        stats: { defense: 5 }
+        description: 'Herdet skinn. +5 Forsvar.',
+        stats: { defense: 5 },
+        // @ts-ignore
+        relevantActions: ['DEFEND', 'PATROL'],
+        nextTierId: 'iron_armor'
     },
 
     // Offhand
@@ -765,8 +797,10 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         durability: 10,
         maxDurability: 10,
         level: 1,
-        description: 'Bruk denne for å holde verktøyene dine skarpe.',
-        stats: { yieldBonus: 1 }
+        description: 'Hold verktøy skarpe. +1 Utbytte-bonus.',
+        stats: { yieldBonus: 1 },
+        // @ts-ignore
+        relevantActions: ['CHOP', 'MINE', 'QUARRY', 'WORK']
     }
 };
 

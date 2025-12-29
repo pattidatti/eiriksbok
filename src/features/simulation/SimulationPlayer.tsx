@@ -249,6 +249,10 @@ const SimulationGame: React.FC = () => {
 
 
     // --- ACTION HANDLER ---
+    const handleClearActionResult = React.useCallback(() => {
+        setActionResult(null);
+    }, []);
+
     const handleAction = async (action: any) => {
         if (!pin || !player || actionLoading) return;
 
@@ -414,7 +418,7 @@ const SimulationGame: React.FC = () => {
                                     pin={pin}
                                     onAction={handleAction}
                                     actionResult={actionResult}
-                                    onClearActionResult={() => setActionResult(null)}
+                                    onClearActionResult={handleClearActionResult}
                                 />
                             </div>
                         </div>

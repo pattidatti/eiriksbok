@@ -4,7 +4,9 @@ import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from '../constants';
 
 import { MINIGAME_VARIANTS } from '../SimulationMinigames';
 import { checkActionRequirements, getActionCostString, getActionEquipment } from '../utils/actionUtils';
-import { UPGRADES_LIST } from '../constants';
+import { UPGRADES_LIST, ITEM_TEMPLATES } from '../constants';
+import { TrendingUp, ArrowRight } from 'lucide-react';
+import type { EquipmentItem } from '../simulationTypes';
 
 interface FloatingActionTooltipProps {
     poi: any; // Type accurately if possible
@@ -235,43 +237,72 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                             </div>
                                         </div>
 
-                                        {/* EXPANDED DETAILS PANEL */}
-                                        {showDetails && (
-                                            <div className="mt-3 bg-black/40 rounded-lg p-3 border border-white/5 animate-in slide-in-from-top-2 duration-200">
-                                                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">Aktive Bonuser</div>
+                                        {/* PROGRESSION CARROT / TOOL INFO */}
+                                        <div className="mt-4 grid grid-cols-1 gap-2 border-t border-white/5 pt-4">
+                                            {/* Current Tool */}
+                                            {(() => {
+                                                const actionType = action.id;
+                                                const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
+                                                const bestTool = equipment.find((item: any) => {
+                                                    const template = ITEM_TEMPLATES[item.id] as any;
+                                                    return template?.relevantActions?.includes(actionType);
+                                                });
 
-                                                {bonusDetails.length > 0 ? (
-                                                    <>
-                                                        <div className="space-y-1.5 lead-none">
-                                                            {bonusDetails.map((d, i) => (
-                                                                <div key={i} className="flex items-center justify-between text-xs">
-                                                                    <div className="flex items-center gap-1.5 text-slate-300">
-                                                                        <span>{d.icon}</span>
-                                                                        <span>{d.source}</span>
-                                                                    </div>
-                                                                    <div className={`font-bold ${d.type === 'Fart' ? 'text-blue-400' : d.type === 'Utbytte' ? 'text-emerald-400' : d.type === 'Flaks' ? 'text-purple-400' : 'text-slate-500'}`}>
-                                                                        {d.value} {d.type !== 'Utstyr' && d.type}
+                                                if (bestTool) {
+                                                    return (
+                                                        <div className="bg-indigo-500/10 border border-indigo-500/30 rounded-2xl p-3 backdrop-blur-md flex items-center justify-between">
+                                                            <div className="flex items-center gap-3">
+                                                                <span className="text-2xl">{bestTool.icon}</span>
+                                                                <div>
+                                                                    <div className="text-[10px] font-black text-indigo-400 uppercase leading-none mb-1">{bestTool.name}</div>
+                                                                    <div className="text-[9px] font-bold text-slate-400">
+                                                                        {(bestTool.stats?.yieldBonus || 0) > 0 && <span className="text-emerald-400">+{bestTool.stats?.yieldBonus} Utbytte </span>}
+                                                                        {(bestTool.stats?.speedBonus || 1) > 1 && <span className="text-blue-400">+{Math.round(((bestTool.stats?.speedBonus || 1) - 1) * 100)}% Fart</span>}
                                                                     </div>
                                                                 </div>
-                                                            ))}
+                                                            </div>
                                                         </div>
-                                                        {/* Summary Line */}
-                                                        <div className="mt-2 pt-2 border-t border-white/5 flex justify-end gap-3 text-[10px]">
-                                                            {bonusDetails.some(d => d.type === 'Fart') && (
-                                                                <span className="text-blue-400 font-bold">Total Fart: +{bonusDetails.filter(d => d.type === 'Fart').reduce((acc, curr) => acc + parseInt(curr.value.replace(/\D/g, '')), 0)}%</span>
-                                                            )}
-                                                            {bonusDetails.some(d => d.type === 'Utbytte') && (
-                                                                <span className="text-emerald-400 font-bold">Total Utbytte: +{bonusDetails.filter(d => d.type === 'Utbytte').reduce((acc, curr) => acc + parseInt(curr.value.replace('+', '')), 0)}</span>
-                                                            )}
+                                                    );
+                                                }
+                                                return null;
+                                            })()}
+
+                                            {/* Next Upgrade */}
+                                            {(() => {
+                                                const actionType = action.id;
+                                                const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
+                                                const bestTool = equipment.find((item: any) => {
+                                                    const template = ITEM_TEMPLATES[item.id] as any;
+                                                    return template?.relevantActions?.includes(actionType);
+                                                });
+
+                                                const currentId = bestTool?.id || (actionType === 'CHOP' ? 'rusty_axe' : actionType === 'MINE' ? 'stone_pickaxe' : null);
+                                                const nextId = (ITEM_TEMPLATES[currentId as any] as any)?.nextTierId;
+                                                const nextTemplate = nextId ? ITEM_TEMPLATES[nextId] : null;
+
+                                                if (nextTemplate) {
+                                                    return (
+                                                        <div className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-3 backdrop-blur-md flex items-center justify-between group">
+                                                            <div className="flex items-center gap-3">
+                                                                <span className="text-2xl opacity-40 grayscale group-hover:grayscale-0 transition-all">{nextTemplate.icon}</span>
+                                                                <div>
+                                                                    <div className="text-[10px] font-black text-amber-500/80 uppercase leading-none mb-1 flex items-center gap-1.5">
+                                                                        <TrendingUp className="w-2.5 h-2.5" /> Neste Nivå?
+                                                                    </div>
+                                                                    <div className="text-[9px] font-bold text-slate-500">
+                                                                        Smid {nextTemplate.name} i Smia
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="w-5 h-5 bg-amber-500/10 rounded-full flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity">
+                                                                <ArrowRight className="w-3 h-3 text-amber-500" />
+                                                            </div>
                                                         </div>
-                                                    </>
-                                                ) : (
-                                                    <div className="text-xs text-slate-500 italic py-1">
-                                                        Ingen utstyr eller bonuser aktiv for denne handlingen.
-                                                    </div>
-                                                )}
-                                            </div>
-                                        )}
+                                                    );
+                                                }
+                                                return null;
+                                            })()}
+                                        </div>
 
                                         {/* Legacy equipment chips (Hide if expanded? Keep for quick view?) -> Hide if expanded to avoid clutter */}
                                         {!showDetails && bonusDetails.length > 0 && (

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { getActionCostString } from './utils/actionUtils';
-import { SEASONS, WEATHER } from './constants';
+import { SEASONS, WEATHER, ITEM_TEMPLATES } from './constants';
 import { calculateYield } from './utils/simulationUtils';
 import { animationManager } from './logic/AnimationManager';
 import type { EquipmentItem, SkillType } from './simulationTypes';
+import { Sparkles, ShieldCheck, TrendingUp } from 'lucide-react';
 
 interface MinigameProps {
     type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE' | 'SMELT' | 'BAKE' | 'WEAVE' | 'MIX';
@@ -49,6 +50,43 @@ export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon
     ]
 };
 
+/* --- TOOL VISIBILITY HELPERS --- */
+const MinigameToolBadge: React.FC<{ item: EquipmentItem }> = ({ item }) => {
+    const durabilityPct = (item.durability / item.maxDurability) * 100;
+    const isLow = durabilityPct < 20;
+
+    return (
+        <div className="absolute bottom-8 right-8 z-50 animate-in slide-in-from-right-10 duration-500">
+            <div className="bg-slate-900/40 backdrop-blur-xl border-2 border-white/10 p-4 rounded-3xl shadow-2xl flex items-center gap-4 group hover:border-indigo-500/50 transition-all">
+                <div className="relative">
+                    <div className="w-14 h-14 bg-black/40 rounded-2xl flex items-center justify-center text-3xl shadow-inner border border-white/5 group-hover:scale-110 transition-transform">
+                        {item.icon}
+                    </div>
+                    {isLow && (
+                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 rounded-full animate-ping" />
+                    )}
+                </div>
+                <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-none mb-1">{item.name}</span>
+                    <div className="w-24 h-2 bg-white/5 rounded-full overflow-hidden border border-white/10">
+                        <div
+                            className={`h-full transition-all duration-1000 ${durabilityPct > 50 ? 'bg-emerald-500' : durabilityPct > 20 ? 'bg-amber-500' : 'bg-rose-500'}`}
+                            style={{ width: `${durabilityPct}%` }}
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const getBestToolForAction = (type: string, equipment: EquipmentItem[]) => {
+    if (!equipment) return undefined;
+    return equipment.find(item => {
+        const template = ITEM_TEMPLATES[item.id] as any;
+        return template?.relevantActions?.includes(type);
+    });
+};
 
 /* --- VISUAL FEEDBACK HELPERS REMOVED --- */
 
@@ -144,16 +182,80 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
                         </div>
 
-                        <div className="relative z-10 w-full">
+                        <div className="relative z-10 w-full max-w-2xl">
                             <h2 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-4">Velg utførelse</h2>
-                            <h3 className="text-5xl font-black text-white mb-4 tracking-tighter uppercase">{type}</h3>
+                            <h3 className="text-5xl font-black text-white mb-6 tracking-tighter uppercase">{type}</h3>
+
+                            {/* PROGRESSION CARROT / TOOL INFO */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-left">
+                                {/* Current Tool */}
+                                {(() => {
+                                    const bestTool = getBestToolForAction(type, equipment);
+                                    if (bestTool) {
+                                        return (
+                                            <div className="bg-indigo-500/10 border border-indigo-500/30 rounded-3xl p-5 backdrop-blur-md">
+                                                <div className="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                                    <ShieldCheck className="w-3 h-3" /> Utstyrs-bonus
+                                                </div>
+                                                <div className="flex items-center gap-4">
+                                                    <div className="text-4xl">{bestTool.icon}</div>
+                                                    <div>
+                                                        <div className="text-white font-black">{bestTool.name}</div>
+                                                        <div className="text-[10px] font-bold text-slate-400">
+                                                            {(bestTool.stats?.yieldBonus || 0) > 0 && <span className="text-emerald-400">+{bestTool.stats?.yieldBonus} Utbytte </span>}
+                                                            {(bestTool.stats?.speedBonus || 0) > 1 && <span className="text-blue-400">+{Math.round(((bestTool.stats?.speedBonus || 1) - 1) * 100)}% Fart</span>}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    }
+                                    return (
+                                        <div className="bg-slate-800/40 border border-white/5 rounded-3xl p-5 backdrop-blur-md">
+                                            <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">Ingen verktøy</div>
+                                            <div className="text-slate-400 text-xs italic">Du jobber med bare hendene. Lite effektivt.</div>
+                                        </div>
+                                    );
+                                })()}
+
+                                {/* Next Upgrade Recommendation */}
+                                {(() => {
+                                    const bestTool = getBestToolForAction(type, equipment);
+                                    const currentId = bestTool?.id || (type === 'CHOP' ? 'rusty_axe' : null);
+                                    const nextId = (ITEM_TEMPLATES[currentId as any] as any)?.nextTierId;
+                                    const nextTemplate = nextId ? ITEM_TEMPLATES[nextId] : null;
+
+                                    if (nextTemplate) {
+                                        return (
+                                            <div className="bg-amber-500/5 border border-amber-500/20 rounded-3xl p-5 backdrop-blur-md relative overflow-hidden group">
+                                                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:rotate-12 transition-transform">
+                                                    <Sparkles className="w-12 h-12 text-amber-500" />
+                                                </div>
+                                                <div className="text-[10px] font-black text-amber-500/70 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                                    <TrendingUp className="w-3 h-3" /> Neste Nivå
+                                                </div>
+                                                <div className="flex items-center gap-4">
+                                                    <div className="text-4xl opacity-50 grayscale">{nextTemplate.icon}</div>
+                                                    <div>
+                                                        <div className="text-white/60 font-black">{nextTemplate.name}</div>
+                                                        <div className="text-[10px] font-bold text-amber-500/50">
+                                                            Smid i Storsmien (Lvl {nextTemplate.level})
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    }
+                                    return null;
+                                })()}
+                            </div>
 
                             {/* COST DISPLAY */}
                             {(() => {
                                 const costLabel = getActionCostString(type, currentSeason, currentWeather);
                                 if (costLabel) {
                                     return (
-                                        <div className="mb-10 inline-flex items-center gap-2 px-6 py-3 bg-black/40 rounded-full border border-white/10 backdrop-blur-md shadow-lg">
+                                        <div className="mb-8 inline-flex items-center gap-2 px-6 py-3 bg-black/40 rounded-full border border-white/10 backdrop-blur-md shadow-lg">
                                             <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mr-2">Kostnad</span>
                                             <span className="text-base font-black text-amber-400 font-mono tracking-tight">{costLabel}</span>
                                         </div>
@@ -161,24 +263,6 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                 }
                                 return null;
                             })()}
-
-                            {/* EQUIPMENT DISPLAY */}
-                            {actionEquipment.length > 0 && (
-                                <div className="mb-10 flex flex-wrap justify-center gap-4">
-                                    {actionEquipment.map((item) => (
-                                        <div key={item.id} className="flex items-center gap-3 px-5 py-3 bg-indigo-500/10 border border-indigo-500/30 rounded-2xl backdrop-blur-md shadow-lg animate-in slide-in-from-bottom-2">
-                                            <span className="text-2xl">{item.icon}</span>
-                                            <div className="flex flex-col items-start">
-                                                <span className="text-xs font-black text-indigo-300 uppercase tracking-widest leading-none mb-1">{item.name}</span>
-                                                <div className="flex gap-2">
-                                                    {(item.stats?.yieldBonus || 0) > 0 && <span className="text-[10px] font-bold text-emerald-400">+{item.stats?.yieldBonus} Utbytte</span>}
-                                                    {(item.stats?.speedBonus || 0) > 1 && <span className="text-[10px] font-bold text-blue-400">+{Math.round(((item.stats?.speedBonus || 1) - 1) * 100)}% Fart</span>}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
 
                             <div className="grid grid-cols-1 gap-4 w-full">
                                 {currentMethods.map(m => (
@@ -206,18 +290,18 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                     (() => {
                         switch (type) {
                             case 'WORK':
-                                if (method === 'sweep') return <ScytheSweepGame onComplete={onComplete} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
-                                return <HarvestingGame onComplete={onComplete} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                                if (method === 'sweep') return <ScytheSweepGame onComplete={onComplete} equipment={equipment} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                                return <HarvestingGame onComplete={onComplete} equipment={equipment} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
                             case 'MINE':
-                                return <HarvestingGame onComplete={onComplete} isMining speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                                return <HarvestingGame onComplete={onComplete} equipment={equipment} isMining speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
                             case 'QUARRY':
-                                return <HarvestingGame onComplete={onComplete} isQuarrying speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                                return <HarvestingGame onComplete={onComplete} equipment={equipment} isQuarrying speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
                             case 'FORAGE':
                                 if (method === 'traps') return <TrappingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
-                                return <HarvestingGame onComplete={onComplete} isForaging speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                                return <HarvestingGame onComplete={onComplete} equipment={equipment} isForaging speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
                             case 'CHOP':
                                 if (method === 'saw') return <SawingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
-                                return <WoodcuttingGame onComplete={onComplete} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                                return <WoodcuttingGame onComplete={onComplete} equipment={equipment} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
                             case 'CRAFT':
                             case 'REFINE':
                                 return <CraftingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
@@ -243,6 +327,11 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                     })()
                 )}
 
+                {/* --- SHARED TOOL HUD --- */}
+                {equipment && getBestToolForAction(type, equipment) && (
+                    <MinigameToolBadge item={getBestToolForAction(type, equipment)!} />
+                )}
+
                 <MinigameStyles />
             </div>
         </div >
@@ -252,13 +341,14 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
 /* --- HARVESTING MINIGAME (Rhythm Timing) --- */
 const HarvestingGame: React.FC<{
     onComplete: (score: number) => void,
+    equipment?: EquipmentItem[],
     isMining?: boolean,
     isQuarrying?: boolean,
     isForaging?: boolean,
     speedMultiplier?: number,
     possibleYield?: number,
     resourceName?: string
-}> = ({ onComplete, isMining, isQuarrying, isForaging, speedMultiplier = 1.0, possibleYield = 10, resourceName = 'Ressurs' }) => {
+}> = ({ onComplete, equipment = [], isMining, isQuarrying, isForaging, speedMultiplier = 1.0, possibleYield = 10, resourceName = 'Ressurs' }) => {
     const [pointerPos, setPointerPos] = useState(0);
     const [strikes, setStrikes] = useState<number[]>([]);
     const [isFinished, setIsFinished] = useState(false);
@@ -289,17 +379,23 @@ const HarvestingGame: React.FC<{
         const distance = Math.abs(pointerPos - 50);
         let score = distance < 5 ? 1.0 : distance < 15 ? 0.7 : distance < 25 ? 0.4 : 0.1;
 
-        // Calculate yield for this hit (Simplified: (possible / 5) * (0.5 base + score * 1.0 perf weight))
-        // Match actions.ts logic: total = Math.ceil(total * (0.5 + score))
-        const hitYield = Math.ceil((possibleYield / 5) * (0.5 + score));
+        // Calculate yield for this hit
+        const actionType = isMining ? 'MINE' : isQuarrying ? 'QUARRY' : isForaging ? 'FORAGE' : 'WORK';
+        const bestTool = getBestToolForAction(actionType, equipment);
+        const toolYieldBonus = bestTool?.stats?.yieldBonus || 0;
 
-        let msg = distance < 5 ? `PERFEKT! +${hitYield}` : distance < 15 ? `Bra! +${hitYield}` : `Ok... +${hitYield}`;
+        const baseHitYield = Math.ceil((possibleYield / 5) * (0.5 + score));
+        const toolHitBonus = Math.ceil((toolYieldBonus / 5) * (0.5 + score));
+
         if (distance < 5) {
             setShake(true);
             setTimeout(() => setShake(false), 200);
             animationManager.spawnParticles(50, 40, 'bg-amber-400');
+            animationManager.spawnFloatingText(`PERFEKT! +${baseHitYield} ${toolHitBonus > 0 ? `(+${toolHitBonus})` : ''}`, 50, 40, 'text-amber-400');
+        } else {
+            animationManager.spawnFloatingText(`${distance < 15 ? 'Bra!' : 'Ok...'} +${baseHitYield} ${toolHitBonus > 0 ? `(+${toolHitBonus})` : ''}`, 50, 40, 'text-slate-200');
         }
-        animationManager.spawnFloatingText(msg, 50, 40, distance < 5 ? 'text-amber-400' : 'text-slate-200');
+
         const newStrikes = [...strikes, score];
         setStrikes(newStrikes);
         if (newStrikes.length === 5) {
@@ -391,10 +487,11 @@ const TrappingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
 /* --- SCYTHE SWEEP VARIANT --- */
 const ScytheSweepGame: React.FC<{
     onComplete: (score: number) => void,
+    equipment?: EquipmentItem[],
     speedMultiplier?: number,
     possibleYield?: number,
     resourceName?: string
-}> = ({ onComplete, speedMultiplier = 1.0, possibleYield = 10, resourceName = 'Korn' }) => {
+}> = ({ onComplete, equipment = [], speedMultiplier = 1.0, possibleYield = 10, resourceName = 'Korn' }) => {
     const [progress, setProgress] = useState(0);
     const [swings, setSwings] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
@@ -404,8 +501,13 @@ const ScytheSweepGame: React.FC<{
         setProgress(p => {
             const next = p + (2 * speedMultiplier); // Faster progress per pixel moved
             if (next >= 100) {
-                const hitYield = Math.ceil((possibleYield / 5) * 1.25); // 5 swings, slightly higher per hit for this mode
-                animationManager.spawnFloatingText(`+${hitYield} ${resourceName}`, 50, 40, 'text-amber-400');
+                const bestTool = getBestToolForAction('WORK', equipment);
+                const toolYieldBonus = bestTool?.stats?.yieldBonus || 0;
+
+                const baseHitYield = Math.ceil((possibleYield / 5) * 1.25);
+                const toolHitBonus = Math.ceil((toolYieldBonus / 5) * 1.25);
+
+                animationManager.spawnFloatingText(`+${baseHitYield} ${resourceName} ${toolHitBonus > 0 ? `(+${toolHitBonus})` : ''}`, 50, 40, 'text-amber-400');
 
                 setSwings(s => {
                     if (s + 1 >= 5) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
@@ -436,10 +538,11 @@ const ScytheSweepGame: React.FC<{
 /* --- WOODCUTTING CLASSIC --- */
 const WoodcuttingGame: React.FC<{
     onComplete: (score: number) => void,
+    equipment?: EquipmentItem[],
     speedMultiplier?: number,
     possibleYield?: number,
     resourceName?: string
-}> = ({ onComplete, speedMultiplier: _speedMultiplier = 1.0, possibleYield = 5, resourceName = 'Ved' }) => {
+}> = ({ onComplete, equipment = [], speedMultiplier: _speedMultiplier = 1.0, possibleYield = 5, resourceName = 'Ved' }) => {
     const [target, setTarget] = useState({ x: 50, y: 50 });
     const [hits, setHits] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
@@ -447,8 +550,13 @@ const WoodcuttingGame: React.FC<{
     const spawn = () => setTarget({ x: 20 + Math.random() * 60, y: 20 + Math.random() * 60 });
 
     const handleHit = () => {
-        const hitYield = Math.ceil((possibleYield / 10) * 1.5); // 10 hits, each fixed performance for now
-        animationManager.spawnFloatingText(`+${hitYield} ${resourceName}`, 50, 40, 'text-amber-400');
+        const bestTool = getBestToolForAction('CHOP', equipment);
+        const toolYieldBonus = bestTool?.stats?.yieldBonus || 0;
+
+        const baseHitYield = Math.ceil((possibleYield / 10) * 1.5);
+        const toolHitBonus = Math.ceil((toolYieldBonus / 10) * 1.5);
+
+        animationManager.spawnFloatingText(`+${baseHitYield} ${resourceName} ${toolHitBonus > 0 ? `(+${toolHitBonus})` : ''}`, 50, 40, 'text-amber-400');
         animationManager.spawnParticles(50, 40, 'bg-amber-400');
 
         setHits(h => {
