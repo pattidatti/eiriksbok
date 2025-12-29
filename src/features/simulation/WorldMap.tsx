@@ -632,11 +632,21 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                     }}
                 />
 
-                {/* Atmospheric Overlays */}
-                <SimulationAtmosphereLayer
-                    weather={weather as any}
-                    season={world?.season || 'Spring'}
-                />
+                {/* Atmospheric Overlays - Only for outdoor locations */}
+                {(() => {
+                    const indoorViews = ['castle', 'farm_house', 'tavern', 'great_forge', 'bakery', 'windmill', 'sawmill', 'smeltery', 'weavery', 'stables', 'watchtower', 'well', 'apothecary'];
+                    const isOutdoor = !indoorViews.includes(viewMode);
+
+                    if (!isOutdoor) return null;
+
+                    return (
+                        <SimulationAtmosphereLayer
+                            weather={weather as any}
+                            season={world?.season || 'Spring'}
+                            hideClouds={viewMode === 'forest'}
+                        />
+                    );
+                })()}
 
                 {/* Navigation Buttons */}
                 {viewMode === 'global' ? (

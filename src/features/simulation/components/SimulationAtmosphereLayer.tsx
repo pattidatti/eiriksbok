@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface AtmosphereProps {
     weather: 'Clear' | 'Rain' | 'Storm' | 'Fog';
     season: 'Spring' | 'Summer' | 'Autumn' | 'Winter';
+    hideClouds?: boolean;
 }
 
-export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, season }) => {
+export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, season, hideClouds }) => {
     // Generate static random values once
     const clouds = useMemo(() => Array.from({ length: 12 }).map((_, i) => ({
         id: i,
@@ -17,13 +17,14 @@ export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, 
         opacity: 0.1 + Math.random() * 0.3
     })), []);
 
-    const particles = useMemo(() => Array.from({ length: 20 }).map((_, i) => ({
+    const particles = useMemo(() => Array.from({ length: 10 }).map((_, i) => ({
         id: i,
         left: `${Math.random() * 100}%`,
         delay: Math.random() * 20,
         duration: 10 + Math.random() * 20,
         size: 5 + Math.random() * 10,
-        rotation: Math.random() * 360
+        rotation: Math.random() * 360,
+        drift: 50 + Math.random() * 150 // Individual drift variation
     })), []);
 
     const sunbeams = useMemo(() => Array.from({ length: 5 }).map((_, i) => ({
@@ -40,6 +41,10 @@ export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, 
         if (season === 'Winter') return '❄️';
         return '✨'; // Summer/Dust
     };
+
+    // Calculate wind intensity based on weather
+    const windIntensity = weather === 'Storm' ? 2.5 : weather === 'Rain' ? 1.5 : 1.0;
+    const baseDrift = 100 * windIntensity;
 
     return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-[5]">
@@ -63,25 +68,27 @@ export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, 
             )}
 
             {/* 2. Cloud Layer */}
-            <div className="absolute inset-0">
-                {clouds.map(cloud => (
-                    <div
-                        key={cloud.id}
-                        className="absolute text-white animate-cloud-drift select-none"
-                        style={{
-                            top: cloud.top,
-                            fontSize: `${cloud.scale * 4}rem`,
-                            opacity: weather === 'Storm' ? cloud.opacity * 2 : cloud.opacity,
-                            filter: 'blur(8px)',
-                            animationDuration: `${weather === 'Storm' ? cloud.duration / 2 : cloud.duration}s`,
-                            animationDelay: `-${cloud.delay}s`,
-                            color: weather === 'Storm' ? '#475569' : 'white'
-                        }}
-                    >
-                        ☁️
-                    </div>
-                ))}
-            </div>
+            {!hideClouds && (
+                <div className="absolute inset-0">
+                    {clouds.map(cloud => (
+                        <div
+                            key={cloud.id}
+                            className="absolute text-white animate-cloud-drift select-none"
+                            style={{
+                                top: cloud.top,
+                                fontSize: `${cloud.scale * 4}rem`,
+                                opacity: weather === 'Storm' ? cloud.opacity * 2 : cloud.opacity,
+                                filter: 'blur(8px)',
+                                animationDuration: `${weather === 'Storm' ? cloud.duration / 2 : cloud.duration}s`,
+                                animationDelay: `-${cloud.delay}s`,
+                                color: weather === 'Storm' ? '#475569' : 'white'
+                            }}
+                        >
+                            ☁️
+                        </div>
+                    ))}
+                </div>
+            )}
 
             {/* 3. Mist/Fog Layer */}
             {weather === 'Fog' && (
@@ -99,8 +106,11 @@ export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, 
                             fontSize: `${p.size}px`,
                             animationDuration: `${p.duration}s`,
                             animationDelay: `${p.delay}s`,
-                            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-                        }}
+                            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
+                            // @ts-ignore
+                            '--wind-drift': `${baseDrift + p.drift}px`,
+                            '--wind-rotation': `${720 + p.rotation}deg`
+                        } as any}
                     >
                         {getParticleEmoji()}
                     </div>
