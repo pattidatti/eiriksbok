@@ -1,4 +1,4 @@
-import type { Resources, Role, SimulationMarket, PlayerUpgrade, SkillType, SkillData, EquipmentItem, EquipmentSlot } from './simulationTypes';
+import type { Resources, Role, SimulationMarket, PlayerUpgrade, SkillType, SkillData, EquipmentItem, EquipmentSlot, ResourceType } from './simulationTypes';
 
 export const INITIAL_MARKET: SimulationMarket = {
     grain: { price: 10, stock: 500, demand: 1.0 },
@@ -453,6 +453,28 @@ export const GAME_BALANCE = {
         REFINING_XP: 10
     }
 };
+
+export const REPAIR_CONFIG: Record<string, { material: ResourceType, goldCost: number, staminaCost: number, slots: EquipmentSlot[] }> = {
+    great_forge: {
+        material: 'iron_ingot',
+        goldCost: 20,
+        staminaCost: 15,
+        slots: ['MAIN_HAND', 'OFF_HAND', 'HEAD', 'BODY', 'FEET']
+    },
+    weavery: {
+        material: 'cloth',
+        goldCost: 10,
+        staminaCost: 10,
+        slots: ['BODY', 'FEET', 'HEAD']
+    },
+    sawmill: {
+        material: 'timber',
+        goldCost: 5,
+        staminaCost: 10,
+        slots: ['OFF_HAND', 'MAIN_HAND']
+    }
+};
+
 
 export const SKILL_DETAILS: Record<SkillType, { label: string, description: string, xpSource: string, bonuses: Record<number, string> }> = {
     FARMING: {

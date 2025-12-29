@@ -11,6 +11,7 @@ export const SimulationSettings: React.FC<SimulationSettingsProps> = ({ onClose 
     const {
         sfxVolume, setSfxVolume,
         musicVolume, setMusicVolume,
+        isMuffled, setMuffled,
         playSfx
     } = useAudio();
     const [isFullscreen, setIsFullscreen] = useState(!!document.fullscreenElement);
@@ -89,6 +90,20 @@ export const SimulationSettings: React.FC<SimulationSettingsProps> = ({ onClose 
                                     onMouseUp={() => playSfx('ui_click')}
                                     className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-500 hover:accent-indigo-400 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
                                 />
+                            </div>
+
+                            {/* Muffled Music Toggle */}
+                            <div className="flex items-center justify-between pt-2 border-t border-white/5">
+                                <div className="space-y-0.5">
+                                    <span className="text-white font-bold text-xs block">Dempet musikk</span>
+                                    <span className="text-[10px] text-slate-400 uppercase tracking-wider">Low-pass filter (15kHz)</span>
+                                </div>
+                                <button
+                                    onClick={() => setMuffled(!isMuffled)}
+                                    className={`w-10 h-5 rounded-full p-1 transition-colors ${isMuffled ? 'bg-indigo-500' : 'bg-slate-700'}`}
+                                >
+                                    <div className={`w-3 h-3 bg-white rounded-full transition-transform ${isMuffled ? 'translate-x-5' : 'translate-x-0'}`} />
+                                </button>
                             </div>
                         </div>
                     </section>

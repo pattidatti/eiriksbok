@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { useSimulation } from '../SimulationContext';
-import { REFINERY_RECIPES, CRAFTING_RECIPES, RESOURCE_DETAILS, ITEM_TEMPLATES, VILLAGE_BUILDINGS } from '../constants';
-import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
+import { REFINERY_RECIPES, CRAFTING_RECIPES, RESOURCE_DETAILS, ITEM_TEMPLATES, VILLAGE_BUILDINGS, REPAIR_CONFIG } from '../constants';
+import type { SimulationPlayer, SimulationRoom, EquipmentSlot } from '../simulationTypes';
 import { GameButton } from '../ui/GameButton';
 import { ResourceIcon } from '../ui/ResourceIcon';
-import { ChevronRight, Info, Zap, TrendingUp, Package, Settings, ArrowRight } from 'lucide-react';
+import { ChevronRight, Info, Zap, TrendingUp, Package, Settings, ArrowRight, Wrench } from 'lucide-react';
 import { checkActionRequirements } from '../utils/actionUtils';
 
 interface SimulationProductionProps {
@@ -17,6 +17,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
 
     const { productionContext, setActiveTab, actionLoading } = useSimulation();
     const [selectedRecipeId, setSelectedRecipeId] = useState<string | null>(null);
+    const [viewMode, setViewMode] = useState<'PRODUCE' | 'REPAIR'>('PRODUCE');
 
     if (!productionContext) {
         return (
@@ -35,6 +36,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
 
     const { buildingId, type } = productionContext;
     const building = VILLAGE_BUILDINGS[buildingId];
+    const isStationWithRepair = useMemo(() => !!REPAIR_CONFIG[buildingId], [buildingId]);
 
     // Filter recipes
     const recipes = useMemo(() => {
@@ -109,10 +111,9 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
             </button>
 
             <div className="flex flex-col lg:flex-row gap-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
-
-                {/* LEFT: RECIPE LIST */}
+                {/* LEFT: CONTENT AREA */}
                 <div className="flex-1 space-y-8">
-                    <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 gap-4">
                         <div className="flex items-center gap-4">
                             <div className="w-14 h-14 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-3xl shadow-lg border border-indigo-500/30">
                                 {building?.icon || '🏢'}
@@ -122,75 +123,192 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                 <p className="text-slate-400 text-sm font-medium">{building?.description} (Nivå {currentBuildingLevel})</p>
                             </div>
                         </div>
+
+                        {/* TAB SWITCHER */}
+                        {isStationWithRepair && (
+                            <div className="flex bg-black/40 p-1 rounded-2xl border border-white/5">
+                                <button
+                                    onClick={() => setViewMode('PRODUCE')}
+                                    className={`px-6 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'PRODUCE' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
+                                >
+                                    Produksjon
+                                </button>
+                                <button
+                                    onClick={() => setViewMode('REPAIR')}
+                                    className={`px-6 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'REPAIR' ? 'bg-amber-600 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
+                                >
+                                    Reparasjon
+                                </button>
+                            </div>
+                        )}
                     </div>
 
-                    <div className="space-y-10">
-                        {recipesByLevel.map(([levelStr, levelRecipes]) => {
-                            const levelNum = parseInt(levelStr);
-                            const isLocked = levelNum > currentBuildingLevel;
+                    {viewMode === 'PRODUCE' ? (
+                        <div className="space-y-10">
+                            {recipesByLevel.map(([levelStr, levelRecipes]) => {
+                                const levelNum = parseInt(levelStr);
+                                const isLocked = levelNum > currentBuildingLevel;
 
-                            return (
-                                <div key={levelStr} className="space-y-4">
-                                    <div className="flex items-center gap-3">
-                                        <div className={`px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase ${isLocked ? 'bg-slate-800 text-slate-500' : 'bg-indigo-600 text-white'}`}>
-                                            Tier {levelStr}
+                                return (
+                                    <div key={levelStr} className="space-y-4">
+                                        <div className="flex items-center gap-3">
+                                            <div className={`px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase ${isLocked ? 'bg-slate-800 text-slate-500' : 'bg-indigo-600 text-white'}`}>
+                                                Tier {levelStr}
+                                            </div>
+                                            <div className="flex-1 h-px bg-white/5"></div>
+                                            {isLocked && (
+                                                <span className="text-[10px] font-bold text-slate-600 italic flex items-center gap-1">
+                                                    <Package className="w-3 h-3" /> Oppgrader {building?.name} til Nivå {levelStr}
+                                                </span>
+                                            )}
                                         </div>
-                                        <div className="flex-1 h-px bg-white/5"></div>
-                                        {isLocked && (
-                                            <span className="text-[10px] font-bold text-slate-600 italic flex items-center gap-1">
-                                                <Package className="w-3 h-3" /> Oppgrader {building?.name} til Nivå {levelStr}
-                                            </span>
-                                        )}
+
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            {levelRecipes.map(([id, r]: [string, any]) => {
+                                                const info = getOutputInfo(id, r);
+                                                const isSelected = selectedRecipeId === id;
+                                                const actionPayload = type === 'REFINE' ? { type: 'REFINE', recipeId: id } : { type: 'CRAFT', subType: id };
+                                                const check = checkActionRequirements(player, actionPayload);
+                                                const canAfford = check.success;
+
+                                                return (
+                                                    <button
+                                                        key={id}
+                                                        onClick={() => setSelectedRecipeId(id)}
+                                                        className={`flex items-center gap-4 p-4 rounded-[2rem] border-2 transition-all group relative overflow-hidden ${isLocked ? 'grayscale opacity-60 cursor-not-allowed bg-black/20 border-white/5' : isSelected
+                                                            ? 'bg-indigo-600/20 border-indigo-500/50 shadow-[0_0_30px_rgba(79,70,229,0.2)]'
+                                                            : 'bg-slate-900/50 border-white/5 hover:border-white/10 hover:bg-slate-800/80 shadow-xl'
+                                                            }`}
+                                                    >
+                                                        {isLocked && (
+                                                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-[1px]">
+                                                                <Settings className="w-6 h-6 text-slate-600 animate-spin-slow" />
+                                                            </div>
+                                                        )}
+                                                        <div className="w-16 h-16 bg-black/40 rounded-2xl flex items-center justify-center text-4xl shadow-inner group-hover:scale-110 transition-transform">
+                                                            {info.icon}
+                                                        </div>
+                                                        <div className="flex-1 text-left">
+                                                            <div className="text-lg font-black text-white leading-tight">{info.name}</div>
+                                                            <div className="flex items-center gap-2 mt-1">
+                                                                <div className={`w-2 h-2 rounded-full ${isLocked ? 'bg-slate-700' : canAfford ? 'bg-emerald-500' : 'bg-rose-500 animate-pulse'}`}></div>
+                                                                <span className={`text-[10px] font-black uppercase tracking-widest ${isLocked ? 'text-slate-600' : canAfford ? 'text-emerald-500/70' : 'text-rose-500/70'}`}>
+                                                                    {isLocked ? 'Låst' : canAfford ? 'Klar til produksjon' : 'Mangler ressurser'}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        {!isLocked && <ChevronRight className={`w-5 h-5 transition-transform ${isSelected ? 'text-indigo-400 translate-x-1' : 'text-slate-600'}`} />}
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        /* REPAIR VIEW */
+                        <div className="space-y-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {REPAIR_CONFIG[buildingId]?.slots.map((slot) => {
+                                    const item = player.equipment[slot as EquipmentSlot];
+                                    if (!item) return null;
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        {levelRecipes.map(([id, r]: [string, any]) => {
-                                            const info = getOutputInfo(id, r);
-                                            const isSelected = selectedRecipeId === id;
-                                            const actionPayload = type === 'REFINE' ? { type: 'REFINE', recipeId: id } : { type: 'CRAFT', subType: id };
-                                            const check = checkActionRequirements(player, actionPayload);
-                                            const canAfford = check.success;
+                                    const isDamaged = item.durability < item.maxDurability;
+                                    const config = REPAIR_CONFIG[buildingId];
+                                    const canAfford = (player.resources.gold || 0) >= config.goldCost &&
+                                        ((player.resources as any)[config.material] || 0) >= 1;
 
-                                            return (
-                                                <button
-                                                    key={id}
-                                                    onClick={() => setSelectedRecipeId(id)}
-                                                    className={`flex items-center gap-4 p-4 rounded-[2rem] border-2 transition-all group relative overflow-hidden ${isLocked ? 'grayscale opacity-60 cursor-not-allowed bg-black/20 border-white/5' : isSelected
-                                                        ? 'bg-indigo-600/20 border-indigo-500/50 shadow-[0_0_30px_rgba(79,70,229,0.2)]'
-                                                        : 'bg-slate-900/50 border-white/5 hover:border-white/10 hover:bg-slate-800/80 shadow-xl'
-                                                        }`}
+                                    return (
+                                        <div
+                                            key={slot}
+                                            className={`flex items-center gap-4 p-5 rounded-[2rem] border-2 transition-all group bg-slate-900/50 ${isDamaged ? 'border-amber-500/20 shadow-lg' : 'border-white/5 opacity-60'}`}
+                                        >
+                                            <div className="w-16 h-16 bg-black/40 rounded-2xl flex items-center justify-center text-4xl shadow-inner">
+                                                {item.icon}
+                                            </div>
+                                            <div className="flex-1 text-left">
+                                                <div className="text-lg font-black text-white leading-tight">{item.name}</div>
+                                                <div className="flex flex-col mt-1">
+                                                    <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                                                        <span>Holdbarhet</span>
+                                                        <span className={isDamaged ? 'text-amber-500' : 'text-emerald-500'}>
+                                                            {item.durability}/{item.maxDurability}
+                                                        </span>
+                                                    </div>
+                                                    <div className="w-full h-1 bg-black/40 rounded-full mt-1 overflow-hidden">
+                                                        <div
+                                                            className={`h-full transition-all ${isDamaged ? 'bg-amber-500' : 'bg-emerald-500'}`}
+                                                            style={{ width: `${(item.durability / item.maxDurability) * 100}%` }}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {isDamaged && (
+                                                <GameButton
+                                                    variant="primary"
+                                                    size="sm"
+                                                    disabled={!!actionLoading || !canAfford}
+                                                    onClick={() => onAction({ type: 'REPAIR', targetSlot: slot, buildingId })}
+                                                    className="bg-amber-600 hover:bg-amber-500 border-amber-400/50"
                                                 >
-                                                    {isLocked && (
-                                                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-[1px]">
-                                                            <Settings className="w-6 h-6 text-slate-600 animate-spin-slow" />
-                                                        </div>
-                                                    )}
-                                                    <div className="w-16 h-16 bg-black/40 rounded-2xl flex items-center justify-center text-4xl shadow-inner group-hover:scale-110 transition-transform">
-                                                        {info.icon}
-                                                    </div>
-                                                    <div className="flex-1 text-left">
-                                                        <div className="text-lg font-black text-white leading-tight">{info.name}</div>
-                                                        <div className="flex items-center gap-2 mt-1">
-                                                            <div className={`w-2 h-2 rounded-full ${isLocked ? 'bg-slate-700' : canAfford ? 'bg-emerald-500' : 'bg-rose-500 animate-pulse'}`}></div>
-                                                            <span className={`text-[10px] font-black uppercase tracking-widest ${isLocked ? 'text-slate-600' : canAfford ? 'text-emerald-500/70' : 'text-rose-500/70'}`}>
-                                                                {isLocked ? 'Låst' : canAfford ? 'Klar til produksjon' : 'Mangler ressurser'}
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    {!isLocked && <ChevronRight className={`w-5 h-5 transition-transform ${isSelected ? 'text-indigo-400 translate-x-1' : 'text-slate-600'}`} />}
-                                                </button>
-                                            );
-                                        })}
+                                                    <Wrench className="w-4 h-4" />
+                                                </GameButton>
+                                            )}
+                                        </div>
+                                    );
+                                })}
+
+                                {REPAIR_CONFIG[buildingId]?.slots.every(slot => !player.equipment[slot as EquipmentSlot]) && (
+                                    <div className="col-span-full py-12 text-center bg-black/20 rounded-[2rem] border border-dashed border-white/5">
+                                        <p className="text-slate-500 italic">Ingen relevante gjenstander utstyrt for reparasjon her.</p>
                                     </div>
-                                </div>
-                            );
-                        })}
-                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </div>
 
                 {/* RIGHT: DETAILS PANEL */}
-                <div className={`w-full lg:w-[450px] shrink-0 transition-opacity duration-300 ${!selectedRecipe ? 'opacity-30 pointer-events-none grayscale' : 'opacity-100'}`}>
-                    {selectedRecipe ? (
+                <div className={`w-full lg:w-[450px] shrink-0 transition-all duration-500 ${viewMode === 'REPAIR' ? 'scale-95 opacity-80' : selectedRecipe ? 'opacity-100' : 'opacity-30 grayscale pointer-events-none'}`}>
+                    {viewMode === 'REPAIR' ? (
+                        <div className="bg-slate-900/40 backdrop-blur-xl border border-amber-500/20 rounded-[3rem] p-8 shadow-2xl sticky top-8">
+                            <div className="text-center mb-8">
+                                <div className="w-24 h-24 bg-gradient-to-br from-amber-500 to-orange-600 rounded-[2rem] flex items-center justify-center text-6xl mx-auto shadow-2xl border-4 border-white/10 mb-6">
+                                    ⚒️
+                                </div>
+                                <h3 className="text-3xl font-black text-white tracking-tighter mb-2">Vedlikehold</h3>
+                                <p className="text-slate-400 text-sm font-medium px-4">Hold utstyret ditt i topp stand for maksimal effektivitet.</p>
+                            </div>
+
+                            <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-4">
+                                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Reparasjonskostnad</div>
+                                <div className="space-y-3">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <ResourceIcon resource="gold" size="sm" />
+                                            <span className="text-sm font-bold text-slate-300">Gull</span>
+                                        </div>
+                                        <span className="text-amber-400 font-black">-{REPAIR_CONFIG[buildingId]?.goldCost || 0}</span>
+                                    </div>
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <ResourceIcon resource={REPAIR_CONFIG[buildingId]?.material || 'iron_ingot'} size="sm" />
+                                            <span className="text-sm font-bold text-slate-300">{(RESOURCE_DETAILS as any)[REPAIR_CONFIG[buildingId]?.material || 'iron_ingot']?.label || 'Materiale'}</span>
+                                        </div>
+                                        <span className="text-amber-400 font-black">-1</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mt-8 p-6 bg-indigo-500/5 border border-indigo-500/10 rounded-3xl">
+                                <p className="text-xs text-indigo-300/70 italic text-center leading-relaxed">
+                                    Hver reparasjon gjenoppretter 30 holdbarhetspoeng på den valgte gjenstanden.
+                                </p>
+                            </div>
+                        </div>
+                    ) : selectedRecipe ? (
                         <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-[3rem] p-8 shadow-2xl sticky top-8">
                             {/* Header */}
                             <div className="text-center mb-8">

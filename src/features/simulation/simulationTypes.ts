@@ -9,7 +9,7 @@ export interface SkillData {
     maxXp: number;
 }
 
-export type ResourceType = 'gold' | 'grain' | 'wood' | 'iron' | 'manpower';
+export type ResourceType = 'gold' | 'grain' | 'wood' | 'iron' | 'manpower' | 'timber' | 'cloth' | 'iron_ingot';
 
 export interface Resources {
     gold: number;

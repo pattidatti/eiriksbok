@@ -1,7 +1,7 @@
-import { CRAFTING_RECIPES, ITEM_TEMPLATES, REFINERY_RECIPES, RESOURCE_DETAILS, GAME_BALANCE } from '../../constants';
+import { CRAFTING_RECIPES, ITEM_TEMPLATES, REFINERY_RECIPES, RESOURCE_DETAILS, GAME_BALANCE, REPAIR_CONFIG } from '../../constants';
 import { calculateYield } from '../../utils/simulationUtils';
 import type { ActionContext } from '../actionTypes';
-import type { EquipmentItem } from '../../simulationTypes';
+import type { EquipmentItem, EquipmentSlot } from '../../simulationTypes';
 
 export const handleCraft = (ctx: ActionContext) => {
     const { actor, room, action, localResult, trackXp } = ctx;
@@ -120,28 +120,64 @@ export const handleRefine = (ctx: ActionContext) => {
 
 export const handleRepair = (ctx: ActionContext) => {
     const { actor, action, localResult } = ctx;
-    const target = action.target || 'MAIN_HAND';
+    const targetSlot = action.targetSlot as EquipmentSlot;
+    const buildingId = action.buildingId;
 
-    if (actor.equipment && actor.equipment[target as keyof typeof actor.equipment]) {
-        const item = actor.equipment[target as keyof typeof actor.equipment] as EquipmentItem;
-        if (item) {
-            const costGold = 5;
-            const costIron = 10;
-            if ((actor.resources.gold || 0) >= costGold && ((actor.resources.iron_ingot || 0) >= costIron || (actor.resources.iron || 0) >= costIron)) {
-                actor.resources.gold -= costGold;
-                if ((actor.resources.iron_ingot || 0) >= costIron) actor.resources.iron_ingot -= costIron;
-                else actor.resources.iron -= costIron;
-
-                const repairAmount = GAME_BALANCE.DURABILITY.REPAIR_AMOUNT || 50;
-                item.durability = Math.min(item.maxDurability, item.durability + repairAmount);
-                localResult.durability.push({ slot: target, item: item.name, amount: -repairAmount });
-                localResult.message = `Reparerte ${item.name} for ${costGold}g og ${costIron} jern.`;
-            } else {
-                localResult.success = false;
-                localResult.message = `Mangler gull (${costGold}) eller jern (${costIron}) for å reparere.`;
-                return false;
-            }
-        }
+    if (!buildingId || !REPAIR_CONFIG[buildingId]) {
+        localResult.success = false;
+        localResult.message = "Ugyldig reparasjonsstasjon.";
+        return false;
     }
+
+    const config = REPAIR_CONFIG[buildingId];
+    if (!config.slots.includes(targetSlot)) {
+        localResult.success = false;
+        localResult.message = `Denne stasjonen kan ikke reparere ${targetSlot}.`;
+        return false;
+    }
+
+    const item = actor.equipment[targetSlot];
+    if (!item) {
+        localResult.success = false;
+        localResult.message = "Ingen gjenstand i dette sporet.";
+        return false;
+    }
+
+    if (item.durability >= item.maxDurability) {
+        localResult.success = false;
+        localResult.message = `${item.name} er allerede i perfekt stand.`;
+        return false;
+    }
+
+    const costGold = config.goldCost;
+    const costAmt = 1; // 1 unit of material per repair action
+    const material = config.material;
+
+    const hasGold = (actor.resources.gold || 0) >= costGold;
+    const hasMaterial = ((actor.resources as any)[material] || 0) >= costAmt;
+
+    if (hasGold && hasMaterial) {
+        actor.resources.gold -= costGold;
+        (actor.resources as any)[material] -= costAmt;
+
+        const repairAmount = GAME_BALANCE.DURABILITY.REPAIR_AMOUNT || 30;
+        const oldDurability = item.durability;
+        item.durability = Math.min(item.maxDurability, item.durability + repairAmount);
+        const actualRepair = item.durability - oldDurability;
+
+        localResult.durability.push({
+            slot: targetSlot,
+            item: item.name,
+            amount: actualRepair
+        });
+        localResult.message = `Reparerte ${item.name} (+${actualRepair} holdbarhet).`;
+    } else {
+        localResult.success = false;
+        const matName = (RESOURCE_DETAILS as any)[material]?.label || material;
+        localResult.message = `Mangler ${!hasGold ? `${costGold} gull` : ''}${!hasGold && !hasMaterial ? ' og ' : ''}${!hasMaterial ? `${costAmt} ${matName}` : ''}.`;
+        return false;
+    }
+
     return true;
 };
+

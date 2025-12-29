@@ -43,16 +43,16 @@ const SimulationGame: React.FC = () => {
         actionLoading, setActionLoading
     } = useSimulation();
 
-    const { playMusic, stopMusic } = useAudio();
+    const { startPlaylist, stopMusic } = useAudio();
 
     // Data State
     const [player, setPlayer] = useState<SimulationPlayerType | null>(null);
 
     // Play Music on Mount
     useEffect(() => {
-        playMusic('Candlelit Keep.mp3');
+        startPlaylist();
         return () => stopMusic();
-    }, [playMusic, stopMusic]);
+    }, [startPlaylist, stopMusic]);
     const [world, setWorld] = useState<SimulationRoom['world'] | null>(null);
     const [players, setPlayers] = useState<Record<string, SimulationPlayerType>>({});
     const [roomStatus, setRoomStatus] = useState<SimulationRoom['status']>('LOBBY');
