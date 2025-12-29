@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { onAuthStateChanged, signInAnonymously, User } from 'firebase/auth';
+import { onAuthStateChanged, signInAnonymously } from 'firebase/auth';
+import type { User } from 'firebase/auth';
 import { ref, onValue, set, get } from 'firebase/database';
 import { simulationAuth, simulationDb } from './simulationFirebase';
 import type { SimulationAccount } from './simulationTypes';
