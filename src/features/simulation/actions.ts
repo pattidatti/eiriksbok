@@ -1,47 +1,13 @@
 import { ref, runTransaction } from 'firebase/database';
 import { simulationDb as db } from './simulationFirebase';
 import { ACTION_COSTS, UPGRADES_LIST, REWARDS, SEASONS, WEATHER, GAME_BALANCE, REFINERY_RECIPES, INITIAL_SKILLS, CRAFTING_RECIPES, ITEM_TEMPLATES, LEVEL_XP, VILLAGE_BUILDINGS, RESOURCE_DETAILS } from './constants';
-
+import { calculateYield, calculateStaminaCost } from './utils/simulationUtils';
 
 import type { SkillType, SimulationPlayer, EquipmentItem, EquipmentSlot, Resources } from './simulationTypes';
 
 
 /* --- HELPERS --- */
-const calculateYield = (
-    actor: SimulationPlayer,
-    baseYield: number,
-    skillType: SkillType,
-    modifiers: { season?: number, weather?: number, law?: number, performance?: number, upgrades?: number } = {}
-) => {
-    // 1. Base
-    let total = baseYield;
-
-    // 2. Skill Bonus (+10% per level)
-    const skill = actor.skills?.[skillType] || { level: 0 };
-    const skillMultiplier = 1 + (skill.level * 0.1);
-    total *= skillMultiplier;
-
-    // 3. Equipment Bonus (Flat + Yield)
-    let equipBonus = 0;
-    if (actor.equipment) {
-        Object.values(actor.equipment).forEach(item => {
-            if (item && item.stats?.yieldBonus) equipBonus += item.stats.yieldBonus;
-        });
-    }
-    total += equipBonus;
-
-    // 4. Multipliers (Season, Weather, Law, Upgrade)
-    const multiplier = (modifiers.season || 1) * (modifiers.weather || 1) * (modifiers.law || 1) * (modifiers.upgrades || 1);
-    total = Math.floor(total * multiplier);
-
-    // 5. Minigame Performance
-    if (modifiers.performance !== undefined) {
-        const perfMult = GAME_BALANCE.MINIGAME.BASE_MULTIPLIER + (modifiers.performance * GAME_BALANCE.MINIGAME.PERFORMANCE_WEIGHT);
-        total = Math.ceil(total * perfMult);
-    }
-
-    return Math.max(0, total);
-};
+// (calculateYield removed, now in simulationUtils.ts)
 
 const addXp = (actor: SimulationPlayer, skillType: SkillType, amount: number, messages: string[]) => {
     // Ensure skills exist
@@ -140,9 +106,9 @@ export const performAction = async (pin: string, playerId: string, action: any):
 
             if (elapsedMinutes > 0.1) {
                 let passiveGold = 0;
-                if (actor.upgrades?.includes('cow')) passiveGold += elapsedMinutes * 2;
-                if (actor.upgrades?.includes('accounting_books')) passiveGold += elapsedMinutes * 5;
-                if (actor.upgrades?.includes('caravan')) passiveGold += elapsedMinutes * 10;
+                if (actor.upgrades?.includes('cow')) passiveGold += elapsedMinutes * GAME_BALANCE.PASSIVE_INCOME.COW;
+                if (actor.upgrades?.includes('accounting_books')) passiveGold += elapsedMinutes * GAME_BALANCE.PASSIVE_INCOME.ACCOUNTING_BOOKS;
+                if (actor.upgrades?.includes('caravan')) passiveGold += elapsedMinutes * GAME_BALANCE.PASSIVE_INCOME.CARAVAN;
                 if (passiveGold > 0) {
                     actor.resources.gold = (actor.resources.gold || 0) + Math.floor(passiveGold);
                     // Can't show passive in active result overlay easily, skip for now
@@ -169,11 +135,17 @@ export const performAction = async (pin: string, playerId: string, action: any):
             }
 
             // 1. Handle Costs
-            const cost = (ACTION_COSTS as any)[actionType];
+            let normalizedType = actionType;
+            if (['BAKE', 'MILL', 'SMELT', 'WEAVE', 'MIX'].includes(actionType)) {
+                normalizedType = (action.recipeId || action.subType) ? 'REFINE' : 'CRAFT'; // Heuristic
+                // If it's BAKE/MILL etc, it's almost certainly REFINE if it has recipeId
+                if (action.recipeId) normalizedType = 'REFINE';
+                else if (action.subType) normalizedType = 'CRAFT';
+            }
+
+            const cost = (ACTION_COSTS as any)[actionType] || (ACTION_COSTS as any)[normalizedType];
             if (cost) {
-                const baseStaminaMod = seasonData?.staminaMod || 1.0;
-                const weatherStaminaMod = weatherData?.staminaMod || 1.0;
-                const finalStaminaCost = Math.ceil((cost.stamina || 0) * baseStaminaMod * weatherStaminaMod);
+                const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, currentSeason as any, currentWeather as any);
 
                 for (const [res, amt] of Object.entries(cost)) {
                     if (res === 'stamina') continue;
@@ -207,7 +179,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
             }
 
             // 2. Perform Action Logic
-            if (actionType === 'WORK') {
+            if (normalizedType === 'WORK') {
                 if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
 
                 damageTool('MAIN_HAND', GAME_BALANCE.DURABILITY.LOSS_WORK);
@@ -240,7 +212,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     localResult.message += ` + ${bonus} (FLAKS!)`;
                 }
 
-            } else if (actionType === 'CHOP') {
+            } else if (normalizedType === 'CHOP') {
                 if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
 
                 damageTool('MAIN_HAND', GAME_BALANCE.DURABILITY.LOSS_WORK);
@@ -265,7 +237,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     localResult.message += ` + ${bonus} FLAKS!`;
                 }
 
-            } else if (actionType === 'MINE' || actionType === 'QUARRY') {
+            } else if (normalizedType === 'MINE' || normalizedType === 'QUARRY') {
                 if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
                 damageTool('MAIN_HAND', GAME_BALANCE.DURABILITY.LOSS_WORK);
                 if (localResult.success === false) { result = localResult; return room; }
@@ -283,7 +255,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
 
                 trackXp(skill, Math.ceil(REWARDS.WORK.xp * (1 + performance)));
 
-            } else if (actionType === 'FORAGE') {
+            } else if (normalizedType === 'FORAGE') {
                 if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
 
                 // Foraging is easier, maybe less durability loss or none? Let's say 2.
@@ -300,7 +272,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
 
                 trackXp('FARMING', Math.ceil(REWARDS.FORAGE.xp * (1 + performance)));
 
-            } else if (actionType === 'CRAFT') {
+            } else if (normalizedType === 'CRAFT') {
                 const subType = action.subType; // e.g. 'stone_axe', 'iron_sword'
                 const recipe = CRAFTING_RECIPES[subType];
 
@@ -406,7 +378,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 actor.status.hp = Math.min(100, (actor.status.hp || 100) + 10);
                 localResult.message = "Sov godt og fikk tilbake krefter.";
                 localResult.yields.push({ resource: 'stamina', amount: staminaGain });
-            } else if (actionType === 'REFINE') {
+            } else if (normalizedType === 'REFINE') {
                 const recipeId = action.recipeId;
                 const recipe = (REFINERY_RECIPES as any)[recipeId];
 
@@ -435,32 +407,27 @@ export const performAction = async (pin: string, playerId: string, action: any):
                             (actor.resources as any)[res] -= (amt as number);
                         });
 
-                        // Yield Output
                         const performance = action.performance || 0.5;
                         const baseOutput = recipe.output?.amount || recipe.outputAmount || 1;
 
+                        const yieldAmount = calculateYield(actor, baseOutput, 'CRAFTING', {
+                            performance,
+                            isRefining: true
+                        });
 
-
-                        let yieldAmount = Math.floor(baseOutput * (1 + (performance * 0.5))); // Up to 50% bonus
-
-                        // Skill Bonus? Refining might be crafting
-                        if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
-                        const skillMult = 1 + ((actor.skills.CRAFTING?.level || 0) * 0.05);
-                        yieldAmount = Math.floor(yieldAmount * skillMult);
-
-                        (actor.resources as any)[recipe.outputResource] = ((actor.resources as any)[recipe.outputResource] || 0) + yieldAmount;
+                        (actor.resources as any)[recipe.outputResource] = ((actor.resources[recipe.outputResource as keyof typeof actor.resources] || 0) + yieldAmount);
 
                         const outputName = (RESOURCE_DETAILS as any)[recipe.outputResource]?.label || recipe.outputResource;
                         localResult.yields.push({ resource: recipe.outputResource, amount: yieldAmount });
                         localResult.message = `Produserte ${yieldAmount} ${outputName}`;
-                        trackXp('CRAFTING', 10);
+                        trackXp('CRAFTING', GAME_BALANCE.SKILLS.REFINING_XP);
                     } else {
                         localResult.success = false;
                         localResult.message = "Mangler ressurser til raffinering.";
                     }
                 }
 
-            } else if (actionType === 'TAX') {
+            } else if (normalizedType === 'TAX') {
                 if (actor.role !== 'BARON' && actor.role !== 'KING') {
                     localResult.success = false;
                     return room;
@@ -500,7 +467,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 // Tax hurts legitimacy
                 actor.status.legitimacy = Math.max(0, (actor.status.legitimacy || 100) - 5);
 
-            } else if (actionType === 'DRAFT') {
+            } else if (normalizedType === 'DRAFT') {
                 if (actor.role !== 'BARON' && actor.role !== 'KING') { localResult.success = false; return room; }
 
                 const costGold = 5;
@@ -516,7 +483,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     localResult.message = "Mangler ressurser for å mobilisere.";
                 }
 
-            } else if (actionType === 'RAID') {
+            } else if (normalizedType === 'RAID') {
                 if (actor.role !== 'BARON') { localResult.success = false; return room; }
 
                 const targetBaron = Object.values(room.players).find((p: any) => p.role === 'BARON' && p.id !== actor.id) as any;
@@ -573,7 +540,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     localResult.message = "Fant ingen annen baron å raide.";
                 }
 
-            } else if (actionType === 'DECREE') {
+            } else if (normalizedType === 'DECREE') {
                 if (actor.role !== 'KING') return room;
                 localResult.message = "UTSTEDTE KONGELIG DEKRET: Ekstraskatt!";
                 let taxTotal = 0;
@@ -589,7 +556,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 actor.resources.gold = (actor.resources.gold || 0) + taxTotal;
                 localResult.yields.push({ resource: 'gold', amount: taxTotal });
 
-            } else if (actionType === 'UPGRADE') {
+            } else if (normalizedType === 'UPGRADE') {
                 const upgradeId = action.upgradeId;
                 const currRole = actor.role as keyof typeof UPGRADES_LIST;
                 const upgradeList = UPGRADES_LIST[currRole];
@@ -618,7 +585,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     }
                 }
 
-            } else if (actionType === 'REPAIR') {
+            } else if (normalizedType === 'REPAIR') {
                 const target = action.target || 'MAIN_HAND'; // SLOT name
                 // Map old logic 'tools' to slot 'MAIN_HAND' if needed, but UI should send slot
                 // Assuming target is slot name like 'MAIN_HAND'
@@ -693,7 +660,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 localResult.yields.push({ resource: 'gold', amount: goldReward });
                 localResult.message = "Utførte patrulje.";
 
-            } else if (actionType === 'CHAT_LOCAL') {
+            } else if (normalizedType === 'CHAT_LOCAL') {
                 const gossip = [
                     "Baronen ser nervøs ut i dag.",
                     "Hørte du ulvene i natt?",
@@ -701,19 +668,19 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     "Kongens soldater er på vei."
                 ];
                 localResult.message = `Sladder: "${gossip[Math.floor(Math.random() * gossip.length)]}"`;
-            } else if (actionType === 'RETIRE') {
+            } else if (normalizedType === 'RETIRE') {
                 if (actor.role !== 'PEASANT') {
                     actor.role = 'PEASANT';
                     actor.status.authority = 0;
                     localResult.message = "Har pensjonert seg og blitt bonde.";
                 }
-            } else if (actionType === 'TRADE_ROUTE') {
+            } else if (normalizedType === 'TRADE_ROUTE') {
                 // Merchant logic
                 const { resource, action: direction } = action;
                 // (Simplified logic to match restoration need)
                 localResult.message = `Handelsrute ${direction} ${resource} utført.`;
                 trackXp('TRADING', 20); // Using new skill
-            } else if (actionType === 'GAMBLE_RESULT') {
+            } else if (normalizedType === 'GAMBLE_RESULT') {
                 const { amount, isWin, playerRoll, houseRoll } = action;
                 if (isWin) {
                     actor.resources.gold = (actor.resources.gold || 0) + amount;
@@ -723,7 +690,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     actor.resources.gold = Math.max(0, (actor.resources.gold || 0) - amount);
                     localResult.message = `Tapte ${amount}g på terninger. (${playerRoll} mot ${houseRoll})`;
                 }
-            } else if (actionType === 'CONTRIBUTE_TO_UPGRADE') {
+            } else if (normalizedType === 'CONTRIBUTE_TO_UPGRADE') {
                 const { buildingId, resource, amount } = action;
                 const buildingDef = VILLAGE_BUILDINGS[buildingId];
                 if (!buildingDef) return;
@@ -807,7 +774,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     localResult.message += ` ⚒️ NYTT NIVÅ: ${buildingDef.name} nådde Nivå ${nextLevel}!`;
                 }
 
-            } else if (actionType === 'UPGRADE_BUILDING' || actionType === 'CONSTRUCT_BUILDING') {
+            } else if (normalizedType === 'UPGRADE_BUILDING' || normalizedType === 'CONSTRUCT_BUILDING') {
                 const bId = action.buildingId || actionType.replace('UPGRADE_BUILDING_', '');
                 const buildingDef = VILLAGE_BUILDINGS[bId];
 

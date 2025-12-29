@@ -96,6 +96,7 @@ export const ACTION_COSTS = {
     SMELT: { ore: 5, wood: 2, stamina: 15 },
     SAWMILL: { wood: 5, stamina: 15 },
     BAKERY: { flour: 5, stamina: 10 },
+    REFINE: { stamina: 15 }, // Fix for zero-stamina exploit
     CRAFT: { stamina: 30 }, // Base stamina, resources come from recipe
     QUARRY: { bread: 1, stamina: 20 },
     REPAIR: { iron_ingot: 1, timber: 1, gold: 5, stamina: 15 },
@@ -393,6 +394,17 @@ export const GAME_BALANCE = {
     LUCKY_DROP: {
         CHANCE: 0.05, // 5% chance for a lucky drop
         MULTIPLIER: 2.0 // Lucky drop double the resource yield
+    },
+    PASSIVE_INCOME: {
+        COW: 2, // Gold per min
+        ACCOUNTING_BOOKS: 5,
+        CARAVAN: 10
+    },
+    SKILLS: {
+        GATHERING_BONUS: 0.1, // +10% per level
+        REFINING_BONUS: 0.1,  // +10% per level (unified from 5%)
+        CRAFTING_XP: 25,
+        REFINING_XP: 10
     }
 };
 

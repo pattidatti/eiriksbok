@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { getActionCostString } from './utils/actionUtils';
 import { SEASONS, WEATHER } from './constants';
-import type { EquipmentItem } from './simulationTypes';
+import { calculateYield } from './utils/simulationUtils';
+import type { EquipmentItem, SkillType } from './simulationTypes';
 
 interface MinigameProps {
     type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE' | 'SMELT' | 'BAKE' | 'WEAVE' | 'MIX';
@@ -118,27 +119,32 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
 
     const possibleYield = useMemo(() => {
         let base = 10;
-        let skillType = 'FARMING';
+        let skillType: SkillType = 'FARMING';
+        let isRefining = false;
+
         if (type === 'CHOP') { base = 5; skillType = 'WOODCUTTING'; }
         if (type === 'MINE') { base = 5; skillType = 'MINING'; }
         if (type === 'QUARRY') { base = 8; skillType = 'MINING'; }
         if (type === 'FORAGE') { base = 1; skillType = 'FARMING'; }
-
-        const skillLevel = skills?.[skillType]?.level || 0;
-        let total = base * (1 + (skillLevel * 0.1));
-
-        let equipBonus = 0;
-        equipment.forEach(item => {
-            if (item.stats?.yieldBonus) equipBonus += item.stats.yieldBonus;
-        });
-
-        total += equipBonus;
+        if (type === 'REFINE' || type === 'BAKE' || type === 'SMELT' || type === 'MILL' || type === 'WEAVE') {
+            base = 1; // Generic base, though specific recipes vary, this shows the modifier effect
+            skillType = 'CRAFTING';
+            isRefining = true;
+        }
 
         const seasonData = SEASONS[currentSeason as keyof typeof SEASONS] as any;
         const weatherData = WEATHER[currentWeather as keyof typeof WEATHER] as any;
-        total *= (seasonData?.yieldMod || 1) * (weatherData?.yieldMod || 1);
 
-        return total;
+        return calculateYield(
+            { skills, equipment: equipment as any },
+            base,
+            skillType,
+            {
+                season: seasonData?.yieldMod,
+                weather: weatherData?.yieldMod,
+                isRefining
+            }
+        );
     }, [type, skills, equipment, currentSeason, currentWeather]);
 
     const resourceNameMap: Record<string, string> = {
@@ -237,15 +243,13 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                             case 'REFINE':
                                 return <CraftingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
                             case 'MILL':
-                                return <MillingGame onComplete={onComplete} />;
+                                return <MillingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
                             case 'DEFEND':
                                 return <CombatGame onComplete={onComplete} isKnight={playerUpgrades?.includes('warhorse')} />;
                             case 'PATROL':
                                 return <PatrolMinigameRouter onComplete={onComplete} />;
                             case 'EXPLORE':
                                 return <QuestGame onComplete={onComplete} />;
-                            case 'MILL':
-                                return <MillingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
                             case 'SMELT':
                                 return <SmeltingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
                             case 'BAKE':
