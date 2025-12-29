@@ -12,8 +12,17 @@ export const SimulationHost: React.FC = () => {
     const [roomData, setRoomData] = useState<SimulationRoom | null>(null);
     const [allRooms, setAllRooms] = useState<SimulationRoom[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [view, setView] = useState<'LIST' | 'MANAGE'>('LIST');
-    const { setFullWidth } = useLayout();
+    const [view, setView] = useState<'LIST' | 'MANAGE' | 'ECONOMY'>('LIST');
+    const { setFullWidth, setHideHeader } = useLayout();
+
+    // Lazy load the blueprint
+    const [SimulationEconomyBlueprint, setSimulationEconomyBlueprint] = useState<any>(null);
+
+    useEffect(() => {
+        import('./components/SimulationEconomyBlueprint').then(mod => {
+            setSimulationEconomyBlueprint(() => mod.SimulationEconomyBlueprint);
+        });
+    }, []);
 
     const deleteRoom = async (roomPin: string) => {
         if (!window.confirm(`ER DU SIKKER? Dette vil slette rommet ${roomPin} permanent! Denne handlingen kan ikke angres.`)) return;
@@ -32,8 +41,12 @@ export const SimulationHost: React.FC = () => {
     // Handle Layout
     useEffect(() => {
         setFullWidth(true);
-        return () => setFullWidth(false);
-    }, [setFullWidth]);
+        setHideHeader(true);
+        return () => {
+            setFullWidth(false);
+            setHideHeader(false);
+        };
+    }, [setFullWidth, setHideHeader]);
 
     // Fetch all rooms on mount
     useEffect(() => {
@@ -461,7 +474,7 @@ export const SimulationHost: React.FC = () => {
 
     if (view === 'LIST') {
         return (
-            <div className="fixed inset-0 top-16 bg-slate-950 text-slate-200 p-12 overflow-y-auto custom-scrollbar font-sans z-20">
+            <div className="fixed inset-0 top-0 bg-slate-950 text-slate-200 p-12 overflow-y-auto custom-scrollbar font-sans z-20">
                 <div className="fixed inset-0 pointer-events-none opacity-20">
                     <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/20 blur-[120px] rounded-full" />
                     <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-amber-600/10 blur-[120px] rounded-full" />
@@ -530,7 +543,7 @@ export const SimulationHost: React.FC = () => {
     const isCorrupted = typeof roomData.status !== 'string' || !roomData.world;
 
     return (
-        <div className="fixed inset-0 top-16 bg-slate-950 text-slate-200 flex overflow-hidden font-sans selection:bg-indigo-500/30 z-20">
+        <div className="fixed inset-0 top-0 bg-slate-950 text-slate-200 flex overflow-hidden font-sans selection:bg-indigo-500/30 z-20">
             {/* Warning Banner */}
             {isCorrupted && (
                 <div className="absolute top-0 inset-x-0 z-50 bg-rose-600 text-white px-4 py-2 text-center text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-4">
@@ -652,142 +665,165 @@ export const SimulationHost: React.FC = () => {
             <main className="flex-1 relative flex flex-col bg-slate-900/10 overflow-hidden no-scrollbar">
                 <header className="h-16 border-b border-white/5 bg-slate-950/30 backdrop-blur-md flex items-center justify-between px-8 shrink-0 z-10">
                     <div className="flex items-center gap-8">
-                        <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Innbyggere:</span>
-                            <span className="text-sm font-bold text-white">{Object.keys(roomData.players || {}).length}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">År i Riket:</span>
-                            <span className="text-sm font-bold text-white">{roomData.world.year || 1100}</span>
+                        <nav className="flex items-center bg-white/5 p-1 rounded-xl border border-white/10">
+                            <button
+                                onClick={() => setView('MANAGE')}
+                                className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${view === 'MANAGE' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-500 hover:text-white'}`}
+                            >
+                                Overvåking
+                            </button>
+                            <button
+                                onClick={() => setView('ECONOMY')}
+                                className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${view === 'ECONOMY' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-500 hover:text-white'}`}
+                            >
+                                Blueprint
+                            </button>
+                        </nav>
+                        <div className="h-4 w-[1px] bg-white/10 mx-2" />
+                        <div className="flex items-center gap-8">
+                            <div className="flex items-center gap-2">
+                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Innbyggere:</span>
+                                <span className="text-sm font-bold text-white">{Object.keys(roomData.players || {}).length}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">År i Riket:</span>
+                                <span className="text-sm font-bold text-white">{roomData.world.year || 1100}</span>
+                            </div>
                         </div>
                     </div>
                     {isLoading && <div className="text-[10px] font-black uppercase tracking-widest text-indigo-400 animate-pulse">Prosesserer Endringer...</div>}
                 </header>
 
-                <div className="flex-1 p-8 overflow-y-auto custom-scrollbar space-y-12">
-                    {/* Player Grid */}
-                    <section>
-                        <h2 className="text-3xl font-black text-white px-2 mb-8 tracking-tighter">Innbyggere i Riket</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {Object.values(roomData.players || {}).map(p => (
-                                <div key={p.id} className="relative bg-slate-900/80 border border-white/5 p-6 rounded-[2rem] hover:border-indigo-500/30 transition-all group">
-                                    <button
-                                        onClick={(e) => { e.stopPropagation(); kickPlayer(p.id, p.name); }}
-                                        className="absolute top-4 right-4 w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 opacity-0 group-hover:opacity-100 transition-all hover:bg-rose-500 hover:text-white flex items-center justify-center font-bold text-xs"
-                                        title="Kast ut spiller"
-                                    >
-                                        ✕
-                                    </button>
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="w-12 h-12 bg-indigo-600/20 rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform overflow-hidden">
-                                            {p.avatar ? <img src={p.avatar} alt={p.role} className="w-full h-full object-cover" /> : ({
-                                                KING: '👑',
-                                                BARON: '🏰',
-                                                PEASANT: '🌾',
-                                                SOLDIER: '⚔️',
-                                                MERCHANT: '💰'
-                                            } as any)[p.role] || '👤'}
-                                        </div>
-                                        <div className="min-w-0 flex-1">
-                                            <h3 className="text-lg font-black text-white truncate">{p.name}</h3>
-                                            <div className="flex flex-col gap-1 mt-1">
-                                                <select
-                                                    value={p.role}
-                                                    onChange={(e) => handleRoleChange(p.id, e.target.value)}
-                                                    className="bg-indigo-500/10 text-indigo-400 text-[10px] font-black uppercase tracking-widest border-none p-0 focus:ring-0 cursor-pointer hover:text-white transition-colors w-full text-left"
-                                                >
-                                                    {Object.entries(ROLE_DEFINITIONS).map(([id, def]) => (
-                                                        <option key={id} value={id} className="bg-slate-900">{def.label}</option>
-                                                    ))}
-                                                </select>
-                                                <select
-                                                    value={p.regionId || 'capital'}
-                                                    onChange={(e) => handleRegionChange(p.id, e.target.value)}
-                                                    className="bg-white/5 text-slate-500 text-[9px] font-bold uppercase tracking-wider border-none p-0 focus:ring-0 cursor-pointer hover:text-slate-300 transition-colors w-full text-left"
-                                                >
-                                                    <option value="capital" className="bg-slate-900">Hovedstaden</option>
-                                                    <option value="region_ost" className="bg-slate-900">Baroniet Øst</option>
-                                                    <option value="region_vest" className="bg-slate-900">Baroniet Vest</option>
-                                                    <option value="marketplace" className="bg-slate-900">Markedsplassen</option>
-                                                </select>
+                <div className="flex-1 p-8 overflow-y-auto custom-scrollbar no-scrollbar">
+                    {view === 'ECONOMY' ? (
+                        SimulationEconomyBlueprint ? <SimulationEconomyBlueprint /> : <div className="p-20 text-center animate-pulse text-slate-500 font-black uppercase tracking-widest">Laster Blueprint...</div>
+                    ) : (
+                        <div className="space-y-12">
+                            {/* Player Grid */}
+                            <section>
+                                <h2 className="text-3xl font-black text-white px-2 mb-8 tracking-tighter">Innbyggere i Riket</h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    {Object.values(roomData.players || {}).map(p => (
+                                        <div key={p.id} className="relative bg-slate-900/80 border border-white/5 p-6 rounded-[2rem] hover:border-indigo-500/30 transition-all group">
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); kickPlayer(p.id, p.name); }}
+                                                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 opacity-0 group-hover:opacity-100 transition-all hover:bg-rose-500 hover:text-white flex items-center justify-center font-bold text-xs"
+                                                title="Kast ut spiller"
+                                            >
+                                                ✕
+                                            </button>
+                                            <div className="flex items-center gap-4 mb-4">
+                                                <div className="w-12 h-12 bg-indigo-600/20 rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform overflow-hidden">
+                                                    {p.avatar ? <img src={p.avatar} alt={p.role} className="w-full h-full object-cover" /> : ({
+                                                        KING: '👑',
+                                                        BARON: '🏰',
+                                                        PEASANT: '🌾',
+                                                        SOLDIER: '⚔️',
+                                                        MERCHANT: '💰'
+                                                    } as any)[p.role] || '👤'}
+                                                </div>
+                                                <div className="min-w-0 flex-1">
+                                                    <h3 className="text-lg font-black text-white truncate">{p.name}</h3>
+                                                    <div className="flex flex-col gap-1 mt-1">
+                                                        <select
+                                                            value={p.role}
+                                                            onChange={(e) => handleRoleChange(p.id, e.target.value)}
+                                                            className="bg-indigo-500/10 text-indigo-400 text-[10px] font-black uppercase tracking-widest border-none p-0 focus:ring-0 cursor-pointer hover:text-white transition-colors w-full text-left"
+                                                        >
+                                                            {Object.entries(ROLE_DEFINITIONS).map(([id, def]) => (
+                                                                <option key={id} value={id} className="bg-slate-900">{def.label}</option>
+                                                            ))}
+                                                        </select>
+                                                        <select
+                                                            value={p.regionId || 'capital'}
+                                                            onChange={(e) => handleRegionChange(p.id, e.target.value)}
+                                                            className="bg-white/5 text-slate-500 text-[9px] font-bold uppercase tracking-wider border-none p-0 focus:ring-0 cursor-pointer hover:text-slate-300 transition-colors w-full text-left"
+                                                        >
+                                                            <option value="capital" className="bg-slate-900">Hovedstaden</option>
+                                                            <option value="region_ost" className="bg-slate-900">Baroniet Øst</option>
+                                                            <option value="region_vest" className="bg-slate-900">Baroniet Vest</option>
+                                                            <option value="marketplace" className="bg-slate-900">Markedsplassen</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <div className="space-y-3 mb-6">
-                                        <div>
-                                            <div className="flex justify-between text-[8px] font-black uppercase text-slate-500 mb-1">
-                                                <span>Stamina</span>
-                                                <span className="text-white">{p.status.stamina}%</span>
+                                            <div className="space-y-3 mb-6">
+                                                <div>
+                                                    <div className="flex justify-between text-[8px] font-black uppercase text-slate-500 mb-1">
+                                                        <span>Stamina</span>
+                                                        <span className="text-white">{p.status.stamina}%</span>
+                                                    </div>
+                                                    <div className="h-1 bg-slate-800 rounded-full overflow-hidden">
+                                                        <div className="h-full bg-emerald-500" style={{ width: `${p.status.stamina}%` }} />
+                                                    </div>
+                                                </div>
+                                                <div className="flex justify-between items-center text-xs font-bold">
+                                                    <span className="text-slate-500">Gull:</span>
+                                                    <span className="text-amber-500 font-black">{p.resources.gold}💰</span>
+                                                </div>
                                             </div>
-                                            <div className="h-1 bg-slate-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-emerald-500" style={{ width: `${p.status.stamina}%` }} />
+
+                                            <div className="flex flex-wrap gap-1 mb-6">
+                                                {p.upgrades?.map((upg: string) => (
+                                                    <span key={upg} className="text-[7px] font-black bg-indigo-500/10 text-indigo-400 px-1.5 py-0.5 rounded border border-indigo-500/20 uppercase tracking-tighter">{upg}</span>
+                                                ))}
+                                                {(!p.upgrades || p.upgrades.length === 0) && <span className="text-[7px] font-bold text-slate-700 uppercase italic">Ingen oppgraderinger</span>}
                                             </div>
-                                        </div>
-                                        <div className="flex justify-between items-center text-xs font-bold">
-                                            <span className="text-slate-500">Gull:</span>
-                                            <span className="text-amber-500 font-black">{p.resources.gold}💰</span>
-                                        </div>
-                                    </div>
 
-                                    <div className="flex flex-wrap gap-1 mb-6">
-                                        {p.upgrades?.map((upg: string) => (
-                                            <span key={upg} className="text-[7px] font-black bg-indigo-500/10 text-indigo-400 px-1.5 py-0.5 rounded border border-indigo-500/20 uppercase tracking-tighter">{upg}</span>
-                                        ))}
-                                        {(!p.upgrades || p.upgrades.length === 0) && <span className="text-[7px] font-bold text-slate-700 uppercase italic">Ingen oppgraderinger</span>}
-                                    </div>
-
-                                    <button
-                                        onClick={() => controlPlayer(p.id)}
-                                        className="w-full py-4 rounded-2xl bg-indigo-600/10 hover:bg-indigo-600 text-indigo-400 hover:text-white font-black uppercase text-[10px] tracking-widest transition-all border border-indigo-500/20 flex items-center justify-center gap-2 group/btn"
-                                    >
-                                        <span className="group-hover/btn:scale-125 transition-transform">🎮</span>
-                                        Styr spiller
-                                    </button>
+                                            <button
+                                                onClick={() => controlPlayer(p.id)}
+                                                className="w-full py-4 rounded-2xl bg-indigo-600/10 hover:bg-indigo-600 text-indigo-400 hover:text-white font-black uppercase text-[10px] tracking-widest transition-all border border-indigo-500/20 flex items-center justify-center gap-2 group/btn"
+                                            >
+                                                <span className="group-hover/btn:scale-125 transition-transform">🎮</span>
+                                                Styr spiller
+                                            </button>
+                                        </div>
+                                    ))}
+                                    {Object.keys(roomData.players || {}).length === 0 && (
+                                        <div className="col-span-full py-20 text-center border-2 border-dashed border-white/5 rounded-[3rem]">
+                                            <span className="text-6xl block mb-4 opacity-20">🏰</span>
+                                            <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Venter på at undersåtter skal ankomme...</p>
+                                        </div>
+                                    )}
                                 </div>
-                            ))}
-                            {Object.keys(roomData.players || {}).length === 0 && (
-                                <div className="col-span-full py-20 text-center border-2 border-dashed border-white/5 rounded-[3rem]">
-                                    <span className="text-6xl block mb-4 opacity-20">🏰</span>
-                                    <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Venter på at undersåtter skal ankomme...</p>
-                                </div>
+                            </section>
+
+                            {/* Settlement Progress */}
+                            {roomData.world.settlement && (
+                                <section className="bg-indigo-900/10 border border-indigo-500/10 p-10 rounded-[3rem] relative overflow-hidden group">
+                                    <div className="relative z-10">
+                                        <h2 className="text-3xl font-black text-white mb-8 tracking-tighter flex items-center justify-between">
+                                            Landsbyutvikling
+                                            <span className="text-xs font-black uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-4 py-2 rounded-full">Status Rapport</span>
+                                        </h2>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                            {Object.values(roomData.world.settlement.buildings).map((building: any) => {
+                                                const meta = (VILLAGE_BUILDINGS as any)[building.id];
+                                                const progress = (building.progress / (building.target || 200)) * 100;
+                                                return (
+                                                    <div key={building.id} className="space-y-2">
+                                                        <div className="flex justify-between items-end">
+                                                            <div>
+                                                                <h4 className="text-sm font-black text-white uppercase">{meta?.name}</h4>
+                                                                <p className="text-[10px] text-slate-500 font-bold tracking-tight">Nivå {building.level}</p>
+                                                            </div>
+                                                            <span className="text-xs font-mono text-indigo-500">
+                                                                {Object.values(building.progress || {}).reduce((sum: number, val: any) => sum + (val as number), 0)} / {building.target || 200}
+                                                            </span>
+                                                        </div>
+                                                        <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-white/5">
+                                                            <div className={`h-full bg-indigo-500 transition-all duration-1000 shadow-[0_0_10px_rgba(99,102,241,0.5)]`} style={{ width: `${progress}%` }} />
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                    <div className="absolute top-[-20%] right-[-10%] text-[15rem] text-indigo-500 opacity-[0.03] pointer-events-none group-hover:rotate-6 transition-transform duration-[3000ms]">🏠</div>
+                                </section>
                             )}
                         </div>
-                    </section>
-
-                    {/* Settlement Progress */}
-                    {roomData.world.settlement && (
-                        <section className="bg-indigo-900/10 border border-indigo-500/10 p-10 rounded-[3rem] relative overflow-hidden group">
-                            <div className="relative z-10">
-                                <h2 className="text-3xl font-black text-white mb-8 tracking-tighter flex items-center justify-between">
-                                    Landsbyutvikling
-                                    <span className="text-xs font-black uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-4 py-2 rounded-full">Status Rapport</span>
-                                </h2>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    {Object.values(roomData.world.settlement.buildings).map((building: any) => {
-                                        const meta = (VILLAGE_BUILDINGS as any)[building.id];
-                                        const progress = (building.progress / (building.target || 200)) * 100;
-                                        return (
-                                            <div key={building.id} className="space-y-2">
-                                                <div className="flex justify-between items-end">
-                                                    <div>
-                                                        <h4 className="text-sm font-black text-white uppercase">{meta?.name}</h4>
-                                                        <p className="text-[10px] text-slate-500 font-bold tracking-tight">Nivå {building.level}</p>
-                                                    </div>
-                                                    <span className="text-xs font-mono text-indigo-500">
-                                                        {Object.values(building.progress || {}).reduce((sum: number, val: any) => sum + (val as number), 0)} / {building.target || 200}
-                                                    </span>
-                                                </div>
-                                                <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-white/5">
-                                                    <div className={`h-full bg-indigo-500 transition-all duration-1000 shadow-[0_0_10px_rgba(99,102,241,0.5)]`} style={{ width: `${progress}%` }} />
-                                                </div>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                            <div className="absolute top-[-20%] right-[-10%] text-[15rem] text-indigo-500 opacity-[0.03] pointer-events-none group-hover:rotate-6 transition-transform duration-[3000ms]">🏠</div>
-                        </section>
                     )}
                 </div>
             </main>
@@ -834,6 +870,9 @@ export const SimulationHost: React.FC = () => {
                                 </div>
                             );
                         })}
+                        {Object.entries(roomData.market || {}).slice(0, 4).length === 0 && (
+                            <div className="col-span-2 text-[10px] text-slate-600 font-bold italic text-center py-4">Ingen markedsdata...</div>
+                        )}
                     </div>
                 </div>
 

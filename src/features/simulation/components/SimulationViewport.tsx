@@ -12,6 +12,7 @@ import { SimulationActivity } from './SimulationActivity';
 import { SimulationDiplomacy } from './SimulationDiplomacy';
 import { SimulationHierarchy } from './SimulationHierarchy';
 import { SimulationProfile } from './SimulationProfile';
+import { SimulationSettings } from './SimulationSettings';
 
 
 
@@ -37,6 +38,7 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                 {(activeTab === 'MAP' || activeTab === 'PRODUCTION' || activeTab === 'MARKET') && (
                     <WorldMap
                         player={player}
+                        room={room}
                         world={room.world}
                         worldEvents={room.worldEvents}
                         players={room.players}
@@ -92,6 +94,10 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                                 regions={room.regions || {}}
                                 allPlayers={room.players || {}}
                             />
+                        ) : activeTab === 'SETTINGS' ? (
+                            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/40 backdrop-blur-md p-8 animate-in fade-in duration-300">
+                                <SimulationSettings onClose={() => setActiveTab('MAP')} />
+                            </div>
                         ) : null}
 
                     </div>

@@ -56,11 +56,15 @@ const SimulationGame: React.FC = () => {
     const [actionResult, setActionResult] = useState<ActionResult | null>(null);
 
     // Layout Context
-    const { setFullWidth } = useLayout();
+    const { setFullWidth, setHideHeader } = useLayout();
     useEffect(() => {
         setFullWidth(true);
-        return () => setFullWidth(false);
-    }, [setFullWidth]);
+        setHideHeader(true);
+        return () => {
+            setFullWidth(false);
+            setHideHeader(false);
+        };
+    }, [setFullWidth, setHideHeader]);
 
     // Data Fetching
     useEffect(() => {
@@ -359,7 +363,7 @@ const SimulationGame: React.FC = () => {
                 </div>
             ) : (
                 <div className={`flex-1 flex flex-col relative ${impersonateId ? 'pt-8' : ''}`}>
-                    <div className="fixed inset-0 top-16 bg-slate-950 text-slate-200 flex overflow-hidden font-sans selection:bg-indigo-500/30">
+                    <div className="fixed inset-0 top-0 bg-slate-950 text-slate-200 flex overflow-hidden font-sans selection:bg-indigo-500/30">
                         {/* Background Atmosphere */}
                         <div className="fixed inset-0 pointer-events-none opacity-20">
                             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/20 blur-[120px] rounded-full animate-pulse" />

@@ -1,9 +1,10 @@
 import React from 'react';
+import { Settings } from 'lucide-react';
+import { useSimulation } from '../SimulationContext';
 import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
 import { Badge } from '../ui/Badge';
 import { ResourceIcon } from '../ui/ResourceIcon';
 import { GameButton } from '../ui/GameButton';
-import { X } from 'lucide-react';
 import { VILLAGE_BUILDINGS } from '../constants';
 
 interface SimulationHeaderProps {
@@ -13,6 +14,8 @@ interface SimulationHeaderProps {
 }
 
 export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player, pin }) => {
+    const { setActiveTab } = useSimulation();
+
     return (
         <header className="h-16 border-b border-white/5 bg-slate-950/30 backdrop-blur-md flex items-center justify-between px-8 z-10 shrink-0">
             <div className="flex items-center gap-6">
@@ -76,9 +79,9 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
                     variant="ghost"
                     size="sm"
                     className="!p-2 rounded-full"
-                    onClick={() => window.location.href = '/'}
+                    onClick={() => setActiveTab('SETTINGS')}
                 >
-                    <X className="w-6 h-6" />
+                    <Settings className="w-6 h-6" />
                 </GameButton>
             </div>
         </header>

@@ -15,12 +15,16 @@ export const SimulationLobby: React.FC = () => {
     const [error, setError] = useState('');
     const [joining, setJoining] = useState(false);
     const navigate = useNavigate();
-    const { setFullWidth } = useLayout();
+    const { setFullWidth, setHideHeader } = useLayout();
 
     useEffect(() => {
         setFullWidth(true);
-        return () => setFullWidth(false);
-    }, [setFullWidth]);
+        setHideHeader(true);
+        return () => {
+            setFullWidth(false);
+            setHideHeader(false);
+        };
+    }, [setFullWidth, setHideHeader]);
 
     useEffect(() => {
         const savedPin = localStorage.getItem('sim_room_pin');
@@ -180,7 +184,7 @@ export const SimulationLobby: React.FC = () => {
     };
 
     return (
-        <div className="fixed inset-0 top-16 bg-slate-900 text-white flex flex-col items-center justify-center p-4 z-20 overflow-y-auto">
+        <div className="fixed inset-0 top-0 bg-slate-900 text-white flex flex-col items-center justify-center p-4 z-20 overflow-y-auto">
             <h1 className="text-4xl md:text-6xl font-black mb-2 tracking-tighter text-indigo-400 italic">FEUDAL SIM</h1>
             <p className="text-slate-500 mb-8 font-mono text-sm uppercase tracking-widest">v1.0 Strategic Era</p>
 

@@ -69,6 +69,27 @@ body {
   background-clip: content-box;
 }
 
+/* --- Blueprint Visualization --- */
+.blueprint-node {
+  @apply relative p-4 bg-slate-900/80 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md transition-all;
+}
+
+.blueprint-node:hover {
+  @apply border-indigo-500/50 scale-[1.02] shadow-indigo-500/10;
+}
+
+.blueprint-connector {
+  @apply absolute h-[2px] bg-slate-700/50 pointer-events-none;
+}
+
+.blueprint-arrow {
+  @apply absolute border-t-4 border-l-4 border-transparent border-t-slate-700/50 border-l-slate-700/50 w-2 h-2 rotate-45;
+}
+
+.blueprint-res-tag {
+  @apply px-2 py-0.5 bg-black/40 rounded-full text-[10px] font-black uppercase tracking-wider text-slate-400;
+}
+
 /* Performance Utilities */
 .content-auto {
   content-visibility: auto;
