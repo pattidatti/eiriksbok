@@ -102,12 +102,13 @@ export const handleRefine = (ctx: ActionContext) => {
                 isRefining: true
             });
 
-            (actor.resources as any)[recipe.outputResource] = ((actor.resources[recipe.outputResource as keyof typeof actor.resources] || 0) + yieldAmount);
+            const currentAmount = (actor.resources as any)[recipe.outputResource] || 0;
+            (actor.resources as any)[recipe.outputResource] = currentAmount + yieldAmount;
 
             const outputName = (RESOURCE_DETAILS as any)[recipe.outputResource]?.label || recipe.outputResource;
             localResult.yields.push({ resource: recipe.outputResource, amount: yieldAmount });
             localResult.message = `Produserte ${yieldAmount} ${outputName}`;
-            trackXp('CRAFTING', GAME_BALANCE.SKILLS.REFINING_XP);
+            trackXp('CRAFTING', GAME_BALANCE.SKILLS.REFINING_XP || 10);
         } else {
             localResult.success = false;
             localResult.message = "Mangler ressurser til raffinering.";

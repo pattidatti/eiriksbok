@@ -13,7 +13,6 @@ import { MinigameOverlay } from './SimulationMinigames';
 import { SimulationProvider, useSimulation } from './SimulationContext';
 import { checkActionRequirements } from './utils/actionUtils';
 
-import { ActionResultOverlay } from './components/ActionResultOverlay';
 
 // Components
 import { SimulationHeader } from './components/SimulationHeader';
@@ -301,7 +300,7 @@ const SimulationGame: React.FC = () => {
             setActionResult({
                 success: false,
                 timestamp: Date.now(),
-                message: "Handlingen feilet (ukjent feil)",
+                message: `Handlingen feilet: ${(result as any).error?.message || (result as any).error || 'Ukjent feil'}`,
                 yields: [],
                 xp: [],
                 durability: []
@@ -399,7 +398,14 @@ const SimulationGame: React.FC = () => {
                             {/* MAIN ROW */}
                             <div className="flex flex-1 overflow-hidden">
                                 <SimulationSidebar player={player} room={room} />
-                                <SimulationViewport player={player} room={room} pin={pin} onAction={handleAction} />
+                                <SimulationViewport
+                                    player={player}
+                                    room={room}
+                                    pin={pin}
+                                    onAction={handleAction}
+                                    actionResult={actionResult}
+                                    onClearActionResult={() => setActionResult(null)}
+                                />
                             </div>
                         </div>
 
@@ -414,11 +420,6 @@ const SimulationGame: React.FC = () => {
                     onClose={() => setLevelUpData(null)}
                 />
             )}
-
-            <ActionResultOverlay
-                result={actionResult}
-                onClear={() => setActionResult(null)}
-            />
         </div>
     );
 };

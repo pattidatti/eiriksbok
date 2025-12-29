@@ -22,9 +22,13 @@ interface SimulationViewportProps {
     room: SimulationRoom;
     pin?: string;
     onAction: (action: any) => void;
+    actionResult: any | null;
+    onClearActionResult: () => void;
 }
 
-export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, room, pin, onAction }) => {
+import { ActionResultOverlay } from './ActionResultOverlay';
+
+export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, room, pin, onAction, actionResult, onClearActionResult }) => {
     const { activeTab, setActiveTab } = useSimulation();
 
     // Main Content Switcher
@@ -131,6 +135,11 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                     </div>
                 </div>
             )}
+
+            <ActionResultOverlay
+                result={actionResult}
+                onClear={onClearActionResult}
+            />
         </main>
     );
 };

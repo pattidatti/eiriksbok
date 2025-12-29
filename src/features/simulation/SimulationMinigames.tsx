@@ -42,7 +42,11 @@ export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon
     BAKE: [{ id: 'oven', label: 'Steking', icon: '🍞', desc: 'Pass på at det ikke brenner seg.' }],
     MILL: [{ id: 'wind', label: 'Vindbalanse', icon: '🌬️', desc: 'Finn den rette vinden.' }],
     WEAVE: [{ id: 'shuttle', label: 'Vevstol', icon: '🧶', desc: 'Styr skyttelen i rytme.' }],
-    MIX: [{ id: 'herbs', label: 'Urteblanding', icon: '🌿', desc: 'Følg oppskriften nøyaktig.' }]
+    MIX: [{ id: 'herbs', label: 'Urteblanding', icon: '🌿', desc: 'Følg oppskriften nøyaktig.' }],
+    FORAGE: [
+        { id: 'harvest', label: 'Sanking', icon: '🍓', desc: 'Plukk bær og røtter.' },
+        { id: 'traps', label: 'Snarer', icon: '🎣', desc: 'Sjekk smågnagerfeller.' }
+    ]
 };
 
 
@@ -52,6 +56,17 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
     const [method, setMethod] = useState<string | null>(selectedMethod || null);
 
     const currentMethods = MINIGAME_VARIANTS[type] || [];
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            // Prevent scrolling keys
+            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space', ' '].includes(e.key)) {
+                e.preventDefault();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown, { capture: false });
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
 
     useEffect(() => {
         if (selectedMethod) {

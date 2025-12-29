@@ -27,6 +27,8 @@ interface SimulationContextType {
     setActionLoading: (action: string | null) => void;
     productionContext: ProductionContext | null;
     setProductionContext: (ctx: ProductionContext | null) => void;
+    viewingRegionId: string | null;
+    setViewingRegionId: (id: string | null) => void;
 }
 
 
@@ -52,6 +54,7 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
     const [activeTab, setActiveTabState] = useState<TabType>(() => getTabFromUrl(tab));
 
     const [viewMode, setViewMode] = useState<string>('global');
+    const [viewingRegionId, setViewingRegionId] = useState<string | null>(null);
 
     const [isMarketOpen, setMarketOpen] = useState(false);
     const [activeMinigame, setActiveMinigame] = useState<MinigameType>(null);
@@ -83,6 +86,8 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
             setActiveTab,
             viewMode,
             setViewMode,
+            viewingRegionId,
+            setViewingRegionId,
             isMarketOpen,
             setMarketOpen: handleSetMarketOpen,
             activeMinigame,

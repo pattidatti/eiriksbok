@@ -33,58 +33,58 @@ interface POI {
 const POINTS_OF_INTEREST: POI[] = [
     // --- GLOBAL HUBS ---
     {
-        id: 'fields', label: 'Åkrene', icon: '🌾', top: '22%', left: '28%',
+        id: 'fields', label: 'Åkrene', icon: '🌾', top: '22%', left: '%',
         vest: { top: '35%', left: '70%' },
-        ost: { top: '25%', left: '80%' },
+        ost: { top: '35%', left: '45%' },
         roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
         id: 'forest', label: 'Skogen', icon: '🌲', top: '25%', left: '80%',
-        vest: { top: '25%', left: '55%' },
-        ost: { top: '55%', left: '20%' },
+        vest: { top: '15%', left: '60%' },
+        ost: { top: '27%', left: '14%' },
         roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
         id: 'castle', label: 'Slottet', icon: '🏰', top: '66%', left: '86%',
-        vest: { top: '45%', left: '20%' },
-        ost: { top: '55%', left: '45%' },
+        vest: { top: '40%', left: '30%' },
+        ost: { top: '40%', left: '68%' },
         roles: ['BARON', 'KING', 'SOLDIER'],
         actions: [], isHub: true
     },
     {
         id: 'peasant_farm', label: 'Husmannsplassen', icon: '🛖', top: '30%', left: '60%',
-        vest: { top: '25%', left: '85%' },
-        ost: { top: '80%', left: '20%' },
+        vest: { top: '85%', left: '72%' },
+        ost: { top: '75%', left: '30%' },
         roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
         id: 'market', label: 'Markedet', icon: '⚖️', top: '70%', left: '25%',
-        vest: { top: '52%', left: '48%' },
-        ost: { top: '40%', left: '60%' },
+        vest: { top: '70%', left: '37%' },
+        ost: { top: '70%', left: '63%' },
         roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
         actions: [{ id: 'MARKET_VIEW', label: 'Åpne Handel', cost: 'Gratis' }]
     },
     {
         id: 'village', label: 'Landsbyen', icon: '🏠', top: '42%', left: '42%',
-        vest: { top: '45%', left: '52%' },
-        ost: { top: '35%', left: '65%' },
+        vest: { top: '50%', left: '52%' },
+        ost: { top: '55%', left: '44%' },
         roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
         actions: [], isHub: true
     },
     {
         id: 'mine', label: 'Gruve-distriktet', icon: '⛏️', top: '12%', left: '25%',
-        vest: { top: '10%', left: '38%' },
-        ost: { top: '12%', left: '25%' },
+        vest: { top: '13%', left: '39%' },
+        ost: { top: '20%', left: '60%' },
         roles: ['PEASANT', 'BARON', 'KING'],
         actions: [], isHub: true
     },
     {
         id: 'monastery', label: 'Klosteret', icon: '⛪', top: '16%', left: '55%',
-        vest: { top: '35%', left: '78%' },
-        ost: { top: '45%', left: '85%' },
+        vest: { top: '50%', left: '78%' },
+        ost: { top: '50%', left: '27%' },
         roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
         actions: [], isHub: true
     },
@@ -457,11 +457,27 @@ interface WorldMapProps {
 
 export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, world, worldEvents, players, onAction, onOpenMarket, initialViewMode = 'global' }) => {
 
-    const { setActiveTab, setProductionContext } = useSimulation();
+    const {
+        setActiveTab,
+        setProductionContext,
+        viewMode,
+        setViewMode,
+        viewingRegionId: ctxViewingRegionId,
+        setViewingRegionId
+    } = useSimulation();
+
+    // Initialize viewing region if not set in context
+    React.useEffect(() => {
+        if (!ctxViewingRegionId) {
+            setViewingRegionId(player.regionId || 'capital');
+        }
+    }, [ctxViewingRegionId, player.regionId, setViewingRegionId]);
+
+    const viewingRegionId = ctxViewingRegionId || player.regionId || 'capital';
+
     const [selectedPOI, setSelectedPOI] = useState<POI | null>(null);
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
-    const [viewMode, setViewMode] = useState<string>(initialViewMode);
-    const [viewingRegionId, setViewingRegionId] = useState<string>(player.regionId || 'capital');
+    // viewMode and viewingRegionId now come from Context
     const [upgradingBuildingId, setUpgradingBuildingId] = useState<string | null>(null);
 
 
@@ -567,7 +583,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
             case 'farm_house': {
                 const level = world?.settlement?.buildings?.farm_house?.level || 1;
                 if (level > 1) return `/map_stugo_interior_lvl${level}.png`;
-                return '/map_stugo_interior.jpg';
+                return '/map_stugo_interior.png';
             }
             case 'mine': return '/map_mountain_pass.png';
             case 'forest': return '/map_forest.png';

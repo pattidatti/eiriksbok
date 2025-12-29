@@ -19,13 +19,13 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
                 result.yields.forEach((y, idx) => {
                     if (y.amount > 0) {
                         setTimeout(() => {
-                            // Target bottom section 
+                            // Target left sidebar (Inventory)
                             animationManager.spawnFlyingResource(
                                 y.resource,
                                 window.innerWidth / 2,
-                                window.innerHeight - 200,
-                                window.innerWidth / 2,
-                                window.innerHeight - 20
+                                window.innerHeight / 2, // Start from center
+                                80, // Target Left Sidebar X (approx)
+                                200 // Target Top-ish Y (approx, where inventory might be)
                             );
                         }, idx * 200);
                     }
@@ -48,7 +48,7 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
                     initial={{ opacity: 0, y: 50, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                    className="absolute bottom-24 left-1/2 transform -translate-x-1/2 bg-gray-900/90 border border-amber-500/50 p-4 rounded-xl shadow-2xl backdrop-blur-sm pointer-events-none min-w-[300px] text-center z-50"
+                    className="absolute top-[30%] left-1/2 transform -translate-x-1/2 bg-gray-900/90 border border-amber-500/50 p-4 rounded-xl shadow-2xl backdrop-blur-sm pointer-events-none min-w-[300px] text-center z-50"
                 >
                     {/* Message Header */}
                     <div className={`font-serif text-lg mb-2 ${result.success ? 'text-amber-100' : 'text-red-400'}`}>

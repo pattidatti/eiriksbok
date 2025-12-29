@@ -97,9 +97,9 @@ export const SimulationHost: React.FC = () => {
             pin: newPin,
             status: 'LOBBY',
             settings: 'feudal_europe',
-            market: INITIAL_MARKET,
+            market: JSON.parse(JSON.stringify(INITIAL_MARKET)),
             markets: {
-                'capital': INITIAL_MARKET
+                'capital': JSON.parse(JSON.stringify(INITIAL_MARKET))
             },
             regions: {},
             players: {},
@@ -142,7 +142,7 @@ export const SimulationHost: React.FC = () => {
             const newMarkets: any = { ...roomData.markets };
 
             // Ensure capital market exists
-            if (!newMarkets['capital']) newMarkets['capital'] = INITIAL_MARKET;
+            if (!newMarkets['capital']) newMarkets['capital'] = JSON.parse(JSON.stringify(INITIAL_MARKET));
 
             Object.values(updatedPlayers).forEach(p => {
                 if (p.role === 'BARON') {

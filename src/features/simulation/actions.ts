@@ -1,14 +1,11 @@
 import { ref, runTransaction } from 'firebase/database';
 import { simulationDb as db } from './simulationFirebase';
-import { ACTION_COSTS, GAME_BALANCE, INITIAL_SKILLS, LEVEL_XP } from './constants';
+import { ACTION_COSTS, GAME_BALANCE, INITIAL_RESOURCES, INITIAL_SKILLS, LEVEL_XP } from './constants';
 import { calculateStaminaCost } from './utils/simulationUtils';
 import { ACTION_REGISTRY } from './logic/actionRegistry';
-
 import type { SkillType, SimulationPlayer } from './simulationTypes';
 
-
 /* --- HELPERS --- */
-// (calculateYield removed, now in simulationUtils.ts)
 
 const addXp = (actor: SimulationPlayer, skillType: SkillType, amount: number, messages: string[]) => {
     // Ensure skills exist
@@ -42,179 +39,190 @@ const addXp = (actor: SimulationPlayer, skillType: SkillType, amount: number, me
     }
 };
 
-
-
-
-
-
 export const performAction = async (pin: string, playerId: string, action: any): Promise<{ success: boolean, data?: { success: boolean, timestamp: number, message: string, yields: any[], xp: any[], durability: any[] }, error?: any }> => {
     const roomRef = ref(db, `simulation_rooms/${pin}`);
     let result: { success: boolean, timestamp: number, message: string, yields: any[], xp: any[], durability: any[] } | null = null;
 
     try {
         await runTransaction(roomRef, (room: any) => {
-            if (!room || !room.players || !room.players[playerId]) return;
+            try {
+                // Critical: If room is null (not cached), return null to trigger retry with server data
+                if (room === null) return room;
 
-            const actor = room.players[playerId];
-            if (!actor.equipment) actor.equipment = { HEAD: null, BODY: null, MAIN_HAND: null, OFF_HAND: null, FEET: null, TRINKET: null };
+                if (!room.players || !room.players[playerId]) {
+                    console.warn(`Player ${playerId} not found in room transaction`);
+                    result = {
+                        success: false,
+                        timestamp: Date.now(),
+                        message: "Kritisk: Spillerdata mangler i rommet.",
+                        yields: [], xp: [], durability: []
+                    };
+                    return room;
+                }
 
-            if (!room.messages) room.messages = [];
-            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const actor = room.players[playerId];
+                const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-            // Initialize Local Result
-            const localResult = {
-                success: true,
-                timestamp: Date.now(),
-                message: "",
-                yields: [] as any[],
-                xp: [] as any[],
-                durability: [] as any[]
-            };
+                // Initialize Core State with Deep Copies if missing
+                if (!actor.resources) actor.resources = JSON.parse(JSON.stringify(INITIAL_RESOURCES[actor.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT));
+                if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
+                if (!actor.status) actor.status = { stamina: 100, hp: 100, authority: 0, gold: actor.resources.gold || 0, level: 1, xp: 0 };
+                if (!actor.equipment) actor.equipment = { HEAD: null, BODY: null, MAIN_HAND: null, OFF_HAND: null, FEET: null, TRINKET: null };
+                if (!actor.stats) actor.stats = { level: 1, xp: 0 };
 
-            // Wrapped addXp to capture result
-            const trackXp = (skill: SkillType, amount: number) => {
-                const preLevel = actor.skills?.[skill]?.level || 0;
-                addXp(actor, skill, amount, room.messages);
-                const postLevel = actor.skills?.[skill]?.level || 0;
-                localResult.xp.push({
-                    skill,
-                    amount,
-                    levelUp: postLevel > preLevel
-                });
-            };
+                if (!room.messages || !Array.isArray(room.messages)) room.messages = [];
 
-            // Wrapped helper to track durability loss
-            const damageTool = (slot: 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET', amount: number) => {
-                if (actor.equipment?.[slot]) {
-                    actor.equipment[slot].durability = Math.max(0, actor.equipment[slot].durability - amount);
-                    localResult.durability.push({
-                        slot,
-                        item: actor.equipment[slot].name || 'Item',
+                // Initialize Local Result
+                const localResult = {
+                    success: true,
+                    timestamp: Date.now(),
+                    message: "",
+                    yields: [] as any[],
+                    xp: [] as any[],
+                    durability: [] as any[]
+                };
+
+                // Wrapped addXp to capture result
+                const trackXp = (skill: SkillType, amount: number) => {
+                    const preLevel = actor.skills?.[skill]?.level || 0;
+                    addXp(actor, skill, amount, room.messages);
+                    const postLevel = actor.skills?.[skill]?.level || 0;
+                    localResult.xp.push({
+                        skill,
                         amount,
-                        broken: actor.equipment[slot].durability <= 0
+                        levelUp: postLevel > preLevel
                     });
-                    if (actor.equipment[slot].durability <= 0) {
-                        localResult.message = `❌ ${actor.equipment[slot].name} ble ødelagt!`;
-                        localResult.success = false;
-                        return false;
+                };
+
+                // Wrapped helper to track durability loss
+                const damageTool = (slot: 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET', amount: number) => {
+                    if (actor.equipment?.[slot]) {
+                        actor.equipment[slot].durability = Math.max(0, actor.equipment[slot].durability - amount);
+                        localResult.durability.push({
+                            slot,
+                            item: actor.equipment[slot].name || 'Item',
+                            amount,
+                            broken: actor.equipment[slot].durability <= 0
+                        });
+                        if (actor.equipment[slot].durability <= 0) {
+                            localResult.message = `❌ ${actor.equipment[slot].name} ble ødelagt!`;
+                            localResult.success = false;
+                            return false;
+                        }
                     }
+                    return true;
+                };
+
+                // 0. Passive Income & Regeneration
+                const now = Date.now();
+                const elapsedMs = now - (actor.lastActive || now);
+                const elapsedMinutes = Math.min(60, isNaN(elapsedMs) ? 0 : elapsedMs / 60000);
+
+                if (elapsedMinutes > 0.1) {
+                    let passiveGold = 0;
+                    if (actor.upgrades?.includes('cow')) passiveGold += elapsedMinutes * GAME_BALANCE.PASSIVE_INCOME.COW;
+                    if (actor.upgrades?.includes('accounting_books')) passiveGold += elapsedMinutes * GAME_BALANCE.PASSIVE_INCOME.ACCOUNTING_BOOKS;
+                    if (actor.upgrades?.includes('caravan')) passiveGold += elapsedMinutes * GAME_BALANCE.PASSIVE_INCOME.CARAVAN;
+                    if (passiveGold > 0) {
+                        actor.resources.gold = (actor.resources.gold || 0) + Math.floor(passiveGold);
+                    }
+                    const staminaRegen = elapsedMinutes * 2;
+                    actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaRegen);
                 }
-                return true;
-            };
 
-            // 0. Passive Income & Regeneration
-            const now = Date.now();
-            const elapsedMs = now - (actor.lastActive || now);
-            const elapsedMinutes = Math.min(60, elapsedMs / 60000);
+                const actionType = typeof action === 'string' ? action : action.type;
+                const currentSeason = room.world?.season || 'Spring';
+                const currentWeather = room.world?.weather || 'Clear';
+                const activeLaws = room.world?.activeLaws || [];
 
-            if (elapsedMinutes > 0.1) {
-                let passiveGold = 0;
-                if (actor.upgrades?.includes('cow')) passiveGold += elapsedMinutes * GAME_BALANCE.PASSIVE_INCOME.COW;
-                if (actor.upgrades?.includes('accounting_books')) passiveGold += elapsedMinutes * GAME_BALANCE.PASSIVE_INCOME.ACCOUNTING_BOOKS;
-                if (actor.upgrades?.includes('caravan')) passiveGold += elapsedMinutes * GAME_BALANCE.PASSIVE_INCOME.CARAVAN;
-                if (passiveGold > 0) {
-                    actor.resources.gold = (actor.resources.gold || 0) + Math.floor(passiveGold);
+                // Law Checks
+                if (actionType === 'RAID' && activeLaws.includes('peace')) {
+                    localResult.success = false;
+                    localResult.message = `🕊️ RAID BLOKKERT: Fredsavtalen gjelder!`;
+                    result = localResult;
+                    room.messages.push(`[${timestamp}] ${localResult.message}`);
+                    return room;
                 }
-                const staminaRegen = elapsedMinutes * 2;
-                actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaRegen);
-            }
 
-            const actionType = typeof action === 'string' ? action : action.type;
-            const currentSeason = room.world?.season || 'Spring';
-            const currentWeather = room.world?.weather || 'Clear';
-            const activeLaws = room.world?.activeLaws || [];
+                // Normalization
+                let normalizedType = actionType;
 
-            // Law Checks
-            if (actionType === 'RAID' && activeLaws.includes('peace')) {
-                localResult.success = false;
-                localResult.message = `🕊️ RAID BLOKKERT: Fredsavtalen gjelder!`;
-                result = localResult;
-                room.messages.push(`[${timestamp}] ${localResult.message}`);
-                return room;
-            }
+                // 1. Handle Costs
+                const cost = (ACTION_COSTS as any)[actionType] || (ACTION_COSTS as any)[normalizedType];
+                if (cost) {
+                    const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, currentSeason as any, currentWeather as any);
 
-            // Normalization
-            let normalizedType = actionType;
-            if (['BAKE', 'MILL', 'SMELT', 'WEAVE', 'MIX'].includes(actionType)) {
-                if (action.recipeId) normalizedType = 'REFINE';
-                else if (action.subType) normalizedType = 'CRAFT';
-            }
-
-            // 1. Handle Costs
-            const cost = (ACTION_COSTS as any)[actionType] || (ACTION_COSTS as any)[normalizedType];
-            if (cost) {
-                const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, currentSeason as any, currentWeather as any);
-
-                for (const [res, amt] of Object.entries(cost)) {
-                    if (res === 'stamina') continue;
-                    if ((actor.resources[res as keyof typeof actor.resources] || 0) < (amt as number)) {
+                    for (const [res, amt] of Object.entries(cost)) {
+                        if (res === 'stamina') continue;
+                        if ((actor.resources[res as keyof typeof actor.resources] || 0) < (amt as number)) {
+                            localResult.success = false;
+                            localResult.message = `❌ Mangler ${amt} ${res}!`;
+                            result = localResult;
+                            return room;
+                        }
+                    }
+                    if ((actor.status.stamina || 0) < finalStaminaCost) {
                         localResult.success = false;
-                        localResult.message = `❌ Mangler ${amt} ${res}!`;
+                        localResult.message = `💤 For sliten! (${finalStaminaCost}⚡ kreves)`;
                         result = localResult;
                         return room;
                     }
+
+                    for (const [res, amt] of Object.entries(cost)) {
+                        if (res === 'stamina') continue;
+                        (actor.resources as any)[res] -= (amt as number);
+                    }
+                    actor.status.stamina -= finalStaminaCost;
                 }
-                if ((actor.status.stamina || 0) < finalStaminaCost) {
+
+                // 2. Perform Action Logic via Registry
+                const handler = ACTION_REGISTRY[normalizedType] || ACTION_REGISTRY[actionType];
+
+                if (handler) {
+                    const ctx = {
+                        actor,
+                        room,
+                        pin,
+                        action,
+                        timestamp,
+                        localResult,
+                        trackXp,
+                        damageTool
+                    };
+
+                    const handlerSuccess = handler(ctx);
+                    if (handlerSuccess === false) {
+                        result = localResult;
+                        return room;
+                    }
+                } else {
+                    console.warn(`No handler found for action: ${actionType} / ${normalizedType}`);
                     localResult.success = false;
-                    localResult.message = `💤 For sliten! (${finalStaminaCost}⚡ kreves)`;
-                    result = localResult;
-                    return room;
+                    localResult.message = `Ukjent handling: ${actionType}`;
                 }
 
-                for (const [res, amt] of Object.entries(cost)) {
-                    if (res === 'stamina') continue;
-                    (actor.resources as any)[res] -= (amt as number);
+                if (!localResult.message) localResult.message = "Handling utført.";
+                if (localResult.success) {
+                    room.messages.push(`[${timestamp}] ${localResult.message}`);
                 }
-                actor.status.stamina -= finalStaminaCost;
-            }
 
-            // Initialize equipment if missing
-            if (!actor.equipment) {
-                actor.equipment = {
-                    HEAD: null, BODY: { id: 'tunic', name: 'Slitt Tunika', durability: 20, maxDurability: 20, level: 1, stats: { defense: 1 } },
-                    MAIN_HAND: null, OFF_HAND: null, FEET: null, TRINKET: null
+                actor.lastActive = Date.now();
+                result = localResult;
+                return room;
+            } catch (innerError: any) {
+                console.error("Internal transaction error:", innerError);
+                result = {
+                    success: false,
+                    timestamp: Date.now(),
+                    message: `Systemfeil: ${innerError.message || 'Ukjent'}`,
+                    yields: [], xp: [], durability: []
                 };
+                return room; // Return room to at least save any passive progress
             }
-
-            // 2. Perform Action Logic via Registry
-            const handler = ACTION_REGISTRY[normalizedType] || ACTION_REGISTRY[actionType];
-
-            if (handler) {
-                const ctx = {
-                    actor,
-                    room,
-                    pin,
-                    action,
-                    timestamp,
-                    localResult,
-                    trackXp,
-                    damageTool
-                };
-
-                const handlerSuccess = handler(ctx);
-                if (handlerSuccess === false) {
-                    result = localResult;
-                    return room;
-                }
-            } else {
-                console.warn(`No handler found for action: ${actionType} / ${normalizedType}`);
-                localResult.success = false;
-                localResult.message = "Ukjent handling.";
-            }
-
-            if (!localResult.message) localResult.message = "Handling utført.";
-            if (localResult.success) {
-                room.messages.push(`[${timestamp}] ${localResult.message}`);
-            }
-
-            actor.lastActive = Date.now();
-            result = localResult;
-            return room;
         });
 
         // Return Data
         return { success: !!(result as any)?.success, data: (result as any) || undefined };
-
 
     } catch (e) {
         console.error("Action failed", e);

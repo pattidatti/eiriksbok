@@ -1,4 +1,4 @@
-import { GAME_BALANCE, REWARDS } from '../../constants';
+import { GAME_BALANCE, REWARDS, SEASONS, WEATHER } from '../../constants';
 import { calculateYield } from '../../utils/simulationUtils';
 import type { ActionContext } from '../actionTypes';
 
@@ -14,10 +14,15 @@ export const handleWork = (ctx: ActionContext) => {
     if (activeLaws.includes('conscription')) lawYMod = 0.8;
     const base = GAME_BALANCE.YIELD.WORK_GRAIN + (actor.upgrades?.includes('iron_plow') ? 5 : 0);
 
+    const currentSeason = room.world?.season || 'Spring';
+    const currentWeather = room.world?.weather || 'Clear';
+    const seasonData = (SEASONS as any)[currentSeason];
+    const weatherData = (WEATHER as any)[currentWeather];
+
     const performance = action.performance || 0.5;
     const yieldAmount = calculateYield(actor, base, 'FARMING', {
-        season: (room.world as any)?.seasonData?.yieldMod || 1.0, // Should be careful here, SEASONS[currentSeason] in original
-        weather: (room.world as any)?.weatherData?.yieldMod || 1.0,
+        season: seasonData?.yieldMod || 1.0,
+        weather: weatherData?.yieldMod || 1.0,
         law: lawYMod,
         performance
     });
@@ -89,12 +94,16 @@ export const handleMiningAction = (ctx: ActionContext) => {
 export const handleForage = (ctx: ActionContext) => {
     const { actor, action, localResult, trackXp, damageTool } = ctx;
 
-    if (!damageTool('MAIN_HAND', 2)) return false;
+    // Optional tool damage
+    if (actor.equipment?.MAIN_HAND) {
+        damageTool('MAIN_HAND', 2);
+    }
 
     const base = GAME_BALANCE.YIELD.FORAGE_BREAD;
     const performance = action.performance || 0.5;
     const yieldAmount = calculateYield(actor, base, 'FARMING', { performance });
 
+    if (!actor.resources) (actor as any).resources = {};
     actor.resources.bread = (actor.resources.bread || 0) + yieldAmount;
     localResult.yields.push({ resource: 'bread', amount: yieldAmount });
     localResult.message = `Sanket ${yieldAmount} nødproviant (brød/bær)`;

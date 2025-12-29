@@ -4,7 +4,8 @@ import { handleCraft, handleRefine, handleRepair } from './handlers/CraftingHand
 import { handleEquipItem, handleUnequipItem } from './handlers/InventoryHandlers';
 import { handleTax, handleDraft, handleDecree, handleContribute, handleUpgradeBuilding, handleUpgrade } from './handlers/ManagementHandlers';
 import { handleRaid, handlePatrol } from './handlers/CombatHandlers';
-import { handleSleep, handleRest, handlePray, handleChat, handleGamble, handleBuyMeal, handleRetire, handleTradeRoute } from './handlers/SocialRestHandlers';
+import { handleBuy, handleSell, handleTradeRoute } from './handlers/MarketHandlers';
+import { handleSleep, handleRest, handlePray, handleChat, handleGamble, handleBuyMeal, handleRetire } from './handlers/SocialRestHandlers';
 
 export const ACTION_REGISTRY: ActionRegistry = {
     // Gathering
@@ -14,9 +15,14 @@ export const ACTION_REGISTRY: ActionRegistry = {
     QUARRY: handleMiningAction,
     FORAGE: handleForage,
 
-    // Crafting
+    // Crafting & Refining
     CRAFT: handleCraft,
     REFINE: handleRefine,
+    BAKE: handleRefine,
+    MILL: handleRefine,
+    SMELT: handleRefine,
+    WEAVE: handleRefine,
+    MIX: handleRefine,
     REPAIR: handleRepair,
 
     // Inventory
@@ -47,7 +53,7 @@ export const ACTION_REGISTRY: ActionRegistry = {
     RETIRE: handleRetire,
     TRADE_ROUTE: handleTradeRoute,
 
-    // Market (minimal for now)
-    BUY: (ctx) => { ctx.localResult.message = "Handel gjennomført"; return true; },
-    SELL: (ctx) => { ctx.localResult.message = "Handel gjennomført"; return true; },
+    // Market
+    BUY: handleBuy,
+    SELL: handleSell
 };
