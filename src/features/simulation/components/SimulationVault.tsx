@@ -20,7 +20,8 @@ const SLOT_LABELS: Record<EquipmentSlotType, string> = {
     TRINKET: 'Tilbehør'
 };
 
-export const SimulationVault: React.FC<SimulationVaultProps> = ({ player, onAction }) => {
+export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ player, onAction }) => {
+
     const [tooltipContent, setTooltipContent] = useState<any>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -118,4 +119,6 @@ export const SimulationVault: React.FC<SimulationVaultProps> = ({ player, onActi
             </div>
         </div>
     );
-};
+});
+
+SimulationVault.displayName = 'SimulationVault';

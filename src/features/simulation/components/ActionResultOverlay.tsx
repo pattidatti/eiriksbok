@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import type { ActionResult } from '../simulationTypes';
 import { RESOURCE_DETAILS } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
+import { animationManager } from '../logic/AnimationManager';
 
 interface ActionResultOverlayProps {
     result: ActionResult | null;
@@ -13,6 +14,24 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
     // Auto-clear after a few seconds
     useEffect(() => {
         if (result) {
+            // Trigger flying resources if any
+            if (result.success && result.yields && result.yields.length > 0) {
+                result.yields.forEach((y, idx) => {
+                    if (y.amount > 0) {
+                        setTimeout(() => {
+                            // Target bottom section 
+                            animationManager.spawnFlyingResource(
+                                y.resource,
+                                window.innerWidth / 2,
+                                window.innerHeight - 200,
+                                window.innerWidth / 2,
+                                window.innerHeight - 20
+                            );
+                        }, idx * 200);
+                    }
+                });
+            }
+
             const timer = setTimeout(() => {
                 onClear();
             }, 4000);

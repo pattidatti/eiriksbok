@@ -19,6 +19,8 @@ import { ActionResultOverlay } from './components/ActionResultOverlay';
 import { SimulationHeader } from './components/SimulationHeader';
 import { SimulationSidebar } from './components/SimulationSidebar';
 import { SimulationViewport } from './components/SimulationViewport';
+import { SimulationAnimationLayer } from './components/SimulationAnimationLayer';
+import { animationManager } from './logic/AnimationManager';
 
 export const SimulationPlayer: React.FC = () => {
     return (
@@ -42,7 +44,14 @@ const SimulationGame: React.FC = () => {
 
     // Data State
     const [player, setPlayer] = useState<SimulationPlayerType | null>(null);
-    const [room, setRoom] = useState<SimulationRoom | null>(null);
+    const [world, setWorld] = useState<SimulationRoom['world'] | null>(null);
+    const [players, setPlayers] = useState<Record<string, SimulationPlayerType>>({});
+    const [roomStatus, setRoomStatus] = useState<SimulationRoom['status']>('LOBBY');
+    const [markets, setMarkets] = useState<Record<string, any>>({});
+    const [messages, setMessages] = useState<string[]>([]);
+    const [activeVote, setActiveVote] = useState<SimulationRoom['activeVote'] | null>(null);
+    const [diplomacy, setDiplomacy] = useState<Record<string, any>>({});
+
     const [levelUpData, setLevelUpData] = useState<{ level: number, title: string } | null>(null);
     const [actionResult, setActionResult] = useState<ActionResult | null>(null);
 
@@ -58,23 +67,70 @@ const SimulationGame: React.FC = () => {
         const playerId = impersonateId || localStorage.getItem('sim_player_id');
         if (!playerId || !pin) return;
 
-        const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
-        const roomRef = ref(db, `simulation_rooms/${pin}`);
+        const baseUrl = `simulation_rooms/${pin}`;
 
+        // 1. Current Player Sub
+        const playerRef = ref(db, `${baseUrl}/players/${playerId}`);
         const unsubPlayer = onValue(playerRef, (snap) => {
             const data = snap.val();
             if (data) setPlayer({ ...data, id: playerId });
         });
 
-
-        const unsubRoom = onValue(roomRef, (snap) => {
+        // 2. Room Status & Basic World Sub
+        const worldRef = ref(db, `${baseUrl}/world`);
+        const unsubWorld = onValue(worldRef, (snap) => {
             const data = snap.val();
-            if (data) setRoom(data);
+            if (data) setWorld(data);
+        });
+
+        const statusRef = ref(db, `${baseUrl}/status`);
+        const unsubStatus = onValue(statusRef, (snap) => {
+            const data = snap.val();
+            if (data) setRoomStatus(data || 'LOBBY');
+        });
+
+        // 3. Markets Sub
+        const marketsRef = ref(db, `${baseUrl}/markets`);
+        const unsubMarkets = onValue(marketsRef, (snap) => {
+            const data = snap.val();
+            if (data) setMarkets(data);
+        });
+
+        // 4. Messages Sub (Limit results locally or via Firebase if possible)
+        const messagesRef = ref(db, `${baseUrl}/messages`);
+        const unsubMessages = onValue(messagesRef, (snap) => {
+            const data = snap.val();
+            if (data) setMessages(data);
+        });
+
+        // 5. Active Vote Sub
+        const voteRef = ref(db, `${baseUrl}/activeVote`);
+        const unsubVote = onValue(voteRef, (snap) => {
+            setActiveVote(snap.val());
+        });
+
+        // 6. Diplomacy Sub
+        const diplomacyRef = ref(db, `${baseUrl}/diplomacy`);
+        const unsubDiplomacy = onValue(diplomacyRef, (snap) => {
+            setDiplomacy(snap.val() || {});
+        });
+
+        // 7. Players Sub (For hierarchy/map) - This could be further optimized selectively
+        const playersRef = ref(db, `${baseUrl}/players`);
+        const unsubPlayers = onValue(playersRef, (snap) => {
+            const data = snap.val();
+            if (data) setPlayers(data);
         });
 
         return () => {
             unsubPlayer();
-            unsubRoom();
+            unsubWorld();
+            unsubStatus();
+            unsubMarkets();
+            unsubMessages();
+            unsubVote();
+            unsubDiplomacy();
+            unsubPlayers();
         };
     }, [pin, impersonateId]);
 
@@ -92,7 +148,6 @@ const SimulationGame: React.FC = () => {
     }, [player]);
 
     // --- RESOURCE ANIMATION SYSTEM ---
-    const [floatingItems, setFloatingItems] = useState<{ id: string, label: string, icon: string, amount: number }[]>([]);
     const prevResourcesRef = useRef<Record<string, number> | null>(null);
     const initialLoadRef = useRef(true);
 
@@ -123,10 +178,12 @@ const SimulationGame: React.FC = () => {
         });
 
         if (newItems.length > 0) {
-            setFloatingItems(prevItems => [...prevItems, ...newItems]);
-            setTimeout(() => {
-                setFloatingItems(prevItems => prevItems.slice(newItems.length));
-            }, 2000);
+            newItems.forEach((item, idx) => {
+                // Staggered appearance
+                setTimeout(() => {
+                    animationManager.spawnFloatingText(`${item.icon} +${item.amount}`, 50, 50, 'text-amber-400');
+                }, idx * 150);
+            });
         }
 
         prevResourcesRef.current = { ...player.resources };
@@ -189,8 +246,8 @@ const SimulationGame: React.FC = () => {
 
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
             // PRE-CHECK REQUIREMENTS
-            const currentSeason = (room?.world?.season || 'Spring') as any;
-            const currentWeather = (room?.world?.weather || 'Clear') as any;
+            const currentSeason = (world?.season || 'Spring') as any;
+            const currentWeather = (world?.weather || 'Clear') as any;
 
             // We must temporarily map "REFINE" to the specific cost ID if needed, 
             // but checkActionRequirements handles the 'action.id' vs 'action.type' 
@@ -254,7 +311,20 @@ const SimulationGame: React.FC = () => {
 
     };
 
-    if (!player || !room) return <div className="p-8 text-center text-white">Laster data...</div>;
+    if (!player || !world) return <div className="p-8 text-center text-white">Laster data...</div>;
+
+    // Construct a lightweight virtual room object for components that expect the full room
+    // This maintains backward compatibility with SimulationHeader, SimulationSidebar, SimulationViewport
+    const room = {
+        status: roomStatus,
+        world,
+        players,
+        messages,
+        markets,
+        diplomacy,
+        activeVote,
+        pin: pin || ''
+    } as SimulationRoom;
 
 
     // --- RENDER ---
@@ -315,36 +385,8 @@ const SimulationGame: React.FC = () => {
 
                         }
 
-                        {/* FLOATING RESOURCES ANIMATION LAYER */}
-                        <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
-                            {floatingItems.map((item, i) => (
-                                <div
-                                    key={item.id}
-                                    className="absolute left-1/2 top-1/2 flex items-center gap-2 px-4 py-2 bg-slate-900/90 border border-amber-500/30 rounded-full shadow-2xl animate-fly-resource"
-                                    style={{
-                                        animationDelay: `${i * 100}ms`,
-                                        animationFillMode: 'forwards'
-                                    }}
-                                >
-                                    <span className="text-3xl filter drop-shadow-md">{item.icon}</span>
-                                    <div className="flex flex-col leading-none">
-                                        <span className="text-amber-400 font-black text-lg">+{item.amount}</span>
-                                        <span className="text-xs font-bold text-slate-300 uppercase tracking-wide">{item.label}</span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <style>{`
-                            @keyframes fly-resource {
-                                0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-                                10% { opacity: 1; transform: translate(-50%, -150%) scale(1.2); }
-                                80% { opacity: 1; transform: translate(-40vw, 0) scale(0.8); }
-                                100% { opacity: 0; transform: translate(-45vw, 10vh) scale(0); }
-                            }
-                            .animate-fly-resource {
-                                animation: fly-resource 1.5s cubic-bezier(0.22, 1, 0.36, 1);
-                            }
-                        `}</style>
+                        {/* ANIMATION LAYER */}
+                        <SimulationAnimationLayer />
 
                         <div className="flex flex-col h-full w-full">
                             {/* TOP HEADER */}

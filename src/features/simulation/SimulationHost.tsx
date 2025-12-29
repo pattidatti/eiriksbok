@@ -210,13 +210,17 @@ export const SimulationHost: React.FC = () => {
 
         setIsLoading(true);
         try {
-            await update(ref(db, `simulation_rooms/${pin}/world`), { season: nextSeasonVal });
             const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             const sLabel = (SEASONS as any)[nextSeasonVal]?.label || nextSeasonVal;
             const msg = `[${timestamp}] 🌍 Årstiden har skiftet til ${sLabel}!`;
-            const updatedMessages = roomData.messages ? [...roomData.messages, msg] : [msg];
-            if (updatedMessages.length > 30) updatedMessages.shift();
-            await update(ref(db, `simulation_rooms/${pin}`), { messages: updatedMessages });
+
+            const updatedMessages = roomData.messages ? [...roomData.messages, msg].slice(-30) : [msg];
+
+            const updates: any = {};
+            updates[`simulation_rooms/${pin}/world/season`] = nextSeasonVal;
+            updates[`simulation_rooms/${pin}/messages`] = updatedMessages;
+
+            await update(ref(db), updates);
         } catch (e) {
             console.error(e);
         } finally {
@@ -232,13 +236,18 @@ export const SimulationHost: React.FC = () => {
         const nextWeather = weatherList[nextIdx];
 
         try {
-            await update(ref(db, `simulation_rooms/${pin}/world`), { weather: nextWeather });
             const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             const weatherMap: any = { Clear: 'Klart', Rain: 'Regn', Storm: 'Storm', Fog: 'Tåke' };
             const wLabel = weatherMap[nextWeather] || nextWeather;
             const msg = `[${timestamp}] ☁️ Været har skiftet til ${wLabel}!`;
-            const updatedMessages = roomData.messages ? [...roomData.messages, msg] : [msg];
-            await update(ref(db, `simulation_rooms/${pin}`), { messages: updatedMessages });
+
+            const updatedMessages = roomData.messages ? [...roomData.messages, msg].slice(-30) : [msg];
+
+            const updates: any = {};
+            updates[`simulation_rooms/${pin}/world/weather`] = nextWeather;
+            updates[`simulation_rooms/${pin}/messages`] = updatedMessages;
+
+            await update(ref(db), updates);
         } catch (e) {
             console.error(e);
         }

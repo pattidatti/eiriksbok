@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { SimulationPlayer, SimulationRoom } from './simulationTypes';
+import type { SimulationPlayer } from './simulationTypes';
 import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from './constants';
 import { useSimulation } from './SimulationContext';
 
@@ -446,13 +446,16 @@ const POINTS_OF_INTEREST: POI[] = [
 
 interface WorldMapProps {
     player: SimulationPlayer;
-    room: SimulationRoom;
+    world: any;
+    worldEvents?: any;
+    players?: Record<string, SimulationPlayer>;
     onAction: (action: any) => void;
     onOpenMarket: () => void;
     initialViewMode?: string;
 }
 
-export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOpenMarket, initialViewMode = 'global' }) => {
+export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, world, worldEvents, players, onAction, onOpenMarket, initialViewMode = 'global' }) => {
+
     const { setActiveTab, setProductionContext } = useSimulation();
     const [selectedPOI, setSelectedPOI] = useState<POI | null>(null);
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
@@ -544,7 +547,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
         setSelectedPOI(null);
     };
 
-    const weather = room.world?.weather || 'Clear';
+    const weather = world?.weather || 'Clear';
 
     // Get current map background
     const getBackground = () => {
@@ -556,12 +559,12 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
             case 'castle': return '/map_castle_interior.png';
             case 'fields': return '/map_farm_fields.png';
             case 'peasant_farm': {
-                const level = room.world?.settlement?.buildings?.farm_house?.level || 1;
+                const level = world?.settlement?.buildings?.farm_house?.level || 1;
                 if (level > 1) return `/map_peasant_farm_lvl${level}.png`;
                 return '/map_peasant_farm.png';
             }
             case 'farm_house': {
-                const level = room.world?.settlement?.buildings?.farm_house?.level || 1;
+                const level = world?.settlement?.buildings?.farm_house?.level || 1;
                 if (level > 1) return `/map_stugo_interior_lvl${level}.png`;
                 return '/map_stugo_interior.jpg';
             }
@@ -593,7 +596,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
     };
 
     // Find specific barons for map layout
-    const playersArr = Object.values(room.players || {});
+    const playersArr = Object.values(players || {});
     const baronVest = playersArr.find(p => p.role === 'BARON' && p.regionId === 'region_vest');
     const baronOst = playersArr.find(p => p.role === 'BARON' && p.regionId === 'region_ost');
 
@@ -719,7 +722,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
                 )}
 
                 {/* Event Markers (Dynamic) - ONLY IN GLOBAL/LOCAL VIEW, NOT KINGDOM */}
-                {viewMode !== 'kingdom' && room.worldEvents && Object.values(room.worldEvents).map((event: any) => {
+                {viewMode !== 'kingdom' && worldEvents && Object.values(worldEvents).map((event: any) => {
                     const poi = POINTS_OF_INTEREST.find(p => p.id === event.locationId);
                     if (!poi) return null;
                     const isCorrectView = viewMode === 'global' ? !poi.parentId : poi.parentId === viewMode;
@@ -1109,4 +1112,6 @@ export const WorldMap: React.FC<WorldMapProps> = ({ player, room, onAction, onOp
 
         </>
     );
-};
+});
+
+WorldMap.displayName = 'WorldMap';

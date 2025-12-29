@@ -1,0 +1,104 @@
+import { GAME_BALANCE, REWARDS } from '../../constants';
+import { calculateYield } from '../../utils/simulationUtils';
+import type { ActionContext } from '../actionTypes';
+
+export const handleWork = (ctx: ActionContext) => {
+    const { actor, room, action, localResult, trackXp, damageTool } = ctx;
+    const activeLaws = room.world?.activeLaws || [];
+
+    // Tool damage
+    if (!damageTool('MAIN_HAND', GAME_BALANCE.DURABILITY.LOSS_WORK)) return false;
+
+    // Modifiers
+    let lawYMod = 1.0;
+    if (activeLaws.includes('conscription')) lawYMod = 0.8;
+    const base = GAME_BALANCE.YIELD.WORK_GRAIN + (actor.upgrades?.includes('iron_plow') ? 5 : 0);
+
+    const performance = action.performance || 0.5;
+    const yieldAmount = calculateYield(actor, base, 'FARMING', {
+        season: (room.world as any)?.seasonData?.yieldMod || 1.0, // Should be careful here, SEASONS[currentSeason] in original
+        weather: (room.world as any)?.weatherData?.yieldMod || 1.0,
+        law: lawYMod,
+        performance
+    });
+
+    actor.resources.grain = (actor.resources.grain || 0) + yieldAmount;
+    localResult.yields.push({ resource: 'grain', amount: yieldAmount });
+    localResult.message = `Høstet ${yieldAmount} korn`;
+
+    trackXp('FARMING', Math.ceil(REWARDS.WORK.xp * (1 + performance)));
+
+    // Lucky Drop
+    if (Math.random() < (GAME_BALANCE.LUCKY_DROP.CHANCE + (actor.equipment?.HEAD?.stats?.luckBonus || 0))) {
+        const bonus = Math.ceil(yieldAmount * 0.5);
+        actor.resources.grain += bonus;
+        localResult.yields.push({ resource: 'grain', amount: bonus, bonus: true });
+        localResult.message += ` + ${bonus} (FLAKS!)`;
+    }
+    return true;
+};
+
+export const handleChop = (ctx: ActionContext) => {
+    const { actor, room, action, localResult, trackXp, damageTool } = ctx;
+    const currentSeason = room.world?.season || 'Spring';
+
+    if (!damageTool('MAIN_HAND', GAME_BALANCE.DURABILITY.LOSS_WORK)) return false;
+
+    let base = GAME_BALANCE.YIELD.CHOP_WOOD;
+    if (currentSeason === 'Summer') base += GAME_BALANCE.YIELD.SUMMER_WOOD_BONUS;
+
+    const performance = action.performance || 0.5;
+    const yieldAmount = calculateYield(actor, base, 'WOODCUTTING', { performance });
+
+    actor.resources.wood = (actor.resources.wood || 0) + yieldAmount;
+    localResult.yields.push({ resource: 'wood', amount: yieldAmount });
+    localResult.message = `Felte ${yieldAmount} ved`;
+
+    trackXp('WOODCUTTING', Math.ceil(REWARDS.CHOP.xp * (1 + performance)));
+
+    if (Math.random() < GAME_BALANCE.LUCKY_DROP.CHANCE) {
+        const bonus = Math.ceil(yieldAmount * 0.5);
+        actor.resources.wood += bonus;
+        localResult.yields.push({ resource: 'wood', amount: bonus, bonus: true });
+        localResult.message += ` + ${bonus} FLAKS!`;
+    }
+    return true;
+};
+
+export const handleMiningAction = (ctx: ActionContext) => {
+    const { actor, action, localResult, trackXp, damageTool } = ctx;
+    const actionType = typeof action === 'string' ? action : action.type;
+
+    if (!damageTool('MAIN_HAND', GAME_BALANCE.DURABILITY.LOSS_WORK)) return false;
+
+    const skill = 'MINING';
+    const base = actionType === 'MINE' ? GAME_BALANCE.YIELD.MINE_ORE : GAME_BALANCE.YIELD.QUARRY_STONE;
+    const resource = actionType === 'MINE' ? 'iron_ore' : 'stone';
+
+    const performance = action.performance || 0.5;
+    const yieldAmount = calculateYield(actor, base, skill, { performance });
+
+    (actor.resources as any)[resource] = ((actor.resources as any)[resource] || 0) + yieldAmount;
+    localResult.yields.push({ resource, amount: yieldAmount });
+    localResult.message = actionType === 'MINE' ? `Utvant ${yieldAmount} jernmalm` : `Hogde ${yieldAmount} stein`;
+
+    trackXp(skill, Math.ceil(REWARDS.WORK.xp * (1 + performance)));
+    return true;
+};
+
+export const handleForage = (ctx: ActionContext) => {
+    const { actor, action, localResult, trackXp, damageTool } = ctx;
+
+    if (!damageTool('MAIN_HAND', 2)) return false;
+
+    const base = GAME_BALANCE.YIELD.FORAGE_BREAD;
+    const performance = action.performance || 0.5;
+    const yieldAmount = calculateYield(actor, base, 'FARMING', { performance });
+
+    actor.resources.bread = (actor.resources.bread || 0) + yieldAmount;
+    localResult.yields.push({ resource: 'bread', amount: yieldAmount });
+    localResult.message = `Sanket ${yieldAmount} nødproviant (brød/bær)`;
+
+    trackXp('FARMING', Math.ceil(REWARDS.FORAGE.xp * (1 + performance)));
+    return true;
+};

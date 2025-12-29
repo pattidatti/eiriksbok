@@ -13,7 +13,8 @@ interface SimulationProductionProps {
     onAction: (action: any) => void;
 }
 
-export const SimulationProduction: React.FC<SimulationProductionProps> = ({ player, room, onAction }) => {
+export const SimulationProduction: React.FC<SimulationProductionProps> = React.memo(({ player, room, onAction }) => {
+
     const { productionContext, setActiveTab, actionLoading } = useSimulation();
     const [selectedRecipeId, setSelectedRecipeId] = useState<string | null>(null);
 
@@ -281,4 +282,6 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = ({ play
             </div>
         </div>
     );
-};
+});
+
+SimulationProduction.displayName = 'SimulationProduction';

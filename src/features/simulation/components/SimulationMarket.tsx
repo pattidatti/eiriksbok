@@ -1,5 +1,5 @@
 import React from 'react';
-import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
+import type { SimulationPlayer } from '../simulationTypes';
 import { RESOURCE_DETAILS } from '../constants';
 import { useSimulation } from '../SimulationContext';
 import { GameCard } from '../ui/GameCard';
@@ -10,11 +10,14 @@ import { ArrowLeftRight, ShoppingBag, Ship } from 'lucide-react';
 
 interface SimulationMarketProps {
     player: SimulationPlayer;
-    room: SimulationRoom;
+    market: any;
+    regions?: Record<string, any>;
+    allMarkets?: Record<string, any>;
     onAction: (action: any) => void;
 }
 
-export const SimulationMarket: React.FC<SimulationMarketProps> = ({ player, room, onAction }) => {
+export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ player, market, regions, allMarkets, onAction }) => {
+
     const { actionLoading, setActiveTab } = useSimulation();
 
     return (
@@ -35,7 +38,7 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = ({ player, room
                             <ShoppingBag className="w-8 h-8 text-game-gold" />
                             Markedshandel
                         </h2>
-                        <p className="text-game-stone_light text-sm mt-1">Kjøp og selg varer i {room.markets?.[player.regionId || 'capital'] ? 'lokalmarkedet' : 'hovedstaden'}.</p>
+                        <p className="text-game-stone_light text-sm mt-1">Kjøp og selg varer i {market ? 'lokalmarkedet' : 'hovedstaden'}.</p>
                     </div>
                     <div className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-xl border border-game-gold/30">
                         <span className="text-game-stone_light text-xs font-bold uppercase">Saldo:</span>
@@ -45,7 +48,7 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = ({ player, room
 
                 {/* LOCAL MARKET GRID */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {Object.entries((room.markets?.[player.regionId || 'capital'] || room.market) || {}).map(([resId, item]: [string, any]) => {
+                    {Object.entries(market || {}).map(([resId, item]: [string, any]) => {
                         const details = (RESOURCE_DETAILS as any)[resId] || { label: resId, icon: '📦' };
                         const price = item.price || 0;
                         const stock = item.stock || 0;
@@ -105,11 +108,11 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = ({ player, room
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {Object.values(room.regions || {})
+                            {Object.values(regions || {})
                                 .concat([{ id: 'capital', name: 'Kongeriket (Hovedstaden)' } as any])
                                 .filter((r: any) => r.id !== player.regionId && r.id !== undefined)
                                 .map((region: any) => {
-                                    const targetMarket = room.markets?.[region.id];
+                                    const targetMarket = allMarkets?.[region.id];
                                     if (!targetMarket) return null;
 
                                     return (
@@ -161,4 +164,6 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = ({ player, room
             </div>
         </div>
     );
-};
+});
+
+SimulationMarket.displayName = 'SimulationMarket';

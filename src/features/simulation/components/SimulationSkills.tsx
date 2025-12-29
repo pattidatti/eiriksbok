@@ -9,7 +9,8 @@ interface SimulationSkillsProps {
     player: SimulationPlayer;
 }
 
-export const SimulationSkills: React.FC<SimulationSkillsProps> = ({ player }) => {
+export const SimulationSkills: React.FC<SimulationSkillsProps> = React.memo(({ player }) => {
+
     const [selectedSkill, setSelectedSkill] = useState<SkillType | null>(null);
 
     const skillsList = Object.keys(player.skills) as SkillType[];
@@ -145,4 +146,6 @@ export const SimulationSkills: React.FC<SimulationSkillsProps> = ({ player }) =>
             </div>
         </div>
     );
-};
+});
+
+SimulationSkills.displayName = 'SimulationSkills';

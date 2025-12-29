@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { getActionCostString } from './utils/actionUtils';
 import { SEASONS, WEATHER } from './constants';
 import { calculateYield } from './utils/simulationUtils';
+import { animationManager } from './logic/AnimationManager';
 import type { EquipmentItem, SkillType } from './simulationTypes';
 
 interface MinigameProps {
@@ -45,44 +46,7 @@ export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon
 };
 
 
-/* --- VISUAL FEEDBACK HELPERS --- */
-const FloatingText: React.FC<{ text: string, color?: string, x?: number, y?: number, onComplete: () => void }> = ({ text, color = 'text-amber-500', x = 50, y = 50, onComplete }) => {
-    useEffect(() => {
-        const timer = setTimeout(onComplete, 1000);
-        return () => clearTimeout(timer);
-    }, [onComplete]);
-
-    return (
-        <>
-            <div className={`absolute pointer-events-none z-[110] animate-float-up font-black text-4xl drop-shadow-2xl ${color}`} style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}>
-                {text}
-            </div>
-            <ParticleEffect x={x} y={y} color={color.includes('amber') ? 'bg-amber-400' : 'bg-white'} />
-        </>
-    );
-};
-
-const ParticleEffect: React.FC<{ x: number, y: number, color?: string }> = ({ x, y, color = 'bg-amber-400' }) => {
-    const particles = [...Array(8)];
-    return (
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-[105]">
-            {particles.map((_, i) => (
-                <div
-                    key={i}
-                    className={`absolute w-2 h-2 rounded-sm ${color} animate-particle`}
-                    style={{
-                        top: `${y}%`,
-                        left: `${x}%`,
-                        '--dx': `${(Math.random() - 0.5) * 200}px`,
-                        '--dy': `${(Math.random() - 0.5) * 200}px`,
-                        '--rot': `${Math.random() * 360}deg`
-                    } as any}
-                />
-            ))}
-        </div>
-    );
-};
-/* ------------------------------- */
+/* --- VISUAL FEEDBACK HELPERS REMOVED --- */
 
 export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, playerUpgrades, equipment = [], skills, selectedMethod, currentSeason = 'Spring', currentWeather = 'Clear' }) => {
     const [method, setMethod] = useState<string | null>(selectedMethod || null);
@@ -284,7 +248,6 @@ const HarvestingGame: React.FC<{
     const [strikes, setStrikes] = useState<number[]>([]);
     const [isFinished, setIsFinished] = useState(false);
     const [shake, setShake] = useState(false);
-    const [floatingTexts, setFloatingTexts] = useState<{ id: number, text: string, color?: string }[]>([]);
     const dirRef = useRef(1);
 
     useEffect(() => {
@@ -316,8 +279,12 @@ const HarvestingGame: React.FC<{
         const hitYield = Math.ceil((possibleYield / 5) * (0.5 + score));
 
         let msg = distance < 5 ? `PERFEKT! +${hitYield}` : distance < 15 ? `Bra! +${hitYield}` : `Ok... +${hitYield}`;
-        if (distance < 5) { setShake(true); setTimeout(() => setShake(false), 200); }
-        setFloatingTexts(p => [...p, { id: Date.now(), text: msg, color: distance < 5 ? 'text-amber-400' : 'text-slate-200' }]);
+        if (distance < 5) {
+            setShake(true);
+            setTimeout(() => setShake(false), 200);
+            animationManager.spawnParticles(50, 40, 'bg-amber-400');
+        }
+        animationManager.spawnFloatingText(msg, 50, 40, distance < 5 ? 'text-amber-400' : 'text-slate-200');
         const newStrikes = [...strikes, score];
         setStrikes(newStrikes);
         if (newStrikes.length === 5) {
@@ -333,7 +300,6 @@ const HarvestingGame: React.FC<{
             <div className="absolute inset-0 bg-black/70 z-0" />
             <div className="relative z-10 w-full flex flex-col items-center">
                 <h2 className="text-4xl font-black text-white mb-8 drop-shadow-lg tracking-tighter uppercase">{isMining ? 'Gruvedrift' : isQuarrying ? 'Steinhugger' : isForaging ? 'Sanking' : 'Kornhøsting'}</h2>
-                {floatingTexts.map(ft => <FloatingText key={ft.id} text={ft.text} onComplete={() => setFloatingTexts(p => p.filter(i => i.id !== ft.id))} />)}
                 {!isFinished ? (
                     <>
                         <div className="mb-4 text-xs font-black text-amber-500 uppercase tracking-widest">{resourceName}</div>
@@ -417,7 +383,6 @@ const ScytheSweepGame: React.FC<{
     const [progress, setProgress] = useState(0);
     const [swings, setSwings] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
-    const [floatingTexts, setFloatingTexts] = useState<{ id: number, text: string }[]>([]);
 
     const handleMove = () => {
         if (isFinished) return;
@@ -425,7 +390,7 @@ const ScytheSweepGame: React.FC<{
             const next = p + (2 * speedMultiplier); // Faster progress per pixel moved
             if (next >= 100) {
                 const hitYield = Math.ceil((possibleYield / 5) * 1.25); // 5 swings, slightly higher per hit for this mode
-                setFloatingTexts(prev => [...prev, { id: Date.now(), text: `+${hitYield} ${resourceName}` }]);
+                animationManager.spawnFloatingText(`+${hitYield} ${resourceName}`, 50, 40, 'text-amber-400');
 
                 setSwings(s => {
                     if (s + 1 >= 5) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
@@ -442,7 +407,6 @@ const ScytheSweepGame: React.FC<{
             <div className="absolute inset-0 bg-black/50 z-0" />
             <div className="relative z-10 w-full flex flex-col items-center">
                 <h2 className="text-3xl font-black text-white mb-4">Scythe Sweep</h2>
-                {floatingTexts.map(ft => <FloatingText key={ft.id} text={ft.text} onComplete={() => setFloatingTexts(p => p.filter(i => i.id !== ft.id))} />)}
                 <div className="w-full h-4 bg-white/10 rounded-full mb-8 border border-white/20 overflow-hidden">
                     <div className="h-full bg-amber-400 transition-all duration-75" style={{ width: `${progress}%` }} />
                 </div>
@@ -464,13 +428,13 @@ const WoodcuttingGame: React.FC<{
     const [target, setTarget] = useState({ x: 50, y: 50 });
     const [hits, setHits] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
-    const [floatingTexts, setFloatingTexts] = useState<{ id: number, text: string }[]>([]);
 
     const spawn = () => setTarget({ x: 20 + Math.random() * 60, y: 20 + Math.random() * 60 });
 
     const handleHit = () => {
         const hitYield = Math.ceil((possibleYield / 10) * 1.5); // 10 hits, each fixed performance for now
-        setFloatingTexts(prev => [...prev, { id: Date.now(), text: `+${hitYield} ${resourceName}` }]);
+        animationManager.spawnFloatingText(`+${hitYield} ${resourceName}`, 50, 40, 'text-amber-400');
+        animationManager.spawnParticles(50, 40, 'bg-amber-400');
 
         setHits(h => {
             if (h + 1 >= 10) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
@@ -482,8 +446,6 @@ const WoodcuttingGame: React.FC<{
     return (
         <div className="p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/forestry_bg.png")', backgroundSize: 'cover' }}>
             <div className="absolute inset-0 bg-black/60 z-0" />
-
-            {floatingTexts.map(ft => <FloatingText key={ft.id} text={ft.text} onComplete={() => setFloatingTexts(p => p.filter(i => i.id !== ft.id))} />)}
 
             <div className="relative z-10 w-full mb-8">
                 <h2 className="text-4xl font-black text-white drop-shadow-lg tracking-tighter uppercase">Tømmerhogging</h2>
