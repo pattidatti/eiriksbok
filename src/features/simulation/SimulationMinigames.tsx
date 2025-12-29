@@ -52,27 +52,32 @@ export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon
 
 /* --- TOOL VISIBILITY HELPERS --- */
 const MinigameToolBadge: React.FC<{ item: EquipmentItem }> = ({ item }) => {
+    if (!item) return null;
     const durabilityPct = (item.durability / item.maxDurability) * 100;
     const isLow = durabilityPct < 20;
 
     return (
-        <div className="absolute bottom-8 right-8 z-50 animate-in slide-in-from-right-10 duration-500">
-            <div className="bg-slate-900/40 backdrop-blur-xl border-2 border-white/10 p-4 rounded-3xl shadow-2xl flex items-center gap-4 group hover:border-indigo-500/50 transition-all">
+        <div className="absolute bottom-10 right-10 z-[200] animate-in slide-in-from-right-10 duration-700">
+            <div className="bg-slate-900/80 backdrop-blur-2xl border-2 border-white/20 p-5 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_20px_rgba(79,70,229,0.2)] flex items-center gap-5 group hover:border-indigo-500 transition-all">
                 <div className="relative">
-                    <div className="w-14 h-14 bg-black/40 rounded-2xl flex items-center justify-center text-3xl shadow-inner border border-white/5 group-hover:scale-110 transition-transform">
+                    <div className="w-16 h-16 bg-black/60 rounded-2xl flex items-center justify-center text-4xl shadow-inner border border-white/10 group-hover:scale-110 group-hover:rotate-3 transition-transform">
                         {item.icon}
                     </div>
                     {isLow && (
-                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 rounded-full animate-ping" />
+                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-rose-500 rounded-full animate-ping border-2 border-slate-900" />
                     )}
                 </div>
                 <div className="flex flex-col">
-                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-none mb-1">{item.name}</span>
-                    <div className="w-24 h-2 bg-white/5 rounded-full overflow-hidden border border-white/10">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] leading-none mb-2">{item.name}</span>
+                    <div className="w-28 h-2.5 bg-white/5 rounded-full overflow-hidden border border-white/10 p-[1px]">
                         <div
-                            className={`h-full transition-all duration-1000 ${durabilityPct > 50 ? 'bg-emerald-500' : durabilityPct > 20 ? 'bg-amber-500' : 'bg-rose-500'}`}
+                            className={`h-full rounded-full transition-all duration-1000 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
                             style={{ width: `${durabilityPct}%` }}
                         />
+                    </div>
+                    <div className="flex justify-between mt-1 text-[8px] font-black uppercase tracking-tighter text-slate-500">
+                        <span>Slitasje</span>
+                        <span>{Math.round(durabilityPct)}%</span>
                     </div>
                 </div>
             </div>
@@ -80,9 +85,10 @@ const MinigameToolBadge: React.FC<{ item: EquipmentItem }> = ({ item }) => {
     );
 };
 
-const getBestToolForAction = (type: string, equipment: EquipmentItem[]) => {
+const getBestToolForAction = (type: string, equipment: (EquipmentItem | undefined | null)[]) => {
     if (!equipment) return undefined;
     return equipment.find(item => {
+        if (!item) return false;
         const template = ITEM_TEMPLATES[item.id] as any;
         return template?.relevantActions?.includes(type);
     });
@@ -186,83 +192,50 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                             <h2 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-4">Velg utførelse</h2>
                             <h3 className="text-5xl font-black text-white mb-6 tracking-tighter uppercase">{type}</h3>
 
-                            {/* PROGRESSION CARROT / TOOL INFO */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-left">
-                                {/* Current Tool */}
+                            {/* COMPACT TOOL & COST AREA */}
+                            <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
                                 {(() => {
                                     const bestTool = getBestToolForAction(type, equipment);
                                     if (bestTool) {
+                                        const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
                                         return (
-                                            <div className="bg-indigo-500/10 border border-indigo-500/30 rounded-3xl p-5 backdrop-blur-md">
-                                                <div className="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-                                                    <ShieldCheck className="w-3 h-3" /> Utstyrs-bonus
-                                                </div>
-                                                <div className="flex items-center gap-4">
-                                                    <div className="text-4xl">{bestTool.icon}</div>
-                                                    <div>
-                                                        <div className="text-white font-black">{bestTool.name}</div>
-                                                        <div className="text-[10px] font-bold text-slate-400">
-                                                            {(bestTool.stats?.yieldBonus || 0) > 0 && <span className="text-emerald-400">+{bestTool.stats?.yieldBonus} Utbytte </span>}
-                                                            {(bestTool.stats?.speedBonus || 0) > 1 && <span className="text-blue-400">+{Math.round(((bestTool.stats?.speedBonus || 1) - 1) * 100)}% Fart</span>}
+                                            <div className="flex items-center gap-4 bg-indigo-500/10 border border-indigo-500/30 px-6 py-3 rounded-2xl backdrop-blur-xl">
+                                                <div className="text-3xl">{bestTool.icon}</div>
+                                                <div className="text-left">
+                                                    <div className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">{bestTool.name}</div>
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-16 h-1 bg-white/10 rounded-full overflow-hidden">
+                                                            <div
+                                                                className={`h-full ${durabilityPct > 50 ? 'bg-emerald-500' : durabilityPct > 20 ? 'bg-amber-500' : 'bg-rose-500'}`}
+                                                                style={{ width: `${durabilityPct}%` }}
+                                                            />
                                                         </div>
+                                                        <span className="text-[10px] font-bold text-slate-500">{Math.round(durabilityPct)}%</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         );
                                     }
                                     return (
-                                        <div className="bg-slate-800/40 border border-white/5 rounded-3xl p-5 backdrop-blur-md">
-                                            <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">Ingen verktøy</div>
-                                            <div className="text-slate-400 text-xs italic">Du jobber med bare hendene. Lite effektivt.</div>
+                                        <div className="bg-slate-800/40 border border-white/5 px-6 py-3 rounded-2xl backdrop-blur-md text-[11px] font-bold text-slate-400 italic">
+                                            Ingen verktøy utrustet
                                         </div>
                                     );
                                 })()}
 
-                                {/* Next Upgrade Recommendation */}
                                 {(() => {
-                                    const bestTool = getBestToolForAction(type, equipment);
-                                    const currentId = bestTool?.id || (type === 'CHOP' ? 'rusty_axe' : null);
-                                    const nextId = (ITEM_TEMPLATES[currentId as any] as any)?.nextTierId;
-                                    const nextTemplate = nextId ? ITEM_TEMPLATES[nextId] : null;
-
-                                    if (nextTemplate) {
+                                    const costLabel = getActionCostString(type, currentSeason, currentWeather);
+                                    if (costLabel) {
                                         return (
-                                            <div className="bg-amber-500/5 border border-amber-500/20 rounded-3xl p-5 backdrop-blur-md relative overflow-hidden group">
-                                                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:rotate-12 transition-transform">
-                                                    <Sparkles className="w-12 h-12 text-amber-500" />
-                                                </div>
-                                                <div className="text-[10px] font-black text-amber-500/70 uppercase tracking-widest mb-3 flex items-center gap-2">
-                                                    <TrendingUp className="w-3 h-3" /> Neste Nivå
-                                                </div>
-                                                <div className="flex items-center gap-4">
-                                                    <div className="text-4xl opacity-50 grayscale">{nextTemplate.icon}</div>
-                                                    <div>
-                                                        <div className="text-white/60 font-black">{nextTemplate.name}</div>
-                                                        <div className="text-[10px] font-bold text-amber-500/50">
-                                                            Smid i Storsmien (Lvl {nextTemplate.level})
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div className="flex items-center gap-3 px-6 py-3 bg-black/40 rounded-2xl border border-white/10 backdrop-blur-md">
+                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Kostnad</span>
+                                                <span className="text-lg font-black text-amber-400 font-mono tracking-tight">{costLabel}</span>
                                             </div>
                                         );
                                     }
                                     return null;
                                 })()}
                             </div>
-
-                            {/* COST DISPLAY */}
-                            {(() => {
-                                const costLabel = getActionCostString(type, currentSeason, currentWeather);
-                                if (costLabel) {
-                                    return (
-                                        <div className="mb-8 inline-flex items-center gap-2 px-6 py-3 bg-black/40 rounded-full border border-white/10 backdrop-blur-md shadow-lg">
-                                            <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mr-2">Kostnad</span>
-                                            <span className="text-base font-black text-amber-400 font-mono tracking-tight">{costLabel}</span>
-                                        </div>
-                                    );
-                                }
-                                return null;
-                            })()}
 
                             <div className="grid grid-cols-1 gap-4 w-full">
                                 {currentMethods.map(m => (
@@ -284,6 +257,37 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                     </button>
                                 ))}
                             </div>
+
+                            {/* PROGRESSION FOOTER */}
+                            {(() => {
+                                const bestTool = getBestToolForAction(type, equipment);
+                                const currentId = bestTool?.id || (type === 'CHOP' ? 'rusty_axe' : null);
+                                const nextId = (ITEM_TEMPLATES[currentId as any] as any)?.nextTierId;
+                                const nextTemplate = nextId ? ITEM_TEMPLATES[nextId] : null;
+
+                                if (nextTemplate) {
+                                    return (
+                                        <div className="mt-12 pt-8 border-t border-white/5 w-full">
+                                            <div className="bg-gradient-to-r from-amber-500/5 to-transparent border border-amber-500/20 rounded-[2rem] p-4 flex items-center justify-between group max-w-xl mx-auto">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="relative">
+                                                        <span className="text-3xl grayscale group-hover:grayscale-0 transition-all block">{nextTemplate.icon}</span>
+                                                        <Sparkles className="absolute -top-1 -right-1 w-3 h-3 text-amber-400 animate-pulse" />
+                                                    </div>
+                                                    <div className="text-left">
+                                                        <div className="text-[10px] font-black text-amber-500 uppercase tracking-[0.2em] mb-1">Anbefalt Oppgradering</div>
+                                                        <div className="text-sm font-bold text-slate-300">Smid <span className="text-white">{nextTemplate.name}</span> for høyere utbytte</div>
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-center gap-2 text-amber-500 font-black text-[10px] uppercase tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">
+                                                    Sjekk Smia <ArrowRight className="w-3 h-3" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                                return null;
+                            })()}
                         </div>
                     </div>
                 ) : (
@@ -327,14 +331,13 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                     })()
                 )}
 
-                {/* --- SHARED TOOL HUD --- */}
-                {equipment && getBestToolForAction(type, equipment) && (
-                    <MinigameToolBadge item={getBestToolForAction(type, equipment)!} />
-                )}
-
-                <MinigameStyles />
             </div>
-        </div >
+            {/* --- SHARED TOOL HUD --- */}
+            {equipment && getBestToolForAction(type, equipment) && (
+                <MinigameToolBadge item={getBestToolForAction(type, equipment)!} />
+            )}
+            <MinigameStyles />
+        </div>
     );
 };
 

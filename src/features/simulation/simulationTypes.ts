@@ -55,6 +55,7 @@ export interface EquipmentItem {
     durability: number;
     maxDurability: number;
     level: number; // Item level requirement or tier
+    relevantActions?: string[];
 }
 
 export interface PlayerStats {
@@ -257,4 +258,18 @@ export interface ActionResult {
         amount: number;
         broken?: boolean;
     }[];
+}
+
+export interface ItemTemplate {
+    id: string;
+    name: string;
+    icon: string;
+    type: EquipmentSlot;
+    description: string;
+    stats?: ItemStats;
+    level: number;
+    relevantActions?: string[];
+    nextTierId?: string;
+    durability: number;
+    maxDurability: number;
 }

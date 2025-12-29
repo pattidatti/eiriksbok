@@ -616,7 +616,9 @@ export const INITIAL_EQUIPMENT: Record<Role, Partial<Record<EquipmentSlot, Equip
     }
 };
 
-export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
+import type { ItemTemplate } from './simulationTypes';
+
+export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
     // --- TOOLS ---
     stone_axe: {
         id: 'stone_axe',
@@ -799,7 +801,6 @@ export const ITEM_TEMPLATES: Record<string, EquipmentItem> = {
         level: 1,
         description: 'Hold verktøy skarpe. +1 Utbytte-bonus.',
         stats: { yieldBonus: 1 },
-        // @ts-ignore
         relevantActions: ['CHOP', 'MINE', 'QUARRY', 'WORK']
     }
 };

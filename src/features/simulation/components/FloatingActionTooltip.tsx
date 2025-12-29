@@ -206,111 +206,94 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                         {/* Action Header / Main Button Area */}
                                         <div className="flex justify-between items-start w-full">
                                             <div className="flex flex-col min-w-0 flex-1">
-                                                {/* If no variants, this part is clickable? No, we wrap structure. */}
                                                 {!variants ? (
                                                     <button
                                                         onClick={() => onAction({ type: action.id })}
                                                         disabled={!canAfford}
                                                         className={`text-left group w-full ${!canAfford && 'cursor-not-allowed opacity-50'}`}
                                                     >
-                                                        <div className="flex justify-between items-center">
-                                                            <div>
-                                                                <span className={`text-lg font-bold truncate block ${canAfford ? isProduction ? 'text-indigo-400 group-hover:text-indigo-300 transition-colors' : 'text-white group-hover:text-amber-400 transition-colors' : 'text-slate-400'}`}>
-                                                                    {action.label} {isProduction ? '🔨' : ''}
-                                                                </span>
-                                                                {isProduction && canAfford && <span className="text-[10px] font-black text-indigo-500 uppercase tracking-widest mt-0.5">Åpne Verksted</span>}
-                                                                {!canAfford && <span className="text-xs font-black text-rose-400 uppercase tracking-widest mt-0.5">{missingReason}</span>}
+                                                        <div className="flex justify-between items-center gap-3">
+                                                            <div className="flex gap-3 items-center min-w-0">
+                                                                <div className="flex flex-col min-w-0">
+                                                                    <span className={`text-base font-black truncate block ${canAfford ? isProduction ? 'text-indigo-400 group-hover:text-indigo-300' : 'text-white group-hover:text-amber-400' : 'text-slate-400'}`}>
+                                                                        {action.label} {isProduction ? '🔨' : ''}
+                                                                    </span>
+                                                                    {!canAfford && <span className="text-[10px] font-black text-rose-500/80 uppercase tracking-widest leading-tight">{missingReason}</span>}
+                                                                </div>
                                                             </div>
-                                                            {costLabel && <span className={`text-lg font-black bg-black/30 px-2 py-1 rounded-lg border ${isProduction ? 'border-indigo-500/30 text-indigo-400' : 'border-white/5'}`}>{costLabel}</span>}
+
+                                                            <div className="flex items-center gap-3 shrink-0">
+                                                                {/* Compact Tool Indicator */}
+                                                                {(() => {
+                                                                    const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
+                                                                    const bestTool = equipment.find((item: any) => {
+                                                                        const template = ITEM_TEMPLATES[item.id] as any;
+                                                                        return template?.relevantActions?.includes(action.id);
+                                                                    });
+                                                                    if (bestTool) {
+                                                                        const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
+                                                                        return (
+                                                                            <div className="flex items-center gap-2 bg-white/5 px-2 py-1 rounded-lg border border-white/10" title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
+                                                                                <span className="text-sm">{bestTool.icon}</span>
+                                                                                <div className="w-8 h-1 bg-white/10 rounded-full overflow-hidden">
+                                                                                    <div
+                                                                                        className={`h-full ${durabilityPct > 50 ? 'bg-emerald-500' : durabilityPct > 20 ? 'bg-amber-500' : 'bg-rose-500'}`}
+                                                                                        style={{ width: `${durabilityPct}%` }}
+                                                                                    />
+                                                                                </div>
+                                                                            </div>
+                                                                        );
+                                                                    }
+                                                                    return null;
+                                                                })()}
+
+                                                                {costLabel && <span className={`text-sm font-black bg-black/40 px-2 py-1 rounded-lg border leading-none ${isProduction ? 'border-indigo-500/30 text-indigo-400' : 'border-white/10 text-slate-300'}`}>{costLabel}</span>}
+                                                            </div>
                                                         </div>
                                                     </button>
                                                 ) : (
-                                                    // Header for variants
                                                     <div className="flex justify-between items-center w-full border-b border-white/5 pb-2 mb-2">
-                                                        <div>
-                                                            <span className="text-lg font-bold text-white">{action.label}</span>
-                                                            {!canAfford && <div className="text-xs font-black text-rose-400 uppercase tracking-widest">{missingReason}</div>}
+                                                        <div className="flex flex-col">
+                                                            <span className="text-lg font-bold text-white leading-tight">{action.label}</span>
+                                                            {!canAfford && <div className="text-[10px] font-black text-rose-500 uppercase tracking-widest mt-0.5">{missingReason}</div>}
                                                         </div>
-                                                        {costLabel && <span className="text-sm font-black text-slate-400">{costLabel}</span>}
+                                                        <div className="flex items-center gap-3">
+                                                            {/* Compact Tool Indicator for Variant Header */}
+                                                            {(() => {
+                                                                const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
+                                                                const bestTool = equipment.find((item: any) => {
+                                                                    const template = ITEM_TEMPLATES[item.id] as any;
+                                                                    return template?.relevantActions?.includes(action.id);
+                                                                });
+                                                                if (bestTool) {
+                                                                    const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
+                                                                    return (
+                                                                        <div className="flex items-center gap-1.5 opacity-60">
+                                                                            <span className="text-base">{bestTool.icon}</span>
+                                                                            <div className="w-10 h-1 bg-white/10 rounded-full overflow-hidden">
+                                                                                <div
+                                                                                    className={`h-full ${durabilityPct > 50 ? 'bg-emerald-500' : durabilityPct > 20 ? 'bg-amber-500' : 'bg-rose-500'}`}
+                                                                                    style={{ width: `${durabilityPct}%` }}
+                                                                                />
+                                                                            </div>
+                                                                        </div>
+                                                                    );
+                                                                }
+                                                                return null;
+                                                            })()}
+                                                            {costLabel && <span className="text-[10px] font-black border border-white/10 px-2 py-1 rounded uppercase tracking-widest text-slate-500">{costLabel}</span>}
+                                                        </div>
                                                     </div>
                                                 )}
                                             </div>
                                         </div>
 
-                                        {/* PROGRESSION CARROT / TOOL INFO */}
-                                        <div className="mt-4 grid grid-cols-1 gap-2 border-t border-white/5 pt-4">
-                                            {/* Current Tool */}
-                                            {(() => {
-                                                const actionType = action.id;
-                                                const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
-                                                const bestTool = equipment.find((item: any) => {
-                                                    const template = ITEM_TEMPLATES[item.id] as any;
-                                                    return template?.relevantActions?.includes(actionType);
-                                                });
-
-                                                if (bestTool) {
-                                                    return (
-                                                        <div className="bg-indigo-500/10 border border-indigo-500/30 rounded-2xl p-3 backdrop-blur-md flex items-center justify-between">
-                                                            <div className="flex items-center gap-3">
-                                                                <span className="text-2xl">{bestTool.icon}</span>
-                                                                <div>
-                                                                    <div className="text-[10px] font-black text-indigo-400 uppercase leading-none mb-1">{bestTool.name}</div>
-                                                                    <div className="text-[9px] font-bold text-slate-400">
-                                                                        {(bestTool.stats?.yieldBonus || 0) > 0 && <span className="text-emerald-400">+{bestTool.stats?.yieldBonus} Utbytte </span>}
-                                                                        {(bestTool.stats?.speedBonus || 1) > 1 && <span className="text-blue-400">+{Math.round(((bestTool.stats?.speedBonus || 1) - 1) * 100)}% Fart</span>}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    );
-                                                }
-                                                return null;
-                                            })()}
-
-                                            {/* Next Upgrade */}
-                                            {(() => {
-                                                const actionType = action.id;
-                                                const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
-                                                const bestTool = equipment.find((item: any) => {
-                                                    const template = ITEM_TEMPLATES[item.id] as any;
-                                                    return template?.relevantActions?.includes(actionType);
-                                                });
-
-                                                const currentId = bestTool?.id || (actionType === 'CHOP' ? 'rusty_axe' : actionType === 'MINE' ? 'stone_pickaxe' : null);
-                                                const nextId = (ITEM_TEMPLATES[currentId as any] as any)?.nextTierId;
-                                                const nextTemplate = nextId ? ITEM_TEMPLATES[nextId] : null;
-
-                                                if (nextTemplate) {
-                                                    return (
-                                                        <div className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-3 backdrop-blur-md flex items-center justify-between group">
-                                                            <div className="flex items-center gap-3">
-                                                                <span className="text-2xl opacity-40 grayscale group-hover:grayscale-0 transition-all">{nextTemplate.icon}</span>
-                                                                <div>
-                                                                    <div className="text-[10px] font-black text-amber-500/80 uppercase leading-none mb-1 flex items-center gap-1.5">
-                                                                        <TrendingUp className="w-2.5 h-2.5" /> Neste Nivå?
-                                                                    </div>
-                                                                    <div className="text-[9px] font-bold text-slate-500">
-                                                                        Smid {nextTemplate.name} i Smia
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="w-5 h-5 bg-amber-500/10 rounded-full flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity">
-                                                                <ArrowRight className="w-3 h-3 text-amber-500" />
-                                                            </div>
-                                                        </div>
-                                                    );
-                                                }
-                                                return null;
-                                            })()}
-                                        </div>
-
-                                        {/* Legacy equipment chips (Hide if expanded? Keep for quick view?) -> Hide if expanded to avoid clutter */}
+                                        {/* Simplified Bonus Badges instead of large chips */}
                                         {!showDetails && bonusDetails.length > 0 && (
-                                            <div className="flex flex-wrap gap-2 mt-2 pt-2 border-t border-white/5">
-                                                {bonusDetails.map((d, i) => (
-                                                    <div key={i} className="flex items-center gap-1 text-[10px] bg-black/20 px-1.5 py-0.5 rounded border border-white/5 opacity-70">
-                                                        <span>{d.icon}</span>
-                                                        <span className={d.type === 'Fart' ? 'text-blue-300' : 'text-emerald-300'}>{d.value}</span>
+                                            <div className="flex flex-wrap gap-2 mt-2">
+                                                {bonusDetails.slice(0, 3).map((d, i) => (
+                                                    <div key={i} className={`flex items-center gap-1 text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${d.type === 'Fart' ? 'bg-blue-500/10 border-blue-500/30 text-blue-400' : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'}`}>
+                                                        {d.value} {d.type}
                                                     </div>
                                                 ))}
                                             </div>
@@ -340,93 +323,47 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                             );
                         })}
 
+                        {/* CONSOLIDATED PROGRESSION FOOTER */}
                         {(() => {
-                            const bId = (poi.id in VILLAGE_BUILDINGS) ? poi.id : (poi.parentId in VILLAGE_BUILDINGS ? poi.parentId : null);
-                            if (!bId) {
-                                if (availableActions.length === 0) {
-                                    return <div className="text-center py-6 text-slate-500 italic text-xs">Ingen handlinger tilgjengelig</div>;
-                                }
-                                return null;
-                            }
+                            // Find the best next upgrade for the primary tools relevant here
+                            const primaryActions = availableActions.map((a: any) => a.id);
+                            const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
 
-                            const buildingDef = VILLAGE_BUILDINGS[bId];
-                            const isPrivate = bId === 'farm_house';
+                            // Get all next-tier templates for relevant tools
+                            const nextUpgrades = equipment
+                                .filter((item: any) => {
+                                    const template = ITEM_TEMPLATES[item.id] as any;
+                                    return template?.relevantActions?.some((ra: string) => primaryActions.includes(ra));
+                                })
+                                .map((item: any) => {
+                                    const nextId = (ITEM_TEMPLATES[item.id] as any)?.nextTierId;
+                                    return nextId ? ITEM_TEMPLATES[nextId] : null;
+                                })
+                                .filter(Boolean);
 
-                            const buildingState = isPrivate
-                                ? (player.buildings?.[bId] || { level: 1, progress: {} })
-                                : (room.world?.settlement?.buildings?.[bId] || { level: 1, progress: {}, contributions: {} });
-
-                            const nextLevel = buildingState.level + 1;
-                            const nextLevelDef = buildingDef.levels[nextLevel];
-
-                            if (!nextLevelDef) {
-                                if (availableActions.length === 0) {
-                                    return <div className="text-center py-6 text-slate-500 italic text-xs">Maksimalt nivå nådd</div>;
-                                }
-                                return null;
-                            }
-
-                            return (
-                                <div className="mt-4 pt-4 border-t border-white/10 space-y-4">
-                                    <div className="flex items-center justify-between">
-                                        <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500">Oppgradering til Nivå {nextLevel}</h4>
-                                        {nextLevelDef.bonus && <span className="text-[10px] text-slate-500 italic">"{nextLevelDef.bonus}"</span>}
-                                    </div>
-
-                                    <div className="space-y-3">
-                                        {Object.entries(nextLevelDef.requirements).map(([res, targetAmt]: [any, any]) => {
-                                            const currentAmt = (buildingState.progress as any)[res] || 0;
-                                            const progress = Math.min(100, (currentAmt / targetAmt) * 100);
-                                            const playerHas = (player.resources as any)[res] || 0;
-                                            const canGive = playerHas > 0 && currentAmt < targetAmt;
-
-                                            return (
-                                                <div key={res} className="space-y-1.5">
-                                                    <div className="flex justify-between items-end text-[10px]">
-                                                        <span className="font-bold uppercase tracking-widest text-slate-300">{res} ({currentAmt}/{targetAmt})</span>
-                                                        <span className="text-slate-500">{Math.round(progress)}%</span>
-                                                    </div>
-                                                    <div className="flex gap-2 items-center">
-                                                        <div className="flex-1 h-2 bg-black/40 rounded-full overflow-hidden border border-white/5">
-                                                            <div
-                                                                className="h-full bg-gradient-to-r from-amber-600 to-amber-400 transition-all duration-1000"
-                                                                style={{ width: `${progress}%` }}
-                                                            />
-                                                        </div>
-                                                        {canGive && (
-                                                            <button
-                                                                onClick={() => onAction({ type: 'CONTRIBUTE_TO_UPGRADE', buildingId: bId, resource: res, amount: Math.min(playerHas, targetAmt - currentAmt) })}
-                                                                className="px-3 py-1 bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-black rounded-lg transition-colors active:scale-95"
-                                                            >
-                                                                BIDRA
-                                                            </button>
-                                                        )}
-                                                    </div>
+                            if (nextUpgrades.length > 0) {
+                                const upg = nextUpgrades[0];
+                                return (
+                                    <div className="mt-4 pt-4 border-t border-white/10">
+                                        <div className="bg-gradient-to-r from-amber-500/10 to-transparent border border-amber-500/20 rounded-2xl p-3 flex items-center justify-between group cursor-help">
+                                            <div className="flex items-center gap-3">
+                                                <div className="relative">
+                                                    <span className="text-2xl drop-shadow-lg group-hover:scale-110 transition-transform block">{upg.icon}</span>
+                                                    <TrendingUp className="absolute -bottom-1 -right-2 w-3 h-3 text-amber-400" />
                                                 </div>
-                                            );
-                                        })}
-                                    </div>
-
-                                    {/* Contributors List for Global Buildings */}
-                                    {!isPrivate && (buildingState as any).contributions && Object.keys((buildingState as any).contributions).length > 0 && (
-                                        <div className="bg-black/20 rounded-xl p-3 border border-white/5">
-                                            <div className="text-[9px] font-black uppercase tracking-widest text-slate-500 mb-2">Siste Bidrag</div>
-                                            <div className="space-y-1">
-                                                {Object.entries((buildingState as any).contributions).slice(0, 3).map(([pId, data]: [string, any]) => (
-                                                    <div key={pId} className="flex justify-between items-center text-[10px]">
-                                                        <span className="text-slate-300 font-bold">{data.name}</span>
-                                                        <div className="flex gap-2">
-                                                            {Object.entries(data.resources).map(([r, a]: [any, any]) => (
-                                                                <span key={r} className="text-indigo-400">+{a} {r}</span>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                ))}
+                                                <div className="flex flex-col">
+                                                    <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest leading-none mb-1">Anbefalt Oppgradering</span>
+                                                    <span className="text-[11px] font-bold text-slate-300">Smid {upg.name} i Smia</span>
+                                                </div>
+                                            </div>
+                                            <div className="w-6 h-6 rounded-full bg-amber-500/10 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                                                <ArrowRight className="w-3.5 h-3.5 text-amber-500" />
                                             </div>
                                         </div>
-                                    )}
-                                </div>
-                            );
+                                    </div>
+                                );
+                            }
+                            return null;
                         })()}
                     </div>
                 </div>
