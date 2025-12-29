@@ -51,7 +51,7 @@ class AudioManager {
         const audio = new Audio(path);
         audio.volume = this.sfxVolume;
 
-        audio.play().catch(e => {
+        audio.play().catch(() => {
             // console.warn(`Failed to play sfx: ${key}`, e);
             // Expected if file doesn't exist
         });

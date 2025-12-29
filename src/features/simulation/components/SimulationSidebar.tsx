@@ -204,39 +204,39 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
             </div >
 
             {/* Navigation */}
-            < nav className={`flex-1 p-4 space-y-6 overflow-y-auto custom-scrollbar ${isCollapsed ? 'px-2' : ''}`} >
+            <nav className={`flex-1 p-4 space-y-6 overflow-y-auto custom-scrollbar ${isCollapsed ? 'px-2' : ''}`}>
 
                 {/* Group 1: World */}
-                < div className="space-y-1" >
+                <div className="space-y-1">
                     {!isCollapsed && <div className="px-4 text-[10px] font-black uppercase text-slate-600 tracking-widest mb-2">Verden</div>}
                     {[
                         { id: 'MAP', label: 'Verdenskart', icon: Map, hotkey: 'M' },
                         { id: 'ACTIVITY', label: 'Live Hendelser', icon: MessageSquare, hotkey: 'L' },
                     ].map(tab => renderTabButton(tab))}
-                </div >
+                </div>
 
                 {/* Group 2: Personal */}
-                < div className="space-y-1" >
+                <div className="space-y-1">
                     {!isCollapsed && <div className="px-4 text-[10px] font-black uppercase text-slate-600 tracking-widest mb-2">Deg selv</div>}
                     {[
                         { id: 'PROFILE', label: 'Profil', icon: User, hotkey: 'P' },
                         { id: 'INVENTORY', label: 'Eiendeler', icon: Package, hotkey: 'I' },
                         { id: 'SKILLS', label: 'Ferdigheter', icon: Scroll, hotkey: 'F' },
                     ].map(tab => renderTabButton(tab))}
-                </div >
+                </div>
 
                 {/* Group 3: Society & Politics */}
-                < div className="space-y-1" >
+                <div className="space-y-1">
                     {!isCollapsed && <div className="px-4 text-[10px] font-black uppercase text-slate-600 tracking-widest mb-2">Samfunn</div>}
                     {[
                         { id: 'DIPLOMACY', label: 'Diplomati', icon: MessageSquare, hotkey: 'D' },
                         { id: 'HIERARCHY', label: 'Samfunnsstruktur', icon: LayoutGrid, hotkey: 'H' },
                     ].map(tab => renderTabButton(tab))}
                 </div >
-            </nav >
+            </nav>
 
             {/* Footer */}
-            < div className={`p-6 bg-black/20 border-t border-white/5 ${isCollapsed ? 'flex flex-col items-center justify-center p-4 gap-2' : ''}`} >
+            <div className={`p-6 bg-black/20 border-t border-white/5 ${isCollapsed ? 'flex flex-col items-center justify-center p-4 gap-2' : ''}`}>
                 <div className={`flex items-center justify-between text-xs font-bold text-slate-500 mb-2 uppercase tracking-tighter ${isCollapsed ? 'flex-col gap-1 !mb-0' : ''}`}>
                     <span>År {room.world.year}</span>
                     <span className="text-amber-500">{(SEASONS as any)[room.world.season]?.label}</span>
@@ -247,7 +247,7 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                         <span>{room.world.weather}</span>
                     </div>
                 )}
-            </div >
-        </aside >
+            </div>
+        </aside>
     );
 };
