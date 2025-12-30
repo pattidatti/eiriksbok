@@ -5,7 +5,7 @@ import type { ActionContext } from '../actionTypes';
 import type { ActiveProcess } from '../../simulationTypes';
 
 export const handlePlant = (ctx: ActionContext) => {
-    const { actor, action, localResult, timestamp } = ctx;
+    const { actor, action, localResult, timestamp: _timestamp } = ctx;
     const cropId = action.cropId || 'grain';
     const crop = CROP_DATA[cropId];
 
@@ -23,6 +23,7 @@ export const handlePlant = (ctx: ActionContext) => {
         id: Math.random().toString(36).substr(2, 9),
         type: 'CROP',
         itemId: cropId,
+        locationId: (action as any).locationId || 'grain_fields', // Fallback or provided
         startedAt: Date.now(),
         duration: crop.duration,
         readyAt: Date.now() + crop.duration,

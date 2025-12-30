@@ -1,4 +1,4 @@
-import { ActionRegistry } from './actionTypes';
+import type { ActionRegistry } from './actionTypes';
 import { handleWork, handleChop, handleMiningAction, handleForage, handleHunt, handleGatherWool, handleGatherHoney, handlePlant, handleHarvest } from './handlers/GatheringHandlers';
 import { handleCraft, handleRefine, handleRepair } from './handlers/CraftingHandlers';
 import { handleEquipItem, handleUnequipItem } from './handlers/InventoryHandlers';
