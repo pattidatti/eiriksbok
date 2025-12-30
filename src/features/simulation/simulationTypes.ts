@@ -29,6 +29,7 @@ export interface Resources {
     honey: number;
     meat: number;
     glass: number;
+    manpower: number;
 }
 
 
