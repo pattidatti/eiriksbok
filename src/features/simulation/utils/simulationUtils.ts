@@ -60,7 +60,12 @@ export const calculateYield = (
 
     // 3.5 No-tool Penalty (Utbytte-straff)
     // If it's a gathering task and we have no relevant tool, apply a massive penalty
-    if (!modifiers.isRefining && !hasRelevantTool && modifiers.actionType !== 'FORAGE') {
+    const isExempt = modifiers.actionType === 'FORAGE' || modifiers.actionType === 'GATHER_HONEY';
+
+    if (!modifiers.isRefining && !hasRelevantTool && !isExempt) {
+        // Strict requirement check
+        if ((modifiers as any).requiresTool) return 0;
+
         const penalty = GAME_BALANCE.GATHERING?.NO_TOOL_PENALTY || 0.8; // 80% reduction default
         total *= (1 - penalty);
     }

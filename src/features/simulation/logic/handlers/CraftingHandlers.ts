@@ -53,14 +53,13 @@ export const handleCraft = (ctx: ActionContext) => {
         const legacySubType = action.subType || 'SWORDS';
         const performance = action.performance || 0.5;
         let base = 1;
-        if (legacySubType === 'SWORDS' || legacySubType === 'TOOLS') base = 5;
+        if (legacySubType === 'SWORDS') base = 5;
         if (legacySubType === 'ARMOR') base = 2;
 
         const yieldAmount = calculateYield(actor, base, 'CRAFTING', { performance });
 
         let resName = 'swords';
         if (legacySubType === 'ARMOR') resName = 'armor';
-        if (legacySubType === 'TOOLS') resName = 'tools';
 
         (actor.resources as any)[resName] = ((actor.resources as any)[resName] || 0) + yieldAmount;
         localResult.utbytte.push({ resource: resName, amount: yieldAmount });

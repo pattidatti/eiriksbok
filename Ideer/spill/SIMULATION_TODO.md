@@ -36,6 +36,9 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
     - **Spillmekanikk:** Tilfeldige hendelser og små utfordringer underveis som må håndteres for å sikre lasten.
     - **Mål:** Nå fremmede markeder for å fylle opp karavanen med ressurser som kan selges med profitt eller brukes i eget baroni.
 
+- [ ] **Teologi & Gunst (Favor):** Implementere et system hvor "Gunst" (Favor) kan brukes.
+    - **Ideer:** Kjøpe "Gudommelig flaks" (luck bonus, bedre utbytte i en periode, midlertidig buff) eller "Tilgi synder" (fjerne utmattelse / stamina-boost).
+
 ## ✅ Ferdig
 - [x] Grunnleggende Peasant-loop (Høsting uten verktøy med redusert utbytte).
 - [x] Navneendring: Yield -> Utbytte.

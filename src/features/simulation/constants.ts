@@ -4,11 +4,9 @@ export const INITIAL_MARKET: SimulationMarket = {
     grain: { price: 10, stock: 500, demand: 1.0 },
     flour: { price: 15, stock: 100, demand: 1.0 },
     wood: { price: 15, stock: 300, demand: 1.0 },
-    iron: { price: 25, stock: 150, demand: 1.0 },
     stone: { price: 20, stock: 200, demand: 1.0 },
     swords: { price: 80, stock: 20, demand: 1.0 },
     armor: { price: 120, stock: 10, demand: 1.0 },
-    tools: { price: 60, stock: 30, demand: 1.0 },
     wool: { price: 12, stock: 200, demand: 1.0 },
     cloth: { price: 45, stock: 50, demand: 1.0 },
     honey: { price: 30, stock: 50, demand: 1.0 },
@@ -24,12 +22,9 @@ export const RESOURCE_DETAILS: Record<string, { label: string, icon: string }> =
     timber: { label: 'Tømmer', icon: '🪜' },
     iron_ore: { label: 'Jernmalm', icon: '🪨' },
     iron_ingot: { label: 'Jernbarre', icon: '🧱' },
-    iron: { label: 'Jern', icon: '⛓️' },
     stone: { label: 'Stein', icon: '🏔️' },
     swords: { label: 'Sverd', icon: '⚔️' },
     armor: { label: 'Rustning', icon: '🛡️' },
-    tools: { label: 'Verktøy', icon: '⚒️' },
-    manpower: { label: 'Arbeidskraft', icon: '👥' },
     favor: { label: 'Gunst', icon: '✨' },
     honey: { label: 'Honning', icon: '🍯' },
     meat: { label: 'Kjøtt', icon: '🍗' },
@@ -48,11 +43,11 @@ export const ROLE_DEFINITIONS: Record<Role, { label: string, description: string
 };
 
 export const INITIAL_RESOURCES: Record<Role, Resources> = {
-    KING: { gold: 1000, grain: 500, flour: 200, bread: 50, wood: 200, timber: 50, iron_ore: 0, iron_ingot: 20, iron: 100, stone: 100, swords: 50, armor: 20, tools: 10, manpower: 50, favor: 0, wool: 50, cloth: 20, honey: 0, meat: 0, glass: 0 },
-    BARON: { gold: 300, grain: 100, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 10, iron: 20, stone: 20, swords: 10, armor: 10, tools: 5, manpower: 10, favor: 0, wool: 20, cloth: 5, honey: 0, meat: 0, glass: 0 },
-    PEASANT: { gold: 20, grain: 30, flour: 5, bread: 5, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 0, stone: 0, swords: 0, armor: 0, tools: 1, manpower: 1, favor: 0, wool: 10, cloth: 0, honey: 0, meat: 0, glass: 0 },
-    SOLDIER: { gold: 50, grain: 10, flour: 10, bread: 10, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, iron: 10, stone: 0, swords: 5, armor: 2, tools: 0, manpower: 1, favor: 0, wool: 0, cloth: 0, honey: 0, meat: 0, glass: 0 },
-    MERCHANT: { gold: 500, grain: 50, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 5, iron: 50, stone: 50, swords: 5, armor: 2, tools: 5, manpower: 0, favor: 0, wool: 20, cloth: 10, honey: 0, meat: 0, glass: 0 }
+    KING: { gold: 1000, grain: 500, flour: 200, bread: 50, wood: 200, timber: 50, iron_ore: 0, iron_ingot: 20, stone: 100, swords: 50, armor: 20, favor: 0, wool: 50, cloth: 20, honey: 0, meat: 0, glass: 0 },
+    BARON: { gold: 300, grain: 100, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 10, stone: 20, swords: 10, armor: 10, favor: 0, wool: 20, cloth: 5, honey: 0, meat: 0, glass: 0 },
+    PEASANT: { gold: 20, grain: 30, flour: 5, bread: 5, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, stone: 0, swords: 0, armor: 0, favor: 0, wool: 10, cloth: 0, honey: 0, meat: 0, glass: 0 },
+    SOLDIER: { gold: 50, grain: 10, flour: 10, bread: 10, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, stone: 0, swords: 5, armor: 2, favor: 0, wool: 0, cloth: 0, honey: 0, meat: 0, glass: 0 },
+    MERCHANT: { gold: 500, grain: 50, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 5, stone: 50, swords: 5, armor: 2, favor: 0, wool: 20, cloth: 10, honey: 0, meat: 0, glass: 0 }
 
 };
 
@@ -66,7 +61,7 @@ export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
     ],
     BARON: [
         { id: 'stone_keep', name: 'Steintårn', description: 'Gjør raiding av deg mye vanskeligere.', cost: { gold: 200, wood: 100 }, benefit: 'FORTRESS' },
-        { id: 'armory', name: 'Våpenkammer', description: 'Dobbelt så effektiv rekruttering.', cost: { gold: 150, iron: 50 }, benefit: 'DRAFT_BONUS' },
+        { id: 'armory', name: 'Våpenkammer', description: 'Dobbelt så effektiv rekruttering.', cost: { gold: 150 }, benefit: 'DRAFT_BONUS' },
         { id: 'stables', name: 'Staller', description: 'Raskere raids.', cost: { gold: 100, wood: 50 }, benefit: 'RAID_SPEED' }
     ],
     KING: [
@@ -81,7 +76,7 @@ export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
     MERCHANT: [
         { id: 'trade_license', name: 'Handelsbrev', description: 'Bedre salgspriser på markedet.', cost: { gold: 150 }, benefit: 'MARKET_BONUS' },
         { id: 'accounting_books', name: 'Regnskapsbøker', description: 'Gir passivt 5 gull per minutt.', cost: { gold: 200, wood: 20 }, benefit: 'PASSIVE_GOLD_HIGH' },
-        { id: 'caravan', name: 'Karavane', description: 'Tjen penger på handel med utlandet.', cost: { gold: 300, wood: 50, tools: 5 }, benefit: 'CARAVAN' }
+        { id: 'caravan', name: 'Karavane', description: 'Tjen penger på handel med utlandet.', cost: { gold: 300, wood: 50 }, benefit: 'CARAVAN' }
     ]
 };
 
@@ -102,6 +97,9 @@ export const ACTION_COSTS = {
     CRAFT: { stamina: 30 }, // Base stamina, resources come from recipe
     QUARRY: { bread: 1, stamina: 20 },
     REPAIR: { iron_ingot: 1, timber: 1, gold: 5, stamina: 15 },
+    HUNT: { bread: 2, stamina: 30 },
+    GATHER_WOOL: { stamina: 15 },
+    GATHER_HONEY: { stamina: 20 },
     PRAY: { stamina: 15 },
     FEAST: { bread: 30, gold: 100, stamina: 10 },
     CONTRIBUTE: { stamina: 10 },
@@ -221,8 +219,8 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
             1: { requirements: {}, unlocks: ['SLEEP', 'EAT'], bonus: 'Base hvile' },
             2: { requirements: { wood: 50, gold: 100 }, unlocks: ['FARM_UPGRADE'], bonus: '+20% Stamina fra peisen' },
             3: { requirements: { timber: 20, stone: 50, gold: 300 }, unlocks: ['FARM_UPGRADE_MASTER'], bonus: '+30% Stamina fra senga' },
-            4: { requirements: { timber: 50, stone: 100, gold: 600, tools: 5 }, unlocks: ['FARM_UPGRADE_ELITE'], bonus: '+50% Stamina fra hvile' },
-            5: { requirements: { timber: 100, stone: 200, gold: 1000, iron_ingot: 20, tools: 10 }, unlocks: ['FARM_UPGRADE_GODLY'], bonus: 'Restaurerer all Stamina ved hvile' }
+            4: { requirements: { timber: 50, stone: 100, gold: 600 }, unlocks: ['FARM_UPGRADE_ELITE'], bonus: '+50% Stamina fra hvile' },
+            5: { requirements: { timber: 100, stone: 200, gold: 1000, iron_ingot: 20 }, unlocks: ['FARM_UPGRADE_GODLY'], bonus: 'Restaurerer all Stamina ved hvile' }
         }
     },
     sawmill: {
@@ -259,7 +257,7 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
         levels: {
             1: { requirements: {}, unlocks: ['REFINE_IRON_BASIC'], bonus: 'Base produksjon' },
             2: { requirements: { stone: 150, wood: 100, gold: 200 }, unlocks: ['REFINE_IRON_FAST'], bonus: '+10% Mining XP' },
-            3: { requirements: { stone: 300, timber: 50, gold: 600 }, unlocks: ['REFINE_STEEL'], bonus: 'Låser opp Stål-smelting' }
+            3: { requirements: { stone: 300, timber: 50, gold: 600 }, unlocks: ['REFINE_STEEL', 'glass'], bonus: 'Låser opp Stål og Glass' }
         }
     },
     great_forge: {
@@ -269,9 +267,9 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
         locationId: 'village',
         description: 'Gjør det mulig å lage avanserte verktøy og våpen.',
         levels: {
-            1: { requirements: {}, unlocks: ['stone_axe', 'stone_pickaxe'], bonus: 'Base produksjon' },
-            2: { requirements: { iron_ingot: 20, timber: 30, gold: 300 }, unlocks: ['iron_axe', 'iron_pickaxe', 'iron_sword'], bonus: '+10% Crafting XP' },
-            3: { requirements: { iron_ingot: 100, timber: 100, gold: 1000 }, unlocks: ['steel_axe', 'steel_sword', 'repair_advanced'], bonus: 'Låser opp Mester-utstyr' }
+            1: { requirements: {}, unlocks: ['stone_axe', 'stone_pickaxe', 'stone_sickle', 'whetstone'], bonus: 'Base produksjon' },
+            2: { requirements: { iron_ingot: 20, timber: 30, gold: 300 }, unlocks: ['iron_axe', 'iron_pickaxe', 'iron_sword', 'leather_armor', 'shears'], bonus: '+10% Crafting XP' },
+            3: { requirements: { iron_ingot: 100, timber: 100, gold: 1000 }, unlocks: ['steel_axe', 'steel_sword', 'blacksmith_hammer', 'repair_advanced'], bonus: 'Låser opp Mester-utstyr' }
         }
 
     },
@@ -370,7 +368,8 @@ export const REFINERY_RECIPES: Record<string, any> = {
     bread: { label: 'Bondebrød', icon: '🍞', input: { flour: 2 }, outputResource: 'bread', outputAmount: 5, buildingId: 'bakery', stamina: 5, xp: 3 },
     pie: { label: 'Kjøttpai', icon: '🥧', input: { flour: 4, meat: 2 }, outputResource: 'bread', outputAmount: 15, buildingId: 'bakery', stamina: 15, xp: 10 },
     mead: { label: 'Mjød', icon: '🍺', input: { honey: 5 }, outputResource: 'stamina', outputAmount: 20, buildingId: 'tavern', stamina: 5, xp: 5 },
-    cloth: { label: 'Lin-stoff', icon: '🧶', input: { wool: 5 }, outputResource: 'cloth', outputAmount: 1, buildingId: 'weavery', stamina: 15, xp: 10 }
+    cloth: { label: 'Lin-stoff', icon: '🧶', input: { wool: 5 }, outputResource: 'cloth', outputAmount: 1, buildingId: 'weavery', stamina: 15, xp: 10 },
+    glass: { label: 'Glass', icon: '🥛', input: { stone: 10, wood: 5 }, outputResource: 'glass', outputAmount: 1, buildingId: 'smeltery', requiredLevel: 3, stamina: 25, xp: 15 }
 };
 
 
@@ -378,15 +377,20 @@ export const CRAFTING_RECIPES: Record<string, any> = {
     // TIER 1 - Stone/Wood (Lvl 1 Forge)
     stone_axe: { label: 'Steinøks', icon: '🪓', input: { stone: 10, wood: 5, gold: 5 }, outputItemId: 'stone_axe', buildingId: 'great_forge', level: 1, stamina: 15, xp: 10, description: 'Et enkelt redskap for tømmerhogst.' },
     stone_pickaxe: { label: 'Steinhakke', icon: '⛏️', input: { stone: 10, wood: 5, gold: 5 }, outputItemId: 'stone_pickaxe', buildingId: 'great_forge', level: 1, stamina: 15, xp: 10, description: 'En primitiv hakke for gruvearbeid.' },
+    stone_sickle: { label: 'Steinsigd', icon: '🌾', input: { stone: 5, wood: 5, gold: 10 }, outputItemId: 'stone_sickle', buildingId: 'great_forge', level: 1, stamina: 10, xp: 5, description: 'Enkel sigd for kornhøsting.' },
+    whetstone: { label: 'Bryne', icon: '🪨', input: { stone: 15, gold: 20 }, outputItemId: 'whetstone', buildingId: 'great_forge', level: 1, stamina: 10, xp: 5, description: 'Brukt for å slipe verktøy og øke utbyttet.' },
 
     // TIER 2 - Iron (Lvl 2 Forge)
     iron_axe: { label: 'Jernøks', icon: '🪓', input: { iron_ingot: 5, timber: 2, gold: 50 }, outputItemId: 'iron_axe', buildingId: 'great_forge', level: 2, stamina: 25, xp: 20, description: 'Et solid verktøy av jern.' },
     iron_pickaxe: { label: 'Jernhakke', icon: '⛏️', input: { iron_ingot: 5, timber: 2, gold: 50 }, outputItemId: 'iron_pickaxe', buildingId: 'great_forge', level: 2, stamina: 25, xp: 20, description: 'Effektiv hakke for dypere graving.' },
     iron_sword: { label: 'Jernsverd', icon: '⚔️', input: { iron_ingot: 10, timber: 2, gold: 100 }, outputItemId: 'iron_sword', buildingId: 'great_forge', level: 2, stamina: 40, xp: 35, description: 'Et skarpt sverd for krigere.' },
+    leather_armor: { label: 'Lærrustning', icon: '🧥', input: { cloth: 10, gold: 150 }, outputItemId: 'leather_armor', buildingId: 'great_forge', level: 2, stamina: 30, xp: 25, description: 'God beskyttelse for en reisende.' },
+    shears: { label: 'Saks', icon: '✂️', input: { iron_ingot: 5, gold: 100 }, outputItemId: 'shears', buildingId: 'great_forge', level: 2, stamina: 20, xp: 15, description: 'Nødvendig for å klippe sauer og få ull.' },
 
     // TIER 3 - Steel/Master (Lvl 3 Forge)
     steel_axe: { label: 'Ståløks', icon: '🪓', input: { iron_ingot: 20, timber: 10, gold: 250 }, outputItemId: 'steel_axe', buildingId: 'great_forge', level: 3, stamina: 50, xp: 50, description: 'Mesterlig utformet øks av herdet stål.' },
-    steel_sword: { label: 'Stålsverd', icon: '⚔️', input: { iron_ingot: 30, timber: 5, gold: 500 }, outputItemId: 'steel_sword', buildingId: 'great_forge', level: 3, stamina: 80, xp: 100, description: 'Det ultimate våpenet for en herre.' }
+    steel_sword: { label: 'Stålsverd', icon: '⚔️', input: { iron_ingot: 30, timber: 5, gold: 500 }, outputItemId: 'steel_sword', buildingId: 'great_forge', level: 3, stamina: 80, xp: 100, description: 'Det ultimate våpenet for en herre.' },
+    blacksmith_hammer: { label: 'Smedhammer', icon: '🔨', input: { iron_ingot: 15, timber: 5, gold: 200 }, outputItemId: 'blacksmith_hammer', buildingId: 'great_forge', level: 3, stamina: 40, xp: 50, description: 'Mesterverktøy for en ekte smed.' }
 };
 
 
@@ -775,7 +779,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         description: 'Sylskarp hjå. +5 Utbytte, 10% raskere høsting.',
         stats: { yieldBonus: 5, speedBonus: 1.1 },
         // @ts-ignore
-        relevantActions: ['WORK', 'HØST']
+        relevantActions: ['WORK', 'HØST', 'GATHER_WOOL', 'GATHER_HONEY']
     },
     stone_sickle: {
         id: 'stone_sickle',
@@ -788,7 +792,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         description: 'Enkel sigd for jordbruk. +1 Utbytte ved kornhøsting.',
         stats: { yieldBonus: 1 },
         // @ts-ignore
-        relevantActions: ['WORK']
+        relevantActions: ['WORK', 'GATHER_WOOL', 'GATHER_HONEY']
     },
     blacksmith_hammer: {
         id: 'blacksmith_hammer',
@@ -803,6 +807,19 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         // @ts-ignore
         relevantActions: ['CRAFT', 'REFINE', 'SMELT']
     },
+    shears: {
+        id: 'shears',
+        name: 'Saks',
+        icon: '✂️',
+        type: 'MAIN_HAND',
+        durability: 50,
+        maxDurability: 50,
+        level: 3,
+        description: 'Brukt til å klippe sauer. Helt nødvendig for ull-produksjon.',
+        stats: { yieldBonus: 2 },
+        // @ts-ignore
+        relevantActions: ['GATHER_WOOL']
+    },
 
     // --- WEAPONS ---
     iron_sword: {
@@ -816,7 +833,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         description: 'Standard sverd. +10 Angrepskraft.',
         stats: { attack: 10 },
         // @ts-ignore
-        relevantActions: ['DEFEND', 'PATROL', 'EXPLORE'],
+        relevantActions: ['DEFEND', 'PATROL', 'EXPLORE', 'HUNT'],
         nextTierId: 'steel_sword'
     },
     steel_sword: {
@@ -830,7 +847,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         description: 'Dødelig stål. +25 Angrep, 10% raskere hugg.',
         stats: { attack: 25, speedBonus: 1.1 },
         // @ts-ignore
-        relevantActions: ['DEFEND', 'PATROL', 'EXPLORE']
+        relevantActions: ['DEFEND', 'PATROL', 'EXPLORE', 'HUNT']
     },
 
 
@@ -873,9 +890,9 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         durability: 10,
         maxDurability: 10,
         level: 1,
-        description: 'Hold verktøy skarpe. +1 Utbytte-bonus.',
+        description: 'Bruk bryne for å holde verktøy skarpe. Gir +1 i utbytte på de fleste sanke-oppgaver.',
         stats: { yieldBonus: 1 },
-        relevantActions: ['CHOP', 'MINE', 'QUARRY', 'WORK']
+        relevantActions: ['CHOP', 'MINE', 'QUARRY', 'WORK', 'HUNT', 'GATHER_WOOL']
     }
 };
 

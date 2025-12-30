@@ -373,8 +373,22 @@ const POINTS_OF_INTEREST: POI[] = [
 
     // --- FIELDS LOCAL ---
     {
-        id: 'grain_fields', label: 'Kornåker', icon: '🌾', top: '50%', left: '30%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'fields',
-        actions: [{ id: 'WORK', label: 'Høste Korn', cost: '-10⚡ -1🍞' }]
+        id: 'grain_fields', label: 'Kornåker', icon: '🌾', top: '50%', left: '20%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'fields',
+        actions: [
+            { id: 'WORK', label: 'Høste Korn', cost: '-10⚡ -1🍞' }
+        ]
+    },
+    {
+        id: 'sheep_pasture', label: 'Sauebeite', icon: '🐑', top: '35%', left: '65%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'fields',
+        actions: [
+            { id: 'GATHER_WOOL', label: 'Klipp Sauer', cost: '-15⚡' }
+        ]
+    },
+    {
+        id: 'beehives', label: 'Bikuber', icon: '🍯', top: '75%', left: '70%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'fields',
+        actions: [
+            { id: 'GATHER_HONEY', label: 'Samle Honning', cost: '-20⚡' }
+        ]
     },
 
 
@@ -396,8 +410,16 @@ const POINTS_OF_INTEREST: POI[] = [
 
     // --- FOREST LOCAL ---
     {
-        id: 'forest_clearing', label: 'Hogstfeltet', icon: '🪓', top: '60%', left: '40%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'forest',
-        actions: [{ id: 'CHOP', label: 'Hugge Ved', cost: '-15⚡ -1🍞' }]
+        id: 'forest_clearing', label: 'Hogstfeltet', icon: '🪓', top: '60%', left: '30%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'forest',
+        actions: [
+            { id: 'CHOP', label: 'Hugge Ved', cost: '-15⚡ -1🍞' }
+        ]
+    },
+    {
+        id: 'hunting_grounds', label: 'Jaktmarker', icon: '🏹', top: '30%', left: '75%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'forest',
+        actions: [
+            { id: 'HUNT', label: 'Dra på Jakt', cost: '-30⚡ -2🍞' }
+        ]
     },
     {
         id: 'forest_forage', label: 'Bærplukking', icon: '🍓', top: '60%', left: '90%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'forest',

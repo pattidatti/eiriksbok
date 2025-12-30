@@ -9,7 +9,7 @@ export interface SkillData {
     maxXp: number;
 }
 
-export type ResourceType = 'gold' | 'grain' | 'wood' | 'iron' | 'manpower' | 'timber' | 'cloth' | 'iron_ingot';
+export type ResourceType = 'gold' | 'grain' | 'wood' | 'iron_ore' | 'timber' | 'cloth' | 'iron_ingot';
 
 export interface Resources {
     gold: number;
@@ -20,12 +20,9 @@ export interface Resources {
     timber: number; // Refined wood
     iron_ore: number; // Raw iron
     iron_ingot: number; // Refined iron
-    iron: number; // Legacy, will migrate or keep as generic
     stone: number;
     swords: number;
     armor: number;
-    tools: number;
-    manpower: number;
     favor: number;
     wool: number;
     cloth: number;
@@ -153,11 +150,9 @@ export interface SimulationMarket {
     grain: MarketItem;
     flour: MarketItem;
     wood: MarketItem;
-    iron: MarketItem;
     stone: MarketItem;
     swords: MarketItem;
     armor: MarketItem;
-    tools: MarketItem;
     wool: MarketItem;
     cloth: MarketItem;
     honey: MarketItem;

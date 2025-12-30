@@ -127,7 +127,7 @@ export const handleHunt = (ctx: ActionContext) => {
         damageTool(slot, 2);
     });
 
-    const base = 5; // Base meat yield
+    const base = 8; // Base meat yield (increased from 5)
     const performance = action.performance || 0.5;
     const yieldAmount = calculateYield(actor, base, 'COMBAT', { performance, actionType: 'HUNT' });
 
@@ -136,5 +136,38 @@ export const handleHunt = (ctx: ActionContext) => {
     localResult.message = `Felte bytte og fikk ${yieldAmount} kjøtt`;
 
     trackXp('COMBAT', Math.ceil(15 * (1 + performance)));
+    return true;
+};
+
+export const handleGatherWool = (ctx: ActionContext) => {
+    const { actor, action, localResult, trackXp } = ctx;
+    const base = 6; // Base wool yield (increased from 3)
+    const performance = action.performance || 0.5;
+    const yieldAmount = calculateYield(actor, base, 'FARMING', { performance, actionType: 'GATHER_WOOL', requiresTool: true } as any);
+
+    if (yieldAmount === 0) {
+        localResult.message = `Du trenger en Saks for å klippe sauene!`;
+        return false; // Return false so costs might not be deducted or just to indicate failure
+    }
+
+    actor.resources.wool = (actor.resources.wool || 0) + yieldAmount;
+    localResult.utbytte.push({ resource: 'wool', amount: yieldAmount });
+    localResult.message = `Klippet sauer og fikk ${yieldAmount} ull`;
+
+    trackXp('FARMING', Math.ceil(10 * (1 + performance)));
+    return true;
+};
+
+export const handleGatherHoney = (ctx: ActionContext) => {
+    const { actor, action, localResult, trackXp } = ctx;
+    const base = 4; // Base honey yield (increased from 2)
+    const performance = action.performance || 0.5;
+    const yieldAmount = calculateYield(actor, base, 'FARMING', { performance, actionType: 'GATHER_HONEY' });
+
+    actor.resources.honey = (actor.resources.honey || 0) + yieldAmount;
+    localResult.utbytte.push({ resource: 'honey', amount: yieldAmount });
+    localResult.message = `Hentet ${yieldAmount} honning fra bikubene`;
+
+    trackXp('FARMING', Math.ceil(12 * (1 + performance)));
     return true;
 };
