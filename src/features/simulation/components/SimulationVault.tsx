@@ -83,11 +83,11 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
             const slot = slotElement.getAttribute('data-equipment-slot') as EquipmentSlotType;
             if (slot && item.type === 'equipment') {
                 const equipmentItem = item.data;
-                
+
                 // Priority logic: If it's a tool (AXE etc), we check if the slot matches its specific type
                 // or if it's being dropped into the general MAIN_HAND.
                 const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'].includes(equipmentItem.type);
-                
+
                 if (equipmentItem.type === slot || (slot === 'MAIN_HAND' && equipmentItem.relevantActions)) {
                     // Force specialization: if it's an axe and we are dropping it on MAIN_HAND, 
                     // maybe we should redirect to AXE slot? The user said "vi vil helst at den skal plasseres der [øks slotten]".
@@ -198,16 +198,16 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                                         <RagdollSlot slot="FEET" label={SLOT_LABELS.FEET} item={player.equipment.FEET} {...slotProps} />
                                     </div>
 
-                                    {/* WEAPONS - Placed wider for elegance */}
-                                    <div className="absolute top-[38%] left-[6%] w-24">
+                                    {/* WEAPONS - Placed wider for elegance and to clear utility slots */}
+                                    <div className="absolute top-[35%] left-[6%] w-24">
                                         <RagdollSlot slot="MAIN_HAND" label={SLOT_LABELS.MAIN_HAND} item={player.equipment.MAIN_HAND} {...slotProps} />
                                     </div>
-                                    <div className="absolute top-[38%] right-[6%] w-24">
+                                    <div className="absolute top-[35%] right-[6%] w-24">
                                         <RagdollSlot slot="OFF_HAND" label={SLOT_LABELS.OFF_HAND} item={player.equipment.OFF_HAND} {...slotProps} />
                                     </div>
 
-                                    {/* UTILITY (Curved Layout) - Moved further down to avoid overlap */}
-                                    <div className="absolute bottom-[18%] left-[8%] flex flex-col gap-8">
+                                    {/* UTILITY (Curved Layout) - Moved further down and clustered to avoid overlap */}
+                                    <div className="absolute bottom-[15%] left-[10%] flex flex-col gap-10">
                                         <div className="w-20 -rotate-6">
                                             <RagdollSlot slot="AXE" label={SLOT_LABELS.AXE} item={player.equipment.AXE} compact {...slotProps} />
                                         </div>
@@ -216,7 +216,7 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                                         </div>
                                     </div>
 
-                                    <div className="absolute bottom-[18%] right-[8%] flex flex-col gap-8 items-end">
+                                    <div className="absolute bottom-[15%] right-[10%] flex flex-col gap-10 items-end">
                                         <div className="w-20 rotate-6">
                                             <RagdollSlot slot="SCYTHE" label={SLOT_LABELS.SCYTHE} item={player.equipment.SCYTHE} compact {...slotProps} />
                                         </div>
@@ -292,7 +292,8 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
     // If it's a specialized tool (AXE, etc), it should ONLY light up its specific slot, 
     // NOT the general MAIN_HAND slot (unless it's already there).
     const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'].includes(draggedItem?.data?.type);
-    
+
+    // Check if compatible
     const isCompatible = draggedItem?.type === 'equipment' && (
         draggedItem.data.type === slot ||
         (slot === 'MAIN_HAND' && draggedItem.data.relevantActions && !isSpecializedTool)
@@ -334,11 +335,11 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
                 </div>
             </div>
 
-            <div className="min-h-[1.5rem] flex items-center justify-center pointer-events-none">
-                <span className={`text-[11px] font-black uppercase tracking-[0.2em] whitespace-nowrap px-4 py-1.5 rounded-full border transition-all duration-300 shadow-lg
-                    ${isCompatible ? 'text-indigo-200 bg-indigo-600 border-indigo-400 scale-110' :
-                        !!item ? 'text-slate-200 bg-slate-800/80 border-white/20' :
-                            'text-slate-400 bg-black/60 border-white/10 opacity-100'}
+            <div className="min-h-[1.75rem] flex items-center justify-center pointer-events-none z-20">
+                <span className={`text-[11px] font-black uppercase tracking-[0.15em] whitespace-nowrap px-4 py-1.5 rounded-full border transition-all duration-300 shadow-xl backdrop-blur-md
+                    ${isCompatible ? 'text-indigo-100 bg-indigo-600 border-indigo-400 scale-110 shadow-indigo-500/50' :
+                        !!item ? 'text-slate-200 bg-slate-900/90 border-white/20' :
+                            'text-slate-300 bg-black/60 border-white/10'}
                 `}>
                     {label}
                 </span>

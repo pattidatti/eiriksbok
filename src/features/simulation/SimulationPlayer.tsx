@@ -356,7 +356,13 @@ export const SimulationPlayer: React.FC = () => {
         }
 
 
-        setActionLoading(actionType);
+        // Check if this is a "silent" action that shouldn't trigger the global loader
+        const isSilentAction = actionType === 'EQUIP_ITEM' || actionType === 'UNEQUIP_ITEM';
+
+        if (!isSilentAction) {
+            setActionLoading(actionType);
+        }
+
         const result = await performAction(pin, player.id, action);
 
         if (result.data) {
@@ -373,7 +379,9 @@ export const SimulationPlayer: React.FC = () => {
             });
         }
 
-        setActionLoading(null);
+        if (!isSilentAction) {
+            setActionLoading(null);
+        }
         setActiveMinigame(null);
         setActiveMinigameAction(null);
         setActiveMinigameMethod(null);
