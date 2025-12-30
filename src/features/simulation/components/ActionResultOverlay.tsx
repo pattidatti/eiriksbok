@@ -54,7 +54,7 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
                         <motion.div
                             initial={{ width: "100%" }}
                             animate={{ width: "0%" }}
-                            transition={{ duration: 5, ease: "linear" }}
+                            transition={{ duration: 7, ease: "linear" }}
                             className="h-full bg-amber-500"
                         />
                     </div>
