@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
-import { ref, onValue, update } from 'firebase/database';
+import { ref, onValue, update, set } from 'firebase/database';
 
 import { useLayout } from '../../context/LayoutContext';
 
 import { simulationDb as db } from './simulationFirebase';
 import type { SimulationPlayer as SimulationPlayerType, SimulationRoom, ActionResult } from './simulationTypes';
-import { LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS } from './constants';
+import { LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS, INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT } from './constants';
 
 import { performAction } from './actions';
 import { Trophy, User as UserIcon, ArrowRight, Check } from 'lucide-react';
@@ -74,7 +74,7 @@ const SimulationGame: React.FC = () => {
         actionLoading, setActionLoading
     } = useSimulation();
 
-    const { user, loading: authLoading } = useSimulationAuth();
+    const { user, account, loading: authLoading } = useSimulationAuth();
 
     const { startPlaylist, stopMusic } = useAudio();
 
@@ -197,7 +197,7 @@ const SimulationGame: React.FC = () => {
             unsubDiplomacy();
             unsubPlayers();
         };
-    }, [pin, impersonateId]);
+    }, [pin, impersonateId, user?.uid, authLoading]);
 
     // Title Update
     useEffect(() => {
@@ -447,18 +447,18 @@ const SimulationGame: React.FC = () => {
                                     Dette er et spill om makt, ressurser og overlevelse i et føydalt samfunn.
                                 </p>
 
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
-                                        <div className="text-indigo-400 font-black text-[10px] uppercase mb-1">Bygg</div>
-                                        <p className="text-slate-500 text-xs">Samle ressurser og bygg opp produksjonen din.</p>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                                    <div className="bg-white/5 p-6 rounded-3xl border border-white/5 space-y-2">
+                                        <div className="text-indigo-400 font-black text-xs uppercase tracking-widest">Bygg</div>
+                                        <p className="text-slate-400 text-sm leading-relaxed">Samle ressurser og bygg opp produksjonen din.</p>
                                     </div>
-                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
-                                        <div className="text-indigo-400 font-black text-[10px] uppercase mb-1">Samarbeid</div>
-                                        <p className="text-slate-500 text-xs">Handle med andre og styrk baroniet ditt.</p>
+                                    <div className="bg-white/5 p-6 rounded-3xl border border-white/5 space-y-2">
+                                        <div className="text-indigo-400 font-black text-xs uppercase tracking-widest">Samarbeid</div>
+                                        <p className="text-slate-400 text-sm leading-relaxed">Handle med andre og styrk baroniet ditt.</p>
                                     </div>
-                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
-                                        <div className="text-indigo-400 font-black text-[10px] uppercase mb-1">Herske</div>
-                                        <p className="text-slate-500 text-xs">Ta politiske valg som påvirker hele riket.</p>
+                                    <div className="bg-white/5 p-6 rounded-3xl border border-white/5 space-y-2">
+                                        <div className="text-indigo-400 font-black text-xs uppercase tracking-widest">Herske</div>
+                                        <p className="text-slate-400 text-sm leading-relaxed">Ta politiske valg som påvirker hele riket.</p>
                                     </div>
                                 </div>
                             </div>
@@ -539,7 +539,7 @@ const SimulationGame: React.FC = () => {
                                         disabled={!obName.trim() || isCreating}
                                         className="flex-[2] py-5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white rounded-3xl font-black uppercase tracking-widest text-sm shadow-xl shadow-indigo-600/30 transition-all flex items-center justify-center gap-3"
                                     >
-                                        {isCreating ? 'Oppretter...' : 'Start Reises'}
+                                        {isCreating ? 'Oppretter...' : 'Start Reisen'}
                                         {!isCreating && <ArrowRight size={18} />}
                                     </button>
                                 </div>
