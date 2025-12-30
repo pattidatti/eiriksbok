@@ -41,8 +41,8 @@ export const handleRaid = (ctx: ActionContext) => {
             actor.resources.manpower = Math.max(0, actor.resources.manpower - 5);
             targetBaron.resources.manpower = Math.max(0, targetBaron.resources.manpower - 8);
 
-            localResult.yields.push({ resource: 'gold', amount: lootGold });
-            localResult.yields.push({ resource: 'grain', amount: lootGrain });
+            localResult.utbytte.push({ resource: 'gold', amount: lootGold });
+            localResult.utbytte.push({ resource: 'grain', amount: lootGrain });
             localResult.message = `Plyndret ${targetBaron.name} for ${lootGold}g og ${lootGrain} korn!`;
             trackXp('COMBAT', 50);
         } else {
@@ -67,7 +67,7 @@ export const handlePatrol = (ctx: ActionContext) => {
     actor.resources.gold = (actor.resources.gold || 0) + goldReward;
 
     trackXp('COMBAT', 10);
-    localResult.yields.push({ resource: 'gold', amount: goldReward });
+    localResult.utbytte.push({ resource: 'gold', amount: goldReward });
     localResult.message = "Utførte patrulje.";
     return true;
 };

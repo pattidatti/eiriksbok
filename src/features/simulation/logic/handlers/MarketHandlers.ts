@@ -47,7 +47,7 @@ export const handleBuy = (ctx: ActionContext) => {
     item.price += item.price * (GAME_BALANCE.MARKET.PRICE_IMPACT_BUY || 0.005);
 
     localResult.message = `Kjøpte 1 ${resource} for ${price.toFixed(1)}g`;
-    localResult.yields.push({ resource, amount: 1 });
+    localResult.utbytte.push({ resource, amount: 1 });
 
     return true;
 };

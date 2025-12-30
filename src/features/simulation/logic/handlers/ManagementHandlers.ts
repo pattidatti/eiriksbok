@@ -32,8 +32,8 @@ export const handleTax = (ctx: ActionContext) => {
     actor.resources.grain = (actor.resources.grain || 0) + taxGrain;
 
     if (taxTotal > 0 || taxGrain > 0) {
-        localResult.yields.push({ resource: 'gold', amount: taxTotal });
-        localResult.yields.push({ resource: 'grain', amount: taxGrain });
+        localResult.utbytte.push({ resource: 'gold', amount: taxTotal });
+        localResult.utbytte.push({ resource: 'grain', amount: taxGrain });
         localResult.message = `Krevde inn skatt: ${taxTotal}g og ${taxGrain} korn fra bøndene.`;
     } else {
         localResult.message = "Ingen skatt å kreve inn (bøndene er blakke).";
@@ -56,7 +56,7 @@ export const handleDraft = (ctx: ActionContext) => {
         actor.resources.gold -= costGold;
         actor.resources.grain -= costGrain;
         actor.resources.manpower = (actor.resources.manpower || 0) + 10;
-        localResult.yields.push({ resource: 'manpower', amount: 10 });
+        localResult.utbytte.push({ resource: 'manpower', amount: 10 });
         localResult.message = `Mobiliserte tropper (+10 Manpower).`;
     } else {
         localResult.success = false;
@@ -81,7 +81,7 @@ export const handleDecree = (ctx: ActionContext) => {
         }
     });
     actor.resources.gold = (actor.resources.gold || 0) + taxTotal;
-    localResult.yields.push({ resource: 'gold', amount: taxTotal });
+    localResult.utbytte.push({ resource: 'gold', amount: taxTotal });
     return true;
 };
 
@@ -143,7 +143,7 @@ export const handleContribute = (ctx: ActionContext) => {
     }
 
     localResult.message = `Bidro med ${giveAmount} ${resource} til ${buildingDef.name}.`;
-    localResult.yields.push({ resource, amount: -giveAmount });
+    localResult.utbytte.push({ resource, amount: -giveAmount });
 
     let finished = true;
     Object.entries(nextLevelDef.requirements).forEach(([res, amt]) => {
