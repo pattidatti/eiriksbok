@@ -11,6 +11,9 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [x] **Eiendeler** Utnytte widescreen bedre, penere ragdoll. Mulighet for å flytte rundt på items og kunne dra dem av og på rag-doll. 
 - [x] **items** Få en komplett oversikt over hvilke items som er, hvor de lages, foredles. Har vi items som ikke brukes til noe? Har vi items som skal brukes til noe? Er det mulig å crafte alle items som trengs? Hvor lager man hammer og sigd?Har vi produksjonsmetoder som ikke kan skaffe de nødvendige ressursene? Hva er manpower og tools til? 
 - [ ] **Minigames** De minigames som skal "treffe" et felt, som brødbaking. Der bør feltet flytte litt rundt på seg for å gjøre det mer interresant for spilleren. 
+- [ ] **Høsting** UI Høsting er klar timer vises fremedeles etter at man har høstet. 
+- [] **Fjerne slettede items** Manpower og tools ligger fremdeles i ryggsekken. 
+
 
 ## 🛠️ Planlagt (Underveis/Snart)
 - [x] **Utstyrsystem:** Videreutvikling av systemet for å ha flere verktøy utrustet samtidig.
