@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import type { SimulationPlayer, SimulationRoom } from './simulationTypes';
-import { EquipmentItem } from './simulationTypes';
-import { ITEM_TEMPLATES, CROP_DATA } from './constants';
+import type { SimulationPlayer, SimulationRoom, EquipmentItem } from './simulationTypes';
+import { ITEM_TEMPLATES } from './constants';
+import { animationManager } from './SimulationAnimations';
 
 interface MinigameProps {
     type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE' | 'SMELT' | 'BAKE' | 'WEAVE' | 'MIX' | 'PLANT' | 'HARVEST';
@@ -152,7 +152,7 @@ const PlantingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onCom
             </div>
 
             {/* Seeds */}
-            {seeds.map((s, i) => (
+            {seeds.map((s) => (
                 <div
                     key={s.id}
                     className="absolute w-4 h-4 bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(52,211,153,0.8)] animate-in zoom-in duration-300"
