@@ -44,6 +44,7 @@ export const InventoryGrid: React.FC<InventoryGridProps> = ({
             initial="hidden"
             animate="visible"
             className="space-y-8"
+            data-inventory-grid="true"
         >
             {/* Resources Section */}
             {resources.length > 0 && (

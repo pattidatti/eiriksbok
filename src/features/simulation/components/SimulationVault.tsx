@@ -83,10 +83,23 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
             const slot = slotElement.getAttribute('data-equipment-slot') as EquipmentSlotType;
             if (slot && item.type === 'equipment') {
                 const equipmentItem = item.data;
-                // If it's a valid slot for this item (or slot matches exactly)
+                
+                // Priority logic: If it's a tool (AXE etc), we check if the slot matches its specific type
+                // or if it's being dropped into the general MAIN_HAND.
+                const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'].includes(equipmentItem.type);
+                
                 if (equipmentItem.type === slot || (slot === 'MAIN_HAND' && equipmentItem.relevantActions)) {
-                    onAction({ type: 'EQUIP_ITEM', itemId: equipmentItem.id, slot });
+                    // Force specialization: if it's an axe and we are dropping it on MAIN_HAND, 
+                    // maybe we should redirect to AXE slot? The user said "vi vil helst at den skal plasseres der [øks slotten]".
+                    const targetedSlot = (isSpecializedTool && slot === 'MAIN_HAND') ? equipmentItem.type : slot;
+                    onAction({ type: 'EQUIP_ITEM', itemId: equipmentItem.id, slot: targetedSlot });
                 }
+            }
+        } else {
+            // Check if dropped back into inventory grid to unequip
+            const isInventoryDrop = dropTarget.closest('[data-inventory-grid]');
+            if (isInventoryDrop && item.type === 'equipment' && item.slot) {
+                onAction({ type: 'UNEQUIP_ITEM', slot: item.slot });
             }
         }
     };
@@ -186,34 +199,34 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                                     </div>
 
                                     {/* WEAPONS - Placed wider for elegance */}
-                                    <div className="absolute top-[38%] left-[8%] w-24">
+                                    <div className="absolute top-[38%] left-[6%] w-24">
                                         <RagdollSlot slot="MAIN_HAND" label={SLOT_LABELS.MAIN_HAND} item={player.equipment.MAIN_HAND} {...slotProps} />
                                     </div>
-                                    <div className="absolute top-[38%] right-[8%] w-24">
+                                    <div className="absolute top-[38%] right-[6%] w-24">
                                         <RagdollSlot slot="OFF_HAND" label={SLOT_LABELS.OFF_HAND} item={player.equipment.OFF_HAND} {...slotProps} />
                                     </div>
 
-                                    {/* UTILITY (Curved Layout) */}
-                                    <div className="absolute bottom-[22%] left-[4%] flex flex-col gap-6">
+                                    {/* UTILITY (Curved Layout) - Moved further down to avoid overlap */}
+                                    <div className="absolute bottom-[18%] left-[8%] flex flex-col gap-8">
                                         <div className="w-20 -rotate-6">
                                             <RagdollSlot slot="AXE" label={SLOT_LABELS.AXE} item={player.equipment.AXE} compact {...slotProps} />
                                         </div>
-                                        <div className="w-20 -rotate-3 ml-4">
+                                        <div className="w-20 -rotate-3 ml-6">
                                             <RagdollSlot slot="PICKAXE" label={SLOT_LABELS.PICKAXE} item={player.equipment.PICKAXE} compact {...slotProps} />
                                         </div>
                                     </div>
 
-                                    <div className="absolute bottom-[22%] right-[4%] flex flex-col gap-6 items-end">
+                                    <div className="absolute bottom-[18%] right-[8%] flex flex-col gap-8 items-end">
                                         <div className="w-20 rotate-6">
                                             <RagdollSlot slot="SCYTHE" label={SLOT_LABELS.SCYTHE} item={player.equipment.SCYTHE} compact {...slotProps} />
                                         </div>
-                                        <div className="w-20 rotate-3 mr-4">
+                                        <div className="w-20 rotate-3 mr-6">
                                             <RagdollSlot slot="HAMMER" label={SLOT_LABELS.HAMMER} item={player.equipment.HAMMER} compact {...slotProps} />
                                         </div>
                                     </div>
 
                                     {/* TRINKET - Floating Elegantly */}
-                                    <div className="absolute top-[12%] right-[18%] w-16">
+                                    <div className="absolute top-[12%] right-[16%] w-16">
                                         <RagdollSlot slot="TRINKET" label={SLOT_LABELS.TRINKET} item={player.equipment.TRINKET} compact {...slotProps} />
                                     </div>
                                 </div>
@@ -275,10 +288,14 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
     slot, label, item, compact, draggedItem,
     onClick, onMouseEnter, onMouseLeave, onMouseMove
 }) => {
-    // Check if currently dragged item is compatible with this slot
+    // Priority logic: 
+    // If it's a specialized tool (AXE, etc), it should ONLY light up its specific slot, 
+    // NOT the general MAIN_HAND slot (unless it's already there).
+    const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'].includes(draggedItem?.data?.type);
+    
     const isCompatible = draggedItem?.type === 'equipment' && (
         draggedItem.data.type === slot ||
-        (slot === 'MAIN_HAND' && draggedItem.data.relevantActions)
+        (slot === 'MAIN_HAND' && draggedItem.data.relevantActions && !isSpecializedTool)
     );
 
     return (
@@ -318,10 +335,10 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
             </div>
 
             <div className="min-h-[1.5rem] flex items-center justify-center pointer-events-none">
-                <span className={`text-[10px] font-black uppercase tracking-[0.2em] whitespace-nowrap px-3 py-1 rounded-full border transition-all duration-300
-                    ${isCompatible ? 'text-indigo-300 bg-indigo-500/40 border-indigo-500/50 scale-110' :
-                        !!item ? 'text-slate-300 bg-indigo-500/10 border-indigo-500/20' :
-                            'text-slate-500/60 bg-black/40 border-white/5 opacity-40 group-hover/rslot:opacity-100 group-hover/rslot:text-slate-400'}
+                <span className={`text-[11px] font-black uppercase tracking-[0.2em] whitespace-nowrap px-4 py-1.5 rounded-full border transition-all duration-300 shadow-lg
+                    ${isCompatible ? 'text-indigo-200 bg-indigo-600 border-indigo-400 scale-110' :
+                        !!item ? 'text-slate-200 bg-slate-800/80 border-white/20' :
+                            'text-slate-400 bg-black/60 border-white/10 opacity-100'}
                 `}>
                     {label}
                 </span>
