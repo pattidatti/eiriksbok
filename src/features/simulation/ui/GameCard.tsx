@@ -5,11 +5,15 @@ interface GameCardProps {
     className?: string;
     title?: string;
     action?: React.ReactNode;
+    style?: React.CSSProperties;
 }
 
-export const GameCard: React.FC<GameCardProps> = ({ children, className = '', title, action }) => {
+export const GameCard: React.FC<GameCardProps> = ({ children, className = '', title, action, style }) => {
     return (
-        <div className={`relative bg-game-ink/80 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden shadow-2xl ${className}`}>
+        <div
+            className={`relative bg-game-ink/80 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden shadow-2xl ${className}`}
+            style={style}
+        >
             {/* Header if title exists */}
             {(title || action) && (
                 <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10">
@@ -17,7 +21,7 @@ export const GameCard: React.FC<GameCardProps> = ({ children, className = '', ti
                     {action && <div>{action}</div>}
                 </div>
             )}
-            <div className="p-4">
+            <div className="p-4 h-full">
                 {children}
             </div>
         </div>

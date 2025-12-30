@@ -72,7 +72,7 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
 
                 {/* Other Tabs (Fullscreen/Full Viewport) */}
                 {activeTab !== 'MAP' && activeTab !== 'PRODUCTION' && activeTab !== 'MARKET' && (
-                    <div className={`${activeTab === 'INVENTORY' ? 'max-w-6xl' : 'max-w-4xl'} mx-auto w-full space-y-8 animate-in slide-in-from-bottom-4 duration-500`}>
+                    <div className={`${activeTab === 'INVENTORY' ? 'max-w-6xl' : activeTab === 'SKILLS' ? 'max-w-full lg:max-w-[95%]' : 'max-w-4xl'} mx-auto w-full space-y-8 animate-in slide-in-from-bottom-4 duration-500`}>
                         {activeTab === 'INVENTORY' ? (
                             <SimulationVault player={player} onAction={onAction} />
                         ) : activeTab === 'ACTIVITY' ? (

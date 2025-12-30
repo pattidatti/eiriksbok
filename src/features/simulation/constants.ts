@@ -485,11 +485,12 @@ export const REPAIR_CONFIG: Record<string, { material: ResourceType, goldCost: n
 };
 
 
-export const SKILL_DETAILS: Record<SkillType, { label: string, description: string, xpSource: string, bonuses: Record<number, string> }> = {
+export const SKILL_DETAILS: Record<SkillType, { label: string, description: string, xpSource: string, color: string, bonuses: Record<number, string> }> = {
     FARMING: {
         label: 'Jordbruk',
         description: 'Evnen til å dyrke jorden og høste korn.',
         xpSource: 'Høst korn på jordene eller arbeid i vindmøllen.',
+        color: '#10b981', // emerald-500
         bonuses: {
             2: '+5% kornhøst',
             5: '+15% kornhøst, låser opp Stålhjå',
@@ -500,6 +501,7 @@ export const SKILL_DETAILS: Record<SkillType, { label: string, description: stri
         label: 'Skogbruk',
         description: 'Felling av trær og foredling av tømmer.',
         xpSource: 'Hugg ved i skogen eller arbeid på sagbruket.',
+        color: '#d97706', // amber-600
         bonuses: {
             2: '+10% ved-yield',
             5: '+25% ved-yield, låser opp Jernøks',
@@ -510,6 +512,7 @@ export const SKILL_DETAILS: Record<SkillType, { label: string, description: stri
         label: 'Gruvedrift',
         description: 'Utvinning av malm og verdifulle mineraler.',
         xpSource: 'Arbeid i gruvene eller steinbruddet.',
+        color: '#64748b', // slate-500
         bonuses: {
             3: '+10% malm-utbytte',
             7: 'Redusert stamina-bruk ved graving',
@@ -520,6 +523,7 @@ export const SKILL_DETAILS: Record<SkillType, { label: string, description: stri
         label: 'Håndverk',
         description: 'Smiing av våpen, rustninger og verktøy.',
         xpSource: 'Lag gjenstander i smia eller bakeriet.',
+        color: '#f97316', // orange-500
         bonuses: {
             2: 'Bedre sjanse for høyere kvalitet',
             5: 'Redusert materialkostnad (-10%)',
@@ -530,6 +534,7 @@ export const SKILL_DETAILS: Record<SkillType, { label: string, description: stri
         label: 'Forvaltning',
         description: 'Ledelse, økonomi og styring av landområder.',
         xpSource: 'Samle inn skatt, passere lover eller styre regioner.',
+        color: '#6366f1', // indigo-500
         bonuses: {
             5: '+10% skatteinntekter',
             10: 'Redusert lojalitetstap ved høy skatt',
@@ -540,6 +545,7 @@ export const SKILL_DETAILS: Record<SkillType, { label: string, description: stri
         label: 'Strid',
         description: 'Kampferdighet og forsvar av riket.',
         xpSource: 'Delta i raids, forsvar regionen eller tren på vaktposten.',
+        color: '#e11d48', // rose-600
         bonuses: {
             3: '+10% angrepsstyrke',
             7: 'Bedre forsvar med skjold',
@@ -550,6 +556,7 @@ export const SKILL_DETAILS: Record<SkillType, { label: string, description: stri
         label: 'Handel',
         description: 'Kjøp og salg av varer på markedet.',
         xpSource: 'Kjøp og selg varer, eller send ut karavaner.',
+        color: '#eab308', // yellow-500
         bonuses: {
             2: '5% bedre priser',
             5: '15% bedre priser, se markedstrender',
@@ -560,6 +567,7 @@ export const SKILL_DETAILS: Record<SkillType, { label: string, description: stri
         label: 'Teologi',
         description: 'Tro og forståelse av det guddommelige.',
         xpSource: 'Be i kirken eller bidra til katedralen.',
+        color: '#8b5cf6', // violet-500
         bonuses: {
             5: 'Økt stamina-regenerering',
             10: 'Låser opp mirakler',

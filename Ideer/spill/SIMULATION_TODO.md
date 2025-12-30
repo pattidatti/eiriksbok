@@ -5,15 +5,15 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 ## 🚀 Prioritert (Neste skritt)
 - [ ] **Balansering av Utbytte:** Finjustere "Utbytte" (tidligere Yield) for ulike verktøy og handlinger.
 - [ ] **Holdbarhet:** Implementere tydeligere visuelle varsler når verktøy er i ferd med å ødelegges.
-- [ ] **Ressurser:** Legge til kilder for kjøtt (jakti skogen), ull (sauer på 33åkeren?) og honning (bikuber i åkeren).
+- [x] **Ressurser:** Legge til kilder for kjøtt (jakti skogen), ull (sauer på 33åkeren?) og honning (bikuber i åkeren).
 - [ ] **Harvest** Mer tilpassende minigames, flere varianter. Kan vi f.eks. ha et hvor man planter frø på åkeren, få opp en timer, og så høster mann inn når de er ferdige. Da bør vi også ha en notification til brukeren at åkeren er klar til å høstes. Kanskje timeren skal vises på toppen?
 - [ ] **Ferdigheter** Oppdatere UI, grid system, utnytte bredden på skjermer bedre (kanskje overflow for mindre skjermer?). Vi kan ha individuelle farger på skills for å skille dem bedre. Det bør være tydligere på tooltips ved produksjonsbygninger, harvest (og senere combat osv) hvilke skill som er aktuell og hvilket level man har. Litt på samme måte som vi har med verktøy nå, men med skiller. Må dog passe på at tooltippen ikke blir gigantisk. 
-- [ ] **Eiendeler** Utnytte widescreen bedre, penere ragdoll. Mulighet for å flytte rundt på items og kunne dra dem av og på rag-doll. 
-- [ ] **items** Få en komplett oversikt over hvilke items som er, hvor de lages, foredles. Har vi items som ikke brukes til noe? Har vi items som skal brukes til noe? Er det mulig å crafte alle items som trengs? Hvor lager man hammer og sigd?Har vi produksjonsmetoder som ikke kan skaffe de nødvendige ressursene? Hva er manpower og tools til? 
+- [x] **Eiendeler** Utnytte widescreen bedre, penere ragdoll. Mulighet for å flytte rundt på items og kunne dra dem av og på rag-doll. 
+- [x] **items** Få en komplett oversikt over hvilke items som er, hvor de lages, foredles. Har vi items som ikke brukes til noe? Har vi items som skal brukes til noe? Er det mulig å crafte alle items som trengs? Hvor lager man hammer og sigd?Har vi produksjonsmetoder som ikke kan skaffe de nødvendige ressursene? Hva er manpower og tools til? 
 - [ ] **Minigames** De minigames som skal "treffe" et felt, som brødbaking. Der bør feltet flytte litt rundt på seg for å gjøre det mer interresant for spilleren. 
 
 ## 🛠️ Planlagt (Underveis/Snart)
-- [ ] **Utstyrsystem:** Videreutvikling av systemet for å ha flere verktøy utrustet samtidig.
+- [x] **Utstyrsystem:** Videreutvikling av systemet for å ha flere verktøy utrustet samtidig.
 - [ ] **Lydbilde:** Forbedre overgangers i spillelisten og finjustere "Dempet musikk"-filteret.
 - [ ] **Handelsruter:** Implementere Merchant-spesifikke handlinger for import/eksport mellom byer.
 - [ ] **Patruljering:** Utvide soldatens patrulje-funksjon med flere typer hendelser og minispill.
