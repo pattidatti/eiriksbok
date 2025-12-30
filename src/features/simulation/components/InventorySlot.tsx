@@ -3,6 +3,7 @@ import type { EquipmentItem } from '../simulationTypes';
 import { ResourceIcon } from '../ui/ResourceIcon';
 import { motion } from 'framer-motion';
 import { Package } from 'lucide-react';
+import { ITEM_TEMPLATES } from '../constants';
 
 
 interface InventorySlotProps {
@@ -19,7 +20,7 @@ interface InventorySlotProps {
     // Drag and Drop
     isDraggable?: boolean;
     onDragStart?: (e: any) => void;
-    onDragEnd?: (e: any) => void;
+    onDragEnd?: (e: any, info: any) => void;
     layoutId?: string;
 }
 
@@ -43,24 +44,34 @@ export const InventorySlot: React.FC<InventorySlotProps> = ({
 
     const getContent = () => {
         if (item) {
+            // Internal hydration for robustness
+            let displayItem: any = item;
+            if (typeof item === 'string') {
+                displayItem = (ITEM_TEMPLATES as any)[item] || { id: item, name: item, icon: '📦' };
+            } else if (item && !displayItem.icon && displayItem.id) {
+                const baseId = displayItem.id.split('_')[0];
+                const template = (ITEM_TEMPLATES as any)[baseId];
+                if (template) displayItem = { ...template, ...item };
+            }
+
             return (
                 <div className="relative w-full h-full flex items-center justify-center group/item overflow-visible">
-                    <span className="text-7xl filter drop-shadow-2xl group-hover/item:scale-110 group-hover/item:rotate-3 transition-transform duration-500">
-                        {item.icon}
+                    <span className="text-5xl filter drop-shadow-2xl group-hover/item:scale-110 group-hover/item:rotate-3 transition-transform duration-500">
+                        {displayItem.icon || '📦'}
                     </span>
-                    {item.durability < item.maxDurability && (
+                    {displayItem.durability < displayItem.maxDurability && (
                         <div className="absolute bottom-1 left-3 right-3 h-1 bg-black/60 rounded-full overflow-hidden border border-white/10">
                             <div
-                                className={`h-full transition-all duration-1000 ${(item.durability / item.maxDurability) < 0.2 ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]' :
-                                    (item.durability / item.maxDurability) < 0.5 ? 'bg-yellow-500' : 'bg-indigo-400'
+                                className={`h-full transition-all duration-1000 ${(displayItem.durability / displayItem.maxDurability) < 0.2 ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]' :
+                                    (displayItem.durability / displayItem.maxDurability) < 0.5 ? 'bg-yellow-500' : 'bg-indigo-400'
                                     }`}
-                                style={{ width: `${(item.durability / item.maxDurability) * 100}%` }}
+                                style={{ width: `${(displayItem.durability / displayItem.maxDurability) * 100}%` }}
                             />
                         </div>
                     )}
-                    {item.level > 1 && (
+                    {displayItem.level > 1 && (
                         <div className="absolute top-1 right-2 px-1.5 py-0.5 bg-black/60 backdrop-blur-md rounded-md border border-white/10 text-[8px] font-black text-indigo-300 uppercase tracking-tighter">
-                            Lvl {item.level}
+                            Lvl {displayItem.level}
                         </div>
                     )}
                 </div>
@@ -95,7 +106,7 @@ export const InventorySlot: React.FC<InventorySlotProps> = ({
                 }
             };
             return (
-                <div className="opacity-10 flex flex-col items-center justify-center grayscale group-hover:grayscale-0 group-hover:opacity-30 transition-all duration-700">
+                <div className="opacity-15 flex flex-col items-center justify-center grayscale group-hover:grayscale-0 group-hover:opacity-30 transition-all duration-700">
                     <span className="text-4xl mb-1">{getSlotIcon()}</span>
                     <span className="text-[8px] font-black uppercase tracking-widest text-white/60">{slotType.replace('_', ' ')}</span>
                 </div>
@@ -117,7 +128,12 @@ export const InventorySlot: React.FC<InventorySlotProps> = ({
             onDragStart={onDragStart}
             onDragEnd={onDragEnd}
             whileHover={{ scale: 1.05, zIndex: 50 }}
-            whileDrag={{ scale: 1.2, zIndex: 100, boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)' }}
+            whileDrag={{
+                scale: 1.2,
+                zIndex: 100,
+                pointerEvents: 'none',
+                boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)'
+            }}
             onClick={onClick}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}

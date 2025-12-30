@@ -648,6 +648,38 @@ export const INITIAL_EQUIPMENT: Record<Role, Partial<Record<EquipmentSlot, Equip
 import type { ItemTemplate } from './simulationTypes';
 
 export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
+    // --- GENERIC / FALLBACKS ---
+    tools: {
+        id: 'tools',
+        name: 'Verktøy',
+        icon: '🛠️',
+        type: 'MAIN_HAND',
+        durability: 100,
+        maxDurability: 100,
+        level: 1,
+        description: 'Grunnleggende verktøy.'
+    },
+    weapon: {
+        id: 'weapon',
+        name: 'Sverd',
+        icon: '⚔️',
+        type: 'MAIN_HAND',
+        durability: 100,
+        maxDurability: 100,
+        level: 1,
+        description: 'Et enkelt sverd.'
+    },
+    armor: {
+        id: 'armor',
+        name: 'Rustning',
+        icon: '🧥',
+        type: 'BODY',
+        durability: 100,
+        maxDurability: 100,
+        level: 1,
+        description: 'Beskyttende rustning.'
+    },
+
     // --- TOOLS ---
     stone_axe: {
         id: 'stone_axe',

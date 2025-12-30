@@ -70,64 +70,69 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
         setTooltipContent(null); // Hide tooltip while dragging
     };
 
-    const handleDragEnd = (event: any, item: any) => {
-        setDraggedItem(null);
+    const handleDragEnd = (event: any, item: any, info?: any) => {
+        // Find coordinates (use info.point for Framer Motion precision)
+        const x = info?.point?.x ?? event.clientX;
+        const y = info?.point?.y ?? event.clientY;
 
-        // Find element at drop position
-        const dropTarget = document.elementFromPoint(event.clientX, event.clientY);
-        if (!dropTarget) return;
+        // Use elementsFromPoint (plural) to find what's UNDER the dragged item
+        const targets = document.elementsFromPoint(x, y);
 
-        // Check if the drop target is a valid equipment slot
-        const slotElement = dropTarget.closest('[data-equipment-slot]');
+        // Find the first target that is an equipment slot
+        let slotElement: Element | null = null;
+        for (const t of targets) {
+            const found = t.closest('[data-equipment-slot]');
+            if (found) {
+                slotElement = found;
+                break;
+            }
+        }
 
         if (slotElement) {
             const slot = slotElement.getAttribute('data-equipment-slot') as EquipmentSlotType;
             if (slot && item.type === 'equipment') {
                 const equipmentItem = item.data;
-
-                // Priority logic: If it's a tool (AXE etc), we prevent it from going to MAIN_HAND 
-                // if we want to force distinct slots. 
                 const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'].includes(equipmentItem.type);
 
-                // If dropping a tool on MAIN_HAND, we redirect to its proper slot if preferred,
-                // OR just simply do not allow it if the slot highlight logic is strict.
-                // Based on user feedback: "vi vil helst at den skal plasseres der [øks slotten]".
-                // So if they drop an Axe on Main Hand, let's treat it as equipping to AXE.
                 if (isSpecializedTool && slot === 'MAIN_HAND') {
                     onAction({ type: 'EQUIP_ITEM', itemId: equipmentItem.id, slot: equipmentItem.type });
-                    return;
-                }
-
-                if (equipmentItem.type === slot || (slot === 'MAIN_HAND' && equipmentItem.relevantActions)) {
+                } else if (equipmentItem.type === slot || (slot === 'MAIN_HAND' && equipmentItem.relevantActions)) {
                     onAction({ type: 'EQUIP_ITEM', itemId: equipmentItem.id, slot });
                 }
             }
         } else {
-            // Broader check for dropping back into inventory area
-            // We check for the container OR the grid itself to be safe
-            const isInventoryArea = dropTarget.closest('[data-inventory-grid]') || dropTarget.closest('.inventory-container');
+            // Check for inventory area (for unequipping)
+            const isInventoryArea = targets.some(t => t.closest('[data-inventory-grid]') || t.closest('.inventory-container'));
 
             if (isInventoryArea && item.type === 'equipment' && item.slot) {
-                // Confirm it's currently equipped (has a slot property)
                 onAction({ type: 'UNEQUIP_ITEM', slot: item.slot });
             }
         }
+
+        // Reset state AT THE END to avoid flickering during logic
+        setDraggedItem(null);
     };
+
+    const invArray = Array.isArray(player.inventory) ? player.inventory : Object.values(player.inventory || {});
+    const resourceCount = Object.values(player.resources || {}).filter(amt => (amt as number) > 0).length;
+    const inventoryCount = invArray.length + resourceCount;
+    const equipment = player.equipment || {};
+    const isDraggingFromRagdoll = !!draggedItem?.slot;
 
     const slotProps = {
         onClick: (content: any) => handleSlotClick(-1, content),
         onMouseEnter: handleSlotHover,
         onMouseLeave: handleSlotLeave,
         onMouseMove: handleSlotMove,
+        onDragStart: handleDragStart,
+        onDragEnd: handleDragEnd,
         draggedItem
     };
 
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 max-w-[1600px] mx-auto p-4 relative min-h-[800px]">
-            {/* Floating Tooltip */}
             <ItemTooltip content={tooltipContent} position={mousePos} />
 
-            {/* Drag Overlay (Visual hint for generic drag) */}
             <AnimatePresence>
                 {draggedItem && (
                     <div className="fixed inset-0 pointer-events-none z-[100] bg-indigo-500/5 animate-pulse" />
@@ -146,15 +151,13 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                 </div>
             </header>
 
-            <div className="flex flex-col xl:flex-row gap-8 items-start relative z-10">
+            <div className={`flex flex-col xl:flex-row gap-8 items-start relative ${draggedItem ? 'z-[100]' : 'z-10'}`}>
 
-                {/* Center/Left: The Ragdoll Area */}
-                <div className="flex-1 w-full xl:w-[700px] sticky top-8">
+                <div className={`flex-1 w-full xl:w-[700px] sticky top-8 transition-all duration-300 ${isDraggingFromRagdoll ? 'z-50 relative' : 'z-10'}`}>
                     <div
-                        className="bg-slate-900/60 backdrop-blur-2xl border border-white/5 overflow-hidden group/ragdoll h-[750px] flex items-center justify-center p-0 rounded-[3rem] shadow-2xl relative"
+                        className="bg-slate-900/60 backdrop-blur-2xl border border-white/5 group/ragdoll h-[750px] flex items-center justify-center p-0 rounded-[3rem] shadow-2xl relative"
                     >
-                        {/* Elegant Decorative Background */}
-                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[3rem]">
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 blur-[150px] rounded-full opacity-50" />
                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_80%)]" />
                             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #4f46e5 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
@@ -162,23 +165,16 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
 
                         <div className="relative w-full h-full flex items-center justify-center max-w-5xl">
 
-                            {/* Visual Connectors Layer (SVG) */}
                             <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible">
                                 <g className="opacity-20 stroke-indigo-400/30 fill-none" strokeWidth="1.5" strokeDasharray="4 4">
-                                    {/* Link paths using % based approx for a 750px height container */}
-                                    {/* HEAD -> Silhouette top */}
                                     <path d="M 350,120 Q 350,80 350,45" />
-                                    {/* MAIN_HAND -> Silhouette side */}
                                     <path d="M 180,300 Q 250,300 300,300" />
-                                    {/* OFF_HAND -> Silhouette side */}
                                     <path d="M 520,300 Q 450,300 400,300" />
-                                    {/* UTILITY -> Belt silhouette */}
                                     <path d="M 180,550 Q 250,550 320,500" />
                                     <path d="M 520,550 Q 450,550 380,500" />
                                 </g>
                             </svg>
 
-                            {/* Refined Character Silhouette */}
                             <div className="relative z-10 w-[450px] h-[650px] opacity-[0.2] pointer-events-none select-none">
                                 <svg viewBox="0 0 200 500" className="w-full h-full text-indigo-300 fill-current filter blur-[1px]">
                                     <path d="M100,15 c20,0,30,12,30,35 s-10,35-30,35 s-30-12-30-35 s10-35,30-35" />
@@ -190,54 +186,47 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                                 <Shield className="w-24 h-24 text-indigo-400 rotate-[-12deg]" />
                             </div>
 
-                            {/* Equipment Slots Overlaid on Ragdoll */}
                             <div className="absolute inset-0 z-20 flex items-center justify-center">
                                 <div className="relative w-full h-full">
-                                    {/* HEAD */}
                                     <div className="absolute top-[6%] left-1/2 -translate-x-1/2 w-24">
-                                        <RagdollSlot slot="HEAD" label={SLOT_LABELS.HEAD} item={player.equipment.HEAD} {...slotProps} />
+                                        <RagdollSlot slot="HEAD" label={SLOT_LABELS.HEAD} item={equipment.HEAD} {...slotProps} />
                                     </div>
 
-                                    {/* BODY */}
                                     <div className="absolute top-[35%] left-1/2 -translate-x-1/2 w-24">
-                                        <RagdollSlot slot="BODY" label={SLOT_LABELS.BODY} item={player.equipment.BODY} {...slotProps} />
+                                        <RagdollSlot slot="BODY" label={SLOT_LABELS.BODY} item={equipment.BODY} {...slotProps} />
                                     </div>
 
-                                    {/* FEET */}
                                     <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 w-24">
-                                        <RagdollSlot slot="FEET" label={SLOT_LABELS.FEET} item={player.equipment.FEET} {...slotProps} />
+                                        <RagdollSlot slot="FEET" label={SLOT_LABELS.FEET} item={equipment.FEET} {...slotProps} />
                                     </div>
 
-                                    {/* WEAPONS - Placed wider for elegance and to clear utility slots */}
                                     <div className="absolute top-[35%] left-[6%] w-24">
-                                        <RagdollSlot slot="MAIN_HAND" label={SLOT_LABELS.MAIN_HAND} item={player.equipment.MAIN_HAND} {...slotProps} />
+                                        <RagdollSlot slot="MAIN_HAND" label={SLOT_LABELS.MAIN_HAND} item={equipment.MAIN_HAND} {...slotProps} />
                                     </div>
                                     <div className="absolute top-[35%] right-[6%] w-24">
-                                        <RagdollSlot slot="OFF_HAND" label={SLOT_LABELS.OFF_HAND} item={player.equipment.OFF_HAND} {...slotProps} />
+                                        <RagdollSlot slot="OFF_HAND" label={SLOT_LABELS.OFF_HAND} item={equipment.OFF_HAND} {...slotProps} />
                                     </div>
 
-                                    {/* UTILITY (Curved Layout) - Moved further down and clustered to avoid overlap */}
                                     <div className="absolute bottom-[15%] left-[10%] flex flex-col gap-10">
                                         <div className="w-20 -rotate-6">
-                                            <RagdollSlot slot="AXE" label={SLOT_LABELS.AXE} item={player.equipment.AXE} compact {...slotProps} />
+                                            <RagdollSlot slot="AXE" label={SLOT_LABELS.AXE} item={equipment.AXE} compact {...slotProps} />
                                         </div>
                                         <div className="w-20 -rotate-3 ml-6">
-                                            <RagdollSlot slot="PICKAXE" label={SLOT_LABELS.PICKAXE} item={player.equipment.PICKAXE} compact {...slotProps} />
+                                            <RagdollSlot slot="PICKAXE" label={SLOT_LABELS.PICKAXE} item={equipment.PICKAXE} compact {...slotProps} />
                                         </div>
                                     </div>
 
                                     <div className="absolute bottom-[15%] right-[10%] flex flex-col gap-10 items-end">
                                         <div className="w-20 rotate-6">
-                                            <RagdollSlot slot="SCYTHE" label={SLOT_LABELS.SCYTHE} item={player.equipment.SCYTHE} compact {...slotProps} />
+                                            <RagdollSlot slot="SCYTHE" label={SLOT_LABELS.SCYTHE} item={equipment.SCYTHE} compact {...slotProps} />
                                         </div>
                                         <div className="w-20 rotate-3 mr-6">
-                                            <RagdollSlot slot="HAMMER" label={SLOT_LABELS.HAMMER} item={player.equipment.HAMMER} compact {...slotProps} />
+                                            <RagdollSlot slot="HAMMER" label={SLOT_LABELS.HAMMER} item={equipment.HAMMER} compact {...slotProps} />
                                         </div>
                                     </div>
 
-                                    {/* TRINKET - Floating Elegantly */}
                                     <div className="absolute top-[12%] right-[16%] w-16">
-                                        <RagdollSlot slot="TRINKET" label={SLOT_LABELS.TRINKET} item={player.equipment.TRINKET} compact {...slotProps} />
+                                        <RagdollSlot slot="TRINKET" label={SLOT_LABELS.TRINKET} item={equipment.TRINKET} compact {...slotProps} />
                                     </div>
                                 </div>
                             </div>
@@ -246,8 +235,7 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                     </div>
                 </div>
 
-                {/* Right: Inventory Grid Container */}
-                <div className="flex-1 w-full space-y-6">
+                <div className={`flex-1 w-full space-y-6 transition-all duration-300 ${draggedItem && !isDraggingFromRagdoll ? 'z-50 relative' : 'z-10'}`}>
                     <div className="flex items-center justify-between px-8 py-6 bg-slate-900/60 rounded-[2.5rem] border border-white/5 backdrop-blur-2xl shadow-xl">
                         <div className="flex items-center gap-6">
                             <div className="w-12 h-12 bg-indigo-500/20 rounded-2xl flex items-center justify-center border border-indigo-500/30">
@@ -257,7 +245,7 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                                 <h3 className="text-2xl font-black text-white uppercase tracking-tight">
                                     Din Oppakning
                                 </h3>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mt-0.5">25 plasser tilgjengelig</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mt-0.5">{inventoryCount} / 25 plasser brukt</p>
                             </div>
                         </div>
                         <div className="text-right hidden md:block">
@@ -292,21 +280,20 @@ interface RagdollSlotProps {
     onMouseEnter: (e: React.MouseEvent, content: any) => void;
     onMouseLeave: () => void;
     onMouseMove: (e: React.MouseEvent, content: any) => void;
+    onDragStart?: (item: any) => void;
+    onDragEnd?: (event: any, item: any, info: any) => void;
 }
 
 const RagdollSlot: React.FC<RagdollSlotProps> = ({
     slot, label, item, compact, draggedItem,
-    onClick, onMouseEnter, onMouseLeave, onMouseMove
+    onClick, onMouseEnter, onMouseLeave, onMouseMove,
+    onDragStart, onDragEnd
 }) => {
-    // Priority logic: 
-    // If it's a specialized tool (AXE, etc), it should ONLY light up its specific slot, 
-    // NOT the general MAIN_HAND slot.
     const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'].includes(draggedItem?.data?.type);
 
-    // STRICT COMPATIBILITY CHECK
     const isCompatible = draggedItem?.type === 'equipment' && (
         draggedItem.data.type === slot ||
-        (slot === 'MAIN_HAND' && draggedItem.data.relevantActions && !isSpecializedTool) // STRICTLY forbid specialized tools in Main Hand highlight
+        (slot === 'MAIN_HAND' && draggedItem.data.relevantActions && !isSpecializedTool)
     );
 
     return (
@@ -316,7 +303,6 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
             animate={{ scale: isCompatible ? 1.15 : 1 }}
         >
             <div className={`${compact ? 'w-16 h-16' : 'w-24 h-24'} relative`}>
-                {/* Highlight Glow for Compatible Drop or Equipped */}
                 <AnimatePresence>
                     {(isCompatible || !!item) && (
                         <motion.div
@@ -340,7 +326,9 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
                         onMouseLeave={onMouseLeave}
                         onMouseMove={(e) => onMouseMove(e, item ? { type: 'equipment', data: item, slot } : null)}
                         isDraggable={!!item}
-                        layoutId={`ragdoll-${slot}`}
+                        onDragStart={() => onDragStart?.({ type: 'equipment', data: item, slot })}
+                        onDragEnd={(e, info) => onDragEnd?.(e, { type: 'equipment', data: item, slot }, info)}
+                        layoutId={item?.id || `ragdoll-${slot}`}
                     />
                 </div>
             </div>

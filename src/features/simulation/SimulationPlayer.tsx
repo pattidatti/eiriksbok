@@ -93,7 +93,11 @@ export const SimulationPlayer: React.FC = () => {
     const [obName, setObName] = useState('');
     const [obRole, setObRole] = useState<Role>('PEASANT');
     const [isCreating, setIsCreating] = useState(false);
+    const [hasAttemptedPlayerLoad, setHasAttemptedPlayerLoad] = useState(false);
+    const [hasActiveSession, setHasActiveSession] = useState(false);
 
+    const nullTimeoutRef = useRef<any>(null);
+    const lastValidPlayerRef = useRef<SimulationPlayerType | null>(null);
     const navigate = useNavigate();
 
     // Layout Context
@@ -119,23 +123,39 @@ export const SimulationPlayer: React.FC = () => {
         // 1. Current Player Sub
         const playerRef = ref(db, `${baseUrl}/players/${playerId}`);
         const unsubPlayer = onValue(playerRef, (snap) => {
+            setHasAttemptedPlayerLoad(true);
             if (snap.exists()) {
+                // DATA RECEIVED: Clear timers and update state
+                if (nullTimeoutRef.current) {
+                    clearTimeout(nullTimeoutRef.current);
+                    nullTimeoutRef.current = null;
+                }
                 const data = snap.val();
+
                 // Auto-fix for TEST server unassigned residents
                 if (pin === 'TEST' && data.regionId === 'unassigned' && data.role !== 'KING') {
                     const newRegion = Math.random() > 0.5 ? 'region_east' : 'region_west';
                     update(playerRef, { regionId: newRegion });
                 }
-                setPlayer({ ...data, id: playerId });
+                const fullPlayerData = { ...data, id: playerId };
+                setPlayer(fullPlayerData);
+                lastValidPlayerRef.current = fullPlayerData;
+                setHasActiveSession(true);
             } else {
-                // IMPORTANT: If we are in the middle of a game, don't immediately wipe state
-                // to avoid flickering the welcome screen.
-                if (roomStatus !== 'PLAYING') {
-                    setPlayer(null);
+                // DATA MISSING (Sync Gap or Death/Retirement)
+                if (hasActiveSession) {
+                    // Start grace period but KEEP the current session active
+                    if (!nullTimeoutRef.current) {
+                        nullTimeoutRef.current = setTimeout(() => {
+                            // Definitive loss of character
+                            setIsRetired(true);
+                            setPlayer(null);
+                            setHasActiveSession(false);
+                            lastValidPlayerRef.current = null;
+                        }, 5000);
+                    }
                 } else {
-                    // If we suspect they actually died or retired, wait a brief moment or check status
-                    // For now, only set to retired if it's consistently null
-                    setIsRetired(true);
+                    // No active session, just set player to null (onboarding path)
                     setPlayer(null);
                 }
             }
@@ -448,11 +468,20 @@ export const SimulationPlayer: React.FC = () => {
         }
     };
 
-    if (authLoading) return (
-        <div className="fixed inset-0 bg-slate-950 flex items-center justify-center">
-            <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
-        </div>
-    );
+    if (authLoading || !world || !roomStatus || !hasAttemptedPlayerLoad) {
+        return (
+            <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center gap-8 p-12">
+                <div className="relative">
+                    <div className="w-24 h-24 border-4 border-indigo-500/20 rounded-full" />
+                    <div className="absolute inset-0 w-24 h-24 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+                </div>
+                <div className="text-center space-y-2">
+                    <h2 className="text-2xl font-black italic tracking-tighter uppercase text-white animate-pulse">Laster Spillet...</h2>
+                    <p className="text-[10px] font-black text-indigo-400 uppercase tracking-widest opacity-60">Synkroniserer Riket</p>
+                </div>
+            </div>
+        );
+    }
 
     if (isRetired) {
         return (
@@ -492,23 +521,10 @@ export const SimulationPlayer: React.FC = () => {
         );
     }
 
-    if (!player) {
-        // --- DEFENSIVE FLICKER PROTECTION ---
-        // If we were playing but player is briefly null, show a loader instead of onboarding
-        if (roomStatus === 'PLAYING' && world) {
-            return (
-                <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center gap-8 p-12">
-                    <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
-                    <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">Oppdaterer karakter...</p>
-                </div>
-            );
-        }
-
+    // --- PRO SESSION RENDERING ---
+    // If we have an active session, NEVER show onboarding, even if data is briefly null
+    if (!hasActiveSession && !player) {
         // --- ONBOARDING UI ---
-        // We show this even if 'world' is loading to give a good first impression.
-        // If it's a real room, we still need to verify it exists eventually, 
-        // but for now, the Welcome screen is the priority.
-
         return (
             <div className="min-h-screen bg-slate-950 flex items-center justify-center p-6 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.08)_0%,transparent_100%)]">
                 <div className="max-w-2xl w-full">
@@ -641,21 +657,6 @@ export const SimulationPlayer: React.FC = () => {
         );
     }
 
-    if (!world) {
-        return (
-            <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center gap-8 p-12">
-                <div className="relative">
-                    <div className="w-24 h-24 border-4 border-indigo-500/20 rounded-full" />
-                    <div className="absolute inset-0 w-24 h-24 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
-                </div>
-                <div className="text-center space-y-2">
-                    <h2 className="text-2xl font-black italic tracking-tighter uppercase text-white">Henter Verden...</h2>
-                    <p className="text-[10px] font-black text-indigo-400 uppercase tracking-widest animate-pulse">Laster ressurser og kart</p>
-                </div>
-            </div>
-        );
-    }
-
     // Construct a lightweight virtual room object for components that expect the full room
     // This maintains backward compatibility with SimulationHeader, SimulationSidebar, SimulationViewport
     const room = {
@@ -670,13 +671,20 @@ export const SimulationPlayer: React.FC = () => {
     } as SimulationRoom;
 
 
-    // Final safety check to satisfy TypeScript (logically unreachable)
-    if (!player) return null;
+    // Final safety check/fallback for session
+    const activePlayer = player || lastValidPlayerRef.current;
+    if (!activePlayer) return null;
 
     // --- RENDER ---
-
     return (
         <div className="relative min-h-screen bg-slate-900 text-white overflow-hidden flex flex-col">
+            {/* Sync Overlay if data is currently missing but session is active */}
+            {!player && hasActiveSession && (
+                <div className="fixed top-4 right-4 z-[3000] px-4 py-2 bg-slate-950/80 backdrop-blur-md border border-white/10 rounded-full flex items-center gap-3 animate-in fade-in slide-in-from-right-4 duration-300">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Synkroniserer...</span>
+                </div>
+            )}
             {impersonateId && (
                 <div className="fixed top-0 inset-x-0 z-[2000] bg-rose-600 text-white px-4 py-1.5 flex items-center justify-between font-black text-[10px] uppercase tracking-[0.2em] shadow-2xl border-b border-white/20">
                     <div className="flex items-center gap-4">
@@ -685,13 +693,13 @@ export const SimulationPlayer: React.FC = () => {
                             ADMIN KONTROLL AKTIV
                         </span>
                         <span className="opacity-40">|</span>
-                        <span>Styrer: <span className="text-rose-200">{player.name}</span> ({player.role})</span>
+                        <span>Styrer: <span className="text-rose-200">{activePlayer!.name}</span> ({activePlayer!.role})</span>
                     </div>
                     <button
                         onClick={() => window.close()}
                         className="bg-black/20 hover:bg-black/40 px-3 py-1 rounded-full transition-all hover:scale-105 active:scale-95 border border-white/10"
                     >
-                        Avslutt & Lukk ✕
+                        Lukk Admin-vindu
                     </button>
                 </div>
             )}
@@ -701,7 +709,7 @@ export const SimulationPlayer: React.FC = () => {
                     <div className="animate-bounce text-6xl mb-8">⏳</div>
                     <h1 className="text-4xl font-black mb-4 tracking-tighter">Venter på Kongen...</h1>
                     <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">
-                        Du er registrert som <strong className="text-white text-base block mt-2">{player.name}</strong>
+                        Du er registrert som <strong className="text-white text-base block mt-2">{activePlayer.name}</strong>
                     </p>
                 </div>
             ) : (
@@ -718,9 +726,9 @@ export const SimulationPlayer: React.FC = () => {
                             activeMinigame && (
                                 <MinigameOverlay
                                     type={activeMinigame}
-                                    playerUpgrades={player.upgrades}
-                                    equipment={Object.values(player.equipment || {})}
-                                    skills={player.skills}
+                                    playerUpgrades={activePlayer!.upgrades}
+                                    equipment={Object.values(activePlayer!.equipment || {})}
+                                    skills={activePlayer!.skills}
                                     selectedMethod={activeMinigameMethod || undefined}
                                     onComplete={(score) => handleAction({ ...(activeMinigameAction || {}), performance: score, method: activeMinigameMethod })}
                                     onCancel={() => { setActiveMinigame(null); setActiveMinigameAction(null); setActiveMinigameMethod(null); }}
@@ -729,7 +737,6 @@ export const SimulationPlayer: React.FC = () => {
                                     currentWeather={(room.world?.weather || 'Clear') as any}
                                 />
                             )
-
                         }
 
                         {/* ANIMATION LAYER */}
@@ -737,13 +744,13 @@ export const SimulationPlayer: React.FC = () => {
 
                         <div className="flex flex-col h-full w-full">
                             {/* TOP HEADER */}
-                            <SimulationHeader room={room} player={player} pin={pin} />
+                            <SimulationHeader room={room} player={activePlayer!} pin={pin} />
 
                             {/* MAIN ROW */}
                             <div className="flex flex-1 overflow-hidden">
-                                <SimulationSidebar player={player} room={room} />
+                                <SimulationSidebar player={activePlayer!} room={room} />
                                 <SimulationViewport
-                                    player={player}
+                                    player={activePlayer!}
                                     room={room}
                                     pin={pin}
                                     onAction={handleAction}

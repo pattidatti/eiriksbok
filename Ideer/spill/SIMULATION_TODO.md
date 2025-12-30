@@ -18,6 +18,7 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **Handelsruter:** Implementere Merchant-spesifikke handlinger for import/eksport mellom byer.
 - [ ] **Patruljering:** Utvide soldatens patrulje-funksjon med flere typer hendelser og minispill.
 - [ ] **Profil** Global profil må vise de aktive karakterene man har og at man kan logge inn der fra. Oppe til høyre hvor "profil" er, må navnet på profilen være. Må koble profilknappen i instillinger til global profi også. 
+- [ ] **Signup** Har lagt til Google som signup i  firebase, men dette må vel implementeres i koden vår? Samme med login antar jeg. 
 
 ## 💡 Ideer & Konsepter
 - [ ] **Diplomati:** Dypere system for forhold mellom baronier.
