@@ -305,7 +305,7 @@ export const SimulationPlayer: React.FC = () => {
         setActionResult(null);
     }, []);
 
-    const handleAction = async (action: any) => {
+    const handleAction = React.useCallback(async (action: any) => {
         if (!pin || !player || actionLoading) return;
 
         const actionType = typeof action === 'string' ? action : action.type;
@@ -317,10 +317,6 @@ export const SimulationPlayer: React.FC = () => {
             // PRE-CHECK REQUIREMENTS
             const currentSeason = (world?.season || 'Spring') as any;
             const currentWeather = (world?.weather || 'Clear') as any;
-
-            // We must temporarily map "REFINE" to the specific cost ID if needed, 
-            // but checkActionRequirements handles the 'action.id' vs 'action.type' 
-            // The tooltip uses action.id. Here we use action object which should contain the ID.
 
             const check = checkActionRequirements(player, action, currentSeason, currentWeather);
             if (!check.success) {
@@ -365,18 +361,21 @@ export const SimulationPlayer: React.FC = () => {
 
         const result = await performAction(pin, player.id, action);
 
-        if (result.data) {
-            setActionResult(result.data);
-        } else if (!result.success) {
-            // Fallback error if no data
-            setActionResult({
-                success: false,
-                timestamp: Date.now(),
-                message: `Handlingen feilet: ${(result as any).error?.message || (result as any).error || 'Ukjent feil'}`,
-                utbytte: [],
-                xp: [],
-                durability: []
-            });
+        // ONLY set results if not a silent action (avoids inventory flicker/overlay)
+        if (!isSilentAction) {
+            if (result.data) {
+                setActionResult(result.data);
+            } else if (!result.success) {
+                // Fallback error if no data
+                setActionResult({
+                    success: false,
+                    timestamp: Date.now(),
+                    message: `Handlingen feilet: ${(result as any).error?.message || (result as any).error || 'Ukjent feil'}`,
+                    utbytte: [],
+                    xp: [],
+                    durability: []
+                });
+            }
         }
 
         if (!isSilentAction) {
@@ -386,7 +385,7 @@ export const SimulationPlayer: React.FC = () => {
         setActiveMinigameAction(null);
         setActiveMinigameMethod(null);
 
-    };
+    }, [pin, player, actionLoading, world, activeMinigame, setActiveMinigame, setActiveMinigameMethod, setActiveMinigameAction, setActionLoading]);
 
     const handleCreatePlayer = async () => {
         if (!pin || !obName.trim() || isCreating) return;
