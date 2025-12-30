@@ -9,11 +9,12 @@ import type { SimulationPlayer as SimulationPlayerType, SimulationRoom, ActionRe
 import { LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS } from './constants';
 
 import { performAction } from './actions';
-import { Trophy, User as UserIcon } from 'lucide-react';
+import { Trophy, User as UserIcon, ArrowRight, Check } from 'lucide-react';
 import { MinigameOverlay } from './SimulationMinigames';
 import { SimulationProvider, useSimulation } from './SimulationContext';
 import { SimulationAudioProvider, useAudio } from './SimulationAudioContext';
 import { checkActionRequirements } from './utils/actionUtils';
+import { useSimulationAuth } from './SimulationAuthContext';
 
 
 // Components
@@ -73,6 +74,8 @@ const SimulationGame: React.FC = () => {
         actionLoading, setActionLoading
     } = useSimulation();
 
+    const { user, loading: authLoading } = useSimulationAuth();
+
     const { startPlaylist, stopMusic } = useAudio();
 
     // Data State
@@ -94,6 +97,13 @@ const SimulationGame: React.FC = () => {
     const [levelUpData, setLevelUpData] = useState<{ level: number, title: string } | null>(null);
     const [actionResult, setActionResult] = useState<ActionResult | null>(null);
     const [isRetired, setIsRetired] = useState(false);
+
+    // Onboarding State
+    const [onboardingStep, setOnboardingStep] = useState<'WELCOME' | 'CREATE' | 'SUCCESS'>('WELCOME');
+    const [obName, setObName] = useState('');
+    const [obRole, setObRole] = useState<Role>('PEASANT');
+    const [isCreating, setIsCreating] = useState(false);
+
     const navigate = useNavigate();
 
     // Layout Context
@@ -109,7 +119,9 @@ const SimulationGame: React.FC = () => {
 
     // Data Fetching
     useEffect(() => {
-        const playerId = impersonateId || localStorage.getItem('sim_player_id');
+        if (authLoading) return;
+
+        const playerId = impersonateId || localStorage.getItem('sim_player_id') || user?.uid;
         if (!playerId || !pin) return;
 
         const baseUrl = `simulation_rooms/${pin}`;
@@ -368,7 +380,204 @@ const SimulationGame: React.FC = () => {
 
     };
 
-    if (!player || !world) return <div className="p-8 text-center text-white">Laster data...</div>;
+    const handleCreatePlayer = async () => {
+        if (!pin || !obName.trim() || isCreating) return;
+        setIsCreating(true);
+
+        try {
+            const playerId = user?.uid || `guest_${Date.now()}`;
+            const role = pin === 'TEST' ? obRole : 'PEASANT';
+
+            let regionId = 'unassigned';
+            if (role === 'BARON') regionId = `region_${playerId}`;
+            else if (role === 'KING') regionId = 'capital';
+
+            const newPlayer: SimulationPlayerType = {
+                id: playerId,
+                uid: user?.uid,
+                name: obName.trim(),
+                role: role,
+                regionId: regionId,
+                resources: INITIAL_RESOURCES[role] || INITIAL_RESOURCES.PEASANT,
+                skills: INITIAL_SKILLS[role] || INITIAL_SKILLS.PEASANT,
+                stats: { xp: 0, level: 1, reputation: 50, contribution: 0 },
+                status: { hp: 100, morale: 100, stamina: 50, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
+                equipment: INITIAL_EQUIPMENT[role] || INITIAL_EQUIPMENT.PEASANT,
+                upgrades: [],
+                lastActive: Date.now()
+            };
+
+            await set(ref(db, `simulation_rooms/${pin}/players/${playerId}`), newPlayer);
+            localStorage.setItem('sim_player_id', playerId);
+            localStorage.setItem('sim_room_pin', pin);
+
+            setOnboardingStep('SUCCESS');
+            // Player subscription will pick up the new data automatically
+        } catch (err) {
+            console.error("Failed to create player:", err);
+        } finally {
+            setIsCreating(false);
+        }
+    };
+
+    if (authLoading) return (
+        <div className="fixed inset-0 bg-slate-950 flex items-center justify-center">
+            <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+        </div>
+    );
+
+    if (!player) {
+        // --- ONBOARDING UI ---
+        // We show this even if 'world' is loading to give a good first impression.
+        // If it's a real room, we still need to verify it exists eventually, 
+        // but for now, the Welcome screen is the priority.
+
+        return (
+            <div className="min-h-screen bg-slate-950 flex items-center justify-center p-6 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.08)_0%,transparent_100%)]">
+                <div className="max-w-2xl w-full">
+                    {onboardingStep === 'WELCOME' && (
+                        <div className="bg-slate-900/40 backdrop-blur-3xl border border-white/5 p-12 md:p-16 rounded-[3.5rem] text-center space-y-10 shadow-2xl animate-in fade-in zoom-in duration-500">
+                            <div className="space-y-4">
+                                <h1 className="text-6xl md:text-8xl font-black italic text-white tracking-tighter leading-none">FEUDAL SIM</h1>
+                                <p className="text-indigo-400 font-black uppercase tracking-[0.4em] text-xs">En Levende Simulator</p>
+                            </div>
+
+                            <div className="space-y-6">
+                                <p className="text-slate-400 text-lg md:text-xl font-medium max-w-md mx-auto leading-relaxed">
+                                    Dette er et spill om makt, ressurser og overlevelse i et føydalt samfunn.
+                                </p>
+
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
+                                        <div className="text-indigo-400 font-black text-[10px] uppercase mb-1">Bygg</div>
+                                        <p className="text-slate-500 text-xs">Samle ressurser og bygg opp produksjonen din.</p>
+                                    </div>
+                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
+                                        <div className="text-indigo-400 font-black text-[10px] uppercase mb-1">Samarbeid</div>
+                                        <p className="text-slate-500 text-xs">Handle med andre og styrk baroniet ditt.</p>
+                                    </div>
+                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
+                                        <div className="text-indigo-400 font-black text-[10px] uppercase mb-1">Herske</div>
+                                        <p className="text-slate-500 text-xs">Ta politiske valg som påvirker hele riket.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="pt-4 space-y-4">
+                                <button
+                                    onClick={() => {
+                                        setObName(account?.displayName || '');
+                                        setOnboardingStep('CREATE');
+                                    }}
+                                    className="px-12 py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-[2rem] font-black uppercase tracking-widest text-sm shadow-2xl shadow-indigo-600/40 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3 mx-auto w-64"
+                                >
+                                    Skap din Karakter <ArrowRight size={20} />
+                                </button>
+                                <button
+                                    onClick={() => navigate('/sim')}
+                                    className="text-slate-500 hover:text-white font-black uppercase tracking-widest text-[10px] transition-colors"
+                                >
+                                    Gå til Lobby
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {onboardingStep === 'CREATE' && (
+                        <div className="bg-slate-900 border border-white/10 p-12 rounded-[3.5rem] shadow-2xl space-y-10 animate-in slide-in-from-bottom-8 duration-500">
+                            <div className="text-center space-y-2">
+                                <h2 className="text-4xl font-black italic text-white tracking-tighter uppercase">Hvem er du?</h2>
+                                <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">Opprett din karakter i {pin}</p>
+                            </div>
+
+                            <div className="space-y-8">
+                                <div className="space-y-3">
+                                    <label className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] ml-2">Ditt Navn i Riket</label>
+                                    <div className="relative group">
+                                        <div className="absolute inset-y-0 left-6 flex items-center text-slate-500 group-focus-within:text-indigo-400">
+                                            <UserIcon size={20} />
+                                        </div>
+                                        <input
+                                            type="text"
+                                            value={obName}
+                                            onChange={(e) => setObName(e.target.value)}
+                                            placeholder="f.eks. Eirik den Røde"
+                                            className="w-full bg-slate-950 border-2 border-white/5 rounded-3xl py-5 pl-16 pr-6 text-xl font-black text-white outline-none focus:border-indigo-500/50 transition-all"
+                                        />
+                                    </div>
+                                </div>
+
+                                {pin === 'TEST' && (
+                                    <div className="space-y-3">
+                                        <label className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] ml-2">Velg din Rolle (Kun TEST-server)</label>
+                                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                            {(['PEASANT', 'SOLDIER', 'MERCHANT', 'BARON'] as Role[]).map(role => (
+                                                <button
+                                                    key={role}
+                                                    onClick={() => setObRole(role)}
+                                                    className={`py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] border-2 transition-all ${obRole === role
+                                                        ? 'bg-indigo-600/20 border-indigo-500 text-white shadow-lg shadow-indigo-600/20'
+                                                        : 'bg-white/5 border-transparent text-slate-500 hover:bg-white/10'
+                                                        }`}
+                                                >
+                                                    {role}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                <div className="pt-4 flex gap-4">
+                                    <button
+                                        onClick={() => setOnboardingStep('WELCOME')}
+                                        className="flex-1 py-5 bg-white/5 hover:bg-white/10 text-slate-400 rounded-3xl font-black uppercase tracking-widest text-xs transition-all"
+                                    >
+                                        Tilbake
+                                    </button>
+                                    <button
+                                        onClick={handleCreatePlayer}
+                                        disabled={!obName.trim() || isCreating}
+                                        className="flex-[2] py-5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white rounded-3xl font-black uppercase tracking-widest text-sm shadow-xl shadow-indigo-600/30 transition-all flex items-center justify-center gap-3"
+                                    >
+                                        {isCreating ? 'Oppretter...' : 'Start Reises'}
+                                        {!isCreating && <ArrowRight size={18} />}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {onboardingStep === 'SUCCESS' && (
+                        <div className="bg-emerald-500/10 backdrop-blur-3xl border border-emerald-500/30 p-16 rounded-[4rem] text-center space-y-8 shadow-2xl animate-in zoom-in duration-500">
+                            <div className="w-24 h-24 bg-emerald-500 rounded-[2rem] flex items-center justify-center mx-auto shadow-2xl shadow-emerald-500/40">
+                                <Check size={48} className="text-white" />
+                            </div>
+                            <div className="space-y-2">
+                                <h2 className="text-4xl font-black italic text-white tracking-tighter uppercase">Velkommen inn!</h2>
+                                <p className="text-emerald-400 font-bold uppercase tracking-widest text-xs">Din karakter er klar</p>
+                            </div>
+                            <p className="text-slate-400 font-medium">Laster dine ressurser og kartet...</p>
+                        </div>
+                    )}
+                </div>
+            </div>
+        );
+    }
+
+    if (!world) {
+        return (
+            <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center gap-8 p-12">
+                <div className="relative">
+                    <div className="w-24 h-24 border-4 border-indigo-500/20 rounded-full" />
+                    <div className="absolute inset-0 w-24 h-24 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+                </div>
+                <div className="text-center space-y-2">
+                    <h2 className="text-2xl font-black italic tracking-tighter uppercase text-white">Henter Verden...</h2>
+                    <p className="text-[10px] font-black text-indigo-400 uppercase tracking-widest animate-pulse">Laster ressurser og kart</p>
+                </div>
+            </div>
+        );
+    }
 
     // Construct a lightweight virtual room object for components that expect the full room
     // This maintains backward compatibility with SimulationHeader, SimulationSidebar, SimulationViewport

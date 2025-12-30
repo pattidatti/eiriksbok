@@ -11,6 +11,7 @@ class AudioManager {
         "Ashes of the Keep.mp3",
         "Banner at the Old Stone Keep.mp3",
         "Banner at the Old Stone Keep (1).mp3",
+        "Burning Banners Over Stone.mp3",
         "Candlelit Keep.mp3",
         "Candlelit Keep (1).mp3",
         "Crown of Quiet Rooms.mp3",

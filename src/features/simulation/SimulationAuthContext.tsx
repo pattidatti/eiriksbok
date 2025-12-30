@@ -35,13 +35,13 @@ export const SimulationAuthProvider: React.FC<{ children: ReactNode }> = ({ chil
     const [account, setAccount] = useState<SimulationAccount | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-
-    const isAnonymous = user?.isAnonymous || false;
+    const [isAnonymous, setIsAnonymous] = useState(true);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(simulationAuth, async (currentUser) => {
             if (currentUser) {
                 setUser(currentUser);
+                setIsAnonymous(currentUser.isAnonymous);
 
                 // Fetch or Initialize Account
                 const accountRef = ref(simulationDb, `simulation_accounts/${currentUser.uid}`);
@@ -69,6 +69,7 @@ export const SimulationAuthProvider: React.FC<{ children: ReactNode }> = ({ chil
                 return () => unsubAccount();
             } else {
                 // Anonymous sign in if no user
+                setIsAnonymous(true);
                 try {
                     await signInAnonymously(simulationAuth);
                 } catch (err: any) {

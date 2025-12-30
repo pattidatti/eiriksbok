@@ -25,6 +25,7 @@ export const SimulationProfile: React.FC = () => {
     const [isEditingName, setIsEditingName] = useState(false);
     const [newName, setNewName] = useState(account?.displayName || '');
     const [saving, setSaving] = useState(false);
+    const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
     const navigate = useNavigate();
     const { setFullWidth, setHideHeader } = useLayout();
 
@@ -91,12 +92,7 @@ export const SimulationProfile: React.FC = () => {
                             </button>
                         ) : (
                             <button
-                                onClick={() => {
-                                    if (confirm('Vil du logge ut?')) {
-                                        logout();
-                                        navigate('/sim');
-                                    }
-                                }}
+                                onClick={() => setShowLogoutConfirm(true)}
                                 className="px-5 py-2.5 bg-white/5 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 text-[10px] font-black uppercase tracking-widest rounded-xl border border-white/5 hover:border-rose-500/30 transition-all flex items-center gap-2"
                             >
                                 <LogOut size={14} /> Logg Ut
@@ -238,6 +234,38 @@ export const SimulationProfile: React.FC = () => {
                     </div>
                 </div>
             </div>
+            {/* Logout Confirmation Overlay */}
+            {showLogoutConfirm && (
+                <div className="fixed inset-0 z-[2000] flex items-center justify-center p-4 animate-in fade-in duration-200">
+                    <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-md" onClick={() => setShowLogoutConfirm(false)} />
+                    <div className="relative bg-slate-900 border border-white/10 p-8 rounded-[2.5rem] shadow-2xl max-w-sm w-full space-y-6 text-center animate-in zoom-in duration-300">
+                        <div className="w-20 h-20 bg-rose-500/10 rounded-3xl flex items-center justify-center mx-auto text-rose-500">
+                            <LogOut size={40} />
+                        </div>
+                        <div className="space-y-2">
+                            <h3 className="text-2xl font-black italic tracking-tighter uppercase text-white leading-none">Logge ut?</h3>
+                            <p className="text-slate-400 text-sm font-medium">Er du sikker på at du vil avslutte sesjonen? Du kan alltids logge inn igjen senere.</p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 pt-2">
+                            <button
+                                onClick={() => setShowLogoutConfirm(false)}
+                                className="py-4 bg-white/5 hover:bg-white/10 rounded-2xl text-[10px] font-black uppercase tracking-widest text-slate-400 transition-all"
+                            >
+                                Avbryt
+                            </button>
+                            <button
+                                onClick={async () => {
+                                    await logout();
+                                    navigate('/sim');
+                                }}
+                                className="py-4 bg-rose-600 hover:bg-rose-500 rounded-2xl text-[10px] font-black uppercase tracking-widest text-white transition-all shadow-lg shadow-rose-600/20"
+                            >
+                                Ja, Logg Ut
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
