@@ -226,7 +226,7 @@ const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'forge_anvil', label: 'Ambolt', icon: '🔨', top: '50%', left: '40%', roles: ['PEASANT', 'BARON'], parentId: 'great_forge',
         actions: [
-            { id: 'stone_axe', label: 'Smi Steinøks', cost: '-10stein -5ved' },
+            { id: 'stone_axe', label: 'Smi eller reparer', cost: '-10stein -5ved' },
             { id: 'stone_pickaxe', label: 'Smi Steinhakke', cost: '-10stein -5ved' },
             { id: 'iron_axe', label: 'Smi Jernøks', cost: '-5b -2t' },
             { id: 'iron_pickaxe', label: 'Smi Jernhakke', cost: '-5b -2t' },

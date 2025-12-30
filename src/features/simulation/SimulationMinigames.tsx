@@ -393,28 +393,45 @@ const HarvestingGame: React.FC<{
     const [shake, setShake] = useState(false);
     const dirRef = useRef(1);
 
+    // Drifting Target Logic
+    const [targetPos, setTargetPos] = useState(50);
+    const targetDirRef = useRef(1);
+
     useEffect(() => {
         if (strikes.length >= 5 || isFinished) return;
         const interval = setInterval(() => {
+            // Move pointer
             setPointerPos(prev => {
-                // Base speed is 2. Multiplier < 1 means SLOWER (easier), > 1 means FASTER (harder but faster completion? No, this is skill check)
-                // Actually, "Speed Bonus" usually means "Work Faster", implying easier/faster resource gain.
-                // For a rhythm game, "Faster" cursor might be harder.
-                // Let's interpret "Speed Bonus" as "Wider Success Zone" OR "Slower Cursor".
-                // Let's go with Slower Cursor for precision tools.
                 let speed = 2 / speedMultiplier;
                 let next = prev + (speed * dirRef.current);
                 if (next > 100) { dirRef.current = -1; return 100; }
                 if (next < 0) { dirRef.current = 1; return 0; }
                 return next;
             });
+
+            // Move Target (Drift)
+            setTargetPos(prev => {
+                const driftSpeed = 0.3; // Slower drift
+                let next = prev + (driftSpeed * targetDirRef.current);
+
+                // Randomly change direction sometimes to make it unpredictable
+                if (Math.random() < 0.02) targetDirRef.current *= -1;
+
+                if (next > 80) { targetDirRef.current = -1; return 80; }
+                if (next < 20) { targetDirRef.current = 1; return 20; }
+                return next;
+            });
+
         }, 16);
         return () => clearInterval(interval);
     }, [strikes.length, isFinished]);
 
     const handleStrike = () => {
         if (strikes.length >= 5 || isFinished) return;
-        const distance = Math.abs(pointerPos - 50);
+
+        // Calculate distance from dynamic target position instead of static 50
+        const distance = Math.abs(pointerPos - targetPos);
+
         let score = distance < 5 ? 1.0 : distance < 15 ? 0.7 : distance < 25 ? 0.4 : 0.1;
 
         // Calculate yield for this hit
@@ -453,8 +470,22 @@ const HarvestingGame: React.FC<{
                     <>
                         <div className="mb-4 text-xs font-black text-amber-500 uppercase tracking-widest">{resourceName}</div>
                         <div className="w-full h-8 bg-white/5 rounded-full mb-12 relative border border-white/10 overflow-hidden shadow-inner">
-                            <div className="absolute inset-y-0 left-[42%] right-[42%] bg-amber-500/30 border-x border-amber-500/50" />
-                            <div className="absolute inset-y-0 w-1 bg-white shadow-[0_0_20px_white]" style={{ left: `${pointerPos}% ` }} />
+                            {/* Drifting Target Zone Visual */}
+                            <div
+                                className="absolute inset-y-0 bg-amber-500/30 border-x border-amber-500/50 transition-all duration-75 linear"
+                                style={{
+                                    left: `${targetPos - 8}%`, // Visual width approx 16%
+                                    right: `${100 - (targetPos + 8)}%`
+                                }}
+                            />
+                            {/* Center Marker of Target */}
+                            <div
+                                className="absolute inset-y-0 w-0.5 bg-amber-400/80 z-0"
+                                style={{ left: `${targetPos}%` }}
+                            />
+
+                            {/* Player Cursor */}
+                            <div className="absolute inset-y-0 w-1 bg-white shadow-[0_0_20px_white] z-10" style={{ left: `${pointerPos}% ` }} />
                         </div>
                         <button onClick={handleStrike} className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 py-7 rounded-[2rem] font-black text-2xl shadow-2xl active:scale-95 transition-all uppercase tracking-widest border-b-4 border-amber-700">KLIKK NÅ! ⚡</button>
                     </>
@@ -680,6 +711,8 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
     const [hits, setHits] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
     const [feedback, setFeedback] = useState<{ text: string, color: string } | null>(null);
+    const [targetPos, setTargetPos] = useState(85); // Start position
+    const targetDir = useRef(-1); // Direction of target movement
 
     useEffect(() => {
         if (isFinished) return;
@@ -691,7 +724,23 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
         }, 1500 / speedMultiplier);
 
         const move = setInterval(() => {
+            // Move nodes
             setNodes(n => n.map(node => ({ ...node, pos: node.pos + (2 * speedMultiplier) })).filter(node => node.pos < 110));
+
+            // Move target zone (oscillate between 40% and 90%)
+            setTargetPos(prev => {
+                const speed = 0.5 * speedMultiplier;
+                let next = prev + (speed * targetDir.current);
+                if (next > 90) {
+                    targetDir.current = -1;
+                    return 90;
+                }
+                if (next < 40) {
+                    targetDir.current = 1;
+                    return 40;
+                }
+                return next;
+            });
         }, 32);
 
         const handleKeys = (e: KeyboardEvent) => {
@@ -708,10 +757,27 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
         };
     }, [isFinished, speedMultiplier]);
 
+    // Use a ref to access the latest targetPos in handleHit without adding it to dependencies (which would recreate the function/listener constantly if not careful, though here handleHit is called by closure or button)
+    // Actually, since handleHit is called by button onClick, it will close over state.
+    // For keydown listener, we need to be careful.
+    // Let's use a ref for targetPos to ensure the event listener always has latest value if we don't rebind it.
+    const latestTargetPos = useRef(85);
+    useEffect(() => { latestTargetPos.current = targetPos; }, [targetPos]);
+
     const handleHit = () => {
         if (isFinished) return;
         setNodes(currentNodes => {
-            const idx = currentNodes.findIndex(n => n.pos > 75 && n.pos < 98); // Slightly more generous window
+            const tPos = latestTargetPos.current;
+            // Target is roughly 12% width (w-24 on w-full max-w-2xl ~ 600px... wait. w-24 is 6rem = 96px. 96/600 is approx 15-16%).
+            // Let's define the hit window based on visual size. 
+            // If target centered at tPos %, and width is approx 15%, then bounds are tPos +/- 7.5%.
+            // Let's be generous: +/- 8%.
+
+            const hitZoneStart = tPos - 8;
+            const hitZoneEnd = tPos + 8;
+
+            const idx = currentNodes.findIndex(n => n.pos > hitZoneStart && n.pos < hitZoneEnd);
+
             if (idx !== -1) {
                 setHits(h => {
                     const next = h + 1;
@@ -747,8 +813,11 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
             </div>
 
             <div className="relative z-10 w-full max-w-2xl h-32 bg-white/5 backdrop-blur-md rounded-[2rem] border-2 border-white/10 overflow-hidden flex items-center mb-12 px-2 shadow-2xl">
-                {/* Hit Zone */}
-                <div className="absolute right-[5%] w-24 h-24 bg-amber-500/20 border-4 border-amber-500/50 rounded-2xl animate-pulse flex items-center justify-center">
+                {/* Hit Zone (Dynamic Position) */}
+                <div
+                    className="absolute w-24 h-24 bg-amber-500/20 border-4 border-amber-500/50 rounded-2xl animate-pulse flex items-center justify-center transition-all duration-75 ease-linear"
+                    style={{ left: `${targetPos}%`, transform: 'translateX(-50%)' }}
+                >
                     <div className="w-16 h-16 bg-amber-500/40 rounded-xl blur-lg" />
                 </div>
 
@@ -911,11 +980,17 @@ const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplie
     const [batch, setBatch] = useState(0);
     const [feedback, setFeedback] = useState<string | null>(null);
 
+    // Dynamic Sweet Spot
+    const [targetCenter, setTargetCenter] = useState(80); // Center of the sweet spot
+    const targetDir = useRef(-1);
+
     useEffect(() => {
         if (isFinished || feedback) return;
-        const interval = setInterval(() => {
+
+        // Progress fill
+        const fillInterval = setInterval(() => {
             setProgress(p => {
-                const next = p + (1.2 * speedMultiplier);
+                const next = p + (1.0 * speedMultiplier); // Slightly slower base fill to compensate for moving target difficulty
                 if (next >= 100) {
                     setFeedback('BRENT! 🔥');
                     setTimeout(() => { setFeedback(null); setProgress(0); }, 1000);
@@ -924,13 +999,41 @@ const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplie
                 return next;
             });
         }, 50);
-        return () => clearInterval(interval);
+
+        // Move Sweet Spot (Wandering Heat Zone)
+        const moveInterval = setInterval(() => {
+            setTargetCenter(prev => {
+                const speed = 0.8; // Movement speed of the zone
+                let next = prev + (speed * targetDir.current);
+
+                // Keep zone within reasonable bounds so it's obtainable (e.g., 40% to 90%)
+                if (next > 90) {
+                    targetDir.current = -1;
+                    return 90;
+                }
+                if (next < 40) {
+                    targetDir.current = 1;
+                    return 40;
+                }
+                return next;
+            });
+        }, 50);
+
+        return () => {
+            clearInterval(fillInterval);
+            clearInterval(moveInterval);
+        };
     }, [isFinished, feedback, speedMultiplier]);
 
     const pullOut = () => {
         if (isFinished || feedback) return;
-        // Sweet spot 70-90
-        if (progress > 65 && progress < 92) {
+
+        // Calculate dynamic bounds based on targetCenter
+        // Sweet spot width is approx 20% ( +/- 10%)
+        const zoneStart = targetCenter - 10;
+        const zoneEnd = targetCenter + 10;
+
+        if (progress > zoneStart && progress < zoneEnd) {
             setFeedback('PERFEKT GYLLEN! ✨');
             setBatch(b => {
                 const next = b + 1;
@@ -940,10 +1043,10 @@ const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplie
                 }
                 return next;
             });
-        } else if (progress < 65) {
+        } else if (progress < zoneStart) {
             setFeedback('RÅ... 🥖');
         } else {
-            setFeedback('LITT BRENT... 🥯');
+            setFeedback('LITT BRENT... 🥯'); // Overloading the high side if you miss the window
         }
         setTimeout(() => { setFeedback(null); setProgress(0); }, 1000);
     };
@@ -970,9 +1073,25 @@ const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplie
                 )}
             </div>
 
-            <div className="relative z-10 w-full max-w-sm h-4 bg-white/10 rounded-full mb-12 border border-white/10 overflow-hidden">
-                <div className="absolute inset-y-0 left-[70%] right-[10%] bg-emerald-500/30 border-x border-emerald-500/50" />
-                <div className="h-full bg-orange-500 transition-all duration-75" style={{ width: `${progress}% ` }} />
+            {/* Dynamic Progress Bar */}
+            <div className="relative z-10 w-full max-w-sm h-8 bg-white/10 rounded-full mb-12 border border-white/10 overflow-hidden">
+                {/* Moving Sweet Spot Visual */}
+                <div
+                    className="absolute inset-y-0 bg-emerald-500/30 border-x border-emerald-500/50 transition-all duration-75 ease-linear"
+                    style={{
+                        left: `${targetCenter - 10}%`,
+                        right: `${100 - (targetCenter + 10)}%`
+                    }}
+                />
+
+                {/* Progress Fill */}
+                <div className="h-full bg-orange-500 transition-all duration-75 relative z-10 opacity-80" style={{ width: `${progress}% ` }} />
+
+                {/* Target Marker Icon (optional helpful visual) */}
+                <div
+                    className="absolute top-0 bottom-0 w-1 bg-white/50 z-20"
+                    style={{ left: `${targetCenter}%` }}
+                />
             </div>
 
             <div className="relative z-10 flex gap-4 mb-8">
