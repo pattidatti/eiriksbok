@@ -1,4 +1,3 @@
-```
 import React, { useState, useEffect } from 'react';
 import type { SimulationPlayer } from '../simulationTypes';
 import { Clock, Check } from 'lucide-react';
@@ -35,13 +34,13 @@ export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ play
     const formatTime = (ms: number) => {
         const mins = Math.floor(ms / 60000);
         const secs = Math.floor((ms % 60000) / 1000);
-        return `${ mins }m ${ secs } s`;
+        return `${mins}m ${secs}s`;
     };
 
     return (
         <div className="absolute top-24 right-4 z-[40] pointer-events-none">
             <div className="bg-slate-900/80 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-xl pointer-events-auto flex items-center gap-4 transition-all hover:bg-slate-900/95">
-                <div className={`w - 10 h - 10 rounded - lg flex items - center justify - center border ${ isReady ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400 animate-pulse' : 'bg-slate-800 border-white/10 text-slate-400' } `}>
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center border ${isReady ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400 animate-pulse' : 'bg-slate-800 border-white/10 text-slate-400'}`}>
                     {isReady ? <Check size={20} /> : <Clock size={20} />}
                 </div>
 
@@ -50,7 +49,7 @@ export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ play
                         {isReady ? 'Innhøsting Klar!' : 'Neste Avling'}
                     </span>
                     <div className="flex items-center gap-2">
-                        <span className={`text - sm font - black ${ isReady ? 'text-emerald-400' : 'text-white' } `}>
+                        <span className={`text-sm font-black ${isReady ? 'text-emerald-400' : 'text-white'}`}>
                             {isReady ? 'Høst nå' : formatTime(timeLeft)}
                         </span>
                         {!isReady && (

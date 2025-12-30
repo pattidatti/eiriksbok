@@ -28,7 +28,7 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 ## 💡 Ideer & Konsepter
 - [ ] **Diplomati:** Dypere system for forhold mellom baronier.
 - [ ] **Vær-effekter:** Hvordan vær påvirker produksjon og utbytte.
-- [ ] **Tid** Spillet må kunne "kjøre" på egenhånd, med dag, natt, vær og årstider. Kanskje best å starte på år 1, og så gå videre. Sørge for at spillet bare går videre når det er aktive spillere inne, slik at det ikke kjører inn i evigheten på egenhånd. Dag kan være 10 minutter og natt 6 kanskje? Burde vi bruke måneder, eller bare årstider? Kanskje det er bedre å ikke tracke antall år, eller ihvertfall ikke vise det for spilleren, da kan spillet bare gå sitt eget forløp. 
+- [ ] **Tid** Spillet må kunne "kjøre" på egenhånd, med dag, natt, vær og årstider. Kanskje best å starte på år 1, og så gå videre. Sørge for at spillet bare går videre når det er aktive spillere inne, slik at det ikke kjører inn i evigheten på egenhånd. Dag kan være 21 minutter og natt 9 kanskje? Burde vi bruke måneder, eller bare årstider? Kanskje det er bedre å ikke tracke antall år, eller ihvertfall ikke vise det for spilleren, da kan spillet bare gå sitt eget forløp. 
 - [ ] **Historiske hendelser:** Tilfeldige hendelser basert på historisk kontekst som påvirker økonomien.
 - [ ] **Bygging:** Oppgradering av produksjonsbygninger for å låse opp nye oppskrifter.
 - [ ] **Chat-system:** Implementere et omfattende kommunikasjonssystem.
