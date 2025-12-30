@@ -3,7 +3,7 @@ import { simulationDb as db } from './simulationFirebase';
 import { ACTION_COSTS, GAME_BALANCE, INITIAL_RESOURCES, INITIAL_SKILLS, LEVEL_XP } from './constants';
 import { calculateStaminaCost } from './utils/simulationUtils';
 import { ACTION_REGISTRY } from './logic/actionRegistry';
-import type { SkillType, SimulationPlayer } from './simulationTypes';
+import type { SkillType, SimulationPlayer, EquipmentSlot } from './simulationTypes';
 
 /* --- HELPERS --- */
 
@@ -39,9 +39,9 @@ const addXp = (actor: SimulationPlayer, skillType: SkillType, amount: number, me
     }
 };
 
-export const performAction = async (pin: string, playerId: string, action: any): Promise<{ success: boolean, data?: { success: boolean, timestamp: number, message: string, yields: any[], xp: any[], durability: any[] }, error?: any }> => {
+export const performAction = async (pin: string, playerId: string, action: any): Promise<{ success: boolean, data?: { success: boolean, timestamp: number, message: string, utbytte: any[], xp: any[], durability: any[] }, error?: any }> => {
     const roomRef = ref(db, `simulation_rooms/${pin}`);
-    let result: { success: boolean, timestamp: number, message: string, yields: any[], xp: any[], durability: any[] } | null = null;
+    let result: { success: boolean, timestamp: number, message: string, utbytte: any[], xp: any[], durability: any[] } | null = null;
 
     try {
         await runTransaction(roomRef, (room: any) => {
@@ -55,7 +55,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                         success: false,
                         timestamp: Date.now(),
                         message: "Kritisk: Spillerdata mangler i rommet.",
-                        yields: [], xp: [], durability: []
+                        utbytte: [], xp: [], durability: []
                     };
                     return room;
                 }
@@ -67,7 +67,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 if (!actor.resources) actor.resources = JSON.parse(JSON.stringify(INITIAL_RESOURCES[actor.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT));
                 if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
                 if (!actor.status) actor.status = { stamina: 100, hp: 100, authority: 0, gold: actor.resources.gold || 0, level: 1, xp: 0 };
-                if (!actor.equipment) actor.equipment = { HEAD: null, BODY: null, MAIN_HAND: null, OFF_HAND: null, FEET: null, TRINKET: null };
+                if (!actor.equipment) actor.equipment = { HEAD: null, BODY: null, MAIN_HAND: null, OFF_HAND: null, FEET: null, TRINKET: null, TOOL_1: null, TOOL_2: null, TOOL_3: null };
                 if (!actor.stats) actor.stats = { level: 1, xp: 0 };
 
                 if (!room.messages || !Array.isArray(room.messages)) room.messages = [];
@@ -77,7 +77,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     success: true,
                     timestamp: Date.now(),
                     message: "",
-                    yields: [] as any[],
+                    utbytte: [] as any[],
                     xp: [] as any[],
                     durability: [] as any[]
                 };
@@ -95,7 +95,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 };
 
                 // Wrapped helper to track durability loss
-                const damageTool = (slot: 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET', amount: number) => {
+                const damageTool = (slot: EquipmentSlot, amount: number) => {
                     if (actor.equipment?.[slot]) {
                         actor.equipment[slot].durability = Math.max(0, actor.equipment[slot].durability - amount);
                         localResult.durability.push({
@@ -221,7 +221,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                     success: false,
                     timestamp: Date.now(),
                     message: `Systemfeil: ${innerError.message || 'Ukjent'}`,
-                    yields: [], xp: [], durability: []
+                    utbytte: [], xp: [], durability: []
                 };
                 return room; // Return room to at least save any passive progress
             }

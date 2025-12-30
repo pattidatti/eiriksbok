@@ -381,7 +381,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                                 </div>
 
                                                 <div className="grid grid-cols-1 gap-2">
-                                                    {/* Yield Bonus comparison */}
+                                                    {/* Utbytte-bonus comparison */}
                                                     {((nextItem.stats?.yieldBonus || 0) > 0 || (currentItem?.stats?.yieldBonus || 0) > 0) && (
                                                         <div className="flex items-center justify-between p-2 bg-white/5 rounded-xl border border-white/5">
                                                             <span className="text-[10px] font-black uppercase text-slate-400">Utbytte-bonus</span>
@@ -410,17 +410,17 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
 
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1">
-                                            <div className="text-[10px] text-slate-500 font-bold uppercase">Base Yield</div>
+                                            <div className="text-[10px] text-slate-500 font-bold uppercase">Base Utbytte</div>
                                             <div className="text-xl font-black text-white">+{selectedRecipe.outputAmount || selectedRecipe.output?.amount || 1}</div>
                                         </div>
                                         <div className="space-y-1">
-                                            <div className="text-[10px] text-emerald-500 font-bold uppercase">Skill Bonus</div>
+                                            <div className="text-[10px] text-emerald-500 font-bold uppercase">Utbytte-bonus (Evne)</div>
                                             <div className="text-xl font-black text-emerald-400">+{Math.floor((selectedRecipe.outputAmount || 1) * (player.skills?.CRAFTING?.level || 0) * 0.05)}</div>
                                         </div>
                                     </div>
                                     <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs">
                                         <span className="text-slate-500 font-bold flex items-center gap-1.5"><Zap className="w-3 h-3 text-amber-500" /> XP Gevinst:</span>
-                                        <span className="text-amber-500 font-black">+{selectedRecipe.xp || 10} Krafting XP</span>
+                                        <span className="text-amber-500 font-black">+{selectedRecipe.xp || 10} Produksjon XP</span>
                                     </div>
                                 </div>
 

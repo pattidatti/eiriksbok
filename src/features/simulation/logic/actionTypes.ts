@@ -1,4 +1,4 @@
-import type { SimulationPlayer, SimulationRoom, SkillType } from '../simulationTypes';
+import type { SimulationPlayer, SimulationRoom, SkillType, EquipmentSlot } from '../simulationTypes';
 
 /**
  * Context provided to every action handler.
@@ -15,14 +15,14 @@ export interface ActionContext {
         success: boolean;
         timestamp: number;
         message: string;
-        yields: any[];
+        utbytte: any[];
         xp: any[];
         durability: any[];
     };
     // Helper function to add XP and track it for the UI
     trackXp: (skill: SkillType, amount: number) => void;
     // Helper function to damage tools and track it for the UI
-    damageTool: (slot: 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET', amount: number) => boolean;
+    damageTool: (slot: EquipmentSlot, amount: number) => boolean;
 }
 
 /**

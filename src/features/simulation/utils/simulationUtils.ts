@@ -8,7 +8,7 @@ import type { SkillType } from '../simulationTypes';
 export const calculateYield = (
     actor: {
         skills?: Record<string, { level: number }>,
-        equipment?: Partial<Record<string, { stats?: { yieldBonus?: number } }>>
+        equipment?: Partial<Record<string, { stats?: { yieldBonus?: number }, relevantActions?: string[] }>>
     },
     baseYield: number,
     skillType: SkillType,
@@ -18,7 +18,8 @@ export const calculateYield = (
         law?: number,
         performance?: number,
         upgrades?: number,
-        isRefining?: boolean
+        isRefining?: boolean,
+        actionType?: string
     } = {}
 ) => {
     // 1. Base
@@ -35,13 +36,35 @@ export const calculateYield = (
 
     // 3. Equipment Bonus (Flat + Yield)
     let equipBonus = 0;
+    let hasRelevantTool = false;
+
     if (actor.equipment) {
-        const items = Array.isArray(actor.equipment) ? actor.equipment : Object.values(actor.equipment);
-        items.forEach(item => {
-            if (item && item.stats?.yieldBonus) equipBonus += item.stats.yieldBonus;
+        const slots = Object.keys(actor.equipment);
+        slots.forEach(slot => {
+            const item = (actor.equipment as any)[slot];
+            if (!item) return;
+
+            // Check if this item is relevant for the action
+            const isRelevant = !modifiers.actionType || item.relevantActions?.includes(modifiers.actionType);
+
+            if (isRelevant) {
+                if (item.stats?.yieldBonus) equipBonus += item.stats.yieldBonus;
+                // Only consider TOOL slots or MAIN_HAND for the "has tool" check
+                if (slot.startsWith('TOOL') || slot === 'MAIN_HAND' || slot === 'OFF_HAND') {
+                    hasRelevantTool = true;
+                }
+            }
         });
     }
+
     total += equipBonus;
+
+    // 3.5 No-tool Penalty (Utbytte-straff)
+    // If it's a gathering task and we have no relevant tool, apply a massive penalty
+    if (!modifiers.isRefining && !hasRelevantTool && modifiers.actionType !== 'FORAGE') {
+        const penalty = GAME_BALANCE.GATHERING?.NO_TOOL_PENALTY || 0.8; // 80% reduction default
+        total *= (1 - penalty);
+    }
 
     // 4. Multipliers (Season, Weather, Law, Upgrade)
     const multiplier = (modifiers.season || 1) * (modifiers.weather || 1) * (modifiers.law || 1) * (modifiers.upgrades || 1);

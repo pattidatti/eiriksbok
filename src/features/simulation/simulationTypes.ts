@@ -35,7 +35,7 @@ export interface Resources {
 }
 
 
-export type EquipmentSlot = 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET' | 'TRINKET';
+export type EquipmentSlot = 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET' | 'TRINKET' | 'TOOL_1' | 'TOOL_2' | 'TOOL_3';
 
 export interface ItemStats {
     yieldBonus?: number;
@@ -160,6 +160,8 @@ export interface SimulationMarket {
     tools: MarketItem;
     wool: MarketItem;
     cloth: MarketItem;
+    honey: MarketItem;
+    meat: MarketItem;
 }
 
 export interface SimulationRegion {
@@ -262,7 +264,7 @@ export interface ActionResult {
     success: boolean;
     timestamp: number;
     message: string;
-    yields: {
+    utbytte: {
         resource: string;
         amount: number;
         bonus?: boolean;

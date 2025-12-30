@@ -39,7 +39,7 @@ export const handleCraft = (ctx: ActionContext) => {
                 };
                 if (!actor.inventory) actor.inventory = [];
                 actor.inventory.push(newItem);
-                localResult.yields.push({ resource: recipe.outputItemId, amount: 1 });
+                localResult.utbytte.push({ resource: recipe.outputItemId, amount: 1 });
                 localResult.message = `Smidde ${newItem.name}!`;
                 trackXp('CRAFTING', 25 * recipe.level);
             }
@@ -63,7 +63,7 @@ export const handleCraft = (ctx: ActionContext) => {
         if (legacySubType === 'TOOLS') resName = 'tools';
 
         (actor.resources as any)[resName] = ((actor.resources as any)[resName] || 0) + yieldAmount;
-        localResult.yields.push({ resource: resName, amount: yieldAmount });
+        localResult.utbytte.push({ resource: resName, amount: yieldAmount });
         localResult.message = `Smidde ${yieldAmount} ${resName}`;
         trackXp('CRAFTING', Math.ceil(15 * (1 + performance)));
     }
@@ -106,7 +106,7 @@ export const handleRefine = (ctx: ActionContext) => {
             (actor.resources as any)[recipe.outputResource] = currentAmount + yieldAmount;
 
             const outputName = (RESOURCE_DETAILS as any)[recipe.outputResource]?.label || recipe.outputResource;
-            localResult.yields.push({ resource: recipe.outputResource, amount: yieldAmount });
+            localResult.utbytte.push({ resource: recipe.outputResource, amount: yieldAmount });
             localResult.message = `Produserte ${yieldAmount} ${outputName}`;
             trackXp('CRAFTING', GAME_BALANCE.SKILLS.REFINING_XP || 10);
         } else {

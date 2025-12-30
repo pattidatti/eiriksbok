@@ -17,7 +17,10 @@ const SLOT_LABELS: Record<EquipmentSlotType, string> = {
     FEET: 'Føtter',
     MAIN_HAND: 'Hovedhånd',
     OFF_HAND: 'Sidehånd',
-    TRINKET: 'Tilbehør'
+    TRINKET: 'Tilbehør',
+    TOOL_1: 'Verktøy 1',
+    TOOL_2: 'Verktøy 2',
+    TOOL_3: 'Verktøy 3'
 };
 
 export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ player, onAction }) => {
@@ -58,7 +61,11 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
         setTooltipContent(null);
     };
 
-    const equipmentSlots: EquipmentSlotType[] = ['HEAD', 'BODY', 'FEET', 'MAIN_HAND', 'OFF_HAND', 'TRINKET'];
+    const equipmentSlots: EquipmentSlotType[] = [
+        'HEAD', 'BODY', 'FEET',
+        'MAIN_HAND', 'OFF_HAND', 'TRINKET',
+        'TOOL_1', 'TOOL_2', 'TOOL_3'
+    ];
 
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 max-w-6xl mx-auto p-4 relative">

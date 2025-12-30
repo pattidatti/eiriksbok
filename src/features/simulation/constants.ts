@@ -11,6 +11,8 @@ export const INITIAL_MARKET: SimulationMarket = {
     tools: { price: 60, stock: 30, demand: 1.0 },
     wool: { price: 12, stock: 200, demand: 1.0 },
     cloth: { price: 45, stock: 50, demand: 1.0 },
+    honey: { price: 30, stock: 50, demand: 1.0 },
+    meat: { price: 25, stock: 100, demand: 1.0 },
 };
 
 export const RESOURCE_DETAILS: Record<string, { label: string, icon: string }> = {
@@ -404,6 +406,9 @@ export const GAME_BALANCE = {
         LOYALTY_PENALTY_PEASANT: 10,
         LOYALTY_PENALTY_BARON: 5
     },
+    GATHERING: {
+        NO_TOOL_PENALTY: 0.75, // 75% reduction
+    },
     YIELD: {
         WORK_GRAIN: 10,
         CHOP_WOOD: 5,
@@ -617,6 +622,7 @@ export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
 export const INITIAL_EQUIPMENT: Record<Role, Partial<Record<EquipmentSlot, EquipmentItem>>> = {
     PEASANT: {
         MAIN_HAND: { id: 'rusty_axe', name: 'Rusten Øks', icon: '🪓', type: 'MAIN_HAND', durability: 50, maxDurability: 50, level: 1, stats: { yieldBonus: 0 } },
+        TOOL_1: { id: 'stone_hoe', name: 'Steinhakke', icon: '⛏️', type: 'TOOL_1', durability: 40, maxDurability: 40, level: 1, stats: { yieldBonus: 1 } },
         BODY: { id: 'tunic', name: 'Slitt Tunika', icon: '👕', type: 'BODY', durability: 20, maxDurability: 20, level: 1, stats: { defense: 1 } }
     },
     BARON: {
@@ -735,6 +741,19 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         level: 4,
         description: 'Sylskarp hjå. +5 Utbytte, 10% raskere høsting.',
         stats: { yieldBonus: 5, speedBonus: 1.1 },
+        // @ts-ignore
+        relevantActions: ['WORK', 'HØST']
+    },
+    stone_hoe: {
+        id: 'stone_hoe',
+        name: 'Steinhakke',
+        icon: '⛏️',
+        type: 'TOOL_1',
+        durability: 40,
+        maxDurability: 40,
+        level: 1,
+        description: 'Enkel hakke for jordbruk. +1 Utbytte ved kornhøsting.',
+        stats: { yieldBonus: 1 },
         // @ts-ignore
         relevantActions: ['WORK']
     },

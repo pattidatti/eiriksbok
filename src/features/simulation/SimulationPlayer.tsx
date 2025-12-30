@@ -334,7 +334,7 @@ const SimulationGame: React.FC = () => {
                     success: false,
                     timestamp: Date.now(),
                     message: `Kan ikke utføre: ${check.reason}`,
-                    yields: [],
+                    utbytte: [],
                     xp: [],
                     durability: []
                 });
@@ -372,7 +372,7 @@ const SimulationGame: React.FC = () => {
                 success: false,
                 timestamp: Date.now(),
                 message: `Handlingen feilet: ${(result as any).error?.message || (result as any).error || 'Ukjent feil'}`,
-                yields: [],
+                utbytte: [],
                 xp: [],
                 durability: []
             });

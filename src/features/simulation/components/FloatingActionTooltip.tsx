@@ -277,14 +277,19 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                                     if (bestTool) {
                                                                         const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
                                                                         return (
-                                                                            <div className="flex items-center gap-2 bg-slate-800/80 px-2 py-1.5 rounded-xl border border-white/20 shadow-lg animate-shimmer tool-glow" title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
-                                                                                <span className="text-base drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">{bestTool.icon}</span>
-                                                                                <div className="w-10 h-1.5 bg-black/40 rounded-full overflow-hidden p-[1px] border border-white/5">
-                                                                                    <div
-                                                                                        className={`h-full rounded-full transition-all duration-500 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
-                                                                                        style={{ width: `${durabilityPct}%` }}
-                                                                                    />
+                                                                            <div className="flex flex-col items-end gap-1">
+                                                                                <div className={`flex items-center gap-2 bg-slate-800/80 px-2 py-1.5 rounded-xl border ${durabilityPct < 10 ? 'border-rose-500 animate-pulse' : 'border-white/20'} shadow-lg tool-glow`} title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
+                                                                                    <span className="text-base drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">{bestTool.icon}</span>
+                                                                                    <div className="w-10 h-1.5 bg-black/40 rounded-full overflow-hidden p-[1px] border border-white/5">
+                                                                                        <div
+                                                                                            className={`h-full rounded-full transition-all duration-500 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
+                                                                                            style={{ width: `${durabilityPct}%` }}
+                                                                                        />
+                                                                                    </div>
                                                                                 </div>
+                                                                                {durabilityPct < 10 && (
+                                                                                    <span className="text-[8px] font-black text-rose-500 uppercase tracking-tighter animate-bounce">Lite holdbarhet!</span>
+                                                                                )}
                                                                             </div>
                                                                         );
                                                                     }
@@ -443,7 +448,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                         ))}
                                                     </div>
                                                     {upg.stats?.yieldBonus && (
-                                                        <span className="text-[10px] font-black text-emerald-400">+{upg.stats.yieldBonus} Yield</span>
+                                                        <span className="text-[10px] font-black text-emerald-400">+{upg.stats.yieldBonus} Utbytte</span>
                                                     )}
                                                 </div>
 

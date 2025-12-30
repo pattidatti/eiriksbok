@@ -16,8 +16,8 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
     useEffect(() => {
         if (result) {
             // Trigger flying resources if any
-            if (result.success && result.yields && result.yields.length > 0) {
-                result.yields.forEach((y, idx) => {
+            if (result.success && result.utbytte && result.utbytte.length > 0) {
+                result.utbytte.forEach((y, idx) => {
                     if (y.amount > 0) {
                         setTimeout(() => {
                             // Target left sidebar (Inventory)
@@ -77,10 +77,10 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
                             {result.message}
                         </div>
 
-                        {/* Resources Yields */}
-                        {result.yields && result.yields.length > 0 && (
+                        {/* Utbytte */}
+                        {result.utbytte && result.utbytte.length > 0 && (
                             <div className="flex flex-wrap justify-center gap-2 mb-3">
-                                {result.yields.map((yieldItem, idx) => {
+                                {result.utbytte.map((yieldItem, idx) => {
                                     const details = RESOURCE_DETAILS[yieldItem.resource] || { label: yieldItem.resource, icon: '📦' };
                                     const isPositive = yieldItem.amount >= 0;
                                     return (
