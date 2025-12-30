@@ -11,8 +11,8 @@ import { LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS, INITIAL_RESO
 import { performAction } from './actions';
 import { Trophy, User as UserIcon, ArrowRight, Check } from 'lucide-react';
 import { MinigameOverlay } from './SimulationMinigames';
-import { SimulationProvider, useSimulation } from './SimulationContext';
-import { SimulationAudioProvider, useAudio } from './SimulationAudioContext';
+import { useSimulation } from './SimulationContext';
+import { useAudio } from './SimulationAudioContext';
 import { checkActionRequirements } from './utils/actionUtils';
 import { useSimulationAuth } from './SimulationAuthContext';
 
@@ -52,18 +52,8 @@ export default function SimulationPlayerWrapper() {
     );
 }
 
+// Combine SimulationPlayer and SimulationGame for stability and to remove redundant providers
 export const SimulationPlayer: React.FC = () => {
-    return (
-        <SimulationProvider>
-            <SimulationAudioProvider>
-                <style>{premiumStyles}</style>
-                <SimulationGame />
-            </SimulationAudioProvider>
-        </SimulationProvider>
-    );
-};
-
-const SimulationGame: React.FC = () => {
     const { pin } = useParams();
     const [searchParams] = useSearchParams();
     const impersonateId = searchParams.get('impersonate');
@@ -129,8 +119,8 @@ const SimulationGame: React.FC = () => {
         // 1. Current Player Sub
         const playerRef = ref(db, `${baseUrl}/players/${playerId}`);
         const unsubPlayer = onValue(playerRef, (snap) => {
-            const data = snap.val();
-            if (data) {
+            if (snap.exists()) {
+                const data = snap.val();
                 // Auto-fix for TEST server unassigned residents
                 if (pin === 'TEST' && data.regionId === 'unassigned' && data.role !== 'KING') {
                     const newRegion = Math.random() > 0.5 ? 'region_east' : 'region_west';
@@ -138,10 +128,15 @@ const SimulationGame: React.FC = () => {
                 }
                 setPlayer({ ...data, id: playerId });
             } else {
-                setPlayer(null);
-                // If we were in the middle of a game and data becomes null, we likely retired or died
-                if (roomStatus === 'PLAYING') {
+                // IMPORTANT: If we are in the middle of a game, don't immediately wipe state
+                // to avoid flickering the welcome screen.
+                if (roomStatus !== 'PLAYING') {
+                    setPlayer(null);
+                } else {
+                    // If we suspect they actually died or retired, wait a brief moment or check status
+                    // For now, only set to retired if it's consistently null
                     setIsRetired(true);
+                    setPlayer(null);
                 }
             }
         });
@@ -452,7 +447,56 @@ const SimulationGame: React.FC = () => {
         </div>
     );
 
+    if (isRetired) {
+        return (
+            <div className="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-xl flex items-center justify-center p-6">
+                <div className="max-w-md w-full bg-slate-900 border-2 border-indigo-500/30 rounded-[3rem] p-12 text-center shadow-2xl space-y-8 animate-in fade-in zoom-in duration-500">
+                    <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-[2rem] mx-auto flex items-center justify-center shadow-indigo-500/40 shadow-2xl">
+                        <Trophy size={48} className="text-white animate-bounce" />
+                    </div>
+
+                    <div className="space-y-2">
+                        <h2 className="text-4xl font-black italic text-white tracking-tighter">ET LIV ER OVER</h2>
+                        <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Karakteren din har trukket seg tilbake</p>
+                    </div>
+
+                    <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
+                        <p className="text-slate-400 text-sm italic">
+                            "Alle eventyr har en slutt, men legendene lever evig i krønikene."
+                        </p>
+                    </div>
+
+                    <div className="space-y-4">
+                        <button
+                            onClick={() => navigate('/sim/profile')}
+                            className="w-full py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-lg shadow-indigo-600/30 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
+                        >
+                            <UserIcon size={18} /> Se Global Profil
+                        </button>
+                        <button
+                            onClick={() => navigate('/sim')}
+                            className="w-full py-4 bg-white/5 hover:bg-white/10 text-white border border-white/5 rounded-2xl font-black uppercase tracking-widest text-xs transition-all"
+                        >
+                            Tilbake til Lobby
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     if (!player) {
+        // --- DEFENSIVE FLICKER PROTECTION ---
+        // If we were playing but player is briefly null, show a loader instead of onboarding
+        if (roomStatus === 'PLAYING' && world) {
+            return (
+                <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center gap-8 p-12">
+                    <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+                    <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">Oppdaterer karakter...</p>
+                </div>
+            );
+        }
+
         // --- ONBOARDING UI ---
         // We show this even if 'world' is loading to give a good first impression.
         // If it's a real room, we still need to verify it exists eventually, 
@@ -619,44 +663,10 @@ const SimulationGame: React.FC = () => {
     } as SimulationRoom;
 
 
+    // Final safety check to satisfy TypeScript (logically unreachable)
+    if (!player) return null;
+
     // --- RENDER ---
-    if (isRetired) {
-        return (
-            <div className="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-xl flex items-center justify-center p-6">
-                <div className="max-w-md w-full bg-slate-900 border-2 border-indigo-500/30 rounded-[3rem] p-12 text-center shadow-2xl space-y-8 animate-in fade-in zoom-in duration-500">
-                    <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-[2rem] mx-auto flex items-center justify-center shadow-indigo-500/40 shadow-2xl">
-                        <Trophy size={48} className="text-white animate-bounce" />
-                    </div>
-
-                    <div className="space-y-2">
-                        <h2 className="text-4xl font-black italic text-white tracking-tighter">ET LIV ER OVER</h2>
-                        <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Karakteren din har trukket seg tilbake</p>
-                    </div>
-
-                    <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
-                        <p className="text-slate-400 text-sm italic">
-                            "Alle eventyr har en slutt, men legendene lever evig i krønikene."
-                        </p>
-                    </div>
-
-                    <div className="space-y-4">
-                        <button
-                            onClick={() => navigate('/sim/profile')}
-                            className="w-full py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-lg shadow-indigo-600/30 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
-                        >
-                            <UserIcon size={18} /> Se Global Profil
-                        </button>
-                        <button
-                            onClick={() => navigate('/sim')}
-                            className="w-full py-4 bg-white/5 hover:bg-white/10 text-white border border-white/5 rounded-2xl font-black uppercase tracking-widest text-xs transition-all"
-                        >
-                            Tilbake til Lobby
-                        </button>
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className="relative min-h-screen bg-slate-900 text-white overflow-hidden flex flex-col">
