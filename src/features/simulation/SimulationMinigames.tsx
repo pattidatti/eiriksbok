@@ -1153,3 +1153,42 @@ const PatrolMinigameRouter: React.FC<{ onComplete: (score: number) => void }> = 
 
 
 // Export MinigameOverlay as named export (already does at line 100)
+const MinigameStyles: React.FC = () => {
+    return (
+        <style dangerouslySetInnerHTML={{
+            __html: `
+            @keyframes strike {
+                0% { transform: scale(1); opacity: 0.5; }
+                50% { transform: scale(1.5); opacity: 1; }
+                100% { transform: scale(1); opacity: 0.5; }
+            }
+            .animate-strike {
+                animation: strike 0.3s ease-out;
+            }
+            @keyframes fly-item {
+                0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+                20% { opacity: 1; scale: 1.2; }
+                100% { transform: translate(-50%, -150px) scale(0.5); opacity: 0; }
+            }
+            .animate-fly-item {
+                animation: fly-item 1s ease-out forwards;
+            }
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+            .animate-shake {
+                animation: shake 0.1s ease-in-out infinite;
+            }
+            @keyframes success-pop {
+                0% { transform: scale(0.8); opacity: 0; }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); opacity: 1; }
+            }
+            .animate-success-pop {
+                animation: success-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            }
+        `}} />
+    );
+};

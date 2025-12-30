@@ -5,8 +5,8 @@ import { useLayout } from '../../context/LayoutContext';
 
 import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES, VILLAGE_BUILDINGS, SEASONS, RESOURCE_DETAILS } from './constants';
 import type { SimulationRoom } from './simulationTypes';
+import { Globe, Lock } from 'lucide-react';
 import { assignRoles, collectTaxes } from './gameLogic';
-import { Globe, Shield, Users, Clock, Lock, Unlock, Eye, Trash2, LayoutDashboard, Database, RefreshCw } from 'lucide-react';
 
 const syncServerMetadata = async (pin: string, data: SimulationRoom | null) => {
     if (!pin || !data) return;
