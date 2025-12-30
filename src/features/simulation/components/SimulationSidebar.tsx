@@ -208,7 +208,7 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
 
                 {/* Group 1: World */}
                 <div className="space-y-1">
-                    {!isCollapsed && <div className="px-4 text-[10px] font-black uppercase text-slate-600 tracking-widest mb-2">Verden</div>}
+                    {!isCollapsed && <div className="px-4 text-xs font-black uppercase text-slate-600 tracking-widest mb-2">Verden</div>}
                     {[
                         { id: 'MAP', label: 'Verdenskart', icon: Map, hotkey: 'M' },
                         { id: 'ACTIVITY', label: 'Live Hendelser', icon: MessageSquare, hotkey: 'L' },
@@ -217,7 +217,7 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
 
                 {/* Group 2: Personal */}
                 <div className="space-y-1">
-                    {!isCollapsed && <div className="px-4 text-[10px] font-black uppercase text-slate-600 tracking-widest mb-2">Deg selv</div>}
+                    {!isCollapsed && <div className="px-4 text-xs font-black uppercase text-slate-600 tracking-widest mb-2">Deg selv</div>}
                     {[
                         { id: 'PROFILE', label: 'Profil', icon: User, hotkey: 'P' },
                         { id: 'INVENTORY', label: 'Eiendeler', icon: Package, hotkey: 'I' },
@@ -227,7 +227,7 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
 
                 {/* Group 3: Society & Politics */}
                 <div className="space-y-1">
-                    {!isCollapsed && <div className="px-4 text-[10px] font-black uppercase text-slate-600 tracking-widest mb-2">Samfunn</div>}
+                    {!isCollapsed && <div className="px-4 text-xs font-black uppercase text-slate-600 tracking-widest mb-2">Samfunn</div>}
                     {[
                         { id: 'DIPLOMACY', label: 'Diplomati', icon: MessageSquare, hotkey: 'D' },
                         { id: 'HIERARCHY', label: 'Samfunnsstruktur', icon: LayoutGrid, hotkey: 'H' },

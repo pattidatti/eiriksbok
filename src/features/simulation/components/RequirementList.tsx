@@ -11,7 +11,7 @@ interface RequirementListProps {
 export const RequirementList: React.FC<RequirementListProps> = ({ recipe, player }) => {
     return (
         <div className="space-y-3">
-            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500">
                 <Package className="w-3 h-3" /> Ressurskrav
             </div>
             <div className="grid grid-cols-1 gap-2">

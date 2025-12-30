@@ -250,7 +250,7 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                         </div>
                         <div className="text-right hidden md:block">
                             <div className="text-slate-400 text-sm italic font-medium">Bruk drag & drop</div>
-                            <div className="text-slate-600 text-[10px] uppercase font-bold tracking-tighter">Eller klikk for hurtigbruk</div>
+                            <div className="text-slate-600 text-xs uppercase font-bold tracking-tight">Eller klikk for hurtigbruk</div>
                         </div>
                     </div>
 
@@ -334,7 +334,7 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
             </div>
 
             <div className="min-h-[1.75rem] flex items-center justify-center pointer-events-none z-20">
-                <span className={`text-[11px] font-black uppercase tracking-[0.15em] whitespace-nowrap px-4 py-1.5 rounded-full border transition-all duration-300 shadow-xl backdrop-blur-md
+                <span className={`text-xs font-black uppercase tracking-[0.15em] whitespace-nowrap px-4 py-1.5 rounded-full border transition-all duration-300 shadow-xl backdrop-blur-md
                     ${isCompatible ? 'text-indigo-100 bg-indigo-600 border-indigo-400 scale-110 shadow-indigo-500/50' :
                         !!item ? 'text-slate-200 bg-slate-900/90 border-white/20' :
                             'text-slate-300 bg-black/60 border-white/10'}

@@ -43,7 +43,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
                 <div className="text-lg font-black text-white leading-tight">{info.name}</div>
                 <div className="flex items-center gap-2 mt-1">
                     <div className={`w-2 h-2 rounded-full ${isLocked ? 'bg-slate-700' : canAfford ? 'bg-emerald-500' : 'bg-rose-500 animate-pulse'}`}></div>
-                    <span className={`text-[10px] font-black uppercase tracking-widest ${isLocked ? 'text-slate-600' : canAfford ? 'text-emerald-500/70' : 'text-rose-500/70'}`}>
+                    <span className={`text-xs font-black uppercase tracking-widest ${isLocked ? 'text-slate-600' : canAfford ? 'text-emerald-500/70' : 'text-rose-500/70'}`}>
                         {isLocked ? 'Låst' : canAfford ? 'Klar til produksjon' : 'Mangler ressurser'}
                     </span>
                 </div>

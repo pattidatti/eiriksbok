@@ -30,7 +30,7 @@ export const ItemTooltip: React.FC<ItemTooltipProps> = ({ content, position }) =
                     </div>
                     <div>
                         <h4 className="text-lg font-bold text-white leading-tight">{data?.name || data?.id}</h4>
-                        <span className="text-[10px] font-black uppercase text-indigo-400 tracking-[0.2em]">
+                        <span className="text-xs font-black uppercase text-indigo-400 tracking-[0.2em]">
                             {isResource ? 'Ressurs' : 'Gjenstand'}
                         </span>
                     </div>
@@ -48,7 +48,7 @@ export const ItemTooltip: React.FC<ItemTooltipProps> = ({ content, position }) =
                     <div className="space-y-2 border-t border-white/10 pt-4 mb-4">
                         <div className="flex items-center gap-2 mb-2">
                             <Box className="w-3 h-3 text-slate-500" />
-                            <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Egenskaper</span>
+                            <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Egenskaper</span>
                         </div>
                         {Object.entries(data.stats).map(([stat, value]) => (
                             <div key={stat} className="flex justify-between items-center text-xs">
@@ -64,7 +64,7 @@ export const ItemTooltip: React.FC<ItemTooltipProps> = ({ content, position }) =
                 {/* Durability */}
                 {!isResource && data?.durability !== undefined && (
                     <div className="space-y-2">
-                        <div className="flex justify-between items-center text-[9px] font-bold uppercase tracking-widest text-slate-500">
+                        <div className="flex justify-between items-center text-xs font-bold uppercase tracking-widest text-slate-500">
                             <span className="flex items-center gap-1.5"><Timer className="w-3 h-3" /> Holdbarhet</span>
                             <span>{data.durability} / {data.maxDurability}</span>
                         </div>
@@ -82,7 +82,7 @@ export const ItemTooltip: React.FC<ItemTooltipProps> = ({ content, position }) =
                 {/* Resource Info */}
                 {isResource && (
                     <div className="mt-2 p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20">
-                        <p className="text-[10px] text-indigo-300 font-bold uppercase tracking-widest">
+                        <p className="text-xs text-indigo-300 font-bold uppercase tracking-widest">
                             Beholdning: <span className="text-white ml-2">{data.amount}</span>
                         </p>
                     </div>

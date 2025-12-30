@@ -203,7 +203,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                             <span className="text-3xl drop-shadow-md">{poi.icon}</span>
                             <div className="flex flex-col">
                                 <h3 className="font-black text-white text-sm uppercase tracking-[0.15em] leading-tight opacity-90">{poi.label}</h3>
-                                {showDetails && <span className="text-[10px] text-indigo-300 font-bold uppercase tracking-wider animate-pulse">Detaljert Visning</span>}
+                                {showDetails && <span className="text-xs text-indigo-300 font-bold uppercase tracking-wider animate-pulse">Detaljert Visning</span>}
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -260,7 +260,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                                     <span className={`text-base font-black truncate block ${canAfford ? isProduction ? 'text-indigo-400 group-hover:text-indigo-300' : 'text-white group-hover:text-amber-400' : 'text-slate-400'}`}>
                                                                         {action.label} {isProduction ? '🔨' : ''}
                                                                     </span>
-                                                                    {!canAfford && <span className="text-[10px] font-black text-rose-500/80 uppercase tracking-widest leading-tight">{missingReason}</span>}
+                                                                    {!canAfford && <span className="text-xs font-black text-rose-500/80 uppercase tracking-widest leading-tight">{missingReason}</span>}
                                                                 </div>
                                                             </div>
 
@@ -283,7 +283,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                                                     </div>
                                                                                 </div>
                                                                                 {durabilityPct < 10 && (
-                                                                                    <span className="text-[8px] font-black text-rose-500 uppercase tracking-tighter animate-bounce">Lite holdbarhet!</span>
+                                                                                    <span className="text-xs font-black text-rose-500 uppercase tracking-tighter animate-bounce">Lite holdbarhet!</span>
                                                                                 )}
                                                                             </div>
                                                                         );
@@ -299,7 +299,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                     <div className="flex justify-between items-center w-full border-b border-white/5 pb-2 mb-2">
                                                         <div className="flex flex-col">
                                                             <span className="text-lg font-bold text-white leading-tight">{action.label}</span>
-                                                            {!canAfford && <div className="text-[10px] font-black text-rose-500 uppercase tracking-widest mt-0.5">{missingReason}</div>}
+                                                            {!canAfford && <div className="text-xs font-black text-rose-500 uppercase tracking-widest mt-0.5">{missingReason}</div>}
                                                         </div>
                                                         <div className="flex items-center gap-3">
                                                             {/* Compact Tool Indicator for Variant Header */}
@@ -322,7 +322,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                                 }
                                                                 return null;
                                                             })()}
-                                                            {costLabel && <span className="text-[10px] font-black border border-white/10 px-2 py-1 rounded uppercase tracking-widest text-slate-500">{costLabel}</span>}
+                                                            {costLabel && <span className="text-xs font-black border border-white/10 px-2 py-1 rounded uppercase tracking-widest text-slate-500">{costLabel}</span>}
                                                         </div>
                                                     </div>
                                                 )}
@@ -333,7 +333,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                         {!showDetails && bonusDetails.length > 0 && (
                                             <div className="flex flex-wrap gap-2 mt-2">
                                                 {bonusDetails.slice(0, 3).map((d, i) => (
-                                                    <div key={i} className={`flex items-center gap-1 text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${d.type === 'Fart' ? 'bg-blue-500/10 border-blue-500/30 text-blue-400' : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'}`}>
+                                                    <div key={i} className={`flex items-center gap-1 text-xs font-black uppercase px-2 py-0.5 rounded-full border ${d.type === 'Fart' ? 'bg-blue-500/10 border-blue-500/30 text-blue-400' : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'}`}>
                                                         {d.value} {d.type}
                                                     </div>
                                                 ))}
@@ -396,6 +396,16 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                             if (finalUpgrades.length > 0) {
                                 const upg = finalUpgrades[0];
                                 if (!upg) return null;
+
+                                // 4. Check if we meet building requirements for this upgrade
+                                const upgRecipe = Object.values(CRAFTING_RECIPES).find((r: any) => r.outputItemId === upg.id);
+                                const settlement = room.world?.settlement || { buildings: {} };
+                                const buildingId = upgRecipe?.buildingId || 'great_forge';
+                                const currentBuildingLevel = (settlement.buildings as any)?.[buildingId]?.level || 1;
+                                const requiredLevel = upgRecipe?.level || 1;
+                                const isLockedByBuilding = currentBuildingLevel < requiredLevel;
+                                const buildingName = (VILLAGE_BUILDINGS as any)[buildingId]?.name || 'Smien';
+
                                 const currentItem = equipment.find((item: any) => {
                                     if (!item) return false;
                                     const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_'));
@@ -407,10 +417,11 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                     <div className="mt-5 pt-5 border-t border-white/10">
                                         <div className="flex flex-col gap-3">
                                             <div className="flex items-center justify-between px-1">
-                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Din Arsenal-Vei</span>
                                                 <div className="flex items-center gap-1.5">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-                                                    <span className="text-[10px] font-bold text-amber-500/80 uppercase">Oppgradering Tilgjengelig</span>
+                                                    <div className={`w-1.5 h-1.5 rounded-full ${isLockedByBuilding ? 'bg-slate-500' : 'bg-amber-500 animate-pulse'}`} />
+                                                    <span className={`text-xs font-bold uppercase ${isLockedByBuilding ? 'text-slate-500' : 'text-amber-500/80'}`}>
+                                                        {isLockedByBuilding ? `Krever ${buildingName} Lvl ${requiredLevel}` : 'Oppgradering Tilgjengelig'}
+                                                    </span>
                                                 </div>
                                             </div>
 
@@ -423,7 +434,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                     <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-2xl border border-white/10 opacity-60">
                                                         {currentItem?.icon || '❓'}
                                                     </div>
-                                                    <span className="text-[9px] font-bold text-slate-500 uppercase">Nå</span>
+                                                    <span className="text-xs font-bold text-slate-500 uppercase">Nå</span>
                                                 </div>
 
                                                 {/* Progress Arrow */}
@@ -438,26 +449,29 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                         ))}
                                                     </div>
                                                     {upg.stats?.yieldBonus && (
-                                                        <span className="text-[10px] font-black text-emerald-400">+{upg.stats.yieldBonus} Utbytte</span>
+                                                        <span className="text-xs font-black text-emerald-400">+{upg.stats.yieldBonus} Utbytte</span>
                                                     )}
                                                 </div>
 
-                                                {/* Next Tier */}
                                                 <div className="flex flex-col items-center gap-1 z-10 transition-transform group-hover:scale-105 duration-300">
                                                     <div className="relative">
-                                                        <div className="w-14 h-14 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-3xl border border-indigo-500/40 shadow-[0_0_20px_rgba(79,70,229,0.2)] animate-shimmer upgrade-glow">
+                                                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl border shadow-lg transition-all duration-300 ${isLockedByBuilding ? 'bg-slate-900/50 border-white/5 opacity-40 grayscale' : 'bg-indigo-600/20 border-indigo-500/40 shadow-[0_0_20px_rgba(79,70,229,0.2)] animate-shimmer upgrade-glow'}`}>
                                                             {upg.icon}
                                                         </div>
-                                                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-amber-500 rounded-full flex items-center justify-center border-2 border-slate-900 shadow-lg">
-                                                            <TrendingUp className="w-3 h-3 text-slate-900" strokeWidth={3} />
-                                                        </div>
+                                                        {!isLockedByBuilding && (
+                                                            <div className="absolute -top-1 -right-1 w-5 h-5 bg-amber-500 rounded-full flex items-center justify-center border-2 border-slate-900 shadow-lg">
+                                                                <TrendingUp className="w-3 h-3 text-slate-900" strokeWidth={3} />
+                                                            </div>
+                                                        )}
                                                     </div>
-                                                    <span className="text-[10px] font-black text-amber-500 uppercase tracking-tighter">{upg.name}</span>
+                                                    <span className={`text-xs font-black uppercase tracking-tighter ${isLockedByBuilding ? 'text-slate-600' : 'text-amber-500'}`}>{upg.name}</span>
                                                 </div>
                                             </div>
 
-                                            <p className="text-[10px] text-slate-400 text-center font-medium italic">
-                                                Besøk "Storsmia" i landsbyen for å smi denne.
+                                            <p className="text-xs text-slate-400 text-center font-medium italic">
+                                                {isLockedByBuilding
+                                                    ? `Oppgrader ${buildingName} til nivå ${requiredLevel} i landsbyen for å smi denne.`
+                                                    : `Besøk ${buildingName} i landsbyen for å smi denne.`}
                                             </p>
                                         </div>
                                     </div>

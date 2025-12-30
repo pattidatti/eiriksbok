@@ -23,7 +23,7 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
 
                 {room.world.settlement?.activeProjectId && (
                     <div className="flex items-center gap-3">
-                        <span className="text-[10px] font-black uppercase text-slate-500 tracking-widest">Aktivt Prosjekt:</span>
+                        <span className="text-xs font-black uppercase text-slate-500 tracking-widest">Aktivt Prosjekt:</span>
                         <div className="flex items-center gap-2">
                             <span className="text-sm font-bold text-white capitalize">{room.world.settlement.activeProjectId}</span>
                             <div className="w-24 h-1.5 bg-slate-800 rounded-full overflow-hidden">

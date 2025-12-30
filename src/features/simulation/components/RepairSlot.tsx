@@ -5,35 +5,41 @@ import { GameButton } from '../ui/GameButton';
 interface RepairSlotProps {
     slot: string;
     item: any;
-    canAfford: boolean;
-    actionLoading: boolean;
-    onAction: (action: any) => void;
-    buildingId: string;
+    isSelected: boolean;
+    onSelect: (slot: string) => void;
 }
 
 export const RepairSlot: React.FC<RepairSlotProps> = ({
     slot,
     item,
-    canAfford,
-    actionLoading,
-    onAction,
-    buildingId
+    isSelected,
+    onSelect
 }) => {
     const isDamaged = item.durability < item.maxDurability;
 
     return (
-        <div
-            className={`flex items-center gap-4 p-5 rounded-[2rem] border-2 transition-all group bg-slate-900/50 ${isDamaged ? 'border-amber-500/20 shadow-lg' : 'border-white/5 opacity-60'}`}
+        <button
+            onClick={() => onSelect(slot)}
+            className={`w-full flex items-center gap-4 p-5 rounded-[2rem] border-2 transition-all group relative overflow-hidden ${isSelected
+                ? 'border-amber-500 bg-amber-500/10 shadow-[0_0_20px_rgba(245,158,11,0.2)]'
+                : isDamaged
+                    ? 'border-amber-500/20 bg-slate-900/50 hover:border-amber-500/40 hover:bg-slate-900/70'
+                    : 'border-white/5 bg-slate-900/30 opacity-60 grayscale'
+                }`}
         >
-            <div className="w-16 h-16 bg-black/40 rounded-2xl flex items-center justify-center text-4xl shadow-inner">
+            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-4xl shadow-inner transition-colors ${isSelected ? 'bg-amber-500/20' : 'bg-black/40'
+                }`}>
                 {item.icon}
             </div>
             <div className="flex-1 text-left">
-                <div className="text-lg font-black text-white leading-tight">{item.name}</div>
+                <div className="text-lg font-black text-white leading-tight flex items-center gap-2">
+                    {item.name}
+                    {isSelected && <Wrench className="w-4 h-4 text-amber-500 animate-pulse" />}
+                </div>
                 <div className="flex flex-col mt-1">
-                    <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                    <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-slate-500">
                         <span>Holdbarhet</span>
-                        <span className={isDamaged ? 'text-amber-500' : 'text-emerald-500'}>
+                        <span className={isDamaged ? (isSelected ? 'text-amber-400' : 'text-amber-500') : 'text-emerald-500'}>
                             {item.durability}/{item.maxDurability}
                         </span>
                     </div>
@@ -46,17 +52,11 @@ export const RepairSlot: React.FC<RepairSlotProps> = ({
                 </div>
             </div>
 
-            {isDamaged && (
-                <GameButton
-                    variant="primary"
-                    size="sm"
-                    disabled={actionLoading || !canAfford}
-                    onClick={() => onAction({ type: 'REPAIR', targetSlot: slot, buildingId })}
-                    className="bg-amber-600 hover:bg-amber-500 border-amber-400/50"
-                >
-                    <Wrench className="w-4 h-4" />
-                </GameButton>
+            {isSelected && (
+                <div className="absolute right-6 top-1/2 -translate-y-1/2 text-amber-500 opacity-50">
+                    <div className="w-1.5 h-1.5 rounded-full bg-current animate-ping" />
+                </div>
             )}
-        </div>
+        </button>
     );
 };

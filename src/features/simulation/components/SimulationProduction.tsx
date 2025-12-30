@@ -1,9 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useSimulation } from '../SimulationContext';
 import { REFINERY_RECIPES, CRAFTING_RECIPES, RESOURCE_DETAILS, ITEM_TEMPLATES, VILLAGE_BUILDINGS, REPAIR_CONFIG } from '../constants';
 import type { SimulationPlayer, SimulationRoom, EquipmentSlot } from '../simulationTypes';
 import { GameButton } from '../ui/GameButton';
-import { Info, Zap, TrendingUp, Package } from 'lucide-react';
+import { Info, Zap, TrendingUp, Package, Wrench } from 'lucide-react';
 import { checkActionRequirements } from '../utils/actionUtils';
 
 import { ResourceIcon } from '../ui/ResourceIcon';
@@ -24,8 +24,12 @@ interface SimulationProductionProps {
 export const SimulationProduction: React.FC<SimulationProductionProps> = React.memo(({ player, room, onAction }) => {
 
     const { productionContext, setActiveTab, actionLoading } = useSimulation();
-    const [selectedRecipeId, setSelectedRecipeId] = useState<string | null>(null);
     const [viewMode, setViewMode] = useState<'PRODUCE' | 'REPAIR'>('PRODUCE');
+    const [selectedRecipeId, setSelectedRecipeId] = useState<string | null>(null);
+    const [selectedRepairSlot, setSelectedRepairSlot] = useState<string | null>(null);
+
+    // Derived values
+    const selectedItemToRepair = viewMode === 'REPAIR' && selectedRepairSlot ? player.equipment[selectedRepairSlot as EquipmentSlot] : null;
 
     if (!productionContext) {
         return (
@@ -69,6 +73,23 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
         return type === 'REFINE' ? REFINERY_RECIPES[selectedRecipeId] : CRAFTING_RECIPES[selectedRecipeId];
     }, [selectedRecipeId, type]);
 
+    // Auto-select defaults
+    useEffect(() => {
+        if (isStationWithRepair && !selectedRepairSlot && viewMode === 'REPAIR') {
+            // Optional: Auto-select first damaged item? Maybe better to let user choose.
+        }
+
+        if (!selectedRecipeId && recipesByLevel.length > 0) {
+            const firstRecipe = recipesByLevel[0][1][0][0];
+            setSelectedRecipeId(firstRecipe);
+        }
+    }, [isStationWithRepair, recipesByLevel, selectedRecipeId]);
+
+    useEffect(() => {
+        // Always default to PRODUCE unless explicitly entering a repair context (which we don't have a deep link for yet)
+        setViewMode('PRODUCE');
+    }, [isStationWithRepair]);
+
     // Derived info for selected recipe
     const getOutputInfo = (_id: string, r: any) => {
         if (type === 'REFINE') {
@@ -107,6 +128,11 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
         }
     };
 
+    const handleRepair = () => {
+        if (!selectedRepairSlot || !buildingId) return;
+        onAction({ type: 'REPAIR', targetSlot: selectedRepairSlot, buildingId });
+    };
+
     return (
         <div className="bg-slate-900/90 border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-2xl relative w-full max-w-7xl max-h-[90vh] overflow-y-auto custom-scrollbar animate-in zoom-in-95 duration-300">
             {/* Close Button Trigger */}
@@ -138,12 +164,12 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                 return (
                                     <div key={levelStr} className="space-y-4">
                                         <div className="flex items-center gap-3">
-                                            <div className={`px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase ${isLocked ? 'bg-slate-800 text-slate-500' : 'bg-indigo-600 text-white'}`}>
+                                            <div className={`px-3 py-1 rounded-full text-xs font-black tracking-widest uppercase ${isLocked ? 'bg-slate-800 text-slate-500' : 'bg-indigo-600 text-white'}`}>
                                                 Tier {levelStr}
                                             </div>
                                             <div className="flex-1 h-px bg-white/5"></div>
                                             {isLocked && (
-                                                <span className="text-[10px] font-bold text-slate-600 italic flex items-center gap-1">
+                                                <span className="text-xs font-bold text-slate-600 italic flex items-center gap-1">
                                                     <Package className="w-3 h-3" /> Oppgrader {building?.name} til Nivå {levelStr}
                                                 </span>
                                             )}
@@ -179,19 +205,13 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                     const item = player.equipment[slot as EquipmentSlot];
                                     if (!item) return null;
 
-                                    const config = REPAIR_CONFIG[buildingId];
-                                    const canAfford = (player.resources.gold || 0) >= config.goldCost &&
-                                        ((player.resources as any)[config.material] || 0) >= 1;
-
                                     return (
                                         <RepairSlot
                                             key={slot}
                                             slot={slot}
                                             item={item}
-                                            canAfford={canAfford}
-                                            actionLoading={!!actionLoading}
-                                            onAction={onAction}
-                                            buildingId={buildingId}
+                                            isSelected={selectedRepairSlot === slot}
+                                            onSelect={setSelectedRepairSlot}
                                         />
                                     );
                                 })}
@@ -210,39 +230,71 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                 <div className={`w-full lg:w-[450px] shrink-0 transition-all duration-500 ${viewMode === 'REPAIR' ? 'scale-95 opacity-80' : selectedRecipe ? 'opacity-100' : 'opacity-30 grayscale pointer-events-none'}`}>
                     {viewMode === 'REPAIR' ? (
                         <div className="bg-slate-900/40 backdrop-blur-xl border border-amber-500/20 rounded-[3rem] p-8 shadow-2xl sticky top-8">
-                            <div className="text-center mb-8">
-                                <div className="w-24 h-24 bg-gradient-to-br from-amber-500 to-orange-600 rounded-[2rem] flex items-center justify-center text-6xl mx-auto shadow-2xl border-4 border-white/10 mb-6">
-                                    ⚒️
-                                </div>
-                                <h3 className="text-3xl font-black text-white tracking-tighter mb-2">Vedlikehold</h3>
-                                <p className="text-slate-400 text-sm font-medium px-4">Hold utstyret ditt i topp stand for maksimal effektivitet.</p>
-                            </div>
-
-                            <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-4">
-                                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Reparasjonskostnad</div>
-                                <div className="space-y-3">
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-2">
-                                            <ResourceIcon resource="gold" size="sm" />
-                                            <span className="text-sm font-bold text-slate-300">Gull</span>
+                            {selectedItemToRepair ? (
+                                <>
+                                    <div className="text-center mb-8">
+                                        <div className="w-24 h-24 bg-gradient-to-br from-amber-500 to-orange-600 rounded-[2rem] flex items-center justify-center text-6xl mx-auto shadow-2xl border-4 border-white/10 mb-6">
+                                            {selectedItemToRepair.icon}
                                         </div>
-                                        <span className="text-amber-400 font-black">-{REPAIR_CONFIG[buildingId]?.goldCost || 0}</span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-2">
-                                            <ResourceIcon resource={REPAIR_CONFIG[buildingId]?.material || 'iron_ingot'} size="sm" />
-                                            <span className="text-sm font-bold text-slate-300">{(RESOURCE_DETAILS as any)[REPAIR_CONFIG[buildingId]?.material || 'iron_ingot']?.label || 'Materiale'}</span>
+                                        <h3 className="text-3xl font-black text-white tracking-tighter mb-2">{selectedItemToRepair.name}</h3>
+                                        <div className="flex flex-col items-center gap-2">
+                                            <div className="flex items-center gap-2 text-sm font-bold text-slate-400">
+                                                Holdbarhet: <span className="text-amber-500">{selectedItemToRepair.durability} / {selectedItemToRepair.maxDurability}</span>
+                                            </div>
+                                            <div className="w-48 h-1.5 bg-black/40 rounded-full overflow-hidden">
+                                                <div
+                                                    className="h-full bg-amber-500"
+                                                    style={{ width: `${(selectedItemToRepair.durability / selectedItemToRepair.maxDurability) * 100}%` }}
+                                                />
+                                            </div>
                                         </div>
-                                        <span className="text-amber-400 font-black">-1</span>
                                     </div>
-                                </div>
-                            </div>
 
-                            <div className="mt-8 p-6 bg-indigo-500/5 border border-indigo-500/10 rounded-3xl">
-                                <p className="text-xs text-indigo-300/70 italic text-center leading-relaxed">
-                                    Hver reparasjon gjenoppretter 30 holdbarhetspoeng på den valgte gjenstanden.
-                                </p>
-                            </div>
+                                    <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-4">
+                                        <div className="text-xs font-black uppercase tracking-widest text-slate-500">Reparasjonskostnad</div>
+                                        <div className="space-y-3">
+                                            <div className="flex items-center justify-between">
+                                                <div className="flex items-center gap-2">
+                                                    <ResourceIcon resource="gold" size="sm" />
+                                                    <span className="text-sm font-bold text-slate-300">Gull</span>
+                                                </div>
+                                                <span className="text-amber-400 font-black">-{REPAIR_CONFIG[buildingId]?.goldCost || 0}</span>
+                                            </div>
+                                            <div className="flex items-center justify-between">
+                                                <div className="flex items-center gap-2">
+                                                    <ResourceIcon resource={REPAIR_CONFIG[buildingId]?.material || 'iron_ingot'} size="sm" />
+                                                    <span className="text-sm font-bold text-slate-300">{(RESOURCE_DETAILS as any)[REPAIR_CONFIG[buildingId]?.material || 'iron_ingot']?.label || 'Materiale'}</span>
+                                                </div>
+                                                <span className="text-amber-400 font-black">-1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="mt-8 mb-6 p-6 bg-indigo-500/5 border border-indigo-500/10 rounded-2xl">
+                                        <p className="text-sm text-indigo-200/90 font-medium text-center leading-relaxed">
+                                            Reparasjon gjenoppretter 30 holdbarhetspoeng.
+                                        </p>
+                                    </div>
+
+                                    <GameButton
+                                        variant="primary"
+                                        size="lg"
+                                        className="h-20 text-xl w-full bg-amber-600 hover:bg-amber-500 border-amber-400/50"
+                                        onClick={handleRepair}
+                                        disabled={!!actionLoading || selectedItemToRepair.durability >= selectedItemToRepair.maxDurability || (player.resources.gold || 0) < (REPAIR_CONFIG[buildingId]?.goldCost || 0) || ((player.resources as any)[REPAIR_CONFIG[buildingId]?.material] || 0) < 1}
+                                    >
+                                        {selectedItemToRepair.durability >= selectedItemToRepair.maxDurability ? 'FULL HOLDBARHET' : 'REPARER GJENSTAND'}
+                                    </GameButton>
+                                </>
+                            ) : (
+                                <div className="py-20 flex flex-col items-center justify-center text-center opacity-50">
+                                    <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6">
+                                        <Wrench className="w-10 h-10 text-slate-600" />
+                                    </div>
+                                    <h4 className="text-xl font-bold text-slate-400">Velg utstyr</h4>
+                                    <p className="text-sm text-slate-500 max-w-[200px] mt-2">Trykk på en gjenstand til venstre for å se reparasjonsdetaljer.</p>
+                                </div>
+                            )}
                         </div>
                     ) : selectedRecipe ? (
                         <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-[3rem] p-8 shadow-2xl sticky top-8">
@@ -261,7 +313,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
 
                                 {/* Production Stats / Bonuses */}
                                 <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-6">
-                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                    <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500">
                                         <TrendingUp className="w-3 h-3" /> Utbytte & Sammenligning
                                     </div>
 
@@ -269,11 +321,11 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
 
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1">
-                                            <div className="text-[10px] text-slate-500 font-bold uppercase">Base Utbytte</div>
+                                            <div className="text-xs text-slate-500 font-bold uppercase">Base Utbytte</div>
                                             <div className="text-xl font-black text-white">+{selectedRecipe.outputAmount || selectedRecipe.output?.amount || 1}</div>
                                         </div>
                                         <div className="space-y-1">
-                                            <div className="text-[10px] text-emerald-500 font-bold uppercase">Utbytte-bonus (Evne)</div>
+                                            <div className="text-xs text-emerald-500 font-bold uppercase">Utbytte-bonus (Evne)</div>
                                             <div className="text-xl font-black text-emerald-400">+{Math.floor((selectedRecipe.outputAmount || 1) * (player.skills?.CRAFTING?.level || 0) * 0.05)}</div>
                                         </div>
                                     </div>

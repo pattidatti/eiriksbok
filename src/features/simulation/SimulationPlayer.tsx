@@ -477,7 +477,7 @@ export const SimulationPlayer: React.FC = () => {
                 </div>
                 <div className="text-center space-y-2">
                     <h2 className="text-2xl font-black italic tracking-tighter uppercase text-white animate-pulse">Laster Spillet...</h2>
-                    <p className="text-[10px] font-black text-indigo-400 uppercase tracking-widest opacity-60">Synkroniserer Riket</p>
+                    <p className="text-xs font-black text-indigo-400 uppercase tracking-widest opacity-60">Synkroniserer Riket</p>
                 </div>
             </div>
         );
@@ -568,7 +568,7 @@ export const SimulationPlayer: React.FC = () => {
                                 </button>
                                 <button
                                     onClick={() => navigate('/sim')}
-                                    className="text-slate-500 hover:text-white font-black uppercase tracking-widest text-[10px] transition-colors"
+                                    className="text-slate-500 hover:text-white font-black uppercase tracking-widest text-xs transition-colors"
                                 >
                                     Gå til Lobby
                                 </button>
@@ -580,12 +580,12 @@ export const SimulationPlayer: React.FC = () => {
                         <div className="bg-slate-900 border border-white/10 p-12 rounded-[3.5rem] shadow-2xl space-y-10 animate-in slide-in-from-bottom-8 duration-500">
                             <div className="text-center space-y-2">
                                 <h2 className="text-4xl font-black italic text-white tracking-tighter uppercase">Hvem er du?</h2>
-                                <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">Opprett din karakter i {pin}</p>
+                                <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Opprett din karakter i {pin}</p>
                             </div>
 
                             <div className="space-y-8">
                                 <div className="space-y-3">
-                                    <label className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] ml-2">Ditt Navn i Riket</label>
+                                    <label className="text-xs font-black text-indigo-400 uppercase tracking-[0.2em] ml-2">Ditt Navn i Riket</label>
                                     <div className="relative group">
                                         <div className="absolute inset-y-0 left-6 flex items-center text-slate-500 group-focus-within:text-indigo-400">
                                             <UserIcon size={20} />
@@ -602,13 +602,13 @@ export const SimulationPlayer: React.FC = () => {
 
                                 {pin === 'TEST' && (
                                     <div className="space-y-3">
-                                        <label className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] ml-2">Velg din Rolle (Kun TEST-server)</label>
+                                        <label className="text-xs font-black text-indigo-400 uppercase tracking-[0.2em] ml-2">Velg din Rolle (Kun TEST-server)</label>
                                         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                             {(['PEASANT', 'SOLDIER', 'MERCHANT', 'BARON'] as Role[]).map(role => (
                                                 <button
                                                     key={role}
                                                     onClick={() => setObRole(role)}
-                                                    className={`py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] border-2 transition-all ${obRole === role
+                                                    className={`py-4 rounded-2xl font-black uppercase tracking-widest text-xs border-2 transition-all ${obRole === role
                                                         ? 'bg-indigo-600/20 border-indigo-500 text-white shadow-lg shadow-indigo-600/20'
                                                         : 'bg-white/5 border-transparent text-slate-500 hover:bg-white/10'
                                                         }`}
@@ -682,11 +682,11 @@ export const SimulationPlayer: React.FC = () => {
             {!player && hasActiveSession && (
                 <div className="fixed top-4 right-4 z-[3000] px-4 py-2 bg-slate-950/80 backdrop-blur-md border border-white/10 rounded-full flex items-center gap-3 animate-in fade-in slide-in-from-right-4 duration-300">
                     <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
-                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Synkroniserer...</span>
+                    <span className="text-xs font-black uppercase tracking-widest text-slate-400">Synkroniserer...</span>
                 </div>
             )}
             {impersonateId && (
-                <div className="fixed top-0 inset-x-0 z-[2000] bg-rose-600 text-white px-4 py-1.5 flex items-center justify-between font-black text-[10px] uppercase tracking-[0.2em] shadow-2xl border-b border-white/20">
+                <div className="fixed top-0 inset-x-0 z-[2000] bg-rose-600 text-white px-4 py-1.5 flex items-center justify-between font-black text-xs uppercase tracking-[0.2em] shadow-2xl border-b border-white/20">
                     <div className="flex items-center gap-4">
                         <span className="animate-pulse flex items-center gap-2">
                             <span className="w-2 h-2 bg-white rounded-full" />

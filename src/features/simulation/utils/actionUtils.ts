@@ -71,11 +71,17 @@ export const checkActionRequirements = (
         if (actionId === 'REFINE') recipe = REFINERY_RECIPES[payload.recipeId];
         if (actionId === 'CRAFT') recipe = CRAFTING_RECIPES[payload.subType];
 
-        if (recipe && recipe.input) {
-            Object.entries(recipe.input).forEach(([res, amt]) => {
-                costs[res] = (costs[res] || 0) + (amt as number);
-            });
-            if (recipe.stamina) costs.stamina = (costs.stamina || 0) + recipe.stamina;
+        if (recipe) {
+            // Recipe costs OVERRIDE base costs for stamina if present
+            if (recipe.stamina !== undefined) {
+                costs.stamina = recipe.stamina;
+            }
+
+            if (recipe.input) {
+                Object.entries(recipe.input).forEach(([res, amt]) => {
+                    costs[res] = (costs[res] || 0) + (amt as number);
+                });
+            }
         }
     }
 
@@ -123,11 +129,17 @@ export const getActionCostString = (
         if (actionId === 'REFINE') recipe = REFINERY_RECIPES[payload.recipeId];
         if (actionId === 'CRAFT') recipe = CRAFTING_RECIPES[payload.subType];
 
-        if (recipe && recipe.input) {
-            Object.entries(recipe.input).forEach(([res, amt]) => {
-                costs[res] = (costs[res] || 0) + (amt as number);
-            });
-            if (recipe.stamina) costs.stamina = (costs.stamina || 0) + recipe.stamina;
+        if (recipe) {
+            // Recipe costs OVERRIDE base costs for stamina if present
+            if (recipe.stamina !== undefined) {
+                costs.stamina = recipe.stamina;
+            }
+
+            if (recipe.input) {
+                Object.entries(recipe.input).forEach(([res, amt]) => {
+                    costs[res] = (costs[res] || 0) + (amt as number);
+                });
+            }
         }
     }
 
