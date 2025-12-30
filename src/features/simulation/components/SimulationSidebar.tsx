@@ -5,6 +5,7 @@ import { useSimulation } from '../SimulationContext';
 import { useAudio } from '../SimulationAudioContext';
 import { Badge } from '../ui/Badge';
 import { GameCard } from '../ui/GameCard';
+import { motion } from 'framer-motion';
 import { Map, User, Scroll, MessageSquare, LayoutGrid, Sun, Package, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface SimulationSidebarProps {
@@ -152,55 +153,76 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                 </div>
 
                 {/* Vitals - Simplified when collapsed */}
-                <GameCard className={`!p-4 !bg-black/20 space-y-4 ${isCollapsed ? '!p-2' : ''}`}>
-                    {/* Stamina */}
-                    <div>
-                        {!isCollapsed && (
-                            <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
-                                <span>⚡ Stamina</span>
-                                <span className="text-white">{Math.round(staminaWidth)}%</span>
+                <motion.div
+                    animate={staminaWidth < 20 ? {
+                        boxShadow: [
+                            "0 0 0px rgba(239, 68, 68, 0)",
+                            "0 0 20px rgba(239, 68, 68, 0.4)",
+                            "0 0 0px rgba(239, 68, 68, 0)"
+                        ],
+                        backgroundColor: [
+                            "rgba(0,0,0,0.2)",
+                            "rgba(239, 68, 68, 0.1)",
+                            "rgba(0,0,0,0.2)"
+                        ]
+                    } : {}}
+                    transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                    className="rounded-2xl overflow-hidden"
+                >
+                    <GameCard className={`!p-4 !bg-transparent border-none space-y-4 ${isCollapsed ? '!p-2' : ''}`}>
+                        {/* Stamina */}
+                        <div>
+                            {!isCollapsed && (
+                                <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
+                                    <span>⚡ Stamina</span>
+                                    <span className="text-white">{Math.round(staminaWidth)}%</span>
+                                </div>
+                            )}
+                            <div className={`bg-slate-800 rounded-full overflow-hidden ${isCollapsed ? 'h-1.5 w-full' : 'h-2.5'}`} title={`Stamina: ${Math.round(staminaWidth)}%`}>
+                                <div
+                                    className={`h-full transition-all duration-500 shadow-[0_0_10px_rgba(245,158,11,0.5)] ${staminaWidth > 50 ? 'bg-amber-400' : staminaWidth > 20 ? 'bg-amber-600' : 'bg-red-500 animate-pulse'}`}
+                                    style={{ width: `${staminaWidth}%` }}
+                                />
                             </div>
-                        )}
-                        <div className={`bg-slate-800 rounded-full overflow-hidden ${isCollapsed ? 'h-1.5 w-full' : 'h-2.5'}`} title={`Stamina: ${Math.round(staminaWidth)}%`}>
-                            <div
-                                className={`h-full transition-all duration-500 shadow-[0_0_10px_rgba(245,158,11,0.5)] ${staminaWidth > 50 ? 'bg-amber-400' : staminaWidth > 20 ? 'bg-amber-600' : 'bg-red-500 animate-pulse'}`}
-                                style={{ width: `${staminaWidth}%` }}
-                            />
                         </div>
-                    </div>
 
-                    {/* Health */}
-                    <div>
-                        {!isCollapsed && (
-                            <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
-                                <span>❤️ Helse</span>
-                                <span className="text-white">{healthWidth}%</span>
+                        {/* Health */}
+                        <div>
+                            {!isCollapsed && (
+                                <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
+                                    <span>❤️ Helse</span>
+                                    <span className="text-white">{healthWidth}%</span>
+                                </div>
+                            )}
+                            <div className={`bg-slate-800 rounded-full overflow-hidden ${isCollapsed ? 'h-1.5 w-full' : 'h-2.5'}`} title={`Helse: ${healthWidth}%`}>
+                                <div
+                                    className="h-full bg-gradient-to-r from-rose-500 to-rose-700 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(225,29,72,0.5)]"
+                                    style={{ width: `${healthWidth}%` }}
+                                />
                             </div>
-                        )}
-                        <div className={`bg-slate-800 rounded-full overflow-hidden ${isCollapsed ? 'h-1.5 w-full' : 'h-2.5'}`} title={`Helse: ${healthWidth}%`}>
-                            <div
-                                className="h-full bg-gradient-to-r from-rose-500 to-rose-700 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(225,29,72,0.5)]"
-                                style={{ width: `${healthWidth}%` }}
-                            />
                         </div>
-                    </div>
 
-                    {/* XP */}
-                    <div>
-                        {!isCollapsed && (
-                            <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
-                                <span>Nivå {currentLvl}</span>
-                                <span className="text-indigo-400">{Math.floor(xpPercent)}%</span>
+                        {/* XP */}
+                        <div>
+                            {!isCollapsed && (
+                                <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
+                                    <span>Nivå {currentLvl}</span>
+                                    <span className="text-indigo-400">{Math.floor(xpPercent)}%</span>
+                                </div>
+                            )}
+                            <div className={`bg-slate-800 rounded-full overflow-hidden ${isCollapsed ? 'h-1.5 w-full' : 'h-2'}`} title={`Nivå ${currentLvl} (${Math.floor(xpPercent)}%)`}>
+                                <div
+                                    className="h-full bg-indigo-500 transition-all duration-1000"
+                                    style={{ width: `${xpPercent}%` }}
+                                />
                             </div>
-                        )}
-                        <div className={`bg-slate-800 rounded-full overflow-hidden ${isCollapsed ? 'h-1.5 w-full' : 'h-2'}`} title={`Nivå ${currentLvl} (${Math.floor(xpPercent)}%)`}>
-                            <div
-                                className="h-full bg-indigo-500 transition-all duration-1000"
-                                style={{ width: `${xpPercent}%` }}
-                            />
                         </div>
-                    </div>
-                </GameCard>
+                    </GameCard>
+                </motion.div>
             </div >
 
             {/* Navigation */}

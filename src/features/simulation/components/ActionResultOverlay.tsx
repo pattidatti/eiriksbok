@@ -115,9 +115,26 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
                                     >
                                         +{xpItem.amount} XP {xpItem.skill}
                                         {xpItem.levelUp && (
-                                            <span className="ml-2 inline-block bg-amber-500 text-black px-2 py-0.5 rounded text-[8px] animate-bounce">
-                                                NIVÅ OPP!
-                                            </span>
+                                            <motion.div
+                                                initial={{ scale: 0.5, opacity: 0, rotate: -5 }}
+                                                animate={{
+                                                    scale: [1, 1.2, 1],
+                                                    opacity: 1,
+                                                    rotate: [0, 5, -5, 0],
+                                                    filter: ["brightness(1)", "brightness(2)", "brightness(1)"]
+                                                }}
+                                                transition={{
+                                                    duration: 0.6,
+                                                    times: [0, 0.5, 1],
+                                                    repeat: Infinity,
+                                                    repeatType: "reverse"
+                                                }}
+                                                className="mt-2 inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-600 text-black px-4 py-1.5 rounded-full text-[10px] font-black shadow-[0_0_20px_rgba(245,158,11,0.5)] border border-amber-300/50"
+                                            >
+                                                <span>⭐</span>
+                                                <span className="tracking-[0.2em]">NIVÅ OPPGGRADERT!</span>
+                                                <span>⭐</span>
+                                            </motion.div>
                                         )}
                                     </motion.div>
                                 ))}
