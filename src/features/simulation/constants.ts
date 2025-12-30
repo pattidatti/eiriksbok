@@ -1,4 +1,4 @@
-import type { Resources, Role, SimulationMarket, PlayerUpgrade, SkillType, SkillData, EquipmentItem, EquipmentSlot, ResourceType } from './simulationTypes';
+import type { Resources, Role, SimulationMarket, PlayerUpgrade, SkillType, SkillData, EquipmentItem, EquipmentSlot, ResourceType, ActionType, ActionCost } from './simulationTypes';
 
 export const INITIAL_MARKET: SimulationMarket = {
     grain: { price: 10, stock: 500, demand: 1.0 },
@@ -80,7 +80,8 @@ export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
     ]
 };
 
-export const ACTION_COSTS = {
+export const ACTION_COSTS: Record<ActionType, ActionCost> = {
+
     WORK: { bread: 1, stamina: 10 },
     CHOP: { bread: 1, stamina: 15 },
     FORAGE: { stamina: 40 }, // Emergency action: High effort, small reward
@@ -90,7 +91,7 @@ export const ACTION_COSTS = {
     TAX_PEASANTS: { stamina: 25 },
     TAX_ROYAL: { stamina: 30 },
     MILL: { grain: 10, stamina: 20 },
-    SMELT: { ore: 5, wood: 2, stamina: 15 },
+    SMELT: { iron_ore: 5, wood: 2, stamina: 15 },
     SAWMILL: { wood: 5, stamina: 15 },
     BAKERY: { flour: 5, stamina: 10 },
     REFINE: { stamina: 15 }, // Fix for zero-stamina exploit
@@ -106,7 +107,11 @@ export const ACTION_COSTS = {
     CONSTRUCT: { stamina: 20 },
     SLEEP: { stamina: 0 },
     EAT: { bread: 1, stamina: 0 },
-    PLANT: { grain: 5, stamina: 25 }
+    PLANT: { grain: 5, stamina: 25 },
+    HARVEST: { stamina: 15 },
+    BAKE: { stamina: 10 },
+    WEAVE: { stamina: 15 },
+    MIX: { stamina: 15 }
 };
 
 export const CROP_DATA: Record<string, { label: string, seed: string, yieldResource: string, duration: number, minYield: number, maxYield: number, xp: number }> = {

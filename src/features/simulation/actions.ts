@@ -148,19 +148,26 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 let normalizedType = actionType;
 
                 // 1. Handle Costs
-                const cost = (ACTION_COSTS as any)[actionType] || (ACTION_COSTS as any)[normalizedType];
-                if (cost) {
-                    const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, currentSeason as any, currentWeather as any);
+                const cost = ACTION_COSTS[normalizedType as import('./simulationTypes').ActionType];
 
+                if (cost) {
+                    const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, currentSeason, currentWeather);
+
+                    // Check Resource Costs
                     for (const [res, amt] of Object.entries(cost)) {
                         if (res === 'stamina') continue;
-                        if ((actor.resources[res as keyof typeof actor.resources] || 0) < (amt as number)) {
+                        const resourceKey = res as keyof import('./simulationTypes').Resources;
+                        const currentAmount = actor.resources[resourceKey] || 0;
+
+                        if (currentAmount < (amt as number)) {
                             localResult.success = false;
                             localResult.message = `❌ Mangler ${amt} ${res}!`;
                             result = localResult;
                             return room;
                         }
                     }
+
+                    // Check Stamina
                     if ((actor.status.stamina || 0) < finalStaminaCost) {
                         localResult.success = false;
                         localResult.message = `💤 For sliten! (${finalStaminaCost}⚡ kreves)`;
@@ -168,9 +175,11 @@ export const performAction = async (pin: string, playerId: string, action: any):
                         return room;
                     }
 
+                    // Deduct Costs
                     for (const [res, amt] of Object.entries(cost)) {
                         if (res === 'stamina') continue;
-                        (actor.resources as any)[res] -= (amt as number);
+                        const resourceKey = res as keyof import('./simulationTypes').Resources;
+                        actor.resources[resourceKey] = (actor.resources[resourceKey] || 0) - (amt as number);
                     }
                     actor.status.stamina -= finalStaminaCost;
                 }
