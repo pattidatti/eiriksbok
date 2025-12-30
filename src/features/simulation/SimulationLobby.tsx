@@ -8,7 +8,8 @@ import { INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT } from './constant
 import type { SimulationPlayer, Role } from './simulationTypes';
 import { useSimulationAuth } from './SimulationAuthContext';
 import { SimulationServerBrowser } from './SimulationServerBrowser';
-import { Globe, Hash, User as UserIcon, Shield, ChevronRight, Trophy, Star } from 'lucide-react';
+import { Globe, Hash, User as UserIcon, Shield, ChevronRight, Trophy, Star, Edit2, Lock, ArrowRight } from 'lucide-react';
+import { SimulationAuthModal } from './SimulationAuthModal';
 
 export const SimulationLobby: React.FC = () => {
     const [pin, setPin] = useState('');
@@ -20,7 +21,9 @@ export const SimulationLobby: React.FC = () => {
 
     const navigate = useNavigate();
     const { setFullWidth, setHideHeader } = useLayout();
-    const { user, account, loading: authLoading } = useSimulationAuth();
+    const { user, account, loading: authLoading, isAnonymous } = useSimulationAuth();
+    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+    const [authModalMode, setAuthModalMode] = useState<'LOGIN' | 'REGISTER'>('REGISTER');
 
     useEffect(() => {
         setFullWidth(true);
@@ -122,46 +125,87 @@ export const SimulationLobby: React.FC = () => {
                         <p className="text-slate-500 font-mono text-sm uppercase tracking-[0.3em]">v1.2 Meta-Era</p>
                     </div>
 
-                    {/* Global Profile Card */}
-                    <div className="bg-slate-900/40 backdrop-blur-3xl border border-white/5 p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <Shield size={120} className="text-indigo-500" />
-                        </div>
-
-                        <div className="relative z-10 space-y-6">
-                            <div className="flex items-center gap-4">
-                                <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-900/40">
-                                    <UserIcon size={32} className="text-white" />
-                                </div>
-                                <div>
-                                    <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest">Global Profil</p>
-                                    <h2 className="text-2xl font-black text-white">{account?.displayName || 'Eventyrer'}</h2>
-                                </div>
+                    {/* Global Profile Card / Onboarding */}
+                    {isAnonymous ? (
+                        <div className="bg-indigo-600/10 backdrop-blur-3xl border-2 border-indigo-500/30 p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <Lock size={120} className="text-indigo-400" />
                             </div>
 
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="bg-slate-950/50 p-4 rounded-2xl border border-white/5">
-                                    <div className="flex items-center gap-2 text-indigo-400 mb-1">
-                                        <Trophy size={14} />
-                                        <span className="text-[10px] font-black uppercase tracking-widest">Global Level</span>
-                                    </div>
-                                    <p className="text-2xl font-black">Nivå {account?.globalLevel || 1}</p>
+                            <div className="relative z-10 space-y-6 text-center md:text-left">
+                                <div className="space-y-2">
+                                    <h2 className="text-4xl font-black text-white italic tracking-tighter uppercase leading-none">Opprett profil eller logg inn</h2>
+                                    <p className="text-indigo-400 font-bold uppercase tracking-widest text-[10px]">Sikre din fremgang og karakterhistorikk</p>
                                 </div>
-                                <div className="bg-slate-950/50 p-4 rounded-2xl border border-white/5">
-                                    <div className="flex items-center gap-2 text-yellow-500 mb-1">
-                                        <Star size={14} />
-                                        <span className="text-[10px] font-black uppercase tracking-widest">Global XP</span>
-                                    </div>
-                                    <p className="text-2xl font-black">{account?.globalXp || 0}</p>
-                                </div>
-                            </div>
 
-                            <div className="pt-4 flex items-center justify-between text-slate-500 text-[10px] font-black uppercase tracking-widest">
-                                <span>Achievements: {account?.unlockedAchievements?.length || 0}</span>
-                                <span>Lives Lived: {account?.characterHistory?.length || 0}</span>
+                                <p className="text-slate-400 text-sm max-w-sm font-medium">
+                                    Akkurat nå lagres fremgangen din kun lokalt. Ved å sikre profilen din kan du fortsette reisen på alle enheter.
+                                </p>
+
+                                <div className="flex flex-col md:flex-row gap-4 pt-2">
+                                    <button
+                                        onClick={() => { setAuthModalMode('REGISTER'); setIsAuthModalOpen(true); }}
+                                        className="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-indigo-600/30"
+                                    >
+                                        Opprett Profil <ArrowRight size={16} />
+                                    </button>
+                                    <button
+                                        onClick={() => { setAuthModalMode('LOGIN'); setIsAuthModalOpen(true); }}
+                                        className="bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs border border-white/10 transition-all"
+                                    >
+                                        Logg Inn
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    ) : (
+                        <div className="bg-slate-900/40 backdrop-blur-3xl border border-white/5 p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <Shield size={120} className="text-indigo-500" />
+                            </div>
+
+                            <div className="relative z-10 space-y-6">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-900/40">
+                                        <UserIcon size={32} className="text-white" />
+                                    </div>
+                                    <div>
+                                        <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest">Global Profil</p>
+                                        <h2 className="text-2xl font-black text-white">{account?.displayName || 'Eventyrer'}</h2>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="bg-slate-950/50 p-4 rounded-2xl border border-white/5">
+                                        <div className="flex items-center gap-2 text-indigo-400 mb-1">
+                                            <Trophy size={14} />
+                                            <span className="text-[10px] font-black uppercase tracking-widest">Global Level</span>
+                                        </div>
+                                        <p className="text-2xl font-black">Nivå {account?.globalLevel || 1}</p>
+                                    </div>
+                                    <div className="bg-slate-950/50 p-4 rounded-2xl border border-white/5">
+                                        <div className="flex items-center gap-2 text-yellow-500 mb-1">
+                                            <Star size={14} />
+                                            <span className="text-[10px] font-black uppercase tracking-widest">Global XP</span>
+                                        </div>
+                                        <p className="text-2xl font-black">{account?.globalXp || 0}</p>
+                                    </div>
+                                </div>
+
+                                <div className="pt-4 flex items-center justify-between text-slate-500 text-[10px] font-black uppercase tracking-widest">
+                                    <span>Achievements: {account?.unlockedAchievements?.length || 0}</span>
+                                    <span>Lives Lived: {account?.characterHistory?.length || 0}</span>
+                                </div>
+
+                                <button
+                                    onClick={() => navigate('/sim/profile')}
+                                    className="w-full py-3 bg-white/5 hover:bg-white/10 rounded-xl border border-white/5 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-white transition-all flex items-center justify-center gap-2"
+                                >
+                                    <Edit2 size={12} /> Administrer Profil
+                                </button>
+                            </div>
+                        </div>
+                    )}
 
                     <div className="hidden lg:block space-y-4 pt-4">
                         <p className="text-slate-500 text-xs font-medium leading-relaxed max-w-xs">
@@ -262,6 +306,12 @@ export const SimulationLobby: React.FC = () => {
                     </div>
                 </div>
             </div>
+            {/* Authentication Modal */}
+            <SimulationAuthModal
+                isOpen={isAuthModalOpen}
+                onClose={() => setIsAuthModalOpen(false)}
+                initialMode={authModalMode}
+            />
         </div>
     );
 };

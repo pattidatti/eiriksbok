@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings } from 'lucide-react';
+import { Settings, User as UserIcon } from 'lucide-react';
 import { useSimulation } from '../SimulationContext';
 import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
 import { Badge } from '../ui/Badge';
@@ -75,14 +75,27 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
 
                 <div className="w-px h-8 bg-white/10" />
 
-                <GameButton
-                    variant="ghost"
-                    size="sm"
-                    className="!p-2 rounded-full"
-                    onClick={() => setActiveTab('SETTINGS')}
-                >
-                    <Settings className="w-6 h-6" />
-                </GameButton>
+                <div className="flex items-center gap-2">
+                    <GameButton
+                        variant="ghost"
+                        size="sm"
+                        className="!p-2 rounded-full"
+                        onClick={() => window.open('/sim/profile', '_blank')}
+                        title="Min Profil"
+                    >
+                        <UserIcon className="w-6 h-6" />
+                    </GameButton>
+
+                    <GameButton
+                        variant="ghost"
+                        size="sm"
+                        className="!p-2 rounded-full"
+                        onClick={() => setActiveTab('SETTINGS')}
+                        title="Innstillinger"
+                    >
+                        <Settings className="w-6 h-6" />
+                    </GameButton>
+                </div>
             </div>
         </header>
     );

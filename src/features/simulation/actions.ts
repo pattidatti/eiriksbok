@@ -1,4 +1,4 @@
-import { ref, runTransaction } from 'firebase/database';
+import { ref, runTransaction, update, get } from 'firebase/database';
 import { simulationDb as db } from './simulationFirebase';
 import { ACTION_COSTS, GAME_BALANCE, INITIAL_RESOURCES, INITIAL_SKILLS, LEVEL_XP } from './constants';
 import { calculateStaminaCost } from './utils/simulationUtils';
@@ -208,6 +208,12 @@ export const performAction = async (pin: string, playerId: string, action: any):
 
                 actor.lastActive = Date.now();
                 result = localResult;
+
+                // SPECIAL: If retiring, capture snapshot for history
+                if (normalizedType === 'RETIRE' && localResult.success) {
+                    (result as any).characterSnapshot = JSON.parse(JSON.stringify(actor));
+                }
+
                 return room;
             } catch (innerError: any) {
                 console.error("Internal transaction error:", innerError);
@@ -222,10 +228,55 @@ export const performAction = async (pin: string, playerId: string, action: any):
         });
 
         // Return Data
+        if (result && (result as any).success && (result as any).characterSnapshot) {
+            await recordCharacterLife(playerId, pin, (result as any).characterSnapshot);
+        }
+
         return { success: !!(result as any)?.success, data: (result as any) || undefined };
 
     } catch (e) {
         console.error("Action failed", e);
         return { success: false, error: e };
+    }
+};
+
+export const recordCharacterLife = async (uid: string, roomPin: string, player: SimulationPlayer) => {
+    if (!uid || !player) return;
+
+    const accountRef = ref(db, `simulation_accounts/${uid}`);
+    try {
+        const snapshot = await get(accountRef);
+        if (!snapshot.exists()) return;
+
+        const accountData = snapshot.val();
+        const history = accountData.characterHistory || [];
+
+        const newEntry = {
+            name: player.name,
+            role: player.role,
+            level: player.stats?.level || 1,
+            xp: player.stats?.xp || 0,
+            roomPin: roomPin,
+            timestamp: Date.now()
+        };
+
+        // Append to history and update total XP/Level if needed
+        const updatedHistory = [...history, newEntry];
+        const addedXp = player.stats?.xp || 0;
+        const newGlobalXp = (accountData.globalXp || 0) + addedXp;
+
+        // Simple level up logic for global account
+        const newGlobalLevel = Math.floor(Math.sqrt(newGlobalXp / 100)) + 1;
+
+        await update(accountRef, {
+            characterHistory: updatedHistory,
+            globalXp: newGlobalXp,
+            globalLevel: newGlobalLevel,
+            lastActive: Date.now()
+        });
+
+        console.log(`Character life recorded for ${player.name} (${uid})`);
+    } catch (e) {
+        console.error("Failed to record character life:", e);
     }
 };

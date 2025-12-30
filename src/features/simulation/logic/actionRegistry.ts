@@ -33,7 +33,7 @@ export const ACTION_REGISTRY: ActionRegistry = {
     TAX: handleTax,
     DRAFT: handleDraft,
     DECREE: handleDecree,
-    CONTRIBUTE_TO_UPGRADE: handleContribute,
+    CONSTRUCT: handleContribute,
     UPGRADE_BUILDING: handleUpgradeBuilding,
     UPGRADE: handleUpgrade,
 

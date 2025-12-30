@@ -85,12 +85,10 @@ export const handleBuyMeal = (ctx: ActionContext) => {
 };
 
 export const handleRetire = (ctx: ActionContext) => {
-    const { actor, localResult } = ctx;
-    if (actor.role !== 'PEASANT') {
-        actor.role = 'PEASANT';
-        actor.status.authority = 0;
-        localResult.message = "Har pensjonert seg og blitt bonde.";
-    }
+    const { actor, room, localResult } = ctx;
+    // Mark for removal in the global record logic after transaction
+    localResult.message = `${actor.name} har valgt å trekke seg tilbake fra dette livet.`;
+    delete room.players[actor.id];
     return true;
 };
 

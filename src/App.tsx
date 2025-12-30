@@ -57,6 +57,7 @@ const TimeTravelGamePage = React.lazy(routeFactories.TimeTravelGamePage);
 const SimulationLobby = React.lazy(routeFactories.SimulationLobby);
 const SimulationHost = React.lazy(routeFactories.SimulationHost);
 const SimulationPlayer = React.lazy(routeFactories.SimulationPlayer);
+const SimulationProfile = React.lazy(() => import('./features/simulation/SimulationProfile').then(m => ({ default: m.SimulationProfile })));
 const SimulationLayout = React.lazy(() => import('./features/simulation/SimulationLayout').then(module => ({ default: module.SimulationLayout })));
 
 import { usePresence } from './hooks/usePresence';
@@ -121,6 +122,7 @@ function AppContent() {
               <Route path="sim" element={<SimulationLayout />}>
                 <Route index element={<SimulationLobby />} />
                 <Route path="host/setup" element={<SimulationHost />} />
+                <Route path="profile" element={<SimulationProfile />} />
                 <Route path="play/:pin/:tab?" element={<SimulationPlayer />} />
               </Route>
 
