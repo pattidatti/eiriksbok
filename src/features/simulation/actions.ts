@@ -199,7 +199,7 @@ const performSoloAction = async (pin: string, playerId: string, action: any) => 
 
                 const ctx = {
                     actor,
-                    room: mockRoom, // Pass structured mock
+                    room: mockRoom as any, // Pass structured mock
                     pin,
                     action,
                     timestamp,
@@ -274,7 +274,7 @@ const performGlobalAction = async (pin: string, playerId: string, action: any) =
 
             const localResult = { success: true, timestamp: Date.now(), message: "", utbytte: [], xp: [], durability: [] };
             const trackXp = (skill: SkillType, amount: number) => { addXp(actor, skill, amount, room.messages); };
-            const damageTool = (slot: EquipmentSlot, amount: number) => { /* ... impl ... */ return true; }; // Simplified for now
+            const damageTool = (_slot: EquipmentSlot, _amount: number) => { /* ... impl ... */ return true; }; // Simplified for now
 
             // ... logic ...
 

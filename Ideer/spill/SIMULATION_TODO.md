@@ -13,6 +13,7 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **Minigames** De minigames som skal "treffe" et felt, som brødbaking. Der bør feltet flytte litt rundt på seg for å gjøre det mer interresant for spilleren. 
 - [ ] **Høsting** UI Høsting er klar timer vises fremedeles etter at man har høstet. 
 - [] **Fjerne slettede items** Manpower og tools ligger fremdeles i ryggsekken. 
+- [ ] **Hogge tre** Når jeg ble ferdig med minigame stod det 3 tre i tooltippen på toppen, men animasjonen som fløy og et annet tall sa +6. 
 
 
 ## 🛠️ Planlagt (Underveis/Snart)
