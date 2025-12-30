@@ -79,26 +79,36 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
 
         // Check if the drop target is a valid equipment slot
         const slotElement = dropTarget.closest('[data-equipment-slot]');
+
         if (slotElement) {
             const slot = slotElement.getAttribute('data-equipment-slot') as EquipmentSlotType;
             if (slot && item.type === 'equipment') {
                 const equipmentItem = item.data;
 
-                // Priority logic: If it's a tool (AXE etc), we check if the slot matches its specific type
-                // or if it's being dropped into the general MAIN_HAND.
+                // Priority logic: If it's a tool (AXE etc), we prevent it from going to MAIN_HAND 
+                // if we want to force distinct slots. 
                 const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'].includes(equipmentItem.type);
 
+                // If dropping a tool on MAIN_HAND, we redirect to its proper slot if preferred,
+                // OR just simply do not allow it if the slot highlight logic is strict.
+                // Based on user feedback: "vi vil helst at den skal plasseres der [øks slotten]".
+                // So if they drop an Axe on Main Hand, let's treat it as equipping to AXE.
+                if (isSpecializedTool && slot === 'MAIN_HAND') {
+                    onAction({ type: 'EQUIP_ITEM', itemId: equipmentItem.id, slot: equipmentItem.type });
+                    return;
+                }
+
                 if (equipmentItem.type === slot || (slot === 'MAIN_HAND' && equipmentItem.relevantActions)) {
-                    // Force specialization: if it's an axe and we are dropping it on MAIN_HAND, 
-                    // maybe we should redirect to AXE slot? The user said "vi vil helst at den skal plasseres der [øks slotten]".
-                    const targetedSlot = (isSpecializedTool && slot === 'MAIN_HAND') ? equipmentItem.type : slot;
-                    onAction({ type: 'EQUIP_ITEM', itemId: equipmentItem.id, slot: targetedSlot });
+                    onAction({ type: 'EQUIP_ITEM', itemId: equipmentItem.id, slot });
                 }
             }
         } else {
-            // Check if dropped back into inventory grid to unequip
-            const isInventoryDrop = dropTarget.closest('[data-inventory-grid]');
-            if (isInventoryDrop && item.type === 'equipment' && item.slot) {
+            // Broader check for dropping back into inventory area
+            // We check for the container OR the grid itself to be safe
+            const isInventoryArea = dropTarget.closest('[data-inventory-grid]') || dropTarget.closest('.inventory-container');
+
+            if (isInventoryArea && item.type === 'equipment' && item.slot) {
+                // Confirm it's currently equipped (has a slot property)
                 onAction({ type: 'UNEQUIP_ITEM', slot: item.slot });
             }
         }
@@ -256,7 +266,7 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                         </div>
                     </div>
 
-                    <div className="bg-slate-950/60 p-8 rounded-[3rem] border border-white/5 backdrop-blur-3xl shadow-2xl min-h-[600px]">
+                    <div className="bg-slate-950/60 p-8 rounded-[3rem] border border-white/5 backdrop-blur-3xl shadow-2xl min-h-[600px] inventory-container">
                         <InventoryGrid
                             player={player}
                             onSlotClick={handleSlotClick}
@@ -290,13 +300,13 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
 }) => {
     // Priority logic: 
     // If it's a specialized tool (AXE, etc), it should ONLY light up its specific slot, 
-    // NOT the general MAIN_HAND slot (unless it's already there).
+    // NOT the general MAIN_HAND slot.
     const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'].includes(draggedItem?.data?.type);
 
-    // Check if compatible
+    // STRICT COMPATIBILITY CHECK
     const isCompatible = draggedItem?.type === 'equipment' && (
         draggedItem.data.type === slot ||
-        (slot === 'MAIN_HAND' && draggedItem.data.relevantActions && !isSpecializedTool)
+        (slot === 'MAIN_HAND' && draggedItem.data.relevantActions && !isSpecializedTool) // STRICTLY forbid specialized tools in Main Hand highlight
     );
 
     return (
