@@ -46,7 +46,7 @@ export const handleBuy = (ctx: ActionContext) => {
     // Price impact (linear)
     item.price += item.price * (GAME_BALANCE.MARKET.PRICE_IMPACT_BUY || 0.005);
 
-    localResult.message = `Kjøpte 1 ${resource} for ${price.toFixed(1)}g`;
+    localResult.message = `Kjøpte 1 ${resource} for ${price.toFixed(2)}g`;
     localResult.utbytte.push({ resource, amount: 1 });
 
     return true;
@@ -90,7 +90,7 @@ export const handleSell = (ctx: ActionContext) => {
     // Price impact
     item.price -= item.price * (GAME_BALANCE.MARKET.PRICE_IMPACT_SELL || 0.01);
 
-    localResult.message = `Solgte 1 ${resource} for ${sellPrice.toFixed(1)}g`;
+    localResult.message = `Solgte 1 ${resource} for ${sellPrice.toFixed(2)}g`;
 
     return true;
 };
@@ -148,7 +148,7 @@ export const handleTradeRoute = (ctx: ActionContext) => {
         targetItem.stock -= 5;
         targetItem.price += targetItem.price * 0.02; // higher impact for bulk
 
-        localResult.message = `Importerte 5 ${resource} fra ${targetRegionId} for ${totalCost.toFixed(1)}g`;
+        localResult.message = `Importerte 5 ${resource} fra ${targetRegionId} for ${totalCost.toFixed(2)}g`;
     } else {
         // EXPORT: Sell from personal inventory to target market
         if (((actor.resources as any)[resource] || 0) < 5) {
@@ -165,7 +165,7 @@ export const handleTradeRoute = (ctx: ActionContext) => {
         targetItem.stock += 5;
         targetItem.price -= targetItem.price * 0.02;
 
-        localResult.message = `Eksporterte 5 ${resource} til ${targetRegionId} for ${totalGain.toFixed(1)}g`;
+        localResult.message = `Eksporterte 5 ${resource} til ${targetRegionId} for ${totalGain.toFixed(2)}g`;
     }
 
     trackXp('TRADING', 25);

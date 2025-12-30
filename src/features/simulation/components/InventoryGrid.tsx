@@ -20,7 +20,7 @@ export const InventoryGrid: React.FC<InventoryGridProps> = ({
 
     // 1. Convert resources to grid items
     const rawResources = Object.entries(player.resources || {})
-        .filter(([_, amount]) => (amount as number) > 0)
+        .filter(([id, amount]) => (amount as number) > 0 && id !== 'manpower' && id !== 'tools')
         .map(([id, amount]) => ({ type: 'resource', data: { id, amount: amount as number } }));
 
     // 2. Normalize and Hydrate equipment

@@ -47,14 +47,14 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
                     initial={{ opacity: 0, y: -20, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    className="absolute top-[15%] left-1/2 transform -translate-x-1/2 bg-slate-900/95 border-2 border-amber-500/30 p-5 rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-md min-w-[300px] text-center z-[200] overflow-hidden"
+                    className="fixed top-[5%] left-1/2 transform -translate-x-1/2 bg-slate-900/95 border-2 border-amber-500/30 p-5 rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-md min-w-[300px] text-center z-[300] overflow-hidden"
                 >
                     {/* Progress Bar Background */}
                     <div className="absolute bottom-0 left-0 h-1 bg-amber-500/20 w-full overflow-hidden">
                         <motion.div
                             initial={{ width: "100%" }}
                             animate={{ width: "0%" }}
-                            transition={{ duration: 6, ease: "linear" }}
+                            transition={{ duration: 5, ease: "linear" }}
                             className="h-full bg-amber-500"
                         />
                     </div>
@@ -95,7 +95,7 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
                                                 }`}
                                         >
                                             <span className="text-lg">{details.icon}</span>
-                                            <span>{isPositive ? '+' : ''}{yieldItem.amount}</span>
+                                            <span>{isPositive ? '+' : ''}{yieldItem.resource === 'gold' ? yieldItem.amount.toFixed(2) : yieldItem.amount}</span>
                                         </motion.div>
                                     );
                                 })}

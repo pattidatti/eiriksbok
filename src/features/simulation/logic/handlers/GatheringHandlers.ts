@@ -123,9 +123,10 @@ export const handleWork = (ctx: ActionContext) => {
     // Lucky Drop
     if (Math.random() < (GAME_BALANCE.LUCKY_DROP.CHANCE + (actor.equipment?.HEAD?.stats?.luckBonus || 0))) {
         const bonus = Math.ceil(yieldAmount * 0.5);
+        const totalYield = yieldAmount + bonus;
         actor.resources.grain += bonus;
         localResult.utbytte.push({ resource: 'grain', amount: bonus, bonus: true });
-        localResult.message += ` + ${bonus} (FLAKS!)`;
+        localResult.message = `Innhøstet ${totalYield} korn! (inkl. ${bonus} flaks)`;
     }
     return true;
 };
@@ -150,11 +151,12 @@ export const handleChop = (ctx: ActionContext) => {
 
     trackXp('WOODCUTTING', Math.ceil(REWARDS.CHOP.xp * (1 + performance)));
 
-    if (Math.random() < GAME_BALANCE.LUCKY_DROP.CHANCE) {
+    if (Math.random() < (GAME_BALANCE.LUCKY_DROP.CHANCE + (actor.equipment?.HEAD?.stats?.luckBonus || 0))) {
         const bonus = Math.ceil(yieldAmount * 0.5);
+        const totalYield = yieldAmount + bonus;
         actor.resources.wood += bonus;
         localResult.utbytte.push({ resource: 'wood', amount: bonus, bonus: true });
-        localResult.message += ` + ${bonus} FLAKS!`;
+        localResult.message = `Felte ${totalYield} ved! (inkl. ${bonus} flaks)`;
     }
     return true;
 };
