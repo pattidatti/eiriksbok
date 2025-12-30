@@ -1,7 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import type { SimulationPlayer, SimulationRoom, EquipmentItem } from './simulationTypes';
-import { ITEM_TEMPLATES } from './constants';
-import { animationManager } from './SimulationAnimations';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import type { EquipmentItem, SkillType } from './simulationTypes';
+import { ITEM_TEMPLATES, SEASONS, WEATHER } from './constants';
+import { Sparkles, ArrowRight } from 'lucide-react';
+import { calculateYield } from './utils/simulationUtils';
+import { getActionCostString } from './utils/actionUtils';
+
+const animationManager = {
+    spawnParticles: (x: number, y: number, color: string) => console.log('Particles @', x, y, color),
+    spawnFloatingText: (text: string, x: number, y: number, color: string) => console.log('FloatingText:', text, x, y, color)
+};
 
 interface MinigameProps {
     type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE' | 'SMELT' | 'BAKE' | 'WEAVE' | 'MIX' | 'PLANT' | 'HARVEST';
@@ -456,9 +463,9 @@ const WoodcuttingGame: React.FC<{
 };
 
 /* --- SAWING VARIANT --- */
-const SawingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
-    const [pos, setPos] = useState(50);
-    const [isFinished, setIsFinished] = useState(false);
+const SawingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier: _speedMultiplier = 1.0 }) => {
+    const [_pos, _setPos] = useState(50);
+    const [_isFinished, setIsFinished] = useState(false);
     return <div onClick={() => { setIsFinished(true); onComplete(1.0); }} className="p-12 text-center text-white">Sawing Placeholder</div>;
 };
 
@@ -466,7 +473,7 @@ const SawingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplie
 const CraftingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
     const [targetPos, setTargetPos] = useState(50);
     const [cursorPos, setCursorPos] = useState(50);
-    const [hits, setHits] = useState(0);
+    const [_hits, setHits] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
     const targetDir = useRef(1);
 
@@ -516,12 +523,12 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
 };
 
 /* --- MILLING GAME --- */
-const MillingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
+const MillingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier: _speedMultiplier = 1.0 }) => {
     return <div onClick={() => onComplete(1.0)} className="text-white p-10 cursor-pointer">Kverning Placeholder (Klikk)</div>;
 };
 
 /* --- SMELTING GAME --- */
-const SmeltingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
+const SmeltingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier: _speedMultiplier = 1.0 }) => {
     return <div onClick={() => onComplete(1.0)} className="text-white p-10 cursor-pointer">Smelting Placeholder (Klikk)</div>;
 };
 
@@ -876,13 +883,14 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
         if (type === 'FORAGE') { base = 1; skillType = 'FARMING'; }
         if (type === 'PLANT') { base = 0; skillType = 'FARMING'; } // PLANT yields no immediate item
         if (type === 'REFINE' || type === 'BAKE' || type === 'SMELT' || type === 'MILL' || type === 'WEAVE') {
+            ```
             base = 1; // Generic base, though specific recipes vary, this shows the modifier effect
             skillType = 'CRAFTING';
             isRefining = true;
         }
 
-        const seasonData = SEASONS[currentSeason as keyof typeof SEASONS] as any;
-        const weatherData = WEATHER[currentWeather as keyof typeof WEATHER] as any;
+        const seasonData = SEASONS[(currentSeason || 'Spring') as keyof typeof SEASONS] || SEASONS['Spring'];
+        const weatherData = WEATHER[(currentWeather || 'Clear') as keyof typeof WEATHER] || WEATHER['Clear'];
 
         return calculateYield(
             { skills, equipment: equipment as any },
@@ -932,8 +940,8 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                                     <div className="flex items-center gap-3">
                                                         <div className="w-24 h-2 bg-black/60 rounded-full overflow-hidden p-[1px] border border-white/10 shadow-inner">
                                                             <div
-                                                                className={`h-full rounded-full transition-all duration-1000 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'} `}
-                                                                style={{ width: `${durabilityPct}% ` }}
+                                                                className={`h - full rounded - full transition - all duration - 1000 ${ durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400' } `}
+                                                                style={{ width: `${ durabilityPct }% ` }}
                                                             />
                                                         </div>
                                                         <span className="text-[10px] font-black text-slate-500 uppercase">{Math.round(durabilityPct)}%</span>
@@ -1018,11 +1026,11 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                                 <div className="flex flex-col items-center gap-2 flex-1">
                                                     <div className="flex items-center gap-1">
                                                         {[1, 2, 3, 4, 5].map(i => (
-                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
+                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${ i * 150 } ms` }} />
                                                         ))}
                                                         <ArrowRight className="w-6 h-6 text-indigo-500/40 mx-4 group-hover:translate-x-2 transition-transform" />
                                                         {[1, 2, 3, 4, 5].map(i => (
-                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
+                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${ i * 150 } ms` }} />
                                                         ))}
                                                     </div>
                                                     {nextTemplate.stats?.yieldBonus && (
@@ -1110,37 +1118,37 @@ const MinigameStyles: React.FC = () => {
         <style dangerouslySetInnerHTML={{
             __html: `
             @keyframes strike {
-                0% { transform: scale(1); opacity: 0.5; }
-                50% { transform: scale(1.5); opacity: 1; }
-                100% { transform: scale(1); opacity: 0.5; }
+                0 % { transform: scale(1); opacity: 0.5; }
+                50 % { transform: scale(1.5); opacity: 1; }
+                100 % { transform: scale(1); opacity: 0.5; }
             }
-            .animate-strike {
-                animation: strike 0.3s ease-out;
-            }
-            @keyframes fly-item {
-                0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-                20% { opacity: 1; scale: 1.2; }
-                100% { transform: translate(-50%, -150px) scale(0.5); opacity: 0; }
-            }
-            .animate-fly-item {
-                animation: fly-item 1s ease-out forwards;
-            }
-            @keyframes shake {
-                0%, 100% { transform: translateX(0); }
-                25% { transform: translateX(-5px); }
-                75% { transform: translateX(5px); }
-            }
-            .animate-shake {
-                animation: shake 0.1s ease-in-out infinite;
-            }
-            @keyframes success-pop {
-                0% { transform: scale(0.8); opacity: 0; }
-                50% { transform: scale(1.1); }
-                100% { transform: scale(1); opacity: 1; }
-            }
-            .animate-success-pop {
-                animation: success-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-            }
-        `}} />
+            .animate - strike {
+            animation: strike 0.3s ease-out;
+}
+@keyframes fly - item {
+    0 % { transform: translate(-50 %, -50 %) scale(0); opacity: 0; }
+    20 % { opacity: 1; scale: 1.2; }
+    100 % { transform: translate(-50 %, -150px) scale(0.5); opacity: 0; }
+}
+            .animate - fly - item {
+    animation: fly - item 1s ease - out forwards;
+}
+@keyframes shake {
+    0 %, 100 % { transform: translateX(0); }
+    25 % { transform: translateX(-5px); }
+    75 % { transform: translateX(5px); }
+}
+            .animate - shake {
+    animation: shake 0.1s ease -in -out infinite;
+}
+@keyframes success - pop {
+    0 % { transform: scale(0.8); opacity: 0; }
+    50 % { transform: scale(1.1); }
+    100 % { transform: scale(1); opacity: 1; }
+}
+            .animate - success - pop {
+    animation: success - pop 0.4s cubic - bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+`}} />
     );
 };
