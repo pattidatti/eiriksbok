@@ -47,7 +47,7 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
                     initial={{ opacity: 0, y: -20, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    className="absolute top-[15%] left-1/2 transform -translate-x-1/2 bg-slate-900/95 border-2 border-amber-500/30 p-5 rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-md min-w-[300px] text-center z-50 overflow-hidden"
+                    className="absolute top-[15%] left-1/2 transform -translate-x-1/2 bg-slate-900/95 border-2 border-amber-500/30 p-5 rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-md min-w-[300px] text-center z-[200] overflow-hidden"
                 >
                     {/* Progress Bar Background */}
                     <div className="absolute bottom-0 left-0 h-1 bg-amber-500/20 w-full overflow-hidden">

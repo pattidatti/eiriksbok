@@ -2,10 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import type { EquipmentItem } from '../simulationTypes';
 import { ITEM_TEMPLATES } from '../constants';
 
-const animationManager = {
-    spawnParticles: (x: number, y: number, color: string) => console.log('Particles @', x, y, color),
-    spawnFloatingText: (text: string, x: number, y: number, color: string) => console.log('FloatingText:', text, x, y, color)
-};
+import { animationManager } from '../logic/AnimationManager';
 
 const getBestToolForAction = (type: string, equipment: (EquipmentItem | undefined | null)[]) => {
     if (!equipment) return undefined;
@@ -95,7 +92,7 @@ export const HarvestingGame: React.FC<{
         setStrikes(newStrikes);
         if (newStrikes.length === 5) {
             setIsFinished(true);
-            setTimeout(() => onComplete(newStrikes.reduce((a, b) => a + b, 0) / 5), 2000);
+            setTimeout(() => onComplete(newStrikes.reduce((a, b) => a + b, 0) / 5), 800);
         }
     };
 

@@ -48,12 +48,16 @@ class AnimationManager {
     }
 
     spawnFloatingText(text: string, x: number, y: number, color?: string) {
+        // Add small jitter to prevent pixel-perfect overlap
+        const jitterX = (Math.random() - 0.5) * 4; // +/- 2%
+        const jitterY = (Math.random() - 0.5) * 4; // +/- 2%
+
         this.emit({
             id: Math.random().toString(36).substr(2, 9),
             type: 'FLOATING_TEXT',
             text,
-            x,
-            y,
+            x: x + jitterX,
+            y: y + jitterY,
             color,
             duration: 1500
         });

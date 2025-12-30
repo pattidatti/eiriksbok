@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { animationManager } from '../logic/AnimationManager';
 
 export const TrappingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
     const [pos, setPos] = useState(0);
@@ -25,7 +26,8 @@ export const TrappingGame: React.FC<{ onComplete: (score: number) => void, speed
         const dist = Math.abs(pos - targetPos);
         if (dist < 10) {
             setCaptured(c => {
-                if (c + 1 >= 3) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
+                animationManager.spawnFloatingText("FANT DEN! ✨", 50, 40, "text-sky-400");
+                if (c + 1 >= 3) { setIsFinished(true); setTimeout(() => onComplete(1.0), 800); }
                 return c + 1;
             });
             setTargetPos(20 + Math.random() * 60);

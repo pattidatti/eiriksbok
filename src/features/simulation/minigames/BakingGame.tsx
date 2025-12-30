@@ -100,7 +100,7 @@ export const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMu
             </div>
 
             {/* Dynamic Progress Bar */}
-            <div className="relative z-10 w-full max-w-sm h-8 bg-white/10 rounded-full mb-12 border border-white/10 overflow-hidden">
+            <div className={`relative z-10 w-full max-w-sm h-8 bg-white/10 rounded-full mb-12 border ${progress > targetCenter - 10 && progress < targetCenter + 10 ? 'border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'border-white/10'} overflow-hidden transition-all shadow-2xl`}>
                 {/* Moving Sweet Spot Visual */}
                 <div
                     className="absolute inset-y-0 bg-emerald-500/30 border-x border-emerald-500/50 transition-all duration-75 ease-linear"
@@ -108,7 +108,11 @@ export const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMu
                         left: `${targetCenter - 10}%`,
                         right: `${100 - (targetCenter + 10)}%`
                     }}
-                />
+                >
+                    {progress > targetCenter - 10 && progress < targetCenter + 10 && (
+                        <div className="absolute inset-0 bg-emerald-400/20 animate-pulse" />
+                    )}
+                </div>
 
                 {/* Progress Fill */}
                 <div className="h-full bg-orange-500 transition-all duration-75 relative z-10 opacity-80" style={{ width: `${progress}% ` }} />

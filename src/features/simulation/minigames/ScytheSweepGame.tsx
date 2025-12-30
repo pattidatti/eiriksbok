@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import type { EquipmentItem } from '../simulationTypes';
 import { ITEM_TEMPLATES } from '../constants';
 
-const animationManager = {
-    spawnFloatingText: (text: string, x: number, y: number, color: string) => console.log('FloatingText:', text, x, y, color)
-};
+import { animationManager } from '../logic/AnimationManager';
 
 const getBestToolForAction = (type: string, equipment: (EquipmentItem | undefined | null)[]) => {
     if (!equipment) return undefined;
@@ -41,7 +39,7 @@ export const ScytheSweepGame: React.FC<{
                 animationManager.spawnFloatingText(`+ ${baseHitYield} ${resourceName} ${toolHitBonus > 0 ? `(+${toolHitBonus})` : ''} `, 50, 40, 'text-amber-400');
 
                 setSwings(s => {
-                    if (s + 1 >= 5) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
+                    if (s + 1 >= 5) { setIsFinished(true); setTimeout(() => onComplete(1.0), 800); }
                     return s + 1;
                 });
                 return 0;

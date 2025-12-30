@@ -28,8 +28,14 @@ export const SimulationAnimationLayer: React.FC = () => {
                         return (
                             <motion.div
                                 key={event.id}
-                                initial={{ opacity: 0, scale: 0.5, y: 0 }}
-                                animate={{ opacity: 1, scale: 1.2, y: -100 }}
+                                initial={{ opacity: 0, scale: 0.5, y: 0, rotate: (Math.random() - 0.5) * 20 }}
+                                animate={{
+                                    opacity: 1,
+                                    scale: 1.2,
+                                    y: -120,
+                                    x: (Math.random() - 0.5) * 40,
+                                    rotate: (Math.random() - 0.5) * 40
+                                }}
                                 exit={{ opacity: 0, scale: 0.8 }}
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                                 className={`absolute font-black text-4xl drop-shadow-2xl ${event.color || 'text-amber-500'}`}

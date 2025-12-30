@@ -39,23 +39,34 @@ export const WeavingGame: React.FC<{ onComplete: (score: number) => void, speedM
             <div className="absolute inset-0 bg-black/70 z-0" />
             <h2 className="relative z-10 text-4xl font-black text-white mb-8 tracking-tighter uppercase italic">Veveri: Vevstol 🧶</h2>
 
-            <div className="relative z-10 w-full max-w-lg aspect-video bg-slate-900/50 border-4 border-white/10 rounded-3xl p-8 mb-12 flex flex-col justify-between overflow-hidden">
+            <div className={`relative z-10 w-full max-w-lg aspect-video bg-slate-900/50 border-4 rounded-3xl p-8 mb-12 flex flex-col justify-between overflow-hidden transition-all ${feedback ? 'brightness-125' : ''} ${lastSide === 'left' ? 'border-indigo-500/50 shadow-[inset_20px_0_40px_rgba(99,102,241,0.1)]' : 'border-emerald-500/50 shadow-[inset_-20px_0_40px_rgba(16,185,129,0.1)]'} `}>
                 <div className="flex justify-between items-center mb-8 relative h-32">
-                    <div className={`text-6xl transition-all duration-300 ${lastSide === 'left' ? 'translate-x-0' : 'translate-x-64 opacity-20'} `}>🧵</div>
+                    {/* Shuttle Animation */}
+                    <div
+                        className="absolute top-1/2 -translate-y-1/2 text-6xl transition-all duration-300 ease-out z-20"
+                        style={{
+                            left: lastSide === 'left' ? '0%' : 'calc(100% - 4rem)',
+                            transform: `translateY(-50%) rotate(${lastSide === 'left' ? '0deg' : '180deg'})`
+                        }}
+                    >
+                        🛶
+                    </div>
+
+                    <div className={`text-6xl transition-all duration-500 ${lastSide === 'left' ? 'scale-110 opacity-100 rotate-12' : 'scale-75 opacity-20'} `}>🧵</div>
                     <div className="absolute inset-x-0 h-1 bg-white/20 top-1/2 -translate-y-1/2 pointer-events-none" />
-                    <div className={`text-6xl transition-all duration-300 ${lastSide === 'right' ? 'translate-x-0' : '-translate-x-64 opacity-20'} `}>🧵</div>
+                    <div className={`text-6xl transition-all duration-500 ${lastSide === 'right' ? 'scale-110 opacity-100 -rotate-12' : 'scale-75 opacity-20'} `}>🧵</div>
                 </div>
 
-                <div className="text-sm font-black text-indigo-300 uppercase tracking-[0.3em] h-8">
+                <div className="text-sm font-black text-indigo-300 uppercase tracking-[0.3em] h-8 animate-pulse">
                     {feedback || 'Veksle mellom Venstre / Høyre'}
                 </div>
             </div>
 
-            <div className="relative z-10 flex gap-4 mb-8">
-                <button onClick={() => handleKey('left')} className={`w-24 h-24 rounded-3xl flex items-center justify-center text-4xl border-4 transition-all ${lastSide === 'right' ? 'bg-indigo-600 border-indigo-400 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'} `}>
+            <div className="relative z-10 flex gap-12 mb-8">
+                <button onClick={() => handleKey('left')} className={`w-28 h-28 rounded-[2rem] flex items-center justify-center text-4xl border-4 transition-all active:scale-90 ${lastSide === 'right' ? 'bg-indigo-600 border-indigo-400 scale-110 shadow-[0_0_30px_rgba(99,102,241,0.5)]' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'} `}>
                     ⬅️
                 </button>
-                <button onClick={() => handleKey('right')} className={`w-24 h-24 rounded-3xl flex items-center justify-center text-4xl border-4 transition-all ${lastSide === 'left' ? 'bg-indigo-600 border-indigo-400 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'} `}>
+                <button onClick={() => handleKey('right')} className={`w-28 h-28 rounded-[2rem] flex items-center justify-center text-4xl border-4 transition-all active:scale-90 ${lastSide === 'left' ? 'bg-emerald-600 border-emerald-400 scale-110 shadow-[0_0_30px_rgba(16,185,129,0.5)]' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'} `}>
                     ➡️
                 </button>
             </div>

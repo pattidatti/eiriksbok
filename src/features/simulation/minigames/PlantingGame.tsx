@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-const animationManager = {
-    spawnParticles: (x: number, y: number, color: string) => console.log('Particles @', x, y, color),
-};
+import { animationManager } from '../logic/AnimationManager';
 
 export const PlantingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
     const [seeds, setSeeds] = useState<{ x: number, y: number, id: number }[]>([]);

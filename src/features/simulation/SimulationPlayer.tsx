@@ -262,6 +262,8 @@ export const SimulationPlayer: React.FC = () => {
             }
         });
 
+        /* 
+        // DISABLED: Avoids "Double Feedback" with the summary box and minigame-specific animations
         if (newItems.length > 0) {
             newItems.forEach((item, idx) => {
                 // Staggered appearance
@@ -270,6 +272,7 @@ export const SimulationPlayer: React.FC = () => {
                 }, idx * 150);
             });
         }
+        */
 
         prevResourcesRef.current = { ...player.resources };
     }, [player?.resources]);
@@ -389,15 +392,19 @@ export const SimulationPlayer: React.FC = () => {
 
             let actualType = actionType;
 
-            // Map refined actions to thematic games
+            // Map refined/crafted actions to thematic games
             if (actionType === 'REFINE') {
-                if (action.recipeId === 'flour') actualType = 'MILL';
-                if (action.recipeId === 'iron_ingot') actualType = 'SMELT';
-                if (action.recipeId === 'bread' || action.recipeId === 'pie' || action.recipeId === 'mead') actualType = 'BAKE';
-                if (action.recipeId === 'cloth') actualType = 'WEAVE';
+                const rid = action.recipeId;
+                if (rid === 'flour') actualType = 'MILL';
+                if (rid === 'iron_ingot' || rid === 'glass' || rid === 'smelt') actualType = 'SMELT';
+                if (rid === 'bread' || rid === 'pie' || rid === 'mead' || rid === 'bake') actualType = 'BAKE';
+                if (rid === 'cloth' || rid === 'weave') actualType = 'WEAVE';
+                if (rid === 'timber') actualType = 'CHOP'; // Sawmill
             }
-            if (actionType === 'CRAFT' && (action.id === 'CRAFT_MEDICINE' || action.id === 'CRAFT_POISON')) {
-                actualType = 'MIX';
+            if (actionType === 'CRAFT') {
+                const sid = action.subType || action.id;
+                if (sid === 'CRAFT_MEDICINE' || sid === 'CRAFT_POISON' || sid === 'mix') actualType = 'MIX';
+                if (sid === 'CRAFT_BREAD' || sid === 'bakery') actualType = 'BAKE';
             }
 
             setActiveMinigame(actualType as any);
@@ -409,6 +416,13 @@ export const SimulationPlayer: React.FC = () => {
 
         // Check if this is a "silent" action that shouldn't trigger the global loader
         const isSilentAction = actionType === 'EQUIP_ITEM' || actionType === 'UNEQUIP_ITEM';
+
+        // If we are coming from a minigame, clear it early so results can show on top of map
+        if (action.performance && !isSilentAction) {
+            setActiveMinigame(null);
+            setActiveMinigameAction(null);
+            setActiveMinigameMethod(null);
+        }
 
         if (!isSilentAction) {
             setActionLoading(actionType);

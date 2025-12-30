@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import type { EquipmentItem } from '../simulationTypes';
 import { ITEM_TEMPLATES } from '../constants';
 
-const animationManager = {
-    spawnParticles: (x: number, y: number, color: string) => console.log('Particles @', x, y, color),
-    spawnFloatingText: (text: string, x: number, y: number, color: string) => console.log('FloatingText:', text, x, y, color)
-};
+import { animationManager } from '../logic/AnimationManager';
 
 const getBestToolForAction = (type: string, equipment: (EquipmentItem | undefined | null)[]) => {
     if (!equipment) return undefined;
@@ -41,7 +38,7 @@ export const WoodcuttingGame: React.FC<{
         animationManager.spawnParticles(50, 40, 'bg-amber-400');
 
         setHits(h => {
-            if (h + 1 >= 10) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
+            if (h + 1 >= 10) { setIsFinished(true); setTimeout(() => onComplete(1.0), 800); }
             return h + 1;
         });
         spawn();
