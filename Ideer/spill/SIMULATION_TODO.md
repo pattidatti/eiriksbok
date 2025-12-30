@@ -5,9 +5,12 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 ## 🚀 Prioritert (Neste skritt)
 - [ ] **Balansering av Utbytte:** Finjustere "Utbytte" (tidligere Yield) for ulike verktøy og handlinger.
 - [ ] **Holdbarhet:** Implementere tydeligere visuelle varsler når verktøy er i ferd med å ødelegges.
-- [ ] **Ressurser:** Legge til kilder for kjøtt (jakt), ull (sauer) og honning (bikuber).
+- [ ] **Ressurser:** Legge til kilder for kjøtt (jakti skogen), ull (sauer på 33åkeren?) og honning (bikuber i åkeren).
 - [ ] **Harvest** Mer tilpassende minigames, flere varianter. Kan vi f.eks. ha et hvor man planter frø på åkeren, få opp en timer, og så høster mann inn når de er ferdige. Da bør vi også ha en notification til brukeren at åkeren er klar til å høstes. Kanskje timeren skal vises på toppen?
 - [ ] **Ferdigheter** Oppdatere UI, grid system, utnytte bredden på skjermer bedre (kanskje overflow for mindre skjermer?). Vi kan ha individuelle farger på skills for å skille dem bedre. Det bør være tydligere på tooltips ved produksjonsbygninger, harvest (og senere combat osv) hvilke skill som er aktuell og hvilket level man har. Litt på samme måte som vi har med verktøy nå, men med skiller. Må dog passe på at tooltippen ikke blir gigantisk. 
+- [ ] **Eiendeler** Utnytte widescreen bedre, penere ragdoll. Mulighet for å flytte rundt på items og kunne dra dem av og på rag-doll. 
+- [ ] **items** Få en komplett oversikt over hvilke items som er, hvor de lages, foredles. Har vi items som ikke brukes til noe? Har vi items som skal brukes til noe? Er det mulig å crafte alle items som trengs? Hvor lager man hammer og sigd?Har vi produksjonsmetoder som ikke kan skaffe de nødvendige ressursene? Hva er manpower og tools til? 
+- [ ] **Minigames** De minigames som skal "treffe" et felt, som brødbaking. Der bør feltet flytte litt rundt på seg for å gjøre det mer interresant for spilleren. 
 
 ## 🛠️ Planlagt (Underveis/Snart)
 - [ ] **Utstyrsystem:** Videreutvikling av systemet for å ha flere verktøy utrustet samtidig.
@@ -19,7 +22,7 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 ## 💡 Ideer & Konsepter
 - [ ] **Diplomati:** Dypere system for forhold mellom baronier.
 - [ ] **Vær-effekter:** Hvordan vær påvirker produksjon og utbytte.
-- [ ] Tid: Spillet må kunne "kjøre" på egenhånd, med dag, natt, vær og årstider. Kanskje best å starte på år 1, og så gå videre. Sørge for at spillet bare går videre når det er aktive spillere inne
+- [ ] **Tid** Spillet må kunne "kjøre" på egenhånd, med dag, natt, vær og årstider. Kanskje best å starte på år 1, og så gå videre. Sørge for at spillet bare går videre når det er aktive spillere inne, slik at det ikke kjører inn i evigheten på egenhånd. Dag kan være 10 minutter og natt 6 kanskje? Burde vi bruke måneder, eller bare årstider? Kanskje det er bedre å ikke tracke antall år, eller ihvertfall ikke vise det for spilleren, da kan spillet bare gå sitt eget forløp. 
 - [ ] **Historiske hendelser:** Tilfeldige hendelser basert på historisk kontekst som påvirker økonomien.
 - [ ] **Bygging:** Oppgradering av produksjonsbygninger for å låse opp nye oppskrifter.
 - [ ] **Chat-system:** Implementere et omfattende kommunikasjonssystem.

@@ -621,8 +621,9 @@ export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
 
 export const INITIAL_EQUIPMENT: Record<Role, Partial<Record<EquipmentSlot, EquipmentItem>>> = {
     PEASANT: {
-        MAIN_HAND: { id: 'rusty_axe', name: 'Rusten Øks', icon: '🪓', type: 'MAIN_HAND', durability: 50, maxDurability: 50, level: 1, stats: { yieldBonus: 0 } },
-        TOOL_1: { id: 'stone_hoe', name: 'Steinhakke', icon: '⛏️', type: 'TOOL_1', durability: 40, maxDurability: 40, level: 1, stats: { yieldBonus: 1 } },
+        AXE: { id: 'rusty_axe', name: 'Rusten Øks', icon: '🪓', type: 'AXE', durability: 50, maxDurability: 50, level: 1, stats: { yieldBonus: 0 } },
+        PICKAXE: { id: 'stone_pickaxe', name: 'Steinhakke', icon: '⛏️', type: 'PICKAXE', durability: 30, maxDurability: 30, level: 1, stats: { yieldBonus: 1 } },
+        SCYTHE: { id: 'stone_sickle', name: 'Steinsigd', icon: '🌾', type: 'SCYTHE', durability: 40, maxDurability: 40, level: 1, stats: { yieldBonus: 1 } },
         BODY: { id: 'tunic', name: 'Slitt Tunika', icon: '👕', type: 'BODY', durability: 20, maxDurability: 20, level: 1, stats: { defense: 1 } }
     },
     BARON: {
@@ -652,7 +653,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         id: 'stone_axe',
         name: 'Steinøks',
         icon: '🪓',
-        type: 'MAIN_HAND',
+        type: 'AXE',
         durability: 30,
         maxDurability: 30,
         level: 1,
@@ -666,7 +667,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         id: 'stone_pickaxe',
         name: 'Steinhakke',
         icon: '⛏️',
-        type: 'MAIN_HAND',
+        type: 'PICKAXE',
         durability: 30,
         maxDurability: 30,
         level: 1,
@@ -680,7 +681,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         id: 'rusty_axe',
         name: 'Rusten Øks',
         icon: '🪓',
-        type: 'MAIN_HAND',
+        type: 'AXE',
         durability: 50,
         maxDurability: 50,
         level: 1,
@@ -694,7 +695,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         id: 'iron_axe',
         name: 'Jernøks',
         icon: '🪓',
-        type: 'MAIN_HAND',
+        type: 'AXE',
         durability: 100,
         maxDurability: 100,
         level: 3,
@@ -708,7 +709,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         id: 'iron_pickaxe',
         name: 'Jernhakke',
         icon: '⛏️',
-        type: 'MAIN_HAND',
+        type: 'PICKAXE',
         durability: 100,
         maxDurability: 100,
         level: 3,
@@ -722,7 +723,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         id: 'steel_axe',
         name: 'Ståløks',
         icon: '🪓',
-        type: 'MAIN_HAND',
+        type: 'AXE',
         durability: 200,
         maxDurability: 200,
         level: 8,
@@ -735,7 +736,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         id: 'steel_hja',
         name: 'Stålhjå',
         icon: '🌾',
-        type: 'MAIN_HAND',
+        type: 'SCYTHE',
         durability: 120,
         maxDurability: 120,
         level: 4,
@@ -744,15 +745,15 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         // @ts-ignore
         relevantActions: ['WORK', 'HØST']
     },
-    stone_hoe: {
-        id: 'stone_hoe',
-        name: 'Steinhakke',
-        icon: '⛏️',
-        type: 'TOOL_1',
+    stone_sickle: {
+        id: 'stone_sickle',
+        name: 'Steinsigd',
+        icon: '🌾',
+        type: 'SCYTHE',
         durability: 40,
         maxDurability: 40,
         level: 1,
-        description: 'Enkel hakke for jordbruk. +1 Utbytte ved kornhøsting.',
+        description: 'Enkel sigd for jordbruk. +1 Utbytte ved kornhøsting.',
         stats: { yieldBonus: 1 },
         // @ts-ignore
         relevantActions: ['WORK']
@@ -761,7 +762,7 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
         id: 'blacksmith_hammer',
         name: 'Smedhammer',
         icon: '🔨',
-        type: 'MAIN_HAND',
+        type: 'HAMMER',
         durability: 200,
         maxDurability: 200,
         level: 5,

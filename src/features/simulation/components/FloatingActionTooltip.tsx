@@ -267,13 +267,8 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                             <div className="flex items-center gap-3 shrink-0">
                                                                 {/* Compact Tool Indicator */}
                                                                 {(() => {
-                                                                    const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
-                                                                    const bestTool = equipment.find((item: any) => {
-                                                                        if (!item) return false;
-                                                                        const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_'));
-                                                                        const template = tid ? ITEM_TEMPLATES[tid] : null;
-                                                                        return (template as any)?.relevantActions?.includes(action.id);
-                                                                    });
+                                                                    const equipment = getActionEquipment(player, action.id);
+                                                                    const bestTool = equipment.find(item => item.maxDurability > 0);
                                                                     if (bestTool) {
                                                                         const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
                                                                         return (
@@ -309,13 +304,8 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                         <div className="flex items-center gap-3">
                                                             {/* Compact Tool Indicator for Variant Header */}
                                                             {(() => {
-                                                                const equipment = Object.values(player.equipment || {}) as EquipmentItem[] | any;
-                                                                const bestTool = equipment.find((item: any) => {
-                                                                    if (!item) return false;
-                                                                    const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_'));
-                                                                    const template = tid ? ITEM_TEMPLATES[tid] : null;
-                                                                    return (template as any)?.relevantActions?.includes(action.id);
-                                                                });
+                                                                const equipment = getActionEquipment(player, action.id);
+                                                                const bestTool = equipment.find(item => item.maxDurability > 0);
                                                                 if (bestTool) {
                                                                     const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
                                                                     return (

@@ -67,7 +67,7 @@ export const performAction = async (pin: string, playerId: string, action: any):
                 if (!actor.resources) actor.resources = JSON.parse(JSON.stringify(INITIAL_RESOURCES[actor.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT));
                 if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
                 if (!actor.status) actor.status = { stamina: 100, hp: 100, authority: 0, gold: actor.resources.gold || 0, level: 1, xp: 0 };
-                if (!actor.equipment) actor.equipment = { HEAD: null, BODY: null, MAIN_HAND: null, OFF_HAND: null, FEET: null, TRINKET: null, TOOL_1: null, TOOL_2: null, TOOL_3: null };
+                if (!actor.equipment) actor.equipment = { HEAD: null, BODY: null, MAIN_HAND: null, OFF_HAND: null, FEET: null, TRINKET: null, AXE: null, PICKAXE: null, SCYTHE: null, HAMMER: null };
                 if (!actor.stats) actor.stats = { level: 1, xp: 0 };
 
                 if (!room.messages || !Array.isArray(room.messages)) room.messages = [];

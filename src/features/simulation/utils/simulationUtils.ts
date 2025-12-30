@@ -49,8 +49,7 @@ export const calculateYield = (
 
             if (isRelevant) {
                 if (item.stats?.yieldBonus) equipBonus += item.stats.yieldBonus;
-                // Only consider TOOL slots or MAIN_HAND for the "has tool" check
-                if (slot.startsWith('TOOL') || slot === 'MAIN_HAND' || slot === 'OFF_HAND') {
+                if (slot === 'AXE' || slot === 'PICKAXE' || slot === 'SCYTHE' || slot === 'MAIN_HAND' || slot === 'OFF_HAND') {
                     hasRelevantTool = true;
                 }
             }

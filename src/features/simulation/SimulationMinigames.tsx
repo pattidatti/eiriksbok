@@ -445,7 +445,7 @@ const HarvestingGame: React.FC<{
     const bg = isMining || isQuarrying ? 'url("/images/minigames/mining_bg.png")' : isForaging ? 'url("/images/minigames/foraging_bg.png")' : 'url("/images/minigames/agriculture_bg.png")';
 
     return (
-        <div className={`p - 8 text - center min - h - [600px] relative flex flex-col items - center justify - center overflow - hidden ${shake ? 'animate-shake' : ''} `} style={{ backgroundImage: bg, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className={`p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden ${shake ? 'animate-shake' : ''} `} style={{ backgroundImage: bg, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="absolute inset-0 bg-black/70 z-0" />
             <div className="relative z-10 w-full flex flex-col items-center">
                 <h2 className="text-4xl font-black text-white mb-8 drop-shadow-lg tracking-tighter uppercase">{isMining ? 'Gruvedrift' : isQuarrying ? 'Steinhugger' : isForaging ? 'Sanking' : 'Kornhøsting'}</h2>
@@ -511,7 +511,7 @@ const TrappingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
 
             <div className="relative z-10 flex gap-4 mb-12">
                 {[...Array(3)].map((_, i) => (
-                    <div key={i} className={`w - 12 h - 12 rounded-2xl flex items - center justify - center text - 2xl border-2 transition-all ${captured > i ? 'bg-amber-500 border-amber-300 scale-110' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'} `}>
+                    <div key={i} className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl border-2 transition-all ${captured > i ? 'bg-amber-500 border-amber-300 scale-110' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'} `}>
                         🐟
                     </div>
                 ))}
@@ -566,7 +566,7 @@ const ScytheSweepGame: React.FC<{
                     <div className="h-full bg-amber-400 transition-all duration-75" style={{ width: `${progress}% ` }} />
                 </div>
                 <div className="grid grid-cols-5 gap-2">
-                    {[...Array(5)].map((_, i) => <div key={i} className={`w - 8 h - 8 rounded - lg border-2 ${swings > i ? 'bg-amber-500 border-amber-300' : 'border-white/20'} `} />)}
+                    {[...Array(5)].map((_, i) => <div key={i} className={`w-8 h-8 rounded-lg border-2 ${swings > i ? 'bg-amber-500 border-amber-300' : 'border-white/20'} `} />)}
                 </div>
             </div>
         </div>
@@ -739,7 +739,7 @@ const CraftingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
             <div className="absolute inset-0 bg-black/60 z-0" />
 
             <div className="relative z-10 mb-12 flex flex-col items-center">
-                <div className={`text - 5xl font - black mb - 4 h - 16 transition-all duration - 300 ${feedback ? 'scale-125 opacity-100' : 'scale-90 opacity-0'} ${feedback?.color} `}>
+                <div className={`text-5xl font-black mb-4 h-16 transition-all duration-300 ${feedback ? 'scale-125 opacity-100' : 'scale-90 opacity-0'} ${feedback?.color} `}>
                     {feedback?.text}
                 </div>
                 <div className="text-white/60 font-bold uppercase tracking-widest text-sm mb-2">Fremgang</div>
@@ -886,7 +886,7 @@ const SmeltingGame: React.FC<{ onComplete: (score: number) => void, speedMultipl
 
             <div className="relative z-10 w-full max-w-md h-12 bg-black/40 rounded-full border border-white/10 mb-12 flex items-center px-2 overflow-hidden">
                 <div className="absolute inset-y-0 left-[60%] right-[10%] bg-orange-500/20 border-x border-orange-500/50" />
-                <div className={`h - 8 transition-all duration - 100 rounded-full ${temp > 60 && temp < 90 ? 'bg-orange-500 shadow-[0_0_20px_orange]' : 'bg-slate-600'} `}
+                <div className={`h-8 transition-all duration-100 rounded-full ${temp > 60 && temp < 90 ? 'bg-orange-500 shadow-[0_0_20px_orange]' : 'bg-slate-600'} `}
                     style={{ width: `${temp}% ` }} />
             </div>
 
@@ -977,7 +977,7 @@ const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplie
 
             <div className="relative z-10 flex gap-4 mb-8">
                 {[...Array(3)].map((_, i) => (
-                    <div key={i} className={`w - 12 h - 12 rounded - xl flex items - center justify - center text - 2xl border-2 transition-all ${batch > i ? 'bg-amber-500 border-amber-300 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30'} `}>
+                    <div key={i} className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl border-2 transition-all ${batch > i ? 'bg-amber-500 border-amber-300 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30'} `}>
                         🥖
                     </div>
                 ))}
@@ -1032,9 +1032,9 @@ const WeavingGame: React.FC<{ onComplete: (score: number) => void, speedMultipli
 
             <div className="relative z-10 w-full max-w-lg aspect-video bg-slate-900/50 border-4 border-white/10 rounded-3xl p-8 mb-12 flex flex-col justify-between overflow-hidden">
                 <div className="flex justify-between items-center mb-8 relative h-32">
-                    <div className={`text - 6xl transition-all duration - 300 ${lastSide === 'left' ? 'translate-x-0' : 'translate-x-64 opacity-20'} `}>🧵</div>
+                    <div className={`text-6xl transition-all duration-300 ${lastSide === 'left' ? 'translate-x-0' : 'translate-x-64 opacity-20'} `}>🧵</div>
                     <div className="absolute inset-x-0 h-1 bg-white/20 top-1/2 -translate-y-1/2 pointer-events-none" />
-                    <div className={`text - 6xl transition-all duration - 300 ${lastSide === 'right' ? 'translate-x-0' : '-translate-x-64 opacity-20'} `}>🧵</div>
+                    <div className={`text-6xl transition-all duration-300 ${lastSide === 'right' ? 'translate-x-0' : '-translate-x-64 opacity-20'} `}>🧵</div>
                 </div>
 
                 <div className="text-sm font-black text-indigo-300 uppercase tracking-[0.3em] h-8">
@@ -1043,10 +1043,10 @@ const WeavingGame: React.FC<{ onComplete: (score: number) => void, speedMultipli
             </div>
 
             <div className="relative z-10 flex gap-4 mb-8">
-                <button onClick={() => handleKey('left')} className={`w - 24 h - 24 rounded - 3xl flex items - center justify - center text - 4xl border-4 transition-all ${lastSide === 'right' ? 'bg-indigo-600 border-indigo-400 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'} `}>
+                <button onClick={() => handleKey('left')} className={`w-24 h-24 rounded-3xl flex items-center justify-center text-4xl border-4 transition-all ${lastSide === 'right' ? 'bg-indigo-600 border-indigo-400 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'} `}>
                     ⬅️
                 </button>
-                <button onClick={() => handleKey('right')} className={`w - 24 h - 24 rounded - 3xl flex items - center justify - center text - 4xl border-4 transition-all ${lastSide === 'left' ? 'bg-indigo-600 border-indigo-400 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'} `}>
+                <button onClick={() => handleKey('right')} className={`w-24 h-24 rounded-3xl flex items-center justify-center text-4xl border-4 transition-all ${lastSide === 'left' ? 'bg-indigo-600 border-indigo-400 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30 shadow-inner'} `}>
                     ➡️
                 </button>
             </div>
@@ -1111,14 +1111,14 @@ const ApothecaryGame: React.FC<{ onComplete: (score: number) => void, speedMulti
 
             <div className="relative z-10 mb-12 flex gap-4 h-24 items-center">
                 {sequence.map((id, i) => (
-                    <div key={i} className={`w - 16 h - 16 rounded-2xl flex items - center justify - center text - 3xl transition-all border-2 border - white / 10 ${step > i ? 'opacity-10 scale-90' : 'bg-black/40 scale-100'} `}>
+                    <div key={i} className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl transition-all border-2 border-white/10 ${step > i ? 'opacity-10 scale-90' : 'bg-black/40 scale-100'} `}>
                         {ingredients.find(ing => ing.id === id)?.icon}
                     </div>
                 ))}
             </div>
 
             {feedback && (
-                <div className={`relative z - 10 text - 3xl font - black mb - 8 animate -in zoom -in ${feedback.includes('FEIL') ? 'text-rose-500' : 'text-emerald-400'} `}>
+                <div className={`relative z-10 text-3xl font-black mb-8 animate-in zoom-in ${feedback.includes('FEIL') ? 'text-rose-500' : 'text-emerald-400'} `}>
                     {feedback}
                 </div>
             )}

@@ -35,7 +35,7 @@ export interface Resources {
 }
 
 
-export type EquipmentSlot = 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET' | 'TRINKET' | 'TOOL_1' | 'TOOL_2' | 'TOOL_3';
+export type EquipmentSlot = 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET' | 'TRINKET' | 'AXE' | 'PICKAXE' | 'SCYTHE' | 'HAMMER';
 
 export interface ItemStats {
     yieldBonus?: number;

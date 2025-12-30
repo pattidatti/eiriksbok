@@ -1,5 +1,6 @@
 import { GAME_BALANCE, REWARDS, SEASONS, WEATHER } from '../../constants';
 import { calculateYield } from '../../utils/simulationUtils';
+import { getActionSlots } from '../../utils/actionUtils';
 import type { ActionContext } from '../actionTypes';
 
 export const handleWork = (ctx: ActionContext) => {
@@ -7,8 +8,9 @@ export const handleWork = (ctx: ActionContext) => {
     const activeLaws = room.world?.activeLaws || [];
 
     // Damage Tool (Check all relevant slots)
-    damageTool('TOOL_1', GAME_BALANCE.DURABILITY.LOSS_WORK);
-    damageTool('MAIN_HAND', GAME_BALANCE.DURABILITY.LOSS_WORK);
+    getActionSlots(actor, 'WORK').forEach(slot => {
+        damageTool(slot, GAME_BALANCE.DURABILITY.LOSS_WORK);
+    });
 
     // Modifiers
     let lawYMod = 1.0;
@@ -49,8 +51,9 @@ export const handleChop = (ctx: ActionContext) => {
     const { actor, room, action, localResult, trackXp, damageTool } = ctx;
     const currentSeason = room.world?.season || 'Spring';
 
-    damageTool('TOOL_1', GAME_BALANCE.DURABILITY.LOSS_WORK);
-    damageTool('MAIN_HAND', GAME_BALANCE.DURABILITY.LOSS_WORK);
+    getActionSlots(actor, 'CHOP').forEach(slot => {
+        damageTool(slot, GAME_BALANCE.DURABILITY.LOSS_WORK);
+    });
 
     let base = GAME_BALANCE.YIELD.CHOP_WOOD;
     if (currentSeason === 'Summer') base += GAME_BALANCE.YIELD.SUMMER_WOOD_BONUS;
@@ -77,8 +80,9 @@ export const handleMiningAction = (ctx: ActionContext) => {
     const { actor, action, localResult, trackXp, damageTool } = ctx;
     const actionType = typeof action === 'string' ? action : action.type;
 
-    damageTool('TOOL_1', GAME_BALANCE.DURABILITY.LOSS_WORK);
-    damageTool('MAIN_HAND', GAME_BALANCE.DURABILITY.LOSS_WORK);
+    getActionSlots(actor, actionType).forEach(slot => {
+        damageTool(slot, GAME_BALANCE.DURABILITY.LOSS_WORK);
+    });
 
     const skill = 'MINING';
     const base = actionType === 'MINE' ? GAME_BALANCE.YIELD.MINE_ORE : GAME_BALANCE.YIELD.QUARRY_STONE;
@@ -99,7 +103,9 @@ export const handleForage = (ctx: ActionContext) => {
     const { actor, action, localResult, trackXp, damageTool } = ctx;
 
     // Optional tool damage
-    damageTool('TOOL_1', 1);
+    getActionSlots(actor, 'FORAGE').forEach(slot => {
+        damageTool(slot, 1);
+    });
 
     const base = GAME_BALANCE.YIELD.FORAGE_BREAD;
     const performance = action.performance || 0.5;
@@ -117,7 +123,9 @@ export const handleForage = (ctx: ActionContext) => {
 export const handleHunt = (ctx: ActionContext) => {
     const { actor, action, localResult, trackXp, damageTool } = ctx;
 
-    damageTool('MAIN_HAND', 2);
+    getActionSlots(actor, 'HUNT').forEach(slot => {
+        damageTool(slot, 2);
+    });
 
     const base = 5; // Base meat yield
     const performance = action.performance || 0.5;

@@ -7,15 +7,16 @@ interface ValidationResult {
 }
 
 export const ACTION_EQUIPMENT_MAP: Record<string, EquipmentSlot[]> = {
-    'CHOP': ['MAIN_HAND'],
-    'MINE': ['MAIN_HAND'],
-    'QUARRY': ['MAIN_HAND'],
-    'WORK': ['MAIN_HAND'],
+    'CHOP': ['AXE', 'OFF_HAND'],
+    'MINE': ['PICKAXE', 'OFF_HAND'],
+    'QUARRY': ['PICKAXE', 'OFF_HAND'],
+    'WORK': ['SCYTHE', 'OFF_HAND'],
     'RAID': ['MAIN_HAND', 'OFF_HAND', 'BODY', 'HEAD', 'FEET'], // Combat uses all
     'DEFEND': ['MAIN_HAND', 'OFF_HAND', 'BODY', 'HEAD', 'FEET'],
     'PATROL': ['MAIN_HAND', 'OFF_HAND', 'BODY'],
+    'EXPLORE': ['MAIN_HAND', 'OFF_HAND', 'BODY', 'HEAD', 'FEET'],
     // Crafting might use main hand tools if we define them, e.g. Hammer
-    'CRAFT': ['MAIN_HAND']
+    'CRAFT': ['MAIN_HAND', 'AXE', 'PICKAXE', 'SCYTHE', 'HAMMER']
 };
 
 export const getActionEquipment = (player: SimulationPlayer, actionId: string): EquipmentItem[] => {
@@ -24,7 +25,22 @@ export const getActionEquipment = (player: SimulationPlayer, actionId: string): 
 
     return slots
         .map(slot => player.equipment?.[slot])
-        .filter((item): item is EquipmentItem => !!item);
+        .filter((item): item is EquipmentItem => {
+            if (!item) return false;
+            // Handle both simple action match and multi-action tool
+            return !item.relevantActions || item.relevantActions.includes(actionId);
+        });
+};
+
+export const getActionSlots = (player: SimulationPlayer, actionId: string): EquipmentSlot[] => {
+    const slots = ACTION_EQUIPMENT_MAP[actionId];
+    if (!slots || !player.equipment) return [];
+
+    return slots.filter(slot => {
+        const item = player.equipment?.[slot];
+        if (!item) return false;
+        return !item.relevantActions || item.relevantActions.includes(actionId);
+    });
 };
 
 export const checkActionRequirements = (
