@@ -42,10 +42,10 @@ export const SimulationEconomyBlueprint: React.FC = () => {
                     <h3 className="text-xl font-bold text-slate-200">Primærproduksjon (Råvarer)</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <GatheringNode label="Korn" icon="🌾" baseYield={GAME_BALANCE.YIELD.WORK_GRAIN} stamina={ACTION_COSTS.WORK.stamina} skill="FARMING" />
-                    <GatheringNode label="Ved" icon="🪵" baseYield={GAME_BALANCE.YIELD.CHOP_WOOD} stamina={ACTION_COSTS.CHOP.stamina} skill="WOODCUTTING" />
-                    <GatheringNode label="Stein" icon="🏔️" baseYield={GAME_BALANCE.YIELD.QUARRY_STONE} stamina={ACTION_COSTS.QUARRY.stamina} skill="MINING" />
-                    <GatheringNode label="Malm" icon="🪨" baseYield={GAME_BALANCE.YIELD.MINE_ORE} stamina={ACTION_COSTS.MINE.stamina} skill="MINING" />
+                    <GatheringNode label="Korn" icon="🌾" baseYield={GAME_BALANCE.YIELD.WORK_GRAIN} stamina={ACTION_COSTS.WORK.stamina || 0} skill="FARMING" />
+                    <GatheringNode label="Ved" icon="🪵" baseYield={GAME_BALANCE.YIELD.CHOP_WOOD} stamina={ACTION_COSTS.CHOP.stamina || 0} skill="WOODCUTTING" />
+                    <GatheringNode label="Stein" icon="🏔️" baseYield={GAME_BALANCE.YIELD.QUARRY_STONE} stamina={ACTION_COSTS.QUARRY.stamina || 0} skill="MINING" />
+                    <GatheringNode label="Malm" icon="🪨" baseYield={GAME_BALANCE.YIELD.MINE_ORE} stamina={ACTION_COSTS.MINE.stamina || 0} skill="MINING" />
                 </div>
             </section>
 

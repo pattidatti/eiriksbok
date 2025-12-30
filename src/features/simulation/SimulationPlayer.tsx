@@ -366,14 +366,14 @@ export const SimulationPlayer: React.FC = () => {
         const actionType = typeof action === 'string' ? action : action.type;
         const actionMethod = typeof action === 'object' ? action.method : null;
 
-        const minigameTypes = ['WORK', 'CHOP', 'CRAFT', 'MILL', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE', 'SMELT', 'BAKE', 'WEAVE', 'MIX', 'PLANT', 'HARVEST'];
+        const minigameTypes: import('./simulationTypes').ActionType[] = ['WORK', 'CHOP', 'CRAFT', 'MILL', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE', 'SMELT', 'BAKE', 'WEAVE', 'MIX', 'PLANT', 'HARVEST'];
 
-        if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
+        if (minigameTypes.includes(actionType as any) && !activeMinigame && (!action.performance)) {
             // PRE-CHECK REQUIREMENTS
             const currentSeason = (world?.season || 'Spring') as any;
             const currentWeather = (world?.weather || 'Clear') as any;
 
-            const check = checkActionRequirements(player, action, currentSeason, currentWeather);
+            const check = checkActionRequirements(player, action as any, currentSeason, currentWeather);
             if (!check.success) {
                 alert(`Du har ikke råd til dette: ${check.reason}`);
                 setActionResult({

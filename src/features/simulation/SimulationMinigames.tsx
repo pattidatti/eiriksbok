@@ -1,7 +1,6 @@
-import React, { useMemo } from 'react';
-import type { EquipmentItem, ActionType, SkillType } from './simulationTypes';
+import React from 'react';
+import type { EquipmentItem, ActionType } from './simulationTypes';
 import { ITEM_TEMPLATES, SEASONS, WEATHER } from './constants';
-import { Sparkles, ArrowRight } from 'lucide-react';
 import { calculateYield } from './utils/simulationUtils';
 import { getActionCostString } from './utils/actionUtils';
 
@@ -107,7 +106,7 @@ const getBestToolForAction = (type: string, equipment: (EquipmentItem | undefine
 };
 
 /* --- MAIN OVERLAY COMPONENT --- */
-export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, playerUpgrades, equipment, skills, currentSeason = 'Spring', currentWeather = 'Clear', selectedMethod: initialMethod }) => {
+export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, equipment, skills, currentSeason = 'Spring', currentWeather = 'Clear', selectedMethod: initialMethod }) => {
     const isRefining = ['MILL', 'SMELT', 'BAKE', 'WEAVE', 'MIX'].includes(type);
     const [selectedMethod, setSelectedMethod] = React.useState<string | null>(initialMethod || null);
 
@@ -136,30 +135,7 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
         };
     }, [currentSeason, currentWeather, activeTool]);
 
-    // Calculate Potential Yield for UI preview
-    const predictedYield = React.useMemo(() => {
-        const base = isRefining ? 1 : 10;
-        const skillType = 'FARMING';
-        const seasonData = SEASONS[currentSeason as keyof typeof SEASONS];
-        const weatherData = WEATHER[currentWeather as keyof typeof WEATHER];
 
-        // Convert equipment array to record for calculateYield
-        const equipmentRecord: Record<string, EquipmentItem> = {};
-        equipment?.forEach(item => {
-            if (item) equipmentRecord[item.type] = item;
-        });
-
-        return calculateYield(
-            { skills, equipment: equipmentRecord }, // First arg: actor object
-            base,                 // Second arg: base yield
-            skillType,            // Third arg: skillType
-            {                     // Fourth arg: modifiers
-                season: (seasonData as any)?.yieldMod,
-                weather: (weatherData as any)?.yieldMod,
-                isRefining
-            }
-        );
-    }, [currentSeason, currentWeather, isRefining]);
 
     const handleMethodSelect = (methodId: string) => {
         setSelectedMethod(methodId);
