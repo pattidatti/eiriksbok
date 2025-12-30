@@ -400,6 +400,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
 
                             if (finalUpgrades.length > 0) {
                                 const upg = finalUpgrades[0];
+                                if (!upg) return null;
                                 const currentItem = equipment.find((item: any) => {
                                     if (!item) return false;
                                     const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_'));
