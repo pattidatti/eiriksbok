@@ -1,7 +1,89 @@
-import { GAME_BALANCE, REWARDS, SEASONS, WEATHER } from '../../constants';
+import { GAME_BALANCE, REWARDS, SEASONS, WEATHER, CROP_DATA } from '../../constants';
 import { calculateYield } from '../../utils/simulationUtils';
 import { getActionSlots } from '../../utils/actionUtils';
 import type { ActionContext } from '../actionTypes';
+import type { ActiveProcess } from '../../simulationTypes';
+
+export const handlePlant = (ctx: ActionContext) => {
+    const { actor, action, localResult, timestamp } = ctx;
+    const cropId = action.cropId || 'grain';
+    const crop = CROP_DATA[cropId];
+
+    if (!crop) {
+        localResult.success = false;
+        localResult.message = `Ukjent grøde: ${cropId}`;
+        return false;
+    }
+
+    // Initialize activeProcesses if missing
+    if (!actor.activeProcesses) actor.activeProcesses = [];
+
+    // Create new process
+    const newProcess: ActiveProcess = {
+        id: Math.random().toString(36).substr(2, 9),
+        type: 'CROP',
+        itemId: cropId,
+        startedAt: Date.now(),
+        duration: crop.duration,
+        readyAt: Date.now() + crop.duration,
+        notified: false
+    };
+
+    actor.activeProcesses.push(newProcess);
+    localResult.message = `Sådde ${crop.label}. Klar om ${Math.ceil(crop.duration / 60000)} min.`;
+
+    return true;
+};
+
+export const handleHarvest = (ctx: ActionContext) => {
+    const { actor, action, localResult, trackXp, damageTool, room } = ctx;
+
+    // Find finished process
+    // For now, simpler logic: finding the FIRST ready crop of matching type or just any ready crop
+    const now = Date.now();
+    const readyCropIndex = actor.activeProcesses?.findIndex(p => p.type === 'CROP' && p.readyAt <= now);
+
+    if (readyCropIndex === undefined || readyCropIndex === -1) {
+        localResult.success = false;
+        localResult.message = "Ingen avlinger er klare til innhøsting.";
+        return false;
+    }
+
+    const process = actor.activeProcesses![readyCropIndex];
+    const crop = CROP_DATA[process.itemId];
+
+    // Remove process
+    actor.activeProcesses!.splice(readyCropIndex, 1);
+
+    // Calculate Yield
+    getActionSlots(actor, 'WORK').forEach(slot => {
+        damageTool(slot, GAME_BALANCE.DURABILITY.LOSS_WORK);
+    });
+
+    const performance = action.performance || 0.5;
+
+    // Use min/max from CROP_DATA
+    const baseYield = crop.minYield + (crop.maxYield - crop.minYield) * performance;
+
+    // Apply modifiers
+    const currentSeason = room.world?.season || 'Spring';
+    const seasonData = (SEASONS as any)[currentSeason];
+
+    const yieldAmount = Math.ceil(baseYield * (seasonData?.yieldMod || 1.0));
+
+    // Award Resources
+    if (!actor.resources[crop.yieldResource as keyof typeof actor.resources]) {
+        (actor.resources as any)[crop.yieldResource] = 0;
+    }
+    (actor.resources as any)[crop.yieldResource] += yieldAmount;
+
+    localResult.utbytte.push({ resource: crop.yieldResource, amount: yieldAmount });
+    localResult.message = `Høstet ${yieldAmount} ${crop.label}`;
+
+    trackXp('FARMING', Math.ceil(crop.xp * (1 + performance)));
+
+    return true;
+};
 
 export const handleWork = (ctx: ActionContext) => {
     const { actor, room, action, localResult, trackXp, damageTool } = ctx;

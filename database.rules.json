@@ -1,0 +1,29 @@
+{
+    "rules": {
+        "simulation_accounts": {
+            "$uid": {
+                ".read": "$uid === auth.uid",
+                ".write": "$uid === auth.uid"
+            }
+        },
+        "simulation_reserved_names": {
+            // Allow checking availability (read) by anyone authenticated
+            ".read": "auth != null",
+            // Allow reserving a name if it's new, or if updating own reservation
+            "$name": {
+                ".write": "auth != null && (!data.exists() || data.val() === auth.uid) && newData.val() === auth.uid"
+            }
+        },
+        "simulation_rooms": {
+            // Game rooms require authentication (even anonymous) to read/write
+            ".read": "auth != null",
+            ".write": "auth != null"
+        },
+        "simulation_server_metadata": {
+            // Server browser list
+            ".read": "auth != null",
+            // Only authenticated users can publish server metadata
+            ".write": "auth != null"
+        }
+    }
+}

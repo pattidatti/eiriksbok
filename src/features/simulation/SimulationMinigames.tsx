@@ -1,81 +1,80 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { getActionCostString } from './utils/actionUtils';
-import { SEASONS, WEATHER, ITEM_TEMPLATES } from './constants';
-import { calculateYield } from './utils/simulationUtils';
-import { animationManager } from './logic/AnimationManager';
-import type { EquipmentItem, SkillType } from './simulationTypes';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import type { SimulationPlayer, SimulationRoom } from './simulationTypes';
+import { EquipmentItem } from './simulationTypes';
+import { ITEM_TEMPLATES, CROP_DATA } from './constants';
 
 interface MinigameProps {
-    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE' | 'SMELT' | 'BAKE' | 'WEAVE' | 'MIX';
+    type: 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 'MINE' | 'QUARRY' | 'PATROL' | 'FORAGE' | 'REFINE' | 'SMELT' | 'BAKE' | 'WEAVE' | 'MIX' | 'PLANT' | 'HARVEST';
 
 
     onComplete: (score: number) => void;
     onCancel: () => void;
+
+    // Context
     playerUpgrades?: string[];
     equipment?: EquipmentItem[];
-    skills?: Record<string, { level: number }>;
-    selectedMethod?: string; // New prop to skip selection
-    currentSeason?: keyof typeof SEASONS;
-    currentWeather?: keyof typeof WEATHER;
+    skills?: any; // Record<SkillType, SkillData>
+
+    // Optional presets
+    selectedMethod?: string; // e.g., 'scythe' vs 'sickle'
+
+    // Environmental
+    currentSeason?: string;
+    currentWeather?: string;
 }
 
 export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon: string, desc: string }[]> = {
     WORK: [
-        { id: 'rhythm', label: 'Rytme', icon: '🌾', desc: 'Trykk i takt med svingene.' },
-        { id: 'sweep', label: 'Feiing', icon: '🧹', desc: 'Følg sirkelen med musa.' }
-    ],
-    MINE: [
-        { id: 'rhythm', label: 'Rytme', icon: '⛏️', desc: 'Sikt deg inn på de rike årene.' }
-    ],
-    QUARRY: [
-        { id: 'rhythm', label: 'Rytme', icon: '🪨', desc: 'Presisjonshugging.' }
+        { id: 'sickle', label: 'Sigd', icon: '🌾', desc: 'Presisjons-høsting for høy kvalitet.' },
+        { id: 'sweep', label: 'Ljå', icon: '🎋', desc: 'Rask innhøsting av store områder.' },
     ],
     CHOP: [
-        { id: 'target', label: 'Presisjon (Klassisk)', icon: '🎯', desc: 'Klikk på hoggepunktene.' },
-        { id: 'saw', label: 'Saging', icon: '🪚', desc: 'Dra saga frem og tilbake.' }
+        { id: 'axe', label: 'Øks', icon: '🪓', desc: 'Fell trær med rå makt.' },
+        { id: 'saw', label: 'Sag', icon: '🪚', desc: 'Presis kapping for planker.' },
+    ],
+    FORAGE: [
+        { id: 'gather', label: 'Sanking', icon: '🍄', desc: 'Let etter mat og urter i skogen.' },
+        { id: 'traps', label: 'Snarefangst', icon: '🕸️', desc: 'Sett feller for småvilt.' },
+    ],
+    MINE: [
+        { id: 'pickaxe', label: 'Hakke', icon: '⛏️', desc: 'Hugg ut malm fra fjellet.' },
+    ],
+    QUARRY: [
+        { id: 'chisel', label: 'Meisel', icon: '🔨', desc: 'Hugg ut steinblokker.' },
     ],
     CRAFT: [
-        { id: 'rhythm', label: 'Smiing', icon: '⚒️', desc: 'Slå mens jernet er varmt.' }
+        { id: 'hammer', label: 'Smiing', icon: '⚒️', desc: 'Form metallet på ambolten.' },
     ],
-    REFINE: [{ id: 'rhythm', label: 'Foredling', icon: '⚗️', desc: 'Smi eller bearbeid råvarene.' }],
-    SMELT: [{ id: 'bellows', label: 'Belgpumping', icon: '🔥', desc: 'Hold temperaturen oppe.' }],
-    BAKE: [{ id: 'oven', label: 'Steking', icon: '🍞', desc: 'Pass på at det ikke brenner seg.' }],
-    MILL: [{ id: 'wind', label: 'Vindbalanse', icon: '🌬️', desc: 'Finn den rette vinden.' }],
-    WEAVE: [{ id: 'shuttle', label: 'Vevstol', icon: '🧶', desc: 'Styr skyttelen i rytme.' }],
-    MIX: [{ id: 'herbs', label: 'Urteblanding', icon: '🌿', desc: 'Følg oppskriften nøyaktig.' }],
-    FORAGE: [
-        { id: 'harvest', label: 'Sanking', icon: '🍓', desc: 'Plukk bær og røtter.' },
-        { id: 'traps', label: 'Snarer', icon: '🎣', desc: 'Sjekk smågnagerfeller.' }
+    MILL: [
+        { id: 'grind', label: 'Kverning', icon: '⚙️', desc: 'Mal korn til mel.' },
+    ],
+    BAKE: [
+        { id: 'oven', label: 'Steking', icon: '🔥', desc: 'Stek brød i ovnen.' },
+    ],
+    WEAVE: [
+        { id: 'loom', label: 'Veving', icon: '🧶', desc: 'Vev tråd til stoffer.' },
+    ],
+    MIX: [
+        { id: 'brew', label: 'Brygging', icon: '⚗️', desc: 'Bland urter til medisiner.' },
+    ],
+    SMELT: [
+        { id: 'furnace', label: 'Smelting', icon: '🌋', desc: 'Smelt malm til barrer.' },
+    ],
+    PLANT: [
+        { id: 'manual', label: 'Håndsåing', icon: '🌱', desc: 'Så frø for hånd.' },
     ]
 };
 
-/* --- TOOL VISIBILITY HELPERS --- */
 const MinigameToolBadge: React.FC<{ item: EquipmentItem }> = ({ item }) => {
-    if (!item) return null;
     const durabilityPct = (item.durability / item.maxDurability) * 100;
-    const isLow = durabilityPct < 20;
-
     return (
-        <div className="absolute bottom-10 right-10 z-[200] animate-in slide-in-from-right-10 duration-700">
-            <div className="bg-slate-900/80 backdrop-blur-2xl border-2 border-white/20 p-5 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_20px_rgba(79,70,229,0.2)] flex items-center gap-5 group hover:border-indigo-500 transition-all">
-                <div className="relative">
-                    <div className="w-16 h-16 bg-black/60 rounded-2xl flex items-center justify-center text-4xl shadow-inner border border-white/10 group-hover:scale-110 group-hover:rotate-3 transition-transform">
-                        {item.icon}
-                    </div>
-                    {isLow && (
-                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-rose-500 rounded-full animate-ping border-2 border-slate-900" />
-                    )}
-                </div>
-                <div className="flex flex-col">
-                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] leading-none mb-2">{item.name}</span>
-                    <div className="w-28 h-2.5 bg-white/5 rounded-full overflow-hidden border border-white/10 p-[1px]">
-                        <div
-                            className={`h-full rounded-full transition-all duration-1000 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'} `}
-                            style={{ width: `${durabilityPct}% ` }}
-                        />
-                    </div>
-                    <div className="flex justify-between mt-1 text-[8px] font-black uppercase tracking-tighter text-slate-500">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[110] animate-in slide-in-from-bottom-4 fade-in duration-500">
+            <div className="bg-slate-900/90 border border-white/10 rounded-full px-6 py-3 flex items-center gap-4 backdrop-blur-md shadow-2xl">
+                <div className="text-3xl drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">{item.icon}</div>
+                <div className="flex flex-col gap-1">
+                    <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{item.name}</div>
+                    <div className="flex items-center gap-2 text-xs font-bold text-slate-300">
+                        <div className={`w-2 h-2 rounded-full ${durabilityPct > 20 ? 'bg-emerald-500' : 'bg-rose-500'} animate-pulse`} />
                         <span>Slitasje</span>
                         <span>{Math.round(durabilityPct)}%</span>
                     </div>
@@ -95,283 +94,78 @@ const getBestToolForAction = (type: string, equipment: (EquipmentItem | undefine
     });
 };
 
-/* --- VISUAL FEEDBACK HELPERS REMOVED --- */
+/* --- PLANTING GAME --- */
+const PlantingGame: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+    const [seeds, setSeeds] = useState<{ x: number, y: number, id: number }[]>([]);
+    const [isFinished, setIsFinished] = useState(false);
+    const quota = 20;
 
-export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, playerUpgrades, equipment = [], skills, selectedMethod, currentSeason = 'Spring', currentWeather = 'Clear' }) => {
-    const [method, setMethod] = useState<string | null>(selectedMethod || null);
+    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (isFinished) return;
 
-    const currentMethods = MINIGAME_VARIANTS[type] || [];
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            // Prevent scrolling keys
-            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space', ' '].includes(e.key)) {
-                e.preventDefault();
+        const newSeed = { x, y, id: Date.now() };
+
+        animationManager.spawnParticles(x, y, 'bg-emerald-400');
+
+        setSeeds(prev => {
+            const next = [...prev, newSeed];
+            if (next.length >= quota) {
+                setIsFinished(true);
+                setTimeout(() => onComplete(1.0), 1500);
             }
-        };
-        window.addEventListener('keydown', handleKeyDown, { capture: false });
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, []);
-
-    useEffect(() => {
-        if (selectedMethod) {
-            setMethod(selectedMethod);
-        } else if (currentMethods.length === 1 && !method) {
-            setMethod(currentMethods[0].id);
-        }
-    }, [type, selectedMethod]);
-
-    const getSelectionBackground = () => {
-        switch (type) {
-            case 'WORK': return '/images/minigames/agriculture_bg.png';
-            case 'CHOP': return '/images/minigames/forestry_bg.png';
-            case 'MINE':
-            case 'QUARRY': return '/images/minigames/mining_bg.png';
-            case 'CRAFT': return '/images/minigames/smithing_bg.png';
-            case 'FORAGE': return '/images/minigames/foraging_bg.png';
-            default: return '/images/minigames/quest_bg.png';
-        }
+            return next;
+        });
     };
-
-    // Calculate speed bonus from relevant equipment
-    const actionEquipment = equipment.filter(_item => {
-        // Simplified check: if it's a tool/weapon relevant to the action, use its stats
-        // For now use raw stats from whatever is passed
-        return true;
-    });
-    const speedMultiplier = actionEquipment.reduce((acc, item) => acc * (item.stats?.speedBonus || 1.0), 1.0);
-
-    const possibleYield = useMemo(() => {
-        let base = 10;
-        let skillType: SkillType = 'FARMING';
-        let isRefining = false;
-
-        if (type === 'CHOP') { base = 5; skillType = 'WOODCUTTING'; }
-        if (type === 'MINE') { base = 5; skillType = 'MINING'; }
-        if (type === 'QUARRY') { base = 8; skillType = 'MINING'; }
-        if (type === 'FORAGE') { base = 1; skillType = 'FARMING'; }
-        if (type === 'REFINE' || type === 'BAKE' || type === 'SMELT' || type === 'MILL' || type === 'WEAVE') {
-            base = 1; // Generic base, though specific recipes vary, this shows the modifier effect
-            skillType = 'CRAFTING';
-            isRefining = true;
-        }
-
-        const seasonData = SEASONS[currentSeason as keyof typeof SEASONS] as any;
-        const weatherData = WEATHER[currentWeather as keyof typeof WEATHER] as any;
-
-        return calculateYield(
-            { skills, equipment: equipment as any },
-            base,
-            skillType,
-            {
-                season: seasonData?.yieldMod,
-                weather: weatherData?.yieldMod,
-                isRefining
-            }
-        );
-    }, [type, skills, equipment, currentSeason, currentWeather]);
-
-    const resourceNameMap: Record<string, string> = {
-        WORK: 'Korn', CHOP: 'Ved', MINE: 'Malm', QUARRY: 'Stein', FORAGE: 'Brød', REFINE: 'Produkt'
-    };
-
 
     return (
-        <div className="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-2xl flex items-center justify-center p-4">
-            <div className="bg-slate-900 rounded-[3rem] shadow-[0_50px_120px_rgba(0,0,0,0.9)] w-full max-w-5xl overflow-hidden relative border-2 border-white/10">
-                <button onClick={onCancel} className="absolute top-6 right-6 text-white/50 hover:text-white z-20 p-3 bg-white/5 hover:bg-white/10 rounded-full transition-all">✕</button>
+        <div
+            onClick={handleClick}
+            className="w-full h-[600px] relative overflow-hidden cursor-crosshair group active:scale-[0.99] transition-transform select-none"
+            style={{
+                backgroundImage: 'url("/images/minigames/agriculture_bg.png")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            }}
+        >
+            <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none" />
 
-                {!method ? (
-                    <div className="relative min-h-[600px] flex flex-col items-center justify-center p-12 text-center animate-in fade-in zoom-in duration-500 overflow-hidden">
-                        {/* Background with overlay */}
-                        <div className="absolute inset-0 z-0">
-                            <img src={getSelectionBackground()} className="w-full h-full object-cover grayscale-[0.5] opacity-30" alt="" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+            {/* Instructions */}
+            <div className="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none z-20 text-center">
+                {!isFinished ? (
+                    <>
+                        <h2 className="text-3xl font-black text-white drop-shadow-md mb-2">Så dine frø</h2>
+                        <div className="bg-black/40 px-4 py-1 rounded-full text-emerald-400 font-bold uppercase tracking-widest text-sm inline-block">
+                            {seeds.length} / {quota}
                         </div>
-
-                        <div className="relative z-10 w-full max-w-2xl">
-                            <h2 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-4">Velg utførelse</h2>
-                            <h3 className="text-5xl font-black text-white mb-6 tracking-tighter uppercase">{type}</h3>
-
-                            {/* COMPACT TOOL & COST AREA */}
-                            <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-                                {(() => {
-                                    const bestTool = getBestToolForAction(type, equipment);
-                                    if (bestTool) {
-                                        const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
-                                        return (
-                                            <div className="flex items-center gap-4 bg-slate-800/80 border-2 border-indigo-500/30 px-6 py-4 rounded-3xl backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] group hover:border-indigo-400 transition-all animate-shimmer tool-glow">
-                                                <div className="text-4xl group-hover:scale-110 group-hover:rotate-3 transition-transform drop-shadow-[0_0_10px_rgba(79,70,229,0.5)]">{bestTool.icon}</div>
-                                                <div className="text-left">
-                                                    <div className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-1">{bestTool.name}</div>
-                                                    <div className="flex items-center gap-3">
-                                                        <div className="w-24 h-2 bg-black/60 rounded-full overflow-hidden p-[1px] border border-white/10 shadow-inner">
-                                                            <div
-                                                                className={`h-full rounded-full transition-all duration-1000 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'} `}
-                                                                style={{ width: `${durabilityPct}% ` }}
-                                                            />
-                                                        </div>
-                                                        <span className="text-[10px] font-black text-slate-500 uppercase">{Math.round(durabilityPct)}%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        );
-                                    }
-                                    return (
-                                        <div className="bg-slate-800/40 border border-white/5 px-6 py-3 rounded-2xl backdrop-blur-md text-[11px] font-bold text-slate-400 italic">
-                                            Ingen verktøy utrustet
-                                        </div>
-                                    );
-                                })()}
-
-                                {(() => {
-                                    const costLabel = getActionCostString(type, currentSeason, currentWeather);
-                                    if (costLabel) {
-                                        return (
-                                            <div className="flex items-center gap-3 px-6 py-3 bg-black/40 rounded-2xl border border-white/10 backdrop-blur-md">
-                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Kostnad</span>
-                                                <span className="text-lg font-black text-amber-400 font-mono tracking-tight">{costLabel}</span>
-                                            </div>
-                                        );
-                                    }
-                                    return null;
-                                })()}
-                            </div>
-
-                            <div className="grid grid-cols-1 gap-4 w-full">
-                                {currentMethods.map(m => (
-                                    <button
-                                        key={m.id}
-                                        onClick={() => setMethod(m.id)}
-                                        className="group flex items-center gap-6 p-6 bg-white/5 hover:bg-white/10 rounded-[2rem] text-left transition-all active:scale-[0.98] border border-white/5 hover:border-amber-500/50 shadow-xl"
-                                    >
-                                        <div className="w-20 h-20 bg-slate-800 rounded-2xl flex items-center justify-center text-5xl group-hover:scale-110 transition-transform shadow-inner border border-white/5">
-                                            {m.icon}
-                                        </div>
-                                        <div className="flex-1">
-                                            <div className="font-black text-2xl text-white group-hover:text-amber-400 transition-colors">{m.label}</div>
-                                            <div className="text-sm text-slate-400 font-medium">{m.desc}</div>
-                                        </div>
-                                        <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center group-hover:translate-x-2 transition-transform opacity-30 group-hover:opacity-100">
-                                            <span className="text-white text-xl">→</span>
-                                        </div>
-                                    </button>
-                                ))}
-                            </div>
-
-                            {/* PROGRESSION FOOTER */}
-                            {(() => {
-                                const bestTool = getBestToolForAction(type, equipment);
-                                const currentId = bestTool ? (Object.keys(ITEM_TEMPLATES).find(k => bestTool.id === k || bestTool.id.startsWith(k + '_'))) : (type === 'CHOP' ? 'rusty_axe' : null);
-                                const nextId = (ITEM_TEMPLATES[currentId as any] as any)?.nextTierId;
-                                const nextTemplate = nextId ? ITEM_TEMPLATES[nextId] : null;
-
-                                if (nextTemplate) {
-                                    return (
-                                        <div className="mt-12 pt-8 border-t border-white/5 w-full flex flex-col gap-4">
-                                            <div className="flex items-center justify-between max-w-xl mx-auto w-full px-2">
-                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em]">Mesterlig Progresjon</span>
-                                                <div className="flex items-center gap-2">
-                                                    <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
-                                                    <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Oppgradering i Smia</span>
-                                                </div>
-                                            </div>
-
-                                            <div className="bg-slate-950/60 border border-white/10 rounded-[2.5rem] p-6 flex items-center justify-between group max-w-xl mx-auto w-full relative overflow-hidden backdrop-blur-sm shadow-2xl">
-                                                {/* Ambient Shimmer */}
-                                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-
-                                                {/* Current Tool Preview */}
-                                                <div className="flex flex-col items-center gap-2 z-10 opacity-40">
-                                                    <div className="w-16 h-16 bg-white/5 rounded-3xl flex items-center justify-center text-3xl border border-white/10">
-                                                        {bestTool?.icon || '❓'}
-                                                    </div>
-                                                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Nå</span>
-                                                </div>
-
-                                                {/* Animated Transition Path */}
-                                                <div className="flex flex-col items-center gap-2 flex-1">
-                                                    <div className="flex items-center gap-1">
-                                                        {[1, 2, 3, 4, 5].map(i => (
-                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
-                                                        ))}
-                                                        <ArrowRight className="w-6 h-6 text-indigo-500/40 mx-4 group-hover:translate-x-2 transition-transform" />
-                                                        {[1, 2, 3, 4, 5].map(i => (
-                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
-                                                        ))}
-                                                    </div>
-                                                    {nextTemplate.stats?.yieldBonus && (
-                                                        <div className="bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
-                                                            <span className="text-[10px] font-black text-emerald-400 uppercase">+{nextTemplate.stats.yieldBonus} Utbytte</span>
-                                                        </div>
-                                                    )}
-                                                </div>
-
-                                                {/* Recommended Tool Preview */}
-                                                <div className="flex flex-col items-center gap-2 z-10 animate-shimmer">
-                                                    <div className="relative">
-                                                        <div className="w-20 h-20 bg-indigo-600/20 rounded-3xl flex items-center justify-center text-5xl border-2 border-indigo-500/40 shadow-[0_0_30px_rgba(79,70,229,0.3)] group-hover:scale-110 transition-transform duration-500 upgrade-glow">
-                                                            {nextTemplate.icon}
-                                                        </div>
-                                                        <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-amber-500 animate-pulse drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
-                                                    </div>
-                                                    <span className="text-[11px] font-black text-amber-500 uppercase tracking-widest">{nextTemplate.name}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    );
-                                }
-                                return null;
-                            })()}
-                        </div>
-                    </div>
+                    </>
                 ) : (
-                    (() => {
-                        switch (type) {
-                            case 'WORK':
-                                if (method === 'sweep') return <ScytheSweepGame onComplete={onComplete} equipment={equipment} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
-                                return <HarvestingGame onComplete={onComplete} equipment={equipment} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
-                            case 'MINE':
-                                return <HarvestingGame onComplete={onComplete} equipment={equipment} isMining speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
-                            case 'QUARRY':
-                                return <HarvestingGame onComplete={onComplete} equipment={equipment} isQuarrying speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
-                            case 'FORAGE':
-                                if (method === 'traps') return <TrappingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
-                                return <HarvestingGame onComplete={onComplete} equipment={equipment} isForaging speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
-                            case 'CHOP':
-                                if (method === 'saw') return <SawingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
-                                return <WoodcuttingGame onComplete={onComplete} equipment={equipment} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
-                            case 'CRAFT':
-                            case 'REFINE':
-                                return <CraftingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
-                            case 'MILL':
-                                return <MillingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
-                            case 'DEFEND':
-                                return <CombatGame onComplete={onComplete} isKnight={playerUpgrades?.includes('warhorse')} />;
-                            case 'PATROL':
-                                return <PatrolMinigameRouter onComplete={onComplete} />;
-                            case 'EXPLORE':
-                                return <QuestGame onComplete={onComplete} />;
-                            case 'SMELT':
-                                return <SmeltingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
-                            case 'BAKE':
-                                return <BakingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
-                            case 'WEAVE':
-                                return <WeavingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
-                            case 'MIX':
-                                return <ApothecaryGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
-                            default:
-                                return <div className="text-white">Ukjent minispill-type: {type}</div>;
-                        }
-                    })()
+                    <div className="animate-in zoom-in duration-300">
+                        <h2 className="text-5xl font-black text-emerald-400 drop-shadow-[0_4px_0_rgba(0,0,0,0.5)] uppercase tracking-tighter animate-bounce">
+                            Mestrerlig Sådd! 🌱
+                        </h2>
+                    </div>
                 )}
-
             </div>
-            {/* --- SHARED TOOL HUD --- */}
-            {equipment && getBestToolForAction(type, equipment) && (
-                <MinigameToolBadge item={getBestToolForAction(type, equipment)!} />
-            )}
-            <MinigameStyles />
+
+            {/* Seeds */}
+            {seeds.map((s, i) => (
+                <div
+                    key={s.id}
+                    className="absolute w-4 h-4 bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(52,211,153,0.8)] animate-in zoom-in duration-300"
+                    style={{ left: `${s.x}%`, top: `${s.y}%`, transform: 'translate(-50%, -50%)' }}
+                >
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-0.5 h-3 bg-white/50" />
+                </div>
+            ))}
+
+            {/* Cursor Hint */}
+            <div className="absolute inset-0 pointer-events-none z-10 hidden group-hover:block">
+                <div className="absolute w-8 h-8 border-2 border-white/50 rounded-full -translate-x-1/2 -translate-y-1/2" />
+            </div>
         </div>
     );
 };
@@ -604,7 +398,7 @@ const ScytheSweepGame: React.FC<{
     );
 };
 
-/* --- WOODCUTTING CLASSIC --- */
+/* --- WOODCUTTING GAME --- */
 const WoodcuttingGame: React.FC<{
     onComplete: (score: number) => void,
     equipment?: EquipmentItem[],
@@ -661,324 +455,82 @@ const WoodcuttingGame: React.FC<{
     );
 };
 
-
 /* --- SAWING VARIANT --- */
 const SawingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
     const [pos, setPos] = useState(50);
-    const [strokes, setStrokes] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
-    const lastPos = useRef(50);
-
-    const handleMove = (e: React.MouseEvent) => {
-        if (isFinished) return;
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        setPos(x);
-        if ((lastPos.current < 30 && x > 70) || (lastPos.current > 70 && x < 30)) {
-            // Speed Bonus makes you complete strokes faster/easier? Or requires FEWER strokes?
-            // Let's say fewer strokes needed if multiplier is high? Or just consistent behavior.
-            // Let's stick to standard behavior for Sawing, maybe bonus score?
-            setStrokes(s => {
-                let increment = 1;
-                // Chance for double stroke count with high speed
-                if (Math.random() < (speedMultiplier - 1.0)) increment = 2;
-
-                let newS = s + increment;
-                if (newS >= 10) { setIsFinished(true); setTimeout(() => onComplete(1.0), 2000); }
-                return newS;
-            });
-            lastPos.current = x;
-        }
-    };
-
-    return (
-        <div onMouseMove={handleMove} className="p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/forestry_bg.png")', backgroundSize: 'cover' }}>
-            <div className="absolute inset-0 bg-black/60 z-0" />
-            <h2 className="relative z-10 text-3xl font-black text-white mb-8">Saging 🪚</h2>
-            <div className="relative z-10 w-full h-24 bg-white/10 rounded-full border-2 border-white/20 flex items-center px-4">
-                <div className="absolute inset-y-0 w-32 bg-slate-400 rounded-lg shadow-2xl transition-all duration-75" style={{ left: `${pos}% `, transform: 'translateX(-50%)' }}>
-                    <div className="w-full h-full border-y-4 border-slate-600 flex items-center justify-center text-2xl font-black">🪚</div>
-                </div>
-            </div>
-            <div className="mt-8 text-white text-xl font-bold">Tak: {strokes} / 10</div>
-        </div>
-    );
+    return <div onClick={() => { setIsFinished(true); onComplete(1.0); }} className="p-12 text-center text-white">Sawing Placeholder</div>;
 };
 
-/* --- CRAFTING GAME --- */
+/* --- CRAFTING GAME (Hammering) --- */
 const CraftingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
-    const [nodes, setNodes] = useState<{ id: number, pos: number }[]>([]);
+    const [targetPos, setTargetPos] = useState(50);
+    const [cursorPos, setCursorPos] = useState(50);
     const [hits, setHits] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
-    const [feedback, setFeedback] = useState<{ text: string, color: string } | null>(null);
-    const [targetPos, setTargetPos] = useState(85); // Start position
-    const targetDir = useRef(-1); // Direction of target movement
-
-    useEffect(() => {
-        if (isFinished) return;
-        const spawn = setInterval(() => {
-            setNodes(n => {
-                if (n.length > 5) return n; // Max 5 nodes on screen
-                return [...n, { id: Date.now(), pos: 0 }];
-            });
-        }, 1500 / speedMultiplier);
-
-        const move = setInterval(() => {
-            // Move nodes
-            setNodes(n => n.map(node => ({ ...node, pos: node.pos + (2 * speedMultiplier) })).filter(node => node.pos < 110));
-
-            // Move target zone (oscillate between 40% and 90%)
-            setTargetPos(prev => {
-                const speed = 0.5 * speedMultiplier;
-                let next = prev + (speed * targetDir.current);
-                if (next > 90) {
-                    targetDir.current = -1;
-                    return 90;
-                }
-                if (next < 40) {
-                    targetDir.current = 1;
-                    return 40;
-                }
-                return next;
-            });
-        }, 32);
-
-        const handleKeys = (e: KeyboardEvent) => {
-            if (e.code === 'Space' || e.code === 'Enter') {
-                e.preventDefault();
-                handleHit();
-            }
-        };
-        window.addEventListener('keydown', handleKeys);
-        return () => {
-            clearInterval(spawn);
-            clearInterval(move);
-            window.removeEventListener('keydown', handleKeys);
-        };
-    }, [isFinished, speedMultiplier]);
-
-    // Use a ref to access the latest targetPos in handleHit without adding it to dependencies (which would recreate the function/listener constantly if not careful, though here handleHit is called by closure or button)
-    // Actually, since handleHit is called by button onClick, it will close over state.
-    // For keydown listener, we need to be careful.
-    // Let's use a ref for targetPos to ensure the event listener always has latest value if we don't rebind it.
-    const latestTargetPos = useRef(85);
-    useEffect(() => { latestTargetPos.current = targetPos; }, [targetPos]);
-
-    const handleHit = () => {
-        if (isFinished) return;
-        setNodes(currentNodes => {
-            const tPos = latestTargetPos.current;
-            // Target is roughly 12% width (w-24 on w-full max-w-2xl ~ 600px... wait. w-24 is 6rem = 96px. 96/600 is approx 15-16%).
-            // Let's define the hit window based on visual size. 
-            // If target centered at tPos %, and width is approx 15%, then bounds are tPos +/- 7.5%.
-            // Let's be generous: +/- 8%.
-
-            const hitZoneStart = tPos - 8;
-            const hitZoneEnd = tPos + 8;
-
-            const idx = currentNodes.findIndex(n => n.pos > hitZoneStart && n.pos < hitZoneEnd);
-
-            if (idx !== -1) {
-                setHits(h => {
-                    const next = h + 1;
-                    if (next >= 10) {
-                        setIsFinished(true);
-                        setFeedback({ text: 'FERDIG! ⚒️', color: 'text-emerald-400' });
-                        setTimeout(() => onComplete(1.0), 1000);
-                    } else {
-                        setFeedback({ text: 'TREFF! ✨', color: 'text-amber-400' });
-                        setTimeout(() => setFeedback(null), 500);
-                    }
-                    return next;
-                });
-                return currentNodes.filter((_, i) => i !== idx);
-            } else {
-                setFeedback({ text: 'BOM! ✕', color: 'text-rose-500' });
-                setTimeout(() => setFeedback(null), 500);
-                return currentNodes;
-            }
-        });
-    };
-
-    return (
-        <div className="p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden" style={{ backgroundImage: 'url("/images/minigames/smithing_bg.png")', backgroundSize: 'cover' }}>
-            <div className="absolute inset-0 bg-black/60 z-0" />
-
-            <div className="relative z-10 mb-12 flex flex-col items-center">
-                <div className={`text-5xl font-black mb-4 h-16 transition-all duration-300 ${feedback ? 'scale-125 opacity-100' : 'scale-90 opacity-0'} ${feedback?.color} `}>
-                    {feedback?.text}
-                </div>
-                <div className="text-white/60 font-bold uppercase tracking-widest text-sm mb-2">Fremgang</div>
-                <div className="text-4xl font-black text-white">{hits} <span className="text-white/30 text-2xl">/ 10</span></div>
-            </div>
-
-            <div className="relative z-10 w-full max-w-2xl h-32 bg-white/5 backdrop-blur-md rounded-[2rem] border-2 border-white/10 overflow-hidden flex items-center mb-12 px-2 shadow-2xl">
-                {/* Hit Zone (Dynamic Position) */}
-                <div
-                    className="absolute w-24 h-24 bg-amber-500/20 border-4 border-amber-500/50 rounded-2xl animate-pulse flex items-center justify-center transition-all duration-75 ease-linear"
-                    style={{ left: `${targetPos}%`, transform: 'translateX(-50%)' }}
-                >
-                    <div className="w-16 h-16 bg-amber-500/40 rounded-xl blur-lg" />
-                </div>
-
-                {/* Nodes */}
-                {nodes.map(n => (
-                    <div
-                        key={n.id}
-                        className="absolute w-12 h-12 bg-white rounded-full border-4 border-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.8)] flex items-center justify-center text-xl"
-                        style={{ left: `${n.pos}% `, transform: 'translateX(-50%)', transition: 'left 32ms linear' }}
-                    >
-                        🔥
-                    </div>
-                ))}
-            </div>
-
-            <button
-                onClick={handleHit}
-                className="relative z-10 w-full max-w-sm bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white py-8 rounded-3xl font-black text-3xl shadow-[0_20px_50px_rgba(79,70,229,0.4)] transition-all border-b-8 border-indigo-800"
-            >
-                SLÅ! ⚒️
-                <div className="text-[10px] opacity-50 mt-2 font-bold uppercase tracking-widest">Klikk eller bruk Mellomrom</div>
-            </button>
-        </div>
-    );
-};
-
-
-/* --- MILLING GAME (Wind Balance) --- */
-const MillingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
-    const [wind, setWind] = useState(50);
-    const [progress, setProgress] = useState(0);
-    const [isFinished, setIsFinished] = useState(false);
-    const [fluctuation, setFluctuation] = useState(0);
+    const targetDir = useRef(1);
 
     useEffect(() => {
         if (isFinished) return;
         const interval = setInterval(() => {
-            setFluctuation(f => f + 0.1);
-            setWind(w => {
-                const change = Math.sin(fluctuation) * 2 + (Math.random() - 0.5) * 4;
-                const next = Math.max(0, Math.min(100, w + change));
-
-                // If wind is in "sweet spot" (40-60), increase progress
-                if (next > 35 && next < 65) {
-                    setProgress(p => {
-                        const nextP = p + (0.5 * speedMultiplier);
-                        if (nextP >= 100) {
-                            setIsFinished(true);
-                            setTimeout(() => onComplete(1.0), 1000);
-                            return 100;
-                        }
-                        return nextP;
-                    });
-                }
+            setTargetPos(p => {
+                let next = p + (0.8 * targetDir.current * speedMultiplier);
+                if (next > 90) { targetDir.current = -1; return 90; }
+                if (next < 10) { targetDir.current = 1; return 10; }
                 return next;
             });
-        }, 100);
+        }, 16);
         return () => clearInterval(interval);
-    }, [isFinished, fluctuation, speedMultiplier]);
+    }, [isFinished, speedMultiplier]);
 
-    const adjustWind = (amt: number) => {
-        setWind(w => Math.max(0, Math.min(100, w + amt)));
+    const handleHit = () => {
+        const dist = Math.abs(cursorPos - targetPos);
+        if (dist < 15) {
+            setHits(h => {
+                if (h + 1 >= 5) { setIsFinished(true); setTimeout(() => onComplete(1.0), 1500); }
+                return h + 1;
+            });
+            animationManager.spawnParticles(50, 50, 'bg-amber-400');
+            animationManager.spawnFloatingText("KLANG!", 50, 40, 'text-amber-500');
+        }
     };
 
     return (
-        <div className="p-12 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden"
-            style={{ backgroundImage: 'url("/images/minigames/agriculture_bg.png")', backgroundSize: 'cover' }}>
-            <div className="absolute inset-0 bg-black/70 z-0" />
-            <h2 className="relative z-10 text-4xl font-black text-white mb-8 tracking-tighter uppercase italic">Vindmølle: Maling 🌬️</h2>
+        <div onMouseMove={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            setCursorPos(((e.clientX - rect.left) / rect.width) * 100);
+        }} onClick={handleHit} className="p-12 min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden cursor-pointer" style={{ backgroundImage: 'url("/images/minigames/smithing_bg.png")', backgroundSize: 'cover' }}>
+            <div className="absolute inset-0 bg-black/60 z-0" />
+            <h2 className="relative z-10 text-4xl font-black text-white mb-8">SMIMESTER</h2>
 
-            <div className="relative z-10 w-full max-w-sm h-64 bg-black/40 rounded-[2rem] border border-white/10 p-8 flex flex-col items-center mb-12">
-                <div className="flex-1 w-4 bg-white/10 rounded-full relative">
-                    <div className="absolute inset-x-0 h-16 bg-amber-500/30 border-y border-amber-500/50" style={{ bottom: '40%' }} />
-                    <div className="absolute w-8 h-8 bg-white border-4 border-amber-500 rounded-full shadow-[0_0_20px_white] -left-2 transition-all duration-100" style={{ bottom: `${wind}% `, transform: 'translateY(50%)' }} />
+            {!isFinished ? (
+                <div className="relative z-10 w-full max-w-lg h-16 bg-white/10 rounded-full border-2 border-white/20 overflow-hidden">
+                    <div className="absolute inset-y-0 w-20 bg-amber-500/50 blur-md transition-all duration-75" style={{ left: `${targetPos}%`, transform: 'translateX(-50%)' }} />
+                    <div className="absolute inset-y-0 w-2 bg-white" style={{ left: `${cursorPos}%` }} />
                 </div>
-                <div className="mt-6 text-xs font-black text-amber-500 uppercase tracking-widest">Hold vinden i midten</div>
-            </div>
-
-            <div className="relative z-10 flex gap-4 mb-8">
-                <button onMouseDown={() => adjustWind(-10)} className="w-20 h-20 bg-white/10 hover:bg-white/20 rounded-2xl flex items-center justify-center text-3xl border border-white/10">⬇️</button>
-                <button onMouseDown={() => adjustWind(10)} className="w-20 h-20 bg-white/10 hover:bg-white/20 rounded-2xl flex items-center justify-center text-3xl border border-white/10">⬆️</button>
-            </div>
-
-            <div className="relative z-10 w-full max-w-md h-4 bg-white/10 rounded-full overflow-hidden border border-white/10">
-                <div className="h-full bg-emerald-500 transition-all duration-300" style={{ width: `${progress}% ` }} />
-            </div>
+            ) : (
+                <div className="text-5xl font-black text-amber-500 animate-bounce relative z-10">FERDIG! ⚔️</div>
+            )}
         </div>
     );
 };
 
-/* --- SMELTING GAME (Bellows Pumping) --- */
+/* --- MILLING GAME --- */
+const MillingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
+    return <div onClick={() => onComplete(1.0)} className="text-white p-10 cursor-pointer">Kverning Placeholder (Klikk)</div>;
+};
+
+/* --- SMELTING GAME --- */
 const SmeltingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
-    const [temp, setTemp] = useState(20);
-    const [progress, setProgress] = useState(0);
-    const [isFinished, setIsFinished] = useState(false);
-
-    useEffect(() => {
-        if (isFinished) return;
-        const decay = setInterval(() => {
-            setTemp(t => {
-                const next = Math.max(0, t - 1);
-                if (next > 60 && next < 90) {
-                    setProgress(p => {
-                        const nextP = p + (0.8 * speedMultiplier);
-                        if (nextP >= 100) {
-                            setIsFinished(true);
-                            setTimeout(() => onComplete(1.0), 1000);
-                            return 100;
-                        }
-                        return nextP;
-                    });
-                }
-                return next;
-            });
-        }, 100);
-
-        const handleKeys = (e: KeyboardEvent) => {
-            if (e.code === 'Space') {
-                e.preventDefault();
-                setTemp(t => Math.min(100, t + 10));
-            }
-        };
-        window.addEventListener('keydown', handleKeys);
-        return () => {
-            clearInterval(decay);
-            window.removeEventListener('keydown', handleKeys);
-        };
-    }, [isFinished, speedMultiplier]);
-
-    return (
-        <div className="p-12 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden"
-            style={{ backgroundImage: 'url("/images/minigames/smithing_bg.png")', backgroundSize: 'cover' }}>
-            <div className="absolute inset-0 bg-black/70 z-0" />
-            <h2 className="relative z-10 text-4xl font-black text-white mb-8 tracking-tighter uppercase italic">Smeltehytte: Belger ⚒️</h2>
-
-            <div className="relative z-10 w-full max-w-md h-12 bg-black/40 rounded-full border border-white/10 mb-12 flex items-center px-2 overflow-hidden">
-                <div className="absolute inset-y-0 left-[60%] right-[10%] bg-orange-500/20 border-x border-orange-500/50" />
-                <div className={`h-8 transition-all duration-100 rounded-full ${temp > 60 && temp < 90 ? 'bg-orange-500 shadow-[0_0_20px_orange]' : 'bg-slate-600'} `}
-                    style={{ width: `${temp}% ` }} />
-            </div>
-
-            <div className="relative z-10 mb-12">
-                <div className="w-32 h-32 bg-slate-800 rounded-full border-4 border-white/10 flex flex-col items-center justify-center animate-bounce">
-                    <span className="text-5xl">💨</span>
-                </div>
-                <div className="mt-4 text-white font-black uppercase tracking-widest animate-pulse">Trykk SPACE for å pumpe!</div>
-            </div>
-
-            <div className="relative z-10 w-full max-w-md h-4 bg-white/10 rounded-full overflow-hidden border border-white/10">
-                <div className="h-full bg-orange-500 transition-all duration-300" style={{ width: `${progress}% ` }} />
-            </div>
-        </div>
-    );
+    return <div onClick={() => onComplete(1.0)} className="text-white p-10 cursor-pointer">Smelting Placeholder (Klikk)</div>;
 };
 
-/* --- BAKING GAME (Golden Timing) --- */
+/* --- BAKING GAME (Heat Management) --- */
 const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
     const [progress, setProgress] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
-    const [batch, setBatch] = useState(0);
     const [feedback, setFeedback] = useState<string | null>(null);
+    const [batch, setBatch] = useState(0);
 
     // Dynamic Sweet Spot
     const [targetCenter, setTargetCenter] = useState(80); // Center of the sweet spot
@@ -1046,7 +598,7 @@ const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplie
         } else if (progress < zoneStart) {
             setFeedback('RÅ... 🥖');
         } else {
-            setFeedback('LITT BRENT... 🥯'); // Overloading the high side if you miss the window
+            setFeedback('LITT BRENT... 🥯');
         }
         setTimeout(() => { setFeedback(null); setProgress(0); }, 1000);
     };
@@ -1061,7 +613,7 @@ const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplie
                 <div className="absolute inset-0 bg-orange-500/10 animate-pulse" />
                 <div className="text-8xl transition-all duration-300 transform"
                     style={{
-                        filter: `grayscale(${100 - progress} %) sepia(${progress} %)`,
+                        filter: `grayscale(${100 - progress}%) sepia(${progress}%)`,
                         transform: `scale(${0.8 + (progress / 500)})`
                     }}>
                     🥖
@@ -1270,8 +822,289 @@ const PatrolMinigameRouter: React.FC<{ onComplete: (score: number) => void }> = 
     return <div onClick={() => onComplete(0.5)} className="p-12 text-center font-black text-2xl cursor-pointer">Patrol Router placeholder (Click)</div>;
 };
 
+export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, playerUpgrades, equipment = [], skills, selectedMethod, currentSeason = 'Spring', currentWeather = 'Clear' }) => {
+    const [method, setMethod] = useState<string | null>(selectedMethod || null);
 
-// Export MinigameOverlay as named export (already does at line 100)
+    const currentMethods = MINIGAME_VARIANTS[type] || [];
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            // Prevent scrolling keys
+            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space', ' '].includes(e.key)) {
+                e.preventDefault();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown, { capture: false });
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
+    useEffect(() => {
+        if (selectedMethod) {
+            setMethod(selectedMethod);
+        } else if (currentMethods.length === 1 && !method) {
+            setMethod(currentMethods[0].id);
+        }
+    }, [type, selectedMethod]);
+
+    const getSelectionBackground = () => {
+        switch (type) {
+            case 'WORK': return '/images/minigames/agriculture_bg.png';
+            case 'PLANT': return '/images/minigames/agriculture_bg.png';
+            case 'CHOP': return '/images/minigames/forestry_bg.png';
+            case 'MINE':
+            case 'QUARRY': return '/images/minigames/mining_bg.png';
+            case 'CRAFT': return '/images/minigames/smithing_bg.png';
+            case 'FORAGE': return '/images/minigames/foraging_bg.png';
+            default: return '/images/minigames/quest_bg.png';
+        }
+    };
+
+    // Calculate speed bonus from relevant equipment
+    const actionEquipment = equipment.filter(_item => true);
+    // Simplified check: if it's a tool/weapon relevant to the action, use its stats
+    // For now use raw stats from whatever is passed
+    const speedMultiplier = actionEquipment.reduce((acc, item) => acc * (item?.stats?.speedBonus || 1.0), 1.0);
+
+    const possibleYield = useMemo(() => {
+        let base = 10;
+        let skillType: SkillType = 'FARMING';
+        let isRefining = false;
+
+        if (type === 'CHOP') { base = 5; skillType = 'WOODCUTTING'; }
+        if (type === 'MINE') { base = 5; skillType = 'MINING'; }
+        if (type === 'QUARRY') { base = 8; skillType = 'MINING'; }
+        if (type === 'FORAGE') { base = 1; skillType = 'FARMING'; }
+        if (type === 'PLANT') { base = 0; skillType = 'FARMING'; } // PLANT yields no immediate item
+        if (type === 'REFINE' || type === 'BAKE' || type === 'SMELT' || type === 'MILL' || type === 'WEAVE') {
+            base = 1; // Generic base, though specific recipes vary, this shows the modifier effect
+            skillType = 'CRAFTING';
+            isRefining = true;
+        }
+
+        const seasonData = SEASONS[currentSeason as keyof typeof SEASONS] as any;
+        const weatherData = WEATHER[currentWeather as keyof typeof WEATHER] as any;
+
+        return calculateYield(
+            { skills, equipment: equipment as any },
+            base,
+            skillType,
+            {
+                season: seasonData?.yieldMod,
+                weather: weatherData?.yieldMod,
+                isRefining
+            }
+        );
+    }, [type, skills, equipment, currentSeason, currentWeather]);
+
+    const resourceNameMap: Record<string, string> = {
+        WORK: 'Korn', CHOP: 'Ved', MINE: 'Malm', QUARRY: 'Stein', FORAGE: 'Brød', REFINE: 'Produkt', PLANT: 'Frø satt', HARVEST: 'Avling'
+    };
+
+
+    return (
+        <div className="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-2xl flex items-center justify-center p-4">
+            <div className="bg-slate-900 rounded-[3rem] shadow-[0_50px_120px_rgba(0,0,0,0.9)] w-full max-w-5xl overflow-hidden relative border-2 border-white/10">
+                <button onClick={onCancel} className="absolute top-6 right-6 text-white/50 hover:text-white z-20 p-3 bg-white/5 hover:bg-white/10 rounded-full transition-all">✕</button>
+
+                {!method ? (
+                    <div className="relative min-h-[600px] flex flex-col items-center justify-center p-12 text-center animate-in fade-in zoom-in duration-500 overflow-hidden">
+                        {/* Background with overlay */}
+                        <div className="absolute inset-0 z-0">
+                            <img src={getSelectionBackground()} className="w-full h-full object-cover grayscale-[0.5] opacity-30" alt="" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+                        </div>
+
+                        <div className="relative z-10 w-full max-w-2xl">
+                            <h2 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-4">Velg utførelse</h2>
+                            <h3 className="text-5xl font-black text-white mb-6 tracking-tighter uppercase">{type}</h3>
+
+                            {/* COMPACT TOOL & COST AREA */}
+                            <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
+                                {(() => {
+                                    const bestTool = getBestToolForAction(type, equipment);
+                                    if (bestTool) {
+                                        const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
+                                        return (
+                                            <div className="flex items-center gap-4 bg-slate-800/80 border-2 border-indigo-500/30 px-6 py-4 rounded-3xl backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] group hover:border-indigo-400 transition-all animate-shimmer tool-glow">
+                                                <div className="text-4xl group-hover:scale-110 group-hover:rotate-3 transition-transform drop-shadow-[0_0_10px_rgba(79,70,229,0.5)]">{bestTool.icon}</div>
+                                                <div className="text-left">
+                                                    <div className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-1">{bestTool.name}</div>
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="w-24 h-2 bg-black/60 rounded-full overflow-hidden p-[1px] border border-white/10 shadow-inner">
+                                                            <div
+                                                                className={`h-full rounded-full transition-all duration-1000 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'} `}
+                                                                style={{ width: `${durabilityPct}% ` }}
+                                                            />
+                                                        </div>
+                                                        <span className="text-[10px] font-black text-slate-500 uppercase">{Math.round(durabilityPct)}%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    }
+                                    return (
+                                        <div className="bg-slate-800/40 border border-white/5 px-6 py-3 rounded-2xl backdrop-blur-md text-[11px] font-bold text-slate-400 italic">
+                                            Ingen verktøy utrustet
+                                        </div>
+                                    );
+                                })()}
+
+                                {(() => {
+                                    const costLabel = getActionCostString(type, currentSeason, currentWeather);
+                                    if (costLabel) {
+                                        return (
+                                            <div className="flex items-center gap-3 px-6 py-3 bg-black/40 rounded-2xl border border-white/10 backdrop-blur-md">
+                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Kostnad</span>
+                                                <span className="text-lg font-black text-amber-400 font-mono tracking-tight">{costLabel}</span>
+                                            </div>
+                                        );
+                                    }
+                                    return null;
+                                })()}
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-4 w-full">
+                                {currentMethods.map(m => (
+                                    <button
+                                        key={m.id}
+                                        onClick={() => setMethod(m.id)}
+                                        className="group flex items-center gap-6 p-6 bg-white/5 hover:bg-white/10 rounded-[2rem] text-left transition-all active:scale-[0.98] border border-white/5 hover:border-amber-500/50 shadow-xl"
+                                    >
+                                        <div className="w-20 h-20 bg-slate-800 rounded-2xl flex items-center justify-center text-5xl group-hover:scale-110 transition-transform shadow-inner border border-white/5">
+                                            {m.icon}
+                                        </div>
+                                        <div className="flex-1">
+                                            <div className="font-black text-2xl text-white group-hover:text-amber-400 transition-colors">{m.label}</div>
+                                            <div className="text-sm text-slate-400 font-medium">{m.desc}</div>
+                                        </div>
+                                        <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center group-hover:translate-x-2 transition-transform opacity-30 group-hover:opacity-100">
+                                            <span className="text-white text-xl">→</span>
+                                        </div>
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* PROGRESSION FOOTER */}
+                            {(() => {
+                                const bestTool = getBestToolForAction(type, equipment);
+                                const currentId = bestTool ? (Object.keys(ITEM_TEMPLATES).find(k => bestTool.id === k || bestTool.id.startsWith(k + '_'))) : (type === 'CHOP' ? 'rusty_axe' : null);
+                                const nextId = (ITEM_TEMPLATES[currentId as any] as any)?.nextTierId;
+                                const nextTemplate = nextId ? ITEM_TEMPLATES[nextId] : null;
+
+                                if (nextTemplate) {
+                                    return (
+                                        <div className="mt-12 pt-8 border-t border-white/5 w-full flex flex-col gap-4">
+                                            <div className="flex items-center justify-between max-w-xl mx-auto w-full px-2">
+                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em]">Mesterlig Progresjon</span>
+                                                <div className="flex items-center gap-2">
+                                                    <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+                                                    <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Oppgradering i Smia</span>
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-slate-950/60 border border-white/10 rounded-[2.5rem] p-6 flex items-center justify-between group max-w-xl mx-auto w-full relative overflow-hidden backdrop-blur-sm shadow-2xl">
+                                                {/* Ambient Shimmer */}
+                                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+
+                                                {/* Current Tool Preview */}
+                                                <div className="flex flex-col items-center gap-2 z-10 opacity-40">
+                                                    <div className="w-16 h-16 bg-white/5 rounded-3xl flex items-center justify-center text-3xl border border-white/10">
+                                                        {bestTool?.icon || '❓'}
+                                                    </div>
+                                                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Nå</span>
+                                                </div>
+
+                                                {/* Animated Transition Path */}
+                                                <div className="flex flex-col items-center gap-2 flex-1">
+                                                    <div className="flex items-center gap-1">
+                                                        {[1, 2, 3, 4, 5].map(i => (
+                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
+                                                        ))}
+                                                        <ArrowRight className="w-6 h-6 text-indigo-500/40 mx-4 group-hover:translate-x-2 transition-transform" />
+                                                        {[1, 2, 3, 4, 5].map(i => (
+                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
+                                                        ))}
+                                                    </div>
+                                                    {nextTemplate.stats?.yieldBonus && (
+                                                        <div className="bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
+                                                            <span className="text-[10px] font-black text-emerald-400 uppercase">+{nextTemplate.stats.yieldBonus} Utbytte</span>
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {/* Recommended Tool Preview */}
+                                                <div className="flex flex-col items-center gap-2 z-10 animate-shimmer">
+                                                    <div className="relative">
+                                                        <div className="w-20 h-20 bg-indigo-600/20 rounded-3xl flex items-center justify-center text-5xl border-2 border-indigo-500/40 shadow-[0_0_30px_rgba(79,70,229,0.3)] group-hover:scale-110 transition-transform duration-500 upgrade-glow">
+                                                            {nextTemplate.icon}
+                                                        </div>
+                                                        <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-amber-500 animate-pulse drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
+                                                    </div>
+                                                    <span className="text-[11px] font-black text-amber-500 uppercase tracking-widest">{nextTemplate.name}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                                return null;
+                            })()}
+                        </div>
+                    </div>
+                ) : (
+                    (() => {
+                        switch (type) {
+                            case 'WORK':
+                                if (method === 'sweep') return <ScytheSweepGame onComplete={onComplete} equipment={equipment} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                                return <HarvestingGame onComplete={onComplete} equipment={equipment} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                            case 'HARVEST': // New case sharing Harvest logic
+                                return <HarvestingGame onComplete={onComplete} equipment={equipment} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap.HARVEST} />;
+                            case 'MINE':
+                                return <HarvestingGame onComplete={onComplete} equipment={equipment} isMining speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                            case 'QUARRY':
+                                return <HarvestingGame onComplete={onComplete} equipment={equipment} isQuarrying speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                            case 'FORAGE':
+                                if (method === 'traps') return <TrappingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                                return <HarvestingGame onComplete={onComplete} equipment={equipment} isForaging speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                            case 'CHOP':
+                                if (method === 'saw') return <SawingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                                return <WoodcuttingGame onComplete={onComplete} equipment={equipment} speedMultiplier={speedMultiplier} possibleYield={possibleYield} resourceName={resourceNameMap[type]} />;
+                            case 'CRAFT':
+                            case 'REFINE':
+                                return <CraftingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                            case 'MILL':
+                                return <MillingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                            case 'DEFEND':
+                                return <CombatGame onComplete={onComplete} isKnight={playerUpgrades?.includes('warhorse')} />;
+                            case 'PATROL':
+                                return <PatrolMinigameRouter onComplete={onComplete} />;
+                            case 'EXPLORE':
+                                return <QuestGame onComplete={onComplete} />;
+                            case 'SMELT':
+                                return <SmeltingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                            case 'BAKE':
+                                return <BakingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                            case 'WEAVE':
+                                return <WeavingGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                            case 'MIX':
+                                return <ApothecaryGame onComplete={onComplete} speedMultiplier={speedMultiplier} />;
+                            case 'PLANT': // New Case for Planting
+                                return <PlantingGame onComplete={onComplete} />;
+                            default:
+                                return <div className="text-white">Ukjent minispill-type: {type}</div>;
+                        }
+                    })()
+                )}
+
+            </div>
+            {/* --- SHARED TOOL HUD --- */}
+            {equipment && getBestToolForAction(type, equipment) && (
+                <MinigameToolBadge item={getBestToolForAction(type, equipment)!} />
+            )}
+            <MinigameStyles />
+        </div>
+    );
+};
+
 const MinigameStyles: React.FC = () => {
     return (
         <style dangerouslySetInnerHTML={{

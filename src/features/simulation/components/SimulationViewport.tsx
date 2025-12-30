@@ -13,6 +13,7 @@ import { SimulationDiplomacy } from './SimulationDiplomacy';
 import { SimulationHierarchy } from './SimulationHierarchy';
 import { SimulationProfile } from './SimulationProfile';
 import { SimulationSettings } from './SimulationSettings';
+import { SimulationProcessHUD } from './SimulationProcessHUD';
 
 
 
@@ -37,6 +38,7 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
     // Main Content Switcher
     return (
         <main className="flex-1 relative flex flex-col bg-slate-900 overflow-hidden">
+            <SimulationProcessHUD player={player} />
             <div className={`flex-1 relative ${activeTab === 'MAP' || activeTab === 'PRODUCTION' || activeTab === 'MARKET' ? 'p-6 overflow-hidden flex items-center justify-center' : 'p-8 overflow-y-auto overflow-x-hidden custom-scrollbar'}`}>
                 {/* Always render WorldMap when in MAP, PRODUCTION or MARKET to keep it as background */}
                 {(activeTab === 'MAP' || activeTab === 'PRODUCTION' || activeTab === 'MARKET') && (

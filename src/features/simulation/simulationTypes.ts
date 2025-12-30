@@ -115,6 +115,17 @@ export interface SimulationAccount {
     lastActive: number;
 }
 
+export interface ActiveProcess {
+    id: string;          // unique guid
+    type: 'CROP' | 'CRAFT'; // Extensible
+    itemId: string;      // e.g. 'grain'
+    startedAt: number;   // timestamp
+    duration: number;    // ms
+    readyAt: number;     // timestamp
+    notified: boolean;   // has the user been toasted?
+    locationId: string;  // e.g. 'fields'
+}
+
 export interface SimulationPlayer {
     id: string; // Room-specific character ID
     uid?: string; // Global User ID (nullable for legacy/guest)
@@ -131,6 +142,8 @@ export interface SimulationPlayer {
     inventory?: EquipmentItem[];
     history?: string[];
     avatar?: string;
+
+    activeProcesses?: ActiveProcess[]; // NEW: For timers (crops, crafting)
 
     buildings?: Record<string, {
         level: number;

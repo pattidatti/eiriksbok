@@ -14,12 +14,17 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 
 ## 🛠️ Planlagt (Underveis/Snart)
 - [x] **Utstyrsystem:** Videreutvikling av systemet for å ha flere verktøy utrustet samtidig.
-- [ ] **Lydbilde:** Forbedre overgangers i spillelisten og finjustere "Dempet musikk"-filteret.
+- [x] **Lydbilde:** Forbedre overgangers i spillelisten og finjustere "Dempet musikk"-filteret.
 - [ ] **Handelsruter:** Implementere Merchant-spesifikke handlinger for import/eksport mellom byer.
 - [ ] **Patruljering:** Utvide soldatens patrulje-funksjon med flere typer hendelser og minispill.
 - [ ] **Profil** Global profil må vise de aktive karakterene man har og at man kan logge inn der fra. Oppe til høyre hvor "profil" er, må navnet på profilen være. Må koble profilknappen i instillinger til global profi også. 
 - [ ] **Signup** Har lagt til Google som signup i  firebase, men dette må vel implementeres i koden vår? Samme med login antar jeg. 
-
+- [] **Planlagte prosjekter** Fjerne hele konseptet med planlegge og aktive prosjekter med sawmill osv. VI har et bedre system for å oppgrader bygninger. 
+- [] **Penger** Må bare ha 2 desimaler. Spesielt når man selger på marked kommer det popup med bøttevis av desimaler. 
+- [ ] **Sucsess tooltip** tror den heter noe sånt. Når man har et vindu oppe, marked, produksjon osv, så må tooltippen være midtstilt vinduet og 5% fra toppen av nettsiden. Det ser rart ut når den er off center til høyre. Dette stammer fra av at tooltipen i utgangspunktet er sentrert på kartet, kan vi få til en løsning som er kontekst-smart?. 
+- [ ] **fjerne tools** Vi har fjernet tools som item (mener jeg), men det går fremdeles an å kjøpe og selge på markedet. 
+. [ ] **musikkspiller** i instillinger må det være tilgang en musikkspiller med sangene, mulighet for å bytte, stoppe, play og mute/ignorere bestemte sanger. (Vi må også oppdatere navne på sangene til mer unike titler på norsk )
+-
 ## 💡 Ideer & Konsepter
 - [ ] **Diplomati:** Dypere system for forhold mellom baronier.
 - [ ] **Vær-effekter:** Hvordan vær påvirker produksjon og utbytte.

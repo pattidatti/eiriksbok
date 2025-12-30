@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useLayoutEffect } from 'react';
+import React, { useState, useMemo, useRef, useLayoutEffect, useEffect } from 'react';
 import type { SimulationPlayer } from '../simulationTypes';
 import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from '../constants';
 
@@ -182,6 +182,36 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
         return details;
     };
 
+    // --- Active Process Logic ---
+    const activeProcess = useMemo(() => {
+        return player.activeProcesses?.find(p => p.locationId === poi.id);
+    }, [player.activeProcesses, poi.id]);
+
+    const calculateTimeLeft = () => {
+        if (!activeProcess) return 0;
+        const now = Date.now();
+        return Math.max(0, activeProcess.readyAt - now);
+    };
+
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+    useEffect(() => {
+        if (!activeProcess) return;
+        const timer = setInterval(() => {
+            const left = calculateTimeLeft();
+            setTimeLeft(left);
+            if (left <= 0) clearInterval(timer);
+        }, 1000);
+        return () => clearInterval(timer);
+    }, [activeProcess]);
+
+    const formatTime = (ms: number) => {
+        const mins = Math.floor(ms / 60000);
+        const secs = Math.floor((ms % 60000) / 1000);
+        return `${mins}m ${secs}s`;
+    };
+
+    // --- Render ---
     return (
         <>
             <div className="absolute inset-0 z-[90]" onClick={onClose} />
@@ -207,162 +237,218 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
-                            <button
-                                onClick={() => setShowDetails(!showDetails)}
-                                className={`w-8 h-8 rounded-full flex items-center justify-center transition-all border ${showDetails ? 'bg-indigo-600 border-indigo-400 text-white' : 'bg-white/5 border-white/5 text-slate-400 hover:text-white'}`}
-                                title="Vis bonuser og detaljer"
-                            >
-                                📊
-                            </button>
+                            {!activeProcess && (
+                                <button
+                                    onClick={() => setShowDetails(!showDetails)}
+                                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-all border ${showDetails ? 'bg-indigo-600 border-indigo-400 text-white' : 'bg-white/5 border-white/5 text-slate-400 hover:text-white'}`}
+                                    title="Vis bonuser og detaljer"
+                                >
+                                    📊
+                                </button>
+                            )}
                             <button onClick={onClose} className="text-white/40 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full w-8 h-8 flex items-center justify-center">✕</button>
                         </div>
                     </div>
 
-                    {/* Actions List */}
+                    {/* Actions List OR Process Status */}
                     <div className="space-y-3">
-                        {availableActions.map((action: any) => {
-                            const bonusDetails = getBonusDetails(action.id);
-                            const currentSeason = (room.world?.season || 'Spring') as any;
-                            const currentWeather = (room.world?.weather || 'Clear') as any;
+                        {activeProcess ? (
+                            <div className="w-full">
+                                {timeLeft <= 0 ? (
+                                    <div className="p-1 bg-gradient-to-br from-emerald-900/50 to-emerald-950/50 rounded-xl border border-emerald-500/30 animate-pulse">
+                                        <button
+                                            onClick={() => onAction({ type: 'HARVEST', locationId: poi.id })}
+                                            className="w-full group relative overflow-hidden rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white p-4 transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)]"
+                                        >
+                                            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+                                            <div className="flex items-center justify-between relative z-10">
+                                                <div className="flex flex-col items-start">
+                                                    <span className="text-2xl font-black uppercase tracking-widest italic drop-shadow-md">Innhøsting</span>
+                                                    <span className="text-xs font-bold text-emerald-100 uppercase tracking-wider opacity-90">Klar til å hentes!</span>
+                                                </div>
+                                                <span className="text-4xl animate-bounce drop-shadow-lg">✨</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <div className="p-4 bg-slate-950/50 rounded-xl border border-white/10 flex flex-col items-center gap-3">
+                                        <div className="w-16 h-16 rounded-full bg-emerald-900/20 border border-emerald-500/30 flex items-center justify-center relative">
+                                            <span className="text-3xl animate-pulse">🌱</span>
+                                            <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 36 36">
+                                                <path
+                                                    className="text-emerald-900/30"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                />
+                                                <path
+                                                    className="text-emerald-500 drop-shadow-[0_0_4px_rgba(16,185,129,0.8)] transition-all duration-1000 ease-linear"
+                                                    strokeDasharray={`${(1 - (timeLeft / activeProcess.duration)) * 100}, 100`}
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="3"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <div className="flex flex-col items-center">
+                                            <span className="text-lg font-bold text-white tracking-widest uppercase">Vokser...</span>
+                                            <span className="text-sm font-mono text-emerald-400">{formatTime(timeLeft)}</span>
+                                        </div>
+                                        <div className="w-full bg-emerald-900/30 h-1.5 rounded-full mt-1 overflow-hidden">
+                                            <div
+                                                className="bg-emerald-500 h-full transition-all duration-1000 ease-linear shadow-[0_0_10px_rgba(16,185,129,0.5)]"
+                                                style={{ width: `${(1 - (timeLeft / activeProcess.duration)) * 100}%` }}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            availableActions.map((action: any) => {
+                                const bonusDetails = getBonusDetails(action.id);
+                                const currentSeason = (room.world?.season || 'Spring') as any;
+                                const currentWeather = (room.world?.weather || 'Clear') as any;
 
-                            // Check requirements
-                            let canAfford = true;
-                            let missingReason = '';
-                            if (viewingRegionId !== player.regionId && player.role !== 'KING' && action.id !== 'MARKET_VIEW') {
-                                canAfford = false; missingReason = "Ikke ditt baroni";
-                            } else {
-                                const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
-                                if (!check.success) { canAfford = false; missingReason = check.reason || 'Krav ikke møtt'; }
-                            }
+                                // Check requirements
+                                let canAfford = true;
+                                let missingReason = '';
+                                if (viewingRegionId !== player.regionId && player.role !== 'KING' && action.id !== 'MARKET_VIEW') {
+                                    canAfford = false; missingReason = "Ikke ditt baroni";
+                                } else {
+                                    const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
+                                    if (!check.success) { canAfford = false; missingReason = check.reason || 'Krav ikke møtt'; }
+                                }
 
-                            // Simplified cost display for basic resources/stamina
-                            const costLabel = getActionCostString(action.id, currentSeason, currentWeather);
-                            const isProduction = action.id.startsWith('REFINE_') || action.id.startsWith('CRAFT_') || action.id in CRAFTING_RECIPES;
-                            const variants = MINIGAME_VARIANTS[action.id];
+                                // Simplified cost display for basic resources/stamina
+                                const costLabel = getActionCostString(action.id, currentSeason, currentWeather);
+                                const isProduction = action.id.startsWith('REFINE_') || action.id.startsWith('CRAFT_') || action.id in CRAFTING_RECIPES;
+                                const variants = MINIGAME_VARIANTS[action.id];
 
-                            return (
-                                <div key={action.id} className="w-full">
-                                    {/* Action Content */}
-                                    <div className={`flex flex-col w-full ${!variants ? 'px-4 py-3 bg-white/5 rounded-xl border border-white/5' : 'p-3 bg-slate-950/50 rounded-xl border border-white/10'}`}>
+                                return (
+                                    <div key={action.id} className="w-full">
+                                        {/* Action Content */}
+                                        <div className={`flex flex-col w-full ${!variants ? 'px-4 py-3 bg-white/5 rounded-xl border border-white/5' : 'p-3 bg-slate-950/50 rounded-xl border border-white/10'}`}>
 
-                                        {/* Action Header / Main Button Area */}
-                                        <div className="flex justify-between items-start w-full">
-                                            <div className="flex flex-col min-w-0 flex-1">
-                                                {!variants ? (
-                                                    <button
-                                                        onClick={() => onAction({ type: action.id })}
-                                                        disabled={!canAfford}
-                                                        className={`text-left group w-full ${!canAfford && 'cursor-not-allowed opacity-50'}`}
-                                                    >
-                                                        <div className="flex justify-between items-center gap-3">
-                                                            <div className="flex gap-3 items-center min-w-0">
-                                                                <div className="flex flex-col min-w-0">
-                                                                    <span className={`text-base font-black truncate block ${canAfford ? isProduction ? 'text-indigo-400 group-hover:text-indigo-300' : 'text-white group-hover:text-amber-400' : 'text-slate-400'}`}>
-                                                                        {action.label} {isProduction ? '🔨' : ''}
-                                                                    </span>
-                                                                    {!canAfford && <span className="text-xs font-black text-rose-500/80 uppercase tracking-widest leading-tight">{missingReason}</span>}
+                                            {/* Action Header / Main Button Area */}
+                                            <div className="flex justify-between items-start w-full">
+                                                <div className="flex flex-col min-w-0 flex-1">
+                                                    {!variants ? (
+                                                        <button
+                                                            onClick={() => onAction({ type: action.id, locationId: poi.id })}
+                                                            disabled={!canAfford}
+                                                            className={`text-left group w-full ${!canAfford && 'cursor-not-allowed opacity-50'}`}
+                                                        >
+                                                            <div className="flex justify-between items-center gap-3">
+                                                                <div className="flex gap-3 items-center min-w-0">
+                                                                    <div className="flex flex-col min-w-0">
+                                                                        <span className={`text-base font-black truncate block ${canAfford ? isProduction ? 'text-indigo-400 group-hover:text-indigo-300' : 'text-white group-hover:text-amber-400' : 'text-slate-400'}`}>
+                                                                            {action.label} {isProduction ? '🔨' : ''}
+                                                                        </span>
+                                                                        {!canAfford && <span className="text-xs font-black text-rose-500/80 uppercase tracking-widest leading-tight">{missingReason}</span>}
+                                                                    </div>
+                                                                </div>
+
+                                                                <div className="flex items-center gap-3 shrink-0">
+                                                                    {/* Compact Tool Indicator */}
+                                                                    {(() => {
+                                                                        const equipment = getActionEquipment(player, action.id);
+                                                                        const bestTool = equipment.find(item => item.maxDurability > 0);
+                                                                        if (bestTool) {
+                                                                            const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
+                                                                            return (
+                                                                                <div className="flex flex-col items-end gap-1">
+                                                                                    <div className={`flex items-center gap-2 bg-slate-800/80 px-2 py-1.5 rounded-xl border ${durabilityPct < 10 ? 'border-rose-500 animate-pulse' : 'border-white/20'} shadow-lg tool-glow`} title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
+                                                                                        <span className="text-base drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">{bestTool.icon}</span>
+                                                                                        <div className="w-10 h-1.5 bg-black/40 rounded-full overflow-hidden p-[1px] border border-white/5">
+                                                                                            <div
+                                                                                                className={`h-full rounded-full transition-all duration-500 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
+                                                                                                style={{ width: `${durabilityPct}%` }}
+                                                                                            />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    {durabilityPct < 10 && (
+                                                                                        <span className="text-xs font-black text-rose-500 uppercase tracking-tighter animate-bounce">Lite holdbarhet!</span>
+                                                                                    )}
+                                                                                </div>
+                                                                            );
+                                                                        }
+                                                                        return null;
+                                                                    })()}
+
+                                                                    {costLabel && <span className={`text-sm font-black bg-black/40 px-2 py-1 rounded-lg border leading-none ${isProduction ? 'border-indigo-500/30 text-indigo-400' : 'border-white/10 text-slate-300'}`}>{costLabel}</span>}
                                                                 </div>
                                                             </div>
-
-                                                            <div className="flex items-center gap-3 shrink-0">
-                                                                {/* Compact Tool Indicator */}
+                                                        </button>
+                                                    ) : (
+                                                        <div className="flex justify-between items-center w-full border-b border-white/5 pb-2 mb-2">
+                                                            <div className="flex flex-col">
+                                                                <span className="text-lg font-bold text-white leading-tight">{action.label}</span>
+                                                                {!canAfford && <div className="text-xs font-black text-rose-500 uppercase tracking-widest mt-0.5">{missingReason}</div>}
+                                                            </div>
+                                                            <div className="flex items-center gap-3">
+                                                                {/* Compact Tool Indicator for Variant Header */}
                                                                 {(() => {
                                                                     const equipment = getActionEquipment(player, action.id);
                                                                     const bestTool = equipment.find(item => item.maxDurability > 0);
                                                                     if (bestTool) {
                                                                         const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
                                                                         return (
-                                                                            <div className="flex flex-col items-end gap-1">
-                                                                                <div className={`flex items-center gap-2 bg-slate-800/80 px-2 py-1.5 rounded-xl border ${durabilityPct < 10 ? 'border-rose-500 animate-pulse' : 'border-white/20'} shadow-lg tool-glow`} title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
-                                                                                    <span className="text-base drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">{bestTool.icon}</span>
-                                                                                    <div className="w-10 h-1.5 bg-black/40 rounded-full overflow-hidden p-[1px] border border-white/5">
-                                                                                        <div
-                                                                                            className={`h-full rounded-full transition-all duration-500 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
-                                                                                            style={{ width: `${durabilityPct}%` }}
-                                                                                        />
-                                                                                    </div>
+                                                                            <div className="flex items-center gap-2 bg-slate-800/80 px-2 py-1.5 rounded-xl border border-white/20 shadow-lg animate-shimmer tool-glow" title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
+                                                                                <span className="text-base drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">{bestTool.icon}</span>
+                                                                                <div className="w-10 h-1.5 bg-black/40 rounded-full overflow-hidden p-[1px] border border-white/5">
+                                                                                    <div
+                                                                                        className={`h-full rounded-full transition-all duration-500 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
+                                                                                        style={{ width: `${durabilityPct}%` }}
+                                                                                    />
                                                                                 </div>
-                                                                                {durabilityPct < 10 && (
-                                                                                    <span className="text-xs font-black text-rose-500 uppercase tracking-tighter animate-bounce">Lite holdbarhet!</span>
-                                                                                )}
                                                                             </div>
                                                                         );
                                                                     }
                                                                     return null;
                                                                 })()}
-
-                                                                {costLabel && <span className={`text-sm font-black bg-black/40 px-2 py-1 rounded-lg border leading-none ${isProduction ? 'border-indigo-500/30 text-indigo-400' : 'border-white/10 text-slate-300'}`}>{costLabel}</span>}
+                                                                {costLabel && <span className="text-xs font-black border border-white/10 px-2 py-1 rounded uppercase tracking-widest text-slate-500">{costLabel}</span>}
                                                             </div>
                                                         </div>
-                                                    </button>
-                                                ) : (
-                                                    <div className="flex justify-between items-center w-full border-b border-white/5 pb-2 mb-2">
-                                                        <div className="flex flex-col">
-                                                            <span className="text-lg font-bold text-white leading-tight">{action.label}</span>
-                                                            {!canAfford && <div className="text-xs font-black text-rose-500 uppercase tracking-widest mt-0.5">{missingReason}</div>}
-                                                        </div>
-                                                        <div className="flex items-center gap-3">
-                                                            {/* Compact Tool Indicator for Variant Header */}
-                                                            {(() => {
-                                                                const equipment = getActionEquipment(player, action.id);
-                                                                const bestTool = equipment.find(item => item.maxDurability > 0);
-                                                                if (bestTool) {
-                                                                    const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
-                                                                    return (
-                                                                        <div className="flex items-center gap-2 bg-slate-800/80 px-2 py-1.5 rounded-xl border border-white/20 shadow-lg animate-shimmer tool-glow" title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
-                                                                            <span className="text-base drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">{bestTool.icon}</span>
-                                                                            <div className="w-10 h-1.5 bg-black/40 rounded-full overflow-hidden p-[1px] border border-white/5">
-                                                                                <div
-                                                                                    className={`h-full rounded-full transition-all duration-500 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
-                                                                                    style={{ width: `${durabilityPct}%` }}
-                                                                                />
-                                                                            </div>
-                                                                        </div>
-                                                                    );
-                                                                }
-                                                                return null;
-                                                            })()}
-                                                            {costLabel && <span className="text-xs font-black border border-white/10 px-2 py-1 rounded uppercase tracking-widest text-slate-500">{costLabel}</span>}
-                                                        </div>
-                                                    </div>
-                                                )}
+                                                    )}
+                                                </div>
                                             </div>
+
+                                            {/* Simplified Bonus Badges and Variants */}
+                                            {!showDetails && bonusDetails.length > 0 && (
+                                                <div className="flex flex-wrap gap-2 mt-2">
+                                                    {bonusDetails.slice(0, 3).map((d, i) => (
+                                                        <div key={i} className={`flex items-center gap-1 text-xs font-black uppercase px-2 py-0.5 rounded-full border ${d.type === 'Fart' ? 'bg-blue-500/10 border-blue-500/30 text-blue-400' : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'}`}>
+                                                            {d.value} {d.type}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+
+                                            {variants && variants.length > 0 && (
+                                                <div className="grid grid-cols-1 gap-2 mt-2">
+                                                    {variants.map(variant => (
+                                                        <button
+                                                            key={variant.id}
+                                                            onClick={() => onAction({ type: action.id, method: variant.id, locationId: poi.id })}
+                                                            disabled={!canAfford}
+                                                            className={`flex items-center gap-3 p-2.5 rounded-lg border transition-all text-left group ${canAfford ? 'bg-white/5 hover:bg-emerald-600/20 border-white/5 hover:border-emerald-500/50 active:scale-[0.98]' : 'bg-transparent border-transparent cursor-not-allowed opacity-50'}`}
+                                                        >
+                                                            <span className="text-3xl grayscale group-hover:grayscale-0 transition-all">{variant.icon}</span>
+                                                            <div className="flex flex-col">
+                                                                <span className="font-bold text-base text-slate-200 group-hover:text-white">{variant.label}</span>
+                                                                <span className="text-xs text-slate-500 group-hover:text-emerald-200">{variant.desc}</span>
+                                                            </div>
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            )}
                                         </div>
-
-                                        {/* Simplified Bonus Badges instead of large chips */}
-                                        {!showDetails && bonusDetails.length > 0 && (
-                                            <div className="flex flex-wrap gap-2 mt-2">
-                                                {bonusDetails.slice(0, 3).map((d, i) => (
-                                                    <div key={i} className={`flex items-center gap-1 text-xs font-black uppercase px-2 py-0.5 rounded-full border ${d.type === 'Fart' ? 'bg-blue-500/10 border-blue-500/30 text-blue-400' : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'}`}>
-                                                        {d.value} {d.type}
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
-
-                                        {/* Variants */}
-                                        {variants && variants.length > 0 && (
-                                            <div className="grid grid-cols-1 gap-2 mt-2">
-                                                {variants.map(variant => (
-                                                    <button
-                                                        key={variant.id}
-                                                        onClick={() => onAction({ type: action.id, method: variant.id })}
-                                                        disabled={!canAfford}
-                                                        className={`flex items-center gap-3 p-2.5 rounded-lg border transition-all text-left group ${canAfford ? 'bg-white/5 hover:bg-emerald-600/20 border-white/5 hover:border-emerald-500/50 active:scale-[0.98]' : 'bg-transparent border-transparent cursor-not-allowed opacity-50'}`}
-                                                    >
-                                                        <span className="text-3xl grayscale group-hover:grayscale-0 transition-all">{variant.icon}</span>
-                                                        <div className="flex flex-col">
-                                                            <span className="font-bold text-base text-slate-200 group-hover:text-white">{variant.label}</span>
-                                                            <span className="text-xs text-slate-500 group-hover:text-emerald-200">{variant.desc}</span>
-                                                        </div>
-                                                    </button>
-                                                ))}
-                                            </div>
-                                        )}
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })
+                        )}
 
                         {/* CONSOLIDATED PROGRESSION FOOTER */}
                         {(() => {

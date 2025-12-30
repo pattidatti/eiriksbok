@@ -319,6 +319,41 @@ export const SimulationPlayer: React.FC = () => {
     }, [player?.stats.xp, pin, player?.id, player?.stats?.level]);
 
 
+    // --- ACTIVE PROCESS MONITORING (PLANTS ETC) ---
+    useEffect(() => {
+        if (!player?.activeProcesses) return;
+
+        const checkProcesses = () => {
+            const now = Date.now();
+            player.activeProcesses?.forEach(proc => {
+                if (proc.readyAt <= now && !proc.notified) {
+                    // Send notification
+                    // We need to mark it as notified in Firebase so we don't spam
+                    animationManager.spawnFloatingText(`✨ Avling Klar!`, 50, 20, 'text-emerald-400');
+
+                    // Optimistic update to avoid spam locally
+                    proc.notified = true;
+
+                    // Update server
+                    if (pin && player.id) {
+                        // Find index
+                        const idx = player.activeProcesses?.findIndex(p => p.id === proc.id);
+                        if (idx !== undefined && idx !== -1) {
+                            const procRef = ref(db, `simulation_rooms/${pin}/players/${player.id}/activeProcesses/${idx}`);
+                            update(procRef, { notified: true });
+                        }
+                    }
+                }
+            });
+        };
+
+        const interval = setInterval(checkProcesses, 5000); // Check every 5s
+        checkProcesses(); // Initial check
+
+        return () => clearInterval(interval);
+    }, [player?.activeProcesses, pin, player?.id]);
+
+
 
     // --- ACTION HANDLER ---
     const handleClearActionResult = React.useCallback(() => {
@@ -331,7 +366,7 @@ export const SimulationPlayer: React.FC = () => {
         const actionType = typeof action === 'string' ? action : action.type;
         const actionMethod = typeof action === 'object' ? action.method : null;
 
-        const minigameTypes = ['WORK', 'CHOP', 'CRAFT', 'MILL', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE', 'SMELT', 'BAKE', 'WEAVE', 'MIX'];
+        const minigameTypes = ['WORK', 'CHOP', 'CRAFT', 'MILL', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE', 'SMELT', 'BAKE', 'WEAVE', 'MIX', 'PLANT', 'HARVEST'];
 
         if (minigameTypes.includes(actionType) && !activeMinigame && (!action.performance)) {
             // PRE-CHECK REQUIREMENTS

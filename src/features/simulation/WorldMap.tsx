@@ -375,7 +375,7 @@ const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'grain_fields', label: 'Kornåker', icon: '🌾', top: '50%', left: '20%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'fields',
         actions: [
-            { id: 'WORK', label: 'Høste Korn', cost: '-10⚡ -1🍞' }
+            { id: 'PLANT', label: 'Så Korn', cost: '-5 korn -25⚡' }
         ]
     },
     {
