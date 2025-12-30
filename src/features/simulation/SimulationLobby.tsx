@@ -75,6 +75,10 @@ export const SimulationLobby: React.FC = () => {
                 let regionId = 'unassigned';
                 if (role === 'BARON') regionId = `region_${playerId}`;
                 else if (role === 'KING') regionId = 'capital';
+                else if (cleanPin === 'TEST') {
+                    // For TEST server, split peasants/soldiers between East and West
+                    regionId = Math.random() > 0.5 ? 'region_east' : 'region_west';
+                }
 
                 const newPlayer: SimulationPlayer = {
                     id: playerId,

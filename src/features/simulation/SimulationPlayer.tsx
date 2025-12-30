@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
-import { ref, onValue, update, set } from 'firebase/database';
+import { ref, onValue, update } from 'firebase/database';
 
 import { useLayout } from '../../context/LayoutContext';
 
 import { simulationDb as db } from './simulationFirebase';
-import type { SimulationPlayer as SimulationPlayerType, SimulationRoom, ActionResult } from './simulationTypes';
-import { LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS, INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT } from './constants';
+import type { SimulationPlayer as SimulationPlayerType, SimulationRoom, ActionResult, Role } from './simulationTypes';
+import { LEVEL_XP, ROLE_TITLES, RESOURCE_DETAILS, ROLE_DEFINITIONS, INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT, INITIAL_MARKET } from './constants';
 
 import { performAction } from './actions';
 import { Trophy, User as UserIcon, ArrowRight, Check } from 'lucide-react';
@@ -131,6 +131,11 @@ const SimulationGame: React.FC = () => {
         const unsubPlayer = onValue(playerRef, (snap) => {
             const data = snap.val();
             if (data) {
+                // Auto-fix for TEST server unassigned residents
+                if (pin === 'TEST' && data.regionId === 'unassigned' && data.role !== 'KING') {
+                    const newRegion = Math.random() > 0.5 ? 'region_east' : 'region_west';
+                    update(playerRef, { regionId: newRegion });
+                }
                 setPlayer({ ...data, id: playerId });
             } else {
                 setPlayer(null);
@@ -386,11 +391,30 @@ const SimulationGame: React.FC = () => {
 
         try {
             const playerId = user?.uid || `guest_${Date.now()}`;
-            const role = pin === 'TEST' ? obRole : 'PEASANT';
+            const role: Role = pin === 'TEST' ? obRole : 'PEASANT';
 
             let regionId = 'unassigned';
-            if (role === 'BARON') regionId = `region_${playerId}`;
-            else if (role === 'KING') regionId = 'capital';
+            const updates: any = {};
+
+            if (role === 'BARON') {
+                regionId = `region_${playerId}`;
+                // Initialize the Baron's region metadata
+                updates[`simulation_rooms/${pin}/regions/${regionId}`] = {
+                    id: regionId,
+                    name: `Baroniet ${obName.trim()}`,
+                    taxRate: 15,
+                    defenseLevel: 30,
+                    rulerName: obName.trim(),
+                    lastTaxed: Date.now()
+                };
+                // Initialize the Baron's local market
+                updates[`simulation_rooms/${pin}/markets/${regionId}`] = INITIAL_MARKET;
+            } else if (role === 'KING') {
+                regionId = 'capital';
+            } else if (pin === 'TEST') {
+                // For TEST server, split peasants/soldiers between East and West
+                regionId = Math.random() > 0.5 ? 'region_east' : 'region_west';
+            }
 
             const newPlayer: SimulationPlayerType = {
                 id: playerId,
@@ -407,7 +431,9 @@ const SimulationGame: React.FC = () => {
                 lastActive: Date.now()
             };
 
-            await set(ref(db, `simulation_rooms/${pin}/players/${playerId}`), newPlayer);
+            updates[`simulation_rooms/${pin}/players/${playerId}`] = newPlayer;
+
+            await update(ref(db), updates);
             localStorage.setItem('sim_player_id', playerId);
             localStorage.setItem('sim_room_pin', pin);
 
