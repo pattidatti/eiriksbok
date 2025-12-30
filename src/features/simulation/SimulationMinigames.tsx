@@ -883,7 +883,6 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
         if (type === 'FORAGE') { base = 1; skillType = 'FARMING'; }
         if (type === 'PLANT') { base = 0; skillType = 'FARMING'; } // PLANT yields no immediate item
         if (type === 'REFINE' || type === 'BAKE' || type === 'SMELT' || type === 'MILL' || type === 'WEAVE') {
-            ```
             base = 1; // Generic base, though specific recipes vary, this shows the modifier effect
             skillType = 'CRAFTING';
             isRefining = true;
@@ -897,8 +896,8 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
             base,
             skillType,
             {
-                season: seasonData?.yieldMod,
-                weather: weatherData?.yieldMod,
+                season: (seasonData as any)?.yieldMod,
+                weather: (weatherData as any)?.yieldMod,
                 isRefining
             }
         );
@@ -940,8 +939,8 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                                     <div className="flex items-center gap-3">
                                                         <div className="w-24 h-2 bg-black/60 rounded-full overflow-hidden p-[1px] border border-white/10 shadow-inner">
                                                             <div
-                                                                className={`h - full rounded - full transition - all duration - 1000 ${ durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400' } `}
-                                                                style={{ width: `${ durabilityPct }% ` }}
+                                                                className={`h-full rounded-full transition-all duration-1000 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
+                                                                style={{ width: `${durabilityPct}%` }}
                                                             />
                                                         </div>
                                                         <span className="text-[10px] font-black text-slate-500 uppercase">{Math.round(durabilityPct)}%</span>
@@ -958,7 +957,7 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                 })()}
 
                                 {(() => {
-                                    const costLabel = getActionCostString(type, currentSeason, currentWeather);
+                                    const costLabel = getActionCostString(type, currentSeason as any, currentWeather as any);
                                     if (costLabel) {
                                         return (
                                             <div className="flex items-center gap-3 px-6 py-3 bg-black/40 rounded-2xl border border-white/10 backdrop-blur-md">
@@ -1026,11 +1025,11 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                                 <div className="flex flex-col items-center gap-2 flex-1">
                                                     <div className="flex items-center gap-1">
                                                         {[1, 2, 3, 4, 5].map(i => (
-                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${ i * 150 } ms` }} />
+                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
                                                         ))}
                                                         <ArrowRight className="w-6 h-6 text-indigo-500/40 mx-4 group-hover:translate-x-2 transition-transform" />
                                                         {[1, 2, 3, 4, 5].map(i => (
-                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${ i * 150 } ms` }} />
+                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-indigo-500/20 animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
                                                         ))}
                                                     </div>
                                                     {nextTemplate.stats?.yieldBonus && (
@@ -1118,37 +1117,38 @@ const MinigameStyles: React.FC = () => {
         <style dangerouslySetInnerHTML={{
             __html: `
             @keyframes strike {
-                0 % { transform: scale(1); opacity: 0.5; }
-                50 % { transform: scale(1.5); opacity: 1; }
-                100 % { transform: scale(1); opacity: 0.5; }
+                0% { transform: scale(1); opacity: 0.5; }
+                50% { transform: scale(1.5); opacity: 1; }
+                100% { transform: scale(1); opacity: 0.5; }
             }
-            .animate - strike {
-            animation: strike 0.3s ease-out;
-}
-@keyframes fly - item {
-    0 % { transform: translate(-50 %, -50 %) scale(0); opacity: 0; }
-    20 % { opacity: 1; scale: 1.2; }
-    100 % { transform: translate(-50 %, -150px) scale(0.5); opacity: 0; }
-}
-            .animate - fly - item {
-    animation: fly - item 1s ease - out forwards;
-}
-@keyframes shake {
-    0 %, 100 % { transform: translateX(0); }
-    25 % { transform: translateX(-5px); }
-    75 % { transform: translateX(5px); }
-}
-            .animate - shake {
-    animation: shake 0.1s ease -in -out infinite;
-}
-@keyframes success - pop {
-    0 % { transform: scale(0.8); opacity: 0; }
-    50 % { transform: scale(1.1); }
-    100 % { transform: scale(1); opacity: 1; }
-}
-            .animate - success - pop {
-    animation: success - pop 0.4s cubic - bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-`}} />
+            .animate-strike {
+                animation: strike 0.3s ease-out;
+            }
+            @keyframes fly-item {
+                0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+                20% { opacity: 1; scale: 1.2; }
+                100% { transform: translate(-50%, -150px) scale(0.5); opacity: 0; }
+            }
+            .animate-fly-item {
+                animation: fly-item 1s ease-out forwards;
+            }
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+            .animate-shake {
+                animation: shake 0.1s ease-in-out infinite;
+            }
+            @keyframes success-pop {
+                0% { transform: scale(0.8); opacity: 0; }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); opacity: 1; }
+            }
+            .animate-success-pop {
+                animation: success-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            }
+            `
+        }} />
     );
 };
