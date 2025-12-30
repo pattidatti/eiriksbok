@@ -1,7 +1,7 @@
 // Types definition for Simulation
 export type Role = 'KING' | 'BARON' | 'PEASANT' | 'SOLDIER' | 'MERCHANT';
 
-export type ActionType = 'WORK' | 'CHOP' | 'FORAGE' | 'MINE' | 'RAID' | 'TAX' | 'TAX_PEASANTS' | 'TAX_ROYAL' | 'MILL' | 'SMELT' | 'SAWMILL' | 'BAKERY' | 'REFINE' | 'CRAFT' | 'QUARRY' | 'REPAIR' | 'HUNT' | 'GATHER_WOOL' | 'GATHER_HONEY' | 'PRAY' | 'FEAST' | 'CONTRIBUTE' | 'CONSTRUCT' | 'SLEEP' | 'EAT' | 'PLANT' | 'HARVEST' | 'BAKE' | 'WEAVE' | 'MIX';
+export type ActionType = 'WORK' | 'CHOP' | 'FORAGE' | 'MINE' | 'RAID' | 'TAX' | 'TAX_PEASANTS' | 'TAX_ROYAL' | 'MILL' | 'SMELT' | 'SAWMILL' | 'BAKERY' | 'REFINE' | 'CRAFT' | 'QUARRY' | 'REPAIR' | 'HUNT' | 'GATHER_WOOL' | 'GATHER_HONEY' | 'PRAY' | 'FEAST' | 'CONTRIBUTE' | 'CONSTRUCT' | 'SLEEP' | 'EAT' | 'PLANT' | 'HARVEST' | 'BAKE' | 'WEAVE' | 'MIX' | 'DEFEND' | 'EXPLORE' | 'PATROL';
 
 export interface ActionCost extends Partial<Resources> {
     stamina?: number;

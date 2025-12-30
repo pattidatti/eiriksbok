@@ -111,7 +111,10 @@ export const ACTION_COSTS: Record<ActionType, ActionCost> = {
     HARVEST: { stamina: 15 },
     BAKE: { stamina: 10 },
     WEAVE: { stamina: 15 },
-    MIX: { stamina: 15 }
+    MIX: { stamina: 15 },
+    DEFEND: { stamina: 30 },
+    EXPLORE: { stamina: 25 },
+    PATROL: { stamina: 20 }
 };
 
 export const CROP_DATA: Record<string, { label: string, seed: string, yieldResource: string, duration: number, minYield: number, maxYield: number, xp: number }> = {

@@ -1,7 +1,6 @@
 import React from 'react';
 import type { EquipmentItem, ActionType } from './simulationTypes';
 import { ITEM_TEMPLATES, SEASONS, WEATHER } from './constants';
-import { calculateYield } from './utils/simulationUtils';
 import { getActionCostString } from './utils/actionUtils';
 
 // Extracted Minigames
@@ -106,8 +105,7 @@ const getBestToolForAction = (type: string, equipment: (EquipmentItem | undefine
 };
 
 /* --- MAIN OVERLAY COMPONENT --- */
-export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, equipment, skills, currentSeason = 'Spring', currentWeather = 'Clear', selectedMethod: initialMethod }) => {
-    const isRefining = ['MILL', 'SMELT', 'BAKE', 'WEAVE', 'MIX'].includes(type);
+export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, equipment, currentSeason = 'Spring', currentWeather = 'Clear', selectedMethod: initialMethod }) => {
     const [selectedMethod, setSelectedMethod] = React.useState<string | null>(initialMethod || null);
 
     // Auto-select method if only one option exists or if passed as prop
@@ -122,8 +120,6 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
     const activeTool = React.useMemo(() => {
         return getBestToolForAction(type, equipment || []);
     }, [type, equipment]);
-
-    // Calculate Dynamic Difficulty & Bonuses based on enviroment
     const environmentMods = React.useMemo(() => {
         const seasonData = SEASONS[currentSeason as keyof typeof SEASONS];
         const weatherData = WEATHER[currentWeather as keyof typeof WEATHER];
