@@ -381,7 +381,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                                         return null;
                                                                     })()}
 
-                                                                    {costLabel && <span className={`text-sm font-black bg-black/40 px-2 py-1 rounded-lg border leading-none ${isProduction ? 'border-indigo-500/30 text-indigo-400' : 'border-white/10 text-slate-300'}`}>{costLabel}</span>}
+                                                                    {costLabel && !isProduction && <span className={`text-sm font-black bg-black/40 px-2 py-1 rounded-lg border leading-none ${isProduction ? 'border-indigo-500/30 text-indigo-400' : 'border-white/10 text-slate-300'}`}>{costLabel}</span>}
                                                                 </div>
                                                             </div>
                                                         </button>

@@ -40,7 +40,7 @@ const addXp = (actor: SimulationPlayer, skillType: SkillType, amount: number, me
 };
 
 /* --- ACTIONS CLASSIFICATION --- */
-const GLOBAL_ACTIONS = ['RAID', 'TAX', 'TAX_PEASANTS', 'TAX_ROYAL', 'TRADE']; // Involve interactions or global state writes
+const GLOBAL_ACTIONS = ['RAID', 'TAX', 'TAX_PEASANTS', 'TAX_ROYAL', 'TRADE', 'CONTRIBUTE_TO_UPGRADE']; // Involve interactions or global state writes
 // All other actions are "Solo" and can be sharded (locking only the player)
 
 
@@ -269,6 +269,7 @@ const performSoloAction = async (pin: string, playerId: string, action: any) => 
 }
 
 /* --- LEGACY GLOBAL ACTION HANDLER --- */
+/* --- GLOBAL ACTION HANDLER (Legacy Mode - Locks Room) --- */
 const performGlobalAction = async (pin: string, playerId: string, action: any) => {
     const roomRef = ref(db, `simulation_rooms/${pin}`);
     let result: any = null;
@@ -282,31 +283,111 @@ const performGlobalAction = async (pin: string, playerId: string, action: any) =
             const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             if (!room.messages || !Array.isArray(room.messages)) room.messages = [];
 
-            // ... (Copy of original logic minus the boilerplate already in performSolo)
-            // Ideally we just call the original large block here.
-            // For brevity in this refactor, I'm assuming we keep the critical parts.
-            // Since this tool replaces the WHOLE function, I must provide the Full Implementation.
+            // Initialize Core State if missing (Self-Repair)
+            if (!actor.resources) actor.resources = JSON.parse(JSON.stringify(INITIAL_RESOURCES[actor.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT));
+            if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
+            if (!actor.status) actor.status = { stamina: 100, hp: 100, authority: 0, gold: actor.resources.gold || 0, level: 1, xp: 0 };
 
-            // Re-implementing simplified global logic for RAID/TAX
+            const localResult = {
+                success: true,
+                timestamp: Date.now(),
+                message: "",
+                utbytte: [] as any[],
+                xp: [] as any[],
+                durability: [] as any[]
+            };
 
-            const localResult = { success: true, timestamp: Date.now(), message: "", utbytte: [], xp: [], durability: [] };
-            const trackXp = (skill: SkillType, amount: number) => { addXp(actor, skill, amount, room.messages); };
-            const damageTool = (_slot: EquipmentSlot, _amount: number) => { /* ... impl ... */ return true; }; // Simplified for now
+            // Helpers
+            const trackXp = (skill: SkillType, amount: number) => {
+                const preLevel = actor.skills?.[skill]?.level || 0;
+                addXp(actor, skill, amount, room.messages);
+                const postLevel = actor.skills?.[skill]?.level || 0;
+                localResult.xp.push({ skill, amount, levelUp: postLevel > preLevel });
+            };
 
-            // ... logic ...
+            const damageTool = (slot: EquipmentSlot, amount: number) => {
+                if (actor.equipment?.[slot]) {
+                    actor.equipment[slot].durability = Math.max(0, actor.equipment[slot].durability - amount);
+                    if (actor.equipment[slot].durability <= 0) {
+                        localResult.message = `❌ ${actor.equipment[slot].name} ble ødelagt!`;
+                        localResult.success = false;
+                        return false;
+                    }
+                }
+                return true;
+            };
 
             const actionType = typeof action === 'string' ? action : action.type;
             const handler = ACTION_REGISTRY[actionType];
-            if (handler) {
-                handler({ actor, room, pin, action, timestamp, localResult, trackXp, damageTool });
+
+            // 1. Handle Costs (Optional, most global actions might handle this internally or have specific costs)
+            // But if we want consistent cost handling:
+            const cost = ACTION_COSTS[actionType as import('./simulationTypes').ActionType];
+            if (cost) {
+                const worldSeason = room.world?.season || 'Spring';
+                const worldWeather = room.world?.weather || 'Clear';
+                const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, worldSeason, worldWeather);
+
+                // Resource Check
+                for (const [res, amt] of Object.entries(cost)) {
+                    if (res === 'stamina') continue;
+                    const resourceKey = res as keyof import('./simulationTypes').Resources;
+                    if ((actor.resources[resourceKey] || 0) < (amt as number)) {
+                        localResult.success = false;
+                        localResult.message = `❌ Mangler ${amt} ${res}!`;
+                        result = localResult;
+                        return room;
+                    }
+                }
+
+                // Stamina Check
+                if ((actor.status.stamina || 0) < finalStaminaCost) {
+                    localResult.success = false;
+                    localResult.message = `💤 For sliten!`;
+                    result = localResult;
+                    return room;
+                }
+
+                // Deduct
+                for (const [res, amt] of Object.entries(cost)) {
+                    if (res === 'stamina') continue;
+                    const resourceKey = res as keyof import('./simulationTypes').Resources;
+                    actor.resources[resourceKey] = (actor.resources[resourceKey] || 0) - (amt as number);
+                }
+                actor.status.stamina -= finalStaminaCost;
             }
 
-            if (localResult.success) room.messages.push(`[${timestamp}] ${localResult.message}`);
+            // 2. Execute Handler
+            if (handler) {
+                const ctx = {
+                    actor,
+                    room,
+                    pin,
+                    action,
+                    timestamp,
+                    localResult,
+                    trackXp,
+                    damageTool
+                };
+                handler(ctx);
+            } else {
+                localResult.success = false;
+                localResult.message = `Ukjent handling: ${actionType}`;
+            }
+
+            // 3. Commit
+            if (localResult.success) {
+                if (localResult.message) room.messages.push(`[${timestamp}] ${localResult.message}`);
+                actor.lastActive = Date.now();
+            }
+
             result = localResult;
             return room;
         });
+
         return { success: !!result?.success, data: result };
     } catch (e) {
+        console.error("Global Action failed", e);
         return { success: false, error: e };
     }
 };

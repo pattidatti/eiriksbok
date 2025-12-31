@@ -1059,10 +1059,12 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                                                         <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Byggeprogresjon (Nivå {nextLevel})</div>
                                                         <div className="space-y-4">
                                                             {Object.entries(nextLevelDef.requirements || {}).map(([res, targetAmt]: [any, any]) => {
-                                                                const currentAmt = (buildingState.progress as any)?.[res] || 0;
+                                                                const currentAmt = Math.floor((buildingState.progress as any)?.[res] || 0);
                                                                 const progress = Math.min(100, (currentAmt / targetAmt) * 100);
-                                                                const playerHas = (player.resources as any)?.[res] || 0;
-                                                                const canGive = playerHas > 0 && currentAmt < targetAmt;
+                                                                const playerHas = Math.floor((player.resources as any)?.[res] || 0);
+                                                                const needed = targetAmt - currentAmt;
+                                                                const canGive = playerHas > 0 && needed > 0;
+                                                                const giveAmount = Math.min(playerHas, needed);
 
                                                                 return (
                                                                     <div key={res} className="p-4 bg-black/20 rounded-2xl border border-white/5 space-y-3">
@@ -1077,23 +1079,32 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                                                                                     style={{ width: `${progress}%` }}
                                                                                 />
                                                                             </div>
-                                                                            {canGive && (
-                                                                                <button
-                                                                                    onClick={() => onAction({
-                                                                                        type: 'CONTRIBUTE_TO_UPGRADE',
-                                                                                        buildingId: upgradingBuildingId,
-                                                                                        resource: res,
-                                                                                        amount: Math.min(playerHas, targetAmt - currentAmt)
-                                                                                    })}
-                                                                                    className="px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-[10px] font-black rounded-xl transition-all active:scale-95 shadow-lg shadow-indigo-600/20 uppercase tracking-widest"
-                                                                                >
-                                                                                    BIDRA ({Math.min(playerHas, targetAmt - currentAmt)})
-                                                                                </button>
+
+                                                                            {needed > 0 ? (
+                                                                                canGive ? (
+                                                                                    <button
+                                                                                        onClick={() => onAction({
+                                                                                            type: 'CONTRIBUTE_TO_UPGRADE',
+                                                                                            buildingId: upgradingBuildingId,
+                                                                                            resource: res,
+                                                                                            amount: giveAmount
+                                                                                        })}
+                                                                                        className="px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-[10px] font-black rounded-xl transition-all active:scale-95 shadow-lg shadow-indigo-600/20 uppercase tracking-widest"
+                                                                                    >
+                                                                                        BIDRA ({giveAmount})
+                                                                                    </button>
+                                                                                ) : (
+                                                                                    <button
+                                                                                        disabled
+                                                                                        className="px-6 py-2 bg-rose-900/20 border border-rose-500/20 text-rose-500 text-[10px] font-black rounded-xl cursor-not-allowed uppercase tracking-widest opacity-70"
+                                                                                    >
+                                                                                        MANGLER {res}
+                                                                                    </button>
+                                                                                )
+                                                                            ) : (
+                                                                                <div className="text-[10px] text-emerald-500 font-bold uppercase tracking-widest text-right px-4">Ferdig! ✓</div>
                                                                             )}
                                                                         </div>
-                                                                        {playerHas > 0 && !canGive && currentAmt >= targetAmt && (
-                                                                            <div className="text-[10px] text-emerald-500 font-bold uppercase tracking-widest text-right">Ferdig levert! ✓</div>
-                                                                        )}
                                                                     </div>
                                                                 );
                                                             })}
