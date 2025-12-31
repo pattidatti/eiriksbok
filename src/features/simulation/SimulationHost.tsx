@@ -352,7 +352,7 @@ export const SimulationHost: React.FC = () => {
         try {
             await update(ref(db, `simulation_rooms/${pin}/world`), { activeLaws });
 
-            const currentMessages = getMessagesList(roomData.messages);
+            const currentMessages = getMessagesList(roomData?.messages);
             await update(ref(db, `simulation_rooms/${pin}`), {
                 activeVote: null,
                 messages: [...currentMessages, msg].slice(-30)
