@@ -9,14 +9,19 @@ interface SimulationSkillsProps {
     player: SimulationPlayer;
 }
 
+import { SimulationMapWindow } from './ui/SimulationMapWindow';
+import { useSimulation } from '../SimulationContext';
+
+// ... imports ...
+
 export const SimulationSkills: React.FC<SimulationSkillsProps> = React.memo(({ player }) => {
+
+    const { setActiveTab } = useSimulation();
 
     const [selectedSkill, setSelectedSkill] = useState<SkillType | null>(null);
 
     const skillsList = Object.keys(player.skills) as SkillType[];
-
-    // Default to first skill if none selected (optional, but good for "Wow" factor immediately)
-    // useEffect(() => { if (!selectedSkill) setSelectedSkill(skillsList[0]); }, []);
+    const totalLevel = Object.values(player.skills).reduce((acc, s) => acc + s.level, 0);
 
     // Helper to generate dynamic styles
     const getSkillStyle = (color: string) => ({
@@ -27,33 +32,23 @@ export const SimulationSkills: React.FC<SimulationSkillsProps> = React.memo(({ p
     } as React.CSSProperties);
 
     return (
-        <div className="animate-in fade-in zoom-in-95 duration-700 w-full h-full flex flex-col p-2 md:p-4">
-            {/* Header */}
-            <header className="flex justify-between items-center border-b border-white/10 pb-3 mb-4 shrink-0">
-                <div>
-                    <h2 className="text-4xl md:text-5xl font-display font-black text-white tracking-tighter uppercase flex items-center gap-4 shadow-black drop-shadow-2xl">
-                        <div className="w-12 h-12 rounded-xl bg-emerald-500/20 border-2 border-emerald-500 flex items-center justify-center shadow-[0_0_40px_rgba(16,185,129,0.4)]">
-                            <Target className="w-8 h-8 text-emerald-400" />
-                        </div>
-                        Ferdigheter
-                    </h2>
+        <SimulationMapWindow
+            title="Ferdigheter"
+            icon={<Target className="w-8 h-8" />}
+            onClose={() => setActiveTab('MAP')}
+            headerRight={
+                <div className="flex items-center gap-4 bg-white/5 px-4 py-2 rounded-full border border-white/5">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Totalt Nivå</span>
+                    <span className="text-xl font-black text-white font-mono leading-none">{totalLevel}</span>
                 </div>
+            }
+        >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full min-h-[600px] content-start pt-4">
 
-                {/* Total Level */}
-                <div className="text-right hidden md:block bg-white/5 px-5 py-2 rounded-2xl border border-white/5 flex items-center gap-4">
-                    <div className="text-xs font-bold text-slate-500 uppercase tracking-widest leading-tight text-right">
-                        Totalt<br />Nivå
-                    </div>
-                    <div className="text-4xl font-black text-white font-mono leading-none">
-                        {Object.values(player.skills).reduce((acc, s) => acc + s.level, 0)}
-                    </div>
-                </div>
-            </header>
-
-            <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0">
-                {/* Left: Skill List - Scrollable - Now narrower (3 cols) */}
-                <div className="hidden lg:flex lg:col-span-3 flex-col gap-3 overflow-y-auto custom-scrollbar pr-2 pb-4">
+                {/* Left: Skill List - Scrollable */}
+                <div className="lg:col-span-4 flex flex-col gap-3 h-full overflow-y-auto custom-scrollbar pr-2 pb-4 max-h-[600px]">
                     {skillsList.map(skillId => {
+                        // ... mapping code remains same
                         const skillData = player.skills[skillId];
                         const details = SKILL_DETAILS[skillId];
                         const isSelected = selectedSkill === skillId;
@@ -64,9 +59,9 @@ export const SimulationSkills: React.FC<SimulationSkillsProps> = React.memo(({ p
                                 key={skillId}
                                 onClick={() => setSelectedSkill(skillId)}
                                 style={getSkillStyle(color)}
-                                className={`w-full text-left p-4 rounded-xl border transition-all duration-300 group relative overflow-hidden ${isSelected
-                                    ? 'bg-[var(--skill-color-10)] border-[var(--skill-color)] shadow-[inset_0_0_20px_var(--skill-color-05)] z-10'
-                                    : 'bg-white/5 border-white/5 hover:bg-white/10 hover:border-white/10'
+                                className={`w-full text-left p-4 rounded-xl border transition-all duration-300 group relative overflow-hidden shrink-0 ${isSelected
+                                    ? 'bg-[var(--skill-color)]/20 border-[var(--skill-color)] shadow-[inset_0_0_20px_var(--skill-color-05)] z-10'
+                                    : 'bg-slate-950/40 border-white/5 hover:bg-slate-900/60 hover:border-white/10'
                                     }`}
                             >
                                 {/* Selection Indicator Line */}
@@ -104,10 +99,8 @@ export const SimulationSkills: React.FC<SimulationSkillsProps> = React.memo(({ p
                     })}
                 </div>
 
-                {/* Mobile version of list (dropdown or horizontal scroll) could go here, for now keeping simple */}
-
-                {/* Right: Skill Details - Hero Card - Now wider (9 cols) */}
-                <div className="lg:col-span-9 h-full flex flex-col">
+                {/* Right: Skill Details - Hero Card */}
+                <div className="lg:col-span-8 h-full min-h-[600px]">
                     {selectedSkill ? (
                         <div className="h-full animate-in fade-in slide-in-from-right-8 duration-500 flex flex-col">
                             {(() => {
@@ -118,7 +111,7 @@ export const SimulationSkills: React.FC<SimulationSkillsProps> = React.memo(({ p
                                 const progress = (skillData.xp / (skillData.maxXp || 1)) * 100;
 
                                 return (
-                                    <GameCard className="flex-1 border-[var(--skill-color)]/30 backdrop-blur-2xl bg-black/40 overflow-hidden flex flex-col relative group" style={style}>
+                                    <GameCard className="flex-1 border-[var(--skill-color)]/30 backdrop-blur-2xl bg-black/40 overflow-hidden flex flex-col relative group h-full" style={style}>
 
                                         {/* Dynamic Backgrounds */}
                                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--skill-color-20),transparent_50%)]" />
@@ -129,46 +122,34 @@ export const SimulationSkills: React.FC<SimulationSkillsProps> = React.memo(({ p
                                             <Zap size={600} strokeWidth={1} />
                                         </div>
 
-                                        <div className="relative z-10 p-10 flex-1 flex flex-col gap-10">
+                                        <div className="relative z-10 p-8 flex-1 flex flex-col gap-8">
 
                                             {/* Hero Header + Info */}
                                             <div className="flex flex-col gap-6 border-b border-white/5 pb-8 relative z-10">
-                                                <div className="flex items-start justify-between gap-8">
+                                                <div className="flex items-start justify-between gap-4">
                                                     <div className="space-y-2 flex-1">
                                                         <div className="flex items-center gap-4">
                                                             <span className="px-4 py-1.5 bg-[var(--skill-color)] text-black font-black text-sm uppercase tracking-[0.2em] rounded-full shadow-[0_0_20px_var(--skill-color-20)]">
                                                                 {selectedSkill}
                                                             </span>
-                                                            <span className="text-[var(--skill-color)] font-bold text-sm tracking-widest uppercase opacity-80 decoration-2 underline-offset-4">
-                                                                // Primær ferdighet
-                                                            </span>
                                                         </div>
-                                                        <h3 className="text-7xl font-display font-black text-white uppercase tracking-tighter drop-shadow-2xl leading-none">
+                                                        <h3 className="text-5xl font-display font-black text-white uppercase tracking-tighter drop-shadow-2xl leading-none mt-2">
                                                             {details?.label}
                                                         </h3>
-
-                                                        {/* Description (Quote) Moved Here */}
-                                                        <p className="text-2xl text-slate-200 leading-relaxed font-serif italic max-w-3xl mt-4 opacity-90">
+                                                        <p className="text-xl text-slate-200 leading-relaxed font-serif italic max-w-2xl mt-2 opacity-90">
                                                             "{details?.description}"
                                                         </p>
-
-                                                        {/* XP Source inline */}
-                                                        <div className="flex items-center gap-3 mt-4 text-slate-400 font-medium bg-black/30 w-fit px-4 py-2 rounded-lg border border-white/5">
-                                                            <Target className="w-4 h-4 text-[var(--skill-color)]" />
-                                                            <span className="text-sm uppercase tracking-wider font-bold text-[var(--skill-color)] mr-2">Trening:</span>
-                                                            {details?.xpSource}
-                                                        </div>
                                                     </div>
 
                                                     {/* Level Circle */}
-                                                    <div className="relative w-40 h-40 flex items-center justify-center shrink-0">
+                                                    <div className="relative w-32 h-32 flex items-center justify-center shrink-0">
                                                         <svg className="w-full h-full -rotate-90">
-                                                            <circle cx="80" cy="80" r="72" stroke="currentColor" strokeWidth="12" fill="transparent" className="text-black/50" />
-                                                            <circle cx="80" cy="80" r="72" stroke="currentColor" strokeWidth="12" fill="transparent" className="text-[var(--skill-color)] transition-all duration-1000 ease-out" strokeDasharray={452} strokeDashoffset={452 - (452 * progress) / 100} strokeLinecap="round" />
+                                                            <circle cx="64" cy="64" r="56" stroke="currentColor" strokeWidth="10" fill="transparent" className="text-black/50" />
+                                                            <circle cx="64" cy="64" r="56" stroke="currentColor" strokeWidth="10" fill="transparent" className="text-[var(--skill-color)] transition-all duration-1000 ease-out" strokeDasharray={351} strokeDashoffset={351 - (351 * progress) / 100} strokeLinecap="round" />
                                                         </svg>
                                                         <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                                            <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">Nivå</span>
-                                                            <span className="text-5xl font-black text-white">{skillData.level}</span>
+                                                            <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Nivå</span>
+                                                            <span className="text-4xl font-black text-white">{skillData.level}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -176,10 +157,6 @@ export const SimulationSkills: React.FC<SimulationSkillsProps> = React.memo(({ p
 
                                             {/* Full Width Progression Grid */}
                                             <div className="flex flex-col flex-1 min-h-0 bg-black/20 rounded-3xl p-6 border border-white/5 relative overflow-hidden shadow-2xl">
-                                                <div className="absolute top-0 right-0 p-6 opacity-5">
-                                                    <TrendingUp className="w-64 h-64 text-white" />
-                                                </div>
-
                                                 <div className="flex items-center justify-between mb-6 z-10 relative border-b border-white/5 pb-4">
                                                     <h5 className="text-sm font-black text-white uppercase tracking-widest flex items-center gap-3">
                                                         <TrendingUp className="w-5 h-5 text-[var(--skill-color)]" />
@@ -235,12 +212,11 @@ export const SimulationSkills: React.FC<SimulationSkillsProps> = React.memo(({ p
                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),transparent_70%)]" />
                             <Target className="w-32 h-32 mb-8 text-slate-600" />
                             <h3 className="text-3xl font-black text-slate-400 uppercase tracking-widest">Velg en ferdighet</h3>
-                            <p className="text-lg text-slate-500 mt-4 max-w-sm mx-auto font-medium">Utforsk detaljene for å se hva som kreves for å bli en mester i riket.</p>
                         </div>
                     )}
                 </div>
             </div>
-        </div>
+        </SimulationMapWindow>
     );
 });
 

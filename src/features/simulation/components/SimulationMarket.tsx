@@ -16,28 +16,23 @@ interface SimulationMarketProps {
     onAction: (action: any) => void;
 }
 
+import { SimulationMapWindow } from './ui/SimulationMapWindow';
+
+// ... imports ...
+
 export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ player, market, regions, allMarkets, onAction }) => {
 
     const { actionLoading, setActiveTab } = useSimulation();
 
     return (
-        <div className="bg-slate-900/90 border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-2xl relative w-full max-w-5xl max-h-[90vh] overflow-y-auto custom-scrollbar animate-in zoom-in-95 duration-300">
-            {/* Close Button Trigger */}
-            <button
-                onClick={() => setActiveTab('MAP')}
-                className="absolute top-8 right-8 w-12 h-12 bg-white/5 hover:bg-rose-500/20 text-slate-400 hover:text-rose-500 rounded-full flex items-center justify-center transition-all z-10 group"
-                title="Lukk"
-            >
-                <span className="text-2xl group-hover:rotate-90 transition-transform">✕</span>
-            </button>
-
-            <div className="space-y-6 animate-in slide-in-from-bottom-4 duration-500">
+        <SimulationMapWindow
+            title="Markedshandel"
+            icon={<ShoppingBag className="w-8 h-8" />}
+            onClose={() => setActiveTab('MAP')}
+        >
+            <div className="space-y-6">
                 <div className="flex justify-between items-end border-b border-white/10 pb-4">
                     <div>
-                        <h2 className="text-3xl font-display font-bold text-white tracking-wider uppercase flex items-center gap-3">
-                            <ShoppingBag className="w-8 h-8 text-game-gold" />
-                            Markedshandel
-                        </h2>
                         <p className="text-game-stone_light text-sm mt-1">Kjøp og selg varer i {market ? 'lokalmarkedet' : 'hovedstaden'}.</p>
                     </div>
                     <div className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-xl border border-game-gold/30">
@@ -162,7 +157,7 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ p
                     </div>
                 )}
             </div>
-        </div>
+        </SimulationMapWindow>
     );
 });
 

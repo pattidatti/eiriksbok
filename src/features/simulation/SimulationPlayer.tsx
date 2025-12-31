@@ -19,7 +19,7 @@ import { useSimulationAuth } from './SimulationAuthContext';
 
 // Components
 import { SimulationHeader } from './components/SimulationHeader';
-import { SimulationSidebar } from './components/SimulationSidebar';
+// import { SimulationSidebar } from './components/SimulationSidebar'; // DEPRECATED: UI Redesign TopBar
 import { SimulationViewport } from './components/SimulationViewport';
 import { SimulationAnimationLayer } from './components/SimulationAnimationLayer';
 import { animationManager } from './logic/AnimationManager';
@@ -810,13 +810,12 @@ export const SimulationPlayer: React.FC = () => {
                         {/* ANIMATION LAYER */}
                         <SimulationAnimationLayer />
 
-                        <div className="flex flex-col h-full w-full">
-                            {/* TOP HEADER */}
+                        <div className="flex flex-col h-full w-full overflow-hidden">
+                            {/* TOP HEADER (Now acts as Main Navigation) */}
                             <SimulationHeader room={room} player={activePlayer!} pin={pin} />
 
-                            {/* MAIN ROW */}
-                            <div className="flex flex-1 overflow-hidden">
-                                <SimulationSidebar player={activePlayer!} room={room} />
+                            {/* MAIN VIEWPORT */}
+                            <main className="flex-1 relative overflow-hidden bg-slate-950/50">
                                 <SimulationViewport
                                     player={activePlayer!}
                                     room={room}
@@ -825,7 +824,7 @@ export const SimulationPlayer: React.FC = () => {
                                     actionResult={actionResult}
                                     onClearActionResult={handleClearActionResult}
                                 />
-                            </div>
+                            </main>
                         </div>
 
                     </div>

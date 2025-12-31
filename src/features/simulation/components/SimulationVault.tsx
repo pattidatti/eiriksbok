@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { SimulationMapWindow } from './ui/SimulationMapWindow';
+import { useSimulation } from '../SimulationContext';
 import type { SimulationPlayer, EquipmentSlot as EquipmentSlotType } from '../simulationTypes';
 import { InventoryGrid } from './InventoryGrid';
 import { InventorySlot } from './InventorySlot';
@@ -26,10 +28,14 @@ const SLOT_LABELS: Record<EquipmentSlotType, string> = {
 
 export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ player, onAction }) => {
 
+    // Need access to setActiveTab for closing
+    const { setActiveTab } = useSimulation();
+
     const [tooltipContent, setTooltipContent] = useState<any>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [draggedItem, setDraggedItem] = useState<any>(null);
 
+    // ... handlers ...
     const handleSlotClick = (_index: number, content: any) => {
         if (!content) return;
 
@@ -130,143 +136,128 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
     };
 
     return (
-        <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 max-w-[1600px] mx-auto p-4 relative min-h-[800px]">
-            <ItemTooltip content={tooltipContent} position={mousePos} />
-
-            <AnimatePresence>
-                {draggedItem && (
-                    <div className="fixed inset-0 pointer-events-none z-[100] bg-indigo-500/5 animate-pulse" />
-                )}
-            </AnimatePresence>
-
-            <header className="flex justify-between items-end border-b border-white/10 pb-6 mb-8">
-                <div>
-                    <h2 className="text-5xl font-display font-black text-white tracking-tighter uppercase flex items-center gap-6">
-                        <div className="p-3 bg-indigo-500/20 rounded-2xl border border-indigo-500/30">
-                            <Package className="w-10 h-10 text-indigo-400" />
-                        </div>
-                        Eiendeler & Utrustning
-                    </h2>
-                    <p className="text-slate-400 mt-2 font-medium italic text-lg opacity-70">Forvalt dine ressurser og din krigers utrustning</p>
+        <SimulationMapWindow
+            title="Eiendeler & Utrustning"
+            icon={<Package className="w-8 h-8" />}
+            onClose={() => setActiveTab('MAP')}
+            headerRight={
+                <div className="text-slate-500 text-xs font-bold uppercase tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/5">
+                    {inventoryCount} / 25 plasser brukt
                 </div>
-            </header>
+            }
+        >
+            <div className="space-y-4 relative min-h-[600px] pt-4">
+                <ItemTooltip content={tooltipContent} position={mousePos} />
 
-            <div className={`flex flex-col xl:flex-row gap-8 items-start relative ${draggedItem ? 'z-[100]' : 'z-10'}`}>
+                <AnimatePresence>
+                    {draggedItem && (
+                        <div className="fixed inset-0 pointer-events-none z-[100] bg-indigo-500/5 animate-pulse" />
+                    )}
+                </AnimatePresence>
 
-                <div className={`flex-1 w-full xl:w-[700px] sticky top-8 transition-all duration-300 ${isDraggingFromRagdoll ? 'z-50 relative' : 'z-10'}`}>
-                    <div
-                        className="bg-slate-900/60 backdrop-blur-2xl border border-white/5 group/ragdoll h-[750px] flex items-center justify-center p-0 rounded-[3rem] shadow-2xl relative"
-                    >
-                        <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[3rem]">
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 blur-[150px] rounded-full opacity-50" />
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_80%)]" />
-                            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #4f46e5 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-                        </div>
 
-                        <div className="relative w-full h-full flex items-center justify-center max-w-5xl">
+                <div className={`flex flex-col xl:flex-row gap-6 items-start relative ${draggedItem ? 'z-[100]' : 'z-10'}`}>
 
-                            <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible">
-                                <g className="opacity-20 stroke-indigo-400/30 fill-none" strokeWidth="1.5" strokeDasharray="4 4">
-                                    <path d="M 350,120 Q 350,80 350,45" />
-                                    <path d="M 180,300 Q 250,300 300,300" />
-                                    <path d="M 520,300 Q 450,300 400,300" />
-                                    <path d="M 180,550 Q 250,550 320,500" />
-                                    <path d="M 520,550 Q 450,550 380,500" />
-                                </g>
-                            </svg>
+                    {/* Ragdoll / Equipment View */}
+                    <div className={`flex-1 w-full xl:w-[500px] shrink-0 transition-all duration-300 ${isDraggingFromRagdoll ? 'z-50 relative' : 'z-10'}`}>
+                        <div
+                            className="bg-slate-900/60 backdrop-blur-2xl border border-white/5 group/ragdoll h-[600px] flex items-center justify-center p-0 rounded-[2rem] shadow-2xl relative"
+                        >
+                            <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[2rem]">
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-indigo-500/10 blur-[100px] rounded-full opacity-50" />
+                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_80%)]" />
+                                <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #4f46e5 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+                            </div>
 
-                            <div className="relative z-10 w-[450px] h-[650px] opacity-[0.2] pointer-events-none select-none">
-                                <svg viewBox="0 0 200 500" className="w-full h-full text-indigo-300 fill-current filter blur-[1px]">
-                                    <path d="M100,15 c20,0,30,12,30,35 s-10,35-30,35 s-30-12-30-35 s10-35,30-35" />
-                                    <path d="M85,85 h30 l15,10 c15,10,35,15,45,25 s15,40,15,60 v120 c0,15-10,25-25,25 h-10 v140 c0,20-12,30-30,30 h-5 c-15,0-20-10-20-20 v-150 h-10 v150 c0,10-5,20-20,20 h-5 c-18,0-30-10-30-30 v-140 h-10 c-15,0-25-10-25-25 v-120 c0-20,5-50,15-60 s30-15,45-25 Z" />
+                            <div className="relative w-full h-full flex items-center justify-center max-w-5xl scale-90">
+                                {/* Ragdoll SVG and Slots - Preserved from original */}
+                                <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible">
+                                    <g className="opacity-20 stroke-indigo-400/30 fill-none" strokeWidth="1.5" strokeDasharray="4 4">
+                                        <path d="M 350,120 Q 350,80 350,45" />
+                                        <path d="M 180,300 Q 250,300 300,300" />
+                                        <path d="M 520,300 Q 450,300 400,300" />
+                                        <path d="M 180,550 Q 250,550 320,500" />
+                                        <path d="M 520,550 Q 450,550 380,500" />
+                                    </g>
                                 </svg>
-                            </div>
 
-                            <div className="absolute top-10 left-10 z-30 opacity-10 group-hover/ragdoll:opacity-30 transition-all duration-1000">
-                                <Shield className="w-24 h-24 text-indigo-400 rotate-[-12deg]" />
-                            </div>
+                                <div className="relative z-10 w-[450px] h-[650px] opacity-[0.2] pointer-events-none select-none">
+                                    <svg viewBox="0 0 200 500" className="w-full h-full text-indigo-300 fill-current filter blur-[1px]">
+                                        <path d="M100,15 c20,0,30,12,30,35 s-10,35-30,35 s-30-12-30-35 s10-35,30-35" />
+                                        <path d="M85,85 h30 l15,10 c15,10,35,15,45,25 s15,40,15,60 v120 c0,15-10,25-25,25 h-10 v140 c0,20-12,30-30,30 h-5 c-15,0-20-10-20-20 v-150 h-10 v150 c0,10-5,20-20,20 h-5 c-18,0-30-10-30-30 v-140 h-10 c-15,0-25-10-25-25 v-120 c0-20,5-50,15-60 s30-15,45-25 Z" />
+                                    </svg>
+                                </div>
 
-                            <div className="absolute inset-0 z-20 flex items-center justify-center">
-                                <div className="relative w-full h-full">
-                                    <div className="absolute top-[6%] left-1/2 -translate-x-1/2 w-24">
-                                        <RagdollSlot slot="HEAD" label={SLOT_LABELS.HEAD} item={equipment.HEAD} {...slotProps} />
-                                    </div>
+                                <div className="absolute top-10 left-10 z-30 opacity-10 group-hover/ragdoll:opacity-30 transition-all duration-1000">
+                                    <Shield className="w-24 h-24 text-indigo-400 rotate-[-12deg]" />
+                                </div>
 
-                                    <div className="absolute top-[35%] left-1/2 -translate-x-1/2 w-24">
-                                        <RagdollSlot slot="BODY" label={SLOT_LABELS.BODY} item={equipment.BODY} {...slotProps} />
-                                    </div>
-
-                                    <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 w-24">
-                                        <RagdollSlot slot="FEET" label={SLOT_LABELS.FEET} item={equipment.FEET} {...slotProps} />
-                                    </div>
-
-                                    <div className="absolute top-[35%] left-[6%] w-24">
-                                        <RagdollSlot slot="MAIN_HAND" label={SLOT_LABELS.MAIN_HAND} item={equipment.MAIN_HAND} {...slotProps} />
-                                    </div>
-                                    <div className="absolute top-[35%] right-[6%] w-24">
-                                        <RagdollSlot slot="OFF_HAND" label={SLOT_LABELS.OFF_HAND} item={equipment.OFF_HAND} {...slotProps} />
-                                    </div>
-
-                                    <div className="absolute bottom-[15%] left-[10%] flex flex-col gap-10">
-                                        <div className="w-20 -rotate-6">
-                                            <RagdollSlot slot="AXE" label={SLOT_LABELS.AXE} item={equipment.AXE} compact {...slotProps} />
+                                {/* SLOTS POSITIONING - Copied from original but slightly adjusted for scale if needed */}
+                                <div className="absolute inset-0 z-20 flex items-center justify-center">
+                                    <div className="relative w-full h-full">
+                                        <div className="absolute top-[6%] left-1/2 -translate-x-1/2 w-24">
+                                            <RagdollSlot slot="HEAD" label={SLOT_LABELS.HEAD} item={equipment.HEAD} {...slotProps} />
                                         </div>
-                                        <div className="w-20 -rotate-3 ml-6">
-                                            <RagdollSlot slot="PICKAXE" label={SLOT_LABELS.PICKAXE} item={equipment.PICKAXE} compact {...slotProps} />
-                                        </div>
-                                    </div>
 
-                                    <div className="absolute bottom-[15%] right-[10%] flex flex-col gap-10 items-end">
-                                        <div className="w-20 rotate-6">
-                                            <RagdollSlot slot="SCYTHE" label={SLOT_LABELS.SCYTHE} item={equipment.SCYTHE} compact {...slotProps} />
+                                        <div className="absolute top-[35%] left-1/2 -translate-x-1/2 w-24">
+                                            <RagdollSlot slot="BODY" label={SLOT_LABELS.BODY} item={equipment.BODY} {...slotProps} />
                                         </div>
-                                        <div className="w-20 rotate-3 mr-6">
-                                            <RagdollSlot slot="HAMMER" label={SLOT_LABELS.HAMMER} item={equipment.HAMMER} compact {...slotProps} />
-                                        </div>
-                                    </div>
 
-                                    <div className="absolute top-[12%] right-[16%] w-16">
-                                        <RagdollSlot slot="TRINKET" label={SLOT_LABELS.TRINKET} item={equipment.TRINKET} compact {...slotProps} />
+                                        <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 w-24">
+                                            <RagdollSlot slot="FEET" label={SLOT_LABELS.FEET} item={equipment.FEET} {...slotProps} />
+                                        </div>
+
+                                        <div className="absolute top-[35%] left-[6%] w-24">
+                                            <RagdollSlot slot="MAIN_HAND" label={SLOT_LABELS.MAIN_HAND} item={equipment.MAIN_HAND} {...slotProps} />
+                                        </div>
+                                        <div className="absolute top-[35%] right-[6%] w-24">
+                                            <RagdollSlot slot="OFF_HAND" label={SLOT_LABELS.OFF_HAND} item={equipment.OFF_HAND} {...slotProps} />
+                                        </div>
+
+                                        <div className="absolute bottom-[2%] left-[2%] flex flex-col gap-8">
+                                            <div className="w-20 -rotate-6">
+                                                <RagdollSlot slot="AXE" label={SLOT_LABELS.AXE} item={equipment.AXE} compact {...slotProps} />
+                                            </div>
+                                            <div className="w-20 -rotate-3 ml-6">
+                                                <RagdollSlot slot="PICKAXE" label={SLOT_LABELS.PICKAXE} item={equipment.PICKAXE} compact {...slotProps} />
+                                            </div>
+                                        </div>
+
+                                        <div className="absolute bottom-[2%] right-[2%] flex flex-col gap-8 items-end">
+                                            <div className="w-20 rotate-6">
+                                                <RagdollSlot slot="SCYTHE" label={SLOT_LABELS.SCYTHE} item={equipment.SCYTHE} compact {...slotProps} />
+                                            </div>
+                                            <div className="w-20 rotate-3 mr-6">
+                                                <RagdollSlot slot="HAMMER" label={SLOT_LABELS.HAMMER} item={equipment.HAMMER} compact {...slotProps} />
+                                            </div>
+                                        </div>
+
+                                        <div className="absolute top-[12%] right-[16%] w-16">
+                                            <RagdollSlot slot="TRINKET" label={SLOT_LABELS.TRINKET} item={equipment.TRINKET} compact {...slotProps} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div className={`flex-1 w-full space-y-6 transition-all duration-300 ${draggedItem && !isDraggingFromRagdoll ? 'z-50 relative' : 'z-10'}`}>
-                    <div className="flex items-center justify-between px-8 py-6 bg-slate-900/60 rounded-[2.5rem] border border-white/5 backdrop-blur-2xl shadow-xl">
-                        <div className="flex items-center gap-6">
-                            <div className="w-12 h-12 bg-indigo-500/20 rounded-2xl flex items-center justify-center border border-indigo-500/30">
-                                <Package className="w-6 h-6 text-indigo-400" />
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-black text-white uppercase tracking-tight">
-                                    Din Oppakning
-                                </h3>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mt-0.5">{inventoryCount} / 25 plasser brukt</p>
-                            </div>
-                        </div>
-                        <div className="text-right hidden md:block">
-                            <div className="text-slate-400 text-sm italic font-medium">Bruk drag & drop</div>
-                            <div className="text-slate-600 text-xs uppercase font-bold tracking-tight">Eller klikk for hurtigbruk</div>
                         </div>
                     </div>
 
-                    <div className="bg-slate-950/60 p-8 rounded-[3rem] border border-white/5 backdrop-blur-3xl shadow-2xl min-h-[600px] inventory-container">
-                        <InventoryGrid
-                            player={player}
-                            onSlotClick={handleSlotClick}
-                            onSlotHover={handleSlotHover}
-                            onSlotLeave={handleSlotLeave}
-                            onDragStart={handleDragStart}
-                            onDragEnd={handleDragEnd}
-                        />
+
+                    {/* Inventory Grid */}
+                    <div className={`flex-1 w-full space-y-6 transition-all duration-300 ${draggedItem && !isDraggingFromRagdoll ? 'z-50 relative' : 'z-10'}`}>
+                        <div className="bg-slate-950/60 p-6 rounded-[2rem] border border-white/5 backdrop-blur-3xl shadow-2xl min-h-[600px] inventory-container">
+                            <InventoryGrid
+                                player={player}
+                                onSlotClick={handleSlotClick}
+                                onSlotHover={handleSlotHover}
+                                onSlotLeave={handleSlotLeave}
+                                onDragStart={handleDragStart}
+                                onDragEnd={handleDragEnd}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </SimulationMapWindow>
     );
 });
 

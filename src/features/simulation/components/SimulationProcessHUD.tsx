@@ -22,14 +22,10 @@ export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ play
 
     if (trackedProcesses.length === 0) return null;
 
-    // Sort by ready time
+    // Sort by ready time (soonest first)
     trackedProcesses.sort((a, b) => a.readyAt - b.readyAt);
 
-    // Only show the soonest / most relevant info to avoid clutter
-    // Or simpler: Show a summary like "2 Crops Growing" and the next ready timer
-    const nextReady = trackedProcesses[0];
-    const timeLeft = Math.max(0, nextReady.readyAt - currentTime);
-    const isReady = timeLeft <= 0;
+    const currentTimeCtx = currentTime; // rename to avoid conflict if needed, or just use state
 
     const formatTime = (ms: number) => {
         const mins = Math.floor(ms / 60000);
@@ -38,26 +34,33 @@ export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ play
     };
 
     return (
-        <div className="absolute top-24 right-4 z-[40] pointer-events-none">
-            <div className="bg-slate-900/80 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-xl pointer-events-auto flex items-center gap-4 transition-all hover:bg-slate-900/95">
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center border ${isReady ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400 animate-pulse' : 'bg-slate-800 border-white/10 text-slate-400'}`}>
-                    {isReady ? <Check size={20} /> : <Clock size={20} />}
-                </div>
+        <div className="absolute top-6 right-6 z-[60] flex flex-col gap-2 pointer-events-none items-end">
+            {trackedProcesses.map(process => {
+                const timeLeft = Math.max(0, process.readyAt - currentTimeCtx);
+                const isReady = timeLeft <= 0;
 
-                <div className="flex flex-col">
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                        {isReady ? 'Innhøsting Klar!' : 'Neste Avling'}
-                    </span>
-                    <div className="flex items-center gap-2">
-                        <span className={`text-sm font-black ${isReady ? 'text-emerald-400' : 'text-white'}`}>
-                            {isReady ? 'Høst nå' : formatTime(timeLeft)}
-                        </span>
-                        {!isReady && (
-                            <span className="text-xs text-slate-500 font-bold">({trackedProcesses.length} totalt)</span>
-                        )}
+                return (
+                    <div
+                        key={process.id}
+                        className="bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-xl pointer-events-auto flex items-center gap-4 transition-all hover:bg-slate-900/95 animate-in slide-in-from-right-4 duration-300"
+                    >
+                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center border ${isReady ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400 animate-pulse' : 'bg-slate-800 border-white/10 text-slate-400'}`}>
+                            {isReady ? <Check size={20} /> : <Clock size={20} />}
+                        </div>
+
+                        <div className="flex flex-col min-w-[120px]">
+                            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                {isReady ? 'Innhøsting Klar!' : 'Avling Gror'}
+                            </span>
+                            <div className="flex items-center gap-2">
+                                <span className={`text-sm font-black ${isReady ? 'text-emerald-400' : 'text-white'}`}>
+                                    {isReady ? 'Høst nå' : formatTime(timeLeft)}
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                );
+            })}
         </div>
     );
 };

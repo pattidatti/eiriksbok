@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Timer } from 'lucide-react';
+import { createPortal } from 'react-dom';
 
 
 interface ItemTooltipProps {
@@ -13,7 +14,7 @@ export const ItemTooltip: React.FC<ItemTooltipProps> = ({ content, position }) =
     const { type, data } = content;
     const isResource = type === 'resource';
 
-    return (
+    return createPortal(
         <div
             className="fixed z-[9999] pointer-events-none transition-transform duration-75 ease-out"
             style={{
@@ -88,6 +89,7 @@ export const ItemTooltip: React.FC<ItemTooltipProps> = ({ content, position }) =
                     </div>
                 )}
             </div>
-        </div>
+        </div>,
+        document.body
     );
 };

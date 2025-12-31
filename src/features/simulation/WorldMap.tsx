@@ -10,6 +10,7 @@ import type { TavernNPC } from './TavernData';
 import { TavernDiceGame } from './TavernDiceGame';
 import { FloatingActionTooltip } from './components/FloatingActionTooltip';
 import { SimulationAtmosphereLayer } from './components/SimulationAtmosphereLayer';
+import { SimulationProcessHUD } from './components/SimulationProcessHUD';
 
 
 
@@ -475,9 +476,10 @@ interface WorldMapProps {
     onAction: (action: any) => void;
     onOpenMarket: () => void;
     room: any;
+    children?: React.ReactNode;
 }
 
-export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, world, worldEvents, players, onAction, onOpenMarket }) => {
+export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, world, worldEvents, players, onAction, onOpenMarket, children }) => {
 
     const {
         setActiveTab,
@@ -639,20 +641,33 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
     const baronVest = playersArr.find(p => p.role === 'BARON' && p.regionId === 'region_vest');
     const baronOst = playersArr.find(p => p.role === 'BARON' && p.regionId === 'region_ost');
 
+    // Determine Aspect Ratio based on map type
+    const isWidescreen =
+        viewMode === 'kingdom' ||
+        (viewMode === 'global' && (viewingRegionId === 'region_ost' || viewingRegionId === 'capital'));
+
+    const aspectRatioClass = isWidescreen ? 'aspect-video' : 'aspect-[16/10]';
+
     return (
         <>
-            <div className={`relative w-full max-w-full max-h-full mx-auto aspect-video rounded-[2rem] overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.5)] border-4 border-white/5 bg-slate-900 transition-all duration-1000`}>
+            <div className={`relative w-full max-w-full max-h-full mx-auto ${aspectRatioClass} rounded-[2rem] overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.5)] border-4 border-white/5 bg-slate-900 transition-all duration-1000`}>
 
                 {/* The Map Background */}
                 <img
                     src={getBackground()}
                     alt="Map View"
-                    className={`w-full h-full object-contain transition-all duration-1000 ${weather === 'Fog' ? 'blur-sm' : ''}`}
+                    className={`w-full h-full object-cover transition-all duration-1000 ${weather === 'Fog' ? 'blur-sm' : ''}`}
                     onError={(e) => {
                         e.currentTarget.src = '/simulation_map_v2.png';
                         e.currentTarget.className += ' opacity-30';
                     }}
                 />
+
+                {/* HUD Overlay (Timer/Yields) */}
+                <SimulationProcessHUD player={player} />
+
+                {/* Overlays (Market, Production etc) */}
+                {children}
 
                 {/* Atmospheric Overlays - Only for outdoor locations */}
                 {(() => {
