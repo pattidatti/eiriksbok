@@ -122,32 +122,25 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
     }, [top, left, availableActions.length, showDetails]);
 
 
-    // Helper to get detailed bonuses for an action
     const getBonusDetails = (actionId: string) => {
-        const details: { source: string, type: 'Fart' | 'Utbytte' | 'Flaks' | 'Utstyr', value: string, icon: string, isBonus: boolean }[] = [];
+        const details: { source: string, type: 'Fart' | 'Utbytte' | 'Flaks' | 'Utstyr' | 'ADVARSEL', value: string, icon: string, isBonus: boolean }[] = [];
         const equipment = getActionEquipment(player, actionId);
 
         // Equipment
         equipment.forEach(item => {
-            let hasBonus = false;
-
             if (item.stats?.speedBonus && item.stats.speedBonus !== 1) {
                 details.push({ source: item.name, type: 'Fart', value: `+${Math.round((item.stats.speedBonus - 1) * 100)}%`, icon: item.icon, isBonus: true });
-                hasBonus = true;
             }
             if (item.stats?.yieldBonus) {
                 details.push({ source: item.name, type: 'Utbytte', value: `+${item.stats.yieldBonus}`, icon: item.icon, isBonus: true });
-                hasBonus = true;
             }
             if (item.stats?.luckBonus) {
                 details.push({ source: item.name, type: 'Flaks', value: `+${Math.round(item.stats.luckBonus * 100)}%`, icon: item.icon, isBonus: true });
-                hasBonus = true;
             }
 
             // If item is relevant but has no specific stats, list it as gear
-            if (!hasBonus) {
-                details.push({ source: item.name, type: 'Utstyr', value: 'Ingen bonus', icon: item.icon, isBonus: false });
-            }
+            // If item is relevant but has no specific stats, we skip listing it.
+            // if (!hasBonus) { ... }
         });
 
         // Upgrades (Match specific IDs or patterns)
@@ -178,6 +171,23 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
             details.push({ source: 'Bygningsbonus (Lvl 3)', type: 'Utbytte', value: 'Master Tier', icon: '🏆', isBonus: true });
         }
 
+
+        // Check for Missing Required Tool
+        if (MINIGAME_VARIANTS[actionId]) {
+            const requiredVariant = MINIGAME_VARIANTS[actionId][0];
+            const hasTool = equipment.some(item =>
+                item.id === requiredVariant.id || item.id.startsWith(requiredVariant.id + '_')
+            );
+            if (!hasTool) {
+                details.push({
+                    source: 'System',
+                    type: 'ADVARSEL',
+                    value: `Du har ikke ${requiredVariant.label}, utbytte redusert med 80%`,
+                    icon: '⚠️',
+                    isBonus: false
+                });
+            }
+        }
 
         return details;
     };
@@ -423,8 +433,11 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                             {!showDetails && bonusDetails.length > 0 && (
                                                 <div className="flex flex-wrap gap-2 mt-2">
                                                     {bonusDetails.slice(0, 3).map((d, i) => (
-                                                        <div key={i} className={`flex items-center gap-1 text-xs font-black uppercase px-2 py-0.5 rounded-full border ${d.type === 'Fart' ? 'bg-blue-500/10 border-blue-500/30 text-blue-400' : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'}`}>
-                                                            {d.value} {d.type}
+                                                        <div key={i} className={`flex items-center gap-1 text-xs font-black uppercase px-2 py-0.5 rounded-full border ${d.type === 'Fart' ? 'bg-blue-500/10 border-blue-500/30 text-blue-400' :
+                                                            d.type === 'ADVARSEL' ? 'bg-rose-500/10 border-rose-500/50 text-rose-400 w-full justify-center' :
+                                                                'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
+                                                            }`}>
+                                                            {d.value} {d.type !== 'ADVARSEL' && d.type}
                                                         </div>
                                                     ))}
                                                 </div>

@@ -1,63 +1,9 @@
+import React from 'react';
 import { calculateYield } from './utils/simulationUtils';
-
-// ... (existing imports)
-
-// Inside MinigameOverlay component, before render:
-
-// Calculate Predicted Yield for UI Feedback
-const projectedYield = React.useMemo(() => {
-    if (!skills) return 10; // Fallback
-
-    // Mock actor structure for the utility function
-    const mockActor = { skills, equipment: {} };
-    // Convert equipment array to object map for utility
-    if (equipment) {
-        equipment.forEach(item => {
-            if (item && item.slot) (mockActor.equipment as any)[item.slot] = item;
-        });
-    }
-
-    let base = 10;
-    let skillType = 'FARMING';
-    let actionType = type;
-
-    switch (type) {
-        case 'MINE':
-            base = GAME_BALANCE.YIELD.MINE_ORE;
-            skillType = 'MINING';
-            break;
-        case 'QUARRY':
-            base = GAME_BALANCE.YIELD.QUARRY_STONE;
-            skillType = 'MINING';
-            break;
-        case 'CHOP':
-            base = GAME_BALANCE.YIELD.CHOP_WOOD;
-            if (currentSeason === 'Summer') base += GAME_BALANCE.YIELD.SUMMER_WOOD_BONUS;
-            skillType = 'WOODCUTTING';
-            break;
-        case 'WORK':
-        case 'HARVEST':
-            base = GAME_BALANCE.YIELD.WORK_GRAIN;
-            if (playerUpgrades?.includes('iron_plow')) base += GAME_BALANCE.YIELD.PLOW_BONUS;
-            skillType = 'FARMING';
-            break;
-        case 'FORAGE':
-            base = GAME_BALANCE.YIELD.FORAGE_BREAD;
-            skillType = 'FARMING';
-            break;
-    }
-
-    const modifiers = {
-        season: (SEASONS as any)[currentSeason]?.yieldMod || 1.0,
-        weather: (WEATHER as any)[currentWeather]?.yieldMod || 1.0,
-        actionType,
-        upgrades: 1.0 // Simple approximation
-    };
-
-    // Calculate without performance to get the "standard" expected yield
-    return calculateYield(mockActor as any, base, skillType as any, modifiers);
-
-}, [type, skills, equipment, playerUpgrades, currentSeason, currentWeather]);
+import { GAME_BALANCE, SEASONS, WEATHER } from './constants';
+import { ITEM_TEMPLATES } from './data/items';
+import type { EquipmentItem, ActionType } from './simulationTypes';
+import { getActionCostString } from './utils/actionUtils';
 
 // Extracted Minigames
 import { PlantingGame } from './minigames/PlantingGame';
@@ -196,7 +142,7 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
         if (equipment) {
             equipment.forEach(item => {
                 // Use slot if available, otherwise fallback to type (common convention in this codebase)
-                const key = item.slot || item.type;
+                const key = (item as any).slot || item.type;
                 if (item && key) (mockActor.equipment as any)[key] = item;
             });
         }
