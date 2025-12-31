@@ -16,7 +16,7 @@ export const RequirementList: React.FC<RequirementListProps> = ({ recipe, player
             </div>
             <div className="grid grid-cols-1 gap-2">
                 {Object.entries(recipe.input).map(([resId, amt]) => {
-                    const playerHas = (player.resources as any)[resId] || 0;
+                    const playerHas = (player.resources as any)?.[resId] || 0;
                     const targets = amt as number;
                     const isMet = playerHas >= targets;
                     return (

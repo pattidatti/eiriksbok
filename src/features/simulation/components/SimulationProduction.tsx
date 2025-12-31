@@ -281,7 +281,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                         size="lg"
                                         className="h-20 text-xl w-full bg-amber-600 hover:bg-amber-500 border-amber-400/50"
                                         onClick={handleRepair}
-                                        disabled={!!actionLoading || selectedItemToRepair.durability >= selectedItemToRepair.maxDurability || (player.resources.gold || 0) < (REPAIR_CONFIG[buildingId]?.goldCost || 0) || ((player.resources as any)[REPAIR_CONFIG[buildingId]?.material] || 0) < 1}
+                                        disabled={!!actionLoading || selectedItemToRepair.durability >= selectedItemToRepair.maxDurability || (player.resources?.gold || 0) < (REPAIR_CONFIG[buildingId]?.goldCost || 0) || ((player.resources as any)?.[REPAIR_CONFIG[buildingId]?.material] || 0) < 1}
                                     >
                                         {selectedItemToRepair.durability >= selectedItemToRepair.maxDurability ? 'FULL HOLDBARHET' : 'REPARER GJENSTAND'}
                                     </GameButton>

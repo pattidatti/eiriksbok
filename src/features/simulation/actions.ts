@@ -219,6 +219,23 @@ const performSoloAction = async (pin: string, playerId: string, action: any) => 
             }
 
             if (!localResult.message) localResult.message = "Handling utført.";
+
+            // 3. Jackpot Moment (Rare Luck Drops - 0.5% chance)
+            if (localResult.success && Math.random() < 0.005) {
+                const rareRelic = {
+                    resource: 'ancient_relic',
+                    type: 'ITEM',
+                    id: 'ancient_relic',
+                    name: 'Gammel Relikvie',
+                    icon: '🏺',
+                    amount: 1,
+                    jackpot: true
+                };
+                actor.resources.gold = (actor.resources.gold || 0) + 150; // Big gold find
+                localResult.utbytte.push(rareRelic);
+                localResult.message += " ✨ ET JORDFUNN! Du fant en eldgammel relikvie begravd i bakken!";
+            }
+
             actor.lastActive = Date.now();
             result = localResult;
 

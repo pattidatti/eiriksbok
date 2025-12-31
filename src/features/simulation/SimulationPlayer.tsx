@@ -525,8 +525,8 @@ export const SimulationPlayer: React.FC = () => {
                     <div className="absolute inset-0 w-24 h-24 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
                 </div>
                 <div className="text-center space-y-2">
-                    <h2 className="text-2xl font-black italic tracking-tighter uppercase text-white animate-pulse">Laster Spillet...</h2>
-                    <p className="text-xs font-black text-indigo-400 uppercase tracking-widest opacity-60">Synkroniserer Riket</p>
+                    <h2 className="text-2xl font-black italic tracking-tighter uppercase text-white animate-pulse">Kaller på åndene...</h2>
+                    <p className="text-xs font-black text-indigo-400 uppercase tracking-widest opacity-60">Vevet snører seg sammen</p>
                 </div>
             </div>
         );
@@ -756,7 +756,7 @@ export const SimulationPlayer: React.FC = () => {
             {room.status === 'LOBBY' ? (
                 <div className="flex-1 flex flex-col items-center justify-center p-8 text-center" >
                     <div className="animate-bounce text-6xl mb-8">⏳</div>
-                    <h1 className="text-4xl font-black mb-4 tracking-tighter">Venter på Kongen...</h1>
+                    <h1 className="text-4xl font-black mb-4 tracking-tighter">Venter på Kongens Dekret...</h1>
                     <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">
                         Du er registrert som <strong className="text-white text-base block mt-2">{activePlayer.name}</strong>
                     </p>

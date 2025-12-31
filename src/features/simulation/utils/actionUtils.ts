@@ -49,7 +49,20 @@ export const checkActionRequirements = (
     currentSeason: keyof typeof SEASONS = 'Spring',
     currentWeather: keyof typeof WEATHER = 'Clear'
 ): ValidationResult => {
-    const actionId = typeof action === 'string' ? action : action.type;
+    let actionId = typeof action === 'string' ? action : action.type;
+    let payload = typeof action === 'object' ? { ...action } : {};
+
+    // Handle prefixed actions from UI (e.g. REFINE_timber)
+    if (actionId.startsWith('REFINE_') && !REFINERY_RECIPES[actionId]) {
+        payload.recipeId = actionId.replace('REFINE_', '').toLowerCase();
+        actionId = 'REFINE';
+    } else if (actionId.startsWith('CRAFT_') && !CRAFTING_RECIPES[actionId]) {
+        payload.subType = actionId.replace('CRAFT_', '').toLowerCase();
+        actionId = 'CRAFT';
+    } else if (CRAFTING_RECIPES[actionId]) {
+        payload.subType = actionId;
+        actionId = 'CRAFT';
+    }
 
     // 1. Durability Check
     const equipment = getActionEquipment(player, actionId);
@@ -66,7 +79,6 @@ export const checkActionRequirements = (
 
     // Supplement with Recipe Costs for Production
     if (actionId === 'REFINE' || actionId === 'CRAFT') {
-        const payload = typeof action === 'object' ? action : {};
         let recipe;
         if (actionId === 'REFINE') recipe = REFINERY_RECIPES[payload.recipeId];
         if (actionId === 'CRAFT') recipe = CRAFTING_RECIPES[payload.subType];
@@ -117,14 +129,26 @@ export const getActionCostString = (
     currentSeason: keyof typeof SEASONS = 'Spring',
     currentWeather: keyof typeof WEATHER = 'Clear'
 ): string | null => {
-    const actionId = typeof action === 'string' ? action : action.type;
+    let actionId = typeof action === 'string' ? action : action.type;
+    let payload = typeof action === 'object' ? { ...action } : {};
+
+    // Handle prefixed actions from UI (e.g. REFINE_timber)
+    if (actionId.startsWith('REFINE_') && !REFINERY_RECIPES[actionId]) {
+        payload.recipeId = actionId.replace('REFINE_', '').toLowerCase();
+        actionId = 'REFINE';
+    } else if (actionId.startsWith('CRAFT_') && !CRAFTING_RECIPES[actionId]) {
+        payload.subType = actionId.replace('CRAFT_', '').toLowerCase();
+        actionId = 'CRAFT';
+    } else if (CRAFTING_RECIPES[actionId]) {
+        payload.subType = actionId;
+        actionId = 'CRAFT';
+    }
 
     let costs: Record<string, number> = {};
     const baseCostData = (ACTION_COSTS as any)[actionId];
     if (baseCostData) costs = { ...baseCostData };
 
     if (actionId === 'REFINE' || actionId === 'CRAFT') {
-        const payload = typeof action === 'object' ? action : {};
         let recipe;
         if (actionId === 'REFINE') recipe = REFINERY_RECIPES[payload.recipeId];
         if (actionId === 'CRAFT') recipe = CRAFTING_RECIPES[payload.subType];

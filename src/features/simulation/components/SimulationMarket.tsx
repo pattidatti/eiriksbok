@@ -42,7 +42,7 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ p
                     </div>
                     <div className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-xl border border-game-gold/30">
                         <span className="text-game-stone_light text-xs font-bold uppercase">Saldo:</span>
-                        <ResourceIcon resource="gold" amount={player.resources.gold} size="md" />
+                        <ResourceIcon resource="gold" amount={player.resources?.gold} size="md" />
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ p
                         const details = (RESOURCE_DETAILS as any)[resId] || { label: resId, icon: '📦' };
                         const price = item.price || 0;
                         const stock = item.stock || 0;
-                        const playerStock = (player.resources as any)[resId] || 0;
+                        const playerStock = (player.resources as any)?.[resId] || 0;
 
                         return (
                             <GameCard key={resId} className="flex flex-col gap-4">
@@ -77,7 +77,7 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ p
                                     <GameButton
                                         variant="primary" // BUY is usually primary
                                         onClick={() => onAction({ type: 'BUY', resource: resId })}
-                                        disabled={(player.resources.gold || 0) < price || stock <= 0 || !!actionLoading}
+                                        disabled={(player.resources?.gold || 0) < price || stock <= 0 || !!actionLoading}
                                         icon={<ShoppingBag className="w-4 h-4" />}
                                     >
                                         KJØP

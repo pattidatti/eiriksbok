@@ -71,24 +71,52 @@ body {
 
 /* --- Blueprint Visualization --- */
 .blueprint-node {
-  @apply relative p-4 bg-slate-900/80 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md transition-all;
+  position: relative;
+  padding: 1rem;
+  background-color: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .blueprint-node:hover {
-  @apply border-indigo-500/50 scale-[1.02] shadow-indigo-500/10;
+  border-color: rgba(79, 70, 229, 0.5);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.1);
 }
 
 .blueprint-connector {
-  @apply absolute h-[2px] bg-slate-700/50 pointer-events-none;
+  position: absolute;
+  height: 2px;
+  background-color: rgba(51, 65, 85, 0.5);
+  pointer-events: none;
 }
 
 .blueprint-arrow {
-  @apply absolute border-t-4 border-l-4 border-transparent border-t-slate-700/50 border-l-slate-700/50 w-2 h-2 rotate-45;
+  position: absolute;
+  border-top: 4px solid rgba(51, 65, 85, 0.5);
+  border-left: 4px solid rgba(51, 65, 85, 0.5);
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
 }
 
 .blueprint-res-tag {
-  @apply px-2 py-0.5 bg-black/40 rounded-full text-[10px] font-black uppercase tracking-wider text-slate-400;
+  padding: 0.125rem 0.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
 }
+
 
 /* Performance Utilities */
 .content-auto {
@@ -189,4 +217,164 @@ body.dyslexia-mode h6 {
 
 .animate-mist {
   animation: mist-drift ease-in-out infinite alternate;
+}
+
+/* --- Premium Avant-Garde Utilities --- */
+
+@keyframes rotate-gradient {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes breathing {
+
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes noise-move {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-5%, -5%);
+  }
+
+  20% {
+    transform: translate(-10%, 5%);
+  }
+
+  30% {
+    transform: translate(5%, -10%);
+  }
+
+  40% {
+    transform: translate(-5%, 15%);
+  }
+
+  50% {
+    transform: translate(-10%, 5%);
+  }
+
+  60% {
+    transform: translate(15%, 0);
+  }
+
+  70% {
+    transform: translate(0, 10%);
+  }
+
+  80% {
+    transform: translate(-15%, 0);
+  }
+
+  90% {
+    transform: translate(10%, 5%);
+  }
+
+  100% {
+    transform: translate(5%, 0);
+  }
+}
+
+.animate-rotate-gradient {
+  animation: rotate-gradient 8s linear infinite;
+}
+
+.animate-breathing {
+  animation: breathing 4s ease-in-out infinite;
+}
+
+.animate-noise {
+  animation: noise-move 0.2s steps(1) infinite;
+}
+
+/* Rotating Gradient Border Utility */
+.premium-border-container {
+  position: relative;
+  overflow: hidden;
+  padding: 1px;
+}
+
+.premium-border-bg {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
+  background: conic-gradient(from 0deg, transparent 0deg, var(--neon-accent) 90deg, transparent 180deg, var(--neon-accent) 270deg, transparent 360deg);
+  animation: rotate-gradient 4s linear infinite;
+}
+
+.premium-card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  background-color: rgba(2, 6, 23, 0.9);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 10;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+
+  25% {
+    transform: translate(-2px, 2px) rotate(-1deg);
+  }
+
+  50% {
+    transform: translate(2px, -2px) rotate(1deg);
+  }
+
+  75% {
+    transform: translate(-2px, -2px) rotate(-1deg);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.2s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes dust-float {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.3;
+  }
+
+  90% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translate(40px, -60px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.animate-dust-float {
+  animation: dust-float linear infinite;
 }

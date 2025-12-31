@@ -8,10 +8,12 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 
 - [ ] **minigames** Legge til flere minigames. Få tilbake feedback mens man utfører et minigame
 - [ ] **Minigames** De minigames som skal "treffe" et felt, som brødbaking. Der bør feltet flytte litt rundt på seg for å gjøre det mer interresant for spilleren. 
-- [ ] **Høsting** UI Høsting er klar timer vises fremedeles etter at man har høstet. 
+- [x] **Høsting** UI Høsting er klar timer vises fremedeles etter at man har høstet. 
 - [] **Fjerne slettede items** Manpower og tools ligger fremdeles i ryggsekken. 
-- [ ] **Hogge tre** Når jeg ble ferdig med minigame stod det 3 tre i tooltippen på toppen, men animasjonen som fløy og et annet tall sa +6. 
-- [ ] **Notificationsenter** et sted hvor alt som skjer med karakteren, spesielt hendelser og minigames, kan vises.  
+- [x] **Hogge tre** Når jeg ble ferdig med minigame stod det 3 tre i tooltippen på toppen, men animasjonen som fløy og et annet tall sa +6. 
+- [ ] **Notificationsenter** et sted hvor alt som skjer med karakteren, spesielt hendelser og minigames, kan vises. Betyr ikke at man fjerner noe annet. dette er et tillegg.   
+- [ ] **Smien** minigame: Jeg fikk startet produksjon av en item uten å ha nok energi. Fikk ingen feedback underveis om jeg traff på riktig felt eller ikke, ingen tilbakemelding på progressjon. 
+- [ ] **POI** ikonene på mappet snur seg med mouseover nå, det er bedre hvis de heller øker litt i størrelse. 
 
 ## 🛠️ Planlagt (Underveis/Snart)
 
@@ -21,7 +23,7 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **Signup** Har lagt til Google som signup i  firebase, men dette må vel implementeres i koden vår? Samme med login antar jeg. 
 - [] **Planlagte prosjekter** Fjerne hele konseptet med planlegge og aktive prosjekter med sawmill osv. VI har et bedre system for å oppgrader bygninger. 
 - [] **Penger** Må bare ha 2 desimaler. Spesielt når man selger på marked kommer det popup med bøttevis av desimaler. 
-- [ ] **Sucsess tooltip** tror den heter noe sånt. Når man har et vindu oppe, marked, produksjon osv, så må tooltippen være midtstilt vinduet og 5% fra toppen av nettsiden. Det ser rart ut når den er off center til høyre. Dette stammer fra av at tooltipen i utgangspunktet er sentrert på kartet, kan vi få til en løsning som er kontekst-smart?. 
+- [x] **Sucsess tooltip** tror den heter noe sånt. Når man har et vindu oppe, marked, produksjon osv, så må tooltippen være midtstilt vinduet og 5% fra toppen av nettsiden. Det ser rart ut når den er off center til høyre. Dette stammer fra av at tooltipen i utgangspunktet er sentrert på kartet, kan vi få til en løsning som er kontekst-smart?. 
 - [ ] **fjerne tools** Vi har fjernet tools som item (mener jeg), men det går fremdeles an å kjøpe og selge på markedet. 
 . [ ] **musikkspiller** i instillinger må det være tilgang en musikkspiller med sangene, mulighet for å bytte, stoppe, play og mute/ignorere bestemte sanger. (Vi må også oppdatere navne på sangene til mer unike titler på norsk )
 -

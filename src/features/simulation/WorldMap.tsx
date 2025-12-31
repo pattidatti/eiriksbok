@@ -854,7 +854,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                                 }}
                                 className={`flex flex-col items-center transition-all ${isRelevant ? 'scale-100' : 'scale-75 opacity-40 grayscale pointer-events-none'}`}
                             >
-                                <div className={`w-16 h-16 rounded-3xl flex items-center justify-center text-4xl shadow-2xl border-2 transition-all group-hover:rotate-12 ${selectedPOI?.id === poi.id ? 'bg-indigo-600 border-indigo-400 ring-4 ring-indigo-500/30' : 'bg-slate-900/90 backdrop-blur-xl border-white/10 hover:border-indigo-500 hover:bg-slate-800'}`}>
+                                <div className={`w-16 h-16 rounded-3xl flex items-center justify-center text-4xl shadow-2xl border-2 transition-all duration-300 group-hover:scale-110 ${selectedPOI?.id === poi.id ? 'bg-indigo-600 border-indigo-400 ring-4 ring-indigo-500/30' : 'bg-slate-900/90 backdrop-blur-xl border-white/10 hover:bg-slate-800'}`}>
                                     {poi.icon}
                                 </div>
                                 <span className="bg-indigo-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mt-2 shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-indigo-600/30">
@@ -987,7 +987,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                 {
                     isDiceGameOpen && (
                         <TavernDiceGame
-                            playerGold={player.resources.gold || 0}
+                            playerGold={player.resources?.gold || 0}
                             onClose={() => setIsDiceGameOpen(false)}
                             onPlay={(result) => {
                                 onAction({ type: 'GAMBLE_RESULT', ...result });
@@ -1059,9 +1059,9 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                                                         <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Byggeprogresjon (Nivå {nextLevel})</div>
                                                         <div className="space-y-4">
                                                             {Object.entries(nextLevelDef.requirements || {}).map(([res, targetAmt]: [any, any]) => {
-                                                                const currentAmt = (buildingState.progress as any)[res] || 0;
+                                                                const currentAmt = (buildingState.progress as any)?.[res] || 0;
                                                                 const progress = Math.min(100, (currentAmt / targetAmt) * 100);
-                                                                const playerHas = (player.resources as any)[res] || 0;
+                                                                const playerHas = (player.resources as any)?.[res] || 0;
                                                                 const canGive = playerHas > 0 && currentAmt < targetAmt;
 
                                                                 return (
@@ -1112,7 +1112,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                                                                     <div key={pId} className="flex justify-between items-center bg-black/20 px-4 py-3 rounded-xl border border-white/5">
                                                                         <span className="text-sm font-bold text-slate-200">{data.name}</span>
                                                                         <div className="flex gap-3">
-                                                                            {Object.entries(data.resources).map(([r, a]: [any, any]) => (
+                                                                            {Object.entries(data.resources || {}).map(([r, a]: [any, any]) => (
                                                                                 <span key={r} className="text-xs font-black text-emerald-400">+{a} {r}</span>
                                                                             ))}
                                                                         </div>
@@ -1124,7 +1124,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
 
                                                     {/* Final Upgrade Button (Only if all requirements met and building didn't auto-level) */}
                                                     {(() => {
-                                                        const isReady = Object.entries(nextLevelDef.requirements).every(([res, amt]) => ((buildingState.progress as any)[res] || 0) >= (amt as number));
+                                                        const isReady = Object.entries(nextLevelDef.requirements).every(([res, amt]) => ((buildingState.progress as any)?.[res] || 0) >= (amt as number));
                                                         if (!isReady) return null;
                                                         return (
                                                             <button

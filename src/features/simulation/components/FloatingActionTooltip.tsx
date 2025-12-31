@@ -293,7 +293,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                             </svg>
                                         </div>
                                         <div className="flex flex-col items-center">
-                                            <span className="text-lg font-bold text-white tracking-widest uppercase">Vokser...</span>
+                                            <span className="text-lg font-bold text-white tracking-widest uppercase">Tiden går...</span>
                                             <span className="text-sm font-mono text-emerald-400">{formatTime(timeLeft)}</span>
                                         </div>
                                         <div className="w-full bg-emerald-900/30 h-1.5 rounded-full mt-1 overflow-hidden">

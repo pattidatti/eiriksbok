@@ -257,7 +257,7 @@ export interface SimulationRoom {
         expiresAt: number;
     };
 
-    messages: string[];
+    messages: string[] | Record<string, string>;
     questionStartTime?: number; // reusing logic for sync
 }
 
@@ -283,6 +283,13 @@ export interface ActionResult {
     utbytte: {
         resource: string;
         amount: number;
+
+        // Extended for Items/Jackpots
+        id?: string;
+        name?: string;
+        icon?: string;
+        type?: 'RESOURCE' | 'ITEM';
+        jackpot?: boolean;
         bonus?: boolean;
     }[];
     xp: {

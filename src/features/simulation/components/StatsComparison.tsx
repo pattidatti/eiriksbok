@@ -31,7 +31,7 @@ export const StatsComparison: React.FC<StatsComparisonProps> = ({ recipe, player
                 {/* Utbytte-bonus comparison */}
                 {((nextItem.stats?.yieldBonus || 0) > 0 || ((currentItem as any)?.stats?.yieldBonus || 0) > 0) && (
                     <div className="flex items-center justify-between p-2 bg-white/5 rounded-xl border border-white/5">
-                        <span className="text-xs font-black uppercase text-slate-400">Utbytte-bonus</span>
+                        <span className="text-xs font-black uppercase text-slate-400">Jordens Potensial</span>
                         <div className="flex items-center gap-2">
                             <span className="text-slate-500">{(currentItem as any)?.stats?.yieldBonus || 0}</span>
                             <ArrowRight className="w-3 h-3 text-indigo-400" />

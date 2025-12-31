@@ -117,6 +117,25 @@ export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, 
                 ))}
             </div>
 
+            {/* 4.5. Dust Particles (Daylight/Clear Weather) */}
+            {weather === 'Clear' && (
+                <div className="absolute inset-0">
+                    {Array.from({ length: 15 }).map((_, i) => (
+                        <div
+                            key={`dust-${i}`}
+                            className="absolute w-1 h-1 bg-white/40 rounded-full animate-dust-float"
+                            style={{
+                                left: `${Math.random() * 100}%`,
+                                top: `${Math.random() * 100}%`,
+                                animationDuration: `${6 + Math.random() * 8}s`,
+                                animationDelay: `${Math.random() * 10}s`,
+                                filter: 'blur(1px)'
+                            }}
+                        />
+                    ))}
+                </div>
+            )}
+
             {/* 5. Rain/Storm Overlay */}
             {(weather === 'Rain' || weather === 'Storm') && (
                 <div className="absolute inset-0 bg-indigo-900/10 mix-blend-overlay" />

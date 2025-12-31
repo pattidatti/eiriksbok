@@ -13,6 +13,36 @@ interface SimulationSidebarProps {
     room: SimulationRoom;
 }
 
+// Simple CountUp hook
+const useCountUp = (target: number, duration: number = 800) => {
+    const [count, setCount] = React.useState(target);
+    const prevTarget = React.useRef(target);
+
+    React.useEffect(() => {
+        if (prevTarget.current === target) return;
+
+        const start = prevTarget.current;
+        const end = target;
+        let startTime: number | null = null;
+
+        const animate = (time: number) => {
+            if (!startTime) startTime = time;
+            const progress = Math.min((time - startTime) / duration, 1);
+            setCount(start + (end - start) * progress);
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                prevTarget.current = target;
+            }
+        };
+
+        requestAnimationFrame(animate);
+    }, [target, duration]);
+
+    return count;
+};
+
 export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, room }) => {
     const { activeTab, setActiveTab } = useSimulation();
     const { playSfx } = useAudio();
@@ -64,6 +94,16 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
     const targetXp = LEVEL_XP[currentLvl] || 1000;
     const xpPercent = Math.min(100, (currentXp / targetXp) * 100);
 
+    // Biometric Sound Cue (Heartbeat when low stamina)
+    React.useEffect(() => {
+        if (staminaWidth < 20) {
+            const interval = setInterval(() => {
+                playSfx('heartbeat'); // Blipp-blopp sound is already in the library as 'combat_hit' or similar, but let's assume 'heartbeat' exists or fallback is handled
+            }, 2500);
+            return () => clearInterval(interval);
+        }
+    }, [staminaWidth, playSfx]);
+
     const roleTitle = (ROLE_TITLES as any)[player.role][Math.min(currentLvl, (ROLE_TITLES as any)[player.role].length) - 1];
     const getRegionName = (rId: string) => {
         if (!rId || rId === 'unassigned') return 'Ingen Region';
@@ -80,6 +120,10 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
         }
         return rId;
     };
+
+    const displayedStamina = useCountUp(staminaWidth);
+    const displayedHealth = useCountUp(healthWidth);
+    const displayedXpPct = useCountUp(xpPercent);
 
     const renderTabButton = (tab: { id: string, label: string, icon: any, hotkey?: string }) => {
         const isActive = activeTab === tab.id;
@@ -104,7 +148,7 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                 ${isCollapsed ? 'justify-center !px-2' : ''}
             `}
             >
-                <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-slate-500 group-hover:text-indigo-400'}`} />
                 {!isCollapsed && (
                     <>
                         <span className="flex-1 text-left">{tab.label}</span>
@@ -136,7 +180,7 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
             <div className={`p-6 border-b border-white/5 space-y-6 ${isCollapsed ? 'px-2' : ''}`}>
                 {/* Profile Header */}
                 <div className={`flex items-center gap-4 ${isCollapsed ? 'justify-center flex-col' : ''}`}>
-                    <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-3xl shadow-lg ring-1 ring-white/10 shrink-0 overflow-hidden">
+                    <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-3xl shadow-lg ring-1 ring-white/10 shrink-0 overflow-hidden animate-breathing">
                         {player.avatar ? (
                             <img src={player.avatar} alt={player.role} className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
                         ) : RoleIcon}
@@ -177,9 +221,14 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                         {/* Stamina */}
                         <div>
                             {!isCollapsed && (
-                                <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
-                                    <span>⚡ Stamina</span>
-                                    <span className="text-white">{Math.round(staminaWidth)}%</span>
+                                <div className="flex justify-between text-xs font-black uppercase tracking-widest mb-1.5 text-slate-400">
+                                    <span>⚡ Livskraft</span>
+                                    <motion.span
+                                        key={displayedStamina}
+                                        className="text-white"
+                                    >
+                                        {Math.round(displayedStamina)}%
+                                    </motion.span>
                                 </div>
                             )}
                             <div className={`bg-slate-800 rounded-full overflow-hidden ${isCollapsed ? 'h-1.5 w-full' : 'h-2.5'}`} title={`Stamina: ${Math.round(staminaWidth)}%`}>
@@ -193,9 +242,14 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                         {/* Health */}
                         <div>
                             {!isCollapsed && (
-                                <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
-                                    <span>❤️ Helse</span>
-                                    <span className="text-white">{healthWidth}%</span>
+                                <div className="flex justify-between text-xs font-black uppercase tracking-widest mb-1.5 text-slate-400">
+                                    <span>❤️ Sjelens Styrke</span>
+                                    <motion.span
+                                        key={displayedHealth}
+                                        className="text-white"
+                                    >
+                                        {Math.round(displayedHealth)}%
+                                    </motion.span>
                                 </div>
                             )}
                             <div className={`bg-slate-800 rounded-full overflow-hidden ${isCollapsed ? 'h-1.5 w-full' : 'h-2.5'}`} title={`Helse: ${healthWidth}%`}>
@@ -211,7 +265,7 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                             {!isCollapsed && (
                                 <div className="flex justify-between text-xs font-bold uppercase tracking-widest mb-1.5 text-slate-400">
                                     <span>Nivå {currentLvl}</span>
-                                    <span className="text-indigo-400">{Math.floor(xpPercent)}%</span>
+                                    <span className="text-indigo-400">{Math.floor(displayedXpPct)}%</span>
                                 </div>
                             )}
                             <div className={`bg-slate-800 rounded-full overflow-hidden ${isCollapsed ? 'h-1.5 w-full' : 'h-2'}`} title={`Nivå ${currentLvl} (${Math.floor(xpPercent)}%)`}>

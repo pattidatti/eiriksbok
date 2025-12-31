@@ -82,20 +82,26 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
                             <div className="flex flex-wrap justify-center gap-2 mb-3">
                                 {result.utbytte.map((yieldItem, idx) => {
                                     const details = RESOURCE_DETAILS[yieldItem.resource] || { label: yieldItem.resource, icon: '📦' };
+                                    const label = yieldItem.name || details.label;
+                                    const icon = yieldItem.icon || details.icon;
                                     const isPositive = yieldItem.amount >= 0;
+                                    const isJackpot = yieldItem.jackpot;
+
                                     return (
                                         <motion.div
                                             key={`${yieldItem.resource}-${idx}`}
                                             initial={{ scale: 0, y: 10 }}
                                             animate={{ scale: 1, y: 0 }}
                                             transition={{ delay: 0.2 + (idx * 0.1), type: "spring" }}
-                                            className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-sm font-black border shadow-lg ${isPositive
-                                                ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
-                                                : 'bg-rose-500/10 border-rose-500/30 text-rose-400'
+                                            className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-sm font-black border shadow-lg ${isJackpot
+                                                    ? 'bg-gradient-to-r from-amber-200 to-yellow-400 border-yellow-300 text-yellow-900 shadow-amber-500/50 animate-pulse'
+                                                    : isPositive
+                                                        ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
+                                                        : 'bg-rose-500/10 border-rose-500/30 text-rose-400'
                                                 }`}
                                         >
-                                            <span className="text-lg">{details.icon}</span>
-                                            <span>{isPositive ? '+' : ''}{yieldItem.resource === 'gold' ? yieldItem.amount.toFixed(2) : yieldItem.amount}</span>
+                                            <span className="text-lg">{icon}</span>
+                                            <span>{isPositive ? '+' : ''}{yieldItem.resource === 'gold' ? yieldItem.amount.toFixed(2) : yieldItem.amount} {isJackpot && label}</span>
                                         </motion.div>
                                     );
                                 })}
