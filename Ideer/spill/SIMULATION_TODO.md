@@ -7,7 +7,7 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **Holdbarhet:** Implementere tydeligere visuelle varsler når verktøy er i ferd med å ødelegges.
 
 - [ ] **minigames** Legge til flere minigames. Få tilbake feedback mens man utfører et minigame
-- [ ] **Minigames** De minigames som skal "treffe" et felt, som brødbaking. Der bør feltet flytte litt rundt på seg for å gjøre det mer interresant for spilleren. 
+- [x] **Minigames** De minigames som skal "treffe" et felt, som brødbaking. Der bør feltet flytte litt rundt på seg for å gjøre det mer interresant for spilleren. 
 - [x] **Høsting** UI Høsting er klar timer vises fremedeles etter at man har høstet. 
 - [] **Fjerne slettede items** Manpower og tools ligger fremdeles i ryggsekken. 
 - [x] **Hogge tre** Når jeg ble ferdig med minigame stod det 3 tre i tooltippen på toppen, men animasjonen som fløy og et annet tall sa +6. 
@@ -15,7 +15,7 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **Smien** minigame: Jeg fikk startet produksjon av en item uten å ha nok energi. Fikk ingen feedback underveis om jeg traff på riktig felt eller ikke, ingen tilbakemelding på progressjon. 
 - [x] **POI** ikonene på mappet snur seg med mouseover nå, det er bedre hvis de heller øker litt i størrelse. 
 - [ ] **oppgradere Smien** går ikke an å bidra, kommer feilmelding. 
-- [ ] **Åpne smien** Går ikke an å åpne produksjon/reperasjonsvindu hvis en mangler ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
+- [x] **Åpne smien** Går ikke an å åpne produksjon/reperasjonsvindu hvis en mangler ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
 
 ## 🛠️ Planlagt (Underveis/Snart)
 

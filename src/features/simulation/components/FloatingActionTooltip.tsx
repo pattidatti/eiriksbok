@@ -311,19 +311,23 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                 const currentSeason = (room.world?.season || 'Spring') as any;
                                 const currentWeather = (room.world?.weather || 'Clear') as any;
 
+                                const isProduction = action.id.startsWith('REFINE_') || action.id.startsWith('CRAFT_') || action.id in CRAFTING_RECIPES;
+
                                 // Check requirements
                                 let canAfford = true;
                                 let missingReason = '';
                                 if (viewingRegionId !== player.regionId && player.role !== 'KING' && action.id !== 'MARKET_VIEW') {
                                     canAfford = false; missingReason = "Ikke ditt baroni";
                                 } else {
-                                    const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
-                                    if (!check.success) { canAfford = false; missingReason = check.reason || 'Krav ikke møtt'; }
+                                    // If it's a production UI opener, we always allow opening
+                                    if (!isProduction) {
+                                        const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
+                                        if (!check.success) { canAfford = false; missingReason = check.reason || 'Krav ikke møtt'; }
+                                    }
                                 }
 
                                 // Simplified cost display for basic resources/stamina
                                 const costLabel = getActionCostString(action.id, currentSeason, currentWeather);
-                                const isProduction = action.id.startsWith('REFINE_') || action.id.startsWith('CRAFT_') || action.id in CRAFTING_RECIPES;
                                 const variants = MINIGAME_VARIANTS[action.id];
 
                                 return (
