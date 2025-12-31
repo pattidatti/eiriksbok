@@ -1,7 +1,63 @@
-import React from 'react';
-import type { EquipmentItem, ActionType } from './simulationTypes';
-import { ITEM_TEMPLATES, SEASONS, WEATHER } from './constants';
-import { getActionCostString } from './utils/actionUtils';
+import { calculateYield } from './utils/simulationUtils';
+
+// ... (existing imports)
+
+// Inside MinigameOverlay component, before render:
+
+// Calculate Predicted Yield for UI Feedback
+const projectedYield = React.useMemo(() => {
+    if (!skills) return 10; // Fallback
+
+    // Mock actor structure for the utility function
+    const mockActor = { skills, equipment: {} };
+    // Convert equipment array to object map for utility
+    if (equipment) {
+        equipment.forEach(item => {
+            if (item && item.slot) (mockActor.equipment as any)[item.slot] = item;
+        });
+    }
+
+    let base = 10;
+    let skillType = 'FARMING';
+    let actionType = type;
+
+    switch (type) {
+        case 'MINE':
+            base = GAME_BALANCE.YIELD.MINE_ORE;
+            skillType = 'MINING';
+            break;
+        case 'QUARRY':
+            base = GAME_BALANCE.YIELD.QUARRY_STONE;
+            skillType = 'MINING';
+            break;
+        case 'CHOP':
+            base = GAME_BALANCE.YIELD.CHOP_WOOD;
+            if (currentSeason === 'Summer') base += GAME_BALANCE.YIELD.SUMMER_WOOD_BONUS;
+            skillType = 'WOODCUTTING';
+            break;
+        case 'WORK':
+        case 'HARVEST':
+            base = GAME_BALANCE.YIELD.WORK_GRAIN;
+            if (playerUpgrades?.includes('iron_plow')) base += GAME_BALANCE.YIELD.PLOW_BONUS;
+            skillType = 'FARMING';
+            break;
+        case 'FORAGE':
+            base = GAME_BALANCE.YIELD.FORAGE_BREAD;
+            skillType = 'FARMING';
+            break;
+    }
+
+    const modifiers = {
+        season: (SEASONS as any)[currentSeason]?.yieldMod || 1.0,
+        weather: (WEATHER as any)[currentWeather]?.yieldMod || 1.0,
+        actionType,
+        upgrades: 1.0 // Simple approximation
+    };
+
+    // Calculate without performance to get the "standard" expected yield
+    return calculateYield(mockActor as any, base, skillType as any, modifiers);
+
+}, [type, skills, equipment, playerUpgrades, currentSeason, currentWeather]);
 
 // Extracted Minigames
 import { PlantingGame } from './minigames/PlantingGame';
@@ -105,7 +161,7 @@ const getBestToolForAction = (type: string, equipment: (EquipmentItem | undefine
 };
 
 /* --- MAIN OVERLAY COMPONENT --- */
-export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, equipment, currentSeason = 'Spring', currentWeather = 'Clear', selectedMethod: initialMethod }) => {
+export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, equipment, skills, playerUpgrades, currentSeason = 'Spring', currentWeather = 'Clear', selectedMethod: initialMethod }) => {
     const [selectedMethod, setSelectedMethod] = React.useState<string | null>(initialMethod || null);
 
     // Auto-select method if only one option exists or if passed as prop
@@ -132,10 +188,120 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
     }, [currentSeason, currentWeather, activeTool]);
 
 
+    // Calculate Predicted Yield for UI Feedback
+    const projectedYield = React.useMemo(() => {
+        // Mock actor structure for the utility function
+        const mockActor = { skills: skills || {}, equipment: {} };
+        // Convert equipment array to object map for utility
+        if (equipment) {
+            equipment.forEach(item => {
+                // Use slot if available, otherwise fallback to type (common convention in this codebase)
+                const key = item.slot || item.type;
+                if (item && key) (mockActor.equipment as any)[key] = item;
+            });
+        }
+
+        let base = 10;
+        let skillType = 'FARMING';
+        let actionType = type;
+
+        switch (type) {
+            case 'MINE':
+                base = GAME_BALANCE.YIELD.MINE_ORE;
+                skillType = 'MINING';
+                break;
+            case 'QUARRY':
+                base = GAME_BALANCE.YIELD.QUARRY_STONE;
+                skillType = 'MINING';
+                break;
+            case 'CHOP':
+                base = GAME_BALANCE.YIELD.CHOP_WOOD;
+                if (currentSeason === 'Summer') base += GAME_BALANCE.YIELD.SUMMER_WOOD_BONUS;
+                skillType = 'WOODCUTTING';
+                break;
+            case 'WORK':
+            case 'HARVEST':
+                base = GAME_BALANCE.YIELD.WORK_GRAIN;
+                if (playerUpgrades?.includes('iron_plow')) base += GAME_BALANCE.YIELD.PLOW_BONUS;
+                skillType = 'FARMING';
+                break;
+            case 'FORAGE':
+                base = GAME_BALANCE.YIELD.FORAGE_BREAD;
+                skillType = 'FARMING';
+                break;
+        }
+
+        const modifiers = {
+            season: (SEASONS as any)[currentSeason]?.yieldMod || 1.0,
+            weather: (WEATHER as any)[currentWeather]?.yieldMod || 1.0,
+            actionType,
+            upgrades: 1.0 // Simple approximation
+        };
+
+        // Calculate without performance to get the "standard" expected yield
+        try {
+            const result = calculateYield(mockActor as any, base, skillType as any, modifiers);
+            return isNaN(result) ? 1.5 : result; // Safety check
+        } catch (e) {
+            console.error("Yield Calc Error:", e);
+            return 1.5; // Fail safe to low yield to trigger warning
+        }
+
+    }, [type, skills, equipment, playerUpgrades, currentSeason, currentWeather]);
+
+    // Check for severe penalty (indicates missing tool)
+    const hasToolPenalty = React.useMemo(() => {
+        let base = 10;
+        switch (type) {
+            case 'MINE': base = GAME_BALANCE.YIELD.MINE_ORE; break;
+            case 'QUARRY': base = GAME_BALANCE.YIELD.QUARRY_STONE; break;
+            case 'CHOP': base = GAME_BALANCE.YIELD.CHOP_WOOD; break;
+            case 'WORK':
+            case 'HARVEST': base = GAME_BALANCE.YIELD.WORK_GRAIN; break;
+            case 'FORAGE': base = GAME_BALANCE.YIELD.FORAGE_BREAD; break;
+        }
+        // If projected yield is less than half of base, we likely have a penalty
+        // Also check if it's very low (e.g., 2 or less)
+        return projectedYield <= 2 || projectedYield < (base * 0.4);
+    }, [projectedYield, type]);
+
 
     const handleMethodSelect = (methodId: string) => {
         setSelectedMethod(methodId);
     };
+
+    // Warn about missing tool BEFORE starting (User Request)
+    const [acknowledgedWarning, setAcknowledgedWarning] = React.useState(false);
+
+    if (hasToolPenalty && !acknowledgedWarning && (type === 'MINE' || type === 'QUARRY' || type === 'CHOP' || type === 'WORK' || type === 'HARVEST' || type === 'FORAGE') && selectedMethod) {
+        return (
+            <div className="fixed inset-0 z-[150] flex items-center justify-center bg-black/80 backdrop-blur-md animate-in fade-in zoom-in duration-300">
+                <div className="bg-slate-900 border-2 border-rose-500 rounded-3xl p-8 max-w-md w-full text-center shadow-[0_0_50px_rgba(244,63,94,0.3)]">
+                    <div className="text-6xl mb-6">⚠️</div>
+                    <h2 className="text-3xl font-black text-white uppercase tracking-tighter mb-4">Manglende Verktøy!</h2>
+                    <p className="text-slate-300 font-medium mb-8 leading-relaxed">
+                        Du forsøker å utføre <span className="text-rose-400 font-bold">{type}</span> uten riktig verktøy.
+                        Effektiviteten din er redusert med 80%.
+                    </p>
+                    <div className="flex flex-col gap-3">
+                        <button
+                            onClick={() => setAcknowledgedWarning(true)}
+                            className="w-full py-4 bg-rose-600 hover:bg-rose-500 text-white rounded-xl font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all"
+                        >
+                            Fortsett likevel
+                        </button>
+                        <button
+                            onClick={onCancel}
+                            className="w-full py-4 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white rounded-xl font-bold uppercase tracking-widest transition-all"
+                        >
+                            Avbryt
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
 
     // If method not selected, show Selection Screen
     if (!selectedMethod && MINIGAME_VARIANTS[type]) {
@@ -225,21 +391,21 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                 return <ScytheSweepGame onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} />;
                             }
                             // Default to Harvesting Game (Rhythm)
-                            return <HarvestingGame onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} />;
+                            return <HarvestingGame onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} possibleYield={projectedYield} />;
 
                         case 'CHOP':
                             if (selectedMethod === 'saw') return <SawingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;
-                            return <WoodcuttingGame onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} />;
+                            return <WoodcuttingGame onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} possibleYield={projectedYield} />;
 
                         case 'FORAGE':
                             if (selectedMethod === 'traps') return <TrappingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;
-                            return <HarvestingGame isForaging onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} resourceName="Mat/Urter" />;
+                            return <HarvestingGame isForaging onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} resourceName="Mat/Urter" possibleYield={projectedYield} />;
 
                         case 'MINE':
-                            return <HarvestingGame isMining onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} resourceName="Malm" />;
+                            return <HarvestingGame isMining onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} resourceName="Malm" possibleYield={projectedYield} />;
 
                         case 'QUARRY':
-                            return <HarvestingGame isQuarrying onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} resourceName="Stein" />;
+                            return <HarvestingGame isQuarrying onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} resourceName="Stein" possibleYield={projectedYield} />;
 
                         case 'CRAFT':
                         case 'REPAIR': // Repair uses crafting game for now

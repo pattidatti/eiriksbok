@@ -1,4 +1,5 @@
 import { GAME_BALANCE, SEASONS, WEATHER } from '../constants';
+import { ITEM_TEMPLATES } from '../data/items';
 import type { SkillType } from '../simulationTypes';
 
 /**
@@ -8,7 +9,7 @@ import type { SkillType } from '../simulationTypes';
 export const calculateYield = (
     actor: {
         skills?: Record<string, { level: number }>,
-        equipment?: Partial<Record<string, { stats?: { yieldBonus?: number }, relevantActions?: string[] }>>
+        equipment?: Partial<Record<string, { stats?: { yieldBonus?: number }, relevantActions?: string[], id: string }>>
     },
     baseYield: number,
     skillType: SkillType,
@@ -44,11 +45,27 @@ export const calculateYield = (
             const item = (actor.equipment as any)[slot];
             if (!item) return;
 
+            // Lookup template if relevantActions is missing on instance
+            let relevantActions = item.relevantActions;
+            if (!relevantActions && item.id) {
+                // Handle instance IDs like 'pickaxe_123' by stripping suffix if needed, 
+                // but usually templates are keyed by base ID.
+                const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_'));
+                if (tid) {
+                    relevantActions = (ITEM_TEMPLATES as any)[tid]?.relevantActions;
+                }
+            }
+
             // Check if this item is relevant for the action
-            const isRelevant = !modifiers.actionType || item.relevantActions?.includes(modifiers.actionType);
+            const isRelevant = !modifiers.actionType || relevantActions?.includes(modifiers.actionType);
 
             if (isRelevant) {
-                if (item.stats?.yieldBonus) equipBonus += item.stats.yieldBonus;
+                // Check stats on item instance, fallback to template? 
+                // Usually stats should be on instance, but if not, check template
+                const stats = item.stats || (ITEM_TEMPLATES as any)[item.id]?.stats;
+
+                if (stats?.yieldBonus) equipBonus += stats.yieldBonus;
+
                 if (slot === 'AXE' || slot === 'PICKAXE' || slot === 'SCYTHE' || slot === 'MAIN_HAND' || slot === 'OFF_HAND') {
                     hasRelevantTool = true;
                 }
