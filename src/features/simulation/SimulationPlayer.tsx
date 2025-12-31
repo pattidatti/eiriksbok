@@ -428,18 +428,37 @@ export const SimulationPlayer: React.FC = () => {
             setActionLoading(actionType);
         }
 
-        const result = await performAction(pin, player.id, action);
+        // TIMEOUT SAFETY: Ensure we don't hang indefinitely
+        const timeoutPromise = new Promise<{ success: boolean, error: any }>((_, reject) => {
+            setTimeout(() => reject(new Error("Handlingen tok for lang tid (Timeout)")), 10000);
+        });
 
-        // ONLY set results if not a silent action (avoids inventory flicker/overlay)
-        if (!isSilentAction) {
-            if (result.data) {
-                setActionResult(result.data);
-            } else if (!result.success) {
-                // Fallback error if no data
+        try {
+            const result = await Promise.race([performAction(pin, player.id, action), timeoutPromise]) as any;
+
+            // ONLY set results if not a silent action (avoids inventory flicker/overlay)
+            if (!isSilentAction) {
+                if (result.data) {
+                    setActionResult(result.data);
+                } else if (!result.success) {
+                    // Fallback error if no data
+                    setActionResult({
+                        success: false,
+                        timestamp: Date.now(),
+                        message: `Handlingen feilet: ${(result as any).error?.message || (result as any).error || 'Ukjent feil'}`,
+                        utbytte: [],
+                        xp: [],
+                        durability: []
+                    });
+                }
+            }
+        } catch (err: any) {
+            console.error("Action Timeout/Error:", err);
+            if (!isSilentAction) {
                 setActionResult({
                     success: false,
                     timestamp: Date.now(),
-                    message: `Handlingen feilet: ${(result as any).error?.message || (result as any).error || 'Ukjent feil'}`,
+                    message: `⚠️ ${err.message || 'Ukjent feil'}`,
                     utbytte: [],
                     xp: [],
                     durability: []

@@ -1006,7 +1006,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                         const isPrivate = upgradingBuildingId === 'farm_house';
                         const buildingState = isPrivate
                             ? (player.buildings?.[upgradingBuildingId] || { level: 1, progress: {} })
-                            : (room.world?.settlement?.buildings?.[upgradingBuildingId] || { id: upgradingBuildingId, level: 1, progress: {}, contributions: {} });
+                            : (world?.settlement?.buildings?.[upgradingBuildingId] || { id: upgradingBuildingId, level: 1, progress: {}, contributions: {} });
 
                         const currentLevel = (buildingState.level as number) || 1;
                         const nextLevel = currentLevel + 1;
@@ -1014,7 +1014,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                         const nextLevelDef = buildingDef.levels[nextLevel];
 
                         return (
-                            <div className="absolute inset-0 z-50 flex items-center justify-center p-6 bg-slate-950/95 backdrop-blur-xl animate-in fade-in duration-500">
+                            <div className="fixed inset-0 top-0 left-0 w-screen h-screen z-[200] flex items-center justify-center p-6 bg-slate-950/95 backdrop-blur-xl animate-in fade-in duration-500">
                                 <div className="bg-slate-900 border border-white/10 rounded-[3rem] max-w-2xl w-full flex flex-col relative overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
                                     <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[100px] -mr-32 -mt-32 rounded-full" />
 

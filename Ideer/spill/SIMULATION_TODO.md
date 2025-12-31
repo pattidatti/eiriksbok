@@ -16,6 +16,8 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [x] **POI** ikonene på mappet snur seg med mouseover nå, det er bedre hvis de heller øker litt i størrelse. 
 - [x] **oppgradere Smien** går ikke an å bidra, kommer feilmelding. 
 - [x] **Åpne smien** Går ikke an å åpne produksjon/reperasjonsvindu hvis en mangler ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
+- [ ] **Staminabar** Når man har fått lav staminia, og fyller den opp igjen, så er feltet rundt statusbarene fremdeles rød. 
+- [ ] **Hugge stein** Feedbacken man får når man treffer på minigame, med tallene +1,2,3 osv, samsvarer ikke med den totale mengden man får når minigamet er fullført. 
 
 ## 🛠️ Planlagt (Underveis/Snart)
 

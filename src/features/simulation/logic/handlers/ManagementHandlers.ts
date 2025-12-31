@@ -1,4 +1,4 @@
-import { GAME_BALANCE, VILLAGE_BUILDINGS, UPGRADES_LIST } from '../../constants';
+import { GAME_BALANCE, VILLAGE_BUILDINGS, UPGRADES_LIST, INITIAL_RESOURCES } from '../../constants';
 import type { ActionContext } from '../actionTypes';
 import type { Resources } from '../../simulationTypes';
 
@@ -89,7 +89,11 @@ export const handleContribute = (ctx: ActionContext) => {
     const { actor, room, action, localResult } = ctx;
     const { buildingId, resource, amount } = action;
     const buildingDef = VILLAGE_BUILDINGS[buildingId];
-    if (!buildingDef) return false;
+    if (!buildingDef) {
+        localResult.success = false;
+        localResult.message = `Fant ikke bygning med ID: ${buildingId}`;
+        return false;
+    }
 
     const isPrivate = buildingId === 'farm_house';
     let buildingState: { level: number; progress: Partial<Resources>; contributions?: any };
@@ -99,26 +103,37 @@ export const handleContribute = (ctx: ActionContext) => {
         if (!actor.buildings[buildingId]) actor.buildings[buildingId] = { level: 1, progress: {} };
         buildingState = actor.buildings[buildingId];
     } else {
+        // Ensure World Structure
+        if (!room.world) room.world = { season: 'Spring', weather: 'Clear', year: 1066, taxRateDetails: { kingTax: 0.1 }, settlement: { buildings: {} } };
         if (!room.world.settlement) room.world.settlement = { buildings: {} };
+        if (!room.world.settlement.buildings) room.world.settlement.buildings = {};
+
         if (!room.world.settlement.buildings[buildingId]) {
             room.world.settlement.buildings[buildingId] = { id: buildingId, level: 1, progress: {}, contributions: {} };
         }
         buildingState = room.world.settlement.buildings[buildingId] as any;
     }
 
+    if (!buildingState.progress) buildingState.progress = {};
+    if (!actor.resources) actor.resources = JSON.parse(JSON.stringify(INITIAL_RESOURCES.PEASANT));
+    if (!buildingState.level || buildingState.level < 1) buildingState.level = 1;
+
     const nextLevel = buildingState.level + 1;
     const nextLevelDef = buildingDef.levels[nextLevel];
     if (!nextLevelDef) {
         localResult.success = false;
+        localResult.message = "Maksimalt nivå nådd.";
         return false;
     }
 
-    const reqAmount = (nextLevelDef.requirements as any)[resource] || 0;
+    const requirements = nextLevelDef.requirements || {};
+    const reqAmount = (requirements as any)[resource] || 0;
     const currentProg = (buildingState.progress as any)[resource] || 0;
     const needed = reqAmount - currentProg;
 
     if (needed <= 0) {
         localResult.success = false;
+        localResult.message = "Ressurskravet er allerede oppfylt.";
         return false;
     }
 
@@ -127,10 +142,12 @@ export const handleContribute = (ctx: ActionContext) => {
 
     if (giveAmount <= 0) {
         localResult.success = false;
+        localResult.message = `Kan ikke bidra 0 (Har: ${playerHas}, Trenger: ${needed}, Bud: ${amount})`;
         return false;
     }
 
-    (actor.resources as any)[resource] -= giveAmount;
+    // SAFE SUBTRACTION
+    (actor.resources as any)[resource] = playerHas - giveAmount;
     (buildingState.progress as any)[resource] = currentProg + giveAmount;
 
     if (!isPrivate) {
