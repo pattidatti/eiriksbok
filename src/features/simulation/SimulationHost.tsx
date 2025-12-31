@@ -239,6 +239,13 @@ export const SimulationHost: React.FC = () => {
         }
     };
 
+    // Helper to normalize messages
+    const getMessagesList = (msgs: string[] | Record<string, string> | undefined): string[] => {
+        if (!msgs) return [];
+        if (Array.isArray(msgs)) return msgs;
+        return Object.values(msgs);
+    };
+
     const nextSeason = async () => {
         if (!roomData) return;
         const seasonsList: ('Spring' | 'Summer' | 'Autumn' | 'Winter')[] = ['Spring', 'Summer', 'Autumn', 'Winter'];
@@ -252,7 +259,8 @@ export const SimulationHost: React.FC = () => {
             const sLabel = (SEASONS as any)[nextSeasonVal]?.label || nextSeasonVal;
             const msg = `[${timestamp}] 🌍 Årstiden har skiftet til ${sLabel}!`;
 
-            const updatedMessages = roomData.messages ? [...roomData.messages, msg].slice(-30) : [msg];
+            const currentMessages = getMessagesList(roomData.messages);
+            const updatedMessages = [...currentMessages, msg].slice(-30);
 
             const updates: any = {};
             updates[`simulation_rooms/${pin}/world/season`] = nextSeasonVal;
@@ -279,7 +287,8 @@ export const SimulationHost: React.FC = () => {
             const wLabel = weatherMap[nextWeather] || nextWeather;
             const msg = `[${timestamp}] ☁️ Været har skiftet til ${wLabel}!`;
 
-            const updatedMessages = roomData.messages ? [...roomData.messages, msg].slice(-30) : [msg];
+            const currentMessages = getMessagesList(roomData.messages);
+            const updatedMessages = [...currentMessages, msg].slice(-30);
 
             const updates: any = {};
             updates[`simulation_rooms/${pin}/world/weather`] = nextWeather;
@@ -307,7 +316,10 @@ export const SimulationHost: React.FC = () => {
             await update(ref(db, `simulation_rooms/${pin}`), { activeVote });
             const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             const msg = `[${timestamp}] ⚖️ TINGET ER SATT! Det skal stemmes over loven: "${law.label}"!`;
-            const updatedMessages = roomData.messages ? [...roomData.messages, msg] : [msg];
+
+            const currentMessages = getMessagesList(roomData.messages);
+            const updatedMessages = [...currentMessages, msg].slice(-30);
+
             await update(ref(db, `simulation_rooms/${pin}`), { messages: updatedMessages });
 
             // Auto resolve after 1 minute
@@ -339,9 +351,11 @@ export const SimulationHost: React.FC = () => {
 
         try {
             await update(ref(db, `simulation_rooms/${pin}/world`), { activeLaws });
+
+            const currentMessages = getMessagesList(roomData.messages);
             await update(ref(db, `simulation_rooms/${pin}`), {
                 activeVote: null,
-                messages: [...(roomData?.messages || []), msg].slice(-30)
+                messages: [...currentMessages, msg].slice(-30)
             });
         } catch (e) {
             console.error(e);
@@ -364,7 +378,10 @@ export const SimulationHost: React.FC = () => {
             await update(ref(db, `simulation_rooms/${pin}/worldEvents`), { [eventId]: newEvent });
             const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             const msg = `[${timestamp}] 🔔 HENDELSE: ${template.title}! Sjekk kartet!`;
-            const updatedMessages = roomData.messages ? [...roomData.messages, msg] : [msg];
+
+            const currentMessages = getMessagesList(roomData.messages);
+            const updatedMessages = [...currentMessages, msg].slice(-30);
+
             await update(ref(db, `simulation_rooms/${pin}`), { messages: updatedMessages });
         } catch (e) {
             console.error(e);
@@ -929,14 +946,14 @@ export const SimulationHost: React.FC = () => {
                         </h3>
                     </div>
                     <div className="flex-1 overflow-y-auto px-6 space-y-3 pb-8 custom-scrollbar">
-                        {roomData.messages?.slice().reverse().map((msg: any, idx: number) => (
+                        {getMessagesList(roomData.messages).slice().reverse().map((msg: any, idx: number) => (
                             <div key={idx} className="bg-indigo-950/20 border-l-2 border-indigo-500/50 p-4 rounded-r-2xl animate-in slide-in-from-right-4 duration-300">
                                 <p className="text-[10px] font-medium leading-relaxed text-slate-400 antialiased italic font-serif opacity-80">
                                     {typeof msg === 'object' ? JSON.stringify(msg) : msg}
                                 </p>
                             </div>
                         ))}
-                        {(!roomData.messages || roomData.messages.length === 0) && (
+                        {getMessagesList(roomData.messages).length === 0 && (
                             <div className="h-full flex flex-col items-center justify-center opacity-20 py-20">
                                 <span className="text-4xl mb-4">📜</span>
                                 <p className="text-[8px] font-black uppercase tracking-[0.2em]">Arkivet er tomt</p>
