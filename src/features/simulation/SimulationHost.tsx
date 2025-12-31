@@ -87,13 +87,44 @@ export const SimulationHost: React.FC = () => {
         return () => unsubscribe();
     }, []);
 
-    // Sync specific room data
+    // Sync specific room data and patch market
     useEffect(() => {
         if (!pin) return;
         const roomRef = ref(db, `simulation_rooms/${pin}`);
         const unsubscribe = onValue(roomRef, (snapshot) => {
             const data = snapshot.val();
-            if (data) setRoomData(data);
+            if (data) {
+                setRoomData(data);
+
+                // DEBUG/PATCH: Ensure all market items exist in active markets
+                let marketsUpdated = false;
+                const newMarkets = { ...data.markets };
+
+                // If legacy 'market' exists but 'markets' doesn't have capital, migrate it
+                if (!newMarkets['capital'] && data.market) {
+                    newMarkets['capital'] = data.market;
+                    marketsUpdated = true;
+                }
+
+                // Patch each market with missing keys from INITIAL_MARKET
+                Object.keys(newMarkets).forEach(regionId => {
+                    const market = newMarkets[regionId];
+                    let marketChanged = false;
+                    Object.keys(INITIAL_MARKET).forEach(key => {
+                        if (!market[key]) {
+                            console.log(`Patching missing market item: ${key} in region ${regionId}`);
+                            market[key] = (INITIAL_MARKET as any)[key];
+                            marketChanged = true;
+                        }
+                    });
+                    if (marketChanged) marketsUpdated = true;
+                });
+
+                if (marketsUpdated) {
+                    console.log("Patching markets with new resources...");
+                    update(ref(db, `simulation_rooms/${pin}/markets`), newMarkets);
+                }
+            }
         });
         return () => unsubscribe();
     }, [pin]);

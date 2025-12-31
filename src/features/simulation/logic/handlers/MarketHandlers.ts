@@ -1,4 +1,4 @@
-import { GAME_BALANCE } from '../../constants';
+import { GAME_BALANCE, INITIAL_MARKET } from '../../constants';
 import type { ActionContext } from '../actionTypes';
 
 /**
@@ -10,9 +10,27 @@ export const handleBuy = (ctx: ActionContext) => {
 
     // Resolve which market to use
     const marketKey = actor.regionId || 'capital';
-    const market = room.markets?.[marketKey] || room.market;
+    let market = room.markets?.[marketKey] || room.market;
 
-    if (!market || !(market as any)[resource]) {
+    // Self-healing: Create market if missing
+    if (!market) {
+        if (!room.markets) room.markets = {};
+        market = JSON.parse(JSON.stringify(INITIAL_MARKET));
+        room.markets[marketKey] = market;
+    }
+
+    if (!market) {
+        localResult.success = false;
+        localResult.message = "Markedet er ikke tilgjengelig.";
+        return false;
+    }
+
+    // Lazy Patch
+    if (!(market as any)[resource] && (INITIAL_MARKET as any)[resource]) {
+        (market as any)[resource] = { ...(INITIAL_MARKET as any)[resource] };
+    }
+
+    if (!(market as any)[resource]) {
         localResult.success = false;
         localResult.message = "Markedet tilbyr ikke denne varen her.";
         return false;
@@ -60,9 +78,28 @@ export const handleSell = (ctx: ActionContext) => {
     const { resource } = action;
 
     const marketKey = actor.regionId || 'capital';
-    const market = room.markets?.[marketKey] || room.market;
+    let market = room.markets?.[marketKey] || room.market;
 
-    if (!market || !(market as any)[resource]) {
+    // Self-healing: Create market if missing
+    if (!market) {
+        if (!room.markets) room.markets = {};
+        market = JSON.parse(JSON.stringify(INITIAL_MARKET));
+        room.markets[marketKey] = market;
+    }
+
+    if (!market) {
+        localResult.success = false;
+        localResult.message = "Markedet er ikke tilgjengelig.";
+        return false;
+    }
+
+    // Lazy Patch: If resource is missing in market but exists in schema, add it dynamically
+    if (!(market as any)[resource] && (INITIAL_MARKET as any)[resource]) {
+        console.log(`Lazy patching market: Adding missing ${resource}`);
+        (market as any)[resource] = { ...(INITIAL_MARKET as any)[resource] };
+    }
+
+    if (!(market as any)[resource]) {
         localResult.success = false;
         localResult.message = "Markedet tar ikke imot denne varen her.";
         return false;

@@ -61,15 +61,25 @@ export const performAction = async (pin: string, playerId: string, action: any):
 /* --- SHARDED ACTION HANDLER (OPTIMIZED) --- */
 const performSoloAction = async (pin: string, playerId: string, action: any) => {
     const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
-    const worldRef = ref(db, `simulation_rooms/${pin}/world`);
     const messagesRef = ref(db, `simulation_rooms/${pin}/messages`);
+
+    // 1. Fetch Read-Only State (No Lock)
+    const worldRef = ref(db, `simulation_rooms/${pin}/world`);
+    const marketsRef = ref(db, `simulation_rooms/${pin}/markets`);
+    const marketRef = ref(db, `simulation_rooms/${pin}/market`);
 
     let result: any = null;
 
     try {
-        // 1. Fetch Read-Only World State (No Lock)
-        const worldSnap = await get(worldRef);
+        const [worldSnap, marketsSnap, marketSnap] = await Promise.all([
+            get(worldRef),
+            get(marketsRef),
+            get(marketRef)
+        ]);
+
         const world = worldSnap.exists() ? worldSnap.val() : { season: 'Spring', weather: 'Clear', activeLaws: [] };
+        const markets = marketsSnap.exists() ? marketsSnap.val() : {};
+        const market = marketSnap.exists() ? marketSnap.val() : null;
 
         await runTransaction(playerRef, (actor: any) => {
             if (!actor) return actor; // Player missing?
@@ -182,20 +192,13 @@ const performSoloAction = async (pin: string, playerId: string, action: any) => 
             // 2. Perform Action Logic
             const handler = ACTION_REGISTRY[actionType];
             if (handler) {
-                // Mock 'room' object for handler context. Handlers only need world info usually.
-                // If a handler tries to modify 'room', it will fail or be ignored.
-                // We must ensure handlers ONLY modify 'actor'.
                 const mockRoom = {
                     world: world,
-                    messages: [], // Dummy array, we catch messages via return or side-effect? 
-                    // Handlers might push to room.messages. handling below.
+                    markets: markets,
+                    market: market,
+                    messages: [],
                     players: { [playerId]: actor }
                 };
-
-                // We need to capture message pushes?
-                // Actually the handlers usually set localResult.message or push to room.messages.
-                // Refactoring note: Handlers in ACTION_REGISTRY need review if they touch room.
-                // For now, assuming they behave nicely with this mock.
 
                 const ctx = {
                     actor,
@@ -266,7 +269,7 @@ const performSoloAction = async (pin: string, playerId: string, action: any) => 
         console.error("Solo Action failed", e);
         return { success: false, error: e };
     }
-}
+};
 
 /* --- GLOBAL ACTION HANDLER (Optimized: Get/Update pattern to avoid root transaction timeouts) --- */
 const performGlobalAction = async (pin: string, playerId: string, action: any) => {

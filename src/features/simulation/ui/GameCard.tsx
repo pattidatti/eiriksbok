@@ -20,8 +20,6 @@ export const GameCard: React.FC<GameCardProps> = ({
     return (
         <motion.div
             whileHover={animateHover ? {
-                scale: 1.02,
-                y: -4,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(99, 102, 241, 0.1)"
             } : {}}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}

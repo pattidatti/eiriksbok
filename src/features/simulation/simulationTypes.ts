@@ -170,7 +170,11 @@ export interface MarketItem {
 export interface SimulationMarket {
     grain: MarketItem;
     flour: MarketItem;
+    bread: MarketItem; // Added
     wood: MarketItem;
+    timber: MarketItem; // Added
+    iron_ore: MarketItem; // Added
+    iron_ingot: MarketItem; // Added
     stone: MarketItem;
     swords: MarketItem;
     armor: MarketItem;
@@ -178,6 +182,8 @@ export interface SimulationMarket {
     cloth: MarketItem;
     honey: MarketItem;
     meat: MarketItem;
+    glass: MarketItem; // Added
+    iron?: MarketItem; // Legacy support
 }
 
 export interface SimulationRegion {

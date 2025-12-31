@@ -6,7 +6,7 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **Balansering av Utbytte:** Finjustere "Utbytte" (tidligere Yield) for ulike verktøy og handlinger.
 - [ ] **Holdbarhet:** Implementere tydeligere visuelle varsler når verktøy er i ferd med å ødelegges.
 
-- [ ] **minigames** Legge til flere minigames. Få tilbake feedback mens man utfører et minigame
+- [ ] **minigames** Legge til flere minigames.
 - [x] **Minigames** De minigames som skal "treffe" et felt, som brødbaking. Der bør feltet flytte litt rundt på seg for å gjøre det mer interresant for spilleren. 
 - [x] **Høsting** UI Høsting er klar timer vises fremedeles etter at man har høstet. 
 - [] **Fjerne slettede items** Manpower og tools ligger fremdeles i ryggsekken. 
@@ -17,7 +17,10 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [x] **oppgradere Smien** går ikke an å bidra, kommer feilmelding. 
 - [x] **Åpne smien** Går ikke an å åpne produksjon/reperasjonsvindu hvis en mangler ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
 - [ ] **Staminabar** Når man har fått lav staminia, og fyller den opp igjen, så er feltet rundt statusbarene fremdeles rød. 
-- [ ] **Hugge stein** Feedbacken man får når man treffer på minigame, med tallene +1,2,3 osv, samsvarer ikke med den totale mengden man får når minigamet er fullført. 
+- [ ] **Hugge stein** Feedbacken man får når man treffer på minigame, med tallene +1,2,3 osv, samsvarer ikke med den totale mengden man får når minigamet er fullført.
+- [ ] **Marked** Går ikke an å selge, får error: "Markedet tar ikke imot denne varen her."
+- [x] **Gamecard** fjerne forstørrelseseffekt, det er forstyrrende element i UIen.  
+- [ ] **Kylling og egg** Legge til kylling og egge minigame på Husmannsplassen med egen POI. Man bruker Grain til å mate kyllingene, etter timer er ferdig kan man plukke opp eggene. Eggene kan brukes i bakeriet til et ny mattype som gir en midlertidig buff. Buffen varer i 15 min og gir 20% mindre staminabruk på handlinger. BUffs må kunne ses på en timer på toppen. For å aktivere buffen må spilleren spise den nye mattypen fra ryggsekken. Vi trenger derfor å lage denne funksjonen også; å bruke/konsumere items fra ryggsekk. 
 
 ## 🛠️ Planlagt (Underveis/Snart)
 

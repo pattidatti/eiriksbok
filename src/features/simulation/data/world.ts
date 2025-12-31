@@ -3,7 +3,11 @@ import type { SimulationMarket } from '../simulationTypes';
 export const INITIAL_MARKET: SimulationMarket = {
     grain: { price: 10, stock: 500, demand: 1.0 },
     flour: { price: 15, stock: 100, demand: 1.0 },
+    bread: { price: 25, stock: 50, demand: 1.0 },
     wood: { price: 15, stock: 300, demand: 1.0 },
+    timber: { price: 25, stock: 100, demand: 1.0 },
+    iron_ore: { price: 30, stock: 100, demand: 1.0 },
+    iron_ingot: { price: 60, stock: 50, demand: 1.0 },
     stone: { price: 20, stock: 200, demand: 1.0 },
     swords: { price: 80, stock: 20, demand: 1.0 },
     armor: { price: 120, stock: 10, demand: 1.0 },
@@ -11,6 +15,9 @@ export const INITIAL_MARKET: SimulationMarket = {
     cloth: { price: 45, stock: 50, demand: 1.0 },
     honey: { price: 30, stock: 50, demand: 1.0 },
     meat: { price: 25, stock: 100, demand: 1.0 },
+    glass: { price: 50, stock: 20, demand: 1.0 },
+    // LEGACY SUPPORT
+    iron: { price: 40, stock: 0, demand: 1.0 },
 };
 
 export const EVENTS = {
