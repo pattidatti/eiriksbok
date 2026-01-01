@@ -25,7 +25,8 @@ const SLOT_LABELS: Record<EquipmentSlotType, string> = {
     SCYTHE: 'Ljom / Sigd',
     HAMMER: 'Smedhammer',
     BOW: 'Bue',
-    TRAP: 'Felle'
+    TRAP: 'Felle',
+    CONSUMABLE: 'Forbruk'
 };
 
 export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ player, onAction }) => {

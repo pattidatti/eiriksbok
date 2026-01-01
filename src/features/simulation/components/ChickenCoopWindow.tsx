@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SimulationMapWindow } from './ui/SimulationMapWindow';
 import type { SimulationPlayer, ActiveProcess } from '../simulationTypes';
-import { useSimulation } from '../SimulationContext';
 import { ResourceIcon } from '../ui/ResourceIcon';
 import { motion } from 'framer-motion';
 
