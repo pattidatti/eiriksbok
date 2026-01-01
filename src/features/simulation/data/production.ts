@@ -168,8 +168,9 @@ export const REFINERY_RECIPES: Record<string, any> = {
     bread: { label: 'Bondebrød', icon: '🍞', input: { flour: 2 }, outputResource: 'bread', outputAmount: 5, buildingId: 'bakery', stamina: 5, xp: 3, skill: 'CRAFTING' },
     pie: { label: 'Kjøttpai', icon: '🥧', input: { flour: 4, meat: 2 }, outputResource: 'bread', outputAmount: 15, buildingId: 'bakery', stamina: 15, xp: 10, skill: 'CRAFTING' },
     mead: { label: 'Mjød', icon: '🍺', input: { honey: 5 }, outputResource: 'stamina', outputAmount: 20, buildingId: 'tavern', stamina: 5, xp: 5, skill: 'CRAFTING' },
-    cloth: { label: 'Lin-stoff', icon: '🧶', input: { wood: 5 }, outputResource: 'cloth', outputAmount: 1, buildingId: 'weavery', stamina: 15, xp: 10, skill: 'CRAFTING' },
-    glass: { label: 'Glass', icon: '🥛', input: { stone: 10, wood: 5 }, outputResource: 'glass', outputAmount: 1, buildingId: 'smeltery', requiredLevel: 3, stamina: 25, xp: 15, skill: 'CRAFTING' }
+    cloth: { label: 'Lin-stoff', icon: '🧶', input: { wool: 5 }, outputResource: 'cloth', outputAmount: 1, buildingId: 'weavery', stamina: 15, xp: 10, skill: 'CRAFTING' },
+    glass: { label: 'Glass', icon: '🥛', input: { stone: 10, wood: 5 }, outputResource: 'glass', outputAmount: 1, buildingId: 'smeltery', requiredLevel: 3, stamina: 25, xp: 15, skill: 'CRAFTING' },
+    elixir: { label: 'Livseliksir', icon: '🧪', input: { honey: 10, glass: 1 }, outputResource: 'stamina', outputAmount: 100, buildingId: 'apothecary', requiredLevel: 3, stamina: 30, xp: 25, skill: 'CRAFTING' }
 };
 
 export const CRAFTING_RECIPES: Record<string, any> = {

@@ -53,19 +53,7 @@ export const calculateYield = (
         actionType?: string
     } = {}
 ) => {
-    // 1. Base
-    let total = baseYield;
-
-    // 2. Skill Bonus
-    const skill = actor.skills?.[skillType] || { level: 0 };
-    const bonusPerLevel = modifiers.isRefining
-        ? GAME_BALANCE.SKILLS.REFINING_BONUS
-        : GAME_BALANCE.SKILLS.GATHERING_BONUS;
-
-    const skillMultiplier = 1 + (skill.level * bonusPerLevel);
-    total *= skillMultiplier;
-
-    // 3. Equipment Bonus (Flat + Yield)
+    // 1. Equipment Bonus (Flat + Yield)
     let equipBonus = 0;
     let hasRelevantTool = false;
 
@@ -75,25 +63,18 @@ export const calculateYield = (
             const item = (actor.equipment as any)[slot];
             if (!item) return;
 
-            // Lookup template if relevantActions is missing on instance
             let relevantActions = item.relevantActions;
             if (!relevantActions && item.id) {
-                // Handle instance IDs like 'pickaxe_123' by stripping suffix if needed, 
-                // but usually templates are keyed by base ID.
                 const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_') || item.id.startsWith(k + '-'));
                 if (tid) {
                     relevantActions = (ITEM_TEMPLATES as any)[tid]?.relevantActions;
                 }
             }
 
-            // Check if this item is relevant for the action
             const isRelevant = !modifiers.actionType || relevantActions?.includes(modifiers.actionType);
 
             if (isRelevant) {
-                // Check stats on item instance, fallback to template? 
-                // Usually stats should be on instance, but if not, check template
                 const stats = item.stats || (ITEM_TEMPLATES as any)[item.id]?.stats;
-
                 if (stats?.yieldBonus) equipBonus += stats.yieldBonus;
 
                 if (slot === 'AXE' || slot === 'PICKAXE' || slot === 'SCYTHE' || slot === 'MAIN_HAND' || slot === 'OFF_HAND') {
@@ -103,9 +84,19 @@ export const calculateYield = (
         });
     }
 
-    total += equipBonus;
+    // 2. Base + Equip
+    let total = baseYield + equipBonus;
 
-    // 3.5 No-tool Penalty (Utbytte-straff)
+    // 3. Skill Bonus (Now scales with equipment!)
+    const skill = actor.skills?.[skillType] || { level: 0 };
+    const bonusPerLevel = modifiers.isRefining
+        ? GAME_BALANCE.SKILLS.REFINING_BONUS
+        : GAME_BALANCE.SKILLS.GATHERING_BONUS;
+
+    const skillMultiplier = 1 + (skill.level * bonusPerLevel);
+    total *= skillMultiplier;
+
+    // 4. No-tool Penalty (Utbytte-straff)
     // If it's a gathering task and we have no relevant tool, apply a massive penalty
     const isExempt = modifiers.actionType === 'FORAGE' || modifiers.actionType === 'GATHER_HONEY';
 

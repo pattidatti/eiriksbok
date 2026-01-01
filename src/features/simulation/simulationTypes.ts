@@ -170,6 +170,7 @@ export interface SimulationPlayer {
         progress: Partial<Resources>;
     }>;
 
+    online?: boolean;
     lastActive: number;
 }
 
