@@ -130,6 +130,38 @@ export const SimulationLobby: React.FC = () => {
                 updates[`players/${playerId}`] = newPlayer;
                 updates[`public_profiles/${playerId}`] = publicProfile;
 
+                // SYNC TO GLOBAL ACCOUNT (Active Sessions)
+                // We do this inside the room update to ensure atomicity-ish, but ideally it's separate
+                // Since we need to read the account first to update the array safely, we might do it separately or change schema to Map.
+                // For now, let's just write to a new path that we will migrate to use Keyed Objects later if needed, 
+                // OR just read-modify-write here.
+
+                if (user?.uid) {
+                    try {
+                        const accountRef = ref(db, `simulation_accounts/${user.uid}`);
+                        const accountSnapshot = await get(accountRef);
+                        if (accountSnapshot.exists()) {
+                            const acc = accountSnapshot.val();
+                            const currentSessions = acc.activeSessions || [];
+
+                            // Remove existing entry for this room if any (to update it)
+                            const otherSessions = currentSessions.filter((s: any) => s.roomPin !== cleanPin);
+
+                            const sessionData = {
+                                roomPin: cleanPin,
+                                name: name,
+                                role: role,
+                                regionId: regionId,
+                                lastPlayed: Date.now()
+                            };
+
+                            updates[`../simulation_accounts/${user.uid}/activeSessions`] = [...otherSessions, sessionData];
+                        }
+                    } catch (err) {
+                        console.error("Failed to sync session to account", err);
+                    }
+                }
+
                 await update(roomRef, updates);
             }
 
