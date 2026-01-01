@@ -107,7 +107,7 @@ export const ACTION_COSTS: Record<ActionType, ActionCost> = {
     REFINE: { stamina: 15 },
     CRAFT: { stamina: 30 },
     QUARRY: { bread: 1, stamina: 20 },
-    REPAIR: { iron_ingot: 1, timber: 1, gold: 5, stamina: 15 },
+    REPAIR: { stamina: 15 },
     HUNT: { bread: 2, stamina: 30 },
     GATHER_WOOL: { stamina: 15 },
     GATHER_HONEY: { stamina: 20 },
@@ -132,7 +132,7 @@ export const REPAIR_CONFIG: Record<string, { material: ResourceType, goldCost: n
         material: 'iron_ingot',
         goldCost: 20,
         staminaCost: 15,
-        slots: ['MAIN_HAND', 'OFF_HAND', 'HEAD', 'BODY', 'FEET']
+        slots: ['MAIN_HAND', 'OFF_HAND', 'HEAD', 'BODY', 'FEET', 'AXE', 'PICKAXE', 'SCYTHE', 'HAMMER', 'BOW', 'TRAP']
     },
     weavery: {
         material: 'cloth',

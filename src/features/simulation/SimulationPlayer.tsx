@@ -844,7 +844,7 @@ export const SimulationPlayer: React.FC = () => {
 
                         <div className="flex flex-col h-full w-full overflow-hidden">
                             {/* TOP HEADER (Now acts as Main Navigation) */}
-                            <SimulationHeader room={room} player={activePlayer!} pin={pin} />
+                            <SimulationHeader room={room} player={activePlayer!} pin={pin} onAction={handleAction} />
 
                             {/* MAIN VIEWPORT */}
                             <main className="flex-1 relative overflow-hidden bg-slate-950/50">

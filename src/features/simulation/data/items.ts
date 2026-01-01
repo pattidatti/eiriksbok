@@ -49,11 +49,11 @@ export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
 };
 
 export const INITIAL_RESOURCES: Record<Role, Resources> = {
-    KING: { gold: 1000, grain: 500, flour: 200, bread: 50, wood: 200, timber: 50, iron_ore: 0, iron_ingot: 20, stone: 100, swords: 50, armor: 20, favor: 0, wool: 50, cloth: 20, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0 },
-    BARON: { gold: 300, grain: 100, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 10, stone: 20, swords: 10, armor: 10, favor: 0, wool: 20, cloth: 5, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0 },
-    PEASANT: { gold: 20, grain: 30, flour: 5, bread: 5, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, stone: 0, swords: 0, armor: 0, favor: 0, wool: 10, cloth: 0, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0 },
-    SOLDIER: { gold: 50, grain: 10, flour: 10, bread: 10, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, stone: 0, swords: 5, armor: 2, favor: 0, wool: 0, cloth: 0, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0 },
-    MERCHANT: { gold: 500, grain: 50, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 5, stone: 50, swords: 5, armor: 2, favor: 0, wool: 20, cloth: 10, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0 }
+    KING: { gold: 1000, grain: 500, flour: 200, bread: 50, wood: 200, timber: 50, iron_ore: 0, iron_ingot: 20, stone: 100, swords: 50, armor: 20, favor: 0, wool: 50, cloth: 20, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0, omelette: 0 },
+    BARON: { gold: 300, grain: 100, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 10, stone: 20, swords: 10, armor: 10, favor: 0, wool: 20, cloth: 5, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0, omelette: 0 },
+    PEASANT: { gold: 20, grain: 30, flour: 5, bread: 5, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, stone: 0, swords: 0, armor: 0, favor: 0, wool: 10, cloth: 0, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0, omelette: 0 },
+    SOLDIER: { gold: 50, grain: 10, flour: 10, bread: 10, wood: 0, timber: 0, iron_ore: 0, iron_ingot: 0, stone: 0, swords: 5, armor: 2, favor: 0, wool: 0, cloth: 0, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0, omelette: 0 },
+    MERCHANT: { gold: 500, grain: 50, flour: 50, bread: 20, wood: 50, timber: 20, iron_ore: 0, iron_ingot: 5, stone: 50, swords: 5, armor: 2, favor: 0, wool: 20, cloth: 10, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0, omelette: 0 }
 };
 
 export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
@@ -163,5 +163,6 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
     hunting_trap: { id: 'hunting_trap', name: 'Jaktfelle', icon: '🕸️', type: 'TRAP', durability: 30, maxDurability: 30, level: 1, description: 'En enkel snarefangst-felle. +1 Utbytte ved småviltjakt.', stats: { yieldBonus: 1 }, relevantActions: ['HUNT', 'FORAGE'] },
 
     // Consumables
-    omelette: { id: 'omelette', name: 'Omelett', icon: '🍳', type: 'CONSUMABLE', durability: 1, maxDurability: 1, level: 1, description: 'En næringsrik frokost. Gir buff: "Lett til beins" (20% mindre stamina kostnad i 15 min).', stats: {}, relevantActions: ['CONSUME'] }
+    omelette: { id: 'omelette', name: 'Omelett', icon: '🍳', type: 'CONSUMABLE', durability: 1, maxDurability: 1, level: 1, description: 'En næringsrik frokost. Gir buff: "Lett til beins" (20% mindre stamina kostnad i 15 min).', stats: {}, relevantActions: ['CONSUME'] },
+    bread: { id: 'bread', name: 'Brød', icon: '🍞', type: 'CONSUMABLE', durability: 1, maxDurability: 1, level: 1, description: 'Ferskt brød fra bakeriet. Gjenoppretter +20 Stamina.', stats: {}, relevantActions: ['CONSUME'] }
 };

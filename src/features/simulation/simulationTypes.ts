@@ -15,6 +15,7 @@ export interface Buff {
     type: string; // e.g. STAMINA_SAVE
     value: number; // e.g. 0.2 (20%)
     label: string; // "Lett til beins"
+    description?: string; // "20% mindre stamina bruk"
     expiresAt: number; // timestamp
     sourceItem?: string; // "omelette"
 }
@@ -47,6 +48,7 @@ export interface Resources {
     glass: number;
     manpower: number;
     egg: number;
+    omelette: number;
 }
 
 

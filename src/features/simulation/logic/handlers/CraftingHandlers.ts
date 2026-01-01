@@ -30,18 +30,31 @@ export const handleCraft = (ctx: ActionContext) => {
                 (actor.resources as any)[res] -= (amt as number);
             });
 
-            // Create Item
-            const template = ITEM_TEMPLATES[recipe.outputItemId];
-            if (template) {
-                const newItem: EquipmentItem = {
-                    ...template,
-                    id: `${template.id}_${Date.now()}_${Math.floor(Math.random() * 1000)}`
-                };
-                if (!actor.inventory) actor.inventory = [];
-                actor.inventory.push(newItem);
-                localResult.utbytte.push({ resource: recipe.outputItemId, amount: 1 });
-                localResult.message = `Smidde ${newItem.name}!`;
+            // CHECK IF OUTPUT IS A RESOURCE (Stackable) OR UNIQUE ITEM
+            const outputId = recipe.outputItemId;
+            const isResource = RESOURCE_DETAILS[outputId] || outputId === 'omelette'; // Explicit check or lookup
+
+            if (isResource) {
+                // Add to resources
+                (actor.resources as any)[outputId] = ((actor.resources as any)[outputId] || 0) + 1;
+                localResult.utbytte.push({ resource: outputId, amount: 1 });
+                const tpl = ITEM_TEMPLATES[outputId];
+                localResult.message = `Laget ${tpl?.name || outputId}!`;
                 trackXp('CRAFTING', 25 * recipe.level);
+            } else {
+                // Create Unique Item
+                const template = ITEM_TEMPLATES[outputId];
+                if (template) {
+                    const newItem: EquipmentItem = {
+                        ...template,
+                        id: `${template.id}_${Date.now()}_${Math.floor(Math.random() * 1000)}`
+                    };
+                    if (!actor.inventory) actor.inventory = [];
+                    actor.inventory.push(newItem);
+                    localResult.utbytte.push({ resource: outputId, amount: 1 });
+                    localResult.message = `Smidde ${newItem.name}!`;
+                    trackXp('CRAFTING', 25 * recipe.level);
+                }
             }
         } else {
             localResult.success = false;

@@ -230,12 +230,7 @@ const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'forge_anvil', label: 'Ambolt', icon: '🔨', top: '50%', left: '40%', roles: ['PEASANT', 'BARON'], parentId: 'great_forge',
         actions: [
-            { id: 'stone_axe', label: 'Smi eller reparer', cost: '-10stein -5ved' },
-            { id: 'stone_pickaxe', label: 'Smi Steinhakke', cost: '-10stein -5ved' },
-            { id: 'iron_axe', label: 'Smi Jernøks', cost: '-5b -2t' },
-            { id: 'iron_pickaxe', label: 'Smi Jernhakke', cost: '-5b -2t' },
-            { id: 'iron_sword', label: 'Smi Jernsverd', cost: '-10b -2t' },
-            { id: 'REPAIR', label: 'Reparer Utstyr', cost: '-5g -10jern' }
+            { id: 'OPEN_CRAFTING', label: 'Åpne Smia', cost: 'Gratis' }
         ]
     },
     {
@@ -246,10 +241,7 @@ const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'bakery_oven', label: 'Bakerovn', icon: '🔥', top: '50%', left: '50%', roles: ['PEASANT', 'BARON'], parentId: 'bakery',
         actions: [
-            { id: 'CRAFT_BREAD', label: 'Bake Brød', cost: '-10⚡ -2mel' },
-            { id: 'CRAFT_PIE', label: 'Bake Pai', cost: '-20⚡ -4mel' },
-            { id: 'CRAFT_omelette', label: 'Lage Omelett', cost: '-10⚡ -3egg' },
-            { id: 'CRAFT_FEAST', label: 'Gildemåltid', cost: '-50⚡ -10mel' }
+            { id: 'REFINE', label: 'Åpne Bakeriet', cost: 'Gratis' }
         ]
     },
     {
@@ -260,8 +252,7 @@ const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'windmill_stones', label: 'Kvernsteiner', icon: '⚙️', top: '50%', left: '40%', roles: ['PEASANT', 'BARON'], parentId: 'windmill',
         actions: [
-            { id: 'REFINE_FLOUR_BASIC', label: 'Male Mel', cost: '-15⚡ -10korn' },
-            { id: 'REFINE_FLOUR_FAST', label: 'Hurtig-maling', cost: '-20⚡ -15korn' }
+            { id: 'REFINE', label: 'Åpne Mølla', cost: 'Gratis' }
         ]
     },
     {
@@ -272,8 +263,7 @@ const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'sawmill_blade', label: 'Saga', icon: '🪚', top: '50%', left: '40%', roles: ['PEASANT', 'BARON'], parentId: 'sawmill',
         actions: [
-            { id: 'REFINE_TIMBER_BASIC', label: 'Sag Tømmer', cost: '-10⚡ -5ved' },
-            { id: 'REFINE_TIMBER_FAST', label: 'Hurtig-saging', cost: '-15⚡ -5ved' }
+            { id: 'REFINE', label: 'Åpne Sagbruket', cost: 'Gratis' }
         ]
     },
     {
@@ -284,9 +274,7 @@ const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'smeltery_furnace', label: 'Smelteovn', icon: '🔥', top: '50%', left: '30%', roles: ['PEASANT', 'BARON'], parentId: 'smeltery',
         actions: [
-            { id: 'REFINE_IRON_BASIC', label: 'Smelte Jern', cost: '-20⚡ -5malm' },
-            { id: 'REFINE_IRON_FAST', label: 'Industri-smelting', cost: '-30⚡ -10malm' },
-            { id: 'REFINE_STEEL', label: 'Smelte Stål', cost: '-50⚡ -20malm' }
+            { id: 'REFINE', label: 'Åpne Smeltehytta', cost: 'Gratis' }
         ]
     },
     {
@@ -297,8 +285,7 @@ const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'weavery_loom', label: 'Vevstol', icon: '🧶', top: '50%', left: '40%', roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'weavery',
         actions: [
-            { id: 'REFINE_CLOTH_BASIC', label: 'Vev Stoff', cost: '-15⚡ -5ull' },
-            { id: 'REFINE_CLOTH_FAST', label: 'Hurtig-veving', cost: '-20⚡ -5ull' }
+            { id: 'REFINE', label: 'Åpne Veveriet', cost: 'Gratis' }
         ]
     },
     {
@@ -331,7 +318,7 @@ const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'apothecary_bench', label: 'Arbeidsbenk', icon: '🧪', top: '50%', left: '40%', roles: ['PEASANT', 'BARON'], parentId: 'apothecary',
         actions: [
-            { id: 'CRAFT_MEDICINE', label: 'Lag Medisin', cost: '-20⚡' }
+            { id: 'OPEN_CRAFTING', label: 'Åpne Apoteket', cost: 'Gratis' }
         ]
     },
     {
@@ -595,6 +582,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
             if (pId === 'bakery_oven') return { buildingId: 'bakery', type: 'REFINE' };
             if (pId === 'weavery_loom') return { buildingId: 'weavery', type: 'REFINE' };
             if (pId === 'forge_anvil') return { buildingId: 'great_forge', type: 'CRAFT' };
+            if (pId === 'apothecary_bench') return { buildingId: 'apothecary', type: 'CRAFT' };
             return null;
         };
 
@@ -605,7 +593,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
         }
 
         const prodCtx = getProductionContext(poiId);
-        if (prodCtx && (actId.startsWith('REFINE_') || actId.startsWith('CRAFT_') || CRAFTING_RECIPES[actId] || actId === 'REPAIR')) {
+        if (prodCtx && (actId === 'OPEN_CRAFTING' || actId === 'CRAFT' || actId === 'REFINE' || actId.startsWith('REFINE_') || actId.startsWith('CRAFT_') || CRAFTING_RECIPES[actId] || actId === 'REPAIR')) {
             setProductionContext({
                 ...prodCtx,
                 initialView: actId === 'REPAIR' ? 'REPAIR' : 'PRODUCE'
@@ -1055,6 +1043,9 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                                 actionType === 'CHAT_LOCAL' ||
                                 actionType === 'MARKET_VIEW' ||
                                 actionType === 'BUY_MEAL' ||
+                                actionType === 'OPEN_CRAFTING' ||
+                                actionType === 'REFINE' ||
+                                actionType === 'CRAFT' ||
                                 actionType.startsWith('BUILDING_UPGRADE_') ||
                                 actionType.startsWith('REFINE_') ||
                                 actionType.startsWith('CRAFT_') ||

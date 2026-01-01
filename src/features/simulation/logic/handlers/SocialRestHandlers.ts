@@ -103,7 +103,52 @@ export const handleTradeRoute = (ctx: ActionContext) => {
 export const handleConsume = (ctx: ActionContext) => {
     const { actor, action, localResult } = ctx;
     const itemId = action.itemId;
+    const isResource = action.isResource; // Flag passed from UI
 
+    // --- RESOURCE CONSUMPTION (Stacks) ---
+    if (isResource) {
+        const currentAmount = (actor.resources as any)[itemId] || 0;
+        if (currentAmount < 1) {
+            localResult.success = false;
+            localResult.message = "Du har ikke mer igjen.";
+            return false;
+        }
+
+        // Logic for specific resources
+        if (itemId === 'omelette') {
+            if (!actor.activeBuffs) actor.activeBuffs = [];
+            actor.activeBuffs = actor.activeBuffs.filter(b => b.type !== 'STAMINA_SAVE');
+            actor.activeBuffs.push({
+                id: Math.random().toString(36).substr(2, 9),
+                type: 'STAMINA_SAVE',
+                value: 0.2, // 20%
+                label: 'Lett til beins',
+                description: 'Reduserer stamina-kostnad med 20%.',
+                expiresAt: Date.now() + 900000, // 15 mins
+                sourceItem: 'omelette'
+            });
+            (actor.resources as any)['omelette']--;
+            localResult.message = "Spiste Omelett. (20% stamina-spare buff)";
+            localResult.utbytte.push({ resource: 'omelette', amount: -1 });
+            return true;
+        }
+
+        if (itemId === 'bread') {
+            const staminaGain = 20;
+            actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaGain);
+            (actor.resources as any)['bread']--;
+            localResult.message = `Spiste Brød. (+${staminaGain} Stamina)`;
+            localResult.utbytte.push({ resource: 'stamina', amount: staminaGain });
+            localResult.utbytte.push({ resource: 'bread', amount: -1 });
+            return true;
+        }
+
+        localResult.success = false;
+        localResult.message = "Kan ikke spises (ukjent ressurs).";
+        return false;
+    }
+
+    // --- INVENTORY ITEM CONSUMPTION (Unique items) ---
     if (!actor.inventory) {
         localResult.success = false;
         localResult.message = "Ryggsekk er tom.";
@@ -120,8 +165,9 @@ export const handleConsume = (ctx: ActionContext) => {
 
     const item = actor.inventory[itemIndex];
 
-    // MVP Logic: Hardcode effect for Omelette
-    if (item.id === 'omelette') {
+    // MVP Logic: Hardcode effect for Omelette (Legacy Item support)
+    // Check if ID is 'omelette' or starts with 'omelette_' (for unique instances)
+    if (item.id === 'omelette' || item.id.startsWith('omelette_')) {
         if (!actor.activeBuffs) actor.activeBuffs = [];
 
         // Remove existing buff of same type if exists (refresh)
@@ -132,6 +178,7 @@ export const handleConsume = (ctx: ActionContext) => {
             type: 'STAMINA_SAVE',
             value: 0.2, // 20%
             label: 'Lett til beins',
+            description: 'Reduserer stamina-kostnad med 20%.',
             expiresAt: Date.now() + 900000, // 15 mins
             sourceItem: 'omelette'
         });
@@ -139,8 +186,22 @@ export const handleConsume = (ctx: ActionContext) => {
         // Remove item
         actor.inventory.splice(itemIndex, 1);
 
-        localResult.message = "Spiste Omelett. Stamina-kostnad redusert med 20% i 15 min.";
+        localResult.message = "Spiste Omelett (Gjenstand).";
         localResult.utbytte.push({ resource: 'omelette', amount: -1 }); // Tracking
+        return true;
+    }
+
+    // Bread: Instant Stamina (Legacy Item support)
+    if (item.id === 'bread' || item.id.startsWith('bread_')) {
+        const staminaGain = 20;
+        actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaGain);
+
+        // Remove item
+        actor.inventory.splice(itemIndex, 1);
+
+        localResult.message = `Spiste Brød (Gjenstand). (+${staminaGain} Stamina)`;
+        localResult.utbytte.push({ resource: 'stamina', amount: staminaGain });
+        localResult.utbytte.push({ resource: 'bread', amount: -1 });
         return true;
     }
 

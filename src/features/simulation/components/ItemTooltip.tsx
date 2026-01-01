@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Timer } from 'lucide-react';
 import { createPortal } from 'react-dom';
-
+import { ITEM_TEMPLATES } from '../data/items';
 
 interface ItemTooltipProps {
     content: any;
@@ -13,6 +13,22 @@ export const ItemTooltip: React.FC<ItemTooltipProps> = ({ content, position }) =
 
     const { type, data } = content;
     const isResource = type === 'resource';
+
+    // Lookup template if it's a resource (to get description/type/proper name)
+    const template = data?.id ? (ITEM_TEMPLATES as any)[data.id] : null;
+
+    // Merge data: Prefer explicit data, then template data, then fallbacks
+    const displayData = {
+        ...data,
+        name: data.name || template?.name || data.id,
+        icon: data.icon || template?.icon || '📦',
+        description: data.description || template?.description || (isResource ? `En verdifull ressurs brukt til håndverk og handel.` : ''),
+        type: data.type || template?.type || (isResource ? 'RESOURCE' : 'ITEM'),
+        // Ensure stats and durability are preserved if they exist on data
+        stats: data.stats || template?.stats,
+        durability: data.durability,
+        maxDurability: data.maxDurability || template?.maxDurability
+    };
 
     return createPortal(
         <div
@@ -27,31 +43,31 @@ export const ItemTooltip: React.FC<ItemTooltipProps> = ({ content, position }) =
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-3xl">
-                        {data?.icon || '📦'}
+                        {displayData.icon}
                     </div>
                     <div>
-                        <h4 className="text-lg font-bold text-white leading-tight">{data?.name || data?.id}</h4>
+                        <h4 className="text-lg font-bold text-white leading-tight">{displayData.name}</h4>
                         <span className="text-xs font-black uppercase text-indigo-400 tracking-[0.2em]">
-                            {isResource ? 'Ressurs' : 'Gjenstand'}
+                            {displayData.type === 'CONSUMABLE' ? 'Matvare' : isResource ? 'Ressurs' : 'Gjenstand'}
                         </span>
                     </div>
                 </div>
 
                 {/* Description */}
-                {(data?.description || isResource) && (
+                {displayData.description && (
                     <p className="text-xs text-slate-300 leading-relaxed italic mb-4 opacity-80">
-                        {data?.description || `En verdifull ressurs brukt til håndverk og handel.`}
+                        {displayData.description}
                     </p>
                 )}
 
                 {/* Stats */}
-                {!isResource && data?.stats && (
+                {!isResource && displayData.stats && (
                     <div className="space-y-2 border-t border-white/10 pt-4 mb-4">
                         <div className="flex items-center gap-2 mb-2">
                             <Box className="w-3 h-3 text-slate-500" />
                             <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Egenskaper</span>
                         </div>
-                        {Object.entries(data.stats).map(([stat, value]) => (
+                        {Object.entries(displayData.stats).map(([stat, value]) => (
                             <div key={stat} className="flex justify-between items-center text-xs">
                                 <span className="text-slate-400 capitalize">{stat.replace('Bonus', '')}</span>
                                 <span className="text-emerald-400 font-mono font-bold">
@@ -63,18 +79,18 @@ export const ItemTooltip: React.FC<ItemTooltipProps> = ({ content, position }) =
                 )}
 
                 {/* Durability */}
-                {!isResource && data?.durability !== undefined && (
+                {!isResource && displayData.durability !== undefined && (
                     <div className="space-y-2">
                         <div className="flex justify-between items-center text-xs font-bold uppercase tracking-widest text-slate-500">
                             <span className="flex items-center gap-1.5"><Timer className="w-3 h-3" /> Holdbarhet</span>
-                            <span>{data.durability} / {data.maxDurability}</span>
+                            <span>{displayData.durability} / {displayData.maxDurability}</span>
                         </div>
                         <div className="h-1.5 w-full bg-black/40 rounded-full overflow-hidden p-[1px]">
                             <div
-                                className={`h-full rounded-full transition-all ${(data.durability / data.maxDurability) < 0.2 ? 'bg-red-500' :
-                                    (data.durability / data.maxDurability) < 0.5 ? 'bg-yellow-500' : 'bg-emerald-500'
+                                className={`h-full rounded-full transition-all ${(displayData.durability / displayData.maxDurability) < 0.2 ? 'bg-red-500' :
+                                    (displayData.durability / displayData.maxDurability) < 0.5 ? 'bg-yellow-500' : 'bg-emerald-500'
                                     }`}
-                                style={{ width: `${(data.durability / data.maxDurability) * 100}%` }}
+                                style={{ width: `${(displayData.durability / displayData.maxDurability) * 100}%` }}
                             />
                         </div>
                     </div>
@@ -90,9 +106,9 @@ export const ItemTooltip: React.FC<ItemTooltipProps> = ({ content, position }) =
                 )}
 
                 {/* Consumable Hint */}
-                {!isResource && data?.type === 'CONSUMABLE' && (
-                    <div className="mt-2 text-center">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 animate-pulse">
+                {(displayData.type === 'CONSUMABLE') && (
+                    <div className="mt-4 text-center">
+                        <span className="inline-block text-[10px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20 animate-pulse shadow-lg shadow-emerald-500/10">
                             Trykk for å spise
                         </span>
                     </div>

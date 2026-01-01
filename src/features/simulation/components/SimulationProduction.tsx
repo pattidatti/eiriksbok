@@ -62,28 +62,32 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
     const building = VILLAGE_BUILDINGS[buildingId];
     const isStationWithRepair = useMemo(() => !!REPAIR_CONFIG[buildingId], [buildingId]);
 
-    // Filter recipes
+    // Filter recipes - COMBINE BOTH TYPES
     const recipes = useMemo(() => {
-        return type === 'REFINE'
-            ? Object.entries(REFINERY_RECIPES).filter(([_, r]) => r.buildingId === buildingId)
-            : Object.entries(CRAFTING_RECIPES).filter(([_, r]) => r.buildingId === buildingId);
-    }, [buildingId, type]);
+        const refine = Object.entries(REFINERY_RECIPES).filter(([_, r]) => r.buildingId === buildingId).map(([id, r]) => [id, r, 'REFINE']);
+        const craft = Object.entries(CRAFTING_RECIPES).filter(([_, r]) => r.buildingId === buildingId).map(([id, r]) => [id, r, 'CRAFT']);
+        return [...refine, ...craft] as [string, any, 'REFINE' | 'CRAFT'][];
+    }, [buildingId]);
 
     // Group recipes by level
     const recipesByLevel = useMemo(() => {
-        const groups: Record<number, [string, any][]> = {};
-        recipes.forEach(([id, r]) => {
+        const groups: Record<number, [string, any, 'REFINE' | 'CRAFT'][]> = {};
+        recipes.forEach(([id, r, type]) => {
             const lvl = r.level || 1;
             if (!groups[lvl]) groups[lvl] = [];
-            groups[lvl].push([id, r]);
+            groups[lvl].push([id, r, type]);
         });
         return Object.entries(groups).sort(([a], [b]) => parseInt(a) - parseInt(b));
     }, [recipes]);
 
-    const selectedRecipe = useMemo(() => {
+    const selectedRecipeData = useMemo(() => {
         if (!selectedRecipeId) return null;
-        return type === 'REFINE' ? REFINERY_RECIPES[selectedRecipeId] : CRAFTING_RECIPES[selectedRecipeId];
-    }, [selectedRecipeId, type]);
+        const found = recipes.find(r => r[0] === selectedRecipeId);
+        return found ? { recipe: found[1], type: found[2] } : null;
+    }, [selectedRecipeId, recipes]);
+
+    const selectedRecipe = selectedRecipeData?.recipe || null;
+    const selectedType = selectedRecipeData?.type || type; // Fallback to context type
 
     // Auto-select defaults
     useEffect(() => {
@@ -104,7 +108,17 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
 
     // Derived info for selected recipe
     const getOutputInfo = (_id: string, r: any) => {
-        if (type === 'REFINE') {
+        // PREFER RECIPE LABEL IF SET
+        if (r.label) {
+            return {
+                id: _id,
+                name: r.label,
+                icon: r.icon || '📦',
+                description: r.description || `Produserer ${r.label}`
+            };
+        }
+
+        if (r.outputResource) {
             return {
                 id: r.outputResource,
                 name: (RESOURCE_DETAILS as any)[r.outputResource]?.label || r.outputResource,
@@ -126,14 +140,12 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
     const currentBuildingLevel = (settlement.buildings?.[buildingId]?.level as number) || 1;
 
     const handleProduce = () => {
-        if (!selectedRecipeId) return;
-        const recipe = type === 'REFINE' ? REFINERY_RECIPES[selectedRecipeId] : CRAFTING_RECIPES[selectedRecipeId];
-        if (!recipe) return;
+        if (!selectedRecipeId || !selectedRecipe) return;
 
         // Locking check
-        if ((recipe.level || 1) > currentBuildingLevel) return;
+        if ((selectedRecipe.level || 1) > currentBuildingLevel) return;
 
-        if (type === 'REFINE') {
+        if (selectedType === 'REFINE') {
             onAction({ type: 'REFINE', recipeId: selectedRecipeId });
         } else {
             onAction({ type: 'CRAFT', subType: selectedRecipeId });
@@ -192,8 +204,8 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                             </div>
 
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                                {levelRecipes.map(([id, r]: [string, any]) => {
-                                                    const actionPayload = type === 'REFINE' ? { type: 'REFINE', recipeId: id } : { type: 'CRAFT', subType: id };
+                                                {levelRecipes.map(([id, r, recipeType]: [string, any, 'REFINE' | 'CRAFT']) => {
+                                                    const actionPayload = recipeType === 'REFINE' ? { type: 'REFINE', recipeId: id } : { type: 'CRAFT', subType: id };
                                                     const check = checkActionRequirements(player, actionPayload);
 
                                                     return (
@@ -333,7 +345,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                             <TrendingUp className="w-3 h-3" /> Utbytte & Sammenligning
                                         </div>
 
-                                        <StatsComparison recipe={selectedRecipe} player={player} type={type} />
+                                        <StatsComparison recipe={selectedRecipe} player={player} type={selectedType} />
 
                                         <div className="space-y-3">
                                             <div className="text-[11px] font-black uppercase tracking-widest text-slate-500 border-b border-white/5 pb-2">
@@ -364,7 +376,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                         size="lg"
                                         className="h-20 text-xl w-full"
                                         onClick={handleProduce}
-                                        disabled={!!actionLoading || (selectedRecipe.level || 1) > currentBuildingLevel || !checkActionRequirements(player, type === 'REFINE' ? { type: 'REFINE', recipeId: selectedRecipeId } : { type: 'CRAFT', subType: selectedRecipeId }).success}
+                                        disabled={!!actionLoading || (selectedRecipe.level || 1) > currentBuildingLevel || !checkActionRequirements(player, selectedType === 'REFINE' ? { type: 'REFINE', recipeId: selectedRecipeId } : { type: 'CRAFT', subType: selectedRecipeId }).success}
                                     >
                                         {(selectedRecipe.level || 1) > currentBuildingLevel ? 'KREVER OPPGRADERING' : 'START PRODUKSJON'}
                                     </GameButton>

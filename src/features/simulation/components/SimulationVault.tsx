@@ -7,6 +7,7 @@ import { InventorySlot } from './InventorySlot';
 import { ItemTooltip } from './ItemTooltip';
 import { Shield, Package } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { ITEM_TEMPLATES } from '../constants';
 
 interface SimulationVaultProps {
     player: SimulationPlayer;
@@ -41,6 +42,18 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
     // ... handlers ...
     const handleSlotClick = (_index: number, content: any) => {
         if (!content) return;
+
+        // HANDLE RESOURCE CLICKS (For consumables like bread)
+        if (content.type === 'resource') {
+            const resourceId = content.data.id;
+            const template = (ITEM_TEMPLATES as any)[resourceId];
+
+            // If the resource has a template and is CONSUMABLE
+            if (template && template.type === 'CONSUMABLE') {
+                onAction({ type: 'CONSUME', itemId: resourceId, isResource: true });
+                return;
+            }
+        }
 
         if (content.type === 'equipment') {
             const item = content.data as any;

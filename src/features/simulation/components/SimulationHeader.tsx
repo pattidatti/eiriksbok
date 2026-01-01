@@ -11,6 +11,7 @@ interface SimulationHeaderProps {
     room: SimulationRoom;
     player: SimulationPlayer;
     pin?: string;
+    onAction?: (action: any) => void;
 }
 
 // Simple CountUp hook (Ported from Sidebar)
@@ -37,7 +38,7 @@ const useCountUp = (target: number, duration: number = 800) => {
     return count;
 };
 
-export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player }) => {
+export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player, onAction }) => {
     const { activeTab, setActiveTab } = useSimulation();
     const { playSfx } = useAudio();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -148,16 +149,41 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
                     </div>
                 )}
 
-                {/* RESOURCES (Compact) */}
-                <button
-                    onClick={() => setActiveTab('INVENTORY')}
-                    className="hidden lg:flex items-center gap-3 bg-slate-900/50 hover:bg-slate-800 px-4 py-1.5 rounded-full border border-white/5 transition-colors cursor-pointer active:scale-95"
-                    title="Åpne Eiendeler (I)"
-                >
-                    <ResourceIcon resource="gold" amount={player.resources.gold} size="sm" />
-                    <div className="w-px h-3 bg-white/10" />
-                    <ResourceIcon resource="bread" amount={player.resources.bread || 0} size="sm" />
-                </button>
+                {/* RESOURCES (Split: Gold opens inventory, Bread consumes) */}
+                <div className="hidden lg:flex items-center bg-slate-900/50 rounded-full border border-white/5 overflow-hidden transition-all duration-300">
+                    <button
+                        onClick={() => { setActiveTab('INVENTORY'); playSfx('ui_click.ogg'); }}
+                        className="flex items-center gap-2 hover:bg-white/5 px-4 py-1.5 transition-colors cursor-pointer group active:scale-95"
+                        title="Åpne Eiendeler (I)"
+                    >
+                        <ResourceIcon resource="gold" amount={player.resources.gold} size="sm" />
+                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300 transition-colors ml-1">Gull</span>
+                    </button>
+
+                    <div className="w-px h-4 bg-white/10" />
+
+                    <button
+                        onClick={() => {
+                            if (player.resources.bread) {
+                                onAction?.({ type: 'CONSUME', itemId: 'bread', isResource: true });
+                                playSfx('eat.ogg'); // Assuming eat.ogg exists based on context or common assets
+                            } else {
+                                setActiveTab('INVENTORY');
+                                playSfx('ui_click.ogg');
+                            }
+                        }}
+                        disabled={!player.resources.bread}
+                        className={`flex items-center gap-3 px-4 py-1.5 transition-all cursor-pointer group border-l border-white/0 active:scale-95 ${player.resources.bread ? 'hover:bg-emerald-500/10 hover:border-emerald-500/20' : 'opacity-40 cursor-not-allowed'}`}
+                        title={player.resources.bread ? "Spis Brød (+20 Stamina)" : "Tomt for brød"}
+                    >
+                        <ResourceIcon resource="bread" amount={player.resources.bread || 0} size="sm" />
+                        <div className="flex flex-col items-start -space-y-1">
+                            <span className={`text-[10px] font-black uppercase tracking-widest transition-colors ${player.resources.bread ? 'text-slate-500 group-hover:text-emerald-400' : 'text-slate-600'}`}>
+                                {player.resources.bread ? 'Spis' : 'Tom'}
+                            </span>
+                        </div>
+                    </button>
+                </div>
 
                 {/* VITALS BARS */}
                 <div className="flex flex-col gap-1 w-24 md:w-32">
