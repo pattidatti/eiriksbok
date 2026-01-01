@@ -59,18 +59,18 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
         const isNight = getDayPart(room.world?.gameTick || 0) === 'NIGHT';
         const isWinter = world?.season === 'Winter';
 
-        if (viewMode === 'kingdom') {
-            if (isWinter) return isNight ? '/map_kingdom_169_winter_night.png' : '/map_kingdom_169_winter.png';
-            return isNight ? '/map_kingdom_169_night.png' : '/map_kingdom_169.png';
-        }
-
         switch (viewMode) {
+            case 'kingdom':
+                if (isWinter) return isNight ? '/map_kingdom_169_winter_night.png' : '/map_kingdom_169_winter.png';
+                return isNight ? '/map_kingdom_169_night.png' : '/map_kingdom_169.png';
             case 'village':
                 if (isWinter) return isNight ? '/map_village_hub_1610_winter_night.png' : '/map_village_hub_1610_winter.png';
                 return isNight ? '/map_village_hub_1610_night.png' : '/map_village_hub_1610.png';
             case 'village_construction': return '/map_village_construction.png';
             case 'castle': return '/map_castle_interior.png';
-            case 'fields': return '/map_farm_fields.png';
+            case 'fields':
+                if (isWinter) return isNight ? '/map_farm_fields_winter_night.png' : '/map_farm_fields_winter.png';
+                return isNight ? '/map_farm_fields_night.png' : '/map_farm_fields.png';
             case 'peasant_farm': {
                 const level = world?.settlement?.buildings?.farm_house?.level || 1;
                 return level > 1 ? `/map_peasant_farm_lvl${level}.png` : '/map_peasant_farm.png';
@@ -79,9 +79,15 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                 const level = world?.settlement?.buildings?.farm_house?.level || 1;
                 return level > 1 ? `/map_stugo_interior_lvl${level}.png` : '/map_stugo_interior.png';
             }
-            case 'mine': return '/map_mountain_pass.png';
-            case 'forest': return '/map_forest.png';
-            case 'monastery': return '/map_monastery.png';
+            case 'mine':
+                if (isWinter) return isNight ? '/map_mountain_pass_winter_night.png' : '/map_mountain_pass_winter.png';
+                return isNight ? '/map_mountain_pass_night.png' : '/map_mountain_pass.png';
+            case 'forest':
+                if (isWinter) return isNight ? '/map_forest_winter_night.png' : '/map_forest_winter.png';
+                return isNight ? '/map_forest_night.png' : '/map_forest.png';
+            case 'monastery':
+                if (isWinter) return isNight ? '/map_monastery_winter_night.png' : '/map_monastery_winter.png';
+                return isNight ? '/map_monastery_night.png' : '/map_monastery.png';
             case 'tavern': return '/map_tavern_interior.png';
             case 'great_forge': return '/map_forge_interior.png';
             case 'bakery': return '/map_bakery_interior.png';
@@ -91,14 +97,19 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
             case 'weavery': return '/map_weavery_interior.png';
             case 'stables': return '/map_stables_interior.png';
             case 'watchtower': return '/map_watchtower_interior.png';
-            case 'well': return '/map_well_interior.png';
+            case 'well':
+                if (isWinter) return isNight ? '/map_well_interior_winter_night.png' : '/map_well_interior_winter.png';
+                return isNight ? '/map_well_interior_night.png' : '/map_well_interior.png';
             case 'apothecary': return '/map_apothecary_interior.png';
             case 'global':
                 if (viewingRegionId === 'region_ost') {
                     if (isWinter) return isNight ? '/map_barony_ost_169_winter_night.png' : '/map_barony_ost_169_winter.png';
                     return isNight ? '/map_barony_ost_169_night.png' : '/map_barony_ost_169.png';
                 }
-                if (viewingRegionId === 'capital') return '/map_hovedstad_169.png';
+                if (viewingRegionId === 'capital') {
+                    if (isWinter) return isNight ? '/map_hovedstad_169_winter_night.png' : '/map_hovedstad_169_winter.png';
+                    return isNight ? '/map_hovedstad_169_night.png' : '/map_hovedstad_169.png';
+                }
                 if (isWinter) return isNight ? '/map_barony_vest_v2_1610_winter_night.png' : '/map_barony_vest_v2_1610_winter.png';
                 return isNight ? '/map_barony_vest_v2_1610_night.png' : '/map_barony_vest_v2_1610.png';
             default:
