@@ -78,7 +78,7 @@ export const checkActionRequirements = (
     let actionId = typeof action === 'string' ? action : action.type;
     let payload = typeof action === 'object' ? { ...action } : {};
 
-    // Handle prefixed actions from UI (e.g. REFINE_timber)
+    // Handle prefixed actions from UI (e.g. REFINE_plank)
     if (actionId.startsWith('REFINE_') && !REFINERY_RECIPES[actionId]) {
         payload.recipeId = actionId.replace('REFINE_', '').toLowerCase();
         actionId = 'REFINE';
@@ -153,7 +153,7 @@ export const checkActionRequirements = (
             flour: 'mel',
             grain: 'korn',
             iron_ingot: 'jernbarrer',
-            timber: 'tømmer',
+            plank: 'planker',
             stone: 'stein',
             meat: 'kjøtt',
             honey: 'honning',
@@ -186,7 +186,7 @@ export const getActionCostString = (
     let actionId = typeof action === 'string' ? action : action.type;
     let payload = typeof action === 'object' ? { ...action } : {};
 
-    // Handle prefixed actions from UI (e.g. REFINE_timber)
+    // Handle prefixed actions from UI (e.g. REFINE_plank)
     if (actionId.startsWith('REFINE_') && !REFINERY_RECIPES[actionId]) {
         payload.recipeId = actionId.replace('REFINE_', '').toLowerCase();
         actionId = 'REFINE';
@@ -248,7 +248,7 @@ export const getActionCostString = (
         flour: '🧂',
         grain: '🌾',
         iron_ingot: '🧱',
-        timber: '🪜',
+        plank: '🪵',
         stone: '🪨',
         meat: '🥩',
         honey: '🍯',

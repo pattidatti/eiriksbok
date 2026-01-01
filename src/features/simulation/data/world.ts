@@ -5,7 +5,7 @@ export const INITIAL_MARKET: SimulationMarket = {
     flour: { price: 15, stock: 100, demand: 1.0 },
     bread: { price: 25, stock: 50, demand: 1.0 },
     wood: { price: 15, stock: 300, demand: 1.0 },
-    timber: { price: 25, stock: 100, demand: 1.0 },
+    plank: { price: 25, stock: 100, demand: 1.0 },
     iron_ore: { price: 30, stock: 100, demand: 1.0 },
     iron_ingot: { price: 60, stock: 50, demand: 1.0 },
     stone: { price: 20, stock: 200, demand: 1.0 },

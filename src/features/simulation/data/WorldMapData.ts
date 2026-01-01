@@ -159,8 +159,8 @@ export const POINTS_OF_INTEREST: POI[] = [
         village: { top: '70%', left: '45%' },
         roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [
-            { id: 'REFINE_TIMBER_BASIC', label: 'Sag Tømmer', cost: '-10⚡ -5ved' },
-            { id: 'REFINE_TIMBER_FAST', label: 'Hurtig-saging', cost: '-15⚡ -5ved' }
+            { id: 'REFINE_PLANK_BASIC', label: 'Sag Planker', cost: '-10⚡ -5ved' },
+            { id: 'REFINE_PLANK_FAST', label: 'Hurtig-saging', cost: '-15⚡ -5ved' }
         ], isHub: true
     },
 

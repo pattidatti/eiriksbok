@@ -141,7 +141,7 @@ export const REPAIR_CONFIG: Record<string, { material: ResourceType, goldCost: n
         slots: ['BODY', 'FEET', 'HEAD']
     },
     sawmill: {
-        material: 'timber',
+        material: 'plank',
         goldCost: 5,
         staminaCost: 10,
         slots: ['OFF_HAND', 'MAIN_HAND']

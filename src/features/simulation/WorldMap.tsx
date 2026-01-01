@@ -56,7 +56,14 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
     const weather = world?.weather || 'Clear';
 
     const getBackground = () => {
-        if (viewMode === 'kingdom') return '/map_kingdom_169.png';
+        const isNight = getDayPart(room.world?.gameTick || 0) === 'NIGHT';
+        const isWinter = world?.season === 'Winter';
+
+        if (viewMode === 'kingdom') {
+            if (isWinter) return isNight ? '/map_kingdom_169_winter_night.png' : '/map_kingdom_169_winter.png';
+            return isNight ? '/map_kingdom_169_night.png' : '/map_kingdom_169.png';
+        }
+
         switch (viewMode) {
             case 'village': return '/map_village_hub_1610.png';
             case 'village_construction': return '/map_village_construction.png';
@@ -85,8 +92,6 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
             case 'well': return '/map_well_interior.png';
             case 'apothecary': return '/map_apothecary_interior.png';
             case 'global':
-                const isNight = getDayPart(room.world?.gameTick || 0) === 'NIGHT';
-                const isWinter = world?.season === 'Winter';
                 if (viewingRegionId === 'region_ost') {
                     if (isWinter) return isNight ? '/map_barony_ost_169_winter_night.png' : '/map_barony_ost_169_winter.png';
                     return isNight ? '/map_barony_ost_169_night.png' : '/map_barony_ost_169.png';

@@ -126,9 +126,6 @@ export const calculateYield = (
  */
 // ... (existing imports/code)
 
-/**
- * Calculates the final stamina cost for an action based on base costs and world modifiers.
- */
 export const calculateStaminaCost = (
     baseCost: number,
     season: keyof typeof SEASONS,
@@ -146,16 +143,17 @@ export const calculateStaminaCost = (
     const isNight = getDayPart(gameTick) === 'NIGHT';
     const nightMod = isNight ? 1.2 : 1.0;
 
-    let total = baseCost * baseStaminaMod * weatherStaminaMod * nightMod;
+    const total = baseCost * baseStaminaMod * weatherStaminaMod * nightMod;
+    let finalCost = total;
 
     // Apply Buffs
     if (activeBuffs && activeBuffs.length > 0) {
         const now = Date.now();
         const staminaBuff = activeBuffs.find(b => b.type === 'STAMINA_SAVE' && b.expiresAt > now);
         if (staminaBuff) {
-            total *= (1 - staminaBuff.value);
+            finalCost *= (1 - staminaBuff.value);
         }
     }
 
-    return Math.ceil(total);
+    return Math.ceil(finalCost);
 };

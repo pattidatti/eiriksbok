@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSimulation } from '../SimulationContext';
-import { REFINERY_RECIPES, CRAFTING_RECIPES, RESOURCE_DETAILS, ITEM_TEMPLATES, VILLAGE_BUILDINGS, REPAIR_CONFIG, SKILL_DETAILS } from '../constants';
+import { REFINERY_RECIPES, CRAFTING_RECIPES, RESOURCE_DETAILS, ITEM_TEMPLATES, VILLAGE_BUILDINGS, REPAIR_CONFIG, SKILL_DETAILS, GAME_BALANCE } from '../constants';
 import type { SimulationPlayer, SimulationRoom, EquipmentSlot } from '../simulationTypes';
 import { GameButton } from '../ui/GameButton';
 import { Info, Zap, TrendingUp, Package, Wrench } from 'lucide-react';
@@ -337,7 +337,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
 
                                 {/* Requirements */}
                                 <div className="space-y-4">
-                                    <RequirementList recipe={selectedRecipe} player={player} />
+                                    <RequirementList recipe={selectedRecipe} player={player} room={room} />
 
                                     {/* Production Stats / Bonuses */}
                                     <div className="bg-black/40 rounded-3xl p-5 border border-white/5 space-y-5">
@@ -359,7 +359,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                                 <div className="h-8 w-[1px] bg-white/5"></div>
                                                 <div className="space-y-1 text-right">
                                                     <div className="text-[10px] text-emerald-500 font-black uppercase tracking-wider">Bonus fra {SKILL_DETAILS[selectedRecipe.skill as keyof typeof SKILL_DETAILS]?.label || 'Evne'}</div>
-                                                    <div className="text-xl font-black text-emerald-400 leading-none">+{Math.floor((selectedRecipe.outputAmount || 1) * (player.skills?.[selectedRecipe.skill as keyof typeof player.skills]?.level || 0) * 0.05)}</div>
+                                                    <div className="text-xl font-black text-emerald-400 leading-none">+{Math.floor((selectedRecipe.outputAmount || 1) * (player.skills?.[selectedRecipe.skill as keyof typeof player.skills]?.level || 0) * (selectedType === 'REFINE' ? GAME_BALANCE.SKILLS.REFINING_BONUS : GAME_BALANCE.SKILLS.GATHERING_BONUS))}</div>
                                                 </div>
                                             </div>
                                         </div>

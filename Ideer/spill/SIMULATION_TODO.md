@@ -7,7 +7,6 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **Holdbarhet:** Implementere tydeligere visuelle varsler når verktøy er i ferd med å ødelegges.
 - [x] **Kornåker** Står at jeg mangler håndsåing, hva er dette og hvor får man det? (Fikset: Dette var en UI-bug, "Håndsåing" er ikke et verktøy man trenger å få tak i.)
 - [ ] **minigames** Legge til flere minigames.
-toppen, men animasjonen som fløy og et annet tall sa +6. 
 - [ ] **Notificationsenter** et sted hvor alt som skjer med karakteren, spesielt hendelser og minigames, kan vises. Betyr ikke at man fjerner noe annet. dette er et tillegg.   
  ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
 - [ ] **Staminabar** Når man har fått lav staminia, og fyller den opp igjen, så er feltet rundt statusbarene fremdeles rød. 
@@ -16,7 +15,7 @@ toppen, men animasjonen som fløy og et annet tall sa +6.
 - [ ] **Sagbruk** trenger eget minigame for å lage planker (vi bør bytte ut itemen timber med planker). Nå er det også mulig å velge å hogge trær der, det skal ikke gå an. 
 - [ ] **Handelsruter:** Implementere Merchant-spesifikke handlinger for import/eksport mellom byer.
 - [ ] **Patruljering:** Utvide soldatens patrulje-funksjon med flere typer hendelser og minispill.
-- [ ] **Profil** Global profil må vise de aktive karakterene man har og at man kan logge inn der fra.Må koble profilknappen i instillinger til global profi også. 
+- [ ] **Profil** Global profil må vise de aktive karakterene man har og at man kan logge inn der fra. Må koble profilknappen i instillinger til global profi også. 
 - [ ] **Signup** Har lagt til Google som signup i  firebase, men dette må vel implementeres i koden vår? Samme med login antar jeg. 
 - [] **Planlagte prosjekter** Fjerne hele konseptet med planlegge og aktive prosjekter med sawmill osv. VI har et bedre system for å oppgrader bygninger. 
 - [] **Penger** Må bare ha 2 desimaler. Spesielt når man selger på marked kommer det popup med bøttevis av desimaler. 

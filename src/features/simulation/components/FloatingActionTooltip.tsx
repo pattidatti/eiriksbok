@@ -367,7 +367,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                         }
                                     }
 
-                                    const costLabel = getActionCostString(action.id, currentSeason, currentWeather);
+                                    const costLabel = getActionCostString(action.id, currentSeason, currentWeather, room.world?.totalTicks || 0);
                                     const variants = MINIGAME_VARIANTS[action.id];
 
                                     return (

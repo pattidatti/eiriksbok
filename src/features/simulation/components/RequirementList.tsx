@@ -1,14 +1,27 @@
 import React from 'react';
 import { Package } from 'lucide-react';
 import { ResourceIcon } from '../ui/ResourceIcon';
-import { RESOURCE_DETAILS } from '../constants';
+import { RESOURCE_DETAILS, SEASONS, WEATHER } from '../constants';
+import { calculateStaminaCost } from '../utils/simulationUtils';
 
 interface RequirementListProps {
     recipe: any;
     player: any;
+    room: any;
 }
 
-export const RequirementList: React.FC<RequirementListProps> = ({ recipe, player }) => {
+export const RequirementList: React.FC<RequirementListProps> = ({ recipe, player, room }) => {
+    const currentSeason = (room.world?.season || 'Spring') as keyof typeof SEASONS;
+    const currentWeather = (room.world?.weather || 'Clear') as keyof typeof WEATHER;
+    const totalTicks = room.world?.totalTicks || 0;
+
+    const modifiedStamina = calculateStaminaCost(
+        recipe.stamina || 0,
+        currentSeason,
+        currentWeather,
+        player.status?.buffs || [],
+        totalTicks
+    );
     return (
         <div className="space-y-3">
             <div className="flex items-center justify-between border-b border-white/5 pb-2">
@@ -52,7 +65,7 @@ export const RequirementList: React.FC<RequirementListProps> = ({ recipe, player
                             <span className="text-[11px] font-bold uppercase tracking-tight text-indigo-300/60">Stamina</span>
                         </div>
                         <div className="flex items-center gap-1.5 shrink-0">
-                            <span className="text-base font-black text-indigo-400 leading-none">-{recipe.stamina || 0}</span>
+                            <span className="text-base font-black text-indigo-400 leading-none">-{modifiedStamina}</span>
                             <span className="text-sm font-bold text-indigo-500/30 leading-none">av {Math.floor(player.status?.stamina || 0)}</span>
                         </div>
                     </div>

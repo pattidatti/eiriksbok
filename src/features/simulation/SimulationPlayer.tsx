@@ -171,6 +171,7 @@ export const SimulationPlayer: React.FC = () => {
                             onCancel={() => { setActiveMinigame(null); setActiveMinigameAction(null); setActiveMinigameMethod(null); }}
                             currentSeason={world?.season || 'Spring'}
                             currentWeather={world?.weather || 'Clear'}
+                            totalTicks={world?.totalTicks || 0}
                         />
                     )}
 

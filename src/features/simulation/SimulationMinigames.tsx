@@ -15,7 +15,8 @@ import { ScytheSweepGame } from './minigames/ScytheSweepGame';
 import { TrappingGame } from './minigames/TrappingGame';
 import { WeavingGame } from './minigames/WeavingGame';
 import { ApothecaryGame } from './minigames/ApothecaryGame';
-import { MillingGame, SawingGame } from './minigames/SharedPlaceholders';
+import { MillingGame } from './minigames/SharedPlaceholders';
+import { SawingGame } from './minigames/SawingGame';
 import { SmeltingGame } from './minigames/SmeltingGame';
 
 interface MinigameProps {
@@ -34,6 +35,7 @@ interface MinigameProps {
     // Environmental
     currentSeason?: string;
     currentWeather?: string;
+    totalTicks?: number;
 }
 
 export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon: string, desc: string }[]> = {
@@ -43,7 +45,6 @@ export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon
     ],
     CHOP: [
         { id: 'axe', label: 'Øks', icon: '🪓', desc: 'Fell trær med rå makt.' },
-        { id: 'saw', label: 'Sag', icon: '🪚', desc: 'Presis kapping for planker.' },
     ],
     FORAGE: [
         { id: 'gather', label: 'Sanking', icon: '🍄', desc: 'Let etter mat og urter i skogen.' },
@@ -112,7 +113,7 @@ const getBestToolForAction = (type: string, equipment: (EquipmentItem | undefine
 };
 
 /* --- MAIN OVERLAY COMPONENT --- */
-export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, equipment, skills, playerUpgrades, currentSeason = 'Spring', currentWeather = 'Clear', selectedMethod: initialMethod }) => {
+export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, equipment, skills, playerUpgrades, currentSeason = 'Spring', currentWeather = 'Clear', totalTicks = 0, selectedMethod: initialMethod }) => {
     const [selectedMethod, setSelectedMethod] = React.useState<string | null>(initialMethod || null);
 
     // Auto-select method if only one option exists or if passed as prop
@@ -277,7 +278,7 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                                     {/* Cost/Requirement Preview */}
                                     <div className="mt-4 pt-4 border-t border-white/5 w-full">
                                         {(() => {
-                                            const costLabel = getActionCostString(type, currentSeason as any, currentWeather as any);
+                                            const costLabel = getActionCostString(type, currentSeason as any, currentWeather as any, totalTicks);
                                             if (costLabel) {
                                                 return (
                                                     <div className="flex items-center justify-center gap-2 text-sm font-bold text-slate-500">
@@ -345,8 +346,10 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                             return <HarvestingGame onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} possibleYield={projectedYield} />;
 
                         case 'CHOP':
-                            if (selectedMethod === 'saw') return <SawingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;
                             return <WoodcuttingGame onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} possibleYield={projectedYield} />;
+
+                        case 'SAWMILL':
+                            return <SawingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;
 
                         case 'FORAGE':
                             if (selectedMethod === 'traps') return <TrappingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;

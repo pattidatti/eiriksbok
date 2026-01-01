@@ -106,7 +106,7 @@ export function useWorldMapLogic(player: any, onAction: (a: any) => void, onOpen
             onOpenMarket();
         } else if (actId.startsWith('REFINE_')) {
             const recipeKey = actId.replace('REFINE_', '').split('_')[0].toLowerCase();
-            const recipeMap: any = { 'timber': 'timber', 'flour': 'flour', 'iron': 'iron_ingot', 'steel': 'iron_ingot', 'cloth': 'cloth' };
+            const recipeMap: any = { 'plank': 'plank', 'flour': 'flour', 'iron': 'iron_ingot', 'steel': 'iron_ingot', 'cloth': 'cloth' };
             onAction({ type: 'REFINE', recipeId: recipeMap[recipeKey] || recipeKey });
         } else if (actId.startsWith('CRAFT_')) {
             const subType = actId.replace('CRAFT_', '').toLowerCase();

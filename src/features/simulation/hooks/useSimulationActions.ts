@@ -53,7 +53,7 @@ export function useSimulationActions(
                 if (rid === 'iron_ingot' || rid === 'glass' || rid === 'smelt') actualType = 'SMELT';
                 if (rid === 'bread' || rid === 'pie' || rid === 'mead' || rid === 'bake') actualType = 'BAKE';
                 if (rid === 'cloth' || rid === 'weave') actualType = 'WEAVE';
-                if (rid === 'timber') actualType = 'CHOP';
+                if (rid === 'plank') actualType = 'SAWMILL';
             }
             if (actionType === 'CRAFT') {
                 const sid = action.subType || action.id;

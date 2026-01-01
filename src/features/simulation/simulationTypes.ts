@@ -26,7 +26,7 @@ export interface SkillData {
     maxXp: number;
 }
 
-export type ResourceType = 'gold' | 'grain' | 'wood' | 'iron_ore' | 'timber' | 'cloth' | 'iron_ingot';
+export type ResourceType = 'gold' | 'grain' | 'wood' | 'iron_ore' | 'plank' | 'cloth' | 'iron_ingot';
 
 export interface Resources {
     gold: number;
@@ -34,7 +34,7 @@ export interface Resources {
     flour: number;
     bread: number; // Tiered food
     wood: number;
-    timber: number; // Refined wood
+    plank: number; // Refined wood (was timber)
     iron_ore: number; // Raw iron
     iron_ingot: number; // Refined iron
     stone: number;
@@ -186,7 +186,7 @@ export interface SimulationMarket {
     flour: MarketItem;
     bread: MarketItem; // Added
     wood: MarketItem;
-    timber: MarketItem; // Added
+    plank: MarketItem; // Added (was timber)
     iron_ore: MarketItem; // Added
     iron_ingot: MarketItem; // Added
     stone: MarketItem;
