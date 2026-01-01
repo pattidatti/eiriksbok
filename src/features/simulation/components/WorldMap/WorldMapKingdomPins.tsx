@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SimulationPlayer } from '../../simulationTypes';
+import type { SimulationPlayer } from '../../simulationTypes';
 
 interface WorldMapKingdomPinsProps {
     players: Record<string, SimulationPlayer>;

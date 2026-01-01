@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, User as UserIcon, Check } from 'lucide-react';
-import { Role } from '../simulationTypes';
+import type { Role } from '../simulationTypes';
 import { useNavigate } from 'react-router-dom';
 
 interface SimulationOnboardingProps {

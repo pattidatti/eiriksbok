@@ -39,13 +39,14 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [x] **Sucsess tooltip** tror den heter noe sånt. Når man har et vindu oppe, marked, produksjon osv, så må tooltippen være midtstilt vinduet og 5% fra toppen av nettsiden. Det ser rart ut når den er off center til høyre. Dette stammer fra av at tooltipen i utgangspunktet er sentrert på kartet, kan vi få til en løsning som er kontekst-smart?. 
 - [ ] **fjerne tools** Vi har fjernet tools som item (mener jeg), men det går fremdeles an å kjøpe og selge på markedet. 
 . [ ] **musikkspiller** i instillinger må det være tilgang en musikkspiller med sangene, mulighet for å bytte, stoppe, play og mute/ignorere bestemte sanger. (Vi må også oppdatere navne på sangene til mer unike titler på norsk )
--
+- [ ] **Minigames punch** På trehogging har vi en ikro annimasjonspause pause når man treffer, slik burde det være i alle minigames. 
 ## 💡 Ideer & Konsepter
 - [ ] **Diplomati:** Dypere system for forhold mellom baronier.
 - [ ] **Vær-effekter:** Hvordan vær påvirker produksjon og utbytte.
-- [ ] **Tid** Spillet må kunne "kjøre" på egenhånd, med dag, natt, vær og årstider. Kanskje best å starte på år 1, og så gå videre. Sørge for at spillet bare går videre når det er aktive spillere inne, slik at det ikke kjører inn i evigheten på egenhånd. Dag kan være 21 minutter og natt 9 kanskje? Burde vi bruke måneder, eller bare årstider? Kanskje det er bedre å ikke tracke antall år, eller ihvertfall ikke vise det for spilleren, da kan spillet bare gå sitt eget forløp. GJør en grundig gameplay analyse og plan for implementering. 
+- [x] **Tid** Spillet må kunne "kjøre" på egenhånd, med dag, natt, vær og årstider. Kanskje best å starte på år 1, og så gå videre. Sørge for at spillet bare går videre når det er aktive spillere inne, slik at det ikke kjører inn i evigheten på egenhånd. Dag kan være 21 minutter og natt 9 kanskje? Burde vi bruke måneder, eller bare årstider? Kanskje det er bedre å ikke tracke antall år, eller ihvertfall ikke vise det for spilleren, da kan spillet bare gå sitt eget forløp. GJør en grundig gameplay analyse og plan for implementering. 
 - [ ] **Historiske hendelser:** Tilfeldige hendelser basert på historisk kontekst som påvirker økonomien.
-- [ ] **Bygging:** Oppgradering av produksjonsbygninger for å låse opp nye oppskrifter.
+- [ ] **Bygging:** Oppgradering av produksjonsbygninger for å låse opp nye oppskrifter. Må finne mer til alle bygninger. 
+- [ ] **Rivaliserende ressurser** Det må være en unik ressurs for baroni vest og øst, slik at de tvinges til å handle for progressjon. Dette muliggjøre kanskje også enda en grunn raids på hverandres baronier. 
 - [ ] **Chat-system:** Implementere et omfattende kommunikasjonssystem.
     - **Kanaler:** Egne kanaler for hvert baroni og interne kanaler for hver rolle.
     - **Diplomati:** Baroner har en egen felleskanal; Kongen har tilgang til alt.

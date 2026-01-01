@@ -189,14 +189,10 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                     </SimulationMapWindow>
                 )}
                 {isDiceGameOpen && (
-                    <SimulationMapWindow title="Terningkast" onClose={() => setIsDiceGameOpen(false)}>
-                        <TavernDiceGame playerGold={player.resources?.gold || 0} onClose={() => setIsDiceGameOpen(false)} onPlay={(res: any) => onAction({ type: 'PLAY_DICE', ...res })} />
-                    </SimulationMapWindow>
+                    <TavernDiceGame playerGold={player.resources?.gold || 0} onClose={() => setIsDiceGameOpen(false)} onPlay={(res: any) => onAction({ type: 'PLAY_DICE', ...res })} />
                 )}
                 {isChickenCoopOpen && (
-                    <SimulationMapWindow title="Hønsehuset" onClose={() => setIsChickenCoopOpen(false)}>
-                        <ChickenCoopWindow player={player} activeProcesses={player.activeProcesses || []} onAction={onAction} onClose={() => setIsChickenCoopOpen(false)} />
-                    </SimulationMapWindow>
+                    <ChickenCoopWindow player={player} activeProcesses={player.activeProcesses || []} onAction={onAction} onClose={() => setIsChickenCoopOpen(false)} />
                 )}
                 {dialogNPC && (
                     <TavernDialog npc={dialogNPC} step={dialogStep} setStep={setDialogStep} onClose={() => setDialogNPC(null)} />

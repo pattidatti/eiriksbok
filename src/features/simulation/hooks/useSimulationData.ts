@@ -3,7 +3,7 @@ import { ref, onValue, update } from 'firebase/database';
 import { simulationDb as db } from '../simulationFirebase';
 import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
 import { useSimulationAuth } from '../SimulationAuthContext';
-import { getSeasonForTick, getYearForTick } from '../utils/simulationUtils';
+import { getSeasonForTick, getYearForTick } from '../utils/timeUtils';
 
 export function useSimulationData(pin: string | undefined, impersonateId: string | null) {
     const { user, authLoading } = useSimulationAuth() as any;

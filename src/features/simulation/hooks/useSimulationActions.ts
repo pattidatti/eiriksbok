@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { performAction } from '../actions';
-import { checkActionRequirements } from '../utils/simulationUtils';
+import { checkActionRequirements } from '../utils/actionUtils';
 import type { SimulationPlayer, SimulationRoom, ActionType } from '../simulationTypes';
 
 export function useSimulationActions(

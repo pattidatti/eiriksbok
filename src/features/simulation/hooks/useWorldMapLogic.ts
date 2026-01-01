@@ -2,7 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { useSimulation } from '../SimulationContext';
 import { POINTS_OF_INTEREST } from '../data/WorldMapData';
 import { CRAFTING_RECIPES } from '../constants';
-import { TAVERN_NPCS, TavernNPC } from '../TavernData';
+import { TAVERN_NPCS } from '../TavernData';
+import type { TavernNPC } from '../TavernData';
 
 export function useWorldMapLogic(player: any, onAction: (a: any) => void, onOpenMarket: () => void) {
     const {

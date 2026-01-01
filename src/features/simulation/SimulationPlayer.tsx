@@ -4,6 +4,8 @@ import { useSimulationData } from './hooks/useSimulationData';
 import { useSimulationActions } from './hooks/useSimulationActions';
 import { useSimulationAuth } from './SimulationAuthContext';
 import { useSimulation } from './SimulationContext';
+import { useLayout } from '../../context/LayoutContext';
+import type { SimulationRoom } from './simulationTypes';
 
 import { SimulationHeader } from './components/SimulationHeader';
 import { SimulationViewport } from './components/SimulationViewport';
@@ -11,7 +13,11 @@ import { SimulationAnimationLayer } from './components/SimulationAnimationLayer'
 import { MinigameOverlay } from './SimulationMinigames';
 import { LevelUpOverlay } from './components/LevelUpOverlay';
 import { SimulationOnboarding } from './components/SimulationOnboarding';
-import { Trophy, User as UserIcon } from 'lucide-react';
+import { Trophy } from 'lucide-react';
+import { INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT } from './constants';
+import { ref, update } from 'firebase/database';
+import { simulationDb as db } from './simulationFirebase';
+import type { Role, SimulationPlayer as SimPlayer } from './simulationTypes';
 
 export const SimulationPlayer: React.FC = () => {
     const { pin } = useParams();
@@ -21,30 +27,99 @@ export const SimulationPlayer: React.FC = () => {
 
     const { user, account, loading: authLoading } = useSimulationAuth();
     const { activeMinigame, setActiveMinigame, activeMinigameAction, setActiveMinigameAction, activeMinigameMethod, setActiveMinigameMethod } = useSimulation();
+    const { setHideHeader, setFullWidth } = useLayout();
+
+    React.useEffect(() => {
+        setHideHeader(true);
+        setFullWidth(true);
+        return () => {
+            setHideHeader(false);
+            setFullWidth(false);
+        };
+    }, [setHideHeader, setFullWidth]);
 
     const {
-        player, world, players, roomStatus, markets, messages, diplomacy, activeVote, loading: dataLoading, isRetired, hasAttemptedPlayerLoad, onCreatePlayer, isCreating
-    } = useSimulationData(pin, impersonateId);
+        player, world, players, roomStatus, markets, messages, diplomacy, activeVote, worldEvents, hasAttemptedPlayerLoad, isRetired
+    } = useSimulationData(pin, impersonateId) as any;
 
     const {
-        handleAction, actionResult, setActionResult, actionLoading
-    } = useSimulationActions(pin, player, world);
+        handleAction, actionResult, handleClearActionResult
+    } = useSimulationActions(pin, player, world, setActiveMinigame as any, setActiveMinigameMethod, setActiveMinigameAction, activeMinigame);
 
+    const [isCreating, setIsCreating] = useState(false);
     const [levelUpData, setLevelUpData] = useState<{ level: number, title: string } | null>(null);
 
-    // Lightweight room object for sub-components
-    const room = useMemo(() => ({
-        status: roomStatus,
-        world,
-        players,
-        messages,
-        markets,
-        diplomacy,
-        activeVote,
-        pin: pin || ''
-    }), [roomStatus, world, players, messages, markets, diplomacy, activeVote, pin]);
+    const onCreatePlayer = async (name: string, role: Role) => {
+        if (!pin || !user) return;
+        setIsCreating(true);
+        try {
+            const roomRef = ref(db, `simulation_rooms/${pin}`);
+            const playerId = impersonateId || user.uid;
 
-    if (authLoading || dataLoading || !hasAttemptedPlayerLoad) {
+            let regionId = 'unassigned';
+            if (role === 'BARON') regionId = `region_${playerId}`;
+            else if (role === 'KING') regionId = 'capital';
+            else if (pin === 'TEST') {
+                regionId = Math.random() > 0.5 ? 'region_east' : 'region_west';
+            }
+
+            const newPlayer: SimPlayer = {
+                id: playerId,
+                uid: user.uid,
+                name: name,
+                role: role,
+                regionId: regionId,
+                resources: INITIAL_RESOURCES[role] || INITIAL_RESOURCES.PEASANT,
+                skills: INITIAL_SKILLS[role] || INITIAL_SKILLS.PEASANT,
+                stats: { xp: 0, level: 1, reputation: 50, contribution: 0 },
+                status: { hp: 100, morale: 100, stamina: 50, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
+                equipment: INITIAL_EQUIPMENT[role] || INITIAL_EQUIPMENT.PEASANT,
+                upgrades: [],
+                lastActive: Date.now()
+            };
+
+            const publicProfile = {
+                id: playerId,
+                uid: user.uid,
+                name: name,
+                role: role,
+                regionId: regionId,
+                stats: { level: 1 },
+                status: { isJailed: false, isFrozen: false, legitimacy: 100 },
+                online: true,
+                lastActive: Date.now()
+            };
+
+            const updates: any = {};
+            updates[`players/${playerId}`] = newPlayer;
+            updates[`public_profiles/${playerId}`] = publicProfile;
+
+            await update(roomRef, updates);
+        } catch (err) {
+            console.error("Failed to create player:", err);
+            alert("Kunne ikke opprette karakter.");
+        } finally {
+            setIsCreating(false);
+        }
+    };
+
+    // Lightweight room object for sub-components
+    const room = useMemo((): SimulationRoom => ({
+        status: roomStatus,
+        world: world as any, // world in useSimulationData is slightly different but compatible for HUD
+        players: players || {},
+        messages: messages || [],
+        markets: markets || {},
+        market: Object.values(markets || {})[0] || {} as any, // Legacy support
+        diplomacy: diplomacy || {},
+        activeVote,
+        worldEvents: worldEvents || {},
+        regions: {}, // Will be populated by logic if needed
+        settings: 'feudal_europe',
+        pin: pin || ''
+    }), [roomStatus, world, players, messages, markets, diplomacy, activeVote, worldEvents, pin]);
+
+    if (authLoading || !hasAttemptedPlayerLoad) {
         return (
             <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center gap-8 p-12">
                 <div className="relative">
@@ -110,7 +185,7 @@ export const SimulationPlayer: React.FC = () => {
                                 pin={pin}
                                 onAction={handleAction}
                                 actionResult={actionResult}
-                                onClearActionResult={() => setActionResult(null)}
+                                onClearActionResult={handleClearActionResult}
                             />
                         </main>
                     </div>
