@@ -23,7 +23,9 @@ const SLOT_LABELS: Record<EquipmentSlotType, string> = {
     AXE: 'Øks',
     PICKAXE: 'Hakke',
     SCYTHE: 'Ljom / Sigd',
-    HAMMER: 'Smedhammer'
+    HAMMER: 'Smedhammer',
+    BOW: 'Bue',
+    TRAP: 'Felle'
 };
 
 export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ player, onAction }) => {
@@ -98,7 +100,7 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
             const slot = slotElement.getAttribute('data-equipment-slot') as EquipmentSlotType;
             if (slot && item.type === 'equipment') {
                 const equipmentItem = item.data;
-                const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'].includes(equipmentItem.type);
+                const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER', 'BOW', 'TRAP'].includes(equipmentItem.type);
 
                 if (isSpecializedTool && slot === 'MAIN_HAND') {
                     onAction({ type: 'EQUIP_ITEM', itemId: equipmentItem.id, slot: equipmentItem.type });
@@ -232,6 +234,14 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                                             </div>
                                         </div>
 
+                                        {/* Hunting Gear */}
+                                        <div className="absolute top-[20%] left-[8%] w-20">
+                                            <RagdollSlot slot="BOW" label={SLOT_LABELS.BOW} item={equipment.BOW} compact {...slotProps} />
+                                        </div>
+                                        <div className="absolute top-[20%] right-[8%] w-20">
+                                            <RagdollSlot slot="TRAP" label={SLOT_LABELS.TRAP} item={equipment.TRAP} compact {...slotProps} />
+                                        </div>
+
                                         <div className="absolute top-[12%] right-[16%] w-16">
                                             <RagdollSlot slot="TRINKET" label={SLOT_LABELS.TRINKET} item={equipment.TRINKET} compact {...slotProps} />
                                         </div>
@@ -280,7 +290,7 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
     onClick, onMouseEnter, onMouseLeave, onMouseMove,
     onDragStart, onDragEnd
 }) => {
-    const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'].includes(draggedItem?.data?.type);
+    const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER', 'BOW', 'TRAP'].includes(draggedItem?.data?.type);
 
     const isCompatible = draggedItem?.type === 'equipment' && (
         draggedItem.data.type === slot ||
