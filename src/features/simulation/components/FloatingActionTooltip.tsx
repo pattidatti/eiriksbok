@@ -5,7 +5,7 @@ import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from '../constants';
 import { MINIGAME_VARIANTS } from '../SimulationMinigames';
 import { checkActionRequirements, getActionCostString, getActionEquipment } from '../utils/actionUtils';
 import { UPGRADES_LIST, ITEM_TEMPLATES } from '../constants';
-import { TrendingUp, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import type { EquipmentItem } from '../simulationTypes';
 
 interface FloatingActionTooltipProps {
@@ -18,7 +18,6 @@ interface FloatingActionTooltipProps {
 }
 
 export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ poi, player, room, viewingRegionId, onAction, onClose }) => {
-    const [showDetails, setShowDetails] = useState(false);
 
     // Calculate position manually or pass styles? 
     // The WorldMap calculates position based on POI coordinates. 
@@ -119,7 +118,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
 
         setAdjustedTransform({ x: xShift, y: yShift });
         setIsReady(true);
-    }, [top, left, availableActions.length, showDetails]);
+    }, [top, left, availableActions.length]);
 
 
     const getBonusDetails = (actionId: string) => {
@@ -176,13 +175,14 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
         if (MINIGAME_VARIANTS[actionId]) {
             const requiredVariant = MINIGAME_VARIANTS[actionId][0];
             const hasTool = equipment.some(item =>
-                item.id === requiredVariant.id || item.id.startsWith(requiredVariant.id + '_')
+                item.type?.toLowerCase().includes(requiredVariant.id.toLowerCase()) ||
+                item.id.toLowerCase().includes(requiredVariant.id.toLowerCase())
             );
             if (!hasTool) {
                 details.push({
                     source: 'System',
                     type: 'ADVARSEL',
-                    value: `Du har ikke ${requiredVariant.label}, utbytte redusert med 80%`,
+                    value: `Du mangler ${requiredVariant.label}, utbytte redusert med 80%`,
                     icon: '⚠️',
                     isBonus: false
                 });
@@ -235,80 +235,83 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                 }}
                 className={`absolute z-[100] ${isReady ? 'animate-in fade-in zoom-in' : ''} duration-200 pointer-events-auto`}
             >
-                <div className="bg-slate-900/98 backdrop-blur-3xl border border-white/20 rounded-[1.8rem] p-4 shadow-[0_25px_60px_rgba(0,0,0,0.6)] min-w-[280px] w-max max-w-[360px] relative transition-all duration-300">
+                <div className="bg-slate-900/90 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-6 shadow-[0_40px_100px_rgba(0,0,0,0.8)] min-w-[320px] w-max max-w-[400px] relative transition-all duration-500 overflow-hidden group/tooltip">
+                    {/* Atmospheric Glow */}
+                    <div className="absolute -top-24 -left-24 w-48 h-48 bg-indigo-500/10 blur-[80px] pointer-events-none group-hover/tooltip:bg-indigo-500/20 transition-all duration-1000" />
 
                     {/* Header */}
-                    <div className="flex items-center justify-between mb-3 pb-3 border-b border-white/10">
-                        <div className="flex items-center gap-3">
-                            <span className="text-3xl drop-shadow-md">{poi.icon}</span>
+                    <div className="flex items-center justify-between mb-6 relative z-10">
+                        <div className="flex items-center gap-4">
+                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-3xl shadow-inner relative overflow-hidden group/icon">
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity" />
+                                {poi.icon}
+                            </div>
                             <div className="flex flex-col">
-                                <h3 className="font-black text-white text-sm uppercase tracking-[0.15em] leading-tight opacity-90">{poi.label}</h3>
-                                {showDetails && <span className="text-xs text-indigo-300 font-bold uppercase tracking-wider animate-pulse">Detaljert Visning</span>}
+                                <h3 className="font-display font-black text-white text-xl uppercase tracking-tighter leading-none">{poi.label}</h3>
+                                <span className="text-xs font-black text-indigo-400 uppercase tracking-[.2em] mt-1 opacity-90">Landemerke</span>
                             </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                            {!activeProcess && (
-                                <button
-                                    onClick={() => setShowDetails(!showDetails)}
-                                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-all border ${showDetails ? 'bg-indigo-600 border-indigo-400 text-white' : 'bg-white/5 border-white/5 text-slate-400 hover:text-white'}`}
-                                    title="Vis bonuser og detaljer"
-                                >
-                                    📊
-                                </button>
-                            )}
-                            <button onClick={onClose} className="text-white/40 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full w-8 h-8 flex items-center justify-center">✕</button>
+                        <div className="flex items-center gap-3">
+                            <button onClick={onClose} className="text-white/60 hover:text-white transition-all bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 flex items-center justify-center border border-white/10 hover:border-white/30 active:scale-90">✕</button>
                         </div>
                     </div>
 
                     {/* Actions List OR Process Status */}
                     <div className="space-y-3">
                         {activeProcess ? (
-                            <div className="w-full">
+                            <div className="w-full relative py-4">
                                 {timeLeft <= 0 ? (
-                                    <div className="p-1 bg-gradient-to-br from-emerald-900/50 to-emerald-950/50 rounded-xl border border-emerald-500/30 animate-pulse">
+                                    <div className="relative group/harvest">
+                                        <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl blur opacity-25 group-hover/harvest:opacity-50 transition duration-1000 group-hover:duration-200" />
                                         <button
                                             onClick={() => onAction({ type: 'HARVEST', locationId: poi.id })}
-                                            className="w-full group relative overflow-hidden rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white p-4 transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)]"
+                                            className="w-full relative px-6 py-8 bg-slate-900 border border-emerald-500/50 rounded-3xl flex items-center justify-between overflow-hidden active:scale-[0.98] transition-all"
                                         >
-                                            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
-                                            <div className="flex items-center justify-between relative z-10">
-                                                <div className="flex flex-col items-start">
-                                                    <span className="text-2xl font-black uppercase tracking-widest italic drop-shadow-md">Innhøsting</span>
-                                                    <span className="text-xs font-bold text-emerald-100 uppercase tracking-wider opacity-90">Klar til å hentes!</span>
-                                                </div>
-                                                <span className="text-4xl animate-bounce drop-shadow-lg">✨</span>
+                                            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-3xl -mr-16 -mt-16" />
+                                            <div className="flex flex-col items-start z-10">
+                                                <span className="text-2xl font-black text-white uppercase tracking-tighter italic">Innhøsting</span>
+                                                <span className="text-xs font-black text-emerald-400 uppercase tracking-[0.2em] mt-1">Klar til å hentes!</span>
+                                            </div>
+                                            <div className="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center text-3xl animate-bounce shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                                                ✨
                                             </div>
                                         </button>
                                     </div>
                                 ) : (
-                                    <div className="p-4 bg-slate-950/50 rounded-xl border border-white/10 flex flex-col items-center gap-3">
-                                        <div className="w-16 h-16 rounded-full bg-emerald-900/20 border border-emerald-500/30 flex items-center justify-center relative">
-                                            <span className="text-3xl animate-pulse">🌱</span>
-                                            <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 36 36">
-                                                <path
-                                                    className="text-emerald-900/30"
-                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    <div className="p-8 bg-white/5 border border-white/10 rounded-[2rem] flex flex-col items-center gap-6 relative overflow-hidden group/timer">
+                                        <div className="absolute -bottom-12 -right-12 w-24 h-24 bg-indigo-500/5 blur-2xl rounded-full" />
+
+                                        <div className="relative w-24 h-24">
+                                            <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
+                                                <circle
+                                                    cx="18" cy="18" r="16"
                                                     fill="none"
-                                                    stroke="currentColor"
+                                                    className="stroke-white/5"
                                                     strokeWidth="2"
                                                 />
-                                                <path
-                                                    className="text-emerald-500 drop-shadow-[0_0_4px_rgba(16,185,129,0.8)] transition-all duration-1000 ease-linear"
-                                                    strokeDasharray={`${(1 - (timeLeft / activeProcess.duration)) * 100}, 100`}
-                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                <circle
+                                                    cx="18" cy="18" r="16"
                                                     fill="none"
-                                                    stroke="currentColor"
-                                                    strokeWidth="3"
+                                                    className="stroke-emerald-500 transition-all duration-1000 ease-linear"
+                                                    strokeWidth="2"
+                                                    strokeDasharray="100"
+                                                    strokeDashoffset={100 - (1 - (timeLeft / activeProcess.duration)) * 100}
+                                                    strokeLinecap="round"
                                                 />
                                             </svg>
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <span className="text-3xl animate-pulse">🌱</span>
+                                            </div>
                                         </div>
-                                        <div className="flex flex-col items-center">
-                                            <span className="text-lg font-bold text-white tracking-widest uppercase">Tiden går...</span>
-                                            <span className="text-sm font-mono text-emerald-400">{formatTime(timeLeft)}</span>
+
+                                        <div className="flex flex-col items-center gap-1">
+                                            <span className="text-xs font-black text-slate-300 uppercase tracking-[0.3em]">Modnes om</span>
+                                            <span className="text-2xl font-mono font-black text-white">{formatTime(timeLeft)}</span>
                                         </div>
-                                        <div className="w-full bg-emerald-900/30 h-1.5 rounded-full mt-1 overflow-hidden">
+
+                                        <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
                                             <div
-                                                className="bg-emerald-500 h-full transition-all duration-1000 ease-linear shadow-[0_0_10px_rgba(16,185,129,0.5)]"
+                                                className="h-full bg-emerald-500 transition-all duration-1000 ease-linear"
                                                 style={{ width: `${(1 - (timeLeft / activeProcess.duration)) * 100}%` }}
                                             />
                                         </div>
@@ -316,155 +319,129 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                 )}
                             </div>
                         ) : (
-                            availableActions.map((action: any) => {
-                                const bonusDetails = getBonusDetails(action.id);
-                                const currentSeason = (room.world?.season || 'Spring') as any;
-                                const currentWeather = (room.world?.weather || 'Clear') as any;
+                            <div className="space-y-6">
+                                {availableActions.map((action: any) => {
+                                    const currentSeason = (room.world?.season || 'Spring') as any;
+                                    const currentWeather = (room.world?.weather || 'Clear') as any;
+                                    const bonusDetails = getBonusDetails(action.id);
 
-                                const isProduction = action.id.startsWith('REFINE_') || action.id.startsWith('CRAFT_') || action.id in CRAFTING_RECIPES;
-
-                                // Check requirements
-                                let canAfford = true;
-                                let missingReason = '';
-                                if (viewingRegionId !== player.regionId && player.role !== 'KING' && action.id !== 'MARKET_VIEW') {
-                                    canAfford = false; missingReason = "Ikke ditt baroni";
-                                } else {
-                                    // If it's a production UI opener, we always allow opening
-                                    if (!isProduction) {
+                                    // Check requirements
+                                    let canAfford = true;
+                                    let missingReason = '';
+                                    if (viewingRegionId !== player.regionId && player.role !== 'KING' && action.id !== 'MARKET_VIEW') {
+                                        canAfford = false; missingReason = "Dette er ikke ditt baroni";
+                                    } else {
                                         const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
-                                        if (!check.success) { canAfford = false; missingReason = check.reason || 'Krav ikke møtt'; }
+                                        if (!check.success) {
+                                            canAfford = false;
+                                            missingReason = check.reason || 'Krav ikke møtt';
+                                        }
                                     }
-                                }
 
-                                // Simplified cost display for basic resources/stamina
-                                const costLabel = getActionCostString(action.id, currentSeason, currentWeather);
-                                const variants = MINIGAME_VARIANTS[action.id];
+                                    const costLabel = getActionCostString(action.id, currentSeason, currentWeather);
+                                    const variants = MINIGAME_VARIANTS[action.id];
 
-                                return (
-                                    <div key={action.id} className="w-full">
-                                        {/* Action Content */}
-                                        <div className={`flex flex-col w-full ${!variants ? 'px-4 py-3 bg-white/5 rounded-xl border border-white/5' : 'p-3 bg-slate-950/50 rounded-xl border border-white/10'}`}>
-
-                                            {/* Action Header / Main Button Area */}
-                                            <div className="flex justify-between items-start w-full">
-                                                <div className="flex flex-col min-w-0 flex-1">
-                                                    {!variants ? (
-                                                        <button
-                                                            onClick={() => onAction({ type: action.id, locationId: poi.id })}
-                                                            disabled={!canAfford}
-                                                            className={`text-left group w-full ${!canAfford && 'cursor-not-allowed opacity-50'}`}
-                                                        >
-                                                            <div className="flex justify-between items-center gap-3">
-                                                                <div className="flex gap-3 items-center min-w-0">
-                                                                    <div className="flex flex-col min-w-0">
-                                                                        <span className={`text-base font-black truncate block ${canAfford ? isProduction ? 'text-indigo-400 group-hover:text-indigo-300' : 'text-white group-hover:text-amber-400' : 'text-slate-400'}`}>
-                                                                            {action.label} {isProduction ? '🔨' : ''}
-                                                                        </span>
-                                                                        {!canAfford && <span className="text-xs font-black text-rose-500/80 uppercase tracking-widest leading-tight">{missingReason}</span>}
-                                                                    </div>
-                                                                </div>
-
-                                                                <div className="flex items-center gap-3 shrink-0">
-                                                                    {/* Compact Tool Indicator */}
-                                                                    {(() => {
-                                                                        const equipment = getActionEquipment(player, action.id);
-                                                                        const bestTool = equipment.find(item => item.maxDurability > 0);
-                                                                        if (bestTool) {
-                                                                            const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
-                                                                            return (
-                                                                                <div className="flex flex-col items-end gap-1">
-                                                                                    <div className={`flex items-center gap-2 bg-slate-800/80 px-2 py-1.5 rounded-xl border ${durabilityPct < 10 ? 'border-rose-500 animate-pulse' : 'border-white/20'} shadow-lg tool-glow`} title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
-                                                                                        <span className="text-base drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">{bestTool.icon}</span>
-                                                                                        <div className="w-10 h-1.5 bg-black/40 rounded-full overflow-hidden p-[1px] border border-white/5">
-                                                                                            <div
-                                                                                                className={`h-full rounded-full transition-all duration-500 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
-                                                                                                style={{ width: `${durabilityPct}%` }}
-                                                                                            />
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    {durabilityPct < 10 && (
-                                                                                        <span className="text-xs font-black text-rose-500 uppercase tracking-tighter animate-bounce">Lite holdbarhet!</span>
-                                                                                    )}
-                                                                                </div>
-                                                                            );
-                                                                        }
-                                                                        return null;
-                                                                    })()}
-
-                                                                    {costLabel && !isProduction && <span className={`text-sm font-black bg-black/40 px-2 py-1 rounded-lg border leading-none ${isProduction ? 'border-indigo-500/30 text-indigo-400' : 'border-white/10 text-slate-300'}`}>{costLabel}</span>}
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                    ) : (
-                                                        <div className="flex justify-between items-center w-full border-b border-white/5 pb-2 mb-2">
-                                                            <div className="flex flex-col">
-                                                                <span className="text-lg font-bold text-white leading-tight">{action.label}</span>
-                                                                {!canAfford && <div className="text-xs font-black text-rose-500 uppercase tracking-widest mt-0.5">{missingReason}</div>}
-                                                            </div>
-                                                            <div className="flex items-center gap-3">
-                                                                {/* Compact Tool Indicator for Variant Header */}
-                                                                {(() => {
-                                                                    const equipment = getActionEquipment(player, action.id);
-                                                                    const bestTool = equipment.find(item => item.maxDurability > 0);
-                                                                    if (bestTool) {
-                                                                        const durabilityPct = (bestTool.durability / bestTool.maxDurability) * 100;
-                                                                        return (
-                                                                            <div className="flex items-center gap-2 bg-slate-800/80 px-2 py-1.5 rounded-xl border border-white/20 shadow-lg animate-shimmer tool-glow" title={`${bestTool.name}: ${Math.round(durabilityPct)}%`}>
-                                                                                <span className="text-base drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">{bestTool.icon}</span>
-                                                                                <div className="w-10 h-1.5 bg-black/40 rounded-full overflow-hidden p-[1px] border border-white/5">
-                                                                                    <div
-                                                                                        className={`h-full rounded-full transition-all duration-500 ${durabilityPct > 50 ? 'bg-gradient-to-r from-emerald-600 to-emerald-400' : durabilityPct > 20 ? 'bg-gradient-to-r from-amber-600 to-amber-400' : 'bg-gradient-to-r from-rose-600 to-rose-400'}`}
-                                                                                        style={{ width: `${durabilityPct}%` }}
-                                                                                    />
-                                                                                </div>
-                                                                            </div>
-                                                                        );
-                                                                    }
-                                                                    return null;
-                                                                })()}
-                                                                {costLabel && <span className="text-xs font-black border border-white/10 px-2 py-1 rounded uppercase tracking-widest text-slate-500">{costLabel}</span>}
-                                                            </div>
-                                                        </div>
-                                                    )}
-                                                </div>
+                                    return (
+                                        <div key={action.id} className="w-full animate-in fade-in slide-in-from-bottom-2 duration-500">
+                                            {/* Action Section Title */}
+                                            <div className="flex items-center justify-between px-1 mb-3">
+                                                <h4 className="text-xs font-black text-slate-300 uppercase tracking-[0.3em]">{action.label}</h4>
+                                                {costLabel && (
+                                                    <span className="text-xs font-black text-indigo-400 uppercase tracking-widest">{costLabel}</span>
+                                                )}
                                             </div>
 
-                                            {/* Simplified Bonus Badges and Variants */}
-                                            {!showDetails && bonusDetails.length > 0 && (
-                                                <div className="flex flex-wrap gap-2 mt-2">
-                                                    {bonusDetails.slice(0, 3).map((d, i) => (
-                                                        <div key={i} className={`flex items-center gap-1 text-xs font-black uppercase px-2 py-0.5 rounded-full border ${d.type === 'Fart' ? 'bg-blue-500/10 border-blue-500/30 text-blue-400' :
-                                                            d.type === 'ADVARSEL' ? 'bg-rose-500/10 border-rose-500/50 text-rose-400 w-full justify-center' :
-                                                                'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
-                                                            }`}>
-                                                            {d.value} {d.type !== 'ADVARSEL' && d.type}
+                                            {!variants ? (
+                                                <button
+                                                    onClick={() => onAction({ type: action.id, locationId: poi.id })}
+                                                    disabled={!canAfford}
+                                                    className={`w-full group relative overflow-hidden p-5 rounded-3xl border transition-all duration-300 ${canAfford
+                                                        ? 'bg-white/5 border-white/10 hover:border-indigo-500/50 hover:bg-indigo-500/5 active:scale-[0.98]'
+                                                        : 'bg-black/20 border-white/5 opacity-50 cursor-not-allowed'
+                                                        }`}
+                                                >
+                                                    <div className="flex items-center justify-between relative z-10">
+                                                        <div className="flex flex-col items-start">
+                                                            <span className="text-xl font-black text-white group-hover:text-indigo-400 transition-colors uppercase tracking-tight">{action.label}</span>
+                                                            {!canAfford && <span className="text-sm font-black text-rose-500 uppercase tracking-widest mt-1">{missingReason}</span>}
                                                         </div>
-                                                    ))}
-                                                </div>
-                                            )}
+                                                        <ArrowRight size={20} className="text-white/20 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />
+                                                    </div>
+                                                </button>
+                                            ) : (
+                                                <div className="grid grid-cols-1 gap-4">
+                                                    {variants.map(variant => {
+                                                        const equipment = getActionEquipment(player, action.id);
+                                                        const bestTool = equipment.find(item =>
+                                                            item.type?.toLowerCase().includes(variant.id.toLowerCase()) ||
+                                                            item.id.toLowerCase().includes(variant.id.toLowerCase())
+                                                        ) || equipment[0];
 
-                                            {variants && variants.length > 0 && (
-                                                <div className="grid grid-cols-1 gap-2 mt-2">
-                                                    {variants.map(variant => (
-                                                        <button
-                                                            key={variant.id}
-                                                            onClick={() => onAction({ type: action.id, method: variant.id, locationId: poi.id })}
-                                                            disabled={!canAfford}
-                                                            className={`flex items-center gap-3 p-2.5 rounded-lg border transition-all text-left group ${canAfford ? 'bg-white/5 hover:bg-emerald-600/20 border-white/5 hover:border-emerald-500/50 active:scale-[0.98]' : 'bg-transparent border-transparent cursor-not-allowed opacity-50'}`}
-                                                        >
-                                                            <span className="text-3xl grayscale group-hover:grayscale-0 transition-all">{variant.icon}</span>
-                                                            <div className="flex flex-col">
-                                                                <span className="font-bold text-base text-slate-200 group-hover:text-white">{variant.label}</span>
-                                                                <span className="text-xs text-slate-500 group-hover:text-emerald-200">{variant.desc}</span>
-                                                            </div>
-                                                        </button>
-                                                    ))}
+                                                        const toolDurabilityPct = bestTool ? (bestTool.durability / bestTool.maxDurability) * 100 : null;
+
+                                                        return (
+                                                            <button
+                                                                key={variant.id}
+                                                                onClick={() => onAction({ type: action.id, method: variant.id, locationId: poi.id })}
+                                                                disabled={!canAfford}
+                                                                className={`group relative flex items-center gap-6 w-full p-5 rounded-[2rem] border transition-all duration-300 ${canAfford
+                                                                    ? 'bg-white/5 border-white/10 hover:border-indigo-500/50 hover:bg-indigo-500/5 active:scale-[0.98]'
+                                                                    : 'bg-black/20 border-white/5 cursor-not-allowed'
+                                                                    }`}
+                                                            >
+                                                                {/* Icon Surface */}
+                                                                <div className={`w-16 h-16 rounded-2xl bg-white/5 flex-shrink-0 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-500 ${!canAfford && 'opacity-40'}`}>
+                                                                    {variant.icon}
+                                                                </div>
+
+                                                                <div className="flex-1 flex flex-col justify-center min-w-0 items-start">
+                                                                    <span className="font-display font-black text-white text-xl uppercase tracking-tighter group-hover:text-indigo-400 transition-colors truncate">
+                                                                        {variant.label}
+                                                                    </span>
+
+                                                                    {!canAfford ? (
+                                                                        <span className="text-xs font-black text-rose-500 uppercase tracking-widest mt-0.5">
+                                                                            {missingReason}
+                                                                        </span>
+                                                                    ) : (
+                                                                        <div className="flex items-center gap-2 mt-1">
+                                                                            <span className="text-[10px] text-slate-400 font-black uppercase tracking-widest truncate opacity-60">
+                                                                                {variant.desc}
+                                                                            </span>
+                                                                            {bonusDetails.length > 0 && (
+                                                                                <div className="flex gap-1.5">
+                                                                                    {bonusDetails.filter(d => !d.isBonus || d.value.includes('+')).slice(0, 1).map((d, i) => (
+                                                                                        <span key={i} className="text-[10px] text-emerald-400 font-black px-2 py-0.5 bg-emerald-400/10 rounded-full">
+                                                                                            {d.value}
+                                                                                        </span>
+                                                                                    ))}
+                                                                                </div>
+                                                                            )}
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+
+                                                                {/* Tool Health & Arrow */}
+                                                                <div className="flex flex-col items-end gap-3 ml-2">
+                                                                    {toolDurabilityPct !== null && canAfford && (
+                                                                        <div className="w-10 h-1.5 bg-white/10 rounded-full overflow-hidden shadow-inner">
+                                                                            <div
+                                                                                className={`h-full transition-all duration-1000 ${toolDurabilityPct > 50 ? 'bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.5)]' : toolDurabilityPct > 20 ? 'bg-amber-500' : 'bg-rose-500'}`}
+                                                                                style={{ width: `${toolDurabilityPct}%` }}
+                                                                            />
+                                                                        </div>
+                                                                    )}
+                                                                    <ArrowRight size={22} className={`transition-all ${canAfford ? 'text-white/20 group-hover:text-indigo-400 group-hover:translate-x-1' : 'text-white/5'}`} />
+                                                                </div>
+                                                            </button>
+                                                        );
+                                                    })}
                                                 </div>
                                             )}
                                         </div>
-                                    </div>
-                                );
-                            })
+                                    );
+                                })}
+                            </div>
                         )}
 
                         {/* CONSOLIDATED PROGRESSION FOOTER */}
@@ -500,7 +477,6 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                 const upg = finalUpgrades[0];
                                 if (!upg) return null;
 
-                                // 4. Check if we meet building requirements for this upgrade
                                 const upgRecipe = Object.values(CRAFTING_RECIPES).find((r: any) => r.outputItemId === upg.id);
                                 const settlement = room.world?.settlement || { buildings: {} };
                                 const buildingId = upgRecipe?.buildingId || 'great_forge';
@@ -517,64 +493,54 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                 });
 
                                 return (
-                                    <div className="mt-5 pt-5 border-t border-white/10">
-                                        <div className="flex flex-col gap-3">
-                                            <div className="flex items-center justify-between px-1">
-                                                <div className="flex items-center gap-1.5">
-                                                    <div className={`w-1.5 h-1.5 rounded-full ${isLockedByBuilding ? 'bg-slate-500' : 'bg-amber-500 animate-pulse'}`} />
-                                                    <span className={`text-xs font-bold uppercase ${isLockedByBuilding ? 'text-slate-500' : 'text-amber-500/80'}`}>
-                                                        {isLockedByBuilding ? `Krever ${buildingName} Lvl ${requiredLevel}` : 'Oppgradering Tilgjengelig'}
-                                                    </span>
-                                                </div>
+                                    <div className="mt-8 pt-8 border-t border-white/5 relative z-10">
+                                        <div className="flex flex-col gap-4">
+                                            <div className="flex items-center justify-center gap-2 mb-2">
+                                                <div className="h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent flex-1" />
+                                                <span className={`text-xs font-black uppercase tracking-[0.2em] ${isLockedByBuilding ? 'text-slate-400' : 'text-amber-500 animate-pulse'}`}>
+                                                    {isLockedByBuilding ? `Krever nivå ${requiredLevel}` : 'Utvikling venter'}
+                                                </span>
+                                                <div className="h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent flex-1" />
                                             </div>
 
-                                            <div className="bg-slate-950/40 border border-white/10 rounded-2xl p-4 flex items-center justify-between relative overflow-hidden group">
-                                                {/* Background Shimmer */}
-                                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-
-                                                {/* Current */}
-                                                <div className="flex flex-col items-center gap-1 z-10">
-                                                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-2xl border border-white/10 opacity-60">
+                                            <div className="flex items-center justify-between gap-6 px-4">
+                                                {/* Evolution Start */}
+                                                <div className="flex flex-col items-center gap-2 group/evolve">
+                                                    <div className="w-16 h-16 rounded-[1.5rem] bg-white/5 border border-white/10 flex items-center justify-center text-3xl opacity-40 transition-all group-hover/evolve:opacity-60">
                                                         {currentItem?.icon || '❓'}
                                                     </div>
-                                                    <span className="text-xs font-bold text-slate-500 uppercase">Nå</span>
+                                                    <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Nå</span>
                                                 </div>
 
-                                                {/* Progress Arrow */}
-                                                <div className="flex flex-col items-center gap-1 flex-1">
-                                                    <div className="flex items-center gap-0.5">
-                                                        {[1, 2, 3].map(i => (
-                                                            <div key={i} className={`w-1 h-1 rounded-full bg-indigo-500/30 animate-pulse`} style={{ animationDelay: `${i * 200}ms` }} />
-                                                        ))}
-                                                        <ArrowRight className="w-4 h-4 text-indigo-500/50 mx-2" />
-                                                        {[1, 2, 3].map(i => (
-                                                            <div key={i} className={`w-1 h-1 rounded-full bg-indigo-500/30 animate-pulse`} style={{ animationDelay: `${i * 200}ms` }} />
-                                                        ))}
+                                                {/* Evolution Path */}
+                                                <div className="flex flex-col items-center flex-1 gap-2 pt-2">
+                                                    <div className="relative w-full flex justify-center">
+                                                        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-indigo-500/0 via-indigo-500/30 to-indigo-500/0" />
+                                                        <ArrowRight className="text-indigo-500/50 w-6 h-6 animate-pulse relative z-10" />
                                                     </div>
                                                     {upg.stats?.yieldBonus && (
-                                                        <span className="text-xs font-black text-emerald-400">+{upg.stats.yieldBonus} Utbytte</span>
+                                                        <span className="text-[10px] font-black text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full border border-emerald-400/20">
+                                                            +{upg.stats.yieldBonus} Utbytte
+                                                        </span>
                                                     )}
                                                 </div>
 
-                                                <div className="flex flex-col items-center gap-1 z-10 transition-transform group-hover:scale-105 duration-300">
-                                                    <div className="relative">
-                                                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl border shadow-lg transition-all duration-300 ${isLockedByBuilding ? 'bg-slate-900/50 border-white/5 opacity-40 grayscale' : 'bg-indigo-600/20 border-indigo-500/40 shadow-[0_0_20px_rgba(79,70,229,0.2)] animate-shimmer upgrade-glow'}`}>
-                                                            {upg.icon}
-                                                        </div>
-                                                        {!isLockedByBuilding && (
-                                                            <div className="absolute -top-1 -right-1 w-5 h-5 bg-amber-500 rounded-full flex items-center justify-center border-2 border-slate-900 shadow-lg">
-                                                                <TrendingUp className="w-3 h-3 text-slate-900" strokeWidth={3} />
-                                                            </div>
-                                                        )}
+                                                {/* Evolution End */}
+                                                <div className="flex flex-col items-center gap-2 group/next">
+                                                    <div className={`w-20 h-20 rounded-[2rem] flex items-center justify-center text-4xl border-2 shadow-2xl transition-all duration-500 ${isLockedByBuilding
+                                                        ? 'bg-slate-900/50 border-white/5 grayscale'
+                                                        : 'bg-indigo-600/20 border-indigo-500/50 shadow-indigo-500/20 hover:scale-110 active:scale-95'
+                                                        }`}>
+                                                        {upg.icon}
                                                     </div>
-                                                    <span className={`text-xs font-black uppercase tracking-tighter ${isLockedByBuilding ? 'text-slate-600' : 'text-amber-500'}`}>{upg.name}</span>
+                                                    <span className={`text-xs font-black uppercase tracking-tight ${isLockedByBuilding ? 'text-slate-500' : 'text-amber-500'}`}>{upg.name}</span>
                                                 </div>
                                             </div>
 
-                                            <p className="text-xs text-slate-400 text-center font-medium italic">
+                                            <p className="text-xs text-slate-400 text-center font-medium italic px-6 mt-2">
                                                 {isLockedByBuilding
-                                                    ? `Oppgrader ${buildingName} til nivå ${requiredLevel} i landsbyen for å smi denne.`
-                                                    : `Besøk ${buildingName} i landsbyen for å smi denne.`}
+                                                    ? `Forbedre ${buildingName} til nivå ${requiredLevel} for å låse opp.`
+                                                    : `Besøk ${buildingName} i landsbyen for å smi din ${upg.name}.`}
                                             </p>
                                         </div>
                                     </div>

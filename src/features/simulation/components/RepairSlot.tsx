@@ -22,8 +22,8 @@ export const RepairSlot: React.FC<RepairSlotProps> = ({
             className={`w-full flex items-center gap-4 p-5 rounded-[2rem] border-2 transition-all group relative overflow-hidden ${isSelected
                 ? 'border-amber-500 bg-amber-500/10 shadow-[0_0_20px_rgba(245,158,11,0.2)]'
                 : isDamaged
-                    ? 'border-amber-500/20 bg-slate-900/50 hover:border-amber-500/40 hover:bg-slate-900/70'
-                    : 'border-white/5 bg-slate-900/30 opacity-60 grayscale'
+                    ? 'border-amber-500/20 bg-slate-900/80 hover:border-amber-500/40 hover:bg-slate-900/90'
+                    : 'border-white/5 bg-slate-900/60 opacity-60 grayscale'
                 }`}
         >
             <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-4xl shadow-inner transition-colors ${isSelected ? 'bg-amber-500/20' : 'bg-black/40'

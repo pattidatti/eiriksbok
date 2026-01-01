@@ -70,7 +70,8 @@ export const InventoryGrid: React.FC<InventoryGridProps> = ({
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.02
+                staggerChildren: 0.03,
+                delayChildren: 0.1
             }
         }
     };

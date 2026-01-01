@@ -74,27 +74,40 @@ export const CraftingGame: React.FC<{ onComplete: (score: number) => void, speed
                 </div>
             </div>
 
-            <div className="relative z-10 w-full max-w-2xl h-24 bg-slate-900/50 rounded-2xl border-2 border-white/10 shadow-2xl flex items-center px-4 overflow-hidden">
-                {/* Progress back-glow */}
-                <div className="absolute inset-0 bg-amber-500/5 transition-all duration-1000" style={{ opacity: hits / 5 }} />
+            <div className="relative z-10 w-full max-w-2xl space-y-4">
+                <div className="w-full h-24 bg-slate-900/50 rounded-2xl border-2 border-white/10 shadow-2xl flex items-center px-4 overflow-hidden">
+                    {/* Progress back-glow */}
+                    <div className="absolute inset-0 bg-amber-500/5 transition-all duration-1000" style={{ opacity: hits / 5 }} />
 
-                {/* Bar backdrop */}
-                <div className="relative w-full h-4 bg-white/5 rounded-full overflow-hidden">
-                    {/* Target Zone */}
-                    <div
-                        className="absolute inset-y-0 w-24 bg-amber-500/40 blur-sm mix-blend-screen transition-all duration-75"
-                        style={{ left: `${targetPos}%`, transform: 'translateX(-50%)' }}
-                    />
-                    <div
-                        className="absolute inset-y-0 w-12 bg-white/40 blur-[2px]"
-                        style={{ left: `${targetPos}%`, transform: 'translateX(-50%)' }}
-                    />
+                    {/* Bar backdrop */}
+                    <div className="relative w-full h-4 bg-white/5 rounded-full overflow-hidden">
+                        {/* Target Zone */}
+                        <div
+                            className="absolute inset-y-0 w-24 bg-amber-500/40 blur-sm mix-blend-screen transition-all duration-75"
+                            style={{ left: `${targetPos}%`, transform: 'translateX(-50%)' }}
+                        />
+                        <div
+                            className="absolute inset-y-0 w-12 bg-white/40 blur-[2px]"
+                            style={{ left: `${targetPos}%`, transform: 'translateX(-50%)' }}
+                        />
 
-                    {/* Cursor */}
-                    <div
-                        className="absolute inset-y-0 w-1 bg-white shadow-[0_0_15px_white] z-20"
-                        style={{ left: `${cursorPos}%`, transform: 'translateX(-50%)' }}
-                    />
+                        {/* Cursor */}
+                        <div
+                            className="absolute inset-y-0 w-1 bg-white shadow-[0_0_15px_white] z-20"
+                            style={{ left: `${cursorPos}%`, transform: 'translateX(-50%)' }}
+                        />
+                    </div>
+                </div>
+
+                {/* Progress Bar Footer */}
+                <div className="flex items-center gap-4 px-2">
+                    <div className="flex-1 h-2 bg-black/40 rounded-full overflow-hidden border border-white/5">
+                        <div
+                            className="h-full bg-gradient-to-r from-amber-600 to-amber-400 transition-all duration-500"
+                            style={{ width: `${(hits / 5) * 100}%` }}
+                        />
+                    </div>
+                    <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest">{Math.round((hits / 5) * 100)}%</span>
                 </div>
             </div>
 

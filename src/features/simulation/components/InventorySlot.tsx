@@ -139,10 +139,10 @@ export const InventorySlot: React.FC<InventorySlotProps> = ({
             onMouseLeave={onMouseLeave}
             onMouseMove={onMouseMove}
             className={`
-                relative aspect-square w-full rounded-2xl border-2 transition-colors duration-200
+                relative aspect-square w-full rounded-2xl border-2 transition-all duration-300
                 ${isEmpty || !getContent() ? 'bg-white/5 border-white/5 border-dashed' : 'bg-white/10 border-white/10 hover:bg-slate-800/80 hover:border-indigo-500/30'}
                 ${isEquipped ? 'ring-2 ring-indigo-500 border-indigo-500/50 bg-indigo-500/20 shadow-[0_0_20px_rgba(79,70,229,0.2)]' : ''}
-                group overflow-hidden cursor-grab active:cursor-grabbing
+                group overflow-hidden cursor-grab active:cursor-grabbing will-change-transform
             `}
         >
             {getContent()}

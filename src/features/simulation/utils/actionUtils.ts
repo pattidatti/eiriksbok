@@ -1,5 +1,5 @@
 import type { SimulationPlayer, EquipmentItem, EquipmentSlot } from '../simulationTypes';
-import { ACTION_COSTS, SEASONS, WEATHER, REFINERY_RECIPES, CRAFTING_RECIPES } from '../constants';
+import { ACTION_COSTS, SEASONS, WEATHER, REFINERY_RECIPES, CRAFTING_RECIPES, ITEM_TEMPLATES } from '../constants';
 
 interface ValidationResult {
     success: boolean;
@@ -16,7 +16,8 @@ export const ACTION_EQUIPMENT_MAP: Record<string, EquipmentSlot[]> = {
     'PATROL': ['MAIN_HAND', 'OFF_HAND', 'BODY'],
     'EXPLORE': ['MAIN_HAND', 'OFF_HAND', 'BODY', 'HEAD', 'FEET'],
     // Crafting might use main hand tools if we define them, e.g. Hammer
-    'CRAFT': ['MAIN_HAND', 'AXE', 'PICKAXE', 'SCYTHE', 'HAMMER']
+    'CRAFT': ['MAIN_HAND', 'AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'],
+    'HUNT': ['MAIN_HAND']
 };
 
 export const getActionEquipment = (player: SimulationPlayer, actionId: string): EquipmentItem[] => {
@@ -27,8 +28,22 @@ export const getActionEquipment = (player: SimulationPlayer, actionId: string): 
         .map(slot => player.equipment?.[slot])
         .filter((item): item is EquipmentItem => {
             if (!item) return false;
-            // Handle both simple action match and multi-action tool
-            return !item.relevantActions || item.relevantActions.includes(actionId);
+
+            // Check instance first
+            if (item.relevantActions?.includes(actionId)) return true;
+
+            // Fallback to template if relevantActions is missing on instance
+            if (!item.relevantActions) {
+                const tid = item.id.split('_').slice(0, 2).join('_'); // rough guess: stone_axe_123 -> stone_axe
+                const template = (ITEM_TEMPLATES as any)[item.id] || (ITEM_TEMPLATES as any)[tid] || Object.values(ITEM_TEMPLATES).find(t => item.id.startsWith(t.id));
+
+                if (template?.relevantActions?.includes(actionId)) return true;
+
+                // If template search failed but it has NO relevantActions defined, treat as generic (true)
+                return !template || !template.relevantActions;
+            }
+
+            return false;
         });
 };
 
@@ -39,7 +54,16 @@ export const getActionSlots = (player: SimulationPlayer, actionId: string): Equi
     return slots.filter(slot => {
         const item = player.equipment?.[slot];
         if (!item) return false;
-        return !item.relevantActions || item.relevantActions.includes(actionId);
+
+        if (item.relevantActions?.includes(actionId)) return true;
+
+        if (!item.relevantActions) {
+            const tid = item.id.split('_').slice(0, 2).join('_');
+            const template = (ITEM_TEMPLATES as any)[item.id] || (ITEM_TEMPLATES as any)[tid] || Object.values(ITEM_TEMPLATES).find(t => item.id.startsWith(t.id));
+            if (template?.relevantActions?.includes(actionId)) return true;
+            return !template || !template.relevantActions;
+        }
+        return false;
     });
 };
 
@@ -108,15 +132,34 @@ export const checkActionRequirements = (
         const finalStaminaCost = Math.ceil(baseStaminaCost * baseStaminaMod * weatherStaminaMod);
 
         if ((player.status.stamina || 0) < finalStaminaCost) {
-            return { success: false, reason: `${finalStaminaCost}⚡ (Stamina)` };
+            const missing = Math.ceil(finalStaminaCost - (player.status.stamina || 0));
+            return { success: false, reason: `Du mangler ${missing} energi` };
         }
+
+        const RESOURCE_NAMES: Record<string, string> = {
+            bread: 'brød',
+            gold: 'gull',
+            wood: 'tre',
+            flour: 'mel',
+            grain: 'korn',
+            iron_ingot: 'jernbarrer',
+            timber: 'tømmer',
+            stone: 'stein',
+            meat: 'kjøtt',
+            honey: 'honning',
+            wool: 'ull',
+            iron_ore: 'jernmalm',
+            cloth: 'stoff',
+            stamina: 'energi'
+        };
 
         // Resource Check
         for (const [res, amt] of Object.entries(costs)) {
             if (res === 'stamina') continue;
             const playerRes = (player.resources as any)[res] || 0;
             if (playerRes < (amt as number)) {
-                return { success: false, reason: `Mangler ${amt} ${res}` };
+                const resName = RESOURCE_NAMES[res] || res;
+                return { success: false, reason: `Du mangler ${amt - playerRes} ${resName}` };
             }
         }
     }

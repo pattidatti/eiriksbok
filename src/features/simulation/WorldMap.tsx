@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { SimulationPlayer } from './simulationTypes';
 import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from './constants';
 import { useSimulation } from './SimulationContext';
@@ -11,6 +12,7 @@ import { TavernDiceGame } from './TavernDiceGame';
 import { FloatingActionTooltip } from './components/FloatingActionTooltip';
 import { SimulationAtmosphereLayer } from './components/SimulationAtmosphereLayer';
 import { SimulationProcessHUD } from './components/SimulationProcessHUD';
+import { SimulationMapWindow } from './components/ui/SimulationMapWindow';
 
 
 
@@ -487,7 +489,8 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
         viewMode,
         setViewMode,
         viewingRegionId: ctxViewingRegionId,
-        setViewingRegionId
+        setViewingRegionId,
+        activeTab
     } = useSimulation();
 
     // Initialize viewing region if not set in context
@@ -501,14 +504,73 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
 
     const [selectedPOI, setSelectedPOI] = useState<POI | null>(null);
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
-    // viewMode and viewingRegionId now come from Context
     const [upgradingBuildingId, setUpgradingBuildingId] = useState<string | null>(null);
-
-
 
     const [dialogNPC, setDialogNPC] = useState<TavernNPC | null>(null);
     const [dialogStep, setDialogStep] = useState<string>('start');
     const [isDiceGameOpen, setIsDiceGameOpen] = useState(false);
+
+    const getViewLevel = (mode: string): number => {
+        if (mode === 'kingdom') return 0;
+        if (mode === 'global') return 1;
+        const poi = POINTS_OF_INTEREST.find(p => p.id === mode);
+        if (poi?.parentId) return 3;
+        return 2;
+    };
+
+    // Track navigation direction for animations
+    const [lastViewMode, setLastViewMode] = useState(viewMode);
+    const [direction, setDirection] = useState<'in' | 'out'>('in');
+
+    if (viewMode !== lastViewMode) {
+        const prevLevel = getViewLevel(lastViewMode);
+        const currLevel = getViewLevel(viewMode);
+
+        if (currLevel > prevLevel) setDirection('in');
+        else if (currLevel < prevLevel) setDirection('out');
+
+        setLastViewMode(viewMode);
+    }
+
+    // ESC Key Handling: Hierarchical
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                // Only handle if we are on the MAP tab
+                if (activeTab !== 'MAP') return;
+
+                // Priority 1: Close active Overlays/Windows
+                if (upgradingBuildingId) { setUpgradingBuildingId(null); return; }
+                if (isDiceGameOpen) { setIsDiceGameOpen(false); return; }
+                if (dialogNPC) { setDialogNPC(null); return; }
+                if (selectedEvent) { setSelectedEvent(null); return; }
+                if (selectedPOI) { setSelectedPOI(null); return; }
+
+                // Priority 2: Return to MAP tab if elsewhere
+                // (Though usually this component is only rendered in MAP tab)
+
+                // Priority 3: Navigate Up Hierarchy
+                if (viewMode !== 'kingdom') {
+                    const currentHub = POINTS_OF_INTEREST.find(p => p.id === viewMode);
+                    const parentHub = currentHub?.parentId ? POINTS_OF_INTEREST.find(p => p.id === currentHub.parentId) : null;
+
+                    if (viewMode === 'global') {
+                        setViewMode('kingdom');
+                    } else if (parentHub) {
+                        setViewMode(parentHub.id);
+                    } else {
+                        setViewMode('global');
+                    }
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [viewMode, upgradingBuildingId, isDiceGameOpen, dialogNPC, selectedEvent, selectedPOI, setViewMode, activeTab]);
+
+
+
 
     // Reset viewing region to player's region when opening action (optional, but keeps context safe)
     // Actually, we want persistence during browsing.
@@ -527,8 +589,11 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
         };
 
         const prodCtx = getProductionContext(poiId);
-        if (prodCtx && (actionId.startsWith('REFINE_') || actionId.startsWith('CRAFT_') || CRAFTING_RECIPES[actionId])) {
-            setProductionContext(prodCtx);
+        if (prodCtx && (actionId.startsWith('REFINE_') || actionId.startsWith('CRAFT_') || CRAFTING_RECIPES[actionId] || actionId === 'REPAIR')) {
+            setProductionContext({
+                ...prodCtx,
+                initialView: actionId === 'REPAIR' ? 'REPAIR' : 'PRODUCE'
+            });
             setActiveTab('PRODUCTION');
             setSelectedPOI(null);
             return;
@@ -648,44 +713,253 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
 
     const aspectRatioClass = isWidescreen ? 'aspect-video' : 'aspect-[16/10]';
 
+    const containerVariants = {
+        initial: (dir: 'in' | 'out') => ({
+            opacity: 0,
+            scale: dir === 'in' ? 0.9 : 1.1, // Zoom In starts small, Zoom Out starts large
+            filter: 'blur(10px)',
+        }),
+        animate: {
+            opacity: 1,
+            scale: 1,
+            filter: 'blur(0px)',
+            transition: {
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1] as any,
+                staggerChildren: 0.05
+            }
+        },
+        exit: (dir: 'in' | 'out') => ({
+            opacity: 0,
+            scale: dir === 'in' ? 1.1 : 0.9, // Zoom In exits large, Zoom Out exits small
+            filter: 'blur(10px)',
+            pointerEvents: 'none',
+            transition: {
+                duration: 0.4,
+                ease: [0.7, 0, 0.84, 0] as any
+            }
+        })
+    };
+
+    const mapKey = `${viewMode}-${viewingRegionId}`;
+
     return (
         <>
-            <div className={`relative w-full max-w-full max-h-full mx-auto ${aspectRatioClass} rounded-[2rem] overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.5)] border-4 border-white/5 bg-slate-900 transition-all duration-1000`}>
+            <div className={`relative w-full max-w-full max-h-full mx-auto ${aspectRatioClass} rounded-[2rem] overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.5)] border-4 border-white/5 bg-slate-950 transition-all duration-1000`}>
 
-                {/* The Map Background */}
-                <img
-                    src={getBackground()}
-                    alt="Map View"
-                    className={`w-full h-full object-cover transition-all duration-1000 ${weather === 'Fog' ? 'blur-sm' : ''}`}
-                    onError={(e) => {
-                        e.currentTarget.src = '/simulation_map_v2.png';
-                        e.currentTarget.className += ' opacity-30';
-                    }}
-                />
+                <AnimatePresence mode="popLayout" custom={direction}>
+                    <motion.div
+                        key={mapKey}
+                        custom={direction}
+                        variants={containerVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        className="absolute inset-0 w-full h-full will-change-transform"
+                    >
+                        {/* The Map Background */}
+                        <motion.img
+                            src={getBackground()}
+                            alt="Map View"
+                            className={`w-full h-full object-cover ${weather === 'Fog' ? 'blur-sm' : ''}`}
+                            onError={(e) => {
+                                e.currentTarget.src = '/simulation_map_v2.png';
+                                e.currentTarget.className += ' opacity-30';
+                            }}
+                        />
 
-                {/* HUD Overlay (Timer/Yields) */}
+                        {/* Atmospheric Overlays - Only for outdoor locations */}
+                        {(() => {
+                            const indoorViews = ['castle', 'farm_house', 'tavern', 'great_forge', 'bakery', 'windmill', 'sawmill', 'smeltery', 'weavery', 'stables', 'watchtower', 'well', 'apothecary'];
+                            const isOutdoor = !indoorViews.includes(viewMode);
+
+                            if (!isOutdoor) return null;
+
+                            return (
+                                <SimulationAtmosphereLayer
+                                    weather={weather as any}
+                                    season={world?.season || 'Spring'}
+                                    hideClouds={viewMode === 'forest'}
+                                />
+                            );
+                        })()}
+
+                        {/* KINGDOM MAP PINS */}
+                        {viewMode === 'kingdom' && (
+                            <>
+                                {/* CAPITAL PIN (Center) */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="absolute top-[35%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-30 group"
+                                >
+                                    <button
+                                        onClick={() => {
+                                            setViewingRegionId('capital');
+                                            setViewMode('global');
+                                        }}
+                                        className="flex flex-col items-center hover:scale-110 transition-transform"
+                                    >
+                                        <div className="text-6xl drop-shadow-[0_0_15px_rgba(255,215,0,0.8)] animate-pulse">🏰</div>
+                                        <div className="bg-black/80 text-amber-400 px-4 py-2 rounded-xl mt-2 font-black uppercase tracking-widest text-xs border border-amber-500/50 shadow-xl backdrop-blur-md">
+                                            Kongeriket
+                                        </div>
+                                    </button>
+                                </motion.div>
+
+                                {/* BARONY VEST PIN (West/Left map region) */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.1 }}
+                                    className="absolute top-[65%] left-[15%] -translate-x-1/2 -translate-y-1/2 z-30 group"
+                                >
+                                    <button
+                                        onClick={() => {
+                                            setViewingRegionId('region_vest');
+                                            setViewMode('global');
+                                        }}
+                                        className="flex flex-col items-center hover:scale-110 transition-transform"
+                                    >
+                                        <div className="text-5xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🏯</div>
+                                        <div className="bg-black/80 text-indigo-300 px-3 py-1 rounded-xl mt-2 font-bold text-[10px] uppercase tracking-wider border border-white/10 shadow-xl backdrop-blur-md whitespace-nowrap">
+                                            {baronVest?.name || 'Baroni Vest'}
+                                        </div>
+                                    </button>
+                                </motion.div>
+
+                                {/* BARONY OST PIN (East/Right map region) */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.2 }}
+                                    className="absolute top-[65%] left-[85%] -translate-x-1/2 -translate-y-1/2 z-30 group"
+                                >
+                                    <button
+                                        onClick={() => {
+                                            setViewingRegionId('region_ost');
+                                            setViewMode('global');
+                                        }}
+                                        className="flex flex-col items-center hover:scale-110 transition-transform"
+                                    >
+                                        <div className="text-5xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🏘️</div>
+                                        <div className="bg-black/80 text-emerald-300 px-3 py-1 rounded-xl mt-2 font-bold text-[10px] uppercase tracking-wider border border-white/10 shadow-xl backdrop-blur-md whitespace-nowrap">
+                                            {baronOst?.name || 'Baroni Øst'}
+                                        </div>
+                                    </button>
+                                </motion.div>
+                            </>
+                        )}
+
+                        {/* Event Markers (Dynamic) - ONLY IN GLOBAL/LOCAL VIEW, NOT KINGDOM */}
+                        {viewMode !== 'kingdom' && worldEvents && Object.values(worldEvents).map((event: any) => {
+                            const poi = POINTS_OF_INTEREST.find(p => p.id === event.locationId);
+                            if (!poi) return null;
+                            const isCorrectView = viewMode === 'global' ? !poi.parentId : poi.parentId === viewMode;
+                            if (!isCorrectView) return null;
+
+                            const isBarony = viewMode === 'global';
+                            const isOst = isBarony && viewingRegionId === 'region_ost';
+                            const isVest = isBarony && (viewingRegionId === 'region_vest' || viewingRegionId === 'capital');
+                            const isVillage = viewMode === 'village';
+
+                            let top = poi.top;
+                            let left = poi.left;
+
+                            if (isVillage && poi.village) {
+                                top = poi.village.top;
+                                left = poi.village.left;
+                            } else if (isOst && poi.ost) {
+                                top = poi.ost.top;
+                                left = poi.ost.left;
+                            } else if (isVest && poi.vest) {
+                                top = poi.vest.top;
+                                left = poi.vest.left;
+                            }
+
+                            return (
+                                <motion.div
+                                    key={event.id}
+                                    style={{ top, left }}
+                                    initial={{ opacity: 0, scale: 0 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    className="absolute -translate-x-1/2 -translate-y-[150%] z-30"
+                                >
+                                    <button
+                                        onClick={() => setSelectedEvent(event)}
+                                        className={`w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_0_30px_rgba(255,255,255,0.4)] border-4 animate-bounce hover:scale-110 transition-transform ${event.type === 'RAID' ? 'bg-rose-600 border-rose-900 text-white' : 'bg-amber-400 border-amber-700 text-slate-800'}`}
+                                    >
+                                        {event.type === 'RAID' ? '☠️' : '⭐'}
+                                    </button>
+                                </motion.div>
+                            );
+                        })}
+
+                        {/* Overlay Grid / Pins - ONLY IN GLOBAL/LOCAL VIEW */}
+                        {viewMode !== 'kingdom' && POINTS_OF_INTEREST.map(poi => {
+                            const isCorrectView = viewMode === 'global' ? !poi.parentId : poi.parentId === viewMode;
+                            if (!isCorrectView) return null;
+
+                            const isRelevant = poi.roles.includes(player.role) || poi.id === 'market' || poi.isHub;
+                            const isResourceNode = ['grain_fields', 'forest_clearing', 'mine_shaft', 'quarry_poi', 'forest_forage'].includes(poi.id);
+
+                            const isBarony = viewMode === 'global';
+                            const isOst = isBarony && viewingRegionId === 'region_ost';
+                            const isVest = isBarony && (viewingRegionId === 'region_vest' || viewingRegionId === 'capital');
+                            const isVillage = viewMode === 'village';
+
+                            let top = poi.top;
+                            let left = poi.left;
+
+                            if (isVillage && poi.village) {
+                                top = poi.village.top;
+                                left = poi.village.left;
+                            } else if (isOst && poi.ost) {
+                                top = poi.ost.top;
+                                left = poi.ost.left;
+                            } else if (isVest && poi.vest) {
+                                top = poi.vest.top;
+                                left = poi.vest.left;
+                            }
+
+                            return (
+                                <motion.div
+                                    key={poi.id}
+                                    style={{ top, left }}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    className="absolute -translate-x-1/2 -translate-y-1/2 group z-20"
+                                >
+                                    <button
+                                        onClick={() => {
+                                            if (poi.isHub) {
+                                                setViewMode(poi.id);
+                                            } else {
+                                                setSelectedPOI(poi);
+                                            }
+                                        }}
+                                        className={`flex flex-col items-center transition-all ${isRelevant ? 'scale-100' : 'scale-75 opacity-40 grayscale pointer-events-none'}`}
+                                    >
+                                        <div className={`w-16 h-16 rounded-3xl flex items-center justify-center text-4xl shadow-2xl border-2 transition-all duration-300 group-hover:scale-110 ${selectedPOI?.id === poi.id ? 'bg-indigo-600 border-indigo-400 ring-4 ring-indigo-500/30' : 'bg-slate-900/90 backdrop-blur-xl border-white/10 hover:bg-slate-800'}`}>
+                                            {poi.icon}
+                                        </div>
+                                        <span className="bg-indigo-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mt-2 shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-indigo-600/30">
+                                            {isResourceNode ? 'KLIKK FOR Å STARTE' : poi.label}
+                                        </span>
+                                    </button>
+                                </motion.div>
+                            );
+                        })}
+                    </motion.div>
+                </AnimatePresence>
+
+                {/* HUD Overlay (Timer/Yields) - Static, outside AnimatePresence for persistence */}
                 <SimulationProcessHUD player={player} />
 
                 {/* Overlays (Market, Production etc) */}
                 {children}
 
-                {/* Atmospheric Overlays - Only for outdoor locations */}
-                {(() => {
-                    const indoorViews = ['castle', 'farm_house', 'tavern', 'great_forge', 'bakery', 'windmill', 'sawmill', 'smeltery', 'weavery', 'stables', 'watchtower', 'well', 'apothecary'];
-                    const isOutdoor = !indoorViews.includes(viewMode);
-
-                    if (!isOutdoor) return null;
-
-                    return (
-                        <SimulationAtmosphereLayer
-                            weather={weather as any}
-                            season={world?.season || 'Spring'}
-                            hideClouds={viewMode === 'forest'}
-                        />
-                    );
-                })()}
-
-                {/* Navigation Buttons */}
+                {/* Navigation Buttons - Persist across transitions */}
                 {viewMode === 'global' ? (
                     // Show "To Kingdom" button
                     <button
@@ -721,164 +995,6 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                         );
                     })()
                 ) : null}
-
-
-                {/* KINGDOM MAP PINS */}
-                {viewMode === 'kingdom' && (
-                    <>
-                        {/* CAPITAL PIN (Center) */}
-                        <div className="absolute top-[35%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-30 group">
-                            <button
-                                onClick={() => {
-                                    setViewingRegionId('capital');
-                                    setViewMode('global');
-                                }}
-                                className="flex flex-col items-center hover:scale-110 transition-transform"
-                            >
-                                <div className="text-6xl drop-shadow-[0_0_15px_rgba(255,215,0,0.8)] animate-pulse">🏰</div>
-                                <div className="bg-black/80 text-amber-400 px-4 py-2 rounded-xl mt-2 font-black uppercase tracking-widest text-xs border border-amber-500/50 shadow-xl backdrop-blur-md">
-                                    Kongeriket
-                                </div>
-                            </button>
-                        </div>
-
-                        {/* BARONY VEST PIN (West/Left map region) */}
-                        <div className="absolute top-[65%] left-[15%] -translate-x-1/2 -translate-y-1/2 z-30 group">
-                            <button
-                                onClick={() => {
-                                    setViewingRegionId('region_vest');
-                                    setViewMode('global');
-                                }}
-                                className="flex flex-col items-center hover:scale-110 transition-transform"
-                            >
-                                <div className="text-5xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🏯</div>
-                                <div className="bg-black/80 text-indigo-300 px-3 py-1 rounded-xl mt-2 font-bold text-[10px] uppercase tracking-wider border border-white/10 shadow-xl backdrop-blur-md whitespace-nowrap">
-                                    {baronVest?.name || 'Baroni Vest'}
-                                </div>
-                            </button>
-                        </div>
-
-                        {/* BARONY OST PIN (East/Right map region) */}
-                        <div className="absolute top-[65%] left-[85%] -translate-x-1/2 -translate-y-1/2 z-30 group">
-                            <button
-                                onClick={() => {
-                                    setViewingRegionId('region_ost');
-                                    setViewMode('global');
-                                }}
-                                className="flex flex-col items-center hover:scale-110 transition-transform"
-                            >
-                                <div className="text-5xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🏘️</div>
-                                <div className="bg-black/80 text-emerald-300 px-3 py-1 rounded-xl mt-2 font-bold text-[10px] uppercase tracking-wider border border-white/10 shadow-xl backdrop-blur-md whitespace-nowrap">
-                                    {baronOst?.name || 'Baroni Øst'}
-                                </div>
-                            </button>
-                        </div>
-
-                        {/* More Barons? Stack them or place randomly if needed. For now 2 is requirement. */}
-                    </>
-                )}
-
-
-                {/* Atmospheric overlays handled by SimulationAtmosphereLayer */}
-
-                {/* Event Markers (Dynamic) - ONLY IN GLOBAL/LOCAL VIEW, NOT KINGDOM */}
-                {viewMode !== 'kingdom' && worldEvents && Object.values(worldEvents).map((event: any) => {
-                    const poi = POINTS_OF_INTEREST.find(p => p.id === event.locationId);
-                    if (!poi) return null;
-                    const isCorrectView = viewMode === 'global' ? !poi.parentId : poi.parentId === viewMode;
-                    if (!isCorrectView) return null;
-
-                    const isBarony = viewMode === 'global';
-                    const isOst = isBarony && viewingRegionId === 'region_ost';
-                    const isVest = isBarony && (viewingRegionId === 'region_vest' || viewingRegionId === 'capital');
-                    const isVillage = viewMode === 'village';
-
-                    let top = poi.top;
-                    let left = poi.left;
-
-                    if (isVillage && poi.village) {
-                        top = poi.village.top;
-                        left = poi.village.left;
-                    } else if (isOst && poi.ost) {
-                        top = poi.ost.top;
-                        left = poi.ost.left;
-                    } else if (isVest && poi.vest) {
-                        top = poi.vest.top;
-                        left = poi.vest.left;
-                    }
-
-                    return (
-                        <div
-                            key={event.id}
-                            style={{ top, left }}
-                            className="absolute -translate-x-1/2 -translate-y-[150%] z-30"
-                        >
-                            <button
-                                onClick={() => setSelectedEvent(event)}
-                                className={`w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_0_30px_rgba(255,255,255,0.4)] border-4 animate-bounce hover:scale-110 transition-transform ${event.type === 'RAID' ? 'bg-rose-600 border-rose-900 text-white' : 'bg-amber-400 border-amber-700 text-slate-800'}`}
-                            >
-                                {event.type === 'RAID' ? '☠️' : '⭐'}
-                            </button>
-                        </div>
-                    );
-                })}
-
-
-                {/* Overlay Grid / Pins - ONLY IN GLOBAL/LOCAL VIEW */}
-                {viewMode !== 'kingdom' && POINTS_OF_INTEREST.map(poi => {
-                    const isCorrectView = viewMode === 'global' ? !poi.parentId : poi.parentId === viewMode;
-                    if (!isCorrectView) return null;
-
-                    const isRelevant = poi.roles.includes(player.role) || poi.id === 'market' || poi.isHub;
-                    // Removed hiding logic to allow construction UI
-
-                    const isResourceNode = ['grain_fields', 'forest_clearing', 'mine_shaft', 'quarry_poi', 'forest_forage'].includes(poi.id);
-
-                    const isBarony = viewMode === 'global';
-                    const isOst = isBarony && viewingRegionId === 'region_ost';
-                    const isVest = isBarony && (viewingRegionId === 'region_vest' || viewingRegionId === 'capital');
-                    const isVillage = viewMode === 'village';
-
-                    let top = poi.top;
-                    let left = poi.left;
-
-                    if (isVillage && poi.village) {
-                        top = poi.village.top;
-                        left = poi.village.left;
-                    } else if (isOst && poi.ost) {
-                        top = poi.ost.top;
-                        left = poi.ost.left;
-                    } else if (isVest && poi.vest) {
-                        top = poi.vest.top;
-                        left = poi.vest.left;
-                    }
-
-                    return (
-                        <div
-                            key={poi.id}
-                            style={{ top, left }}
-                            className="absolute -translate-x-1/2 -translate-y-1/2 group z-20"
-                        >
-                            <button
-                                onClick={() => {
-                                    if (poi.isHub) {
-                                        setViewMode(poi.id);
-                                    } else {
-                                        setSelectedPOI(poi);
-                                    }
-                                }}
-                                className={`flex flex-col items-center transition-all ${isRelevant ? 'scale-100' : 'scale-75 opacity-40 grayscale pointer-events-none'}`}
-                            >
-                                <div className={`w-16 h-16 rounded-3xl flex items-center justify-center text-4xl shadow-2xl border-2 transition-all duration-300 group-hover:scale-110 ${selectedPOI?.id === poi.id ? 'bg-indigo-600 border-indigo-400 ring-4 ring-indigo-500/30' : 'bg-slate-900/90 backdrop-blur-xl border-white/10 hover:bg-slate-800'}`}>
-                                    {poi.icon}
-                                </div>
-                                <span className="bg-indigo-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mt-2 shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-indigo-600/30">
-                                    {isResourceNode ? 'KLIKK FOR Å STARTE' : poi.label}
-                                </span>
-                            </button>
-                        </div>
-                    );
-                })}
 
                 {/* Event Info Modal */}
                 {selectedEvent && (
@@ -1029,152 +1145,131 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                         const nextLevelDef = buildingDef.levels[nextLevel];
 
                         return (
-                            <div className="fixed inset-0 top-0 left-0 w-screen h-screen z-[200] flex items-center justify-center p-6 bg-slate-950/95 backdrop-blur-xl animate-in fade-in duration-500">
-                                <div className="bg-slate-900 border border-white/10 rounded-[3rem] max-w-2xl w-full flex flex-col relative overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
-                                    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[100px] -mr-32 -mt-32 rounded-full" />
-
-                                    {/* Header */}
-                                    <div className="p-8 flex items-center justify-between z-10">
-                                        <div className="flex items-center gap-6">
-                                            <div className="w-20 h-20 bg-indigo-600/20 text-indigo-400 rounded-3xl flex items-center justify-center text-5xl shadow-2xl border border-indigo-500/20">
-                                                {buildingDef.icon}
-                                            </div>
-                                            <div>
-                                                <h2 className="text-4xl font-black text-white tracking-tighter uppercase">{buildingDef.name}</h2>
-                                                <div className="flex items-center gap-3 mt-1">
-                                                    <span className="bg-indigo-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Nivå {currentLevel}</span>
-                                                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{currentLevelDef?.bonus}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button
-                                            onClick={() => setUpgradingBuildingId(null)}
-                                            className="w-12 h-12 bg-white/5 hover:bg-white/10 text-white rounded-full flex items-center justify-center transition-all active:scale-95"
-                                        >
-                                            ✕
-                                        </button>
+                            <SimulationMapWindow
+                                title={`${buildingDef.name}`}
+                                icon={<span className="text-4xl">{buildingDef.icon}</span>}
+                                onClose={() => setUpgradingBuildingId(null)}
+                                headerRight={
+                                    <div className="flex items-center gap-3">
+                                        <span className="bg-indigo-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Nivå {currentLevel}</span>
+                                        <span className="hidden md:inline text-[10px] text-slate-500 font-bold uppercase tracking-widest">{currentLevelDef?.bonus}</span>
+                                    </div>
+                                }
+                            >
+                                <div className="space-y-8 py-4 relative">
+                                    <div className="bg-slate-900/80 rounded-[2rem] p-8 w-full border border-white/5 text-center relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 blur-3xl rounded-full -mr-16 -mt-16" />
+                                        <p className="text-indigo-300 text-sm font-bold mb-4 uppercase tracking-widest flex items-center justify-center gap-2">
+                                            <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
+                                            Bonus ved neste nivå: {nextLevelDef?.bonus || 'Maksimal effekt'}
+                                        </p>
+                                        <p className="text-slate-400 text-sm leading-relaxed italic opacity-80">
+                                            "{buildingDef.description}"
+                                        </p>
                                     </div>
 
-                                    {/* Content */}
-                                    <div className="flex-1 overflow-y-auto p-8 z-10 custom-scrollbar pt-0">
-                                        <div className="flex flex-col items-center">
-                                            <div className="bg-black/40 rounded-[2rem] p-8 w-full mb-8 border border-white/5 text-center">
-                                                <p className="text-indigo-300 text-sm font-bold mb-4 uppercase tracking-widest flex items-center justify-center gap-2">
-                                                    <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
-                                                    Bonus ved neste nivå: {nextLevelDef?.bonus || 'Maksimal effekt'}
-                                                </p>
-                                                <p className="text-slate-400 text-sm leading-relaxed italic opacity-80">
-                                                    "{buildingDef.description}"
-                                                </p>
+                                    {nextLevelDef ? (
+                                        <div className="w-full space-y-8">
+                                            <div className="text-left">
+                                                <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Byggeprogresjon (Nivå {nextLevel})</div>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                    {Object.entries(nextLevelDef.requirements || {}).map(([res, targetAmt]: [any, any]) => {
+                                                        const currentAmt = Math.floor((buildingState.progress as any)?.[res] || 0);
+                                                        const progress = Math.min(100, (currentAmt / targetAmt) * 100);
+                                                        const playerHas = Math.floor((player.resources as any)?.[res] || 0);
+                                                        const needed = targetAmt - currentAmt;
+                                                        const canGive = playerHas > 0 && needed > 0;
+                                                        const giveAmount = Math.min(playerHas, needed);
+
+                                                        return (
+                                                            <div key={res} className="p-5 bg-slate-900/70 rounded-2xl border border-white/5 space-y-3">
+                                                                <div className="flex justify-between items-end">
+                                                                    <span className="text-xs font-black uppercase text-slate-300 tracking-widest">{res}</span>
+                                                                    <span className="text-xs font-bold text-slate-500">{currentAmt} / {targetAmt}</span>
+                                                                </div>
+                                                                <div className="space-y-3">
+                                                                    <div className="h-2.5 bg-black/40 rounded-full overflow-hidden border border-white/5 shadow-inner">
+                                                                        <div
+                                                                            className="h-full bg-gradient-to-r from-indigo-600 to-indigo-400 transition-all duration-1000 shadow-[0_0_15px_rgba(79,70,229,0.4)]"
+                                                                            style={{ width: `${progress}%` }}
+                                                                        />
+                                                                    </div>
+
+                                                                    {needed > 0 ? (
+                                                                        canGive ? (
+                                                                            <button
+                                                                                onClick={() => onAction({
+                                                                                    type: 'CONTRIBUTE_TO_UPGRADE',
+                                                                                    buildingId: upgradingBuildingId,
+                                                                                    resource: res,
+                                                                                    amount: giveAmount
+                                                                                })}
+                                                                                className="w-full py-2 bg-indigo-600/80 hover:bg-indigo-600 text-white text-[10px] font-black rounded-xl transition-all active:scale-95 shadow-lg shadow-indigo-600/20 uppercase tracking-widest"
+                                                                            >
+                                                                                Bidra {giveAmount} {res}
+                                                                            </button>
+                                                                        ) : (
+                                                                            <div className="w-full py-2 bg-rose-900/10 border border-rose-500/10 text-rose-500/60 text-[9px] font-black rounded-xl text-center uppercase tracking-widest">
+                                                                                Mangler {res}
+                                                                            </div>
+                                                                        )
+                                                                    ) : (
+                                                                        <div className="text-[10px] text-emerald-500 font-bold uppercase tracking-widest text-center py-1">Krav møtt ✓</div>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
                                             </div>
 
-                                            {nextLevelDef ? (
-                                                <div className="w-full space-y-8">
-                                                    <div className="text-left">
-                                                        <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Byggeprogresjon (Nivå {nextLevel})</div>
-                                                        <div className="space-y-4">
-                                                            {Object.entries(nextLevelDef.requirements || {}).map(([res, targetAmt]: [any, any]) => {
-                                                                const currentAmt = Math.floor((buildingState.progress as any)?.[res] || 0);
-                                                                const progress = Math.min(100, (currentAmt / targetAmt) * 100);
-                                                                const playerHas = Math.floor((player.resources as any)?.[res] || 0);
-                                                                const needed = targetAmt - currentAmt;
-                                                                const canGive = playerHas > 0 && needed > 0;
-                                                                const giveAmount = Math.min(playerHas, needed);
-
-                                                                return (
-                                                                    <div key={res} className="p-4 bg-black/20 rounded-2xl border border-white/5 space-y-3">
-                                                                        <div className="flex justify-between items-end">
-                                                                            <span className="text-xs font-black uppercase text-slate-300 tracking-widest">{res}</span>
-                                                                            <span className="text-xs font-bold text-slate-500">{currentAmt} / {targetAmt}</span>
-                                                                        </div>
-                                                                        <div className="flex gap-3 items-center">
-                                                                            <div className="flex-1 h-3 bg-black/40 rounded-full overflow-hidden border border-white/5 shadow-inner">
-                                                                                <div
-                                                                                    className="h-full bg-gradient-to-r from-indigo-600 to-indigo-400 transition-all duration-1000 shadow-[0_0_15px_rgba(79,70,229,0.4)]"
-                                                                                    style={{ width: `${progress}%` }}
-                                                                                />
-                                                                            </div>
-
-                                                                            {needed > 0 ? (
-                                                                                canGive ? (
-                                                                                    <button
-                                                                                        onClick={() => onAction({
-                                                                                            type: 'CONTRIBUTE_TO_UPGRADE',
-                                                                                            buildingId: upgradingBuildingId,
-                                                                                            resource: res,
-                                                                                            amount: giveAmount
-                                                                                        })}
-                                                                                        className="px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-[10px] font-black rounded-xl transition-all active:scale-95 shadow-lg shadow-indigo-600/20 uppercase tracking-widest"
-                                                                                    >
-                                                                                        BIDRA ({giveAmount})
-                                                                                    </button>
-                                                                                ) : (
-                                                                                    <button
-                                                                                        disabled
-                                                                                        className="px-6 py-2 bg-rose-900/20 border border-rose-500/20 text-rose-500 text-[10px] font-black rounded-xl cursor-not-allowed uppercase tracking-widest opacity-70"
-                                                                                    >
-                                                                                        MANGLER {res}
-                                                                                    </button>
-                                                                                )
-                                                                            ) : (
-                                                                                <div className="text-[10px] text-emerald-500 font-bold uppercase tracking-widest text-right px-4">Ferdig! ✓</div>
-                                                                            )}
-                                                                        </div>
-                                                                    </div>
-                                                                );
-                                                            })}
-                                                        </div>
+                                            {/* Contributors List for Global Buildings */}
+                                            {!isPrivate && (buildingState as any).contributions && Object.keys((buildingState as any).contributions).length > 0 && (
+                                                <div className="w-full bg-indigo-500/5 rounded-3xl p-6 border border-indigo-500/10">
+                                                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 mb-4 flex items-center gap-2">
+                                                        <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full" />
+                                                        Siste bidrag fra riket
                                                     </div>
-
-                                                    {/* Contributors List for Global Buildings */}
-                                                    {!isPrivate && (buildingState as any).contributions && Object.keys((buildingState as any).contributions).length > 0 && (
-                                                        <div className="w-full bg-indigo-500/5 rounded-3xl p-6 border border-indigo-500/10">
-                                                            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 mb-4 flex items-center gap-2">
-                                                                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full" />
-                                                                Siste bidrag fra baroniet
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                                        {Object.entries((buildingState as any).contributions).slice(0, 4).map(([pId, data]: [string, any]) => (
+                                                            <div key={pId} className="flex justify-between items-center bg-black/20 px-4 py-3 rounded-xl border border-white/5">
+                                                                <span className="text-xs font-bold text-slate-200">{data.name}</span>
+                                                                <div className="flex gap-2">
+                                                                    {Object.entries(data.resources || {}).map(([r, a]: [any, any]) => (
+                                                                        <span key={r} className="text-[10px] font-black text-emerald-400">+{a}</span>
+                                                                    ))}
+                                                                </div>
                                                             </div>
-                                                            <div className="space-y-3">
-                                                                {Object.entries((buildingState as any).contributions).slice(0, 5).map(([pId, data]: [string, any]) => (
-                                                                    <div key={pId} className="flex justify-between items-center bg-black/20 px-4 py-3 rounded-xl border border-white/5">
-                                                                        <span className="text-sm font-bold text-slate-200">{data.name}</span>
-                                                                        <div className="flex gap-3">
-                                                                            {Object.entries(data.resources || {}).map(([r, a]: [any, any]) => (
-                                                                                <span key={r} className="text-xs font-black text-emerald-400">+{a} {r}</span>
-                                                                            ))}
-                                                                        </div>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-                                                    )}
-
-                                                    {/* Final Upgrade Button (Only if all requirements met and building didn't auto-level) */}
-                                                    {(() => {
-                                                        const isReady = Object.entries(nextLevelDef.requirements).every(([res, amt]) => ((buildingState.progress as any)?.[res] || 0) >= (amt as number));
-                                                        if (!isReady) return null;
-                                                        return (
-                                                            <button
-                                                                onClick={() => {
-                                                                    onAction({ type: 'CONTRIBUTE_TO_UPGRADE', buildingId: upgradingBuildingId, resource: 'dummy', amount: 0 }); // Trigger check
-                                                                    setUpgradingBuildingId(null);
-                                                                }}
-                                                                className="w-full py-6 bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase tracking-widest rounded-[1.5rem] shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3 animate-bounce"
-                                                            >
-                                                                Fullfør Oppgradering 🏗️
-                                                            </button>
-                                                        );
-                                                    })()}
-                                                </div>
-                                            ) : (
-                                                <div className="py-12 px-10 bg-emerald-500/10 border border-emerald-500/20 rounded-[2.5rem] text-center w-full">
-                                                    <div className="text-emerald-400 font-black uppercase tracking-widest text-lg mb-2">Mesterverk fullført! 🏆</div>
-                                                    <div className="text-slate-400 text-sm font-medium">Denne bygningen har nådd sitt maksimale potensial.</div>
+                                                        ))}
+                                                    </div>
                                                 </div>
                                             )}
+
+                                            {/* Final Upgrade Button */}
+                                            {(() => {
+                                                const isReady = Object.entries(nextLevelDef.requirements).every(([res, amt]) => ((buildingState.progress as any)?.[res] || 0) >= (amt as number));
+                                                if (!isReady) return null;
+                                                return (
+                                                    <button
+                                                        onClick={() => {
+                                                            onAction({ type: 'CONTRIBUTE_TO_UPGRADE', buildingId: upgradingBuildingId, resource: 'dummy', amount: 0 }); // Trigger check
+                                                            setUpgradingBuildingId(null);
+                                                        }}
+                                                        className="w-full py-6 bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase tracking-widest rounded-[1.5rem] shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3 animate-bounce mt-4 shadow-emerald-600/20"
+                                                    >
+                                                        Fullfør Oppgradering 🏗️
+                                                    </button>
+                                                );
+                                            })()}
                                         </div>
-                                    </div>
+                                    ) : (
+                                        <div className="py-12 px-10 bg-emerald-500/5 border border-emerald-500/10 rounded-[2.5rem] text-center w-full">
+                                            <div className="text-emerald-400 font-black uppercase tracking-widest text-lg mb-2">Mesterverk fullført! 🏆</div>
+                                            <div className="text-slate-400 text-sm font-medium">Denne bygningen har nådd sitt maksimale potensial.</div>
+                                        </div>
+                                    )}
                                 </div>
-                            </div>
+                            </SimulationMapWindow>
                         );
                     })()
                 }

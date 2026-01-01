@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSimulation } from '../SimulationContext';
-import { REFINERY_RECIPES, CRAFTING_RECIPES, RESOURCE_DETAILS, ITEM_TEMPLATES, VILLAGE_BUILDINGS, REPAIR_CONFIG } from '../constants';
+import { REFINERY_RECIPES, CRAFTING_RECIPES, RESOURCE_DETAILS, ITEM_TEMPLATES, VILLAGE_BUILDINGS, REPAIR_CONFIG, SKILL_DETAILS } from '../constants';
 import type { SimulationPlayer, SimulationRoom, EquipmentSlot } from '../simulationTypes';
 import { GameButton } from '../ui/GameButton';
 import { Info, Zap, TrendingUp, Package, Wrench } from 'lucide-react';
@@ -9,11 +9,12 @@ import { checkActionRequirements } from '../utils/actionUtils';
 import { ResourceIcon } from '../ui/ResourceIcon';
 
 // Sub-components
-import { ProductionHeader } from './ProductionHeader';
 import { RecipeCard } from './RecipeCard';
 import { RequirementList } from './RequirementList';
 import { StatsComparison } from './StatsComparison';
 import { RepairSlot } from './RepairSlot';
+import { SimulationMapWindow } from './ui/SimulationMapWindow';
+import { ProductionTabSwitcher } from './ProductionTabSwitcher';
 
 interface SimulationProductionProps {
     player: SimulationPlayer;
@@ -24,7 +25,14 @@ interface SimulationProductionProps {
 export const SimulationProduction: React.FC<SimulationProductionProps> = React.memo(({ player, room, onAction }) => {
 
     const { productionContext, setActiveTab, actionLoading } = useSimulation();
-    const [viewMode, setViewMode] = useState<'PRODUCE' | 'REPAIR'>('PRODUCE');
+    const [viewMode, setViewMode] = useState<'PRODUCE' | 'REPAIR'>(productionContext?.initialView || 'PRODUCE');
+
+    // Sync viewMode when context changes (e.g. switching from produce to repair via map)
+    useEffect(() => {
+        if (productionContext?.initialView) {
+            setViewMode(productionContext.initialView);
+        }
+    }, [productionContext?.initialView]);
     const [selectedRecipeId, setSelectedRecipeId] = useState<string | null>(null);
     const [selectedRepairSlot, setSelectedRepairSlot] = useState<string | null>(null);
 
@@ -33,8 +41,12 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
 
     if (!productionContext) {
         return (
-            <div className="bg-slate-900/90 border border-white/10 rounded-[3rem] p-12 shadow-2xl relative w-full max-w-lg animate-in zoom-in-95 duration-300">
-                <div className="flex flex-col items-center justify-center text-center space-y-6">
+            <SimulationMapWindow
+                title="Produksjon"
+                onClose={() => setActiveTab('MAP')}
+                icon="🔨"
+            >
+                <div className="flex flex-col items-center justify-center text-center space-y-6 py-20">
                     <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center text-4xl">⚠️</div>
                     <div className="space-y-2">
                         <h3 className="text-xl font-black text-white uppercase tracking-tighter">Utilgjengelig</h3>
@@ -42,7 +54,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                     </div>
                     <GameButton variant="ghost" onClick={() => setActiveTab('MAP')} className="border border-white/10">Tilbake til Kartet</GameButton>
                 </div>
-            </div>
+            </SimulationMapWindow>
         );
     }
 
@@ -134,230 +146,243 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
     };
 
     return (
-        <div className="bg-slate-900/90 border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-2xl relative w-full max-w-7xl max-h-[90vh] overflow-y-auto custom-scrollbar animate-in zoom-in-95 duration-300">
-            {/* Close Button Trigger */}
-            <button
-                onClick={() => setActiveTab('MAP')}
-                className="absolute top-8 right-8 w-12 h-12 bg-white/5 hover:bg-rose-500/20 text-slate-400 hover:text-rose-500 rounded-full flex items-center justify-center transition-all z-10 group"
-                title="Lukk"
-            >
-                <span className="text-2xl group-hover:rotate-90 transition-transform">✕</span>
-            </button>
+        <SimulationMapWindow
+            title={building?.name || 'Verksted'}
+            subtitle={
+                <div className="flex items-center gap-3">
+                    <span className="opacity-60">{building?.description}</span>
+                    <span className="w-1 h-1 bg-white/20 rounded-full" />
+                    <span className="text-indigo-400">Nivå {currentBuildingLevel}</span>
+                </div>
+            }
+            icon={building?.icon || '🔨'}
+            onClose={() => setActiveTab('MAP')}
+            maxWidth="max-w-6xl"
+            headerRight={
+                <ProductionTabSwitcher
+                    isStationWithRepair={isStationWithRepair}
+                    viewMode={viewMode}
+                    setViewMode={setViewMode}
+                />
+            }
+        >
+            <div className="space-y-6 py-2 animate-in fade-in slide-in-from-bottom-6 duration-700">
+                <div className="flex flex-col lg:flex-row gap-6 items-start">
+                    {/* LEFT: CONTENT AREA */}
+                    <div className="flex-1 space-y-6">
 
-            <div className="flex flex-col lg:flex-row gap-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
-                {/* LEFT: CONTENT AREA */}
-                <div className="flex-1 space-y-8">
-                    <ProductionHeader
-                        building={building}
-                        currentBuildingLevel={currentBuildingLevel}
-                        isStationWithRepair={isStationWithRepair}
-                        viewMode={viewMode}
-                        setViewMode={setViewMode}
-                    />
-
-                    {viewMode === 'PRODUCE' ? (
-                        <div className="space-y-10">
-                            {recipesByLevel.map(([levelStr, levelRecipes]) => {
-                                const levelNum = parseInt(levelStr);
-                                const isLocked = levelNum > currentBuildingLevel;
-
-                                return (
-                                    <div key={levelStr} className="space-y-4">
-                                        <div className="flex items-center gap-3">
-                                            <div className={`px-3 py-1 rounded-full text-xs font-black tracking-widest uppercase ${isLocked ? 'bg-slate-800 text-slate-500' : 'bg-indigo-600 text-white'}`}>
-                                                Tier {levelStr}
-                                            </div>
-                                            <div className="flex-1 h-px bg-white/5"></div>
-                                            {isLocked && (
-                                                <span className="text-xs font-bold text-slate-600 italic flex items-center gap-1">
-                                                    <Package className="w-3 h-3" /> Oppgrader {building?.name} til Nivå {levelStr}
-                                                </span>
-                                            )}
-                                        </div>
-
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                            {levelRecipes.map(([id, r]: [string, any]) => {
-                                                const actionPayload = type === 'REFINE' ? { type: 'REFINE', recipeId: id } : { type: 'CRAFT', subType: id };
-                                                const check = checkActionRequirements(player, actionPayload);
-
-                                                return (
-                                                    <RecipeCard
-                                                        key={id}
-                                                        id={id}
-                                                        isSelected={selectedRecipeId === id}
-                                                        isLocked={isLocked}
-                                                        canAfford={check.success}
-                                                        info={getOutputInfo(id, r)}
-                                                        onSelect={setSelectedRecipeId}
-                                                    />
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    ) : (
-                        /* REPAIR VIEW */
-                        <div className="space-y-6">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {REPAIR_CONFIG[buildingId]?.slots.map((slot) => {
-                                    const item = player.equipment[slot as EquipmentSlot];
-                                    if (!item) return null;
+                        {viewMode === 'PRODUCE' ? (
+                            <div className="space-y-10">
+                                {recipesByLevel.map(([levelStr, levelRecipes]) => {
+                                    const levelNum = parseInt(levelStr);
+                                    const isLocked = levelNum > currentBuildingLevel;
 
                                     return (
-                                        <RepairSlot
-                                            key={slot}
-                                            slot={slot}
-                                            item={item}
-                                            isSelected={selectedRepairSlot === slot}
-                                            onSelect={setSelectedRepairSlot}
-                                        />
+                                        <div key={levelStr} className="space-y-4">
+                                            <div className="flex items-center gap-3">
+                                                <div className={`px-3 py-1 rounded-full text-xs font-black tracking-widest uppercase ${isLocked ? 'bg-slate-800 text-slate-500' : 'bg-indigo-600 text-white'}`}>
+                                                    Tier {levelStr}
+                                                </div>
+                                                <div className="flex-1 h-px bg-white/5"></div>
+                                                {isLocked && (
+                                                    <span className="text-xs font-bold text-slate-600 italic flex items-center gap-1">
+                                                        <Package className="w-3 h-3" /> Oppgrader {building?.name} til Nivå {levelStr}
+                                                    </span>
+                                                )}
+                                            </div>
+
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                {levelRecipes.map(([id, r]: [string, any]) => {
+                                                    const actionPayload = type === 'REFINE' ? { type: 'REFINE', recipeId: id } : { type: 'CRAFT', subType: id };
+                                                    const check = checkActionRequirements(player, actionPayload);
+
+                                                    return (
+                                                        <RecipeCard
+                                                            key={id}
+                                                            id={id}
+                                                            isSelected={selectedRecipeId === id}
+                                                            isLocked={isLocked}
+                                                            canAfford={check.success}
+                                                            info={getOutputInfo(id, r)}
+                                                            onSelect={setSelectedRecipeId}
+                                                        />
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
                                     );
                                 })}
+                            </div>
+                        ) : (
+                            /* REPAIR VIEW */
+                            <div className="space-y-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {REPAIR_CONFIG[buildingId]?.slots.map((slot) => {
+                                        const item = player.equipment[slot as EquipmentSlot];
+                                        if (!item) return null;
 
-                                {REPAIR_CONFIG[buildingId]?.slots.every(slot => !player.equipment[slot as EquipmentSlot]) && (
-                                    <div className="col-span-full py-12 text-center bg-black/20 rounded-[2rem] border border-dashed border-white/5">
-                                        <p className="text-slate-500 italic">Ingen relevante gjenstander utstyrt for reparasjon her.</p>
+                                        return (
+                                            <RepairSlot
+                                                key={slot}
+                                                slot={slot}
+                                                item={item}
+                                                isSelected={selectedRepairSlot === slot}
+                                                onSelect={setSelectedRepairSlot}
+                                            />
+                                        );
+                                    })}
+
+                                    {REPAIR_CONFIG[buildingId]?.slots.every(slot => !player.equipment[slot as EquipmentSlot]) && (
+                                        <div className="col-span-full py-12 text-center bg-slate-900/40 rounded-[2rem] border border-dashed border-white/5">
+                                            <p className="text-slate-500 italic">Ingen relevante gjenstander utstyrt for reparasjon her.</p>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* RIGHT: DETAILS PANEL */}
+                    <div className={`w-full lg:w-[400px] shrink-0 transition-all duration-500 ${viewMode === 'REPAIR' ? 'scale-95 opacity-80' : selectedRecipe ? 'opacity-100' : 'opacity-30 grayscale pointer-events-none'}`}>
+                        {viewMode === 'REPAIR' ? (
+                            <div className="bg-slate-900/60 backdrop-blur-xl border border-amber-500/20 rounded-[2.5rem] p-6">
+                                {selectedItemToRepair ? (
+                                    <>
+                                        <div className="text-center mb-8">
+                                            <div className="w-24 h-24 bg-gradient-to-br from-amber-500 to-orange-600 rounded-[2rem] flex items-center justify-center text-6xl mx-auto shadow-2xl border-4 border-white/10 mb-6">
+                                                {selectedItemToRepair.icon}
+                                            </div>
+                                            <h3 className="text-2xl font-black text-white tracking-tighter mb-2">{selectedItemToRepair.name}</h3>
+                                            <div className="flex flex-col items-center gap-2">
+                                                <div className="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                                    Holdbarhet: <span className="text-amber-500">{selectedItemToRepair.durability} / {selectedItemToRepair.maxDurability}</span>
+                                                </div>
+                                                <div className="w-48 h-1.5 bg-black/40 rounded-full overflow-hidden">
+                                                    <div
+                                                        className="h-full bg-amber-500"
+                                                        style={{ width: `${(selectedItemToRepair.durability / selectedItemToRepair.maxDurability) * 100}%` }}
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-4">
+                                            <div className="text-xs font-black uppercase tracking-widest text-slate-500">Reparasjonskostnad</div>
+                                            <div className="space-y-3">
+                                                <div className="flex items-center justify-between">
+                                                    <div className="flex items-center gap-2">
+                                                        <ResourceIcon resource="gold" size="sm" />
+                                                        <span className="text-sm font-bold text-slate-300">Gull</span>
+                                                    </div>
+                                                    <span className="text-amber-400 font-black">-{REPAIR_CONFIG[buildingId]?.goldCost || 0}</span>
+                                                </div>
+                                                <div className="flex items-center justify-between">
+                                                    <div className="flex items-center gap-2">
+                                                        <ResourceIcon resource={REPAIR_CONFIG[buildingId]?.material || 'iron_ingot'} size="sm" />
+                                                        <span className="text-sm font-bold text-slate-300">{(RESOURCE_DETAILS as any)[REPAIR_CONFIG[buildingId]?.material || 'iron_ingot']?.label || 'Materiale'}</span>
+                                                    </div>
+                                                    <span className="text-amber-400 font-black">-1</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="mt-8 mb-6 p-6 bg-indigo-500/5 border border-indigo-500/10 rounded-2xl">
+                                            <p className="text-sm text-indigo-200/90 font-medium text-center leading-relaxed">
+                                                Reparasjon gjenoppretter 30 holdbarhetspoeng.
+                                            </p>
+                                        </div>
+
+                                        <GameButton
+                                            variant="primary"
+                                            size="lg"
+                                            className="h-20 text-xl w-full bg-amber-600 hover:bg-amber-500 border-amber-400/50"
+                                            onClick={handleRepair}
+                                            disabled={!!actionLoading || selectedItemToRepair.durability >= selectedItemToRepair.maxDurability || (player.resources?.gold || 0) < (REPAIR_CONFIG[buildingId]?.goldCost || 0) || ((player.resources as any)?.[REPAIR_CONFIG[buildingId]?.material] || 0) < 1}
+                                        >
+                                            {selectedItemToRepair.durability >= selectedItemToRepair.maxDurability ? 'FULL HOLDBARHET' : 'REPARER GJENSTAND'}
+                                        </GameButton>
+                                    </>
+                                ) : (
+                                    <div className="py-20 flex flex-col items-center justify-center text-center opacity-50">
+                                        <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6">
+                                            <Wrench className="w-10 h-10 text-slate-600" />
+                                        </div>
+                                        <h4 className="text-xl font-bold text-slate-400">Velg utstyr</h4>
+                                        <p className="text-sm text-slate-500 max-w-[200px] mt-2">Trykk på en gjenstand til venstre for å se reparasjonsdetaljer.</p>
                                     </div>
                                 )}
                             </div>
-                        </div>
-                    )}
-                </div>
-
-                {/* RIGHT: DETAILS PANEL */}
-                <div className={`w-full lg:w-[450px] shrink-0 transition-all duration-500 ${viewMode === 'REPAIR' ? 'scale-95 opacity-80' : selectedRecipe ? 'opacity-100' : 'opacity-30 grayscale pointer-events-none'}`}>
-                    {viewMode === 'REPAIR' ? (
-                        <div className="bg-slate-900/40 backdrop-blur-xl border border-amber-500/20 rounded-[3rem] p-8 shadow-2xl sticky top-8">
-                            {selectedItemToRepair ? (
-                                <>
-                                    <div className="text-center mb-8">
-                                        <div className="w-24 h-24 bg-gradient-to-br from-amber-500 to-orange-600 rounded-[2rem] flex items-center justify-center text-6xl mx-auto shadow-2xl border-4 border-white/10 mb-6">
-                                            {selectedItemToRepair.icon}
-                                        </div>
-                                        <h3 className="text-3xl font-black text-white tracking-tighter mb-2">{selectedItemToRepair.name}</h3>
-                                        <div className="flex flex-col items-center gap-2">
-                                            <div className="flex items-center gap-2 text-sm font-bold text-slate-400">
-                                                Holdbarhet: <span className="text-amber-500">{selectedItemToRepair.durability} / {selectedItemToRepair.maxDurability}</span>
-                                            </div>
-                                            <div className="w-48 h-1.5 bg-black/40 rounded-full overflow-hidden">
-                                                <div
-                                                    className="h-full bg-amber-500"
-                                                    style={{ width: `${(selectedItemToRepair.durability / selectedItemToRepair.maxDurability) * 100}%` }}
-                                                />
-                                            </div>
-                                        </div>
+                        ) : selectedRecipe ? (
+                            <div className="bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-6">
+                                {/* Header */}
+                                <div className="text-center mb-6">
+                                    <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-[1.8rem] flex items-center justify-center text-5xl mx-auto shadow-2xl border-[3px] border-white/10 mb-4 group-hover:rotate-6 transition-transform">
+                                        {getOutputInfo(selectedRecipeId!, selectedRecipe).icon}
                                     </div>
+                                    <h3 className="text-3xl font-black text-white tracking-tighter mb-2">{getOutputInfo(selectedRecipeId!, selectedRecipe).name}</h3>
+                                    <p className="text-slate-400 text-sm font-medium px-6 leading-relaxed">{getOutputInfo(selectedRecipeId!, selectedRecipe).description}</p>
+                                </div>
 
-                                    <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-4">
-                                        <div className="text-xs font-black uppercase tracking-widest text-slate-500">Reparasjonskostnad</div>
+                                {/* Requirements */}
+                                <div className="space-y-4">
+                                    <RequirementList recipe={selectedRecipe} player={player} />
+
+                                    {/* Production Stats / Bonuses */}
+                                    <div className="bg-black/40 rounded-3xl p-5 border border-white/5 space-y-5">
+                                        <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-slate-500">
+                                            <TrendingUp className="w-3 h-3" /> Utbytte & Sammenligning
+                                        </div>
+
+                                        <StatsComparison recipe={selectedRecipe} player={player} type={type} />
+
                                         <div className="space-y-3">
-                                            <div className="flex items-center justify-between">
-                                                <div className="flex items-center gap-2">
-                                                    <ResourceIcon resource="gold" size="sm" />
-                                                    <span className="text-sm font-bold text-slate-300">Gull</span>
-                                                </div>
-                                                <span className="text-amber-400 font-black">-{REPAIR_CONFIG[buildingId]?.goldCost || 0}</span>
+                                            <div className="text-[11px] font-black uppercase tracking-widest text-slate-500 border-b border-white/5 pb-2">
+                                                Dette produseres
                                             </div>
                                             <div className="flex items-center justify-between">
-                                                <div className="flex items-center gap-2">
-                                                    <ResourceIcon resource={REPAIR_CONFIG[buildingId]?.material || 'iron_ingot'} size="sm" />
-                                                    <span className="text-sm font-bold text-slate-300">{(RESOURCE_DETAILS as any)[REPAIR_CONFIG[buildingId]?.material || 'iron_ingot']?.label || 'Materiale'}</span>
+                                                <div className="space-y-1">
+                                                    <div className="text-[10px] text-slate-500 font-black uppercase tracking-wider">Basis-antall</div>
+                                                    <div className="text-xl font-black text-white leading-none">+{selectedRecipe.outputAmount || selectedRecipe.output?.amount || 1}</div>
                                                 </div>
-                                                <span className="text-amber-400 font-black">-1</span>
+                                                <div className="h-8 w-[1px] bg-white/5"></div>
+                                                <div className="space-y-1 text-right">
+                                                    <div className="text-[10px] text-emerald-500 font-black uppercase tracking-wider">Bonus fra {SKILL_DETAILS[selectedRecipe.skill as keyof typeof SKILL_DETAILS]?.label || 'Evne'}</div>
+                                                    <div className="text-xl font-black text-emerald-400 leading-none">+{Math.floor((selectedRecipe.outputAmount || 1) * (player.skills?.[selectedRecipe.skill as keyof typeof player.skills]?.level || 0) * 0.05)}</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div className="mt-8 mb-6 p-6 bg-indigo-500/5 border border-indigo-500/10 rounded-2xl">
-                                        <p className="text-sm text-indigo-200/90 font-medium text-center leading-relaxed">
-                                            Reparasjon gjenoppretter 30 holdbarhetspoeng.
-                                        </p>
+                                        <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+                                            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                                <Zap className="w-3 h-3 text-amber-500" /> {SKILL_DETAILS[selectedRecipe.skill as keyof typeof SKILL_DETAILS]?.label || 'Produksjon'} XP
+                                            </div>
+                                            <span className="text-amber-500 font-black text-sm">+{selectedRecipe.xp || 10} XP</span>
+                                        </div>
                                     </div>
 
                                     <GameButton
                                         variant="primary"
                                         size="lg"
-                                        className="h-20 text-xl w-full bg-amber-600 hover:bg-amber-500 border-amber-400/50"
-                                        onClick={handleRepair}
-                                        disabled={!!actionLoading || selectedItemToRepair.durability >= selectedItemToRepair.maxDurability || (player.resources?.gold || 0) < (REPAIR_CONFIG[buildingId]?.goldCost || 0) || ((player.resources as any)?.[REPAIR_CONFIG[buildingId]?.material] || 0) < 1}
+                                        className="h-20 text-xl w-full"
+                                        onClick={handleProduce}
+                                        disabled={!!actionLoading || (selectedRecipe.level || 1) > currentBuildingLevel || !checkActionRequirements(player, type === 'REFINE' ? { type: 'REFINE', recipeId: selectedRecipeId } : { type: 'CRAFT', subType: selectedRecipeId }).success}
                                     >
-                                        {selectedItemToRepair.durability >= selectedItemToRepair.maxDurability ? 'FULL HOLDBARHET' : 'REPARER GJENSTAND'}
+                                        {(selectedRecipe.level || 1) > currentBuildingLevel ? 'KREVER OPPGRADERING' : 'START PRODUKSJON'}
                                     </GameButton>
-                                </>
-                            ) : (
-                                <div className="py-20 flex flex-col items-center justify-center text-center opacity-50">
-                                    <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6">
-                                        <Wrench className="w-10 h-10 text-slate-600" />
-                                    </div>
-                                    <h4 className="text-xl font-bold text-slate-400">Velg utstyr</h4>
-                                    <p className="text-sm text-slate-500 max-w-[200px] mt-2">Trykk på en gjenstand til venstre for å se reparasjonsdetaljer.</p>
                                 </div>
-                            )}
-                        </div>
-                    ) : selectedRecipe ? (
-                        <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-[3rem] p-8 shadow-2xl sticky top-8">
-                            {/* Header */}
-                            <div className="text-center mb-8">
-                                <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-[2rem] flex items-center justify-center text-6xl mx-auto shadow-2xl border-4 border-white/10 mb-6 group-hover:rotate-6 transition-transform">
-                                    {getOutputInfo(selectedRecipeId!, selectedRecipe).icon}
+                            </div>
+                        ) : (
+                            <div className="h-full flex flex-col items-center justify-center text-center p-12 bg-slate-900/20 border-2 border-dashed border-white/10 rounded-[3rem]">
+                                <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6">
+                                    <Info className="w-10 h-10 text-slate-600" />
                                 </div>
-                                <h3 className="text-3xl font-black text-white tracking-tighter mb-2">{getOutputInfo(selectedRecipeId!, selectedRecipe).name}</h3>
-                                <p className="text-slate-400 text-sm font-medium px-4">{getOutputInfo(selectedRecipeId!, selectedRecipe).description}</p>
+                                <h4 className="text-xl font-black text-slate-400 mb-2">Ingen oppskrift valgt</h4>
+                                <p className="text-sm text-slate-500 font-medium">Velg en gjenstand fra listen til venstre for å se detaljer og starte produksjon.</p>
                             </div>
-
-                            {/* Requirements */}
-                            <div className="space-y-6">
-                                <RequirementList recipe={selectedRecipe} player={player} />
-
-                                {/* Production Stats / Bonuses */}
-                                <div className="bg-black/40 rounded-3xl p-6 border border-white/5 space-y-6">
-                                    <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500">
-                                        <TrendingUp className="w-3 h-3" /> Utbytte & Sammenligning
-                                    </div>
-
-                                    <StatsComparison recipe={selectedRecipe} player={player} type={type} />
-
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div className="space-y-1">
-                                            <div className="text-xs text-slate-500 font-bold uppercase">Base Utbytte</div>
-                                            <div className="text-xl font-black text-white">+{selectedRecipe.outputAmount || selectedRecipe.output?.amount || 1}</div>
-                                        </div>
-                                        <div className="space-y-1">
-                                            <div className="text-xs text-emerald-500 font-bold uppercase">Utbytte-bonus (Evne)</div>
-                                            <div className="text-xl font-black text-emerald-400">+{Math.floor((selectedRecipe.outputAmount || 1) * (player.skills?.CRAFTING?.level || 0) * 0.05)}</div>
-                                        </div>
-                                    </div>
-                                    <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs">
-                                        <span className="text-slate-500 font-bold flex items-center gap-1.5"><Zap className="w-3 h-3 text-amber-500" /> XP Gevinst:</span>
-                                        <span className="text-amber-500 font-black">+{selectedRecipe.xp || 10} Produksjon XP</span>
-                                    </div>
-                                </div>
-
-                                <GameButton
-                                    variant="primary"
-                                    size="lg"
-                                    className="h-20 text-xl w-full"
-                                    onClick={handleProduce}
-                                    disabled={!!actionLoading || (selectedRecipe.level || 1) > currentBuildingLevel || !checkActionRequirements(player, type === 'REFINE' ? { type: 'REFINE', recipeId: selectedRecipeId } : { type: 'CRAFT', subType: selectedRecipeId }).success}
-                                >
-                                    {(selectedRecipe.level || 1) > currentBuildingLevel ? 'KREVER OPPGRADERING' : 'START PRODUKSJON'}
-                                </GameButton>
-                            </div>
-                        </div>
-                    ) : (
-                        <div className="h-full flex flex-col items-center justify-center text-center p-12 bg-slate-900/20 border-2 border-dashed border-white/10 rounded-[3rem]">
-                            <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6">
-                                <Info className="w-10 h-10 text-slate-600" />
-                            </div>
-                            <h4 className="text-xl font-black text-slate-400 mb-2">Ingen oppskrift valgt</h4>
-                            <p className="text-sm text-slate-500 font-medium">Velg en gjenstand fra listen til venstre for å se detaljer og starte produksjon.</p>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        </SimulationMapWindow>
     );
 });
 

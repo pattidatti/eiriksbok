@@ -15,7 +15,8 @@ import { ScytheSweepGame } from './minigames/ScytheSweepGame';
 import { TrappingGame } from './minigames/TrappingGame';
 import { WeavingGame } from './minigames/WeavingGame';
 import { ApothecaryGame } from './minigames/ApothecaryGame';
-import { MillingGame, SmeltingGame, SawingGame } from './minigames/SharedPlaceholders';
+import { MillingGame, SawingGame } from './minigames/SharedPlaceholders';
+import { SmeltingGame } from './minigames/SmeltingGame';
 
 interface MinigameProps {
     type: ActionType;
@@ -74,6 +75,10 @@ export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon
     ],
     PLANT: [
         { id: 'manual', label: 'Håndsåing', icon: '🌱', desc: 'Så frø for hånd.' },
+    ],
+    HUNT: [
+        { id: 'bow', label: 'Bueskyting', icon: '🏹', desc: 'Presisjonsjakt fra avstand.' },
+        { id: 'trap', label: 'Fellefangst', icon: '🕸️', desc: 'Sett ut snarer for småvilt.' },
     ]
 };
 

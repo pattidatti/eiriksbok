@@ -24,32 +24,34 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
     return (
         <button
             onClick={() => !isLocked && onSelect(id)}
-            className={`flex items-center gap-4 p-4 rounded-[2rem] border-2 transition-all group relative overflow-hidden ${isLocked
+            className={`flex items-center gap-3 p-3.5 rounded-[1.8rem] border-[1.5px] transition-all group relative overflow-hidden ${isLocked
                 ? 'grayscale opacity-60 cursor-not-allowed bg-black/20 border-white/5'
                 : isSelected
-                    ? 'bg-indigo-600/20 border-indigo-500/50 shadow-[0_0_30px_rgba(79,70,229,0.2)]'
-                    : 'bg-slate-900/50 border-white/5 hover:border-white/10 hover:bg-slate-800/80 shadow-xl'
+                    ? 'bg-indigo-600/10 border-indigo-500 shadow-[0_0_25px_rgba(79,70,229,0.15)]'
+                    : 'bg-slate-900/80 border-white/5 hover:border-white/10 hover:bg-slate-800/80 shadow-lg'
                 }`}
         >
             {isLocked && (
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-[1px]">
-                    <Settings className="w-6 h-6 text-slate-600 animate-spin-slow" />
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center backdrop-blur-[1px]">
+                    <Settings className="w-5 h-5 text-slate-500 animate-spin-slow" />
                 </div>
             )}
-            <div className="w-16 h-16 bg-black/40 rounded-2xl flex items-center justify-center text-4xl shadow-inner group-hover:scale-110 transition-transform">
+            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-inner group-hover:scale-105 transition-transform ${isSelected ? 'bg-indigo-600/20' : 'bg-black/40'}`}>
                 {info.icon}
             </div>
-            <div className="flex-1 text-left">
-                <div className="text-lg font-black text-white leading-tight">{info.name}</div>
-                <div className="flex items-center gap-2 mt-1">
-                    <div className={`w-2 h-2 rounded-full ${isLocked ? 'bg-slate-700' : canAfford ? 'bg-emerald-500' : 'bg-rose-500 animate-pulse'}`}></div>
-                    <span className={`text-xs font-black uppercase tracking-widest ${isLocked ? 'text-slate-600' : canAfford ? 'text-emerald-500/70' : 'text-rose-500/70'}`}>
-                        {isLocked ? 'Låst' : canAfford ? 'Klar til produksjon' : 'Mangler ressurser'}
+            <div className="flex-1 text-left min-w-0">
+                <div className={`text-base font-black truncate tracking-tighter uppercase transition-colors ${isSelected ? 'text-indigo-300' : 'text-white'}`}>
+                    {info.name}
+                </div>
+                <div className="flex items-center gap-2 mt-0.5">
+                    <div className={`w-1.5 h-1.5 rounded-full ${isLocked ? 'bg-slate-700' : canAfford ? 'bg-emerald-500' : 'bg-rose-500 animate-pulse'}`}></div>
+                    <span className={`text-xs font-black uppercase tracking-[0.05em] ${isLocked ? 'text-slate-600' : canAfford ? 'text-emerald-500/70' : 'text-rose-500/70'}`}>
+                        {isLocked ? 'Låst' : canAfford ? 'Klar til bruk' : 'Mangler noe'}
                     </span>
                 </div>
             </div>
             {!isLocked && (
-                <ChevronRight className={`w-5 h-5 transition-transform ${isSelected ? 'text-indigo-400 translate-x-1' : 'text-slate-600'}`} />
+                <ChevronRight className={`w-4 h-4 transition-transform ${isSelected ? 'text-indigo-400 translate-x-1' : 'text-slate-700'}`} />
             )}
         </button>
     );

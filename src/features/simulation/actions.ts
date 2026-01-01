@@ -250,17 +250,21 @@ const performSoloAction = async (pin: string, playerId: string, action: any) => 
             return actor;
         });
 
-        // Post-Transaction: Log Message
-        if (result && result.success) {
-            // Push message to separate list
-            push(messagesRef, `[${new Date().toLocaleTimeString()}] ${result.message}`);
+        // Post-Transaction: Log Message & Side-Effects
+        try {
+            if (result && result.success) {
+                // Push message to separate list
+                if (result.message) {
+                    push(messagesRef, `[${new Date().toLocaleTimeString()}] ${result.message}`);
+                }
 
-            if ((result as any).characterSnapshot) {
-                await recordCharacterLife(playerId, pin, (result as any).characterSnapshot);
+                if ((result as any).characterSnapshot) {
+                    await recordCharacterLife(playerId, pin, (result as any).characterSnapshot);
+                }
             }
-        } else if (result && !result.success && result.message) {
-            // Optional: Log failures too? Maybe strictly for user feedback
-            // push(messagesRef, `[${new Date().toLocaleTimeString()}] ${result.message}`);
+        } catch (logErr) {
+            console.error("Non-critical post-action error (logging/history):", logErr);
+            // We don't fail the action for this, as the transaction already committed.
         }
 
         return { success: !!result?.success, data: result || undefined };

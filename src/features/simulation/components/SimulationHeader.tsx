@@ -37,7 +37,7 @@ const useCountUp = (target: number, duration: number = 800) => {
     return count;
 };
 
-export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player, pin }) => {
+export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player }) => {
     const { activeTab, setActiveTab } = useSimulation();
     const { playSfx } = useAudio();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -184,26 +184,36 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
                     </div>
                 </div>
 
-                {/* PROFILE AVATAR */}
-                <div className="relative group">
-                    <button
-                        onClick={() => setActiveTab('PROFILE')}
-                        className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 p-0.5 shadow-lg overflow-hidden transition-transform hover:scale-105 active:scale-95"
-                        title="Min Karakter (P)"
-                    >
-                        {player.avatar ? (
-                            <img src={player.avatar} alt="Profile" className="w-full h-full object-cover rounded-[10px]" />
-                        ) : (
-                            <div className="w-full h-full flex items-center justify-center bg-slate-900 rounded-[10px] text-lg">
-                                {player.role === 'KING' ? '👑' : '👤'}
-                            </div>
-                        )}
-                    </button>
-                    {/* Level Badge */}
-                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-slate-900 rounded-full flex items-center justify-center border border-white/10 text-[9px] font-black text-white z-10">
-                        {currentLvl}
+                {/* PROFILE BUTTON (Integrated Name & Avatar) */}
+                <button
+                    onClick={() => { setActiveTab('PROFILE'); playSfx('ui_click.ogg'); }}
+                    className="group flex items-center gap-3 bg-white/0 hover:bg-white/5 pl-4 pr-1 py-1 rounded-2xl border border-transparent hover:border-white/10 transition-all active:scale-95"
+                    title="Min Karakter (P)"
+                >
+                    {/* Name */}
+                    <div className="hidden lg:flex flex-col items-end">
+                        <span className="text-xl font-black italic tracking-tighter text-white leading-none">
+                            {player.name}
+                        </span>
                     </div>
-                </div>
+
+                    {/* Avatar Container */}
+                    <div className="relative">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 p-0.5 shadow-lg overflow-hidden group-hover:shadow-indigo-500/20">
+                            {player.avatar ? (
+                                <img src={player.avatar} alt="Profile" className="w-full h-full object-cover rounded-[10px]" />
+                            ) : (
+                                <div className="w-full h-full flex items-center justify-center bg-slate-900 rounded-[10px] text-lg">
+                                    {player.role === 'KING' ? '👑' : '👤'}
+                                </div>
+                            )}
+                        </div>
+                        {/* Level Badge */}
+                        <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-slate-900 rounded-full flex items-center justify-center border border-white/10 text-[9px] font-black text-white z-10">
+                            {currentLvl}
+                        </div>
+                    </div>
+                </button>
 
                 {/* SETTINGS */}
                 <ButtonIcon icon={Settings} onClick={() => setActiveTab('SETTINGS')} title="Innstillinger" />

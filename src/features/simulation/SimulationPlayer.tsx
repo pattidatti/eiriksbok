@@ -410,6 +410,9 @@ export const SimulationPlayer: React.FC = () => {
             setActiveMinigame(actualType as any);
             if (actionMethod) setActiveMinigameMethod(actionMethod);
             setActiveMinigameAction(action);
+
+            // Clear old result so we don't see it while playing
+            setActionResult(null);
             return;
         }
 
@@ -428,9 +431,10 @@ export const SimulationPlayer: React.FC = () => {
             setActionLoading(actionType);
         }
 
-        // TIMEOUT SAFETY: Ensure we don't hang indefinitely
+        // TIMEOUT SAFETY: Ensure we don't hang indefinitely. 
+        // Increased to 30s as complex transactions on slow networks can take time.
         const timeoutPromise = new Promise<{ success: boolean, error: any }>((_, reject) => {
-            setTimeout(() => reject(new Error("Handlingen tok for lang tid (Timeout)")), 10000);
+            setTimeout(() => reject(new Error("Handlingen tok for lang tid (Timeout)")), 30000);
         });
 
         try {

@@ -7,6 +7,7 @@ type MinigameType = 'WORK' | 'CHOP' | 'CRAFT' | 'MILL' | 'DEFEND' | 'EXPLORE' | 
 interface ProductionContext {
     buildingId: string;
     type: 'REFINE' | 'CRAFT';
+    initialView?: 'PRODUCE' | 'REPAIR';
 }
 
 

@@ -154,5 +154,10 @@ export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
     steel_sword: { id: 'steel_sword', name: 'Stålsverd', icon: '⚔️', type: 'MAIN_HAND', durability: 250, maxDurability: 250, level: 10, description: 'Dødelig stål. +25 Angrep, 10% raskere hugg.', stats: { attack: 25, speedBonus: 1.1 }, relevantActions: ['DEFEND', 'PATROL', 'EXPLORE', 'HUNT'] },
     tunic: { id: 'tunic', name: 'Slitt Tunika', icon: '👕', type: 'BODY', durability: 20, maxDurability: 20, level: 1, description: 'Gammel og hullete. Minimal beskyttelse.', stats: { defense: 1 }, relevantActions: ['DEFEND', 'PATROL'], nextTierId: 'leather_armor' },
     leather_armor: { id: 'leather_armor', name: 'Lærrustning', icon: '🧥', type: 'BODY', durability: 80, maxDurability: 80, level: 3, description: 'Herdet skinn. +5 Forsvar.', stats: { defense: 5 }, relevantActions: ['DEFEND', 'PATROL'], nextTierId: 'iron_armor' },
-    whetstone: { id: 'whetstone', name: 'Bryne', icon: '🪨', type: 'OFF_HAND', durability: 10, maxDurability: 10, level: 1, description: 'Bruk bryne for å holde verktøy skarpe. Gir +1 i utbytte på de fleste sanke-oppgaver.', stats: { yieldBonus: 1 }, relevantActions: ['CHOP', 'MINE', 'QUARRY', 'WORK', 'HUNT', 'GATHER_WOOL'] }
+    whetstone: { id: 'whetstone', name: 'Bryne', icon: '🪨', type: 'OFF_HAND', durability: 10, maxDurability: 10, level: 1, description: 'Bruk bryne for å holde verktøy skarpe. Gir +1 i utbytte på de fleste sanke-oppgaver.', stats: { yieldBonus: 1 }, relevantActions: ['CHOP', 'MINE', 'QUARRY', 'WORK', 'GATHER_WOOL'] },
+
+    // Hunting Gear
+    hunting_bow: { id: 'hunting_bow', name: 'Jaktbue', icon: '🏹', type: 'BOW', durability: 80, maxDurability: 80, level: 1, description: 'En stødig bue av barlind. +2 Utbytte.', stats: { yieldBonus: 2 }, relevantActions: ['HUNT'], nextTierId: 'longbow' },
+    longbow: { id: 'longbow', name: 'Langbue', icon: '🏹', type: 'BOW', durability: 150, maxDurability: 150, level: 5, description: 'En mektig langbue som krever styrke å spenne. +5 Utbytte, 10% raskere.', stats: { yieldBonus: 5, speedBonus: 1.1 }, relevantActions: ['HUNT'] },
+    hunting_trap: { id: 'hunting_trap', name: 'Jaktfelle', icon: '🕸️', type: 'TRAP', durability: 30, maxDurability: 30, level: 1, description: 'En enkel snarefangst-felle. +1 Utbytte ved småviltjakt.', stats: { yieldBonus: 1 }, relevantActions: ['HUNT', 'FORAGE'] }
 };

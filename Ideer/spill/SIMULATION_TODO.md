@@ -12,15 +12,17 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [] **Fjerne slettede items** Manpower og tools ligger fremdeles i ryggsekken. 
 - [x] **Hogge tre** Når jeg ble ferdig med minigame stod det 3 tre i tooltippen på toppen, men animasjonen som fløy og et annet tall sa +6. 
 - [ ] **Notificationsenter** et sted hvor alt som skjer med karakteren, spesielt hendelser og minigames, kan vises. Betyr ikke at man fjerner noe annet. dette er et tillegg.   
-- [ ] **Smien** minigame: Jeg fikk startet produksjon av en item uten å ha nok energi. Fikk ingen feedback underveis om jeg traff på riktig felt eller ikke, ingen tilbakemelding på progressjon. 
+- [x] **Smien** minigame: Jeg fikk startet produksjon av en item uten å ha nok energi. Fikk ingen feedback underveis om jeg traff på riktig felt eller ikke, ingen gotilbakemelding på progressjon. 
 - [x] **POI** ikonene på mappet snur seg med mouseover nå, det er bedre hvis de heller øker litt i størrelse. 
 - [x] **oppgradere Smien** går ikke an å bidra, kommer feilmelding. 
 - [x] **Åpne smien** Går ikke an å åpne produksjon/reperasjonsvindu hvis en mangler ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
 - [ ] **Staminabar** Når man har fått lav staminia, og fyller den opp igjen, så er feltet rundt statusbarene fremdeles rød. 
-- [ ] **Hugge stein** Feedbacken man får når man treffer på minigame, med tallene +1,2,3 osv, samsvarer ikke med den totale mengden man får når minigamet er fullført.
+- [x] **Hugge stein** Feedbacken man får når man treffer på minigame, med tallene +1,2,3 osv, samsvarer ikke med den totale mengden man får når minigamet er fullført.
 - [x] **Marked** Går ikke an å selge, får error: "Markedet tar ikke imot denne varen her."
 - [x] **Gamecard** fjerne forstørrelseseffekt, det er forstyrrende element i UIen.  
 - [ ] **Kylling og egg** Legge til kylling og egge minigame på Husmannsplassen med egen POI. Man bruker Grain til å mate kyllingene, etter timer er ferdig kan man plukke opp eggene. Eggene kan brukes i bakeriet til et ny mattype som gir en midlertidig buff. Buffen varer i 15 min og gir 20% mindre staminabruk på handlinger. BUffs må kunne ses på en timer på toppen. For å aktivere buffen må spilleren spise den nye mattypen fra ryggsekken. Vi trenger derfor å lage denne funksjonen også; å bruke/konsumere items fra ryggsekk. 
+- [ ] **Overganger på kart** Nå laster kart umiddelbart, men bildene kommer ofte litt etter POI. Kan vi få til noen animasjoner som føles som man "går inn" eller "går ut" av lokasjoner, avhengig av nivå selvsagt. Dette hierakiet tror jeg vi allerede har. ESC bør også fungere som en tilbakeknapp, opp et nivå (med mindre man er inni mapwindow, der brukes esc til å først lukke vinduet). 
+- [ ] **Hogstfeltet** Får opp i tooltip at jeg ikke har øks, men jeg har øks på øks, slotten. Sjekker spillet kanskje bare mainhand? Spillet må vite hvilken slot de skal skjekke i de respektive minigamsene. 
 
 ## 🛠️ Planlagt (Underveis/Snart)
 - [x] **SIdebar** VIl UI bli bedre dersom vi flytter innholdet i sidebar til toppen? Kan vi lage et clean minimalistisk design på toppen, slik at vi får større spillvindu. Må også passe på at små skjermen ikke scrolle og så slikt. GJøre en analyse av hvordan spillet vil oppleves på ulike skjermstørrelser og oppløsning. BØr vi bruke en Git branch for å utvikle den nye UIen? -> **GJENNOMFØRT**: Vi har flyttet alt til en Top Bar for bedre immersion.

@@ -2,15 +2,17 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface SimulationMapWindowProps {
-    title: string;
+    title?: string;
+    subtitle?: React.ReactNode;
     icon?: React.ReactNode;
     headerRight?: React.ReactNode;
     children: React.ReactNode;
     onClose: () => void;
     className?: string; // Content wrapper overrides
+    maxWidth?: string; // e.g. 'max-w-5xl' or 'max-w-7xl'
 }
 
-export const SimulationMapWindow: React.FC<SimulationMapWindowProps> = ({ title, icon, headerRight, children, onClose, className }) => {
+export const SimulationMapWindow: React.FC<SimulationMapWindowProps> = ({ title, subtitle, icon, headerRight, children, onClose, className, maxWidth }) => {
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
@@ -35,20 +37,42 @@ export const SimulationMapWindow: React.FC<SimulationMapWindowProps> = ({ title,
 
             {/* Window Container */}
             <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                transition={{ duration: 0.2 }}
-                className="relative w-full max-w-5xl max-h-full bg-slate-950/60 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col pointer-events-auto"
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 25,
+                    mass: 1
+                }}
+                className={`relative w-full ${maxWidth || 'max-w-5xl'} max-h-full bg-slate-950/90 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col pointer-events-auto will-change-transform`}
             >
                 {/* Header */}
-                <div className="flex-none flex justify-between items-center px-6 py-3.5 border-b border-white/10 bg-gradient-to-r from-white/5 to-transparent">
-                    <div className="flex items-center gap-4">
-                        <h2 className="text-lg font-display font-bold text-white tracking-wider uppercase flex items-center gap-3">
-                            {icon && <span className="text-indigo-400">{icon}</span>}
-                            {title}
-                        </h2>
-                        {headerRight}
+                <div className="flex-none flex justify-between items-center px-6 py-4 border-b border-white/10 bg-gradient-to-r from-white/5 to-transparent min-h-[72px]">
+                    <div className="flex items-center gap-5 overflow-hidden">
+                        {icon && (
+                            <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-3xl shadow-inner border border-white/5 shrink-0">
+                                {icon}
+                            </div>
+                        )}
+                        <div className="flex flex-col min-w-0">
+                            {title && (
+                                <h2 className="text-xl font-display font-black text-white tracking-tighter uppercase truncate">
+                                    {title}
+                                </h2>
+                            )}
+                            {subtitle && (
+                                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest truncate opacity-80">
+                                    {subtitle}
+                                </div>
+                            )}
+                        </div>
+                        {headerRight && (
+                            <div className="hidden sm:flex items-center pl-4 border-l border-white/10 ml-2">
+                                {headerRight}
+                            </div>
+                        )}
                     </div>
 
                     <button

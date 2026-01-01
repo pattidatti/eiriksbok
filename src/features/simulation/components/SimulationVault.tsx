@@ -159,9 +159,9 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                 <div className={`flex flex-col xl:flex-row gap-6 items-start relative ${draggedItem ? 'z-[100]' : 'z-10'}`}>
 
                     {/* Ragdoll / Equipment View */}
-                    <div className={`flex-1 w-full xl:w-[500px] shrink-0 transition-all duration-300 ${isDraggingFromRagdoll ? 'z-50 relative' : 'z-10'}`}>
+                    <div className={`flex-1 w-full xl:w-[500px] shrink-0 ${isDraggingFromRagdoll ? 'z-50 relative' : 'z-10'}`}>
                         <div
-                            className="bg-slate-900/60 backdrop-blur-2xl border border-white/5 group/ragdoll h-[600px] flex items-center justify-center p-0 rounded-[2rem] shadow-2xl relative"
+                            className="bg-slate-900/80 backdrop-blur-xl border border-white/5 group/ragdoll h-[600px] flex items-center justify-center p-0 rounded-[2rem] shadow-2xl relative will-change-transform"
                         >
                             <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[2rem]">
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-indigo-500/10 blur-[100px] rounded-full opacity-50" />
@@ -243,8 +243,8 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
 
 
                     {/* Inventory Grid */}
-                    <div className={`flex-1 w-full space-y-6 transition-all duration-300 ${draggedItem && !isDraggingFromRagdoll ? 'z-50 relative' : 'z-10'}`}>
-                        <div className="bg-slate-950/60 p-6 rounded-[2rem] border border-white/5 backdrop-blur-3xl shadow-2xl min-h-[600px] inventory-container">
+                    <div className={`flex-1 w-full space-y-6 ${draggedItem && !isDraggingFromRagdoll ? 'z-50 relative' : 'z-10'}`}>
+                        <div className="bg-slate-950/70 p-6 rounded-[2rem] border border-white/5 backdrop-blur-xl shadow-2xl min-h-[600px] inventory-container">
                             <InventoryGrid
                                 player={player}
                                 onSlotClick={handleSlotClick}
@@ -289,9 +289,9 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
 
     return (
         <motion.div
-            className={`flex flex-col items-center gap-1 group/rslot transition-all duration-300 ${compact ? 'scale-90' : ''}`}
+            className={`flex flex-col items-center gap-1 group/rslot ${compact ? 'scale-90' : ''}`}
             data-equipment-slot={slot}
-            animate={{ scale: isCompatible ? 1.15 : 1 }}
+            animate={{ scale: isCompatible ? 1.1 : 1 }}
         >
             <div className={`${compact ? 'w-16 h-16' : 'w-24 h-24'} relative`}>
                 <AnimatePresence>
@@ -307,7 +307,7 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
                     )}
                 </AnimatePresence>
 
-                <div className="relative z-10 w-full h-full group-hover/rslot:scale-105 transition-transform duration-300">
+                <div className="relative z-10 w-full h-full group-hover/rslot:scale-105 transition-transform duration-500 will-change-transform">
                     <InventorySlot
                         slotType={slot}
                         item={item}
@@ -325,8 +325,8 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
             </div>
 
             <div className="min-h-[1.75rem] flex items-center justify-center pointer-events-none z-20">
-                <span className={`text-xs font-black uppercase tracking-[0.15em] whitespace-nowrap px-4 py-1.5 rounded-full border transition-all duration-300 shadow-xl backdrop-blur-md
-                    ${isCompatible ? 'text-indigo-100 bg-indigo-600 border-indigo-400 scale-110 shadow-indigo-500/50' :
+                <span className={`text-xs font-black uppercase tracking-[0.15em] whitespace-nowrap px-4 py-1.5 rounded-full border shadow-xl backdrop-blur-md transition-all duration-500
+                    ${isCompatible ? 'text-indigo-100 bg-indigo-600 border-indigo-400 scale-105 shadow-indigo-500/50' :
                         !!item ? 'text-slate-200 bg-slate-900/90 border-white/20' :
                             'text-slate-300 bg-black/60 border-white/10'}
                 `}>

@@ -50,7 +50,7 @@ export const calculateYield = (
             if (!relevantActions && item.id) {
                 // Handle instance IDs like 'pickaxe_123' by stripping suffix if needed, 
                 // but usually templates are keyed by base ID.
-                const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_'));
+                const tid = Object.keys(ITEM_TEMPLATES).find(k => item.id === k || item.id.startsWith(k + '_') || item.id.startsWith(k + '-'));
                 if (tid) {
                     relevantActions = (ITEM_TEMPLATES as any)[tid]?.relevantActions;
                 }
