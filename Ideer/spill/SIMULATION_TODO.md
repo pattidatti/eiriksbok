@@ -23,7 +23,7 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **Kylling og egg** Legge til kylling og egge minigame på Husmannsplassen med egen POI. Man bruker Grain til å mate kyllingene, etter timer er ferdig kan man plukke opp eggene. Eggene kan brukes i bakeriet til et ny mattype som gir en midlertidig buff. Buffen varer i 15 min og gir 20% mindre staminabruk på handlinger. BUffs må kunne ses på en timer på toppen. For å aktivere buffen må spilleren spise den nye mattypen fra ryggsekken. Vi trenger derfor å lage denne funksjonen også; å bruke/konsumere items fra ryggsekk. 
 - [x] **Overganger på kart** Nå laster kart umiddelbart, men bildene kommer ofte litt etter POI. Kan vi få til noen animasjoner som føles som man "går inn" eller "går ut" av lokasjoner, avhengig av nivå selvsagt. Dette hierakiet tror jeg vi allerede har. ESC bør også fungere som en tilbakeknapp, opp et nivå (med mindre man er inni mapwindow, der brukes esc til å først lukke vinduet). 
 - [x] **Hogstfeltet** Får opp i tooltip at jeg ikke har øks, men jeg har øks på øks, slotten. Sjekker spillet kanskje bare mainhand? Spillet må vite hvilken slot de skal skjekke i de respektive minigamsene. 
-- [ ] **Item reward animation** Nå går den mot venstre, den må gå opp til høyre hvor pengene er. 
+- [x] **Item reward animation** Nå går den mot venstre, den må gå opp til høyre hvor pengene er. 
 - [ ] **Mat og soving** man kan bare sove om natten (dette må vi komme tilbake til) ellers er stor del av loopen at man må spise for å få stamina på dagen. Bør kunne spise brød redd fra ryggsekken. 
 
 ## 🛠️ Planlagt (Underveis/Snart)

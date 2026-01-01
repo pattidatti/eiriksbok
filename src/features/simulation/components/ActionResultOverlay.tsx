@@ -25,8 +25,8 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
                                 y.resource,
                                 window.innerWidth / 2,
                                 window.innerHeight / 2, // Start from center
-                                80, // Target Left Sidebar X (approx)
-                                200 // Target Top-ish Y (approx, where inventory might be)
+                                window.innerWidth - 150, // Target Top Right (Resources/Header)
+                                60 // Target Top Header height
                             );
                         }, idx * 200);
                     }
@@ -94,10 +94,10 @@ export const ActionResultOverlay: React.FC<ActionResultOverlayProps> = ({ result
                                             animate={{ scale: 1, y: 0 }}
                                             transition={{ delay: 0.2 + (idx * 0.1), type: "spring" }}
                                             className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-sm font-black border shadow-lg ${isJackpot
-                                                    ? 'bg-gradient-to-r from-amber-200 to-yellow-400 border-yellow-300 text-yellow-900 shadow-amber-500/50 animate-pulse'
-                                                    : isPositive
-                                                        ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
-                                                        : 'bg-rose-500/10 border-rose-500/30 text-rose-400'
+                                                ? 'bg-gradient-to-r from-amber-200 to-yellow-400 border-yellow-300 text-yellow-900 shadow-amber-500/50 animate-pulse'
+                                                : isPositive
+                                                    ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
+                                                    : 'bg-rose-500/10 border-rose-500/30 text-rose-400'
                                                 }`}
                                         >
                                             <span className="text-lg">{icon}</span>
