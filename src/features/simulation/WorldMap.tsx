@@ -478,10 +478,9 @@ interface WorldMapProps {
     onAction: (action: any) => void;
     onOpenMarket: () => void;
     room: any;
-    children?: React.ReactNode;
 }
 
-export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, world, worldEvents, players, onAction, onOpenMarket, children }) => {
+export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, world, worldEvents, players, onAction, onOpenMarket }) => {
 
     const {
         setActiveTab,
@@ -956,8 +955,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                 {/* HUD Overlay (Timer/Yields) - Static, outside AnimatePresence for persistence */}
                 <SimulationProcessHUD player={player} />
 
-                {/* Overlays (Market, Production etc) */}
-                {children}
+
 
                 {/* Navigation Buttons - Persist across transitions */}
                 {viewMode === 'global' ? (

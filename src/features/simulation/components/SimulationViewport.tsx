@@ -40,22 +40,32 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
             {/* HUD Moved to WorldMap for better layout context */}
             <div className={`flex-1 relative w-full h-full ${['MAP', 'PRODUCTION', 'MARKET', 'INVENTORY', 'SKILLS', 'DIPLOMACY', 'HIERARCHY', 'PROFILE'].includes(activeTab) ? 'p-4 md:p-6 overflow-hidden flex items-center justify-center' : 'p-4 md:p-8 overflow-y-auto overflow-x-hidden custom-scrollbar'}`}>
                 {/* Always render WorldMap when in these tabs to keep it as background */}
+                {/* LAYER 0: Background World Map (Always rendered in simulation modes) */}
                 {['MAP', 'PRODUCTION', 'MARKET', 'INVENTORY', 'SKILLS', 'DIPLOMACY', 'HIERARCHY', 'PROFILE'].includes(activeTab) && (
-                    <WorldMap
-                        player={player}
-                        room={room}
-                        world={room.world}
-                        worldEvents={room.worldEvents}
-                        players={room.players}
-                        onAction={onAction}
-                        onOpenMarket={() => setActiveTab('MARKET')}
-                    >
-                        {/* Overlays passed as children to be anchored inside the map frame */}
-                        {activeTab === 'PRODUCTION' && (
-                            <SimulationProduction player={player} room={room} onAction={onAction} />
-                        )}
+                    <div className="absolute inset-0 z-0">
+                        <WorldMap
+                            player={player}
+                            room={room}
+                            world={room.world}
+                            worldEvents={room.worldEvents}
+                            players={room.players}
+                            onAction={onAction}
+                            onOpenMarket={() => setActiveTab('MARKET')}
+                        />
+                    </div>
+                )}
 
-                        {activeTab === 'MARKET' && (
+                {/* LAYER 1: UI Overlays (Absolute positioning on top of Map) */}
+                <div className="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-center">
+
+                    {activeTab === 'PRODUCTION' && (
+                        <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-auto md:max-h-[85vh] overflow-hidden">
+                            <SimulationProduction player={player} room={room} onAction={onAction} />
+                        </div>
+                    )}
+
+                    {activeTab === 'MARKET' && (
+                        <div className="pointer-events-auto w-full h-full md:max-w-5xl md:h-[90vh] overflow-hidden">
                             <SimulationMarket
                                 player={player}
                                 market={room.markets?.[player.regionId || 'capital'] || room.market}
@@ -63,43 +73,53 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                                 allMarkets={room.markets}
                                 onAction={onAction}
                             />
-                        )}
+                        </div>
+                    )}
 
-                        {activeTab === 'INVENTORY' && (
+                    {activeTab === 'INVENTORY' && (
+                        <div className="pointer-events-auto w-full h-full md:max-w-3xl md:h-[80vh] overflow-hidden">
                             <SimulationVault player={player} onAction={onAction} />
-                        )}
+                        </div>
+                    )}
 
-                        {activeTab === 'SKILLS' && (
+                    {activeTab === 'SKILLS' && (
+                        <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-auto overflow-hidden">
                             <SimulationSkills player={player} />
-                        )}
+                        </div>
+                    )}
 
-                        {activeTab === 'DIPLOMACY' && (
+                    {activeTab === 'DIPLOMACY' && (
+                        <div className="pointer-events-auto w-full h-full md:max-w-6xl md:h-[90vh] overflow-hidden">
                             <SimulationDiplomacy player={player} diplomacy={room.diplomacy} pin={pin || ''} />
-                        )}
+                        </div>
+                    )}
 
-                        {activeTab === 'HIERARCHY' && (
+                    {activeTab === 'HIERARCHY' && (
+                        <div className="pointer-events-auto w-full h-full md:max-w-5xl md:h-[85vh] overflow-hidden">
                             <SimulationHierarchy
                                 players={room.players}
                                 currentPlayer={player}
                                 regions={room.regions}
                                 onAction={onAction}
                             />
-                        )}
+                        </div>
+                    )}
 
-                        {activeTab === 'PROFILE' && (
+                    {activeTab === 'PROFILE' && (
+                        <div className="pointer-events-auto w-full h-full md:max-w-2xl md:h-[85vh] overflow-hidden">
                             <SimulationProfile
                                 player={player}
                                 regions={room.regions || {}}
                                 allPlayers={room.players || {}}
                             />
-                        )}
-                    </WorldMap>
-                )}
+                        </div>
+                    )}
+                </div>
 
 
-                {/* Other Tabs (Fullscreen/Full Viewport) */}
-                {activeTab !== 'MAP' && activeTab !== 'PRODUCTION' && activeTab !== 'MARKET' && activeTab !== 'INVENTORY' && activeTab !== 'SKILLS' && activeTab !== 'DIPLOMACY' && activeTab !== 'HIERARCHY' && activeTab !== 'PROFILE' && (
-                    <div className="max-w-4xl mx-auto w-full space-y-8 animate-in slide-in-from-bottom-4 duration-500">
+                {/* Other Tabs (Fullscreen/Full Viewport - No Map Background) */}
+                {activeTab !== 'MAP' && !['PRODUCTION', 'MARKET', 'INVENTORY', 'SKILLS', 'DIPLOMACY', 'HIERARCHY', 'PROFILE'].includes(activeTab) && (
+                    <div className="max-w-4xl mx-auto w-full space-y-8 animate-in slide-in-from-bottom-4 duration-500 relative z-20">
                         {activeTab === 'SETTINGS' ? (
                             <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/40 backdrop-blur-md p-8 animate-in fade-in duration-300">
                                 <SimulationSettings onClose={() => setActiveTab('MAP')} />
@@ -112,29 +132,38 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                 )}
             </div>
 
-            {/* Ting Voting Overlay */}
+            {/* Ting Voting Notification (Optimized: Non-intrusive bottom-right toast) */}
             {
                 room.activeVote && !room.activeVote.votes?.[player.id] && (
-                    <div className="absolute inset-0 z-[100] flex items-center justify-center p-8 bg-slate-950/80 backdrop-blur-xl animate-in fade-in duration-500">
-                        <div className="max-w-xl w-full bg-slate-900 rounded-[3rem] border-2 border-indigo-500/30 p-12 shadow-[0_0_100px_rgba(79,70,229,0.3)] relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
-                            <div className="mb-10 text-center">
-                                <div className="text-sm font-black text-indigo-400 uppercase tracking-[0.4em] mb-4">Tinget er satt</div>
-                                <h2 className="text-4xl font-black text-white tracking-tighter mb-4">{room.activeVote.title}</h2>
-                                <p className="text-slate-400 font-medium leading-relaxed">{room.activeVote.description}</p>
+                    <div className="absolute bottom-6 right-6 z-[50] w-96 animate-in slide-in-from-right duration-500">
+                        <div className="bg-slate-900/95 backdrop-blur-xl rounded-2xl border border-indigo-500/50 p-6 shadow-2xl shadow-indigo-500/10">
+                            <div className="flex items-start justify-between mb-4">
+                                <div>
+                                    <h3 className="text-white font-bold text-lg leading-tight mb-1">Tinget er satt</h3>
+                                    <p className="text-indigo-300 text-xs font-medium uppercase tracking-wider">Avgi din stemme</p>
+                                </div>
+                                <div className="bg-indigo-500/20 p-2 rounded-lg">
+                                    <span className="text-2xl">📜</span>
+                                </div>
                             </div>
-                            <div className="grid grid-cols-2 gap-4">
+
+                            <div className="mb-6">
+                                <h4 className="text-white font-medium mb-2">{room.activeVote.title}</h4>
+                                <p className="text-slate-400 text-sm line-clamp-3 leading-relaxed">{room.activeVote.description}</p>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-3">
                                 <button
                                     onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'YES' })}
-                                    className="bg-emerald-600 text-white h-24 rounded-2xl font-black text-xl hover:bg-emerald-500 transition-all shadow-lg active:scale-95 outline-none ring-offset-2 ring-offset-slate-900 focus:ring-2 ring-emerald-400"
+                                    className="bg-emerald-600/80 hover:bg-emerald-500 text-white py-3 rounded-xl font-bold text-sm transition-all active:scale-95 flex items-center justify-center gap-2"
                                 >
-                                    ✅ VEDTA
+                                    <span>✅</span> VEDTA
                                 </button>
                                 <button
                                     onClick={() => update(ref(db, `simulation_rooms/${pin}/activeVote/votes`), { [player.id]: 'NO' })}
-                                    className="bg-rose-600 text-white h-24 rounded-2xl font-black text-xl hover:bg-rose-500 transition-all shadow-lg active:scale-95 outline-none ring-offset-2 ring-offset-slate-900 focus:ring-2 ring-rose-400"
+                                    className="bg-rose-600/80 hover:bg-rose-500 text-white py-3 rounded-xl font-bold text-sm transition-all active:scale-95 flex items-center justify-center gap-2"
                                 >
-                                    ❌ AVSLÅ
+                                    <span>❌</span> AVSLÅ
                                 </button>
                             </div>
                         </div>
