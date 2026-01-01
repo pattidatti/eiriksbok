@@ -24,6 +24,7 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [x] **Overganger på kart** Nå laster kart umiddelbart, men bildene kommer ofte litt etter POI. Kan vi få til noen animasjoner som føles som man "går inn" eller "går ut" av lokasjoner, avhengig av nivå selvsagt. Dette hierakiet tror jeg vi allerede har. ESC bør også fungere som en tilbakeknapp, opp et nivå (med mindre man er inni mapwindow, der brukes esc til å først lukke vinduet). 
 - [x] **Hogstfeltet** Får opp i tooltip at jeg ikke har øks, men jeg har øks på øks, slotten. Sjekker spillet kanskje bare mainhand? Spillet må vite hvilken slot de skal skjekke i de respektive minigamsene. 
 - [ ] **Item reward animation** Nå går den mot venstre, den må gå opp til høyre hvor pengene er. 
+- [ ] **Mat og soving** man kan bare sove om natten (dette må vi komme tilbake til) ellers er stor del av loopen at man må spise for å få stamina på dagen. Bør kunne spise brød redd fra ryggsekken. 
 
 ## 🛠️ Planlagt (Underveis/Snart)
 - [x] **SIdebar** VIl UI bli bedre dersom vi flytter innholdet i sidebar til toppen? Kan vi lage et clean minimalistisk design på toppen, slik at vi får større spillvindu. Må også passe på at små skjermen ikke scrolle og så slikt. GJøre en analyse av hvordan spillet vil oppleves på ulike skjermstørrelser og oppløsning. BØr vi bruke en Git branch for å utvikle den nye UIen? -> **GJENNOMFØRT**: Vi har flyttet alt til en Top Bar for bedre immersion.
