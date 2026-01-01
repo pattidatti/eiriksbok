@@ -131,6 +131,13 @@ export interface SimulationAccount {
         level: number;
         timestamp: number;
     }[];
+    activeSessions?: {
+        roomPin: string;
+        name: string;
+        role: Role;
+        regionId?: string;
+        lastPlayed: number;
+    }[];
     lastActive: number;
 }
 

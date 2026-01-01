@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { simulationDb as db } from './simulationFirebase';
 import { ref, get, update, child } from 'firebase/database';
 import { useLayout } from '../../context/LayoutContext';
@@ -25,20 +25,32 @@ export const SimulationLobby: React.FC = () => {
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [authModalMode, setAuthModalMode] = useState<'LOGIN' | 'REGISTER'>('REGISTER');
 
+    const location = useLocation();
+    const routerState = location.state as { prefilledName?: string, prefilledRole?: Role, isDeploying?: boolean } | null;
+
     useEffect(() => {
         setFullWidth(true);
         setHideHeader(true);
+
+        // Handle Nexus Deployment
+        if (routerState?.isDeploying) {
+            setLobbyTab('PIN'); // Switch to Join UI
+            if (routerState.prefilledName) setName(routerState.prefilledName);
+            if (routerState.prefilledRole) setSelectedRole(routerState.prefilledRole);
+        }
+
         return () => {
             setFullWidth(false);
             setHideHeader(false);
         };
-    }, [setFullWidth, setHideHeader]);
+    }, [setFullWidth, setHideHeader, routerState]);
 
     useEffect(() => {
         const savedPin = localStorage.getItem('sim_room_pin');
         if (savedPin) setPin(savedPin);
-        if (account?.displayName) setName(account.displayName);
-    }, [account]);
+        // Only set name from account if NOT prefilled from Nexus
+        if (account?.displayName && !routerState?.prefilledName) setName(account.displayName);
+    }, [account, routerState]);
 
     const joinGame = async (e: React.FormEvent) => {
         e.preventDefault();
