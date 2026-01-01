@@ -83,6 +83,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
             if (!actor.status) actor.status = { stamina: 100, hp: 100, authority: 0, gold: actor.resources.gold || 0, level: 1, xp: 0 };
             if (!actor.equipment) actor.equipment = { HEAD: null, BODY: null, MAIN_HAND: null, OFF_HAND: null, FEET: null, TRINKET: null, AXE: null, PICKAXE: null, SCYTHE: null, HAMMER: null };
             if (!actor.stats) actor.stats = { level: 1, xp: 0 };
+            if (!actor.activeBuffs) actor.activeBuffs = [];
 
             // Initialize Local Result
             const localResult = {
@@ -148,7 +149,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
             const cost = ACTION_COSTS[actionType as ActionType];
 
             if (cost) {
-                const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, world.season, world.weather);
+                const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, world.season, world.weather, actor.activeBuffs);
 
                 // Resource Check
                 for (const [res, amt] of Object.entries(cost)) {

@@ -256,3 +256,75 @@ export const handleGatherHoney = (ctx: ActionContext) => {
     trackXp('FARMING', Math.ceil(12 * (1 + performance)));
     return true;
 };
+
+export const handleFeedChickens = (ctx: ActionContext) => {
+    const { actor, localResult } = ctx;
+    const GRAIN_COST = 5;
+
+    if ((actor.resources.grain || 0) < GRAIN_COST) {
+        localResult.success = false;
+        localResult.message = `Mangler korn. Trenger ${GRAIN_COST} korn for å mate hønene.`;
+        return false;
+    }
+
+    // Initialize activeProcesses if missing
+    if (!actor.activeProcesses) actor.activeProcesses = [];
+
+    // Check if already feeding
+    const existing = actor.activeProcesses.find(p => p.type === 'COOP' && p.locationId === 'chicken_coop' && p.readyAt > Date.now());
+    if (existing) {
+        localResult.success = false;
+        localResult.message = "Hønene har allerede mat.";
+        return false;
+    }
+
+    actor.resources.grain -= GRAIN_COST;
+    localResult.utbytte.push({ resource: 'grain', amount: -GRAIN_COST });
+
+    const DURATION = 240000; // 4 Minutes
+
+    // Create new process
+    const newProcess: ActiveProcess = {
+        id: Math.random().toString(36).substr(2, 9),
+        type: 'COOP',
+        itemId: 'egg',
+        locationId: 'chicken_coop',
+        startedAt: Date.now(),
+        duration: DURATION,
+        readyAt: Date.now() + DURATION,
+        notified: false
+    };
+
+    actor.activeProcesses.push(newProcess);
+    localResult.message = `Matet hønene. Egg klare om 4 minutter.`;
+
+    return true;
+};
+
+export const handleCollectEggs = (ctx: ActionContext) => {
+    const { actor, localResult, trackXp } = ctx;
+
+    const now = Date.now();
+    const readyIndex = actor.activeProcesses?.findIndex(p => p.type === 'COOP' && p.locationId === 'chicken_coop' && p.readyAt <= now);
+
+    if (readyIndex === undefined || readyIndex === -1) {
+        localResult.success = false;
+        localResult.message = "Ingen egg å hente ennå.";
+        return false;
+    }
+
+    // const process = actor.activeProcesses![readyIndex];
+    actor.activeProcesses!.splice(readyIndex, 1);
+
+    const yieldAmount = Math.floor(Math.random() * 3) + 3; // 3-5 eggs
+
+    if (!actor.resources.egg) (actor.resources as any).egg = 0;
+    (actor.resources as any).egg += yieldAmount;
+
+    localResult.utbytte.push({ resource: 'egg', amount: yieldAmount });
+    localResult.message = `Samlet ${yieldAmount} egg.`;
+
+    trackXp('FARMING', 15);
+
+    return true;
+};

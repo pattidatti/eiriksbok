@@ -10,6 +10,15 @@ export interface ActionCost extends Partial<Resources> {
 
 export type SkillType = 'FARMING' | 'WOODCUTTING' | 'MINING' | 'CRAFTING' | 'STEWARDSHIP' | 'COMBAT' | 'TRADING' | 'THEOLOGY';
 
+export interface Buff {
+    id: string; // unique instance id
+    type: string; // e.g. STAMINA_SAVE
+    value: number; // e.g. 0.2 (20%)
+    label: string; // "Lett til beins"
+    expiresAt: number; // timestamp
+    sourceItem?: string; // "omelette"
+}
+
 export interface SkillData {
     level: number;
     xp: number;
@@ -37,10 +46,11 @@ export interface Resources {
     meat: number;
     glass: number;
     manpower: number;
+    egg: number;
 }
 
 
-export type EquipmentSlot = 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET' | 'TRINKET' | 'AXE' | 'PICKAXE' | 'SCYTHE' | 'HAMMER' | 'BOW' | 'TRAP';
+export type EquipmentSlot = 'MAIN_HAND' | 'OFF_HAND' | 'HEAD' | 'BODY' | 'FEET' | 'TRINKET' | 'AXE' | 'PICKAXE' | 'SCYTHE' | 'HAMMER' | 'BOW' | 'TRAP' | 'CONSUMABLE';
 
 export interface ItemStats {
     yieldBonus?: number;
@@ -124,7 +134,7 @@ export interface SimulationAccount {
 
 export interface ActiveProcess {
     id: string;          // unique guid
-    type: 'CROP' | 'CRAFT'; // Extensible
+    type: 'CROP' | 'CRAFT' | 'COOP'; // Extensible
     itemId: string;      // e.g. 'grain'
     startedAt: number;   // timestamp
     duration: number;    // ms
@@ -142,6 +152,7 @@ export interface SimulationPlayer {
     resources: Resources;
     stats: PlayerStats;
     status: PlayerStatus;
+    activeBuffs?: Buff[]; // Buffs like "Lett til beins"
     upgrades: string[]; // List of IDs of purchased upgrades
     skills: Record<SkillType, SkillData>;
     equipment: Partial<Record<EquipmentSlot, EquipmentItem>>;

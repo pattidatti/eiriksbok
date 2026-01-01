@@ -88,6 +88,15 @@ export const ItemTooltip: React.FC<ItemTooltipProps> = ({ content, position }) =
                         </p>
                     </div>
                 )}
+
+                {/* Consumable Hint */}
+                {!isResource && data?.type === 'CONSUMABLE' && (
+                    <div className="mt-2 text-center">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 animate-pulse">
+                            Trykk for å spise
+                        </span>
+                    </div>
+                )}
             </div>
         </div>,
         document.body

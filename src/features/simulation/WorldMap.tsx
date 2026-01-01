@@ -13,6 +13,7 @@ import { FloatingActionTooltip } from './components/FloatingActionTooltip';
 import { SimulationAtmosphereLayer } from './components/SimulationAtmosphereLayer';
 import { SimulationProcessHUD } from './components/SimulationProcessHUD';
 import { SimulationMapWindow } from './components/ui/SimulationMapWindow';
+import { ChickenCoopWindow } from './components/ChickenCoopWindow';
 
 
 
@@ -247,6 +248,7 @@ const POINTS_OF_INTEREST: POI[] = [
         actions: [
             { id: 'CRAFT_BREAD', label: 'Bake Brød', cost: '-10⚡ -2mel' },
             { id: 'CRAFT_PIE', label: 'Bake Pai', cost: '-20⚡ -4mel' },
+            { id: 'CRAFT_omelette', label: 'Lage Omelett', cost: '-10⚡ -3egg' },
             { id: 'CRAFT_FEAST', label: 'Gildemåltid', cost: '-50⚡ -10mel' }
         ]
     },
@@ -460,6 +462,12 @@ const POINTS_OF_INTEREST: POI[] = [
         id: 'farm_upgrade_spot', label: 'Tegneark', icon: '📜', top: '40%', left: '15%', roles: ['PEASANT'], parentId: 'farm_house',
         actions: [{ id: 'BUILDING_UPGRADE_farm_house', label: 'Bygg ut gården', cost: 'Varierer' }]
     },
+    {
+        id: 'chicken_coop', label: 'Hønsehus', icon: '🐔', top: '40%', left: '75%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'peasant_farm',
+        actions: [
+            { id: 'OPEN_CHICKEN_COOP', label: 'Gå inn til hønene', cost: 'Gratis' }
+        ]
+    },
 
 
     // --- VILLAGE CONSTRUCTION LOCAL ---
@@ -508,6 +516,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
     const [dialogNPC, setDialogNPC] = useState<TavernNPC | null>(null);
     const [dialogStep, setDialogStep] = useState<string>('start');
     const [isDiceGameOpen, setIsDiceGameOpen] = useState(false);
+    const [isChickenCoopOpen, setIsChickenCoopOpen] = useState(false);
 
     const getViewLevel = (mode: string): number => {
         if (mode === 'kingdom') return 0;
@@ -541,6 +550,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                 // Priority 1: Close active Overlays/Windows
                 if (upgradingBuildingId) { setUpgradingBuildingId(null); return; }
                 if (isDiceGameOpen) { setIsDiceGameOpen(false); return; }
+                if (isChickenCoopOpen) { setIsChickenCoopOpen(false); return; }
                 if (dialogNPC) { setDialogNPC(null); return; }
                 if (selectedEvent) { setSelectedEvent(null); return; }
                 if (selectedPOI) { setSelectedPOI(null); return; }
@@ -574,7 +584,8 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
     // Reset viewing region to player's region when opening action (optional, but keeps context safe)
     // Actually, we want persistence during browsing.
 
-    const handlePOIAction = (poiId: string, actionId: string) => {
+    const handlePOIAction = (poiId: string, actionId: any) => {
+        const actId = typeof actionId === 'string' ? actionId : (actionId.type || actionId.id);
 
         // Helper: Is this a production workstation?
         const getProductionContext = (pId: string): { buildingId: string, type: 'REFINE' | 'CRAFT' } | null => {
@@ -587,11 +598,17 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
             return null;
         };
 
+        if (actId === 'OPEN_CHICKEN_COOP') {
+            setIsChickenCoopOpen(true);
+            setSelectedPOI(null);
+            return;
+        }
+
         const prodCtx = getProductionContext(poiId);
-        if (prodCtx && (actionId.startsWith('REFINE_') || actionId.startsWith('CRAFT_') || CRAFTING_RECIPES[actionId] || actionId === 'REPAIR')) {
+        if (prodCtx && (actId.startsWith('REFINE_') || actId.startsWith('CRAFT_') || CRAFTING_RECIPES[actId] || actId === 'REPAIR')) {
             setProductionContext({
                 ...prodCtx,
-                initialView: actionId === 'REPAIR' ? 'REPAIR' : 'PRODUCE'
+                initialView: actId === 'REPAIR' ? 'REPAIR' : 'PRODUCE'
             });
             setActiveTab('PRODUCTION');
             setSelectedPOI(null);
@@ -605,15 +622,15 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
         const isHomeRegion = viewingRegionId === player.regionId;
         const isKing = player.role === 'KING';
 
-        if (!isHomeRegion && !isKing && actionId !== 'MARKET_VIEW') { // Market might be global?
+        if (!isHomeRegion && !isKing && actId !== 'MARKET_VIEW') { // Market might be global?
             alert("Du har ingen myndighet i dette baroniet.");
             return;
         }
 
-        if (actionId === 'MARKET_VIEW') {
+        if (actId === 'MARKET_VIEW') {
             onOpenMarket();
-        } else if (actionId.startsWith('REFINE_')) {
-            const recipeKey = actionId.replace('REFINE_', '').split('_')[0].toLowerCase();
+        } else if (actId.startsWith('REFINE_')) {
+            const recipeKey = actId.replace('REFINE_', '').split('_')[0].toLowerCase();
             const recipeMap: any = {
                 'timber': 'timber',
                 'flour': 'flour',
@@ -622,32 +639,32 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                 'cloth': 'cloth'
             };
             onAction({ type: 'REFINE', recipeId: recipeMap[recipeKey] || recipeKey });
-        } else if (actionId.startsWith('CRAFT_')) {
-            const subType = actionId.replace('CRAFT_', '').toLowerCase();
+        } else if (actId.startsWith('CRAFT_')) {
+            const subType = actId.replace('CRAFT_', '').toLowerCase();
             // Check if it's a refinery recipe (like bread/pie) or item crafting
             if (subType === 'bread' || subType === 'pie' || subType === 'mead') {
                 onAction({ type: 'REFINE', recipeId: subType });
             } else {
                 onAction({ type: 'CRAFT', subType });
             }
-        } else if (actionId in CRAFTING_RECIPES) {
-            onAction({ type: 'CRAFT', subType: actionId });
+        } else if (actId in CRAFTING_RECIPES) {
+            onAction({ type: 'CRAFT', subType: actId });
 
-        } else if (actionId.startsWith('BUILDING_UPGRADE_')) {
-            const bId = actionId.replace('BUILDING_UPGRADE_', '');
+        } else if (actId.startsWith('BUILDING_UPGRADE_')) {
+            const bId = actId.replace('BUILDING_UPGRADE_', '');
             setUpgradingBuildingId(bId);
 
 
-        } else if (actionId === 'OPEN_DICE_GAME') {
+        } else if (actId === 'OPEN_DICE_GAME') {
             setIsDiceGameOpen(true);
-        } else if (actionId === 'CHAT_LOCAL') {
+        } else if (actId === 'CHAT_LOCAL') {
             const randomNPC = TAVERN_NPCS[Math.floor(Math.random() * TAVERN_NPCS.length)];
             setDialogNPC(randomNPC);
             setDialogStep('start');
-        } else if (actionId === 'BUY_MEAL') {
+        } else if (actId === 'BUY_MEAL') {
             onAction({ type: 'BUY_MEAL' });
         } else {
-            onAction(actionId);
+            onAction(actionId); // Pass original object if needed, or actId? Best to pass original.
         }
         setSelectedPOI(null);
     };
@@ -1034,6 +1051,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                             // Local UI Actions (Must go through handlePOIAction)
                             if (
                                 actionType === 'OPEN_DICE_GAME' ||
+                                actionType === 'OPEN_CHICKEN_COOP' ||
                                 actionType === 'CHAT_LOCAL' ||
                                 actionType === 'MARKET_VIEW' ||
                                 actionType === 'BUY_MEAL' ||
@@ -1272,6 +1290,17 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                     })()
                 }
 
+                {/* Chicken Coop Window */}
+                {isChickenCoopOpen && (
+                    <div className="absolute inset-0 z-[100] flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 animate-in fade-in zoom-in-95">
+                        <ChickenCoopWindow
+                            player={player}
+                            activeProcesses={player.activeProcesses || []}
+                            onAction={onAction}
+                            onClose={() => setIsChickenCoopOpen(false)}
+                        />
+                    </div>
+                )}
             </div >
 
         </>

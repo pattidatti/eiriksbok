@@ -139,6 +139,15 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
             {/* RIGHT: PLAYER VITALS & ACTIONS */}
             <div className="flex items-center gap-4 md:gap-6">
 
+                {/* BUFF BAR */}
+                {player.activeBuffs && player.activeBuffs.length > 0 && (
+                    <div className="flex items-center gap-2 mr-2">
+                        {player.activeBuffs.map(buff => (
+                            <BuffIcon key={buff.id} buff={buff} />
+                        ))}
+                    </div>
+                )}
+
                 {/* RESOURCES (Compact) */}
                 <button
                     onClick={() => setActiveTab('INVENTORY')}
@@ -269,3 +278,31 @@ const ButtonIcon = ({ icon: Icon, onClick, title, className }: any) => (
     </button>
 );
 
+const BuffIcon = ({ buff }: { buff: any }) => {
+    const [timeLeft, setTimeLeft] = useState(Math.max(0, Math.ceil((buff.expiresAt - Date.now()) / 60000)));
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const min = Math.max(0, Math.ceil((buff.expiresAt - Date.now()) / 60000));
+            setTimeLeft(min);
+        }, 10000);
+        return () => clearInterval(interval);
+    }, [buff.expiresAt]);
+
+    if (Date.now() > buff.expiresAt) return null;
+
+    return (
+        <div className="group relative flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 cursor-help">
+            <span className="text-lg">⚡</span>
+            <span className="absolute -bottom-1 -right-1 text-[8px] font-black bg-slate-900 px-1 rounded-full border border-white/10">
+                {timeLeft}m
+            </span>
+
+            {/* Tooltip */}
+            <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-slate-900 p-2 rounded-lg border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none w-32 text-center z-50">
+                <p className="text-[10px] font-bold text-white mb-0.5">{buff.label}</p>
+                <p className="text-[9px] text-emerald-400">{buff.value * 100}% mindre stamina</p>
+            </div>
+        </div>
+    );
+};

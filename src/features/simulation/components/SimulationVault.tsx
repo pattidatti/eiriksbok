@@ -42,10 +42,15 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
         if (!content) return;
 
         if (content.type === 'equipment') {
+            const item = content.data as any;
+            if (item && item.type === 'CONSUMABLE') {
+                onAction({ type: 'CONSUME', itemId: item.id });
+                return;
+            }
+
             if (content.slot) {
                 onAction({ type: 'UNEQUIP_ITEM', slot: content.slot });
             } else {
-                const item = content.data as any;
                 if (item && item.type) {
                     onAction({ type: 'EQUIP_ITEM', itemId: item.id, slot: item.type });
                 }

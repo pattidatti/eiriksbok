@@ -99,3 +99,52 @@ export const handleTradeRoute = (ctx: ActionContext) => {
     trackXp('TRADING', 20);
     return true;
 };
+
+export const handleConsume = (ctx: ActionContext) => {
+    const { actor, action, localResult } = ctx;
+    const itemId = action.itemId;
+
+    if (!actor.inventory) {
+        localResult.success = false;
+        localResult.message = "Ryggsekk er tom.";
+        return false;
+    }
+
+    const itemIndex = actor.inventory.findIndex(i => i.id === itemId);
+
+    if (itemIndex === -1) {
+        localResult.success = false;
+        localResult.message = "Fant ikke gjenstanden.";
+        return false;
+    }
+
+    const item = actor.inventory[itemIndex];
+
+    // MVP Logic: Hardcode effect for Omelette
+    if (item.id === 'omelette') {
+        if (!actor.activeBuffs) actor.activeBuffs = [];
+
+        // Remove existing buff of same type if exists (refresh)
+        actor.activeBuffs = actor.activeBuffs.filter(b => b.type !== 'STAMINA_SAVE');
+
+        actor.activeBuffs.push({
+            id: Math.random().toString(36).substr(2, 9),
+            type: 'STAMINA_SAVE',
+            value: 0.2, // 20%
+            label: 'Lett til beins',
+            expiresAt: Date.now() + 900000, // 15 mins
+            sourceItem: 'omelette'
+        });
+
+        // Remove item
+        actor.inventory.splice(itemIndex, 1);
+
+        localResult.message = "Spiste Omelett. Stamina-kostnad redusert med 20% i 15 min.";
+        localResult.utbytte.push({ resource: 'omelette', amount: -1 }); // Tracking
+        return true;
+    }
+
+    localResult.success = false;
+    localResult.message = "Kan ikke spises.";
+    return false;
+};

@@ -1,11 +1,11 @@
 import type { ActionRegistry } from './actionTypes';
-import { handleWork, handleChop, handleMiningAction, handleForage, handleHunt, handleGatherWool, handleGatherHoney, handlePlant, handleHarvest } from './handlers/GatheringHandlers';
+import { handleWork, handleChop, handleMiningAction, handleForage, handleHunt, handleGatherWool, handleGatherHoney, handlePlant, handleHarvest, handleFeedChickens, handleCollectEggs } from './handlers/GatheringHandlers';
 import { handleCraft, handleRefine, handleRepair } from './handlers/CraftingHandlers';
 import { handleEquipItem, handleUnequipItem } from './handlers/InventoryHandlers';
 import { handleTax, handleDraft, handleDecree, handleContribute, handleUpgradeBuilding, handleUpgrade } from './handlers/ManagementHandlers';
 import { handleRaid, handlePatrol } from './handlers/CombatHandlers';
 import { handleBuy, handleSell, handleTradeRoute } from './handlers/MarketHandlers';
-import { handleSleep, handleRest, handlePray, handleChat, handleGamble, handleBuyMeal, handleRetire } from './handlers/SocialRestHandlers';
+import { handleSleep, handleRest, handlePray, handleChat, handleGamble, handleBuyMeal, handleRetire, handleConsume } from './handlers/SocialRestHandlers';
 
 export const ACTION_REGISTRY: ActionRegistry = {
     // Gathering
@@ -57,6 +57,9 @@ export const ACTION_REGISTRY: ActionRegistry = {
     GAMBLE_RESULT: handleGamble,
     BUY_MEAL: handleBuyMeal,
     RETIRE: handleRetire,
+    CONSUME: handleConsume,
+    FEED_CHICKENS: handleFeedChickens, // Custom
+    COLLECT_EGGS: handleCollectEggs,   // Custom
     TRADE_ROUTE: handleTradeRoute,
 
     // Market

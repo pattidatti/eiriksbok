@@ -2,7 +2,7 @@ import { ref, runTransaction } from 'firebase/database';
 import { simulationDb as db } from '../simulationFirebase';
 import { GAME_BALANCE, SEASONS, WEATHER } from '../constants';
 import { ITEM_TEMPLATES } from '../data/items';
-import type { SkillType } from '../simulationTypes';
+import type { SkillType, Buff } from '../simulationTypes';
 
 /**
  * Logs a message to the simulation room, ensuring the message list is capped at 50 items.
@@ -132,10 +132,16 @@ export const calculateYield = (
 /**
  * Calculates the final stamina cost for an action based on base costs and world modifiers.
  */
+// ... (existing imports/code)
+
+/**
+ * Calculates the final stamina cost for an action based on base costs and world modifiers.
+ */
 export const calculateStaminaCost = (
     baseCost: number,
     season: keyof typeof SEASONS,
-    weather: keyof typeof WEATHER
+    weather: keyof typeof WEATHER,
+    activeBuffs?: Buff[]
 ) => {
     const seasonData = (SEASONS as any)[season];
     const weatherData = (WEATHER as any)[weather];
@@ -143,5 +149,16 @@ export const calculateStaminaCost = (
     const baseStaminaMod = seasonData?.staminaMod || 1.0;
     const weatherStaminaMod = weatherData?.staminaMod || 1.0;
 
-    return Math.ceil(baseCost * baseStaminaMod * weatherStaminaMod);
+    let total = baseCost * baseStaminaMod * weatherStaminaMod;
+
+    // Apply Buffs
+    if (activeBuffs && activeBuffs.length > 0) {
+        const now = Date.now();
+        const staminaBuff = activeBuffs.find(b => b.type === 'STAMINA_SAVE' && b.expiresAt > now);
+        if (staminaBuff) {
+            total *= (1 - staminaBuff.value);
+        }
+    }
+
+    return Math.ceil(total);
 };

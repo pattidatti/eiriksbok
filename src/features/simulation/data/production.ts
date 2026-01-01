@@ -184,5 +184,6 @@ export const CRAFTING_RECIPES: Record<string, any> = {
     shears: { label: 'Saks', icon: '✂️', input: { iron_ingot: 5, gold: 100 }, outputItemId: 'shears', buildingId: 'great_forge', level: 2, stamina: 20, xp: 15, description: 'Nødvendig for å klippe sauer og få ull.', skill: 'CRAFTING' },
     steel_axe: { label: 'Ståløks', icon: '🪓', input: { iron_ingot: 20, timber: 10, gold: 250 }, outputItemId: 'steel_axe', buildingId: 'great_forge', level: 3, stamina: 50, xp: 50, description: 'Mesterlig utformet øks av herdet stål.', skill: 'CRAFTING' },
     steel_sword: { label: 'Stålsverd', icon: '⚔️', input: { iron_ingot: 30, timber: 5, gold: 500 }, outputItemId: 'steel_sword', buildingId: 'great_forge', level: 3, stamina: 80, xp: 100, description: 'Det ultimate våpenet for en herre.', skill: 'CRAFTING' },
-    blacksmith_hammer: { label: 'Smedhammer', icon: '🔨', input: { iron_ingot: 15, timber: 5, gold: 200 }, outputItemId: 'blacksmith_hammer', buildingId: 'great_forge', level: 3, stamina: 40, xp: 50, description: 'Mesterverktøy for en ekte smed.', skill: 'CRAFTING' }
+    blacksmith_hammer: { label: 'Smedhammer', icon: '🔨', input: { iron_ingot: 15, timber: 5, gold: 200 }, outputItemId: 'blacksmith_hammer', buildingId: 'great_forge', level: 3, stamina: 40, xp: 50, description: 'Mesterverktøy for en ekte smed.', skill: 'CRAFTING' },
+    omelette: { label: 'Omelett', icon: '🍳', input: { egg: 3 }, outputItemId: 'omelette', buildingId: 'bakery', level: 1, stamina: 10, xp: 8, description: 'En mettende frokost. Gir energi-buff.', skill: 'CRAFTING' }
 };
