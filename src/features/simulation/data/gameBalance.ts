@@ -81,7 +81,7 @@ export const SEASONS = {
     Spring: { label: 'Vår', yieldMod: 1.0, staminaMod: 1.0, color: '#4ade80' },
     Summer: { label: 'Sommer', yieldMod: 1.2, staminaMod: 1.0, color: '#fbbf24' },
     Autumn: { label: 'Høst', yieldMod: 1.5, staminaMod: 1.0, color: '#f97316' },
-    Winter: { label: 'Vinter', yieldMod: 0.0, staminaMod: 1.5, color: '#38bdf8' }
+    Winter: { label: 'Vinter', yieldMod: 0.2, staminaMod: 1.5, color: '#38bdf8' }
 };
 
 export const WEATHER = {

@@ -18,7 +18,7 @@ export const handleRest = (ctx: ActionContext) => {
     let hp = 0;
     let msg = "Hvilte.";
 
-    if (actionType === 'EAT') { stam = 40; msg = "Spiste et måltid."; }
+    if (actionType === 'EAT') { stam = 10; msg = "Spiste et måltid."; }
     if (actionType === 'FEAST') { stam = 100; hp = 20; msg = "Holdt gjestebud!"; }
 
     if (actor.upgrades?.includes('roof')) stam += 20;
