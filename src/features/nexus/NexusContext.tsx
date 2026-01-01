@@ -91,7 +91,7 @@ export const NexusProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         ...draftVessels
     ];
 
-    const [metaProfile, setMetaProfile] = useState<MetaProfile>({
+    const [metaProfile] = useState<MetaProfile>({
         operatorName: account?.displayName || 'Unknown Operator',
         soulRank: account?.globalLevel || 1,
         soulExp: account?.globalXp || 0,

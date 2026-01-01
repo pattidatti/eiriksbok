@@ -24,7 +24,6 @@ const InnerSimulationProfile: React.FC = () => {
     useNexus(); // Ensure context is loaded
     const [isEditingName, setIsEditingName] = useState(false);
     const [newName, setNewName] = useState(account?.displayName || '');
-    const [saving, setSaving] = useState(false);
     const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
     const navigate = useNavigate();
     const { setFullWidth, setHideHeader } = useLayout();
@@ -53,7 +52,6 @@ const InnerSimulationProfile: React.FC = () => {
 
     const handleSaveName = async () => {
         if (!user || !newName.trim()) return;
-        setSaving(true);
         try {
             await update(ref(db, `simulation_accounts/${user.uid}`), {
                 displayName: newName.trim()
@@ -62,7 +60,7 @@ const InnerSimulationProfile: React.FC = () => {
         } catch (error) {
             console.error("Failed to update name:", error);
         } finally {
-            setSaving(false);
+
         }
     };
 
