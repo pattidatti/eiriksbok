@@ -5,45 +5,27 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 ## 🚀 Prioritert (Neste skritt)
 - [ ] **Balansering av Utbytte:** Finjustere "Utbytte" (tidligere Yield) for ulike verktøy og handlinger.
 - [ ] **Holdbarhet:** Implementere tydeligere visuelle varsler når verktøy er i ferd med å ødelegges.
-
+- [x] **Kornåker** Står at jeg mangler håndsåing, hva er dette og hvor får man det? (Fikset: Dette var en UI-bug, "Håndsåing" er ikke et verktøy man trenger å få tak i.)
 - [ ] **minigames** Legge til flere minigames.
-- [x] **Minigames** De minigames som skal "treffe" et felt, som brødbaking. Der bør feltet flytte litt rundt på seg for å gjøre det mer interresant for spilleren. 
-- [x] **Høsting** UI Høsting er klar timer vises fremedeles etter at man har høstet. 
-- [] **Fjerne slettede items** Manpower og tools ligger fremdeles i ryggsekken. 
-- [x] **Hogge tre** Når jeg ble ferdig med minigame stod det 3 tre i tooltippen på toppen, men animasjonen som fløy og et annet tall sa +6. 
+toppen, men animasjonen som fløy og et annet tall sa +6. 
 - [ ] **Notificationsenter** et sted hvor alt som skjer med karakteren, spesielt hendelser og minigames, kan vises. Betyr ikke at man fjerner noe annet. dette er et tillegg.   
-- [x] **Smien** minigame: Jeg fikk startet produksjon av en item uten å ha nok energi. Fikk ingen feedback underveis om jeg traff på riktig felt eller ikke, ingen gotilbakemelding på progressjon. 
-- [x] **POI** ikonene på mappet snur seg med mouseover nå, det er bedre hvis de heller øker litt i størrelse. 
-- [x] **oppgradere Smien** går ikke an å bidra, kommer feilmelding. 
-- [x] **Åpne smien** Går ikke an å åpne produksjon/reperasjonsvindu hvis en mangler ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
+ ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
 - [ ] **Staminabar** Når man har fått lav staminia, og fyller den opp igjen, så er feltet rundt statusbarene fremdeles rød. 
-- [x] **Hugge stein** Feedbacken man får når man treffer på minigame, med tallene +1,2,3 osv, samsvarer ikke med den totale mengden man får når minigamet er fullført.
-- [x] **Marked** Går ikke an å selge, får error: "Markedet tar ikke imot denne varen her."
-- [x] **Gamecard** fjerne forstørrelseseffekt, det er forstyrrende element i UIen.  
-- [x] **Kylling og egg** Legge til kylling og egge minigame på Husmannsplassen med egen POI. Man bruker Grain til å mate kyllingene, etter timer er ferdig kan man plukke opp eggene. Eggene kan brukes i bakeriet til et ny mattype som gir en midlertidig buff. Buffen varer i 15 min og gir 20% mindre staminabruk på handlinger. BUffs må kunne ses på en timer på toppen. For å aktivere buffen må spilleren spise den nye mattypen fra ryggsekken. Vi trenger derfor å lage denne funksjonen også; å bruxe/konsumere items fra ryggsekk. 
-- [x] **Overganger på kart** Nå laster kart umiddelbart, men bildene kommer ofte litt etter POI. Kan vi få til noen animasjoner som føles som man "går inn" eller "går ut" av lokasjoner, avhengig av nivå selvsagt. Dette hierakiet tror jeg vi allerede har. ESC bør også fungere som en tilbakeknapp, opp et nivå (med mindre man er inni mapwindow, der brukes esc til å først lukke vinduet). 
-- [x] **Hogstfeltet** Får opp i tooltip at jeg ikke har øks, men jeg har øks på øks, slotten. Sjekker spillet kanskje bare mainhand? Spillet må vite hvilken slot de skal skjekke i de respektive minigamsene. 
-- [x] **Item reward animation** Nå går den mot venstre, den må gå opp til høyre hvor pengene er. 
-- [ ] **Mat og soving** man kan bare sove om natten (dette må vi komme tilbake til) ellers er stor del av loopen at man må spise for å få stamina på dagen. Bør kunne spise brød redd fra ryggsekken. 
 - [ ] **lokalbefolkning** Oppgradere UI til dialogen. Også legge til bilder av personene de snakker med, i en egen kolonne til høyre?
 ## 🛠️ Planlagt (Underveis/Snart)
-- [x] **SIdebar** VIl UI bli bedre dersom vi flytter innholdet i sidebar til toppen? Kan vi lage et clean minimalistisk design på toppen, slik at vi får større spillvindu. Må også passe på at små skjermen ikke scrolle og så slikt. GJøre en analyse av hvordan spillet vil oppleves på ulike skjermstørrelser og oppløsning. BØr vi bruke en Git branch for å utvikle den nye UIen? -> **GJENNOMFØRT**: Vi har flyttet alt til en Top Bar for bedre immersion.
-- [ ] **Sagbruk** trenger eget minigame for å lage planker (vi bør bytte ut itemen timber med planker)
-
+- [ ] **Sagbruk** trenger eget minigame for å lage planker (vi bør bytte ut itemen timber med planker). Nå er det også mulig å velge å hogge trær der, det skal ikke gå an. 
 - [ ] **Handelsruter:** Implementere Merchant-spesifikke handlinger for import/eksport mellom byer.
 - [ ] **Patruljering:** Utvide soldatens patrulje-funksjon med flere typer hendelser og minispill.
 - [ ] **Profil** Global profil må vise de aktive karakterene man har og at man kan logge inn der fra.Må koble profilknappen i instillinger til global profi også. 
 - [ ] **Signup** Har lagt til Google som signup i  firebase, men dette må vel implementeres i koden vår? Samme med login antar jeg. 
 - [] **Planlagte prosjekter** Fjerne hele konseptet med planlegge og aktive prosjekter med sawmill osv. VI har et bedre system for å oppgrader bygninger. 
 - [] **Penger** Må bare ha 2 desimaler. Spesielt når man selger på marked kommer det popup med bøttevis av desimaler. 
-- [x] **Sucsess tooltip** tror den heter noe sånt. Når man har et vindu oppe, marked, produksjon osv, så må tooltippen være midtstilt vinduet og 5% fra toppen av nettsiden. Det ser rart ut når den er off center til høyre. Dette stammer fra av at tooltipen i utgangspunktet er sentrert på kartet, kan vi få til en løsning som er kontekst-smart?. 
 - [ ] **fjerne tools** Vi har fjernet tools som item (mener jeg), men det går fremdeles an å kjøpe og selge på markedet. 
 . [ ] **musikkspiller** i instillinger må det være tilgang en musikkspiller med sangene, mulighet for å bytte, stoppe, play og mute/ignorere bestemte sanger. (Vi må også oppdatere navne på sangene til mer unike titler på norsk )
 - [ ] **Minigames punch** På trehogging har vi en ikro annimasjonspause pause når man treffer, slik burde det være i alle minigames. 
 ## 💡 Ideer & Konsepter
 - [ ] **Diplomati:** Dypere system for forhold mellom baronier.
 - [ ] **Vær-effekter:** Hvordan vær påvirker produksjon og utbytte.
-- [x] **Tid** Spillet må kunne "kjøre" på egenhånd, med dag, natt, vær og årstider. Kanskje best å starte på år 1, og så gå videre. Sørge for at spillet bare går videre når det er aktive spillere inne, slik at det ikke kjører inn i evigheten på egenhånd. Dag kan være 21 minutter og natt 9 kanskje? Burde vi bruke måneder, eller bare årstider? Kanskje det er bedre å ikke tracke antall år, eller ihvertfall ikke vise det for spilleren, da kan spillet bare gå sitt eget forløp. GJør en grundig gameplay analyse og plan for implementering. 
 - [ ] **Historiske hendelser:** Tilfeldige hendelser basert på historisk kontekst som påvirker økonomien.
 - [ ] **Bygging:** Oppgradering av produksjonsbygninger for å låse opp nye oppskrifter. Må finne mer til alle bygninger. 
 - [ ] **Rivaliserende ressurser** Det må være en unik ressurs for baroni vest og øst, slik at de tvinges til å handle for progressjon. Dette muliggjøre kanskje også enda en grunn raids på hverandres baronier. 

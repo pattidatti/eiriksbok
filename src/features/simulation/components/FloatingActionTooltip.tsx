@@ -183,18 +183,22 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
         // Check for Missing Required Tool
         if (MINIGAME_VARIANTS[actionId]) {
             const requiredVariant = MINIGAME_VARIANTS[actionId][0];
-            const hasTool = equipment.some(item =>
-                item.type?.toLowerCase().includes(requiredVariant.id.toLowerCase()) ||
-                item.id.toLowerCase().includes(requiredVariant.id.toLowerCase())
-            );
-            if (!hasTool) {
-                details.push({
-                    source: 'System',
-                    type: 'ADVARSEL',
-                    value: `Du mangler ${requiredVariant.label}, utbytte redusert med 80%`,
-                    icon: '⚠️',
-                    isBonus: false
-                });
+            const isManualAction = requiredVariant.id === 'manual' || requiredVariant.id === 'gather';
+
+            if (!isManualAction) {
+                const hasTool = equipment.some(item =>
+                    item.type?.toLowerCase().includes(requiredVariant.id.toLowerCase()) ||
+                    item.id.toLowerCase().includes(requiredVariant.id.toLowerCase())
+                );
+                if (!hasTool) {
+                    details.push({
+                        source: 'System',
+                        type: 'ADVARSEL',
+                        value: `Du mangler ${requiredVariant.label}, utbytte redusert med 80%`,
+                        icon: '⚠️',
+                        isBonus: false
+                    });
+                }
             }
         }
 
