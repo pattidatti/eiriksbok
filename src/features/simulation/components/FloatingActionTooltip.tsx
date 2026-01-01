@@ -5,7 +5,8 @@ import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from '../constants';
 import { MINIGAME_VARIANTS } from '../SimulationMinigames';
 import { checkActionRequirements, getActionCostString, getActionEquipment } from '../utils/actionUtils';
 import { UPGRADES_LIST, ITEM_TEMPLATES } from '../constants';
-import { ArrowRight } from 'lucide-react';
+import { calculateStaminaCost } from '../utils/simulationUtils';
+import { ArrowRight, Zap } from 'lucide-react';
 import type { EquipmentItem } from '../simulationTypes';
 
 interface FloatingActionTooltipProps {
@@ -194,7 +195,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
 
     // --- Active Process Logic ---
     const activeProcess = useMemo(() => {
-        return player.activeProcesses?.find(p => p.locationId === poi.id);
+        return player.activeProcesses?.find(p => p.locationId === poi.id && p.type !== 'COOP');
     }, [player.activeProcesses, poi.id]);
 
     const calculateTimeLeft = () => {
@@ -265,15 +266,24 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                         <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl blur opacity-25 group-hover/harvest:opacity-50 transition duration-1000 group-hover:duration-200" />
                                         <button
                                             onClick={() => onAction({ type: 'HARVEST', locationId: poi.id })}
-                                            className="w-full relative px-6 py-8 bg-slate-900 border border-emerald-500/50 rounded-3xl flex items-center justify-between overflow-hidden active:scale-[0.98] transition-all"
+                                            disabled={player.resources.stamina < calculateStaminaCost(player, 'WORK')}
+                                            className={`w-full relative px-6 py-8 border rounded-3xl flex items-center justify-between overflow-hidden active:scale-[0.98] transition-all
+                                                ${player.resources.stamina < calculateStaminaCost(player, 'WORK')
+                                                    ? 'bg-red-900/20 border-red-500/30 cursor-not-allowed grayscale opacity-80'
+                                                    : 'bg-slate-900 border-emerald-500/50 hover:bg-emerald-950/30'
+                                                }`}
                                         >
                                             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-3xl -mr-16 -mt-16" />
                                             <div className="flex flex-col items-start z-10">
-                                                <span className="text-2xl font-black text-white uppercase tracking-tighter italic">Innhøsting</span>
-                                                <span className="text-xs font-black text-emerald-400 uppercase tracking-[0.2em] mt-1">Klar til å hentes!</span>
+                                                <span className={`text-2xl font-black uppercase tracking-tighter italic ${player.resources.stamina < calculateStaminaCost(player, 'WORK') ? 'text-slate-500' : 'text-white'}`}>Innhøsting</span>
+                                                <span className={`text-xs font-black uppercase tracking-[0.2em] mt-1 ${player.resources.stamina < calculateStaminaCost(player, 'WORK') ? 'text-red-400' : 'text-emerald-400'}`}>
+                                                    {player.resources.stamina < calculateStaminaCost(player, 'WORK')
+                                                        ? `Mangler energi (${Math.ceil(player.resources.stamina)}/${calculateStaminaCost(player, 'WORK').toFixed(0)})`
+                                                        : 'Klar til å hentes!'}
+                                                </span>
                                             </div>
-                                            <div className="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center text-3xl animate-bounce shadow-[0_0_20px_rgba(16,185,129,0.3)]">
-                                                ✨
+                                            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(16,185,129,0.3)] ${player.resources.stamina < calculateStaminaCost(player, 'WORK') ? 'bg-slate-800 text-slate-600' : 'bg-emerald-500/20 animate-bounce'}`}>
+                                                {player.resources.stamina < calculateStaminaCost(player, 'WORK') ? <Zap size={24} className="text-red-500" /> : '✨'}
                                             </div>
                                         </button>
                                     </div>
@@ -328,13 +338,20 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                     // Check requirements
                                     let canAfford = true;
                                     let missingReason = '';
+
+                                    // List of actions that open menus/sub-UIs and should always be clickabled
+                                    const MENU_OPENING_ACTIONS = ['CRAFT', 'BAKE', 'SMELT', 'MILL', 'WEAVE', 'MIX', 'OPEN_CHICKEN_COOP', 'OPEN_DICE_GAME', 'MARKET_VIEW'];
+
                                     if (viewingRegionId !== player.regionId && player.role !== 'KING' && action.id !== 'MARKET_VIEW') {
                                         canAfford = false; missingReason = "Dette er ikke ditt baroni";
                                     } else {
-                                        const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
-                                        if (!check.success) {
-                                            canAfford = false;
-                                            missingReason = check.reason || 'Krav ikke møtt';
+                                        // Skip requirement check for menu openers
+                                        if (!MENU_OPENING_ACTIONS.includes(action.id)) {
+                                            const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
+                                            if (!check.success) {
+                                                canAfford = false;
+                                                missingReason = check.reason || 'Krav ikke møtt';
+                                            }
                                         }
                                     }
 

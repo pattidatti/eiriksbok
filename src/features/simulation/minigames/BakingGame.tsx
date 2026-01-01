@@ -51,6 +51,18 @@ export const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMu
         };
     }, [isFinished, feedback, speedMultiplier]);
 
+    // Spacebar Support
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                pullOut();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isFinished, feedback, progress, targetCenter]); // Dependencies for pullOut logic
+
     const pullOut = () => {
         if (isFinished || feedback) return;
 

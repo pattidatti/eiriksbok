@@ -22,6 +22,22 @@ export const CraftingGame: React.FC<{ onComplete: (score: number) => void, speed
         return () => clearInterval(interval);
     }, [isFinished, speedMultiplier]);
 
+    // Spacebar Support
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                // Mock click event at center of screen for visual effects
+                handleHit({
+                    clientX: window.innerWidth / 2,
+                    clientY: window.innerHeight / 2
+                } as any);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isFinished, cursorPos, targetPos]); // Re-bind when positions change to capture values
+
     const handleHit = (e: React.MouseEvent) => {
         if (isFinished) return;
 

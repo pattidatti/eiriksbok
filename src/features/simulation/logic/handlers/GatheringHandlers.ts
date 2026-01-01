@@ -18,12 +18,22 @@ export const handlePlant = (ctx: ActionContext) => {
     // Initialize activeProcesses if missing
     if (!actor.activeProcesses) actor.activeProcesses = [];
 
+    const locationId = (action as any).locationId || 'grain_fields';
+
+    // Prevent double sowing (existing process check)
+    const existing = actor.activeProcesses.find(p => p.type === 'CROP' && p.locationId === locationId);
+    if (existing) {
+        localResult.success = false;
+        localResult.message = "Det vokser allerede noe her.";
+        return false;
+    }
+
     // Create new process
     const newProcess: ActiveProcess = {
         id: Math.random().toString(36).substr(2, 9),
         type: 'CROP',
         itemId: cropId,
-        locationId: (action as any).locationId || 'grain_fields', // Fallback or provided
+        locationId: locationId,
         startedAt: Date.now(),
         duration: crop.duration,
         readyAt: Date.now() + crop.duration,

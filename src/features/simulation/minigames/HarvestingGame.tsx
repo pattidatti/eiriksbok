@@ -35,6 +35,17 @@ export const HarvestingGame: React.FC<{
     const targetDirRef = useRef(1);
 
     useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                handleStrike();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [strikes, isFinished, pointerPos, targetPos, equipment, speedMultiplier]); // Add dependencies needed for handleStrike
+
+    useEffect(() => {
         if (strikes.length >= 5 || isFinished) return;
         const interval = setInterval(() => {
             // Move pointer

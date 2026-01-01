@@ -82,7 +82,7 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
         locationId: 'village',
         description: 'Gjør det mulig å bake Brød fra Mel.',
         levels: {
-            1: { requirements: {}, unlocks: ['CRAFT_BREAD'], bonus: 'Base produksjon' },
+            1: { requirements: {}, unlocks: ['CRAFT_BREAD', 'CRAFT_omelette'], bonus: 'Base produksjon' },
             2: { requirements: { stone: 50, timber: 20, gold: 100 }, unlocks: ['CRAFT_PIE'], bonus: 'Bedre stamina fra mat' },
             3: { requirements: { stone: 150, timber: 50, gold: 400 }, unlocks: ['CRAFT_FEAST'], bonus: 'Låser opp Gildemåltid' }
         }
