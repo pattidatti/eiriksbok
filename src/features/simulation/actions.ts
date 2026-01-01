@@ -278,7 +278,6 @@ const performSoloAction = async (pin: string, playerId: string, action: any) => 
 /* --- GLOBAL ACTION HANDLER (Optimized: Get/Update pattern to avoid root transaction timeouts) --- */
 const performGlobalAction = async (pin: string, playerId: string, action: any) => {
     const roomRef = ref(db, `simulation_rooms/${pin}`);
-    let result: any = null;
 
     try {
         // 1. Fetch State (No Transaction Lock to prevent hangs on large objects)

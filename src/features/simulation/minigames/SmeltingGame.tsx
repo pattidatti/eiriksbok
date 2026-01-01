@@ -3,7 +3,7 @@ import { animationManager } from '../logic/AnimationManager';
 
 export const SmeltingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
     const [heat, setHeat] = useState(20); // 0-100
-    const [targetRange, setTargetRange] = useState({ min: 60, max: 85 });
+    const [targetRange] = useState({ min: 60, max: 85 });
     const [progress, setProgress] = useState(0); // 0-100
     const [isFinished, setIsFinished] = useState(false);
 
@@ -12,6 +12,13 @@ export const SmeltingGame: React.FC<{ onComplete: (score: number) => void, speed
 
     const animate = (time: number) => {
         if (isFinished) return;
+
+        if (lastTimeRef.current === undefined || lastTimeRef.current === null) {
+            lastTimeRef.current = time;
+            requestRef.current = requestAnimationFrame(animate);
+            return;
+        }
+
         if (lastTimeRef.current !== undefined) {
             const deltaTime = time - lastTimeRef.current;
 

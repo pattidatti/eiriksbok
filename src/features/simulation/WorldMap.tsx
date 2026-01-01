@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { SimulationPlayer } from './simulationTypes';
 import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from './constants';
