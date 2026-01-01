@@ -60,6 +60,7 @@ const SimulationPlayer = React.lazy(routeFactories.SimulationPlayer);
 const SimulationProfile = React.lazy(() => import('./features/simulation/SimulationProfile').then(m => ({ default: m.SimulationProfile })));
 const SimulationLayout = React.lazy(() => import('./features/simulation/SimulationLayout').then(module => ({ default: module.SimulationLayout })));
 
+
 import { usePresence } from './hooks/usePresence';
 
 function App() {
@@ -143,6 +144,8 @@ function AppContent() {
               <Route path="krle/filosofi/sammenlign" element={<PhilosophyComparisonPage />} />
               <Route path="krle/sammenlign/tema/:tag" element={<TopicComparisonPage />} />
               <Route path="krle/religion/:religionId" element={<ReligionPage />} />
+
+
 
               <Route path=":subjectId" element={<SubjectPage />} />
               <Route path=":subjectId/:topicId" element={<TopicPage />} />

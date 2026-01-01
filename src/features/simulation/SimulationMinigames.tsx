@@ -1,7 +1,7 @@
 import React from 'react';
 import { calculateYield } from './utils/simulationUtils';
 import { GAME_BALANCE, SEASONS, WEATHER } from './constants';
-import { ITEM_TEMPLATES } from './data/items';
+import { ITEM_TEMPLATES, RESOURCE_DETAILS } from './data/items';
 import type { EquipmentItem, ActionType } from './simulationTypes';
 import { getActionCostString } from './utils/actionUtils';
 
@@ -35,6 +35,7 @@ interface MinigameProps {
     currentSeason?: string;
     currentWeather?: string;
     totalTicks?: number;
+    action?: any;
 }
 
 export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon: string, desc: string }[]> = {
@@ -109,7 +110,7 @@ const getBestToolForAction = (type: string, equipment: (EquipmentItem | undefine
 };
 
 /* --- MAIN OVERLAY COMPONENT --- */
-export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, equipment, skills, playerUpgrades, currentSeason = 'Spring', currentWeather = 'Clear', totalTicks = 0, selectedMethod: initialMethod }) => {
+export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onCancel, equipment, skills, playerUpgrades, currentSeason = 'Spring', currentWeather = 'Clear', totalTicks = 0, selectedMethod: initialMethod, action }) => {
     const [selectedMethod, setSelectedMethod] = React.useState<string | null>(initialMethod || null);
 
     // Auto-select method if only one option exists or if passed as prop
@@ -366,7 +367,8 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                             return <SmeltingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;
 
                         case 'BAKE':
-                            return <BakingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;
+                            const bakeIcon = action?.subType ? (ITEM_TEMPLATES[action.subType]?.icon || '🥖') : (RESOURCE_DETAILS[action?.recipeId]?.icon || '🥖');
+                            return <BakingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} icon={bakeIcon} />;
 
                         case 'WEAVE':
                             return <WeavingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;

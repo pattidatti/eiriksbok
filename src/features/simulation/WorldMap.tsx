@@ -66,7 +66,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
             case 'village':
                 if (isWinter) return isNight ? '/map_village_hub_1610_winter_night.png' : '/map_village_hub_1610_winter.png';
                 return isNight ? '/map_village_hub_1610_night.png' : '/map_village_hub_1610.png';
-            case 'village_construction': return '/map_village_construction.png';
+
             case 'castle': return '/map_castle_interior.png';
             case 'fields':
                 if (isWinter) return isNight ? '/map_farm_fields_winter_night.png' : '/map_farm_fields_winter.png';
@@ -148,7 +148,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                     </motion.div>
                 </AnimatePresence>
 
-                <SimulationProcessHUD player={player} />
+                <SimulationProcessHUD player={player} room={room} />
 
                 {/* Back Button */}
                 {viewMode !== 'kingdom' && (

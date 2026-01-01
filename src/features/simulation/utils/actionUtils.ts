@@ -140,6 +140,11 @@ export const checkActionRequirements = (
             return { success: false, reason: "Du kan bare sove når det er natt" };
         }
 
+        // WINTER RESTRICTION FOR PLANTING
+        if (actionId === 'PLANT' && currentSeason === 'Winter') {
+            return { success: false, reason: "Bakken er frossen - du kan ikke så om vinteren" };
+        }
+
         // WELL COOLDOWN CHECK
         const isWellAction = payload.locationId === 'farm_well' || payload.locationId === 'well_water' || actionId === 'GATHER_WATER';
         if (isWellAction) {

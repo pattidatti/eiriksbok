@@ -9,25 +9,30 @@ import {
     Trophy,
     Star,
     History,
-    Edit2,
     Check,
     X,
-    Shield,
-    Calendar,
     Award,
     LogOut,
     ShieldAlert
 } from 'lucide-react';
 import { useLayout } from '../../context/LayoutContext';
+import { NexusProvider, useNexus } from '../nexus/NexusContext';
+import { VesselSelector } from '../nexus/components/VesselSelector';
 
-export const SimulationProfile: React.FC = () => {
+const InnerSimulationProfile: React.FC = () => {
     const { user, account, loading, logout, isAnonymous } = useSimulationAuth();
+    useNexus(); // Ensure context is loaded
     const [isEditingName, setIsEditingName] = useState(false);
     const [newName, setNewName] = useState(account?.displayName || '');
     const [saving, setSaving] = useState(false);
     const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
     const navigate = useNavigate();
     const { setFullWidth, setHideHeader } = useLayout();
+
+    // Sync local state with loaded account
+    useEffect(() => {
+        if (account?.displayName) setNewName(account.displayName);
+    }, [account]);
 
     useEffect(() => {
         setFullWidth(true);
@@ -40,7 +45,7 @@ export const SimulationProfile: React.FC = () => {
 
     if (loading) {
         return (
-            <div className="fixed inset-0 bg-slate-950 flex items-center justify-center">
+            <div className="fixed inset-0 bg-[#050510] flex items-center justify-center">
                 <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
             </div>
         );
@@ -62,27 +67,30 @@ export const SimulationProfile: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white p-6 md:p-12 overflow-x-hidden">
-            <div className="max-w-4xl mx-auto space-y-12">
+        <div className="min-h-screen bg-[#050510] text-slate-200 overflow-x-hidden relative selection:bg-indigo-500/30">
+            {/* --- VOID ATMOSPHERE (From NexusLayout) --- */}
+            <div className="fixed inset-0 pointer-events-none">
+                <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
+                <div className="absolute top-[-20%] left-[20%] w-[80vw] h-[80vw] bg-indigo-900/20 rounded-full blur-[150px] animate-pulse-slow"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-purple-900/10 rounded-full blur-[120px]"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+            </div>
 
-                {/* Header */}
+            <div className="relative z-10 max-w-7xl mx-auto p-6 md:p-12 space-y-16">
+
+                {/* Header / Navigate Home */}
                 <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-6">
-                        <button
-                            onClick={() => navigate('/sim')}
-                            className="group flex items-center gap-2 text-slate-500 hover:text-white transition-colors"
-                        >
-                            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                            <span className="font-bold uppercase tracking-widest text-xs">Lobby</span>
-                        </button>
-                        <div className="h-4 w-px bg-white/10 hidden md:block" />
-                        <div className="text-left">
-                            <h1 className="text-xl md:text-3xl font-black italic text-white tracking-tighter uppercase leading-none">Global Profil</h1>
-                            <p className="text-[10px] font-black text-indigo-400 uppercase tracking-widest mt-1">Identity v1.0</p>
+                    <button
+                        onClick={() => navigate('/sim')}
+                        className="group flex items-center gap-3 text-slate-500 hover:text-white transition-colors pl-2"
+                    >
+                        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-indigo-600 transition-colors">
+                            <ArrowLeft size={14} className="group-hover:-translate-x-0.5 transition-transform" />
                         </div>
-                    </div>
+                        <span className="font-black uppercase tracking-[0.2em] text-xs">Tilbake til Lobby</span>
+                    </button>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-4">
                         {isAnonymous ? (
                             <button
                                 onClick={() => navigate('/sim')}
@@ -101,150 +109,143 @@ export const SimulationProfile: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Main Profile Info */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-
-                    {/* Hero Section */}
-                    <div className="md:col-span-12 bg-slate-900/40 backdrop-blur-3xl border border-white/5 rounded-[3rem] p-10 relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-10 transition-opacity">
-                            <Shield size={200} className="text-indigo-500" />
+                {/* Identity Section (Hero) */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+                    <div className="md:col-span-12 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-8">
+                        <div className="relative group">
+                            <div className="absolute inset-0 bg-indigo-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full" />
+                            <div className="w-32 h-32 bg-slate-900 border border-white/10 rounded-full flex items-center justify-center relative overflow-hidden shadow-2xl">
+                                <UserIcon size={64} className="text-slate-200" />
+                            </div>
+                            <div className="absolute bottom-0 right-0 bg-indigo-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full border border-slate-900 uppercase tracking-wider">
+                                Operator
+                            </div>
                         </div>
 
-                        <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                            <div className="w-32 h-32 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-[2.5rem] flex items-center justify-center shadow-2xl shadow-indigo-900/40 shrink-0">
-                                <UserIcon size={64} className="text-white" />
-                            </div>
-
-                            <div className="flex-1 text-center md:text-left space-y-4">
+                        <div className="space-y-4 pt-2">
+                            <div>
+                                <h1 className="text-sm font-bold text-indigo-400 uppercase tracking-[0.4em] mb-2">Global Profil</h1>
                                 {isEditingName ? (
                                     <div className="flex items-center gap-2 justify-center md:justify-start">
                                         <input
                                             type="text"
                                             value={newName}
                                             onChange={(e) => setNewName(e.target.value)}
-                                            className="bg-slate-950/50 border-2 border-indigo-500/50 rounded-xl px-4 py-2 text-2xl font-black text-white outline-none focus:border-indigo-500"
+                                            className="bg-white/5 border border-indigo-500/50 rounded-lg px-4 py-2 text-3xl font-black text-white outline-none focus:bg-white/10 w-full max-w-sm"
                                             autoFocus
                                         />
-                                        <button
-                                            onClick={handleSaveName}
-                                            disabled={saving}
-                                            className="p-3 bg-emerald-500/20 text-emerald-400 rounded-xl hover:bg-emerald-500 hover:text-white transition-all disabled:opacity-50"
-                                        >
-                                            <Check size={20} />
-                                        </button>
-                                        <button
-                                            onClick={() => setIsEditingName(false)}
-                                            className="p-3 bg-rose-500/20 text-rose-400 rounded-xl hover:bg-rose-500 hover:text-white transition-all"
-                                        >
-                                            <X size={20} />
-                                        </button>
+                                        <button onClick={handleSaveName} className="p-2 bg-emerald-500/20 text-emerald-400 rounded-lg"><Check size={20} /></button>
+                                        <button onClick={() => setIsEditingName(false)} className="p-2 bg-rose-500/20 text-rose-400 rounded-lg"><X size={20} /></button>
                                     </div>
                                 ) : (
-                                    <div className="flex items-center gap-4 justify-center md:justify-start group/name">
-                                        <h2 className="text-5xl font-black tracking-tighter text-white">
-                                            {account?.displayName || 'Anonym Reisende'}
-                                        </h2>
-                                        <button
-                                            onClick={() => {
-                                                setNewName(account?.displayName || '');
-                                                setIsEditingName(true);
-                                            }}
-                                            className="p-2 opacity-0 group-hover/name:opacity-100 hover:bg-white/5 rounded-lg transition-all text-slate-500 hover:text-indigo-400"
-                                        >
-                                            <Edit2 size={18} />
-                                        </button>
-                                    </div>
+                                    <h2
+                                        onClick={() => { setNewName(account?.displayName || ''); setIsEditingName(true); }}
+                                        className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 uppercase tracking-tighter cursor-pointer hover:to-indigo-300 transition-all"
+                                    >
+                                        {account?.displayName || 'Ukjent Identitet'}
+                                    </h2>
                                 )}
+                            </div>
 
-                                <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                                    <div className="bg-indigo-500/10 text-indigo-400 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-indigo-500/20">
-                                        Level {account?.globalLevel || 1}
+                            {/* Meta Stats Badges */}
+                            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                                <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg flex items-center gap-3">
+                                    <div className="p-1.5 bg-indigo-500/20 rounded-md text-indigo-400"><Award size={14} /></div>
+                                    <div className="text-left">
+                                        <p className="text-[9px] text-slate-500 uppercase tracking-widest font-bold">Sjelsnivå</p>
+                                        <p className="text-sm font-mono font-bold text-white">{account?.globalLevel || 1}</p>
                                     </div>
-                                    <div className="bg-amber-500/10 text-amber-500 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-amber-500/20">
-                                        {account?.globalXp || 0} Total XP
-                                    </div>
-                                    <div className="text-slate-500 text-[10px] font-black uppercase tracking-widest ml-2">
-                                        UID: {user?.uid.slice(0, 12)}...
+                                </div>
+                                <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg flex items-center gap-3">
+                                    <div className="p-1.5 bg-amber-500/20 rounded-md text-amber-400"><Star size={14} /></div>
+                                    <div className="text-left">
+                                        <p className="text-[9px] text-slate-500 uppercase tracking-widest font-bold">Total XP</p>
+                                        <p className="text-sm font-mono font-bold text-white">{account?.globalXp || 0}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    {/* Stats Grid */}
-                    <div className="md:col-span-4 space-y-6">
-                        <div className="bg-slate-900/40 border border-white/5 p-8 rounded-[2.5rem]">
-                            <h3 className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-500 mb-6 font-mono">
-                                <Award size={14} className="text-indigo-400" /> Utmerkelser
-                            </h3>
-                            <div className="grid grid-cols-4 gap-3">
-                                {Array.from({ length: 12 }).map((_, i) => (
-                                    <div key={i} className={`aspect-square rounded-xl border border-white/5 flex items-center justify-center transition-all ${account?.unlockedAchievements?.[i] ? 'bg-indigo-600/20 text-indigo-400' : 'bg-slate-950/40 text-slate-800'}`}>
-                                        <Trophy size={16} />
-                                    </div>
-                                ))}
+                <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+                {/* VESSELS SECTION (THE CORE UPGRADE) */}
+                <div className="space-y-8">
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-indigo-500/10 rounded-xl flex items-center justify-center border border-indigo-500/20 text-indigo-400">
+                                <UserIcon size={20} />
                             </div>
-                            <p className="text-[9px] font-bold text-slate-600 uppercase text-center mt-6">
-                                {account?.unlockedAchievements?.length || 0} av 12 samlet
-                            </p>
+                            <div>
+                                <h3 className="text-xl font-black text-white uppercase tracking-tight">Active Vessels</h3>
+                                <p className="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-bold">Velg karakter for å gå inn i simuleringen</p>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Character History */}
-                    <div className="md:col-span-8 space-y-6">
-                        <div className="bg-slate-900/40 border border-white/5 p-10 rounded-[3rem] min-h-[400px]">
-                            <h3 className="flex items-center gap-3 text-sm font-black uppercase tracking-[0.3em] text-white mb-8">
-                                <History size={18} className="text-indigo-400" /> Karakterhistorikk (Lives Lived)
-                            </h3>
+                    {/* The Vessel Selector Component embedded directly */}
+                    <VesselSelector />
+                </div>
 
+
+                {/* Legacy History / Achievements */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* Achievements */}
+                    <div className="bg-white/5 border border-white/5 rounded-3xl p-8 space-y-6">
+                        <h4 className="text-sm font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
+                            <Trophy size={14} /> Utmerkelser
+                        </h4>
+                        <div className="grid grid-cols-5 gap-2">
+                            {Array.from({ length: 15 }).map((_, i) => (
+                                <div key={i} className={`aspect-square rounded-xl border border-white/5 flex items-center justify-center transition-all ${account?.unlockedAchievements?.[i] ? 'bg-indigo-600/20 text-indigo-400 border-indigo-500/30' : 'bg-black/20 text-slate-800'}`}>
+                                    <Trophy size={14} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* History List */}
+                    <div className="bg-white/5 border border-white/5 rounded-3xl p-8 space-y-6">
+                        <h4 className="text-sm font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
+                            <History size={14} /> Legacy Archives
+                        </h4>
+                        <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
                             {(!account?.characterHistory || account.characterHistory.length === 0) ? (
-                                <div className="flex flex-col items-center justify-center py-20 text-slate-600">
-                                    <div className="w-16 h-16 bg-slate-950/40 rounded-3xl flex items-center justify-center mb-4">
-                                        <Star size={24} />
-                                    </div>
-                                    <p className="text-xs font-black uppercase tracking-widest">Ingen tidligere liv registrert</p>
-                                    <p className="text-[10px] font-medium mt-1">Dra til en verden og gjør deg bemerket!</p>
+                                <div className="text-center py-8 opacity-50">
+                                    <p className="text-xs font-bold uppercase">Ingen arkiver funnet</p>
                                 </div>
                             ) : (
-                                <div className="space-y-4">
-                                    {account.characterHistory.slice().reverse().map((history, i) => (
-                                        <div key={i} className="group bg-slate-950/40 border border-white/5 p-6 rounded-[2rem] hover:border-indigo-500/30 transition-all flex items-center justify-between">
-                                            <div className="flex items-center gap-6">
-                                                <div className="w-12 h-12 bg-indigo-600/10 rounded-2xl flex items-center justify-center text-xl border border-indigo-500/10 group-hover:scale-110 transition-transform">
-                                                    {history.role === 'KING' ? '👑' : history.role === 'BARON' ? '🏰' : '🌾'}
-                                                </div>
-                                                <div>
-                                                    <h4 className="font-black text-white group-hover:text-indigo-400 transition-colors uppercase tracking-widest">{history.name}</h4>
-                                                    <div className="flex items-center gap-3 text-[10px] font-bold text-slate-500 mt-1 uppercase tracking-tighter">
-                                                        <span className="text-indigo-500">Nivå {history.level} {history.role}</span>
-                                                        <span className="w-1 h-1 bg-slate-800 rounded-full" />
-                                                        <span className="flex items-center gap-1"><Calendar size={10} /> {new Date(history.timestamp).toLocaleDateString()}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="text-right">
-                                                <p className="text-[10px] font-black text-slate-600 uppercase tracking-widest">VERDEN</p>
-                                                <p className="text-sm font-mono font-bold text-indigo-400">#{history.roomPin}</p>
+                                account.characterHistory.slice().reverse().map((history, i) => (
+                                    <div key={i} className="flex items-center justify-between p-4 bg-black/20 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                                        <div className="flex items-center gap-3">
+                                            <div className="text-xl opacity-50">💀</div>
+                                            <div>
+                                                <p className="text-xs font-black text-white uppercase tracking-wide">{history.name}</p>
+                                                <p className="text-[10px] text-slate-500 uppercase font-bold">{history.role} • Lvl {history.level}</p>
                                             </div>
                                         </div>
-                                    ))}
-                                </div>
+                                        <p className="text-[10px] font-mono text-slate-600">{new Date(history.timestamp).toLocaleDateString()}</p>
+                                    </div>
+                                ))
                             )}
                         </div>
                     </div>
                 </div>
+
             </div>
+
             {/* Logout Confirmation Overlay */}
             {showLogoutConfirm && (
                 <div className="fixed inset-0 z-[2000] flex items-center justify-center p-4 animate-in fade-in duration-200">
-                    <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-md" onClick={() => setShowLogoutConfirm(false)} />
-                    <div className="relative bg-slate-900 border border-white/10 p-8 rounded-[2.5rem] shadow-2xl max-w-sm w-full space-y-6 text-center animate-in zoom-in duration-300">
+                    <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={() => setShowLogoutConfirm(false)} />
+                    <div className="relative bg-[#0A0A15] border border-white/10 p-8 rounded-[2.5rem] shadow-2xl max-w-sm w-full space-y-6 text-center animate-in zoom-in duration-300">
                         <div className="w-20 h-20 bg-rose-500/10 rounded-3xl flex items-center justify-center mx-auto text-rose-500">
                             <LogOut size={40} />
                         </div>
                         <div className="space-y-2">
                             <h3 className="text-2xl font-black italic tracking-tighter uppercase text-white leading-none">Logge ut?</h3>
-                            <p className="text-slate-400 text-sm font-medium">Er du sikker på at du vil avslutte sesjonen? Du kan alltids logge inn igjen senere.</p>
+                            <p className="text-slate-400 text-sm font-medium">Er du sikker på at du vil avslutte sesjonen?</p>
                         </div>
                         <div className="grid grid-cols-2 gap-3 pt-2">
                             <button
@@ -260,7 +261,7 @@ export const SimulationProfile: React.FC = () => {
                                 }}
                                 className="py-4 bg-rose-600 hover:bg-rose-500 rounded-2xl text-[10px] font-black uppercase tracking-widest text-white transition-all shadow-lg shadow-rose-600/20"
                             >
-                                Ja, Logg Ut
+                                Logg Ut
                             </button>
                         </div>
                     </div>
@@ -269,3 +270,13 @@ export const SimulationProfile: React.FC = () => {
         </div>
     );
 };
+
+// Wrap with NexusProvider to allow Vessel Selection logic to work
+export const SimulationProfile = () => {
+    return (
+        <NexusProvider>
+            <InnerSimulationProfile />
+        </NexusProvider>
+    );
+};
+

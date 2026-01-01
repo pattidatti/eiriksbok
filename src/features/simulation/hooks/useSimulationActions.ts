@@ -57,11 +57,12 @@ export function useSimulationActions(
                 // IF recipe has duration, skip minigame
                 // We don't have the recipe object easily here, but we can check rid === 'flour'
                 if (rid === 'flour') {
-                    // Skip minigame block by not setting actualType to something in MINIGAME_VARIANTS
-                    // Actually, if we want it to go straight to performAction, we should just return here and continue?
-                    // No, we should let it fall through.
-                    // To fall through, we can just not enter this if block if RID is flour.
+                    // Skip minigame block
                 }
+            }
+
+            if (actionType === 'CRAFT' && action.subType === 'omelette') {
+                actualType = 'BAKE';
             }
 
             // If actualType is REFINE and it's flour, we don't want a minigame (it's not in MINIGAME_VARIANTS anymore anyway)

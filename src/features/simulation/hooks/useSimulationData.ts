@@ -116,6 +116,95 @@ export function useSimulationData(pin: string | undefined, impersonateId: string
         };
     }, [pin, impersonateId, user?.uid, authLoading, hasActiveSession]);
 
+    // --- NEXUS / VESSEL MOCK LOADING ---
+    useEffect(() => {
+        if (!pin || !pin.startsWith('v')) return;
+
+        // Try to load simulated vessel data
+        const storedVessel = localStorage.getItem('nexus_active_vessel');
+        if (storedVessel) {
+            try {
+                const vesselData = JSON.parse(storedVessel);
+                if (vesselData.id === pin) {
+                    console.log("Nexus Vessel Detected. Injecting Mock Data...", vesselData);
+
+                    // Create a full SimulationPlayer object from the simpler Vessel data
+                    const mockPlayer: SimulationPlayer = {
+                        id: vesselData.id,
+                        uid: user?.uid || 'nexus_user',
+                        name: vesselData.name,
+                        role: vesselData.role.toUpperCase() as any,
+                        regionId: 'nexus_region',
+                        resources: {
+                            gold: vesselData.gold,
+                            grain: 100,
+                            flour: 0,
+                            bread: 5,
+                            wood: 50,
+                            plank: 0,
+                            iron_ore: 0,
+                            iron_ingot: 0,
+                            stone: 0,
+                            swords: 0,
+                            armor: 0,
+                            favor: 0,
+                            wool: 0,
+                            cloth: 0,
+                            honey: 0,
+                            meat: 0,
+                            glass: 0,
+                            manpower: 10,
+                            egg: 0,
+                            omelette: 0
+                        },
+                        stats: { xp: 0, level: 1, reputation: 50, contribution: 0 },
+                        status: {
+                            hp: vesselData.health,
+                            morale: 100,
+                            stamina: 100,
+                            legitimacy: 100,
+                            authority: 100,
+                            loyalty: 100,
+                            isJailed: false,
+                            isFrozen: false
+                        },
+                        equipment: {},
+                        skills: {
+                            FARMING: { level: 1, xp: 0, maxXp: 100 },
+                            WOODCUTTING: { level: 1, xp: 0, maxXp: 100 },
+                            MINING: { level: 1, xp: 0, maxXp: 100 },
+                            CRAFTING: { level: 1, xp: 0, maxXp: 100 },
+                            STEWARDSHIP: { level: 1, xp: 0, maxXp: 100 },
+                            COMBAT: { level: 1, xp: 0, maxXp: 100 },
+                            TRADING: { level: 1, xp: 0, maxXp: 100 },
+                            THEOLOGY: { level: 1, xp: 0, maxXp: 100 }
+                        },
+                        upgrades: [],
+                        lastActive: Date.now()
+                    };
+
+                    setPlayer(mockPlayer);
+                    setHasActiveSession(true);
+                    setHasAttemptedPlayerLoad(true);
+
+                    // Also mock world and status so we don't get stuck
+                    setRoomStatus('PLAYING');
+                    setWorld({
+                        year: 1250,
+                        season: 'Spring',
+                        weather: 'Clear',
+                        gameTick: 100,
+                        lastTickAt: Date.now(),
+                        taxRateDetails: { kingTax: 10 },
+                        settlement: { buildings: {} }
+                    } as any);
+                }
+            } catch (e) {
+                console.error("Failed to parse Nexus vessel data", e);
+            }
+        }
+    }, [pin, user?.uid]);
+
     // --- LEADER ELECTION ---
     const isLeader = useMemo(() => {
         const pId = impersonateId || localStorage.getItem('sim_player_id') || user?.uid;

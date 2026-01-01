@@ -437,9 +437,5 @@ export const POINTS_OF_INTEREST: POI[] = [
     },
 
 
-    // --- VILLAGE CONSTRUCTION LOCAL ---
-    {
-        id: 'construction_site', label: 'Byggeplass', icon: '🏗️', top: '50%', left: '50%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'village_construction',
-        actions: [{ id: 'CONSTRUCT', label: 'Bidra til prosjektet', cost: '-20⚡' }]
-    }
+
 ];

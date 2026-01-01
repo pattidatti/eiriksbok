@@ -1,7 +1,7 @@
 // Types definition for Simulation
 export type Role = 'KING' | 'BARON' | 'PEASANT' | 'SOLDIER' | 'MERCHANT';
 
-export type ActionType = 'WORK' | 'CHOP' | 'FORAGE' | 'MINE' | 'RAID' | 'TAX' | 'TAX_PEASANTS' | 'TAX_ROYAL' | 'MILL' | 'SMELT' | 'SAWMILL' | 'BAKERY' | 'REFINE' | 'CRAFT' | 'QUARRY' | 'REPAIR' | 'HUNT' | 'GATHER_WOOL' | 'GATHER_HONEY' | 'PRAY' | 'FEAST' | 'CONTRIBUTE' | 'CONSTRUCT' | 'SLEEP' | 'EAT' | 'PLANT' | 'HARVEST' | 'BAKE' | 'WEAVE' | 'MIX' | 'DEFEND' | 'EXPLORE' | 'PATROL';
+export type ActionType = 'WORK' | 'CHOP' | 'FORAGE' | 'MINE' | 'RAID' | 'TAX' | 'TAX_PEASANTS' | 'TAX_ROYAL' | 'MILL' | 'SMELT' | 'SAWMILL' | 'BAKERY' | 'REFINE' | 'CRAFT' | 'QUARRY' | 'REPAIR' | 'HUNT' | 'GATHER_WOOL' | 'GATHER_HONEY' | 'PRAY' | 'FEAST' | 'CONTRIBUTE' | 'CONSTRUCT' | 'SLEEP' | 'EAT' | 'PLANT' | 'HARVEST' | 'BAKE' | 'WEAVE' | 'MIX' | 'DEFEND' | 'EXPLORE' | 'PATROL' | 'MAINTAIN_CROP';
 
 export interface ActionCost extends Partial<Resources> {
     stamina?: number;
@@ -143,6 +143,10 @@ export interface ActiveProcess {
     readyAt: number;     // timestamp
     notified: boolean;   // has the user been toasted?
     locationId: string;  // e.g. 'fields'
+
+    // Active Maintenance
+    maintainCount?: number;
+    yieldBonus?: number; // e.g. 0.05 for 5%
 }
 
 export interface SimulationPlayer {
@@ -264,7 +268,7 @@ export interface SimulationRoom {
                 progress: Partial<Resources>; // current resources contributed for next level
                 contributions: Record<string, { name: string, resources: Partial<Resources> }>; // player contributions
             }>;
-            activeProjectId?: string;
+
         };
     };
 

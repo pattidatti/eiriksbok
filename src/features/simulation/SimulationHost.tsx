@@ -168,7 +168,7 @@ export const SimulationHost: React.FC = () => {
                         ...acc,
                         [id]: { id, level: 0, progress: {}, target: 200, contributions: {} }
                     }), {}),
-                    activeProjectId: 'sawmill'
+
                 }
             },
             worldEvents: {},
@@ -445,7 +445,7 @@ export const SimulationHost: React.FC = () => {
                         ...acc,
                         [id]: { id, level: 0, progress: {}, target: 200 }
                     }), {}),
-                    activeProjectId: 'sawmill'
+
                 }
             });
         } catch (e) {
@@ -478,7 +478,6 @@ export const SimulationHost: React.FC = () => {
                     ...acc,
                     [id]: { id, level: 0, progress: {}, target: 200 }
                 }), {}),
-                activeProjectId: 'sawmill'
             };
 
             // Reset players
@@ -764,18 +763,8 @@ export const SimulationHost: React.FC = () => {
                         {!roomData.world.settlement ? (
                             <button onClick={initializeSettlement} className="w-full bg-amber-500 text-black py-4 rounded-2xl font-black uppercase text-[10px] animate-pulse">Initialiser Landsby</button>
                         ) : (
-                            <div className="grid grid-cols-2 gap-2">
-                                {Object.entries(VILLAGE_BUILDINGS).map(([id, b]: [string, any]) => (
-                                    <button
-                                        key={id}
-                                        onClick={() => update(ref(db, `simulation_rooms/${pin}/world/settlement`), { activeProjectId: id })}
-                                        className={`p-2 rounded-lg text-[8px] font-black uppercase border-2 transition-all ${roomData.world.settlement?.activeProjectId === id
-                                            ? 'bg-indigo-600 border-indigo-500 text-white'
-                                            : 'bg-white/5 border-white/5 text-slate-500 hover:border-indigo-500/50'}`}
-                                    >
-                                        {b.name}
-                                    </button>
-                                ))}
+                            <div className="text-xs text-slate-500 italic">
+                                Landsbyen er initialisert.
                             </div>
                         )}
                     </section>

@@ -13,6 +13,8 @@ import { SimulationDiplomacy } from './SimulationDiplomacy';
 import { SimulationHierarchy } from './SimulationHierarchy';
 import { SimulationProfile } from './SimulationProfile';
 import { SimulationSettings } from './SimulationSettings';
+import { SimulationMusicWindow } from './ui/SimulationMusicWindow';
+import { AnimatePresence } from 'framer-motion';
 
 
 
@@ -29,7 +31,7 @@ interface SimulationViewportProps {
 import { ActionResultOverlay } from './ActionResultOverlay';
 
 export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, room, pin, onAction, actionResult, onClearActionResult }) => {
-    const { activeTab, setActiveTab } = useSimulation();
+    const { activeTab, setActiveTab, isMusicWindowOpen, setMusicWindowOpen } = useSimulation();
 
     // Main Content Switcher
 
@@ -170,6 +172,21 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                     </div>
                 )
             }
+
+            {/* Music Window Overlay */}
+            <AnimatePresence>
+                {/* We access isMusicWindowOpen from context inside the component, but we need to pass it here? No, the component has onClose */}
+                {/* Wait, we need to read the state here to render it conditionally with AnimatePresence */}
+                {/* We need to destructure isMusicWindowOpen from useSimulation() hook at start of component */}
+            </AnimatePresence>
+            {/* ACTUALLY, I need to update the hook destructuring first. */}
+
+            {/* Music Window Overlay */}
+            <AnimatePresence>
+                {isMusicWindowOpen && (
+                    <SimulationMusicWindow onClose={() => setMusicWindowOpen(false)} />
+                )}
+            </AnimatePresence>
 
             <ActionResultOverlay
                 result={actionResult}

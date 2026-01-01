@@ -1,19 +1,76 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import type { SimulationPlayer } from '../simulationTypes';
 import { Clock, Check } from 'lucide-react';
 import { RESOURCE_DETAILS } from '../data/items';
+import { useSimulationActions } from '../hooks/useSimulationActions';
 
 interface SimulationProcessHUDProps {
     player: SimulationPlayer;
+    room: any; // Using any to avoid importing full SimulationRoom type if circular dependency is a risk, otherwise import it.
 }
 
-export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ player }) => {
+export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ player, room }) => {
     const [currentTime, setCurrentTime] = useState(Date.now());
+    // Removed useSimulation() destructuring for room as it doesn't exist
+    const { handleAction } = useSimulationActions(room?.pin, player, room?.world || null, () => { }, () => { }, () => { }, null);
+
+    // Track local events for processes (CROW / WEED)
+    // Key: processId, Value: { type: 'CROW' | 'WEED', expiresAt: number }
+    const [maintenanceEvents, setMaintenanceEvents] = useState<Record<string, { type: 'CROW' | 'WEED', expiresAt: number }>>({});
 
     useEffect(() => {
-        const timer = setInterval(() => setCurrentTime(Date.now()), 1000);
+        const timer = setInterval(() => {
+            const now = Date.now();
+            setCurrentTime(now);
+
+            // Randomly spawn events on ACTIVE CROP processes
+            if (Math.random() < 0.05) { // 5% chance per second
+                const crops = player.activeProcesses?.filter(p => p.type === 'CROP' && p.readyAt > now) || [];
+                if (crops.length > 0) {
+                    const target = crops[Math.floor(Math.random() * crops.length)];
+                    // Only if no event exists
+                    if (!maintenanceEvents[target.id]) {
+                        const type = Math.random() > 0.5 ? 'CROW' : 'WEED';
+                        setMaintenanceEvents(prev => ({
+                            ...prev,
+                            [target.id]: { type, expiresAt: now + 10000 } // Lasts 10 seconds
+                        }));
+                    }
+                }
+            }
+
+            // Cleanup expired events
+            setMaintenanceEvents(prev => {
+                const next = { ...prev };
+                let changed = false;
+                Object.entries(next).forEach(([pid, evt]) => {
+                    if (evt.expiresAt < now) {
+                        delete next[pid];
+                        changed = true;
+                    }
+                });
+                return changed ? next : prev;
+            });
+
+        }, 1000);
         return () => clearInterval(timer);
-    }, []);
+    }, [player.activeProcesses, maintenanceEvents]);
+
+    const handleMaintain = useCallback((processId: string, type: 'CROW' | 'WEED') => {
+        // Optimistic UI update: Remove event immediately
+        setMaintenanceEvents(prev => {
+            const next = { ...prev };
+            delete next[processId];
+            return next;
+        });
+
+        // Dispatch Action
+        handleAction({
+            type: 'MAINTAIN_CROP',
+            processId,
+            subType: type
+        });
+    }, [handleAction]);
 
     const activeProcesses = player.activeProcesses || [];
 
@@ -119,21 +176,42 @@ export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ play
                     }
                 }
 
+                // Maintenance Event Overlay
+                const activeEvent = maintenanceEvents[process.id];
+                const isMaintainable = !!activeEvent && !isReady;
+
                 return (
                     <div
                         key={process.id}
-                        className={`bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-xl pointer-events-auto flex items-center gap-4 transition-all hover:bg-slate-900/95 animate-in slide-in-from-right-4 duration-300 ${process.type === 'WELL' && isReady ? 'animate-pulse' : ''}`}
+                        className={`relative bg-slate-900/90 backdrop-blur-md border rounded-xl p-3 shadow-xl pointer-events-auto flex items-center gap-4 transition-all hover:bg-slate-900/95 animate-in slide-in-from-right-4 duration-300 ${process.type === 'WELL' && isReady ? 'animate-pulse' : ''} ${isMaintainable ? 'border-rose-500/50 hover:border-rose-400 cursor-pointer group' : 'border-white/10'}`}
+                        onClick={isMaintainable ? () => handleMaintain(process.id, activeEvent.type) : undefined}
                     >
+                        {/* Maintenance Interactable */}
+                        {isMaintainable && (
+                            <div className="absolute -top-3 -right-3 z-50 animate-bounce">
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center shadow-lg border-2 border-white ${activeEvent.type === 'CROW' ? 'bg-slate-800' : 'bg-emerald-700'}`}>
+                                    <span className="text-lg">{activeEvent.type === 'CROW' ? '🐦' : '🌿'}</span>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Yield Bonus Badge */}
+                        {process.yieldBonus && process.yieldBonus > 0 && (
+                            <div className="absolute -bottom-2 -right-2 px-2 py-0.5 bg-emerald-600 text-white text-[10px] font-black rounded-full shadow-lg border border-emerald-400 z-10">
+                                +{Math.round(process.yieldBonus * 100)}%
+                            </div>
+                        )}
+
                         <div className={`w-10 h-10 rounded-lg flex items-center justify-center border ${isReady ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400 animate-pulse' : 'bg-slate-800 border-white/10 text-slate-400'}`}>
                             {icon}
                         </div>
 
                         <div className="flex flex-col min-w-[120px]">
                             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                                {isReady ? readyLabel : label}
+                                {isReady ? readyLabel : (isMaintainable ? (activeEvent.type === 'CROW' ? 'Fjern Kråke!' : 'Luk ugress!') : label)}
                             </span>
                             <div className="flex items-center gap-2">
-                                <span className={`text-sm font-black ${isReady ? 'text-emerald-400' : 'text-white'}`}>
+                                <span className={`text-sm font-black ${isReady ? 'text-emerald-400' : isMaintainable ? 'text-rose-400' : 'text-white'}`}>
                                     {isReady ? 'Hent nå' : formatTime(timeLeft)}
                                 </span>
                             </div>

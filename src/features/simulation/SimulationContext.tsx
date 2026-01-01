@@ -30,6 +30,9 @@ interface SimulationContextType {
     setProductionContext: (ctx: ProductionContext | null) => void;
     viewingRegionId: string | null;
     setViewingRegionId: (id: string | null) => void;
+    // Music Window State
+    isMusicWindowOpen: boolean;
+    setMusicWindowOpen: (isOpen: boolean) => void;
 }
 
 
@@ -58,6 +61,7 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
     const [viewingRegionId, setViewingRegionId] = useState<string | null>(null);
 
     const [isMarketOpen, setMarketOpen] = useState(false);
+    const [isMusicWindowOpen, setMusicWindowOpen] = useState(false);
     const [activeMinigame, setActiveMinigame] = useState<MinigameType>(null);
     const [activeMinigameMethod, setActiveMinigameMethod] = useState<string | null>(null);
     const [activeMinigameAction, setActiveMinigameAction] = useState<any | null>(null);
@@ -91,6 +95,8 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
             setViewingRegionId,
             isMarketOpen,
             setMarketOpen: handleSetMarketOpen,
+            isMusicWindowOpen,
+            setMusicWindowOpen,
             activeMinigame,
             setActiveMinigame,
             activeMinigameMethod,
@@ -106,7 +112,6 @@ export const SimulationProvider: React.FC<{ children: ReactNode }> = ({ children
         </SimulationContext.Provider>
     );
 };
-
 
 export const useSimulation = () => {
     const context = useContext(SimulationContext);

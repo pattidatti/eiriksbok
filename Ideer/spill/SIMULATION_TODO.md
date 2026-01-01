@@ -8,21 +8,37 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **minigames** Legge til flere minigames.
 - [ ] **Notificationsenter** et sted hvor alt som skjer med karakteren, spesielt hendelser og minigames, kan vises. Betyr ikke at man fjerner noe annet. dette er et tillegg.   
  ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
-- [ ] **Bueskyting** står at jeg mangler bue, selv om jeg har det equip på riktig slot. Fjern brød fra kostnaden til Dra på jakt. Hvis utbytte er redusert på pga sesong, så må dette fjernes. Det er alltid dyr i skogen. 
-- [ ] **lage omelett** Å lage omelett trigger smedarbeid minigame. Slik skal det ikke være. Omelett mangler også ikon.  
- - [ ] **Åker** det skal ikke gå an å så åkeren når det er vinter. Dette bygger opp under at man må gjøre seg klar til vinteren, og dytter spilleren inn på andre deler av spillet. 
+
+
 
 - [ ] **lokalbefolkning** Oppgradere UI til dialogen. Også legge til bilder av personene de snakker med, i en egen kolonne til høyre?
 ## 🛠️ Planlagt (Underveis/Snart) 
 - [ ] **Handelsruter:** Implementere Merchant-spesifikke handlinger for import/eksport mellom byer.
 - [ ] **Patruljering:** Utvide soldatens patrulje-funksjon med flere typer hendelser og minispill.
-- [ ] **Profil** Global profil må vise de aktive karakterene man har og at man kan logge inn der fra. Må koble profilknappen i instillinger til global profi også. 
+- [ ] **Global Profil (The Nexus):** En meta-layer hub som ligger "over" selve simuleringen.
+    - **Estetikk:** "Void/Astral" tema. Mørkere, mer teknisk/admin-aktig design enn selve spillet for å skille "Player" fra "Character". Glassmorphism med dypere blur og "kaldere" toner.
+    - **Karakter-velger (The Vessels):**
+        - Visning av alle aktive karakterer som "Cards" eller "Cryo-pods" med 3D- eller parallax-effekt.
+        - **Live Snapshot:** Vist Lokasjon, Rolle, Gold, Helse og "Sist spilt" tidspunkt.
+        - **Quick-Jump:** Knapp for å hoppe direkte inn i en annen karakter ("Possess Vessel").
+    - **Meta-Progresjon (Soul Rank):**
+        - Et nivåsystem for *spilleren* (The Operator) basert på samlet tid/bragder.
+        - **Legacy Hall:** Arkiv over døde/pensjonerte karakterer. En kirkegård eller hall of fame hvor man kan se stats fra tidligere liv.
+        - **Acievements / Triumphs:** Globale meritter som følger kontoen, ikke karakteren (f.eks. "Master Trader", "Warlord").
+    - **Konto-innstillinger:**
+        - **Cloud Sync:** Tydelig indikator på sync-status mellom enheter.
+        - **Global Overrides:** Mulighet til å låse settings (lyd/bilde) for alle karakterer.
+    - **Sosialt (Fremtidig):**
+        - **Friend Constellations:** Vis venner som stjerner i et system, hvor lysstyrke indikerer aktivitet.
+        - **Barony Management:** Hvis spilleren eier flere karakterer i maktposisjoner, en oversikt over "Player Empire".
+- [ ] **Login / Signup Flyt:**
+    - Full integrasjon av Firebase Auth i egen lekker UI-wrapper.
+    - "Velkommen tilbake, [Operator Name]" skjerm før man velger karakter. 
 - [ ] **Signup** Har lagt til Google som signup i  firebase, men dette må vel implementeres i koden vår? Samme med login antar jeg. 
-- [] **Planlagte prosjekter** Fjerne hele konseptet med planlegge og aktive prosjekter med sawmill osv. VI har et bedre system for å oppgrader bygninger. 
+- [x] **Planlagte prosjekter** Fjerne hele konseptet med planlegge og aktive prosjekter med sawmill osv. VI har et bedre system for å oppgrader bygninger. 
 - [] **Penger** Må bare ha 2 desimaler. Spesielt når man selger på marked kommer det popup med bøttevis av desimaler. 
 - [ ] **fjerne tools** Vi har fjernet tools som item (mener jeg), men det går fremdeles an å kjøpe og selge på markedet. 
-. [ ] **musikkspiller** i instillinger må det være tilgang en musikkspiller med sangene, mulighet for å bytte, stoppe, play og mute/ignorere bestemte sanger. (Vi må også oppdatere navne på sangene til mer unike titler på norsk )
-- [ ] **Minigames punch** På trehogging har vi en ikro annimasjonspause pause når man treffer, slik burde det være i alle minigames. 
+ 
 ## 💡 Ideer & Konsepter
 - [ ] **Diplomati:** Dypere system for forhold mellom baronier.
 - [ ] **Vær-effekter:** Hvordan vær påvirker produksjon og utbytte.

@@ -167,6 +167,7 @@ export const SimulationPlayer: React.FC = () => {
                             equipment={Object.values(player.equipment || {})}
                             skills={player.skills}
                             selectedMethod={activeMinigameMethod || undefined}
+                            action={activeMinigameAction}
                             onComplete={(score) => handleAction({ ...(activeMinigameAction || {}), performance: score, method: activeMinigameMethod })}
                             onCancel={() => { setActiveMinigame(null); setActiveMinigameAction(null); setActiveMinigameMethod(null); }}
                             currentSeason={world?.season || 'Spring'}

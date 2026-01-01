@@ -28,6 +28,7 @@ export const HarvestingGame: React.FC<{
     const [strikes, setStrikes] = useState<number[]>([]);
     const [isFinished, setIsFinished] = useState(false);
     const [shake, setShake] = useState(false);
+    const [isHitStopping, setIsHitStopping] = useState(false); // New State
     const dirRef = useRef(1);
 
     // Drifting Target Logic
@@ -43,10 +44,10 @@ export const HarvestingGame: React.FC<{
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [strikes, isFinished, pointerPos, targetPos, equipment, speedMultiplier]); // Add dependencies needed for handleStrike
+    }, [strikes, isFinished, pointerPos, targetPos, equipment, speedMultiplier, isHitStopping]); // Added isHitStopping dependency
 
     useEffect(() => {
-        if (strikes.length >= 5 || isFinished) return;
+        if (strikes.length >= 5 || isFinished || isHitStopping) return; // Pause game loop during hit stop
         const interval = setInterval(() => {
             // Move pointer
             setPointerPos(prev => {
@@ -72,10 +73,10 @@ export const HarvestingGame: React.FC<{
 
         }, 16);
         return () => clearInterval(interval);
-    }, [strikes.length, isFinished, speedMultiplier]);
+    }, [strikes.length, isFinished, speedMultiplier, isHitStopping]); // Added isHitStopping
 
     const handleStrike = () => {
-        if (strikes.length >= 5 || isFinished) return;
+        if (strikes.length >= 5 || isFinished || isHitStopping) return; // Block input
 
         // Calculate distance from dynamic target position instead of static 50
         const distance = Math.abs(pointerPos - targetPos);
@@ -90,13 +91,24 @@ export const HarvestingGame: React.FC<{
         const baseHitYield = Math.ceil((possibleYield / 5) * (0.5 + score));
         const toolHitBonus = Math.ceil((toolYieldBonus / 5) * (0.5 + score));
 
-        if (distance < 5) {
+        if (distance < 15) { // Any good hit triggers punch
             setShake(true);
-            setTimeout(() => setShake(false), 200);
-            animationManager.spawnParticles(50, 40, 'bg-amber-400');
-            animationManager.spawnFloatingText(`PERFEKT! + ${baseHitYield} ${toolHitBonus > 0 ? `(+${toolHitBonus})` : ''} `, 50, 40, 'text-amber-400');
+            setIsHitStopping(true); // Freeze
+
+            animationManager.spawnParticles(50, 40, distance < 5 ? 'bg-amber-400' : 'bg-white');
+
+            if (distance < 5) {
+                animationManager.spawnFloatingText(`PERFEKT! + ${baseHitYield} ${toolHitBonus > 0 ? `(+${toolHitBonus})` : ''} `, 50, 40, 'text-amber-400 font-black text-2xl');
+            } else {
+                animationManager.spawnFloatingText(`Bra! +${baseHitYield}`, 50, 40, 'text-white font-bold');
+            }
+
+            setTimeout(() => {
+                setShake(false);
+                setIsHitStopping(false); // Release
+            }, 100);
         } else {
-            animationManager.spawnFloatingText(`${distance < 15 ? 'Bra!' : 'Ok...'} +${baseHitYield} ${toolHitBonus > 0 ? `(+${toolHitBonus})` : ''} `, 50, 40, 'text-slate-200');
+            animationManager.spawnFloatingText(`Svakt...`, 50, 40, 'text-slate-500 font-bold');
         }
 
         const newStrikes = [...strikes, score];
@@ -111,8 +123,8 @@ export const HarvestingGame: React.FC<{
 
     return (
         <div className={`p-8 text-center min-h-[600px] relative flex flex-col items-center justify-center overflow-hidden ${shake ? 'animate-shake' : ''} `} style={{ backgroundImage: bg, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="absolute inset-0 bg-black/70 z-0" />
-            <div className="relative z-10 w-full flex flex-col items-center">
+            <div className={`absolute inset-0 bg-black/70 z-0 transition-all duration-75 ${isHitStopping ? 'bg-indigo-900/50 mix-blend-hard-light' : ''}`} />
+            <div className={`relative z-10 w-full flex flex-col items-center transition-all duration-75 ${isHitStopping ? 'scale-105 brightness-150 contrast-125' : ''}`}>
                 <h2 className="text-4xl font-black text-white mb-8 drop-shadow-lg tracking-tighter uppercase">{isMining ? 'Gruvedrift' : isQuarrying ? 'Steinhugger' : isForaging ? 'Sanking' : 'Kornhøsting'}</h2>
                 {!isFinished ? (
                     <>
@@ -135,7 +147,9 @@ export const HarvestingGame: React.FC<{
                             {/* Player Cursor */}
                             <div className="absolute inset-y-0 w-1 bg-white shadow-[0_0_20px_white] z-10" style={{ left: `${pointerPos}% ` }} />
                         </div>
-                        <button onClick={handleStrike} className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 py-7 rounded-[2rem] font-black text-2xl shadow-2xl active:scale-95 transition-all uppercase tracking-widest border-b-4 border-amber-700">KLIKK NÅ! ⚡</button>
+                        <button onClick={handleStrike} className={`w-full bg-amber-500 hover:bg-amber-400 text-slate-950 py-7 rounded-[2rem] font-black text-2xl shadow-2xl transition-all uppercase tracking-widest border-b-4 border-amber-700 ${isHitStopping ? 'scale-95 brightness-125' : 'active:scale-95'}`}>
+                            KLIKK NÅ! ⚡
+                        </button>
                     </>
                 ) : (
                     <div className="py-12 animate-bounce text-5xl font-black text-amber-500 uppercase tracking-tighter drop-shadow-[0_0_20px_rgba(245,158,11,0.5)]">FERDIG! ✨</div>

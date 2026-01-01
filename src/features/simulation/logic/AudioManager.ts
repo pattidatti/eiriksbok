@@ -1,3 +1,4 @@
+import { MUSIC_PLAYLIST } from '../data/musicData';
 
 class AudioManager {
     private static instance: AudioManager;
@@ -6,19 +7,11 @@ class AudioManager {
     private currentMusic: HTMLAudioElement | null = null;
     private currentMusicKey: string | null = null;
 
-
-    private playlist: string[] = [
-        "Ashes of the Keep.mp3",
-        "Banner at the Old Stone Keep.mp3",
-        "Banner at the Old Stone Keep (1).mp3",
-        "Burning Banners Over Stone.mp3",
-        "Candlelit Keep.mp3",
-        "Candlelit Keep (1).mp3",
-        "Crown of Quiet Rooms.mp3",
-        "Crown of Quiet Rooms (1).mp3"
-    ];
+    private playlist: string[] = [];
     private playlistIndex: number = 0;
     private isPlaylistActive: boolean = false;
+    private ignoredTracks: Set<string> = new Set();
+
     private audioContext: AudioContext | null = null;
     private filterNode: BiquadFilterNode | null = null;
     private isMuffledState: boolean = false;
@@ -28,12 +21,27 @@ class AudioManager {
         const savedSfx = localStorage.getItem('sim_sfx_volume');
         const savedMusic = localStorage.getItem('sim_music_volume');
         const savedMuffled = localStorage.getItem('sim_music_muffled');
+        const savedIgnored = localStorage.getItem('sim_music_ignored');
 
         if (savedSfx) this.sfxVolume = parseFloat(savedSfx);
         if (savedMusic) this.musicVolume = parseFloat(savedMusic);
         if (savedMuffled) this.isMuffledState = savedMuffled === 'true';
+        if (savedIgnored) {
+            try {
+                this.ignoredTracks = new Set(JSON.parse(savedIgnored));
+            } catch (e) {
+                console.error("Failed to parse ignored tracks", e);
+            }
+        }
 
-        // Shuffle playlist for variety
+        // Initialize playlist from data
+        this.playlist = MUSIC_PLAYLIST.map(t => t.id);
+
+        // Shuffle initially
+        this.shufflePlaylist();
+    }
+
+    private shufflePlaylist() {
         this.playlist = this.playlist.sort(() => Math.random() - 0.5);
     }
 
@@ -87,9 +95,28 @@ class AudioManager {
         }
     }
 
+    public toggleIgnoreTrack(trackId: string) {
+        if (this.ignoredTracks.has(trackId)) {
+            this.ignoredTracks.delete(trackId);
+        } else {
+            this.ignoredTracks.add(trackId);
+        }
+        localStorage.setItem('sim_music_ignored', JSON.stringify(Array.from(this.ignoredTracks)));
+
+        // If we just ignored the current track, skip to next
+        if (this.ignoredTracks.has(trackId) && this.currentMusicKey === trackId && this.isPlaylistActive) {
+            this.playNextInPlaylist();
+        }
+    }
+
+    public isIgnored(trackId: string): boolean {
+        return this.ignoredTracks.has(trackId);
+    }
+
     public getSfxVolume() { return this.sfxVolume; }
     public getMusicVolume() { return this.musicVolume; }
     public isMuffled() { return this.isMuffledState; }
+    public getCurrentTrackId() { return this.currentMusicKey; }
 
     public playSfx(key: string) {
         if (this.sfxVolume === 0) return;
@@ -106,18 +133,63 @@ class AudioManager {
     }
 
     public startPlaylist() {
-        if (this.isPlaylistActive) return;
+        if (this.isPlaylistActive && this.currentMusic) return; // Already playing
         this.isPlaylistActive = true;
-        this.playNextInPlaylist();
+
+        // Use logic to find valid start track if current is null or invalid
+        if (!this.currentMusic) {
+            this.playNextInPlaylist();
+        }
     }
 
-    private playNextInPlaylist() {
+    public playNextInPlaylist() {
         if (!this.isPlaylistActive) return;
 
-        const nextTrack = this.playlist[this.playlistIndex];
-        this.playMusic(nextTrack, 2000, false);
+        let attempts = 0;
+        let found = false;
 
-        this.playlistIndex = (this.playlistIndex + 1) % this.playlist.length;
+        // Prevent infinite loop if all tracks ignored
+        while (attempts < this.playlist.length) {
+            this.playlistIndex = (this.playlistIndex + 1) % this.playlist.length;
+            const trackId = this.playlist[this.playlistIndex];
+
+            if (!this.ignoredTracks.has(trackId)) {
+                this.playMusic(trackId, 2000, false);
+                found = true;
+                break;
+            }
+            attempts++;
+        }
+
+        if (!found) {
+            console.warn("All tracks are ignored! Playing fallback.");
+            this.playMusic(this.playlist[0], 2000, false);
+        }
+    }
+
+    public playPreviousInPlaylist() {
+        if (!this.isPlaylistActive) return;
+
+        let attempts = 0;
+        let found = false;
+
+        // Prevent infinite loop if all tracks ignored
+        while (attempts < this.playlist.length) {
+            // JS modulo handles negative numbers weirdly, so we fix it
+            this.playlistIndex = (this.playlistIndex - 1 + this.playlist.length) % this.playlist.length;
+            const trackId = this.playlist[this.playlistIndex];
+
+            if (!this.ignoredTracks.has(trackId)) {
+                this.playMusic(trackId, 2000, false);
+                found = true;
+                break;
+            }
+            attempts++;
+        }
+
+        if (!found) {
+            this.playMusic(this.playlist[0], 2000, false);
+        }
     }
 
     public playMusic(key: string, fadeDuration: number = 1000, interruptPlaylist: boolean = true) {
@@ -125,14 +197,18 @@ class AudioManager {
             this.isPlaylistActive = false;
         }
 
-        if (this.currentMusicKey === key && this.currentMusic) return;
+        // If trying to play the same track that is currently playing, just ensure volume is up
+        if (this.currentMusicKey === key && this.currentMusic && !this.currentMusic.paused) {
+            this.fadeIn(this.currentMusic, this.musicVolume, 500); // Ensure volume is correct
+            return;
+        }
 
         const filename = key.includes('.') ? key : `${key}.mp3`;
         const path = `/sounds/music/${filename}`;
 
         const newMusic = new Audio(path);
         newMusic.crossOrigin = "anonymous";
-        newMusic.loop = !this.isPlaylistActive;
+        newMusic.loop = !this.isPlaylistActive; // Loop if it's a specific track request (not playlist)
         newMusic.volume = 0;
 
         this.initAudioContext();
@@ -168,7 +244,8 @@ class AudioManager {
                 this.currentMusicKey = null;
             }
             if (this.isPlaylistActive) {
-                this.playNextInPlaylist();
+                // Try next one if this fails
+                setTimeout(() => this.playNextInPlaylist(), 1000);
             }
         });
     }
@@ -211,6 +288,12 @@ class AudioManager {
     }
 
     private fadeIn(audio: HTMLAudioElement, targetVolume: number, duration: number) {
+        // Stop any existing fade on this element (e.g. if we were fading it out)
+        if (this.activeFades.has(audio)) {
+            clearInterval(this.activeFades.get(audio));
+            this.activeFades.delete(audio);
+        }
+
         const steps = 20;
         const stepTime = duration / steps;
         const volStep = targetVolume / steps;
@@ -228,5 +311,4 @@ class AudioManager {
     }
 
 }
-
 export const audioManager = AudioManager.getInstance();

@@ -4,6 +4,53 @@ import { getActionSlots } from '../../utils/actionUtils';
 import type { ActionContext } from '../actionTypes';
 import type { ActiveProcess } from '../../simulationTypes';
 
+
+export const handleMaintainCrop = (ctx: ActionContext) => {
+    const { actor, action, localResult } = ctx;
+    const processId = action.processId;
+
+    if (!actor.activeProcesses) {
+        localResult.success = false;
+        localResult.message = "Ingen aktive prosesser.";
+        return false;
+    }
+
+    const process = actor.activeProcesses.find(p => p.id === processId);
+
+    if (!process) {
+        localResult.success = false;
+        localResult.message = "Fant ikke avlingen (kanskje den allerede er ferdig?).";
+        return false;
+    }
+
+    if (process.type !== 'CROP') {
+        localResult.success = false;
+        localResult.message = "Kan bare vedlikeholde avlinger.";
+        return false;
+    }
+
+    // Initialize stats if missing
+    if (process.maintainCount === undefined) process.maintainCount = 0;
+    if (process.yieldBonus === undefined) process.yieldBonus = 0;
+
+    // CAP: Max 3 maintenance actions per crop
+    if (process.maintainCount >= 3) {
+        localResult.success = false;
+        localResult.message = "Denne åkeren er allerede perfekt vedlikeholdt.";
+        return false;
+    }
+
+    // Apply Logic
+    process.maintainCount += 1;
+    process.yieldBonus += 0.05; // 5% bonus per action
+
+    const type = action.subType === 'WEED' ? 'Lukte ugress' : 'Skremte vekk kråka';
+
+    localResult.message = `${type}! (+5% Utbytte).`;
+
+    return true;
+};
+
 export const handlePlant = (ctx: ActionContext) => {
     const { actor, action, localResult, timestamp: _timestamp } = ctx;
     const cropId = action.cropId || 'grain';
@@ -12,6 +59,14 @@ export const handlePlant = (ctx: ActionContext) => {
     if (!crop) {
         localResult.success = false;
         localResult.message = `Ukjent grøde: ${cropId}`;
+        return false;
+    }
+
+    // WINTER RESTRICTION
+    const currentSeason = ctx.room.world?.season || 'Spring';
+    if (currentSeason === 'Winter') {
+        localResult.success = false;
+        localResult.message = "Du kan ikke så om vinteren - bakken er frossen.";
         return false;
     }
 
@@ -78,7 +133,9 @@ export const handleHarvest = (ctx: ActionContext) => {
         const baseYield = crop.minYield + (crop.maxYield - crop.minYield) * performance;
         const currentSeason = room.world?.season || 'Spring';
         const seasonData = (SEASONS as any)[currentSeason];
-        yieldAmount = Math.ceil(baseYield * (seasonData?.yieldMod || 1.0));
+        // Apply Maintenance Bonus
+        const maintenanceMod = 1 + (process.yieldBonus || 0);
+        yieldAmount = Math.ceil((baseYield * (seasonData?.yieldMod || 1.0)) * maintenanceMod);
         xpAmount = Math.ceil(crop.xp * (1 + performance));
     } else if (refineryRecipe) {
         label = refineryRecipe.label;

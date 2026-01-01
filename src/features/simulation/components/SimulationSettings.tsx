@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useAudio } from '../SimulationAudioContext';
-import { Volume2, User, Server, LogOut } from 'lucide-react';
-import { Badge } from '../ui/Badge';
+import { useSimulation } from '../SimulationContext';
+import { Volume2, User, Server, LogOut, Music } from 'lucide-react';
+
 
 interface SimulationSettingsProps {
     onClose: () => void;
 }
 
 export const SimulationSettings: React.FC<SimulationSettingsProps> = ({ onClose }) => {
+    const { setMusicWindowOpen } = useSimulation();
     const {
         sfxVolume, setSfxVolume,
         musicVolume, setMusicVolume,
@@ -54,42 +56,77 @@ export const SimulationSettings: React.FC<SimulationSettingsProps> = ({ onClose 
                             <Volume2 className="w-4 h-4" /> Lyd & Musikk
                         </h3>
                         <div className="bg-white/5 rounded-2xl p-6 border border-white/5 space-y-6">
-                            {/* Music Volume */}
-                            <div className="space-y-3">
-                                <div className="flex justify-between text-xs font-bold text-slate-300 uppercase">
-                                    <span>Musikk</span>
-                                    <span>{Math.round(musicVolume * 100)}%</span>
-                                </div>
-                                <input
-                                    type="range"
-                                    min="0"
-                                    max="1"
-                                    step="0.05"
-                                    value={musicVolume}
-                                    onChange={(e) => setMusicVolume(parseFloat(e.target.value))}
-                                    className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-500 hover:accent-indigo-400 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
-                                />
-                            </div>
 
-                            {/* SFX Volume */}
-                            <div className="space-y-3">
-                                <div className="flex justify-between text-xs font-bold text-slate-300 uppercase">
-                                    <span>Lydeffekter</span>
-                                    <span>{Math.round(sfxVolume * 100)}%</span>
+                            {/* NEW: Advanced Music Player */}
+                            {/* Advanced Music Player Button */}
+                            <button
+                                onClick={() => {
+                                    setMusicWindowOpen(true);
+                                    onClose();
+                                }}
+                                className="w-full relative group overflow-hidden bg-indigo-600/20 hover:bg-indigo-600 border border-indigo-500/30 hover:border-indigo-400 p-6 rounded-xl transition-all duration-300 active:scale-[0.98]"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                                <div className="relative flex items-center justify-between">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
+                                            <Music size={24} className="text-indigo-400 group-hover:text-white transition-colors" />
+                                        </div>
+                                        <div className="text-left">
+                                            <h4 className="font-black text-white uppercase tracking-tight">Åpne Musikkspiller</h4>
+                                            <p className="text-[10px] text-indigo-300 group-hover:text-white/80 font-bold uppercase tracking-widest">
+                                                Administrer Spilleliste
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+                                        →
+                                    </div>
                                 </div>
-                                <input
-                                    type="range"
-                                    min="0"
-                                    max="1"
-                                    step="0.05"
-                                    value={sfxVolume}
-                                    onChange={(e) => {
-                                        const newVol = parseFloat(e.target.value);
-                                        setSfxVolume(newVol);
-                                    }}
-                                    onMouseUp={() => playSfx('ui_click')}
-                                    className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-500 hover:accent-indigo-400 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
-                                />
+                            </button>
+
+                            <div className="h-px bg-white/5" />
+
+                            {/* Volume Controls */}
+                            <div className="grid grid-cols-2 gap-4">
+                                {/* Music Volume */}
+                                <div className="space-y-3">
+                                    <div className="flex justify-between text-xs font-bold text-slate-300 uppercase">
+                                        <span>Musikk Volum</span>
+                                        <span>{Math.round(musicVolume * 100)}%</span>
+                                    </div>
+                                    <input
+                                        type="range"
+                                        min="0"
+                                        max="1"
+                                        step="0.05"
+                                        value={musicVolume}
+                                        onChange={(e) => setMusicVolume(parseFloat(e.target.value))}
+                                        className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-500 hover:accent-indigo-400 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                                    />
+                                </div>
+
+                                {/* SFX Volume */}
+                                <div className="space-y-3">
+                                    <div className="flex justify-between text-xs font-bold text-slate-300 uppercase">
+                                        <span>Lydeffekter</span>
+                                        <span>{Math.round(sfxVolume * 100)}%</span>
+                                    </div>
+                                    <input
+                                        type="range"
+                                        min="0"
+                                        max="1"
+                                        step="0.05"
+                                        value={sfxVolume}
+                                        onChange={(e) => {
+                                            const newVol = parseFloat(e.target.value);
+                                            setSfxVolume(newVol);
+                                        }}
+                                        onMouseUp={() => playSfx('ui_click')}
+                                        className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-500 hover:accent-indigo-400 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                                    />
+                                </div>
                             </div>
 
                             {/* Muffled Music Toggle */}
@@ -115,16 +152,23 @@ export const SimulationSettings: React.FC<SimulationSettingsProps> = ({ onClose 
                         <h3 className="text-sm font-black text-slate-500 uppercase tracking-[0.2em] px-2 flex items-center gap-2">
                             <User className="w-4 h-4" /> Konto & Profil
                         </h3>
-                        <div className="bg-white/5 rounded-2xl p-4 border border-white/5 flex items-center gap-4">
-                            <div className="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-xl border border-white/10">
+                        <button
+                            onClick={() => window.location.href = '/sim/profile'}
+                            className="w-full bg-white/5 hover:bg-white/10 rounded-2xl p-4 border border-white/5 flex items-center gap-4 transition-all duration-300 group hover:border-indigo-500/30 text-left"
+                        >
+                            <div className="w-12 h-12 bg-slate-800 group-hover:bg-indigo-500/20 rounded-xl flex items-center justify-center text-xl border border-white/10 group-hover:border-indigo-500/50 transition-colors">
                                 👤
                             </div>
                             <div className="flex-1">
-                                <p className="text-white font-bold text-sm">Brukerprofil</p>
-                                <p className="text-[10px] text-slate-400 uppercase tracking-widest font-black">Kommer snart</p>
+                                <p className="text-white font-bold text-sm group-hover:text-indigo-200 transition-colors">Global Profil</p>
+                                <p className="text-[10px] text-slate-400 uppercase tracking-widest font-black group-hover:text-indigo-400">
+                                    Administrer Vessels
+                                </p>
                             </div>
-                            <Badge variant="outline" className="text-[8px]">ALPHA</Badge>
-                        </div>
+                            <div className="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+                                →
+                            </div>
+                        </button>
                     </section>
 
                     <section className="space-y-4">

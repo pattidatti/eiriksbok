@@ -18,7 +18,8 @@ export const RESOURCE_DETAILS: Record<string, { label: string, icon: string }> =
     wool: { label: 'Ull', icon: '🧶' },
     cloth: { label: 'Stoff', icon: '📜' },
     glass: { label: 'Glass', icon: '🥛' },
-    egg: { label: 'Egg', icon: '🥚' }
+    egg: { label: 'Egg', icon: '🥚' },
+    omelette: { label: 'Omelett', icon: '🍳' }
 };
 
 export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {

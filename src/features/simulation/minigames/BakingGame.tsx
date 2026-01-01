@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-export const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number }> = ({ onComplete, speedMultiplier = 1.0 }) => {
+export const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMultiplier?: number, icon?: string }> = ({ onComplete, speedMultiplier = 1.0, icon = '🥖' }) => {
     const [progress, setProgress] = useState(0);
+    // ... rest of state stay same ...
     const [isFinished, setIsFinished] = useState(false);
     const [feedback, setFeedback] = useState<string | null>(null);
     const [batch, setBatch] = useState(0);
@@ -102,7 +103,7 @@ export const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMu
                         filter: `grayscale(${100 - progress}%) sepia(${progress}%)`,
                         transform: `scale(${0.8 + (progress / 500)})`
                     }}>
-                    🥖
+                    {icon}
                 </div>
                 {feedback && (
                     <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-black text-2xl p-4 animate-in zoom-in">
@@ -139,7 +140,7 @@ export const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMu
             <div className="relative z-10 flex gap-4 mb-8">
                 {[...Array(3)].map((_, i) => (
                     <div key={i} className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl border-2 transition-all ${batch > i ? 'bg-amber-500 border-amber-300 scale-110 shadow-lg' : 'bg-white/5 border-white/10 opacity-30'} `}>
-                        🥖
+                        {icon}
                     </div>
                 ))}
             </div>
