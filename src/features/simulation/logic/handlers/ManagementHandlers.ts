@@ -104,7 +104,7 @@ export const handleContribute = (ctx: ActionContext) => {
         buildingState = actor.buildings[buildingId];
     } else {
         // Ensure World Structure
-        if (!room.world) room.world = { season: 'Spring', weather: 'Clear', year: 1066, taxRateDetails: { kingTax: 0.1 }, settlement: { buildings: {} } };
+        if (!room.world) room.world = { season: 'Spring', weather: 'Clear', year: 1066, gameTick: 0, lastTickAt: Date.now(), taxRateDetails: { kingTax: 0.1 }, settlement: { buildings: {} } };
         if (!room.world.settlement) room.world.settlement = { buildings: {} };
         if (!room.world.settlement.buildings) room.world.settlement.buildings = {};
 

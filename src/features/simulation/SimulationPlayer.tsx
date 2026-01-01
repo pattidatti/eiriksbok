@@ -423,7 +423,7 @@ export const SimulationPlayer: React.FC = () => {
 
     // --- AUTO-ADVANCE SEASONS & YEARS ---
     useEffect(() => {
-        if (!pin || roomStatus === 'LOBBY') return;
+        if (!pin || roomStatus === 'LOBBY' || !world) return;
 
         const currentSeason = world.season;
         const currentYear = world.year;
