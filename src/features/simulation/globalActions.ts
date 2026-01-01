@@ -157,7 +157,7 @@ export const handleGlobalContribution = async (pin: string, playerId: string, ac
 
         if (!nextLevelDef) return; // Max Level
 
-        const req = nextLevelDef.requirements?.[resource] || 0;
+        const req = nextLevelDef.requirements?.[resource as keyof import('./simulationTypes').Resources] || 0;
         const current = building.progress?.[resource as keyof import('./simulationTypes').Resources] || 0;
         const needed = req - current;
 
