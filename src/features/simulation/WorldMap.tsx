@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { SimulationPlayer } from './simulationTypes';
 import { VILLAGE_BUILDINGS, CRAFTING_RECIPES } from './constants';
 import { useSimulation } from './SimulationContext';
+import { getDayPart } from './utils/timeUtils';
 
 
 
@@ -694,14 +695,45 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
             case 'apothecary': return '/map_apothecary_interior.png';
 
             case 'global':
+                const isNight = getDayPart(room.world?.gameTick || 0) === 'NIGHT';
+                const isWinter = world?.season === 'Winter';
+
                 if (viewingRegionId === 'region_ost') {
-                    return '/map_barony_ost_169.png';
+                    if (isWinter) {
+                        return isNight ? '/map_barony_ost_169_winter_night.png' : '/map_barony_ost_169_winter.png';
+                    }
+                    return isNight ? '/map_barony_ost_169_night.png' : '/map_barony_ost_169.png';
                 }
+
                 if (viewingRegionId === 'capital') {
                     return '/map_hovedstad_169.png';
                 }
+
+                // Default: Barony Vest logic
+                if (isWinter) {
+                    return isNight ? '/map_barony_vest_v2_1610_winter_night.png' : '/map_barony_vest_v2_1610_winter.png';
+                }
+                return isNight ? '/map_barony_vest_v2_1610_night.png' : '/map_barony_vest_v2_1610.png';
+
+            default:
+                const isNightDefault = getDayPart(room.world?.gameTick || 0) === 'NIGHT';
+                const isWinterDef = world?.season === 'Winter';
+
+                if (viewingRegionId === 'region_vest') {
+                    if (isWinterDef) {
+                        return isNightDefault ? '/map_barony_vest_v2_1610_winter_night.png' : '/map_barony_vest_v2_1610_winter.png';
+                    }
+                    return isNightDefault ? '/map_barony_vest_v2_1610_night.png' : '/map_barony_vest_v2_1610.png';
+                }
+
+                if (viewingRegionId === 'region_ost') {
+                    if (isWinterDef) {
+                        return isNightDefault ? '/map_barony_ost_169_winter_night.png' : '/map_barony_ost_169_winter.png';
+                    }
+                    return isNightDefault ? '/map_barony_ost_169_night.png' : '/map_barony_ost_169.png';
+                }
+
                 return '/map_barony_vest_v2_1610.png';
-            default: return '/map_barony_vest_v2_1610.png';
         }
     };
 

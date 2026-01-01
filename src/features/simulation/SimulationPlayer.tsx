@@ -14,6 +14,7 @@ import { MinigameOverlay } from './SimulationMinigames';
 import { useSimulation } from './SimulationContext';
 import { useAudio } from './SimulationAudioContext';
 import { checkActionRequirements } from './utils/actionUtils';
+import { getSeasonForTick, getYearForTick } from './utils/timeUtils';
 import { useSimulationAuth } from './SimulationAuthContext';
 
 
@@ -366,6 +367,79 @@ export const SimulationPlayer: React.FC = () => {
 
 
 
+    // --- WORLD TICKER (The Heartbeat) ---
+    // We use a Ref to avoid restarting the interval every time a tick occurs
+    const worldRefPersistence = useRef(world);
+    useEffect(() => { worldRefPersistence.current = world; }, [world]);
+
+    useEffect(() => {
+        if (!pin || roomStatus === 'LOBBY') return;
+
+        // Leading edge: Check for missing clock data immediately on join
+        const initClock = async () => {
+            const currentWorld = worldRefPersistence.current;
+            if (currentWorld && !currentWorld.lastTickAt) {
+                console.log("[Ticker] Initializing mission clock data...");
+                const worldRef = ref(db, `simulation_rooms/${pin}/world`);
+                await update(worldRef, {
+                    gameTick: currentWorld.gameTick || 0,
+                    lastTickAt: Date.now()
+                });
+            }
+        };
+        initClock();
+
+        const heartbeat = setInterval(async () => {
+            const currentWorld = worldRefPersistence.current;
+            if (!currentWorld) return;
+
+            const now = Date.now();
+            const lastTickAt = currentWorld.lastTickAt;
+
+            // If clock data is missing (and wasn't caught by initClock), wait for next cycle
+            if (!lastTickAt) return;
+
+            const diff = now - lastTickAt;
+
+            // If more than 60s has passed, someone needs to tick the clock
+            if (diff >= 60000) {
+                const ticksToAdd = Math.floor(diff / 60000);
+                const newTick = (currentWorld.gameTick || 0) + ticksToAdd;
+
+                const dbRef = ref(db, `simulation_rooms/${pin}/world`);
+                try {
+                    await update(dbRef, {
+                        gameTick: newTick,
+                        lastTickAt: now
+                    });
+                } catch (e) {
+                    console.error("Heartbeat sync failed", e);
+                }
+            }
+        }, 10000); // Check every 10s
+
+        return () => clearInterval(heartbeat);
+    }, [pin, roomStatus]); // NO MORE world DEPENDENCY - Interval is now stable
+
+    // --- AUTO-ADVANCE SEASONS & YEARS ---
+    useEffect(() => {
+        if (!pin || roomStatus === 'LOBBY') return;
+
+        const currentSeason = world.season;
+        const currentYear = world.year;
+        const calculatedSeason = getSeasonForTick(world.gameTick || 0);
+        const calculatedYear = getYearForTick(world.gameTick || 0, 1100);
+
+        if (currentSeason !== calculatedSeason || currentYear !== calculatedYear) {
+            update(ref(db, `simulation_rooms/${pin}/world`), {
+                season: calculatedSeason,
+                year: calculatedYear
+            });
+        }
+    }, [world?.gameTick, pin, world?.season, world?.year, roomStatus]);
+
+
+
     // --- ACTION HANDLER ---
     const handleClearActionResult = React.useCallback(() => {
         setActionResult(null);
@@ -383,8 +457,9 @@ export const SimulationPlayer: React.FC = () => {
             // PRE-CHECK REQUIREMENTS
             const currentSeason = (world?.season || 'Spring') as any;
             const currentWeather = (world?.weather || 'Clear') as any;
+            const gameTick = world?.gameTick || 0;
 
-            const check = checkActionRequirements(player, action as any, currentSeason, currentWeather);
+            const check = checkActionRequirements(player, action as any, currentSeason, currentWeather, gameTick);
             if (!check.success) {
                 alert(`Du har ikke råd til dette: ${check.reason}`);
                 setActionResult({

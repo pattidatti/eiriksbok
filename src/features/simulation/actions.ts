@@ -149,7 +149,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
             const cost = ACTION_COSTS[actionType as ActionType];
 
             if (cost) {
-                const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, world.season, world.weather, actor.activeBuffs);
+                const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, world.season, world.weather, actor.activeBuffs, world.gameTick || 0);
 
                 // Resource Check
                 for (const [res, amt] of Object.entries(cost)) {

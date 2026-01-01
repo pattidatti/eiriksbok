@@ -249,6 +249,8 @@ export interface SimulationRoom {
         year: number;
         season: 'Spring' | 'Summer' | 'Autumn' | 'Winter';
         weather: WeatherType;
+        gameTick: number; // Ticks since start
+        lastTickAt: number; // Timestamp of last automation
         taxRateDetails: {
             kingTax: number; // Tax Barons pay to King
         };

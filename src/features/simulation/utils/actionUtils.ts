@@ -1,5 +1,6 @@
 import type { SimulationPlayer, EquipmentItem, EquipmentSlot } from '../simulationTypes';
 import { ACTION_COSTS, SEASONS, WEATHER, REFINERY_RECIPES, CRAFTING_RECIPES, ITEM_TEMPLATES } from '../constants';
+import { getDayPart } from './timeUtils';
 
 interface ValidationResult {
     success: boolean;
@@ -71,7 +72,8 @@ export const checkActionRequirements = (
     player: SimulationPlayer,
     action: any, // Can be string (actionId) or payload object
     currentSeason: keyof typeof SEASONS = 'Spring',
-    currentWeather: keyof typeof WEATHER = 'Clear'
+    currentWeather: keyof typeof WEATHER = 'Clear',
+    totalTicks: number = 0
 ): ValidationResult => {
     let actionId = typeof action === 'string' ? action : action.type;
     let payload = typeof action === 'object' ? { ...action } : {};
@@ -122,14 +124,22 @@ export const checkActionRequirements = (
     }
 
     if (Object.keys(costs).length > 0) {
-        // Stamina calculation
         const seasonData = SEASONS[currentSeason];
         const weatherData = WEATHER[currentWeather];
         const baseStaminaMod = seasonData?.staminaMod || 1.0;
         const weatherStaminaMod = weatherData?.staminaMod || 1.0;
 
+        const isNight = getDayPart(totalTicks) === 'NIGHT';
+        const nightStaminaMod = isNight ? 1.2 : 1.0;
+
         const baseStaminaCost = costs.stamina || 0;
-        const finalStaminaCost = Math.ceil(baseStaminaCost * baseStaminaMod * weatherStaminaMod);
+
+        // NIGHT RESTRICTION FOR SLEEP
+        if (actionId === 'SLEEP' && !isNight) {
+            return { success: false, reason: "Du kan bare sove når det er natt" };
+        }
+
+        const finalStaminaCost = Math.ceil(baseStaminaCost * baseStaminaMod * weatherStaminaMod * nightStaminaMod);
 
         if ((player.status.stamina || 0) < finalStaminaCost) {
             const missing = Math.ceil(finalStaminaCost - (player.status.stamina || 0));
@@ -170,7 +180,8 @@ export const checkActionRequirements = (
 export const getActionCostString = (
     action: any,
     currentSeason: keyof typeof SEASONS = 'Spring',
-    currentWeather: keyof typeof WEATHER = 'Clear'
+    currentWeather: keyof typeof WEATHER = 'Clear',
+    totalTicks: number = 0
 ): string | null => {
     let actionId = typeof action === 'string' ? action : action.type;
     let payload = typeof action === 'object' ? { ...action } : {};
@@ -218,7 +229,9 @@ export const getActionCostString = (
     if (costs.stamina) {
         const seasonData = SEASONS[currentSeason];
         const weatherData = WEATHER[currentWeather];
-        const mod = (seasonData?.staminaMod || 1.0) * (weatherData?.staminaMod || 1.0);
+        const isNight = getDayPart(totalTicks) === 'NIGHT';
+        const nightMod = isNight ? 1.2 : 1.0;
+        const mod = (seasonData?.staminaMod || 1.0) * (weatherData?.staminaMod || 1.0) * nightMod;
         const finalStamina = Math.ceil(costs.stamina * mod);
 
         let prefix = '-';

@@ -1,7 +1,17 @@
 import type { ActionContext } from '../actionTypes';
+import { getDayPart } from '../../utils/timeUtils';
 
 export const handleSleep = (ctx: ActionContext) => {
-    const { actor, localResult } = ctx;
+    const { actor, room, localResult } = ctx;
+
+    // NIGHT RESTRICTION
+    const isNight = getDayPart(room.world?.gameTick || 0) === 'NIGHT';
+    if (!isNight) {
+        localResult.success = false;
+        localResult.message = "💤 Du kan bare sove når det er natt.";
+        return false;
+    }
+
     const staminaGain = 60;
     actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaGain);
     actor.status.hp = Math.min(100, (actor.status.hp || 100) + 10);

@@ -13,6 +13,7 @@ import { SimulationDiplomacy } from './SimulationDiplomacy';
 import { SimulationHierarchy } from './SimulationHierarchy';
 import { SimulationProfile } from './SimulationProfile';
 import { SimulationSettings } from './SimulationSettings';
+import { getDayPart } from '../utils/timeUtils';
 
 
 
@@ -42,7 +43,7 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                 {/* Always render WorldMap when in these tabs to keep it as background */}
                 {/* LAYER 0: Background World Map (Always rendered in simulation modes) */}
                 {['MAP', 'PRODUCTION', 'MARKET', 'INVENTORY', 'SKILLS', 'DIPLOMACY', 'HIERARCHY', 'PROFILE'].includes(activeTab) && (
-                    <div className="absolute inset-0 z-0">
+                    <div className={`absolute inset-0 z-0 transition-all duration-[5000ms] ${getDayPart(room.world?.gameTick || 0) === 'NIGHT' ? 'brightness-[0.5] hue-rotate-[15deg] saturate-[0.7]' : 'brightness-100'}`}>
                         <WorldMap
                             player={player}
                             room={room}

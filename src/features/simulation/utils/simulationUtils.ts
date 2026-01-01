@@ -2,6 +2,7 @@ import { ref, runTransaction } from 'firebase/database';
 import { simulationDb as db } from '../simulationFirebase';
 import { GAME_BALANCE, SEASONS, WEATHER } from '../constants';
 import { ITEM_TEMPLATES } from '../data/items';
+import { getDayPart } from './timeUtils';
 import type { SkillType, Buff } from '../simulationTypes';
 
 /**
@@ -141,7 +142,8 @@ export const calculateStaminaCost = (
     baseCost: number,
     season: keyof typeof SEASONS,
     weather: keyof typeof WEATHER,
-    activeBuffs?: Buff[]
+    activeBuffs?: Buff[],
+    gameTick: number = 0
 ) => {
     const seasonData = (SEASONS as any)[season];
     const weatherData = (WEATHER as any)[weather];
@@ -149,7 +151,11 @@ export const calculateStaminaCost = (
     const baseStaminaMod = seasonData?.staminaMod || 1.0;
     const weatherStaminaMod = weatherData?.staminaMod || 1.0;
 
-    let total = baseCost * baseStaminaMod * weatherStaminaMod;
+    // Night Penalty
+    const isNight = getDayPart(gameTick) === 'NIGHT';
+    const nightMod = isNight ? 1.2 : 1.0;
+
+    let total = baseCost * baseStaminaMod * weatherStaminaMod * nightMod;
 
     // Apply Buffs
     if (activeBuffs && activeBuffs.length > 0) {

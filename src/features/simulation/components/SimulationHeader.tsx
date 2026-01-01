@@ -6,6 +6,7 @@ import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
 import { ResourceIcon } from '../ui/ResourceIcon';
 import { LEVEL_XP, SEASONS } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getClockTime, getDayPart } from '../utils/timeUtils';
 
 interface SimulationHeaderProps {
     room: SimulationRoom;
@@ -68,6 +69,14 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [setActiveTab, player.role, playSfx]);
 
+    // --- HIGH-FREQUENCY CLOCK TICKER ---
+    // Forces re-render every second to allow smooth clock interpolation
+    const [, setClockPulse] = useState(0);
+    useEffect(() => {
+        const pulseInterval = setInterval(() => setClockPulse(p => p + 1), 1000);
+        return () => clearInterval(pulseInterval);
+    }, []);
+
     // --- VITALS CALCULATIONS ---
     const staminaWidth = player.status.stamina || 0;
     const healthWidth = player.status.hp || 0;
@@ -103,10 +112,23 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
                     <h1 className="text-xl md:text-2xl font-black italic tracking-tighter text-white leading-none">
                         SIM<span className="text-indigo-500">ULATOR</span>
                     </h1>
-                    <div className="flex items-center gap-2 text-[10px] mobile-hide font-bold uppercase tracking-widest text-slate-500">
-                        <span>År {year}</span>
-                        <span className="text-amber-500">{season}</span>
-                        <span>{weather}</span>
+                    <div className="flex items-center gap-3 text-[10px] mobile-hide font-bold uppercase tracking-widest text-slate-500">
+                        <div className="flex items-center gap-1.5 bg-white/5 px-2 py-0.5 rounded-full border border-white/5">
+                            <span className="text-white tabular-nums">
+                                {getClockTime(
+                                    room.world?.gameTick || 0,
+                                    room.world?.lastTickAt || Date.now()
+                                )}
+                            </span>
+                            <span className="text-[8px] opacity-40">ÅR {year}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                            <span className={room.world?.season === 'Winter' ? 'text-blue-400' : 'text-amber-500'}>{season}</span>
+                            <span className="text-lg" title={getDayPart(room.world?.gameTick || 0) === 'DAY' ? 'Dag' : 'Natt'}>
+                                {getDayPart(room.world?.gameTick || 0) === 'DAY' ? '☀️' : '🌙'}
+                            </span>
+                        </div>
+                        <span className="opacity-40">{weather}</span>
                     </div>
                 </div>
 

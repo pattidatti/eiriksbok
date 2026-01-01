@@ -160,6 +160,8 @@ export const SimulationHost: React.FC = () => {
                 year: 1100,
                 season: 'Spring',
                 weather: 'Clear',
+                gameTick: 0,
+                lastTickAt: Date.now(),
                 taxRateDetails: { kingTax: 20 },
                 settlement: {
                     buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id]: [string, any]) => ({
