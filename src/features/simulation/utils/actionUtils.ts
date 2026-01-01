@@ -18,7 +18,8 @@ export const ACTION_EQUIPMENT_MAP: Record<string, EquipmentSlot[]> = {
     'EXPLORE': ['MAIN_HAND', 'OFF_HAND', 'BODY', 'HEAD', 'FEET'],
     // Crafting might use main hand tools if we define them, e.g. Hammer
     'CRAFT': ['MAIN_HAND', 'AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'],
-    'HUNT': ['MAIN_HAND']
+    'HUNT': ['MAIN_HAND', 'BOW', 'TRAP'],
+    'FORAGE': ['MAIN_HAND', 'TRAP']
 };
 
 export const getActionEquipment = (player: SimulationPlayer, actionId: string): EquipmentItem[] => {
@@ -137,6 +138,18 @@ export const checkActionRequirements = (
         // NIGHT RESTRICTION FOR SLEEP
         if (actionId === 'SLEEP' && !isNight) {
             return { success: false, reason: "Du kan bare sove når det er natt" };
+        }
+
+        // WELL COOLDOWN CHECK
+        const isWellAction = payload.locationId === 'farm_well' || payload.locationId === 'well_water' || actionId === 'GATHER_WATER';
+        if (isWellAction) {
+            const locId = payload.locationId || (actionId === 'GATHER_WATER' ? 'well_water' : null);
+            if (locId) {
+                const wellProcess = player.activeProcesses?.find(p => p.type === 'WELL' && p.locationId === locId);
+                if (wellProcess && wellProcess.readyAt > Date.now()) {
+                    return { success: false, reason: "Brønnen fyller seg med vann..." };
+                }
+            }
         }
 
         const finalStaminaCost = Math.ceil(baseStaminaCost * baseStaminaMod * weatherStaminaMod * nightStaminaMod);

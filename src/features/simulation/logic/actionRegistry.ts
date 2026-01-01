@@ -60,6 +60,7 @@ export const ACTION_REGISTRY: ActionRegistry = {
     CONSUME: handleConsume,
     FEED_CHICKENS: handleFeedChickens, // Custom
     COLLECT_EGGS: handleCollectEggs,   // Custom
+    GATHER_WATER: handleRest,          // Added for Well
     TRADE_ROUTE: handleTradeRoute,
 
     // Market

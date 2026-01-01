@@ -40,13 +40,60 @@ export const handleSleep = (ctx: ActionContext) => {
 export const handleRest = (ctx: ActionContext) => {
     const { actor, action, localResult } = ctx;
     const actionType = typeof action === 'string' ? action : action.type;
+    const locationId = (action as any).locationId;
 
     let stam = 30;
     let hp = 0;
     let msg = "Hvilte.";
 
-    if (actionType === 'EAT') { stam = 10; msg = "Spiste et måltid."; }
+    if (actionType === 'EAT') {
+        stam = 40; // Matched WorldMapData label
+        msg = "Satt ved varmen og spiste.";
+    }
     if (actionType === 'FEAST') { stam = 100; hp = 20; msg = "Holdt gjestebud!"; }
+
+    // WELL COOLDOWN LOGIC
+    const isWellAction = actionType === 'GATHER_WATER' || locationId === 'farm_well' || locationId === 'well_water';
+    if (isWellAction) {
+        if (!actor.activeProcesses) actor.activeProcesses = [];
+        // Map GATHER_WATER at well_water to a consistent location ID for cooldown
+        const effectiveLocationId = locationId || (actionType === 'GATHER_WATER' ? 'well_water' : null);
+
+        if (effectiveLocationId) {
+            const existing = actor.activeProcesses.find(p => p.type === 'WELL' && p.locationId === effectiveLocationId);
+
+            if (existing) {
+                if (existing.readyAt > Date.now()) {
+                    localResult.success = false;
+                    localResult.message = "Brønnen er tom. Den fyller seg med vann...";
+                    return false;
+                } else {
+                    // Cleanup finished cooldown
+                    actor.activeProcesses = actor.activeProcesses.filter(p => p.id !== existing.id);
+                }
+            }
+
+            stam = 5; // Matched WorldMapData label
+            msg = "Drakk friskt vann fra brønnen.";
+
+            // Start Cooldown (5 Minutes)
+            actor.activeProcesses.push({
+                id: 'well_' + Date.now(),
+                type: 'WELL',
+                itemId: 'water',
+                locationId: effectiveLocationId,
+                startedAt: Date.now(),
+                duration: 300000,
+                readyAt: Date.now() + 300000,
+                notified: false
+            });
+        }
+    }
+
+    if (locationId === 'village_square') {
+        stam = 10; // Matched label
+        msg = "Hvilte på torget.";
+    }
 
     if (actor.upgrades?.includes('roof')) stam += 20;
 

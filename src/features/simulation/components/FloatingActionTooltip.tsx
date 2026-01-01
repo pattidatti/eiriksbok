@@ -207,7 +207,12 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
 
     // --- Active Process Logic ---
     const activeProcess = useMemo(() => {
-        return player.activeProcesses?.find(p => p.locationId === poi.id && p.type !== 'COOP');
+        return player.activeProcesses?.find(p => {
+            if (p.locationId !== poi.id || p.type === 'COOP') return false;
+            // Special: Don't block the UI if a WELL cooldown is finished
+            if (p.type === 'WELL' && p.readyAt <= Date.now()) return false;
+            return true;
+        });
     }, [player.activeProcesses, poi.id]);
 
     const calculateTimeLeft = () => {
@@ -323,14 +328,14 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                             </svg>
                                             <div className="absolute inset-0 flex items-center justify-center">
                                                 <span className="text-3xl animate-pulse">
-                                                    {activeProcess.type === 'MILL' ? '⚙️' : '🌱'}
+                                                    {activeProcess.type === 'MILL' ? '⚙️' : activeProcess.type === 'WELL' ? '💧' : '🌱'}
                                                 </span>
                                             </div>
                                         </div>
 
                                         <div className="flex flex-col items-center gap-1">
-                                            <span className="text-xs font-black text-slate-300 uppercase tracking-[0.3em]">
-                                                {activeProcess.type === 'MILL' ? 'Kverner...' : 'Modnes om'}
+                                            <span className="text-sm font-black text-slate-400 uppercase tracking-widest leading-none">
+                                                {activeProcess.type === 'WELL' ? 'Brønnen fyller seg med vann' : 'Venter på produksjon'}
                                             </span>
                                             <span className="text-2xl font-mono font-black text-white">{formatTime(timeLeft)}</span>
                                         </div>

@@ -8,9 +8,10 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **minigames** Legge til flere minigames.
 - [ ] **Notificationsenter** et sted hvor alt som skjer med karakteren, spesielt hendelser og minigames, kan vises. Betyr ikke at man fjerner noe annet. dette er et tillegg.   
  ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
- - [ ] **Seng** Å sove i sengen virker ikke, selv om det er natt. Man burde også få full stamina av å sove, og en 5 minutters buff "Godt utvilt" som gir 50% mindre staminabruk. 
- - [ ] **Brønn** Bør være 5 minutter cooldown på brønnen etter man har drukket. Kan stå "Brønnen fyller seg med vann" på ui/tooltip sammen med timer. 
-- [ ] **Staminabar** Når man har fått lav staminia, og fyller den opp igjen, så er feltet rundt statusbarene fremdeles rød. 
+- [ ] **Bueskyting** står at jeg mangler bue, selv om jeg har det equip på riktig slot. Fjern brød fra kostnaden til Dra på jakt. Hvis utbytte er redusert på pga sesong, så må dette fjernes. Det er alltid dyr i skogen. 
+- [ ] **lage omelett** Å lage omelett trigger smedarbeid minigame. Slik skal det ikke være. Omelett mangler også ikon.  
+ - [ ] **Åker** det skal ikke gå an å så åkeren når det er vinter. Dette bygger opp under at man må gjøre seg klar til vinteren, og dytter spilleren inn på andre deler av spillet. 
+
 - [ ] **lokalbefolkning** Oppgradere UI til dialogen. Også legge til bilder av personene de snakker med, i en egen kolonne til høyre?
 ## 🛠️ Planlagt (Underveis/Snart) 
 - [ ] **Handelsruter:** Implementere Merchant-spesifikke handlinger for import/eksport mellom byer.

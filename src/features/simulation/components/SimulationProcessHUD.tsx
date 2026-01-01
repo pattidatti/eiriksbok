@@ -21,7 +21,16 @@ export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ play
     const currentTimeCtx = currentTime;
 
     // Filter relevant processes (Crops, Coop, Mill, etc)
-    const trackedProcesses = activeProcesses.filter(p => p.type === 'CROP' || p.type === 'COOP' || p.type === 'MILL');
+    const trackedProcesses = activeProcesses.filter(p => {
+        const isStandard = p.type === 'CROP' || p.type === 'COOP' || p.type === 'MILL' || p.type === 'WELL';
+        if (!isStandard) return false;
+
+        // Special: WELL disappears 10s after readyAt
+        if (p.type === 'WELL' && p.readyAt > 0 && currentTimeCtx > p.readyAt + 10000) {
+            return false;
+        }
+        return true;
+    });
 
     // Filter active buffs
     const activeBuffs = (player.activeBuffs || []).filter(b => b.expiresAt > currentTimeCtx);
@@ -94,6 +103,10 @@ export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ play
                     label = 'Kverner korn';
                     icon = <span className="text-xl">⚙️</span>;
                     readyLabel = 'Mel klart!';
+                } else if (process.type === 'WELL') {
+                    label = 'Brønnen fyller seg';
+                    icon = <span className="text-xl">💧</span>;
+                    readyLabel = 'Brønnen er klar!';
                 } else {
                     // CROP / Resource
                     if (resourceInfo) {
@@ -109,7 +122,7 @@ export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ play
                 return (
                     <div
                         key={process.id}
-                        className="bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-xl pointer-events-auto flex items-center gap-4 transition-all hover:bg-slate-900/95 animate-in slide-in-from-right-4 duration-300"
+                        className={`bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-xl pointer-events-auto flex items-center gap-4 transition-all hover:bg-slate-900/95 animate-in slide-in-from-right-4 duration-300 ${process.type === 'WELL' && isReady ? 'animate-pulse' : ''}`}
                     >
                         <div className={`w-10 h-10 rounded-lg flex items-center justify-center border ${isReady ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400 animate-pulse' : 'bg-slate-800 border-white/10 text-slate-400'}`}>
                             {icon}

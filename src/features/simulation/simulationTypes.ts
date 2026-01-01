@@ -136,7 +136,7 @@ export interface SimulationAccount {
 
 export interface ActiveProcess {
     id: string;          // unique guid
-    type: 'CROP' | 'CRAFT' | 'COOP' | 'MILL'; // Extensible
+    type: 'CROP' | 'CRAFT' | 'COOP' | 'MILL' | 'WELL'; // Extensible
     itemId: string;      // e.g. 'grain'
     startedAt: number;   // timestamp
     duration: number;    // ms

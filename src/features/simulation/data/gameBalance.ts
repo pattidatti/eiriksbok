@@ -108,7 +108,7 @@ export const ACTION_COSTS: Record<ActionType, ActionCost> = {
     CRAFT: { stamina: 30 },
     QUARRY: { bread: 1, stamina: 20 },
     REPAIR: { stamina: 15 },
-    HUNT: { bread: 2, stamina: 30 },
+    HUNT: { stamina: 30 },
     GATHER_WOOL: { stamina: 15 },
     GATHER_HONEY: { stamina: 20 },
     PRAY: { stamina: 15 },

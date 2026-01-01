@@ -390,7 +390,7 @@ export const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'hunting_grounds', label: 'Jaktmarker', icon: '🏹', top: '30%', left: '75%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'forest',
         actions: [
-            { id: 'HUNT', label: 'Dra på Jakt', cost: '-30⚡ -2🍞' }
+            { id: 'HUNT', label: 'Dra på Jakt', cost: '-30⚡' }
         ]
     },
     {
