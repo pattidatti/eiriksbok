@@ -1,6 +1,35 @@
+import { ref, runTransaction } from 'firebase/database';
+import { simulationDb as db } from '../simulationFirebase';
 import { GAME_BALANCE, SEASONS, WEATHER } from '../constants';
 import { ITEM_TEMPLATES } from '../data/items';
 import type { SkillType } from '../simulationTypes';
+
+/**
+ * Logs a message to the simulation room, ensuring the message list is capped at 50 items.
+ * Uses a transaction to prevent race conditions.
+ */
+export const logSimulationMessage = async (pin: string, message: string) => {
+    const messagesRef = ref(db, `simulation_rooms/${pin}/messages`);
+
+    await runTransaction(messagesRef, (currentMessages) => {
+        let newMessages: string[] = [];
+
+        if (Array.isArray(currentMessages)) {
+            newMessages = currentMessages;
+        } else if (currentMessages && typeof currentMessages === 'object') {
+            newMessages = Object.values(currentMessages);
+        }
+
+        newMessages.push(message);
+
+        // Cap at 50 messages
+        if (newMessages.length > 50) {
+            newMessages = newMessages.slice(newMessages.length - 50);
+        }
+
+        return newMessages;
+    });
+};
 
 /**
  * Calculates the yield for a production action, incorporating skills, equipment, 

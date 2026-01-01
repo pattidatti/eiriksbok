@@ -1,6 +1,7 @@
-import { ref, runTransaction, get, push } from 'firebase/database';
+import { ref, runTransaction, get } from 'firebase/database';
 import { simulationDb as db } from './simulationFirebase';
 import { GAME_BALANCE, VILLAGE_BUILDINGS } from './constants';
+import { logSimulationMessage } from './utils/simulationUtils';
 import type { SimulationPlayer } from './simulationTypes';
 
 /*
@@ -108,7 +109,7 @@ export const handleGlobalTrade = async (pin: string, playerId: string, action: a
 
     if (playerSuccess) {
         // Log to global messages (fire and forget)
-        push(ref(db, `simulation_rooms/${pin}/messages`), `[${new Date().toLocaleTimeString()}] ${player.name}: ${finalMessage}`);
+        logSimulationMessage(pin, `[${new Date().toLocaleTimeString()}] ${player.name}: ${finalMessage}`);
         return {
             success: true,
             data: {
@@ -206,7 +207,7 @@ export const handleGlobalContribution = async (pin: string, playerId: string, ac
         return actor;
     });
 
-    push(ref(db, `simulation_rooms/${pin}/messages`), `[${new Date().toLocaleTimeString()}] ${player.name}: ${finalMessage}`);
+    logSimulationMessage(pin, `[${new Date().toLocaleTimeString()}] ${player.name}: ${finalMessage}`);
 
     return {
         success: true,
@@ -294,7 +295,7 @@ export const handleGlobalTax = async (pin: string, playerId: string, _action: an
     });
 
     const msg = `Skatteinnkreving fullført: ${taxCollectedGold}g og ${taxCollectedGrain} korn.`;
-    push(ref(db, `simulation_rooms/${pin}/messages`), `[${new Date().toLocaleTimeString()}] ${msg}`);
+    logSimulationMessage(pin, `[${new Date().toLocaleTimeString()}] ${msg}`);
 
     return {
         success: true,

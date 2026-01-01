@@ -1,9 +1,10 @@
-import { ref, runTransaction, update, get, push } from 'firebase/database';
+import { ref, runTransaction, get, update } from 'firebase/database';
 import { simulationDb as db } from './simulationFirebase';
+import { calculateStaminaCost, logSimulationMessage } from './utils/simulationUtils';
 import { ACTION_COSTS, GAME_BALANCE, INITIAL_RESOURCES, INITIAL_SKILLS, LEVEL_XP } from './constants';
-import { calculateStaminaCost } from './utils/simulationUtils';
 import { ACTION_REGISTRY } from './logic/actionRegistry';
-import type { SkillType, SimulationPlayer, EquipmentSlot } from './simulationTypes';
+import { handleGlobalTrade, handleGlobalTax, handleGlobalContribution } from './globalActions';
+import type { SkillType, SimulationPlayer, EquipmentSlot, ActionType, Resources } from './simulationTypes';
 
 /* --- HELPERS --- */
 
@@ -40,33 +41,27 @@ const addXp = (actor: SimulationPlayer, skillType: SkillType, amount: number, me
 };
 
 /* --- ACTIONS CLASSIFICATION --- */
-const GLOBAL_ACTIONS = ['RAID', 'TAX', 'TAX_PEASANTS', 'TAX_ROYAL', 'TRADE', 'TRADE_ROUTE', 'CONTRIBUTE_TO_UPGRADE', 'BUY', 'SELL', 'CONTRIBUTE']; // Involve interactions or global state writes
-
-// Import optimized handlers
-import { handleGlobalTrade, handleGlobalTax, handleGlobalContribution } from './globalActions';
+const GLOBAL_ACTIONS = ['RAID', 'TAX', 'TAX_PEASANTS', 'TAX_ROYAL', 'TRADE', 'TRADE_ROUTE', 'CONTRIBUTE_TO_UPGRADE', 'BUY', 'SELL', 'CONTRIBUTE'];
 
 export const performAction = async (pin: string, playerId: string, action: any): Promise<{ success: boolean, data?: { success: boolean, timestamp: number, message: string, utbytte: any[], xp: any[], durability: any[] }, error?: any }> => {
     const actionType = typeof action === 'string' ? action : action.type;
     const isGlobalAction = GLOBAL_ACTIONS.includes(actionType);
 
-    // PATH 1: GLOBAL ACTIONS (Legacy Mode - Locks Room)
+    // PATH 1: GLOBAL ACTIONS
     if (isGlobalAction) {
         return performGlobalAction(pin, playerId, action);
     }
 
-    // PATH 2: SOLO ACTIONS (Sharded Mode - Locks Player Only)
+    // PATH 2: SOLO ACTIONS
     return performSoloAction(pin, playerId, action);
 };
 
 /* --- SHARDED ACTION HANDLER (OPTIMIZED) --- */
 async function performSoloAction(pin: string, playerId: string, action: any) {
     const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
-    const messagesRef = ref(db, `simulation_rooms/${pin}/messages`);
 
     // 1. Fetch Read-Only State (No Lock)
     const worldRef = ref(db, `simulation_rooms/${pin}/world`);
-    // Market reads removed as they are not needed for pure solo actions (except maybe for checking prices for UI, but actions shouldn't rely on it extensively if they are solo)
-    // Actually, some solo actions might need world state (e.g. season for stamina), so we keep world.
 
     let result: any = null;
 
@@ -74,8 +69,6 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
         const worldSnap = await get(worldRef);
         const world = worldSnap.exists() ? worldSnap.val() : { season: 'Spring', weather: 'Clear', activeLaws: [] };
 
-        // We pass empty markets to solo actions to prevent accidental usage.
-        // If an action needs market, it should be Global.
         const markets = {};
         const market = {};
 
@@ -84,7 +77,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
 
             const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-            // Initialize Core State if missing (Self-Repair)
+            // Initialize Core State if missing
             if (!actor.resources) actor.resources = JSON.parse(JSON.stringify(INITIAL_RESOURCES[actor.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT));
             if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
             if (!actor.status) actor.status = { stamina: 100, hp: 100, authority: 0, gold: actor.resources.gold || 0, level: 1, xp: 0 };
@@ -101,10 +94,9 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                 durability: [] as any[]
             };
 
-            // Helpers (same as before)
+            // Helpers
             const trackXp = (skill: SkillType, amount: number) => {
                 const preLevel = actor.skills?.[skill]?.level || 0;
-                /* Note: addXp expects 'messages' array. For solo actions, we collect messages locally. */
                 const msgList: string[] = [];
                 addXp(actor, skill, amount, msgList);
                 if (msgList.length > 0) localResult.message += " " + msgList.join(" ");
@@ -151,7 +143,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
             const actionType = typeof action === 'string' ? action : action.type;
 
             // 1. Handle Costs
-            const cost = ACTION_COSTS[actionType as import('./simulationTypes').ActionType];
+            const cost = ACTION_COSTS[actionType as ActionType];
 
             if (cost) {
                 const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, world.season, world.weather);
@@ -159,7 +151,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                 // Resource Check
                 for (const [res, amt] of Object.entries(cost)) {
                     if (res === 'stamina') continue;
-                    const resourceKey = res as keyof import('./simulationTypes').Resources;
+                    const resourceKey = res as keyof Resources;
                     const currentAmount = actor.resources[resourceKey] || 0;
                     if (currentAmount < (amt as number)) {
                         localResult.success = false;
@@ -180,7 +172,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                 // Deduct
                 for (const [res, amt] of Object.entries(cost)) {
                     if (res === 'stamina') continue;
-                    const resourceKey = res as keyof import('./simulationTypes').Resources;
+                    const resourceKey = res as keyof Resources;
                     actor.resources[resourceKey] = (actor.resources[resourceKey] || 0) - (amt as number);
                 }
                 actor.status.stamina -= finalStaminaCost;
@@ -199,7 +191,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
 
                 const ctx = {
                     actor,
-                    room: mockRoom as any, // Pass structured mock
+                    room: mockRoom as any,
                     pin,
                     action,
                     timestamp,
@@ -220,7 +212,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
 
             if (!localResult.message) localResult.message = "Handling utført.";
 
-            // 3. Jackpot Moment (Rare Luck Drops - 0.5% chance)
+            // 3. Jackpot Moment
             if (localResult.success && Math.random() < 0.005) {
                 const rareRelic = {
                     resource: 'ancient_relic',
@@ -231,7 +223,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                     amount: 1,
                     jackpot: true
                 };
-                actor.resources.gold = (actor.resources.gold || 0) + 150; // Big gold find
+                actor.resources.gold = (actor.resources.gold || 0) + 150;
                 localResult.utbytte.push(rareRelic);
                 localResult.message += " ✨ ET JORDFUNN! Du fant en eldgammel relikvie begravd i bakken!";
             }
@@ -250,18 +242,17 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
         // Post-Transaction: Log Message & Side-Effects
         try {
             if (result && result.success) {
-                // Push message to separate list
+                // Log message if significant
                 if (result.message) {
-                    push(messagesRef, `[${new Date().toLocaleTimeString()}] ${result.message}`);
+                    await logSimulationMessage(pin, `[${new Date().toLocaleTimeString()}] ${result.message}`);
                 }
+            }
 
-                if ((result as any).characterSnapshot) {
-                    await recordCharacterLife(playerId, pin, (result as any).characterSnapshot);
-                }
+            if ((result as any).characterSnapshot) {
+                await recordCharacterLife(playerId, pin, (result as any).characterSnapshot);
             }
         } catch (logErr) {
             console.error("Non-critical post-action error (logging/history):", logErr);
-            // We don't fail the action for this, as the transaction already committed.
         }
 
         return { success: !!result?.success, data: result || undefined };
@@ -272,7 +263,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
     }
 };
 
-/* --- GLOBAL ACTION HANDLER (Optimized with Granular Transactions) --- */
+/* --- GLOBAL ACTION HANDLER --- */
 async function performGlobalAction(pin: string, playerId: string, action: any) {
     const actionType = typeof action === 'string' ? action : action.type;
 
@@ -289,10 +280,6 @@ async function performGlobalAction(pin: string, playerId: string, action: any) {
             return await handleGlobalTax(pin, playerId, action);
         }
 
-        // Fallback for unhandled Global Actions (e.g. RAID)
-        // For now we assume these are rare and can either use the old logic or unimplemented.
-        // Re-implementing simplified Raid logic or throwing error.
-
         return { success: false, error: "Global handling for this action not yet optimized." };
 
     } catch (e) {
@@ -301,7 +288,8 @@ async function performGlobalAction(pin: string, playerId: string, action: any) {
     }
 };
 
-export const recordCharacterLife = async (uid: string, roomPin: string, player: SimulationPlayer) => {
+// Hoisted Helper (converted to function to avoid TDZ issues if called before definition)
+export async function recordCharacterLife(uid: string, roomPin: string, player: SimulationPlayer) {
     if (!uid || !player) return;
 
     const accountRef = ref(db, `simulation_accounts/${uid}`);
@@ -321,12 +309,9 @@ export const recordCharacterLife = async (uid: string, roomPin: string, player: 
             timestamp: Date.now()
         };
 
-        // Append to history and update total XP/Level if needed
         const updatedHistory = [...history, newEntry];
         const addedXp = player.stats?.xp || 0;
         const newGlobalXp = (accountData.globalXp || 0) + addedXp;
-
-        // Simple level up logic for global account
         const newGlobalLevel = Math.floor(Math.sqrt(newGlobalXp / 100)) + 1;
 
         await update(accountRef, {
@@ -340,5 +325,4 @@ export const recordCharacterLife = async (uid: string, roomPin: string, player: 
     } catch (e) {
         console.error("Failed to record character life:", e);
     }
-};
-
+}
