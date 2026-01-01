@@ -20,8 +20,8 @@ export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ play
     // Define time context first
     const currentTimeCtx = currentTime;
 
-    // Filter relevant processes (Crops, Coop, etc)
-    const trackedProcesses = activeProcesses.filter(p => p.type === 'CROP' || p.type === 'COOP');
+    // Filter relevant processes (Crops, Coop, Mill, etc)
+    const trackedProcesses = activeProcesses.filter(p => p.type === 'CROP' || p.type === 'COOP' || p.type === 'MILL');
 
     // Filter active buffs
     const activeBuffs = (player.activeBuffs || []).filter(b => b.expiresAt > currentTimeCtx);
@@ -90,6 +90,10 @@ export const SimulationProcessHUD: React.FC<SimulationProcessHUDProps> = ({ play
                     label = 'Høner Spiser';
                     icon = <span className="text-xl">🐔</span>;
                     readyLabel = 'Egg klare!';
+                } else if (process.type === 'MILL') {
+                    label = 'Kverner korn';
+                    icon = <span className="text-xl">⚙️</span>;
+                    readyLabel = 'Mel klart!';
                 } else {
                     // CROP / Resource
                     if (resourceInfo) {

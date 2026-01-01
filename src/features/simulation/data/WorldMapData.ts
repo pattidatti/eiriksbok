@@ -13,6 +13,7 @@ export interface POI {
     actions: { id: string, label: string, cost?: string }[];
     parentId?: string; // Links to a hub POI
     isHub?: boolean;   // If true, clicking this enters the local view
+    isInterior?: boolean; // If true, disable external weather effects
 }
 
 export const POINTS_OF_INTEREST: POI[] = [
@@ -116,7 +117,7 @@ export const POINTS_OF_INTEREST: POI[] = [
             { id: 'REST_BASIC', label: 'Hvile i Salen', cost: 'Gratis' },
             { id: 'REST_COMFY', label: 'Bestille Kammer', cost: '-5g' },
             { id: 'REST_ROYAL', label: 'Kongelig Suite', cost: '-20g' }
-        ], isHub: true
+        ], isHub: true, isInterior: true
     },
 
     {
@@ -124,7 +125,7 @@ export const POINTS_OF_INTEREST: POI[] = [
         village: { top: '38%', left: '35%' },
         roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [],
-        isHub: true
+        isHub: true, isInterior: true
     },
 
 
@@ -133,16 +134,15 @@ export const POINTS_OF_INTEREST: POI[] = [
         village: { top: '48%', left: '23%' },
         roles: ['PEASANT', 'BARON'], parentId: 'village',
         actions: [],
-        isHub: true
+        isHub: true, isInterior: true
     },
     {
         id: 'windmill', label: 'Vindmølle', icon: '🌬️', top: '20%', left: '37%',
         village: { top: '25%', left: '17%' },
         roles: ['PEASANT', 'BARON', 'KING'], parentId: 'village',
         actions: [
-            { id: 'REFINE_FLOUR_BASIC', label: 'Male Mel', cost: '-15⚡ -10korn' },
-            { id: 'REFINE_FLOUR_FAST', label: 'Hurtig-maling', cost: '-20⚡ -15korn' }
-        ], isHub: true
+            { id: 'REFINE_flour', label: 'Male Mel', cost: '-15⚡ -10korn' }
+        ], isHub: true, isInterior: true
     },
     {
         id: 'smeltery', label: 'Smeltehytte', icon: '🔥', top: '60%', left: '95%',
@@ -152,7 +152,7 @@ export const POINTS_OF_INTEREST: POI[] = [
             { id: 'REFINE_IRON_BASIC', label: 'Smelte Jern', cost: '-20⚡ -5malm' },
             { id: 'REFINE_IRON_FAST', label: 'Industri-smelting', cost: '-30⚡ -10malm' },
             { id: 'REFINE_STEEL', label: 'Smelte Stål', cost: '-50⚡ -20malm' }
-        ], isHub: true
+        ], isHub: true, isInterior: true
     },
     {
         id: 'sawmill', label: 'Sagbruk', icon: '🪚', top: '55%', left: '15%',
@@ -161,7 +161,7 @@ export const POINTS_OF_INTEREST: POI[] = [
         actions: [
             { id: 'REFINE_PLANK_BASIC', label: 'Sag Planker', cost: '-10⚡ -5ved' },
             { id: 'REFINE_PLANK_FAST', label: 'Hurtig-saging', cost: '-15⚡ -5ved' }
-        ], isHub: true
+        ], isHub: true, isInterior: true
     },
 
 
@@ -171,7 +171,7 @@ export const POINTS_OF_INTEREST: POI[] = [
         village: { top: '45%', left: '65%' },
         roles: ['PEASANT', 'BARON', 'MERCHANT'], parentId: 'village',
         actions: [],
-        isHub: true
+        isHub: true, isInterior: true
     },
 
 
@@ -180,7 +180,7 @@ export const POINTS_OF_INTEREST: POI[] = [
         village: { top: '25%', left: '82%' },
         roles: ['BARON', 'SOLDIER'], parentId: 'village',
         actions: [],
-        isHub: true
+        isHub: true, isInterior: true
     },
 
     {
@@ -188,7 +188,7 @@ export const POINTS_OF_INTEREST: POI[] = [
         village: { top: '45%', left: '90%' },
         roles: ['BARON', 'SOLDIER', 'KING'], parentId: 'village',
         actions: [],
-        isHub: true
+        isHub: true, isInterior: true
     },
 
     {
@@ -204,7 +204,7 @@ export const POINTS_OF_INTEREST: POI[] = [
         village: { top: '60%', left: '92%' },
         roles: ['PEASANT', 'BARON', 'KING', 'MERCHANT'], parentId: 'village',
         actions: [],
-        isHub: true
+        isHub: true, isInterior: true
     },
     // --- GREAT FORGE INTERIOR ---
     {
@@ -411,11 +411,11 @@ export const POINTS_OF_INTEREST: POI[] = [
     // --- PEASANT FARM LOCAL ---
     {
         id: 'farm_house', label: 'Inne i Stugo', icon: '🏠', top: '52%', left: '58%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'peasant_farm',
-        actions: [], isHub: true
+        actions: [], isHub: true, isInterior: true
     },
     {
         id: 'stugo_bed', label: 'Senga', icon: '🛌', top: '65%', left: '42%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'farm_house',
-        actions: [{ id: 'SLEEP', label: 'Sove tungt', cost: '+60⚡' }]
+        actions: [{ id: 'SLEEP', label: 'Sove tungt', cost: 'Full ⚡' }]
     },
     {
         id: 'stugo_fireplace', label: 'Peisen', icon: '🔥', top: '55%', left: '80%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'farm_house',

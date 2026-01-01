@@ -322,12 +322,16 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                                 />
                                             </svg>
                                             <div className="absolute inset-0 flex items-center justify-center">
-                                                <span className="text-3xl animate-pulse">🌱</span>
+                                                <span className="text-3xl animate-pulse">
+                                                    {activeProcess.type === 'MILL' ? '⚙️' : '🌱'}
+                                                </span>
                                             </div>
                                         </div>
 
                                         <div className="flex flex-col items-center gap-1">
-                                            <span className="text-xs font-black text-slate-300 uppercase tracking-[0.3em]">Modnes om</span>
+                                            <span className="text-xs font-black text-slate-300 uppercase tracking-[0.3em]">
+                                                {activeProcess.type === 'MILL' ? 'Kverner...' : 'Modnes om'}
+                                            </span>
                                             <span className="text-2xl font-mono font-black text-white">{formatTime(timeLeft)}</span>
                                         </div>
 
@@ -359,7 +363,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                     } else {
                                         // Skip requirement check for menu openers
                                         if (!MENU_OPENING_ACTIONS.includes(action.id)) {
-                                            const check = checkActionRequirements(player, action.id, currentSeason, currentWeather);
+                                            const check = checkActionRequirements(player, action.id, currentSeason, currentWeather, room.world?.gameTick || 0);
                                             if (!check.success) {
                                                 canAfford = false;
                                                 missingReason = check.reason || 'Krav ikke møtt';
@@ -367,7 +371,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                         }
                                     }
 
-                                    const costLabel = getActionCostString(action.id, currentSeason, currentWeather, room.world?.totalTicks || 0);
+                                    const costLabel = getActionCostString(action.id, currentSeason, currentWeather, room.world?.gameTick || 0);
                                     const variants = MINIGAME_VARIANTS[action.id];
 
                                     return (

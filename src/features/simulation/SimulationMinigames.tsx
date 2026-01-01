@@ -15,7 +15,6 @@ import { ScytheSweepGame } from './minigames/ScytheSweepGame';
 import { TrappingGame } from './minigames/TrappingGame';
 import { WeavingGame } from './minigames/WeavingGame';
 import { ApothecaryGame } from './minigames/ApothecaryGame';
-import { MillingGame } from './minigames/SharedPlaceholders';
 import { SawingGame } from './minigames/SawingGame';
 import { SmeltingGame } from './minigames/SmeltingGame';
 
@@ -58,9 +57,6 @@ export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon
     ],
     CRAFT: [
         { id: 'hammer', label: 'Smiing', icon: '⚒️', desc: 'Form metallet på ambolten.' },
-    ],
-    MILL: [
-        { id: 'grind', label: 'Kverning', icon: '⚙️', desc: 'Mal korn til mel.' },
     ],
     BAKE: [
         { id: 'oven', label: 'Steking', icon: '🔥', desc: 'Stek brød i ovnen.' },
@@ -365,8 +361,6 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
                         case 'REPAIR': // Repair uses crafting game for now
                             return <CraftingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;
 
-                        case 'MILL':
-                            return <MillingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;
 
                         case 'SMELT':
                             return <SmeltingGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;

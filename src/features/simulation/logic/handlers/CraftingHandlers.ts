@@ -102,6 +102,40 @@ export const handleRefine = (ctx: ActionContext) => {
         });
 
         if (canAfford) {
+            // Check if this is a timed process
+            if (recipe.duration) {
+                if (!actor.activeProcesses) actor.activeProcesses = [];
+
+                const locationId = action.locationId || recipe.buildingId;
+                const existing = actor.activeProcesses.find(p => p.locationId === locationId);
+
+                if (existing) {
+                    localResult.success = false;
+                    localResult.message = "Det pågår allerede en prosess her.";
+                    return false;
+                }
+
+                // Consume costs
+                Object.entries(recipe.input).forEach(([res, amt]) => {
+                    (actor.resources as any)[res] -= (amt as number);
+                });
+
+                const newProcess = {
+                    id: Math.random().toString(36).substr(2, 9),
+                    type: (recipeId === 'flour' ? 'MILL' : 'CRAFT') as any, // Using MILL for flour, CRAFT for others
+                    itemId: recipeId,
+                    locationId: locationId,
+                    startedAt: Date.now(),
+                    duration: recipe.duration,
+                    readyAt: Date.now() + recipe.duration,
+                    notified: false
+                };
+
+                actor.activeProcesses.push(newProcess);
+                localResult.message = `Startet ${recipe.label.toLowerCase()}. Ferdig om ${Math.ceil(recipe.duration / 60000)} minutter.`;
+                return true;
+            }
+
             Object.entries(recipe.input).forEach(([res, amt]) => {
                 (actor.resources as any)[res] -= (amt as number);
             });

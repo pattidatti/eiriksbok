@@ -209,10 +209,13 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
                             "rgba(239, 68, 68, 0.1)",
                             "rgba(0,0,0,0.2)"
                         ]
-                    } : {}}
+                    } : {
+                        boxShadow: "0 0 0px rgba(239, 68, 68, 0)",
+                        backgroundColor: "rgba(0,0,0,0.2)"
+                    }}
                     transition={{
                         duration: 1.5,
-                        repeat: Infinity,
+                        repeat: staminaWidth < 20 ? Infinity : 0,
                         ease: "easeInOut"
                     }}
                     className="rounded-2xl overflow-hidden"

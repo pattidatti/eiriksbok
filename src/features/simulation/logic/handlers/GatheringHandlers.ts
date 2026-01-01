@@ -1,4 +1,4 @@
-import { GAME_BALANCE, REWARDS, SEASONS, WEATHER, CROP_DATA } from '../../constants';
+import { GAME_BALANCE, REWARDS, SEASONS, WEATHER, CROP_DATA, REFINERY_RECIPES } from '../../constants';
 import { calculateYield } from '../../utils/simulationUtils';
 import { getActionSlots } from '../../utils/actionUtils';
 import type { ActionContext } from '../actionTypes';
@@ -49,49 +49,69 @@ export const handlePlant = (ctx: ActionContext) => {
 export const handleHarvest = (ctx: ActionContext) => {
     const { actor, action, localResult, trackXp, damageTool, room } = ctx;
 
-    // Find finished process
-    // For now, simpler logic: finding the FIRST ready crop of matching type or just any ready crop
     const now = Date.now();
-    const readyCropIndex = actor.activeProcesses?.findIndex(p => p.type === 'CROP' && p.readyAt <= now);
+    const locationId = (action as any).locationId || 'grain_fields';
+    const readyIndex = actor.activeProcesses?.findIndex(p => p.locationId === locationId && p.readyAt <= now);
 
-    if (readyCropIndex === undefined || readyCropIndex === -1) {
+    if (readyIndex === undefined || readyIndex === -1) {
         localResult.success = false;
-        localResult.message = "Ingen avlinger er klare til innhøsting.";
+        localResult.message = "Ingenting er klart til innhøsting her.";
         return false;
     }
 
-    const process = actor.activeProcesses![readyCropIndex];
+    const process = actor.activeProcesses![readyIndex];
+
+    // Determine the recipe/data based on process type or itemId
+    let yieldResource = '';
+    let yieldAmount = 0;
+    let label = '';
+    let xpAmount = 0;
+    let skill: any = 'FARMING';
+
     const crop = CROP_DATA[process.itemId];
+    const refineryRecipe = (REFINERY_RECIPES as any)[process.itemId];
+
+    if (crop) {
+        label = crop.label;
+        yieldResource = crop.yieldResource;
+        const performance = action.performance || 0.5;
+        const baseYield = crop.minYield + (crop.maxYield - crop.minYield) * performance;
+        const currentSeason = room.world?.season || 'Spring';
+        const seasonData = (SEASONS as any)[currentSeason];
+        yieldAmount = Math.ceil(baseYield * (seasonData?.yieldMod || 1.0));
+        xpAmount = Math.ceil(crop.xp * (1 + performance));
+    } else if (refineryRecipe) {
+        label = refineryRecipe.label;
+        yieldResource = refineryRecipe.outputResource;
+        const baseOutput = refineryRecipe.output?.amount || refineryRecipe.outputAmount || 1;
+        const performance = action.performance || 0.5;
+        yieldAmount = calculateYield(actor, baseOutput, 'CRAFTING', { performance, isRefining: true });
+        xpAmount = refineryRecipe.xp || 10;
+        skill = refineryRecipe.skill || 'CRAFTING';
+    } else {
+        localResult.success = false;
+        localResult.message = "Ugyldig prosess-data.";
+        return false;
+    }
 
     // Remove process
-    actor.activeProcesses!.splice(readyCropIndex, 1);
+    actor.activeProcesses!.splice(readyIndex, 1);
 
-    // Calculate Yield
+    // Damage Tool (if applicable)
     getActionSlots(actor, 'WORK').forEach(slot => {
         damageTool(slot, GAME_BALANCE.DURABILITY.LOSS_WORK);
     });
 
-    const performance = action.performance || 0.5;
-
-    // Use min/max from CROP_DATA
-    const baseYield = crop.minYield + (crop.maxYield - crop.minYield) * performance;
-
-    // Apply modifiers
-    const currentSeason = room.world?.season || 'Spring';
-    const seasonData = (SEASONS as any)[currentSeason];
-
-    const yieldAmount = Math.ceil(baseYield * (seasonData?.yieldMod || 1.0));
-
     // Award Resources
-    if (!actor.resources[crop.yieldResource as keyof typeof actor.resources]) {
-        (actor.resources as any)[crop.yieldResource] = 0;
+    if (!(actor.resources as any)[yieldResource]) {
+        (actor.resources as any)[yieldResource] = 0;
     }
-    (actor.resources as any)[crop.yieldResource] += yieldAmount;
+    (actor.resources as any)[yieldResource] += yieldAmount;
 
-    localResult.utbytte.push({ resource: crop.yieldResource, amount: yieldAmount });
-    localResult.message = `Høstet ${yieldAmount} ${crop.label}`;
+    localResult.utbytte.push({ resource: yieldResource, amount: yieldAmount });
+    localResult.message = `Høstet ${yieldAmount} ${label}`;
 
-    trackXp('FARMING', Math.ceil(crop.xp * (1 + performance)));
+    trackXp(skill, xpAmount);
 
     return true;
 };

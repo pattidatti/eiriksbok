@@ -12,10 +12,27 @@ export const handleSleep = (ctx: ActionContext) => {
         return false;
     }
 
-    const staminaGain = 60;
-    actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaGain);
-    actor.status.hp = Math.min(100, (actor.status.hp || 100) + 10);
-    localResult.message = "Sov godt og fikk tilbake krefter.";
+    // RESTORE FULL STAMINA
+    const preStamina = actor.status.stamina || 0;
+    const staminaGain = 100 - preStamina;
+    actor.status.stamina = 100;
+    actor.status.hp = Math.min(100, (actor.status.hp || 100) + 20);
+
+    // ADD WELL RESTED BUFF
+    if (!actor.activeBuffs) actor.activeBuffs = [];
+    // Remove existing if any
+    actor.activeBuffs = actor.activeBuffs.filter(b => b.type !== 'STAMINA_SAVE' || b.label !== 'Godt utvilt');
+
+    actor.activeBuffs.push({
+        id: 'well_rested_' + Date.now(),
+        type: 'STAMINA_SAVE',
+        value: 0.5, // 50%
+        label: 'Godt utvilt',
+        description: '50% mindre stamina-forbruk etter en god natts søvn.',
+        expiresAt: Date.now() + 300000, // 5 minutes
+    });
+
+    localResult.message = "Du sov tungt gjennom natten. Våknet opp uthvilt og full av energi!";
     localResult.utbytte.push({ resource: 'stamina', amount: staminaGain });
     return true;
 };

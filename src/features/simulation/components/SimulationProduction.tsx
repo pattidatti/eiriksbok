@@ -139,10 +139,30 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
     const settlement = (room?.world?.settlement || {}) as any;
     const currentBuildingLevel = (settlement.buildings?.[buildingId]?.level as number) || 1;
 
+    // Timer for UI refresh
+    const [now, setNow] = useState(Date.now());
+    useEffect(() => {
+        const t = setInterval(() => setNow(Date.now()), 1000);
+        return () => clearInterval(t);
+    }, []);
+
+    const processesAtBuilding = useMemo(() => {
+        return (player.activeProcesses || []).filter(p => p.locationId === buildingId);
+    }, [player.activeProcesses, buildingId]);
+
+    const readyProcess = useMemo(() => {
+        return processesAtBuilding.find(p => p.readyAt <= now);
+    }, [processesAtBuilding, now]);
+
     const handleProduce = () => {
+        if (readyProcess) {
+            onAction({ type: 'HARVEST', locationId: buildingId });
+            return;
+        }
+
         if (!selectedRecipeId || !selectedRecipe) return;
 
-        // Locking check
+        // Locking check (rest of original handleProduce)
         if ((selectedRecipe.level || 1) > currentBuildingLevel) return;
 
         if (selectedType === 'REFINE') {
@@ -206,7 +226,8 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                 {levelRecipes.map(([id, r, recipeType]: [string, any, 'REFINE' | 'CRAFT']) => {
                                                     const actionPayload = recipeType === 'REFINE' ? { type: 'REFINE', recipeId: id } : { type: 'CRAFT', subType: id };
-                                                    const check = checkActionRequirements(player, actionPayload);
+                                                    const check = checkActionRequirements(player, actionPayload, room.world?.season, room.world?.weather, room.world?.gameTick || 0);
+                                                    const isRecipeReady = processesAtBuilding.some(p => p.itemId === id && p.readyAt <= now);
 
                                                     return (
                                                         <RecipeCard
@@ -215,6 +236,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                                             isSelected={selectedRecipeId === id}
                                                             isLocked={isLocked}
                                                             canAfford={check.success}
+                                                            isReady={isRecipeReady}
                                                             info={getOutputInfo(id, r)}
                                                             onSelect={setSelectedRecipeId}
                                                         />
@@ -374,11 +396,13 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                                     <GameButton
                                         variant="primary"
                                         size="lg"
-                                        className="h-20 text-xl w-full"
+                                        className={`h-20 text-xl w-full transition-all duration-300 ${readyProcess ? 'bg-emerald-600 hover:bg-emerald-500 border-emerald-400/50 shadow-[0_0_30px_rgba(16,185,129,0.2)]' : ''}`}
                                         onClick={handleProduce}
-                                        disabled={!!actionLoading || (selectedRecipe.level || 1) > currentBuildingLevel || !checkActionRequirements(player, selectedType === 'REFINE' ? { type: 'REFINE', recipeId: selectedRecipeId } : { type: 'CRAFT', subType: selectedRecipeId }).success}
+                                        disabled={!!actionLoading || (!readyProcess && ((selectedRecipe.level || 1) > currentBuildingLevel || !checkActionRequirements(player, selectedType === 'REFINE' ? { type: 'REFINE', recipeId: selectedRecipeId } : { type: 'CRAFT', subType: selectedRecipeId }, room.world?.season, room.world?.weather, room.world?.gameTick || 0).success))}
                                     >
-                                        {(selectedRecipe.level || 1) > currentBuildingLevel ? 'KREVER OPPGRADERING' : 'START PRODUKSJON'}
+                                        {readyProcess
+                                            ? `HENT ${readyProcess.itemId === (selectedRecipeId || '') ? (selectedRecipe?.label || 'PRODUKSJON').toUpperCase() : 'PRODUKSJON'}`
+                                            : (selectedRecipe.level || 1) > currentBuildingLevel ? 'KREVER OPPGRADERING' : 'START PRODUKSJON'}
                                     </GameButton>
                                 </div>
                             </div>

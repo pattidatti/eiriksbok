@@ -4,9 +4,10 @@ interface AtmosphereProps {
     weather: 'Clear' | 'Rain' | 'Storm' | 'Fog';
     season: 'Spring' | 'Summer' | 'Autumn' | 'Winter';
     hideClouds?: boolean;
+    isInterior?: boolean;
 }
 
-export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, season, hideClouds }) => {
+export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, season, hideClouds, isInterior }) => {
     // Generate static random values once
     const clouds = useMemo(() => Array.from({ length: 12 }).map((_, i) => ({
         id: i,
@@ -48,8 +49,8 @@ export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, 
 
     return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-[5]">
-            {/* 1. Sunbeam Layer (Clear Weather) */}
-            {weather === 'Clear' && (
+            {/* 1. Sunbeam Layer (Clear Weather) - Hidden in interior */}
+            {weather === 'Clear' && !isInterior && (
                 <div className="absolute inset-0 opacity-40">
                     {sunbeams.map(beam => (
                         <div
@@ -67,8 +68,8 @@ export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, 
                 </div>
             )}
 
-            {/* 2. Cloud Layer */}
-            {!hideClouds && (
+            {/* 2. Cloud Layer - Hidden in interior */}
+            {!hideClouds && !isInterior && (
                 <div className="absolute inset-0">
                     {clouds.map(cloud => (
                         <div
@@ -90,35 +91,37 @@ export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, 
                 </div>
             )}
 
-            {/* 3. Mist/Fog Layer */}
-            {weather === 'Fog' && (
+            {/* 3. Mist/Fog Layer - Hidden in interior */}
+            {weather === 'Fog' && !isInterior && (
                 <div className="absolute inset-0 bg-slate-400/10 backdrop-blur-[2px] animate-mist" />
             )}
 
-            {/* 4. Particle Layer */}
-            <div className="absolute inset-0">
-                {particles.map(p => (
-                    <div
-                        key={p.id}
-                        className="absolute animate-particle opacity-0"
-                        style={{
-                            left: p.left,
-                            fontSize: `${p.size}px`,
-                            animationDuration: `${p.duration}s`,
-                            animationDelay: `${p.delay}s`,
-                            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
-                            // @ts-ignore
-                            '--wind-drift': `${baseDrift + p.drift}px`,
-                            '--wind-rotation': `${720 + p.rotation}deg`
-                        } as any}
-                    >
-                        {getParticleEmoji()}
-                    </div>
-                ))}
-            </div>
+            {/* 4. Particle Layer (Rain/Snow/Petals) - Hidden in interior */}
+            {!isInterior && (
+                <div className="absolute inset-0">
+                    {particles.map(p => (
+                        <div
+                            key={p.id}
+                            className="absolute animate-particle opacity-0"
+                            style={{
+                                left: p.left,
+                                fontSize: `${p.size}px`,
+                                animationDuration: `${p.duration}s`,
+                                animationDelay: `${p.delay}s`,
+                                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
+                                // @ts-ignore
+                                '--wind-drift': `${baseDrift + p.drift}px`,
+                                '--wind-rotation': `${720 + p.rotation}deg`
+                            } as any}
+                        >
+                            {getParticleEmoji()}
+                        </div>
+                    ))}
+                </div>
+            )}
 
-            {/* 4.5. Dust Particles (Daylight/Clear Weather) */}
-            {weather === 'Clear' && (
+            {/* 4.5. Dust Particles (Daylight/Clear Weather) - KEPT in interior for atmosphere */}
+            {(weather === 'Clear' || isInterior) && (
                 <div className="absolute inset-0">
                     {Array.from({ length: 15 }).map((_, i) => (
                         <div
@@ -136,8 +139,8 @@ export const SimulationAtmosphereLayer: React.FC<AtmosphereProps> = ({ weather, 
                 </div>
             )}
 
-            {/* 5. Rain/Storm Overlay */}
-            {(weather === 'Rain' || weather === 'Storm') && (
+            {/* 5. Rain/Storm Overlay - Hidden in interior */}
+            {(weather === 'Rain' || weather === 'Storm') && !isInterior && (
                 <div className="absolute inset-0 bg-indigo-900/10 mix-blend-overlay" />
             )}
         </div>

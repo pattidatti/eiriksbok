@@ -34,9 +34,9 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
         locationId: 'village',
         description: 'Gjør det mulig å foredle Ved til Tømmer.',
         levels: {
-            1: { requirements: {}, unlocks: ['REFINE_PLANK_BASIC'], bonus: 'Base produksjon' },
+            1: { requirements: {}, unlocks: ['REFINE_PLANK_BASIC', 'hunting_bow'], bonus: 'Base produksjon' },
             2: { requirements: { wood: 100, stone: 50, gold: 100 }, unlocks: ['REFINE_PLANK_FAST'], bonus: '+10% Woodcutting XP' },
-            3: { requirements: { plank: 50, stone: 150, gold: 300 }, unlocks: ['REFINE_PLANK_MASTER'], bonus: 'Låser opp Tier 3 verktøy' }
+            3: { requirements: { plank: 50, stone: 150, gold: 300 }, unlocks: ['REFINE_PLANK_MASTER', 'longbow'], bonus: 'Låser opp Tier 3 verktøy og Langbue' }
         }
     },
     windmill: {
@@ -70,7 +70,7 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
         locationId: 'village',
         description: 'Gjør det mulig å lage avanserte verktøy og våpen.',
         levels: {
-            1: { requirements: {}, unlocks: ['stone_axe', 'stone_pickaxe', 'stone_sickle', 'whetstone'], bonus: 'Base produksjon' },
+            1: { requirements: {}, unlocks: ['stone_axe', 'stone_pickaxe', 'stone_sickle', 'whetstone', 'hunting_trap'], bonus: 'Base produksjon' },
             2: { requirements: { iron_ingot: 20, plank: 30, gold: 300 }, unlocks: ['iron_axe', 'iron_pickaxe', 'iron_sword', 'leather_armor', 'shears'], bonus: '+10% Crafting XP' },
             3: { requirements: { iron_ingot: 100, plank: 100, gold: 1000 }, unlocks: ['steel_axe', 'steel_sword', 'blacksmith_hammer', 'repair_advanced'], bonus: 'Låser opp Mester-utstyr' }
         }
@@ -163,7 +163,7 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
 
 export const REFINERY_RECIPES: Record<string, any> = {
     plank: { label: 'Planker', icon: '🪵', input: { wood: 5 }, outputResource: 'plank', outputAmount: 1, buildingId: 'sawmill', stamina: 10, xp: 5, skill: 'WOODCUTTING' },
-    flour: { label: 'Fint Mel', icon: '🧂', input: { grain: 10 }, outputResource: 'flour', outputAmount: 10, buildingId: 'windmill', stamina: 15, xp: 8, skill: 'FARMING' },
+    flour: { label: 'Fint Mel', icon: '🧂', input: { grain: 10 }, outputResource: 'flour', outputAmount: 10, buildingId: 'windmill', stamina: 15, xp: 8, skill: 'FARMING', duration: 120000 },
     iron_ingot: { label: 'Jernbarre', icon: '🧱', input: { iron_ore: 5, wood: 2 }, outputResource: 'iron_ingot', outputAmount: 1, buildingId: 'smeltery', stamina: 20, xp: 12, skill: 'CRAFTING' },
     bread: { label: 'Bondebrød', icon: '🍞', input: { flour: 2 }, outputResource: 'bread', outputAmount: 5, buildingId: 'bakery', stamina: 5, xp: 3, skill: 'CRAFTING' },
     pie: { label: 'Kjøttpai', icon: '🥧', input: { flour: 4, meat: 2 }, outputResource: 'bread', outputAmount: 15, buildingId: 'bakery', stamina: 15, xp: 10, skill: 'CRAFTING' },
@@ -186,5 +186,8 @@ export const CRAFTING_RECIPES: Record<string, any> = {
     steel_axe: { label: 'Ståløks', icon: '🪓', input: { iron_ingot: 20, plank: 10, gold: 250 }, outputItemId: 'steel_axe', buildingId: 'great_forge', level: 3, stamina: 50, xp: 50, description: 'Mesterlig utformet øks av herdet stål.', skill: 'CRAFTING' },
     steel_sword: { label: 'Stålsverd', icon: '⚔️', input: { iron_ingot: 30, plank: 5, gold: 500 }, outputItemId: 'steel_sword', buildingId: 'great_forge', level: 3, stamina: 80, xp: 100, description: 'Det ultimate våpenet for en herre.', skill: 'CRAFTING' },
     blacksmith_hammer: { label: 'Smedhammer', icon: '🔨', input: { iron_ingot: 15, plank: 5, gold: 200 }, outputItemId: 'blacksmith_hammer', buildingId: 'great_forge', level: 3, stamina: 40, xp: 50, description: 'Mesterverktøy for en ekte smed.', skill: 'CRAFTING' },
-    omelette: { label: 'Omelett', icon: '🍳', input: { egg: 3 }, outputItemId: 'omelette', buildingId: 'bakery', level: 1, stamina: 10, xp: 8, description: 'En mettende frokost. Gir energi-buff.', skill: 'CRAFTING' }
+    omelette: { label: 'Omelett', icon: '🍳', input: { egg: 3 }, outputItemId: 'omelette', buildingId: 'bakery', level: 1, stamina: 10, xp: 8, description: 'En mettende frokost. Gir energi-buff.', skill: 'CRAFTING' },
+    hunting_trap: { label: 'Jaktfelle', icon: '🕸️', input: { wood: 10, iron_ingot: 2, gold: 30 }, outputItemId: 'hunting_trap', buildingId: 'great_forge', level: 1, stamina: 20, xp: 15, description: 'En enkel snare for småvilt.', skill: 'CRAFTING' },
+    hunting_bow: { label: 'Jaktbue', icon: '🏹', input: { plank: 5, cloth: 5, gold: 50 }, outputItemId: 'hunting_bow', buildingId: 'sawmill', level: 1, stamina: 25, xp: 20, description: 'En stødig bue for jakt.', skill: 'CRAFTING' },
+    longbow: { label: 'Langbue', icon: '🏹', input: { plank: 15, cloth: 10, iron_ingot: 1, gold: 250 }, outputItemId: 'longbow', buildingId: 'sawmill', level: 3, stamina: 40, xp: 45, description: 'En kraftig bue med lang rekkevidde.', skill: 'CRAFTING' }
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 // Modular World Map Components
 import type { SimulationPlayer } from './simulationTypes';
@@ -65,7 +65,9 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
         }
 
         switch (viewMode) {
-            case 'village': return '/map_village_hub_1610.png';
+            case 'village':
+                if (isWinter) return isNight ? '/map_village_hub_1610_winter_night.png' : '/map_village_hub_1610_winter.png';
+                return isNight ? '/map_village_hub_1610_night.png' : '/map_village_hub_1610.png';
             case 'village_construction': return '/map_village_construction.png';
             case 'castle': return '/map_castle_interior.png';
             case 'fields': return '/map_farm_fields.png';
@@ -97,7 +99,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                     return isNight ? '/map_barony_ost_169_night.png' : '/map_barony_ost_169.png';
                 }
                 if (viewingRegionId === 'capital') return '/map_hovedstad_169.png';
-                if (isWinter) return isNight ? '/map_barony_vest_v1_1610_winter_night.png' : '/map_barony_vest_v1_1610_winter.png';
+                if (isWinter) return isNight ? '/map_barony_vest_v2_1610_winter_night.png' : '/map_barony_vest_v2_1610_winter.png';
                 return isNight ? '/map_barony_vest_v2_1610_night.png' : '/map_barony_vest_v2_1610.png';
             default:
                 return '/map_barony_vest_v2_1610.png';
@@ -114,6 +116,8 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
     };
 
     const mapKey = `${viewMode}-${viewingRegionId}`;
+    const currentPOI = useMemo(() => POINTS_OF_INTEREST.find(p => p.id === viewMode), [viewMode]);
+    const isInterior = !!currentPOI?.isInterior;
 
     return (
         <div className="relative w-full h-full flex flex-col items-center justify-center p-4">
@@ -121,7 +125,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                 <AnimatePresence mode="popLayout" custom={direction}>
                     <motion.div key={mapKey} custom={direction} variants={containerVariants} initial="initial" animate="animate" exit="exit" className="absolute inset-0 w-full h-full">
                         <motion.img src={getBackground()} alt="Map View" className={`w-full h-full object-cover ${weather === 'Fog' ? 'blur-sm' : ''}`} />
-                        <SimulationAtmosphereLayer weather={weather} season={world?.season || 'Spring'} />
+                        <SimulationAtmosphereLayer weather={weather} season={world?.season || 'Spring'} isInterior={isInterior} />
 
                         <div className="absolute inset-0 pointer-events-none">
                             {viewMode === 'kingdom' && (

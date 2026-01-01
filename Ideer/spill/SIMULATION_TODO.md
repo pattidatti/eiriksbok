@@ -5,14 +5,14 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 ## 🚀 Prioritert (Neste skritt)
 - [ ] **Balansering av Utbytte:** Finjustere "Utbytte" (tidligere Yield) for ulike verktøy og handlinger.
 - [ ] **Holdbarhet:** Implementere tydeligere visuelle varsler når verktøy er i ferd med å ødelegges.
-- [x] **Kornåker** Står at jeg mangler håndsåing, hva er dette og hvor får man det? (Fikset: Dette var en UI-bug, "Håndsåing" er ikke et verktøy man trenger å få tak i.)
 - [ ] **minigames** Legge til flere minigames.
 - [ ] **Notificationsenter** et sted hvor alt som skjer med karakteren, spesielt hendelser og minigames, kan vises. Betyr ikke at man fjerner noe annet. dette er et tillegg.   
  ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
+ - [ ] **Seng** Å sove i sengen virker ikke, selv om det er natt. Man burde også få full stamina av å sove, og en 5 minutters buff "Godt utvilt" som gir 50% mindre staminabruk. 
+ - [ ] **Brønn** Bør være 5 minutter cooldown på brønnen etter man har drukket. Kan stå "Brønnen fyller seg med vann" på ui/tooltip sammen med timer. 
 - [ ] **Staminabar** Når man har fått lav staminia, og fyller den opp igjen, så er feltet rundt statusbarene fremdeles rød. 
 - [ ] **lokalbefolkning** Oppgradere UI til dialogen. Også legge til bilder av personene de snakker med, i en egen kolonne til høyre?
-## 🛠️ Planlagt (Underveis/Snart)
-- [ ] **Sagbruk** trenger eget minigame for å lage planker (vi bør bytte ut itemen timber med planker). Nå er det også mulig å velge å hogge trær der, det skal ikke gå an. 
+## 🛠️ Planlagt (Underveis/Snart) 
 - [ ] **Handelsruter:** Implementere Merchant-spesifikke handlinger for import/eksport mellom byer.
 - [ ] **Patruljering:** Utvide soldatens patrulje-funksjon med flere typer hendelser og minispill.
 - [ ] **Profil** Global profil må vise de aktive karakterene man har og at man kan logge inn der fra. Må koble profilknappen i instillinger til global profi også. 

@@ -25,7 +25,7 @@ export function useSimulationActions(
         const actionType = typeof action === 'string' ? action : action.type;
         const actionMethod = typeof action === 'object' ? action.method : null;
 
-        const minigameTypes: ActionType[] = ['WORK', 'CHOP', 'CRAFT', 'MILL', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE', 'SMELT', 'BAKE', 'WEAVE', 'MIX', 'PLANT', 'HARVEST'];
+        const minigameTypes: ActionType[] = ['WORK', 'CHOP', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE', 'SMELT', 'BAKE', 'WEAVE', 'MIX', 'PLANT', 'HARVEST'];
 
         if (minigameTypes.includes(actionType as any) && !activeMinigame && (!action.performance)) {
             const currentSeason = (world?.season || 'Spring') as any;
@@ -49,23 +49,42 @@ export function useSimulationActions(
             let actualType = actionType;
             if (actionType === 'REFINE') {
                 const rid = action.recipeId;
-                if (rid === 'flour') actualType = 'MILL';
                 if (rid === 'iron_ingot' || rid === 'glass' || rid === 'smelt') actualType = 'SMELT';
                 if (rid === 'bread' || rid === 'pie' || rid === 'mead' || rid === 'bake') actualType = 'BAKE';
                 if (rid === 'cloth' || rid === 'weave') actualType = 'WEAVE';
                 if (rid === 'plank') actualType = 'SAWMILL';
-            }
-            if (actionType === 'CRAFT') {
-                const sid = action.subType || action.id;
-                if (sid === 'CRAFT_MEDICINE' || sid === 'CRAFT_POISON' || sid === 'mix') actualType = 'MIX';
-                if (sid === 'CRAFT_BREAD' || sid === 'bakery') actualType = 'BAKE';
+
+                // IF recipe has duration, skip minigame
+                // We don't have the recipe object easily here, but we can check rid === 'flour'
+                if (rid === 'flour') {
+                    // Skip minigame block by not setting actualType to something in MINIGAME_VARIANTS
+                    // Actually, if we want it to go straight to performAction, we should just return here and continue?
+                    // No, we should let it fall through.
+                    // To fall through, we can just not enter this if block if RID is flour.
+                }
             }
 
-            setActiveMinigame(actualType as any);
-            if (actionMethod) setActiveMinigameMethod(actionMethod);
-            setActiveMinigameAction(action);
-            setActionResult(null);
-            return;
+            // If actualType is REFINE and it's flour, we don't want a minigame (it's not in MINIGAME_VARIANTS anymore anyway)
+            // But minigameTypes includes 'REFINE'. 
+
+            // Also skip minigame if harvesting a MILL or CRAFT (timed) process
+            const activeProcesses = (player as any).activeProcesses || [];
+            // Check for exact match or sub-location (e.g. 'windmill' matches 'windmill_stones')
+            const readyProcess = activeProcesses.find((p: any) =>
+                (p.locationId === action.locationId || (action.locationId && p.locationId?.startsWith(action.locationId))) &&
+                p.readyAt <= Date.now()
+            );
+
+            // Skip minigame if RID is flour OR it's a harvest for a timed process (MILL/CRAFT)
+            if ((actionType === 'REFINE' && action.recipeId === 'flour') || (actionType === 'HARVEST' && (readyProcess?.type === 'MILL' || readyProcess?.type === 'CRAFT'))) {
+                // Return to fall through to performAction
+            } else {
+                setActiveMinigame(actualType as any);
+                if (actionMethod) setActiveMinigameMethod(actionMethod);
+                setActiveMinigameAction(action);
+                setActionResult(null);
+                return;
+            }
         }
 
         const isSilentAction = actionType === 'EQUIP_ITEM' || actionType === 'UNEQUIP_ITEM';
