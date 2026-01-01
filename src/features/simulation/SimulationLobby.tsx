@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { simulationDb as db } from './simulationFirebase';
-import { ref, get, set, child } from 'firebase/database';
+import { ref, get, update, child } from 'firebase/database';
 import { useLayout } from '../../context/LayoutContext';
 
 import { INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT } from './constants';
@@ -94,7 +94,31 @@ export const SimulationLobby: React.FC = () => {
                     upgrades: [],
                     lastActive: Date.now()
                 };
-                await set(child(roomRef, `players/${playerId}`), newPlayer);
+
+                // DUAL WRITE: Create Public Profile (Lightweight)
+                const publicProfile = {
+                    id: playerId,
+                    uid: user?.uid,
+                    name: name,
+                    role: role,
+                    regionId: regionId,
+                    stats: {
+                        level: 1
+                    },
+                    status: {
+                        isJailed: false,
+                        isFrozen: false,
+                        legitimacy: 100
+                    },
+                    online: true,
+                    lastActive: Date.now()
+                };
+
+                const updates: any = {};
+                updates[`players/${playerId}`] = newPlayer;
+                updates[`public_profiles/${playerId}`] = publicProfile;
+
+                await update(roomRef, updates);
             }
 
             localStorage.setItem('sim_player_id', playerId);

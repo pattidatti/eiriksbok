@@ -220,8 +220,22 @@ export const SimulationHost: React.FC = () => {
                 }
             });
 
-            const updates: any = {};
+            const publicProfiles: any = {};
+            Object.values(updatedPlayers).forEach(p => {
+                publicProfiles[p.id] = {
+                    id: p.id,
+                    name: p.name,
+                    role: p.role,
+                    regionId: p.regionId,
+                    stats: { level: p.stats.level || 1 },
+                    status: { isJailed: false, isFrozen: false, legitimacy: 100 },
+                    online: true,
+                    lastActive: p.lastActive
+                };
+            });
+            const updates: any = {}; // Re-added missing declaration
             updates[`simulation_rooms/${pin}/players`] = updatedPlayers;
+            updates[`simulation_rooms/${pin}/public_profiles`] = publicProfiles;
             updates[`simulation_rooms/${pin}/regions`] = newRegions;
             updates[`simulation_rooms/${pin}/markets`] = newMarkets;
             updates[`simulation_rooms/${pin}/status`] = 'PLAYING';
@@ -476,6 +490,12 @@ export const SimulationHost: React.FC = () => {
                     weapon: { id: 'swords', durability: 100, maxDurability: 100 },
                     armor: { id: 'armor', durability: 100, maxDurability: 100 }
                 };
+                // Reset Public Profile Logic
+                const publicPath = `simulation_rooms/${pin}/public_profiles/${id}`;
+                updates[`${publicPath}/role`] = 'PEASANT';
+                updates[`${publicPath}/regionId`] = 'capital';
+                updates[`${publicPath}/stats/level`] = 1;
+
             });
 
             console.log("Constructed updates:", updates);
@@ -502,6 +522,7 @@ export const SimulationHost: React.FC = () => {
         try {
             const updates: any = {};
             updates[`simulation_rooms/${pin}/players/${playerId}`] = null;
+            updates[`simulation_rooms/${pin}/public_profiles/${playerId}`] = null;
             await update(ref(db), updates);
         } catch (e) {
             console.error(e);
@@ -529,7 +550,10 @@ export const SimulationHost: React.FC = () => {
 
     const handleRoleChange = async (playerId: string, newRole: any) => {
         try {
-            await update(ref(db, `simulation_rooms/${pin}/players/${playerId}`), { role: newRole });
+            const updates: any = {};
+            updates[`simulation_rooms/${pin}/players/${playerId}/role`] = newRole;
+            updates[`simulation_rooms/${pin}/public_profiles/${playerId}/role`] = newRole;
+            await update(ref(db), updates);
         } catch (e) {
             console.error(e);
             alert("Kunne ikke endre rolle.");
@@ -538,7 +562,10 @@ export const SimulationHost: React.FC = () => {
 
     const handleRegionChange = async (playerId: string, newRegion: string) => {
         try {
-            await update(ref(db, `simulation_rooms/${pin}/players/${playerId}`), { regionId: newRegion });
+            const updates: any = {};
+            updates[`simulation_rooms/${pin}/players/${playerId}/regionId`] = newRegion;
+            updates[`simulation_rooms/${pin}/public_profiles/${playerId}/regionId`] = newRegion;
+            await update(ref(db), updates);
         } catch (e) {
             console.error(e);
             alert("Kunne ikke endre baroni.");

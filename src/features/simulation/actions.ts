@@ -105,6 +105,8 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                 localResult.xp.push({ skill, amount, levelUp: postLevel > preLevel });
             };
 
+            const initialLevel = actor.stats.level || 1;
+
             const damageTool = (slot: EquipmentSlot, amount: number) => {
                 if (actor.equipment?.[slot]) {
                     actor.equipment[slot].durability = Math.max(0, actor.equipment[slot].durability - amount);
@@ -231,9 +233,13 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
             actor.lastActive = Date.now();
             result = localResult;
 
-            // SPECIAL: If retiring
             if (actionType === 'RETIRE' && localResult.success) {
                 (result as any).characterSnapshot = JSON.parse(JSON.stringify(actor));
+            }
+
+            // Flag for side-effect
+            if (actor.stats.level > initialLevel) {
+                (result as any).newLevel = actor.stats.level;
             }
 
             return actor;
@@ -250,6 +256,18 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
 
             if ((result as any).characterSnapshot) {
                 await recordCharacterLife(playerId, pin, (result as any).characterSnapshot);
+            }
+
+            // DUAL-WRITE: Sync Level Up to Public Profile
+            if ((result as any).newLevel) {
+                try {
+                    await update(ref(db, `simulation_rooms/${pin}/public_profiles/${playerId}`), {
+                        "stats/level": (result as any).newLevel,
+                        lastActive: Date.now()
+                    });
+                } catch (e) {
+                    console.error("Failed to sync level to public profile", e);
+                }
             }
         } catch (logErr) {
             console.error("Non-critical post-action error (logging/history):", logErr);
