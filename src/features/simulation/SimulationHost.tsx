@@ -13,7 +13,7 @@ import type { SimulationMessage } from './simulationTypes';
 const generateInitialRoomState = (pin: string, name: string): SimulationRoom => ({
     pin: pin,
     name: name,
-    status: 'PLAYING', // Auto-start
+    status: 'PLAYING', // Auto-start as requested
     settings: 'feudal_europe',
     hostName: 'Host',
     isPublic: true,
@@ -34,14 +34,18 @@ const generateInitialRoomState = (pin: string, name: string): SimulationRoom => 
     },
     markets: {
         capital: { ...INITIAL_MARKET },
+        region_vest: { ...INITIAL_MARKET },
+        region_ost: { ...INITIAL_MARKET },
     },
     players: {},
     public_profiles: {},
     messages: [] as SimulationMessage[],
-    regions: {},
+    regions: {
+        'region_vest': { id: 'region_vest', name: 'Baroniet Vest', taxRate: 10, defenseLevel: 50, rulerName: 'Ingen' },
+        'region_ost': { id: 'region_ost', name: 'Baroniet Øst', taxRate: 10, defenseLevel: 50, rulerName: 'Ingen' }
+    },
     diplomacy: {},
     worldEvents: {},
-    activeVote: undefined,
 });
 
 const syncServerMetadata = async (pin: string, data: SimulationRoom | null) => {
@@ -56,8 +60,8 @@ const syncServerMetadata = async (pin: string, data: SimulationRoom | null) => {
         name: (data as any).name || `Rike #${pin}`, // Fallback for legacy
         status: data.status,
         playerCount: Object.keys(data.players || {}).length,
-        worldYear: data.world.year,
-        season: data.world.season,
+        worldYear: data.world?.year || 1100,
+        season: data.world?.season || 'Spring',
         isPublic: !!data.isPublic,
         hostName: data.hostName || "Anonym Host",
         lastUpdated: Date.now()
@@ -375,7 +379,7 @@ export const SimulationHost: React.FC = () => {
         if (!roomData || !roomData.players) return;
         setIsLoading(true);
         try {
-            const kingTax = roomData.world.taxRateDetails.kingTax || 20;
+            const kingTax = roomData.world?.taxRateDetails?.kingTax || 20;
             const { updatedPlayers, results } = collectTaxes(roomData.players, kingTax);
 
             await update(ref(db, `simulation_rooms/${pin}/players`), updatedPlayers);
@@ -415,7 +419,7 @@ export const SimulationHost: React.FC = () => {
     const nextSeason = async () => {
         if (!roomData) return;
         const seasonsList: ('Spring' | 'Summer' | 'Autumn' | 'Winter')[] = ['Spring', 'Summer', 'Autumn', 'Winter'];
-        const currentIdx = seasonsList.indexOf(roomData.world.season);
+        const currentIdx = seasonsList.indexOf(roomData.world?.season || 'Spring');
         const nextIdx = (currentIdx + 1) % seasonsList.length;
         const nextSeasonVal = seasonsList[nextIdx];
 
@@ -520,7 +524,7 @@ export const SimulationHost: React.FC = () => {
         const noVotes = votes.filter(v => v === 'NO').length;
 
         let msgContent = '';
-        let activeLaws = roomData?.world.activeLaws || [];
+        let activeLaws = roomData?.world?.activeLaws || [];
 
         if (yesVotes > noVotes) {
             msgContent = `✅ LOVEN ER VEDTATT! "${voteData.title}" er nå gjeldende.`;
@@ -589,7 +593,7 @@ export const SimulationHost: React.FC = () => {
                 settlement: {
                     buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id]: [string, any]) => ({
                         ...acc,
-                        [id]: { id, level: 0, progress: {}, target: 200 }
+                        [id]: { id, level: 0, progress: {}, target: 200, contributions: {} }
                     }), {}),
 
                 }
@@ -622,7 +626,7 @@ export const SimulationHost: React.FC = () => {
             updates[`simulation_rooms/${pin}/world/settlement`] = {
                 buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id]: [string, any]) => ({
                     ...acc,
-                    [id]: { id, level: 0, progress: {}, target: 200 }
+                    [id]: { id, level: 0, progress: {}, target: 200, contributions: {} }
                 }), {}),
             };
 
@@ -1018,7 +1022,7 @@ export const SimulationHost: React.FC = () => {
                     {/* Settlement Management */}
                     <section>
                         <h3 className="text-[10px] font-black uppercase text-slate-500 tracking-[0.2em] mb-4">Landsby-fokus</h3>
-                        {!roomData.world.settlement ? (
+                        {!roomData.world?.settlement ? (
                             <button onClick={initializeSettlement} className="w-full bg-amber-500 text-black py-4 rounded-2xl font-black uppercase text-[10px] animate-pulse">Initialiser Landsby</button>
                         ) : (
                             <div className="text-xs text-slate-500 italic">
@@ -1055,7 +1059,7 @@ export const SimulationHost: React.FC = () => {
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">År i Riket:</span>
-                                <span className="text-sm font-bold text-white">{roomData.world.year || 1100}</span>
+                                <span className="text-sm font-bold text-white">{roomData.world?.year || 1100}</span>
                             </div>
                         </div>
                     </div>
@@ -1167,7 +1171,7 @@ export const SimulationHost: React.FC = () => {
                                             <span className="text-xs font-black uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-4 py-2 rounded-full">Status Rapport</span>
                                         </h2>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                            {Object.values(roomData.world.settlement.buildings).map((building: any) => {
+                                            {Object.values(roomData.world?.settlement?.buildings || {}).map((building: any) => {
                                                 const meta = (VILLAGE_BUILDINGS as any)[building.id];
                                                 const progress = (building.progress / (building.target || 200)) * 100;
                                                 return (
