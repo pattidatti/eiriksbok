@@ -30,6 +30,7 @@ export const WorldMapPOI: React.FC<WorldMapPOIProps> = ({ viewMode, viewingRegio
                 const isOst = isBarony && viewingRegionId === 'region_ost';
                 const isVest = isBarony && (viewingRegionId === 'region_vest' || viewingRegionId === 'capital');
                 const isVillage = viewMode === 'village';
+                const playersArr = Object.values(room.players || {}) as SimulationPlayer[];
 
                 let top = poi.top;
                 let left = poi.left;
@@ -45,6 +46,16 @@ export const WorldMapPOI: React.FC<WorldMapPOIProps> = ({ viewMode, viewingRegio
                     left = poi.vest.left;
                 }
 
+                // ULTRATHINK: Castle-specific state
+                const isCastle = poi.id === 'castle';
+                const hasRuler = isCastle && playersArr.some(p =>
+                    (p.role === 'BARON' && p.regionId === viewingRegionId) ||
+                    (viewingRegionId === 'capital' && p.role === 'KING')
+                );
+                const buildingId = isCastle ? (viewingRegionId === 'capital' ? 'throne_room' : (viewingRegionId === 'region_ost' ? 'manor_ost' : 'manor_vest')) : '';
+                const castleLevel = isCastle ? (room.world?.settlement?.buildings?.[buildingId]?.level || 0) : 0;
+                const canEnterCastle = castleLevel >= 1 || hasRuler;
+
                 return (
                     <motion.div
                         key={poi.id}
@@ -55,23 +66,9 @@ export const WorldMapPOI: React.FC<WorldMapPOIProps> = ({ viewMode, viewingRegio
                     >
                         <button
                             onClick={() => {
-                                // ULTRATHINK: Castle-specific logic
-                                // If castle is not built and no ruler is assigned, clicking opens construction UI directly.
-                                // If built OR a ruler exists, it works as a hub.
-                                if (poi.id === 'castle') {
-                                    const playersArr = Object.values(room.players || {}) as SimulationPlayer[];
-                                    const hasRuler = playersArr.some(p =>
-                                        (p.role === 'BARON' && p.regionId === viewingRegionId) ||
-                                        (viewingRegionId === 'capital' && p.role === 'KING')
-                                    );
-
-                                    const buildingId = viewingRegionId === 'capital' ? 'throne_room' : (viewingRegionId === 'region_ost' ? 'manor_ost' : 'manor_vest');
-                                    const level = room.world?.settlement?.buildings?.[buildingId]?.level || 0;
-
-                                    if (level < 1 && !hasRuler) {
-                                        onPOIAction(poi.id, 'OPEN_CONSTRUCTION');
-                                        return;
-                                    }
+                                if (isCastle && !canEnterCastle) {
+                                    onPOIAction(poi.id, 'OPEN_CONSTRUCTION');
+                                    return;
                                 }
 
                                 if (poi.isHub) {
@@ -86,7 +83,7 @@ export const WorldMapPOI: React.FC<WorldMapPOIProps> = ({ viewMode, viewingRegio
                                 {poi.icon}
                             </div>
                             <span className="bg-indigo-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mt-2 shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-indigo-600/30">
-                                {isResourceNode ? 'KLIKK FOR Å STARTE' : (poi.id === 'castle' ? 'GÅ INN' : poi.label)}
+                                {isResourceNode ? 'KLIKK FOR Å STARTE' : (isCastle ? (canEnterCastle ? 'GÅ INN' : 'BIDRA TIL BYGGING') : poi.label)}
                             </span>
                         </button>
                     </motion.div>

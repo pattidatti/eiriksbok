@@ -105,6 +105,10 @@ export const POINTS_OF_INTEREST: POI[] = [
         id: 'royal_chambers', label: 'Kongens Kammer', icon: '🛌', top: '30%', left: '70%', roles: ['BARON', 'KING'], parentId: 'castle',
         actions: [{ id: 'REST', label: 'Hvile i Kammeret', cost: '-1🍞 +30⚡' }]
     },
+    {
+        id: 'castle_construction', label: 'Byggeplass', icon: '🏗️', top: '75%', left: '80%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'], parentId: 'castle',
+        actions: [{ id: 'OPEN_CONSTRUCTION', label: 'Bidra til bygging', cost: 'Ressurser' }]
+    },
 
     // --- VILLAGE LOCAL HUB (CITY) ---
     {
