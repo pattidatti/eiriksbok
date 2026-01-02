@@ -26,7 +26,16 @@ export function useSimulationData(pin: string | undefined, impersonateId: string
     useEffect(() => {
         if (authLoading) return;
 
-        const playerId = impersonateId || localStorage.getItem('sim_player_id') || user?.uid;
+        const storedId = localStorage.getItem('sim_player_id');
+        // PRIORITY FIX: If user is logged in, use UID. If impersonating (Admin), use that. Lastly, fall back to stored guest ID.
+        // If a user IS logged in, we should check if the storedId is actually them, or a stale guest. 
+        // Logic: If (Auth), use (Auth). Else use (Local).
+
+        let playerId = impersonateId;
+        if (!playerId) {
+            if (user?.uid) playerId = user.uid;
+            else playerId = storedId;
+        }
         if (!playerId || !pin) return;
 
         const baseUrl = `simulation_rooms/${pin}`;
