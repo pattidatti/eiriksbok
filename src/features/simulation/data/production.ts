@@ -161,27 +161,27 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
     },
     manor_ost: {
         id: 'manor_ost',
-        name: 'Herregård Øst',
+        name: 'Slott Øst',
         icon: '🏰',
         locationId: 'castle',
-        description: 'Setet til Baronen i Øst. Krever enorme ressurser å bygge.',
+        description: 'Setet til den østlige herre. Krever enorme ressurser å bygge.',
         levels: {
             1: { requirements: { stone: 500, plank: 300, iron_ingot: 50, gold: 1000 }, unlocks: ['BARON_STATUS'], bonus: 'Krav på regionen' }
         }
     },
     manor_vest: {
         id: 'manor_vest',
-        name: 'Herregård Vest',
+        name: 'Slott Vest',
         icon: '🏰',
         locationId: 'castle',
-        description: 'Setet til Baronen i Vest. Krever enorme ressurser å bygge.',
+        description: 'Setet til den vestlige herre. Krever enorme ressurser å bygge.',
         levels: {
             1: { requirements: { stone: 500, plank: 300, iron_ingot: 50, gold: 1000 }, unlocks: ['BARON_STATUS'], bonus: 'Krav på regionen' }
         }
     },
     throne_room: {
         id: 'throne_room',
-        name: 'Tronsalen',
+        name: 'Slottet',
         icon: '👑',
         locationId: 'castle',
         description: 'Kongens stol. Den første Baronen som fullfører denne blir Konge.',

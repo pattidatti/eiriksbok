@@ -1230,14 +1230,13 @@ export const SimulationHost: React.FC = () => {
                                                             ))}
                                                         </select>
                                                         <select
-                                                            value={p.regionId || 'capital'}
+                                                            value={p.regionId || 'region_ost'}
                                                             onChange={(e) => handleRegionChange(p.id, e.target.value)}
                                                             className="bg-white/5 text-slate-500 text-[9px] font-bold uppercase tracking-wider border-none p-0 focus:ring-0 cursor-pointer hover:text-slate-300 transition-colors w-full text-left"
                                                         >
                                                             <option value="capital" className="bg-slate-900">Hovedstaden</option>
                                                             <option value="region_ost" className="bg-slate-900">Baroniet Øst</option>
                                                             <option value="region_vest" className="bg-slate-900">Baroniet Vest</option>
-                                                            <option value="marketplace" className="bg-slate-900">Markedsplassen</option>
                                                         </select>
                                                     </div>
                                                 </div>

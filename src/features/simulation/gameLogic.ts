@@ -93,7 +93,7 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
                 ...updatedPlayers[id],
                 role: 'MERCHANT',
                 resources: JSON.parse(JSON.stringify(INITIAL_RESOURCES.MERCHANT)),
-                regionId: 'marketplace', // Merchants live in the marketplace/capital technically or travel
+                regionId: getNextRegionId(), // Merchants now assigned to a region
                 status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 30, loyalty: 100, isJailed: false, isFrozen: false },
                 stats: { level: 1, xp: 0, reputation: 30, contribution: 0 },
                 equipment: {

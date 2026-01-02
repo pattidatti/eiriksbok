@@ -189,7 +189,7 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                             {viewMode === 'kingdom' && (
                                 <WorldMapKingdomPins players={players || {}} setViewingRegionId={setViewingRegionId} setViewMode={setViewMode} />
                             )}
-                            <WorldMapPOI viewMode={viewMode} viewingRegionId={viewingRegionId} player={player} onSelect={setSelectedPOI} onEnterHub={setViewMode} />
+                            <WorldMapPOI viewMode={viewMode} viewingRegionId={viewingRegionId} player={player} room={room} onSelect={setSelectedPOI} onEnterHub={setViewMode} onPOIAction={handlePOIAction} />
                             <WorldMapEvents viewMode={viewMode} viewingRegionId={viewingRegionId} worldEvents={worldEvents} onSelect={setSelectedEvent} />
                         </div>
                     </motion.div>

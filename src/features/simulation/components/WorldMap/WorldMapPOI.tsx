@@ -10,9 +10,11 @@ interface WorldMapPOIProps {
     player: SimulationPlayer;
     onSelect: (poi: POI) => void;
     onEnterHub: (hubId: string) => void;
+    onPOIAction: (poiId: string, actionId: any) => void;
+    room: any;
 }
 
-export const WorldMapPOI: React.FC<WorldMapPOIProps> = ({ viewMode, viewingRegionId, player, onSelect, onEnterHub }) => {
+export const WorldMapPOI: React.FC<WorldMapPOIProps> = ({ viewMode, viewingRegionId, player, onSelect, onEnterHub, onPOIAction, room }) => {
     if (viewMode === 'kingdom') return null;
 
     return (
@@ -53,6 +55,19 @@ export const WorldMapPOI: React.FC<WorldMapPOIProps> = ({ viewMode, viewingRegio
                     >
                         <button
                             onClick={() => {
+                                // ULTRATHINK: Castle-specific logic
+                                // If castle is not built, clicking opens construction UI directly.
+                                // If built, it works as a hub.
+                                if (poi.id === 'castle') {
+                                    const buildingId = viewingRegionId === 'capital' ? 'throne_room' : (viewingRegionId === 'region_ost' ? 'manor_ost' : 'manor_vest');
+                                    const level = room.world?.settlement?.buildings?.[buildingId]?.level || 0;
+
+                                    if (level < 1) {
+                                        onPOIAction(poi.id, 'OPEN_CONSTRUCTION');
+                                        return;
+                                    }
+                                }
+
                                 if (poi.isHub) {
                                     onEnterHub(poi.id);
                                 } else {
