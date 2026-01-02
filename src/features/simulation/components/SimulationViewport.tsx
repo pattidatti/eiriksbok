@@ -4,15 +4,17 @@ import { db } from '../../../lib/firebase';
 import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
 import { useSimulation } from '../SimulationContext';
 import { WorldMap } from '../WorldMap';
-import { SimulationMarket } from './SimulationMarket';
-import { SimulationVault } from './SimulationVault';
-import { SimulationSkills } from './SimulationSkills';
-import { SimulationProduction } from './SimulationProduction';
-import { SimulationActivity } from './SimulationActivity';
-import { SimulationDiplomacy } from './SimulationDiplomacy';
-import { SimulationHierarchy } from './SimulationHierarchy';
-import { SimulationProfile } from './SimulationProfile';
-import { SimulationSettings } from './SimulationSettings';
+// ULTRATHINK: Lazy Load Heavy Components for Code Splitting
+const SimulationMarket = React.lazy(() => import('./SimulationMarket').then(module => ({ default: module.SimulationMarket })));
+const SimulationVault = React.lazy(() => import('./SimulationVault').then(module => ({ default: module.SimulationVault })));
+const SimulationSkills = React.lazy(() => import('./SimulationSkills').then(module => ({ default: module.SimulationSkills })));
+const SimulationProduction = React.lazy(() => import('./SimulationProduction').then(module => ({ default: module.SimulationProduction })));
+const SimulationActivity = React.lazy(() => import('./SimulationActivity').then(module => ({ default: module.SimulationActivity })));
+const SimulationDiplomacy = React.lazy(() => import('./SimulationDiplomacy').then(module => ({ default: module.SimulationDiplomacy })));
+const SimulationHierarchy = React.lazy(() => import('./SimulationHierarchy').then(module => ({ default: module.SimulationHierarchy })));
+const SimulationProfile = React.lazy(() => import('./SimulationProfile').then(module => ({ default: module.SimulationProfile })));
+const SimulationSettings = React.lazy(() => import('./SimulationSettings').then(module => ({ default: module.SimulationSettings })));
+
 import { SimulationMusicWindow } from './ui/SimulationMusicWindow';
 import { AnimatePresence } from 'framer-motion';
 
@@ -71,81 +73,88 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                     </div>
                 )}
 
-                {/* LAYER 1: UI Overlays (Absolute positioning on top of Map) */}
-                <div className="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-center">
-
-                    {activeTab === 'PRODUCTION' && (
-                        <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-auto md:max-h-[85vh] overflow-hidden">
-                            <SimulationProduction player={player} room={room} onAction={onAction} />
-                        </div>
-                    )}
-
-                    {activeTab === 'MARKET' && (
-                        <div className="pointer-events-auto w-full h-full md:max-w-5xl md:h-[90vh] overflow-hidden">
-                            <SimulationMarket
-                                player={player}
-                                market={room.markets?.[player.regionId || 'capital'] || room.market}
-                                regions={room.regions}
-                                allMarkets={room.markets}
-                                onAction={onAction}
-                            />
-                        </div>
-                    )}
-
-                    {activeTab === 'INVENTORY' && (
-                        <div className="pointer-events-auto w-full h-full md:max-w-3xl md:h-[80vh] overflow-hidden">
-                            <SimulationVault player={player} onAction={onAction} />
-                        </div>
-                    )}
-
-                    {activeTab === 'SKILLS' && (
-                        <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-auto overflow-hidden">
-                            <SimulationSkills player={player} />
-                        </div>
-                    )}
-
-                    {activeTab === 'DIPLOMACY' && (
-                        <div className="pointer-events-auto w-full h-full md:max-w-6xl md:h-[90vh] overflow-hidden">
-                            <SimulationDiplomacy player={player} diplomacy={room.diplomacy} pin={pin || ''} />
-                        </div>
-                    )}
-
-                    {activeTab === 'HIERARCHY' && (
-                        <div className="pointer-events-auto w-full h-full md:max-w-5xl md:h-[85vh] overflow-hidden">
-                            <SimulationHierarchy
-                                players={room.players}
-                                currentPlayer={player}
-                                regions={room.regions}
-                                onAction={onAction}
-                            />
-                        </div>
-                    )}
-
-                    {activeTab === 'PROFILE' && (
-                        <div className="pointer-events-auto w-full h-full md:max-w-2xl md:h-[85vh] overflow-hidden">
-                            <SimulationProfile
-                                player={player}
-                                regions={room.regions || {}}
-                                allPlayers={room.players || {}}
-                            />
-                        </div>
-                    )}
-                </div>
-
-
-                {/* Other Tabs (Fullscreen/Full Viewport - No Map Background) */}
-                {activeTab !== 'MAP' && !['PRODUCTION', 'MARKET', 'INVENTORY', 'SKILLS', 'DIPLOMACY', 'HIERARCHY', 'PROFILE'].includes(activeTab) && (
-                    <div className="max-w-4xl mx-auto w-full space-y-8 animate-in slide-in-from-bottom-4 duration-500 relative z-20">
-                        {activeTab === 'SETTINGS' ? (
-                            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/40 backdrop-blur-md p-8 animate-in fade-in duration-300">
-                                <SimulationSettings onClose={() => setActiveTab('MAP')} />
-                            </div>
-                        ) : activeTab === 'ACTIVITY' ? (
-                            <SimulationActivity messages={room.messages} />
-                        ) : null}
-
+                <React.Suspense fallback={
+                    <div className="w-full h-full flex items-center justify-center pointer-events-none">
+                        {/* Subtle loading indicator specific to tab switching */}
+                        <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                     </div>
-                )}
+                }>
+                    {/* LAYER 1: UI Overlays (Absolute positioning on top of Map) */}
+                    <div className="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-center">
+
+                        {activeTab === 'PRODUCTION' && (
+                            <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-auto md:max-h-[85vh] overflow-hidden">
+                                <SimulationProduction player={player} room={room} onAction={onAction} />
+                            </div>
+                        )}
+
+                        {activeTab === 'MARKET' && (
+                            <div className="pointer-events-auto w-full h-full md:max-w-5xl md:h-[90vh] overflow-hidden">
+                                <SimulationMarket
+                                    player={player}
+                                    market={room.markets?.[player.regionId || 'capital'] || room.market}
+                                    regions={room.regions}
+                                    allMarkets={room.markets}
+                                    onAction={onAction}
+                                />
+                            </div>
+                        )}
+
+                        {activeTab === 'INVENTORY' && (
+                            <div className="pointer-events-auto w-full h-full md:max-w-3xl md:h-[80vh] overflow-hidden">
+                                <SimulationVault player={player} onAction={onAction} />
+                            </div>
+                        )}
+
+                        {activeTab === 'SKILLS' && (
+                            <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-auto overflow-hidden">
+                                <SimulationSkills player={player} />
+                            </div>
+                        )}
+
+                        {activeTab === 'DIPLOMACY' && (
+                            <div className="pointer-events-auto w-full h-full md:max-w-6xl md:h-[90vh] overflow-hidden">
+                                <SimulationDiplomacy player={player} diplomacy={room.diplomacy} pin={pin || ''} />
+                            </div>
+                        )}
+
+                        {activeTab === 'HIERARCHY' && (
+                            <div className="pointer-events-auto w-full h-full md:max-w-5xl md:h-[85vh] overflow-hidden">
+                                <SimulationHierarchy
+                                    players={room.players}
+                                    currentPlayer={player}
+                                    regions={room.regions}
+                                    onAction={onAction}
+                                />
+                            </div>
+                        )}
+
+                        {activeTab === 'PROFILE' && (
+                            <div className="pointer-events-auto w-full h-full md:max-w-2xl md:h-[85vh] overflow-hidden">
+                                <SimulationProfile
+                                    player={player}
+                                    regions={room.regions || {}}
+                                    allPlayers={room.players || {}}
+                                />
+                            </div>
+                        )}
+                    </div>
+
+
+                    {/* Other Tabs (Fullscreen/Full Viewport - No Map Background) */}
+                    {activeTab !== 'MAP' && !['PRODUCTION', 'MARKET', 'INVENTORY', 'SKILLS', 'DIPLOMACY', 'HIERARCHY', 'PROFILE'].includes(activeTab) && (
+                        <div className="max-w-4xl mx-auto w-full space-y-8 animate-in slide-in-from-bottom-4 duration-500 relative z-20">
+                            {activeTab === 'SETTINGS' ? (
+                                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/40 backdrop-blur-md p-8 animate-in fade-in duration-300">
+                                    <SimulationSettings onClose={() => setActiveTab('MAP')} />
+                                </div>
+                            ) : activeTab === 'ACTIVITY' ? (
+                                <SimulationActivity messages={room.messages} />
+                            ) : null}
+
+                        </div>
+                    )}
+                </React.Suspense>
             </div>
 
             {/* Ting Voting Notification (Optimized: Non-intrusive bottom-right toast) */}
