@@ -192,6 +192,15 @@ class AudioManager {
         }
     }
 
+    public async resume() {
+        if (!this.audioContext) {
+            this.initAudioContext();
+        }
+        if (this.audioContext && this.audioContext.state === 'suspended') {
+            await this.audioContext.resume();
+        }
+    }
+
     public playMusic(key: string, fadeDuration: number = 1000, interruptPlaylist: boolean = true) {
         if (interruptPlaylist) {
             this.isPlaylistActive = false;
@@ -207,13 +216,15 @@ class AudioManager {
         const path = `/sounds/music/${filename}`;
 
         const newMusic = new Audio(path);
-        newMusic.crossOrigin = "anonymous";
+        // ULTRATHINK: Removing anonymous crossOrigin for local public files to avoid potential CORS issues on dev servers
+        // newMusic.crossOrigin = "anonymous";
         newMusic.loop = !this.isPlaylistActive; // Loop if it's a specific track request (not playlist)
         newMusic.volume = 0;
 
         this.initAudioContext();
         if (this.audioContext && this.filterNode) {
             try {
+                // Check if already connected (though it's a new Audio instance)
                 const source = this.audioContext.createMediaElementSource(newMusic);
                 source.connect(this.filterNode);
             } catch (e) {
@@ -237,6 +248,10 @@ class AudioManager {
 
         newMusic.play().then(() => {
             this.fadeIn(newMusic, this.musicVolume, fadeDuration);
+            // Ensure context is resumed if playback succeeded
+            if (this.audioContext && this.audioContext.state === 'suspended') {
+                this.audioContext.resume();
+            }
         }).catch(e => {
             console.warn(`Failed to play music: ${key}`, e);
             if (this.currentMusic === newMusic) {
@@ -245,7 +260,7 @@ class AudioManager {
             }
             if (this.isPlaylistActive) {
                 // Try next one if this fails
-                setTimeout(() => this.playNextInPlaylist(), 1000);
+                setTimeout(() => this.playNextInPlaylist(), 2000);
             }
         });
     }

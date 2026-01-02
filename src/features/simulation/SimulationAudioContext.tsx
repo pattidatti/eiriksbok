@@ -22,6 +22,7 @@ interface AudioContextType {
     setMusicVolume: (vol: number) => void;
     isMuffled: boolean;
     setMuffled: (muffled: boolean) => void;
+    resume: () => void;
 }
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
@@ -97,6 +98,10 @@ export const SimulationAudioProvider: React.FC<{ children: React.ReactNode }> = 
         return audioManager.isIgnored(id);
     }, [ignoredTrigger]);
 
+    const resume = useCallback(() => {
+        audioManager.resume();
+    }, []);
+
     return (
         <AudioContext.Provider value={{
             playSfx,
@@ -114,7 +119,8 @@ export const SimulationAudioProvider: React.FC<{ children: React.ReactNode }> = 
             musicVolume,
             setMusicVolume,
             isMuffled,
-            setMuffled
+            setMuffled,
+            resume
         }}>
             {children}
         </AudioContext.Provider>
