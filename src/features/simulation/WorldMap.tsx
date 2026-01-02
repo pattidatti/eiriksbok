@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ProgressiveImage } from './components/ui/ProgressiveImage'; // Import the new component
 // Modular World Map Components
 import type { SimulationPlayer } from './simulationTypes';
 import { getDayPart } from './utils/timeUtils';
@@ -55,67 +56,98 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
 
     const weather = world?.weather || 'Clear';
 
-    const getBackground = () => {
+    // ULTRATHINK: Optimize paths to use generated WebP assets and their tiny placeholders
+    const getBackgroundPaths = () => {
         const isNight = getDayPart(room.world?.gameTick || 0) === 'NIGHT';
         const isWinter = world?.season === 'Winter';
+        let baseName = '';
 
         switch (viewMode) {
             case 'kingdom':
-                if (isWinter) return isNight ? '/map_kingdom_169_winter_night.png' : '/map_kingdom_169_winter.png';
-                return isNight ? '/map_kingdom_169_night.png' : '/map_kingdom_169.png';
+                baseName = isWinter
+                    ? (isNight ? 'map_kingdom_169_winter_night' : 'map_kingdom_169_winter')
+                    : (isNight ? 'map_kingdom_169_night' : 'map_kingdom_169');
+                break;
             case 'village':
-                if (isWinter) return isNight ? '/map_village_hub_1610_winter_night.png' : '/map_village_hub_1610_winter.png';
-                return isNight ? '/map_village_hub_1610_night.png' : '/map_village_hub_1610.png';
-
-            case 'castle': return '/map_castle_interior.png';
+                baseName = isWinter
+                    ? (isNight ? 'map_village_hub_1610_winter_night' : 'map_village_hub_1610_winter')
+                    : (isNight ? 'map_village_hub_1610_night' : 'map_village_hub_1610');
+                break;
+            case 'castle': baseName = 'map_castle_interior'; break;
             case 'fields':
-                if (isWinter) return isNight ? '/map_farm_fields_winter_night.png' : '/map_farm_fields_winter.png';
-                return isNight ? '/map_farm_fields_night.png' : '/map_farm_fields.png';
+                baseName = isWinter
+                    ? (isNight ? 'map_farm_fields_winter_night' : 'map_farm_fields_winter')
+                    : (isNight ? 'map_farm_fields_night' : 'map_farm_fields');
+                break;
             case 'peasant_farm': {
                 const level = world?.settlement?.buildings?.farm_house?.level || 1;
-                return level > 1 ? `/map_peasant_farm_lvl${level}.png` : '/map_peasant_farm.png';
+                baseName = level > 1 ? `map_peasant_farm_lvl${level}` : 'map_peasant_farm';
+                break;
             }
             case 'farm_house': {
                 const level = world?.settlement?.buildings?.farm_house?.level || 1;
-                return level > 1 ? `/map_stugo_interior_lvl${level}.png` : '/map_stugo_interior.png';
+                baseName = level > 1 ? `map_stugo_interior_lvl${level}` : 'map_stugo_interior';
+                break;
             }
             case 'mine':
-                if (isWinter) return isNight ? '/map_mountain_pass_winter_night.png' : '/map_mountain_pass_winter.png';
-                return isNight ? '/map_mountain_pass_night.png' : '/map_mountain_pass.png';
+                baseName = isWinter
+                    ? (isNight ? 'map_mountain_pass_winter_night' : 'map_mountain_pass_winter')
+                    : (isNight ? 'map_mountain_pass_night' : 'map_mountain_pass');
+                break;
             case 'forest':
-                if (isWinter) return isNight ? '/map_forest_winter_night.png' : '/map_forest_winter.png';
-                return isNight ? '/map_forest_night.png' : '/map_forest.png';
+                baseName = isWinter
+                    ? (isNight ? 'map_forest_winter_night' : 'map_forest_winter')
+                    : (isNight ? 'map_forest_night' : 'map_forest');
+                break;
             case 'monastery':
-                if (isWinter) return isNight ? '/map_monastery_winter_night.png' : '/map_monastery_winter.png';
-                return isNight ? '/map_monastery_night.png' : '/map_monastery.png';
-            case 'tavern': return '/map_tavern_interior.png';
-            case 'great_forge': return '/map_forge_interior.png';
-            case 'bakery': return '/map_bakery_interior.png';
-            case 'windmill': return '/map_windmill_interior.png';
-            case 'sawmill': return '/map_sawmill_interior.png';
-            case 'smeltery': return '/map_smeltery_interior.png';
-            case 'weavery': return '/map_weavery_interior.png';
-            case 'stables': return '/map_stables_interior.png';
-            case 'watchtower': return '/map_watchtower_interior.png';
+                baseName = isWinter
+                    ? (isNight ? 'map_monastery_winter_night' : 'map_monastery_winter')
+                    : (isNight ? 'map_monastery_night' : 'map_monastery');
+                break;
+            case 'tavern': baseName = 'map_tavern_interior'; break;
+            case 'great_forge': baseName = 'map_forge_interior'; break;
+            case 'bakery': baseName = 'map_bakery_interior'; break;
+            case 'windmill': baseName = 'map_windmill_interior'; break;
+            case 'sawmill': baseName = 'map_sawmill_interior'; break;
+            case 'smeltery': baseName = 'map_smeltery_interior'; break;
+            case 'weavery': baseName = 'map_weavery_interior'; break;
+            case 'stables': baseName = 'map_stables_interior'; break;
+            case 'watchtower': baseName = 'map_watchtower_interior'; break;
             case 'well':
-                if (isWinter) return isNight ? '/map_well_interior_winter_night.png' : '/map_well_interior_winter.png';
-                return isNight ? '/map_well_interior_night.png' : '/map_well_interior.png';
-            case 'apothecary': return '/map_apothecary_interior.png';
+                baseName = isWinter
+                    ? (isNight ? 'map_well_interior_winter_night' : 'map_well_interior_winter')
+                    : (isNight ? 'map_well_interior_night' : 'map_well_interior');
+                break;
+            case 'apothecary': baseName = 'map_apothecary_interior'; break;
             case 'global':
                 if (viewingRegionId === 'region_ost') {
-                    if (isWinter) return isNight ? '/map_barony_ost_169_winter_night.png' : '/map_barony_ost_169_winter.png';
-                    return isNight ? '/map_barony_ost_169_night.png' : '/map_barony_ost_169.png';
+                    baseName = isWinter
+                        ? (isNight ? 'map_barony_ost_169_winter_night' : 'map_barony_ost_169_winter')
+                        : (isNight ? 'map_barony_ost_169_night' : 'map_barony_ost_169');
+                } else if (viewingRegionId === 'capital') {
+                    baseName = isWinter
+                        ? (isNight ? 'map_hovedstad_169_winter_night' : 'map_hovedstad_169_winter')
+                        : (isNight ? 'map_hovedstad_169_night' : 'map_hovedstad_169');
+                } else {
+                    baseName = isWinter
+                        ? (isNight ? 'map_barony_vest_v2_1610_winter_night' : 'map_barony_vest_v2_1610_winter')
+                        : (isNight ? 'map_barony_vest_v2_1610_night' : 'map_barony_vest_v2_1610');
                 }
-                if (viewingRegionId === 'capital') {
-                    if (isWinter) return isNight ? '/map_hovedstad_169_winter_night.png' : '/map_hovedstad_169_winter.png';
-                    return isNight ? '/map_hovedstad_169_night.png' : '/map_hovedstad_169.png';
-                }
-                if (isWinter) return isNight ? '/map_barony_vest_v2_1610_winter_night.png' : '/map_barony_vest_v2_1610_winter.png';
-                return isNight ? '/map_barony_vest_v2_1610_night.png' : '/map_barony_vest_v2_1610.png';
+                break;
             default:
-                return '/map_barony_vest_v2_1610.png';
+                baseName = 'map_barony_vest_v2_1610';
         }
+
+        // Return the tuple of [FullRes, TinyPlaceholder]
+        // Note: The script generates .webp and _tiny.webp
+        return {
+            src: `/${baseName}.webp`,
+            placeholder: `/${baseName}_tiny.webp`,
+            original: `/${baseName}.png` // Fallback if needed, but we prefer WebP
+        };
     };
+
+    const bgPaths = getBackgroundPaths();
 
     const isWidescreen = viewMode === 'kingdom' || (viewMode === 'global' && (viewingRegionId === 'region_ost' || viewingRegionId === 'capital'));
     const aspectRatioClass = isWidescreen ? 'aspect-video' : 'aspect-[16/10]';
@@ -135,7 +167,19 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
             <div className={`relative w-full max-w-full max-h-full mx-auto ${aspectRatioClass} rounded-[2rem] overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.5)] border-4 border-white/5 bg-slate-950 transition-all duration-1000`}>
                 <AnimatePresence mode="popLayout" custom={direction}>
                     <motion.div key={mapKey} custom={direction} variants={containerVariants} initial="initial" animate="animate" exit="exit" className="absolute inset-0 w-full h-full">
-                        <motion.img src={getBackground()} alt="Map View" className={`w-full h-full object-cover ${weather === 'Fog' ? 'blur-sm' : ''}`} />
+                        {/* ULTRATHINK: Progressive Image Loading */}
+                        <div className="w-full h-full relative">
+                            <ProgressiveImage
+                                src={bgPaths.src}
+                                placeholderSrc={bgPaths.placeholder}
+                                alt="Map View"
+                                className="w-full h-full"
+                                disableMotion={true}
+                            />
+                            {/* Weather Overlay */}
+                            <div className={`absolute inset-0 pointer-events-none transition-opacity duration-1000 ${weather === 'Fog' ? 'opacity-100 backdrop-blur-sm bg-white/10' : 'opacity-0'}`} />
+                        </div>
+
                         <SimulationAtmosphereLayer weather={weather} season={world?.season || 'Spring'} isInterior={isInterior} />
 
                         <div className="absolute inset-0 pointer-events-none">
