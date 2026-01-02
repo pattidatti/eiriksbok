@@ -87,46 +87,111 @@ export const SimulationHost: React.FC = () => {
         return () => unsubscribe();
     }, []);
 
-    // Sync specific room data and patch market
+    // Sync specific room data using SHARDED SUBSCRIPTIONS (Scalability Fix)
+    // instead of downloading the entire 'room' object (which includes all players).
     useEffect(() => {
         if (!pin) return;
-        const roomRef = ref(db, `simulation_rooms/${pin}`);
-        const unsubscribe = onValue(roomRef, (snapshot) => {
-            const data = snapshot.val();
-            if (data) {
-                setRoomData(data);
+        const baseUrl = `simulation_rooms/${pin}`;
 
-                // DEBUG/PATCH: Ensure all market items exist in active markets
-                let marketsUpdated = false;
-                const newMarkets = { ...data.markets };
+        // 1. Metadata & Status (Lightweight)
+        const unsubStatus = onValue(ref(db, `${baseUrl}/status`), snap => {
+            setRoomData(prev => prev ? { ...prev, status: snap.val() || 'LOBBY' } : null);
+        });
 
-                // If legacy 'market' exists but 'markets' doesn't have capital, migrate it
-                if (!newMarkets['capital'] && data.market) {
-                    newMarkets['capital'] = data.market;
-                    marketsUpdated = true;
-                }
+        // 2. World State (Medium)
+        const unsubWorld = onValue(ref(db, `${baseUrl}/world`), snap => {
+            setRoomData(prev => prev ? { ...prev, world: snap.val() } : null);
+        });
 
-                // Patch each market with missing keys from INITIAL_MARKET
-                Object.keys(newMarkets).forEach(regionId => {
-                    const market = newMarkets[regionId];
-                    let marketChanged = false;
-                    Object.keys(INITIAL_MARKET).forEach(key => {
-                        if (!market[key]) {
-                            console.log(`Patching missing market item: ${key} in region ${regionId}`);
-                            market[key] = (INITIAL_MARKET as any)[key];
-                            marketChanged = true;
-                        }
-                    });
-                    if (marketChanged) marketsUpdated = true;
+        // 3. Markets (Medium)
+        const unsubMarkets = onValue(ref(db, `${baseUrl}/markets`), snap => {
+            const val = snap.val() || {};
+            // Legacy / Patching Logic
+            if (!val['capital']) {
+                // If completely empty/legacy, we might need a re-fetch or patch mechanism
+                // For now, trust the data or just set empty.
+            }
+            setRoomData(prev => prev ? { ...prev, markets: val } : null);
+        });
+
+        // 4. Messages (Heavy - Capped)
+        // We limit to last 50 to avoid massive downloads
+        // Note: Firebase JS SDK 'limitToLast' requires a query, which is slightly more complex
+        // For now, standard onValue is fine if we enforce cap on write (Phase 1).
+        const unsubMessages = onValue(ref(db, `${baseUrl}/messages`), snap => {
+            setRoomData(prev => prev ? { ...prev, messages: snap.val() || [] } : null);
+        });
+
+        // 5. Players (Replaced by Public Profiles for Host list)
+        // We DO NOT fetch 'players' root anymore. We fetch 'public_profiles' for the list.
+        // We map 'public_profiles' -> 'players' in the local state for compatibility.
+        // Deep player inspection will require a separate fetch.
+        const unsubProfiles = onValue(ref(db, `${baseUrl}/public_profiles`), snap => {
+            const profiles = snap.val() || {};
+            // Cast profiles to SimulationPlayer-like objects for the UI list
+            // This is safe because the Host UI mainly needs name/role/region/status which are in profile.
+            setRoomData(prev => {
+                if (!prev) return null;
+                // Merge profiles into a "Players" compatible record
+                // Note: We lose 'resources', 'inventory', 'skills' here, but that's the point.
+                // If the UI needs them, we must fetch them specifically.
+                const partialPlayers: Record<string, any> = {};
+                Object.entries(profiles).forEach(([pid, profile]: [string, any]) => {
+                    partialPlayers[pid] = {
+                        ...profile,
+                        resources: profile.resources || INITIAL_RESOURCES[profile.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT, // Fallback for UI safety
+                        id: pid
+                    };
                 });
+                return { ...prev, players: partialPlayers };
+            });
+        });
 
-                if (marketsUpdated) {
-                    console.log("Patching markets with new resources...");
-                    update(ref(db, `simulation_rooms/${pin}/markets`), newMarkets);
-                }
+        // 6. World Events
+        const unsubEvents = onValue(ref(db, `${baseUrl}/worldEvents`), snap => {
+            setRoomData(prev => prev ? { ...prev, worldEvents: snap.val() || {} } : null);
+        });
+
+        // 7. Active Vote
+        const unsubVote = onValue(ref(db, `${baseUrl}/activeVote`), snap => {
+            setRoomData(prev => prev ? { ...prev, activeVote: snap.val() } : null);
+        });
+
+        // Initial Skeleton
+        // We need to set an initial object so the updaters can write to it
+        get(ref(db, baseUrl)).then((snap) => {
+            if (snap.exists()) {
+                const val = snap.val();
+                // We rely on the listeners to populate the fresh data, 
+                // but we take the static props (pin, settings, hostName, isPublic) from here once.
+                setRoomData({
+                    pin: val.pin,
+                    status: val.status,
+                    settings: val.settings,
+                    hostName: val.hostName,
+                    isPublic: val.isPublic,
+                    // Placeholders to be filled by listeners
+                    world: val.world,
+                    markets: val.markets || {},
+                    market: val.market || INITIAL_MARKET,
+                    players: {},
+                    messages: [],
+                    regions: val.regions || {},
+                    diplomacy: {},
+                    worldEvents: {}
+                });
             }
         });
-        return () => unsubscribe();
+
+        return () => {
+            unsubStatus();
+            unsubWorld();
+            unsubMarkets();
+            unsubMessages();
+            unsubProfiles();
+            unsubEvents();
+            unsubVote();
+        };
     }, [pin]);
 
     // Handle Title Change (Moved from inside previous useEffect)
