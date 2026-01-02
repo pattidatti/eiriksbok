@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { ref, onValue, update } from 'firebase/database';
+import { ref, onValue, update, onDisconnect } from 'firebase/database';
 import { simulationDb as db } from '../simulationFirebase';
 import type { SimulationPlayer, SimulationRoom, TradeOffer } from '../simulationTypes';
 import { useSimulationAuth } from '../SimulationAuthContext';
@@ -131,6 +131,29 @@ export function useSimulationData(pin: string | undefined, impersonateId: string
             unsubTrades();
         };
     }, [pin, impersonateId, user?.uid, authLoading, hasActiveSession]);
+
+    // --- PLAYER PRESENCE HEARTBEAT ---
+    useEffect(() => {
+        if (!player || !pin) return;
+        const playerRef = ref(db, `simulation_rooms/${pin}/players/${player.id}`);
+        const publicProfileRef = ref(db, `simulation_rooms/${pin}/public_profiles/${player.id}`);
+
+        // Set up disconnect hook
+        onDisconnect(playerRef).update({ online: false });
+        onDisconnect(publicProfileRef).update({ online: false });
+
+        const heartbeat = setInterval(() => {
+            const now = Date.now();
+            update(playerRef, { lastActive: now, online: true });
+            update(publicProfileRef, { lastActive: now, online: true });
+        }, 30000); // Every 30s
+
+        // Initial bump
+        update(playerRef, { lastActive: Date.now(), online: true });
+        update(publicProfileRef, { lastActive: Date.now(), online: true });
+
+        return () => clearInterval(heartbeat);
+    }, [pin, player?.id]);
 
     // --- NEXUS / VESSEL MOCK LOADING ---
     useEffect(() => {
