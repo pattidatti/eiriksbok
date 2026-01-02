@@ -87,6 +87,13 @@ export function useWorldMapLogic(player: any, onAction: (a: any) => void, onOpen
             return;
         }
 
+        if (actId === 'OPEN_GARRISON') {
+            setProductionContext({ buildingId: 'watchtower', type: 'CRAFT', initialView: 'PRODUCE' });
+            setActiveTab('PRODUCTION');
+            setSelectedPOI(null);
+            return;
+        }
+
         const prodCtx = getProductionContext(poiId);
         if (prodCtx && (actId === 'OPEN_CRAFTING' || actId === 'CRAFT' || actId === 'REFINE' || actId.startsWith('REFINE_') || actId.startsWith('CRAFT_') || (CRAFTING_RECIPES as any)[actId] || actId === 'REPAIR')) {
             setProductionContext({ ...prodCtx, initialView: actId === 'REPAIR' ? 'REPAIR' : 'PRODUCE' });

@@ -197,7 +197,7 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
                     {/* Header Image / vibe */}
                     <div className="relative h-48 rounded-3xl overflow-hidden border border-white/10 group">
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
-                        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1599619351208-3e6c839d6828?q=80&w=2672&auto=format&fit=crop')] bg-cover bg-center opacity-60 group-hover:scale-105 transition-transform duration-700"></div>
+                        <div className="absolute inset-0 bg-[url('/garrison_header.png')] bg-cover bg-center opacity-60 group-hover:scale-105 transition-transform duration-700"></div>
                         <div className="absolute bottom-6 left-8 z-20">
                             <h2 className="text-3xl font-black text-white italic tracking-tighter">FORSVAR LANDSBYEN</h2>
                             <p className="text-slate-300 font-medium">Bli en del av eliten. Beskytt dine brødre.</p>

@@ -65,7 +65,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
             if (a.id === 'FEAST' && player.role !== 'KING' && player.role !== 'BARON') return false;
 
             // Building level filtering
-            const ALWAYS_AVAILABLE = ['OPEN_CRAFTING', 'CRAFT', 'REFINE', 'MARKET_VIEW'];
+            const ALWAYS_AVAILABLE = ['OPEN_CRAFTING', 'CRAFT', 'REFINE', 'MARKET_VIEW', 'OPEN_GARRISON'];
 
             if (buildingDef && !a.id.startsWith('BUILDING_UPGRADE_') && !ALWAYS_AVAILABLE.includes(a.id) && !unlockedActions.includes(a.id)) return false;
 
@@ -361,7 +361,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                     let missingReason = '';
 
                                     // List of actions that open menus/sub-UIs and should always be clickabled
-                                    const MENU_OPENING_ACTIONS = ['CRAFT', 'REFINE', 'OPEN_CRAFTING', 'BAKE', 'SMELT', 'MILL', 'WEAVE', 'MIX', 'OPEN_CHICKEN_COOP', 'OPEN_DICE_GAME', 'MARKET_VIEW'];
+                                    const MENU_OPENING_ACTIONS = ['CRAFT', 'REFINE', 'OPEN_CRAFTING', 'BAKE', 'SMELT', 'MILL', 'WEAVE', 'MIX', 'OPEN_CHICKEN_COOP', 'OPEN_DICE_GAME', 'MARKET_VIEW', 'OPEN_GARRISON'];
 
                                     if (viewingRegionId !== player.regionId && player.role !== 'KING' && action.id !== 'MARKET_VIEW') {
                                         canAfford = false; missingReason = "Dette er ikke ditt baroni";

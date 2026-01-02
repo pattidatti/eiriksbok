@@ -285,8 +285,9 @@ export const POINTS_OF_INTEREST: POI[] = [
     },
     // --- WATCHTOWER INTERIOR ---
     {
-        id: 'watchtower_top', label: 'Vaktpost', icon: '🏰', top: '30%', left: '50%', roles: ['BARON', 'SOLDIER'], parentId: 'watchtower',
+        id: 'watchtower_top', label: 'Vaktpost', icon: '🏰', top: '30%', left: '50%', roles: ['PEASANT', 'BARON', 'SOLDIER'], parentId: 'watchtower',
         actions: [
+            { id: 'OPEN_GARRISON', label: 'Åpne Garnisonen', cost: 'Gratis' },
             { id: 'PATROL', label: 'Patruljer', cost: '-30⚡' }
         ]
     },
