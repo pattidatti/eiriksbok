@@ -258,6 +258,7 @@ export interface SimulationRoom {
     markets: Record<string, SimulationMarket>; // Keyed by regionId
     regions: Record<string, SimulationRegion>;
     players: Record<string, SimulationPlayer>;
+    public_profiles?: Record<string, any>; // Lightweight profile for public listing
 
     world: {
         year: number;
