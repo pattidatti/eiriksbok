@@ -117,6 +117,12 @@ export interface Quest {
     target: number;
 }
 
+export interface RoleStats {
+    level: number;
+    xp: number;
+    skills: Record<SkillType, SkillData>;
+}
+
 export interface SimulationAccount {
     uid: string;
     displayName: string;
@@ -180,6 +186,8 @@ export interface SimulationPlayer {
         level: number;
         progress: Partial<Resources>;
     }>;
+
+    roleStats?: Partial<Record<Role, RoleStats>>; // Separate progress for each role
 
     online?: boolean;
     hasSeenIntro?: boolean; // New onboarding flag

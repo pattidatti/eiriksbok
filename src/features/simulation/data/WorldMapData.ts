@@ -10,7 +10,7 @@ export interface POI {
     // Overrides for specific hubs in Village View
     village?: { top: string, left: string };
     roles: string[];
-    actions: { id: string, label: string, cost?: string }[];
+    actions: { id: string, label: string, cost?: string, [key: string]: any }[];
     parentId?: string; // Links to a hub POI
     isHub?: boolean;   // If true, clicking this enters the local view
     isInterior?: boolean; // If true, disable external weather effects
@@ -52,7 +52,10 @@ export const POINTS_OF_INTEREST: POI[] = [
         vest: { top: '70%', left: '37%' },
         ost: { top: '70%', left: '63%' },
         roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'],
-        actions: [{ id: 'MARKET_VIEW', label: 'Åpne Handel', cost: 'Gratis' }]
+        actions: [
+            { id: 'MARKET_VIEW', label: 'Åpne Handel', cost: 'Gratis' },
+            { id: 'JOIN_ROLE', label: 'Bli Kjøpmann', cost: '500g + Nivå 3', targetRole: 'MERCHANT' }
+        ]
     },
     {
         id: 'village', label: 'Landsbyen', icon: '🏠', top: '42%', left: '42%',
@@ -92,8 +95,11 @@ export const POINTS_OF_INTEREST: POI[] = [
         ]
     },
     {
-        id: 'barracks', label: 'Kasernen', icon: '🗡️', top: '60%', left: '30%', roles: ['BARON', 'KING', 'SOLDIER'], parentId: 'castle',
-        actions: [{ id: 'DRAFT', label: 'Verve Soldater', cost: '-5g -10🍞' }]
+        id: 'barracks', label: 'Kasernen', icon: '🗡️', top: '60%', left: '30%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'], parentId: 'castle',
+        actions: [
+            { id: 'DRAFT', label: 'Verve Soldater', cost: '-5g -10🍞' },
+            { id: 'JOIN_ROLE', label: 'Bli Soldat', cost: '200g + Nivå 3', targetRole: 'SOLDIER' }
+        ]
     },
     {
         id: 'royal_chambers', label: 'Kongens Kammer', icon: '🛌', top: '30%', left: '70%', roles: ['BARON', 'KING'], parentId: 'castle',

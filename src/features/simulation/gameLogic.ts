@@ -136,11 +136,7 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
                 regionId: getNextRegionId(), // Assigned to a baron
                 status: { hp: 100, stamina: 100, morale: 80, legitimacy: 100, authority: 10, loyalty: 100, isJailed: false, isFrozen: false },
                 stats: { level: 1, xp: 0, reputation: 10, contribution: 0 },
-                equipment: {
-                    MAIN_HAND: { id: 'tools', name: 'Bondeverktøy', icon: '🛠️', type: 'MAIN_HAND', level: 1, durability: 100, maxDurability: 100 },
-                    OFF_HAND: { id: 'weapon', name: 'Gammel Øks', icon: '⚔️', type: 'OFF_HAND', level: 1, durability: 100, maxDurability: 100 },
-                    BODY: { id: 'armor', name: 'Lærkofte', icon: '🛡️', type: 'BODY', level: 1, durability: 100, maxDurability: 100 }
-                }
+                equipment: {}
             };
         }
     }

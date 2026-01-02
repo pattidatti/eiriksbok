@@ -709,16 +709,15 @@ export const SimulationHost: React.FC = () => {
                 updates[`simulation_rooms/${pin}/players/${id}/regionId`] = 'capital'; // Reset region
                 updates[`simulation_rooms/${pin}/players/${id}/resources`] = INITIAL_RESOURCES.PEASANT;
                 updates[`simulation_rooms/${pin}/players/${id}/status`] = { stamina: 100, legitimacy: 100, authority: 50 };
-                updates[`simulation_rooms/${pin}/players/${id}/equipment`] = {
-                    tools: { id: 'tools', durability: 100, maxDurability: 100 },
-                    weapon: { id: 'swords', durability: 100, maxDurability: 100 },
-                    armor: { id: 'armor', durability: 100, maxDurability: 100 }
-                };
+                updates[`simulation_rooms/${pin}/players/${id}/equipment`] = {};
                 // Reset Public Profile Logic
                 const publicPath = `simulation_rooms/${pin}/public_profiles/${id}`;
                 updates[`${publicPath}/role`] = 'PEASANT';
                 updates[`${publicPath}/regionId`] = 'capital';
                 updates[`${publicPath}/stats/level`] = 1;
+
+                // Clear multi-role stats
+                updates[`simulation_rooms/${pin}/players/${id}/roleStats`] = null;
 
             });
 

@@ -52,7 +52,7 @@ export const UPGRADES_LIST: Record<Role, PlayerUpgrade[]> = {
 export const INITIAL_RESOURCES: Record<Role, Resources> = {
     KING: { gold: 1000, grain: 500, flour: 200, bread: 50, wood: 200, plank: 50, iron_ore: 0, iron_ingot: 20, stone: 100, swords: 50, armor: 20, favor: 0, wool: 50, cloth: 20, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0, omelette: 0 },
     BARON: { gold: 300, grain: 100, flour: 50, bread: 20, wood: 50, plank: 20, iron_ore: 0, iron_ingot: 10, stone: 20, swords: 10, armor: 10, favor: 0, wool: 20, cloth: 5, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0, omelette: 0 },
-    PEASANT: { gold: 20, grain: 30, flour: 5, bread: 5, wood: 0, plank: 0, iron_ore: 0, iron_ingot: 0, stone: 0, swords: 0, armor: 0, favor: 0, wool: 10, cloth: 0, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0, omelette: 0 },
+    PEASANT: { gold: 20, grain: 30, flour: 5, bread: 10, wood: 0, plank: 0, iron_ore: 0, iron_ingot: 0, stone: 0, swords: 0, armor: 0, favor: 0, wool: 10, cloth: 0, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0, omelette: 0 },
     SOLDIER: { gold: 50, grain: 10, flour: 10, bread: 10, wood: 0, plank: 0, iron_ore: 0, iron_ingot: 0, stone: 0, swords: 5, armor: 2, favor: 0, wool: 0, cloth: 0, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0, omelette: 0 },
     MERCHANT: { gold: 500, grain: 50, flour: 50, bread: 20, wood: 50, plank: 20, iron_ore: 0, iron_ingot: 5, stone: 50, swords: 5, armor: 2, favor: 0, wool: 20, cloth: 10, honey: 0, meat: 0, glass: 0, manpower: 0, egg: 0, omelette: 0 }
 };
@@ -111,12 +111,7 @@ export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
 };
 
 export const INITIAL_EQUIPMENT: Record<Role, Partial<Record<EquipmentSlot, EquipmentItem>>> = {
-    PEASANT: {
-        AXE: { id: 'rusty_axe', name: 'Rusten Øks', icon: '🪓', type: 'AXE', durability: 50, maxDurability: 50, level: 1, stats: { yieldBonus: 0 } },
-        PICKAXE: { id: 'stone_pickaxe', name: 'Steinhakke', icon: '⛏️', type: 'PICKAXE', durability: 30, maxDurability: 30, level: 1, stats: { yieldBonus: 1 } },
-        SCYTHE: { id: 'stone_sickle', name: 'Steinsigd', icon: '🌾', type: 'SCYTHE', durability: 40, maxDurability: 40, level: 1, stats: { yieldBonus: 1 } },
-        BODY: { id: 'tunic', name: 'Slitt Tunika', icon: '👕', type: 'BODY', durability: 20, maxDurability: 20, level: 1, stats: { defense: 1 } }
-    },
+    PEASANT: {},
     BARON: {
         MAIN_HAND: { id: 'iron_sword', name: 'Jernsverd', icon: '⚔️', type: 'MAIN_HAND', durability: 100, maxDurability: 100, level: 5, stats: { attack: 10 } },
         BODY: { id: 'fine_clothes', name: 'Fie Klær', icon: '👘', type: 'BODY', durability: 50, maxDurability: 50, level: 5, stats: { defense: 2, speedBonus: 1.1 } }

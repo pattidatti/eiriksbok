@@ -391,7 +391,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
 
                                             {!variants ? (
                                                 <button
-                                                    onClick={() => onAction({ type: action.id, locationId: poi.id })}
+                                                    onClick={() => onAction({ ...action, type: action.id, locationId: poi.id })}
                                                     disabled={!canAfford}
                                                     className={`w-full group relative overflow-hidden p-5 rounded-3xl border transition-all duration-300 ${canAfford
                                                         ? 'bg-white/5 border-white/10 hover:border-indigo-500/50 hover:bg-indigo-500/5 active:scale-[0.98]'

@@ -9,35 +9,51 @@ import type { SkillType, SimulationPlayer, EquipmentSlot, ActionType, Resources 
 /* --- HELPERS --- */
 
 const addXp = (actor: SimulationPlayer, skillType: SkillType, amount: number, messages: string[]) => {
-    // Ensure skills exist
-    if (!actor.skills) actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[actor.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
+    // 1. Initialize roleStats if missing
+    if (!actor.roleStats) actor.roleStats = {};
+    const currRole = actor.role;
 
-    const skill = actor.skills[skillType];
-    if (!skill) return;
-
-    // 1. Skill XP
-    skill.xp += amount;
-    if (skill.xp >= skill.maxXp) {
-        skill.level += 1;
-        skill.xp -= skill.maxXp;
-        skill.maxXp = Math.floor(skill.maxXp * 1.5);
-        messages.push(`⭐ ${actor.name} ble bedre i ${skillType}! (Nivå ${skill.level})`);
+    // 2. Ensure current role stats exist (Sync if it's the first time)
+    if (!actor.roleStats[currRole]) {
+        actor.roleStats[currRole] = {
+            level: actor.stats?.level || 1,
+            xp: actor.stats?.xp || 0,
+            skills: JSON.parse(JSON.stringify(actor.skills || INITIAL_SKILLS[currRole as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT))
+        };
     }
 
-    // 2. Character XP (Rank)
-    actor.stats.xp = (actor.stats.xp || 0) + amount;
+    const roleStats = actor.roleStats[currRole]!;
 
-    // character level calculation (matches frontend)
+    // 3. Update Skills (Local to role container)
+    const skill = roleStats.skills[skillType];
+    if (skill) {
+        skill.xp += (amount || 0);
+        if (skill.xp >= skill.maxXp) {
+            skill.level += 1;
+            skill.xp -= skill.maxXp;
+            skill.maxXp = Math.floor(skill.maxXp * 1.5);
+            messages.push(`⭐ ${actor.name} ble bedre i ${skillType}! (Nivå ${skill.level})`);
+        }
+    }
+
+    // 4. Update Role Rank XP
+    roleStats.xp = (roleStats.xp || 0) + (amount || 0);
+
     const getLevel = (xp: number) => {
         const index = LEVEL_XP.findIndex(req => xp < req);
         return index === -1 ? LEVEL_XP.length : index;
     };
 
-    const newLevel = getLevel(actor.stats.xp);
-    if (newLevel > (actor.stats.level || 1)) {
-        actor.stats.level = newLevel;
-        messages.push(`🏰 ${actor.name} har steget i rang til Nivå ${newLevel}!`);
+    const newLevel = getLevel(roleStats.xp);
+    if (newLevel > roleStats.level) {
+        roleStats.level = newLevel;
+        messages.push(`🏰 ${actor.name} har steget i rang som ${currRole} til Nivå ${newLevel}!`);
     }
+
+    // 5. Sync to root for UI/Engine compatibility (important for existing systems)
+    actor.stats.xp = roleStats.xp;
+    actor.stats.level = roleStats.level;
+    actor.skills = roleStats.skills;
 };
 
 /* --- ACTIONS CLASSIFICATION --- */

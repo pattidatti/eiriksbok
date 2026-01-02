@@ -8,7 +8,7 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **minigames** Legge til flere minigames.
 - [ ] **Notificationsenter** et sted hvor alt som skjer med karakteren, spesielt hendelser og minigames, kan vises. Betyr ikke at man fjerner noe annet. dette er et tillegg.   
  ressurser. Dette er legacy, vi kan alltid åpne UI, bare ikke lage items. 
-
+-  [ ] **Global proil** når man lager ny karakter her, må man velge server. 
 
 
 - [ ] **lokalbefolkning** Oppgradere UI til dialogen. Også legge til bilder av personene de snakker med, i en egen kolonne til høyre?

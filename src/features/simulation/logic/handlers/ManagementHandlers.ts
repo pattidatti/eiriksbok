@@ -1,6 +1,6 @@
-import { GAME_BALANCE, VILLAGE_BUILDINGS, UPGRADES_LIST, INITIAL_RESOURCES } from '../../constants';
+import { GAME_BALANCE, VILLAGE_BUILDINGS, UPGRADES_LIST, INITIAL_RESOURCES, INITIAL_SKILLS } from '../../constants';
 import type { ActionContext } from '../actionTypes';
-import type { Resources } from '../../simulationTypes';
+import type { Resources, Role } from '../../simulationTypes';
 
 export const handleTax = (ctx: ActionContext) => {
     const { actor, room, localResult } = ctx;
@@ -241,5 +241,75 @@ export const handleUpgrade = (ctx: ActionContext) => {
             }
         }
     }
+    return true;
+};
+
+export const handleJoinRole = (ctx: ActionContext) => {
+    const { actor, action, localResult } = ctx;
+    const targetRole = action.targetRole as Role;
+
+    if (!targetRole) {
+        localResult.success = false;
+        localResult.message = "Ingen rolle spesifisert.";
+        return false;
+    }
+
+    if (actor.role === targetRole) {
+        localResult.success = false;
+        localResult.message = `Du er allerede ${targetRole}.`;
+        return false;
+    }
+
+    // 1. Requirement Check (Peasant Level 3 for advanced roles)
+    const advancedRoles: Role[] = ['SOLDIER', 'MERCHANT', 'BARON', 'KING'];
+    if (advancedRoles.includes(targetRole) && targetRole !== 'BARON' && targetRole !== 'KING') {
+        const peasantStats = actor.roleStats?.['PEASANT'];
+        const peasantLevel = peasantStats?.level || (actor.role === 'PEASANT' ? actor.stats.level : 1);
+
+        const config = (GAME_BALANCE.CAREERS as any)[targetRole];
+        if (config && peasantLevel < config.LEVEL_REQ) {
+            localResult.success = false;
+            localResult.message = `Du må være Bonde Nivå ${config.LEVEL_REQ} for å bli ${targetRole}. (Nå: ${peasantLevel})`;
+            return false;
+        }
+    }
+
+    // 2. Cost Check
+    const cost = (GAME_BALANCE.CAREERS as any)[targetRole]?.COST || 0;
+    if ((actor.resources.gold || 0) < cost) {
+        localResult.success = false;
+        localResult.message = `Det koster ${cost}g å bli ${targetRole}. (Har: ${actor.resources.gold}g)`;
+        return false;
+    }
+
+    // 3. Save current role state
+    if (!actor.roleStats) actor.roleStats = {};
+    actor.roleStats[actor.role] = {
+        level: actor.stats.level,
+        xp: actor.stats.xp,
+        skills: JSON.parse(JSON.stringify(actor.skills))
+    };
+
+    // 4. Deduct Cost & Switch
+    if (cost > 0) {
+        actor.resources.gold -= cost;
+        localResult.utbytte.push({ resource: 'gold', amount: -cost });
+    }
+
+    // 5. Load/Initialize target role state
+    const targetStats = actor.roleStats[targetRole];
+    if (targetStats) {
+        actor.stats.level = targetStats.level;
+        actor.stats.xp = targetStats.xp;
+        actor.skills = targetStats.skills;
+    } else {
+        // First time joining this role
+        actor.stats.level = 1;
+        actor.stats.xp = 0;
+        actor.skills = JSON.parse(JSON.stringify(INITIAL_SKILLS[targetRole as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT));
+    }
+
+    actor.role = targetRole;
+    localResult.message = `Gratulerer! Du er nå ${targetRole}.`;
     return true;
 };

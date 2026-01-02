@@ -1,5 +1,5 @@
 import React from 'react';
-import type { SimulationPlayer } from '../simulationTypes';
+import type { SimulationPlayer, Role } from '../simulationTypes';
 import { ROLE_TITLES, LEVEL_XP, RANK_BENEFITS } from '../constants';
 import { Badge } from '../ui/Badge';
 import { SimulationMapWindow } from './ui/SimulationMapWindow';
@@ -126,6 +126,46 @@ export const SimulationProfile: React.FC<SimulationProfileProps> = React.memo(({
                                      ${isCurrent ? 'text-white' : isUnlocked ? 'text-indigo-400/60' : 'text-slate-700'}
                                  `}>
                                     {title}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {/* 2.5 CAREER PROGRESS */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {(['PEASANT', 'SOLDIER', 'MERCHANT'] as Role[]).map(r => {
+                        const stats = player.roleStats?.[r];
+                        const level = stats?.level || (player.role === r ? player.stats.level : 1);
+                        const xp = stats?.xp || (player.role === r ? player.stats.xp : 0);
+                        const isCurrent = player.role === r;
+
+                        const roleIcon = r === 'PEASANT' ? '🌾' : r === 'SOLDIER' ? '🗡️' : '⚖️';
+                        const roleName = r === 'PEASANT' ? 'Bonde' : r === 'SOLDIER' ? 'Soldat' : 'Kjøpmann';
+
+                        return (
+                            <div key={r} className={`
+                                p-5 rounded-3xl border transition-all duration-500 group/role
+                                ${isCurrent
+                                    ? 'bg-indigo-500/10 border-indigo-500/40 shadow-[0_10px_30px_rgba(99,102,241,0.1)]'
+                                    : 'bg-slate-900/40 border-white/5 opacity-50 hover:opacity-80'}
+                            `}>
+                                <div className="flex items-center gap-3 mb-3">
+                                    <span className="text-xl">{roleIcon}</span>
+                                    <div className="flex flex-col">
+                                        <span className={`text-[10px] font-black uppercase tracking-widest ${isCurrent ? 'text-indigo-400' : 'text-slate-500'}`}>{roleName}</span>
+                                        {isCurrent && <span className="text-[8px] font-bold text-emerald-400 uppercase tracking-tighter">Aktiv Karriere</span>}
+                                    </div>
+                                </div>
+                                <div className="flex items-end justify-between">
+                                    <div className="text-2xl font-black text-white tracking-tighter">Nivå {level}</div>
+                                    <div className="text-[10px] font-bold text-slate-500 mb-1">{xp} XP</div>
+                                </div>
+                                <div className="h-1 bg-white/5 rounded-full mt-3 overflow-hidden">
+                                    <div
+                                        className={`h-full transition-all duration-1000 ${isCurrent ? 'bg-indigo-500' : 'bg-slate-700'}`}
+                                        style={{ width: `${Math.min(100, (xp / (LEVEL_XP[level] || xp || 1)) * 100)}%` }}
+                                    />
                                 </div>
                             </div>
                         );
