@@ -23,7 +23,13 @@ export const handleSendGift = async (pin: string, senderId: string, targetId: st
     if (!targetSnapPre.exists()) return { success: false, error: "Mottaker finnes ikke" };
 
     const sender = senderSnap.val() as SimulationPlayer;
-    const targetName = targetSnapPre.val().name;
+    const target = targetSnapPre.val() as SimulationPlayer; // Ensure we cast to get regionId
+    const targetName = target.name;
+
+    // Enforce Regional Restriction
+    if (sender.regionId !== target.regionId) {
+        return { success: false, error: "Du kan kun sende gaver til spillere i din region." };
+    }
 
     // 1. DEDUCT FROM SENDER
     let senderSuccess = false;
@@ -97,8 +103,15 @@ export const handleCreateTrade = async (pin: string, senderId: string, targetId:
     const targetSnap = await get(ref(db, `simulation_rooms/${pin}/players/${targetId}`));
     if (!senderSnap.exists() || !targetSnap.exists()) return { success: false, error: "Spiller finnes ikke" };
 
-    const senderName = senderSnap.val().name;
-    const targetName = targetSnap.val().name;
+    const sender = senderSnap.val() as SimulationPlayer;
+    const target = targetSnap.val() as SimulationPlayer;
+    const senderName = sender.name;
+    const targetName = target.name;
+
+    // Enforce Regional Restriction
+    if (sender.regionId !== target.regionId) {
+        return { success: false, error: "Handel er kun tillatt med spillere i din region." };
+    }
 
     // 1. DEDUCT OFFER FROM SENDER (Escrow)
     let escrowSuccess = false;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Send, ArrowRightLeft, Handshake, AlertCircle } from 'lucide-react';
+import { X, Send, Handshake, AlertCircle } from 'lucide-react';
 import type { SimulationPlayer, Resources } from '../simulationTypes';
 import { handleCreateTrade } from '../socialActions';
 import { ACTION_ICONS } from '../data/gameBalance';
@@ -21,6 +21,15 @@ export const TradeContractModal: React.FC<TradeContractModalProps> = ({ isOpen, 
     const [status, setStatus] = useState<string | null>(null);
 
     if (!isOpen) return null;
+
+    // ESC Key Handler
+    React.useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onClose();
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [onClose]);
 
     const handleSend = async () => {
         setLoading(true);
@@ -114,7 +123,7 @@ export const TradeContractModal: React.FC<TradeContractModalProps> = ({ isOpen, 
                         </h2>
                         <p className="text-slate-400 text-sm">Opprett et tilbud til <span className="text-white font-bold">{targetPlayer.name}</span></p>
                     </div>
-                    <button onClick={onClose} className="p-2 hover:bg-slate-800 rounded-full transition-colors">
+                    <button onClick={onClose} className="relative z-10 p-2 hover:bg-slate-800 rounded-full transition-colors cursor-pointer">
                         <X className="text-slate-400" />
                     </button>
                 </div>

@@ -111,7 +111,7 @@ export const SimulationPlayer: React.FC = () => {
         players: players || {},
         messages: messages || [],
         markets: markets || {},
-        market: Object.values(markets || {})[0] || {} as any, // Legacy support
+        market: (markets && player?.regionId ? markets[player.regionId] : Object.values(markets || {})[0]) || {} as any,
         diplomacy: diplomacy || {},
         trades: trades || {},
         activeVote,

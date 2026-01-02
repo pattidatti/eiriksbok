@@ -19,6 +19,15 @@ export const PlayerProfileModal: React.FC<PlayerProfileModalProps> = ({ isOpen, 
     const [activeTab, setActiveTab] = useState<'INFO' | 'GIFT'>('INFO');
     const [isTradeOpen, setTradeOpen] = useState(false);
 
+    // ESC Key Handler
+    React.useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onClose();
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [onClose]);
+
     // Gift State
     const [giftRes, setGiftRes] = useState<keyof Resources>('gold');
     const [giftAmount, setGiftAmount] = useState(0);
