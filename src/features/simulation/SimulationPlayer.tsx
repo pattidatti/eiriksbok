@@ -13,6 +13,7 @@ import { SimulationAnimationLayer } from './components/SimulationAnimationLayer'
 import { MinigameOverlay } from './SimulationMinigames';
 import { LevelUpOverlay } from './components/LevelUpOverlay';
 import { SimulationOnboarding } from './components/SimulationOnboarding';
+import { SimulationDestinySplash } from './components/SimulationDestinySplash';
 import { Trophy } from 'lucide-react';
 import { INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT } from './constants';
 import { ref, update } from 'firebase/database';
@@ -159,6 +160,18 @@ export const SimulationPlayer: React.FC = () => {
                     <div className="fixed inset-0 pointer-events-none opacity-20">
                         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/20 blur-[120px] rounded-full animate-pulse" />
                     </div>
+
+                    {/* NEW: Onboarding Splash */}
+                    {!player.hasSeenIntro && (
+                        <SimulationDestinySplash
+                            player={player}
+                            pin={pin || ''}
+                            onComplete={() => {
+                                // Fallback local update if DB is slow
+                                player.hasSeenIntro = true;
+                            }}
+                        />
+                    )}
 
                     {activeMinigame && (
                         <MinigameOverlay

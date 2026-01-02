@@ -182,6 +182,7 @@ export interface SimulationPlayer {
     }>;
 
     online?: boolean;
+    hasSeenIntro?: boolean; // New onboarding flag
     lastActive: number;
 }
 

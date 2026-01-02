@@ -8,6 +8,36 @@ import type { SimulationRoom } from './simulationTypes';
 import { Globe, Lock } from 'lucide-react';
 import { assignRoles, collectTaxes } from './gameLogic';
 
+// Define initial state at file level to be used by createRoom and repairData
+const generateInitialRoomState = (pin: string, name: string): SimulationRoom => ({
+    pin: pin,
+    name: name,
+    status: 'PLAYING', // Auto-start
+    settings: 'feudal_europe',
+    hostName: 'Host',
+    isPublic: true,
+    world: {
+        year: 1,
+        season: SEASONS[0],
+        events: [],
+        taxRate: 0.1,
+        taxCollectionInterval: 4, // Every 4 seasons (1 year)
+        lastTaxCollectionYear: 0,
+        lastTaxCollectionSeason: SEASONS[0],
+    },
+    markets: {
+        capital: { ...INITIAL_MARKET },
+        regions: {},
+    },
+    players: {},
+    public_profiles: {},
+    messages: [],
+    regions: {},
+    diplomacy: {},
+    worldEvents: {},
+    activeVote: null,
+});
+
 const syncServerMetadata = async (pin: string, data: SimulationRoom | null) => {
     if (!pin || !data) return;
     const metadataRef = ref(db, `simulation_server_metadata/${pin}`);
@@ -237,7 +267,7 @@ export const SimulationHost: React.FC = () => {
         const initialRoomState: SimulationRoom = {
             pin: newPin,
             name: serverName,
-            status: 'LOBBY',
+            status: 'PLAYING', // Auto-start
             settings: 'feudal_europe',
             hostName: 'Admin',
             isPublic: true,
