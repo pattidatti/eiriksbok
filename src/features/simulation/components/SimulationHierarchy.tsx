@@ -11,21 +11,7 @@ interface SimulationHierarchyProps {
 }
 
 export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.memo(({ players, currentPlayer, regions, onAction }) => {
-    const getRegionName = (rId: string) => {
-        if (!rId || rId === 'unassigned') return 'Ingen Region';
-        if (rId === 'capital') return 'Kongeriket (Hovedstaden)';
-        if (rId === 'test_region') return 'Test Baroniet';
 
-        if (players && rId.startsWith('region_')) {
-            const baronOwner = Object.values(players).find(p => p.role === 'BARON' && p.regionId === rId);
-            if (baronOwner) return `${baronOwner.name}s Baroni`;
-
-            const baronId = rId.replace('region_', '');
-            const baronById = players[baronId];
-            if (baronById) return `${baronById.name}s Baroni`;
-        }
-        return regions?.[rId]?.name || rId;
-    };
 
     const { setActiveTab } = useSimulation();
 
@@ -75,38 +61,46 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                 {/* 2. THE NOBILITY & SUBJECTS */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative pt-8">
                     <div className="absolute top-0 left-10 right-10 h-1 bg-slate-700 opacity-30 rounded-full"></div>
-                    {Object.values(players || {}).filter(p => p.role === 'BARON').map(baron => (
-                        <div key={baron.id} className="flex flex-col gap-4 relative">
-                            <div className="absolute top-[-32px] left-1/2 -translate-x-1/2 h-8 w-1 bg-slate-700 opacity-30"></div>
-                            <div className="bg-slate-800/80 p-6 rounded-3xl border border-white/5 shadow-xl relative z-10">
-                                <div className="flex items-center gap-4 mb-4 border-b border-white/5 pb-4">
-                                    <div className="text-4xl">🏰</div>
-                                    <div>
-                                        <h4 className="text-lg font-black text-white">{baron.name}</h4>
-                                        <div className="text-[10px] font-black uppercase text-indigo-400 tracking-widest uppercase">{getRegionName(baron.regionId)}</div>
+                    {/* Fixed Regions: Vest and Øst (Plus any other active regions with players?) */}
+                    {['region_vest', 'region_ost'].map(rId => {
+                        const baron = Object.values(players || {}).find(p => p.role === 'BARON' && p.regionId === rId);
+
+                        // Use region name from props/logic, default to hardcoded for Vest/Ost if missing
+                        const displayName = regions?.[rId]?.name || (rId === 'region_vest' ? 'Baroniet Vest' : 'Baroniet Øst');
+
+                        return (
+                            <div key={rId} className="flex flex-col gap-4 relative">
+                                <div className="absolute top-[-32px] left-1/2 -translate-x-1/2 h-8 w-1 bg-slate-700 opacity-30"></div>
+                                <div className={`bg-slate-800/80 p-6 rounded-3xl border border-white/5 shadow-xl relative z-10 ${!baron ? 'opacity-75' : ''}`}>
+                                    <div className="flex items-center gap-4 mb-4 border-b border-white/5 pb-4">
+                                        <div className="text-4xl">{baron ? '🏰' : '🏚️'}</div>
+                                        <div>
+                                            <h4 className={`text-lg font-black ${baron ? 'text-white' : 'text-slate-500'}`}>{baron ? baron.name : 'Ingen Baron'}</h4>
+                                            <div className="text-[10px] font-black uppercase text-indigo-400 tracking-widest uppercase">{displayName}</div>
+                                        </div>
+                                    </div>
+                                    <div className="space-y-3">
+                                        <div className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-2 border-b border-white/5 pb-1">Underståtte</div>
+                                        {Object.values(players || {}).filter(p => (p.role === 'PEASANT' || p.role === 'SOLDIER') && p.regionId === rId).map(subject => (
+                                            <div key={subject.id} className="flex items-center gap-3 bg-black/20 p-3 rounded-xl border border-white/5">
+                                                <div className="w-8 h-8 flex items-center justify-center bg-slate-700 rounded-lg text-lg shadow-inner">
+                                                    {subject.role === 'SOLDIER' ? '⚔️' : '🌾'}
+                                                </div>
+                                                <div className="flex-1">
+                                                    <div className="text-sm font-bold text-slate-200">{subject.name}</div>
+                                                    <div className="text-[10px] uppercase text-slate-500 font-bold">{subject.role === 'SOLDIER' ? 'Soldat' : 'Bonde'}</div>
+                                                </div>
+                                                <div className={`w-2 h-2 rounded-full ${subject.lastActive > Date.now() - 60000 ? 'bg-emerald-500 shadow-[0_0_5px_#10b981]' : 'bg-slate-600'}`}></div>
+                                            </div>
+                                        ))}
+                                        {Object.values(players || {}).filter(p => (p.role === 'PEASANT' || p.role === 'SOLDIER') && p.regionId === rId).length === 0 && (
+                                            <div className="text-xs text-slate-600 italic text-center py-4">Ingen undersåtter ennå...</div>
+                                        )}
                                     </div>
                                 </div>
-                                <div className="space-y-3">
-                                    <div className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-2 border-b border-white/5 pb-1">Underståtte</div>
-                                    {Object.values(players || {}).filter(p => (p.role === 'PEASANT' || p.role === 'SOLDIER') && p.regionId === baron.regionId).map(subject => (
-                                        <div key={subject.id} className="flex items-center gap-3 bg-black/20 p-3 rounded-xl border border-white/5">
-                                            <div className="w-8 h-8 flex items-center justify-center bg-slate-700 rounded-lg text-lg shadow-inner">
-                                                {subject.role === 'SOLDIER' ? '⚔️' : '🌾'}
-                                            </div>
-                                            <div className="flex-1">
-                                                <div className="text-sm font-bold text-slate-200">{subject.name}</div>
-                                                <div className="text-[10px] uppercase text-slate-500 font-bold">{subject.role === 'SOLDIER' ? 'Soldat' : 'Bonde'}</div>
-                                            </div>
-                                            <div className={`w-2 h-2 rounded-full ${subject.lastActive > Date.now() - 60000 ? 'bg-emerald-500 shadow-[0_0_5px_#10b981]' : 'bg-slate-600'}`}></div>
-                                        </div>
-                                    ))}
-                                    {Object.values(players || {}).filter(p => (p.role === 'PEASANT' || p.role === 'SOLDIER') && p.regionId === baron.regionId).length === 0 && (
-                                        <div className="text-xs text-slate-600 italic text-center py-4">Ingen undersåtter ennå...</div>
-                                    )}
-                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
 
                     {/* Free Men / Unassigned */}
                     <div className="flex flex-col gap-4 relative">

@@ -58,9 +58,9 @@ export const assignRoles = (players: Record<string, SimulationPlayer>): Record<s
     // Helper to distribute remaining players to regions
     let regionIndex = 0;
     const getNextRegionId = () => {
-        if (baronIds.length === 0) return 'capital';
-        const id = regionIndex === 0 ? 'region_ost' : 'region_vest';
-        regionIndex = (regionIndex + 1) % Math.max(1, baronIds.length);
+        // Distribute between Vest and Øst (round-robin)
+        const id = regionIndex % 2 === 0 ? 'region_ost' : 'region_vest';
+        regionIndex++;
         return id;
     };
 

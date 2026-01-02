@@ -118,6 +118,12 @@ export const SimulationSidebar: React.FC<SimulationSidebarProps> = ({ player, ro
             const baronById = room.players[baronId];
             if (baronById) return `${baronById.name}s Baroni`;
         }
+
+        // Fallback to region name in DB, or hardcoded friendly names
+        if (room?.regions?.[rId]?.name) return room.regions[rId].name;
+        if (rId === 'region_vest') return 'Baroniet Vest';
+        if (rId === 'region_ost') return 'Baroniet Øst';
+
         return rId;
     };
 

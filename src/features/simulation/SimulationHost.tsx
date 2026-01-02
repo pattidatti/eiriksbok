@@ -16,18 +16,23 @@ const generateInitialRoomState = (pin: string, name: string): SimulationRoom => 
     settings: 'feudal_europe',
     hostName: 'Host',
     isPublic: true,
+    market: JSON.parse(JSON.stringify(INITIAL_MARKET)),
     world: {
-        year: 1,
-        season: SEASONS[0],
-        events: [],
-        taxRate: 0.1,
-        taxCollectionInterval: 4, // Every 4 seasons (1 year)
-        lastTaxCollectionYear: 0,
-        lastTaxCollectionSeason: SEASONS[0],
+        year: 1100,
+        season: 'Spring',
+        weather: 'Clear',
+        gameTick: 0,
+        lastTickAt: Date.now(),
+        taxRateDetails: { kingTax: 20 },
+        settlement: {
+            buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id]: [string, any]) => ({
+                ...acc,
+                [id]: { id, level: 0, progress: {}, target: 200, contributions: {} }
+            }), {}),
+        }
     },
     markets: {
         capital: { ...INITIAL_MARKET },
-        regions: {},
     },
     players: {},
     public_profiles: {},
@@ -35,7 +40,7 @@ const generateInitialRoomState = (pin: string, name: string): SimulationRoom => 
     regions: {},
     diplomacy: {},
     worldEvents: {},
-    activeVote: null,
+    activeVote: undefined,
 });
 
 const syncServerMetadata = async (pin: string, data: SimulationRoom | null) => {
@@ -264,38 +269,7 @@ export const SimulationHost: React.FC = () => {
         const newPin = Math.floor(1000 + Math.random() * 9000).toString();
         const serverName = name.trim() || `Rike #${newPin}`;
 
-        const initialRoomState: SimulationRoom = {
-            pin: newPin,
-            name: serverName,
-            status: 'PLAYING', // Auto-start
-            settings: 'feudal_europe',
-            hostName: 'Admin',
-            isPublic: true,
-            market: JSON.parse(JSON.stringify(INITIAL_MARKET)),
-            markets: {
-                'capital': JSON.parse(JSON.stringify(INITIAL_MARKET))
-            },
-            regions: {},
-            players: {},
-            world: {
-                year: 1100,
-                season: 'Spring',
-                weather: 'Clear',
-                gameTick: 0,
-                lastTickAt: Date.now(),
-                taxRateDetails: { kingTax: 20 },
-                settlement: {
-                    buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id]: [string, any]) => ({
-                        ...acc,
-                        [id]: { id, level: 0, progress: {}, target: 200, contributions: {} }
-                    }), {}),
-
-                }
-            },
-            worldEvents: {},
-            diplomacy: {},
-            messages: []
-        };
+        const initialRoomState: SimulationRoom = generateInitialRoomState(newPin, serverName);
         try {
             await set(ref(db, `simulation_rooms/${newPin}`), initialRoomState);
             await syncServerMetadata(newPin, initialRoomState);
@@ -314,24 +288,46 @@ export const SimulationHost: React.FC = () => {
         setIsLoading(true);
         try {
             const updatedPlayers = assignRoles(roomData.players);
-            const newRegions: any = {};
+            // Initialize default regions (Vest and Øst always exist)
+            const newRegions: any = {
+                'region_vest': {
+                    id: 'region_vest',
+                    name: 'Baroniet Vest',
+                    taxRate: 10,
+                    defenseLevel: 50,
+                    rulerName: 'Ingen'
+                },
+                'region_ost': {
+                    id: 'region_ost',
+                    name: 'Baroniet Øst',
+                    taxRate: 10,
+                    defenseLevel: 50,
+                    rulerName: 'Ingen'
+                }
+            };
+
             const newMarkets: any = { ...roomData.markets };
 
             // Ensure capital market exists
             if (!newMarkets['capital']) newMarkets['capital'] = JSON.parse(JSON.stringify(INITIAL_MARKET));
 
+            // Ensure region markets exist (default)
+            ['region_vest', 'region_ost'].forEach(rid => {
+                if (!newMarkets[rid]) {
+                    newMarkets[rid] = JSON.parse(JSON.stringify(INITIAL_MARKET));
+                }
+            });
+
             Object.values(updatedPlayers).forEach(p => {
                 if (p.role === 'BARON') {
-                    const isVest = p.regionId === 'region_vest';
+
+                    // Update the region with Baron's info
                     newRegions[p.regionId] = {
-                        id: p.id,
-                        name: isVest ? 'Baroniet Vest' : 'Baroniet Øst',
-                        taxRate: 10,
-                        defenseLevel: 50,
+                        ...newRegions[p.regionId],
                         rulerName: p.name
                     };
-                    // Create Local Market for this Baron
-                    // Add some variance to prices
+
+                    // Create/Update Local Market for this Baron with variance
                     const localMarket: any = JSON.parse(JSON.stringify(INITIAL_MARKET));
                     Object.keys(localMarket).forEach(key => {
                         const item = localMarket[key];
@@ -821,7 +817,7 @@ export const SimulationHost: React.FC = () => {
     if (!roomData) return null;
 
     // DATA INTEGRITY CHECK (Non-blocking warning)
-    const isCorrupted = typeof roomData.status !== 'string' || !roomData.world;
+
 
     const repairData = async () => {
         if (!window.confirm("Er du sikker? Dette vil regenerere 'public_profiles' basert på 'players'. Bruk kun hvis listen er tom.")) return;
