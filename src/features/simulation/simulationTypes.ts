@@ -215,6 +215,7 @@ export interface SimulationMarket {
 export interface SimulationRegion {
     id: string; // Usually the Baron's player ID
     name: string;
+    rulerId?: string; // Player ID of current ruler
     taxRate: number; // Percentage 0-100
     defenseLevel: number;
     rulerName: string;

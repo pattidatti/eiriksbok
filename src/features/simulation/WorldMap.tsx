@@ -19,6 +19,7 @@ import { TavernDialog } from './components/TavernDialog.tsx';
 import { WorldMapPOI } from './components/WorldMap/WorldMapPOI';
 import { WorldMapEvents } from './components/WorldMap/WorldMapEvents.tsx';
 import { WorldMapKingdomPins } from './components/WorldMap/WorldMapKingdomPins';
+import { SimulationContributionModal } from './components/SimulationContributionModal';
 
 interface WorldMapProps {
     player: SimulationPlayer;
@@ -50,6 +51,8 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
         setIsDiceGameOpen,
         isChickenCoopOpen,
         setIsChickenCoopOpen,
+        isConstructionOpen,
+        setIsConstructionOpen,
         direction,
         handlePOIAction
     } = useWorldMapLogic(player, onAction, onOpenMarket);
@@ -260,6 +263,15 @@ export const WorldMap: React.FC<WorldMapProps> = React.memo(({ player, room, wor
                 )}
                 {dialogNPC && (
                     <TavernDialog npc={dialogNPC} step={dialogStep} setStep={setDialogStep} onClose={() => setDialogNPC(null)} />
+                )}
+                {isConstructionOpen && (
+                    <SimulationContributionModal
+                        player={player}
+                        room={room}
+                        onAction={onAction}
+                        onClose={() => setIsConstructionOpen(false)}
+                        viewingRegionId={viewingRegionId}
+                    />
                 )}
             </AnimatePresence>
         </div>

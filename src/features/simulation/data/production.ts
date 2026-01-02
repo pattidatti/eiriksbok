@@ -158,6 +158,36 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
             2: { requirements: { plank: 50, wood: 50, gold: 150 }, unlocks: ['BREED_WARHORSE'], bonus: 'Stridshester' },
             3: { requirements: { plank: 150, iron_ingot: 20, gold: 400 }, unlocks: ['KNIGHT_TRAINING'], bonus: 'Riddere' }
         }
+    },
+    manor_ost: {
+        id: 'manor_ost',
+        name: 'Herregård Øst',
+        icon: '🏰',
+        locationId: 'castle',
+        description: 'Setet til Baronen i Øst. Krever enorme ressurser å bygge.',
+        levels: {
+            1: { requirements: { stone: 500, plank: 300, iron_ingot: 50, gold: 1000 }, unlocks: ['BARON_STATUS'], bonus: 'Krav på regionen' }
+        }
+    },
+    manor_vest: {
+        id: 'manor_vest',
+        name: 'Herregård Vest',
+        icon: '🏰',
+        locationId: 'castle',
+        description: 'Setet til Baronen i Vest. Krever enorme ressurser å bygge.',
+        levels: {
+            1: { requirements: { stone: 500, plank: 300, iron_ingot: 50, gold: 1000 }, unlocks: ['BARON_STATUS'], bonus: 'Krav på regionen' }
+        }
+    },
+    throne_room: {
+        id: 'throne_room',
+        name: 'Tronsalen',
+        icon: '👑',
+        locationId: 'castle',
+        description: 'Kongens stol. Den første Baronen som fullfører denne blir Konge.',
+        levels: {
+            1: { requirements: { stone: 2000, plank: 1000, iron_ingot: 200, gold: 5000 }, unlocks: ['KING_STATUS'], bonus: 'Krav på riket' }
+        }
     }
 };
 

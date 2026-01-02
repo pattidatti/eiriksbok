@@ -25,6 +25,7 @@ export function useWorldMapLogic(player: any, onAction: (a: any) => void, onOpen
     const [dialogStep, setDialogStep] = useState<string>('start');
     const [isDiceGameOpen, setIsDiceGameOpen] = useState(false);
     const [isChickenCoopOpen, setIsChickenCoopOpen] = useState(false);
+    const [isConstructionOpen, setIsConstructionOpen] = useState(false);
 
     const getViewLevel = useCallback((mode: string): number => {
         if (mode === 'kingdom') return 0;
@@ -94,6 +95,12 @@ export function useWorldMapLogic(player: any, onAction: (a: any) => void, onOpen
             return;
         }
 
+        if (actId === 'OPEN_CONSTRUCTION') {
+            setIsConstructionOpen(true);
+            setSelectedPOI(null);
+            return;
+        }
+
         const prodCtx = getProductionContext(poiId);
         if (prodCtx && (actId === 'OPEN_CRAFTING' || actId === 'CRAFT' || actId === 'REFINE' || actId.startsWith('REFINE_') || actId.startsWith('CRAFT_') || (CRAFTING_RECIPES as any)[actId] || actId === 'REPAIR')) {
             setProductionContext({ ...prodCtx, initialView: actId === 'REPAIR' ? 'REPAIR' : 'PRODUCE' });
@@ -157,6 +164,8 @@ export function useWorldMapLogic(player: any, onAction: (a: any) => void, onOpen
         setIsDiceGameOpen,
         isChickenCoopOpen,
         setIsChickenCoopOpen,
+        isConstructionOpen,
+        setIsConstructionOpen,
         direction,
         handlePOIAction
     };

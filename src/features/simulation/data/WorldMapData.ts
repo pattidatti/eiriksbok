@@ -36,8 +36,9 @@ export const POINTS_OF_INTEREST: POI[] = [
         id: 'castle', label: 'Slottet', icon: '🏰', top: '66%', left: '86%',
         vest: { top: '40%', left: '30%' },
         ost: { top: '40%', left: '68%' },
-        roles: ['BARON', 'KING', 'SOLDIER'],
-        actions: [], isHub: true
+        roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'],
+        actions: [{ id: 'OPEN_CONSTRUCTION', label: 'Bidra til bygging', cost: 'Ressurser' }],
+        isHub: true
     },
     {
         id: 'peasant_farm', label: 'Husmannsplassen', icon: '🛖', top: '30%', left: '60%',

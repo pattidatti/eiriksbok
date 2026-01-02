@@ -2,7 +2,9 @@ import { ref, runTransaction, get } from 'firebase/database';
 import { simulationDb as db } from './simulationFirebase';
 import { GAME_BALANCE, VILLAGE_BUILDINGS } from './constants';
 import { logSimulationMessage } from './utils/simulationUtils';
+import { finalizeLeadershipProject } from './gameLogic';
 import type { SimulationPlayer } from './simulationTypes';
+import { update } from 'firebase/database';
 
 /*
  * GLOBAL ACTION HANDLERS
@@ -184,7 +186,20 @@ export const handleGlobalContribution = async (pin: string, playerId: string, ac
         if (finished) {
             building.level = nextLevel;
             building.progress = {}; // Reset progress
-            building.contributions = {}; // Clear contributions? Or keep 'em? Usually clear for next level.
+
+            // Power Vacuum Logic
+            if (buildingId === 'manor_ost' || buildingId === 'manor_vest' || buildingId === 'throne_room') {
+                const results = finalizeLeadershipProject(building.contributions, buildingId);
+                if (results) {
+                    // We can't update other players inside this building transaction easily
+                    // But we can store the winner in the building state OR trigger an external update.
+                    // For now, let's store it so the Host or a "Success" hook can pick it up.
+                    building.pendingWinnerId = results.winningPlayerId;
+                    building.pendingRole = results.role;
+                }
+            }
+
+            building.contributions = {};
             leveledUp = true;
             newLevel = nextLevel;
         }
@@ -194,6 +209,49 @@ export const handleGlobalContribution = async (pin: string, playerId: string, ac
     });
 
     if (!contributionSuccess) return { success: false, error: "Kunne ikke bidra (Fullt eller ugyldig)" };
+
+    // 2. Post-Completion: Update Roles & Regions (outside transaction)
+    if (leveledUp) {
+        const buildSnap = await get(buildingRef);
+        const bData = buildSnap.val();
+        if (bData.pendingWinnerId) {
+            const winnerId = bData.pendingWinnerId;
+            const newRole = bData.pendingRole;
+            const winnerRef = ref(db, `simulation_rooms/${pin}/players/${winnerId}`);
+
+            const winnerSnap = await get(winnerRef);
+            const winner = winnerSnap.val();
+
+            const updates: any = {};
+            updates[`${winnerId}/role`] = newRole;
+            // If Baron, update regionId (if they were capital/somewhere else)
+            if (newRole === 'BARON') {
+                const regId = buildingId === 'manor_ost' ? 'region_ost' : 'region_vest';
+                updates[`${winnerId}/regionId`] = regId;
+
+                // Update Region Meta
+                const regionalMetaRef = ref(db, `simulation_rooms/${pin}/regions/${regId}`);
+                await update(regionalMetaRef, {
+                    rulerId: winnerId,
+                    rulerName: winner.name
+                });
+            } else if (newRole === 'KING') {
+                updates[`${winnerId}/regionId`] = 'capital';
+
+                // Update global world state if needed
+                // (e.g. log the new king)
+            }
+
+            await update(ref(db, `simulation_rooms/${pin}/players`), updates);
+            await update(ref(db, `simulation_rooms/${pin}/public_profiles`), updates);
+
+            const coronationMsg = `📢 ${winner.name} har fullført ${buildingName} og er nå utnevnt til ${newRole === 'BARON' ? 'Baron' : 'Konge'}!`;
+            logSimulationMessage(pin, coronationMsg);
+
+            // Clear pending from building
+            await update(buildingRef, { pendingWinnerId: null, pendingRole: null });
+        }
+    }
 
     // 2. Update Player (This should rarely fail if pre-flight passed, but purely local lock)
     let finalMessage = `Bidro med ${actualContributed} ${resource} til ${buildingName}`;

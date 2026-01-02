@@ -225,3 +225,39 @@ export const collectTaxes = (
     return { updatedPlayers, results };
 };
 
+export const finalizeLeadershipProject = (contributions: Record<string, any>, buildingId: string): { winningPlayerId: string, role: import('./simulationTypes').Role } | null => {
+    if (!contributions || Object.keys(contributions).length === 0) return null;
+
+    // Calculate total value per player
+    // Resource values for ranking (could be moved to constants)
+    const VALUES: Record<string, number> = {
+        gold: 1,
+        wood: 0.5,
+        stone: 1,
+        iron_ore: 1,
+        iron_ingot: 5,
+        plank: 2,
+        grain: 0.1,
+        flour: 0.5,
+        bread: 1
+    };
+
+    const playerScores = Object.entries(contributions).map(([pid, data]: [string, any]) => {
+        let score = 0;
+        Object.entries(data.resources || {}).forEach(([res, amt]) => {
+            score += (amt as number) * (VALUES[res] || 0.1);
+        });
+        return { pid, score, name: data.name };
+    });
+
+    // Sort by score desc
+    playerScores.sort((a, b) => b.score - a.score);
+    const winner = playerScores[0];
+
+    if (!winner) return null;
+
+    const role: import('./simulationTypes').Role = (buildingId === 'throne_room') ? 'KING' : 'BARON';
+
+    return { winningPlayerId: winner.pid, role };
+};
+
