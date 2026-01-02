@@ -3,7 +3,7 @@ import { ref, set, onValue, update, get, remove } from 'firebase/database';
 import { simulationDb as db } from './simulationFirebase';
 import { useLayout } from '../../context/LayoutContext';
 
-import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES, VILLAGE_BUILDINGS, SEASONS, RESOURCE_DETAILS } from './constants';
+import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES, VILLAGE_BUILDINGS, SEASONS, RESOURCE_DETAILS, INITIAL_SKILLS } from './constants';
 import type { SimulationRoom } from './simulationTypes';
 import { Globe, Lock } from 'lucide-react';
 import { assignRoles, collectTaxes } from './gameLogic';
@@ -585,6 +585,79 @@ export const SimulationHost: React.FC = () => {
         }
     };
 
+    const handleBuildingLevelChange = async (buildingId: string, delta: number) => {
+        if (!roomData?.world?.settlement?.buildings?.[buildingId]) return;
+        const building = roomData.world.settlement.buildings[buildingId];
+        const newLevel = Math.max(0, building.level + delta);
+
+        try {
+            await update(ref(db, `simulation_rooms/${pin}/world/settlement/buildings/${buildingId}`), {
+                level: newLevel,
+                progress: {} // Reset progress on manual level change
+            });
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    const [botForm, setBotForm] = useState({ name: '', role: 'PEASANT' as any, level: 1 });
+
+    const spawnDevBot = async () => {
+        if (!botForm.name) {
+            alert("Vennligst oppgi et navn.");
+            return;
+        }
+
+        setIsLoading(true);
+        try {
+            const botId = `bot_${Math.random().toString(36).substr(2, 9)}`;
+            const bot: any = {
+                id: botId,
+                name: `${botForm.name} [BOT]`,
+                role: botForm.role || 'PEASANT',
+                regionId: (botForm.role === 'KING') ? 'capital' : (Math.random() > 0.5 ? 'region_ost' : 'region_vest'),
+                resources: INITIAL_RESOURCES[botForm.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT,
+                status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
+                stats: { level: botForm.level, xp: 0, reputation: 10, contribution: 0 },
+                skills: INITIAL_SKILLS[botForm.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT,
+                lastActive: Date.now(),
+                online: true
+            };
+
+            const updates: any = {};
+            updates[`simulation_rooms/${pin}/players/${botId}`] = bot;
+            updates[`simulation_rooms/${pin}/public_profiles/${botId}`] = {
+                id: botId,
+                name: bot.name,
+                role: bot.role,
+                regionId: bot.regionId,
+                stats: { level: bot.stats.level },
+                status: { isJailed: false, isFrozen: false, legitimacy: 100 },
+                online: true,
+                lastActive: bot.lastActive
+            };
+
+            await update(ref(db), updates);
+            setBotForm({ name: '', role: 'PEASANT', level: 1 });
+        } catch (e) {
+            console.error(e);
+            alert("Kunne ikke spawne bot.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handlePlayerLevelChange = async (playerId: string, newLevel: number) => {
+        try {
+            const updates: any = {};
+            updates[`simulation_rooms/${pin}/players/${playerId}/stats/level`] = newLevel;
+            updates[`simulation_rooms/${pin}/public_profiles/${playerId}/stats/level`] = newLevel;
+            await update(ref(db), updates);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
     const initializeSettlement = async () => {
         if (!roomData) return;
         setIsLoading(true);
@@ -1010,12 +1083,51 @@ export const SimulationHost: React.FC = () => {
                         </div>
                     </section>
 
-                    {/* Special Events */}
+                    {/* Special Actions */}
                     <section>
-                        <h3 className="text-[10px] font-black uppercase text-slate-500 tracking-[0.2em] mb-4">Intervensjoner</h3>
-                        <div className="grid grid-cols-2 gap-3">
-                            <button onClick={spawnRandomEvent} className="bg-rose-600/80 hover:bg-rose-600 text-white py-4 rounded-2xl font-black uppercase text-[10px] shadow-lg shadow-rose-600/20">🎲 Event</button>
-                            <button onClick={startTing} disabled={!!roomData.activeVote} className="bg-amber-600/80 hover:bg-amber-600 text-white py-4 rounded-2xl font-black uppercase text-[10px] shadow-lg shadow-amber-600/20 disabled:opacity-20 text-center">⚖️ Tinget</button>
+                        <h3 className="text-[10px] font-black uppercase text-slate-500 tracking-[0.2em] mb-4 text-center">Intervensjoner</h3>
+                        <div className="grid grid-cols-1 gap-2">
+                            <div className="grid grid-cols-2 gap-2">
+                                <button onClick={spawnRandomEvent} className="bg-rose-600/80 hover:bg-rose-600 text-white py-4 rounded-2xl font-black uppercase text-[10px] shadow-lg shadow-rose-600/20 transition-all active:scale-95">🎲 Event</button>
+                                <button onClick={startTing} disabled={!!roomData.activeVote} className="bg-amber-600/80 hover:bg-amber-600 text-white py-4 rounded-2xl font-black uppercase text-[10px] shadow-lg shadow-amber-600/20 disabled:opacity-20 text-center transition-all active:scale-95">⚖️ Tinget</button>
+                            </div>
+                            {/* Character Creator Form */}
+                            <section className="bg-white/5 border border-white/5 rounded-[2.5rem] p-6 space-y-4 shadow-inner">
+                                <h3 className="text-[10px] font-black uppercase text-indigo-400 tracking-[0.2em] mb-2 px-2">Legg til Karakter</h3>
+                                <div className="space-y-3">
+                                    <input
+                                        type="text"
+                                        placeholder="Navn..."
+                                        value={botForm.name}
+                                        onChange={(e) => setBotForm({ ...botForm, name: e.target.value })}
+                                        className="w-full bg-black/40 border border-white/5 rounded-xl px-4 py-3 text-xs font-bold text-white placeholder:text-slate-600 focus:border-indigo-500/50 focus:ring-0 transition-all"
+                                    />
+                                    <div className="grid grid-cols-2 gap-2">
+                                        <select
+                                            value={botForm.role}
+                                            onChange={(e) => setBotForm({ ...botForm, role: e.target.value as any })}
+                                            className="bg-black/40 border border-white/5 rounded-xl px-3 py-2 text-[10px] font-black uppercase text-slate-400 focus:ring-0"
+                                        >
+                                            {Object.keys(ROLE_DEFINITIONS).map(r => <option key={r} value={r}>{r}</option>)}
+                                        </select>
+                                        <div className="flex items-center gap-2 bg-black/40 border border-white/5 rounded-xl px-3 py-2">
+                                            <span className="text-[8px] font-black text-slate-600">LVL</span>
+                                            <input
+                                                type="number"
+                                                value={botForm.level}
+                                                onChange={(e) => setBotForm({ ...botForm, level: parseInt(e.target.value) })}
+                                                className="w-full bg-transparent border-none p-0 text-xs font-black text-white focus:ring-0 font-mono"
+                                            />
+                                        </div>
+                                    </div>
+                                    <button
+                                        onClick={spawnDevBot}
+                                        className="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-black uppercase text-[10px] shadow-lg shadow-indigo-600/20 transition-all active:scale-95"
+                                    >
+                                        ✨ SKAP KARAKTER
+                                    </button>
+                                </div>
+                            </section>
                         </div>
                     </section>
 
@@ -1095,7 +1207,18 @@ export const SimulationHost: React.FC = () => {
                                                     } as any)[p.role] || '👤'}
                                                 </div>
                                                 <div className="min-w-0 flex-1">
-                                                    <h3 className="text-lg font-black text-white truncate">{p.name}</h3>
+                                                    <div className="flex justify-between items-start">
+                                                        <h3 className="text-lg font-black text-white truncate leading-tight">{p.name}</h3>
+                                                        <div className="flex items-center gap-1 bg-white/5 px-2 py-0.5 rounded-lg border border-white/5">
+                                                            <span className="text-[8px] font-black text-slate-500 uppercase">LVL</span>
+                                                            <input
+                                                                type="number"
+                                                                value={p.stats?.level || 1}
+                                                                onChange={(e) => handlePlayerLevelChange(p.id, parseInt(e.target.value))}
+                                                                className="w-8 bg-transparent border-none p-0 text-[10px] font-black text-indigo-400 focus:ring-0 text-center font-mono"
+                                                            />
+                                                        </div>
+                                                    </div>
                                                     <div className="flex flex-col gap-1 mt-1">
                                                         <select
                                                             value={p.role}
@@ -1185,9 +1308,24 @@ export const SimulationHost: React.FC = () => {
                                                                 {Object.values(building.progress || {}).reduce((sum: number, val: any) => sum + (val as number), 0)} / {building.target || 200}
                                                             </span>
                                                         </div>
-                                                        <div className="h-4 bg-black/40 rounded-full overflow-hidden border border-white/5 relative">
-                                                            <div className={`h-full bg-gradient-to-r from-indigo-600 to-indigo-400 transition-all duration-1000 shadow-[0_0_15px_rgba(99,102,241,0.6)] relative`} style={{ width: `${progress}%` }}>
+                                                        <div className="h-4 bg-black/40 rounded-full overflow-hidden border border-white/5 relative group/progress">
+                                                            <div className={`h-full bg-gradient-to-r from-indigo-600 via-indigo-400 to-fuchsia-500 transition-all duration-1000 shadow-[0_0_15px_rgba(99,102,241,0.4)] relative`} style={{ width: `${progress}%` }}>
                                                                 <div className="absolute inset-0 bg-white/20 animate-pulse" />
+                                                            </div>
+                                                            {/* Manual Controls Overlay */}
+                                                            <div className="absolute inset-0 opacity-0 group-hover/progress:opacity-100 transition-opacity flex justify-between items-center px-1 pointer-events-none">
+                                                                <button
+                                                                    onClick={(e) => { e.stopPropagation(); handleBuildingLevelChange(building.id, -1); }}
+                                                                    className="w-5 h-5 bg-white/10 hover:bg-rose-500 text-white rounded-full flex items-center justify-center text-[10px] font-black pointer-events-auto transition-all"
+                                                                >
+                                                                    -
+                                                                </button>
+                                                                <button
+                                                                    onClick={(e) => { e.stopPropagation(); handleBuildingLevelChange(building.id, 1); }}
+                                                                    className="w-5 h-5 bg-white/10 hover:bg-emerald-500 text-white rounded-full flex items-center justify-center text-[10px] font-black pointer-events-auto transition-all"
+                                                                >
+                                                                    +
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
