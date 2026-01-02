@@ -43,7 +43,7 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ p
                 </div>
 
                 {/* CAREER: BECOME MERCHANT */}
-                {player.role === 'PEASANT' && (player.stats.level || 1) >= GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ && (
+                {player.role === 'PEASANT' && (
                     <div className="bg-gradient-to-r from-emerald-900/40 to-indigo-900/40 border border-emerald-500/30 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
                         <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                             <Ship size={120} />
@@ -53,7 +53,14 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ p
                                 <span className="text-3xl">📜</span>
                             </div>
                             <div>
-                                <h3 className="text-xl font-black text-white uppercase tracking-wide">Handelsbrev</h3>
+                                <h3 className="text-xl font-black text-white uppercase tracking-wide">
+                                    Handelsbrev
+                                    {(player.stats.level || 1) < GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ && (
+                                        <Badge variant="outline" className="ml-2 text-rose-400 border-rose-400">
+                                            Krever Lvl {GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ}
+                                        </Badge>
+                                    )}
+                                </h3>
                                 <p className="text-emerald-200 text-sm max-w-sm">
                                     Kjøp lisens til å drive internasjonal handel. Låser opp handelsruter og profittmuligheter.
                                 </p>
@@ -72,10 +79,17 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ p
                                         handleCareerChange(pin, player.id, 'MERCHANT');
                                     }
                                 }}
-                                disabled={player.resources?.gold < GAME_BALANCE.CAREERS.MERCHANT.COST || !!actionLoading}
+                                disabled={
+                                    player.resources?.gold < GAME_BALANCE.CAREERS.MERCHANT.COST ||
+                                    (player.stats.level || 1) < GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ ||
+                                    !!actionLoading
+                                }
                                 className="bg-emerald-600 hover:bg-emerald-500 border-emerald-400/50 min-w-[200px]"
                             >
-                                BLI KJØPMANN
+                                {(player.stats.level || 1) < GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ
+                                    ? `Krever Level ${GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ}`
+                                    : 'BLI KJØPMANN'
+                                }
                             </GameButton>
                         </div>
                     </div>
