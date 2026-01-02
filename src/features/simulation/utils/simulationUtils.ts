@@ -57,7 +57,8 @@ export const calculateYield = (
         performance?: number,
         upgrades?: number,
         isRefining?: boolean,
-        actionType?: string
+        actionType?: string,
+        regionId?: string
     } = {}
 ) => {
     // 1. Equipment Bonus (Flat + Yield)
@@ -115,8 +116,23 @@ export const calculateYield = (
         total *= (1 - penalty);
     }
 
-    // 4. Multipliers (Season, Weather, Law, Upgrade)
-    const multiplier = (modifiers.season || 1) * (modifiers.weather || 1) * (modifiers.law || 1) * (modifiers.upgrades || 1);
+    // 5. Regional Arbitrage (Phase 2)
+    let regionalMod = 1.0;
+    if (modifiers.regionId) {
+        // Iron Ore logic
+        if (modifiers.actionType === 'MINE') {
+            if (modifiers.regionId === 'region_vest') regionalMod = 1.5;
+            else if (modifiers.regionId === 'region_ost') regionalMod = 0.5;
+        }
+        // Wood logic
+        if (modifiers.actionType === 'CHOP') {
+            if (modifiers.regionId === 'region_vest') regionalMod = 1.2;
+            else if (modifiers.regionId === 'region_ost') regionalMod = 0.8;
+        }
+    }
+
+    // 6. Multipliers (Season, Weather, Law, Upgrade, Region)
+    const multiplier = (modifiers.season || 1) * (modifiers.weather || 1) * (modifiers.law || 1) * (modifiers.upgrades || 1) * regionalMod;
     total = Math.floor(total * multiplier);
 
     // 5. Minigame Performance

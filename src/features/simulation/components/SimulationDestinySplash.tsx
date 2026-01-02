@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { SimulationPlayer, Role } from '../simulationTypes';
-import { User, Shield, Crown, Sword, Hammer, Check, ArrowRight, Coins } from 'lucide-react';
+import { User, Shield, Crown, Sword, Hammer, ArrowRight, Coins } from 'lucide-react';
 import { ROLE_DEFINITIONS } from '../constants';
 import { update, ref } from 'firebase/database';
 import { simulationDb as db } from '../simulationFirebase';

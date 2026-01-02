@@ -198,7 +198,8 @@ export const handleWork = (ctx: ActionContext) => {
         weather: weatherData?.yieldMod || 1.0,
         law: lawYMod,
         performance,
-        actionType: 'WORK'
+        actionType: 'WORK',
+        regionId: actor.regionId
     });
 
     actor.resources.grain = (actor.resources.grain || 0) + yieldAmount;
@@ -230,7 +231,7 @@ export const handleChop = (ctx: ActionContext) => {
     if (currentSeason === 'Summer') base += GAME_BALANCE.YIELD.SUMMER_WOOD_BONUS;
 
     const performance = action.performance || 0.5;
-    const yieldAmount = calculateYield(actor, base, 'WOODCUTTING', { performance, actionType: 'CHOP' });
+    const yieldAmount = calculateYield(actor, base, 'WOODCUTTING', { performance, actionType: 'CHOP', regionId: actor.regionId });
 
     actor.resources.wood = (actor.resources.wood || 0) + yieldAmount;
     localResult.utbytte.push({ resource: 'wood', amount: yieldAmount });
@@ -261,7 +262,7 @@ export const handleMiningAction = (ctx: ActionContext) => {
     const resource = actionType === 'MINE' ? 'iron_ore' : 'stone';
 
     const performance = action.performance || 0.5;
-    const yieldAmount = calculateYield(actor, base, skill, { performance, actionType });
+    const yieldAmount = calculateYield(actor, base, skill, { performance, actionType, regionId: actor.regionId });
 
     (actor.resources as any)[resource] = ((actor.resources as any)[resource] || 0) + yieldAmount;
     localResult.utbytte.push({ resource, amount: yieldAmount });
