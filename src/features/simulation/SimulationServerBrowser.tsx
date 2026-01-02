@@ -43,6 +43,7 @@ export const SimulationServerBrowser: React.FC = () => {
 
     const filteredServers = servers.filter(s =>
         s.pin.includes(searchTerm) ||
+        (s as any).name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         s.hostName.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -84,12 +85,15 @@ export const SimulationServerBrowser: React.FC = () => {
                                 </div>
                                 <div>
                                     <div className="flex items-center gap-3">
-                                        <h3 className="text-xl font-black text-white">#{server.pin}</h3>
+                                        <h3 className="text-xl font-black text-white group-hover:text-indigo-300 transition-colors">{(server as any).name || `Rike #${server.pin}`}</h3>
                                         <span className={`px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${server.status === 'LOBBY' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'}`}>
                                             {server.status === 'LOBBY' ? 'Lobby' : 'I Spill'}
                                         </span>
                                     </div>
-                                    <p className="text-slate-500 text-sm font-medium mt-1">Hostet av <span className="text-slate-300">{server.hostName}</span></p>
+                                    <p className="text-slate-500 text-sm font-medium mt-1">
+                                        <span className="font-mono text-xs opacity-50 mr-2 bg-black/30 px-2 py-1 rounded">PIN: {server.pin}</span>
+                                        Hostet av <span className="text-slate-300">{server.hostName}</span>
+                                    </p>
                                 </div>
                             </div>
 

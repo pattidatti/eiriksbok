@@ -246,6 +246,7 @@ export type GameStatus = 'LOBBY' | 'PLAYING' | 'PAUSED' | 'FINISHED';
 export interface SimulationRoom {
 
     pin: string;
+    name?: string; // Server Name
     status: GameStatus;
     settings: string; // 'feudal_europe'
     hostName?: string;

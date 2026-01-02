@@ -17,6 +17,7 @@ const syncServerMetadata = async (pin: string, data: SimulationRoom | null) => {
     }
     await set(metadataRef, {
         pin: pin,
+        name: (data as any).name || `Rike #${pin}`, // Fallback for legacy
         status: data.status,
         playerCount: Object.keys(data.players || {}).length,
         worldYear: data.world.year,
@@ -49,6 +50,7 @@ export const SimulationHost: React.FC = () => {
         setIsLoading(true);
         try {
             await remove(ref(db, `simulation_rooms/${roomPin}`));
+            await remove(ref(db, `simulation_server_metadata/${roomPin}`)); // Also delete metadata
         } catch (e) {
             console.error(e);
             alert("Kunne ikke slette rommet.");
@@ -143,6 +145,24 @@ export const SimulationHost: React.FC = () => {
                         id: pid
                     };
                 });
+
+                // SELF-HEALING: Sync Metadata if count mismatches
+                // We do this in a timeout to avoid render-cycle updates and excessive writes
+                const realCount = Object.keys(profiles).length;
+                const metadataRef = ref(db, `simulation_server_metadata/${pin}`);
+                // Simple read-check-write pattern
+                setTimeout(() => {
+                    get(metadataRef).then(metaSnap => {
+                        if (metaSnap.exists()) {
+                            const meta = metaSnap.val();
+                            if (meta.playerCount !== realCount) {
+                                console.log("Fixing player count metadata...", realCount);
+                                update(metadataRef, { playerCount: realCount });
+                            }
+                        }
+                    });
+                }, 5000); // 5s debounce check
+
                 return { ...prev, players: partialPlayers };
             });
         });
@@ -207,10 +227,16 @@ export const SimulationHost: React.FC = () => {
     }, [pin, view]);
 
     const createRoom = async () => {
+        const name = prompt("Hva skal riket hete? (La stå tomt for automatisk navn)");
+        if (name === null) return; // Cancelled
+
         setIsLoading(true);
         const newPin = Math.floor(1000 + Math.random() * 9000).toString();
+        const serverName = name.trim() || `Rike #${newPin}`;
+
         const initialRoomState: SimulationRoom = {
             pin: newPin,
+            name: serverName,
             status: 'LOBBY',
             settings: 'feudal_europe',
             hostName: 'Admin',
@@ -663,32 +689,80 @@ export const SimulationHost: React.FC = () => {
                             <h1 className="text-5xl font-black text-white px-2 tracking-tighter">Simuleringshallen</h1>
                             <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px] mt-2 px-2">Sentralt kontrollpanel for administratoren</p>
                         </div>
-                        <button
-                            onClick={createRoom}
-                            disabled={isLoading}
-                            className="bg-indigo-600 hover:bg-indigo-500 text-white px-10 py-5 rounded-2xl font-black text-lg shadow-2xl shadow-indigo-600/30 transition-all hover:scale-105 active:scale-95"
-                        >
-                            + Opprett Nytt Rike
-                        </button>
+                        <div className="flex gap-4">
+                            <button
+                                onClick={async () => {
+                                    setIsLoading(true);
+                                    try {
+                                        const metaRef = ref(db, 'simulation_server_metadata');
+                                        const roomRef = ref(db, 'simulation_rooms');
+
+                                        const [metaSnap, roomSnap] = await Promise.all([get(metaRef), get(roomRef)]);
+                                        const metas = metaSnap.val() || {};
+                                        const rooms = roomSnap.val() || {};
+
+                                        let cleaned = 0;
+                                        const updates: any = {};
+
+                                        Object.keys(metas).forEach(pin => {
+                                            if (!rooms[pin]) {
+                                                updates[`simulation_server_metadata/${pin}`] = null;
+                                                cleaned++;
+                                            }
+                                        });
+
+                                        if (cleaned > 0) {
+                                            await update(ref(db), updates);
+                                            alert(`Ryddet opp ${cleaned} døde serverkoblinger!`);
+                                        } else {
+                                            alert("Alt ser ryddig ut! Ingen døde linker funnet.");
+                                        }
+
+                                    } catch (err) {
+                                        console.error(err);
+                                        alert("Kunne ikke rydde opp " + err);
+                                    } finally {
+                                        setIsLoading(false);
+                                    }
+                                }}
+                                disabled={isLoading}
+                                className="bg-slate-800 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 border border-slate-700 hover:border-rose-500/50 px-6 py-5 rounded-2xl font-black text-xs uppercase tracking-widest transition-all"
+                            >
+                                🧹 Vask Serverlisten
+                            </button>
+                            <button
+                                onClick={createRoom}
+                                disabled={isLoading}
+                                className="bg-indigo-600 hover:bg-indigo-500 text-white px-10 py-5 rounded-2xl font-black text-lg shadow-2xl shadow-indigo-600/30 transition-all hover:scale-105 active:scale-95"
+                            >
+                                + Opprett Nytt Rike
+                            </button>
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {allRooms.map(r => (
-                            <div key={r.pin} className="bg-slate-900/50 backdrop-blur-xl border border-white/5 p-8 rounded-[2.5rem] group hover:border-indigo-500/50 transition-all shadow-xl">
-                                <div className="flex justify-between items-start mb-6">
-                                    <div className="text-5xl font-mono font-black text-white group-hover:text-indigo-400 transition-colors">{r.pin}</div>
-                                    <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${r.status === 'PLAYING' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400'}`}>
-                                        {typeof r.status === 'string' ? r.status : 'KORRUPT'}
-                                    </span>
-                                </div>
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-center justify-between text-sm font-bold text-slate-500">
-                                        <span>Innbyggere:</span>
-                                        <span className="text-white">{Object.keys(r.players || {}).length} sjeler</span>
+                            <div key={r.pin} className="bg-slate-900/50 backdrop-blur-xl border border-white/5 p-8 rounded-[2.5rem] group hover:border-indigo-500/50 transition-all shadow-xl flex flex-col justify-between">
+                                <div>
+                                    <div className="flex justify-between items-start mb-2">
+                                        <h2 className="text-2xl font-black text-white group-hover:text-indigo-400 transition-colors truncate pr-4" title={(r as any).name || `Rike #${r.pin}`}>{(r as any).name || `Rike #${r.pin}`}</h2>
+                                        <span className={`px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest ${r.status === 'PLAYING' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400'} shrink-0`}>
+                                            {typeof r.status === 'string' ? r.status : 'KORRUPT'}
+                                        </span>
                                     </div>
-                                    <div className="flex items-center justify-between text-sm font-bold text-slate-500">
-                                        <span>Årstid:</span>
-                                        <span className="text-indigo-300">{(INITIAL_MARKET as any)[r.world?.season] || r.world?.season || 'Ukjent'}</span>
+                                    <div className="text-[10px] font-mono text-slate-600 mb-6 uppercase tracking-widest">
+                                        PIN: <span className="text-slate-400 font-bold">{r.pin}</span>
+                                    </div>
+
+                                    <div className="space-y-4 mb-8">
+                                        <div className="flex items-center justify-between text-sm font-bold text-slate-500">
+                                            <span>Innbyggere:</span>
+                                            <span className="text-white">{Object.keys(r.players || {}).length} sjeler</span>
+                                        </div>
+                                        <div className="flex items-center justify-between text-sm font-bold text-slate-500">
+                                            <span>Årstid:</span>
+                                            <span className="text-indigo-300">{(INITIAL_MARKET as any)[r.world?.season] || r.world?.season || 'Ukjent'}</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -719,15 +793,72 @@ export const SimulationHost: React.FC = () => {
     // DATA INTEGRITY CHECK (Non-blocking warning)
     const isCorrupted = typeof roomData.status !== 'string' || !roomData.world;
 
+    const repairData = async () => {
+        if (!window.confirm("Er du sikker? Dette vil regenerere 'public_profiles' basert på 'players'. Bruk kun hvis listen er tom.")) return;
+        setIsLoading(true);
+        try {
+            // Fetch ALL data (heavy, but necessary for repair)
+            const snapshot = await get(ref(db, `simulation_rooms/${pin}`));
+            if (!snapshot.exists()) return;
+            const data = snapshot.val();
+            const players = data.players || {};
+
+            const updates: any = {};
+
+            // Re-generate public profiles
+            Object.entries(players).forEach(([pid, p]: [string, any]) => {
+                updates[`simulation_rooms/${pin}/public_profiles/${pid}`] = {
+                    id: pid,
+                    uid: p.uid || null,
+                    name: p.name,
+                    role: p.role,
+                    regionId: p.regionId,
+                    stats: { level: p.stats?.level || 1 },
+                    status: {
+                        isJailed: p.status?.isJailed || false,
+                        isFrozen: p.status?.isFrozen || false,
+                        legitimacy: p.status?.legitimacy || 100
+                    },
+                    online: true,
+                    lastActive: p.lastActive || Date.now()
+                };
+            });
+
+            // Force status fix
+            if (!data.status) updates[`simulation_rooms/${pin}/status`] = 'LOBBY';
+            if (!data.world) {
+                updates[`simulation_rooms/${pin}/world`] = {
+                    year: 1100,
+                    season: 'Spring',
+                    weather: 'Clear',
+                    gameTick: 0,
+                    lastTickAt: Date.now(),
+                    taxRateDetails: { kingTax: 20 },
+                    settlement: {
+                        buildings: Object.entries(VILLAGE_BUILDINGS).reduce((acc, [id]: [string, any]) => ({
+                            ...acc,
+                            [id]: { id, level: 0, progress: {}, target: 200, contributions: {} }
+                        }), {}),
+                    }
+                };
+            }
+
+            await update(ref(db), updates);
+            alert("Data reparert! Profiler er synkronisert.");
+
+            // Also sync metadata
+            await syncServerMetadata(pin, { ...data, players } as any);
+
+        } catch (e) {
+            console.error(e);
+            alert("Reparasjon feilet: " + e);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <div className="fixed inset-0 top-0 bg-slate-950 text-slate-200 flex overflow-hidden font-sans selection:bg-indigo-500/30 z-20">
-            {/* Warning Banner */}
-            {isCorrupted && (
-                <div className="absolute top-0 inset-x-0 z-50 bg-rose-600 text-white px-4 py-2 text-center text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-4">
-                    <span>⚠ ADVARSEL: Dette rommet inneholder ugyldig data.</span>
-                    <button onClick={resetGame} className="bg-white text-rose-600 px-3 py-1 rounded hover:bg-slate-100 transition-colors">NULLSTILL NÅ</button>
-                </div>
-            )}
 
             {/* Atmosphere */}
             <div className="fixed inset-0 pointer-events-none opacity-20">
@@ -764,6 +895,13 @@ export const SimulationHost: React.FC = () => {
                         >
                             {roomData.isPublic ? <Globe size={14} /> : <Lock size={14} />}
                             {roomData.isPublic ? 'OFFENTLIG SERVER' : 'PRIVAT (KUN PIN)'}
+                        </button>
+                        <button
+                            onClick={repairData}
+                            disabled={isLoading}
+                            className="w-full py-3 rounded-xl font-black uppercase tracking-widest text-[10px] bg-amber-600/10 text-amber-500 hover:bg-amber-600 hover:text-white transition-all border border-amber-500/20"
+                        >
+                            🛠 REPARER DATA
                         </button>
                         <button
                             onClick={resetGame}
@@ -965,9 +1103,10 @@ export const SimulationHost: React.FC = () => {
                             </section>
 
                             {/* Settlement Progress */}
-                            {roomData.world.settlement && (
+                            {roomData.world?.settlement && (
                                 <section className="bg-indigo-900/10 border border-indigo-500/10 p-10 rounded-[3rem] relative overflow-hidden group">
                                     <div className="relative z-10">
+
                                         <h2 className="text-3xl font-black text-white mb-8 tracking-tighter flex items-center justify-between">
                                             Landsbyutvikling
                                             <span className="text-xs font-black uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-4 py-2 rounded-full">Status Rapport</span>
@@ -987,8 +1126,10 @@ export const SimulationHost: React.FC = () => {
                                                                 {Object.values(building.progress || {}).reduce((sum: number, val: any) => sum + (val as number), 0)} / {building.target || 200}
                                                             </span>
                                                         </div>
-                                                        <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-white/5">
-                                                            <div className={`h-full bg-indigo-500 transition-all duration-1000 shadow-[0_0_10px_rgba(99,102,241,0.5)]`} style={{ width: `${progress}%` }} />
+                                                        <div className="h-4 bg-black/40 rounded-full overflow-hidden border border-white/5 relative">
+                                                            <div className={`h-full bg-gradient-to-r from-indigo-600 to-indigo-400 transition-all duration-1000 shadow-[0_0_15px_rgba(99,102,241,0.6)] relative`} style={{ width: `${progress}%` }}>
+                                                                <div className="absolute inset-0 bg-white/20 animate-pulse" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 );
@@ -999,14 +1140,15 @@ export const SimulationHost: React.FC = () => {
                                 </section>
                             )}
                         </div>
-                    )}
-                </div>
-            </main>
+                    )
+                    }
+                </div >
+            </main >
 
             {/* RIGHT PANEL: INTELLIGENCE & FEED */}
-            <aside className="w-80 border-l border-white/10 bg-slate-900/50 backdrop-blur-xl flex flex-col z-20 shadow-2xl overflow-hidden">
+            < aside className="w-80 border-l border-white/10 bg-slate-900/50 backdrop-blur-xl flex flex-col z-20 shadow-2xl overflow-hidden" >
                 {/* Leaderboard */}
-                <div className="p-8 border-b border-white/5 bg-black/20 shrink-0">
+                < div className="p-8 border-b border-white/5 bg-black/20 shrink-0" >
                     <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500 mb-6 flex items-center justify-between">
                         Rikets Formue
                         <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(245,158,11,0.5)]" />
@@ -1027,10 +1169,10 @@ export const SimulationHost: React.FC = () => {
                         }
                         {Object.keys(roomData.players || {}).length === 0 && <p className="text-[10px] text-slate-600 font-bold italic text-center py-4">Ingen data tilgjengelig...</p>}
                     </div>
-                </div>
+                </div >
 
                 {/* Market Intelligence */}
-                <div className="p-8 border-b border-white/5 shrink-0">
+                < div className="p-8 border-b border-white/5 shrink-0" >
                     <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 mb-6">Markedsanalyse</h3>
                     <div className="grid grid-cols-2 gap-3">
                         {Object.entries(roomData.market || {}).slice(0, 4).map(([res, data]: [string, any]) => {
@@ -1049,10 +1191,10 @@ export const SimulationHost: React.FC = () => {
                             <div className="col-span-2 text-[10px] text-slate-600 font-bold italic text-center py-4">Ingen markedsdata...</div>
                         )}
                     </div>
-                </div>
+                </div >
 
                 {/* Live Activity Feed */}
-                <div className="flex-1 flex flex-col overflow-hidden">
+                < div className="flex-1 flex flex-col overflow-hidden" >
                     <div className="p-8 pb-4 shrink-0">
                         <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-rose-500 flex items-center gap-2">
                             <span className="w-2 h-2 bg-rose-600 rounded-full animate-pulse shadow-[0_0_10px_rgba(225,29,72,0.5)]" />
@@ -1074,11 +1216,11 @@ export const SimulationHost: React.FC = () => {
                             </div>
                         )}
                     </div>
-                </div>
-            </aside>
+                </div >
+            </aside >
 
             {/* Global Styles for custom scrollbar */}
-            <style dangerouslySetInnerHTML={{
+            < style dangerouslySetInnerHTML={{
                 __html: `
                 .custom-scrollbar::-webkit-scrollbar {
                     width: 4px;
@@ -1097,6 +1239,6 @@ export const SimulationHost: React.FC = () => {
                     display: none;
                 }
             `}} />
-        </div>
+        </div >
     );
 };
