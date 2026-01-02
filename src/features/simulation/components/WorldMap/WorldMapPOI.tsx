@@ -56,13 +56,19 @@ export const WorldMapPOI: React.FC<WorldMapPOIProps> = ({ viewMode, viewingRegio
                         <button
                             onClick={() => {
                                 // ULTRATHINK: Castle-specific logic
-                                // If castle is not built, clicking opens construction UI directly.
-                                // If built, it works as a hub.
+                                // If castle is not built and no ruler is assigned, clicking opens construction UI directly.
+                                // If built OR a ruler exists, it works as a hub.
                                 if (poi.id === 'castle') {
+                                    const playersArr = Object.values(room.players || {}) as SimulationPlayer[];
+                                    const hasRuler = playersArr.some(p =>
+                                        (p.role === 'BARON' && p.regionId === viewingRegionId) ||
+                                        (viewingRegionId === 'capital' && p.role === 'KING')
+                                    );
+
                                     const buildingId = viewingRegionId === 'capital' ? 'throne_room' : (viewingRegionId === 'region_ost' ? 'manor_ost' : 'manor_vest');
                                     const level = room.world?.settlement?.buildings?.[buildingId]?.level || 0;
 
-                                    if (level < 1) {
+                                    if (level < 1 && !hasRuler) {
                                         onPOIAction(poi.id, 'OPEN_CONSTRUCTION');
                                         return;
                                     }
@@ -80,7 +86,7 @@ export const WorldMapPOI: React.FC<WorldMapPOIProps> = ({ viewMode, viewingRegio
                                 {poi.icon}
                             </div>
                             <span className="bg-indigo-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mt-2 shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-indigo-600/30">
-                                {isResourceNode ? 'KLIKK FOR Å STARTE' : poi.label}
+                                {isResourceNode ? 'KLIKK FOR Å STARTE' : (poi.id === 'castle' ? 'GÅ INN' : poi.label)}
                             </span>
                         </button>
                     </motion.div>
