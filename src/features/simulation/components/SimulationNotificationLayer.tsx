@@ -136,15 +136,20 @@ export const SimulationNotificationLayer: React.FC<SimulationNotificationLayerPr
         }
 
         if (lastMsg.timestamp > prevActionLogRef.current) {
-            if (lastMsg.content.includes(player.name) && lastMsg.content.includes('Gave')) {
-                if (lastMsg.content.includes(`til ${player.name}`)) {
-                    addToast({
-                        id: `gift-${lastMsg.timestamp}`,
-                        title: 'Gave Mottatt!',
-                        message: lastMsg.content,
-                        type: 'GIFT'
-                    });
-                }
+            const content = lastMsg.content;
+
+            // Check for Gift format: "[GAVE] SenderName -> ReceiverName: Details"
+            if (content.startsWith('[GAVE]') && content.includes(`-> ${player.name}`)) {
+                const parts = content.split('->');
+                const senderName = parts[0].replace('[GAVE]', '').trim();
+                const details = content.split(':')[1]?.trim() || '';
+
+                addToast({
+                    id: `gift-${lastMsg.timestamp}`,
+                    title: `Gave fra ${senderName}`,
+                    message: `Du mottok: ${details}`,
+                    type: 'GIFT'
+                });
             }
             prevActionLogRef.current = lastMsg.timestamp;
         }

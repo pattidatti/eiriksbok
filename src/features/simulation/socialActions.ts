@@ -15,17 +15,22 @@ export const handleSendGift = async (pin: string, senderId: string, targetId: st
     const senderRef = ref(db, `simulation_rooms/${pin}/players/${senderId}`);
     const targetRef = ref(db, `simulation_rooms/${pin}/players/${targetId}`);
 
-    // Pre-flight check (Optional, but saves a write)
+    // Pre-flight check
     const senderSnap = await get(senderRef);
+    const targetSnapPre = await get(targetRef);
+
     if (!senderSnap.exists()) return { success: false, error: "Sender finnes ikke" };
+    if (!targetSnapPre.exists()) return { success: false, error: "Mottaker finnes ikke" };
+
     const sender = senderSnap.val() as SimulationPlayer;
+    const targetName = targetSnapPre.val().name;
 
     // 1. DEDUCT FROM SENDER
     let senderSuccess = false;
     let deductedDetails = "";
 
     await runTransaction(senderRef, (player) => {
-        if (!player) return;
+        if (player === null) return player;
         if (!player.resources) player.resources = {};
 
         // Check availability
@@ -47,22 +52,26 @@ export const handleSendGift = async (pin: string, senderId: string, targetId: st
     if (!senderSuccess) return { success: false, error: "Ikke nok ressurser til å sende gaven." };
 
     // 2. ADD TO TARGET
-    // If this fails, the resources are lost (Simulated "Courier robbery" or packet loss).
+    let targetSuccess = false;
     await runTransaction(targetRef, (player) => {
-        if (!player) return; // Should not happen if targetId valid
+        if (player === null) return player;
         if (!player.resources) player.resources = {};
 
         for (const [res, amount] of Object.entries(resources)) {
             player.resources[res as keyof Resources] = (player.resources[res as keyof Resources] || 0) + (amount as number);
         }
+        targetSuccess = true;
         return player;
     });
 
-    // 3. NOTIFY
-    // Get target name for log
-    const targetSnap = await get(targetRef);
-    const targetName = targetSnap.exists() ? targetSnap.val().name : "Ukjent";
+    if (!targetSuccess) {
+        // CRITICAL FAILURE: Sender deducted, Target failed.
+        // Attempt refund? For now, just log error.
+        console.error("CRITICAL: Gift transaction partial failure. Sender deducted but target failed.", senderId, targetId);
+        return { success: false, error: "Transaksjonsfeil: Gaven gikk tapt i posten (Mottaker utilgjengelig i skrivende stund)." };
+    }
 
+    // 3. NOTIFY
     const msg = `Sendte gave (${deductedDetails.slice(0, -2)}) til ${targetName}.`;
     logSimulationMessage(pin, `[GAVE] ${sender.name} -> ${targetName}: ${deductedDetails}`);
 
@@ -94,7 +103,7 @@ export const handleCreateTrade = async (pin: string, senderId: string, targetId:
     // 1. DEDUCT OFFER FROM SENDER (Escrow)
     let escrowSuccess = false;
     await runTransaction(senderRef, (player) => {
-        if (!player) return;
+        if (player === null) return player;
         for (const [res, amount] of Object.entries(offer)) {
             if ((player.resources?.[res as keyof Resources] || 0) < (amount as number)) return; // Abort
         }
@@ -151,7 +160,7 @@ export const handleRespondToTrade = async (pin: string, responderId: string, tra
         // REFUND SENDER
         const senderRef = ref(db, `simulation_rooms/${pin}/players/${trade.senderId}`);
         await runTransaction(senderRef, (player) => {
-            if (!player) return; // Player deleted? Resources lost.
+            if (player === null) return player; // Player deleted? Resources lost.
             if (!player.resources) player.resources = {};
             for (const [res, amount] of Object.entries(trade.offer)) {
                 player.resources[res as keyof Resources] = (player.resources[res as keyof Resources] || 0) + (amount as number);
@@ -170,7 +179,7 @@ export const handleRespondToTrade = async (pin: string, responderId: string, tra
         // 1. TRY TO DEDUCT DEMAND FROM RECEIVER
         let paymentSuccess = false;
         await runTransaction(receiverRef, (player) => {
-            if (!player) return;
+            if (player === null) return player;
             // Check affordability
             for (const [res, amount] of Object.entries(trade.demand)) {
                 if ((player.resources?.[res as keyof Resources] || 0) < (amount as number)) return;
@@ -192,7 +201,7 @@ export const handleRespondToTrade = async (pin: string, responderId: string, tra
         // 2. GIVE PAYMENT TO SENDER
         const senderRef = ref(db, `simulation_rooms/${pin}/players/${trade.senderId}`);
         await runTransaction(senderRef, (player) => {
-            if (!player) return;
+            if (player === null) return player;
             if (!player.resources) player.resources = {};
             // Receive demand
             for (const [res, amount] of Object.entries(trade.demand)) {
