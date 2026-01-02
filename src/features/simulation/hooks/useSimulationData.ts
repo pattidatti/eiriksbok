@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { ref, onValue, update } from 'firebase/database';
 import { simulationDb as db } from '../simulationFirebase';
-import type { SimulationPlayer, SimulationRoom } from '../simulationTypes';
+import type { SimulationPlayer, SimulationRoom, TradeOffer } from '../simulationTypes';
 import { useSimulationAuth } from '../SimulationAuthContext';
 import { getSeasonForTick, getYearForTick } from '../utils/timeUtils';
 
@@ -16,6 +16,7 @@ export function useSimulationData(pin: string | undefined, impersonateId: string
     const [messages, setMessages] = useState<string[]>([]);
     const [activeVote, setActiveVote] = useState<SimulationRoom['activeVote'] | null>(null);
     const [diplomacy, setDiplomacy] = useState<Record<string, any>>({});
+    const [trades, setTrades] = useState<Record<string, TradeOffer>>({});
     const [hasAttemptedPlayerLoad, setHasAttemptedPlayerLoad] = useState(false);
     const [hasActiveSession, setHasActiveSession] = useState(false);
     const [isRetired, setIsRetired] = useState(false);
@@ -107,6 +108,11 @@ export function useSimulationData(pin: string | undefined, impersonateId: string
             setDiplomacy(snap.val() || {});
         });
 
+        const tradesRef = ref(db, `${baseUrl}/trades`);
+        const unsubTrades = onValue(tradesRef, (snap) => {
+            setTrades(snap.val() || {});
+        });
+
         const profilesRef = ref(db, `${baseUrl}/public_profiles`);
         const unsubPlayers = onValue(profilesRef, (snap) => {
             const data = snap.val() || {};
@@ -122,6 +128,7 @@ export function useSimulationData(pin: string | undefined, impersonateId: string
             unsubVote();
             unsubDiplomacy();
             unsubPlayers();
+            unsubTrades();
         };
     }, [pin, impersonateId, user?.uid, authLoading, hasActiveSession]);
 
@@ -301,6 +308,7 @@ export function useSimulationData(pin: string | undefined, impersonateId: string
         messages,
         activeVote,
         diplomacy,
+        trades,
         hasAttemptedPlayerLoad,
         hasActiveSession,
         isRetired,

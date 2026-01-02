@@ -217,7 +217,7 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
             </AnimatePresence>
 
             {/* Notification Layer */}
-            <SimulationNotificationLayer player={player} room={room} onAction={onAction} />
+            <SimulationNotificationLayer player={player} room={room} onAction={onAction} pin={pin || ''} />
 
             <ActionResultOverlay
                 result={actionResult}

@@ -40,7 +40,7 @@ export const SimulationPlayer: React.FC = () => {
     }, [setHideHeader, setFullWidth]);
 
     const {
-        player, world, players, roomStatus, markets, messages, diplomacy, activeVote, worldEvents, hasAttemptedPlayerLoad, isRetired
+        player, world, players, roomStatus, markets, messages, diplomacy, activeVote, worldEvents, trades, hasAttemptedPlayerLoad, isRetired
     } = useSimulationData(pin, impersonateId) as any;
 
     const {
@@ -113,12 +113,13 @@ export const SimulationPlayer: React.FC = () => {
         markets: markets || {},
         market: Object.values(markets || {})[0] || {} as any, // Legacy support
         diplomacy: diplomacy || {},
+        trades: trades || {},
         activeVote,
         worldEvents: worldEvents || {},
         regions: {}, // Will be populated by logic if needed
         settings: 'feudal_europe',
         pin: pin || ''
-    }), [roomStatus, world, players, messages, markets, diplomacy, activeVote, worldEvents, pin]);
+    }), [roomStatus, world, players, messages, markets, diplomacy, activeVote, worldEvents, trades, pin]);
 
     if (authLoading || !hasAttemptedPlayerLoad) {
         return (
