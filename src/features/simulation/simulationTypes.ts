@@ -241,8 +241,30 @@ export interface DiplomacyMessage {
     timestamp: number;
 }
 
+export type TradeStatus = 'PENDING' | 'ACCEPTED' | 'REJECTED' | 'EXPIRED' | 'CANCELLED';
+
+export interface TradeOffer {
+    id: string;
+    senderId: string;
+    senderName: string;
+    receiverId: string; // Specific player
+    receiverName: string;
+    offer: Partial<Resources>; // What sender gives (Escrowed)
+    demand: Partial<Resources>; // What sender wants
+    status: TradeStatus;
+    createdAt: number;
+    expiresAt: number;
+}
+
 
 export type GameStatus = 'LOBBY' | 'PLAYING' | 'PAUSED' | 'FINISHED';
+
+export interface SimulationMessage {
+    id?: string;
+    content: string;
+    type?: string;
+    timestamp: number;
+}
 
 export interface SimulationRoom {
 
@@ -285,6 +307,7 @@ export interface SimulationRoom {
 
     worldEvents: Record<string, WorldEvent>;
     diplomacy: Record<string, DiplomacyMessage>;
+    trades?: Record<string, TradeOffer>;
     activeVote?: {
         lawId: string;
         title: string;
@@ -293,7 +316,7 @@ export interface SimulationRoom {
         expiresAt: number;
     };
 
-    messages: string[] | Record<string, string>;
+    messages: SimulationMessage[] | Record<string, SimulationMessage>;
     questionStartTime?: number; // reusing logic for sync
 }
 

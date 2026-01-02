@@ -1,7 +1,8 @@
 import React from 'react';
+import type { SimulationMessage } from '../simulationTypes';
 
 interface SimulationActivityProps {
-    messages: string[] | Record<string, string>;
+    messages: SimulationMessage[] | Record<string, SimulationMessage>;
 }
 
 export const SimulationActivity: React.FC<SimulationActivityProps> = React.memo(({ messages }) => {
@@ -9,10 +10,8 @@ export const SimulationActivity: React.FC<SimulationActivityProps> = React.memo(
     const messageList = React.useMemo(() => {
         if (!messages) return [];
         if (Array.isArray(messages)) return messages;
-        // If it's an object, convert to sorted array based on push ID keys
-        return Object.keys(messages)
-            .sort()
-            .map(key => (messages as Record<string, string>)[key]);
+        // If it's an object, convert to sorted array based on timestamp
+        return Object.values(messages).sort((a, b) => a.timestamp - b.timestamp);
     }, [messages]);
 
     return (
@@ -22,9 +21,10 @@ export const SimulationActivity: React.FC<SimulationActivityProps> = React.memo(
                 Live Hendelser
             </h2>
             <div className="space-y-4">
-                {messageList.slice().reverse().map((msg: string, idx: number) => (
-                    <div key={idx} className="bg-slate-800/40 border-l-4 border-indigo-500 p-6 rounded-r-3xl animate-in slide-in-from-right-4 duration-500 backdrop-blur-md border border-white/5 shadow-xl">
-                        <p className="text-lg font-medium leading-relaxed text-slate-200 antialiased font-serif italic">"{msg}"</p>
+                {messageList.slice().reverse().map((msg: SimulationMessage, idx: number) => (
+                    <div key={msg.id || idx} className="bg-slate-800/40 border-l-4 border-indigo-500 p-6 rounded-r-3xl animate-in slide-in-from-right-4 duration-500 backdrop-blur-md border border-white/5 shadow-xl">
+                        <p className="text-lg font-medium leading-relaxed text-slate-200 antialiased font-serif italic">"{msg.content}"</p>
+                        <span className="text-xs text-slate-500 font-mono mt-2 block">{new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                     </div>
                 ))}
                 {messageList.length === 0 && (

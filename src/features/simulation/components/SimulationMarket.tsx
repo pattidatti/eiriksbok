@@ -14,13 +14,14 @@ interface SimulationMarketProps {
     regions?: Record<string, any>;
     allMarkets?: Record<string, any>;
     onAction: (action: any) => void;
+    pin: string;
 }
 
 import { SimulationMapWindow } from './ui/SimulationMapWindow';
+import { handleCareerChange } from '../globalActions';
+import { GAME_BALANCE } from '../data/gameBalance';
 
-// ... imports ...
-
-export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ player, market, regions, allMarkets, onAction }) => {
+export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ player, market, regions, allMarkets, onAction, pin }) => {
 
     const { actionLoading, setActiveTab } = useSimulation();
 
@@ -40,6 +41,45 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ p
                         <ResourceIcon resource="gold" amount={player.resources?.gold} size="md" />
                     </div>
                 </div>
+
+                {/* CAREER: BECOME MERCHANT */}
+                {player.role === 'PEASANT' && (player.stats.level || 1) >= GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ && (
+                    <div className="bg-gradient-to-r from-emerald-900/40 to-indigo-900/40 border border-emerald-500/30 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <Ship size={120} />
+                        </div>
+                        <div className="relative z-10 flex items-center gap-4">
+                            <div className="w-16 h-16 bg-emerald-900/80 rounded-2xl flex items-center justify-center border border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                                <span className="text-3xl">📜</span>
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-black text-white uppercase tracking-wide">Handelsbrev</h3>
+                                <p className="text-emerald-200 text-sm max-w-sm">
+                                    Kjøp lisens til å drive internasjonal handel. Låser opp handelsruter og profittmuligheter.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="relative z-10 flex flex-col items-end gap-2">
+                            <div className="flex items-center gap-3">
+                                <div className={`text-xs font-bold uppercase tracking-wider ${player.resources?.gold >= GAME_BALANCE.CAREERS.MERCHANT.COST ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                    Pris: {GAME_BALANCE.CAREERS.MERCHANT.COST} Gull
+                                </div>
+                            </div>
+                            <GameButton
+                                variant="primary"
+                                onClick={() => {
+                                    if (window.confirm('Kjøpe Handelsbrev og bli Kjøpmann?')) {
+                                        handleCareerChange(pin, player.id, 'MERCHANT');
+                                    }
+                                }}
+                                disabled={player.resources?.gold < GAME_BALANCE.CAREERS.MERCHANT.COST || !!actionLoading}
+                                className="bg-emerald-600 hover:bg-emerald-500 border-emerald-400/50 min-w-[200px]"
+                            >
+                                BLI KJØPMANN
+                            </GameButton>
+                        </div>
+                    </div>
+                )}
 
                 {/* LOCAL MARKET GRID */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

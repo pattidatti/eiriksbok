@@ -20,9 +20,12 @@ interface SimulationProductionProps {
     player: SimulationPlayer;
     room: SimulationRoom;
     onAction: (action: any) => void;
+    pin: string;
 }
 
-export const SimulationProduction: React.FC<SimulationProductionProps> = React.memo(({ player, room, onAction }) => {
+import { handleCareerChange } from '../globalActions';
+
+export const SimulationProduction: React.FC<SimulationProductionProps> = React.memo(({ player, room, onAction, pin }) => {
 
     const { productionContext, setActiveTab, actionLoading } = useSimulation();
     const [viewMode, setViewMode] = useState<'PRODUCE' | 'REPAIR'>(productionContext?.initialView || 'PRODUCE');
@@ -176,6 +179,100 @@ export const SimulationProduction: React.FC<SimulationProductionProps> = React.m
         if (!selectedRepairSlot || !buildingId) return;
         onAction({ type: 'REPAIR', targetSlot: selectedRepairSlot, buildingId });
     };
+
+    // SPECIAL WATCHTOWER VIEW
+    if (buildingId === 'watchtower' && viewMode === 'PRODUCE') {
+        const isSoldier = player.role === 'SOLDIER';
+        const canEnlist = player.role === 'PEASANT' && (player.stats.level || 1) >= GAME_BALANCE.CAREERS.SOLDIER.LEVEL_REQ;
+        const enlistCost = GAME_BALANCE.CAREERS.SOLDIER.COST;
+
+        return (
+            <SimulationMapWindow
+                title="Vaktårn & Garnison"
+                icon="🏰"
+                onClose={() => setActiveTab('MAP')}
+                maxWidth="max-w-4xl"
+            >
+                <div className="py-8 space-y-8">
+                    {/* Header Image / vibe */}
+                    <div className="relative h-48 rounded-3xl overflow-hidden border border-white/10 group">
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1599619351208-3e6c839d6828?q=80&w=2672&auto=format&fit=crop')] bg-cover bg-center opacity-60 group-hover:scale-105 transition-transform duration-700"></div>
+                        <div className="absolute bottom-6 left-8 z-20">
+                            <h2 className="text-3xl font-black text-white italic tracking-tighter">FORSVAR LANDSBYEN</h2>
+                            <p className="text-slate-300 font-medium">Bli en del av eliten. Beskytt dine brødre.</p>
+                        </div>
+                    </div>
+
+                    {!isSoldier ? (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {/* Requirement Card */}
+                            <div className="bg-slate-900/50 p-6 rounded-3xl border border-white/5 flex flex-col justify-between">
+                                <div>
+                                    <h3 className="text-lg font-bold text-white mb-2">Krav for verving</h3>
+                                    <ul className="space-y-3">
+                                        <li className="flex items-center justify-between">
+                                            <span className="text-slate-400 text-sm">Nivå</span>
+                                            <span className={`font-bold ${player.stats.level >= GAME_BALANCE.CAREERS.SOLDIER.LEVEL_REQ ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                {player.stats.level}/{GAME_BALANCE.CAREERS.SOLDIER.LEVEL_REQ}
+                                            </span>
+                                        </li>
+                                        <li className="flex items-center justify-between">
+                                            <span className="text-slate-400 text-sm">Vervekostnad</span>
+                                            <span className={`font-bold ${player.resources.gold >= enlistCost ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                {enlistCost} Gull
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="mt-8 p-4 bg-amber-900/20 border border-amber-500/20 rounded-xl">
+                                    <p className="text-xs text-amber-200/80 italic text-center">
+                                        "Holdbarhet og ære er alt vi krever. Og litt gull til utstyr."
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Action Card */}
+                            <div className="bg-gradient-to-br from-indigo-900/40 to-slate-900/40 p-6 rounded-3xl border border-indigo-500/30 flex flex-col items-center justify-center text-center space-y-6">
+                                <div className="w-16 h-16 bg-indigo-500 rounded-full flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(99,102,241,0.4)] animate-pulse">
+                                    ⚔️
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-black text-white">VERV DEG NÅ</h3>
+                                    <p className="text-indigo-200 text-sm mt-1">Få tilgang til våpenkammer og patruljer.</p>
+                                </div>
+
+                                <GameButton
+                                    variant="primary"
+                                    size="lg"
+                                    className="w-full bg-indigo-600 hover:bg-indigo-500 border-indigo-400/50"
+                                    onClick={() => {
+                                        if (window.confirm('Verve deg som soldat? Du vil miste din bonde-status.')) {
+                                            handleCareerChange(pin, player.id, 'SOLDIER');
+                                        }
+                                    }}
+                                    disabled={!canEnlist || player.resources.gold < enlistCost || !!actionLoading}
+                                >
+                                    {player.resources.gold < enlistCost ? 'IKKE NOK GULL' : 'SIGNER KONTRAKT'}
+                                </GameButton>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="bg-slate-900/50 p-8 rounded-3xl border border-white/5 text-center space-y-4">
+                            <div className="w-20 h-20 bg-emerald-900/50 rounded-full flex items-center justify-center mx-auto text-4xl border border-emerald-500/30">
+                                🛡️
+                            </div>
+                            <h3 className="text-2xl font-black text-white">Du er i tjeneste</h3>
+                            <p className="text-slate-400 max-w-md mx-auto">
+                                Takk for din tjeneste, soldat. Bruk produksjonsfanen til å lage utstyr, eller patruljer landsbyen via Handlinger.
+                            </p>
+                            <GameButton variant="ghost" className="border-white/10" onClick={() => setActiveTab('MAP')}>Tilbake til tjeneste</GameButton>
+                        </div>
+                    )}
+                </div>
+            </SimulationMapWindow>
+        );
+    }
 
     return (
         <SimulationMapWindow

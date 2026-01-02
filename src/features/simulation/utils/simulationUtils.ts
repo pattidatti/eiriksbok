@@ -3,7 +3,7 @@ import { simulationDb as db } from '../simulationFirebase';
 import { GAME_BALANCE, SEASONS, WEATHER } from '../constants';
 import { ITEM_TEMPLATES } from '../data/items';
 import { getDayPart } from './timeUtils';
-import type { SkillType, Buff } from '../simulationTypes';
+import type { SkillType, Buff, SimulationMessage } from '../simulationTypes';
 
 /**
  * Logs a message to the simulation room, ensuring the message list is capped at 50 items.
@@ -13,19 +13,26 @@ export const logSimulationMessage = async (pin: string, message: string) => {
     const messagesRef = ref(db, `simulation_rooms/${pin}/messages`);
 
     await runTransaction(messagesRef, (currentMessages) => {
-        let newMessages: string[] = [];
+        let newMessages: SimulationMessage[] = [];
 
         if (Array.isArray(currentMessages)) {
-            newMessages = currentMessages;
+            newMessages = currentMessages as SimulationMessage[];
         } else if (currentMessages && typeof currentMessages === 'object') {
-            newMessages = Object.values(currentMessages);
+            newMessages = Object.values(currentMessages) as SimulationMessage[];
         }
 
-        newMessages.push(message);
+        const newMsg: SimulationMessage = {
+            id: `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+            content: message,
+            timestamp: Date.now(),
+            type: 'LOG'
+        };
+
+        newMessages.push(newMsg);
 
         // Cap at 50 messages
         if (newMessages.length > 50) {
-            newMessages = newMessages.slice(newMessages.length - 50);
+            newMessages = newMessages.sort((a, b) => a.timestamp - b.timestamp).slice(newMessages.length - 50);
         }
 
         return newMessages;

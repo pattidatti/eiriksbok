@@ -7,6 +7,7 @@ import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES, VILLAGE_BUILDINGS,
 import type { SimulationRoom } from './simulationTypes';
 import { Globe, Lock } from 'lucide-react';
 import { assignRoles, collectTaxes } from './gameLogic';
+import type { SimulationMessage } from './simulationTypes';
 
 // Define initial state at file level to be used by createRoom and repairData
 const generateInitialRoomState = (pin: string, name: string): SimulationRoom => ({
@@ -36,7 +37,7 @@ const generateInitialRoomState = (pin: string, name: string): SimulationRoom => 
     },
     players: {},
     public_profiles: {},
-    messages: [],
+    messages: [] as SimulationMessage[],
     regions: {},
     diplomacy: {},
     worldEvents: {},
@@ -404,10 +405,11 @@ export const SimulationHost: React.FC = () => {
     };
 
     // Helper to normalize messages
-    const getMessagesList = (msgs: string[] | Record<string, string> | undefined): string[] => {
+    // Helper to normalize messages
+    const getMessagesList = (msgs: SimulationMessage[] | Record<string, SimulationMessage> | undefined): SimulationMessage[] => {
         if (!msgs) return [];
         if (Array.isArray(msgs)) return msgs;
-        return Object.values(msgs);
+        return Object.values(msgs).sort((a, b) => a.timestamp - b.timestamp);
     };
 
     const nextSeason = async () => {
@@ -419,12 +421,17 @@ export const SimulationHost: React.FC = () => {
 
         setIsLoading(true);
         try {
-            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             const sLabel = (SEASONS as any)[nextSeasonVal]?.label || nextSeasonVal;
-            const msg = `[${timestamp}] 🌍 Årstiden har skiftet til ${sLabel}!`;
+            const msgContent = `🌍 Årstiden har skiftet til ${sLabel}!`;
+            const newMessage: SimulationMessage = {
+                id: `msg_${Date.now()}`,
+                content: msgContent,
+                timestamp: Date.now(),
+                type: 'SEASON_CHANGE'
+            };
 
-            const currentMessages = getMessagesList(roomData.messages);
-            const updatedMessages = [...currentMessages, msg].slice(-30);
+            const currentMessages = getMessagesList(roomData.messages as any);
+            const updatedMessages = [...currentMessages, newMessage].slice(-50);
 
             const updates: any = {};
             updates[`simulation_rooms/${pin}/world/season`] = nextSeasonVal;
@@ -446,13 +453,18 @@ export const SimulationHost: React.FC = () => {
         const nextWeather = weatherList[nextIdx];
 
         try {
-            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             const weatherMap: any = { Clear: 'Klart', Rain: 'Regn', Storm: 'Storm', Fog: 'Tåke' };
             const wLabel = weatherMap[nextWeather] || nextWeather;
-            const msg = `[${timestamp}] ☁️ Været har skiftet til ${wLabel}!`;
+            const msgContent = `☁️ Været har skiftet til ${wLabel}!`;
+            const newMessage: SimulationMessage = {
+                id: `msg_${Date.now()}`,
+                content: msgContent,
+                timestamp: Date.now(),
+                type: 'WEATHER_CHANGE'
+            };
 
-            const currentMessages = getMessagesList(roomData.messages);
-            const updatedMessages = [...currentMessages, msg].slice(-30);
+            const currentMessages = getMessagesList(roomData.messages as any);
+            const updatedMessages = [...currentMessages, newMessage].slice(-50);
 
             const updates: any = {};
             updates[`simulation_rooms/${pin}/world/weather`] = nextWeather;
@@ -478,11 +490,16 @@ export const SimulationHost: React.FC = () => {
 
         try {
             await update(ref(db, `simulation_rooms/${pin}`), { activeVote });
-            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            const msg = `[${timestamp}] ⚖️ TINGET ER SATT! Det skal stemmes over loven: "${law.label}"!`;
+            const msgContent = `⚖️ TINGET ER SATT! Det skal stemmes over loven: "${law.label}"!`;
+            const newMessage: SimulationMessage = {
+                id: `msg_${Date.now()}`,
+                content: msgContent,
+                timestamp: Date.now(),
+                type: 'VOTE_START'
+            };
 
-            const currentMessages = getMessagesList(roomData.messages);
-            const updatedMessages = [...currentMessages, msg].slice(-30);
+            const currentMessages = getMessagesList(roomData.messages as any);
+            const updatedMessages = [...currentMessages, newMessage].slice(-50);
 
             await update(ref(db, `simulation_rooms/${pin}`), { messages: updatedMessages });
 
@@ -502,24 +519,30 @@ export const SimulationHost: React.FC = () => {
         const yesVotes = votes.filter(v => v === 'YES').length;
         const noVotes = votes.filter(v => v === 'NO').length;
 
-        const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        let msg = '';
+        let msgContent = '';
         let activeLaws = roomData?.world.activeLaws || [];
 
         if (yesVotes > noVotes) {
-            msg = `[${timestamp}] ✅ LOVEN ER VEDTATT! "${voteData.title}" er nå gjeldende.`;
+            msgContent = `✅ LOVEN ER VEDTATT! "${voteData.title}" er nå gjeldende.`;
             activeLaws = [...activeLaws, lawId];
         } else {
-            msg = `[${timestamp}] ❌ LOVEN BLE FORKASTET. "${voteData.title}" ble nedstemt.`;
+            msgContent = `❌ LOVEN BLE FORKASTET. "${voteData.title}" ble nedstemt.`;
         }
+
+        const newMessage: SimulationMessage = {
+            id: `msg_${Date.now()}`,
+            content: msgContent,
+            timestamp: Date.now(),
+            type: 'VOTE_RESULT'
+        };
 
         try {
             await update(ref(db, `simulation_rooms/${pin}/world`), { activeLaws });
 
-            const currentMessages = getMessagesList(roomData?.messages);
+            const currentMessages = getMessagesList(roomData?.messages as any);
             await update(ref(db, `simulation_rooms/${pin}`), {
                 activeVote: null,
-                messages: [...currentMessages, msg].slice(-30)
+                messages: [...currentMessages, newMessage].slice(-50)
             });
         } catch (e) {
             console.error(e);
@@ -540,11 +563,17 @@ export const SimulationHost: React.FC = () => {
 
         try {
             await update(ref(db, `simulation_rooms/${pin}/worldEvents`), { [eventId]: newEvent });
-            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            const msg = `[${timestamp}] 🔔 HENDELSE: ${template.title}! Sjekk kartet!`;
+            const msgContent = `🔔 HENDELSE: ${template.title}! Sjekk kartet!`;
+            const newMessage: SimulationMessage = {
+                id: `msg_${Date.now()}`,
+                content: msgContent,
+                timestamp: Date.now(),
+                type: 'EVENT_SPAWN'
+            };
 
-            const currentMessages = getMessagesList(roomData.messages);
-            const updatedMessages = [...currentMessages, msg].slice(-30);
+
+            const currentMessages = getMessagesList(roomData.messages as any);
+            const updatedMessages = [...currentMessages, newMessage].slice(-50);
 
             await update(ref(db, `simulation_rooms/${pin}`), { messages: updatedMessages });
         } catch (e) {

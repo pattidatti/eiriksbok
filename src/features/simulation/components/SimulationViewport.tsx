@@ -31,6 +31,7 @@ interface SimulationViewportProps {
 }
 
 import { ActionResultOverlay } from './ActionResultOverlay';
+import { SimulationNotificationLayer } from './SimulationNotificationLayer';
 
 export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, room, pin, onAction, actionResult, onClearActionResult }) => {
     const { activeTab, setActiveTab, isMusicWindowOpen, setMusicWindowOpen } = useSimulation();
@@ -84,7 +85,7 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
 
                         {activeTab === 'PRODUCTION' && (
                             <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-auto md:max-h-[85vh] overflow-hidden">
-                                <SimulationProduction player={player} room={room} onAction={onAction} />
+                                <SimulationProduction player={player} room={room} onAction={onAction} pin={pin || ''} />
                             </div>
                         )}
 
@@ -96,6 +97,7 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                                     regions={room.regions}
                                     allMarkets={room.markets}
                                     onAction={onAction}
+                                    pin={pin || ''}
                                 />
                             </div>
                         )}
@@ -125,6 +127,7 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                                     currentPlayer={player}
                                     regions={room.regions}
                                     onAction={onAction}
+                                    pin={pin || ''}
                                 />
                             </div>
                         )}
@@ -212,6 +215,9 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                     <SimulationMusicWindow onClose={() => setMusicWindowOpen(false)} />
                 )}
             </AnimatePresence>
+
+            {/* Notification Layer */}
+            <SimulationNotificationLayer player={player} room={room} onAction={onAction} />
 
             <ActionResultOverlay
                 result={actionResult}

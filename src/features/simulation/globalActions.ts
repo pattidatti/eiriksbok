@@ -309,3 +309,42 @@ export const handleGlobalTax = async (pin: string, playerId: string, _action: an
         }
     };
 };
+
+/* --- CAREER HANDLER --- */
+export const handleCareerChange = async (pin: string, playerId: string, newRole: import('./simulationTypes').Role) => {
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
+
+    // Pre-flight check
+    const playerSnap = await get(playerRef);
+    if (!playerSnap.exists()) return { success: false, error: "Fant ikke spilleren." };
+    const player = playerSnap.val() as SimulationPlayer;
+
+    if (player.role !== 'PEASANT') return { success: false, error: "Du har alt en karriere." };
+    if (newRole !== 'SOLDIER' && newRole !== 'MERCHANT') return { success: false, error: "Ugyldig karrierevalg." };
+
+    const reqs = GAME_BALANCE.CAREERS[newRole];
+    if (player.stats.level < reqs.LEVEL_REQ) return { success: false, error: `Du må være level ${reqs.LEVEL_REQ} for å bli ${newRole === 'SOLDIER' ? 'Soldat' : 'Kjøpmann'}.` };
+    if ((player.resources.gold || 0) < reqs.COST) return { success: false, error: `Du mangler ${(reqs.COST - (player.resources.gold || 0))} gull.` };
+
+    let success = false;
+    await runTransaction(playerRef, (p) => {
+        if (!p) return;
+        if (p.resources.gold < reqs.COST) return; // Re-check inside transaction lock
+
+        // PAY
+        p.resources.gold -= reqs.COST;
+        // CHANGE ROLE
+        p.role = newRole;
+        // Set default equipment/stats for new role? Optional, but role is enough for now.
+
+        success = true;
+        return p;
+    });
+
+    if (success) {
+        logSimulationMessage(pin, `[KARRIERE] ${player.name} er nå en ${newRole}!`);
+        return { success: true, message: `Gratulerer! Du er nå en ${newRole === 'SOLDIER' ? 'Soldat' : 'Kjøpmann'}.` };
+    } else {
+        return { success: false, error: "Transaksjon feilet." };
+    }
+};

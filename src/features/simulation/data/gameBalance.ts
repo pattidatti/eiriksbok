@@ -9,6 +9,10 @@ export const GAME_BALANCE = {
         MAX_PRICE_MULTIPLIER: 5.0,
         VISCOSITY: 100
     },
+    CAREERS: {
+        SOLDIER: { COST: 200, LEVEL_REQ: 3 },
+        MERCHANT: { COST: 500, LEVEL_REQ: 3 }
+    },
     TAX: {
         PEASANT_RATE_DEFAULT: 0.15,
         PEASANT_RATE_CUT: 0.07,
@@ -147,4 +151,27 @@ export const REPAIR_CONFIG: Record<string, { material: ResourceType, goldCost: n
         staminaCost: 10,
         slots: ['OFF_HAND', 'MAIN_HAND']
     }
+};
+
+export const ACTION_ICONS: Record<string, string> = {
+    GOLD: '🪙',
+    GRAIN: '🌾',
+    WOOD: '🪵',
+    IRON_ORE: '🪨',
+    STONE: '🪨',
+    PLANK: '🪵',
+    IRON_INGOT: '🧱',
+    BREAD: '🍞',
+    SWORDS: '⚔️',
+    ARMOR: '🛡️',
+    CLOTH: '🧵',
+    WOOL: '🧶',
+    MEAT: '🥩',
+    HONEY: '🍯',
+    GLASS: '🥃',
+    FLOUR: '🥡',
+    EGG: '🥚',
+    OMELETTE: '🍳',
+    MANPOWER: '💪',
+    FAVOR: '🙏'
 };
