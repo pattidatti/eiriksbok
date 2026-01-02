@@ -57,12 +57,10 @@ export const SimulationPlayer: React.FC = () => {
             const roomRef = ref(db, `simulation_rooms/${pin}`);
             const playerId = impersonateId || user.uid;
 
-            let regionId = 'unassigned';
+            // Simple Logic for region assignment
+            let regionId = (Math.random() > 0.5 ? 'region_ost' : 'region_vest');
             if (role === 'BARON') regionId = `region_${playerId}`;
             else if (role === 'KING') regionId = 'capital';
-            else if (pin === 'TEST') {
-                regionId = Math.random() > 0.5 ? 'region_east' : 'region_west';
-            }
 
             const newPlayer: SimPlayer = {
                 id: playerId,

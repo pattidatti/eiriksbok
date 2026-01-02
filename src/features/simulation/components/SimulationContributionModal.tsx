@@ -12,22 +12,39 @@ interface SimulationContributionModalProps {
 }
 
 export const SimulationContributionModal: React.FC<SimulationContributionModalProps> = ({ player, room, onAction, onClose, viewingRegionId }) => {
-    // Determine which project to show based on region
-    const projectsInRegion = viewingRegionId === 'capital'
-        ? ['throne_room']
+    // Determine which project to show based on region and role
+    // ULTRATHINK: Barons and Kings should always prioritize the Throne Room at the world capital
+    const projectsInRegion = (viewingRegionId === 'capital' || player.role === 'BARON' || player.role === 'KING')
+        ? ['throne_room', 'manor_ost', 'manor_vest']
         : viewingRegionId === 'region_ost'
             ? ['manor_ost']
             : ['manor_vest'];
 
-    const [selectedProjectId] = useState(projectsInRegion[0]);
-    const project = room.world?.settlement?.buildings?.[selectedProjectId];
-    const projectDef = VILLAGE_BUILDINGS[selectedProjectId];
+    const [selectedProjectId, setSelectedProjectId] = useState(projectsInRegion[0]);
+
+    // ULTRATHINK: Check if buildings exist in this room. If not, the room might be legacy or corrupted.
+    const buildings = room.world?.settlement?.buildings || {};
+    const availableProjects = projectsInRegion.filter(id => buildings[id]);
+
+    // Fallback if the selected project isn't available in the room data
+    const activeProjectId = availableProjects.includes(selectedProjectId)
+        ? selectedProjectId
+        : (availableProjects[0] || selectedProjectId);
+
+    const project = buildings[activeProjectId];
+    const projectDef = VILLAGE_BUILDINGS[activeProjectId];
 
     if (!project || !projectDef) {
         return (
-            <SimulationMapWindow title="Vakuum" onClose={onClose}>
-                <div className="flex flex-col items-center justify-center h-64 text-slate-400 italic">
-                    <p>Ingen aktive prosjekter i dette området.</p>
+            <SimulationMapWindow title="Gjenoppbygging" onClose={onClose}>
+                <div className="flex flex-col items-center justify-center h-96 text-center p-12">
+                    <div className="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center mb-6 text-2xl opacity-50">🏗️</div>
+                    <h3 className="text-xl font-black text-white italic mb-2">Ingen aktive byggeprosjekter</h3>
+                    <p className="text-slate-500 text-sm max-w-xs">
+                        Det er ingen storslåtte prosjekter i dette området som krever din hjelp akkurat nå.
+                        Prøv å dra til hovedstaden eller et av baroniene.
+                    </p>
+                    <button onClick={onClose} className="mt-8 px-8 py-3 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-400">Lukk vindu</button>
                 </div>
             </SimulationMapWindow>
         );
@@ -47,7 +64,7 @@ export const SimulationContributionModal: React.FC<SimulationContributionModalPr
     const overallProgress = totalReq > 0 ? (totalMet / totalReq) * 100 : 0;
 
     const handleContribute = (resource: string, amount: number) => {
-        onAction({ type: 'CONTRIBUTE', buildingId: selectedProjectId, resource, amount });
+        onAction({ type: 'CONTRIBUTE', buildingId: activeProjectId, resource, amount });
     };
 
     // Leaderboard
@@ -59,6 +76,21 @@ export const SimulationContributionModal: React.FC<SimulationContributionModalPr
     return (
         <SimulationMapWindow title="Gjenoppbygging & Lederskap" onClose={onClose}>
             <div className="max-h-[70vh] overflow-y-auto custom-scrollbar p-1">
+                {/* Project Selection Tabs */}
+                {availableProjects.length > 1 && (
+                    <div className="flex gap-2 mb-6 bg-slate-900/50 p-1.5 rounded-2xl border border-white/5 w-fit">
+                        {availableProjects.map(id => (
+                            <button
+                                key={id}
+                                onClick={() => setSelectedProjectId(id)}
+                                className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeProjectId === id ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
+                            >
+                                {VILLAGE_BUILDINGS[id]?.name || id}
+                            </button>
+                        ))}
+                    </div>
+                )}
+
                 {/* Header Feature */}
                 <div className="relative h-48 rounded-3xl overflow-hidden mb-8 group border border-white/5">
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent z-10" />

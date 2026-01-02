@@ -10,8 +10,8 @@ interface WorldMapKingdomPinsProps {
 
 export const WorldMapKingdomPins: React.FC<WorldMapKingdomPinsProps> = ({ players, setViewingRegionId, setViewMode }) => {
     const playersArr = Object.values(players || {});
-    const baronVest = playersArr.find(p => p.role === 'BARON' && p.regionId === 'region_vest');
-    const baronOst = playersArr.find(p => p.role === 'BARON' && p.regionId === 'region_ost');
+    const baronVest = playersArr.find(p => p.role === 'BARON' && (p.regionId === 'region_vest' || p.regionId?.includes('vest')));
+    const baronOst = playersArr.find(p => p.role === 'BARON' && (p.regionId === 'region_ost' || p.regionId?.includes('ost')));
 
     return (
         <>

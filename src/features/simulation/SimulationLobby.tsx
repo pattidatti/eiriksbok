@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { simulationDb as db } from './simulationFirebase';
-import { ref, get, update, child } from 'firebase/database';
+import { ref, get, update, child, set } from 'firebase/database';
 import { useLayout } from '../../context/LayoutContext';
 
 import { INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT } from './constants';
@@ -10,6 +10,7 @@ import { useSimulationAuth } from './SimulationAuthContext';
 import { SimulationServerBrowser } from './SimulationServerBrowser';
 import { Globe, Hash, User as UserIcon, Shield, ChevronRight, Trophy, Star, Edit2, Lock, ArrowRight } from 'lucide-react';
 import { SimulationAuthModal } from './SimulationAuthModal';
+import { generateInitialRoomState, syncServerMetadata } from './logic/roomInit';
 
 export const SimulationLobby: React.FC = () => {
     const [pin, setPin] = useState('');
@@ -83,11 +84,28 @@ export const SimulationLobby: React.FC = () => {
             if (!playerSnapshot.exists()) {
                 const role: Role = cleanPin === 'TEST' ? selectedRole : 'PEASANT';
 
+                // Initial room setup for TEST rooms if they don't exist
+                if (cleanPin === 'TEST' && !snapshot.exists()) {
+                    const initialRoom = generateInitialRoomState('TEST', 'Test-Riket');
+                    await set(roomRef, initialRoom);
+                    await syncServerMetadata('TEST', initialRoom);
+                }
+
                 // Simple Logic for region assignment
                 let regionId = Math.random() > 0.5 ? 'region_ost' : 'region_vest';
 
-                if (role === 'BARON') regionId = `region_${playerId}`;
-                else if (role === 'KING') regionId = 'capital';
+                if (role === 'BARON') {
+                    const roomData = snapshot.val() || {};
+                    const players = Object.values(roomData.players || {}) as SimulationPlayer[];
+                    const hasVest = players.some(p => p.role === 'BARON' && p.regionId === 'region_vest');
+                    const hasOst = players.some(p => p.role === 'BARON' && p.regionId === 'region_ost');
+
+                    if (!hasVest) regionId = 'region_vest';
+                    else if (!hasOst) regionId = 'region_ost';
+                    else regionId = `region_${playerId}`; // Fallback to custom region if both main spots taken
+                } else if (role === 'KING') {
+                    regionId = 'capital';
+                }
 
                 const newPlayer: SimulationPlayer = {
                     id: playerId,
