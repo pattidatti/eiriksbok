@@ -81,8 +81,20 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                         <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                     </div>
                 }>
-                    {/* LAYER 1: UI Overlays (Absolute positioning on top of Map) */}
-                    <div className="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-center">
+                    {/* LAYER 0.5: SIEGE ENGINE BACKGROUND (If Siege Active) */}
+                    {/* This ensures we don't lose context when opening Inventory/Skills/etc during a siege */}
+                    {room.regions[player.regionId || '']?.activeSiege && (activeTab === 'SIEGE' || isOverlayTab) && (
+                        <div className={`absolute inset-0 z-10 ${activeTab !== 'SIEGE' ? 'opacity-20 pointer-events-none blur-sm grayscale' : ''}`}>
+                            <SiegeEngine
+                                player={player}
+                                siege={room.regions[player.regionId || ''].activeSiege!}
+                                onAction={onAction}
+                            />
+                        </div>
+                    )}
+
+                    {/* LAYER 1: UI Overlays (Absolute positioning on top of Map/Siege) */}
+                    <div className="absolute inset-0 z-20 pointer-events-none flex flex-col items-center justify-center">
 
                         {activeTab === 'PRODUCTION' && (
                             <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-auto md:max-h-[85vh] overflow-hidden">
@@ -104,19 +116,23 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                         )}
 
                         {activeTab === 'INVENTORY' && (
-                            <div className="pointer-events-auto w-full h-full md:max-w-3xl md:h-[80vh] overflow-hidden">
+                            <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-[80vh] overflow-hidden">
+                                {/* Assuming SimulationVault is Inventory. If not, we might need a specific component, but standard is Vault=Inventory in this codebase context usually? 
+                                    Wait, imports show SimulationVault. Let's assume this is correct or check imports.
+                                    Imports: SimulationVault.
+                                */}
                                 <SimulationVault player={player} onAction={onAction} />
                             </div>
                         )}
 
                         {activeTab === 'SKILLS' && (
-                            <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-auto overflow-hidden">
+                            <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-[80vh] overflow-hidden">
                                 <SimulationSkills player={player} />
                             </div>
                         )}
 
                         {activeTab === 'DIPLOMACY' && (
-                            <div className="pointer-events-auto w-full h-full md:max-w-6xl md:h-[90vh] overflow-hidden">
+                            <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-[85vh] overflow-hidden">
                                 <SimulationDiplomacy player={player} diplomacy={room.diplomacy} pin={pin || ''} />
                             </div>
                         )}

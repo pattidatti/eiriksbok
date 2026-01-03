@@ -80,13 +80,15 @@ export const handleJoinSiege = (ctx: ActionContext) => {
     // TODO: Let Baron/Soldiers join as Defenders
     const isDefender = room.regions[regionId].rulerName === actor.name; // Simple check
 
+    const initialStats = { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
+
     if (isDefender) {
         if (!siege.defenders) siege.defenders = {};
-        siege.defenders[actor.id] = { lane: 1, hp: 100, name: actor.name };
+        siege.defenders[actor.id] = { lane: 1, hp: 100, name: actor.name, stats: initialStats };
         localResult.message = "Du forsvarer murene!";
     } else {
         if (!siege.attackers) siege.attackers = {};
-        siege.attackers[actor.id] = { lane: 1, hp: 100, name: actor.name };
+        siege.attackers[actor.id] = { lane: 1, hp: 100, name: actor.name, stats: initialStats };
         localResult.message = "Du har sluttet deg til beleiringen!";
     }
 
@@ -101,7 +103,9 @@ export const handleSiegeAction = (ctx: ActionContext) => {
     if (!regionId || !room.regions[regionId]?.activeSiege) return false;
 
     const siege = room.regions[regionId].activeSiege as any; // Cast for custom props
-    const participant = siege.attackers[actor.id] || siege.defenders[actor.id];
+    const attackers = siege.attackers || {};
+    const defenders = siege.defenders || {};
+    const participant = attackers[actor.id] || defenders[actor.id];
 
     if (!participant) return false;
 
@@ -111,6 +115,10 @@ export const handleSiegeAction = (ctx: ActionContext) => {
             // Requirement: Must have Sword (or use fists for tiny damage)
             // Simplified: Base Dmg 10.
             siege.gateHp = Math.max(0, (siege.gateHp || GATE_MAX_HP) - BREACH_DAMAGE);
+
+            // Stats
+            participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
+            participant.stats.damageDealt += BREACH_DAMAGE;
 
             // FX: "Clang!"
             localResult.message = `Angrep porten! Portens HP: ${siege.gateHp}`;
@@ -153,6 +161,10 @@ export const handleSiegeAction = (ctx: ActionContext) => {
 
         if (action.subType === 'ATTACK_BOSS') {
             s.bossHp -= 25; // Base dmg
+            // Stats
+            participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
+            participant.stats.damageDealt += 25;
+
             localResult.message = `Angrep Bossen! HP: ${s.bossHp}`;
             // Fallthrough to tick check
         }
@@ -166,6 +178,10 @@ export const handleSiegeAction = (ctx: ActionContext) => {
             // "Damage" them (visual message for now, or reduce HP)
             if (participant.lane === hitLane) {
                 participant.hp -= 20;
+                // Stats
+                participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
+                participant.stats.damageTaken += 20;
+
                 localResult.message += " AU! Bossen traff deg!";
             }
 
@@ -202,66 +218,151 @@ export const handleSiegeAction = (ctx: ActionContext) => {
         return true;
     }
 
-    // --- PHASE 3: THRONE ROOM (Plunder vs Usurp) ---
-    if (siege.phase === 'THRONE_ROOM') {
-        const t = siege.throne;
-        if (!t) return false;
+    // --- PHASE 3: THRONE ROOM (Hotseat) ---
+    if (siege.phase === 'THRONE_ROOM' || (siege.phase as string) === 'THRONE') {
+        let t = siege.throne;
 
-        // 1. PLUNDER
-        if (action.subType === 'PLUNDER') {
-            if (t.plundered) {
-                localResult.message = "Skattekammeret er allerede tømt!";
+        // Lazy Init / Schema Update for Hotseat
+        if (!t || t.usurperId === undefined) {
+            const defenderId = room.regions[regionId].rulerId;
+            const defender = room.players[defenderId || ''];
+            const isOnline = defender && (Date.now() - (defender.lastActive || 0) < 60000);
+
+            // Preserve existing occupation if any
+            const existingOcc = t?.occupation || 0;
+
+            t = {
+                mode: isOnline ? 'PVP' : 'PVE',
+                occupation: existingOcc,
+                plundered: t?.plundered || false,
+                bossHp: 0, // Not used in Hotseat
+                maxBossHp: 0,
+                defendingPlayerId: defenderId,
+                usurperId: null,
+                usurperName: null,
+                usurperArmor: 0,
+                lastTick: Date.now(),
+                drainRate: 1
+            };
+            siege.throne = t;
+        }
+
+        // --- TICK LOGIC (Pseudo-tick triggered by actions) ---
+        const now = Date.now();
+        if (t.usurperId && now - (t.lastTick || 0) > 1000) {
+            const deltaSeconds = Math.floor((now - (t.lastTick || 0)) / 1000);
+
+            // 1. Drain Armor
+            const drain = (t.drainRate || 1) * deltaSeconds;
+            t.usurperArmor = Math.max(0, (t.usurperArmor || 0) - drain);
+
+            // 2. Increase Occupation
+            t.occupation = Math.min(100, (t.occupation || 0) + (1 * deltaSeconds));
+
+            // 3. Track Stats (Ticks on Throne)
+            const usurperPart = (attackers[t.usurperId] || defenders[t.usurperId]);
+            if (usurperPart) {
+                usurperPart.stats = usurperPart.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
+                usurperPart.stats.ticksOnThrone += deltaSeconds;
+            }
+
+            // 4. Update Tick
+            t.lastTick = now;
+
+            // 5. Check Ejection
+            if (t.usurperArmor <= 0) {
+                t.usurperId = null;
+                t.usurperName = null;
+                t.usurperArmor = 0;
+                localResult.message = "Troneroceren har falt! Tronen er ledig!";
+                // Don't return yet, allow specific action to process
+            } else if (t.occupation >= 100) {
+                // VICTORY!
+                delete room.regions[regionId].activeSiege;
+                const region = room.regions[regionId];
+                if (region.coup) {
+                    region.coup.bribeProgress = 100;
+                }
+                localResult.message = `👑 ${t.usurperName} HAR TATT TRONEN!`;
+                return true;
+            }
+        } else if (!t.usurperId) {
+            // Decay occupation if nobody on throne? Or stay static? 
+            // Design doc didn't specify decay. Static for now.
+            t.lastTick = now; // Keep tick fresh
+        }
+
+        // --- PLAYER ACTIONS ---
+
+        // 1. CLAIM THRONE
+        if (action.subType === 'CLAIM_THRONE') {
+            if (t.usurperId) {
+                localResult.message = "Tronen er allerede opptatt!";
+                return false;
+            }
+            // Cost: 1 Armor
+            const currentArmor = actor.resources.armor || 0;
+            if (currentArmor < 1) {
+                localResult.message = "Du trenger minst 1 Rustning (Armor) for å ta tronen!";
                 return false;
             }
 
-            // Logic: Steal 50% of Region Treasury (Mocked as finding 500 Gold for now, need Region Treasury Ref)
-            // Ideally: const treasury = region.treasury;
-            const lootAmount = 500;
+            actor.resources.armor = currentArmor - 1;
+            t.usurperId = actor.id;
+            t.usurperName = actor.name;
+            t.usurperArmor = 1; // Starts with 1 durability
+            t.lastTick = Date.now();
+            t.drainRate = 1; // Reset drain rate
 
-            actor.resources.gold = (actor.resources.gold || 0) + lootAmount;
+            // Stats
+            participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
+            participant.stats.armorDonated += 1; // Count self-claim as donation? Discussable, but fair.
+            t.usurperArmor = 10;
+            t.lastTick = Date.now();
+            t.drainRate = 1;
+
+            localResult.message = `${actor.name} KREVDE TRONEN! ("Jeg er kapteinen nå")`;
+            return true;
+        }
+
+        // DONATE ARMOR (Support)
+        if (action.subType === 'DONATE_ARMOR') {
+            if (!t.usurperId) return { success: false, message: "Ingen på tronen å støtte!" };
+            if (t.usurperId === actor.id) return { success: false, message: "Du kan ikke donere til deg selv!" };
+
+            t.usurperArmor = (t.usurperArmor || 0) + 1;
+
+            participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
+            participant.stats.armorDonated += 1;
+
+            localResult.message = `${actor.name} donerte rustning til ${t.usurperName}!`;
+            return true;
+        }
+
+        // SUNDER ARMOR (Defend/Attack)
+        if (action.subType === 'SUNDER_ARMOR') {
+            if (!t.usurperId) return { success: false, message: "Tronen er tom! Ingen å angripe!" };
+
+            t.usurperArmor = Math.max(0, (t.usurperArmor || 0) - 1);
+
+            participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
+            participant.stats.damageDealt += 1;
+
+            localResult.message = `${actor.name} knuste rustningen til ${t.usurperName}!`;
+            return true;
+        }
+
+        // PLUNDER (Alternative)
+        if (action.subType === 'PLUNDER') {
+            if (t.plundered) return { success: false, message: "Skattekammeret er allerede tømt!" };
+            if (t.usurperId === actor.id) return { success: false, message: "Du sitter på tronen! Ikke plyndre ditt eget slott!" };
+
             t.plundered = true;
 
-            // End Siege? Or just let them leave?
-            // "Plunder ends the siege" per design
-            delete room.regions[regionId].activeSiege;
+            // Give Gold
+            actor.resources.gold = (actor.resources.gold || 0) + 500;
 
-            localResult.message = `💰 Du stjal ${lootAmount} gull og flyktet fra borgen! Beleiringen er over.`;
-            // TODO: Log history event
-            return true;
-        }
-
-        // 2. USURP (King of the Hill)
-        if (action.subType === 'USURP') {
-            // "Stand on the point"
-            t.occupation += 5; // +5% per click/action tick
-            localResult.message = `Du sikrer tronen! Okkupasjon: ${t.occupation}%`;
-
-            // Victory Condition
-            if (t.occupation >= 100) {
-                // USURPER WINS!
-                // 1. End Siege
-                delete room.regions[regionId].activeSiege;
-
-                // 2. Transfer Power logic (mocked event for now)
-                // region.rulerId = actor.id;
-                // region.rulerName = actor.name;
-                // But wait, coup system usually handles this.
-                // For now, let's just trigger a massive Bribe Boost as per design.
-                const region = room.regions[regionId];
-                if (region.coup) {
-                    region.coup.bribeProgress = 100; // Instant Claim Ready
-                }
-
-                localResult.message = "👑 DU HAR TATT TRONEN! Regionen er din å kreve!";
-            }
-            return true;
-        }
-
-        // 3. DEFEND (Baron/Steward)
-        if (action.subType === 'DEFEND_THRONE') {
-            // Push back occupation
-            t.occupation = Math.max(0, t.occupation - 10);
-            localResult.message = "Du presser angriperne tilbake!";
+            localResult.message = `${actor.name} plyndret 500 gull og stakk av! (Grådigpinn)`;
             return true;
         }
 
