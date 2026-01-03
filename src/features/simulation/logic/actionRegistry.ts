@@ -2,7 +2,8 @@ import type { ActionRegistry } from './actionTypes';
 import { handleWork, handleChop, handleMiningAction, handleForage, handleHunt, handleGatherWool, handleGatherHoney, handlePlant, handleHarvest, handleFeedChickens, handleCollectEggs, handleMaintainCrop } from './handlers/GatheringHandlers';
 import { handleCraft, handleRefine, handleRepair } from './handlers/CraftingHandlers';
 import { handleEquipItem, handleUnequipItem } from './handlers/InventoryHandlers';
-import { handleTax, handleDraft, handleDecree, handleContribute, handleUpgradeBuilding, handleUpgrade, handleJoinRole } from './handlers/ManagementHandlers';
+import { handleTax, handleDraft, handleDecree, handleContribute, handleUpgradeBuilding, handleUpgrade, handleJoinRole, handleReinforceGarrison, handleRepairWalls, handleSetTax } from './handlers/ManagementHandlers';
+import { handleStartSiege, handleJoinSiege, handleSiegeAction } from './handlers/SiegeHandlers';
 import { handleRaid, handlePatrol } from './handlers/CombatHandlers';
 import { handleBuy, handleSell, handleTradeRoute } from './handlers/MarketHandlers';
 import { handleSleep, handleRest, handlePray, handleChat, handleGamble, handleBuyMeal, handleRetire, handleConsume } from './handlers/SocialRestHandlers';
@@ -44,6 +45,14 @@ export const ACTION_REGISTRY: ActionRegistry = {
     UPGRADE_BUILDING: handleUpgradeBuilding,
     UPGRADE: handleUpgrade,
     JOIN_ROLE: handleJoinRole,
+    REINFORCE_GARRISON: handleReinforceGarrison,
+    REPAIR_WALLS: handleRepairWalls,
+    SET_TAX: handleSetTax,
+
+    // Siege
+    START_SIEGE: handleStartSiege,
+    JOIN_SIEGE: handleJoinSiege,
+    SIEGE_ACTION: handleSiegeAction,
 
     // Combat
     RAID: handleRaid,

@@ -96,10 +96,16 @@ export const SimulationHost: React.FC = () => {
             setRoomData(prev => prev ? { ...prev, markets: val } : null);
         });
 
+        // 4. Regions (Crucial for Hierarchy/Siege)
+        const unsubRegions = onValue(ref(db, `${baseUrl}/regions`), snap => {
+            setRoomData(prev => prev ? { ...prev, regions: snap.val() || {} } : null);
+        });
+
         return () => {
             unsubStatus();
             unsubWorld();
             unsubMarkets();
+            unsubRegions();
         };
     }, [pin]);
 

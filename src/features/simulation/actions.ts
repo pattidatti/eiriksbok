@@ -57,7 +57,7 @@ const addXp = (actor: SimulationPlayer, skillType: SkillType, amount: number, me
 };
 
 /* --- ACTIONS CLASSIFICATION --- */
-const GLOBAL_ACTIONS = ['RAID', 'TAX', 'TAX_PEASANTS', 'TAX_ROYAL', 'TRADE', 'TRADE_ROUTE', 'CONTRIBUTE_TO_UPGRADE', 'BUY', 'SELL', 'CONTRIBUTE'];
+const GLOBAL_ACTIONS = ['RAID', 'TAX', 'TAX_PEASANTS', 'TAX_ROYAL', 'TRADE', 'TRADE_ROUTE', 'CONTRIBUTE_TO_UPGRADE', 'BUY', 'SELL', 'CONTRIBUTE', 'START_SIEGE', 'JOIN_SIEGE', 'SIEGE_ACTION'];
 
 export const performAction = async (pin: string, playerId: string, action: any): Promise<{ success: boolean, data?: { success: boolean, timestamp: number, message: string, utbytte: any[], xp: any[], durability: any[] }, error?: any }> => {
     const actionType = typeof action === 'string' ? action : action.type;
@@ -311,8 +311,14 @@ async function performGlobalAction(pin: string, playerId: string, action: any) {
             return await handleGlobalContribution(pin, playerId, action);
         }
 
+
+
         if (actionType === 'TAX' || actionType === 'TAX_PEASANTS' || actionType === 'TAX_ROYAL') {
             return await handleGlobalTax(pin, playerId, action);
+        }
+
+        if (actionType === 'START_SIEGE' || actionType === 'JOIN_SIEGE' || actionType === 'SIEGE_ACTION') {
+            return await performSiegeTransaction(pin, playerId, action);
         }
 
         return { success: false, error: "Global handling for this action not yet optimized." };
@@ -356,8 +362,87 @@ export async function recordCharacterLife(uid: string, roomPin: string, player: 
             lastActive: Date.now()
         });
 
+
         console.log(`Character life recorded for ${player.name} (${uid})`);
     } catch (e) {
         console.error("Failed to record character life:", e);
+    }
+}
+
+/* --- SIEGE TRANSACTION --- */
+async function performSiegeTransaction(pin: string, playerId: string, action: any) {
+    const actionType = typeof action === 'string' ? action : action.type;
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
+    const regionsRef = ref(db, `simulation_rooms/${pin}/regions`);
+    const worldRef = ref(db, `simulation_rooms/${pin}/world`);
+
+    try {
+        // 1. Fetch Data (Parallel)
+        const [playerSnap, regionsSnap, worldSnap] = await Promise.all([
+            get(playerRef),
+            get(regionsRef),
+            get(worldRef)
+        ]);
+
+        if (!playerSnap.exists()) return { success: false, error: "Spiller finnes ikke" };
+
+        const actor = playerSnap.val();
+        // Ensure minimal state
+        if (!actor.resources) actor.resources = INITIAL_RESOURCES[actor.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT;
+
+        const regions = regionsSnap.val() || {};
+        const world = worldSnap.val() || {};
+
+        // 2. Prepare Context with REGIONS
+        const localResult = {
+            success: true,
+            timestamp: Date.now(),
+            message: "",
+            utbytte: [] as any[],
+            xp: [] as any[],
+            durability: [] as any[]
+        };
+
+        const mockRoom = {
+            world,
+            regions, // <--- CRITICAL FIX
+            players: { [playerId]: actor },
+            markets: {},
+            messages: []
+        };
+
+        const ctx = {
+            actor,
+            room: mockRoom as any,
+            pin,
+            action,
+            timestamp: new Date().toLocaleTimeString(),
+            localResult,
+            trackXp: (_skill: SkillType, _amount: number) => { /* Simplified XP tracking for Siege */ },
+            damageTool: () => true
+        };
+
+        // 3. Run Handler
+        const handler = ACTION_REGISTRY[actionType];
+        if (!handler) return { success: false, error: "Ukjent handling" };
+
+        const success = handler(ctx);
+
+        if (!success || !localResult.success) {
+            return { success: false, data: localResult }; // Failure
+        }
+
+        // 4. Atomic Commit (Multi-Path Update)
+        const updates: any = {};
+        updates[`players/${playerId}`] = actor;
+        updates[`regions`] = regions; // Persist modified region state (Siege progress)
+
+        await update(ref(db, `simulation_rooms/${pin}`), updates);
+
+        return { success: true, data: localResult };
+
+    } catch (e: any) {
+        console.error("Siege Transaction Failed", e);
+        return { success: false, error: e.message || "Beleiring feilet" };
     }
 }

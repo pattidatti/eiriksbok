@@ -15,6 +15,8 @@ const SimulationHierarchy = React.lazy(() => import('./SimulationHierarchy').the
 const SimulationProfile = React.lazy(() => import('./SimulationProfile').then(module => ({ default: module.SimulationProfile })));
 const SimulationSettings = React.lazy(() => import('./SimulationSettings').then(module => ({ default: module.SimulationSettings })));
 const PoliticalHub = React.lazy(() => import('./ui/PoliticalHub').then(module => ({ default: module.PoliticalHub })));
+const SimulationWarRoom = React.lazy(() => import('./SimulationWarRoom').then(module => ({ default: module.SimulationWarRoom })));
+const SiegeEngine = React.lazy(() => import('./SiegeEngine').then(module => ({ default: module.SiegeEngine })));
 
 import { SimulationMusicWindow } from './ui/SimulationMusicWindow';
 import { AnimatePresence } from 'framer-motion';
@@ -147,6 +149,27 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                                     player={player}
                                     room={room}
                                     onClose={() => setActiveTab('MAP')}
+                                />
+                            </div>
+                        )}
+
+                        {activeTab === 'WAR_ROOM' && (
+                            <div className="pointer-events-auto w-full h-full md:max-w-4xl md:h-[85vh] overflow-hidden">
+                                <SimulationWarRoom
+                                    player={player}
+                                    regions={room.regions}
+                                    onAction={onAction}
+                                    onClose={() => setActiveTab('HIERARCHY')}
+                                />
+                            </div>
+                        )}
+
+                        {activeTab === 'SIEGE' && room.regions[player.regionId || '']?.activeSiege && (
+                            <div className="pointer-events-auto w-full h-full md:max-w-6xl md:h-[90vh] overflow-hidden">
+                                <SiegeEngine
+                                    player={player}
+                                    siege={room.regions[player.regionId || ''].activeSiege!}
+                                    onAction={onAction}
                                 />
                             </div>
                         )}

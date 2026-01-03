@@ -142,8 +142,36 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                                                         </div>
                                                     </div>
                                                 )}
-
                                             </div>
+
+                                            {/* Baron Action: War Room OR Siege Defense */}
+                                            {baron && currentPlayer.id === baron.id && (
+                                                <div className="px-4 pb-4 space-y-2">
+                                                    {/* War Room Access */}
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setActiveTab('WAR_ROOM');
+                                                        }}
+                                                        className="w-full py-2 bg-rose-900/40 hover:bg-rose-900/60 border border-rose-700/50 rounded-lg text-rose-200 text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
+                                                    >
+                                                        <span>🏰</span> Krigsrommet
+                                                    </button>
+
+                                                    {regions?.[rId]?.activeSiege && (
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setActiveTab('SIEGE');
+                                                            }}
+                                                            className="w-full py-2 bg-red-600 hover:bg-red-500 border border-red-400 rounded-lg text-white text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 animate-pulse"
+                                                        >
+                                                            <span>🛡️</span> Forsvar Slottet!
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            )}
+
                                             <div className="space-y-3">
                                                 <div className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-2 border-b border-white/5 pb-1">Underståtte</div>
                                                 {Object.values(players || {}).filter(p => (p.role === 'PEASANT' || p.role === 'SOLDIER') && p.regionId === rId).map(subject => (
@@ -166,6 +194,34 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                                                     <div className="text-xs text-slate-600 italic text-center py-4">Ingen undersåtter ennå...</div>
                                                 )}
                                             </div>
+
+                                            {/* Siege Actions Logic for OTHERS */}
+                                            {rId === currentPlayer.regionId && currentPlayer.id !== (baron?.id) && (
+                                                <div className="px-4 pb-4 mt-4 border-t border-white/5 pt-4">
+                                                    {regions?.[rId]?.activeSiege ? (
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setActiveTab('SIEGE');
+                                                            }}
+                                                            className="w-full py-2 bg-red-600 hover:bg-red-500 border border-red-400 rounded-lg text-white text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 animate-pulse"
+                                                        >
+                                                            <span>🔥</span> Gå til Slagmarken
+                                                        </button>
+                                                    ) : (
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                onAction({ type: 'START_SIEGE' });
+                                                            }}
+                                                            className="w-full py-2 bg-stone-700/50 hover:bg-stone-600/50 border border-stone-500/30 rounded-lg text-stone-300 text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
+                                                        >
+                                                            <span>⚔️</span> Start Beleiring
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            )}
+
                                         </div>
                                     </div>
                                 );
