@@ -44,6 +44,23 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
     const { playSfx } = useAudio();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    // --- SMOOTH CLOCK INTERPOLATION ---
+    // We anchor the local time when a new tick arrives to allow smooth interpolation
+    const [tickAnchor, setTickAnchor] = useState<{ tick: number, time: number }>({
+        tick: room.world?.gameTick || 0,
+        time: Date.now()
+    });
+
+    // Update anchor ONLY when server tick changes
+    useEffect(() => {
+        if (room.world?.gameTick !== tickAnchor.tick) {
+            setTickAnchor({
+                tick: room.world?.gameTick || 0,
+                time: Date.now()
+            });
+        }
+    }, [room.world?.gameTick, tickAnchor.tick]);
+
     const region = room.regions?.[player.regionId || 'capital'];
     const hasUnrest = (region?.coup?.bribeProgress || 0) > 0 || !!region?.activeElection;
 
@@ -104,38 +121,42 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
 
     const year = room.world?.year || 1100;
     const season = (SEASONS as any)[room.world?.season]?.label || room.world?.season;
-    const weather = room.world?.weather || 'Clear';
 
     return (
         <header className="flex-none h-16 md:h-20 border-b border-white/5 bg-slate-950/80 backdrop-blur-xl flex items-center justify-between px-4 md:px-8 z-50 relative shrink-0 transition-all">
 
             {/* LEFT: LOGO & WORLD STATE */}
-            <div className="flex items-center gap-4 md:gap-8">
+            {/* LEFT: WORLD STATE (Clock & Season) */}
+            <div className="flex items-center gap-6 md:gap-8">
                 <div className="flex flex-col">
-                    <h1 className="text-xl md:text-2xl font-black italic tracking-tighter text-white leading-none">
-                        SIM<span className="text-indigo-500">ULATOR</span>
-                    </h1>
-                    <div className="flex items-center gap-3 text-[10px] mobile-hide font-bold uppercase tracking-widest text-slate-500">
-                        <div className="flex items-center gap-1.5 bg-white/5 px-2 py-0.5 rounded-full border border-white/5">
-                            <span className="text-white tabular-nums">
-                                {getClockTime(
-                                    room.world?.gameTick || 0,
-                                    room.world?.lastTickAt || Date.now()
-                                )}
-                            </span>
-                            <span className="text-[8px] opacity-40">ÅR {year}</span>
-                        </div>
+                    {/* Primary Time Display */}
+                    <div className="flex items-baseline gap-2">
+                        <span className="text-3xl md:text-4xl font-black text-white tracking-tighter leading-none tabular-nums shadow-indigo-500/50 drop-shadow-lg">
+                            {getClockTime(
+                                tickAnchor.tick,
+                                tickAnchor.time
+                            )}
+                        </span>
+                        <span className="text-sm md:text-base font-bold text-slate-500 uppercase tracking-widest">
+                            ÅR {year}
+                        </span>
+                    </div>
+
+                    {/* Secondary Season/Weather Info */}
+                    <div className="flex items-center gap-3 text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-400 mt-1">
                         <div className="flex items-center gap-1.5">
-                            <span className={room.world?.season === 'Winter' ? 'text-blue-400' : 'text-amber-500'}>{season}</span>
-                            <span className="text-lg" title={getDayPart(room.world?.gameTick || 0) === 'DAY' ? 'Dag' : 'Natt'}>
-                                {getDayPart(room.world?.gameTick || 0) === 'DAY' ? '☀️' : '🌙'}
+                            <span className={room.world?.season === 'Winter' ? 'text-blue-300 drop-shadow-[0_0_8px_rgba(147,197,253,0.5)]' : 'text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]'}>
+                                {season}
+                            </span>
+                            <span className="text-slate-600">•</span>
+                            <span className="" title={getDayPart(room.world?.gameTick || 0) === 'DAY' ? 'Dag' : 'Natt'}>
+                                {getDayPart(room.world?.gameTick || 0) === 'DAY' ? '☀️ Dag' : '🌙 Natt'}
                             </span>
                         </div>
-                        <span className="opacity-40">{weather}</span>
                         {hasUnrest && (
                             <button
                                 onClick={() => { setActiveTab('POLITICS'); playSfx('ui_click.ogg'); }}
-                                className="flex items-center gap-2 bg-rose-600/20 border border-rose-500/50 px-3 py-1 rounded-full animate-pulse group hover:bg-rose-500 hover:text-white transition-all ml-2"
+                                className="flex items-center gap-2 bg-rose-600/20 border border-rose-500/50 px-2 py-0.5 rounded-full animate-pulse group hover:bg-rose-500 hover:text-white transition-all ml-2"
                                 title="Uro i regionen! Klikk for å se politisk status."
                             >
                                 <span className="text-[10px] font-black italic tracking-tighter">⚠️ URO</span>
