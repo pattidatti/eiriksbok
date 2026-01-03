@@ -1,4 +1,4 @@
-import { ref, runTransaction, get } from 'firebase/database';
+import { ref, runTransaction, get, push, serverTimestamp } from 'firebase/database';
 import { simulationDb as db } from './simulationFirebase';
 import { GAME_BALANCE, VILLAGE_BUILDINGS } from './constants';
 import { logSimulationMessage } from './utils/simulationUtils';
@@ -808,8 +808,8 @@ export const handleSendMessage = async (pin: string, playerId: string, content: 
         });
 
         return { success: true };
-    } catch (e) {
-        console.error(e);
-        return { success: false, error: "Kunne ikke sende melding." };
+    } catch (e: any) {
+        console.error("Chat Send Error:", e);
+        return { success: false, error: `Kunne ikke sende melding: ${e.message || 'Ukjent feil'}` };
     }
 };

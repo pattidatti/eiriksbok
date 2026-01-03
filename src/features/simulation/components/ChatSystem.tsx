@@ -10,9 +10,10 @@ const cn = (...classes: (string | undefined | null | false)[]) => classes.filter
 interface ChatSystemProps {
     pin: string;
     player: SimulationPlayer;
+    onOpenProfile?: (playerId: string) => void;
 }
 
-export const ChatSystem: React.FC<ChatSystemProps> = ({ pin, player }) => {
+export const ChatSystem: React.FC<ChatSystemProps> = ({ pin, player, onOpenProfile }) => {
     const [isOpen, setIsOpen] = useState(false);
     const { activeChannelId, setActiveChannelId, channels, messages, isLoading } = useChat(pin, player);
     const [inputText, setInputText] = useState('');
@@ -25,6 +26,21 @@ export const ChatSystem: React.FC<ChatSystemProps> = ({ pin, player }) => {
             messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     }, [messages, isOpen]);
+
+    // Hotkey: Toggle with 'C'
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            // Ignore if typing in input/textarea
+            if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '')) return;
+
+            if (e.key.toLowerCase() === 'c') {
+                setIsOpen(prev => !prev);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
 
     const handleSend = async () => {
         if (!inputText.trim() || isSending) return;
@@ -79,7 +95,7 @@ export const ChatSystem: React.FC<ChatSystemProps> = ({ pin, player }) => {
 
             {/* Channels Tabs */}
             <div className="flex gap-1 p-2 bg-slate-900/30 overflow-x-auto scrollbar-hide">
-                {Object.values(channels).map(channel => (
+                {Object.values(channels).map((channel: any) => (
                     <button
                         key={channel.id}
                         onClick={() => setActiveChannelId(channel.id)}
@@ -103,12 +119,18 @@ export const ChatSystem: React.FC<ChatSystemProps> = ({ pin, player }) => {
                 ) : messages.length === 0 ? (
                     <div className="text-center text-slate-600 text-xs italic mt-10">Ingen meldinger i denne kanalen ennå.</div>
                 ) : (
-                    messages.map((msg) => {
+                    messages.map((msg: any) => {
                         const isMe = msg.senderId === player.id;
                         return (
                             <div key={msg.id} className={cn("flex flex-col gap-1 max-w-[85%]", isMe ? "ml-auto items-end" : "mr-auto items-start")}>
                                 <div className="flex items-center gap-2 text-[10px] text-slate-500 px-1">
-                                    <span className={cn("font-bold", isMe ? "text-indigo-400" : "text-amber-500")}>
+                                    <span
+                                        onClick={() => onOpenProfile && onOpenProfile(msg.senderId || '')}
+                                        className={cn(
+                                            "font-bold hover:underline cursor-pointer",
+                                            isMe ? "text-indigo-400" : "text-amber-500"
+                                        )}
+                                    >
                                         {msg.senderName}
                                     </span>
                                     <span className="opacity-50">• {new Date(msg.timestamp as number).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>

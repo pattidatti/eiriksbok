@@ -22,7 +22,7 @@
                         ".write": "auth != null",
                         "messages": {
                             "$msgId": {
-                                ".validate": "newData.hasChildren(['content', 'timestamp'])"
+                                ".validate": true
                             }
                         }
                     }

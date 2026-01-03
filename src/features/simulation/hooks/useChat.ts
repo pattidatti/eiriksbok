@@ -27,7 +27,11 @@ export const useChat = (pin: string, player: SimulationPlayer | null) => {
         newChannels['global'] = { id: 'global', name: 'Riket', type: 'GLOBAL', unreadCount: 0, description: 'Offentlig torg' };
 
         // Regional
-        if (player.regionId) {
+        if (player.role === 'KING') {
+            newChannels['region_vest'] = { id: 'region_vest', name: 'Vest', type: 'REGION', unreadCount: 0, description: 'Regional kanal for Vest' };
+            newChannels['region_ost'] = { id: 'region_ost', name: 'Øst', type: 'REGION', unreadCount: 0, description: 'Regional kanal for Øst' };
+            newChannels['capital'] = { id: 'capital', name: 'Hovedstaden', type: 'REGION', unreadCount: 0, description: 'Hovedstaden' };
+        } else if (player.regionId) {
             const regionName = player.regionId === 'capital' ? 'Hovedstaden' :
                 (player.regionId === 'region_vest' ? 'Vest' :
                     (player.regionId === 'region_ost' ? 'Øst' : player.regionId));

@@ -15,6 +15,7 @@ import { LevelUpOverlay } from './components/LevelUpOverlay';
 import { SimulationOnboarding } from './components/SimulationOnboarding';
 import { SimulationDestinySplash } from './components/SimulationDestinySplash';
 import { ChatSystem } from './components/ChatSystem';
+import { PlayerProfileModal } from './components/PlayerProfileModal';
 import { Trophy } from 'lucide-react';
 import { INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT } from './constants';
 import { ref, update } from 'firebase/database';
@@ -50,6 +51,7 @@ export const SimulationPlayer: React.FC = () => {
 
     const [isCreating, setIsCreating] = useState(false);
     const [levelUpData, setLevelUpData] = useState<{ level: number, title: string } | null>(null);
+    const [inspectingPlayer, setInspectingPlayer] = useState<SimPlayer | null>(null);
 
     const onCreatePlayer = async (name: string, role: Role) => {
         if (!pin || !user) return;
@@ -212,7 +214,29 @@ export const SimulationPlayer: React.FC = () => {
             )}
 
             {/* Chat Overlay */}
-            <ChatSystem pin={pin || ''} player={player} />
+            <ChatSystem
+                pin={pin || ''}
+                player={player}
+                onOpenProfile={(targetId) => {
+                    const target = room.players[targetId];
+                    if (target) {
+                        setInspectingPlayer(target);
+                    } else {
+                        console.warn("Spiller ikke funnet i rommet:", targetId);
+                    }
+                }}
+            />
+
+            {/* P2P Profile Inspection / Trading Modal */}
+            {inspectingPlayer && (
+                <PlayerProfileModal
+                    isOpen={true}
+                    onClose={() => setInspectingPlayer(null)}
+                    myPlayer={player}
+                    targetPlayer={inspectingPlayer}
+                    pin={pin || ''}
+                />
+            )}
         </div>
     );
 };
