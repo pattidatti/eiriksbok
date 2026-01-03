@@ -180,15 +180,10 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                             </div>
                         )}
 
-                        {activeTab === 'SIEGE' && room.regions[player.regionId || '']?.activeSiege && (
-                            <div className="pointer-events-auto w-full h-full md:max-w-6xl md:h-[90vh] overflow-hidden">
-                                <SiegeEngine
-                                    player={player}
-                                    siege={room.regions[player.regionId || ''].activeSiege!}
-                                    onAction={onAction}
-                                />
-                            </div>
-                        )}
+                        {/* 
+                             SIEGE is now handled in Layer 0.5 for persistence.
+                             We removed the duplicate render here.
+                        */}
                     </div>
 
 

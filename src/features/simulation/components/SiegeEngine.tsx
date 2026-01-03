@@ -21,6 +21,21 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
     // State management
     const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
 
+    // Heartbeat for Usurper to drive the Siege Loop
+    React.useEffect(() => {
+        if (player.id === siege.throne?.usurperId && (siege.phase === 'THRONE_ROOM' || (siege.phase as any) === 'THRONE')) {
+            const interval = setInterval(() => {
+                const now = Date.now();
+                const lastTick = siege.throne?.lastTick || 0;
+                // Only dispatch if actual backend time needs update (>1s) to avoid spamming
+                if (now - lastTick >= 1000) {
+                    onAction({ type: 'SIEGE_ACTION', subType: 'TICK' });
+                }
+            }, 1000);
+            return () => clearInterval(interval);
+        }
+    }, [siege.phase, siege.throne?.usurperId, siege.throne?.lastTick, player.id, onAction]);
+
     const handleAttack = (e: React.MouseEvent) => {
         if (!isParticipant) return;
 
@@ -257,6 +272,7 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                                     <div className="bg-indigo-900/80 border-4 border-indigo-500 rounded-3xl p-8 flex flex-col items-center text-center animate-pulse shadow-[0_0_30px_rgba(99,102,241,0.4)]">
                                         <div className="text-7xl mb-4">🛡️</div>
                                         <h3 className="text-3xl font-black text-white uppercase">Hold Posisjonen</h3>
+                                        <div className="text-4xl font-black text-white my-2">{siege.throne?.usurperArmor || 0} <span className="text-sm font-bold text-indigo-300 align-middle">RUSTNING</span></div>
                                         <p className="text-indigo-300 font-bold mt-2">Du mister Rustning over tid!</p>
                                         <p className="text-indigo-200 text-sm mt-4">
                                             Okkupasjonen øker... Ikke gå tom for rustning!

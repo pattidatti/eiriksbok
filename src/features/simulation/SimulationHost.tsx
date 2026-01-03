@@ -10,6 +10,7 @@ import { generateInitialRoomState, syncServerMetadata } from './logic/roomInit';
 import type { SimulationMessage, SimulationRoom } from './simulationTypes';
 import { handleAdminGiveGold } from './globalActions';
 import { useGameTicker } from './hooks/useGameTicker';
+import { useBotManager } from './hooks/useBotManager';
 
 
 export const SimulationHost: React.FC = () => {
@@ -111,7 +112,12 @@ export const SimulationHost: React.FC = () => {
 
     // --- GAME TICKER (ADMIN HOST) ---
     // Ensure time ticks even if only Admin is online
+    // --- GAME TICKER (ADMIN HOST) ---
+    // Ensure time ticks even if only Admin is online
     useGameTicker(pin, roomData?.status || 'LOBBY', roomData?.world);
+
+    // --- BOT MANAGER ---
+    const { enabled: botsEnabled, setEnabled: setBotsEnabled, activeBotCount } = useBotManager(pin, roomData, true);
 
     // 4. Messages (Heavy - Capped)
     useEffect(() => {
@@ -1344,6 +1350,100 @@ export const SimulationHost: React.FC = () => {
                     </div>
                 </div>
 
+                <div className="bg-slate-900 border border-slate-800 rounded-lg p-6 mb-8">
+                    <div className="flex justify-between items-center mb-6">
+                        <div className="flex items-center gap-3">
+                            <h2 className="text-xl font-bold flex items-center gap-2">🤖 Bot-nettverk</h2>
+                            <div className={`px-2 py-1 rounded text-xs font-bold ${botsEnabled ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-500'}`}>
+                                {botsEnabled ? 'AKTIVT' : 'INAKTIV'}
+                            </div>
+                        </div>
+                        <button
+                            onClick={() => setBotsEnabled(!botsEnabled)}
+                            className={`px-4 py-2 rounded font-bold transition-colors ${botsEnabled
+                                ? 'bg-red-600 hover:bg-red-700 text-white'
+                                : 'bg-green-600 hover:bg-green-700 text-white'
+                                }`}
+                        >
+                            {botsEnabled ? 'Skru AV bots' : 'Skru PÅ bots'}
+                        </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Spawn Kontroll</h3>
+                            <div className="grid grid-cols-2 gap-4 mb-4">
+                                <input
+                                    type="text"
+                                    placeholder="Navn (f.eks. 'Bonde')"
+                                    className="bg-slate-800 border-slate-700 rounded px-3 py-2 text-white"
+                                    value={botForm.name}
+                                    onChange={e => setBotForm({ ...botForm, name: e.target.value })}
+                                />
+                                <div className="flex gap-2">
+                                    <button
+                                        onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [AGIT]' }))}
+                                        className="px-2 py-1 bg-slate-800 rounded hover:bg-red-900/50 text-xs"
+                                        title="Agitator (Revolusjonær)"
+                                    >
+                                        🔥
+                                    </button>
+                                    <button
+                                        onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [MERCH]' }))}
+                                        className="px-2 py-1 bg-slate-800 rounded hover:bg-amber-900/50 text-xs"
+                                        title="Kjøpmann (Økonom)"
+                                    >
+                                        💰
+                                    </button>
+                                    <button
+                                        onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [GUARD]' }))}
+                                        className="px-2 py-1 bg-slate-800 rounded hover:bg-blue-900/50 text-xs"
+                                        title="Vakt (Lojalist)"
+                                    >
+                                        🛡️
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="flex gap-2">
+                                <button
+                                    onClick={spawnDevBot}
+                                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded font-bold"
+                                >
+                                    + Spawn 1 Bot
+                                </button>
+                                <button
+                                    onClick={async () => {
+                                        if (!window.confirm("Spawn 10 bots?")) return;
+                                        for (let i = 0; i < 10; i++) {
+                                            const r = Math.random();
+                                            const roleSuffix = r > 0.8 ? ' [AGIT]' : (r > 0.6 ? ' [MERCH]' : '');
+                                            const tempName = botForm.name || 'Bot';
+                                            // Hacky way to inject random personas for bulk spawn
+                                            setBotForm(prev => ({ ...prev, name: tempName + roleSuffix }));
+                                            await spawnDevBot();
+                                            // Reset isn't perfect here due to async state but good enough for dev tool
+                                        }
+                                    }}
+                                    className="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded font-bold"
+                                >
+                                    + Spawn 10
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Status</h3>
+                            <div className="space-y-2 text-sm text-slate-300">
+                                <p>Aktive roboter: <span className="text-white font-mono">{activeBotCount}</span></p>
+                                <p>Tick Rate: <span className="text-white font-mono">5s</span> (5 bots/tick)</p>
+                                <p className="text-xs text-slate-500 italic mt-2">
+                                    Bots sjekker automatisk ressurser, spiser mat, og utfører handlinger basert på sin "Persona" (bestemt av navnetags).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="p-8 border-b border-white/5 shrink-0">
                     <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 mb-6">Markedsanalyse</h3>
                     <div className="grid grid-cols-2 gap-3">
@@ -1388,7 +1488,7 @@ export const SimulationHost: React.FC = () => {
                         )}
                     </div>
                 </div>
-            </aside>
+            </aside >
 
             <style dangerouslySetInnerHTML={{
                 __html: `
@@ -1409,6 +1509,6 @@ export const SimulationHost: React.FC = () => {
                     display: none;
                 }
             `}} />
-        </div>
+        </div >
     );
 };

@@ -366,6 +366,8 @@ export const handleSiegeAction = (ctx: ActionContext) => {
             return true;
         }
 
+        if (action.subType === 'TICK') return true;
+
         return true;
     }
 
