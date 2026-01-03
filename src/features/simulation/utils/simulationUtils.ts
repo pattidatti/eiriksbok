@@ -25,7 +25,7 @@ export const logSimulationMessage = async (pin: string, message: string) => {
             id: `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
             content: message,
             timestamp: Date.now(),
-            type: 'LOG'
+            type: 'SYSTEM'
         };
 
         newMessages.push(newMsg);
@@ -119,15 +119,15 @@ export const calculateYield = (
     // 5. Regional Arbitrage (Phase 2)
     let regionalMod = 1.0;
     if (modifiers.regionId) {
-        // Iron Ore logic
+        // Iron Ore logic (Vest is Iron Hub)
         if (modifiers.actionType === 'MINE') {
-            if (modifiers.regionId === 'region_vest') regionalMod = 1.5;
-            else if (modifiers.regionId === 'region_ost') regionalMod = 0.5;
+            if (modifiers.regionId === 'region_vest') regionalMod = 1.2; // +20%
+            else if (modifiers.regionId === 'region_ost') regionalMod = 0.8; // -20%
         }
-        // Wood logic
+        // Wood logic (Øst is Wood Hub)
         if (modifiers.actionType === 'CHOP') {
-            if (modifiers.regionId === 'region_vest') regionalMod = 1.2;
-            else if (modifiers.regionId === 'region_ost') regionalMod = 0.8;
+            if (modifiers.regionId === 'region_vest') regionalMod = 0.8; // -20%
+            else if (modifiers.regionId === 'region_ost') regionalMod = 1.2; // +20%
         }
     }
 

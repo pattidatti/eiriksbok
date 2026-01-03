@@ -5,6 +5,7 @@ import { SimulationMapWindow } from './ui/SimulationMapWindow';
 import { useSimulation } from '../SimulationContext';
 import { PlayerProfileModal } from './PlayerProfileModal';
 import { Folkeregister } from './Folkeregister';
+import { SimulationPolitics } from './SimulationPolitics';
 
 interface SimulationHierarchyProps {
     players: Record<string, SimulationPlayer>;
@@ -17,7 +18,7 @@ interface SimulationHierarchyProps {
 export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.memo(({ players, currentPlayer, regions, onAction, pin }) => {
     const { setActiveTab } = useSimulation();
     const [selectedPlayer, setSelectedPlayer] = useState<SimulationPlayer | null>(null);
-    const [viewMode, setViewMode] = useState<'TREE' | 'LIST'>('TREE');
+    const [viewMode, setViewMode] = useState<'TREE' | 'LIST' | 'POLITICS'>('TREE');
 
     const handlePlayerClick = (p: SimulationPlayer) => {
         setSelectedPlayer(p);
@@ -47,30 +48,27 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                     >
                         <List size={18} />
                     </button>
+                    <button
+                        onClick={() => setViewMode('POLITICS')}
+                        className={`p-2 rounded-md transition-colors ${viewMode === 'POLITICS' ? 'bg-rose-600 text-white' : 'text-slate-400 hover:text-white'}`}
+                        title="Politisk Senter"
+                    >
+                        <span className="font-bold text-xs uppercase tracking-wider px-2">Politikk</span>
+                    </button>
                 </div>
 
-                {viewMode === 'LIST' ? (
+                {viewMode === 'POLITICS' ? (
+                    <div className="p-4 h-full overflow-y-auto custom-scrollbar">
+                        <div className="max-w-2xl mx-auto py-8">
+                            <SimulationPolitics player={currentPlayer} regions={regions} pin={pin} />
+                        </div>
+                    </div>
+                ) : viewMode === 'LIST' ? (
                     <div className="p-4 h-full">
                         <Folkeregister players={players} myId={currentPlayer.id} onOpenProfile={setSelectedPlayer} />
                     </div>
                 ) : (
                     <div className="space-y-12 pb-20 pt-4 overflow-y-auto px-4 custom-scrollbar">
-                        {/* RETIRE BUTTON */}
-                        <div className="flex justify-start px-4 opacity-50 hover:opacity-100 transition-opacity">
-                            {currentPlayer.role !== 'PEASANT' && (
-                                <button
-                                    onClick={() => {
-                                        if (window.confirm('Er du sikker? Du vil miste din rang og bli en simpel bonde.')) {
-                                            onAction({ type: 'RETIRE' });
-                                        }
-                                    }}
-                                    className="text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-rose-500 transition-colors border border-slate-700 hover:border-rose-500 px-4 py-2 rounded-lg"
-                                >
-                                    Frasi Tittel (Bli Bonde)
-                                </button>
-                            )}
-                        </div>
-
                         {/* 1. THE KING */}
                         <div className="flex justify-center">
                             {Object.values(players || {}).filter(p => p.role === 'KING').map(king => (
@@ -80,10 +78,21 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                                             <div className="text-6xl mb-4 drop-shadow-xl">👑</div>
                                             <h3 className="text-2xl font-black text-white mb-1">{king.name}</h3>
                                             <div className="text-xs font-black uppercase text-amber-500 tracking-widest mb-4">Hans Majestet Kongen</div>
-                                            <div className="w-full flex justify-between items-center text-xs font-bold text-slate-400 bg-black/20 px-4 py-2 rounded-xl">
-                                                <span>Legitimitet</span>
-                                                <span className="text-white">{(king.status as any).legitimacy || 100}%</span>
+
+                                            {/* Legitimacy Bar */}
+                                            <div className="w-full space-y-1">
+                                                <div className="flex justify-between text-[10px] uppercase font-bold text-slate-400">
+                                                    <span>Legitimitet</span>
+                                                    <span>{(king.status as any)?.legitimacy || 100}%</span>
+                                                </div>
+                                                <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-white/5">
+                                                    <div
+                                                        className="h-full bg-gradient-to-r from-rose-500 via-amber-500 to-emerald-500 transition-all duration-1000"
+                                                        style={{ width: `${(king.status as any)?.legitimacy || 100}%` }}
+                                                    />
+                                                </div>
                                             </div>
+
                                         </div>
                                     </div>
                                     <div className="absolute top-full left-1/2 -translate-x-1/2 h-12 w-1 bg-gradient-to-b from-amber-600 to-slate-700 opacity-50"></div>
@@ -104,14 +113,35 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                                         <div className="absolute top-[-32px] left-1/2 -translate-x-1/2 h-8 w-1 bg-slate-700 opacity-30"></div>
                                         <div className={`bg-slate-800/80 p-6 rounded-3xl border border-white/5 shadow-xl relative z-10 ${!baron ? 'opacity-75' : ''}`}>
                                             <div
-                                                className={`flex items-center gap-4 mb-4 border-b border-white/5 pb-4 ${baron ? 'cursor-pointer hover:bg-white/5 rounded-xl p-2 -m-2 transition-colors' : ''}`}
+                                                className={`flex flex-col gap-4 mb-4 border-b border-white/5 pb-4 ${baron ? 'cursor-pointer hover:bg-white/5 rounded-xl p-2 -m-2 transition-colors' : ''}`}
                                                 onClick={() => baron && handlePlayerClick(baron)}
                                             >
-                                                <div className="text-4xl">{baron ? '🏰' : '🏚️'}</div>
-                                                <div>
-                                                    <h4 className={`text-lg font-black ${baron ? 'text-white' : 'text-slate-500'}`}>{baron ? baron.name : 'Ingen Baron'}</h4>
-                                                    <div className="text-[10px] font-black uppercase text-indigo-400 tracking-widest uppercase">{displayName}</div>
+                                                <div className="flex items-center gap-4">
+                                                    <div className="text-4xl">{baron ? '🏰' : '🏚️'}</div>
+                                                    <div>
+                                                        <h4 className={`text-lg font-black ${baron ? 'text-white' : 'text-slate-500'}`}>{baron ? baron.name : 'Ingen Baron'}</h4>
+                                                        <div className="text-[10px] font-black uppercase text-indigo-400 tracking-widest uppercase">{displayName}</div>
+                                                    </div>
                                                 </div>
+
+                                                {/* Legitimacy Bar for Baron */}
+                                                {baron && (
+                                                    <div className="w-full space-y-1 px-1">
+                                                        <div className="flex justify-between text-[10px] uppercase font-bold text-slate-400">
+                                                            <span>Legitimitet</span>
+                                                            <span className={`${(baron.status as any)?.legitimacy < 50 ? 'text-rose-400' : 'text-emerald-400'}`}>
+                                                                {(baron.status as any)?.legitimacy ?? 100}%
+                                                            </span>
+                                                        </div>
+                                                        <div className="h-1.5 bg-black/40 rounded-full overflow-hidden border border-white/5">
+                                                            <div
+                                                                className="h-full bg-gradient-to-r from-rose-500 via-amber-500 to-emerald-500 transition-all duration-1000"
+                                                                style={{ width: `${(baron.status as any)?.legitimacy ?? 100}%` }}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+
                                             </div>
                                             <div className="space-y-3">
                                                 <div className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-2 border-b border-white/5 pb-1">Underståtte</div>
@@ -174,7 +204,6 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                         </div>
                     </div>
                 )}
-
             </div>
 
             {/* Profile Modal */}

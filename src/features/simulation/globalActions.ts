@@ -1,10 +1,9 @@
-import { ref, runTransaction, get, push, serverTimestamp } from 'firebase/database';
+import { ref, runTransaction, get, push, serverTimestamp, update, increment } from 'firebase/database';
 import { simulationDb as db } from './simulationFirebase';
 import { GAME_BALANCE, VILLAGE_BUILDINGS } from './constants';
 import { logSimulationMessage } from './utils/simulationUtils';
 import { finalizeLeadershipProject } from './gameLogic';
 import type { SimulationPlayer } from './simulationTypes';
-import { update } from 'firebase/database';
 
 /*
  * GLOBAL ACTION HANDLERS
@@ -435,9 +434,23 @@ export const handleGlobalBribe = async (pin: string, playerId: string, action: {
 
     // 1. Update Region Bribe State
     let newProgress = 0;
+    let bribeSuccess = false;
+
     await runTransaction(regionRef, (r) => {
-        if (!r) return;
+        if (!r) {
+            // Fallback initialization if null (Firebase quirks)
+            r = {
+                id: regionId,
+                name: regionId === 'capital' ? 'Kongeriket' : (regionId === 'region_vest' ? 'Baroniet Vest' : 'Baroniet Øst'),
+                rulerName: 'Ingen',
+                coup: { lastRulerChange: 0, bribeProgress: 0, contributions: {} }
+            };
+        }
+
         if (!r.coup) r.coup = { lastRulerChange: 0, bribeProgress: 0, contributions: {} };
+
+        // Double check honeymoon inside transaction
+        // For now, assume outer check caught it, but we init the object.
 
         const currentProgress = r.coup.bribeProgress || 0;
         const addProgress = (amount / GAME_BALANCE.COUP.BASE_BRIBE_COST) * 10;
@@ -451,8 +464,11 @@ export const handleGlobalBribe = async (pin: string, playerId: string, action: {
         r.coup.challengerName = player.name;
 
         newProgress = r.coup.bribeProgress;
+        bribeSuccess = true;
         return r;
     });
+
+    if (!bribeSuccess) return { success: false, error: "Transaksjon feilet (Region oppdatert)." };
 
     // 2. Deduct Gold
     await runTransaction(playerRef, (p) => {
@@ -461,37 +477,67 @@ export const handleGlobalBribe = async (pin: string, playerId: string, action: {
         return p;
     });
 
-    // 3. Distribute Stimulus
+    // 3. Decrease Ruler Legitimacy
+    const rulerId = region.rulerId;
+    if (rulerId) {
+        const rulerRef = ref(db, `simulation_rooms/${pin}/players/${rulerId}`);
+        const legLoss = Math.floor(amount / 100);
+
+        await runTransaction(rulerRef, (ruler) => {
+            if (!ruler) return;
+            ruler.status.legitimacy = Math.max(0, (ruler.status.legitimacy || 0) - legLoss);
+            return ruler;
+        });
+
+        // Sync to Public Profile (CRITICAL for UI)
+        // We do this as a separate update because public_profiles might not be transaction-safe relative to players
+        // or we just blindly set it. Transaction is safer but update is cheaper. 
+        // Since we are just decrementing, an update relative to the *transactioned* value would be best, 
+        // but we can just read the current state or simply nudge it.
+        // Actually, let's just update perfectly.
+        const publicRulerRef = ref(db, `simulation_rooms/${pin}/public_profiles/${rulerId}`);
+        await runTransaction(publicRulerRef, (p) => {
+            if (!p) return;
+            // Ensure status struct exists
+            if (!p.status) p.status = { isJailed: false, isFrozen: false, legitimacy: 100 };
+            p.status.legitimacy = Math.max(0, (p.status.legitimacy || 100) - legLoss);
+            return p;
+        });
+    }
+
+    // 4. Distribute Stimulus (The "Folkegave")
     const roomPlayersRef = ref(db, `simulation_rooms/${pin}/players`);
     const allPlayersSnap = await get(roomPlayersRef);
     if (allPlayersSnap.exists()) {
         const allPlayers = allPlayersSnap.val();
         const targets = Object.keys(allPlayers).filter(id =>
             allPlayers[id].regionId === regionId &&
+            id !== playerId && // Exclude self (Sender shouldn't get their own bribe back)
             (allPlayers[id].role === 'PEASANT' || allPlayers[id].role === 'SOLDIER')
         );
 
         if (targets.length > 0) {
             const share = Math.floor(amount / targets.length);
             if (share > 0) {
-                await Promise.all(targets.map(tid =>
-                    runTransaction(ref(db, `simulation_rooms/${pin}/players/${tid}`), (tp) => {
-                        if (!tp) return;
-                        tp.resources.gold = (tp.resources.gold || 0) + share;
-                        return tp;
-                    })
-                ));
+                await Promise.all(targets.map(tid => {
+                    const playerResourcesRef = ref(db, `simulation_rooms/${pin}/players/${tid}/resources`);
+                    // Atomic increment is much safer for distribution than full transaction read-write cycles
+                    return update(playerResourcesRef, { gold: increment(share) });
+                }));
             }
+            logSimulationMessage(pin, `[FOLKEGAVE] ${player.name} donerte ${amount}g. ${targets.length} innbyggere fikk ${share}g hver! (Opprør: ${newProgress.toFixed(0)}%)`);
+        } else {
+            logSimulationMessage(pin, `[FOLKEGAVE] ${player.name} donerte ${amount}g til saken, men fant ingen trengende i ${region.name}. (Opprør: ${newProgress.toFixed(0)}%)`);
         }
+    } else {
+        logSimulationMessage(pin, `[FOLKEGAVE] ${player.name} donerte ${amount}g. (Opprør: ${newProgress.toFixed(0)}%)`);
     }
-
-    logSimulationMessage(pin, `[FOLKEGAVE] ${player.name} har donert ${amount}g til folket i ${region.name}! Opprøret er på ${newProgress.toFixed(0)}%.`);
 
     if (newProgress >= 100) {
         await triggerRevolution(pin, regionId);
     }
 
-    return { success: true, message: "Besteikkelse gjennomført!" };
+    return { success: true, message: `Besteikkelse gjennomført! Opprør: ${newProgress.toFixed(1)}%` };
 };
 
 export const handleShadowPledge = async (pin: string, playerId: string, regionId: string, candidateId: string) => {
@@ -746,6 +792,60 @@ export const handleAdminGiveGold = async (pin: string, targetId: string, amount:
     }
 
     return { success };
+};
+
+export const handleAbdicate = async (pin: string, playerId: string) => {
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
+    const playerSnap = await get(playerRef);
+
+    if (!playerSnap.exists()) return { success: false, error: "Spiller mangler." };
+    const player = playerSnap.val() as SimulationPlayer;
+
+    if (player.role !== 'KING' && player.role !== 'BARON') {
+        return { success: false, error: "Du er ikke en hersker." };
+    }
+
+    const regionId = player.regionId;
+
+    let success = false;
+
+    // 1. Demote Player
+    await runTransaction(playerRef, (p) => {
+        if (!p) return;
+        p.role = 'PEASANT';
+        p.status.legitimacy = 0; // Reset legitimacy
+        return p;
+    });
+
+    if (success) {
+        // 2. Update Public Profile
+        await update(ref(db, `simulation_rooms/${pin}/public_profiles/${playerId}`), { role: 'PEASANT' });
+
+        // 3. Vacate Region Ruler
+        if (regionId && regionId !== 'capital') {
+            const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
+
+            // Setup Election
+            const now = Date.now();
+            const election = {
+                startedAt: now,
+                expiresAt: now + GAME_BALANCE.COUP.VACANCY_DURATION,
+                candidates: {},
+                votes: {}
+            };
+
+            await update(regionRef, {
+                rulerId: null,
+                rulerName: "VAKANT",
+                activeElection: election
+            });
+        }
+
+        logSimulationMessage(pin, `🏳️ ABDIKASJON: ${player.name} har valgt å abdisere og tre tilbake til bondestanden. ${player.role === 'BARON' ? 'Tittelen er nå ledig.' : 'Tronen står tom.'}`);
+        return { success: true, message: "Du har abdisert." };
+    }
+
+    return { success: false, error: "Kunne ikke abdisere." };
 };
 
 /* --- CHAT HANDLER --- */

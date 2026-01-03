@@ -42,7 +42,7 @@ export const SimulationPlayer: React.FC = () => {
     }, [setHideHeader, setFullWidth]);
 
     const {
-        player, world, players, roomStatus, markets, messages, diplomacy, activeVote, worldEvents, trades, hasAttemptedPlayerLoad, isRetired
+        player, world, players, roomStatus, markets, messages, diplomacy, activeVote, worldEvents, trades, regions, hasAttemptedPlayerLoad, isRetired
     } = useSimulationData(pin, impersonateId) as any;
 
     const {
@@ -117,10 +117,10 @@ export const SimulationPlayer: React.FC = () => {
         trades: trades || {},
         activeVote,
         worldEvents: worldEvents || {},
-        regions: {}, // Will be populated by logic if needed
+        regions: regions || {}, // Connected!
         settings: 'feudal_europe',
         pin: pin || ''
-    }), [roomStatus, world, players, messages, markets, diplomacy, activeVote, worldEvents, trades, pin]);
+    }), [roomStatus, world, players, messages, markets, diplomacy, activeVote, worldEvents, trades, regions, pin]);
 
     if (authLoading || !hasAttemptedPlayerLoad) {
         return (

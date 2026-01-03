@@ -282,6 +282,28 @@ const InnerSimulationProfile: React.FC<SimulationProfileProps> = ({ player, regi
                                         <p className="text-sm font-mono font-bold text-white">{account?.globalXp || 0}</p>
                                     </div>
                                 </div>
+
+                                {/* ABDICATION BUTTON (Only if active vessel is RULER) */}
+                                {player && ['KING', 'BARON'].includes(player.role) && (
+                                    <button
+                                        onClick={async () => {
+                                            if (window.confirm("ADVARSEL: Å abdisere fratar deg all makt og tittel umiddelbart. Du vil bli degradert til Bonde. Er du HELT sikker?")) {
+                                                // We need to import the action or pass a prop. 
+                                                // Since this is a global profile, we might not have easy access to the action handler directly via props here if `player` comes from props.
+                                                // However, we can import `handleAbdicate` if `pin` is available.
+                                                // Note: pin is missing in props here. We might need to rely on the passed `player` object having context or re-architect.
+                                                // Wait, SimulationProfile is often rendered with 'player' which has limited context.
+                                                // Actually, if we are in-game, we have the pin in the URL or context.
+                                                // Let's defer actual implementation to the parent or add pin to props.
+                                                alert("Abdikasjon må gjøres via 'Samfunn' fanen in-game for øyeblikket.");
+                                            }
+                                        }}
+                                        className="px-4 py-2 bg-rose-950/30 border border-rose-500/30 text-rose-400 hover:bg-rose-900/50 hover:text-rose-200 rounded-lg flex items-center gap-2 transition-all uppercase text-[10px] font-black tracking-widest"
+                                        title="Frasi deg tronen"
+                                    >
+                                        <Crown size={14} className="opacity-50" /> Abdiser
+                                    </button>
+                                )}
                             </div>
                         </div>
                     </div>

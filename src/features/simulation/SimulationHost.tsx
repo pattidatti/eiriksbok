@@ -161,6 +161,11 @@ export const SimulationHost: React.FC = () => {
             setRoomData(prev => prev ? { ...prev, activeVote: snap.val() } : null);
         });
 
+        // 8. Regions (Crucial for Politics)
+        const unsubRegions = onValue(ref(db, `${baseUrl}/regions`), snap => {
+            setRoomData(prev => prev ? { ...prev, regions: snap.val() || {} } : null);
+        });
+
         // Initial Skeleton
         // We need to set an initial object so the updaters can write to it
         get(ref(db, baseUrl)).then((snap) => {
@@ -195,6 +200,7 @@ export const SimulationHost: React.FC = () => {
             unsubProfiles();
             unsubEvents();
             unsubVote();
+            unsubRegions();
         };
     }, [pin]);
 

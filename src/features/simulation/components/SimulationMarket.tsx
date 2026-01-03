@@ -42,90 +42,60 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ p
                     </div>
                 </div>
 
-                {/* POLITICAL INFLUENCE ENTRY POINT */}
-                <div className="bg-gradient-to-r from-amber-900/40 to-rose-900/40 border border-amber-500/30 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group mb-4">
-                    <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <Gavel size={120} />
-                    </div>
-                    <div className="relative z-10 flex items-center gap-4">
-                        <div className="w-16 h-16 bg-amber-900/80 rounded-2xl flex items-center justify-center border border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
-                            <span className="text-3xl">🗳️</span>
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-black text-white uppercase tracking-wide">
-                                Politisk Innflytelse
-                                {(regions?.[player.regionId || 'capital']?.activeElection) && (
-                                    <Badge variant="role" className="ml-2 animate-pulse bg-rose-600 text-white border-none">VALG PÅGÅR</Badge>
-                                )}
-                            </h3>
-                            <p className="text-amber-200 text-sm max-w-sm">
-                                Kjøp deg makt eller støtt folket. Her kan du påvirke hvem som styrer regionen gjennom "Folkegaven".
-                            </p>
-                        </div>
-                    </div>
-                    <div className="relative z-10">
-                        <GameButton
-                            variant="wood"
-                            onClick={() => setActiveTab('POLITICS')}
-                            className="border-amber-400/50 min-w-[200px] font-black italic"
-                        >
-                            GÅ TIL POLITIKK
-                        </GameButton>
-                    </div>
-                </div>
-
                 {/* CAREER: BECOME MERCHANT */}
-                {player.role === 'PEASANT' && (
-                    <div className="bg-gradient-to-r from-emerald-900/40 to-indigo-900/40 border border-emerald-500/30 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <Ship size={120} />
-                        </div>
-                        <div className="relative z-10 flex items-center gap-4">
-                            <div className="w-16 h-16 bg-emerald-900/80 rounded-2xl flex items-center justify-center border border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                                <span className="text-3xl">📜</span>
+                {
+                    player.role === 'PEASANT' && (
+                        <div className="bg-gradient-to-r from-emerald-900/40 to-indigo-900/40 border border-emerald-500/30 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <Ship size={120} />
                             </div>
-                            <div>
-                                <h3 className="text-xl font-black text-white uppercase tracking-wide">
-                                    Handelsbrev
-                                    {(player.stats.level || 1) < GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ && (
-                                        <Badge variant="outline" className="ml-2 text-rose-400 border-rose-400">
-                                            Krever Lvl {GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ}
-                                        </Badge>
-                                    )}
-                                </h3>
-                                <p className="text-emerald-200 text-sm max-w-sm">
-                                    Kjøp lisens til å drive internasjonal handel. Låser opp handelsruter og profittmuligheter.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="relative z-10 flex flex-col items-end gap-2">
-                            <div className="flex items-center gap-3">
-                                <div className={`text-xs font-bold uppercase tracking-wider ${player.resources?.gold >= GAME_BALANCE.CAREERS.MERCHANT.COST ? 'text-emerald-400' : 'text-rose-400'}`}>
-                                    Pris: {GAME_BALANCE.CAREERS.MERCHANT.COST} Gull
+                            <div className="relative z-10 flex items-center gap-4">
+                                <div className="w-16 h-16 bg-emerald-900/80 rounded-2xl flex items-center justify-center border border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                                    <span className="text-3xl">📜</span>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-black text-white uppercase tracking-wide">
+                                        Handelsbrev
+                                        {(player.stats.level || 1) < GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ && (
+                                            <Badge variant="outline" className="ml-2 text-rose-400 border-rose-400">
+                                                Krever Lvl {GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ}
+                                            </Badge>
+                                        )}
+                                    </h3>
+                                    <p className="text-emerald-200 text-sm max-w-sm">
+                                        Kjøp lisens til å drive internasjonal handel. Låser opp handelsruter og profittmuligheter.
+                                    </p>
                                 </div>
                             </div>
-                            <GameButton
-                                variant="primary"
-                                onClick={() => {
-                                    if (window.confirm('Kjøpe Handelsbrev og bli Kjøpmann?')) {
-                                        handleCareerChange(pin, player.id, 'MERCHANT');
+                            <div className="relative z-10 flex flex-col items-end gap-2">
+                                <div className="flex items-center gap-3">
+                                    <div className={`text-xs font-bold uppercase tracking-wider ${player.resources?.gold >= GAME_BALANCE.CAREERS.MERCHANT.COST ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                        Pris: {GAME_BALANCE.CAREERS.MERCHANT.COST} Gull
+                                    </div>
+                                </div>
+                                <GameButton
+                                    variant="primary"
+                                    onClick={() => {
+                                        if (window.confirm('Kjøpe Handelsbrev og bli Kjøpmann?')) {
+                                            handleCareerChange(pin, player.id, 'MERCHANT');
+                                        }
+                                    }}
+                                    disabled={
+                                        player.resources?.gold < GAME_BALANCE.CAREERS.MERCHANT.COST ||
+                                        (player.stats.level || 1) < GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ ||
+                                        !!actionLoading
                                     }
-                                }}
-                                disabled={
-                                    player.resources?.gold < GAME_BALANCE.CAREERS.MERCHANT.COST ||
-                                    (player.stats.level || 1) < GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ ||
-                                    !!actionLoading
-                                }
-                                className="bg-emerald-600 hover:bg-emerald-500 border-emerald-400/50 min-w-[200px]"
-                            >
-                                {(player.stats.level || 1) < GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ
-                                    ? `Krever Level ${GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ}`
-                                    : 'BLI KJØPMANN'
-                                }
-                            </GameButton>
+                                    className="bg-emerald-600 hover:bg-emerald-500 border-emerald-400/50 min-w-[200px]"
+                                >
+                                    {(player.stats.level || 1) < GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ
+                                        ? `Krever Level ${GAME_BALANCE.CAREERS.MERCHANT.LEVEL_REQ}`
+                                        : 'BLI KJØPMANN'
+                                    }
+                                </GameButton>
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )
+                }
 
                 {/* LOCAL MARKET GRID */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -178,72 +148,74 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ p
                 </div>
 
                 {/* MERCHANT: FOREIGN MARKETS */}
-                {player.role === 'MERCHANT' && (
-                    <div className="mt-12 space-y-6 pt-8 border-t border-white/10">
-                        <div className="flex items-center justify-between">
-                            <h3 className="text-2xl font-display font-bold text-white flex items-center gap-3">
-                                <Ship className="w-6 h-6 text-blue-400" />
-                                Handelsruter
-                            </h3>
-                            <Badge variant="role">Kun for Kjøpmenn</Badge>
-                        </div>
+                {
+                    player.role === 'MERCHANT' && (
+                        <div className="mt-12 space-y-6 pt-8 border-t border-white/10">
+                            <div className="flex items-center justify-between">
+                                <h3 className="text-2xl font-display font-bold text-white flex items-center gap-3">
+                                    <Ship className="w-6 h-6 text-blue-400" />
+                                    Handelsruter
+                                </h3>
+                                <Badge variant="role">Kun for Kjøpmenn</Badge>
+                            </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {Object.values(regions || {})
-                                .concat([{ id: 'capital', name: 'Kongeriket (Hovedstaden)' } as any])
-                                .filter((r: any) => r.id !== player.regionId && r.id !== undefined)
-                                .map((region: any) => {
-                                    const targetMarket = allMarkets?.[region.id];
-                                    if (!targetMarket) return null;
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {Object.values(regions || {})
+                                    .concat([{ id: 'capital', name: 'Kongeriket (Hovedstaden)' } as any])
+                                    .filter((r: any) => r.id !== player.regionId && r.id !== undefined)
+                                    .map((region: any) => {
+                                        const targetMarket = allMarkets?.[region.id];
+                                        if (!targetMarket) return null;
 
-                                    return (
-                                        <GameCard key={region.id} title={region.name} className="bg-indigo-950/30 border-indigo-500/20">
-                                            <div className="space-y-3">
-                                                {['grain', 'wood', 'iron'].map(res => {
-                                                    const item = (targetMarket as any)[res];
-                                                    if (!item) return null;
-                                                    const foreignPrice = item.price;
-                                                    const details = (RESOURCE_DETAILS as any)[res] || { label: res, icon: '📦' };
+                                        return (
+                                            <GameCard key={region.id} title={region.name} className="bg-indigo-950/30 border-indigo-500/20">
+                                                <div className="space-y-3">
+                                                    {['grain', 'wood', 'iron'].map(res => {
+                                                        const item = (targetMarket as any)[res];
+                                                        if (!item) return null;
+                                                        const foreignPrice = item.price;
+                                                        const details = (RESOURCE_DETAILS as any)[res] || { label: res, icon: '📦' };
 
-                                                    return (
-                                                        <div key={res} className="flex justify-between items-center bg-black/20 p-2 rounded-lg">
-                                                            <div className="flex items-center gap-2">
-                                                                <span>{details.icon}</span>
-                                                                <span className="text-sm font-bold text-game-stone_light capitalize">{details.label}</span>
-                                                            </div>
-                                                            <div className="flex items-center gap-3">
-                                                                <span className="text-game-gold font-bold text-sm">{foreignPrice.toFixed(0)}g</span>
-                                                                <div className="flex gap-1">
-                                                                    <button
-                                                                        onClick={() => onAction({ type: 'TRADE_ROUTE', targetRegionId: region.id, resource: res, action: 'IMPORT' })}
-                                                                        disabled={!!actionLoading}
-                                                                        className="px-2 py-1 bg-emerald-900/50 text-emerald-400 text-[10px] font-bold rounded border border-emerald-500/30 hover:bg-emerald-500 hover:text-white transition-colors"
-                                                                        title="Importer (Kjøp herfra)"
-                                                                    >
-                                                                        IMP
-                                                                    </button>
-                                                                    <button
-                                                                        onClick={() => onAction({ type: 'TRADE_ROUTE', targetRegionId: region.id, resource: res, action: 'EXPORT' })}
-                                                                        disabled={!!actionLoading}
-                                                                        className="px-2 py-1 bg-red-900/50 text-red-400 text-[10px] font-bold rounded border border-red-500/30 hover:bg-red-500 hover:text-white transition-colors"
-                                                                        title="Eksporter (Selg hit)"
-                                                                    >
-                                                                        EXP
-                                                                    </button>
+                                                        return (
+                                                            <div key={res} className="flex justify-between items-center bg-black/20 p-2 rounded-lg">
+                                                                <div className="flex items-center gap-2">
+                                                                    <span>{details.icon}</span>
+                                                                    <span className="text-sm font-bold text-game-stone_light capitalize">{details.label}</span>
+                                                                </div>
+                                                                <div className="flex items-center gap-3">
+                                                                    <span className="text-game-gold font-bold text-sm">{foreignPrice.toFixed(0)}g</span>
+                                                                    <div className="flex gap-1">
+                                                                        <button
+                                                                            onClick={() => onAction({ type: 'TRADE_ROUTE', targetRegionId: region.id, resource: res, action: 'IMPORT' })}
+                                                                            disabled={!!actionLoading}
+                                                                            className="px-2 py-1 bg-emerald-900/50 text-emerald-400 text-[10px] font-bold rounded border border-emerald-500/30 hover:bg-emerald-500 hover:text-white transition-colors"
+                                                                            title="Importer (Kjøp herfra)"
+                                                                        >
+                                                                            IMP
+                                                                        </button>
+                                                                        <button
+                                                                            onClick={() => onAction({ type: 'TRADE_ROUTE', targetRegionId: region.id, resource: res, action: 'EXPORT' })}
+                                                                            disabled={!!actionLoading}
+                                                                            className="px-2 py-1 bg-red-900/50 text-red-400 text-[10px] font-bold rounded border border-red-500/30 hover:bg-red-500 hover:text-white transition-colors"
+                                                                            title="Eksporter (Selg hit)"
+                                                                        >
+                                                                            EXP
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    );
-                                                })}
-                                            </div>
-                                        </GameCard>
-                                    );
-                                })}
+                                                        );
+                                                    })}
+                                                </div>
+                                            </GameCard>
+                                        );
+                                    })}
+                            </div>
                         </div>
-                    </div>
-                )}
-            </div>
-        </SimulationMapWindow>
+                    )
+                }
+            </div >
+        </SimulationMapWindow >
     );
 });
 
