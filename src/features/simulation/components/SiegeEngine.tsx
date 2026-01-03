@@ -11,7 +11,7 @@ interface SiegeEngineProps {
 }
 
 export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onAction }) => {
-    const isParticipant = siege.attackers[player.id] || siege.defenders[player.id];
+    const isParticipant = (siege.attackers || {})[player.id] || (siege.defenders || {})[player.id];
     // const isAttacker = !!siege.attackers[player.id];
 
     // Cast to any to access dynamic props not yet in strict Interface
@@ -80,10 +80,10 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                 </div>
                 <div className="flex gap-2">
                     <div className="text-white font-mono text-sm bg-black/50 px-3 py-1 rounded-lg">
-                        {Object.keys(siege.attackers).length} Angripere
+                        {Object.keys(siege.attackers || {}).length} Angripere
                     </div>
                     <div className="text-white font-mono text-sm bg-black/50 px-3 py-1 rounded-lg">
-                        {Object.keys(siege.defenders).length} Forsvarere
+                        {Object.keys(siege.defenders || {}).length} Forsvarere
                     </div>
                 </div>
             </div>
@@ -154,9 +154,24 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                 <div className="relative w-full h-full flex flex-col bg-stone-950 border-t-4 border-black font-sans">
 
                     {/* BOSS AREA */}
-                    <div className="h-1/3 bg-stone-900 flex items-center justify-center relative border-b-4 border-black shadow-xl z-10">
+                    <div className="h-1/3 bg-stone-900 flex items-center justify-center relative border-b-4 border-black shadow-xl z-10 overflow-hidden">
+
+                        {/* Background Ambiance */}
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-30"></div>
+
+                        {/* Attack Telegraph (Full Height Background) */}
+                        {s.bossTargetLane !== undefined && (
+                            <motion.div
+                                className="absolute inset-y-0 w-1/3 bg-gradient-to-b from-red-900/40 to-transparent blur-xl"
+                                animate={{
+                                    left: s.bossTargetLane === 0 ? '0%' : s.bossTargetLane === 1 ? '33.33%' : '66.66%'
+                                }}
+                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                            />
+                        )}
+
                         {/* Boss HP */}
-                        <div className="absolute top-6 left-1/4 right-1/4 h-8 bg-black rounded-full border-2 border-red-900/50 overflow-hidden shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+                        <div className="absolute top-6 left-1/4 right-1/4 h-8 bg-black rounded-full border-2 border-red-900/50 overflow-hidden shadow-[0_0_20px_rgba(220,38,38,0.3)] z-20">
                             <div
                                 className="h-full bg-gradient-to-r from-red-600 to-red-800 transition-all duration-300"
                                 style={{ width: `${(s.bossHp / s.maxBossHp) * 100}%` }}
@@ -166,19 +181,39 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                             </span>
                         </div>
 
-                        {/* Boss Visual */}
-                        <div className="relative z-10 text-center mt-12">
-                            <div className="text-7xl animate-bounce drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">👹</div>
-                        </div>
+                        {/* Boss Visual (Animated Movement) */}
+                        <motion.div
+                            className="relative z-20 mt-12"
+                            animate={{
+                                x: s.bossTargetLane === 0 ? -250 : s.bossTargetLane === 2 ? 250 : 0,
+                                scale: s.bossTargetLane !== undefined ? 1.1 : 1,
+                                y: s.bossTargetLane !== undefined ? 10 : 0
+                            }}
+                            transition={{
+                                type: "spring", stiffness: 150, damping: 15
+                            }}
+                        >
+                            <div className="text-8xl filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] animate-bounce-slow">
+                                👹
+                            </div>
 
-                        {/* Boss Telegraph Attack Indicators (Top of Lanes) */}
+                            {/* Boss Action Text */}
+                            {s.bossTargetLane !== undefined && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap bg-red-600 text-white text-[10px] font-black uppercase px-2 py-1 rounded shadow-lg"
+                                >
+                                    Angriper!
+                                </motion.div>
+                            )}
+                        </motion.div>
+
+                        {/* Boss Target Lane Indicators (Bottom) */}
                         {s.bossTargetLane !== undefined && (
                             <div className="absolute bottom-0 w-full flex h-6">
                                 {[0, 1, 2].map(lane => (
                                     <div key={lane} className={`flex-1 transition-all duration-300 ${s.bossTargetLane === lane ? 'bg-red-500/50 shadow-[0_0_20px_#ef4444] animate-pulse' : 'bg-transparent'}`}>
-                                        {s.bossTargetLane === lane && (
-                                            <div className="w-full text-center text-[10px] font-black uppercase text-red-200 animate-bounce">Angriper her!</div>
-                                        )}
                                     </div>
                                 ))}
                             </div>
@@ -188,10 +223,10 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                     {/* LANES */}
                     <div className="flex-1 flex relative bg-stone-900/50">
                         {[0, 1, 2].map(lane => {
-                            const myParticipant = (siege.attackers[player.id] || siege.defenders[player.id]) as any;
+                            const myParticipant = (siege.attackers || {})[player.id] || (siege.defenders || {})[player.id];
                             const isMyLane = myParticipant?.lane === lane;
                             const isTargeted = s.bossTargetLane === lane;
-                            const laneAttackers = Object.values(siege.attackers).concat(Object.values(siege.defenders)).filter((p: any) => p.lane === lane);
+                            const laneAttackers = Object.values(siege.attackers || {}).concat(Object.values(siege.defenders || {})).filter((p: any) => p.lane === lane);
 
                             return (
                                 <div
