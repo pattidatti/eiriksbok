@@ -280,12 +280,21 @@ export interface ThroneRoomData {
     maxBossHp: number;
     defendingPlayerId?: string; // If PvP
 
-    // Hotseat Data
-    usurperId?: string | null;
-    usurperName?: string | null;
-    usurperArmor?: number;
+    // Race Data (Multi-Occupier)
+    occupiers?: Record<string, ThroneOccupier>;
+
+    // Legacy / Global State
+    // occupation: number; // Still used for "Highest Progress" display? Or just display highest? Let's keep it for compatibility if needed, but logic uses occupiers.
     lastTick?: number;
-    drainRate?: number;
+}
+
+export interface ThroneOccupier {
+    id: string;
+    name: string;
+    armor: number; // Current armor stack
+    progress: number; // 0-100%
+    joinedAt: number;
+    // status effects?
 }
 
 export interface SiegeStats {

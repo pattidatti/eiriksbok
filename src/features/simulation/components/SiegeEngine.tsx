@@ -20,21 +20,25 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
 
     // State management
     const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
+    const [selectedTarget, setSelectedTarget] = useState<string | null>(null);
 
-    // Heartbeat for Usurper to drive the Siege Loop
+    // Heartbeat for Siege Tick (Driven by Occupiers OR any participant if empty)
     React.useEffect(() => {
-        if (player.id === siege.throne?.usurperId && (siege.phase === 'THRONE_ROOM' || (siege.phase as any) === 'THRONE')) {
+        const isThronePhase = (siege.phase === 'THRONE_ROOM' || (siege.phase as any) === 'THRONE');
+
+        if (isThronePhase) {
             const interval = setInterval(() => {
                 const now = Date.now();
                 const lastTick = siege.throne?.lastTick || 0;
-                // Only dispatch if actual backend time needs update (>1s) to avoid spamming
+
+                // Tick every second if needed
                 if (now - lastTick >= 1000) {
                     onAction({ type: 'SIEGE_ACTION', subType: 'TICK' });
                 }
             }, 1000);
             return () => clearInterval(interval);
         }
-    }, [siege.phase, siege.throne?.usurperId, siege.throne?.lastTick, player.id, onAction]);
+    }, [siege.phase, siege.throne?.occupiers, siege.throne?.lastTick, onAction]);
 
     const handleAttack = (e: React.MouseEvent) => {
         if (!isParticipant) return;
@@ -230,104 +234,137 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                         </div>
                     )}
 
-                    {/* PHASE 3: THRONE ROOM */}
+                    {/* PHASE 3: THRONE ROOM (Death Race) */}
                     {(siege.phase === 'THRONE_ROOM' || (siege.phase as string) === 'THRONE') && (
-                        <div className="flex flex-col gap-8">
-                            {/* OCCUPATION HEADER */}
-                            <div className="text-center mb-8">
-                                <h2 className="text-5xl font-black text-amber-500 font-display drop-shadow-xl mb-2">TRONSALEN</h2>
-                                <p className="text-slate-300 text-lg mb-6">{siege.throne?.usurperId ? <span className="text-amber-400 font-bold">{siege.throne.usurperName} styrer nå!</span> : "Tronen står tom..."}</p>
+                        <div className="flex flex-col gap-6 w-full max-w-6xl mx-auto">
 
-                                <div className="w-full max-w-2xl mx-auto h-16 bg-black/80 rounded-full border-4 border-amber-600/50 overflow-hidden relative shadow-2xl">
-                                    <div className="h-full bg-gradient-to-r from-amber-700 via-yellow-500 to-amber-700 transition-all duration-300" style={{ width: `${siege.throne?.occupation || 0}% ` }} />
-                                    {/* TICK INDICATOR (Simple Pulse) */}
-                                    <div className="absolute right-0 top-0 bottom-0 w-1 bg-white/50 animate-pulse"></div>
-
-                                    <div className="absolute inset-0 flex items-center justify-center font-black text-white text-xl tracking-widest drop-shadow-md">
-                                        OKKUPASJON: {Math.floor(siege.throne?.occupation || 0)}%
-                                    </div>
-                                </div>
-                                <p className="text-xs text-amber-500/50 mt-2 uppercase tracking-widest">Okkupasjon øker over tid så lenge tronen holdes</p>
+                            {/* RACE HEADER */}
+                            <div className="text-center mb-4">
+                                <h2 className="text-5xl font-black text-amber-500 font-display drop-shadow-xl mb-2">KAMPEN OM TRONEN</h2>
+                                <p className="text-slate-300 text-lg">Første til 100% vinner!</p>
                             </div>
 
-                            {/* ACTION CARDS */}
-                            <div className="grid grid-cols-2 gap-8 max-w-5xl mx-auto w-full">
-                                {isAttacker && !siege.throne?.usurperId && (
-                                    <div
-                                        className={`bg - black / 80 border - 4 rounded - 3xl p - 8 flex flex - col items - center text - center transition - all shadow - [0_0_30px_rgba(245, 158, 11, 0.2)]
-                                            ${isPlundered ? 'border-slate-700 opacity-50 cursor-not-allowed' : 'border-amber-500 cursor-pointer hover:scale-105'}
-                                        `}
-                                        onClick={() => !isPlundered && onAction({ type: 'SIEGE_ACTION', subType: 'CLAIM_THRONE' })}
-                                    >
-                                        <div className="text-7xl mb-4">👑</div>
-                                        <h3 className="text-3xl font-black text-white uppercase">Krev Tronen</h3>
-                                        <p className="text-amber-500 font-bold mt-2">Kostnad: 1 Rustning / sek</p>
-                                        <p className="text-slate-400 text-sm mt-4">
-                                            {isPlundered ? "Skattekammeret er tomt. Ingen vits i å herske over ingenting." : "Start okkupasjonen. Rustning dreneres hvert sekund og når du tar skade."}
-                                        </p>
-                                    </div>
-                                )}
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                                {/* LEFT: ACTIONS PANEL */}
+                                <div className="lg:col-span-1 space-y-4 order-2 lg:order-1">
+                                    {/* JOIN BUTTON (If not participating) */}
+                                    {isAttacker && !siege.throne?.occupiers?.[player.id] && (
+                                        <div
+                                            className={`bg-amber-900/80 border-4 rounded-3xl p-6 flex flex-col items-center text-center cursor-pointer hover:scale-105 transition-transform shadow-lg border-amber-500`}
+                                            onClick={() => !isPlundered && onAction({ type: 'SIEGE_ACTION', subType: 'CLAIM_THRONE' })}
+                                        >
+                                            <div className="text-5xl mb-2">👑</div>
+                                            <h3 className="text-2xl font-black text-white uppercase">Delta i Kappeløpet</h3>
+                                            <p className="text-amber-400 font-bold mt-1">Start med 10 Rustning</p>
+                                            <p className="text-slate-400 text-xs mt-2">Du trenger minst 10 Rustning for å starte.</p>
+                                        </div>
+                                    )}
 
-                                {isAttacker && siege.throne?.usurperId === player.id && (
-                                    <div className="bg-indigo-900/80 border-4 border-indigo-500 rounded-3xl p-8 flex flex-col items-center text-center animate-pulse shadow-[0_0_30px_rgba(99,102,241,0.4)]">
-                                        <div className="text-7xl mb-4">🛡️</div>
-                                        <h3 className="text-3xl font-black text-white uppercase">Hold Posisjonen</h3>
-                                        <div className="text-4xl font-black text-white my-2">{siege.throne?.usurperArmor || 0} <span className="text-sm font-bold text-indigo-300 align-middle">RUSTNING</span></div>
-                                        <p className="text-indigo-300 font-bold mt-2">Du mister Rustning over tid!</p>
-                                        <p className="text-indigo-200 text-sm mt-4">
-                                            Okkupasjonen øker... Ikke gå tom for rustning!
-                                        </p>
-                                    </div>
-                                )}
+                                    {/* MY STATUS (If participating) */}
+                                    {siege.throne?.occupiers?.[player.id] && (
+                                        <div className="bg-indigo-900/80 border-4 border-indigo-500 rounded-3xl p-6 flex flex-col items-center text-center animate-pulse shadow-[0_0_30px_rgba(99,102,241,0.4)]">
+                                            <h3 className="text-xl font-black text-white uppercase">Du Okkuperer!</h3>
+                                            <div className="text-3xl font-black text-white my-2">{siege.throne.occupiers[player.id].armor} <span className="text-xs font-bold text-indigo-300 align-middle">RUSTNING</span></div>
+                                            <p className="text-indigo-300 text-xs font-bold">Du mister 1 Rustning/sek.</p>
+                                        </div>
+                                    )}
 
-                                {isAttacker && siege.throne?.usurperId && siege.throne?.usurperId !== player.id && (
-                                    <div
-                                        className="bg-emerald-900/80 border-4 border-emerald-500 rounded-3xl p-8 flex flex-col items-center text-center cursor-pointer hover:scale-105 transition-transform"
-                                        onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'DONATE_ARMOR' })}
-                                    >
-                                        <div className="text-7xl mb-4">🤝</div>
-                                        <h3 className="text-3xl font-black text-white uppercase">Doner Rustning</h3>
-                                        <p className="text-emerald-400 font-bold mt-2">Gi 1 Rustning til {siege.throne.usurperName}</p>
-                                        <p className="text-slate-300 text-sm mt-4">Hjelp din allierte med å holde tronen lenger.</p>
-                                    </div>
-                                )}
+                                    {/* TARGET ACTIONS (Donate/Attack) */}
+                                    {selectedTarget && selectedTarget !== player.id && siege.throne?.occupiers?.[selectedTarget] && (
+                                        <div className="bg-slate-900/90 border border-white/10 rounded-2xl p-4 animate-in slide-in-from-left">
+                                            <h4 className="text-slate-400 text-xs uppercase font-bold mb-2">Valgt Mål: <span className="text-white">{siege.throne.occupiers[selectedTarget].name}</span></h4>
 
-                                {/* PLUNDER CARD - ALWAYS VISIBLE ALTERNATIVE IF NOT KING */}
-                                {isAttacker && siege.throne?.usurperId !== player.id && (
-                                    <div
-                                        className={`bg - black / 80 border - 4 border - yellow - 600 rounded - 3xl p - 8 flex flex - col items - center text - center cursor - pointer hover: scale - 105 transition - transform
-                                            ${isPlundered ? 'opacity-50 grayscale cursor-not-allowed' : ''}
-                                        `}
-                                        onClick={() => !isPlundered && onAction({ type: 'SIEGE_ACTION', subType: 'PLUNDER' })}
-                                    >
-                                        <div className="text-7xl mb-4">💰</div>
-                                        <h3 className="text-3xl font-black text-white uppercase">Plyndre & Stikk</h3>
-                                        <p className="text-yellow-500 font-bold mt-2">Gevinst: 500 Gull</p>
-                                        <p className="text-slate-400 text-sm mt-4">
-                                            {isPlundered ? "Allerede plyndret." : "Ta pengene og forlat beleiringen. Du gir opp retten til å kreve tronen."}
-                                        </p>
-                                    </div>
-                                )}
+                                            <div className="grid grid-cols-1 gap-2">
+                                                <GameButton
+                                                    variant="secondary"
+                                                    className="w-full justify-center bg-emerald-900/50 hover:bg-emerald-800 border-emerald-500/30 text-emerald-100"
+                                                    onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'DONATE_ARMOR', payload: { targetId: selectedTarget } })}
+                                                    icon={<Heart className="w-4 h-4" />}
+                                                >
+                                                    DONER RUSTNING (+1)
+                                                </GameButton>
 
-                                {/* DEFENDER ACTION */}
-                                {!isAttacker && (
-                                    <div
-                                        className="col-span-2 bg-red-900/80 border-4 border-red-600 rounded-3xl p-8 flex flex-col items-center text-center cursor-pointer hover:scale-105 transition-transform"
-                                        onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'SUNDER_ARMOR' })}
-                                    >
-                                        <div className="text-7xl mb-4">⚔️</div>
-                                        <h3 className="text-3xl font-black text-white uppercase">Knus Rustning</h3>
-                                        <p className="text-red-300 font-bold mt-2">Angrip ursurpatoren direkte!</p>
-                                        <p className="text-red-200 text-sm mt-4">Fjerner 1 Rustning fra den som sitter på tronen.</p>
-                                    </div>
-                                )}
+                                                <GameButton
+                                                    variant="primary"
+                                                    className="w-full justify-center bg-rose-900/50 hover:bg-rose-800 border-rose-500/30 text-rose-100"
+                                                    onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'SUNDER_ARMOR', payload: { targetId: selectedTarget } })}
+                                                    icon={<Sword className="w-4 h-4" />}
+                                                >
+                                                    KNUS RUSTNING (-1)
+                                                </GameButton>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* PLUNDER (Always available option) */}
+                                    {isAttacker && (
+                                        <div
+                                            className={`bg-slate-800/80 border-2 border-slate-600 rounded-xl p-4 flex items-center justify-between cursor-pointer hover:bg-slate-700/80 ${isPlundered ? 'opacity-50 grayscale' : ''}`}
+                                            onClick={() => !isPlundered && onAction({ type: 'SIEGE_ACTION', subType: 'PLUNDER' })}
+                                        >
+                                            <div>
+                                                <h4 className="text-white font-bold text-sm">PLYNDRE & STIKK</h4>
+                                                <p className="text-slate-400 text-xs">Gevinst: 500 Gull</p>
+                                            </div>
+                                            <div className="text-2xl">💰</div>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* CENTER/RIGHT: RACE LEADERBOARD */}
+                                <div className="lg:col-span-2 space-y-3 order-1 lg:order-2 h-[500px] overflow-y-auto custom-scrollbar pr-2">
+                                    {(!siege.throne?.occupiers || Object.keys(siege.throne.occupiers).length === 0) ? (
+                                        <div className="text-center py-20 text-slate-500 italic border-2 border-dashed border-white/10 rounded-xl">
+                                            Ingen har tatt steget opp til tronen ennå...
+                                        </div>
+                                    ) : (
+                                        Object.values(siege.throne.occupiers)
+                                            .sort((a: any, b: any) => b.progress - a.progress)
+                                            .map((occ: any, index) => (
+                                                <div
+                                                    key={occ.id}
+                                                    onClick={() => setSelectedTarget(occ.id)}
+                                                    className={`
+                                                    relative overflow-hidden rounded-xl border-2 p-4 cursor-pointer transition-all
+                                                    ${occ.id === player.id ? 'bg-indigo-900/40 border-indigo-500 ring-1 ring-indigo-400' : 'bg-slate-900/60 border-white/10 hover:border-white/30'}
+                                                    ${selectedTarget === occ.id ? 'ring-2 ring-amber-500 scale-[1.02]' : ''}
+                                                `}
+                                                >
+                                                    {/* Progress Bar Background */}
+                                                    <div
+                                                        className={`absolute inset-0 opacity-20 transition-all duration-1000 ease-linear ${occ.id === player.id ? 'bg-indigo-500' : 'bg-amber-600'}`}
+                                                        style={{ width: `${occ.progress}%` }}
+                                                    />
+
+                                                    <div className="relative z-10 flex items-center gap-4">
+                                                        <div className="font-black text-2xl text-slate-500 w-8">#{index + 1}</div>
+                                                        <div>
+                                                            <div className="font-bold text-lg text-white flex items-center gap-2">
+                                                                {occ.name}
+                                                                {occ.id === player.id && <span className="text-[10px] bg-indigo-500 text-white px-1.5 py-0.5 rounded font-black tracking-widest uppercase">DEG</span>}
+                                                            </div>
+                                                            <div className="text-xs font-mono text-slate-400 flex items-center gap-2">
+                                                                <Shield className="w-3 h-3 text-slate-500" />
+                                                                {occ.armor} RUSTNING
+                                                            </div>
+                                                        </div>
+                                                        <div className="ml-auto text-right">
+                                                            <div className="text-3xl font-black text-white">{Math.floor(occ.progress)}%</div>
+                                                            <div className="text-[10px] text-emerald-500 font-bold uppercase tracking-widest">Okkupasjon</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))
+                                    )}
+                                </div>
                             </div>
                         </div>
                     )}
+
                 </div>
 
                 {/* BOTTOM: PERMANENT COMPACT WAR LOG */}
-                <div className="mt-8 bg-black/80 backdrop-blur-md rounded-2xl border border-white/10 p-4">
+                <div className="mt-auto border-t border-white/10 pt-4 px-4 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 p-4">
                     <div className="flex items-center justify-between mb-4 border-b border-white/10 pb-2">
                         <span className="text-amber-500 font-bold uppercase tracking-wider text-sm flex items-center gap-2">
                             <Scroll className="w-4 h-4" /> Krigsprotokollen

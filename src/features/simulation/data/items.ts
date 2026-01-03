@@ -10,7 +10,7 @@ export const RESOURCE_DETAILS: Record<string, { label: string, icon: string }> =
     iron_ore: { label: 'Jernmalm', icon: '🪨' },
     iron_ingot: { label: 'Jernbarre', icon: '🧱' },
     stone: { label: 'Stein', icon: '🏔️' },
-    swords: { label: 'Sverd', icon: '⚔️' },
+    swords: { label: 'Beleiringsvåpen', icon: '⚔️' },
     armor: { label: 'Rustning', icon: '🛡️' },
     favor: { label: 'Gunst', icon: '✨' },
     honey: { label: 'Honning', icon: '🍯' },

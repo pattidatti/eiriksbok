@@ -3,12 +3,12 @@ import { ref, set, onValue, update, get, remove } from 'firebase/database';
 import { simulationDb as db } from './simulationFirebase';
 import { useLayout } from '../../context/LayoutContext';
 
-import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES, VILLAGE_BUILDINGS, SEASONS, RESOURCE_DETAILS, INITIAL_SKILLS } from './constants';
+import { INITIAL_MARKET, ROLE_DEFINITIONS, INITIAL_RESOURCES, VILLAGE_BUILDINGS, SEASONS, RESOURCE_DETAILS, INITIAL_SKILLS, ITEM_TEMPLATES } from './constants';
 import { Globe, Lock } from 'lucide-react';
 import { assignRoles, collectTaxes } from './gameLogic';
 import { generateInitialRoomState, syncServerMetadata } from './logic/roomInit';
 import type { SimulationMessage, SimulationRoom } from './simulationTypes';
-import { handleAdminGiveGold } from './globalActions';
+import { handleAdminGiveGold, handleAdminGiveItem } from './globalActions';
 import { useGameTicker } from './hooks/useGameTicker';
 import { useBotManager } from './hooks/useBotManager';
 
@@ -18,8 +18,9 @@ export const SimulationHost: React.FC = () => {
     const [roomData, setRoomData] = useState<SimulationRoom | null>(null);
     const [allRooms, setAllRooms] = useState<SimulationRoom[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [view, setView] = useState<'LIST' | 'MANAGE' | 'ECONOMY'>('LIST');
+    const [view, setView] = useState<'LIST' | 'MANAGE' | 'ECONOMY' | 'REPORTS'>('LIST');
     const [giveGoldAmounts, setGiveGoldAmounts] = useState<Record<string, number>>({});
+    const [giveItemSelection, setGiveItemSelection] = useState<Record<string, { itemId: string, amount: number }>>({});
     const { setFullWidth, setHideHeader } = useLayout();
 
     // Lazy load the blueprint
@@ -117,7 +118,7 @@ export const SimulationHost: React.FC = () => {
     useGameTicker(pin, roomData?.status || 'LOBBY', roomData?.world);
 
     // --- BOT MANAGER ---
-    const { enabled: botsEnabled, setEnabled: setBotsEnabled, activeBotCount } = useBotManager(pin, roomData, true);
+    const { enabled: botsEnabled, setEnabled: setBotsEnabled, activeBotCount, recentLogs, botReports } = useBotManager(pin, roomData, true);
 
     // 4. Messages (Heavy - Capped)
     useEffect(() => {
@@ -1125,6 +1126,12 @@ export const SimulationHost: React.FC = () => {
                             >
                                 Blueprint
                             </button>
+                            <button
+                                onClick={() => setView('REPORTS' as any)}
+                                className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${view === 'REPORTS' ? 'bg-rose-600 text-white shadow-lg' : 'text-slate-500 hover:text-white'}`}
+                            >
+                                Bot Feedback
+                            </button>
                         </nav>
                         <div className="h-4 w-[1px] bg-white/10 mx-2" />
                         <div className="flex items-center gap-8">
@@ -1144,9 +1151,200 @@ export const SimulationHost: React.FC = () => {
                 <div className="flex-1 p-8 overflow-y-auto custom-scrollbar no-scrollbar">
                     {view === 'ECONOMY' ? (
                         SimulationEconomyBlueprint ? <SimulationEconomyBlueprint /> : <div className="p-20 text-center animate-pulse text-slate-500 font-black uppercase tracking-widest">Laster Blueprint...</div>
+                    ) : view === 'REPORTS' ? (
+                        <div className="space-y-8 animate-in fade-in duration-500">
+                            <div className="flex items-center justify-between">
+                                <h2 className="text-2xl font-black text-white px-2 tracking-tighter flex items-center gap-3">
+                                    <span className="text-3xl">📢</span>
+                                    Bot Feedback Reports
+                                </h2>
+                                <span className="text-[10px] font-bold bg-white/10 px-3 py-1 rounded-full text-slate-400">Total Reports: {botReports?.length || 0}</span>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {/* BUG REPORTS */}
+                                <div className="bg-rose-950/20 border border-rose-500/20 rounded-3xl p-6">
+                                    <h3 className="text-rose-500 font-black uppercase tracking-widest text-xs mb-4 flex items-center gap-2">
+                                        <span className="w-2 h-2 bg-rose-500 rounded-full animate-pulse" />
+                                        Bug Reports
+                                    </h3>
+                                    <div className="space-y-3 h-[50vh] overflow-y-auto custom-scrollbar pr-2">
+                                        {botReports?.filter((r: any) => r.type === 'BUG').map((r: any) => (
+                                            <div key={r.id} className="bg-black/40 p-4 rounded-xl border-l-2 border-rose-500">
+                                                <div className="flex justify-between items-center mb-1">
+                                                    <span className="text-rose-400 font-bold text-[10px] uppercase">{r.botName}</span>
+                                                    <span className="text-slate-600 text-[9px] font-mono">{new Date(r.timestamp).toLocaleTimeString()}</span>
+                                                </div>
+                                                <p className="text-white/80 text-xs italic">"{r.message}"</p>
+                                            </div>
+                                        ))}
+                                        {(!botReports || botReports.filter((r: any) => r.type === 'BUG').length === 0) && (
+                                            <div className="text-center py-10 opacity-30 text-xs font-bold uppercase">Ingen bugs rapportert</div>
+                                        )}
+                                    </div>
+                                </div>
+
+                                {/* BALANCE FEEDBACK */}
+                                <div className="bg-amber-950/20 border border-amber-500/20 rounded-3xl p-6">
+                                    <h3 className="text-amber-500 font-black uppercase tracking-widest text-xs mb-4 flex items-center gap-2">
+                                        <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+                                        Balance Feedback
+                                    </h3>
+                                    <div className="space-y-3 h-[50vh] overflow-y-auto custom-scrollbar pr-2">
+                                        {botReports?.filter((r: any) => r.type === 'BALANCE').map((r: any) => (
+                                            <div key={r.id} className="bg-black/40 p-4 rounded-xl border-l-2 border-amber-500">
+                                                <div className="flex justify-between items-center mb-1">
+                                                    <span className="text-amber-400 font-bold text-[10px] uppercase">{r.botName}</span>
+                                                    <span className="text-slate-600 text-[9px] font-mono">{new Date(r.timestamp).toLocaleTimeString()}</span>
+                                                </div>
+                                                <p className="text-white/80 text-xs italic">"{r.message}"</p>
+                                            </div>
+                                        ))}
+                                        {(!botReports || botReports.filter((r: any) => r.type === 'BALANCE').length === 0) && (
+                                            <div className="text-center py-10 opacity-30 text-xs font-bold uppercase">Ingen feedback mottatt</div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     ) : (
                         <div className="space-y-12">
                             {/* Player Grid */}
+                            {/* Bot Controls */}
+                            <div className="bg-slate-900/50 border border-white/5 rounded-[2rem] p-8 backdrop-blur-sm">
+                                <div className="flex justify-between items-center mb-8">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-2xl border border-indigo-500/20">
+                                            🤖
+                                        </div>
+                                        <div>
+                                            <h2 className="text-xl font-black text-white flex items-center gap-3">
+                                                Bot Nettverk
+                                                <div className={`px-2 py-0.5 rounded text-[10px] uppercase font-black tracking-widest ${botsEnabled ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-slate-800 text-slate-500 border border-white/5'}`}>
+                                                    {botsEnabled ? 'System Aktivt' : 'Standby'}
+                                                </div>
+                                            </h2>
+                                            <p className="text-xs text-slate-500 font-bold mt-1">Automatiserte agenter styrt av sentralisert AI</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        onClick={() => setBotsEnabled(!botsEnabled)}
+                                        className={`px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all ${botsEnabled
+                                            ? 'bg-rose-500/10 hover:bg-rose-500 text-rose-500 hover:text-white border border-rose-500/20'
+                                            : 'bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-white border border-emerald-500/20'
+                                            }`}
+                                    >
+                                        {botsEnabled ? 'Deaktiver System' : 'Aktiver System'}
+                                    </button>
+                                </div>
+
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                    <div className="bg-black/20 rounded-2xl p-6 border border-white/5">
+                                        <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Masseproduksjon</h3>
+                                        <div className="flex flex-col gap-4">
+                                            <div className="flex gap-2">
+                                                <input
+                                                    type="text"
+                                                    placeholder="Navn..."
+                                                    className="flex-1 bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-xs font-bold text-white focus:border-indigo-500/50 transition-colors"
+                                                    value={botForm.name}
+                                                    onChange={e => setBotForm({ ...botForm, name: e.target.value })}
+                                                />
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <button
+                                                    onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [AGIT]' }))}
+                                                    className="px-3 py-2 bg-rose-500/10 border border-rose-500/20 rounded-lg hover:bg-rose-500/20 text-rose-400 text-[10px] font-black uppercase transition-colors"
+                                                    title="Agitator (Revolusjonær)"
+                                                >
+                                                    🔥 Opprører
+                                                </button>
+                                                <button
+                                                    onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [MERCH]' }))}
+                                                    className="px-3 py-2 bg-amber-500/10 border border-amber-500/20 rounded-lg hover:bg-amber-500/20 text-amber-400 text-[10px] font-black uppercase transition-colors"
+                                                    title="Kjøpmann (Økonom)"
+                                                >
+                                                    💰 Kjøpmann
+                                                </button>
+                                                <button
+                                                    onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [GUARD]' }))}
+                                                    className="px-3 py-2 bg-blue-500/10 border border-blue-500/20 rounded-lg hover:bg-blue-500/20 text-blue-400 text-[10px] font-black uppercase transition-colors"
+                                                    title="Vakt (Lojalist)"
+                                                >
+                                                    🛡️ Vakt
+                                                </button>
+                                                <button
+                                                    onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [CLIMBER]' }))}
+                                                    className="px-3 py-2 bg-purple-500/10 border border-purple-500/20 rounded-lg hover:bg-purple-500/20 text-purple-400 text-[10px] font-black uppercase transition-colors"
+                                                    title="Klatreren (Ambisiøs)"
+                                                >
+                                                    👑 Klatrer
+                                                </button>
+                                            </div>
+                                            <div className="grid grid-cols-2 gap-3 mt-2">
+                                                <button
+                                                    onClick={spawnDevBot}
+                                                    className="bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all shadow-lg shadow-indigo-500/20"
+                                                >
+                                                    + 1 Enhet
+                                                </button>
+                                                <button
+                                                    onClick={async () => {
+                                                        if (!window.confirm("Spawn 10 bots?")) return;
+                                                        for (let i = 0; i < 10; i++) {
+                                                            const r = Math.random();
+                                                            const roleSuffix = r > 0.8 ? ' [AGIT]' : (r > 0.6 ? ' [MERCH]' : '');
+                                                            const tempName = botForm.name || 'Bot';
+                                                            setBotForm(prev => ({ ...prev, name: tempName + roleSuffix }));
+                                                            await spawnDevBot();
+                                                        }
+                                                    }}
+                                                    className="bg-slate-700 hover:bg-slate-600 text-white py-3 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all"
+                                                >
+                                                    + 10 Enheter
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-black/20 rounded-2xl p-6 border border-white/5">
+                                        <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Nettverk Status</h3>
+                                        <div className="space-y-4">
+                                            <div className="flex justify-between items-center p-3 bg-slate-900/50 rounded-xl border border-white/5">
+                                                <span className="text-xs font-bold text-slate-400">Aktive Enheter</span>
+                                                <span className="text-lg font-black text-indigo-400 font-mono">{activeBotCount}</span>
+                                            </div>
+                                            <div className="flex justify-between items-center p-3 bg-slate-900/50 rounded-xl border border-white/5">
+                                                <span className="text-xs font-bold text-slate-400">Tick Rate</span>
+                                                <span className="text-xs font-mono text-emerald-400">5.0s (5 bots/tick)</span>
+                                            </div>
+                                            <p className="text-[10px] text-slate-600 font-bold italic leading-relaxed">
+                                                "Bot Brain" analyserer ressurser, sult, og politisk overbevisning for hver bot.
+                                                Hver enhet opererer autonomt basert på sin persona.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* LIVE FEED */}
+                                    <div className="md:col-span-2 bg-black/40 rounded-2xl p-6 border border-white/5 font-mono">
+                                        <h3 className="text-[10px] font-black text-emerald-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+                                            Neural Link Feed
+                                        </h3>
+                                        <div className="h-32 overflow-y-auto custom-scrollbar flex flex-col-reverse gap-1">
+                                            {recentLogs.length > 0 ? recentLogs.map((log, i) => (
+                                                <div key={i} className="text-[10px] text-slate-400 border-l-2 border-slate-800 pl-2 hover:bg-white/5 transition-colors">
+                                                    <span className="text-slate-600 mr-2">[{new Date().toLocaleTimeString()}]</span>
+                                                    {log}
+                                                </div>
+                                            )) : (
+                                                <div className="text-[10px] text-slate-700 italic text-center py-8">Venter på overføring fra bot-nettverket...</div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <section>
                                 <h2 className="text-3xl font-black text-white px-2 mb-8 tracking-tighter">Innbyggere i Riket</h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1236,27 +1434,63 @@ export const SimulationHost: React.FC = () => {
                                                 Styr spiller
                                             </button>
 
-                                            {/* ADMIN: GIVE GOLD */}
-                                            <div className="mt-4 pt-4 border-t border-white/5 flex gap-2">
-                                                <input
-                                                    type="number"
-                                                    placeholder="Gull..."
-                                                    value={giveGoldAmounts[p.id] || ''}
-                                                    onChange={(e) => setGiveGoldAmounts({ ...giveGoldAmounts, [p.id]: parseInt(e.target.value) || 0 })}
-                                                    className="flex-1 bg-black/40 border border-white/5 rounded-xl px-3 py-2 text-[10px] font-black text-white focus:border-indigo-500/50 transition-all font-mono"
-                                                />
-                                                <button
-                                                    onClick={() => {
-                                                        const amt = giveGoldAmounts[p.id] || 0;
-                                                        if (amt > 0) {
-                                                            handleAdminGiveGold(pin, p.id, amt);
-                                                            setGiveGoldAmounts({ ...giveGoldAmounts, [p.id]: 0 });
-                                                        }
-                                                    }}
-                                                    className="bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 px-3 py-2 rounded-xl text-[8px] font-black uppercase transition-all"
-                                                >
-                                                    GI GULL
-                                                </button>
+                                            <div className="mt-4 pt-4 border-t border-white/5 flex flex-col gap-2">
+                                                <div className="flex gap-2">
+                                                    <input
+                                                        type="number"
+                                                        placeholder="Gull..."
+                                                        value={giveGoldAmounts[p.id] || ''}
+                                                        onChange={(e) => setGiveGoldAmounts({ ...giveGoldAmounts, [p.id]: parseInt(e.target.value) || 0 })}
+                                                        className="flex-1 bg-black/40 border border-white/5 rounded-xl px-3 py-2 text-[10px] font-black text-white focus:border-indigo-500/50 transition-all font-mono"
+                                                    />
+                                                    <button
+                                                        onClick={() => {
+                                                            const amt = giveGoldAmounts[p.id] || 0;
+                                                            if (amt > 0) {
+                                                                handleAdminGiveGold(pin, p.id, amt);
+                                                                setGiveGoldAmounts({ ...giveGoldAmounts, [p.id]: 0 });
+                                                            }
+                                                        }}
+                                                        className="bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 px-3 py-2 rounded-xl text-[8px] font-black uppercase transition-all"
+                                                    >
+                                                        GI GULL
+                                                    </button>
+                                                </div>
+
+                                                {/* ADMIN: GIVE ITEM */}
+                                                <div className="flex gap-2">
+                                                    <select
+                                                        value={giveItemSelection[p.id]?.itemId || ''}
+                                                        onChange={(e) => setGiveItemSelection({ ...giveItemSelection, [p.id]: { itemId: e.target.value, amount: giveItemSelection[p.id]?.amount || 1 } })}
+                                                        className="flex-[2] bg-black/40 border border-white/5 rounded-xl px-2 py-2 text-[10px] font-bold text-slate-300 focus:border-indigo-500/50 transition-all cursor-pointer"
+                                                    >
+                                                        <option value="">Velg Gjenstand...</option>
+                                                        {Object.values(ITEM_TEMPLATES).map(item => (
+                                                            <option key={item.id} value={item.id}>{item.icon} {item.name}</option>
+                                                        ))}
+                                                    </select>
+                                                    <input
+                                                        type="number"
+                                                        placeholder="#"
+                                                        value={giveItemSelection[p.id]?.amount || 1}
+                                                        onChange={(e) => setGiveItemSelection({ ...giveItemSelection, [p.id]: { itemId: giveItemSelection[p.id]?.itemId || '', amount: parseInt(e.target.value) || 1 } })}
+                                                        className="w-12 bg-black/40 border border-white/5 rounded-xl px-2 py-2 text-[10px] font-black text-white focus:border-indigo-500/50 transition-all font-mono text-center"
+                                                    />
+                                                    <button
+                                                        onClick={() => {
+                                                            const selection = giveItemSelection[p.id];
+                                                            if (selection && selection.itemId && selection.amount > 0) {
+                                                                handleAdminGiveItem(pin, p.id, selection.itemId, selection.amount);
+                                                                // Optional: Reset or keep selection? Resetting amount but keeping item might be nice.
+                                                                // Resetting all for safety.
+                                                                setGiveItemSelection({ ...giveItemSelection, [p.id]: { itemId: '', amount: 1 } });
+                                                            }
+                                                        }}
+                                                        className="bg-indigo-600/20 hover:bg-indigo-600 text-indigo-400 hover:text-white border border-indigo-500/30 px-3 py-2 rounded-xl text-[8px] font-black uppercase transition-all"
+                                                    >
+                                                        GI ITEM
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     ))}
@@ -1350,99 +1584,7 @@ export const SimulationHost: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="bg-slate-900 border border-slate-800 rounded-lg p-6 mb-8">
-                    <div className="flex justify-between items-center mb-6">
-                        <div className="flex items-center gap-3">
-                            <h2 className="text-xl font-bold flex items-center gap-2">🤖 Bot-nettverk</h2>
-                            <div className={`px-2 py-1 rounded text-xs font-bold ${botsEnabled ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-500'}`}>
-                                {botsEnabled ? 'AKTIVT' : 'INAKTIV'}
-                            </div>
-                        </div>
-                        <button
-                            onClick={() => setBotsEnabled(!botsEnabled)}
-                            className={`px-4 py-2 rounded font-bold transition-colors ${botsEnabled
-                                ? 'bg-red-600 hover:bg-red-700 text-white'
-                                : 'bg-green-600 hover:bg-green-700 text-white'
-                                }`}
-                        >
-                            {botsEnabled ? 'Skru AV bots' : 'Skru PÅ bots'}
-                        </button>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Spawn Kontroll</h3>
-                            <div className="grid grid-cols-2 gap-4 mb-4">
-                                <input
-                                    type="text"
-                                    placeholder="Navn (f.eks. 'Bonde')"
-                                    className="bg-slate-800 border-slate-700 rounded px-3 py-2 text-white"
-                                    value={botForm.name}
-                                    onChange={e => setBotForm({ ...botForm, name: e.target.value })}
-                                />
-                                <div className="flex gap-2">
-                                    <button
-                                        onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [AGIT]' }))}
-                                        className="px-2 py-1 bg-slate-800 rounded hover:bg-red-900/50 text-xs"
-                                        title="Agitator (Revolusjonær)"
-                                    >
-                                        🔥
-                                    </button>
-                                    <button
-                                        onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [MERCH]' }))}
-                                        className="px-2 py-1 bg-slate-800 rounded hover:bg-amber-900/50 text-xs"
-                                        title="Kjøpmann (Økonom)"
-                                    >
-                                        💰
-                                    </button>
-                                    <button
-                                        onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [GUARD]' }))}
-                                        className="px-2 py-1 bg-slate-800 rounded hover:bg-blue-900/50 text-xs"
-                                        title="Vakt (Lojalist)"
-                                    >
-                                        🛡️
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="flex gap-2">
-                                <button
-                                    onClick={spawnDevBot}
-                                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded font-bold"
-                                >
-                                    + Spawn 1 Bot
-                                </button>
-                                <button
-                                    onClick={async () => {
-                                        if (!window.confirm("Spawn 10 bots?")) return;
-                                        for (let i = 0; i < 10; i++) {
-                                            const r = Math.random();
-                                            const roleSuffix = r > 0.8 ? ' [AGIT]' : (r > 0.6 ? ' [MERCH]' : '');
-                                            const tempName = botForm.name || 'Bot';
-                                            // Hacky way to inject random personas for bulk spawn
-                                            setBotForm(prev => ({ ...prev, name: tempName + roleSuffix }));
-                                            await spawnDevBot();
-                                            // Reset isn't perfect here due to async state but good enough for dev tool
-                                        }
-                                    }}
-                                    className="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded font-bold"
-                                >
-                                    + Spawn 10
-                                </button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Status</h3>
-                            <div className="space-y-2 text-sm text-slate-300">
-                                <p>Aktive roboter: <span className="text-white font-mono">{activeBotCount}</span></p>
-                                <p>Tick Rate: <span className="text-white font-mono">5s</span> (5 bots/tick)</p>
-                                <p className="text-xs text-slate-500 italic mt-2">
-                                    Bots sjekker automatisk ressurser, spiser mat, og utfører handlinger basert på sin "Persona" (bestemt av navnetags).
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div className="p-8 border-b border-white/5 shrink-0">
                     <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 mb-6">Markedsanalyse</h3>
@@ -1488,7 +1630,7 @@ export const SimulationHost: React.FC = () => {
                         )}
                     </div>
                 </div>
-            </aside >
+            </aside>
 
             <style dangerouslySetInnerHTML={{
                 __html: `

@@ -859,6 +859,39 @@ export const handleAdminGiveGold = async (pin: string, targetId: string, amount:
     return { success };
 };
 
+export const handleAdminGiveItem = async (pin: string, targetId: string, itemId: string, amount: number) => {
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${targetId}`);
+
+    // Validate Item ID
+    const template = ITEM_TEMPLATES[itemId];
+    if (!template) {
+        return { success: false, error: "Invalid Item ID" };
+    }
+
+    let success = false;
+    await runTransaction(playerRef, (p) => {
+        if (!p) return;
+        if (!p.inventory) p.inventory = [];
+
+        // Add items
+        for (let i = 0; i < amount; i++) {
+            const newItem = JSON.parse(JSON.stringify(template));
+            // Basic Unique ID generation to avoid key conflicts if using as keys
+            newItem.instanceId = `${itemId}_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`;
+            p.inventory.push(newItem);
+        }
+
+        success = true;
+        return p;
+    });
+
+    if (success) {
+        logSimulationMessage(pin, `🔧 ADMIN: Gitt ${amount}x ${template.name} til en spiller.`);
+    }
+
+    return { success };
+};
+
 export const handleAbdicate = async (pin: string, playerId: string) => {
     const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
     const playerSnap = await get(playerRef);

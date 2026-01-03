@@ -218,151 +218,129 @@ export const handleSiegeAction = (ctx: ActionContext) => {
         return true;
     }
 
-    // --- PHASE 3: THRONE ROOM (Hotseat) ---
+    // --- PHASE 3: THRONE ROOM (Death Race) ---
     if (siege.phase === 'THRONE_ROOM' || (siege.phase as string) === 'THRONE') {
         let t = siege.throne;
 
-        // Lazy Init / Schema Update for Hotseat
-        if (!t || t.usurperId === undefined) {
-            const defenderId = room.regions[regionId].rulerId;
-            const defender = room.players[defenderId || ''];
-            const isOnline = defender && (Date.now() - (defender.lastActive || 0) < 60000);
-
-            // Preserve existing occupation if any
-            const existingOcc = t?.occupation || 0;
-
-            t = {
-                mode: isOnline ? 'PVP' : 'PVE',
-                occupation: existingOcc,
-                plundered: t?.plundered || false,
-                bossHp: 0, // Not used in Hotseat
-                maxBossHp: 0,
-                defendingPlayerId: defenderId,
-                usurperId: null,
-                usurperName: null,
-                usurperArmor: 0,
-                lastTick: Date.now(),
-                drainRate: 1
-            };
+        // Init Schema for Race
+        if (!t || !t.occupiers) {
+            t = t || {};
+            t.occupiers = t.occupiers || {};
+            t.lastTick = Date.now();
             siege.throne = t;
         }
 
-        // --- TICK LOGIC (Pseudo-tick triggered by actions) ---
+        // --- TICK LOGIC (Global Loop) ---
+        // Iterate ALL occupiers
         const now = Date.now();
-        if (t.usurperId && now - (t.lastTick || 0) > 1000) {
+        if (now - (t.lastTick || 0) > 1000) {
             const deltaSeconds = Math.floor((now - (t.lastTick || 0)) / 1000);
-
-            // 1. Drain Armor
-            const drain = (t.drainRate || 1) * deltaSeconds;
-            t.usurperArmor = Math.max(0, (t.usurperArmor || 0) - drain);
-
-            // 2. Increase Occupation
-            t.occupation = Math.min(100, (t.occupation || 0) + (1 * deltaSeconds));
-
-            // 3. Track Stats (Ticks on Throne)
-            const usurperPart = (attackers[t.usurperId] || defenders[t.usurperId]);
-            if (usurperPart) {
-                usurperPart.stats = usurperPart.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
-                usurperPart.stats.ticksOnThrone += deltaSeconds;
-            }
-
-            // 4. Update Tick
             t.lastTick = now;
 
-            // 5. Check Ejection
-            if (t.usurperArmor <= 0) {
-                t.usurperId = null;
-                t.usurperName = null;
-                t.usurperArmor = 0;
-                localResult.message = "Troneroceren har falt! Tronen er ledig!";
-                // Don't return yet, allow specific action to process
-            } else if (t.occupation >= 100) {
-                // VICTORY!
-                delete room.regions[regionId].activeSiege;
-                const region = room.regions[regionId];
-                if (region.coup) {
-                    region.coup.bribeProgress = 100;
+            const occupiersList = Object.values(t.occupiers || {});
+
+            // If no occupiers, maybe decay specific logic? 
+            // For Race Mode: Everyone starts at 0, so decay isn't really thing unless you leave?
+            // User said: "Reset til 0 ved feil".
+
+            occupiersList.forEach((occ: any) => {
+                // 1. DRAIN ARMOR
+                occ.armor = Math.max(0, occ.armor - (1 * deltaSeconds));
+
+                // 2. INCREASE PROGRESS
+                // MOMENTUM BONUS: +1% speed per 100 dmg dealt? 
+                const part = (attackers[occ.id] || defenders[occ.id]);
+                const dmgDealt = part?.stats?.damageDealt || 0;
+                const momentum = 1 + (dmgDealt / 200); // 1.0x to 2.0x+ speed
+
+                const progressGain = (1 * momentum * deltaSeconds);
+                occ.progress = Math.min(100, occ.progress + progressGain);
+
+                // 3. TRACK STATS
+                if (part) {
+                    part.stats = part.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
+                    part.stats.ticksOnThrone += deltaSeconds;
                 }
-                localResult.message = `👑 ${t.usurperName} HAR TATT TRONEN!`;
-                return true;
-            }
-        } else if (!t.usurperId) {
-            // Decay occupation if nobody on throne? Or stay static? 
-            // Design doc didn't specify decay. Static for now.
-            t.lastTick = now; // Keep tick fresh
+
+                // 4. CHECK FAILURE (Ejection)
+                if (occ.armor <= 0) {
+                    // RESET TO 0!
+                    delete t.occupiers[occ.id];
+                    localResult.message = `${occ.name} falt fra tronen! (0 Rustning)`;
+                } else if (occ.progress >= 100) {
+                    // VICTORY!!
+                    delete room.regions[regionId].activeSiege;
+                    localResult.message = `👑 ${occ.name} har vunnet kappeløpet og TATT TRONEN!`;
+                    // Handle Coup Logic if needed
+                    const region = room.regions[regionId];
+                    if (region.coup) { region.coup.bribeProgress = 100; }
+                }
+            });
+
+            if (occupiersList.length > 0) return true; // Tick handled
         }
 
-        // --- PLAYER ACTIONS ---
+        // --- ACTIONS ---
 
-        // 1. CLAIM THRONE
+        // 1. JOIN RACE (Claim)
         if (action.subType === 'CLAIM_THRONE') {
-            if (t.usurperId) {
-                localResult.message = "Tronen er allerede opptatt!";
+            if (t.occupiers[actor.id]) {
+                localResult.message = "Du deltar allerede i kappløpet!";
                 return false;
             }
-            // Cost: 1 Armor
-            const currentArmor = actor.resources.armor || 0;
-            if (currentArmor < 1) {
-                localResult.message = "Du trenger minst 1 Rustning (Armor) for å ta tronen!";
+            if ((actor.resources.armor || 0) < 1) {
+                localResult.message = "Du trenger rustning for å delta!";
                 return false;
             }
 
-            actor.resources.armor = currentArmor - 1;
-            t.usurperId = actor.id;
-            t.usurperName = actor.name;
-            t.usurperArmor = 1; // Starts with 1 durability
-            t.lastTick = Date.now();
-            t.drainRate = 1; // Reset drain rate
+            // JOIN
+            const armorToBring = Math.min(actor.resources.armor, 50); // Cap start armor? Or bring all?
+            // Let's bring 10 initial, keeps it tactical.
+            const initialArmor = 10;
+            if (actor.resources.armor < initialArmor) {
+                localResult.message = `Du trenger ${initialArmor} rustning for å starte!`;
+                return false;
+            }
+            actor.resources.armor -= initialArmor;
+
+            t.occupiers[actor.id] = {
+                id: actor.id,
+                name: actor.name,
+                armor: initialArmor,
+                progress: 0, // Everyone starts at 0
+                joinedAt: Date.now()
+            };
+
+            localResult.message = `${actor.name} kastet seg inn i kampen om tronen!`;
+            return true;
+        }
+
+        // 2. DONATE ARMOR (Targeted)
+        if (action.subType === 'DONATE_ARMOR') {
+            const targetId = action.payload?.targetId;
+            const target = t.occupiers[targetId];
+            if (!target) return { success: false, message: "Ugyldig mål." };
+
+            target.armor += 1;
+            // Stats
+            participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
+            participant.stats.armorDonated += 1;
+            localResult.message = `Donerte rustning til ${target.name}`;
+            return true;
+        }
+
+        // 3. SUNDER ARMOR (Targeted)
+        if (action.subType === 'SUNDER_ARMOR') {
+            const targetId = action.payload?.targetId;
+            const target = t.occupiers[targetId];
+            if (!target) return { success: false, message: "Ingen på tronen å angripe!" }; // Or invalid target
+
+            target.armor = Math.max(0, target.armor - 1);
 
             // Stats
             participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
-            participant.stats.armorDonated += 1; // Count self-claim as donation? Discussable, but fair.
-            t.usurperArmor = 10;
-            t.lastTick = Date.now();
-            t.drainRate = 1;
-
-            localResult.message = `${actor.name} KREVDE TRONEN! ("Jeg er kapteinen nå")`;
-            return true;
-        }
-
-        // DONATE ARMOR (Support)
-        if (action.subType === 'DONATE_ARMOR') {
-            if (!t.usurperId) return { success: false, message: "Ingen på tronen å støtte!" };
-            if (t.usurperId === actor.id) return { success: false, message: "Du kan ikke donere til deg selv!" };
-
-            t.usurperArmor = (t.usurperArmor || 0) + 1;
-
-            participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
-            participant.stats.armorDonated += 1;
-
-            localResult.message = `${actor.name} donerte rustning til ${t.usurperName}!`;
-            return true;
-        }
-
-        // SUNDER ARMOR (Defend/Attack)
-        if (action.subType === 'SUNDER_ARMOR') {
-            if (!t.usurperId) return { success: false, message: "Tronen er tom! Ingen å angripe!" };
-
-            t.usurperArmor = Math.max(0, (t.usurperArmor || 0) - 1);
-
-            participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
             participant.stats.damageDealt += 1;
-
-            localResult.message = `${actor.name} knuste rustningen til ${t.usurperName}!`;
-            return true;
-        }
-
-        // PLUNDER (Alternative)
-        if (action.subType === 'PLUNDER') {
-            if (t.plundered) return { success: false, message: "Skattekammeret er allerede tømt!" };
-            if (t.usurperId === actor.id) return { success: false, message: "Du sitter på tronen! Ikke plyndre ditt eget slott!" };
-
-            t.plundered = true;
-
-            // Give Gold
-            actor.resources.gold = (actor.resources.gold || 0) + 500;
-
-            localResult.message = `${actor.name} plyndret 500 gull og stakk av! (Grådigpinn)`;
+            localResult.message = `Angrep ${target.name} på tronen!`;
             return true;
         }
 

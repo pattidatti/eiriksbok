@@ -77,5 +77,20 @@ export const BOT_PERSONAS: Record<string, BotPersona> = {
             attack: 0.2
         },
         preferredRoles: ['SOLDIER']
+    },
+    'AMBITIOUS_CLIMBER': {
+        id: 'AMBITIOUS_CLIMBER',
+        name: 'Klatreren',
+        description: 'Vil bli Baron for enhver pris. Klagete.',
+        priorities: {
+            work: 0.6,      // Needs gold for bribes
+            eat: 0.7,
+            upgrade: 0.8,   // Needs status
+            tax: 0.1,       // Hates weak rulers
+            revolt: 0.9,    // Primary goal: Destabilize
+            defend: 0.2,
+            attack: 0.5
+        },
+        preferredRoles: ['PEASANT', 'MERCHANT', 'SOLDIER']
     }
 };

@@ -1,7 +1,6 @@
 
-import { SimulationPlayer, SimulationRoom, ActionCost } from '../../simulationTypes';
-import { BOT_PERSONAS, BotPersona } from './botPersonas';
-import { ACTION_COSTS, INITIAL_RESOURCES, GAME_BALANCE } from '../../constants';
+import type { SimulationPlayer, SimulationRoom } from '../../simulationTypes';
+import { BOT_PERSONAS, type BotPersona } from './botPersonas';
 
 // Define the shape of a decision
 export interface BotDecision {
@@ -18,17 +17,11 @@ const getPersona = (bot: SimulationPlayer): BotPersona => {
     if (bot.name.includes('[AGIT]')) return BOT_PERSONAS.ANARCHIST;
     if (bot.name.includes('[MERCH]')) return BOT_PERSONAS.GREEDY_MERCHANT;
     if (bot.name.includes('[GUARD]')) return BOT_PERSONAS.LOYAL_SOLDIER;
+    if (bot.name.includes('[CLIMBER]')) return BOT_PERSONAS.AMBITIOUS_CLIMBER;
     return BOT_PERSONAS.DILIGENT_PEASANT;
 };
 
-const hasResources = (bot: SimulationPlayer, cost: Partial<typeof INITIAL_RESOURCES.PEASANT>): boolean => {
-    for (const [key, amount] of Object.entries(cost)) {
-        if (key === 'stamina') continue; // Handled separately
-        const current = (bot.resources as any)[key] || 0;
-        if (current < (amount as number)) return false;
-    }
-    return true;
-};
+
 
 export const decideBotAction = (bot: SimulationPlayer, room: SimulationRoom): BotDecision | null => {
     if (!bot || !room) return null;
@@ -37,6 +30,19 @@ export const decideBotAction = (bot: SimulationPlayer, room: SimulationRoom): Bo
     const decisions: BotDecision[] = [];
     const stamina = bot.status.stamina || 0;
     const gold = bot.resources.gold || 0;
+
+    // --- 0. META: ANALYSIS & FEEDBACK (The "Voice" of the Bot) ---
+    // 5% chance to output a thought/complaint about game balance
+    if (Math.random() < 0.05) {
+        let gripe = "";
+        if (gold < 10 && persona.priorities.upgrade > 0.5) gripe = "Jeg tjener gull for sakte! Hvordan skal jeg bli Baron?";
+        else if (stamina < 20) gripe = "Stamina-systemet er for straffende. Jeg er utslitt.";
+        else if (persona.id === 'AMBITIOUS_CLIMBER' && bot.role !== 'BARON') gripe = "Hvorfor er det ingen valg? Jeg vil ha makt!";
+
+        if (gripe) {
+            return { actionType: 'REPORT_FEEDBACK', payload: gripe, reason: 'Feedback', weight: 1.0 };
+        }
+    }
 
     // 1. SURVIVAL (Eat)
     if (stamina < 30) {
@@ -72,7 +78,14 @@ export const decideBotAction = (bot: SimulationPlayer, room: SimulationRoom): Bo
         }
     }
 
-    // 3. POLITICS (Tax & Revolt)
+    // 3. AMBITION (Upgrade & Status)
+    if (persona.priorities.upgrade > 0.6 && gold > 100) {
+        // Mock upgrade logic - in real game would need specific building IDs
+        // For now, they express desire
+        decisions.push({ actionType: 'REPORT_FEEDBACK', payload: "Jeg har gull men vet ikke hva jeg skal oppgradere. Mangler docs.", reason: 'Feature Gap', weight: 0.5 });
+    }
+
+    // 4. POLITICS (Tax & Revolt)
     // Check if tax is due? Bot doesn't know "due", but can pay if asked.
     // For manual global actions like revolt:
     if (persona.priorities.revolt > 0.5 && gold > 50) {
@@ -85,8 +98,19 @@ export const decideBotAction = (bot: SimulationPlayer, room: SimulationRoom): Bo
             decisions.push({
                 actionType: 'BRIBE',
                 payload: { regionId, amount: 10 },
-                reason: 'Sowing chaos',
-                weight: persona.priorities.revolt * 0.8
+                reason: 'Political maneuvering',
+                weight: persona.priorities.revolt * 0.9
+            });
+        }
+
+        // Climber specific: Check for Coup opportunity
+        // Mocking unrest check since property might be named differently (e.g. stability)
+        if (persona.id === 'AMBITIOUS_CLIMBER') {
+            decisions.push({
+                actionType: 'REPORT_FEEDBACK',
+                payload: "Jeg ser uro! Jeg burde kunne starte et kupp nå, men knappen mangler.",
+                reason: 'Missing Feature',
+                weight: 0.95
             });
         }
     }
