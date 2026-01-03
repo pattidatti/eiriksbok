@@ -5,7 +5,8 @@ import { SimulationMapWindow } from './ui/SimulationMapWindow';
 import { useSimulation } from '../SimulationContext';
 import { PlayerProfileModal } from './PlayerProfileModal';
 import { Folkeregister } from './Folkeregister';
-import { SimulationPolitics } from './SimulationPolitics';
+import { PoliticalHubContent } from './ui/PoliticalHub';
+
 
 interface SimulationHierarchyProps {
     players: Record<string, SimulationPlayer>;
@@ -60,7 +61,7 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                 {viewMode === 'POLITICS' ? (
                     <div className="p-4 h-full overflow-y-auto custom-scrollbar">
                         <div className="max-w-2xl mx-auto py-8">
-                            <SimulationPolitics player={currentPlayer} regions={regions} pin={pin} />
+                            <PoliticalHubContent player={currentPlayer} room={{ regions }} pin={pin} />
                         </div>
                     </div>
                 ) : viewMode === 'LIST' ? (

@@ -9,6 +9,7 @@ import { assignRoles, collectTaxes } from './gameLogic';
 import { generateInitialRoomState, syncServerMetadata } from './logic/roomInit';
 import type { SimulationMessage, SimulationRoom } from './simulationTypes';
 import { handleAdminGiveGold } from './globalActions';
+import { useGameTicker } from './hooks/useGameTicker';
 
 
 export const SimulationHost: React.FC = () => {
@@ -92,60 +93,66 @@ export const SimulationHost: React.FC = () => {
         // 3. Markets (Medium)
         const unsubMarkets = onValue(ref(db, `${baseUrl}/markets`), snap => {
             const val = snap.val() || {};
-            // Legacy / Patching Logic
-            if (!val['capital']) {
-                // If completely empty/legacy, we might need a re-fetch or patch mechanism
-                // For now, trust the data or just set empty.
-            }
             setRoomData(prev => prev ? { ...prev, markets: val } : null);
         });
 
-        // 4. Messages (Heavy - Capped)
-        // We limit to last 50 to avoid massive downloads
-        // Note: Firebase JS SDK 'limitToLast' requires a query, which is slightly more complex
-        // For now, standard onValue is fine if we enforce cap on write (Phase 1).
+        return () => {
+            unsubStatus();
+            unsubWorld();
+            unsubMarkets();
+        };
+    }, [pin]);
+
+    // --- GAME TICKER (ADMIN HOST) ---
+    // Ensure time ticks even if only Admin is online
+    useGameTicker(pin, roomData?.status || 'LOBBY', roomData?.world);
+
+    // 4. Messages (Heavy - Capped)
+    useEffect(() => {
+        if (!pin) return;
+        const baseUrl = `simulation_rooms/${pin}`;
+
         const unsubMessages = onValue(ref(db, `${baseUrl}/messages`), snap => {
             setRoomData(prev => prev ? { ...prev, messages: snap.val() || [] } : null);
         });
+        return () => unsubMessages();
+    }, [pin]);
 
-        // 5. Players (Replaced by Public Profiles for Host list)
-        // We DO NOT fetch 'players' root anymore. We fetch 'public_profiles' for the list.
-        // We map 'public_profiles' -> 'players' in the local state for compatibility.
-        // Deep player inspection will require a separate fetch.
+    // 5. Players (Replaced by Public Profiles for Host list)
+    // We DO NOT fetch 'players' root anymore. We fetch 'public_profiles' for the list.
+    // We map 'public_profiles' -> 'players' in the local state for compatibility.
+    // Deep player inspection will require a separate fetch.
+    // 5. Players & Other Data
+    useEffect(() => {
+        if (!pin) return;
+        const baseUrl = `simulation_rooms/${pin}`;
+
         const unsubProfiles = onValue(ref(db, `${baseUrl}/public_profiles`), snap => {
             const profiles = snap.val() || {};
-            // Cast profiles to SimulationPlayer-like objects for the UI list
-            // This is safe because the Host UI mainly needs name/role/region/status which are in profile.
             setRoomData(prev => {
                 if (!prev) return null;
-                // Merge profiles into a "Players" compatible record
-                // Note: We lose 'resources', 'inventory', 'skills' here, but that's the point.
-                // If the UI needs them, we must fetch them specifically.
                 const partialPlayers: Record<string, any> = {};
                 Object.entries(profiles).forEach(([pid, profile]: [string, any]) => {
                     partialPlayers[pid] = {
                         ...profile,
-                        resources: profile.resources || INITIAL_RESOURCES[profile.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT, // Fallback for UI safety
+                        resources: profile.resources || INITIAL_RESOURCES[profile.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT,
                         id: pid
                     };
                 });
 
-                // SELF-HEALING: Sync Metadata if count mismatches
-                // We do this in a timeout to avoid render-cycle updates and excessive writes
                 const realCount = Object.keys(profiles).length;
                 const metadataRef = ref(db, `simulation_server_metadata/${pin}`);
-                // Simple read-check-write pattern
                 setTimeout(() => {
                     get(metadataRef).then(metaSnap => {
                         if (metaSnap.exists()) {
                             const meta = metaSnap.val();
                             if (meta.playerCount !== realCount) {
-                                console.log("Fixing player count metadata...", realCount);
+                                // console.log("Fixing player count metadata...", realCount);
                                 update(metadataRef, { playerCount: realCount });
                             }
                         }
                     });
-                }, 5000); // 5s debounce check
+                }, 5000);
 
                 return { ...prev, players: partialPlayers };
             });
@@ -167,42 +174,37 @@ export const SimulationHost: React.FC = () => {
         });
 
         // Initial Skeleton
-        // We need to set an initial object so the updaters can write to it
         get(ref(db, baseUrl)).then((snap) => {
             if (snap.exists()) {
                 const val = snap.val();
-                // We rely on the listeners to populate the fresh data, 
-                // but we take the static props (pin, settings, hostName, isPublic) from here once.
-                setRoomData({
+                setRoomData(prev => ({
+                    ...prev!, // Safe cast as we likely have partial data or will overwrite
                     pin: val.pin,
                     status: val.status,
                     settings: val.settings,
                     hostName: val.hostName,
                     isPublic: val.isPublic,
-                    // Placeholders to be filled by listeners
                     world: val.world,
                     markets: val.markets || {},
                     market: val.market || INITIAL_MARKET,
-                    players: {},
-                    messages: [],
+                    players: prev?.players || {}, // Keep existing if any
+                    messages: prev?.messages || [],
                     regions: val.regions || {},
                     diplomacy: {},
                     worldEvents: {}
-                });
+                }));
             }
         });
 
         return () => {
-            unsubStatus();
-            unsubWorld();
-            unsubMarkets();
-            unsubMessages();
             unsubProfiles();
             unsubEvents();
             unsubVote();
             unsubRegions();
         };
     }, [pin]);
+
+
 
     // Handle Title Change (Moved from inside previous useEffect)
     useEffect(() => {

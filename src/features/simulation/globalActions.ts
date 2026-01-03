@@ -408,6 +408,84 @@ export const handleCareerChange = async (pin: string, playerId: string, newRole:
 
 /* --- COUP & REVOLUTION HANDLERS --- */
 
+export const triggerRevolution = async (pin: string, regionId: string) => {
+    const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
+    const regionSnap = await get(regionRef);
+    const region = regionSnap.val();
+
+    const oldRulerId = region.rulerId;
+    const oldRulerName = region.rulerName;
+
+    if (oldRulerId) {
+        const oldRulerRef = ref(db, `simulation_rooms/${pin}/players/${oldRulerId}`);
+        await runTransaction(oldRulerRef, (p) => {
+            if (!p) return;
+            p.role = 'PEASANT';
+            p.status.legitimacy = 0;
+            return p;
+        });
+        await update(ref(db, `simulation_rooms/${pin}/public_profiles/${oldRulerId}`), { role: 'PEASANT' });
+    }
+
+    // Setup Election
+    const candidates: Record<string, any> = {};
+    const contributions = region.coup?.contributions || {};
+    const preVotes = region.coup?.preVotes || {};
+
+    Object.entries(contributions)
+        .sort((a: any, b: any) => b[1].amount - a[1].amount)
+        .slice(0, 3)
+        .forEach(([id, data]: [string, any]) => {
+            candidates[id] = {
+                id,
+                name: data.name,
+                votes: 0,
+                weightedVotes: 0,
+                contribution: data.amount
+            };
+        });
+
+    const now = Date.now();
+    const election = {
+        startedAt: now,
+        expiresAt: now + GAME_BALANCE.COUP.VACANCY_DURATION,
+        candidates,
+        votes: {} as any
+    };
+
+    // PROCESS SHADOW PLEDGES
+    let autoVotes = 0;
+
+    const playersRef = ref(db, `simulation_rooms/${pin}/players`);
+    const allPlayersSnap = await get(playersRef);
+    const allPlayers = allPlayersSnap.val() || {};
+
+    Object.entries(preVotes).forEach(([voterId, candidateId]: [string, any]) => {
+        if (candidates[candidateId]) {
+            const voter = allPlayers[voterId];
+            if (voter) {
+                let weight = GAME_BALANCE.COUP.PEASANT_VOTE_WEIGHT || 1;
+                if (voter.role === 'KING') weight = GAME_BALANCE.COUP.KING_VOTE_WEIGHT || 15;
+
+                election.votes[voterId] = { candidateId, weight };
+                candidates[candidateId].votes += 1;
+                candidates[candidateId].weightedVotes += weight;
+                autoVotes++;
+            }
+        }
+    });
+
+    await update(regionRef, {
+        rulerId: null,
+        rulerName: "VAKANT",
+        activeElection: election,
+        'coup/bribeProgress': 0,
+        'coup/preVotes': null // Clear pledges
+    });
+
+    logSimulationMessage(pin, `⚠️ REVOLUSJON i ${region.name}! ${oldRulerName} er styrtet. ${autoVotes} skyggeløfter ble automatisk talt opp!`);
+};
+
 export const handleGlobalBribe = async (pin: string, playerId: string, action: { regionId: string, amount: number }) => {
     const { regionId, amount } = action;
     const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
@@ -519,20 +597,14 @@ export const handleGlobalBribe = async (pin: string, playerId: string, action: {
         const rulerRef = ref(db, `simulation_rooms/${pin}/players/${rulerId}`);
         const legLoss = Math.floor(amount / 100);
 
-        if (rulerId) {
-            const rulerRef = ref(db, `simulation_rooms/${pin}/players/${rulerId}`);
-            const legChange = Math.floor(amount / 100);
-
-            const isSelfBribe = (playerId === rulerId);
-            const modifier = isSelfBribe ? 1 : -1; // + if self, - if enemy
-
-            // Atomic Update for Player
-            await update(rulerRef, { 'status/legitimacy': increment(legChange * modifier) });
-
-            // Atomic Update for Public Data (UI)
-            const publicRulerRef = ref(db, `simulation_rooms/${pin}/public_profiles/${rulerId}`);
-            await update(publicRulerRef, { 'status/legitimacy': increment(legChange * modifier) });
-        }
+        // Decrease Ruler Legitimacy
+        await runTransaction(rulerRef, (p) => {
+            if (!p) return;
+            if (p.status) {
+                p.status.legitimacy = Math.max(0, (p.status.legitimacy || 0) - legLoss);
+            }
+            return p;
+        });
 
         // 5. Distribute Stimulus (The "Folkegave")
         if (Object.keys(allPlayers).length > 0) {
@@ -564,378 +636,301 @@ export const handleGlobalBribe = async (pin: string, playerId: string, action: {
         }
 
         return { success: true, message: `Besteikkelse gjennomført! Opprør: ${newProgress.toFixed(1)}%` };
-    };
+    }
 
-    export const handleShadowPledge = async (pin: string, playerId: string, regionId: string, candidateId: string) => {
-        const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
+    return { success: true, message: "Besteikkelse registrert." };
+};
 
-        // Validate player exists? (Optional, but good practice)
+export const handleShadowPledge = async (pin: string, playerId: string, regionId: string, candidateId: string) => {
+    const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
 
-        let success = false;
-        await runTransaction(regionRef, (r) => {
-            if (!r) return;
-            if (!r.coup) r.coup = { bribeProgress: 0, contributions: {}, preVotes: {} };
-            if (!r.coup.preVotes) r.coup.preVotes = {};
+    // Validate player exists? (Optional, but good practice)
 
-            // Allow changing pledge
-            r.coup.preVotes[playerId] = candidateId;
-            success = true;
-            return r;
+    let success = false;
+    await runTransaction(regionRef, (r) => {
+        if (!r) return;
+        if (!r.coup) r.coup = { bribeProgress: 0, contributions: {}, preVotes: {} };
+        if (!r.coup.preVotes) r.coup.preVotes = {};
+
+        // Allow changing pledge
+        r.coup.preVotes[playerId] = candidateId;
+        success = true;
+        return r;
+    });
+
+    if (success) {
+        return { success: true, message: "Skyggeløfte avgitt!" };
+    }
+    return { success: false, error: "Kunne ikke avgi løfte." };
+};
+
+
+
+export const handleRestoreOrder = async (pin: string, playerId: string, regionId: string) => {
+    const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
+    const cost = GAME_BALANCE.COUP.RESTORE_ORDER_COST;
+
+    const playerSnap = await get(playerRef);
+    if (!playerSnap.exists()) return { success: false, error: "Spiller mangler" };
+    const player = playerSnap.val();
+    if (player.resources.gold < cost) return { success: false, error: `Trenger ${cost}g for å gjenopprette ro.` };
+
+    let success = false;
+    await runTransaction(regionRef, (r) => {
+        if (!r || r.rulerId !== playerId) return;
+        if (!r.coup) return;
+        r.coup.bribeProgress = Math.max(0, (r.coup.bribeProgress || 0) - 25);
+        success = true;
+        return r;
+    });
+
+    if (success) {
+        await runTransaction(playerRef, (p) => {
+            if (!p) return;
+            p.resources.gold -= cost;
+            p.status.legitimacy = Math.min(100, (p.status.legitimacy || 0) + 10);
+            return p;
         });
+        logSimulationMessage(pin, `🛡️ ${player.name} har gjenopprettet ro i ${regionId} ved å dele ut midler til vaktene.`);
+        return { success: true, message: "Ro gjenopprettet (-25% opprør)" };
+    }
 
-        if (success) {
-            return { success: true, message: "Skyggeløfte avgitt!" };
-        }
-        return { success: false, error: "Kunne ikke avgi løfte." };
-    };
+    return { success: false, error: "Kunne ikke gjenopprette ro." };
+};
 
-    export const triggerRevolution = async (pin: string, regionId: string) => {
-        const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
-        const regionSnap = await get(regionRef);
-        const region = regionSnap.val();
+export const handleCastVote = async (pin: string, playerId: string, action: { regionId: string, candidateId: string }) => {
+    const { regionId, candidateId } = action;
+    const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
 
-        const oldRulerId = region.rulerId;
-        const oldRulerName = region.rulerName;
+    const playerSnap = await get(playerRef);
+    if (!playerSnap.exists()) return { success: false };
+    const player = playerSnap.val();
 
-        if (oldRulerId) {
-            const oldRulerRef = ref(db, `simulation_rooms/${pin}/players/${oldRulerId}`);
-            await runTransaction(oldRulerRef, (p) => {
-                if (!p) return;
-                p.role = 'PEASANT';
-                p.status.legitimacy = 0;
-                return p;
-            });
-            await update(ref(db, `simulation_rooms/${pin}/public_profiles/${oldRulerId}`), { role: 'PEASANT' });
-        }
+    let weight = GAME_BALANCE.COUP.PEASANT_VOTE_WEIGHT || 1;
+    if (player.role === 'KING') weight = GAME_BALANCE.COUP.KING_VOTE_WEIGHT || 15;
 
-        // Setup Election
-        const candidates: Record<string, any> = {};
-        const contributions = region.coup?.contributions || {};
-        const preVotes = region.coup?.preVotes || {};
+    let success = false;
+    await runTransaction(regionRef, (r) => {
+        if (!r || !r.activeElection) return;
+        if (Date.now() > r.activeElection.expiresAt) return;
 
-        Object.entries(contributions)
-            .sort((a: any, b: any) => b[1].amount - a[1].amount)
-            .slice(0, 3)
-            .forEach(([id, data]: [string, any]) => {
-                candidates[id] = {
-                    id,
-                    name: data.name,
-                    votes: 0,
-                    weightedVotes: 0,
-                    contribution: data.amount
-                };
-            });
+        if (!r.activeElection.votes) r.activeElection.votes = {};
+        const oldVote = r.activeElection.votes[playerId];
 
-        const now = Date.now();
-        const election = {
-            startedAt: now,
-            expiresAt: now + GAME_BALANCE.COUP.VACANCY_DURATION,
-            candidates,
-            votes: {} as any
-        };
-
-        // PROCESS SHADOW PLEDGES
-        let autoVotes = 0;
-        // We need to fetch weights? Or assume default 1 for simplicity in shadow pledge?
-        // Ideally we fetch player roles. For MVP/Performance, let's assume standard weight 1 for pre-votes 
-        // OR roughly fetch all players.
-        // Fetching all players is safer to get correct weighting.
-
-        const playersRef = ref(db, `simulation_rooms/${pin}/players`);
-        const allPlayersSnap = await get(playersRef);
-        const allPlayers = allPlayersSnap.val() || {};
-
-        Object.entries(preVotes).forEach(([voterId, candidateId]: [string, any]) => {
-            if (candidates[candidateId]) {
-                const voter = allPlayers[voterId];
-                if (voter) {
-                    let weight = GAME_BALANCE.COUP.PEASANT_VOTE_WEIGHT || 1;
-                    if (voter.role === 'KING') weight = GAME_BALANCE.COUP.KING_VOTE_WEIGHT || 15;
-
-                    election.votes[voterId] = { candidateId, weight };
-                    candidates[candidateId].votes += 1;
-                    candidates[candidateId].weightedVotes += weight;
-                    autoVotes++;
-                }
+        if (oldVote) {
+            const oldCand = r.activeElection.candidates[oldVote.candidateId];
+            if (oldCand) {
+                oldCand.votes = Math.max(0, (oldCand.votes || 0) - 1);
+                oldCand.weightedVotes = Math.max(0, (oldCand.weightedVotes || 0) - oldVote.weight);
             }
-        });
-
-        await update(regionRef, {
-            rulerId: null,
-            rulerName: "VAKANT",
-            activeElection: election,
-            'coup/bribeProgress': 0,
-            'coup/preVotes': null // Clear pledges
-        });
-
-        logSimulationMessage(pin, `⚠️ REVOLUSJON i ${region.name}! ${oldRulerName} er styrtet. ${autoVotes} skyggeløfter ble automatisk talt opp!`);
-    };
-
-    export const handleRestoreOrder = async (pin: string, playerId: string, regionId: string) => {
-        const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
-        const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
-        const cost = GAME_BALANCE.COUP.RESTORE_ORDER_COST;
-
-        const playerSnap = await get(playerRef);
-        if (!playerSnap.exists()) return { success: false, error: "Spiller mangler" };
-        const player = playerSnap.val();
-        if (player.resources.gold < cost) return { success: false, error: `Trenger ${cost}g for å gjenopprette ro.` };
-
-        let success = false;
-        await runTransaction(regionRef, (r) => {
-            if (!r || r.rulerId !== playerId) return;
-            if (!r.coup) return;
-            r.coup.bribeProgress = Math.max(0, (r.coup.bribeProgress || 0) - 25);
-            success = true;
-            return r;
-        });
-
-        if (success) {
-            await runTransaction(playerRef, (p) => {
-                if (!p) return;
-                p.resources.gold -= cost;
-                p.status.legitimacy = Math.min(100, (p.status.legitimacy || 0) + 10);
-                return p;
-            });
-            logSimulationMessage(pin, `🛡️ ${player.name} har gjenopprettet ro i ${regionId} ved å dele ut midler til vaktene.`);
-            return { success: true, message: "Ro gjenopprettet (-25% opprør)" };
         }
 
-        return { success: false, error: "Kunne ikke gjenopprette ro." };
-    };
+        r.activeElection.votes[playerId] = { candidateId, weight };
+        const newCand = r.activeElection.candidates[candidateId];
+        if (newCand) {
+            newCand.votes = (newCand.votes || 0) + 1;
+            newCand.weightedVotes = (newCand.weightedVotes || 0) + weight;
+        }
 
-    export const handleCastVote = async (pin: string, playerId: string, action: { regionId: string, candidateId: string }) => {
-        const { regionId, candidateId } = action;
-        const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
-        const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
+        success = true;
+        return r;
+    });
 
-        const playerSnap = await get(playerRef);
-        if (!playerSnap.exists()) return { success: false };
-        const player = playerSnap.val();
+    return { success };
+};
 
-        let weight = GAME_BALANCE.COUP.PEASANT_VOTE_WEIGHT || 1;
-        if (player.role === 'KING') weight = GAME_BALANCE.COUP.KING_VOTE_WEIGHT || 15;
+export const handleFinalizeElection = async (pin: string, regionId: string) => {
+    const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
+    const regionSnap = await get(regionRef);
+    const initialRegion = regionSnap.val();
+    const regionName = initialRegion?.name || regionId;
 
-        let success = false;
-        await runTransaction(regionRef, (r) => {
-            if (!r || !r.activeElection) return;
-            if (Date.now() > r.activeElection.expiresAt) return;
+    let electionResult: { winnerId: string, winnerName: string } | null = null;
 
-            if (!r.activeElection.votes) r.activeElection.votes = {};
-            const oldVote = r.activeElection.votes[playerId];
+    await runTransaction(regionRef, (r) => {
+        if (!r || !r.activeElection) return;
+        if (Date.now() < r.activeElection.expiresAt) return;
 
-            if (oldVote) {
-                const oldCand = r.activeElection.candidates[oldVote.candidateId];
-                if (oldCand) {
-                    oldCand.votes = Math.max(0, (oldCand.votes || 0) - 1);
-                    oldCand.weightedVotes = Math.max(0, (oldCand.weightedVotes || 0) - oldVote.weight);
-                }
-            }
-
-            r.activeElection.votes[playerId] = { candidateId, weight };
-            const newCand = r.activeElection.candidates[candidateId];
-            if (newCand) {
-                newCand.votes = (newCand.votes || 0) + 1;
-                newCand.weightedVotes = (newCand.weightedVotes || 0) + weight;
-            }
-
-            success = true;
-            return r;
-        });
-
-        return { success };
-    };
-
-    export const handleFinalizeElection = async (pin: string, regionId: string) => {
-        const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
-        const regionSnap = await get(regionRef);
-        const initialRegion = regionSnap.val();
-        const regionName = initialRegion?.name || regionId;
-
-        let electionResult: { winnerId: string, winnerName: string } | null = null;
-
-        await runTransaction(regionRef, (r) => {
-            if (!r || !r.activeElection) return;
-            if (Date.now() < r.activeElection.expiresAt) return;
-
-            const candidates = Object.values(r.activeElection.candidates) as any[];
-            if (candidates.length === 0) {
-                r.rulerId = null;
-                r.rulerName = "Ingen Hersker";
-                r.activeElection = null;
-                return r;
-            }
-
-            const winner = candidates.sort((a, b) => b.weightedVotes - a.weightedVotes)[0];
-            electionResult = { winnerId: winner.id, winnerName: winner.name };
-
-            r.rulerId = winner.id;
-            r.rulerName = winner.name;
+        const candidates = Object.values(r.activeElection.candidates) as any[];
+        if (candidates.length === 0) {
+            r.rulerId = null;
+            r.rulerName = "Ingen Hersker";
             r.activeElection = null;
-
-            if (!r.coup) r.coup = { lastRulerChange: Date.now(), bribeProgress: 0, contributions: {} };
-            r.coup.lastRulerChange = Date.now();
-            r.coup.bribeProgress = 0;
-            r.coup.contributions = {};
-
             return r;
-        });
-
-        if (electionResult) {
-            const winnerId = (electionResult as any).winnerId;
-            const winnerRef = ref(db, `simulation_rooms/${pin}/players/${winnerId}`);
-            const winnerSnap = await get(winnerRef);
-            const winner = winnerSnap.val();
-
-            const updates: any = {};
-            updates[`${winnerId}/role`] = 'BARON';
-            updates[`${winnerId}/regionId`] = regionId;
-
-            await update(ref(db, `simulation_rooms/${pin}/players`), updates);
-            await update(ref(db, `simulation_rooms/${pin}/public_profiles`), updates);
-
-            logSimulationMessage(pin, `👑 KRONING: ${winner.name} har vunnet valget og er nå Baron av ${regionName}!`);
-            return { success: true };
         }
 
-        return { success: false };
-    };
+        const winner = candidates.sort((a, b) => b.weightedVotes - a.weightedVotes)[0];
+        electionResult = { winnerId: winner.id, winnerName: winner.name };
 
-    export const handleAdminGiveGold = async (pin: string, targetId: string, amount: number) => {
-        const playerRef = ref(db, `simulation_rooms/${pin}/players/${targetId}`);
+        r.rulerId = winner.id;
+        r.rulerName = winner.name;
+        r.activeElection = null;
 
-        let success = false;
+        if (!r.coup) r.coup = { lastRulerChange: Date.now(), bribeProgress: 0, contributions: {} };
+        r.coup.lastRulerChange = Date.now();
+        r.coup.bribeProgress = 0;
+        r.coup.contributions = {};
+
+        return r;
+    });
+
+    if (electionResult) {
+        const winnerId = (electionResult as any).winnerId;
+        const winnerRef = ref(db, `simulation_rooms/${pin}/players/${winnerId}`);
+        const winnerSnap = await get(winnerRef);
+        const winner = winnerSnap.val();
+
+        const updates: any = {};
+        updates[`${winnerId}/role`] = 'BARON';
+        updates[`${winnerId}/regionId`] = regionId;
+
+        await update(ref(db, `simulation_rooms/${pin}/players`), updates);
+        await update(ref(db, `simulation_rooms/${pin}/public_profiles`), updates);
+
+        logSimulationMessage(pin, `👑 KRONING: ${winner.name} har vunnet valget og er nå Baron av ${regionName}!`);
+        return { success: true };
+    }
+
+    return { success: false };
+};
+
+export const handleAdminGiveGold = async (pin: string, targetId: string, amount: number) => {
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${targetId}`);
+
+    let success = false;
+    await runTransaction(playerRef, (p) => {
+        if (!p) return;
+        if (!p.resources) p.resources = {};
+        p.resources.gold = (p.resources.gold || 0) + amount;
+        success = true;
+        return p;
+    });
+
+    if (success) {
+        logSimulationMessage(pin, `🔧 ADMIN: Gitt ${amount}g til en spiller.`);
+    }
+
+    return { success };
+};
+
+export const handleAbdicate = async (pin: string, playerId: string) => {
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
+    const playerSnap = await get(playerRef);
+
+    if (!playerSnap.exists()) return { success: false, error: "Spiller mangler." };
+    const player = playerSnap.val() as SimulationPlayer;
+
+    if (player.role !== 'KING' && player.role !== 'BARON') {
+        return { success: false, error: "Du er ikke en hersker." };
+    }
+
+    const regionId = player.regionId;
+
+    let success = false;
+
+    // 1. Demote Player
+    await runTransaction(playerRef, (p) => {
+        if (!p) return;
+        p.role = 'PEASANT';
+        p.status.legitimacy = 0; // Reset legitimacy
+        return p;
+    });
+
+    if (success) {
+        // 2. Update Public Profile
+        await update(ref(db, `simulation_rooms/${pin}/public_profiles/${playerId}`), { role: 'PEASANT' });
+
+        // 3. Vacate Region Ruler
+        if (regionId && regionId !== 'capital') {
+            const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
+
+            // Setup Election
+            const now = Date.now();
+            const election = {
+                startedAt: now,
+                expiresAt: now + GAME_BALANCE.COUP.VACANCY_DURATION,
+                candidates: {},
+                votes: {}
+            };
+
+            await update(regionRef, {
+                rulerId: null,
+                rulerName: "VAKANT",
+                activeElection: election
+            });
+        }
+
+        logSimulationMessage(pin, `🏳️ ABDIKASJON: ${player.name} har valgt å abdisere og tre tilbake til bondestanden. ${player.role === 'BARON' ? 'Tittelen er nå ledig.' : 'Tronen står tom.'}`);
+        return { success: true, message: "Du har abdisert." };
+    }
+
+    return { success: false, error: "Kunne ikke abdisere." };
+};
+
+/* --- CHAT HANDLER --- */
+export const handleSendMessage = async (pin: string, playerId: string, content: string, channelId: string) => {
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
+    const channelRef = ref(db, `simulation_rooms/${pin}/channels/${channelId}/messages`);
+
+    // Pre-flight check
+    const playerSnap = await get(playerRef);
+    if (!playerSnap.exists()) return { success: false, error: "Spiller mangler" };
+    const player = playerSnap.val() as SimulationPlayer;
+
+    let cost = 0;
+
+    // Cost Logic
+    if (player.role !== 'KING') {
+        if (channelId === 'global') {
+            cost = 2; // Town Crier Fee
+        } else if (channelId !== player.regionId && channelId !== 'diplomacy') {
+            // E.g. sending to another region channel? (Not possible via UI broadly, but DMs fall here)
+            // If it's a DM (contains user ID but isn't region/diplomacy/global)
+            if (channelId.includes(playerId) && channelId.length > 20) {
+                cost = 5; // Messenger Fee
+            }
+        }
+    }
+
+    if ((player.resources?.gold || 0) < cost) {
+        return { success: false, error: `Trenger ${cost}g for å sende denne meldingen.` };
+    }
+
+    let success = false;
+
+    // 1. Deduct Gold (if any)
+    if (cost > 0) {
         await runTransaction(playerRef, (p) => {
             if (!p) return;
-            if (!p.resources) p.resources = {};
-            p.resources.gold = (p.resources.gold || 0) + amount;
+            if ((p.resources.gold || 0) < cost) return; // Re-check
+            p.resources.gold -= cost;
             success = true;
             return p;
         });
+    } else {
+        success = true; // Free message
+    }
 
-        if (success) {
-            logSimulationMessage(pin, `🔧 ADMIN: Gitt ${amount}g til en spiller.`);
-        }
+    if (!success) return { success: false, error: "Har ikke råd." };
 
-        return { success };
-    };
-
-    export const handleAbdicate = async (pin: string, playerId: string) => {
-        const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
-        const playerSnap = await get(playerRef);
-
-        if (!playerSnap.exists()) return { success: false, error: "Spiller mangler." };
-        const player = playerSnap.val() as SimulationPlayer;
-
-        if (player.role !== 'KING' && player.role !== 'BARON') {
-            return { success: false, error: "Du er ikke en hersker." };
-        }
-
-        const regionId = player.regionId;
-
-        let success = false;
-
-        // 1. Demote Player
-        await runTransaction(playerRef, (p) => {
-            if (!p) return;
-            p.role = 'PEASANT';
-            p.status.legitimacy = 0; // Reset legitimacy
-            return p;
+    // 2. Push Message
+    try {
+        const newMessageRef = push(channelRef);
+        await update(newMessageRef, {
+            id: newMessageRef.key,
+            senderId: playerId,
+            senderName: player.name,
+            senderRole: player.role,
+            content: content.trim(),
+            timestamp: serverTimestamp(),
+            isPremiere: cost > 0 // Flag for UI to show "Paid Message" style
         });
 
-        if (success) {
-            // 2. Update Public Profile
-            await update(ref(db, `simulation_rooms/${pin}/public_profiles/${playerId}`), { role: 'PEASANT' });
-
-            // 3. Vacate Region Ruler
-            if (regionId && regionId !== 'capital') {
-                const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
-
-                // Setup Election
-                const now = Date.now();
-                const election = {
-                    startedAt: now,
-                    expiresAt: now + GAME_BALANCE.COUP.VACANCY_DURATION,
-                    candidates: {},
-                    votes: {}
-                };
-
-                await update(regionRef, {
-                    rulerId: null,
-                    rulerName: "VAKANT",
-                    activeElection: election
-                });
-            }
-
-            logSimulationMessage(pin, `🏳️ ABDIKASJON: ${player.name} har valgt å abdisere og tre tilbake til bondestanden. ${player.role === 'BARON' ? 'Tittelen er nå ledig.' : 'Tronen står tom.'}`);
-            return { success: true, message: "Du har abdisert." };
-        }
-
-        return { success: false, error: "Kunne ikke abdisere." };
-    };
-
-    /* --- CHAT HANDLER --- */
-    export const handleSendMessage = async (pin: string, playerId: string, content: string, channelId: string) => {
-        const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
-        const channelRef = ref(db, `simulation_rooms/${pin}/channels/${channelId}/messages`);
-
-        // Pre-flight check
-        const playerSnap = await get(playerRef);
-        if (!playerSnap.exists()) return { success: false, error: "Spiller mangler" };
-        const player = playerSnap.val() as SimulationPlayer;
-
-        let cost = 0;
-
-        // Cost Logic
-        if (player.role !== 'KING') {
-            if (channelId === 'global') {
-                cost = 2; // Town Crier Fee
-            } else if (channelId !== player.regionId && channelId !== 'diplomacy') {
-                // E.g. sending to another region channel? (Not possible via UI broadly, but DMs fall here)
-                // If it's a DM (contains user ID but isn't region/diplomacy/global)
-                if (channelId.includes(playerId) && channelId.length > 20) {
-                    cost = 5; // Messenger Fee
-                }
-            }
-        }
-
-        if ((player.resources?.gold || 0) < cost) {
-            return { success: false, error: `Trenger ${cost}g for å sende denne meldingen.` };
-        }
-
-        let success = false;
-
-        // 1. Deduct Gold (if any)
-        if (cost > 0) {
-            await runTransaction(playerRef, (p) => {
-                if (!p) return;
-                if ((p.resources.gold || 0) < cost) return; // Re-check
-                p.resources.gold -= cost;
-                success = true;
-                return p;
-            });
-        } else {
-            success = true; // Free message
-        }
-
-        if (!success) return { success: false, error: "Har ikke råd." };
-
-        // 2. Push Message
-        try {
-            const newMessageRef = push(channelRef);
-            await update(newMessageRef, {
-                id: newMessageRef.key,
-                senderId: playerId,
-                senderName: player.name,
-                senderRole: player.role,
-                content: content.trim(),
-                timestamp: serverTimestamp(),
-                isPremiere: cost > 0 // Flag for UI to show "Paid Message" style
-            });
-
-            return { success: true };
-        } catch (e: any) {
-            console.error("Chat Send Error:", e);
-            return { success: false, error: `Kunne ikke sende melding: ${e.message || 'Ukjent feil'}` };
-        }
-    };
+        return { success: true };
+    } catch (e: any) {
+        console.error("Chat Send Error:", e);
+        return { success: false, error: `Kunne ikke sende melding: ${e.message || 'Ukjent feil'}` };
+    }
+};

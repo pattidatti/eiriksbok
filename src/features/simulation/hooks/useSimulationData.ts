@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ref, onValue, update, onDisconnect } from 'firebase/database';
 import { simulationDb as db } from '../simulationFirebase';
 import type { SimulationPlayer, SimulationRoom, TradeOffer } from '../simulationTypes';
 import { useSimulationAuth } from '../SimulationAuthContext';
-import { getSeasonForTick, getYearForTick } from '../utils/timeUtils';
+import { useGameTicker } from './useGameTicker';
 
 export function useSimulationData(pin: string | undefined, impersonateId: string | null) {
     const { user, authLoading } = useSimulationAuth() as any;
@@ -251,83 +251,8 @@ export function useSimulationData(pin: string | undefined, impersonateId: string
         }
     }, [pin, user?.uid]);
 
-    // --- LEADER ELECTION ---
-    const isLeader = useMemo(() => {
-        const pId = impersonateId || localStorage.getItem('sim_player_id') || user?.uid;
-        if (!pId || !players) return false;
-
-        const activePlayerIds = Object.keys(players).filter(id => {
-            const p = players[id];
-            return p.online || (Date.now() - (p.lastActive || 0) < 120000);
-        });
-
-        if (activePlayerIds.length === 0) return true;
-        const sortedIds = activePlayerIds.sort();
-        return sortedIds[0] === pId;
-    }, [players, user?.uid, impersonateId]);
-
-    // --- WORLD TICKER ---
-    const worldRefPersistence = useRef(world);
-    useEffect(() => { worldRefPersistence.current = world; }, [world]);
-
-    useEffect(() => {
-        if (!pin || roomStatus === 'LOBBY' || !isLeader) return;
-
-        const initClock = async () => {
-            const currentWorld = worldRefPersistence.current;
-            if (currentWorld && !currentWorld.lastTickAt) {
-                const worldRef = ref(db, `simulation_rooms/${pin}/world`);
-                await update(worldRef, {
-                    gameTick: currentWorld.gameTick || 0,
-                    lastTickAt: Date.now()
-                });
-            }
-        };
-        initClock();
-
-        const heartbeat = setInterval(async () => {
-            const currentWorld = worldRefPersistence.current;
-            if (!currentWorld) return;
-
-            const now = Date.now();
-            const lastTickAt = currentWorld.lastTickAt;
-            if (!lastTickAt) return;
-
-            const diff = now - lastTickAt;
-            if (diff >= 60000) {
-                const ticksToAdd = Math.floor(diff / 60000);
-                const newTick = (currentWorld.gameTick || 0) + ticksToAdd;
-                const dbRef = ref(db, `simulation_rooms/${pin}/world`);
-                try {
-                    await update(dbRef, {
-                        gameTick: newTick,
-                        lastTickAt: now
-                    });
-                } catch (e) {
-                    console.error("Heartbeat sync failed", e);
-                }
-            }
-        }, 10000);
-
-        return () => clearInterval(heartbeat);
-    }, [pin, roomStatus, isLeader]);
-
-    // --- AUTO-ADVANCE SEASONS & YEARS ---
-    useEffect(() => {
-        if (!pin || roomStatus === 'LOBBY' || !world) return;
-
-        const currentSeason = world.season;
-        const currentYear = world.year;
-        const calculatedSeason = getSeasonForTick(world.gameTick || 0);
-        const calculatedYear = getYearForTick(world.gameTick || 0, 1100);
-
-        if (currentSeason !== calculatedSeason || currentYear !== calculatedYear) {
-            update(ref(db, `simulation_rooms/${pin}/world`), {
-                season: calculatedSeason,
-                year: calculatedYear
-            });
-        }
-    }, [world?.gameTick, pin, world?.season, world?.year, roomStatus]);
+    // --- ROBUST RACE-TO-TICK HEARTBEAT ---
+    useGameTicker(pin, roomStatus, world);
 
     return {
         player,
@@ -345,7 +270,6 @@ export function useSimulationData(pin: string | undefined, impersonateId: string
         isRetired,
         setIsRetired,
         setPlayer,
-        isLeader,
         lastValidPlayer: lastValidPlayerRef.current
     };
 }
