@@ -16,6 +16,17 @@
             ".read": "auth != null",
             ".write": "auth != null",
             "$pin": {
+                "channels": {
+                    "$channelId": {
+                        ".read": "auth != null && ($channelId === 'global' || ($channelId.beginsWith('region_') && (root.child('simulation_rooms').child($pin).child('players').child(auth.uid).child('regionId').val() === $channelId || root.child('simulation_rooms').child($pin).child('players').child(auth.uid).child('role').val() === 'KING')) || ($channelId === 'diplomacy' && (root.child('simulation_rooms').child($pin).child('players').child(auth.uid).child('role').val() === 'BARON' || root.child('simulation_rooms').child($pin).child('players').child(auth.uid).child('role').val() === 'KING')) || ($channelId.contains(auth.uid)))",
+                        ".write": "auth != null",
+                        "messages": {
+                            "$msgId": {
+                                ".validate": "newData.hasChildren(['content', 'timestamp'])"
+                            }
+                        }
+                    }
+                },
                 "players": {
                     "$playerId": {
                         "resources": {
