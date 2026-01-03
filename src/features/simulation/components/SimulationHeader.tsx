@@ -44,6 +44,9 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
     const { playSfx } = useAudio();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    const region = room.regions?.[player.regionId || 'capital'];
+    const hasUnrest = (region?.coup?.bribeProgress || 0) > 0 || !!region?.activeElection;
+
     // --- KEYBOARD SHORTCUTS (Ported from Sidebar) ---
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -129,6 +132,15 @@ export const SimulationHeader: React.FC<SimulationHeaderProps> = ({ room, player
                             </span>
                         </div>
                         <span className="opacity-40">{weather}</span>
+                        {hasUnrest && (
+                            <button
+                                onClick={() => { setActiveTab('POLITICS'); playSfx('ui_click.ogg'); }}
+                                className="flex items-center gap-2 bg-rose-600/20 border border-rose-500/50 px-3 py-1 rounded-full animate-pulse group hover:bg-rose-500 hover:text-white transition-all ml-2"
+                                title="Uro i regionen! Klikk for å se politisk status."
+                            >
+                                <span className="text-[10px] font-black italic tracking-tighter">⚠️ URO</span>
+                            </button>
+                        )}
                     </div>
                 </div>
 

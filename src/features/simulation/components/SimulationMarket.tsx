@@ -6,7 +6,7 @@ import { GameCard } from '../ui/GameCard';
 import { GameButton } from '../ui/GameButton';
 import { ResourceIcon } from '../ui/ResourceIcon';
 import { Badge } from '../ui/Badge';
-import { ArrowLeftRight, ShoppingBag, Ship } from 'lucide-react';
+import { ArrowLeftRight, ShoppingBag, Ship, Gavel } from 'lucide-react';
 
 interface SimulationMarketProps {
     player: SimulationPlayer;
@@ -39,6 +39,38 @@ export const SimulationMarket: React.FC<SimulationMarketProps> = React.memo(({ p
                     <div className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-xl border border-game-gold/30">
                         <span className="text-game-stone_light text-xs font-bold uppercase">Saldo:</span>
                         <ResourceIcon resource="gold" amount={player.resources?.gold} size="md" />
+                    </div>
+                </div>
+
+                {/* POLITICAL INFLUENCE ENTRY POINT */}
+                <div className="bg-gradient-to-r from-amber-900/40 to-rose-900/40 border border-amber-500/30 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group mb-4">
+                    <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <Gavel size={120} />
+                    </div>
+                    <div className="relative z-10 flex items-center gap-4">
+                        <div className="w-16 h-16 bg-amber-900/80 rounded-2xl flex items-center justify-center border border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+                            <span className="text-3xl">🗳️</span>
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-black text-white uppercase tracking-wide">
+                                Politisk Innflytelse
+                                {(regions?.[player.regionId || 'capital']?.activeElection) && (
+                                    <Badge variant="role" className="ml-2 animate-pulse bg-rose-600 text-white border-none">VALG PÅGÅR</Badge>
+                                )}
+                            </h3>
+                            <p className="text-amber-200 text-sm max-w-sm">
+                                Kjøp deg makt eller støtt folket. Her kan du påvirke hvem som styrer regionen gjennom "Folkegaven".
+                            </p>
+                        </div>
+                    </div>
+                    <div className="relative z-10">
+                        <GameButton
+                            variant="wood"
+                            onClick={() => setActiveTab('POLITICS')}
+                            className="border-amber-400/50 min-w-[200px] font-black italic"
+                        >
+                            GÅ TIL POLITIKK
+                        </GameButton>
                     </div>
                 </div>
 

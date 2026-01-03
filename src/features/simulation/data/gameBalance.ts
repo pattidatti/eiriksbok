@@ -70,6 +70,15 @@ export const GAME_BALANCE = {
         REFINING_BONUS: 0.1,
         CRAFTING_XP: 25,
         REFINING_XP: 10
+    },
+    COUP: {
+        BASE_BRIBE_COST: 500,        // Base cost for +10% progress
+        HONEYMOON_DURATION: 600000,  // 10 minutes (ms)
+        VACANCY_DURATION: 300000,    // 5 minutes (ms)
+        RESTORE_ORDER_COST: 600,     // Baron's cost to reduce progress
+        LEGITIMACY_SHIELD_MULT: 2.0, // Double cost if Baron has 100 legitimacy
+        KING_VOTE_WEIGHT: 15,
+        PEASANT_VOTE_WEIGHT: 1
     }
 };
 

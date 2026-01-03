@@ -220,6 +220,29 @@ export interface SimulationMarket {
     iron?: MarketItem; // Legacy support
 }
 
+export interface CoupData {
+    lastRulerChange: number;
+    bribeProgress: number; // 0-100
+    challengerId?: string; // Last/main challenger
+    challengerName?: string;
+    contributions: Record<string, { name: string, amount: number }>; // Track for candidates
+}
+
+export interface ElectionCandidate {
+    id: string;
+    name: string;
+    votes: number;
+    weightedVotes: number;
+    contribution: number;
+}
+
+export interface ElectionState {
+    startedAt: number;
+    expiresAt: number;
+    candidates: Record<string, ElectionCandidate>;
+    votes: Record<string, { candidateId: string, weight: number }>; // voterId -> selection
+}
+
 export interface SimulationRegion {
     id: string; // Usually the Baron's player ID
     name: string;
@@ -227,6 +250,8 @@ export interface SimulationRegion {
     taxRate: number; // Percentage 0-100
     defenseLevel: number;
     rulerName: string;
+    coup?: CoupData;
+    activeElection?: ElectionState;
 }
 
 export type WeatherType = 'Clear' | 'Rain' | 'Storm' | 'Fog';
