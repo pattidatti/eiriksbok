@@ -353,7 +353,11 @@ export const handleSiegeAction = (ctx: ActionContext) => {
         if (action.subType === 'SUNDER_ARMOR') {
             const targetId = action.payload?.targetId;
             const target = t.occupiers[targetId];
-            if (!target) return { success: false, message: "Ingen på tronen å angripe!" }; // Or invalid target
+            if (!target) {
+                localResult.success = false;
+                localResult.message = "Ingen på tronen å angripe!";
+                return false;
+            }
 
             target.armor = Math.max(0, target.armor - 1);
 

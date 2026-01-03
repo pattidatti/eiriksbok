@@ -6,7 +6,7 @@ import { GameCard } from '../ui/GameCard';
 import { GameButton } from '../ui/GameButton';
 import { ResourceIcon } from '../ui/ResourceIcon';
 import { Badge } from '../ui/Badge';
-import { ArrowLeftRight, ShoppingBag, Ship, Gavel } from 'lucide-react';
+import { ArrowLeftRight, ShoppingBag, Ship } from 'lucide-react';
 
 interface SimulationMarketProps {
     player: SimulationPlayer;

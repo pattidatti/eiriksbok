@@ -14,16 +14,13 @@ import {
     Award,
     LogOut,
     ShieldAlert,
-    Sword,
     MapPin,
     Crown,
-    Scroll,
-    Activity
 } from 'lucide-react';
 import { useLayout } from '../../context/LayoutContext';
 import { NexusProvider, useNexus } from '../nexus/NexusContext';
 import { VesselSelector } from '../nexus/components/VesselSelector';
-import type { SimulationPlayer, Role } from './simulationTypes';
+import type { SimulationPlayer } from './simulationTypes';
 
 interface SimulationProfileProps {
     player?: SimulationPlayer; // Current player
@@ -31,7 +28,7 @@ interface SimulationProfileProps {
     allPlayers?: Record<string, SimulationPlayer>;
 }
 
-const InnerSimulationProfile: React.FC<SimulationProfileProps> = ({ player, regions, allPlayers }) => {
+const InnerSimulationProfile: React.FC<SimulationProfileProps> = ({ player, allPlayers }) => {
     const { user, account, loading, logout, isAnonymous } = useSimulationAuth();
     useNexus(); // Ensure context is loaded
     const [isEditingName, setIsEditingName] = useState(false);
