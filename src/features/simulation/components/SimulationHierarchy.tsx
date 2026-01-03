@@ -83,7 +83,7 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                                             <div className="w-full space-y-1">
                                                 <div className="flex justify-between text-[10px] uppercase font-bold text-slate-400">
                                                     <span>Legitimitet</span>
-                                                    <span>{(king.status as any)?.legitimacy || 100}%</span>
+                                                    <span>{(king.status as any)?.legitimacy ?? 100}%</span>
                                                 </div>
                                                 <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-white/5">
                                                     <div

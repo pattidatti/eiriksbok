@@ -478,38 +478,46 @@ export const handleGlobalBribe = async (pin: string, playerId: string, action: {
     });
 
     // 3. Decrease Ruler Legitimacy
-    const rulerId = region.rulerId;
+    // 3. Fetch Players early (needed for Ruler Lookup & Distribution)
+    const roomPlayersRef = ref(db, `simulation_rooms/${pin}/players`);
+    const allPlayersSnap = await get(roomPlayersRef);
+    let allPlayers: Record<string, SimulationPlayer> = {};
+    if (allPlayersSnap.exists()) allPlayers = allPlayersSnap.val();
+
+    // 4. Identify & Punish Ruler
+    let rulerId = region.rulerId;
+
+    // Fallback: If region doesn't know the ruler, find them in the player list
+    if (!rulerId && Object.keys(allPlayers).length > 0) {
+        if (regionId === 'capital') {
+            const king = Object.values(allPlayers).find(p => p.role === 'KING');
+            if (king) rulerId = king.id;
+        } else {
+            // Baron of this specific region
+            const baron = Object.values(allPlayers).find(p => p.role === 'BARON' && p.regionId === regionId);
+            if (baron) rulerId = baron.id;
+        }
+
+        // Self-heal: Update region if we found a missing ruler
+        if (rulerId) {
+            await update(regionRef, { rulerId: rulerId });
+        }
+    }
+
     if (rulerId) {
         const rulerRef = ref(db, `simulation_rooms/${pin}/players/${rulerId}`);
         const legLoss = Math.floor(amount / 100);
 
-        await runTransaction(rulerRef, (ruler) => {
-            if (!ruler) return;
-            ruler.status.legitimacy = Math.max(0, (ruler.status.legitimacy || 0) - legLoss);
-            return ruler;
-        });
+        // Atomic Update for Player
+        await update(rulerRef, { 'status/legitimacy': increment(-legLoss) });
 
-        // Sync to Public Profile (CRITICAL for UI)
-        // We do this as a separate update because public_profiles might not be transaction-safe relative to players
-        // or we just blindly set it. Transaction is safer but update is cheaper. 
-        // Since we are just decrementing, an update relative to the *transactioned* value would be best, 
-        // but we can just read the current state or simply nudge it.
-        // Actually, let's just update perfectly.
+        // Atomic Update for Public Data (UI)
         const publicRulerRef = ref(db, `simulation_rooms/${pin}/public_profiles/${rulerId}`);
-        await runTransaction(publicRulerRef, (p) => {
-            if (!p) return;
-            // Ensure status struct exists
-            if (!p.status) p.status = { isJailed: false, isFrozen: false, legitimacy: 100 };
-            p.status.legitimacy = Math.max(0, (p.status.legitimacy || 100) - legLoss);
-            return p;
-        });
+        await update(publicRulerRef, { 'status/legitimacy': increment(-legLoss) });
     }
 
-    // 4. Distribute Stimulus (The "Folkegave")
-    const roomPlayersRef = ref(db, `simulation_rooms/${pin}/players`);
-    const allPlayersSnap = await get(roomPlayersRef);
-    if (allPlayersSnap.exists()) {
-        const allPlayers = allPlayersSnap.val();
+    // 5. Distribute Stimulus (The "Folkegave")
+    if (Object.keys(allPlayers).length > 0) {
         const targets = Object.keys(allPlayers).filter(id =>
             allPlayers[id].regionId === regionId &&
             id !== playerId && // Exclude self (Sender shouldn't get their own bribe back)
