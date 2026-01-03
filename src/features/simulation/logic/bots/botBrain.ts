@@ -173,9 +173,9 @@ const evaluateRulerDuties = (bot: SimulationPlayer, room: SimulationRoom, region
 
 const evaluatePeasantProsperity = (bot: SimulationPlayer, room: SimulationRoom, gold: number): BotDecision | null => {
     // 1. REFINE resources if I have them (Value Add without market)
-    if ((bot.resources.wood || 0) > 20) return { actionType: 'SAWMILL', reason: 'Foredler ved for å øke verdien på eiendommen', weight: 0.9 };
-    if ((bot.resources.grain || 0) > 20) return { actionType: 'WINDMILL', reason: 'Maler korn for å sikre matforsyning', weight: 0.9 };
-    if ((bot.resources.iron_ore || 0) > 10) return { actionType: 'SMELTERY', reason: 'Smelter jern for fremtidig verktøy', weight: 0.9 };
+    if ((bot.resources.wood || 0) > 20) return { actionType: 'REFINE', payload: { recipeId: 'plank' }, reason: 'Foredler ved for å øke verdien på eiendommen', weight: 0.9 };
+    if ((bot.resources.grain || 0) > 20) return { actionType: 'REFINE', payload: { recipeId: 'flour' }, reason: 'Maler korn for å sikre matforsyning', weight: 0.9 };
+    if ((bot.resources.iron_ore || 0) > 10) return { actionType: 'REFINE', payload: { recipeId: 'iron_ingot' }, reason: 'Smelter jern for fremtidig verktøy', weight: 0.9 };
 
     // 2. INVEST in local infrastructure (Selfish benefit)
     const buildings = room.world?.settlement?.buildings || {};
@@ -202,10 +202,10 @@ const evaluateEconomy = (bot: SimulationPlayer, _room: SimulationRoom, persona: 
 
     // If I have raw materials, huge desire to refine
     if ((bot.resources.wood || 0) > 10) {
-        return { actionType: 'SAWMILL', reason: 'Refining Wood (Value Add)', weight: persona.priorities.work * 1.5 };
+        return { actionType: 'REFINE', payload: { recipeId: 'plank' }, reason: 'Refining Wood (Value Add)', weight: persona.priorities.work * 1.5 };
     }
     if ((bot.resources.grain || 0) > 10) {
-        return { actionType: 'WINDMILL', reason: 'Milling Grain (Value Add)', weight: persona.priorities.work * 1.5 };
+        return { actionType: 'REFINE', payload: { recipeId: 'flour' }, reason: 'Milling Grain (Value Add)', weight: persona.priorities.work * 1.5 };
     }
 
     // Default Gather

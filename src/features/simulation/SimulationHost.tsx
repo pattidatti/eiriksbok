@@ -1285,8 +1285,8 @@ export const SimulationHost: React.FC = () => {
                                     <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
                                         📦 Ressurslager i Nettverket
                                     </h3>
-                                    <div className="grid grid-cols-2 gap-4">
-                                        {['wood', 'stone', 'plank', 'iron_ingot', 'grain', 'bread'].map(res => {
+                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                        {['gold', 'wood', 'stone', 'plank', 'iron_ore', 'iron_ingot', 'grain', 'flour', 'bread', 'meat', 'pie', 'wool', 'cloth', 'glass', 'water', 'honey', 'mead'].map(res => {
                                             const total = Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_')).reduce((s, b: any) => s + (b?.resources?.[res] || 0), 0);
                                             return (
                                                 <div key={res} className="p-4 bg-black/20 rounded-2xl border border-white/5 flex justify-between items-center">

@@ -1036,3 +1036,42 @@ export const handleSendMessage = async (pin: string, playerId: string, content: 
         return { success: false, error: `Kunne ikke sende melding: ${e.message || 'Ukjent feil'}` };
     }
 };
+
+export const handleClaimEmptyThrone = async (pin: string, playerId: string, regionId: string) => {
+    const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
+    const cost = 1000;
+
+    // Pre-flight check
+    const regionSnap = await get(regionRef);
+    if (!regionSnap.exists()) return { success: false, error: "Region finnes ikke" };
+    const region = regionSnap.val();
+
+    if (region.rulerId && region.rulerId !== 'Ingen') return { success: false, error: "Tronen er ikke tom!" };
+
+    let success = false;
+    await runTransaction(playerRef, (p) => {
+        if (!p) return;
+        if ((p.resources.gold || 0) < cost) return;
+        p.resources.gold -= cost;
+        p.role = 'BARON';
+        p.regionId = regionId;
+        p.status.legitimacy = 50; // Moderate legitimacy for buying the throne
+        success = true;
+        return p;
+    });
+
+    if (success) {
+        await update(regionRef, {
+            rulerId: playerId,
+            rulerName: (await get(playerRef)).val().name
+        });
+        await update(ref(db, `simulation_rooms/${pin}/public_profiles/${playerId}`), { role: 'BARON', regionId });
+
+        logSimulationMessage(pin, `👑 MAKT: En ny Baron har kjøpt seg til makt i ${region.name}!`);
+        logSystemicStat(pin, 'coups', 'success', 1);
+        return { success: true, message: "Du er nå Baron!" };
+    }
+
+    return { success: false, error: "Manglet gull." };
+};

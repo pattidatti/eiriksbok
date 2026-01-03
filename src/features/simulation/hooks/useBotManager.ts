@@ -5,7 +5,7 @@ import { simulationDb as db } from '../simulationFirebase';
 import type { SimulationRoom, BotFeedbackEntry } from '../simulationTypes';
 import { decideBotAction } from '../logic/bots/botBrain';
 import { performAction } from '../actions';
-import { handleGlobalBribe } from '../globalActions';
+import { handleGlobalBribe, handleClaimEmptyThrone } from '../globalActions';
 
 // Config - "GOD MODE TURBO" enabled by user request
 export const BOT_TICK_RATE = 200;   // Bots think every 0.2 second (Ultra fast)
@@ -117,8 +117,7 @@ export const useBotManager = (pin: string, room: SimulationRoom | null, isHost: 
                         } else if (decision.actionType === 'CLAIM_TITLE') {
                             // Logic to claim title (Upgrade to Baron) if requirements met
                             newLogs.push(`[${bot.name}] KREVER TITTEL: ${decision.payload.regionId}`);
-                            // This might be a specific action "CLAIM_BARONY"
-                            // await performAction(pin, bot.id, { type: 'CLAIM_BARONY', regionId: decision.payload.regionId });
+                            await handleClaimEmptyThrone(pin, bot.id, decision.payload.regionId);
                         } else {
                             newLogs.push(`[${bot.name}] ${decision.actionType}: ${decision.reason}`);
                             const actionPayload = decision.payload ? { type: decision.actionType, ...decision.payload } : decision.actionType;
