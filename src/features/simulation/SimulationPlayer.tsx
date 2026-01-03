@@ -14,6 +14,7 @@ import { MinigameOverlay } from './SimulationMinigames';
 import { LevelUpOverlay } from './components/LevelUpOverlay';
 import { SimulationOnboarding } from './components/SimulationOnboarding';
 import { SimulationDestinySplash } from './components/SimulationDestinySplash';
+import { ChatSystem } from './components/ChatSystem';
 import { Trophy } from 'lucide-react';
 import { INITIAL_RESOURCES, INITIAL_SKILLS, INITIAL_EQUIPMENT } from './constants';
 import { ref, update } from 'firebase/database';
@@ -209,6 +210,9 @@ export const SimulationPlayer: React.FC = () => {
             {levelUpData && (
                 <LevelUpOverlay level={levelUpData.level} title={levelUpData.title} onClose={() => setLevelUpData(null)} />
             )}
+
+            {/* Chat Overlay */}
+            <ChatSystem pin={pin || ''} player={player} />
         </div>
     );
 };

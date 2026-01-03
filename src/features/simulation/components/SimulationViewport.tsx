@@ -146,7 +146,6 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                                 <PoliticalHub
                                     player={player}
                                     room={room}
-                                    onAction={onAction}
                                     onClose={() => setActiveTab('MAP')}
                                 />
                             </div>

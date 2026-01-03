@@ -8,6 +8,7 @@ import { Globe, Lock } from 'lucide-react';
 import { assignRoles, collectTaxes } from './gameLogic';
 import { generateInitialRoomState, syncServerMetadata } from './logic/roomInit';
 import type { SimulationMessage, SimulationRoom } from './simulationTypes';
+import { handleAdminGiveGold } from './globalActions';
 
 
 export const SimulationHost: React.FC = () => {
@@ -16,6 +17,7 @@ export const SimulationHost: React.FC = () => {
     const [allRooms, setAllRooms] = useState<SimulationRoom[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [view, setView] = useState<'LIST' | 'MANAGE' | 'ECONOMY'>('LIST');
+    const [giveGoldAmounts, setGiveGoldAmounts] = useState<Record<string, number>>({});
     const { setFullWidth, setHideHeader } = useLayout();
 
     // Lazy load the blueprint
@@ -1213,6 +1215,29 @@ export const SimulationHost: React.FC = () => {
                                                 <span className="group-hover/btn:scale-125 transition-transform">🎮</span>
                                                 Styr spiller
                                             </button>
+
+                                            {/* ADMIN: GIVE GOLD */}
+                                            <div className="mt-4 pt-4 border-t border-white/5 flex gap-2">
+                                                <input
+                                                    type="number"
+                                                    placeholder="Gull..."
+                                                    value={giveGoldAmounts[p.id] || ''}
+                                                    onChange={(e) => setGiveGoldAmounts({ ...giveGoldAmounts, [p.id]: parseInt(e.target.value) || 0 })}
+                                                    className="flex-1 bg-black/40 border border-white/5 rounded-xl px-3 py-2 text-[10px] font-black text-white focus:border-indigo-500/50 transition-all font-mono"
+                                                />
+                                                <button
+                                                    onClick={() => {
+                                                        const amt = giveGoldAmounts[p.id] || 0;
+                                                        if (amt > 0) {
+                                                            handleAdminGiveGold(pin, p.id, amt);
+                                                            setGiveGoldAmounts({ ...giveGoldAmounts, [p.id]: 0 });
+                                                        }
+                                                    }}
+                                                    className="bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 px-3 py-2 rounded-xl text-[8px] font-black uppercase transition-all"
+                                                >
+                                                    GI GULL
+                                                </button>
+                                            </div>
                                         </div>
                                     ))}
                                     {Object.keys(roomData.players || {}).length === 0 && (
@@ -1277,15 +1302,13 @@ export const SimulationHost: React.FC = () => {
                                 </section>
                             )}
                         </div>
-                    )
-                    }
-                </div >
-            </main >
+                    )}
+                </div>
+            </main>
 
             {/* RIGHT PANEL: INTELLIGENCE & FEED */}
-            < aside className="w-80 border-l border-white/10 bg-slate-900/50 backdrop-blur-xl flex flex-col z-20 shadow-2xl overflow-hidden" >
-                {/* Leaderboard */}
-                < div className="p-8 border-b border-white/5 bg-black/20 shrink-0" >
+            <aside className="w-80 border-l border-white/10 bg-slate-900/50 backdrop-blur-xl flex flex-col z-20 shadow-2xl overflow-hidden">
+                <div className="p-8 border-b border-white/5 bg-black/20 shrink-0">
                     <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500 mb-6 flex items-center justify-between">
                         Rikets Formue
                         <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(245,158,11,0.5)]" />
@@ -1302,14 +1325,12 @@ export const SimulationHost: React.FC = () => {
                                     </div>
                                     <span className="text-sm font-black text-amber-400">{p.resources.gold}💰</span>
                                 </div>
-                            ))
-                        }
+                            ))}
                         {Object.keys(roomData.players || {}).length === 0 && <p className="text-[10px] text-slate-600 font-bold italic text-center py-4">Ingen data tilgjengelig...</p>}
                     </div>
-                </div >
+                </div>
 
-                {/* Market Intelligence */}
-                < div className="p-8 border-b border-white/5 shrink-0" >
+                <div className="p-8 border-b border-white/5 shrink-0">
                     <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 mb-6">Markedsanalyse</h3>
                     <div className="grid grid-cols-2 gap-3">
                         {Object.entries(roomData.market || {}).slice(0, 4).map(([res, data]: [string, any]) => {
@@ -1328,10 +1349,9 @@ export const SimulationHost: React.FC = () => {
                             <div className="col-span-2 text-[10px] text-slate-600 font-bold italic text-center py-4">Ingen markedsdata...</div>
                         )}
                     </div>
-                </div >
+                </div>
 
-                {/* Live Activity Feed */}
-                < div className="flex-1 flex flex-col overflow-hidden" >
+                <div className="flex-1 flex flex-col overflow-hidden">
                     <div className="p-8 pb-4 shrink-0">
                         <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-rose-500 flex items-center gap-2">
                             <span className="w-2 h-2 bg-rose-600 rounded-full animate-pulse shadow-[0_0_10px_rgba(225,29,72,0.5)]" />
@@ -1353,11 +1373,10 @@ export const SimulationHost: React.FC = () => {
                             </div>
                         )}
                     </div>
-                </div >
-            </aside >
+                </div>
+            </aside>
 
-            {/* Global Styles for custom scrollbar */}
-            < style dangerouslySetInnerHTML={{
+            <style dangerouslySetInnerHTML={{
                 __html: `
                 .custom-scrollbar::-webkit-scrollbar {
                     width: 4px;
@@ -1376,6 +1395,6 @@ export const SimulationHost: React.FC = () => {
                     display: none;
                 }
             `}} />
-        </div >
+        </div>
     );
 };

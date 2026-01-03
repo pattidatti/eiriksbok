@@ -50,6 +50,8 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
     - **Diplomati:** Baroner har en egen felleskanal; Kongen har tilgang til alt.
     - **Brev-system:** Mulighet for private meldinger. Meldinger sendt utenfor eget baroni koster penger (budbringer-avgift).
 
+    **UI** Pen, minimalistisk, med enkelte elementer som er enkel å forstå. "lever" nede i venstre hørne som vindu. kan åpnes og lukkes slik at det ikke forstyrrer. er overlay. 
+
 - [ ] **Handelskaravane (Kjøpmann):** Et interaktivt minispill for transport og handel av ressurser mellom baronier.
     - **Visuelt:** En sidescroller med parallax-effekt (lagdelte bakgrunner i ulikt tempo) som gir grafisk dybde under reisen gjennom variert terreng som skog, fjell og vann.
     - **Spillmekanikk:** Tilfeldige hendelser og små utfordringer underveis som må håndteres for å sikre lasten.

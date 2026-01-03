@@ -494,6 +494,29 @@ export const handleGlobalBribe = async (pin: string, playerId: string, action: {
     return { success: true, message: "Besteikkelse gjennomført!" };
 };
 
+export const handleShadowPledge = async (pin: string, playerId: string, regionId: string, candidateId: string) => {
+    const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
+
+    // Validate player exists? (Optional, but good practice)
+
+    let success = false;
+    await runTransaction(regionRef, (r) => {
+        if (!r) return;
+        if (!r.coup) r.coup = { bribeProgress: 0, contributions: {}, preVotes: {} };
+        if (!r.coup.preVotes) r.coup.preVotes = {};
+
+        // Allow changing pledge
+        r.coup.preVotes[playerId] = candidateId;
+        success = true;
+        return r;
+    });
+
+    if (success) {
+        return { success: true, message: "Skyggeløfte avgitt!" };
+    }
+    return { success: false, error: "Kunne ikke avgi løfte." };
+};
+
 export const triggerRevolution = async (pin: string, regionId: string) => {
     const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
     const regionSnap = await get(regionRef);
@@ -516,6 +539,7 @@ export const triggerRevolution = async (pin: string, regionId: string) => {
     // Setup Election
     const candidates: Record<string, any> = {};
     const contributions = region.coup?.contributions || {};
+    const preVotes = region.coup?.preVotes || {};
 
     Object.entries(contributions)
         .sort((a: any, b: any) => b[1].amount - a[1].amount)
@@ -535,17 +559,44 @@ export const triggerRevolution = async (pin: string, regionId: string) => {
         startedAt: now,
         expiresAt: now + GAME_BALANCE.COUP.VACANCY_DURATION,
         candidates,
-        votes: {}
+        votes: {} as any
     };
+
+    // PROCESS SHADOW PLEDGES
+    let autoVotes = 0;
+    // We need to fetch weights? Or assume default 1 for simplicity in shadow pledge?
+    // Ideally we fetch player roles. For MVP/Performance, let's assume standard weight 1 for pre-votes 
+    // OR roughly fetch all players.
+    // Fetching all players is safer to get correct weighting.
+
+    const playersRef = ref(db, `simulation_rooms/${pin}/players`);
+    const allPlayersSnap = await get(playersRef);
+    const allPlayers = allPlayersSnap.val() || {};
+
+    Object.entries(preVotes).forEach(([voterId, candidateId]: [string, any]) => {
+        if (candidates[candidateId]) {
+            const voter = allPlayers[voterId];
+            if (voter) {
+                let weight = GAME_BALANCE.COUP.PEASANT_VOTE_WEIGHT || 1;
+                if (voter.role === 'KING') weight = GAME_BALANCE.COUP.KING_VOTE_WEIGHT || 15;
+
+                election.votes[voterId] = { candidateId, weight };
+                candidates[candidateId].votes += 1;
+                candidates[candidateId].weightedVotes += weight;
+                autoVotes++;
+            }
+        }
+    });
 
     await update(regionRef, {
         rulerId: null,
         rulerName: "VAKANT",
         activeElection: election,
-        'coup/bribeProgress': 0
+        'coup/bribeProgress': 0,
+        'coup/preVotes': null // Clear pledges
     });
 
-    logSimulationMessage(pin, `⚠️ REVOLUSJON i ${region.name}! ${oldRulerName} er styrtet. Et valg er i gang!`);
+    logSimulationMessage(pin, `⚠️ REVOLUSJON i ${region.name}! ${oldRulerName} er styrtet. ${autoVotes} skyggeløfter ble automatisk talt opp!`);
 };
 
 export const handleRestoreOrder = async (pin: string, playerId: string, regionId: string) => {
@@ -676,4 +727,89 @@ export const handleFinalizeElection = async (pin: string, regionId: string) => {
     }
 
     return { success: false };
+};
+
+export const handleAdminGiveGold = async (pin: string, targetId: string, amount: number) => {
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${targetId}`);
+
+    let success = false;
+    await runTransaction(playerRef, (p) => {
+        if (!p) return;
+        if (!p.resources) p.resources = {};
+        p.resources.gold = (p.resources.gold || 0) + amount;
+        success = true;
+        return p;
+    });
+
+    if (success) {
+        logSimulationMessage(pin, `🔧 ADMIN: Gitt ${amount}g til en spiller.`);
+    }
+
+    return { success };
+};
+
+/* --- CHAT HANDLER --- */
+export const handleSendMessage = async (pin: string, playerId: string, content: string, channelId: string) => {
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
+    const channelRef = ref(db, `simulation_rooms/${pin}/channels/${channelId}/messages`);
+
+    // Pre-flight check
+    const playerSnap = await get(playerRef);
+    if (!playerSnap.exists()) return { success: false, error: "Spiller mangler" };
+    const player = playerSnap.val() as SimulationPlayer;
+
+    let cost = 0;
+
+    // Cost Logic
+    if (player.role !== 'KING') {
+        if (channelId === 'global') {
+            cost = 2; // Town Crier Fee
+        } else if (channelId !== player.regionId && channelId !== 'diplomacy') {
+            // E.g. sending to another region channel? (Not possible via UI broadly, but DMs fall here)
+            // If it's a DM (contains user ID but isn't region/diplomacy/global)
+            if (channelId.includes(playerId) && channelId.length > 20) {
+                cost = 5; // Messenger Fee
+            }
+        }
+    }
+
+    if ((player.resources?.gold || 0) < cost) {
+        return { success: false, error: `Trenger ${cost}g for å sende denne meldingen.` };
+    }
+
+    let success = false;
+
+    // 1. Deduct Gold (if any)
+    if (cost > 0) {
+        await runTransaction(playerRef, (p) => {
+            if (!p) return;
+            if ((p.resources.gold || 0) < cost) return; // Re-check
+            p.resources.gold -= cost;
+            success = true;
+            return p;
+        });
+    } else {
+        success = true; // Free message
+    }
+
+    if (!success) return { success: false, error: "Har ikke råd." };
+
+    // 2. Push Message
+    try {
+        const newMessageRef = push(channelRef);
+        await update(newMessageRef, {
+            id: newMessageRef.key,
+            senderId: playerId,
+            senderName: player.name,
+            senderRole: player.role,
+            content: content.trim(),
+            timestamp: serverTimestamp(),
+            isPremiere: cost > 0 // Flag for UI to show "Paid Message" style
+        });
+
+        return { success: true };
+    } catch (e) {
+        console.error(e);
+        return { success: false, error: "Kunne ikke sende melding." };
+    }
 };

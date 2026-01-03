@@ -226,6 +226,7 @@ export interface CoupData {
     challengerId?: string; // Last/main challenger
     challengerName?: string;
     contributions: Record<string, { name: string, amount: number }>; // Track for candidates
+    preVotes: Record<string, string>; // voterId -> candidateId (Shadow Pledges)
 }
 
 export interface ElectionCandidate {
@@ -296,8 +297,12 @@ export type GameStatus = 'LOBBY' | 'PLAYING' | 'PAUSED' | 'FINISHED';
 export interface SimulationMessage {
     id?: string;
     content: string;
-    type?: string;
+    type?: 'SYSTEM' | 'CHAT' | 'SEASON_CHANGE' | 'WEATHER_CHANGE' | 'VOTE_START' | 'VOTE_RESULT' | 'EVENT_SPAWN';
     timestamp: number;
+    senderId?: string;
+    senderName?: string;
+    senderRole?: Role;
+    isPremiere?: boolean;
 }
 
 export interface SimulationRoom {

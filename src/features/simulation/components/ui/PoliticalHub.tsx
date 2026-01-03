@@ -8,18 +8,17 @@ import { GAME_BALANCE } from '../../data/gameBalance';
 import { useSimulation } from '../../SimulationContext';
 import { Gavel, ShieldAlert, Timer, TrendingUp, AlertTriangle, Vote } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { handleGlobalBribe, handleCastVote, handleRestoreOrder, handleFinalizeElection } from '../../globalActions';
+import { handleGlobalBribe, handleCastVote, handleRestoreOrder, handleFinalizeElection, handleShadowPledge } from '../../globalActions';
 import { useParams } from 'react-router-dom';
 import type { ElectionCandidate } from '../../simulationTypes';
 
 interface PoliticalHubProps {
     player: any;
     room: any;
-    onAction?: (action: any) => void;
     onClose: () => void;
 }
 
-export const PoliticalHub: React.FC<PoliticalHubProps> = ({ player, room, onAction, onClose }) => {
+export const PoliticalHub: React.FC<PoliticalHubProps> = ({ player, room, onClose }) => {
     const { actionLoading } = useSimulation();
     const { pin } = useParams<{ pin: string }>();
     const regionId = player.regionId || 'capital';
@@ -222,8 +221,20 @@ export const PoliticalHub: React.FC<PoliticalHubProps> = ({ player, room, onActi
                                                             <div className="text-[10px] text-slate-500 font-medium">Utfordrer</div>
                                                         </div>
                                                     </div>
-                                                    <div className="text-right">
+                                                    <div className="text-right flex flex-col items-end gap-1">
                                                         <div className="text-xs font-mono font-bold text-game-gold">{c.amount.toLocaleString()}g</div>
+                                                        {coup?.preVotes?.[player.id] === c.id ? (
+                                                            <span className="text-[9px] font-black uppercase text-emerald-400 bg-emerald-950/30 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                                                                Ditt valg
+                                                            </span>
+                                                        ) : (
+                                                            <button
+                                                                onClick={() => pin && handleShadowPledge(pin, player.id, regionId, c.id)}
+                                                                className="text-[9px] font-bold uppercase text-slate-500 hover:text-white bg-white/5 hover:bg-indigo-600 px-2 py-0.5 rounded-full transition-all"
+                                                            >
+                                                                ✍️ Løfte
+                                                            </button>
+                                                        )}
                                                     </div>
                                                 </div>
                                             ))
