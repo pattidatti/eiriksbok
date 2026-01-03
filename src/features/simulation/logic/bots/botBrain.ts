@@ -1,6 +1,7 @@
 
 import type { SimulationPlayer, SimulationRoom } from '../../simulationTypes';
 import { BOT_PERSONAS, type BotPersona } from './botPersonas';
+import { findPathToGoal } from './metaScanner';
 
 // Define the shape of a decision
 export interface BotDecision {
@@ -18,6 +19,7 @@ const getPersona = (bot: SimulationPlayer): BotPersona => {
     if (bot.name.includes('[MERCH]')) return BOT_PERSONAS.GREEDY_MERCHANT;
     if (bot.name.includes('[GUARD]')) return BOT_PERSONAS.LOYAL_SOLDIER;
     if (bot.name.includes('[CLIMBER]')) return BOT_PERSONAS.AMBITIOUS_CLIMBER;
+    if (bot.name.includes('[PEASANT]')) return BOT_PERSONAS.SIMPLE_PEASANT;
     return BOT_PERSONAS.DILIGENT_PEASANT;
 };
 
@@ -37,100 +39,181 @@ export const decideBotAction = (bot: SimulationPlayer, room: SimulationRoom): Bo
         let gripe = "";
         if (gold < 10 && persona.priorities.upgrade > 0.5) gripe = "Jeg tjener gull for sakte! Hvordan skal jeg bli Baron?";
         else if (stamina < 20) gripe = "Stamina-systemet er for straffende. Jeg er utslitt.";
-        else if (persona.id === 'AMBITIOUS_CLIMBER' && bot.role !== 'BARON') gripe = "Hvorfor er det ingen valg? Jeg vil ha makt!";
+        else if (persona.id === 'AMBITIOUS_CLIMBER' && bot.role !== 'BARON' && gold > 100) gripe = "Jeg har samlet en formue. Når kommer valget?";
 
         if (gripe) {
             return { actionType: 'REPORT_FEEDBACK', payload: gripe, reason: 'Feedback', weight: 1.0 };
         }
     }
 
-    // 1. SURVIVAL (Eat)
-    if (stamina < 30) {
-        // Evaluate EAT (Needs food)
-        // Check inventory for food? Simplified: Assume generic 'EAT' action costs money/food logic handled in action.
-        // Actually, 'EAT' usually costs nothing but has cooldown or requires items.
-        // Let's assume standard 'SLEEP' or 'EAT' if available. 
-        // SLEEP is free stamina regen. EAT uses food.
-        if (stamina < 10) {
-            decisions.push({ actionType: 'SLEEP', reason: 'Critical Stamina', weight: 1.0 });
-        } else {
-            decisions.push({ actionType: 'SLEEP', reason: 'Low Stamina', weight: persona.priorities.eat });
-        }
-    }
+    // --- MODULAR DECISION ENGINE ---
 
-    // 2. ECONOMY (Work)
-    if (stamina > 20) {
-        // Basic gathering
-        // TODO: choose resource based on market price? That would be cool behavior.
-        // For now, random basic resource.
-        const workOptions = ['CHOP', 'MINE', 'FORAGE'];
-        const randomBasic = workOptions[Math.floor(Math.random() * workOptions.length)];
+    // 1. SURVIVAL
+    const survivalDecision = evaluateSurvival(bot, stamina);
+    if (survivalDecision) decisions.push(survivalDecision);
 
-        decisions.push({
-            actionType: randomBasic,
-            reason: 'Gathering resources',
-            weight: persona.priorities.work * (stamina / 100)
-        });
+    // 2. AMBITION (The Ladder)
+    const ambitionDecision = evaluateAmbition(bot, room, persona, gold, stamina);
+    if (ambitionDecision) decisions.push(ambitionDecision);
 
-        // Refining (If has raw materials)
-        if ((bot.resources.wood || 0) > 5) {
-            decisions.push({ actionType: 'SAWMILL', reason: 'Refining Wood', weight: persona.priorities.work * 1.2 });
-        }
-    }
-
-    // 3. AMBITION (Upgrade & Status)
-    if (persona.priorities.upgrade > 0.6 && gold > 100) {
-        // Mock upgrade logic - in real game would need specific building IDs
-        // For now, they express desire
-        decisions.push({ actionType: 'REPORT_FEEDBACK', payload: "Jeg har gull men vet ikke hva jeg skal oppgradere. Mangler docs.", reason: 'Feature Gap', weight: 0.5 });
-    }
-
-    // 4. POLITICS (Tax & Revolt)
-    // Check if tax is due? Bot doesn't know "due", but can pay if asked.
-    // For manual global actions like revolt:
-    if (persona.priorities.revolt > 0.5 && gold > 50) {
-        // Check Bribe logic
-        const regionId = bot.regionId || 'capital';
-        const region = room.regions[regionId];
-
-        // Don't bribe if already chaotic or if we are the ruler
-        if (region && region.rulerId !== bot.id) {
-            decisions.push({
-                actionType: 'BRIBE',
-                payload: { regionId, amount: 10 },
-                reason: 'Political maneuvering',
-                weight: persona.priorities.revolt * 0.9
-            });
-        }
-
-        // Climber specific: Check for Coup opportunity
-        // Mocking unrest check since property might be named differently (e.g. stability)
-        if (persona.id === 'AMBITIOUS_CLIMBER') {
-            decisions.push({
-                actionType: 'REPORT_FEEDBACK',
-                payload: "Jeg ser uro! Jeg burde kunne starte et kupp nå, men knappen mangler.",
-                reason: 'Missing Feature',
-                weight: 0.95
-            });
-        }
-    }
-
-    // 4. WAR (Siege)
-    // If a siege is active, consider joining
-    // Iterate regions to find active siege?
-    /*
-    const sieges = Object.values(room.regions).filter(r => r.activeSiege);
-    if (sieges.length > 0) {
-         // Join Attack or Defend based on persona
-    }
-    */
+    // 3. ECONOMY (The Engine)
+    const economyDecision = evaluateEconomy(bot, room, persona, gold, stamina);
+    if (economyDecision) decisions.push(economyDecision);
 
     // SORT & PICK
     decisions.sort((a, b) => b.weight - a.weight);
 
-    if (decisions.length > 0 && decisions[0].weight > 0.2) {
+    if (decisions.length > 0 && decisions[0].weight > 0.1) {
         return decisions[0];
     }
 
     return null; // Idle
 };
+
+// --- SUB-SYSTEMS ---
+
+const evaluateSurvival = (_bot: SimulationPlayer, stamina: number): BotDecision | null => {
+    if (stamina < 20) {
+        return { actionType: 'SLEEP', reason: 'Critical Stamina', weight: 1.0 }; // Force sleep
+    }
+    if (stamina < 40) {
+        return { actionType: 'SLEEP', reason: 'Low Stamina', weight: 0.8 };
+    }
+    return null;
+};
+
+const evaluateAmbition = (bot: SimulationPlayer, room: SimulationRoom, persona: BotPersona, gold: number, _stamina: number): BotDecision | null => {
+    // Only 'Climbers' or high-level peasants care about this deeply
+    if (persona.priorities.upgrade < 0.5) return null;
+
+    if (persona.id === 'SIMPLE_PEASANT') {
+        return evaluatePeasantProsperity(bot, room, gold);
+    }
+
+    const regionId = bot.regionId === 'capital' ? 'region_ost' : (bot.regionId || 'region_ost');
+    const isBaron = bot.role === 'BARON';
+
+    if (!isBaron) {
+        return evaluatePathToPower(bot, room, regionId, gold);
+    } else {
+        return evaluateRulerDuties(bot, room, regionId, gold);
+    }
+};
+
+const evaluatePathToPower = (bot: SimulationPlayer, room: SimulationRoom, regionId: string, gold: number): BotDecision | null => {
+    // A. TITLE REQUIREMENTS check
+
+    const castleId = regionId === 'region_vest' ? 'manor_vest' : 'manor_ost';
+    const castle = room.world?.settlement?.buildings?.[castleId];
+    const hasCastle = castle && castle.level > 0;
+
+    // A1. INFRASTRUCTURE (Castle must exist)
+    if (!hasCastle) {
+        // USE META-SCANNER to find what is needed
+        const path = findPathToGoal(castleId, bot.resources);
+
+        const hasMaterials = (bot.resources.stone || 0) > 10 || (bot.resources.plank || 0) > 10;
+        if (hasMaterials) {
+            const bestRes = (bot.resources.stone || 0) > (bot.resources.plank || 0) ? 'stone' : 'plank';
+            return {
+                actionType: 'CONTRIBUTE_BUILDING',
+                payload: { buildingId: castleId, amount: 10, resource: bestRes },
+                reason: `Building the Castle (${path?.message || 'Prerequisite'})`,
+                weight: 0.95
+            };
+        } else {
+            return {
+                actionType: 'REPORT_FEEDBACK',
+                payload: `Jeg vil bli Baron, men ${castleId} mangler! ${path?.message || 'Jeg må samle ressurser.'}`,
+                reason: 'Goal Tracking',
+                weight: 0.3
+            };
+        }
+    }
+
+    // A2. CONQUEST (Castle exists)
+    const region = room.regions?.[regionId];
+    const rulerName = region?.rulerName || 'Ingen';
+
+    if (rulerName === 'Ingen') {
+        if (gold >= 1000) { // Approx cost
+            return { actionType: 'CLAIM_TITLE', payload: { regionId }, reason: 'Seizing Empty Throne', weight: 1.0 };
+        } else {
+            return {
+                actionType: 'REPORT_FEEDBACK',
+                payload: `Slottet er tomt! Jeg sparer gull (${gold}/1000) for å kreve tittelen.`,
+                reason: 'Goal Tracking',
+                weight: 0.5
+            };
+        }
+    } else {
+        // Occupied. Revolution.
+        if (gold > 500) {
+            return { actionType: 'BRIBE', payload: { regionId, amount: 50 }, reason: 'Destabilizing Rival', weight: 0.8 };
+        }
+    }
+
+    return null;
+};
+
+const evaluateRulerDuties = (bot: SimulationPlayer, room: SimulationRoom, regionId: string, _gold: number): BotDecision | null => {
+    // I am Baron. Maintain power.
+    const region = room.regions?.[regionId];
+    if (!region) return null;
+
+    // 1. Repair Walls if damaged
+    if (region.fortification && region.fortification.hp < region.fortification.maxHp) {
+        if ((bot.resources.stone || 0) > 10) {
+            return { actionType: 'REPAIR_WALLS', reason: 'Defending my Realm', weight: 0.9 };
+        }
+    }
+
+    return null;
+};
+
+const evaluatePeasantProsperity = (bot: SimulationPlayer, room: SimulationRoom, gold: number): BotDecision | null => {
+    // 1. REFINE resources if I have them (Value Add without market)
+    if ((bot.resources.wood || 0) > 20) return { actionType: 'SAWMILL', reason: 'Foredler ved for å øke verdien på eiendommen', weight: 0.9 };
+    if ((bot.resources.grain || 0) > 20) return { actionType: 'WINDMILL', reason: 'Maler korn for å sikre matforsyning', weight: 0.9 };
+    if ((bot.resources.iron_ore || 0) > 10) return { actionType: 'SMELTERY', reason: 'Smelter jern for fremtidig verktøy', weight: 0.9 };
+
+    // 2. INVEST in local infrastructure (Selfish benefit)
+    const buildings = room.world?.settlement?.buildings || {};
+
+    // Peasants love the bakery (food) and their farmhouse (stamina)
+    if (gold > 100) {
+        if (!buildings.farm_house || buildings.farm_house.level < 5) {
+            return { actionType: 'CONTRIBUTE_BUILDING', payload: { buildingId: 'farm_house', amount: 20, resource: 'gold' }, reason: 'Oppgraderer gården for bedre livskvalitet', weight: 0.8 };
+        }
+        if (!buildings.bakery || buildings.bakery.level < 3) {
+            return { actionType: 'CONTRIBUTE_BUILDING', payload: { buildingId: 'bakery', amount: 10, resource: 'gold' }, reason: 'Bidrar til felles bakeri for billigere brød', weight: 0.6 };
+        }
+    }
+
+    return null;
+};
+
+const evaluateEconomy = (bot: SimulationPlayer, _room: SimulationRoom, persona: BotPersona, _gold: number, stamina: number): BotDecision | null => {
+    // Refining Logic: Value Added?
+    // If Wood price < Plank price - labor cost -> Refine.
+
+    const workOptions = ['CHOP', 'MINE', 'FORAGE'];
+    const randomBasic = workOptions[Math.floor(Math.random() * workOptions.length)];
+
+    // If I have raw materials, huge desire to refine
+    if ((bot.resources.wood || 0) > 10) {
+        return { actionType: 'SAWMILL', reason: 'Refining Wood (Value Add)', weight: persona.priorities.work * 1.5 };
+    }
+    if ((bot.resources.grain || 0) > 10) {
+        return { actionType: 'WINDMILL', reason: 'Milling Grain (Value Add)', weight: persona.priorities.work * 1.5 };
+    }
+
+    // Default Gather
+    return {
+        actionType: randomBasic,
+        reason: 'Gathering resources',
+        weight: persona.priorities.work * (stamina / 100)
+    };
+};
+
+

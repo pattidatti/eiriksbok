@@ -92,5 +92,20 @@ export const BOT_PERSONAS: Record<string, BotPersona> = {
             attack: 0.5
         },
         preferredRoles: ['PEASANT', 'MERCHANT', 'SOLDIER']
+    },
+    'SIMPLE_PEASANT': {
+        id: 'SIMPLE_PEASANT',
+        name: 'Bonden',
+        description: 'Vil bare ha det bra der han er. Ingen lyst på makt.',
+        priorities: {
+            work: 1.0,
+            eat: 0.8,
+            upgrade: 1.0,   // High desire to improve OWN position
+            tax: 0.4,       // Compliant if he has spare cash
+            revolt: 0.0,
+            defend: 0.1,
+            attack: 0.0
+        },
+        preferredRoles: ['PEASANT']
     }
 };

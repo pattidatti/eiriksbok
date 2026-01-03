@@ -4,6 +4,7 @@ import { calculateStaminaCost, logSimulationMessage } from './utils/simulationUt
 import { ACTION_COSTS, GAME_BALANCE, INITIAL_RESOURCES, INITIAL_SKILLS, LEVEL_XP } from './constants';
 import { ACTION_REGISTRY } from './logic/actionRegistry';
 import { handleGlobalTrade, handleGlobalTax, handleGlobalContribution } from './globalActions';
+import { logSystemicStat } from './utils/statsUtils';
 import type { SkillType, SimulationPlayer, EquipmentSlot, ActionType, Resources } from './simulationTypes';
 
 /* --- HELPERS --- */
@@ -159,6 +160,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                 actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + staminaRegen);
             }
 
+            const initialRole = actor.role;
             const actionType = typeof action === 'string' ? action : action.type;
 
             // 1. Handle Costs
@@ -193,6 +195,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                     if (res === 'stamina') continue;
                     const resourceKey = res as keyof Resources;
                     actor.resources[resourceKey] = (actor.resources[resourceKey] || 0) - (amt as number);
+                    logSystemicStat(pin, 'consumed', res, amt as number);
                 }
                 actor.status.stamina -= finalStaminaCost;
             }
@@ -259,6 +262,10 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                 (result as any).newLevel = actor.stats.level;
             }
 
+            if (actor.role !== initialRole) {
+                logSystemicStat(pin, 'roleChanges', actor.role, 1);
+            }
+
             return actor;
         });
 
@@ -268,6 +275,14 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                 // Log message if significant
                 if (result.message) {
                     await logSimulationMessage(pin, `[${new Date().toLocaleTimeString()}] ${result.message}`);
+                }
+
+                // Track Production/Crafting
+                if (result.utbytte && result.utbytte.length > 0) {
+                    result.utbytte.forEach((u: any) => {
+                        const category = u.type === 'ITEM' ? 'crafted' : 'produced';
+                        logSystemicStat(pin, category, u.id || u.resource, u.amount || 1);
+                    });
                 }
             }
 
@@ -435,7 +450,46 @@ async function performSiegeTransaction(pin: string, playerId: string, action: an
         // 4. Atomic Commit (Multi-Path Update)
         const updates: any = {};
         updates[`players/${playerId}`] = actor;
-        updates[`regions`] = regions; // Persist modified region state (Siege progress)
+
+        // 5. Direct Takeover Logic (Military Coup)
+        const winnerId = (localResult as any).siegeWinnerId;
+        const targetRegionId = (localResult as any).targetRegionId;
+
+        if (winnerId && targetRegionId) {
+            const region = regions[targetRegionId];
+            const oldRulerId = region.rulerId;
+
+            // Demote Old Ruler
+            if (oldRulerId && oldRulerId !== winnerId) {
+                const oldRulerSnap = await get(ref(db, `simulation_rooms/${pin}/players/${oldRulerId}`));
+                if (oldRulerSnap.exists()) {
+                    const oldRuler = oldRulerSnap.val();
+                    oldRuler.role = 'PEASANT';
+                    oldRuler.status.legitimacy = 0;
+                    updates[`players/${oldRulerId}`] = oldRuler;
+                    updates[`public_profiles/${oldRulerId}/role`] = 'PEASANT';
+                    logSystemicStat(pin, 'roleChanges', 'PEASANT (Demoted)', 1);
+                }
+            }
+
+            // Promote Winner
+            const winnerSnap = await get(ref(db, `simulation_rooms/${pin}/players/${winnerId}`));
+            if (winnerSnap.exists()) {
+                const winner = winnerSnap.val();
+                winner.role = 'BARON';
+                winner.regionId = targetRegionId;
+                winner.status.legitimacy = 100;
+                updates[`players/${winnerId}`] = winner;
+                updates[`public_profiles/${winnerId}/role`] = 'BARON';
+                updates[`public_profiles/${winnerId}/regionId`] = targetRegionId;
+
+                // Update Region
+                region.rulerId = winnerId;
+                region.rulerName = winner.name;
+            }
+        }
+
+        updates[`regions`] = regions; // Persist modified region state (Siege progress or Takeover)
 
         await update(ref(db, `simulation_rooms/${pin}`), updates);
 

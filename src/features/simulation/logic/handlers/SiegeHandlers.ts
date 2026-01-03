@@ -9,12 +9,13 @@ const BREACH_DAMAGE = 10;
 // --- HANDLERS ---
 
 export const handleStartSiege = (ctx: ActionContext) => {
-    const { actor, room, localResult } = ctx;
+    const { actor, room, localResult, action } = ctx;
 
     // Validations
-    if (!actor.regionId || actor.regionId === 'capital' || actor.regionId === 'unassigned') {
+    const regionId = action.payload?.targetRegionId || actor.regionId;
+    if (!regionId || regionId === 'capital' || regionId === 'unassigned') {
         localResult.success = false;
-        localResult.message = "Du må være i baroniet for å starte beleiring.";
+        localResult.message = "Du må angi en gyldig region for å starte beleiring.";
         return false;
     }
 
@@ -57,8 +58,8 @@ export const handleStartSiege = (ctx: ActionContext) => {
 };
 
 export const handleJoinSiege = (ctx: ActionContext) => {
-    const { actor, room, localResult } = ctx;
-    const regionId = actor.regionId;
+    const { actor, room, localResult, action } = ctx;
+    const regionId = action.payload?.targetRegionId || actor.regionId;
     if (!regionId || !room.regions[regionId]?.activeSiege) {
         localResult.success = false;
         localResult.message = "Ingen aktiv beleiring her.";
@@ -99,15 +100,21 @@ export const handleSiegeAction = (ctx: ActionContext) => {
     const { actor, room, action, localResult } = ctx;
     // const { type, payload } = action; // payload might contain 'lane' or 'target'
 
-    const regionId = actor.regionId;
-    if (!regionId || !room.regions[regionId]?.activeSiege) return false;
+    const regionId = action.payload?.targetRegionId || actor.regionId;
+    if (!regionId || !room.regions[regionId]?.activeSiege) {
+        localResult.success = false;
+        localResult.message = "Ingen aktiv beleiring funnet i dette området.";
+        return false;
+    }
 
     const siege = room.regions[regionId].activeSiege as any; // Cast for custom props
     const attackers = siege.attackers || {};
     const defenders = siege.defenders || {};
-    const participant = attackers[actor.id] || defenders[actor.id];
-
-    if (!participant) return false;
+    const participant = (attackers[actor.id] || defenders[actor.id]) as any;
+    if (!participant) {
+        localResult.message = "Du må være deltaker i beleiringen (angriper eller forsvarer) for å delta i kappløpet.";
+        return false;
+    }
 
     // --- PHASE 1: BREACH (Attack Gate) ---
     if (siege.phase === 'BREACH') {
@@ -203,13 +210,25 @@ export const handleSiegeAction = (ctx: ActionContext) => {
             const defender = room.players[defenderId || ''];
             const isOnline = defender && (Date.now() - (defender.lastActive || 0) < 60000);
 
+            const occupiers: any = {};
+            if (isOnline && defenderId && defender) {
+                occupiers[defenderId] = {
+                    id: defenderId,
+                    name: defender.name,
+                    armor: 100, // Home ground advantage/Palace guard armor
+                    progress: 20, // Start with a head start for being the owner
+                    joinedAt: Date.now()
+                };
+            }
+
             siege.throne = {
                 mode: isOnline ? 'PVP' : 'PVE',
                 occupation: 0,
                 plundered: false,
                 bossHp: isOnline ? (defender?.status?.hp || 100) * 5 : 5000, // PvP Baron has 5x HP, PvE Steward has 5k
                 maxBossHp: isOnline ? (defender?.status?.hp || 100) * 5 : 5000,
-                defendingPlayerId: defenderId
+                defendingPlayerId: defenderId,
+                occupiers: occupiers
             };
 
             localResult.message = "GARNISONSSJEFEN ER BESEIRET! Dørene til Tronsalen slås opp!";
@@ -238,20 +257,14 @@ export const handleSiegeAction = (ctx: ActionContext) => {
             t.lastTick = now;
 
             const occupiersList = Object.values(t.occupiers || {});
-
-            // If no occupiers, maybe decay specific logic? 
-            // For Race Mode: Everyone starts at 0, so decay isn't really thing unless you leave?
-            // User said: "Reset til 0 ved feil".
-
             occupiersList.forEach((occ: any) => {
                 // 1. DRAIN ARMOR
                 occ.armor = Math.max(0, occ.armor - (1 * deltaSeconds));
 
                 // 2. INCREASE PROGRESS
-                // MOMENTUM BONUS: +1% speed per 100 dmg dealt? 
                 const part = (attackers[occ.id] || defenders[occ.id]);
                 const dmgDealt = part?.stats?.damageDealt || 0;
-                const momentum = 1 + (dmgDealt / 200); // 1.0x to 2.0x+ speed
+                const momentum = 1 + (dmgDealt / 200);
 
                 const progressGain = (1 * momentum * deltaSeconds);
                 occ.progress = Math.min(100, occ.progress + progressGain);
@@ -264,54 +277,50 @@ export const handleSiegeAction = (ctx: ActionContext) => {
 
                 // 4. CHECK FAILURE (Ejection)
                 if (occ.armor <= 0) {
-                    // RESET TO 0!
                     delete t.occupiers[occ.id];
-                    localResult.message = `${occ.name} falt fra tronen! (0 Rustning)`;
+                    localResult.message = `${occ.name} falt fra tronen! (0 Beleiringsrustning)`;
                 } else if (occ.progress >= 100) {
-                    // VICTORY!!
                     delete room.regions[regionId].activeSiege;
-                    localResult.message = `👑 ${occ.name} har vunnet kappeløpet og TATT TRONEN!`;
-                    // Handle Coup Logic if needed
                     const region = room.regions[regionId];
-                    if (region.coup) { region.coup.bribeProgress = 100; }
+                    const isDefenderWin = occ.id === region.rulerId;
+
+                    if (isDefenderWin) {
+                        localResult.message = `🛡️ ${occ.name} har knust opprøret og gjenopprettet kontroll over ${region.name}!`;
+                    } else {
+                        localResult.message = `👑 ${occ.name} har vunnet kappeløpet og TATT TRONEN med makt!`;
+                        // Signal direct takeover to the transaction handler
+                        (localResult as any).siegeWinnerId = occ.id;
+                        (localResult as any).targetRegionId = regionId;
+                    }
                 }
             });
-
-            if (occupiersList.length > 0) return true; // Tick handled
         }
 
         // --- ACTIONS ---
 
         // 1. JOIN RACE (Claim)
         if (action.subType === 'CLAIM_THRONE') {
-            if (t.occupiers[actor.id]) {
-                localResult.message = "Du deltar allerede i kappløpet!";
-                return false;
-            }
-            if ((actor.resources.armor || 0) < 1) {
-                localResult.message = "Du trenger rustning for å delta!";
+            // JOIN
+            if (!t.occupiers) t.occupiers = {};
+            const initialArmor = 10;
+            const armor = actor.resources.armor || 0;
+            if (armor < initialArmor) {
+                localResult.message = `Mangler Beleiringsrustning! Du har ${armor}, men trenger ${initialArmor}.`;
                 return false;
             }
 
-            // JOIN
-            const armorToBring = Math.min(actor.resources.armor, 50); // Cap start armor? Or bring all?
-            // Let's bring 10 initial, keeps it tactical.
-            const initialArmor = 10;
-            if (actor.resources.armor < initialArmor) {
-                localResult.message = `Du trenger ${initialArmor} rustning for å starte!`;
-                return false;
-            }
-            actor.resources.armor -= initialArmor;
+            // TAKE ALL ARMOR (Death Race)
+            actor.resources.armor = 0;
 
             t.occupiers[actor.id] = {
                 id: actor.id,
                 name: actor.name,
-                armor: initialArmor,
+                armor: armor, // Use all available armor
                 progress: 0, // Everyone starts at 0
                 joinedAt: Date.now()
             };
 
-            localResult.message = `${actor.name} kastet seg inn i kampen om tronen!`;
+            localResult.message = `${actor.name} kastet seg inn i kampen om tronen med ${armor} rustning!`;
             return true;
         }
 
@@ -319,9 +328,20 @@ export const handleSiegeAction = (ctx: ActionContext) => {
         if (action.subType === 'DONATE_ARMOR') {
             const targetId = action.payload?.targetId;
             const target = t.occupiers[targetId];
-            if (!target) return { success: false, message: "Ugyldig mål." };
+            if (!target) {
+                localResult.message = "Ugyldig mål.";
+                return false;
+            }
 
+            const myArmor = actor.resources.armor || 0;
+            if (myArmor < 1) {
+                localResult.message = "Du har ingen beleiringsrustning å gi!";
+                return false;
+            }
+
+            actor.resources.armor = myArmor - 1;
             target.armor += 1;
+
             // Stats
             participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
             participant.stats.armorDonated += 1;

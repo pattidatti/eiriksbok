@@ -8,9 +8,9 @@ import { Globe, Lock } from 'lucide-react';
 import { assignRoles, collectTaxes } from './gameLogic';
 import { generateInitialRoomState, syncServerMetadata } from './logic/roomInit';
 import type { SimulationMessage, SimulationRoom } from './simulationTypes';
-import { handleAdminGiveGold, handleAdminGiveItem } from './globalActions';
+import { handleAdminGiveGold, handleAdminGiveItem, handleAdminGiveResource } from './globalActions';
 import { useGameTicker } from './hooks/useGameTicker';
-import { useBotManager } from './hooks/useBotManager';
+import { useBotManager, BOT_TICK_RATE, BOTS_PER_TICK } from './hooks/useBotManager';
 
 
 export const SimulationHost: React.FC = () => {
@@ -18,9 +18,10 @@ export const SimulationHost: React.FC = () => {
     const [roomData, setRoomData] = useState<SimulationRoom | null>(null);
     const [allRooms, setAllRooms] = useState<SimulationRoom[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [view, setView] = useState<'LIST' | 'MANAGE' | 'ECONOMY' | 'REPORTS'>('LIST');
+    const [view, setView] = useState<'LIST' | 'MANAGE' | 'ECONOMY' | 'REPORTS' | 'INSIGHTS'>('LIST');
     const [giveGoldAmounts, setGiveGoldAmounts] = useState<Record<string, number>>({});
     const [giveItemSelection, setGiveItemSelection] = useState<Record<string, { itemId: string, amount: number }>>({});
+    const [giveResourceSelection, setGiveResourceSelection] = useState<Record<string, { resourceId: string, amount: number }>>({});
     const { setFullWidth, setHideHeader } = useLayout();
 
     // Lazy load the blueprint
@@ -140,20 +141,13 @@ export const SimulationHost: React.FC = () => {
         if (!pin) return;
         const baseUrl = `simulation_rooms/${pin}`;
 
-        const unsubProfiles = onValue(ref(db, `${baseUrl}/public_profiles`), snap => {
-            const profiles = snap.val() || {};
+        // 5. Players (FULL FETCH for Host - required for Bot Brain/God Mode)
+        const unsubPlayers = onValue(ref(db, `${baseUrl}/players`), snap => {
+            const players = snap.val() || {};
             setRoomData(prev => {
                 if (!prev) return null;
-                const partialPlayers: Record<string, any> = {};
-                Object.entries(profiles).forEach(([pid, profile]: [string, any]) => {
-                    partialPlayers[pid] = {
-                        ...profile,
-                        resources: profile.resources || INITIAL_RESOURCES[profile.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT,
-                        id: pid
-                    };
-                });
 
-                const realCount = Object.keys(profiles).length;
+                const realCount = Object.keys(players).length;
                 const metadataRef = ref(db, `simulation_server_metadata/${pin}`);
                 setTimeout(() => {
                     get(metadataRef).then(metaSnap => {
@@ -167,7 +161,7 @@ export const SimulationHost: React.FC = () => {
                     });
                 }, 5000);
 
-                return { ...prev, players: partialPlayers };
+                return { ...prev, players: players };
             });
         });
 
@@ -210,7 +204,7 @@ export const SimulationHost: React.FC = () => {
         });
 
         return () => {
-            unsubProfiles();
+            unsubPlayers();
             unsubEvents();
             unsubVote();
             unsubRegions();
@@ -349,6 +343,28 @@ export const SimulationHost: React.FC = () => {
 
             await update(ref(db, `simulation_rooms/${pin}/players`), updatedPlayers);
             alert(`Suksess! ${results.length} bønder og baroner ble skattlagt.`);
+        } catch (e) {
+            console.error(e);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const resetPoliticalUnrest = async () => {
+        if (!roomData?.regions) return;
+        if (!window.confirm("Vil du nullstille all politisk uro (bestikkelser) i alle regioner?")) return;
+
+        setIsLoading(true);
+        try {
+            const updates: any = {};
+            Object.keys(roomData.regions).forEach(rid => {
+                updates[`simulation_rooms/${pin}/regions/${rid}/coup/bribeProgress`] = 0;
+                updates[`simulation_rooms/${pin}/regions/${rid}/coup/contributions`] = {};
+                updates[`simulation_rooms/${pin}/regions/${rid}/coup/challengerId`] = null;
+                updates[`simulation_rooms/${pin}/regions/${rid}/coup/challengerName`] = null;
+            });
+            await update(ref(db), updates);
+            alert("Politisk ro er gjenopprettet i alle regioner!");
         } catch (e) {
             console.error(e);
         } finally {
@@ -1041,6 +1057,9 @@ export const SimulationHost: React.FC = () => {
                             <button onClick={regenAllStamina} className="w-full bg-blue-600/10 hover:bg-blue-600 text-blue-500 hover:text-white border border-blue-600/20 py-4 rounded-2xl font-black uppercase text-[10px] transition-all flex items-center justify-center gap-2 text-center">
                                 ⚡ Gjenopprett Stamina
                             </button>
+                            <button onClick={resetPoliticalUnrest} className="w-full bg-indigo-600/10 hover:bg-indigo-600 text-indigo-500 hover:text-white border border-indigo-600/20 py-4 rounded-2xl font-black uppercase text-[10px] transition-all flex items-center justify-center gap-2 text-center">
+                                🕊️ Nullstill Politisk Uro
+                            </button>
                             <button onClick={kickAllPlayers} className="w-full bg-rose-600/10 hover:bg-rose-600 text-rose-500 hover:text-white border border-rose-600/20 py-4 rounded-2xl font-black uppercase text-[10px] transition-all flex items-center justify-center gap-2 text-center mt-2">
                                 ☠️ Kast ut alle
                             </button>
@@ -1132,6 +1151,12 @@ export const SimulationHost: React.FC = () => {
                             >
                                 Bot Feedback
                             </button>
+                            <button
+                                onClick={() => setView('INSIGHTS' as any)}
+                                className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${view === 'INSIGHTS' ? 'bg-amber-600 text-white shadow-lg' : 'text-slate-500 hover:text-white'}`}
+                            >
+                                Innsikt
+                            </button>
                         </nav>
                         <div className="h-4 w-[1px] bg-white/10 mx-2" />
                         <div className="flex items-center gap-8">
@@ -1158,7 +1183,20 @@ export const SimulationHost: React.FC = () => {
                                     <span className="text-3xl">📢</span>
                                     Bot Feedback Reports
                                 </h2>
-                                <span className="text-[10px] font-bold bg-white/10 px-3 py-1 rounded-full text-slate-400">Total Reports: {botReports?.length || 0}</span>
+                                <div className="flex items-center gap-4">
+                                    <button
+                                        onClick={() => {
+                                            if (window.confirm("Vil du slette all bot-feedback historikk?")) {
+                                                const fbRef = ref(db, `simulation_rooms/${pin}/bot_feedback`);
+                                                set(fbRef, null);
+                                            }
+                                        }}
+                                        className="text-[9px] font-black text-rose-400/50 hover:text-rose-400 uppercase tracking-widest transition-colors"
+                                    >
+                                        [ Nullstill Logg ]
+                                    </button>
+                                    <span className="text-[10px] font-bold bg-white/10 px-3 py-1 rounded-full text-slate-400">Total Reports: {botReports?.length || 0}</span>
+                                </div>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1207,8 +1245,201 @@ export const SimulationHost: React.FC = () => {
                                 </div>
                             </div>
                         </div>
+                    ) : view === 'INSIGHTS' ? (
+                        <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-700">
+                            <div className="flex items-center justify-between">
+                                <h2 className="text-2xl font-black text-white px-2 tracking-tighter flex items-center gap-3">
+                                    <span className="text-3xl">📊</span>
+                                    Rikets Innsikt (QA)
+                                </h2>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div className="bg-amber-500/10 border border-amber-500/20 rounded-3xl p-8">
+                                    <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest block mb-2">Total Bot-Formue</span>
+                                    <h4 className="text-4xl font-black text-white">
+                                        {Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_')).reduce((s, b) => s + (b?.resources?.gold || 0), 0)}💰
+                                    </h4>
+                                    <p className="text-[10px] text-slate-500 font-bold mt-4 uppercase">Samlet kapital i bot-nettverket</p>
+                                </div>
+                                <div className="bg-indigo-500/10 border border-indigo-500/20 rounded-3xl p-8">
+                                    <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest block mb-2">Gjennomsnittlig Nivå</span>
+                                    <h4 className="text-4xl font-black text-white">
+                                        {(Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_')).reduce((s, b) => s + (b?.stats?.level || 0), 0) / Math.max(1, Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_')).length)).toFixed(1)}
+                                    </h4>
+                                    <p className="text-[10px] text-slate-500 font-bold mt-4 uppercase">Botenes progresjonshastighet</p>
+                                </div>
+                                <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-3xl p-8">
+                                    <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest block mb-2">Aktive Agenter</span>
+                                    <h4 className="text-4xl font-black text-white">
+                                        {Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_') && (p?.status?.hp || 0) > 0).length}
+                                    </h4>
+                                    <p className="text-[10px] text-slate-500 font-bold mt-4 uppercase">Bots med positiv livsstatus</p>
+                                </div>
+                            </div>
+
+                            {/* SYSTEMIC DISTRIBUTION */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                {/* Resource Stockpiles */}
+                                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
+                                    <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+                                        📦 Ressurslager i Nettverket
+                                    </h3>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        {['wood', 'stone', 'plank', 'iron_ingot', 'grain', 'bread'].map(res => {
+                                            const total = Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_')).reduce((s, b: any) => s + (b?.resources?.[res] || 0), 0);
+                                            return (
+                                                <div key={res} className="p-4 bg-black/20 rounded-2xl border border-white/5 flex justify-between items-center">
+                                                    <span className="text-[10px] font-bold text-slate-400 uppercase">{res.replace('_', ' ')}</span>
+                                                    <span className="text-sm font-black text-white">{total.toLocaleString()}</span>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+
+                                {/* Action / Thought Distribution */}
+                                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
+                                    <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+                                        🧠 Aktivitets-distribusjon
+                                    </h3>
+                                    <div className="space-y-4">
+                                        {(() => {
+                                            const bots = Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_'));
+                                            const actions: Record<string, number> = {};
+                                            bots.forEach(b => {
+                                                const act = b?.status?.lastAction || 'IDLE';
+                                                actions[act] = (actions[act] || 0) + 1;
+                                            });
+                                            return Object.entries(actions).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([act, count]) => {
+                                                const pct = Math.round((count / Math.max(1, bots.length)) * 100);
+                                                return (
+                                                    <div key={act} className="space-y-1">
+                                                        <div className="flex justify-between text-[9px] font-black uppercase">
+                                                            <span className="text-indigo-400">{act}</span>
+                                                            <span className="text-white">{pct}% ({count})</span>
+                                                        </div>
+                                                        <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                                            <div className="h-full bg-indigo-500" style={{ width: `${pct}%` }} />
+                                                        </div>
+                                                    </div>
+                                                );
+                                            });
+                                        })()}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* PERSONA BREAKDOWN */}
+                            <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
+                                <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">
+                                    🎭 Sosiale Personas
+                                </h3>
+                                <div className="flex flex-wrap gap-4">
+                                    {['AGIT', 'MERCH', 'GUARD', 'CLIMBER', 'PEASANT'].map(tag => {
+                                        const count = Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_') && p?.name?.includes(`[${tag}]`)).length;
+                                        const colors: any = { AGIT: 'rose', MERCH: 'amber', GUARD: 'blue', CLIMBER: 'purple', PEASANT: 'emerald' };
+                                        const color = colors[tag] || 'indigo';
+                                        return (
+                                            <div key={tag} className={`px-6 py-4 rounded-2xl bg-${color}-500/10 border border-${color}-500/20 flex flex-col`}>
+                                                <span className={`text-[8px] font-black text-${color}-400 uppercase mb-1 tracking-widest`}>{tag}</span>
+                                                <span className="text-2xl font-black text-white">{count}</span>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+
+                            {/* ADVANCED SYSTEMIC STATS */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                {/* Role Changes & Coups */}
+                                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
+                                    <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">
+                                        ⚖️ Sosiale Endringer & Kupp
+                                    </h3>
+                                    <div className="space-y-4">
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div className="p-4 bg-rose-500/5 rounded-2xl border border-rose-500/10">
+                                                <span className="text-[10px] font-bold text-rose-400 uppercase">Kupp Forsøkt</span>
+                                                <div className="text-2xl font-black text-white">{roomData?.stats?.coups?.start || 0}</div>
+                                            </div>
+                                            <div className="p-4 bg-emerald-500/5 rounded-2xl border border-emerald-500/10">
+                                                <span className="text-[10px] font-bold text-emerald-400 uppercase">Kupp Vunnet</span>
+                                                <div className="text-2xl font-black text-white">{roomData?.stats?.coups?.success || 0}</div>
+                                            </div>
+                                        </div>
+                                        <div className="bg-black/20 rounded-2xl p-4 border border-white/5">
+                                            <span className="text-[9px] font-bold text-slate-500 uppercase block mb-3">Rollebytter per type</span>
+                                            <div className="flex flex-wrap gap-2">
+                                                {Object.entries(roomData?.stats?.roleChanges || {}).map(([role, count]) => (
+                                                    <div key={role} className="px-3 py-1 bg-white/5 rounded-lg border border-white/5 text-[10px] text-slate-300 font-bold">
+                                                        {role}: <span className="text-white">{count}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Items & Consumption */}
+                                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
+                                    <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">
+                                        🛠️ Produksjon & Forbruk
+                                    </h3>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {/* Crafted Items */}
+                                        <div className="space-y-2">
+                                            <span className="text-[9px] font-bold text-slate-500 uppercase block">Gjenstander Laget</span>
+                                            <div className="max-h-32 overflow-y-auto space-y-1 pr-2 thin-scrollbar">
+                                                {Object.entries(roomData?.stats?.crafted || {}).length > 0 ? (
+                                                    Object.entries(roomData?.stats?.crafted || {}).map(([item, count]) => (
+                                                        <div key={item} className="flex justify-between text-[10px] text-indigo-300 font-mono">
+                                                            <span>{item}</span>
+                                                            <span className="text-white font-bold">{count}</span>
+                                                        </div>
+                                                    ))
+                                                ) : (
+                                                    <div className="text-[10px] text-slate-600 italic">Ingen gjenstander ennå...</div>
+                                                )}
+                                            </div>
+                                        </div>
+                                        {/* Consumed Resources */}
+                                        <div className="space-y-2">
+                                            <span className="text-[9px] font-bold text-slate-500 uppercase block">Ressurser Brukt</span>
+                                            <div className="max-h-32 overflow-y-auto space-y-1 pr-2 thin-scrollbar">
+                                                {Object.entries(roomData?.stats?.consumed || {}).length > 0 ? (
+                                                    Object.entries(roomData?.stats?.consumed || {}).map(([res, count]) => (
+                                                        <div key={res} className="flex justify-between text-[10px] text-amber-300 font-mono">
+                                                            <span>{res}</span>
+                                                            <span className="text-white font-bold">{count}</span>
+                                                        </div>
+                                                    ))
+                                                ) : (
+                                                    <div className="text-[10px] text-slate-600 italic">Ingen forbruk registrert...</div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* GLOBAL CONTRIBUTIONS */}
+                            <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
+                                <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">
+                                    🏗️ Globale Bidrag (Byggeprosjekter)
+                                </h3>
+                                <div className="flex flex-wrap gap-6">
+                                    {['gold', 'wood', 'stone', 'plank', 'iron_ingot'].map(res => (
+                                        <div key={res} className="flex flex-col">
+                                            <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest mb-1">{res}</span>
+                                            <span className="text-xl font-black text-white">{(roomData?.stats?.contributions?.[res] || 0).toLocaleString()}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                     ) : (
-                        <div className="space-y-12">
+                        <div className="space-y-12 pb-20">
                             {/* Player Grid */}
                             {/* Bot Controls */}
                             <div className="bg-slate-900/50 border border-white/5 rounded-[2rem] p-8 backdrop-blur-sm">
@@ -1280,6 +1511,13 @@ export const SimulationHost: React.FC = () => {
                                                 >
                                                     👑 Klatrer
                                                 </button>
+                                                <button
+                                                    onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [PEASANT]' }))}
+                                                    className="px-3 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg hover:bg-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase transition-colors"
+                                                    title="Bonde (Stasjonær)"
+                                                >
+                                                    🚜 Bonde
+                                                </button>
                                             </div>
                                             <div className="grid grid-cols-2 gap-3 mt-2">
                                                 <button
@@ -1292,16 +1530,23 @@ export const SimulationHost: React.FC = () => {
                                                     onClick={async () => {
                                                         if (!window.confirm("Spawn 10 bots?")) return;
                                                         for (let i = 0; i < 10; i++) {
-                                                            const r = Math.random();
-                                                            const roleSuffix = r > 0.8 ? ' [AGIT]' : (r > 0.6 ? ' [MERCH]' : '');
-                                                            const tempName = botForm.name || 'Bot';
-                                                            setBotForm(prev => ({ ...prev, name: tempName + roleSuffix }));
                                                             await spawnDevBot();
                                                         }
                                                     }}
                                                     className="bg-slate-700 hover:bg-slate-600 text-white py-3 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all"
                                                 >
                                                     + 10 Enheter
+                                                </button>
+                                                <button
+                                                    onClick={async () => {
+                                                        if (!window.confirm("Spawn 50 bots? (KREVER CPU)")) return;
+                                                        for (let i = 0; i < 50; i++) {
+                                                            await spawnDevBot();
+                                                        }
+                                                    }}
+                                                    className="col-span-2 bg-amber-600 hover:bg-amber-500 text-white py-3 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all shadow-lg shadow-amber-500/20"
+                                                >
+                                                    🚀 Massiv Invasjon (+50)
                                                 </button>
                                             </div>
                                         </div>
@@ -1316,7 +1561,7 @@ export const SimulationHost: React.FC = () => {
                                             </div>
                                             <div className="flex justify-between items-center p-3 bg-slate-900/50 rounded-xl border border-white/5">
                                                 <span className="text-xs font-bold text-slate-400">Tick Rate</span>
-                                                <span className="text-xs font-mono text-emerald-400">5.0s (5 bots/tick)</span>
+                                                <span className="text-xs font-mono text-emerald-400">{(BOT_TICK_RATE / 1000).toFixed(1)}s ({BOTS_PER_TICK} bots/tick)</span>
                                             </div>
                                             <p className="text-[10px] text-slate-600 font-bold italic leading-relaxed">
                                                 "Bot Brain" analyserer ressurser, sult, og politisk overbevisning for hver bot.
@@ -1403,6 +1648,23 @@ export const SimulationHost: React.FC = () => {
                                                 </div>
                                             </div>
 
+                                            {/* BOT THOUGHTS (QA TELEMETRY) */}
+                                            {p.id.startsWith('bot_') && p.status?.thought && (
+                                                <div className="mb-4 p-3 bg-indigo-500/10 rounded-xl border border-indigo-500/20">
+                                                    <div className="flex items-center gap-2 mb-1">
+                                                        <span className="text-[8px] font-black text-indigo-400 uppercase tracking-widest">Mental Tilstand</span>
+                                                        <div className="flex-1 h-[1px] bg-indigo-500/20"></div>
+                                                    </div>
+                                                    <p className="text-[10px] text-white/90 font-bold leading-relaxed mb-2">
+                                                        "{p.status.thought}"
+                                                    </p>
+                                                    <div className="flex justify-between items-center text-[8px] font-black uppercase tracking-tighter text-indigo-400/60">
+                                                        <span>Handling: {p.status.lastAction}</span>
+                                                        <span>Tid: {p.status.lastTick ? new Date(p.status.lastTick).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Nå'}</span>
+                                                    </div>
+                                                </div>
+                                            )}
+
                                             <div className="space-y-3 mb-6">
                                                 <div>
                                                     <div className="flex justify-between text-[8px] font-black uppercase text-slate-500 mb-1">
@@ -1454,6 +1716,39 @@ export const SimulationHost: React.FC = () => {
                                                         className="bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 px-3 py-2 rounded-xl text-[8px] font-black uppercase transition-all"
                                                     >
                                                         GI GULL
+                                                    </button>
+                                                </div>
+
+                                                {/* ADMIN: GIVE RESOURCE */}
+                                                <div className="flex gap-2">
+                                                    <select
+                                                        value={giveResourceSelection[p.id]?.resourceId || ''}
+                                                        onChange={(e) => setGiveResourceSelection({ ...giveResourceSelection, [p.id]: { resourceId: e.target.value, amount: giveResourceSelection[p.id]?.amount || 10 } })}
+                                                        className="flex-[2] bg-black/40 border border-white/5 rounded-xl px-2 py-2 text-[10px] font-bold text-amber-300 focus:border-amber-500/50 transition-all cursor-pointer"
+                                                    >
+                                                        <option value="">Velg Ressurs...</option>
+                                                        {Object.entries(RESOURCE_DETAILS).map(([key, detail]) => (
+                                                            <option key={key} value={key}>{detail.icon} {detail.label}</option>
+                                                        ))}
+                                                    </select>
+                                                    <input
+                                                        type="number"
+                                                        placeholder="#"
+                                                        value={giveResourceSelection[p.id]?.amount || 10}
+                                                        onChange={(e) => setGiveResourceSelection({ ...giveResourceSelection, [p.id]: { resourceId: giveResourceSelection[p.id]?.resourceId || '', amount: parseInt(e.target.value) || 1 } })}
+                                                        className="w-12 bg-black/40 border border-white/5 rounded-xl px-2 py-2 text-[10px] font-black text-white focus:border-amber-500/50 transition-all font-mono text-center"
+                                                    />
+                                                    <button
+                                                        onClick={() => {
+                                                            const selection = giveResourceSelection[p.id];
+                                                            if (selection && selection.resourceId && selection.amount > 0) {
+                                                                handleAdminGiveResource(pin, p.id, selection.resourceId, selection.amount);
+                                                                setGiveResourceSelection({ ...giveResourceSelection, [p.id]: { resourceId: '', amount: 10 } });
+                                                            }
+                                                        }}
+                                                        className="bg-amber-600/20 hover:bg-amber-600 text-amber-400 hover:text-white border border-amber-500/30 px-3 py-2 rounded-xl text-[8px] font-black uppercase transition-all"
+                                                    >
+                                                        GI RESSURS
                                                     </button>
                                                 </div>
 
@@ -1558,10 +1853,10 @@ export const SimulationHost: React.FC = () => {
                         </div>
                     )}
                 </div>
-            </main>
+            </main >
 
             {/* RIGHT PANEL: INTELLIGENCE & FEED */}
-            <aside className="w-80 border-l border-white/10 bg-slate-900/50 backdrop-blur-xl flex flex-col z-20 shadow-2xl overflow-hidden">
+            < aside className="w-80 border-l border-white/10 bg-slate-900/50 backdrop-blur-xl flex flex-col z-20 shadow-2xl overflow-hidden" >
                 <div className="p-8 border-b border-white/5 bg-black/20 shrink-0">
                     <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500 mb-6 flex items-center justify-between">
                         Rikets Formue
@@ -1630,7 +1925,7 @@ export const SimulationHost: React.FC = () => {
                         )}
                     </div>
                 </div>
-            </aside>
+            </aside >
 
             <style dangerouslySetInnerHTML={{
                 __html: `

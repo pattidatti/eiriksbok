@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import type { SimulationPlayer, ActiveSiege } from '../simulationTypes';
 import { GameButton } from '../ui/GameButton';
-import { Shield, Sword, Heart, Scroll, Flame, Skull } from 'lucide-react';
+import { Shield, Sword, Heart, Scroll, Skull } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface SiegeEngineProps {
     player: SimulationPlayer;
     siege: ActiveSiege;
+    regionId: string;
     onAction: (action: any) => void;
 }
 
-export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onAction }) => {
+export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, regionId, onAction }) => {
     const isParticipant = (siege.attackers || {})[player.id] || (siege.defenders || {})[player.id];
     const isAttacker = !!(siege.attackers || {})[player.id];
+    const isDefender = !!(siege.defenders || {})[player.id];
+    const isBaron = player.id === siege.throne?.defendingPlayerId;
     // Cast to any to access dynamic props not yet in strict Interface
     const s = siege as any;
     const gateHp = typeof s.gateHp === 'number' ? s.gateHp : 5000;
@@ -33,7 +36,7 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
 
                 // Tick every second if needed
                 if (now - lastTick >= 1000) {
-                    onAction({ type: 'SIEGE_ACTION', subType: 'TICK' });
+                    onAction({ type: 'SIEGE_ACTION', subType: 'TICK', payload: { targetRegionId: regionId } });
                 }
             }, 1000);
             return () => clearInterval(interval);
@@ -54,36 +57,79 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
         setTimeout(() => setClicks(prev => prev.filter(c => c.id !== id)), 1000);
 
         // Actual Action
-        onAction({ type: 'SIEGE_ACTION', subType: 'ATTACK_GATE' });
+        onAction({ type: 'SIEGE_ACTION', subType: 'ATTACK_GATE', payload: { targetRegionId: regionId } });
     };
 
     if (!isParticipant) {
+        // Reuse visual logic for background
+        const bgUrl = "url('/siege/castle_gate.png')"; // Default to gate for join screen to show context
+
         return (
-            <div className="flex flex-col items-center justify-center p-8 space-y-6 bg-black/80 rounded-2xl border border-red-500/30 backdrop-blur-sm">
-                <div className="relative">
-                    <Flame className="w-16 h-16 text-orange-500 animate-pulse absolute -top-2 -left-2 opacity-50" />
-                    <Skull className="w-12 h-12 text-red-500 relative z-10" />
-                </div>
-                <div className="text-center">
-                    <h2 className="text-2xl font-black text-red-500 uppercase tracking-widest mb-2 font-display">Beleiring Pågår!</h2>
-                    <p className="text-slate-300">Regionen er under angrep. Vil du kjempe?</p>
-                </div>
-                <div className="flex gap-4">
-                    <GameButton
-                        variant="primary"
-                        className="bg-red-900 border-red-500 hover:bg-red-800"
-                        onClick={() => onAction({ type: 'JOIN_SIEGE' })}
-                        icon={<Sword />}
-                    >
-                        Bli med i angrepet
-                    </GameButton>
-                    <GameButton
-                        variant="wood"
-                        onClick={() => onAction({ type: 'JOIN_SIEGE' })} // Backend logic handles if they are defender based on Role/Ownership
-                        icon={<Shield />}
-                    >
-                        Forsvar murene
-                    </GameButton>
+            <div
+                className="relative w-full min-h-[850px] mt-12 rounded-3xl overflow-hidden border-2 border-amber-900/50 shadow-2xl flex flex-col items-center justify-center bg-cover bg-center transition-all duration-1000 group"
+                style={{ backgroundImage: bgUrl }}
+            >
+                {/* Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-0"></div>
+
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto text-center space-y-12">
+
+                    {/* Header */}
+                    <div className="space-y-4 animate-in fade-in zoom-in duration-700">
+                        <div className="inline-flex items-center justify-center p-6 bg-red-600/20 rounded-full border border-red-500/50 shadow-[0_0_50px_rgba(239,68,68,0.4)] mb-4">
+                            <Skull className="w-20 h-20 text-red-500 animate-pulse" />
+                        </div>
+                        <h1 className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-red-500 to-red-900 uppercase tracking-tighter drop-shadow-2xl font-display">
+                            BELEIRING PÅGÅR
+                        </h1>
+                        <p className="text-2xl text-slate-300 font-light max-w-2xl mx-auto leading-relaxed">
+                            Krigstrommene lyder over regionen. Skjebnen til dette riket balanserer på en knivsegg.
+                            <br /><span className="text-white font-bold opacity-80">Vil du storme portene eller forsvare murene?</span>
+                        </p>
+                    </div>
+
+                    {/* Action Cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                        {/* ATTACKER CARD */}
+                        <motion.button
+                            whileHover={{ scale: 1.02, y: -5 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => onAction({ type: 'JOIN_SIEGE', payload: { targetRegionId: regionId } })} // Backend handles side assignment logic for now, or we can pass explicit later
+                            className="relative group overflow-hidden rounded-2xl bg-gradient-to-b from-red-950/80 to-black/80 border border-red-500/30 p-8 text-left transition-all hover:border-red-500 hover:shadow-[0_0_30px_rgba(220,38,38,0.3)]"
+                        >
+                            <div className="absolute inset-0 bg-[url('/siege/fire_particles.png')] opacity-20 group-hover:opacity-40 transition-opacity mix-blend-screen"></div>
+                            <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
+                                <div className="p-4 bg-red-500/10 rounded-xl w-fit border border-red-500/20 group-hover:bg-red-500/20 transition-colors">
+                                    <Sword className="w-10 h-10 text-red-500" />
+                                </div>
+                                <div>
+                                    <h3 className="text-3xl font-black text-red-500 uppercase mb-2">ANGRIP</h3>
+                                    <p className="text-red-200/60 text-sm font-bold">STORM PORTENE • KNUS FORSVARET • PLYNDRE</p>
+                                </div>
+                            </div>
+                        </motion.button>
+
+                        {/* DEFENDER CARD */}
+                        <motion.button
+                            whileHover={{ scale: 1.02, y: -5 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => onAction({ type: 'JOIN_SIEGE', payload: { targetRegionId: regionId } })}
+                            className="relative group overflow-hidden rounded-2xl bg-gradient-to-b from-slate-900/80 to-black/80 border border-slate-500/30 p-8 text-left transition-all hover:border-blue-400 hover:shadow-[0_0_30px_rgba(96,165,250,0.3)]"
+                        >
+                            <div className="absolute inset-0 bg-[url('/siege/shield_pattern.png')] opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                            <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
+                                <div className="p-4 bg-blue-500/10 rounded-xl w-fit border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
+                                    <Shield className="w-10 h-10 text-blue-400" />
+                                </div>
+                                <div>
+                                    <h3 className="text-3xl font-black text-blue-400 uppercase mb-2">FORSVAR</h3>
+                                    <p className="text-blue-200/60 text-sm font-bold">HOLD MURENE • BESKYTT TRONEN • ÆRE</p>
+                                </div>
+                            </div>
+                        </motion.button>
+                    </div>
+
                 </div>
             </div>
         );
@@ -200,7 +246,7 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                                     return (
                                         <div
                                             key={lane}
-                                            onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'MOVE_LANE', payload: { lane } })}
+                                            onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'MOVE_LANE', payload: { lane, targetRegionId: regionId } })}
                                             className={`flex - 1 border - r border - white / 10 relative cursor - pointer hover: bg - white / 5 transition - colors flex flex - col justify - end pb - 8 text - center
                                                 ${isTargeted ? 'bg-red-900/30' : ''}
                                                 ${isMyLane ? 'bg-indigo-900/30 ring-2 ring-indigo-500 inset-0' : ''}
@@ -225,7 +271,7 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                                             </div>
 
                                             {isMyLane && (
-                                                <GameButton variant="primary" className="mx-auto" onClick={(e) => { e.stopPropagation(); onAction({ type: 'SIEGE_ACTION', subType: 'ATTACK_BOSS' }); }} icon={<Sword />}>ANGREP</GameButton>
+                                                <GameButton variant="primary" className="mx-auto" onClick={(e) => { e.stopPropagation(); onAction({ type: 'SIEGE_ACTION', subType: 'ATTACK_BOSS', payload: { targetRegionId: regionId } }); }} icon={<Sword />}>ANGREP</GameButton>
                                             )}
                                         </div>
                                     );
@@ -248,24 +294,43 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                                 {/* LEFT: ACTIONS PANEL */}
                                 <div className="lg:col-span-1 space-y-4 order-2 lg:order-1">
                                     {/* JOIN BUTTON (If not participating) */}
-                                    {isAttacker && !siege.throne?.occupiers?.[player.id] && (
+                                    {isParticipant && !siege.throne?.occupiers?.[player.id] && (
                                         <div
-                                            className={`bg-amber-900/80 border-4 rounded-3xl p-6 flex flex-col items-center text-center cursor-pointer hover:scale-105 transition-transform shadow-lg border-amber-500`}
-                                            onClick={() => !isPlundered && onAction({ type: 'SIEGE_ACTION', subType: 'CLAIM_THRONE' })}
+                                            className={`bg-slate-900/90 border-4 rounded-3xl p-6 flex flex-col items-center text-center cursor-pointer hover:scale-105 transition-transform shadow-lg ${isBaron ? 'border-amber-500 bg-amber-950/40' : 'border-indigo-500'}`}
+                                            onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'CLAIM_THRONE', payload: { targetRegionId: regionId } })}
                                         >
-                                            <div className="text-5xl mb-2">👑</div>
-                                            <h3 className="text-2xl font-black text-white uppercase">Delta i Kappeløpet</h3>
-                                            <p className="text-amber-400 font-bold mt-1">Start med 10 Rustning</p>
-                                            <p className="text-slate-400 text-xs mt-2">Du trenger minst 10 Rustning for å starte.</p>
+                                            <div className="text-5xl mb-2">{isBaron ? '👑' : '⚔️'}</div>
+                                            <h3 className="text-2xl font-black text-white uppercase">
+                                                {isBaron ? 'FORSVAR DIN TRONE' : isDefender ? 'GÅ TIL TRONSALEN' : 'DELTA I KAPPELØPET'}
+                                            </h3>
+                                            <p className={`${isBaron ? 'text-amber-400' : 'text-indigo-400'} font-bold mt-1 uppercase text-[10px] tracking-widest`}>
+                                                {isBaron ? 'Din makt avhenger av din tilstedeværelse' : 'Bruk din beleiringsrustning'}
+                                            </p>
+                                            <p className="text-slate-400 text-xs mt-2">
+                                                {isBaron ? 'Du må okkupere din egen trone for å vinne kappløpet mot inntrengerne.' : 'Du trenger minst 10 rustning for å delta.'}
+                                            </p>
                                         </div>
                                     )}
 
                                     {/* MY STATUS (If participating) */}
                                     {siege.throne?.occupiers?.[player.id] && (
-                                        <div className="bg-indigo-900/80 border-4 border-indigo-500 rounded-3xl p-6 flex flex-col items-center text-center animate-pulse shadow-[0_0_30px_rgba(99,102,241,0.4)]">
-                                            <h3 className="text-xl font-black text-white uppercase">Du Okkuperer!</h3>
-                                            <div className="text-3xl font-black text-white my-2">{siege.throne.occupiers[player.id].armor} <span className="text-xs font-bold text-indigo-300 align-middle">RUSTNING</span></div>
-                                            <p className="text-indigo-300 text-xs font-bold">Du mister 1 Rustning/sek.</p>
+                                        <div className="space-y-4">
+                                            <div className="bg-indigo-900/80 border-4 border-indigo-500 rounded-3xl p-6 flex flex-col items-center text-center animate-pulse shadow-[0_0_30px_rgba(99,102,241,0.4)]">
+                                                <h3 className="text-xl font-black text-white uppercase">Du Okkuperer!</h3>
+                                                <div className="text-3xl font-black text-white my-2">{siege.throne.occupiers[player.id].armor} <span className="text-xs font-bold text-indigo-300 align-middle">BELEIRINGSRUSTNING</span></div>
+                                                <p className="text-indigo-300 text-xs font-bold">Du mister 1 Beleiringsrustning/sek.</p>
+                                            </div>
+
+                                            {player.resources.armor > 0 && (
+                                                <GameButton
+                                                    variant="primary"
+                                                    className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 border-emerald-400 font-black shadow-lg shadow-emerald-500/20"
+                                                    onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'DONATE_ARMOR', payload: { targetId: player.id, targetRegionId: regionId } })}
+                                                    icon={<Shield className="w-5 h-5" />}
+                                                >
+                                                    FORSTERK MED +1 RUSTNING ({player.resources.armor} IGJEN)
+                                                </GameButton>
+                                            )}
                                         </div>
                                     )}
 
@@ -278,19 +343,19 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                                                 <GameButton
                                                     variant="secondary"
                                                     className="w-full justify-center bg-emerald-900/50 hover:bg-emerald-800 border-emerald-500/30 text-emerald-100"
-                                                    onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'DONATE_ARMOR', payload: { targetId: selectedTarget } })}
+                                                    onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'DONATE_ARMOR', payload: { targetId: selectedTarget, targetRegionId: regionId } })}
                                                     icon={<Heart className="w-4 h-4" />}
                                                 >
-                                                    DONER RUSTNING (+1)
+                                                    DONER BELEIRINGSRUSTNING (+1)
                                                 </GameButton>
 
                                                 <GameButton
                                                     variant="primary"
                                                     className="w-full justify-center bg-rose-900/50 hover:bg-rose-800 border-rose-500/30 text-rose-100"
-                                                    onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'SUNDER_ARMOR', payload: { targetId: selectedTarget } })}
+                                                    onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'SUNDER_ARMOR', payload: { targetId: selectedTarget, targetRegionId: regionId } })}
                                                     icon={<Sword className="w-4 h-4" />}
                                                 >
-                                                    KNUS RUSTNING (-1)
+                                                    KNUS BELEIRINGSRUSTNING (-1)
                                                 </GameButton>
                                             </div>
                                         </div>
@@ -300,7 +365,7 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                                     {isAttacker && (
                                         <div
                                             className={`bg-slate-800/80 border-2 border-slate-600 rounded-xl p-4 flex items-center justify-between cursor-pointer hover:bg-slate-700/80 ${isPlundered ? 'opacity-50 grayscale' : ''}`}
-                                            onClick={() => !isPlundered && onAction({ type: 'SIEGE_ACTION', subType: 'PLUNDER' })}
+                                            onClick={() => !isPlundered && onAction({ type: 'SIEGE_ACTION', subType: 'PLUNDER', payload: { targetRegionId: regionId } })}
                                         >
                                             <div>
                                                 <h4 className="text-white font-bold text-sm">PLYNDRE & STIKK</h4>
@@ -319,42 +384,52 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                                         </div>
                                     ) : (
                                         Object.values(siege.throne.occupiers)
-                                            .sort((a: any, b: any) => b.progress - a.progress)
-                                            .map((occ: any, index) => (
-                                                <div
-                                                    key={occ.id}
-                                                    onClick={() => setSelectedTarget(occ.id)}
-                                                    className={`
-                                                    relative overflow-hidden rounded-xl border-2 p-4 cursor-pointer transition-all
-                                                    ${occ.id === player.id ? 'bg-indigo-900/40 border-indigo-500 ring-1 ring-indigo-400' : 'bg-slate-900/60 border-white/10 hover:border-white/30'}
-                                                    ${selectedTarget === occ.id ? 'ring-2 ring-amber-500 scale-[1.02]' : ''}
-                                                `}
-                                                >
-                                                    {/* Progress Bar Background */}
-                                                    <div
-                                                        className={`absolute inset-0 opacity-20 transition-all duration-1000 ease-linear ${occ.id === player.id ? 'bg-indigo-500' : 'bg-amber-600'}`}
-                                                        style={{ width: `${occ.progress}%` }}
-                                                    />
+                                            .sort((a: any, b: any) => (b.progress || 0) - (a.progress || 0))
+                                            .map((occ: any, index) => {
+                                                const isActor = occ.id === player.id;
+                                                const isTarget = occ.id === selectedTarget;
+                                                const isOccupyingBaron = occ.id === siege.throne?.defendingPlayerId;
 
-                                                    <div className="relative z-10 flex items-center gap-4">
-                                                        <div className="font-black text-2xl text-slate-500 w-8">#{index + 1}</div>
-                                                        <div>
-                                                            <div className="font-bold text-lg text-white flex items-center gap-2">
-                                                                {occ.name}
-                                                                {occ.id === player.id && <span className="text-[10px] bg-indigo-500 text-white px-1.5 py-0.5 rounded font-black tracking-widest uppercase">DEG</span>}
+                                                return (
+                                                    <div
+                                                        key={occ.id}
+                                                        onClick={() => setSelectedTarget(occ.id)}
+                                                        className={`
+                                                            relative overflow-hidden rounded-xl border-2 p-5 cursor-pointer transition-all
+                                                            ${isActor ? 'bg-indigo-900/40 border-indigo-500 ring-1 ring-indigo-400/30' : 'bg-slate-900/60 border-white/10 hover:border-white/20'}
+                                                            ${isTarget ? 'ring-2 ring-amber-500 scale-[1.02]' : ''}
+                                                            ${isOccupyingBaron ? 'border-amber-500/50' : ''}
+                                                        `}
+                                                    >
+                                                        {/* Progress Bar Background */}
+                                                        <div
+                                                            className={`absolute inset-0 opacity-10 transition-all duration-1000 ease-linear ${isOccupyingBaron ? 'bg-amber-500' : 'bg-indigo-500'}`}
+                                                            style={{ width: `${occ.progress || 0}%` }}
+                                                        />
+
+                                                        <div className="relative z-10 flex items-center gap-4">
+                                                            <div className="font-black text-2xl text-slate-500/40 w-8 italic">#{index + 1}</div>
+                                                            <div>
+                                                                <div className="font-bold text-lg text-white flex items-center gap-2">
+                                                                    {occ.name}
+                                                                    {isOccupyingBaron && <span className="text-amber-500" title="Baron">👑</span>}
+                                                                    {isActor && <span className="text-[10px] bg-indigo-500 text-white px-1.5 py-0.5 rounded font-black tracking-widest uppercase">DEG</span>}
+                                                                </div>
+                                                                <div className={`text-xs font-mono flex items-center gap-2 ${isOccupyingBaron ? 'text-amber-400' : 'text-slate-400'}`}>
+                                                                    <Shield className="w-3 h-3" />
+                                                                    {occ.armor} RUSTNING
+                                                                </div>
                                                             </div>
-                                                            <div className="text-xs font-mono text-slate-400 flex items-center gap-2">
-                                                                <Shield className="w-3 h-3 text-slate-500" />
-                                                                {occ.armor} RUSTNING
+                                                            <div className="ml-auto text-right">
+                                                                <div className="text-3xl font-black text-white">{Math.floor(occ.progress || 0)}%</div>
+                                                                <div className={`text-[10px] font-bold uppercase tracking-widest ${isOccupyingBaron ? 'text-amber-500' : 'text-emerald-500'}`}>
+                                                                    {isOccupyingBaron ? 'KONTROLL' : 'OKKUPASJON'}
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div className="ml-auto text-right">
-                                                            <div className="text-3xl font-black text-white">{Math.floor(occ.progress)}%</div>
-                                                            <div className="text-[10px] text-emerald-500 font-bold uppercase tracking-widest">Okkupasjon</div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            ))
+                                                );
+                                            })
                                     )}
                                 </div>
                             </div>

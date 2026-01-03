@@ -17,7 +17,7 @@ interface SimulationHierarchyProps {
 }
 
 export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.memo(({ players, currentPlayer, regions, onAction, pin }) => {
-    const { setActiveTab } = useSimulation();
+    const { setActiveTab, setViewingRegionId } = useSimulation();
     const [selectedPlayer, setSelectedPlayer] = useState<SimulationPlayer | null>(null);
     const [viewMode, setViewMode] = useState<'TREE' | 'LIST' | 'POLITICS'>('TREE');
 
@@ -162,6 +162,7 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                                                         <button
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
+                                                                setViewingRegionId(rId);
                                                                 setActiveTab('SIEGE');
                                                             }}
                                                             className="w-full py-2 bg-red-600 hover:bg-red-500 border border-red-400 rounded-lg text-white text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 animate-pulse"
@@ -202,6 +203,7 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                                                         <button
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
+                                                                setViewingRegionId(rId);
                                                                 setActiveTab('SIEGE');
                                                             }}
                                                             className="w-full py-2 bg-red-600 hover:bg-red-500 border border-red-400 rounded-lg text-white text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 animate-pulse"

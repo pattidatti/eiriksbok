@@ -91,6 +91,10 @@ export interface PlayerStatus {
     loyalty: number; // For Peasants/Barons (0-100)
     isJailed: boolean;
     isFrozen: boolean; // e.g. awaiting judgement
+    // QA & Bot Telemetry
+    thought?: string;
+    lastAction?: string;
+    lastTick?: number;
 }
 
 export interface PlayerUpgrade {
@@ -429,6 +433,16 @@ export interface SimulationRoom {
 
     messages: SimulationMessage[] | Record<string, SimulationMessage>;
     questionStartTime?: number; // reusing logic for sync
+
+    // Systemic Analytics
+    stats?: {
+        roleChanges: Record<string, number>;
+        coups: { start: number; success: number; fail: number };
+        contributions: Record<string, number>;
+        crafted: Record<string, number>;
+        produced: Record<string, number>;
+        consumed: Record<string, number>;
+    };
 }
 
 
@@ -487,4 +501,35 @@ export interface ItemTemplate {
     nextTierId?: string;
     durability: number;
     maxDurability: number;
+}
+
+export interface BotTelemetry {
+    id: string;
+    timestamp: number;
+    metrics: {
+        totalGold: number;
+        avgStamina: number;
+        avgLevel: number;
+        wealthGini: number; // 0 (equal) to 1 (unequal)
+        activeBots: number;
+        castleProgress: Record<string, number>; // Building ID -> % complete
+    };
+    logs: {
+        botId: string;
+        botName: string;
+        action: string;
+        reason: string;
+        result: string;
+        timestamp: number;
+    }[];
+}
+
+export interface BotFeedbackEntry {
+    id: string;
+    botId: string;
+    botName: string;
+    message: string;
+    type: 'BALANCE' | 'BUG' | 'META';
+    timestamp: number;
+    roomYear: number;
 }

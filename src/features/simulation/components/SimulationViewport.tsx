@@ -37,7 +37,7 @@ import { ActionResultOverlay } from './ActionResultOverlay';
 import { SimulationNotificationLayer } from './SimulationNotificationLayer';
 
 export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, room, pin, onAction, actionResult, onClearActionResult }) => {
-    const { activeTab, setActiveTab, isMusicWindowOpen, setMusicWindowOpen } = useSimulation();
+    const { activeTab, setActiveTab, isMusicWindowOpen, setMusicWindowOpen, viewingRegionId } = useSimulation();
     const [isVoting, setIsVoting] = React.useState(false);
 
     const handleVote = async (vote: 'YES' | 'NO') => {
@@ -83,15 +83,22 @@ export const SimulationViewport: React.FC<SimulationViewportProps> = ({ player, 
                 }>
                     {/* LAYER 0.5: SIEGE ENGINE BACKGROUND (If Siege Active) */}
                     {/* This ensures we don't lose context when opening Inventory/Skills/etc during a siege */}
-                    {room.regions[player.regionId || '']?.activeSiege && (activeTab === 'SIEGE' || isOverlayTab) && (
-                        <div className={`absolute inset-0 z-10 ${activeTab !== 'SIEGE' ? 'opacity-20 pointer-events-none blur-sm grayscale' : ''}`}>
-                            <SiegeEngine
-                                player={player}
-                                siege={room.regions[player.regionId || ''].activeSiege!}
-                                onAction={onAction}
-                            />
-                        </div>
-                    )}
+                    {(() => {
+                        const targetRegionId = viewingRegionId || player.regionId || '';
+                        const siege = room.regions[targetRegionId]?.activeSiege;
+                        if (!siege || !(activeTab === 'SIEGE' || isOverlayTab)) return null;
+
+                        return (
+                            <div className={`absolute inset-0 z-10 ${activeTab !== 'SIEGE' ? 'opacity-20 pointer-events-none blur-sm grayscale' : ''}`}>
+                                <SiegeEngine
+                                    player={player}
+                                    siege={siege}
+                                    regionId={targetRegionId}
+                                    onAction={onAction}
+                                />
+                            </div>
+                        );
+                    })()}
 
                     {/* LAYER 1: UI Overlays (Absolute positioning on top of Map/Siege) */}
                     <div className="absolute inset-0 z-20 pointer-events-none flex flex-col items-center justify-center">

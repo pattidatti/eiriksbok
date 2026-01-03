@@ -11,7 +11,7 @@ export const RESOURCE_DETAILS: Record<string, { label: string, icon: string }> =
     iron_ingot: { label: 'Jernbarre', icon: '🧱' },
     stone: { label: 'Stein', icon: '🏔️' },
     swords: { label: 'Beleiringsvåpen', icon: '⚔️' },
-    armor: { label: 'Rustning', icon: '🛡️' },
+    armor: { label: 'Beleiringsrustning', icon: '🛡️' },
     favor: { label: 'Gunst', icon: '✨' },
     honey: { label: 'Honning', icon: '🍯' },
     meat: { label: 'Kjøtt', icon: '🍗' },
@@ -133,8 +133,8 @@ export const INITIAL_EQUIPMENT: Record<Role, Partial<Record<EquipmentSlot, Equip
 
 export const ITEM_TEMPLATES: Record<string, ItemTemplate> = {
     tools: { id: 'tools', name: 'Verktøy', icon: '🛠️', type: 'MAIN_HAND', durability: 100, maxDurability: 100, level: 1, description: 'Grunnleggende verktøy.' },
-    weapon: { id: 'weapon', name: 'Sverd', icon: '⚔️', type: 'MAIN_HAND', durability: 100, maxDurability: 100, level: 1, description: 'Et enkelt sverd.' },
-    armor: { id: 'armor', name: 'Rustning', icon: '🧥', type: 'BODY', durability: 100, maxDurability: 100, level: 1, description: 'Beskyttende rustning.' },
+    weapon: { id: 'weapon', name: 'Enkelt Sverd', icon: '⚔️', type: 'MAIN_HAND', durability: 100, maxDurability: 100, level: 1, description: 'Et enkelt sverd.' },
+    armor: { id: 'armor', name: 'Enkel Rustning', icon: '🧥', type: 'BODY', durability: 100, maxDurability: 100, level: 1, description: 'Beskyttende rustning.' },
     stone_axe: { id: 'stone_axe', name: 'Steinøks', icon: '🪓', type: 'AXE', durability: 30, maxDurability: 30, level: 1, description: 'Primitiv øks hugget fra mørke fjell. Sagnet sier at de første fedrene brukte slike til å bane vei gjennom de tette skogene før sivilisasjonens inntog. +1 Utbytte.', stats: { yieldBonus: 1 }, relevantActions: ['CHOP'], nextTierId: 'iron_axe' },
     stone_pickaxe: { id: 'stone_pickaxe', name: 'Steinhakke', icon: '⛏️', type: 'PICKAXE', durability: 30, maxDurability: 30, level: 1, description: 'En enkel hakke i flint og tre. Brukt i generasjoner av de som søker fjellets hemmeligheter. +1 Utbytte.', stats: { yieldBonus: 1 }, relevantActions: ['MINE', 'QUARRY'], nextTierId: 'iron_pickaxe' },
     rusty_axe: { id: 'rusty_axe', name: 'Rusten Øks', icon: '🪓', type: 'AXE', durability: 50, maxDurability: 50, level: 1, description: 'Et glemt relikvie fra en svunnen tid, nå bare en skygge av sin fordums prakt. Sløv og upålitelig.', stats: { yieldBonus: 0 }, relevantActions: ['CHOP'], nextTierId: 'stone_axe' },

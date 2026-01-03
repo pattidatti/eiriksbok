@@ -2,6 +2,7 @@ import { ref, runTransaction, get, push, serverTimestamp, update, increment } fr
 import { simulationDb as db } from './simulationFirebase';
 import { GAME_BALANCE, VILLAGE_BUILDINGS, ITEM_TEMPLATES } from './constants';
 import { logSimulationMessage } from './utils/simulationUtils';
+import { logSystemicStat } from './utils/statsUtils';
 import { finalizeLeadershipProject } from './gameLogic';
 import type { SimulationPlayer } from './simulationTypes';
 
@@ -247,6 +248,7 @@ export const handleGlobalContribution = async (pin: string, playerId: string, ac
         }
 
         contributionSuccess = true;
+        logSystemicStat(pin, 'contributions', resource, actualContributed);
         return building;
     });
 
@@ -452,6 +454,7 @@ export const handleCareerChange = async (pin: string, playerId: string, newRole:
 /* --- COUP & REVOLUTION HANDLERS --- */
 
 export const triggerRevolution = async (pin: string, regionId: string) => {
+    logSystemicStat(pin, 'coups', 'start', 1);
     const regionRef = ref(db, `simulation_rooms/${pin}/regions/${regionId}`);
     const regionSnap = await get(regionRef);
     const region = regionSnap.val();
@@ -821,6 +824,7 @@ export const handleFinalizeElection = async (pin: string, regionId: string) => {
     });
 
     if (electionResult) {
+        logSystemicStat(pin, 'coups', 'success', 1);
         const winnerId = (electionResult as any).winnerId;
         const winnerRef = ref(db, `simulation_rooms/${pin}/players/${winnerId}`);
         const winnerSnap = await get(winnerRef);
@@ -887,6 +891,27 @@ export const handleAdminGiveItem = async (pin: string, targetId: string, itemId:
 
     if (success) {
         logSimulationMessage(pin, `🔧 ADMIN: Gitt ${amount}x ${template.name} til en spiller.`);
+    }
+
+    return { success };
+};
+
+export const handleAdminGiveResource = async (pin: string, targetId: string, resourceId: string, amount: number) => {
+    const playerRef = ref(db, `simulation_rooms/${pin}/players/${targetId}`);
+
+    let success = false;
+    await runTransaction(playerRef, (p) => {
+        if (!p) return;
+        if (!p.resources) p.resources = {};
+        p.resources[resourceId] = (p.resources[resourceId] || 0) + amount;
+        if (p.resources[resourceId] < 0) p.resources[resourceId] = 0; // Prevent negative
+
+        success = true;
+        return p;
+    });
+
+    if (success) {
+        logSimulationMessage(pin, `🔧 ADMIN: Gitt ${amount}x ${resourceId} til en spiller.`);
     }
 
     return { success };
