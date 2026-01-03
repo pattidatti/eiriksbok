@@ -299,6 +299,80 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, onActio
                 </div>
             )}
 
+            {/* PHASE 3: THRONE ROOM */}
+            {siege.phase === 'THRONE_ROOM' && siege.throne && (
+                <div className="relative w-full h-full flex flex-col items-center justify-between p-8 bg-[url('https://images.unsplash.com/photo-1599707367072-cd6ad66acc40?q=80&w=2500&auto=format&fit=crop')] bg-cover bg-center">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40"></div>
+
+                    {/* Header Status */}
+                    <div className="relative z-20 w-full space-y-4">
+                        <div className="bg-black/60 backdrop-blur border border-amber-500/30 rounded-2xl p-6 text-center shadow-2xl">
+                            <h2 className="text-3xl font-black text-amber-500 uppercase tracking-widest font-display mb-2">Tronsalen</h2>
+                            <p className="text-slate-300 text-sm">Angriperne har brutt seg inn! Tronen står ubeskyttet!</p>
+
+                            <div className="mt-4 flex items-center justify-center gap-4">
+                                <span className={`px-3 py-1 rounded text-xs font-bold ${siege.throne.mode === 'PVP' ? 'bg-red-900 text-red-100' : 'bg-blue-900 text-blue-100'}`}>
+                                    {siege.throne.mode === 'PVP' ? '⚔️ PLAYER VS PLAYER' : '🤖 PVE (STEWARD)'}
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Occupation Meter (King of the Hill) */}
+                        <div className="relative h-12 bg-black/80 rounded-full border-2 border-amber-600/50 overflow-hidden shadow-[0_0_30px_rgba(245,158,11,0.2)]">
+                            <motion.div
+                                className="h-full bg-gradient-to-r from-amber-600 to-yellow-500"
+                                initial={{ width: 0 }}
+                                animate={{ width: `${siege.throne.occupation}%` }}
+                                transition={{ type: "spring", stiffness: 50 }}
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center font-black text-white drop-shadow-md z-10 text-lg tracking-widest">
+                                OKKUPASJON: {siege.throne.occupation}%
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Choice / Actions Area */}
+                    <div className="relative z-20 w-full max-w-4xl grid grid-cols-2 gap-8">
+
+                        {/* Option 1: PLUNDER */}
+                        <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className={`
+                                relative p-8 rounded-3xl border-2 flex flex-col items-center text-center gap-4 cursor-pointer overflow-hidden group
+                                ${siege.throne.plundered ? 'bg-slate-900/50 border-slate-700 opacity-50 grayscale' : 'bg-black/60 border-yellow-600/50 hover:bg-yellow-900/20 hover:border-yellow-500'}
+                            `}
+                            onClick={() => !siege.throne?.plundered && onAction({ type: 'SIEGE_ACTION', subType: 'PLUNDER' })}
+                        >
+                            <div className="text-6xl mb-2">💰</div>
+                            <h3 className="text-2xl font-black text-white uppercase">Plyndre</h3>
+                            <p className="text-slate-400 text-sm">Stjel skattekammeret og stikk av. Avslutter beleiringen umiddelbart.</p>
+                            {siege.throne.plundered && <div className="absolute inset-0 flex items-center justify-center bg-black/80 text-white font-bold text-xl uppercase tracking-widest rotate-12 border-4 border-white">Plyndret</div>}
+                        </motion.div>
+
+                        {/* Option 2: USURP */}
+                        <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className="relative p-8 rounded-3xl border-2 border-red-600/50 bg-black/60 flex flex-col items-center text-center gap-4 cursor-pointer hover:bg-red-900/20 hover:border-red-500 group overflow-hidden"
+                            onClick={() => onAction({ type: 'SIEGE_ACTION', subType: 'USURP' })}
+                        >
+                            {/* Animated Background Pulse */}
+                            <div className="absolute inset-0 bg-red-600/10 opacity-0 group-hover:opacity-100 animate-pulse transition-opacity"></div>
+
+                            <div className="text-6xl mb-2 relative z-10">👑</div>
+                            <h3 className="relative z-10 text-2xl font-black text-white uppercase">Usurpere</h3>
+                            <p className="relative z-10 text-slate-400 text-sm">Hold tronen til 100% for å ta kontroll over regionen.</p>
+
+                            <GameButton variant="primary" className="w-full mt-4 z-10" icon={<Sword />}>
+                                OKKUPER (Hold Stand)
+                            </GameButton>
+                        </motion.div>
+
+                    </div>
+
+                </div>
+            )}
+
         </div>
     );
 };
+

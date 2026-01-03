@@ -68,7 +68,10 @@ export const handleJoinSiege = (ctx: ActionContext) => {
     const siege = room.regions[regionId].activeSiege!;
 
     // Check if already joined
-    if (siege.attackers[actor.id] || siege.defenders[actor.id]) {
+    const attackers = siege.attackers || {};
+    const defenders = siege.defenders || {};
+
+    if (attackers[actor.id] || defenders[actor.id]) {
         localResult.message = "Du deltar allerede.";
         return false;
     }
@@ -78,9 +81,11 @@ export const handleJoinSiege = (ctx: ActionContext) => {
     const isDefender = room.regions[regionId].rulerName === actor.name; // Simple check
 
     if (isDefender) {
+        if (!siege.defenders) siege.defenders = {};
         siege.defenders[actor.id] = { lane: 1, hp: 100, name: actor.name };
         localResult.message = "Du forsvarer murene!";
     } else {
+        if (!siege.attackers) siege.attackers = {};
         siege.attackers[actor.id] = { lane: 1, hp: 100, name: actor.name };
         localResult.message = "Du har sluttet deg til beleiringen!";
     }
@@ -174,8 +179,90 @@ export const handleSiegeAction = (ctx: ActionContext) => {
 
         // 3. Victory Check
         if (s.bossHp <= 0) {
-            siege.phase = 'THRONE';
-            localResult.message = "GARNISONSSJEFEN ER BESEIRET! Mot Tronsalen!";
+            siege.phase = 'THRONE_ROOM';
+
+            // Initialize Phase 3 Data
+            // Detect if Defender is online (Mock logic for now, or check LastActive)
+            const defenderId = room.regions[regionId].rulerId;
+            const defender = room.players[defenderId || ''];
+            const isOnline = defender && (Date.now() - (defender.lastActive || 0) < 60000);
+
+            siege.throne = {
+                mode: isOnline ? 'PVP' : 'PVE',
+                occupation: 0,
+                plundered: false,
+                bossHp: isOnline ? (defender?.status?.hp || 100) * 5 : 5000, // PvP Baron has 5x HP, PvE Steward has 5k
+                maxBossHp: isOnline ? (defender?.status?.hp || 100) * 5 : 5000,
+                defendingPlayerId: defenderId
+            };
+
+            localResult.message = "GARNISONSSJEFEN ER BESEIRET! Dørene til Tronsalen slås opp!";
+        }
+
+        return true;
+    }
+
+    // --- PHASE 3: THRONE ROOM (Plunder vs Usurp) ---
+    if (siege.phase === 'THRONE_ROOM') {
+        const t = siege.throne;
+        if (!t) return false;
+
+        // 1. PLUNDER
+        if (action.subType === 'PLUNDER') {
+            if (t.plundered) {
+                localResult.message = "Skattekammeret er allerede tømt!";
+                return false;
+            }
+
+            // Logic: Steal 50% of Region Treasury (Mocked as finding 500 Gold for now, need Region Treasury Ref)
+            // Ideally: const treasury = region.treasury;
+            const lootAmount = 500;
+
+            actor.resources.gold = (actor.resources.gold || 0) + lootAmount;
+            t.plundered = true;
+
+            // End Siege? Or just let them leave?
+            // "Plunder ends the siege" per design
+            delete room.regions[regionId].activeSiege;
+
+            localResult.message = `💰 Du stjal ${lootAmount} gull og flyktet fra borgen! Beleiringen er over.`;
+            // TODO: Log history event
+            return true;
+        }
+
+        // 2. USURP (King of the Hill)
+        if (action.subType === 'USURP') {
+            // "Stand on the point"
+            t.occupation += 5; // +5% per click/action tick
+            localResult.message = `Du sikrer tronen! Okkupasjon: ${t.occupation}%`;
+
+            // Victory Condition
+            if (t.occupation >= 100) {
+                // USURPER WINS!
+                // 1. End Siege
+                delete room.regions[regionId].activeSiege;
+
+                // 2. Transfer Power logic (mocked event for now)
+                // region.rulerId = actor.id;
+                // region.rulerName = actor.name;
+                // But wait, coup system usually handles this.
+                // For now, let's just trigger a massive Bribe Boost as per design.
+                const region = room.regions[regionId];
+                if (region.coup) {
+                    region.coup.bribeProgress = 100; // Instant Claim Ready
+                }
+
+                localResult.message = "👑 DU HAR TATT TRONEN! Regionen er din å kreve!";
+            }
+            return true;
+        }
+
+        // 3. DEFEND (Baron/Steward)
+        if (action.subType === 'DEFEND_THRONE') {
+            // Push back occupation
+            t.occupation = Math.max(0, t.occupation - 10);
+            localResult.message = "Du presser angriperne tilbake!";
+            return true;
         }
 
         return true;

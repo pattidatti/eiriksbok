@@ -272,12 +272,29 @@ export interface Fortification {
     level: number; // Wall Tier
 }
 
+export interface ThroneRoomData {
+    mode: 'PVP' | 'PVE';
+    occupation: number; // 0-100
+    plundered: boolean;
+    bossHp: number; // For PvP (Baron) or PvE (Steward)
+    maxBossHp: number;
+    defendingPlayerId?: string; // If PvP
+}
+
 export interface ActiveSiege {
-    phase: 'BREACH' | 'COURTYARD' | 'THRONE';
+    phase: 'BREACH' | 'COURTYARD' | 'THRONE_ROOM';
     startedAt: number;
     lastTick: number;
     attackers: Record<string, { lane: 0 | 1 | 2, hp: number, name: string }>;
     defenders: Record<string, { lane: 0 | 1 | 2, hp: number, name: string }>; // Includes Garrison units
+
+    // Phase 2 Data
+    bossHp?: number;
+    maxBossHp?: number;
+    bossTargetLane?: 0 | 1 | 2;
+
+    // Phase 3 Data
+    throne?: ThroneRoomData;
 }
 
 export type WeatherType = 'Clear' | 'Rain' | 'Storm' | 'Fog';
