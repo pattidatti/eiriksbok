@@ -527,8 +527,9 @@ export const handleGlobalBribe = async (pin: string, playerId: string, action: {
 
         if (!r.coup) r.coup = { lastRulerChange: 0, bribeProgress: 0, contributions: {} };
 
-        // Double check honeymoon inside transaction
-        // For now, assume outer check caught it, but we init the object.
+        // Phase 3: Init War Data
+        if (!r.garrison) r.garrison = { swords: 0, armor: 0, morale: 100 };
+        if (!r.fortification) r.fortification = { hp: 1000, maxHp: 1000, level: 1 };
 
         const currentProgress = r.coup.bribeProgress || 0;
         const baseChange = (amount / GAME_BALANCE.COUP.BASE_BRIBE_COST) * 10;

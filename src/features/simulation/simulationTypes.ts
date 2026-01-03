@@ -253,6 +253,31 @@ export interface SimulationRegion {
     rulerName: string;
     coup?: CoupData;
     activeElection?: ElectionState;
+
+    // Phase 3: Baron Warfare
+    garrison?: Garrison;
+    fortification?: Fortification;
+    activeSiege?: ActiveSiege;
+}
+
+export interface Garrison {
+    swords: number; // Attack Power Stacks
+    armor: number;  // Defense/Mitigation Stacks
+    morale: number; // 0-100 modifier
+}
+
+export interface Fortification {
+    hp: number;
+    maxHp: number;
+    level: number; // Wall Tier
+}
+
+export interface ActiveSiege {
+    phase: 'BREACH' | 'COURTYARD' | 'THRONE';
+    startedAt: number;
+    lastTick: number;
+    attackers: Record<string, { lane: 0 | 1 | 2, hp: number, name: string }>;
+    defenders: Record<string, { lane: 0 | 1 | 2, hp: number, name: string }>; // Includes Garrison units
 }
 
 export type WeatherType = 'Clear' | 'Rain' | 'Storm' | 'Fog';
