@@ -102,6 +102,7 @@ export const InventorySlot: React.FC<InventorySlotProps> = ({
                     case 'PICKAXE': return '⛏️';
                     case 'SCYTHE': return '🌾';
                     case 'HAMMER': return '🔨';
+                    case 'CHISEL': return '🔨';
                     default: return null;
                 }
             };

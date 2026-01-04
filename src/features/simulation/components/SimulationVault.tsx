@@ -27,6 +27,7 @@ const SLOT_LABELS: Record<EquipmentSlotType, string> = {
     HAMMER: 'Smedhammer',
     BOW: 'Bue',
     TRAP: 'Felle',
+    CHISEL: 'Meisel',
     CONSUMABLE: 'Forbruk'
 };
 
@@ -119,7 +120,7 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
             const slot = slotElement.getAttribute('data-equipment-slot') as EquipmentSlotType;
             if (slot && item.type === 'equipment') {
                 const equipmentItem = item.data;
-                const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER', 'BOW', 'TRAP'].includes(equipmentItem.type);
+                const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER', 'BOW', 'TRAP', 'CHISEL'].includes(equipmentItem.type);
 
                 if (isSpecializedTool && slot === 'MAIN_HAND') {
                     onAction({ type: 'EQUIP_ITEM', itemId: equipmentItem.id, slot: equipmentItem.type });
@@ -242,6 +243,9 @@ export const SimulationVault: React.FC<SimulationVaultProps> = React.memo(({ pla
                                             <div className="w-20 -rotate-3 ml-6">
                                                 <RagdollSlot slot="PICKAXE" label={SLOT_LABELS.PICKAXE} item={equipment.PICKAXE} compact {...slotProps} />
                                             </div>
+                                            <div className="w-20 -rotate-1 ml-12">
+                                                <RagdollSlot slot="CHISEL" label={SLOT_LABELS.CHISEL} item={equipment.CHISEL} compact {...slotProps} />
+                                            </div>
                                         </div>
 
                                         <div className="absolute bottom-[2%] right-[2%] flex flex-col gap-8 items-end">
@@ -309,7 +313,7 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
     onClick, onMouseEnter, onMouseLeave, onMouseMove,
     onDragStart, onDragEnd
 }) => {
-    const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER', 'BOW', 'TRAP'].includes(draggedItem?.data?.type);
+    const isSpecializedTool = ['AXE', 'PICKAXE', 'SCYTHE', 'HAMMER', 'BOW', 'TRAP', 'CHISEL'].includes(draggedItem?.data?.type);
 
     const isCompatible = draggedItem?.type === 'equipment' && (
         draggedItem.data.type === slot ||
