@@ -10,6 +10,7 @@ import { generateInitialRoomState, syncServerMetadata } from './logic/roomInit';
 import type { SimulationMessage, SimulationRoom } from './simulationTypes';
 import { handleAdminGiveGold, handleAdminGiveItem, handleAdminGiveResource } from './globalActions';
 import { useGameTicker } from './hooks/useGameTicker';
+import { AITrainingLab } from './logic/bots/AITrainingLab';
 
 
 export const SimulationHost: React.FC = () => {
@@ -17,7 +18,7 @@ export const SimulationHost: React.FC = () => {
     const [roomData, setRoomData] = useState<SimulationRoom | null>(null);
     const [allRooms, setAllRooms] = useState<SimulationRoom[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [view, setView] = useState<'LIST' | 'MANAGE' | 'ECONOMY'>('LIST');
+    const [view, setView] = useState<'LIST' | 'MANAGE' | 'ECONOMY' | 'AI_LAB'>('LIST');
     const [giveGoldAmounts, setGiveGoldAmounts] = useState<Record<string, number>>({});
     const [giveItemSelection, setGiveItemSelection] = useState<Record<string, { itemId: string, amount: number }>>({});
     const [giveResourceSelection, setGiveResourceSelection] = useState<Record<string, { resourceId: string, amount: number }>>({});
@@ -1143,6 +1144,12 @@ export const SimulationHost: React.FC = () => {
                             >
                                 Blueprint
                             </button>
+                            <button
+                                onClick={() => setView('AI_LAB')}
+                                className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${view === 'AI_LAB' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-500 hover:text-white'}`}
+                            >
+                                AI Training Lab
+                            </button>
                         </nav>
                         <div className="h-4 w-[1px] bg-white/10 mx-2" />
                         <div className="flex items-center gap-8">
@@ -1162,6 +1169,8 @@ export const SimulationHost: React.FC = () => {
                 <div className="flex-1 p-8 overflow-y-auto custom-scrollbar no-scrollbar">
                     {view === 'ECONOMY' ? (
                         SimulationEconomyBlueprint ? <SimulationEconomyBlueprint /> : <div className="p-20 text-center animate-pulse text-slate-500 font-black uppercase tracking-widest">Laster Blueprint...</div>
+                    ) : view === 'AI_LAB' ? (
+                        <AITrainingLab roomData={roomData} pin={pin} />
                     ) : (
                         <div className="space-y-12 pb-20">
                             {/* Player Grid */}
