@@ -2,8 +2,10 @@ import type { ActionContext } from '../actionTypes';
 // import type { ActiveSiege } from '../../simulationTypes';
 
 // const SIEGE_TICK_MS = 1000;
-const GATE_MAX_HP = 5000;
-const BREACH_DAMAGE = 10;
+// --- CONSTANTS ---
+// Archer damage and volley chances
+const ARCHER_VOLLEY_CHANCE = 0.15;
+const ARCHER_DAMAGE = 15;
 // const ARROW_VOLLEY_CHANCE = 0.1; // Reserved for Tick Logic
 
 // --- HANDLERS ---
@@ -40,6 +42,17 @@ export const handleStartSiege = (ctx: ActionContext) => {
     }
 
     // Initialize Siege
+    // Constraint: 500 Siege Swords required to initiate (Logic hurdle)
+    const playerSwords = actor.resources?.swords || 0;
+    if (playerSwords < 500) {
+        localResult.success = false;
+        localResult.message = `Du trenger minst 500 sverd i forsyninger for å starte en beleiring! (Eier: ${playerSwords})`;
+        return false;
+    }
+
+    // DYNAMISK PORT-HP: Basert på regionens murer (Minimum 1000)
+    const fortHP = region.fortification?.hp || 1000;
+
     region.activeSiege = {
         phase: 'BREACH',
         startedAt: Date.now(),
@@ -49,9 +62,9 @@ export const handleStartSiege = (ctx: ActionContext) => {
         },
         defenders: {},
         // Extra state for Phase 1
-        gateHp: GATE_MAX_HP,
-        maxGateHp: GATE_MAX_HP
-    } as any; // Cast as any because we might be adding extra runtime props not in strict interface yet
+        gateHp: fortHP,
+        maxGateHp: fortHP
+    } as any;
 
     localResult.message = `Beleiringen av ${region.name} har startet!`;
     return true;
@@ -119,16 +132,28 @@ export const handleSiegeAction = (ctx: ActionContext) => {
     // --- PHASE 1: BREACH (Attack Gate) ---
     if (siege.phase === 'BREACH') {
         if (action.subType === 'ATTACK_GATE') {
-            // Requirement: Must have Sword (or use fists for tiny damage)
-            // Simplified: Base Dmg 10.
-            siege.gateHp = Math.max(0, (siege.gateHp || GATE_MAX_HP) - BREACH_DAMAGE);
+            const currentSwords = actor.resources?.swords || 0;
+            const hasSwords = currentSwords > 0;
+            const damage = hasSwords ? 25 : 2; // Fists do minimal damage, swords do full
+
+            if (hasSwords) {
+                actor.resources.swords -= 1;
+            }
+
+            siege.gateHp = Math.max(0, (siege.gateHp || 1000) - damage);
 
             // Stats
             participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
-            participant.stats.damageDealt += BREACH_DAMAGE;
+            participant.stats.damageDealt += damage;
 
             // FX: "Clang!"
-            localResult.message = `Angrep porten! Portens HP: ${siege.gateHp}`;
+            localResult.message = hasSwords
+                ? `🗡️ Du hugger løs på porten! (-${damage} HP). Du har ${actor.resources.swords} sverd igjen.`
+                : `👊 Du slår på porten med nevene... det gjør nesten ingen skade. (-${damage} HP)`;
+
+            if (hasSwords) {
+                localResult.utbytte.push({ resource: 'swords', amount: -1 });
+            }
 
             // Check Victory
             if (siege.gateHp <= 0) {
@@ -176,28 +201,47 @@ export const handleSiegeAction = (ctx: ActionContext) => {
             // Fallthrough to tick check
         }
 
-        // 2. Boss Logic (Pseudo-Tick triggered by player actions)
+        // 2. Boss & Defense Logic (Pseudo-Tick)
+        const fortLevel = room.regions[regionId]?.fortification?.level || 1;
+        const arrowChance = ARCHER_VOLLEY_CHANCE + (fortLevel * 0.05);
+
         if (Date.now() > s.nextBossAttack) {
             // Boss Attacks previous target lane
             const hitLane = s.bossTargetLane;
-            // const victims = Object.values(siege.attackers).filter((p: any) => p.lane === hitLane);
+            const isHit = participant.lane === hitLane;
 
-            // "Damage" them (visual message for now, or reduce HP)
-            if (participant.lane === hitLane) {
-                participant.hp -= 20;
-                // Stats
+            // Random Archer Volley (Home Defense)
+            const isShot = Math.random() < arrowChance;
+
+            if (isHit || isShot) {
+                const totalDmg = (isHit ? 20 : 0) + (isShot ? ARCHER_DAMAGE : 0);
+
+                // --- ARMOR BUFFER LOGIC ---
+                // If player has armor resource, it absorbs damage first (1 armor = 1 damage)
+                const currentArmor = actor.resources?.armor || 0;
+                const armorAbsorb = Math.min(currentArmor, totalDmg);
+                const remainingDmg = totalDmg - armorAbsorb;
+
+                if (armorAbsorb > 0) {
+                    actor.resources.armor -= armorAbsorb;
+                    localResult.utbytte.push({ resource: 'armor', amount: -armorAbsorb });
+                }
+
+                participant.hp -= remainingDmg;
                 participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
-                participant.stats.damageTaken += 20;
+                participant.stats.damageTaken += totalDmg;
 
-                localResult.message += " AU! Bossen traff deg!";
+                if (isHit) localResult.message += armorAbsorb >= 20 ? " 🛡️ Rustningen din tok støtet fra bossen!" : " 💥 AU! Bossen traff deg!";
+                if (isShot) localResult.message += armorAbsorb >= ARCHER_DAMAGE ? " 🛡️ Rustningen din stoppet pilene!" : ` 🏹 Piler fra murene traff deg! (-${remainingDmg} HP)`;
+
+                if (remainingDmg > 0 && armorAbsorb > 0) {
+                    localResult.message += ` (Rustningen absorberte ${armorAbsorb} skade)`;
+                }
             }
 
             // Pick NEXT target
             s.bossTargetLane = Math.floor(Math.random() * 3);
-            s.nextBossAttack = Date.now() + 5000; // 5 seconds telegraph
-
-            // Global Broadcast hack? Or just rely on polling state.
-            // In a real app we'd push a notification.
+            s.nextBossAttack = Date.now() + 5000;
         }
 
         // 3. Victory Check
@@ -257,9 +301,14 @@ export const handleSiegeAction = (ctx: ActionContext) => {
             t.lastTick = now;
 
             const occupiersList = Object.values(t.occupiers || {});
+            const garrisonArmor = room.regions[regionId]?.garrison?.armor || 0;
+            const armorBuffer = Math.min(0.8, (garrisonArmor / 100) * 0.1); // 100 armor = 10% reduction, max 80%
+
             occupiersList.forEach((occ: any) => {
                 // 1. DRAIN ARMOR
-                occ.armor = Math.max(0, occ.armor - (1 * deltaSeconds));
+                const isBaron = occ.id === room.regions[regionId].rulerId;
+                const drainRate = isBaron ? (1 * (1 - armorBuffer)) : 1;
+                occ.armor = Math.max(0, occ.armor - (drainRate * deltaSeconds));
 
                 // 2. INCREASE PROGRESS
                 const part = (attackers[occ.id] || defenders[occ.id]);
@@ -364,7 +413,14 @@ export const handleSiegeAction = (ctx: ActionContext) => {
             // Stats
             participant.stats = participant.stats || { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
             participant.stats.damageDealt += 1;
-            localResult.message = `Angrep ${target.name} på tronen!`;
+
+            const isBaron = targetId === room.regions[regionId].rulerId;
+            const garrisonArmor = room.regions[regionId]?.garrison?.armor || 0;
+            if (isBaron && garrisonArmor > 0) {
+                localResult.message = `💥 Du angriper ${target.name}! Angrepet er mindre effektivt pga. slottets garnison-skjold.`;
+            } else {
+                localResult.message = `💥 Angrep ${target.name} på tronen!`;
+            }
             return true;
         }
 

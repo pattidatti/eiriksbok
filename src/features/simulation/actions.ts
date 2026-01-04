@@ -11,7 +11,7 @@ import { addXp, recordCharacterLife } from './logic/playerLogic';
 import { performSiegeTransaction } from './logic/handlers/SiegeActions';
 
 /* --- ACTIONS CLASSIFICATION --- */
-const GLOBAL_ACTIONS = ['RAID', 'TAX', 'TAX_PEASANTS', 'TAX_ROYAL', 'TRADE', 'TRADE_ROUTE', 'CONTRIBUTE_TO_UPGRADE', 'BUY', 'SELL', 'CONTRIBUTE', 'START_SIEGE', 'JOIN_SIEGE', 'SIEGE_ACTION'];
+const GLOBAL_ACTIONS = ['RAID', 'TAX', 'TAX_PEASANTS', 'TAX_ROYAL', 'TRADE', 'TRADE_ROUTE', 'CONTRIBUTE_TO_UPGRADE', 'BUY', 'SELL', 'CONTRIBUTE', 'CONSTRUCT', 'UPGRADE_BUILDING', 'START_SIEGE', 'JOIN_SIEGE', 'SIEGE_ACTION'];
 
 export const performAction = async (pin: string, playerId: string, action: any): Promise<{ success: boolean, data?: { success: boolean, timestamp: number, message: string, utbytte: any[], xp: any[], durability: any[] }, error?: any }> => {
     const actionType = typeof action === 'string' ? action : action.type;
@@ -236,7 +236,7 @@ async function performGlobalAction(pin: string, playerId: string, action: any) {
             return await handleGlobalTrade(pin, playerId, action);
         }
 
-        if (actionType === 'CONTRIBUTE' || actionType === 'CONTRIBUTE_TO_UPGRADE') {
+        if (actionType === 'CONTRIBUTE' || actionType === 'CONTRIBUTE_TO_UPGRADE' || actionType === 'CONSTRUCT' || actionType === 'UPGRADE_BUILDING') {
             return await handleGlobalContribution(pin, playerId, action);
         }
 

@@ -198,10 +198,11 @@ export const handleGlobalContribution = async (pin: string, playerId: string, ac
 
         const buildingDef = VILLAGE_BUILDINGS[buildingId];
         buildingName = buildingDef?.name || buildingId;
-        const nextLevel = (building.level || 1) + 1;
+        const currentLevel = (building.level === undefined) ? 0 : building.level;
+        const nextLevel = currentLevel + 1;
         const nextLevelDef = buildingDef?.levels?.[nextLevel];
 
-        if (!nextLevelDef) return; // Max Level
+        if (!nextLevelDef) return; // Max Level reached
 
         const req = nextLevelDef.requirements?.[resource as keyof import('./simulationTypes').Resources] || 0;
         const current = building.progress?.[resource as keyof import('./simulationTypes').Resources] || 0;
@@ -230,13 +231,11 @@ export const handleGlobalContribution = async (pin: string, playerId: string, ac
             building.level = nextLevel;
             building.progress = {}; // Reset progress
 
-            // Power Vacuum Logic
-            if (buildingId === 'manor_ost' || buildingId === 'manor_vest' || buildingId === 'throne_room') {
+            // Power Vacuum Logic: Award leadership roles (Baron/King)
+            const rewards = nextLevelDef.unlocks || [];
+            if (rewards.includes('BARON_STATUS') || rewards.includes('KING_STATUS')) {
                 const results = finalizeLeadershipProject(building.contributions, buildingId);
                 if (results) {
-                    // We can't update other players inside this building transaction easily
-                    // But we can store the winner in the building state OR trigger an external update.
-                    // For now, let's store it so the Host or a "Success" hook can pick it up.
                     building.pendingWinnerId = results.winningPlayerId;
                     building.pendingRole = results.role;
                 }
