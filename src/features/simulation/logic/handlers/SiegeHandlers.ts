@@ -28,7 +28,13 @@ export const handleStartSiege = (ctx: ActionContext) => {
         return false;
     }
 
-    const region = room.regions[actor.regionId];
+    const region = room.regions[regionId];
+    if (!region) {
+        localResult.success = false;
+        localResult.message = "Regionen eksisterer ikke.";
+        return false;
+    }
+
     if (region.activeSiege) {
         localResult.success = false;
         localResult.message = "Beleiring pågår allerede!";
@@ -90,9 +96,18 @@ export const handleJoinSiege = (ctx: ActionContext) => {
         return false;
     }
 
-    // Join as Attacker (for now, default to attacker unless you are Ruler)
-    // TODO: Let Baron/Soldiers join as Defenders
-    const isDefender = room.regions[regionId].rulerName === actor.name; // Simple check
+    // Check Eligibility: Resident OR Noble
+    const isResident = actor.regionId === regionId;
+    const isNoble = ['BARON', 'KING'].includes(actor.role);
+
+    if (!isResident && !isNoble) {
+        localResult.success = false;
+        localResult.message = "Bare innbyggere eller adelen kan delta i krigføring i dette området.";
+        return false;
+    }
+
+    // Restore Choice: Join as Attacker or Defender
+    const isDefender = action.payload?.side === 'DEFENDER';
 
     const initialStats = { damageDealt: 0, damageTaken: 0, armorDonated: 0, ticksOnThrone: 0 };
 

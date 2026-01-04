@@ -211,15 +211,24 @@ export const SimulationHierarchy: React.FC<SimulationHierarchyProps> = React.mem
                                                             <span>🔥</span> Gå til Slagmarken
                                                         </button>
                                                     ) : (
-                                                        <button
-                                                            onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                onAction({ type: 'START_SIEGE' });
-                                                            }}
-                                                            className="w-full py-2 bg-stone-700/50 hover:bg-stone-600/50 border border-stone-500/30 rounded-lg text-stone-300 text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
-                                                        >
-                                                            <span>⚔️</span> Start Beleiring
-                                                        </button>
+                                                        <div className="space-y-2">
+                                                            <button
+                                                                disabled={Object.values(currentPlayer.resources || {}).reduce((sum, val) => (sum as number) + (val as number), 0) < 500} // This is a rough check, handleStartSiege does the strict check
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    const swords = currentPlayer.resources?.swords || 0;
+                                                                    if (swords < 500) {
+                                                                        alert(`Du mangler sverd! Du har ${swords}, men trenger 500 for å starte en beleiring.`);
+                                                                        return;
+                                                                    }
+                                                                    onAction({ type: 'START_SIEGE', payload: { targetRegionId: rId } });
+                                                                }}
+                                                                className={`w-full py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 ${(currentPlayer.resources?.swords || 0) >= 500 ? 'bg-stone-700/50 hover:bg-stone-600/50 border border-stone-500/30 text-stone-300' : 'bg-slate-900/50 border border-white/5 text-slate-600 cursor-not-allowed'}`}
+                                                            >
+                                                                <span>⚔️</span> Start Beleiring
+                                                            </button>
+                                                            <p className="text-[9px] text-center text-slate-500 font-bold uppercase tracking-tight">Krav: 500 Beleiringssverd</p>
+                                                        </div>
                                                     )}
                                                 </div>
                                             )}

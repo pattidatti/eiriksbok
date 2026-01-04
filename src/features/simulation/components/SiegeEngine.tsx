@@ -9,9 +9,10 @@ interface SiegeEngineProps {
     siege: ActiveSiege;
     regionId: string;
     onAction: (action: any) => void;
+    messages?: any[];
 }
 
-export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, regionId, onAction }) => {
+export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, regionId, onAction, messages = [] }) => {
     const isParticipant = (siege.attackers || {})[player.id] || (siege.defenders || {})[player.id];
     const isAttacker = !!(siege.attackers || {})[player.id];
     const isDefender = !!(siege.defenders || {})[player.id];
@@ -61,8 +62,13 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, regionI
     };
 
     if (!isParticipant) {
+        // ULTRATHINK: Check Eligibility (Resident or Noble)
+        const isResident = player.regionId === regionId;
+        const isNoble = ['BARON', 'KING'].includes(player.role);
+        const canJoin = isResident || isNoble;
+
         // Reuse visual logic for background
-        const bgUrl = "url('/siege/castle_gate.png')"; // Default to gate for join screen to show context
+        const bgUrl = "url('/siege/castle_gate.png')";
 
         return (
             <div
@@ -83,52 +89,63 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, regionI
                         <h1 className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-red-500 to-red-900 uppercase tracking-tighter drop-shadow-2xl font-display">
                             BELEIRING PÅGÅR
                         </h1>
-                        <p className="text-2xl text-slate-300 font-light max-w-2xl mx-auto leading-relaxed">
-                            Krigstrommene lyder over regionen. Skjebnen til dette riket balanserer på en knivsegg.
-                            <br /><span className="text-white font-bold opacity-80">Vil du storme portene eller forsvare murene?</span>
-                        </p>
+                        {!canJoin ? (
+                            <div className="p-8 bg-black/60 backdrop-blur-md rounded-2xl border border-white/10 max-w-xl mx-auto">
+                                <p className="text-2xl text-slate-300 font-light leading-relaxed">
+                                    Du er ikke folkeregistrert i denne regionen.
+                                    <br /><span className="text-red-400 font-bold">Bare lokale innbyggere eller adelen kan delta i denne krigen.</span>
+                                </p>
+                            </div>
+                        ) : (
+                            <p className="text-2xl text-slate-300 font-light max-w-2xl mx-auto leading-relaxed">
+                                Krigstrommene lyder over regionen. Skjebnen til dette riket balanserer på en knivsegg.
+                                <br /><span className="text-white font-bold opacity-80">Vil du storme portene eller forsvare murene?</span>
+                            </p>
+                        )}
                     </div>
 
-                    {/* Action Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-                        {/* ATTACKER CARD */}
-                        <motion.button
-                            whileHover={{ scale: 1.02, y: -5 }}
-                            whileTap={{ scale: 0.98 }}
-                            onClick={() => onAction({ type: 'JOIN_SIEGE', payload: { targetRegionId: regionId } })} // Backend handles side assignment logic for now, or we can pass explicit later
-                            className="relative group overflow-hidden rounded-2xl bg-gradient-to-b from-red-950/80 to-black/80 border border-red-500/30 p-8 text-left transition-all hover:border-red-500 hover:shadow-[0_0_30px_rgba(220,38,38,0.3)]"
-                        >
-                            <div className="absolute inset-0 bg-[url('/siege/fire_particles.png')] opacity-20 group-hover:opacity-40 transition-opacity mix-blend-screen"></div>
-                            <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
-                                <div className="p-4 bg-red-500/10 rounded-xl w-fit border border-red-500/20 group-hover:bg-red-500/20 transition-colors">
-                                    <Sword className="w-10 h-10 text-red-500" />
+                    {/* Action Cards (Only if eligible) */}
+                    {canJoin && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                            {/* ATTACKER CARD */}
+                            <motion.button
+                                whileHover={{ scale: 1.02, y: -5 }}
+                                whileTap={{ scale: 0.98 }}
+                                onClick={() => onAction({ type: 'JOIN_SIEGE', payload: { targetRegionId: regionId, side: 'ATTACKER' } })}
+                                className="relative group overflow-hidden rounded-2xl bg-gradient-to-b from-red-950/80 to-black/80 border border-red-500/30 p-8 text-left transition-all hover:border-red-500 hover:shadow-[0_0_30px_rgba(220,38,38,0.3)]"
+                            >
+                                <div className="absolute inset-0 bg-[url('/siege/fire_particles.png')] opacity-20 group-hover:opacity-40 transition-opacity mix-blend-screen"></div>
+                                <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
+                                    <div className="p-4 bg-red-500/10 rounded-xl w-fit border border-red-500/20 group-hover:bg-red-500/20 transition-colors">
+                                        <Sword className="w-10 h-10 text-red-500" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-3xl font-black text-red-500 uppercase mb-2">ANGRIP</h3>
+                                        <p className="text-red-200/60 text-sm font-bold">STORM PORTENE • KNUS FORSVARET • PLYNDRE</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="text-3xl font-black text-red-500 uppercase mb-2">ANGRIP</h3>
-                                    <p className="text-red-200/60 text-sm font-bold">STORM PORTENE • KNUS FORSVARET • PLYNDRE</p>
-                                </div>
-                            </div>
-                        </motion.button>
+                            </motion.button>
 
-                        {/* DEFENDER CARD */}
-                        <motion.button
-                            whileHover={{ scale: 1.02, y: -5 }}
-                            whileTap={{ scale: 0.98 }}
-                            onClick={() => onAction({ type: 'JOIN_SIEGE', payload: { targetRegionId: regionId } })}
-                            className="relative group overflow-hidden rounded-2xl bg-gradient-to-b from-slate-900/80 to-black/80 border border-slate-500/30 p-8 text-left transition-all hover:border-blue-400 hover:shadow-[0_0_30px_rgba(96,165,250,0.3)]"
-                        >
-                            <div className="absolute inset-0 bg-[url('/siege/shield_pattern.png')] opacity-10 group-hover:opacity-20 transition-opacity"></div>
-                            <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
-                                <div className="p-4 bg-blue-500/10 rounded-xl w-fit border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
-                                    <Shield className="w-10 h-10 text-blue-400" />
+                            {/* DEFENDER CARD */}
+                            <motion.button
+                                whileHover={{ scale: 1.02, y: -5 }}
+                                whileTap={{ scale: 0.98 }}
+                                onClick={() => onAction({ type: 'JOIN_SIEGE', payload: { targetRegionId: regionId, side: 'DEFENDER' } })}
+                                className="relative group overflow-hidden rounded-2xl bg-gradient-to-b from-slate-900/80 to-black/80 border border-slate-500/30 p-8 text-left transition-all hover:border-blue-400 hover:shadow-[0_0_30px_rgba(96,165,250,0.3)]"
+                            >
+                                <div className="absolute inset-0 bg-[url('/siege/shield_pattern.png')] opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                                <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
+                                    <div className="p-4 bg-blue-500/10 rounded-xl w-fit border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
+                                        <Shield className="w-10 h-10 text-blue-400" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-3xl font-black text-blue-400 uppercase mb-2">FORSVAR</h3>
+                                        <p className="text-blue-200/60 text-sm font-bold">HOLD MURENE • BESKYTT TRONEN • ÆRE</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="text-3xl font-black text-blue-400 uppercase mb-2">FORSVAR</h3>
-                                    <p className="text-blue-200/60 text-sm font-bold">HOLD MURENE • BESKYTT TRONEN • ÆRE</p>
-                                </div>
-                            </div>
-                        </motion.button>
-                    </div>
+                            </motion.button>
+                        </div>
+                    )}
 
                 </div>
             </div>
@@ -447,15 +464,30 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, regionI
                         <div className="text-xs text-slate-400 italic">"Statistikken lyver aldri"</div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4 text-sm">
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                        {/* LIVE LOG */}
+                        <div className="lg:col-span-1 border-r border-white/5 pr-4 max-h-[120px] overflow-y-auto custom-scrollbar">
+                            <div className="text-amber-400 font-bold text-[10px] uppercase mb-2 tracking-widest px-1">Direkte Rapport</div>
+                            <div className="space-y-1.5">
+                                {messages.filter(m => {
+                                    const c = (m.content || m) as string;
+                                    return c.includes('beleiring') || c.includes('port') || c.includes('tron') || c.includes('forsvar') || c.includes('angrep');
+                                }).slice(-5).reverse().map((msg, idx) => (
+                                    <div key={idx} className="text-[10px] text-slate-400 leading-tight border-l-2 border-amber-500/30 pl-2 animate-in slide-in-from-left duration-300">
+                                        {(msg.content || msg)}
+                                    </div>
+                                ))}
+                                {messages.length === 0 && <div className="text-[10px] text-slate-600 italic">Venter på slagmarken...</div>}
+                            </div>
+                        </div>
 
                         {/* DAMAGE */}
                         <div>
                             <div className="text-red-400 font-bold text-xs uppercase mb-1 flex items-center gap-1"><Sword className="w-3 h-3" /> Topp Skade</div>
                             {Object.values({ ...siege.attackers, ...siege.defenders }).sort((a, b) => (b.stats?.damageDealt || 0) - (a.stats?.damageDealt || 0)).slice(0, 3).map((p, i) => (
                                 <div key={i} className="flex justify-between text-slate-300">
-                                    <span>{i + 1}. {p.name}</span>
-                                    <span className="font-mono text-white">{p.stats?.damageDealt || 0}</span>
+                                    <span className="truncate pr-2">{i + 1}. {p.name}</span>
+                                    <span className="font-mono text-white whitespace-nowrap">{p.stats?.damageDealt || 0}</span>
                                 </div>
                             ))}
                         </div>
@@ -465,8 +497,8 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, regionI
                             <div className="text-blue-400 font-bold text-xs uppercase mb-1 flex items-center gap-1"><Shield className="w-3 h-3" /> Mest Juling</div>
                             {Object.values({ ...siege.attackers, ...siege.defenders }).sort((a, b) => (b.stats?.damageTaken || 0) - (a.stats?.damageTaken || 0)).slice(0, 3).map((p, i) => (
                                 <div key={i} className="flex justify-between text-slate-300">
-                                    <span>{i + 1}. {p.name}</span>
-                                    <span className="font-mono text-white">{p.stats?.damageTaken || 0}</span>
+                                    <span className="truncate pr-2">{i + 1}. {p.name}</span>
+                                    <span className="font-mono text-white whitespace-nowrap">{p.stats?.damageTaken || 0}</span>
                                 </div>
                             ))}
                         </div>
@@ -476,12 +508,11 @@ export const SiegeEngine: React.FC<SiegeEngineProps> = ({ player, siege, regionI
                             <div className="text-emerald-400 font-bold text-xs uppercase mb-1 flex items-center gap-1"><Heart className="w-3 h-3" /> Bidragsytere</div>
                             {Object.values({ ...siege.attackers, ...siege.defenders }).sort((a, b) => (b.stats?.armorDonated || 0) - (a.stats?.armorDonated || 0)).slice(0, 3).map((p, i) => (
                                 <div key={i} className="flex justify-between text-slate-300">
-                                    <span>{i + 1}. {p.name}</span>
-                                    <span className="font-mono text-white">{p.stats?.armorDonated || 0}</span>
+                                    <span className="truncate pr-2">{i + 1}. {p.name}</span>
+                                    <span className="font-mono text-white whitespace-nowrap">{p.stats?.armorDonated || 0}</span>
                                 </div>
                             ))}
                         </div>
-
                     </div>
                 </div>
 

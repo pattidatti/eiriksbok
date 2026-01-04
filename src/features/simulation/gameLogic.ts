@@ -1,5 +1,6 @@
 import type { SimulationPlayer } from './simulationTypes';
 import { INITIAL_RESOURCES } from './constants';
+import { GAME_BALANCE } from './data/gameBalance';
 
 export const assignRoles = (players: Record<string, SimulationPlayer>): Record<string, SimulationPlayer> => {
     const playerIds = Object.keys(players);
@@ -225,18 +226,8 @@ export const finalizeLeadershipProject = (contributions: Record<string, any>, bu
     if (!contributions || Object.keys(contributions).length === 0) return null;
 
     // Calculate total value per player
-    // Resource values for ranking (could be moved to constants)
-    const VALUES: Record<string, number> = {
-        gold: 1,
-        wood: 0.5,
-        stone: 1,
-        iron_ore: 1,
-        iron_ingot: 5,
-        plank: 2,
-        grain: 0.1,
-        flour: 0.5,
-        bread: 1
-    };
+    // Resource values for ranking (Centralized in GAME_BALANCE)
+    const VALUES = GAME_BALANCE.CONTRIBUTION_VALUES;
 
     const playerScores = Object.entries(contributions).map(([pid, data]: [string, any]) => {
         let score = 0;

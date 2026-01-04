@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SimulationMapWindow } from './ui/SimulationMapWindow';
 import { VILLAGE_BUILDINGS } from '../data/production';
 import { RESOURCE_DETAILS } from '../data/items';
+import { GAME_BALANCE } from '../data/gameBalance';
 
 interface SimulationContributionModalProps {
     player: any;
@@ -69,7 +70,12 @@ export const SimulationContributionModal: React.FC<SimulationContributionModalPr
 
     // Leaderboard
     const sortedContributors = Object.entries(contributions).map(([id, data]: [string, any]) => {
-        const total = Object.values(data.resources || {}).reduce((sum, val) => (sum as number) + (val as number), 0);
+        // ULTRATHINK: Use weighted values from GAME_BALANCE to match backend logic
+        const VALUES = GAME_BALANCE.CONTRIBUTION_VALUES;
+        let total = 0;
+        Object.entries(data.resources || {}).forEach(([res, amt]) => {
+            total += (amt as number) * (VALUES[res] || VALUES.default);
+        });
         return { id, name: data.name, total };
     }).sort((a, b) => (b.total as number) - (a.total as number));
 

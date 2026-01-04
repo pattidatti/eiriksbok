@@ -9,6 +9,22 @@ export const GAME_BALANCE = {
         MAX_PRICE_MULTIPLIER: 5.0,
         VISCOSITY: 100
     },
+    CONTRIBUTION_VALUES: {
+        gold: 1,
+        wood: 0.5,
+        stone: 1,
+        iron_ore: 1,
+        iron_ingot: 5,
+        plank: 2,
+        grain: 0.1,
+        flour: 0.5,
+        bread: 1,
+        meat: 1,
+        honey: 1,
+        cloth: 1,
+        wool: 0.5,
+        default: 0.1
+    } as Record<string, number>,
     CAREERS: {
         SOLDIER: { COST: 200, LEVEL_REQ: 3 },
         MERCHANT: { COST: 500, LEVEL_REQ: 3 }
