@@ -114,7 +114,7 @@ export const POINTS_OF_INTEREST: POI[] = [
     {
         id: 'village_square', label: 'Landsbytorg', icon: '⛲', top: '50%', left: '50%',
         village: { top: '48%', left: '50%' },
-        roles: ['PEASANT', 'BARON', 'KING'], parentId: 'village',
+        roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER', 'MERCHANT'], parentId: 'village',
         actions: [
             { id: 'REST', label: 'Hvile på torget', cost: '+10⚡' }
         ]

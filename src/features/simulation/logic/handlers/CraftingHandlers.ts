@@ -1,5 +1,6 @@
 import { CRAFTING_RECIPES, ITEM_TEMPLATES, REFINERY_RECIPES, RESOURCE_DETAILS, GAME_BALANCE, REPAIR_CONFIG } from '../../constants';
 import { calculateYield } from '../../utils/simulationUtils';
+import { logSystemicStat } from '../../utils/statsUtils'; // Imported stats logger
 import type { ActionContext } from '../actionTypes';
 import type { EquipmentItem, EquipmentSlot } from '../../simulationTypes';
 
@@ -42,6 +43,7 @@ export const handleCraft = (ctx: ActionContext) => {
                 const tpl = ITEM_TEMPLATES[outputId];
                 localResult.message = `Laget ${amount}x ${tpl?.name || outputId}!`;
                 trackXp('CRAFTING', 25 * recipe.level);
+                logSystemicStat(room.pin, 'crafted', outputId, amount); // Log stat
             } else {
                 // Create Unique Item
                 const template = ITEM_TEMPLATES[outputId];
@@ -55,6 +57,7 @@ export const handleCraft = (ctx: ActionContext) => {
                     localResult.utbytte.push({ resource: outputId, amount: 1 });
                     localResult.message = `Smidde ${newItem.name}!`;
                     trackXp('CRAFTING', 25 * recipe.level);
+                    logSystemicStat(room.pin, 'crafted', outputId, 1); // Log stat
                 }
             }
         } else {
@@ -156,6 +159,7 @@ export const handleRefine = (ctx: ActionContext) => {
             localResult.utbytte.push({ resource: recipe.outputResource, amount: yieldAmount });
             localResult.message = `Produserte ${yieldAmount} ${outputName}`;
             trackXp('CRAFTING', GAME_BALANCE.SKILLS.REFINING_XP || 10);
+            logSystemicStat(room.pin, 'crafted', recipe.outputResource, yieldAmount); // Log stat
         } else {
             localResult.success = false;
             localResult.message = "Mangler ressurser til raffinering.";

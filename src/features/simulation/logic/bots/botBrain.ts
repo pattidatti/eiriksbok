@@ -117,6 +117,38 @@ const evaluateSurvival = (_bot: SimulationPlayer, room: SimulationRoom, stamina:
     return null;
 };
 
+const evaluateConsumption = (bot: SimulationPlayer): BotDecision | null => {
+    // 1. Eat Bread for Stamina
+    const stamina = bot.status.stamina || 0;
+
+    // Bread restores 20. Don't waste it if > 80.
+    if (stamina < 60) {
+        if ((bot.resources.bread || 0) > 0) {
+            return { actionType: 'CONSUME', payload: { itemId: 'bread', isResource: true }, reason: 'Eating Bread for Stamina', weight: 0.85 };
+        }
+        // Check inventory for unique bread items (legacy support)
+        const breadItem = bot.inventory?.find(i => i.id.startsWith('bread'));
+        if (breadItem) {
+            return { actionType: 'CONSUME', payload: { itemId: breadItem.id, isResource: false }, reason: 'Eating Bread (Item)', weight: 0.85 };
+        }
+    }
+
+    // 2. Eat Omelette for Buff
+    // Omelette gives "Lett til beins" (reduced stamina cost). Good before work.
+    const hasBuff = bot.activeBuffs?.some(b => b.type === 'STAMINA_SAVE');
+    if (!hasBuff && stamina > 50) { // Only buff up if we are healthy enough to work
+        if ((bot.resources as any)['omelette'] > 0) { // Omelette might be resource or item
+            return { actionType: 'CONSUME', payload: { itemId: 'omelette', isResource: true }, reason: 'Eating Omelette for Buff', weight: 0.7 };
+        }
+        const omeletteItem = bot.inventory?.find(i => i.id.startsWith('omelette'));
+        if (omeletteItem) {
+            return { actionType: 'CONSUME', payload: { itemId: omeletteItem.id, isResource: false }, reason: 'Eating Omelette (Item)', weight: 0.7 };
+        }
+    }
+
+    return null;
+};
+
 const evaluateAmbition = (bot: SimulationPlayer, room: SimulationRoom, persona: BotPersona, gold: number, _stamina: number): BotDecision | null => {
     // Only 'Climbers' or high-level peasants care about this deeply
     if (persona.priorities.upgrade < 0.5) return null;
@@ -418,8 +450,8 @@ const evaluateCrafting = (bot: SimulationPlayer, _room: SimulationRoom, persona:
         return { actionType: 'CRAFT', subType: recipeId, reason: `Crafting my goal: ${goalItem}`, weight: 0.8 };
     }
 
-    // If it's a basic gathering action (CHOP, MINE)
-    if (['CHOP', 'MINE', 'QUARRY'].includes(actionKey)) {
+    // If it's a basic gathering action (CHOP, MINE, PLANT)
+    if (['CHOP', 'MINE', 'QUARRY', 'PLANT', 'GATHER_HONEY', 'GATHER_WOOL'].includes(actionKey)) {
         return { actionType: actionKey, reason: `Gathering for goal: ${goalItem}`, weight: 0.85 };
     }
 

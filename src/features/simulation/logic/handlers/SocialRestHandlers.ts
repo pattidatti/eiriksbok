@@ -1,5 +1,7 @@
 import type { ActionContext } from '../actionTypes';
 import { getDayPart } from '../../utils/timeUtils';
+import { setCooldown } from '../../utils/actionUtils';
+import { logSystemicStat } from '../../utils/statsUtils'; // Stats logging
 
 export const handleSleep = (ctx: ActionContext) => {
     const { actor, room, localResult } = ctx;
@@ -90,9 +92,11 @@ export const handleRest = (ctx: ActionContext) => {
         }
     }
 
+
     if (locationId === 'village_square') {
         stam = 10; // Matched label
         msg = "Hvilte på torget.";
+        setCooldown(actor, 'REST_SQUARE', 6 * 60 * 1000); // 6 min cooldown
     }
 
     if (actor.upgrades?.includes('roof')) stam += 20;
@@ -175,7 +179,7 @@ export const handleTradeRoute = (ctx: ActionContext) => {
 };
 
 export const handleConsume = (ctx: ActionContext) => {
-    const { actor, action, localResult } = ctx;
+    const { actor, action, localResult, room } = ctx;
     const itemId = action.itemId;
     const isResource = action.isResource; // Flag passed from UI
 
@@ -204,6 +208,7 @@ export const handleConsume = (ctx: ActionContext) => {
             (actor.resources as any)['omelette']--;
             localResult.message = "Spiste Omelett. (20% stamina-spare buff)";
             localResult.utbytte.push({ resource: 'omelette', amount: -1 });
+            logSystemicStat(room.pin, 'consumed', 'omelette', 1);
             return true;
         }
 
@@ -214,6 +219,7 @@ export const handleConsume = (ctx: ActionContext) => {
             localResult.message = `Spiste Brød. (+${staminaGain} Stamina)`;
             localResult.utbytte.push({ resource: 'stamina', amount: staminaGain });
             localResult.utbytte.push({ resource: 'bread', amount: -1 });
+            logSystemicStat(room.pin, 'consumed', 'bread', 1);
             return true;
         }
 
@@ -262,6 +268,7 @@ export const handleConsume = (ctx: ActionContext) => {
 
         localResult.message = "Spiste Omelett (Gjenstand).";
         localResult.utbytte.push({ resource: 'omelette', amount: -1 }); // Tracking
+        logSystemicStat(room.pin, 'consumed', 'omelette', 1);
         return true;
     }
 
@@ -275,7 +282,9 @@ export const handleConsume = (ctx: ActionContext) => {
 
         localResult.message = `Spiste Brød (Gjenstand). (+${staminaGain} Stamina)`;
         localResult.utbytte.push({ resource: 'stamina', amount: staminaGain });
+        localResult.utbytte.push({ resource: 'stamina', amount: staminaGain });
         localResult.utbytte.push({ resource: 'bread', amount: -1 });
+        logSystemicStat(room.pin, 'consumed', 'bread', 1);
         return true;
     }
 

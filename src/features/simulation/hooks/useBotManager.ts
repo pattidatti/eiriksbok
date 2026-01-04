@@ -75,7 +75,14 @@ export const useBotManager = (pin: string, room: SimulationRoom | null, isHost: 
             const newLogs: string[] = [];
 
             for (const bot of batch) {
-                const decision = decideBotAction(bot, currentRoom);
+                let decision = null;
+                try {
+                    decision = decideBotAction(bot, currentRoom);
+                } catch (e) {
+                    console.error(`[Brain Freeze] Bot ${bot.name} crashed thinking:`, e);
+                    continue; // Skip this bot, save the loop
+                }
+
                 if (decision) {
                     // QA TELEMETRY: Update bot "thought" in Firebase
                     const thoughtRef = ref(db, `simulation_rooms/${pin}/players/${bot.id}/status`);

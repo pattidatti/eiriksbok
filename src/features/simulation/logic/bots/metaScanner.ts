@@ -82,7 +82,8 @@ export const getGameKnowledgeMap = () => {
         { id: 'FORAGE', out: 'bread' },
         { id: 'HUNT', out: 'meat' },
         { id: 'GATHER_WOOL', out: 'wool' },
-        { id: 'GATHER_HONEY', out: 'honey' }
+        { id: 'GATHER_HONEY', out: 'honey' },
+        { id: 'PLANT', out: 'grain' } // Added planting logic
     ];
 
     basicGatherers.forEach(g => {

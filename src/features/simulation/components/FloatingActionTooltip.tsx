@@ -61,7 +61,7 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
             if (a.id === 'TAX_ROYAL' && player.role !== 'KING') return false;
             if (a.id === 'DECREE' && player.role !== 'KING') return false;
             if (a.id === 'RAID' && player.role !== 'BARON') return false;
-            if (a.id === 'REST' && poi.id === 'village_square' && (player.role === 'KING' || player.role === 'BARON')) return false;
+            // if (a.id === 'REST' && poi.id === 'village_square' && (player.role === 'KING' || player.role === 'BARON')) return false; // UNLOCKED FOR ALL
             if (a.id === 'FEAST' && player.role !== 'KING' && player.role !== 'BARON') return false;
 
             // Building level filtering

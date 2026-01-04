@@ -284,3 +284,18 @@ export const getActionCostString = (
 
     return parts.join(' ');
 };
+
+export const setCooldown = (player: SimulationPlayer, actionId: string, durationMs: number) => {
+    if (!player.activeProcesses) player.activeProcesses = [];
+
+    player.activeProcesses.push({
+        id: `cd_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`,
+        type: 'COOLDOWN',
+        locationId: actionId,
+        itemId: 'cooldown', // Dummy
+        notified: false,
+        startedAt: Date.now(),
+        readyAt: Date.now() + durationMs,
+        duration: durationMs
+    });
+};
