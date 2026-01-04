@@ -101,6 +101,24 @@ export const handleRest = (ctx: ActionContext) => {
 
     if (actor.upgrades?.includes('roof')) stam += 20;
 
+    if (locationId === 'royal_chambers') {
+        stam = 100;
+        hp = 100;
+        msg = "Hvilte ut i de kongelige kamrene. Føler deg som en konge igjen!";
+
+        // Add Royal Wellness Buff
+        if (!actor.activeBuffs) actor.activeBuffs = [];
+        actor.activeBuffs = actor.activeBuffs.filter(b => b.label !== 'Kongelig Velvære');
+        actor.activeBuffs.push({
+            id: 'royal_wellness_' + Date.now(),
+            type: 'STAMINA_SAVE',
+            value: 0.6, // 60% saving (slightly better than peasant bed)
+            label: 'Kongelig Velvære',
+            description: 'Fyrstelig velvære reduserer stamina-forbruk med 60%.',
+            expiresAt: Date.now() + 600000, // 10 minutes (longer than bed)
+        });
+    }
+
     actor.status.stamina = Math.min(100, (actor.status.stamina || 0) + stam);
     if (hp > 0) actor.status.hp = Math.min(100, (actor.status.hp || 100) + hp);
 

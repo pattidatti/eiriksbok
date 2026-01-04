@@ -103,7 +103,7 @@ export const POINTS_OF_INTEREST: POI[] = [
     },
     {
         id: 'royal_chambers', label: 'Kongens Kammer', icon: '🛌', top: '30%', left: '70%', roles: ['BARON', 'KING'], parentId: 'castle',
-        actions: [{ id: 'REST', label: 'Hvile i Kammeret', cost: '-1🍞 +30⚡' }]
+        actions: [{ id: 'REST', label: 'Hvile i Kammeret', cost: 'Full rest + Velvære' }]
     },
     {
         id: 'castle_construction', label: 'Byggeplass', icon: '🏗️', top: '75%', left: '80%', roles: ['PEASANT', 'BARON', 'KING', 'SOLDIER'], parentId: 'castle',
@@ -422,15 +422,15 @@ export const POINTS_OF_INTEREST: POI[] = [
 
     // --- PEASANT FARM LOCAL ---
     {
-        id: 'farm_house', label: 'Inne i Stugo', icon: '🏠', top: '52%', left: '58%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'peasant_farm',
+        id: 'farm_house', label: 'Inne i Stugo', icon: '🏠', top: '52%', left: '58%', roles: ['PEASANT'], parentId: 'peasant_farm',
         actions: [], isHub: true, isInterior: true
     },
     {
-        id: 'stugo_bed', label: 'Senga', icon: '🛌', top: '65%', left: '42%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'farm_house',
+        id: 'stugo_bed', label: 'Senga', icon: '🛌', top: '65%', left: '42%', roles: ['PEASANT'], parentId: 'farm_house',
         actions: [{ id: 'SLEEP', label: 'Sove tungt', cost: 'Full ⚡' }]
     },
     {
-        id: 'stugo_fireplace', label: 'Peisen', icon: '🔥', top: '55%', left: '80%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'farm_house',
+        id: 'stugo_fireplace', label: 'Peisen', icon: '🔥', top: '55%', left: '80%', roles: ['PEASANT'], parentId: 'farm_house',
         actions: [{ id: 'EAT', label: 'Sitte ved varmen', cost: '-1🍞 +40⚡' }]
     },
     {
@@ -442,7 +442,7 @@ export const POINTS_OF_INTEREST: POI[] = [
         actions: [{ id: 'BUILDING_UPGRADE_farm_house', label: 'Bygg ut gården', cost: 'Varierer' }]
     },
     {
-        id: 'chicken_coop', label: 'Hønsehus', icon: '🐔', top: '40%', left: '75%', roles: ['PEASANT', 'BARON', 'KING'], parentId: 'peasant_farm',
+        id: 'chicken_coop', label: 'Hønsehus', icon: '🐔', top: '40%', left: '75%', roles: ['PEASANT'], parentId: 'peasant_farm',
         actions: [
             { id: 'OPEN_CHICKEN_COOP', label: 'Gå inn til hønene', cost: 'Gratis' }
         ]
