@@ -10,7 +10,6 @@ import { generateInitialRoomState, syncServerMetadata } from './logic/roomInit';
 import type { SimulationMessage, SimulationRoom } from './simulationTypes';
 import { handleAdminGiveGold, handleAdminGiveItem, handleAdminGiveResource } from './globalActions';
 import { useGameTicker } from './hooks/useGameTicker';
-import { useBotManager, BOT_TICK_RATE, BOTS_PER_TICK } from './hooks/useBotManager';
 
 
 export const SimulationHost: React.FC = () => {
@@ -18,7 +17,7 @@ export const SimulationHost: React.FC = () => {
     const [roomData, setRoomData] = useState<SimulationRoom | null>(null);
     const [allRooms, setAllRooms] = useState<SimulationRoom[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [view, setView] = useState<'LIST' | 'MANAGE' | 'ECONOMY' | 'REPORTS' | 'INSIGHTS'>('LIST');
+    const [view, setView] = useState<'LIST' | 'MANAGE' | 'ECONOMY'>('LIST');
     const [giveGoldAmounts, setGiveGoldAmounts] = useState<Record<string, number>>({});
     const [giveItemSelection, setGiveItemSelection] = useState<Record<string, { itemId: string, amount: number }>>({});
     const [giveResourceSelection, setGiveResourceSelection] = useState<Record<string, { resourceId: string, amount: number }>>({});
@@ -118,8 +117,7 @@ export const SimulationHost: React.FC = () => {
     // Ensure time ticks even if only Admin is online
     useGameTicker(pin, roomData?.status || 'LOBBY', roomData?.world);
 
-    // --- BOT MANAGER ---
-    const { enabled: botsEnabled, setEnabled: setBotsEnabled, activeBotCount, recentLogs, botReports } = useBotManager(pin, roomData, true);
+    // --- GAME TICKER (ADMIN HOST) ---
 
     // 4. Messages (Heavy - Capped)
     useEffect(() => {
@@ -581,48 +579,48 @@ export const SimulationHost: React.FC = () => {
         }
     };
 
-    const [botForm, setBotForm] = useState({ name: '', role: 'PEASANT' as any, level: 1 });
+    const [charForm, setCharForm] = useState({ name: '', role: 'PEASANT' as any, level: 1 });
 
-    const spawnDevBot = async () => {
-        if (!botForm.name) {
+    const spawnCharacter = async () => {
+        if (!charForm.name) {
             alert("Vennligst oppgi et navn.");
             return;
         }
 
         setIsLoading(true);
         try {
-            const botId = `bot_${Math.random().toString(36).substr(2, 9)}`;
-            const bot: any = {
-                id: botId,
-                name: `${botForm.name} [BOT]`,
-                role: botForm.role || 'PEASANT',
-                regionId: (botForm.role === 'KING') ? 'capital' : (Math.random() > 0.5 ? 'region_ost' : 'region_vest'),
-                resources: INITIAL_RESOURCES[botForm.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT,
+            const charId = `char_${Math.random().toString(36).substr(2, 9)}`;
+            const character: any = {
+                id: charId,
+                name: charForm.name,
+                role: charForm.role || 'PEASANT',
+                regionId: (charForm.role === 'KING') ? 'capital' : (Math.random() > 0.5 ? 'region_ost' : 'region_vest'),
+                resources: INITIAL_RESOURCES[charForm.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT,
                 status: { hp: 100, stamina: 100, morale: 100, legitimacy: 100, authority: 50, loyalty: 100, isJailed: false, isFrozen: false },
-                stats: { level: botForm.level, xp: 0, reputation: 10, contribution: 0 },
-                skills: INITIAL_SKILLS[botForm.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT,
+                stats: { level: charForm.level, xp: 0, reputation: 10, contribution: 0 },
+                skills: INITIAL_SKILLS[charForm.role as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT,
                 lastActive: Date.now(),
                 online: true
             };
 
             const updates: any = {};
-            updates[`simulation_rooms/${pin}/players/${botId}`] = bot;
-            updates[`simulation_rooms/${pin}/public_profiles/${botId}`] = {
-                id: botId,
-                name: bot.name,
-                role: bot.role,
-                regionId: bot.regionId,
-                stats: { level: bot.stats.level },
+            updates[`simulation_rooms/${pin}/players/${charId}`] = character;
+            updates[`simulation_rooms/${pin}/public_profiles/${charId}`] = {
+                id: charId,
+                name: character.name,
+                role: character.role,
+                regionId: character.regionId,
+                stats: { level: character.stats.level },
                 status: { isJailed: false, isFrozen: false, legitimacy: 100 },
                 online: true,
-                lastActive: bot.lastActive
+                lastActive: character.lastActive
             };
 
             await update(ref(db), updates);
-            setBotForm({ name: '', role: 'PEASANT', level: 1 });
+            setCharForm({ name: '', role: 'PEASANT', level: 1 });
         } catch (e) {
             console.error(e);
-            alert("Kunne ikke spawne bot.");
+            alert("Kunne ikke opprette karakter.");
         } finally {
             setIsLoading(false);
         }
@@ -1081,14 +1079,14 @@ export const SimulationHost: React.FC = () => {
                                     <input
                                         type="text"
                                         placeholder="Navn..."
-                                        value={botForm.name}
-                                        onChange={(e) => setBotForm({ ...botForm, name: e.target.value })}
+                                        value={charForm.name}
+                                        onChange={(e) => setCharForm({ ...charForm, name: e.target.value })}
                                         className="w-full bg-black/40 border border-white/5 rounded-xl px-4 py-3 text-xs font-bold text-white placeholder:text-slate-600 focus:border-indigo-500/50 focus:ring-0 transition-all"
                                     />
                                     <div className="grid grid-cols-2 gap-2">
                                         <select
-                                            value={botForm.role}
-                                            onChange={(e) => setBotForm({ ...botForm, role: e.target.value as any })}
+                                            value={charForm.role}
+                                            onChange={(e) => setCharForm({ ...charForm, role: e.target.value as any })}
                                             className="bg-black/40 border border-white/5 rounded-xl px-3 py-2 text-[10px] font-black uppercase text-slate-400 focus:ring-0"
                                         >
                                             {Object.keys(ROLE_DEFINITIONS).map(r => <option key={r} value={r}>{r}</option>)}
@@ -1097,14 +1095,14 @@ export const SimulationHost: React.FC = () => {
                                             <span className="text-[8px] font-black text-slate-600">LVL</span>
                                             <input
                                                 type="number"
-                                                value={botForm.level}
-                                                onChange={(e) => setBotForm({ ...botForm, level: parseInt(e.target.value) })}
+                                                value={charForm.level}
+                                                onChange={(e) => setCharForm({ ...charForm, level: parseInt(e.target.value) })}
                                                 className="w-full bg-transparent border-none p-0 text-xs font-black text-white focus:ring-0 font-mono"
                                             />
                                         </div>
                                     </div>
                                     <button
-                                        onClick={spawnDevBot}
+                                        onClick={spawnCharacter}
                                         className="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-black uppercase text-[10px] shadow-lg shadow-indigo-600/20 transition-all active:scale-95"
                                     >
                                         ✨ SKAP KARAKTER
@@ -1145,18 +1143,6 @@ export const SimulationHost: React.FC = () => {
                             >
                                 Blueprint
                             </button>
-                            <button
-                                onClick={() => setView('REPORTS' as any)}
-                                className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${view === 'REPORTS' ? 'bg-rose-600 text-white shadow-lg' : 'text-slate-500 hover:text-white'}`}
-                            >
-                                Bot Feedback
-                            </button>
-                            <button
-                                onClick={() => setView('INSIGHTS' as any)}
-                                className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${view === 'INSIGHTS' ? 'bg-amber-600 text-white shadow-lg' : 'text-slate-500 hover:text-white'}`}
-                            >
-                                Innsikt
-                            </button>
                         </nav>
                         <div className="h-4 w-[1px] bg-white/10 mx-2" />
                         <div className="flex items-center gap-8">
@@ -1176,419 +1162,9 @@ export const SimulationHost: React.FC = () => {
                 <div className="flex-1 p-8 overflow-y-auto custom-scrollbar no-scrollbar">
                     {view === 'ECONOMY' ? (
                         SimulationEconomyBlueprint ? <SimulationEconomyBlueprint /> : <div className="p-20 text-center animate-pulse text-slate-500 font-black uppercase tracking-widest">Laster Blueprint...</div>
-                    ) : view === 'REPORTS' ? (
-                        <div className="space-y-8 animate-in fade-in duration-500">
-                            <div className="flex items-center justify-between">
-                                <h2 className="text-2xl font-black text-white px-2 tracking-tighter flex items-center gap-3">
-                                    <span className="text-3xl">📢</span>
-                                    Bot Feedback Reports
-                                </h2>
-                                <div className="flex items-center gap-4">
-                                    <button
-                                        onClick={() => {
-                                            if (window.confirm("Vil du slette all bot-feedback historikk?")) {
-                                                const fbRef = ref(db, `simulation_rooms/${pin}/bot_feedback`);
-                                                set(fbRef, null);
-                                            }
-                                        }}
-                                        className="text-[9px] font-black text-rose-400/50 hover:text-rose-400 uppercase tracking-widest transition-colors"
-                                    >
-                                        [ Nullstill Logg ]
-                                    </button>
-                                    <span className="text-[10px] font-bold bg-white/10 px-3 py-1 rounded-full text-slate-400">Total Reports: {botReports?.length || 0}</span>
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {/* BUG REPORTS */}
-                                <div className="bg-rose-950/20 border border-rose-500/20 rounded-3xl p-6">
-                                    <h3 className="text-rose-500 font-black uppercase tracking-widest text-xs mb-4 flex items-center gap-2">
-                                        <span className="w-2 h-2 bg-rose-500 rounded-full animate-pulse" />
-                                        Bug Reports
-                                    </h3>
-                                    <div className="space-y-3 h-[50vh] overflow-y-auto custom-scrollbar pr-2">
-                                        {botReports?.filter((r: any) => r.type === 'BUG').map((r: any) => (
-                                            <div key={r.id} className="bg-black/40 p-4 rounded-xl border-l-2 border-rose-500">
-                                                <div className="flex justify-between items-center mb-1">
-                                                    <span className="text-rose-400 font-bold text-[10px] uppercase">{r.botName}</span>
-                                                    <span className="text-slate-600 text-[9px] font-mono">{new Date(r.timestamp).toLocaleTimeString()}</span>
-                                                </div>
-                                                <p className="text-white/80 text-xs italic">"{r.message}"</p>
-                                            </div>
-                                        ))}
-                                        {(!botReports || botReports.filter((r: any) => r.type === 'BUG').length === 0) && (
-                                            <div className="text-center py-10 opacity-30 text-xs font-bold uppercase">Ingen bugs rapportert</div>
-                                        )}
-                                    </div>
-                                </div>
-
-                                {/* BALANCE FEEDBACK */}
-                                <div className="bg-amber-950/20 border border-amber-500/20 rounded-3xl p-6">
-                                    <h3 className="text-amber-500 font-black uppercase tracking-widest text-xs mb-4 flex items-center gap-2">
-                                        <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
-                                        Balance Feedback
-                                    </h3>
-                                    <div className="space-y-3 h-[50vh] overflow-y-auto custom-scrollbar pr-2">
-                                        {botReports?.filter((r: any) => r.type === 'BALANCE').map((r: any) => (
-                                            <div key={r.id} className="bg-black/40 p-4 rounded-xl border-l-2 border-amber-500">
-                                                <div className="flex justify-between items-center mb-1">
-                                                    <span className="text-amber-400 font-bold text-[10px] uppercase">{r.botName}</span>
-                                                    <span className="text-slate-600 text-[9px] font-mono">{new Date(r.timestamp).toLocaleTimeString()}</span>
-                                                </div>
-                                                <p className="text-white/80 text-xs italic">"{r.message}"</p>
-                                            </div>
-                                        ))}
-                                        {(!botReports || botReports.filter((r: any) => r.type === 'BALANCE').length === 0) && (
-                                            <div className="text-center py-10 opacity-30 text-xs font-bold uppercase">Ingen feedback mottatt</div>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ) : view === 'INSIGHTS' ? (
-                        <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-700">
-                            <div className="flex items-center justify-between">
-                                <h2 className="text-2xl font-black text-white px-2 tracking-tighter flex items-center gap-3">
-                                    <span className="text-3xl">📊</span>
-                                    Rikets Innsikt (QA)
-                                </h2>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div className="bg-amber-500/10 border border-amber-500/20 rounded-3xl p-8">
-                                    <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest block mb-2">Total Bot-Formue</span>
-                                    <h4 className="text-4xl font-black text-white">
-                                        {Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_')).reduce((s, b) => s + (b?.resources?.gold || 0), 0)}💰
-                                    </h4>
-                                    <p className="text-[10px] text-slate-500 font-bold mt-4 uppercase">Samlet kapital i bot-nettverket</p>
-                                </div>
-                                <div className="bg-indigo-500/10 border border-indigo-500/20 rounded-3xl p-8">
-                                    <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest block mb-2">Gjennomsnittlig Nivå</span>
-                                    <h4 className="text-4xl font-black text-white">
-                                        {(Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_')).reduce((s, b) => s + (b?.stats?.level || 0), 0) / Math.max(1, Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_')).length)).toFixed(1)}
-                                    </h4>
-                                    <p className="text-[10px] text-slate-500 font-bold mt-4 uppercase">Botenes progresjonshastighet</p>
-                                </div>
-                                <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-3xl p-8">
-                                    <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest block mb-2">Aktive Agenter</span>
-                                    <h4 className="text-4xl font-black text-white">
-                                        {Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_') && (p?.status?.hp || 0) > 0).length}
-                                    </h4>
-                                    <p className="text-[10px] text-slate-500 font-bold mt-4 uppercase">Bots med positiv livsstatus</p>
-                                </div>
-                            </div>
-
-                            {/* SYSTEMIC DISTRIBUTION */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {/* Resource Stockpiles */}
-                                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
-                                    <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-                                        📦 Ressurslager i Nettverket
-                                    </h3>
-                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                        {['gold', 'wood', 'stone', 'plank', 'iron_ore', 'iron_ingot', 'grain', 'flour', 'bread', 'meat', 'pie', 'wool', 'cloth', 'glass', 'water', 'honey', 'mead'].map(res => {
-                                            const total = Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_')).reduce((s, b: any) => s + (b?.resources?.[res] || 0), 0);
-                                            return (
-                                                <div key={res} className="p-4 bg-black/20 rounded-2xl border border-white/5 flex justify-between items-center">
-                                                    <span className="text-[10px] font-bold text-slate-400 uppercase">{res.replace('_', ' ')}</span>
-                                                    <span className="text-sm font-black text-white">{total.toLocaleString()}</span>
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                </div>
-
-                                {/* Action / Thought Distribution */}
-                                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
-                                    <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-                                        🧠 Aktivitets-distribusjon
-                                    </h3>
-                                    <div className="space-y-4">
-                                        {(() => {
-                                            const bots = Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_'));
-                                            const actions: Record<string, number> = {};
-                                            bots.forEach(b => {
-                                                const act = b?.status?.lastAction || 'IDLE';
-                                                actions[act] = (actions[act] || 0) + 1;
-                                            });
-                                            return Object.entries(actions).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([act, count]) => {
-                                                const pct = Math.round((count / Math.max(1, bots.length)) * 100);
-                                                return (
-                                                    <div key={act} className="space-y-1">
-                                                        <div className="flex justify-between text-[9px] font-black uppercase">
-                                                            <span className="text-indigo-400">{act}</span>
-                                                            <span className="text-white">{pct}% ({count})</span>
-                                                        </div>
-                                                        <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                                            <div className="h-full bg-indigo-500" style={{ width: `${pct}%` }} />
-                                                        </div>
-                                                    </div>
-                                                );
-                                            });
-                                        })()}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* PERSONA BREAKDOWN */}
-                            <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
-                                <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">
-                                    🎭 Sosiale Personas
-                                </h3>
-                                <div className="flex flex-wrap gap-4">
-                                    {['AGIT', 'MERCH', 'GUARD', 'CLIMBER', 'PEASANT'].map(tag => {
-                                        const count = Object.values(roomData?.players || {}).filter(p => p?.id?.startsWith('bot_') && p?.name?.includes(`[${tag}]`)).length;
-                                        const colors: any = { AGIT: 'rose', MERCH: 'amber', GUARD: 'blue', CLIMBER: 'purple', PEASANT: 'emerald' };
-                                        const color = colors[tag] || 'indigo';
-                                        return (
-                                            <div key={tag} className={`px-6 py-4 rounded-2xl bg-${color}-500/10 border border-${color}-500/20 flex flex-col`}>
-                                                <span className={`text-[8px] font-black text-${color}-400 uppercase mb-1 tracking-widest`}>{tag}</span>
-                                                <span className="text-2xl font-black text-white">{count}</span>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-
-                            {/* ADVANCED SYSTEMIC STATS */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {/* Role Changes & Coups */}
-                                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
-                                    <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">
-                                        ⚖️ Sosiale Endringer & Kupp
-                                    </h3>
-                                    <div className="space-y-4">
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <div className="p-4 bg-rose-500/5 rounded-2xl border border-rose-500/10">
-                                                <span className="text-[10px] font-bold text-rose-400 uppercase">Kupp Forsøkt</span>
-                                                <div className="text-2xl font-black text-white">{roomData?.stats?.coups?.start || 0}</div>
-                                            </div>
-                                            <div className="p-4 bg-emerald-500/5 rounded-2xl border border-emerald-500/10">
-                                                <span className="text-[10px] font-bold text-emerald-400 uppercase">Kupp Vunnet</span>
-                                                <div className="text-2xl font-black text-white">{roomData?.stats?.coups?.success || 0}</div>
-                                            </div>
-                                        </div>
-                                        <div className="bg-black/20 rounded-2xl p-4 border border-white/5">
-                                            <span className="text-[9px] font-bold text-slate-500 uppercase block mb-3">Rollebytter per type</span>
-                                            <div className="flex flex-wrap gap-2">
-                                                {Object.entries(roomData?.stats?.roleChanges || {}).map(([role, count]) => (
-                                                    <div key={role} className="px-3 py-1 bg-white/5 rounded-lg border border-white/5 text-[10px] text-slate-300 font-bold">
-                                                        {role}: <span className="text-white">{count}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Items & Consumption */}
-                                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
-                                    <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">
-                                        🛠️ Produksjon & Forbruk
-                                    </h3>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        {/* Crafted Items */}
-                                        <div className="space-y-2">
-                                            <span className="text-[9px] font-bold text-slate-500 uppercase block">Gjenstander Laget</span>
-                                            <div className="max-h-32 overflow-y-auto space-y-1 pr-2 thin-scrollbar">
-                                                {Object.entries(roomData?.stats?.crafted || {}).length > 0 ? (
-                                                    Object.entries(roomData?.stats?.crafted || {}).map(([item, count]) => (
-                                                        <div key={item} className="flex justify-between text-[10px] text-indigo-300 font-mono">
-                                                            <span>{item}</span>
-                                                            <span className="text-white font-bold">{count}</span>
-                                                        </div>
-                                                    ))
-                                                ) : (
-                                                    <div className="text-[10px] text-slate-600 italic">Ingen gjenstander ennå...</div>
-                                                )}
-                                            </div>
-                                        </div>
-                                        {/* Consumed Resources */}
-                                        <div className="space-y-2">
-                                            <span className="text-[9px] font-bold text-slate-500 uppercase block">Ressurser Brukt</span>
-                                            <div className="max-h-32 overflow-y-auto space-y-1 pr-2 thin-scrollbar">
-                                                {Object.entries(roomData?.stats?.consumed || {}).length > 0 ? (
-                                                    Object.entries(roomData?.stats?.consumed || {}).map(([res, count]) => (
-                                                        <div key={res} className="flex justify-between text-[10px] text-amber-300 font-mono">
-                                                            <span>{res}</span>
-                                                            <span className="text-white font-bold">{count}</span>
-                                                        </div>
-                                                    ))
-                                                ) : (
-                                                    <div className="text-[10px] text-slate-600 italic">Ingen forbruk registrert...</div>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* GLOBAL CONTRIBUTIONS */}
-                            <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8">
-                                <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">
-                                    🏗️ Globale Bidrag (Byggeprosjekter)
-                                </h3>
-                                <div className="flex flex-wrap gap-6">
-                                    {['gold', 'wood', 'stone', 'plank', 'iron_ingot'].map(res => (
-                                        <div key={res} className="flex flex-col">
-                                            <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest mb-1">{res}</span>
-                                            <span className="text-xl font-black text-white">{(roomData?.stats?.contributions?.[res] || 0).toLocaleString()}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
                     ) : (
                         <div className="space-y-12 pb-20">
                             {/* Player Grid */}
-                            {/* Bot Controls */}
-                            <div className="bg-slate-900/50 border border-white/5 rounded-[2rem] p-8 backdrop-blur-sm">
-                                <div className="flex justify-between items-center mb-8">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-2xl border border-indigo-500/20">
-                                            🤖
-                                        </div>
-                                        <div>
-                                            <h2 className="text-xl font-black text-white flex items-center gap-3">
-                                                Bot Nettverk
-                                                <div className={`px-2 py-0.5 rounded text-[10px] uppercase font-black tracking-widest ${botsEnabled ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-slate-800 text-slate-500 border border-white/5'}`}>
-                                                    {botsEnabled ? 'System Aktivt' : 'Standby'}
-                                                </div>
-                                            </h2>
-                                            <p className="text-xs text-slate-500 font-bold mt-1">Automatiserte agenter styrt av sentralisert AI</p>
-                                        </div>
-                                    </div>
-                                    <button
-                                        onClick={() => setBotsEnabled(!botsEnabled)}
-                                        className={`px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all ${botsEnabled
-                                            ? 'bg-rose-500/10 hover:bg-rose-500 text-rose-500 hover:text-white border border-rose-500/20'
-                                            : 'bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-white border border-emerald-500/20'
-                                            }`}
-                                    >
-                                        {botsEnabled ? 'Deaktiver System' : 'Aktiver System'}
-                                    </button>
-                                </div>
-
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                    <div className="bg-black/20 rounded-2xl p-6 border border-white/5">
-                                        <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Masseproduksjon</h3>
-                                        <div className="flex flex-col gap-4">
-                                            <div className="flex gap-2">
-                                                <input
-                                                    type="text"
-                                                    placeholder="Navn..."
-                                                    className="flex-1 bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-xs font-bold text-white focus:border-indigo-500/50 transition-colors"
-                                                    value={botForm.name}
-                                                    onChange={e => setBotForm({ ...botForm, name: e.target.value })}
-                                                />
-                                            </div>
-                                            <div className="flex gap-2">
-                                                <button
-                                                    onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [AGIT]' }))}
-                                                    className="px-3 py-2 bg-rose-500/10 border border-rose-500/20 rounded-lg hover:bg-rose-500/20 text-rose-400 text-[10px] font-black uppercase transition-colors"
-                                                    title="Agitator (Revolusjonær)"
-                                                >
-                                                    🔥 Opprører
-                                                </button>
-                                                <button
-                                                    onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [MERCH]' }))}
-                                                    className="px-3 py-2 bg-amber-500/10 border border-amber-500/20 rounded-lg hover:bg-amber-500/20 text-amber-400 text-[10px] font-black uppercase transition-colors"
-                                                    title="Kjøpmann (Økonom)"
-                                                >
-                                                    💰 Kjøpmann
-                                                </button>
-                                                <button
-                                                    onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [GUARD]' }))}
-                                                    className="px-3 py-2 bg-blue-500/10 border border-blue-500/20 rounded-lg hover:bg-blue-500/20 text-blue-400 text-[10px] font-black uppercase transition-colors"
-                                                    title="Vakt (Lojalist)"
-                                                >
-                                                    🛡️ Vakt
-                                                </button>
-                                                <button
-                                                    onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [CLIMBER]' }))}
-                                                    className="px-3 py-2 bg-purple-500/10 border border-purple-500/20 rounded-lg hover:bg-purple-500/20 text-purple-400 text-[10px] font-black uppercase transition-colors"
-                                                    title="Klatreren (Ambisiøs)"
-                                                >
-                                                    👑 Klatrer
-                                                </button>
-                                                <button
-                                                    onClick={() => setBotForm(prev => ({ ...prev, name: prev.name + ' [PEASANT]' }))}
-                                                    className="px-3 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg hover:bg-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase transition-colors"
-                                                    title="Bonde (Stasjonær)"
-                                                >
-                                                    🚜 Bonde
-                                                </button>
-                                            </div>
-                                            <div className="grid grid-cols-2 gap-3 mt-2">
-                                                <button
-                                                    onClick={spawnDevBot}
-                                                    className="bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all shadow-lg shadow-indigo-500/20"
-                                                >
-                                                    + 1 Enhet
-                                                </button>
-                                                <button
-                                                    onClick={async () => {
-                                                        if (!window.confirm("Spawn 10 bots?")) return;
-                                                        for (let i = 0; i < 10; i++) {
-                                                            await spawnDevBot();
-                                                        }
-                                                    }}
-                                                    className="bg-slate-700 hover:bg-slate-600 text-white py-3 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all"
-                                                >
-                                                    + 10 Enheter
-                                                </button>
-                                                <button
-                                                    onClick={async () => {
-                                                        if (!window.confirm("Spawn 50 bots? (KREVER CPU)")) return;
-                                                        for (let i = 0; i < 50; i++) {
-                                                            await spawnDevBot();
-                                                        }
-                                                    }}
-                                                    className="col-span-2 bg-amber-600 hover:bg-amber-500 text-white py-3 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all shadow-lg shadow-amber-500/20"
-                                                >
-                                                    🚀 Massiv Invasjon (+50)
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="bg-black/20 rounded-2xl p-6 border border-white/5">
-                                        <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Nettverk Status</h3>
-                                        <div className="space-y-4">
-                                            <div className="flex justify-between items-center p-3 bg-slate-900/50 rounded-xl border border-white/5">
-                                                <span className="text-xs font-bold text-slate-400">Aktive Enheter</span>
-                                                <span className="text-lg font-black text-indigo-400 font-mono">{activeBotCount}</span>
-                                            </div>
-                                            <div className="flex justify-between items-center p-3 bg-slate-900/50 rounded-xl border border-white/5">
-                                                <span className="text-xs font-bold text-slate-400">Tick Rate</span>
-                                                <span className="text-xs font-mono text-emerald-400">{(BOT_TICK_RATE / 1000).toFixed(1)}s ({BOTS_PER_TICK} bots/tick)</span>
-                                            </div>
-                                            <p className="text-[10px] text-slate-600 font-bold italic leading-relaxed">
-                                                "Bot Brain" analyserer ressurser, sult, og politisk overbevisning for hver bot.
-                                                Hver enhet opererer autonomt basert på sin persona.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    {/* LIVE FEED */}
-                                    <div className="md:col-span-2 bg-black/40 rounded-2xl p-6 border border-white/5 font-mono">
-                                        <h3 className="text-[10px] font-black text-emerald-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-                                            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-                                            Neural Link Feed
-                                        </h3>
-                                        <div className="h-32 overflow-y-auto custom-scrollbar flex flex-col-reverse gap-1">
-                                            {recentLogs.length > 0 ? recentLogs.map((log, i) => (
-                                                <div key={i} className="text-[10px] text-slate-400 border-l-2 border-slate-800 pl-2 hover:bg-white/5 transition-colors">
-                                                    <span className="text-slate-600 mr-2">[{new Date().toLocaleTimeString()}]</span>
-                                                    {log}
-                                                </div>
-                                            )) : (
-                                                <div className="text-[10px] text-slate-700 italic text-center py-8">Venter på overføring fra bot-nettverket...</div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <section>
                                 <h2 className="text-3xl font-black text-white px-2 mb-8 tracking-tighter">Innbyggere i Riket</h2>
