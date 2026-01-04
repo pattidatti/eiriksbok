@@ -77,6 +77,12 @@ export const MINIGAME_VARIANTS: Record<string, { id: string, label: string, icon
     HUNT: [
         { id: 'bow', label: 'Bueskyting', icon: '🏹', desc: 'Presisjonsjakt fra avstand.' },
         { id: 'trap', label: 'Fellefangst', icon: '🕸️', desc: 'Sett ut snarer for småvilt.' },
+    ],
+    SAWMILL: [
+        { id: 'saw', label: 'Saging', icon: '🪚', desc: 'Sag opp tømmer til planker.' },
+    ],
+    GATHER_WOOL: [
+        { id: 'shears', label: 'Saks', icon: '✂️', desc: 'Klipp ullen av sauene.' },
     ]
 };
 
@@ -375,6 +381,9 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
 
                         case 'MIX': // Apothecary
                             return <ApothecaryGame onComplete={onComplete} speedMultiplier={environmentMods.speedMultiplier} />;
+
+                        case 'GATHER_WOOL':
+                            return <ScytheSweepGame onComplete={onComplete} equipment={equipment} speedMultiplier={environmentMods.speedMultiplier} />;
 
                         default:
                             return (

@@ -85,7 +85,7 @@ export const calculateYield = (
                 const stats = item.stats || (ITEM_TEMPLATES as any)[item.id]?.stats;
                 if (stats?.yieldBonus) equipBonus += stats.yieldBonus;
 
-                if (slot === 'AXE' || slot === 'PICKAXE' || slot === 'SCYTHE' || slot === 'MAIN_HAND' || slot === 'OFF_HAND' || slot === 'BOW' || slot === 'TRAP') {
+                if (slot === 'AXE' || slot === 'PICKAXE' || slot === 'SCYTHE' || slot === 'MAIN_HAND' || slot === 'OFF_HAND' || slot === 'BOW' || slot === 'TRAP' || slot === 'CHISEL') {
                     hasRelevantTool = true;
                 }
             }

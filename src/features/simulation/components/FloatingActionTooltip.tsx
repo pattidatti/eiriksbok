@@ -508,8 +508,15 @@ export const FloatingActionTooltip: React.FC<FloatingActionTooltipProps> = ({ po
                                 }
                             }).filter(Boolean);
 
-                            // 3. Remove duplicates and pick the most relevant one
-                            const finalUpgrades = recommendations.filter((v, i, a) => a.findIndex(t => t?.id === v?.id) === i);
+                            // 3. Remove duplicates and pick the most relevant one (prioritize main tools)
+                            const finalUpgrades = recommendations
+                                .filter((v, i, a) => a.findIndex(t => t?.id === v?.id) === i)
+                                .sort((a, b) => {
+                                    if (!a || !b) return 0;
+                                    const aPri = (a.type === 'MAIN_HAND' || a.type === 'AXE' || a.type === 'PICKAXE' || a.type === 'SCYTHE' || a.type === 'BOW' || a.type === 'CHISEL') ? 1 : 0;
+                                    const bPri = (b.type === 'MAIN_HAND' || b.type === 'AXE' || b.type === 'PICKAXE' || b.type === 'SCYTHE' || b.type === 'BOW' || b.type === 'CHISEL') ? 1 : 0;
+                                    return bPri - aPri;
+                                });
 
                             if (finalUpgrades.length > 0) {
                                 const upg = finalUpgrades[0];

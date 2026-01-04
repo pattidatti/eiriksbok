@@ -25,7 +25,12 @@ export function useSimulationActions(
         const actionType = typeof action === 'string' ? action : action.type;
         const actionMethod = typeof action === 'object' ? action.method : null;
 
-        const minigameTypes: ActionType[] = ['WORK', 'CHOP', 'CRAFT', 'DEFEND', 'EXPLORE', 'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE', 'SMELT', 'BAKE', 'WEAVE', 'MIX', 'PLANT', 'HARVEST'];
+        const minigameTypes: ActionType[] = [
+            'WORK', 'CHOP', 'CRAFT', 'DEFEND', 'EXPLORE',
+            'MINE', 'QUARRY', 'PATROL', 'FORAGE', 'REFINE',
+            'SMELT', 'BAKE', 'WEAVE', 'MIX', 'PLANT', 'HARVEST',
+            'GATHER_WOOL', 'HUNT', 'SAWMILL'
+        ];
 
         if (minigameTypes.includes(actionType as any) && !activeMinigame && (!action.performance)) {
             const currentSeason = (world?.season || 'Spring') as any;

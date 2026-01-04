@@ -10,16 +10,19 @@ interface ValidationResult {
 export const ACTION_EQUIPMENT_MAP: Record<string, EquipmentSlot[]> = {
     'CHOP': ['AXE', 'OFF_HAND'],
     'MINE': ['PICKAXE', 'OFF_HAND'],
-    'QUARRY': ['PICKAXE', 'OFF_HAND'],
+    'QUARRY': ['CHISEL', 'OFF_HAND'],
     'WORK': ['SCYTHE', 'OFF_HAND'],
     'RAID': ['MAIN_HAND', 'OFF_HAND', 'BODY', 'HEAD', 'FEET'], // Combat uses all
     'DEFEND': ['MAIN_HAND', 'OFF_HAND', 'BODY', 'HEAD', 'FEET'],
     'PATROL': ['MAIN_HAND', 'OFF_HAND', 'BODY'],
     'EXPLORE': ['MAIN_HAND', 'OFF_HAND', 'BODY', 'HEAD', 'FEET'],
-    // Crafting might use main hand tools if we define them, e.g. Hammer
     'CRAFT': ['MAIN_HAND', 'AXE', 'PICKAXE', 'SCYTHE', 'HAMMER'],
     'HUNT': ['MAIN_HAND', 'BOW', 'TRAP'],
-    'FORAGE': ['MAIN_HAND', 'TRAP']
+    'FORAGE': ['MAIN_HAND', 'TRAP'],
+    'GATHER_WOOL': ['MAIN_HAND', 'OFF_HAND'],
+    'SAWMILL': ['MAIN_HAND', 'OFF_HAND'],
+    'PLANT': ['MAIN_HAND', 'OFF_HAND'],
+    'HARVEST': ['SCYTHE', 'OFF_HAND', 'MAIN_HAND']
 };
 
 export const getActionEquipment = (player: SimulationPlayer, actionId: string): EquipmentItem[] => {
@@ -97,6 +100,11 @@ export const checkActionRequirements = (
         if (item.durability <= 0) {
             return { success: false, reason: `Ødelagt: ${item.name}` };
         }
+    }
+
+    // 1b. Missing Tool Check (Strict for specific actions)
+    if (actionId === 'GATHER_WOOL' && equipment.length === 0) {
+        return { success: false, reason: "Du mangler Saks" };
     }
 
     // 2. Cost Check

@@ -44,8 +44,8 @@ Dette er en dedikert liste for videreutvikling av Simulation-spillet i Eiriksbok
 - [ ] **Vær-effekter:** Hvordan vær påvirker produksjon og utbytte.
 - [ ] **Historiske hendelser:** Tilfeldige hendelser basert på historisk kontekst som påvirker økonomien.
 - [ ] **Bygging:** Oppgradering av produksjonsbygninger for å låse opp nye oppskrifter. Må finne mer til alle bygninger. 
-- [ ] **Rivaliserende ressurser** Det må være en unik ressurs for baroni vest og øst, slik at de tvinges til å handle for progressjon. Dette muliggjøre kanskje også enda en grunn raids på hverandres baronier. 
-- [ ] **Chat-system:** Implementere et omfattende kommunikasjonssystem.
+- [x] **Rivaliserende ressurser** Det må være en unik ressurs for baroni vest og øst, slik at de tvinges til å handle for progressjon. Dette muliggjøre kanskje også enda en grunn raids på hverandres baronier. 
+- [x] **Chat-system:** Implementere et omfattende kommunikasjonssystem.
     - **Kanaler:** Egne kanaler for hvert baroni og interne kanaler for hver rolle.
     - **Diplomati:** Baroner har en egen felleskanal; Kongen har tilgang til alt.
     - **Brev-system:** Mulighet for private meldinger. Meldinger sendt utenfor eget baroni koster penger (budbringer-avgift).
