@@ -1,4 +1,4 @@
-import { VILLAGE_BUILDINGS, REFINERY_RECIPES } from './../../data/production';
+import { VILLAGE_BUILDINGS, REFINERY_RECIPES, CRAFTING_RECIPES } from './../../data/production';
 import type { Resources } from '../../simulationTypes';
 
 /**
@@ -51,6 +51,26 @@ export const getGameKnowledgeMap = () => {
         const outRes = r.outputResource;
         if (!knowledge.resourceOrigins[outRes]) knowledge.resourceOrigins[outRes] = [];
         knowledge.resourceOrigins[outRes].push(`REFINE_${id.toUpperCase()}`);
+    });
+
+    // 2b. Scan Crafting Recipes (Items)
+    Object.entries(CRAFTING_RECIPES).forEach(([id, r]: [string, any]) => {
+        knowledge.recipes.push({
+            id: `CRAFT_${id.toUpperCase()}`,
+            type: 'RECIPE',
+            requirements: r.input,
+            unlocks: [r.outputItemId],
+            locationId: r.buildingId
+        });
+
+        // Track origin
+        const outItem = r.outputItemId;
+        if (!knowledge.resourceOrigins[outItem]) knowledge.resourceOrigins[outItem] = [];
+        // Helper: store recipe ID with prefix
+        knowledge.resourceOrigins[outItem].push(id); // Use raw ID for crafting lookup later? Or formatted?
+        // Let's use formatted to be consistent, but crafting handler needs specific subtype.
+        // Actually, let's store "CRAFT:<subtype>"
+        knowledge.resourceOrigins[outItem].push(`CRAFT:${id}`);
     });
 
     // 3. Scan Generic Actions (Gathering)

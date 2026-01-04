@@ -71,7 +71,7 @@ export const VILLAGE_BUILDINGS: Record<string, { id: string, name: string, icon:
         description: 'Gjør det mulig å lage avanserte verktøy og våpen.',
         levels: {
             1: { requirements: {}, unlocks: ['stone_axe', 'stone_pickaxe', 'stone_sickle', 'whetstone', 'hunting_trap'], bonus: 'Base produksjon' },
-            2: { requirements: { iron_ingot: 20, plank: 30, gold: 300 }, unlocks: ['iron_axe', 'iron_pickaxe', 'iron_sword', 'leather_armor', 'shears'], bonus: '+10% Crafting XP' },
+            2: { requirements: { iron_ingot: 20, plank: 30, gold: 300 }, unlocks: ['iron_axe', 'iron_pickaxe', 'iron_sword', 'leather_armor', 'shears', 'siege_swords', 'siege_armor'], bonus: '+10% Crafting XP' },
             3: { requirements: { iron_ingot: 100, plank: 100, gold: 1000 }, unlocks: ['steel_axe', 'steel_sword', 'blacksmith_hammer', 'repair_advanced'], bonus: 'Låser opp Mester-utstyr' }
         }
     },
@@ -213,6 +213,8 @@ export const CRAFTING_RECIPES: Record<string, any> = {
     iron_sword: { label: 'Jernsverd', icon: '⚔️', input: { iron_ingot: 10, plank: 2, gold: 100 }, outputItemId: 'iron_sword', buildingId: 'great_forge', level: 2, stamina: 40, xp: 35, description: 'Et skarpt sverd for krigere.', skill: 'CRAFTING' },
     leather_armor: { label: 'Lærrustning', icon: '🧥', input: { cloth: 10, gold: 150 }, outputItemId: 'leather_armor', buildingId: 'great_forge', level: 2, stamina: 30, xp: 25, description: 'God beskyttelse for en reisende.', skill: 'CRAFTING' },
     shears: { label: 'Saks', icon: '✂️', input: { iron_ingot: 5, gold: 100 }, outputItemId: 'shears', buildingId: 'great_forge', level: 2, stamina: 20, xp: 15, description: 'Nødvendig for å klippe sauer og få ull.', skill: 'CRAFTING' },
+    siege_swords: { label: 'Beleiringsvåpen (x10)', icon: '⚔️', input: { iron_ingot: 5, plank: 5, gold: 50 }, outputItemId: 'swords', outputAmount: 10, buildingId: 'great_forge', level: 2, stamina: 40, xp: 30, description: 'En kasse med våpen til garnisonen.', skill: 'CRAFTING' },
+    siege_armor: { label: 'Beleiringsrustning (x10)', icon: '🛡️', input: { iron_ingot: 5, cloth: 5, gold: 50 }, outputItemId: 'armor', outputAmount: 10, buildingId: 'great_forge', level: 2, stamina: 40, xp: 30, description: 'En kasse med rustninger til garnisonen.', skill: 'CRAFTING' },
     steel_axe: { label: 'Ståløks', icon: '🪓', input: { iron_ingot: 20, plank: 10, gold: 250 }, outputItemId: 'steel_axe', buildingId: 'great_forge', level: 3, stamina: 50, xp: 50, description: 'Mesterlig utformet øks av herdet stål.', skill: 'CRAFTING' },
     steel_sword: { label: 'Stålsverd', icon: '⚔️', input: { iron_ingot: 30, plank: 5, gold: 500 }, outputItemId: 'steel_sword', buildingId: 'great_forge', level: 3, stamina: 80, xp: 100, description: 'Det ultimate våpenet for en herre.', skill: 'CRAFTING' },
     blacksmith_hammer: { label: 'Smedhammer', icon: '🔨', input: { iron_ingot: 15, plank: 5, gold: 200 }, outputItemId: 'blacksmith_hammer', buildingId: 'great_forge', level: 3, stamina: 40, xp: 50, description: 'Mesterverktøy for en ekte smed.', skill: 'CRAFTING' },

@@ -3,9 +3,12 @@ import type { SimulationPlayer, SimulationRoom } from '../../simulationTypes';
 import { BOT_PERSONAS, type BotPersona } from './botPersonas';
 import { findPathToGoal } from './metaScanner';
 
+import { getDayPart } from '../../utils/timeUtils';
+
 // Define the shape of a decision
 export interface BotDecision {
     actionType: string; // e.g., 'CHOP', 'EAT', 'PAY_TAX'
+    subType?: string;   // e.g., 'ATTACK_GATE' for Siege
     payload?: any;      // e.g., { buildingId: 'bakery' }
     reason: string;     // For logging/debugging
     weight: number;     // How strong the desire is (0-1)
@@ -49,8 +52,13 @@ export const decideBotAction = (bot: SimulationPlayer, room: SimulationRoom): Bo
     // --- MODULAR DECISION ENGINE ---
 
     // 1. SURVIVAL
-    const survivalDecision = evaluateSurvival(bot, stamina);
+    // 1. SURVIVAL
+    const survivalDecision = evaluateSurvival(bot, room, stamina);
     if (survivalDecision) decisions.push(survivalDecision);
+
+    // 2. CONSUMPTION (Food & Buffs)
+    const consumptionDecision = evaluateConsumption(bot);
+    if (consumptionDecision) decisions.push(consumptionDecision);
 
     // 2. AMBITION (The Ladder)
     const ambitionDecision = evaluateAmbition(bot, room, persona, gold, stamina);
@@ -59,6 +67,21 @@ export const decideBotAction = (bot: SimulationPlayer, room: SimulationRoom): Bo
     // 3. ECONOMY (The Engine)
     const economyDecision = evaluateEconomy(bot, room, persona, gold, stamina);
     if (economyDecision) decisions.push(economyDecision);
+
+    // 4. MARKET (The Invisible Hand)
+    // Only check market if we have some gold or desperate need
+    if (gold > 0 || stamina < 10) {
+        const marketDecision = evaluateMarket(bot, room, persona, gold, stamina);
+        if (marketDecision) decisions.push(marketDecision);
+    }
+
+    // 5. WARFARE (The Iron Fist)
+    const warfareDecision = evaluateSiegeWarfare(bot, room, persona, gold, stamina);
+    if (warfareDecision) decisions.push(warfareDecision);
+
+    // 6. CRAFTING (The Goal-Oriented Maker)
+    const craftingDecision = evaluateCrafting(bot, room, persona, gold, stamina);
+    if (craftingDecision) decisions.push(craftingDecision);
 
     // SORT & PICK
     decisions.sort((a, b) => b.weight - a.weight);
@@ -72,12 +95,24 @@ export const decideBotAction = (bot: SimulationPlayer, room: SimulationRoom): Bo
 
 // --- SUB-SYSTEMS ---
 
-const evaluateSurvival = (_bot: SimulationPlayer, stamina: number): BotDecision | null => {
+const evaluateSurvival = (_bot: SimulationPlayer, room: SimulationRoom, stamina: number): BotDecision | null => {
+    // Check global time
+    const gameTick = room.world?.gameTick || 0;
+    const isNight = getDayPart(gameTick) === 'NIGHT';
+
     if (stamina < 20) {
-        return { actionType: 'SLEEP', reason: 'Critical Stamina', weight: 1.0 }; // Force sleep
+        if (isNight) {
+            return { actionType: 'SLEEP', reason: 'Critical Stamina (Night)', weight: 1.0 }; // Force sleep
+        } else {
+            // If day, take a nap in the square/tavern/home
+            return { actionType: 'REST', payload: { locationId: 'village_square' }, reason: 'Nap (Waiting for night)', weight: 0.9 };
+        }
     }
     if (stamina < 40) {
-        return { actionType: 'SLEEP', reason: 'Low Stamina', weight: 0.8 };
+        if (isNight) {
+            return { actionType: 'SLEEP', reason: 'Low Stamina (Night)', weight: 0.8 };
+        }
+        // During day with < 40, we might just keep working unless lazy
     }
     return null;
 };
@@ -216,4 +251,177 @@ const evaluateEconomy = (bot: SimulationPlayer, _room: SimulationRoom, persona: 
     };
 };
 
+const evaluateMarket = (bot: SimulationPlayer, room: SimulationRoom, persona: BotPersona, gold: number, stamina: number): BotDecision | null => {
+    // Market Logic: Buy Low, Sell High, or Panic Buy Food
 
+    const marketKey = bot.regionId || 'capital';
+    const market = room.markets?.[marketKey] || room.market;
+    if (!market) return null;
+
+    // 1. PANIC: Starvation (Buy Food)
+    if (stamina < 20) {
+        // Find cheapest food
+        const foods = ['bread', 'pie', 'meat', 'apple']; // Add all food types
+        let bestFood: string | null = null;
+        let lowestPrice = 9999;
+
+        for (const f of foods) {
+            const item = (market as any)[f];
+            if (item && item.stock > 0 && item.price < lowestPrice && item.price <= gold) {
+                lowestPrice = item.price;
+                bestFood = f;
+            }
+        }
+
+        if (bestFood) {
+            return { actionType: 'BUY', payload: { resource: bestFood }, reason: 'Starving! Buying food.', weight: 0.95 };
+        }
+    }
+
+    // 2. SELLING EXCESS (Generic Logic)
+    // If I have > 20 of something, sell 1.
+    const sellables = ['wood', 'stone', 'grain', 'plank', 'flour', 'iron_ingot'];
+
+    // Merchant logic: Sell aggressively
+    const sellThreshold = persona.id === 'GREEDY_MERCHANT' ? 5 : 20;
+
+    for (const res of sellables) {
+        const amt = (bot.resources as any)[res] || 0;
+        if (amt > sellThreshold) {
+            // Check if market accepts it? (For now assume yes)
+            return { actionType: 'SELL', payload: { resource: res }, reason: `Selling excess ${res}`, weight: 0.6 };
+        }
+    }
+
+    return null;
+};
+
+
+
+const evaluateSiegeWarfare = (bot: SimulationPlayer, room: SimulationRoom, persona: BotPersona, gold: number, stamina: number): BotDecision | null => {
+    // Siege Logic: Do I want to start a war? Do I want to fight in one?
+
+    const regionId = bot.regionId || 'capital';
+    if (regionId === 'capital') return null; // Can't siege capital? Or maybe global logic differs.
+
+    const region = room.regions?.[regionId];
+    if (!region) return null;
+
+    const activeSiege = region.activeSiege;
+
+    // 1. JOINING / STARTING
+    if (!activeSiege) {
+        // Only Aggressive/Anarchist/Climber bots start sieges
+        if (persona.priorities.revolt > 0.8 && stamina > 50 && gold > 200) {
+            // Check if ruler is NOT me
+            if (region.rulerId !== bot.id && region.rulerName !== bot.name && region.rulerName !== 'Ingen') {
+                return { actionType: 'START_SIEGE', payload: { targetRegionId: regionId }, reason: 'REVOLUTION!', weight: 0.9 };
+            }
+        }
+        return null; // Peace time
+    }
+
+    // 2. FIGHTING (Active Siege)
+
+    // Check if I am participant
+    const attackers = activeSiege.attackers || {};
+    const defenders = activeSiege.defenders || {};
+    const isParticipant = attackers[bot.id] || defenders[bot.id];
+
+    if (!isParticipant) {
+        // Should I join?
+        if (persona.priorities.attack > 0.5 || persona.priorities.defend > 0.5) {
+            return { actionType: 'JOIN_SIEGE', payload: { targetRegionId: regionId }, reason: 'Joining the fray!', weight: 1.0 };
+        }
+        return null;
+    }
+
+    // 3. TACTICAL DECISIONS (I am in!)
+    const siegePhase = activeSiege.phase;
+
+    if (siegePhase === 'BREACH') {
+        // Check if gate is destroyed first? No, server handles it. Just attack.
+        return { actionType: 'SIEGE_ACTION', payload: { targetRegionId: regionId }, subType: 'ATTACK_GATE', reason: 'Smash the gate!', weight: 0.9 };
+    }
+
+    if (siegePhase === 'COURTYARD') {
+        const myData = (attackers[bot.id] || defenders[bot.id]) as any;
+        // Dodge Boss?
+        if (activeSiege.bossTargetLane === myData.lane) {
+            // Move to safe lane
+            const safeLane = (myData.lane + 1) % 3;
+            return { actionType: 'SIEGE_ACTION', payload: { targetRegionId: regionId, lane: safeLane }, subType: 'MOVE_LANE', reason: 'Dodging Boss Attack', weight: 1.0 };
+        }
+        // Attack Boss
+        return { actionType: 'SIEGE_ACTION', payload: { targetRegionId: regionId }, subType: 'ATTACK_BOSS', reason: 'Fighting Garrison Commander', weight: 0.9 };
+    }
+
+    if (siegePhase === 'THRONE_ROOM') {
+        // Do I have armor to claim throne?
+        const myArmor = bot.resources.armor || 0;
+
+        // Am I already on throne?
+        const occupiers = activeSiege.throne?.occupiers || {};
+        if (occupiers[bot.id]) return null; // I am winning, just wait.
+
+        if (myArmor > 10) {
+            return { actionType: 'SIEGE_ACTION', payload: { targetRegionId: regionId }, subType: 'CLAIM_THRONE', reason: 'I CLAIM THIS THRONE!', weight: 1.0 };
+        }
+
+        // Just attack whoever is on throne (Sunder)
+        const targets = Object.keys(occupiers);
+        if (targets.length > 0) {
+            const randomTarget = targets[Math.floor(Math.random() * targets.length)];
+            return { actionType: 'SIEGE_ACTION', payload: { targetRegionId: regionId, targetId: randomTarget }, subType: 'SUNDER_ARMOR', reason: 'Drag them down!', weight: 0.9 };
+        }
+    }
+
+    return null;
+}
+const evaluateCrafting = (bot: SimulationPlayer, _room: SimulationRoom, persona: BotPersona, _gold: number, _stamina: number): BotDecision | null => {
+    // 1. Determine Goal
+    let goalItem = '';
+
+    // Role based desire
+    if (persona.id === 'LOYAL_SOLDIER' || persona.id === 'ANARCHIST') {
+        if (!bot.inventory?.find(i => i.id.includes('sword'))) goalItem = 'iron_sword';
+        else if (!bot.inventory?.find(i => i.id.includes('armor'))) goalItem = 'leather_armor';
+    } else if (persona.id === 'SIMPLE_PEASANT') {
+        if (!bot.inventory?.find(i => i.id.includes('axe'))) goalItem = 'stone_axe';
+    }
+
+    if (!goalItem) return null;
+
+    // 2. Find Path
+    const path = findPathToGoal(goalItem, bot.resources);
+    if (!path) return null;
+
+    // 3. Execute Step
+    // message format: "Jeg trenger X..." or "Jeg vil ha..."
+    // action format: could be 'REFINE_PLANK' or 'CRAFT:iron_sword'
+
+    const actionKey = path.action;
+
+    if (actionKey.startsWith('CRAFT:')) {
+        const recipeId = actionKey.split(':')[1];
+        // Check ingredients (Simplified: findPathToGoal usually means we have prerequisites or it points to prerequisites)
+        // Actually findPathToGoal checks "resourceOrigins". It returns the ACTION that produces the target.
+        // It does NOT check if we have ingredients for that action yet.
+
+        // So we must check ingredients here.
+        // We'd need to look up recipe again. 
+        // Hack: Just try to craft. If it fails, next tick we might try to buy ingredients if we add logic here.
+
+        // Let's add "Buy Ingredient" logic here.
+        // We need the recipe. Hard to get efficiently without importing CRAFTING_RECIPES here again.
+        // For now, simple TRY CRAFT.
+        return { actionType: 'CRAFT', subType: recipeId, reason: `Crafting my goal: ${goalItem}`, weight: 0.8 };
+    }
+
+    // If it's a basic gathering action (CHOP, MINE)
+    if (['CHOP', 'MINE', 'QUARRY'].includes(actionKey)) {
+        return { actionType: actionKey, reason: `Gathering for goal: ${goalItem}`, weight: 0.85 };
+    }
+
+    return null;
+};

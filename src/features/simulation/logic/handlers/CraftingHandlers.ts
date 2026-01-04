@@ -36,10 +36,11 @@ export const handleCraft = (ctx: ActionContext) => {
 
             if (isResource) {
                 // Add to resources
-                (actor.resources as any)[outputId] = ((actor.resources as any)[outputId] || 0) + 1;
-                localResult.utbytte.push({ resource: outputId, amount: 1 });
+                const amount = recipe.outputAmount || 1;
+                (actor.resources as any)[outputId] = ((actor.resources as any)[outputId] || 0) + amount;
+                localResult.utbytte.push({ resource: outputId, amount: amount });
                 const tpl = ITEM_TEMPLATES[outputId];
-                localResult.message = `Laget ${tpl?.name || outputId}!`;
+                localResult.message = `Laget ${amount}x ${tpl?.name || outputId}!`;
                 trackXp('CRAFTING', 25 * recipe.level);
             } else {
                 // Create Unique Item

@@ -119,8 +119,8 @@ export const useBotManager = (pin: string, room: SimulationRoom | null, isHost: 
                             newLogs.push(`[${bot.name}] KREVER TITTEL: ${decision.payload.regionId}`);
                             await handleClaimEmptyThrone(pin, bot.id, decision.payload.regionId);
                         } else {
-                            newLogs.push(`[${bot.name}] ${decision.actionType}: ${decision.reason}`);
-                            const actionPayload = decision.payload ? { type: decision.actionType, ...decision.payload } : decision.actionType;
+                            newLogs.push(`[${bot.name}] ${decision.actionType}${decision.subType ? ` (${decision.subType})` : ''}: ${decision.reason}`);
+                            const actionPayload = decision.payload ? { type: decision.actionType, subType: decision.subType, ...decision.payload } : { type: decision.actionType, subType: decision.subType };
                             await performAction(pin, bot.id, actionPayload);
                         }
                     } catch (e) {
