@@ -1,92 +1,54 @@
-import type { SkillType } from '../simulationTypes';
+import type { Role, SkillType, SkillData } from '../simulationTypes';
 
-export const SKILL_DETAILS: Record<SkillType, { label: string, description: string, xpSource: string, color: string, bonuses: Record<number, string> }> = {
-    FARMING: {
-        label: 'Jordbruk',
-        description: 'Evnen til å dyrke jorden og høste korn.',
-        xpSource: 'Høst korn på jordene eller arbeid i vindmøllen.',
-        color: '#10b981',
-        bonuses: {
-            2: '+5% kornhøst',
-            5: '+15% kornhøst, låser opp Stålhjå',
-            10: '+30% kornhøst, mulighet for dobbel avling'
-        }
+export const INITIAL_SKILLS: Record<Role, Record<SkillType, SkillData>> = {
+    PEASANT: {
+        FARMING: { level: 1, xp: 0, maxXp: 100 },
+        WOODCUTTING: { level: 1, xp: 0, maxXp: 100 },
+        MINING: { level: 0, xp: 0, maxXp: 100 },
+        CRAFTING: { level: 0, xp: 0, maxXp: 100 },
+        STEWARDSHIP: { level: 0, xp: 0, maxXp: 100 },
+        COMBAT: { level: 0, xp: 0, maxXp: 100 },
+        TRADING: { level: 0, xp: 0, maxXp: 100 },
+        THEOLOGY: { level: 0, xp: 0, maxXp: 100 }
     },
-    WOODCUTTING: {
-        label: 'Skogbruk',
-        description: 'Felling av trær og foredling av tømmer.',
-        xpSource: 'Hugg ved i skogen eller arbeid på sagbruket.',
-        color: '#d97706',
-        bonuses: {
-            2: '+10% ved-yield',
-            5: '+25% ved-yield, låser opp Jernøks',
-            10: 'Sjanse for å finne sjelden tømmer'
-        }
+    BARON: {
+        FARMING: { level: 3, xp: 0, maxXp: 300 },
+        WOODCUTTING: { level: 3, xp: 0, maxXp: 300 },
+        MINING: { level: 1, xp: 0, maxXp: 100 },
+        CRAFTING: { level: 1, xp: 0, maxXp: 100 },
+        STEWARDSHIP: { level: 5, xp: 0, maxXp: 1000 },
+        COMBAT: { level: 3, xp: 0, maxXp: 300 },
+        TRADING: { level: 3, xp: 0, maxXp: 300 },
+        THEOLOGY: { level: 1, xp: 0, maxXp: 100 }
     },
-    MINING: {
-        label: 'Gruvedrift',
-        description: 'Utvinning av malm og verdifulle mineraler.',
-        xpSource: 'Arbeid i gruvene eller steinbruddet.',
-        color: '#64748b',
-        bonuses: {
-            3: '+10% malm-utbytte',
-            7: 'Redusert stamina-bruk ved graving',
-            10: 'Låser opp utvinning av edle metaller'
-        }
+    KING: {
+        FARMING: { level: 1, xp: 0, maxXp: 100 },
+        WOODCUTTING: { level: 1, xp: 0, maxXp: 100 },
+        MINING: { level: 1, xp: 0, maxXp: 100 },
+        CRAFTING: { level: 1, xp: 0, maxXp: 100 },
+        STEWARDSHIP: { level: 10, xp: 0, maxXp: 5000 },
+        COMBAT: { level: 5, xp: 0, maxXp: 1500 },
+        TRADING: { level: 5, xp: 0, maxXp: 1500 },
+        THEOLOGY: { level: 5, xp: 0, maxXp: 1500 }
     },
-    CRAFTING: {
-        label: 'Håndverk',
-        description: 'Smiing av våpen, rustninger og verktøy.',
-        xpSource: 'Lag gjenstander i smia eller bakeriet.',
-        color: '#f97316',
-        bonuses: {
-            2: 'Bedre sjanse for høyere kvalitet',
-            5: 'Redusert materialkostnad (-10%)',
-            10: 'Mesterhåndverk: Gjenstander har +20% holdbarhet'
-        }
+    SOLDIER: {
+        FARMING: { level: 1, xp: 0, maxXp: 100 },
+        WOODCUTTING: { level: 1, xp: 0, maxXp: 100 },
+        MINING: { level: 0, xp: 0, maxXp: 100 },
+        CRAFTING: { level: 1, xp: 0, maxXp: 100 },
+        STEWARDSHIP: { level: 0, xp: 0, maxXp: 100 },
+        COMBAT: { level: 5, xp: 0, maxXp: 1500 },
+        TRADING: { level: 0, xp: 0, maxXp: 100 },
+        THEOLOGY: { level: 0, xp: 0, maxXp: 100 }
     },
-    STEWARDSHIP: {
-        label: 'Forvaltning',
-        description: 'Ledelse, økonomi og styring av landområder.',
-        xpSource: 'Samle inn skatt, passere lover eller styre regioner.',
-        color: '#6366f1',
-        bonuses: {
-            5: '+10% skatteinntekter',
-            10: 'Redusert lojalitetstap ved høy skatt',
-            15: 'Låser opp avanserte lover'
-        }
-    },
-    COMBAT: {
-        label: 'Strid',
-        description: 'Kampferdighet og forsvar av riket.',
-        xpSource: 'Delta i raids, forsvar regionen eller tren på vaktposten.',
-        color: '#e11d48',
-        bonuses: {
-            3: '+10% angrepsstyrke',
-            7: 'Bedre forsvar med skjold',
-            10: 'Låser opp spesialangrep'
-        }
-    },
-    TRADING: {
-        label: 'Handel',
-        description: 'Kjøp og salg av varer på markedet.',
-        xpSource: 'Kjøp og selg varer, eller send ut karavaner.',
-        color: '#eab308',
-        bonuses: {
-            2: '5% bedre priser',
-            5: '15% bedre priser, se markedstrender',
-            10: 'Ingen markedsavgifter'
-        }
-    },
-    THEOLOGY: {
-        label: 'Teologi',
-        description: 'Tro og forståelse av det guddommelige.',
-        xpSource: 'Be i kirken eller bidra til katedralen.',
-        color: '#8b5cf6',
-        bonuses: {
-            5: 'Økt stamina-regenerering',
-            10: 'Låser opp mirakler',
-            15: 'Guds gunst beskytter mot ulykker'
-        }
+    MERCHANT: {
+        FARMING: { level: 1, xp: 0, maxXp: 100 },
+        WOODCUTTING: { level: 1, xp: 0, maxXp: 100 },
+        MINING: { level: 0, xp: 0, maxXp: 100 },
+        CRAFTING: { level: 2, xp: 0, maxXp: 200 },
+        STEWARDSHIP: { level: 1, xp: 0, maxXp: 100 },
+        COMBAT: { level: 0, xp: 0, maxXp: 100 },
+        TRADING: { level: 5, xp: 0, maxXp: 1500 },
+        THEOLOGY: { level: 0, xp: 0, maxXp: 100 }
     }
 };

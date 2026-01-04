@@ -1,61 +1,14 @@
 import { ref, runTransaction, get, update } from 'firebase/database';
 import { simulationDb as db } from './simulationFirebase';
 import { calculateStaminaCost, logSimulationMessage } from './utils/simulationUtils';
-import { ACTION_COSTS, GAME_BALANCE, INITIAL_RESOURCES, INITIAL_SKILLS, LEVEL_XP } from './constants';
+import { ACTION_COSTS, GAME_BALANCE, INITIAL_RESOURCES, INITIAL_SKILLS } from './constants';
 import { ACTION_REGISTRY } from './logic/actionRegistry';
 import { handleGlobalTrade, handleGlobalTax, handleGlobalContribution } from './globalActions';
 import { logSystemicStat } from './utils/statsUtils';
-import type { SkillType, SimulationPlayer, EquipmentSlot, ActionType, Resources } from './simulationTypes';
+import type { SkillType, EquipmentSlot, ActionType, Resources } from './simulationTypes';
 
-/* --- HELPERS --- */
-
-const addXp = (actor: SimulationPlayer, skillType: SkillType, amount: number, messages: string[]) => {
-    // 1. Initialize roleStats if missing
-    if (!actor.roleStats) actor.roleStats = {};
-    const currRole = actor.role;
-
-    // 2. Ensure current role stats exist (Sync if it's the first time)
-    if (!actor.roleStats[currRole]) {
-        actor.roleStats[currRole] = {
-            level: actor.stats?.level || 1,
-            xp: actor.stats?.xp || 0,
-            skills: JSON.parse(JSON.stringify(actor.skills || INITIAL_SKILLS[currRole as keyof typeof INITIAL_SKILLS] || INITIAL_SKILLS.PEASANT))
-        };
-    }
-
-    const roleStats = actor.roleStats[currRole]!;
-
-    // 3. Update Skills (Local to role container)
-    const skill = roleStats.skills[skillType];
-    if (skill) {
-        skill.xp += (amount || 0);
-        if (skill.xp >= skill.maxXp) {
-            skill.level += 1;
-            skill.xp -= skill.maxXp;
-            skill.maxXp = Math.floor(skill.maxXp * 1.5);
-            messages.push(`⭐ ${actor.name} ble bedre i ${skillType}! (Nivå ${skill.level})`);
-        }
-    }
-
-    // 4. Update Role Rank XP
-    roleStats.xp = (roleStats.xp || 0) + (amount || 0);
-
-    const getLevel = (xp: number) => {
-        const index = LEVEL_XP.findIndex(req => xp < req);
-        return index === -1 ? LEVEL_XP.length : index;
-    };
-
-    const newLevel = getLevel(roleStats.xp);
-    if (newLevel > roleStats.level) {
-        roleStats.level = newLevel;
-        messages.push(`🏰 ${actor.name} har steget i rang som ${currRole} til Nivå ${newLevel}!`);
-    }
-
-    // 5. Sync to root for UI/Engine compatibility (important for existing systems)
-    actor.stats.xp = roleStats.xp;
-    actor.stats.level = roleStats.level;
-    actor.skills = roleStats.skills;
-};
+import { addXp, recordCharacterLife } from './logic/playerLogic';
+import { performSiegeTransaction } from './logic/handlers/SiegeActions';
 
 /* --- ACTIONS CLASSIFICATION --- */
 const GLOBAL_ACTIONS = ['RAID', 'TAX', 'TAX_PEASANTS', 'TAX_ROYAL', 'TRADE', 'TRADE_ROUTE', 'CONTRIBUTE_TO_UPGRADE', 'BUY', 'SELL', 'CONTRIBUTE', 'START_SIEGE', 'JOIN_SIEGE', 'SIEGE_ACTION'];
@@ -64,20 +17,16 @@ export const performAction = async (pin: string, playerId: string, action: any):
     const actionType = typeof action === 'string' ? action : action.type;
     const isGlobalAction = GLOBAL_ACTIONS.includes(actionType);
 
-    // PATH 1: GLOBAL ACTIONS
     if (isGlobalAction) {
         return performGlobalAction(pin, playerId, action);
     }
 
-    // PATH 2: SOLO ACTIONS
     return performSoloAction(pin, playerId, action);
 };
 
-/* --- SHARDED ACTION HANDLER (OPTIMIZED) --- */
+/* --- SOLO ACTION HANDLER --- */
 async function performSoloAction(pin: string, playerId: string, action: any) {
     const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
-
-    // 1. Fetch Read-Only State (No Lock)
     const worldRef = ref(db, `simulation_rooms/${pin}/world`);
 
     let result: any = null;
@@ -86,13 +35,8 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
         const worldSnap = await get(worldRef);
         const world = worldSnap.exists() ? worldSnap.val() : { season: 'Spring', weather: 'Clear', activeLaws: [] };
 
-        const markets = {};
-        const market = {};
-
         await runTransaction(playerRef, (actor: any) => {
-            if (!actor) return actor; // Player missing?
-
-            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            if (!actor) return actor;
 
             // Initialize Core State if missing
             if (!actor.resources) actor.resources = JSON.parse(JSON.stringify(INITIAL_RESOURCES[actor.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT));
@@ -102,7 +46,6 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
             if (!actor.stats) actor.stats = { level: 1, xp: 0 };
             if (!actor.activeBuffs) actor.activeBuffs = [];
 
-            // Initialize Local Result
             const localResult = {
                 success: true,
                 timestamp: Date.now(),
@@ -112,7 +55,6 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                 durability: [] as any[]
             };
 
-            // Helpers
             const trackXp = (skill: SkillType, amount: number) => {
                 const preLevel = actor.skills?.[skill]?.level || 0;
                 const msgList: string[] = [];
@@ -126,16 +68,17 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
             const initialLevel = actor.stats.level || 1;
 
             const damageTool = (slot: EquipmentSlot, amount: number) => {
-                if (actor.equipment?.[slot]) {
-                    actor.equipment[slot].durability = Math.max(0, actor.equipment[slot].durability - amount);
+                const item = actor.equipment?.[slot];
+                if (item) {
+                    item.durability = Math.max(0, item.durability - amount);
                     localResult.durability.push({
                         slot,
-                        item: actor.equipment[slot].name || 'Item',
+                        item: item.name || 'Gjenstand',
                         amount,
-                        broken: actor.equipment[slot].durability <= 0
+                        broken: item.durability <= 0
                     });
-                    if (actor.equipment[slot].durability <= 0) {
-                        localResult.message = `❌ ${actor.equipment[slot].name} ble ødelagt!`;
+                    if (item.durability <= 0) {
+                        localResult.message = `❌ ${item.name} ble ødelagt!`;
                         localResult.success = false;
                         return false;
                     }
@@ -143,7 +86,7 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                 return true;
             };
 
-            // 0. Passive Income & Regen
+            // Passive Regen
             const now = Date.now();
             const elapsedMs = now - (actor.lastActive || now);
             const elapsedMinutes = Math.min(60, isNaN(elapsedMs) ? 0 : elapsedMs / 60000);
@@ -163,18 +106,15 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
             const initialRole = actor.role;
             const actionType = typeof action === 'string' ? action : action.type;
 
-            // 1. Handle Costs
+            // Handle Costs
             const cost = ACTION_COSTS[actionType as ActionType];
-
             if (cost) {
                 const finalStaminaCost = calculateStaminaCost(cost.stamina || 0, world.season, world.weather, actor.activeBuffs, world.gameTick || 0);
 
-                // Resource Check
                 for (const [res, amt] of Object.entries(cost)) {
                     if (res === 'stamina') continue;
                     const resourceKey = res as keyof Resources;
-                    const currentAmount = actor.resources[resourceKey] || 0;
-                    if (currentAmount < (amt as number)) {
+                    if ((actor.resources[resourceKey] || 0) < (amt as number)) {
                         localResult.success = false;
                         localResult.message = `❌ Mangler ${amt} ${res}!`;
                         result = localResult;
@@ -182,7 +122,6 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                     }
                 }
 
-                // Stamina Check
                 if ((actor.status.stamina || 0) < finalStaminaCost) {
                     localResult.success = false;
                     localResult.message = `💤 For sliten! (${finalStaminaCost}⚡ kreves)`;
@@ -190,7 +129,6 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                     return actor;
                 }
 
-                // Deduct
                 for (const [res, amt] of Object.entries(cost)) {
                     if (res === 'stamina') continue;
                     const resourceKey = res as keyof Resources;
@@ -200,23 +138,15 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                 actor.status.stamina -= finalStaminaCost;
             }
 
-            // 2. Perform Action Logic
+            // Logic Execution
             const handler = ACTION_REGISTRY[actionType];
             if (handler) {
-                const mockRoom = {
-                    world: world,
-                    markets: markets,
-                    market: market,
-                    messages: [],
-                    players: { [playerId]: actor }
-                };
-
                 const ctx = {
                     actor,
-                    room: mockRoom as any,
+                    room: { world, players: { [playerId]: actor }, messages: [] } as any,
                     pin,
                     action,
-                    timestamp,
+                    timestamp: new Date().toLocaleTimeString(),
                     localResult,
                     trackXp,
                     damageTool
@@ -234,20 +164,11 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
 
             if (!localResult.message) localResult.message = "Handling utført.";
 
-            // 3. Jackpot Moment
+            // Jackpot
             if (localResult.success && Math.random() < 0.005) {
-                const rareRelic = {
-                    resource: 'ancient_relic',
-                    type: 'ITEM',
-                    id: 'ancient_relic',
-                    name: 'Gammel Relikvie',
-                    icon: '🏺',
-                    amount: 1,
-                    jackpot: true
-                };
                 actor.resources.gold = (actor.resources.gold || 0) + 150;
-                localResult.utbytte.push(rareRelic);
-                localResult.message += " ✨ ET JORDFUNN! Du fant en eldgammel relikvie begravd i bakken!";
+                localResult.utbytte.push({ id: 'ancient_relic', name: 'Gammel Relikvie', type: 'ITEM', icon: '🏺', amount: 1, jackpot: true });
+                localResult.message += " ✨ ET JORDFUNN! Du fant en eldgammel relikvie!";
             }
 
             actor.lastActive = Date.now();
@@ -257,7 +178,6 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                 (result as any).characterSnapshot = JSON.parse(JSON.stringify(actor));
             }
 
-            // Flag for side-effect
             if (actor.stats.level > initialLevel) {
                 (result as any).newLevel = actor.stats.level;
             }
@@ -269,28 +189,24 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
             return actor;
         });
 
-        // Post-Transaction: Log Message & Side-Effects
-        try {
-            if (result && result.success) {
-                // Log message if significant
-                if (result.message) {
-                    await logSimulationMessage(pin, `[${new Date().toLocaleTimeString()}] ${result.message}`);
-                }
+        // Post-Action Processing
+        if (result && result.success) {
+            if (result.message) {
+                await logSimulationMessage(pin, `[${new Date().toLocaleTimeString()}] ${result.message}`);
+            }
 
-                // Track Production/Crafting
-                if (result.utbytte && result.utbytte.length > 0) {
-                    result.utbytte.forEach((u: any) => {
-                        const category = u.type === 'ITEM' ? 'crafted' : 'produced';
-                        logSystemicStat(pin, category, u.id || u.resource, u.amount || 1);
-                    });
-                }
+            if (result.utbytte && result.utbytte.length > 0) {
+                result.utbytte.forEach((u: any) => {
+                    const category = u.type === 'ITEM' ? 'crafted' : 'produced';
+                    logSystemicStat(pin, category, u.id || u.resource, u.amount || 1);
+                });
             }
 
             if ((result as any).characterSnapshot) {
-                await recordCharacterLife(playerId, pin, (result as any).characterSnapshot);
+                const uid = (result as any).characterSnapshot.uid || playerId; // Fallback to playerId if uid missing
+                await recordCharacterLife(uid, pin, (result as any).characterSnapshot);
             }
 
-            // DUAL-WRITE: Sync Level Up to Public Profile
             if ((result as any).newLevel) {
                 try {
                     await update(ref(db, `simulation_rooms/${pin}/public_profiles/${playerId}`), {
@@ -298,20 +214,18 @@ async function performSoloAction(pin: string, playerId: string, action: any) {
                         lastActive: Date.now()
                     });
                 } catch (e) {
-                    console.error("Failed to sync level to public profile", e);
+                    console.error("Failed to sync level", e);
                 }
             }
-        } catch (logErr) {
-            console.error("Non-critical post-action error (logging/history):", logErr);
         }
 
         return { success: !!result?.success, data: result || undefined };
 
-    } catch (e) {
-        console.error("Solo Action failed", e);
-        return { success: false, error: e };
+    } catch (e: any) {
+        console.error("Action error:", e);
+        return { success: false, error: e.message || "Handling feilet" };
     }
-};
+}
 
 /* --- GLOBAL ACTION HANDLER --- */
 async function performGlobalAction(pin: string, playerId: string, action: any) {
@@ -326,8 +240,6 @@ async function performGlobalAction(pin: string, playerId: string, action: any) {
             return await handleGlobalContribution(pin, playerId, action);
         }
 
-
-
         if (actionType === 'TAX' || actionType === 'TAX_PEASANTS' || actionType === 'TAX_ROYAL') {
             return await handleGlobalTax(pin, playerId, action);
         }
@@ -336,167 +248,10 @@ async function performGlobalAction(pin: string, playerId: string, action: any) {
             return await performSiegeTransaction(pin, playerId, action);
         }
 
-        return { success: false, error: "Global handling for this action not yet optimized." };
-
-    } catch (e) {
-        console.error("Global Action ERROR:", e);
-        return { success: false, error: JSON.stringify(e, Object.getOwnPropertyNames(e)) };
-    }
-};
-
-// Hoisted Helper (converted to function to avoid TDZ issues if called before definition)
-export async function recordCharacterLife(uid: string, roomPin: string, player: SimulationPlayer) {
-    if (!uid || !player) return;
-
-    const accountRef = ref(db, `simulation_accounts/${uid}`);
-    try {
-        const snapshot = await get(accountRef);
-        if (!snapshot.exists()) return;
-
-        const accountData = snapshot.val();
-        const history = accountData.characterHistory || [];
-
-        const newEntry = {
-            name: player.name,
-            role: player.role,
-            level: player.stats?.level || 1,
-            xp: player.stats?.xp || 0,
-            roomPin: roomPin,
-            timestamp: Date.now()
-        };
-
-        const updatedHistory = [...history, newEntry];
-        const addedXp = player.stats?.xp || 0;
-        const newGlobalXp = (accountData.globalXp || 0) + addedXp;
-        const newGlobalLevel = Math.floor(Math.sqrt(newGlobalXp / 100)) + 1;
-
-        await update(accountRef, {
-            characterHistory: updatedHistory,
-            globalXp: newGlobalXp,
-            globalLevel: newGlobalLevel,
-            lastActive: Date.now()
-        });
-
-
-        console.log(`Character life recorded for ${player.name} (${uid})`);
-    } catch (e) {
-        console.error("Failed to record character life:", e);
-    }
-}
-
-/* --- SIEGE TRANSACTION --- */
-async function performSiegeTransaction(pin: string, playerId: string, action: any) {
-    const actionType = typeof action === 'string' ? action : action.type;
-    const playerRef = ref(db, `simulation_rooms/${pin}/players/${playerId}`);
-    const regionsRef = ref(db, `simulation_rooms/${pin}/regions`);
-    const worldRef = ref(db, `simulation_rooms/${pin}/world`);
-
-    try {
-        // 1. Fetch Data (Parallel)
-        const [playerSnap, regionsSnap, worldSnap] = await Promise.all([
-            get(playerRef),
-            get(regionsRef),
-            get(worldRef)
-        ]);
-
-        if (!playerSnap.exists()) return { success: false, error: "Spiller finnes ikke" };
-
-        const actor = playerSnap.val();
-        // Ensure minimal state
-        if (!actor.resources) actor.resources = INITIAL_RESOURCES[actor.role as keyof typeof INITIAL_RESOURCES] || INITIAL_RESOURCES.PEASANT;
-
-        const regions = regionsSnap.val() || {};
-        const world = worldSnap.val() || {};
-
-        // 2. Prepare Context with REGIONS
-        const localResult = {
-            success: true,
-            timestamp: Date.now(),
-            message: "",
-            utbytte: [] as any[],
-            xp: [] as any[],
-            durability: [] as any[]
-        };
-
-        const mockRoom = {
-            world,
-            regions, // <--- CRITICAL FIX
-            players: { [playerId]: actor },
-            markets: {},
-            messages: []
-        };
-
-        const ctx = {
-            actor,
-            room: mockRoom as any,
-            pin,
-            action,
-            timestamp: new Date().toLocaleTimeString(),
-            localResult,
-            trackXp: (_skill: SkillType, _amount: number) => { /* Simplified XP tracking for Siege */ },
-            damageTool: () => true
-        };
-
-        // 3. Run Handler
-        const handler = ACTION_REGISTRY[actionType];
-        if (!handler) return { success: false, error: "Ukjent handling" };
-
-        const success = handler(ctx);
-
-        if (!success || !localResult.success) {
-            return { success: false, data: localResult }; // Failure
-        }
-
-        // 4. Atomic Commit (Multi-Path Update)
-        const updates: any = {};
-        updates[`players/${playerId}`] = actor;
-
-        // 5. Direct Takeover Logic (Military Coup)
-        const winnerId = (localResult as any).siegeWinnerId;
-        const targetRegionId = (localResult as any).targetRegionId;
-
-        if (winnerId && targetRegionId) {
-            const region = regions[targetRegionId];
-            const oldRulerId = region.rulerId;
-
-            // Demote Old Ruler
-            if (oldRulerId && oldRulerId !== winnerId) {
-                const oldRulerSnap = await get(ref(db, `simulation_rooms/${pin}/players/${oldRulerId}`));
-                if (oldRulerSnap.exists()) {
-                    const oldRuler = oldRulerSnap.val();
-                    oldRuler.role = 'PEASANT';
-                    oldRuler.status.legitimacy = 0;
-                    updates[`players/${oldRulerId}`] = oldRuler;
-                    updates[`public_profiles/${oldRulerId}/role`] = 'PEASANT';
-                    logSystemicStat(pin, 'roleChanges', 'PEASANT (Demoted)', 1);
-                }
-            }
-
-            // Promote Winner
-            const winnerSnap = await get(ref(db, `simulation_rooms/${pin}/players/${winnerId}`));
-            if (winnerSnap.exists()) {
-                const winner = winnerSnap.val();
-                winner.role = 'BARON';
-                winner.regionId = targetRegionId;
-                winner.status.legitimacy = 100;
-                updates[`players/${winnerId}`] = winner;
-                updates[`public_profiles/${winnerId}/role`] = 'BARON';
-                updates[`public_profiles/${winnerId}/regionId`] = targetRegionId;
-
-                // Update Region
-                region.rulerId = winnerId;
-                region.rulerName = winner.name;
-            }
-        }
-
-        updates[`regions`] = regions; // Persist modified region state (Siege progress or Takeover)
-
-        await update(ref(db, `simulation_rooms/${pin}`), updates);
-
-        return { success: true, data: localResult };
+        return { success: false, error: "Global handling not available." };
 
     } catch (e: any) {
-        console.error("Siege Transaction Failed", e);
-        return { success: false, error: e.message || "Beleiring feilet" };
+        console.error("Global Action ERROR:", e);
+        return { success: false, error: e.message || "Global handling feilet" };
     }
 }
