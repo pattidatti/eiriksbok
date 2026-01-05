@@ -1,0 +1,111 @@
+import type { TextEntry } from '../types';
+
+export const enMiddag: TextEntry = {
+        id: 'en-middag',
+        title: 'En middag',
+        author: 'Alexander Kielland',
+        genre: 'Novelle',
+        language: 'bm.',
+        theme: ['Realisme', 'Generasjonskonflikt', 'Dobbeltmoral', 'Samfunnskritikk'],
+        publishedYear: 1879,
+        createdDate: '2025-12-02T12:00:00',
+        lastUpdated: '2025-12-03T17:27:15.157Z',
+        definitions: [
+            { term: "grossereren", definition: "En kjøpmann som driver handel engros (i store partier)" },
+            { term: "amtmannen", definition: "Embetsmann som styrte et amt (nå kalt fylke/statsforvalter)" },
+            { term: "rhinskvin", definition: "Hvitvin fra Rhindalen i Tyskland" },
+            { term: "portvin", definition: "Sterkvin fra Portugal" },
+            { term: "adjunkt", definition: "Lærer i den høyere skolen" },
+            { term: "overrettssakføreren", definition: "Advokat med rett til å føre saker for overretten (tidligere domstol)" },
+            { term: "patriarkalske", definition: "Som hører til et samfunnssystem der faren/mannen er overhodet" },
+            { term: "liberal", definition: "Frisinn, åpen for nye ideer (her: i motsetning til konservativ)" },
+            { term: "veltalenhet", definition: "Evne til å tale godt og overbevisende" },
+            { term: "laurbærene", definition: "Nøye seg med tidligere seire/innsats, ikke anstrenge seg mer" },
+            { term: "fordommene", definition: "Forutinntatte meninger, ofte negative" },
+            { term: "hederlig", definition: "Ærlig, redelig" },
+            { term: "oppløftet", definition: "Glad, i godt humør" },
+            { term: "innrøykte", definition: "At de tålte tobakksrøyk (spøkefullt/nedlatende her)" },
+            { term: "bommert", definition: "Feil, tabbe" },
+            { term: "vrøvler", definition: "Snakker tull" },
+            { term: "kjære vene", definition: "Utrop (mild ed)" },
+            { term: "spydighet", definition: "Hånlig/ironisk bemerkning" },
+            { term: "innprente", definition: "Lære bort grundig, prege inn" },
+            { term: "henrivende", definition: "Sjarmerende, inntagende" }
+        ],
+        content: [
+            "Det var stor middag hos grossereren. Amtmannen hadde holdt en tale for den hjemkomne studenten – husets eldste sønn – og grossereren hadde svart med en tale for amtmannen. Så langt var alt i orden. Likevel kunne man merke at verten var urolig. Han svarte forvirret, helte rhinskvin i portvin og viste på alle måter at tankene hans var et annet sted.",
+            "Han gikk nemlig og grunnet på en tale, en som ikke sto på programmet. Og det var ganske merkelig, for grossereren var ingen taler – og det visste han godt selv.",
+            "Derfor ble stemningen straks spent da han, langt ute i måltidet, ba om ordet og sa at han hadde noe på hjertet han måtte få si. Det ble plutselig så stille rundt bordet at man kunne høre den livlige praten fra damene, som etter norsk skikk satt i rommene ved siden av.",
+            "Etter hvert ble også de stille og samlet seg i døren for å høre. Bare vertinnen ble sittende, mens hun sendte mannen et bekymret blikk. «Å, Herregud,» sukket hun halvhøyt, «nå går det nok galt. Han har jo holdt alle sine taler – hva mer er det han vil?»",
+            "Og det begynte da heller ikke særlig bra. Grossereren stotret, kremtet og rotet seg inn i de vanlige frasene: «Jeg vil ikke unnlate å … eh … det er meg en trang å si at … at … altså, jeg ville be mine herrer om å hjelpe meg med å …»",
+            "Gjestenes blikk falt ned i glassene, klare til å heve dem ved første antydning til en avslutning. Men den kom ikke.",
+            "Derimot kom han seg etter hvert. For det var virkelig noe som lå ham på hjertet: gleden og stoltheten over sønnen, som var kommet hjem frisk og sunn etter en respektabel eksamen; amtmannens smigrende ord; maten, vinen, stemningen – men først og fremst den rene gleden over den førstefødte.",
+            "Da han kom seg gjennom de famlende innledningene, fløt ordene lettere.",
+            "Han holdt en skål for ungdommen. Han talte om ansvaret overfor barna, om sorgene, men også om gleden de gir. Av og til måtte han snakke fort for ikke å bli rørt, for han mente det han sa.",
+            "Da han så kom inn på de voksne barna – og så for seg sønnen som partner i forretningen, barnebarn og alt som fulgte – fikk talen hans en veltalenhet som overrasket alle. Og avslutningen ble møtt med hjertelig applaus:",
+            "«Mine herrer! Det er i barna vi fortsetter vår tilværelse. Vi etterlater dem ikke bare navnet vårt, men også arbeidet vårt. Og vi gjør det ikke for at de skal hvile på laurbærene, men for at de skal føre det videre, utvide det – ja, gjøre det bedre enn vi selv maktet. Det er vårt håp at den unge generasjonen skal tilegne seg fruktene av alt arbeid gjennom tidene, fri seg fra mange av de fordommene som har preget fortiden – og delvis nåtiden – og gå stadig fremover, verdige til å overgå sine fedre.",
+            "Bare når vi vet at slektens arbeid er overlatt til dyktigere hender, kan vi med ro møte den dagen vi legger ned vårt daglige virke, og med trygghet stole på en lys og hederlig fremtid for vårt kjære fedreland. Skål for ungdommen!»",
+            "Vertinnen, som hadde våget seg nærmere da hun hørte det gikk bra, ble både rørt og stolt av mannen. Hele selskapet var i oppløftet stemning; men mest gledet studenten seg.",
+            "Han hadde alltid hatt en viss ærefrykt for faren, som han kjente for strenge, patriarkalske prinsipper. Nå hørte han at den gamle faktisk var svært liberal i synet på ungdommen, og han gledet seg til å få en alvorlig samtale med ham.",
+            "Men foreløpig ble det mest spøk. Skålen utløste en munter diskusjon om hvem som egentlig var unge og hvem som var gamle. Da man hadde landet på at de eldste i virkeligheten var de yngste, gikk gjestene til dessertbordet inne hos damene.",
+            "Likevel kunne verken den mest utsøkte dessert eller kvinnelig sjarm holde herrene lenge unna røkeværelset. Snart var lufta fylt av sigarrøyk, og prosessen var i gang som alltid hadde gitt damene rykte for å være «innrøykte».",
+            "Studenten og et par andre unge menn ble igjen en stund hos damene, nøye overvåket av de eldre. Men til slutt ble også de dratt inn i den grå røykskyen der fedrene satt.",
+            "I røkeværelset foregikk en livlig diskusjon om et eller annet sosialpolitisk tema. Verten hadde ordet og støttet sitt syn med «historiske fakta» som slett ikke holdt mål. Overrettssakføreren satt klar til å påpeke feilene, da studenten kom inn.",
+            "Han hørte nettopp slutten på farens bommert, og i sin gode stemning – oppmuntret av talen han nylig hadde hørt – sa han lystig og åpent:",
+            "«Nei, unnskyld, far! Der tar du feil. Det forholder seg slett ikke som du sier – tvert imot.»",
+            "Lenger kom han ikke. Faren slo ham leende på skulderen: «Nei, nei! Skal du også spøke med aviser! Men forstyrr oss ikke – vi er midt i en alvorlig diskusjon.»",
+            "Studenten hørte en ertende fnising fra røyken, og ble ekstra provosert da hans innlegg ble avfeid som en forstyrrelse. Han svarte skarpt.",
+            "Faren merket tonen straks og ble alvorlig: «Mener du virkelig at du kan komme her og si at din egen far står og vrøvler?»",
+            "«Det sa jeg ikke. Jeg mente bare at du tok feil –»",
+            "«Ordene spiller ingen rolle, men meningen var tydelig nok,» svarte grossereren, som begynte å bli sint. Han hørte nemlig en av gjestene si til sidemannen: «Det skulle bare vært i min fars tid.»",
+            "Snart tok det ene ordet det andre, og situasjonen ble svært pinlig.",
+            "Fruen, som alltid hadde et øre til herrenes samtale – hun kjente jo sin manns temperament – kom straks til døren:",
+            "«Hva er dette, adjunkt Hansen?»",
+            "«Å – Deres sønn har latt seg rive litt med,» svarte han.",
+            "«Mot sin egen far! Kjære vene, han må ha drukket for mye. Kjære Hansen, se til å få ham ut.»",
+            "Adjunkten, som var mer velvillig enn diplomatisk, og dessuten – sjeldnere enn man tror for en gammel lærer – godt likt av sine tidligere elever, tok studenten rolig under armen: «Kom, vi går en tur i hagen.»",
+            "Den unge mannen protesterte først, men da han så hvem det var, og samtidig fikk et bønnlig blikk fra moren, lot han seg lede ut.",
+            "I døren hørte han sakføreren – som han alltid hadde mislikt – komme med en spydighet om egget som ville lære høna å verpe. Spøken ble møtt med stormende latter, og han rykket til. Men adjunkten holdt ham fast, og ut kom de.",
+            "Det tok tid før den gamle læreren fikk roet ham nok til at han kunne lytte. Skuffelsen over å ha kommet på kant med faren, og ydmykelsen over å ha blitt behandlet som en gutt foran så mange, måtte få rase fra seg.",
+            "Til slutt satt han rolig, og adjunkten forklarte at det kan være sårende for en eldre mann å bli irettesatt av en unggutt.",
+            "«Ja, men jeg hadde jo rett!» sa studenten for tyvende gang.",
+            "«Greit, greit. Men likevel må du ikke opptre som om du er klokere enn din egen far.»",
+            "«Men far sa jo selv at han ville ha det slik!»",
+            "«Hva mener du? Når har din far sagt det?» Adjunkten begynte å lure på om vinen hadde gått ham til hodet.",
+            "«Ved bordet – i talen!» svarte han.",
+            "«Ved bordet, ja, i talen. Men det er en helt annen sak. Slikt passer seg i festtaler, men det er ikke meningen at det skal gjennomføres i praksis. Tro meg, gutten min, jeg er gammel og kjenner folk. Slik er nå engang verden. I ungdommen har man et eget syn på livet, men det er ikke det rette. Først når man blir eldre, ser man tingene klart. Og hør på meg: når du kommer i din fars alder og stilling, vil du mene akkurat det samme som han gjør nå – og du vil, som han, prøve å innprente det i dine barn.»",
+            "«Aldri! Det sverger jeg,» ropte studenten og spratt opp. Han talte med glød om at for ham skulle rett alltid være rett, at sannheten måtte respekteres uansett hvor den kom fra, at ungdommen fortjente respekt, og så videre. Han talte slik håpefulle unge menn ofte gjør etter en god middag og en sterk følelsesopplevelse.",
+            "Han var vakker der han sto med kveldssolen i det blonde håret og ansiktet vendt oppad i begeistring.",
+            "Det var noe henrivende og overbevisende i både skikkelsen og ordene hans – men bare hvis noen andre enn adjunkten hadde sett og hørt det.",
+            "For på ham gjorde det ingen virkning. Han var gammel.",
+            "Det han hadde vært vitne til denne kvelden, hadde han sett mange ganger før. Han hadde selv spilt begge rollene, og sett utallige unge som studenten og like mange eldre som grossereren.",
+            "Derfor ristet han på hodet og sa for seg selv:",
+            "«Ja, ja, det er vel og bra. Men vi får se – han blir nok akkurat som oss andre.»",
+            "Og adjunkten fikk rett."
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere forholdet mellom de eldre og den unge generasjonen i realismen.",
+                "Forstå begrepet 'samfunnskritikk' og hvordan det kommer til uttrykk i teksten.",
+                "Reflektere over betydningen av festtaler kontra handling i virkeligheten."
+            ],
+            preReading: [
+                "Hva forventes av en 'god sønn' eller 'god datter' i dag? Er det annerledes enn på 1800-tallet?",
+                "Hva er en festtale? Pleier folk å si sannheten i slike taler?"
+            ],
+            whileReading: [
+                "Finn eksempler på hvordan faren beskriver ungdommen i talen sin.",
+                "Legg merke til hvordan faren reagerer når sønnen motsier ham i røkeværelset."
+            ],
+            postReading: [
+                "Hvorfor tror du faren nekter å innrømme at han tok feil i diskusjonen, selv etter den fine talen han holdt?",
+                "Adjunkten sier at studenten vil mene det samme som faren når han blir eldre. Er du enig i dette pessimistiske menneskesynet?",
+                "Hvilke kjennetegn på realismen finner du i denne novellen? (Se på språket, temaet og slutten)."
+            ],
+            writingTask: "Skriv en tekst der du sammenligner farens festtale med det som faktisk skjer i røkeværelset. Hva forteller dette oss om dobbeltmoral?",
+            period: {
+                title: "Realismen",
+                link: "/norsk/litteraturhistorie/realismen"
+            }
+        }
+    };

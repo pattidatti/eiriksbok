@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { motionPresets } from '../styles/motion-presets';
 import { Search, Filter, BookOpen, Tag } from 'lucide-react';
-import { textLibraryData } from '../data/textLibraryData';
+import { textLibraryData, type TextEntry } from '../data/textLibraryData';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 export const TextLibraryPage: React.FC = () => {
@@ -49,8 +49,8 @@ export const TextLibraryPage: React.FC = () => {
         setSearchParams(newParams);
     };
 
-    const genres = useMemo(() => Array.from(new Set(textLibraryData.map(t => t.genre))), []);
-    const themes = useMemo(() => Array.from(new Set(textLibraryData.flatMap(t => t.theme || []))), []);
+    const genres = useMemo(() => Array.from(new Set(textLibraryData.map((t: TextEntry) => t.genre))), []);
+    const themes = useMemo(() => Array.from(new Set(textLibraryData.flatMap((t: TextEntry) => t.theme || []))), []);
 
     const periods = [
         { label: 'Før 1900', filter: (year: number) => year < 1900 },
@@ -170,7 +170,7 @@ export const TextLibraryPage: React.FC = () => {
                                 >
                                     Alle sjangre
                                 </button>
-                                {genres.map(genre => (
+                                {genres.map((genre: string) => (
                                     <button
                                         key={genre}
                                         onClick={() => updateFilter('genre', genre)}
@@ -202,7 +202,7 @@ export const TextLibraryPage: React.FC = () => {
                                 >
                                     Alle perioder
                                 </button>
-                                {periods.map(period => (
+                                {periods.map((period: { label: string; filter: (year: number) => boolean }) => (
                                     <button
                                         key={period.label}
                                         onClick={() => updateFilter('period', period.label)}
@@ -228,7 +228,7 @@ export const TextLibraryPage: React.FC = () => {
                                 )}
                             </div>
                             <div className="flex flex-wrap gap-2">
-                                {themes.map(theme => (
+                                {themes.map((theme: string) => (
                                     <button
                                         key={theme}
                                         onClick={() => updateFilter('theme', selectedTheme === theme ? null : theme)}
@@ -258,7 +258,7 @@ export const TextLibraryPage: React.FC = () => {
                     )}
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-                        {filteredAndSortedTexts.map((text, index) => {
+                        {filteredAndSortedTexts.map((text: TextEntry, index: number) => {
                             const isRead = readTexts.includes(text.id);
                             return (
                                 <motion.div
@@ -296,7 +296,7 @@ export const TextLibraryPage: React.FC = () => {
                                             >
                                                 <Tag className="mr-1" size={12} /> {text.genre}
                                             </button>
-                                            {text.theme && text.theme.map(t => (
+                                            {text.theme && text.theme.map((t: string) => (
                                                 <button
                                                     key={t}
                                                     onClick={(e) => { e.stopPropagation(); updateFilter('theme', t); }}

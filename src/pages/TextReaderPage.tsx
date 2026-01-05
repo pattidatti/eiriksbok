@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, User, Tag, Volume2, PauseCircle, PlayCircle, Columns } from 'lucide-react';
-import { textLibraryData } from '../data/textLibraryData';
+import { textLibraryData, type TextEntry } from '../data/textLibraryData';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { Tooltip } from '../components/Tooltip';
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
@@ -13,7 +13,7 @@ export const TextReaderPage: React.FC = () => {
     const navigate = useNavigate();
 
     const textEntry = useMemo(() =>
-        textLibraryData.find(t => t.id === textId),
+        textLibraryData.find((t: TextEntry) => t.id === textId),
         [textId]);
 
     const [currentLanguage, setCurrentLanguage] = useState<string>('bm.');
@@ -32,7 +32,7 @@ export const TextReaderPage: React.FC = () => {
     const displayContent = useMemo(() => {
         if (!textEntry) return [];
         if (currentLanguage === (textEntry.language || 'bm.')) return textEntry.content;
-        const translation = textEntry.translations?.find(t => t.language === currentLanguage);
+        const translation = textEntry.translations?.find((t: any) => t.language === currentLanguage);
         return translation ? translation.content : textEntry.content;
     }, [textEntry, currentLanguage]);
 
@@ -51,7 +51,7 @@ export const TextReaderPage: React.FC = () => {
     const displayTitle = useMemo(() => {
         if (!textEntry) return '';
         if (currentLanguage === (textEntry.language || 'bm.')) return textEntry.title;
-        const translation = textEntry.translations?.find(t => t.language === currentLanguage);
+        const translation = textEntry.translations?.find((t: any) => t.language === currentLanguage);
         return translation ? translation.title : textEntry.title;
     }, [textEntry, currentLanguage]);
 
@@ -71,7 +71,7 @@ export const TextReaderPage: React.FC = () => {
         blocks.push(displayTitle);
         mapSpeechToContent.push(-1); // -1 indicates title
 
-        displayContent.forEach((paragraph, index) => {
+        displayContent.forEach((paragraph: string, index: number) => {
             const cleanText = cleanMarkdown(paragraph);
             if (cleanText) {
                 blocks.push(cleanText);
@@ -110,7 +110,7 @@ export const TextReaderPage: React.FC = () => {
 
         let parts: (string | React.ReactNode)[] = [text];
 
-        textEntry.definitions.forEach((def, index) => {
+        textEntry.definitions.forEach((def: { term: string; definition: string }, index: number) => {
             const newParts: (string | React.ReactNode)[] = [];
             parts.forEach(part => {
                 if (typeof part === 'string') {
@@ -265,7 +265,7 @@ export const TextReaderPage: React.FC = () => {
                                     >
                                         {textEntry.language === 'bm.' ? 'Bokmål' : textEntry.language === 'nn.' ? 'Nynorsk' : textEntry.language}
                                     </button>
-                                    {textEntry.translations.map(t => (
+                                    {textEntry.translations.map((t: any) => (
                                         <button
                                             key={t.language}
                                             onClick={() => setCurrentLanguage(t.language)}
@@ -305,7 +305,7 @@ export const TextReaderPage: React.FC = () => {
 
                 <div className={`prose prose-lg prose-slate mx-auto font-serif ${isSplitView ? 'max-w-none' : ''}`}>
                     {displayContent ? (
-                        displayContent.map((paragraph, index) => {
+                        displayContent.map((paragraph: string, index: number) => {
                             const isActive = activeBlockIndex !== -1 && speechData.mapSpeechToContent[activeBlockIndex] === index;
 
                             // Base classes for the main content paragraph
@@ -413,7 +413,7 @@ export const TextReaderPage: React.FC = () => {
                             </summary>
                             <div className="px-6 pb-6 pt-2 text-slate-700">
                                 <ol className="list-decimal list-outside ml-5 space-y-4">
-                                    {textEntry.reflectionTasks.map((task, index) => (
+                                    {textEntry.reflectionTasks.map((task: string, index: number) => (
                                         <li key={index} className="pl-2">
                                             {task}
                                         </li>
@@ -443,7 +443,7 @@ export const TextReaderPage: React.FC = () => {
                                         Læringsmål
                                     </h4>
                                     <ul className="list-disc list-outside ml-5 space-y-1 text-sm italic">
-                                        {textEntry.lessonPlan.learningObjectives.map((obj, i) => (
+                                        {textEntry.lessonPlan.learningObjectives.map((obj: string, i: number) => (
                                             <li key={i}>{obj}</li>
                                         ))}
                                     </ul>
@@ -453,7 +453,7 @@ export const TextReaderPage: React.FC = () => {
                                     <div>
                                         <h4 className="font-bold text-slate-900 mb-2">Før lesing</h4>
                                         <ul className="list-disc list-outside ml-5 space-y-2 text-sm">
-                                            {textEntry.lessonPlan.preReading.map((task, i) => (
+                                            {textEntry.lessonPlan.preReading.map((task: string, i: number) => (
                                                 <li key={i}>{task}</li>
                                             ))}
                                         </ul>
@@ -461,7 +461,7 @@ export const TextReaderPage: React.FC = () => {
                                     <div>
                                         <h4 className="font-bold text-slate-900 mb-2">Under lesing</h4>
                                         <ul className="list-disc list-outside ml-5 space-y-2 text-sm">
-                                            {textEntry.lessonPlan.whileReading.map((task, i) => (
+                                            {textEntry.lessonPlan.whileReading.map((task: string, i: number) => (
                                                 <li key={i}>{task}</li>
                                             ))}
                                         </ul>
@@ -471,7 +471,7 @@ export const TextReaderPage: React.FC = () => {
                                 <div>
                                     <h4 className="font-bold text-slate-900 mb-2">Etter lesing</h4>
                                     <ul className="list-disc list-outside ml-5 space-y-2 text-sm">
-                                        {textEntry.lessonPlan.postReading.map((task, i) => (
+                                        {textEntry.lessonPlan.postReading.map((task: string, i: number) => (
                                             <li key={i}>{task}</li>
                                         ))}
                                     </ul>
@@ -493,7 +493,7 @@ export const TextReaderPage: React.FC = () => {
                         <div className="flex flex-wrap gap-2 text-slate-500 text-sm">
                             <Tag size={16} />
                             <span className="font-medium">Tema:</span>
-                            {textEntry.theme.map(t => (
+                            {textEntry.theme.map((t: string) => (
                                 <button
                                     key={t}
                                     onClick={() => navigate(`/norsk/bibliotek?theme=${t}`)}
