@@ -126,11 +126,11 @@ export const PracticePage: React.FC = () => {
         },
         {
             id: 'simulation',
-            title: 'Rikesimulator',
+            title: 'Makthjulet',
             description: 'Delta i en levende simulasjon av et middelaldersk rike med andre.',
             icon: Castle,
             color: 'bg-indigo-700',
-            link: '/sim'
+            link: 'https://pattidatti.github.io/Simulation_StandAlone_Pro/'
         }
     ];
 
