@@ -354,7 +354,13 @@ export const TextReaderPage: React.FC = () => {
                                             </div>
                                         )}
                                         <div className={`text-slate-800 ${textEntry.genre === 'Dikt' ? 'whitespace-pre-line' : ''}`}>
-                                            <p>{renderParagraph(paragraph)}</p>
+                                            {paragraph.startsWith('### ') ? (
+                                                <h3 className="text-xl font-bold mt-8 mb-4 text-slate-900 border-l-2 border-indigo-200 pl-4">{renderParagraph(paragraph.replace('### ', ''))}</h3>
+                                            ) : paragraph.startsWith('## ') ? (
+                                                <h2 className="text-2xl font-bold mt-10 mb-6 text-slate-900 border-b border-slate-100 pb-2">{renderParagraph(paragraph.replace('## ', ''))}</h2>
+                                            ) : (
+                                                <p>{renderParagraph(paragraph)}</p>
+                                            )}
                                         </div>
                                     </div>
 
