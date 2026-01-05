@@ -394,7 +394,7 @@ export const TextReaderPage: React.FC = () => {
                 </div>
 
                 {textEntry.reflectionTasks && (
-                    <div className="max-w-3xl mx-auto mt-12 mb-8">
+                    <div className="max-w-3xl mx-auto mt-12 mb-4">
                         <details className="group bg-indigo-50/50 rounded-xl border border-indigo-100 overflow-hidden">
                             <summary className="flex items-center justify-between p-6 cursor-pointer list-none text-indigo-900 font-semibold hover:bg-indigo-50 transition-colors">
                                 <span className="flex items-center gap-2">
@@ -413,6 +413,70 @@ export const TextReaderPage: React.FC = () => {
                                         </li>
                                     ))}
                                 </ol>
+                            </div>
+                        </details>
+                    </div>
+                )}
+
+                {textEntry.lessonPlan && (
+                    <div className="max-w-3xl mx-auto mb-8">
+                        <details className="group bg-emerald-50/50 rounded-xl border border-emerald-100 overflow-hidden">
+                            <summary className="flex items-center justify-between p-6 cursor-pointer list-none text-emerald-900 font-semibold hover:bg-emerald-50 transition-colors">
+                                <span className="flex items-center gap-2">
+                                    <BookOpen size={20} className="text-emerald-600" />
+                                    Oppgaver
+                                </span>
+                                <span className="transform group-open:rotate-180 transition-transform duration-200">
+                                    ▼
+                                </span>
+                            </summary>
+                            <div className="px-6 pb-6 pt-2 text-slate-700 space-y-6">
+                                <div>
+                                    <h4 className="font-bold text-emerald-800 mb-2 flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                        Læringsmål
+                                    </h4>
+                                    <ul className="list-disc list-outside ml-5 space-y-1 text-sm italic">
+                                        {textEntry.lessonPlan.learningObjectives.map((obj, i) => (
+                                            <li key={i}>{obj}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 className="font-bold text-slate-900 mb-2">Før lesing</h4>
+                                        <ul className="list-disc list-outside ml-5 space-y-2 text-sm">
+                                            {textEntry.lessonPlan.preReading.map((task, i) => (
+                                                <li key={i}>{task}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-slate-900 mb-2">Under lesing</h4>
+                                        <ul className="list-disc list-outside ml-5 space-y-2 text-sm">
+                                            {textEntry.lessonPlan.whileReading.map((task, i) => (
+                                                <li key={i}>{task}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h4 className="font-bold text-slate-900 mb-2">Etter lesing</h4>
+                                    <ul className="list-disc list-outside ml-5 space-y-2 text-sm">
+                                        {textEntry.lessonPlan.postReading.map((task, i) => (
+                                            <li key={i}>{task}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {textEntry.lessonPlan.writingTask && (
+                                    <div className="bg-white p-4 rounded-lg border border-emerald-100 shadow-sm">
+                                        <h4 className="font-bold text-emerald-900 mb-2 uppercase tracking-tight text-xs">Skriveoppgave</h4>
+                                        <p className="text-sm leading-relaxed">{textEntry.lessonPlan.writingTask}</p>
+                                    </div>
+                                )}
                             </div>
                         </details>
                     </div>
