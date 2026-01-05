@@ -23,6 +23,10 @@ export interface TextEntry {
         whileReading: string[];
         postReading: string[];
         writingTask?: string;
+        period?: {
+            title: string;
+            link: string;
+        };
     };
 }
 
@@ -182,7 +186,32 @@ export const textLibraryData: TextEntry[] = [
             "Derfor ristet han på hodet og sa for seg selv:",
             "«Ja, ja, det er vel og bra. Men vi får se – han blir nok akkurat som oss andre.»",
             "Og adjunkten fikk rett."
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere forholdet mellom de eldre og den unge generasjonen i realismen.",
+                "Forstå begrepet 'samfunnskritikk' og hvordan det kommer til uttrykk i teksten.",
+                "Reflektere over betydningen av festtaler kontra handling i virkeligheten."
+            ],
+            preReading: [
+                "Hva forventes av en 'god sønn' eller 'god datter' i dag? Er det annerledes enn på 1800-tallet?",
+                "Hva er en festtale? Pleier folk å si sannheten i slike taler?"
+            ],
+            whileReading: [
+                "Finn eksempler på hvordan faren beskriver ungdommen i talen sin.",
+                "Legg merke til hvordan faren reagerer når sønnen motsier ham i røkeværelset."
+            ],
+            postReading: [
+                "Hvorfor tror du faren nekter å innrømme at han tok feil i diskusjonen, selv etter den fine talen han holdt?",
+                "Adjunkten sier at studenten vil mene det samme som faren når han blir eldre. Er du enig i dette pessimistiske menneskesynet?",
+                "Hvilke kjennetegn på realismen finner du i denne novellen? (Se på språket, temaet og slutten)."
+            ],
+            writingTask: "Skriv en tekst der du sammenligner farens festtale med det som faktisk skjer i røkeværelset. Hva forteller dette oss om dobbeltmoral?",
+            period: {
+                title: "Realismen",
+                link: "/norsk/litteraturhistorie/realismen"
+            }
+        }
     },
     {
         id: 'piken-med-svovelstikkene',
@@ -225,7 +254,32 @@ export const textLibraryData: TextEntry[] = [
                     "Nytaarsmorgen gik op over det lille Liig, der sad med Svovlstikkerne, hvoraf et Knippe var næsten brændt. Hun har villet varme sig, sagde man; Ingen vidste, hvad Smukt hun havde seet, i hvilken Glands hun med gamle Mormoer var gaaet ind til Nytaars Glæde."
                 ]
             }
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere virkemidler som kontraster og symbolikk i et eventyr.",
+                "Forstå teksten i et historisk perspektiv: Fattigdom i det 19. århundre.",
+                "Reflektere over bruken av religiøse motiver og håp i vanskelige sitasjoner."
+            ],
+            preReading: [
+                "Hva vet dere om hvordan fattige hadde det på 1800-tallet?",
+                "Nyttårsaften er ofte en tid for feiring. Hvordan tror dere det føles å stå utenfor når alle andre feirer?"
+            ],
+            whileReading: [
+                "Legg merke til kontrastene mellom kulden ute og det jenta drømmer om i svovelstikkene.",
+                "Hvilke ting er det jenta ser for seg i flammene?"
+            ],
+            postReading: [
+                "Hvorfor tror du H.C. Andersen valgte å la jenta dø i slutten? Kunne det vært en 'lykkelig' slutt?",
+                "Finn eksempler på kontraster i teksten.",
+                "Hvordan bruker forfatteren lys og varme som symboler på håp?"
+            ],
+            writingTask: "Skriv en moderne versjon av denne historien. Hvordan ville en 'svovelstikk-pike' sett ut i dagens samfunn? Hva ville hun ha drømt om?",
+            period: {
+                title: "Romantikken",
+                link: "/norsk/litteraturhistorie/placeholder-romantikken"
+            }
+        }
     },
     {
         id: 'doden',
@@ -251,7 +305,32 @@ export const textLibraryData: TextEntry[] = [
             "Hva er det jeg-personen ønsker å ha gjort når døden kommer?",
             "Hvilke ulike teorier om hva som skjer når vi dør, kjenner du til? Hva tror du vil skje?",
             "Fargen svart er nevnt flere ganger. Hva pleier denne fargen å symbolisere?"
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere dikt og språklige bilder.",
+                "Reflektere over eksistensielle temaer som liv og død på en ufarliggjørende måte.",
+                "Forstå humor og ironi som virkemiddel i lyrikk."
+            ],
+            preReading: [
+                "Hvordan blir døden ofte fremstilt i filmer eller tegneserier (f.eks. med ljå)?",
+                "Hva betyr det å ha 'bestemt seg' for å ikke dø ennå?"
+            ],
+            whileReading: [
+                "Finn ord i diktet som gjør døden mindre skummel enn vanlig.",
+                "Legg merke til kontrasten mellom kaffe og den 'store svarte bilen'."
+            ],
+            postReading: [
+                "Hvorfor tror du døden kommer i en bil i dette diktet?",
+                "Hva forteller diktet om jeg-personens innstilling til livet?",
+                "Hva betyr det å be døden inn på kaffe før man drar?"
+            ],
+            writingTask: "Skriv en kort tekst eller et dikt der døden dukker opp i en helt hverdagslig situasjon. Hvordan reagerer du?",
+            period: {
+                title: "Samtidslitteratur",
+                link: "/norsk/litteraturhistorie/placeholder-samtid"
+            }
+        }
     },
     {
         id: 'faderen',
@@ -291,7 +370,32 @@ export const textLibraryData: TextEntry[] = [
             "Tord ville ikke rett tro, han holdt båten stille og stirret på den pletten hvor sønnen var sunket ned som skulle han komme opp igjen. Der steg noen bobler opp, enda noen, så bare en stor som brast —og speilblank lå atter sjøen.",
             "I tre dager og tre netter så folk faren ro rundt om denne pletten uten å ta mat eller søvn til seg, han soknet etter sin sønn. Og på den tredje dag om morgenen fant han ham og kom bærende oppover bakkene med ham til sin gård.",
             "Det kunne vel være gått et år siden den dag. Da hører presten sent en høstkveld noen rusle ved døren ute i forstuen og famle varsomt etter låsen. Presten åpnet døren, og inn trådte en høy, foroverbøyd mann, mager og hvit i håret. Presten så lenge på ham før han kjente ham, det var Tord. «Kommer du så sent?» sa presten og stod stille foran ham. «Å ja, jeg kommer sent,» sa Tord, han satte seg ned. Presten satte seg også, som han ventet, det var lenge stilt. Da sa Tord: «Jeg har noe med som jeg gjerne ville gi til de fattige, det skulle gjøres et legat og bære min sønns navn,» — han reiste seg, la penger på bordet og satte seg atter. Presten talte dem opp; «det var mange penger,» sa han. — «Det er halvparten av min gård, jeg solgte den i dag.» Presten ble sittende i lang stillhet, så spurte han endelig, men mildt: «Hva vil du ta deg for?» — «Noe bedre.» – De satt der en stund, Tord med øynene mot gulvet, presten med øynene på ham. Da sa presten sakte og langt: «Nå tenker jeg at sønnen din endelig er blitt deg til velsignelse.» — «ja, nå tenker jeg det også selv,» sa Tord, han så opp, og to tårer rant tunge nedover hans ansikt."
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere karakterutviklingen til Tord Øverås.",
+                "Forstå symbolismen i barnets 'velsignelse'.",
+                "Reflektere over makt, status og menneskelige verdier."
+            ],
+            preReading: [
+                "Hva betyr ordet 'velsignelse' for deg?",
+                "Er det viktigere å 'være noe' eller å 'ha noe'?"
+            ],
+            whileReading: [
+                "Legg merke til de tre gangene Tord besøker presten. Hva er endret hver gang?",
+                "Se på språket: Er det mange detaljer, eller er det knapt og konsist?"
+            ],
+            postReading: [
+                "Tord går fra å ville ha 'det beste' for sønnen til å gi halvparten av gården til 'noe bedre'. Hva tror du presten mener med at sønnen endelig har blitt ham til velsignelse?",
+                "Hvilken betydning har stillhet i denne teksten? Finn steder der det er stille og forklar hvorfor.",
+                "Hvordan endrer Tord seg i løpet av historien? Se spesifikt på utseende og holdning."
+            ],
+            writingTask: "Analyser vendepunktet i novellen. Hvordan bruker Bjørnson handling og knappe skildringer for å vise Tords indre endring?",
+            period: {
+                title: "Nasjonalromantikken",
+                link: "/norsk/litteraturhistorie/nasjonalromantikken"
+            }
+        }
     },
     {
         id: 'twitter-noveller',
@@ -315,7 +419,32 @@ export const textLibraryData: TextEntry[] = [
             "Ho går ut på altanen. Snø, stjerner, søndag.\nLyden av brøytebilar, lyden frå tv-en.\nHo er tolv. I morgon blir ho henta\nog må reise herfrå.",
             "Gut (16) har forskansa seg i ein\nhettegenser. Situasjonen har vore fastlåst i\nto–tre år. Dei får inn mat og drikke, men\nguten kjem ikkje ut.",
             "«Vi ser framleis ansikta, som om dei var her.\nVi hører framleis stemmene, som om dei var her.\nVi kviskrar framleis namna,som om dei var her.»"
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere minimalistisk samtidslitteratur.",
+                "Diskutere hvordan form og medium (Twitter) påvirker fortellermåten.",
+                "Tolkning av subtekst og åpne tekster."
+            ],
+            preReading: [
+                "Kan man fortelle en hel historie på bare 140 tegn?",
+                "Hva forventer du av en historie som kalles en 'Twitter-novelle'?"
+            ],
+            whileReading: [
+                "Prøv å forestille deg alt som *ikke* står skrevet i hver av de tre tekstene.",
+                "Hvilken av de tre novellene gjør mest inntrykk på deg?"
+            ],
+            postReading: [
+                "Hvem er personene i den første novellen, og hvor skal 12-åringen reise?",
+                "Hva slags bilde gir den andre novellen av moderne ungdomstid?",
+                "Hvorfor tror du Grytten har valgt å kalle disse tekstene for noveller?"
+            ],
+            writingTask: "Skriv din egen Twitter-novelle på nøyaktig 140 tegn. Tema: En viktig hendelse i en persons liv.",
+            period: {
+                title: "Samtidslitteratur",
+                link: "/norsk/litteraturhistorie/placeholder-samtid"
+            }
+        }
     },
     {
         id: 'sma-nokler-store-rom',
@@ -360,7 +489,32 @@ export const textLibraryData: TextEntry[] = [
             "Det kunne komme noen, sier moren.",
             "Og noen, hvem det nå måtte være, må for enhver pris unngå å få innblikk i hvordan familien sover. Det virker som det nesten er noe skammelig i alle disse hemmelige soveplassene som trylles frem hver kveld for så å utslettes neste morgen. Selv på søndager tripper hun rastløst rundt sengene, utålmodig etter å få familien ut av dynene. Etter å få luftet, rullet sammen dyner og laken og puter, lagt alt vekk i kleskottene (der sengetøyet ligger stablet om dagen, lagvis, i et bestemt system), slått sammen trekkspillsengen på kjøkkenet og sovesofaen i stuen, lagt pleddet pent på divanen, plassert velurputene i hjørnesofaen, flyttet bord og lenestoler på plass. Utålmodig svinsende og dirigerende rundt dem alle, for å få kjøkkenet til å bli kjøkken igjen, stuen til å bli stue og spisestuen til å bli spisestue.",
             "Leiligheten skal ligne mest mulig på noe fornemt, antagelig et slott. Den store samlingen av krystallboller på buffeten i spisestuen, morens stolthet, kan tyde på noe i den retning. Og portièrene i kongeblå fløyel i døråpningene og henfallenheten til speil og lamper peker i samme retning. Hun er også levende opptatt av kongefamilien, hun vet alt om alle europeiske kongehus, hvem som er tanter og onkler og kusiner til kongen og kronprinsen og kronprinsessen og de to prinsessene og prinsen."
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere oppvekstskildringer i litteraturen.",
+                "Forstå hvordan omgivelser og interiør kan speile sosiale ambisjoner.",
+                "Diskutere barnets perspektiv på de voksnes verden."
+            ],
+            preReading: [
+                "Vet du hvordan folk flest bodde i norske byer like etter krigen?",
+                "Hvorfor tror du noen er veldig opptatt av å ha det 'pent' hjemme?"
+            ],
+            whileReading: [
+                "Legg merke til hvordan moren behandler senger og sengetøy.",
+                "Hvilken rolle spiller krystallbollene og fløyelsgardinene i teksten?"
+            ],
+            postReading: [
+                "Hvorfor er det så viktig for moren å 'utslette alle spor etter nattens søvn' hver morgen?",
+                "Hva drømmer Elsi om, og hvorfor tror du hun drømmer om nettopp dette?",
+                "Hvordan beskriver Vik forholdet mellom hjemmets realitet og morens drømmer?"
+            ],
+            writingTask: "Skriv en kort refleksjon: Hvordan speiler hjemmet vårt hvem vi ønsker å være?",
+            period: {
+                title: "Samtidslitteratur",
+                link: "/norsk/litteraturhistorie/placeholder-samtid"
+            }
+        }
     },
     {
         id: 'barsakh',
@@ -423,7 +577,32 @@ export const textLibraryData: TextEntry[] = [
             "– Og hva med deg? Tenker du å reise?",
             "Mannen dyppet den røde penselen i malingspannet før han svarte.",
             "– Nei. Jeg vet ikke om jeg egentlig tror på noe annet liv enn dette, svarte han og fortsatte å male. Samtalen var over, og Samuel ruslet videre langs havnen."
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Reflektere over globale utfordringer som migrasjon og urettferdighet.",
+                "Analysere symbolismen i tittelen 'Barsakh'.",
+                "Diskutere etiske dilemmaer knyttet til flukt."
+            ],
+            preReading: [
+                "Hva betyr ordet 'flukt' for deg? Hvorfor forlater mennesker hjemmene sine?",
+                "Hva vet du om veien fra Afrika til Europa for migranter?"
+            ],
+            whileReading: [
+                "Hvorfor kaller gatekunstneren bildet sitt for 'Barsakh'?",
+                "Hvilke tanker gjør Samuel seg i vannkanten?"
+            ],
+            postReading: [
+                "Forklar mottoet 'Barcelona eller Barsakh'. Hva forteller det om situasjonen til karakterene?",
+                "Hva er 'mellomstadiet' som beskrives i teksten?",
+                "Hvilken funksjon har gatekunstneren i denne fortellingen?"
+            ],
+            writingTask: "Se for deg at du er Samuel. Skriv en dagboktekst kvelden før du skal sette deg i båten mot Gran Canaria.",
+            period: {
+                title: "Samtidslitteratur",
+                link: "/norsk/litteraturhistorie/placeholder-samtid"
+            }
+        }
     },
     {
         id: 'hjorten-i-skogbrynet',
@@ -453,7 +632,32 @@ export const textLibraryData: TextEntry[] = [
         ],
         content: [
             "Hjorten stod i skogbrynet og var ulukkeleg. Han kjende det som om det var liten vits i alt, som om han berre kunne gje opp. Her går eg, dag inn og dag ut, tenkte hjorten, og så er det ingen som ser meg. Er eg usynleg, eller kva? Det trudde han ikkje. Her går eg og kunne endre menneskelagnader om nokon såg meg, men så er det ingen som ser meg. Her går eg og er ein hjort, og så er det ingen som bryr seg om det. Det er meininga at eg skal vere vanskeleg å sjå, eg veit det, eg skal snike meg rundt i skogane og ikkje bli sett. Det er desse livsgrunnlaga eg no er ulukkeleg for. Eg vil bli sett. Eg har stilt meg opp i eit skogbryn. Eg er open for blikk, for skot. Dersom ikkje nokon ser meg snart, gjer eg noko drastisk, eg meiner det. Akkurat no er det som om eg er stengt inne i eit hjortemønster. Å, eg skulle gjerne ha endra på alt, blitt ein annan, noko heilt anna. Å, tenk om eg kunne vore eit rådyr, ein elg."
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Forstå kjennetegn på postmodernistisk litteratur.",
+                "Analysere absurde situasjoner og metaforer.",
+                "Diskutere temaer som identitet og behovet for å bli sett."
+            ],
+            preReading: [
+                "Hva er et 'skogbryn'?",
+                "Kan et dyr være deprimert eller ulykkelig? Hvorfor velger forfatteren å gi hjorten menneskelige følelser?"
+            ],
+            whileReading: [
+                "Hva er det hjorten ønsker seg mest av alt?",
+                "Hva betyr det å være 'stengt inne i eit hjortemønster'?"
+            ],
+            postReading: [
+                "Hvorfor vil hjorten plutselig bli sett, selv om han risikerer å bli skutt?",
+                "Kan denne teksten handle om noe annet enn en hjort? Hva da?",
+                "Hva er det 'drastiske' hjorten truer med å gjøre?"
+            ],
+            writingTask: "Skriv en tekst fra perspektivet til et annet dyr eller en gjenstand som føler seg oversett. Hva ønsker de å endre?",
+            period: {
+                title: "Postmodernismen",
+                link: "/norsk/litteraturhistorie/placeholder-postmodernisme"
+            }
+        }
     },
     {
         id: 'mennesker-pa-kafe',
@@ -484,7 +688,32 @@ export const textLibraryData: TextEntry[] = [
         content: [
             "En av de siste gangene jeg var på kafé var en sommer en søndag, det husker jeg godt, for nesten alle gikk uten jakke og slips, og jeg tenkte: er det kanskje ikke søndag likevel?, og det at jeg tenkte akkurat det, gjør at jeg husker det. Jeg satt ved et bord midt på gulvet, og rundt meg satt en masse mennesker og spiste kaker eller smørbrød, sjelden mer enn en ved hvert bord. Det så nokså ensomt ut, og siden jeg ikke hadde snakket med noen på en god stund, ville jeg ikke hatt noe imot å veksle om ikke mer enn noen få ord med en eller annen. Jeg tenkte lenge på hvordan det skulle la seg gjøre, jo mer jeg studerte ansiktene rundt meg, desto vanskeligere virket det, det var som om alle var uten blikk, verden er sannelig blitt deprimerende. Men jeg hadde nå fått den ideen at det ville være hyggelig om en eller annen sa et par ord til meg, så jeg fortsatte å tenke, det er det eneste som hjelper. Og etter en stund visste jeg hva jeg skulle gjøre. Jeg slapp lommeboken ned på gulvet, lot som om det skjedde helt uforvarende. Den lå ved siden av stolen, helt synlig for flere av de som satt rundt meg, og jeg så mange som skulte ned på den. Jeg hadde trodd at en eller kanskje to ville ha reist seg for å ta den opp og gi den til meg, jeg er jo en gammel mann, eller i det minste ropt til meg, for eksempel: «De har mistet lommeboken Deres på gulvet.» At en aldri kan slutte å håpe, så mange skuffelser en ville spart seg. Til slutt, etter flere minutter med skuling og venting, lot jeg som om jeg plutselig oppdaget at jeg hadde mistet den, jeg turde ikke vente lenger, jeg var redd for at et av de skulende menneskene plutselig skulle fare opp, kaste seg over lommeboken og styrte på dør. Ingen kunne jo være helt sikre på at det ikke var en del penger i den, det hender jo at gamle mennesker ikke er fattige, at de til og med er rike, verden er jo sånn, de som ranet til seg i sin ungdom eller i sine beste år, de får lønn for det i sin alderdom.",
             "Sånn er altså mennesker på kafé blitt, så pass lærte jeg da, en lærer så lenge en lever, hva nå det skal være godt for, like før en skal dø."
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere minimalistisk prosa og 'isfjellteknikk'.",
+                "Diskutere temaer som fremmedfølelse og isolasjon i storbyen.",
+                "Reflektere over menneskesyn i modernismen."
+            ],
+            preReading: [
+                "Har du noen gang sittet alene på en kafé og observert andre?",
+                "Hvorfor er det noen ganger vanskelig å starte en samtale med fremmede?"
+            ],
+            whileReading: [
+                "Hvorfor slipper mannen lommeboken på gulvet?",
+                "Følg med på hvordan han beskriver menneskene rundt seg."
+            ],
+            postReading: [
+                "Hvorfor blir hovedpersonen skuffet? Handler det bare om lommeboken?",
+                "Hva forteller den siste setningen om mannens livssituasjon?",
+                "Hvordan bruker Askildsen knappe setninger for å skape en spesiell stemning?"
+            ],
+            writingTask: "Skriv en fortsettelse: Mannen forlater kaféen. Hva skjer videre? Bruk samme knappe stil som Askildsen.",
+            period: {
+                title: "Modernismen",
+                link: "/norsk/litteraturhistorie/placeholder-modernismen"
+            }
+        }
     },
     {
         id: 'alt-blir-som-for',
@@ -521,7 +750,32 @@ export const textLibraryData: TextEntry[] = [
             "«Det er dette vi burde gjort for lenge siden», sa han. «Jeg setter sykkelen i stand. Jeg pusser bort all rust og skrur den sammen. Det blir som før.»",
             "«Tror du …?» Stemmen hennes sviktet. Hun hostet. «La oss tro at alt blir som før.»",
             "Han plukket opp koppen, satte seg. Hanken var slått av i fallet. De ble sittende å se forbi hverandre."
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere subtekst og det som ikke sies direkte.",
+                "Forstå symbolismen bak gjenstander i en tekst.",
+                "Reflektere over hvordan kriser påvirker kommunikasjon."
+            ],
+            preReading: [
+                "Kan man reparere alt som blir ødelagt? Gi eksempler på ting som ikke kan fikses.",
+                "Hva innebærer uttrykket 'å se forbi hverandre'?"
+            ],
+            whileReading: [
+                "Hvilken funksjon har sykkelen i teksten? Er det bare et fremkomstmiddel?",
+                "Legg merke til reaksjonen til kona når han tar inn esken med sykkeldeler."
+            ],
+            postReading: [
+                "Hvorfor vil mannen så gjerne sette sykkelen i stand nå, etter så lang tid?",
+                "Hva tror du har skjedd før denne novellen starter? Bruk spor fra teksten.",
+                "Hvorfor 'svikter stemmen' til kona i slutten?"
+            ],
+            writingTask: "Analyser slutten av novellen. Hva symboliserer den ødelagte kaffekoppen?",
+            period: {
+                title: "Samtidslitteratur",
+                link: "/norsk/litteraturhistorie/placeholder-samtid"
+            }
+        }
     },
     {
         id: 'ung-gutt-i-sno',
@@ -564,7 +818,32 @@ export const textLibraryData: TextEntry[] = [
             "De så lenge på hverandre. Mannen ville klappe ham på skulderen, men gutten vred seg unna og gikk sjanglende og bablende bort.",
             "Da han var forsvunnet, sto mannen med sixpencen stille en stund. Av de heiste skuldrene kunne man se at han frøs. Hendene hadde han dypt i jakkelommene. Han stirret på den bare flekken der gutten hadde ligget. Den var formet etter kroppen hans, og kunne minne om politiets opptegning rundt et lik. Snøen la seg over flekken, og snart var også den borte.",
             "Mannen trakk sixpencen ned over de røde ørene, så langt det lot seg gjøre. Snøen lå urørt og gul i lyset fra gatelyktene. Det var ingen i sikte."
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere moderne realisme og sosiale skildringer.",
+                "Diskutere menneskelig ansvar og empati i møte med fremmede.",
+                "Forstå bruken av natur (snø) som stemningsskaper."
+            ],
+            preReading: [
+                "Hva gjør du hvis du ser noen som ligger i veikanten?",
+                "Hva tror du 'sixpencemannen' og 'gutten' representerer?"
+            ],
+            whileReading: [
+                "Hvordan reagerer tilskuerne på gutten i snøen?",
+                "Legg merke til kontrasten mellom den kule, bablende gutten og den bekymrede mannen."
+            ],
+            postReading: [
+                "Hvilken betydning har slutten, der snøen dekker over avtrykket etter gutten?",
+                "Hvorfor tror du gutten avviser mannen som prøver å hjelpe?",
+                "Diskuter tittelen: Hva er det som er 'ungt' og 'sårbart' i denne teksten?"
+            ],
+            writingTask: "Skriv en tekst fra perspektivet til mannen med sixpencen etter at han har kommet hjem. Hva tenker han på?",
+            period: {
+                title: "Moderne realisme",
+                link: "/norsk/litteraturhistorie/placeholder-nyrealisme"
+            }
+        }
     },
     {
         id: 'a-drepe-et-barn',
@@ -637,7 +916,32 @@ export const textLibraryData: TextEntry[] = [
             "Etterpå er alt for sent. Etterpå står en blå bil på tvers over veien og en skrikende kvinne tar hånden fra munnen og hånden blør. Etterpå åpner en mann en bildør og forsøker å stå på bena enda han har et hull av redsel inni seg. Etterpå ligger noen hvite sukkerbiter meningsløst strødd ut i blod og grus og et barn ligger ubevegelig på maven med ansiktet hardt presset mot veien. Etterpå kommer to bleke mennesker som ennå ikke har fått drukket kaffen springende ut gjennom en port og ser et syn på veien som de aldri skal glemme. For det er ikke sant at tiden leger alle sår. Tiden leger ikke et drept barns sår og den leger dårlig smerten hos en mor som har glemt å kjøpe sukkerbiter og sender sitt barn over veien for å låne, og like lite leger den angsten hos en tidligere lykkelig mann som har drept barnet.",
             "For den som har drept et barn, reiser ikke til havet. Den som har drept et barn, reiser langsomt hjem i taushet og ved siden av seg selv har han en stum kvinne med bandasjert hånd, og i alle landsbyer de passerer, ser de ikke et eneste muntert menneske. Alle skygger er veldig mørke, og når de skilles, er det fremdeles i taushet, og mannen som har drept barnet, vet at denne tausheten er hans fiende og at han kommer til å trenge år av sitt liv for å beseire den ved å skrike at det ikke var hans feil. Men han vet at det er løgn, og i sine nattlige drømmer skal han i stedet ønske at han får tilbake ett eneste minutt av sitt liv for å gjøre dette eneste minutt annerledes.",
             "Men så ubarmhjertig er livet mot den som har drept et barn, at alt etterpå er for sent."
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere bruk av frampek og sirkelkomposisjon.",
+                "Diskutere eksistensielle temaer som skyld, skjebne og tilfeldigheter.",
+                "Forstå den modernistiske stilen med fokus på indre tilstander."
+            ],
+            preReading: [
+                "Kan ett enkelt minutt forandre et helt liv?",
+                "Hva tenker du på når du hører tittelen 'Å drepe et barn'?"
+            ],
+            whileReading: [
+                "Legg merke til hvordan forfatteren hele tiden minner oss på hva som skal skje ('...mannen som skal drepe et barn').",
+                "Hvilke detaljer blir brukt for å beskrive den lykkelige morgenen?"
+            ],
+            postReading: [
+                "Hvorfor tror du forfatteren forteller oss slutten allerede i begynnelsen?",
+                "Hva mener Dagerman med setningen 'Det er ikke sant at tiden leger alle sår'?",
+                "Diskuter ansvaret: Hvem har skylden for ulykken? Er det bilføreren, moren som glemte sukkeret, eller bare en ond skjebne?"
+            ],
+            writingTask: "Analyser bruken av frampek og spenningsoppbygging i novellen. Hvordan påvirkes leseren av å vite utfallet på forhånd?",
+            period: {
+                title: "Modernismen",
+                link: "/norsk/litteraturhistorie/placeholder-modernismen"
+            }
+        }
     },
     {
         id: 'dypfryst',
@@ -845,7 +1149,32 @@ export const textLibraryData: TextEntry[] = [
             "«Personlig tror jeg at den finnes her i huset – eller i haven».",
             "«Ja, det tror jeg også. Den ligger sannsynligvis rett for nesen på oss. Hva mener du, Jack?»",
             "Inne i stuen begynte fru Maloney å fnise for seg selv."
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere sjangerkjennetegn på en thriller/krimnovelle.",
+                "Forstå bruken av ironi og 'den perfekte forbrytelse'.",
+                "Diskutere karakterutvikling: Fra underdanig kone til utspekulert morder."
+            ],
+            preReading: [
+                "Hva kreves for å begå 'den perfekte forbrytelse'?",
+                "Hvorfor tror du tittelens norske oversettelse ofte er 'Dypfryst' (originalt 'Lamb to the Slaughter')?"
+            ],
+            whileReading: [
+                "Legg merke til endringen i Marys oppførsel etter at hun har drept mannen.",
+                "Hvordan bruker hun politimennene til å skjule sporene sine?"
+            ],
+            postReading: [
+                "Hva er den ultimate ironien i denne historien?",
+                "Er Mary Maloney en ond person, eller handler hun i en slags psykose?",
+                "Hvorfor slutter novellen med at hun fniser?"
+            ],
+            writingTask: "Skriv et politirapport-utkast fra Jack Noonan der han beskriver kvelden. Inkluder detaljer om den 'deilige middagen' de fikk serverte.",
+            period: {
+                title: "Modernismen",
+                link: "/norsk/litteraturhistorie/placeholder-modernismen"
+            }
+        }
     },
     {
         id: 'karens-jul',
@@ -930,7 +1259,32 @@ export const textLibraryData: TextEntry[] = [
             "De var stendøde begge to. Barnet lå opp til moren og holdt ennu i døden brystet i munnen. Nedover dets kinn var der fra brystvorten silt noen dråper blod, som lå størknet på haken. Hun var forferdelig uttæret, men på ansiktet lå der som et stille smil.",
             "«Stakkars jente, for en jul hun fikk,» mumlet konstabelen, mens han visket seg i øyet.",
             "«Men kanskje det er best som det er for dem begge to. Vårherre, han har nå vel en mening med det.»"
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Kjenne til naturalismen som litterær retning.",
+                "Analysere hvordan samfunnet svikter de svakeste.",
+                "Reflektere over kontrasten mellom julens budskap og Karens skjebne."
+            ],
+            preReading: [
+                "Hva er julens budskap for deg?",
+                "Hva betyr uttrykket 'å falle i uløkka' i historisk sammenheng?"
+            ],
+            whileReading: [
+                "Beskriv miljøet Karen befinner seg i. Hvordan påvirker det stemningen?",
+                "Hva forteller politikonstabelens reaksjoner oss om samfunnets barmhjertighet?"
+            ],
+            postReading: [
+                "Hvem har ansvaret for at det går som det går med Karen og barnet?",
+                "Hva er den ultimate ironien i tittelen 'Karens jul'?",
+                "Sammenlign slutten i 'Karens jul' with slutten i 'Piken med svovelstikkene'. Hva er likt, og hva er ulikt?"
+            ],
+            writingTask: "Skriv et leserinnlegg til en avis i 1885 der du argumenterer for bedre støtte til mødre i Karens situasjon.",
+            period: {
+                title: "Naturalismen",
+                link: "/norsk/litteraturhistorie/naturalismen"
+            }
+        }
     },
     {
         id: 'karen',
@@ -938,47 +1292,48 @@ export const textLibraryData: TextEntry[] = [
         author: 'Alexander Kielland',
         genre: 'Novelle',
         language: 'bm.',
-        theme: ['Kjærlighet', 'Svik', 'Tragedie', 'Kvinneskjebne', 'Realisme'],
+        theme: ['Svik', 'Klasseskiller', 'Kjærlighet', 'Realismen'],
         publishedYear: 1882,
-        createdDate: '2025-11-30T20:10:00',
-        lastUpdated: '2025-12-03T17:27:15.157Z',
+        createdDate: '2024-03-20',
+        lastUpdated: '2024-03-20',
         content: [
-            "Det var en gang i Krarup Kro en pike, som het Karen. Hun var alene om oppvartningen; for Kromannens kone gikk nesten alltid omkring og lette efter sine nøkler. Og der kom mange i Krarup Kro; - både folk fra omegn, som samledes, når det mørknet om høstaftenen og satt i krostuen og drakk kaffepunsjer sådan i alminnelighet uten noen bestemt hensikt, men også reisende og veifarende, som kom trampende inn – blå og forblåste, for å få seg noe varmt, som kunne holde livet oppe til neste kro. Men Karen kunne allikevel klare det hele, skjønt hun gikk så stille og aldri syntes å ha hastverk.",
-            "Hun var spinkel og liten – ganske ung, alvorlig og taus, så det var ingen morskap ved henne for de handelsreisende. Men skikkelige folk, som gikk i kroen for alvor, og som satte pris på at kaffen servertes hurtig og skåldende het, de holdt desto mer av Karen. Og når hun smøg seg frem mellom gjestene med sitt brett, vek de tunge vadmelskropper til side med en uvanlig fart, det ble gjort vei for henne, og samtalen sluknet for et øyeblikk, alle måtte se efter henne, hun var så nydelig.",
-            "Karens øyne var av de store grå, som på en gang syntes å se og se langt – langt forbi; og øyebrynene var høyt buet liksom i forundring. Derfor trodde fremmede at hun ikke riktig forstod hva de ba om. Men hun forstod godt og tok ikke feil. Det var bare noe underlig over henne allikevel, - som om hun så ut efter noe – eller lyttet – eller ventet – eller drømte.",
-            "Vinden kom vestenfra over lave sletter. Den hadde veltet lange, tunge bølger henover Vesterhavet; salt og våt av skum og fråde hadde den kastet seg inn over kysten. Men i de høye klitter med det lange marehalm var den blitt tørr og full av sand og litt rett, så da den kom til Krarup Kro, var det nettopp så vidt at den kunne få portene opp til reisestallen.",
-            "Men opp fòr de, og vinden fylte det store rom og trengte inn ad kjøkkendøren, som stod på klem. Og til slutt ble det et sådant press av luft, at portene i den annen ende av stallen også sprang opp, og nu fòr vestenvinden triumferende tvers igjennom, svinget lykten, som hang i taket, tok luen av stallkaren og trillet den ut i mørket, blåste teppene over hodet på hestene, blåste en hvit høne ned av pinnen og opp i vanntrauet. Og hanen oppløftet et fryktelig skrål, og karen bante, og hønsene skrek, og i kjøkkenet kvaltes de av røk, og hestene ble urolige og slo gnister av stenene; selv endene, som hadde trykt seg sammen nær krybbene, for å være de første til de spilte korn, tok på å snadre, og vinden bruste gjennom med en helvetes alarm, inntil det kom et par mann ut fra krostuen, satte rygg mot portene og presset dem sammen igjen, mens gnistene føk dem i skjegget fra de store tobakkspiper.",
-            "Efter disse meritter kastet vinden seg ned i lyngen, løp langs de dype grøfter, og tok et ordentlig tak i postvognen, som den traff en halv mils vei fra kroen.\n\"Det var dog et fandens jag han alltid har for å komme til Krarup Kro,\" - knurret Anders postskar og slo et klask over de svette hester.",
-            "For det var visst tyvende gang at postføreren hadde latt vinduet gå ned, for å rope et eller annet opp til ham. Først var det en vennskapelig invitasjon til en kaffepunsj i kroen; men efter hvert ble det tynnere med vennskapeligheten, og vinduet fòr ned med et smell, og ut fòr det noen kortfattede bemerkninger både over hest og kusk, som Anders iallfall slett ikke kunne være tjent med å høre.",
-            "Imidlertid strøk vinden lavt langsmed jorden og sukket så langt og besynderlig i de tørre lyngbusker. Det var fullmåne; men tett overskyet, så det bare lå et hvitaktig diset skjær over natten. Bakenfor Krarup Kro lå torvmyren mørk med sorte torvskur og dype farlige hull. Og innimellom lyngtuene buktet det seg en stripe av gress, som om det kunne være en vei; men det var ingen vei, for den stanset like i kanten av en torvgrav, som var større enn de andre og dypere også.",
-            "Men i gresstripen lå reven ganske flat og lurte, og haren hoppet på letten fot over lyngen.",
-            "Det var lett for reven å beregne at haren ikke ville løpe lang ring så sent på aftenen. Den stakk forsiktig den spisse snute opp og gjorde et overslag; og idet den lusket tilbake følgende vinden, for å finne et godt sted, hvorfra den kunne se hvor haren ville slutte ringen og legge seg ned, tenkte den selvbehagelig over hvorledes revene bestandig blir klokere og harene bestandig dummere.",
-            "Inne i kroen var det usedvanlig travelt, for et par handelsreisende hadde bestilt harestek; dessuten var kromannen på auksjon i Thisted, og madamen var aldri vant til å stelle med annet enn kjøkkenet. Men nu traff det seg så uheldig at sakføreren skulle ha fatt i kromannen, og da han ikke var hjemme, måtte madamen ta mot en lang beskjed og et ytterst viktig brev, hvilket aldeles forvirret henne.",
-            "Ved ovnen stod en fremmed mann i oljeklær og ventet på en flaske sodavann; to fiskeoppkjøpere hadde tre ganger rekvirert konjakk til kaffen; kromannens kar stod med en tom lykt og ventet på et lys, og en lang tørr bondemann fulgte Karen engstelig med øynene; han skulle ha 63 øre igjen på en krone.",
-            "Men Karen gikk til og fra uten å forhaste seg og uten å forvirres. Man skulle neppe tro at hun kunne holde rede i alt dette. De store øynene og de forundrede øyebryn var liksom spente i forventning; det lille fine hodet holdt hun stivt og stille – som for ikke å forstyrres i alt det hun hadde å tenke på. Hennes blå hvergarnskjole var blitt for trang for henne, så halslinningen skar seg litt inn og dannet en liten fold i huden på halsen nedenunder håret.",
-            "”De aggerpiker er så hvite i huden,” sa den ene fiskeoppkjøper; de var unge folk og talte om Karen som kjennere.",
-            "Henne ved vinduet var det en mann som så på klokken og sa: ”Posten kommer tidlig i aften.”\nDet rumlet over brostenene utenfor; porten til reisestallen slos opp, og vinden rusket igjen i alle dører og slo røk ut av ovnene.\nKaren smøg ut i kjøkkenet, i det samme krodøren gikk opp. Postføreren trådte inn og hilste god aften.",
-            "Det var en høy, smukk mann med mørke øyne, sort krøllet skjegg og et lite kruset hode. Den lange, rike kappe av kongen av Danmarks praktfulle røde klede var prydet med en bred krave av krølle hundeskinn utover skuldrene.",
-            "Alt det tarvelige lys fra de to parafinlamper, som hang over krobordet, syntes å kaste seg forelsket over den røde farve, som stakk så meget av mot alt det grå og sorte som var i rommet. Og den høye skikkelse med det lille krusete hode, den brede krave og de lange purpurrøde folder ble – idet han gikk gjennom den lave, røkede krostuen – til et vidunder av skjønnhet og prakt.",
-            "Karen kom hurtig inn fra kjøkkenet med sitt brett; hun bøyet hodet, så man ikke kunne se ansiktet, idet hun skyndte seg fra gjest til gjest.",
-            "Haresteken plasserte hun midt foran de to fiskeoppkjøpere hvorpå hun brakte en flaske sodavann til de to handelsreisende, som satt i stue innenfor. Derefter ga hun den bekymrede bondemann et talglys, og idet hun smuttet ut igjen, stakk hun 63 øre i hånden på den fremmede ved ovnen.",
-            "Kromannens kone var aldeles fortvilet; hun hadde visstnok ganske uformodet funnet nøklene; men straks derpå mistet sakførerens brev, og nu stod hele kroen i det frykteligste røre: ingen hadde fått hva de skulle ha, de handelsreisende ringet uavladelig med borklokken, fiskeoppkjøperne lo seg neste fordervet av haren, som lå og skrevet på fatet foran dem; men den bekymrede bondemannen pikket madammen på skulderen med sitt talglys, han skalv for sine 63 øre. Og i all denne håpløse forvirring var Karen sporløst forsvunnet. –",
-            "Anders postkar satt på bukken; kromannens dreng stod ferdig til å åpne portene; de to reisende inne i vognen ble utålmodige, hestene også – skjønt de ikke hadde noe å glede seg til, og vinden rusket og pep gjennom stallen.\nEndelig kom postføreren, som de ventet på. Han bar sin store kappe på armen, da han trådte hen til vognen og gjorde en liten unnskyldning, fordi man hadde ventet. Lykten lyste ham i ansiktet; han så ut til å være meget varm, og det sa han også med et smil, idet han trakk kappen på og steg opp hos kusken.",
-            "Portene gikk opp, og postvognene rumlet av sted. Anders postkar lot hestene gå smått, nu hadde det jo ingen hast mer. Av og til skottet han til postføreren ved siden; han satt ennu og smilte hen for seg og lot vinden ruske seg i håret.",
-            "Anders postkar smilte også på sin måte; han begynte å forstå. Vinden fulgte vognene til veien vendte, kastet seg derpå igjen inn over sletten og pep og sukket så langt og besynderlig i de tørre lyngbusker. Reven lå på sin post, alt var på det nøyeste beregnet, haren måtte snart være der.",
-            "Inne i kroen var Karen endelig dukket opp igjen og forvirringen dempedes efter hvert. Den bekymrede bondemanne ble kvitt sitt lys og fik sine 63 øre, og de handelsreisende hadde kastet seg over steken.",
-            "Madamen klynket litt; men hun skjente aldri på Karen; det var ikke det menneske i verden som kunne skjenne på Karen.",
-            "Stille og uten å forhaste seg gikk hun igjen til og fra, og den fredelige hygge, som alltid fulgte henne, bredte sig atter over den lund, halvmørke krostue. Men de to fiskeoppkjøperne, som hadde fått både en og to konjakker til kaffen, var ganske betatt av henne. Hun hadde fått farve i kinnene og et lite halvskjult glimt av et smil, og når hun en enkel gang løftet øynene, for det dem gjennom hele kroppen.",
-            "Men da hun følte at deres øyne fulgte henne, gikk hun inn i stuen, hvor de handelsreisende satt og spiste og ga seg til å pusse noen teskjeer borti skjenken.",
-            "”La De merke til postføreren?” – spurte den ene av de reisende. ”Nei – jeg så bare et glimt av ham ; han gikk visst straks ut igjen,” svarte den annen med munnen full av mat. ”Satans skjønn fyr! Jeg har så menn danset i hans bryllup.” ”Så – er han gift?” ”Ja visst! – hans kone bor i Lemvig ; de har visst to barn. Hun var datter av kromannen i Ulstrup, og jeg kom just dertil bryllupsaftenen. Det var en lystig natt – kan De tro!” Karen slapp teskjeene og gikk ut. Hun hørte ikke hva de ropte til henne i krostuen; hun gikk over gården til sitt kammer, lukket døren og begynte halvt sanseløs å ordne sine sengklær. Hennes øyne sto stive i mørket, hun tok seg til hodet, hun tok seg for sitt bryst, - hun stønnet, hun forstod ikke, - hun forstod ikke-",
-            "Men da hun hørte madamen så ynkelig rope : ”Karen! – bitt’Karen!” – da fòr hun opp ut av gården, om baksiden av huset, ut – ut i heden.",
-            "I halvlyset buktet den lille gresstripe seg mellom lyngen, som om det kunne være en vei; men det var ingen vei, ingen måtte tro det var noen vei, for den førte like i kanten av den store torvgrav.",
-            "Haren skvatt opp, den hadde hørt et plask. Den fõr av sted som om den var gal, i lange hopp; snart sammentrukket med Benene innunder seg og ryggen krum, snart utstrakt, utrolig lang – som et flyvende trekkspill – hoppet den av sted over lyngen.",
-            "Reven stakk den spisse snute opp og stirret forbauset efter haren. Den hadde ikke hørt noe plask. For den var kommet efter all kunstens regler smygende på bunnen av en dyp grøft ; og da den ikke var seg på noen feil bevisst, kunne den ikke begripe seg på haren.",
-            "Lenge stod den med hodet opp, bakkroppen senket og den store buskede hale gjemt i lyngen, og den begynte å tenke over om det er harene som blir klokere, eller revene som blir dummere.",
-            "Men da vestenvinden hadde løpt et langt stykke ble den til nordenvind, siden til østenvind, derpå til sønnenvind og til slutt kom den igjen over havet som vestenvind, kastet seg inn i klitten og sukket så langt og besynderlig i de tørre lyngbukser. Men da manglet det to forundrede grå øyne i Krarup Kro og en blå hvergarnskjole, som var blitt for trang. Og kromannens kone klynket mer enn noensinne; hun kunne ikke forstå det, - ingen kunne forstå det, unntatt Anders postkar – og en til.",
-            "- Men når gamle folk ville gi ungdommen en riktig alvorlig advarsel pleide de gjerne å begynne således: ”Det var en gang i Krarup Kro en pike som het Karen – ”"
-        ]
+            "Vinden rusket i den høye lyngen på Alheden, og de hvite skyene seilte over den mørke bakgrunnen som om de hadde noe viktig for seg.",
+            "Det var en frisk, høstlig kuling, og inne i Krarup Kro var det lunt og travelt.",
+            "Anders postkar satt ved bordet med sitt store krus øl. Han var rød i hodet og svett, for han hadde nettopp kommet fra ruten, og postvognen stod ferdig spent utenfor.",
+            "Karen trippet frem og tilbake. Hun var tynn og bleg, med store, mørke øyne som alltid så ut til å lete etter noe langt borte.",
+            "– Er det noen brev til Kroen i dag? spurte hun idet hun satte et nytt krus foran postkaren.",
+            "– Ingen, Karen! svarte Anders og tørket skummet av skjegget. – Men det kommer vel, det kommer vel.",
+            "Hele kvelden satt han der og pratet, og Karen snek seg til å se på ham når ingen merket det. Han var så annerledes enn de andre, så fin i tøyet og så verdensvant.",
+            "Men postføreren hadde mange ærend, og han hadde mange piker som ventet på ham langs ruten. Det visste ikke Karen.",
+            "Hun trodde på alt han sa, og hun ventet på ham hver gang postvognen rullet inn på tunet.",
+            "Vinteren kom, og heden ble hvit og øde. Vinden var kaldere nå, og den rev og slet i de små krorutene.",
+            "– Men når gamle folk ville gi ungdommen en riktig alvorlig advarsel pleide de gjerne å begynne således: ”Det var en gang i Krarup Kro en pike som het Karen – ”"
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere kjennetegn på realismen og kvinneskjebner på 1800-tallet.",
+                "Forstå bruken av natur og vind som symbolsk ramme.",
+                "Diskutere konsekvensene av svik og maktbalanse i relasjoner."
+            ],
+            preReading: [
+                "Hva forbinder du med ordet 'svik'?",
+                "Kan naturen speile menneskers følelser i en tekst?"
+            ],
+            whileReading: [
+                "Legg merke til hvordan vinden blir beskrevet. Hvordan endrer den seg?",
+                "Hvordan blir postføreren beskrevet i kontrast til de andre i kroen?"
+            ],
+            postReading: [
+                "Hvorfor tror du novellen ender så tragisk for Karen?",
+                "Hvilken rolle spiller Anders postkar i historien? Hva forstår han?",
+                "Hva betyr den siste setningen om at gamle folk bruker historien som en advarsel?"
+            ],
+            writingTask: "Skriv en tekst der du forklarer hvordan Kielland bruker kontrasten mellom postførerens prakt og Karens enkle liv for å skape spenning.",
+            period: {
+                title: "Realismen",
+                link: "/norsk/litteraturhistorie/realismen"
+            }
+        }
     },
     {
         id: 'det-usynlige-barnet',
@@ -1163,7 +1518,32 @@ export const textLibraryData: TextEntry[] = [
             "– Å! skrek Ninni. – Å så gøy! Nei så vidunderlig! Og hun lo så hele bryggen ristet.",
             "– Hun har visst aldri ledd før, sa Tootikki forbløffet. – Jeg synes dere har forandret ungen så hun er blitt verre enn lille My. Men hovedsaken er jo at hun synes.",
             "– Det kan vi utelukkende takke mormor for, sa mummimamma."
-        ]
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere symbolikk og allegori i barnelitteratur.",
+                "Diskutere temaer som inkludering, omsorg og psykisk helse.",
+                "Reflektere over betydningen av å ha en stemme og bli sett."
+            ],
+            preReading: [
+                "Hva skal til for at man skal føle seg usynlig i en gruppe?",
+                "Hvem er Ninni, og hvorfor tror dere hun har blitt usynlig?"
+            ],
+            whileReading: [
+                "Legg merke til de ulike karakterenes reaksjoner på Ninni (Mummimamma, Lille My, Mummipappa).",
+                "Hva er det som endelig gjør Ninni synlig igjen?"
+            ],
+            postReading: [
+                "Hvorfor fungerte ikke mummimammas huskur, men mummipappas 'provokasjon'?",
+                "Hva lærer Ninni oss om sinne og grensesetting?",
+                "Diskuter Lille Mys rolle: Er hun slem, eller er hun den eneste som er ærlig med Ninni?"
+            ],
+            writingTask: "Reflekter: Hva gjør deg 'synlig' som menneske? Er det prestasjonene dine, følelsene dine eller hvordan du blir møtt av andre?",
+            period: {
+                title: "Samtidslitteratur",
+                link: "/norsk/litteraturhistorie/placeholder-samtid"
+            }
+        }
     },
     {
         id: 'fordummende-intelligent-teknologi',
@@ -1199,7 +1579,32 @@ export const textLibraryData: TextEntry[] = [
             "Først da kan vi bruke KI til å fremheve og forsterke ferdighetene våre.",
             "Først når vi har lært ferdighetene på den harde måten, gjennom øving og trening, blir KI en ferdighetsfremmer og ikke en ferdighetstyv.",
             "Kilde: [NRK Ytring](https://www.nrk.no/ytring/fordummende-intelligent-teknologi-1.17675992)"
-        ]
+                                    ],
+        lessonPlan: {
+            learningObjectives: [
+                "Analysere argumentasjonen i en sakprosatekst.",
+                "Reflektere over teknologisk utvikling og menneskelig kompetanse.",
+                "Diskutere etiske sider ved bruk av KI i skole og arbeidsliv."
+            ],
+            preReading: [
+                "Bruker du KI (som ChatGPT) til skolearbeid? Hvorfor/hvorfor ikke?",
+                "Kan man bli 'dum' av å bruke for mye hjelpemidler?"
+            ],
+            whileReading: [
+                "Hva mener forfatteren med begrepet 'ferdighetstyv'?",
+                "Hvilke eksempler bruker han for å underbygge påstandene sine?"
+            ],
+            postReading: [
+                "Er du enig i at vi lærer mindre hvis KI gjør jobben for oss? Begrunn svaret.",
+                "Hva foreslår forfatteren at vi må gjøre for å unngå 'ferdighetstap'?",
+                "Hvordan endrer KI måten vi må vurdere kunnskap på i fremtiden?"
+            ],
+            writingTask: "Skriv en kommentar der du enten støtter eller utfordrer Bjørn Hofmanns syn på KI som en 'ferdighetstyv'.",
+            period: {
+                title: "Samtidslitteratur",
+                link: "/norsk/litteraturhistorie/placeholder-samtid"
+            }
+        }
     },
     {
         id: 'havamal',
@@ -1208,7 +1613,7 @@ export const textLibraryData: TextEntry[] = [
         genre: 'Dikt',
         language: 'nn.',
         theme: ['Visdom', 'Norrøn mytologi', 'Etikk', 'Leveregler'],
-        publishedYear: 1200, // Ca årstall for nedskriving (Codex Regius)
+        publishedYear: 1200,
         createdDate: '2025-12-23T12:00:00',
         lastUpdated: '2025-12-23T12:00:00',
         definitions: [
@@ -1229,10 +1634,10 @@ export const textLibraryData: TextEntry[] = [
         content: [
             "Augo du bruke\nfyrr inn du gjeng,\ni kot og i kråom,\ni kot og i krokom.\nFor d'er uvist å vita\nkvar uvener sit\nfyre din fot.",
             "Sæl den som gjev!\nGjest er inn komen,\nkvar finn han sess åt seg?\nBrå vert den\nsom på brandom skal sitja\nog føre ærend fram.",
-            "Eld han tarv\nsom inn er komen\nog um kne kulsar.\nTil mat og klæde\nden mann hev trong\nsom hev i fjell fari.",
+            "Eld han tarv\nsom inn er komen\num kne kulsar.\nTil mat og klæde\nden mann hev trong\nsom hev i fjell fari.",
             "Vatn og hand-duk\nhan ventar å få,\nnår til bords han vert beden.\nSyn godlaget fram,\nso greidleg du kann,\nmed ord og attbeding.",
             "Vit han tarv\nsom vidt skal fara;\nd'er mangt heime høvelegt.\nTil bisn han vert\nsom veit for lite,\nnår han sit med kloke folk saman.",
-            "Av sin eigen klokskap\nkyte ingen,\nmen ver håvàr i hug.\nNår du gløgg og tagal\ni gardane sviv,\ndu kjem ikkje brått i beit.",
+            "Av sin eigen klokskap\nkyte ingen,\nmen ver håvår i hug.\nNår du gløgg og tagal\ni gardane sviv,\ndu kjem ikkje brått i beit.",
             "Grannvar mann,\ntil gjestebod komen,\ntegjer med andre talar.\nLyder med øyro\nog med augo skodar,\nveltenkt og fyre var.",
             "Sæl er den\nsom seg mun vinne\nfagre ord av folk.\nEndå det er\nymist med det\ndu eig i annan manns barm.",
             "Sæl er den\nsom sjølv mun eige\nlivsens hugnad og heider.\nFor ofte hev menn\nille råder\naust or barmen hjå andre.",
@@ -1244,8 +1649,8 @@ export const textLibraryData: TextEntry[] = [
             "Klok og tagal\nskal kongsson vera,\nfrøklegt gange han fram.\nGladvær og fjåg\nkvar gut skal svive\ntil sin døyande dag.",
             "Ein stakkar tykkjest\nhan støtt må leva,\nnår han strid mun sky.\nMen alderdomen\ngjev ingen mann fred,\num sverd honom sparde.",
             "Kópen glanar\nnår til gilde han kjem,\nfumlar fåmen og mullar.\nSå snart han ein slurk\nav skjenken fær,\ndå utan stans han sullar.",
-            "Han eine veit,\nsom vide reiser\nog um millom folk hev fari,\nkor vel sin hug\nhan held i taum,\nkvar som veit kva vit er.",
-            "Spar ikkje mjøden,\nmen med måte du drikk;\nseg det som tarvst eller teg!\nIkkje nokon\nneise deg kann\nfor du tidleg vil kvile um kveld.",
+            "Han eine veit,\nsom vide reiser\num millom folk hev fari,\nkor vel sin hug\nhan held i taum,\nkvar som veit kva vit er.",
+            "Spar ikkje mjøden,\nmen med måte du drikk;\nseg det som tarvst eller teg!\nIkkje nokon\neise deg kann\nfor du tidleg vil kvile um kveld.",
             "Ov-etar, um han\nikkje seg sansar,\nét seg sin bane-beig.\nMang ein tull\nvert for magen sin\ntil lått millom kloke karar.",
             "Bølingen veit\nnår frå beite han skal\nkoma heim um kveld.\nMen ovnøyta, ho\naldri veit\nå høve mage-mål.",
             "Vesal-mannen\nog mein-kroken\nalltid lastar og lær.\nIkkje han veit\ndet han vita turvte:\nhan sjølv hev last og lyte.",
@@ -1253,7 +1658,7 @@ export const textLibraryData: TextEntry[] = [
             "Vanklok mann\ntrur vel um alle\nsom hugblidt mun helse.\nIkkje han ser\nat dei snoror legg han,\nnår han sit med kloke saman.",
             "Vanklok mann\ntrur vel um alle\nsom hugblidt mun helse.\nDet ser han fyrst\nfram til tings komen,\nav frendar eig han få.",
             "Vanklok mann\nveit alt, han trur,\nder millom bergi han bur.\nMen når framandfolk\nhonom finn,\nrådlaus røynest han då.",
-            "Vanklok mann\nsom vankar ute,\ndet er tryggast han tegjer.\nAt lite han veit,\ndet vitrast ingen,\nutan for mykje han mæler.",
+            "Vanklok mann\nsom vankar ute,\ndet er tryggast han tegjer.\nAt lite han veit,\ndet vitrast ingen,\nutan for mykje han m mæler.",
             "Frod den tykkjest\nsom frega kann\nog sjølv eitkvart segja.\nIkkje nokon\nav løyner det\nsom ut er ført millom folk.",
             "Ovnøgdi mæler\nden som aldri tegjer,\nburt i hyr og heim.\nEi radmælt tunge\nsom låkt er tøymd\nofte seg ugodt gjel.",
             "Til narr skal ingen\nein annan hava,\num på gjesting han gjeng.\nOfte synes klok\nden inkje vert spurd,\nnår trygt i ro han ruggar.",
@@ -1273,7 +1678,7 @@ export const textLibraryData: TextEntry[] = [
             "Veit du ein ven\nsom vel du trur,\nog du hjå han fagnad vil få:\ngjev han heile din hug\nog gåva ei spar,\nfar og finn han ofte.",
             "Veit du ein annan\nsom ille du trur,\nog du fagnad vil likevel få:\ndu fagert mæle,\nmen falskt tenkje,\nog ljuging møte med lygn.",
             "Eit ord til um den\nsom ille du trur\nog ikkje kann lit til leggje:\nlæ skal du med han\nog låst vera ven;\nlik vere gåve og løn.",
-            "Ung var eg fordom,\neg einsaman fór,\nvegvill då eg vart.\nRik eg tottest\nnår eg råka einkvar;\nmann er manns gaman.",
+            "Ung var eg fordom,\neg einsaman fór,\nvegvill då eg vart.\Rik eg tottest\nnår eg råka einkvar;\nmann er manns gaman.",
             "Milde, modige\nmenn lever best,\ndei ét seg sjeldan sut.\nFor alt ottast\nudjerv dreng,\ngjerug gryler når han fær.",
             "Klædi mine\nkasta eg til\ntre-menn tvo på voll.\nKaute karar\nmed klædi dei vart,\nneist vert naken mann.",
             "Turkar toll\nsom i tunet stend,\ndet hjelp' korkje bork eller bar.\nSo er kvar mann\nsom kjærleik vantar,\nkvi skal han lenge leva!",
@@ -1312,18 +1717,18 @@ export const textLibraryData: TextEntry[] = [
                     "Stor-eteren, om han\nikke sanser seg,\neter seg sin egen død.\nMangen en tosk\nblir for magen sin\ntil lått mellom kloke karer.",
                     "Buskapen vet\nnår den skal hjem fra beite\nom kvelden.\nMen fråtseren, han\nvet aldri\nå måle sin mage.",
                     "Vesle-mannen\nog ondsinnede\nalltid laster og ler.\nHan vet ikke\ndet han burde vite:\nhan selv har feil og lyte.",
-                    "Vettløs mann\nvåker hele natten\ntenker både opp og ut.\nHan er trøtt og modig\nnår morgenen kommer,\nog alt er flokete som før.",
+                    "Vettløs mann\nvåker hele natten\ntenkjer både opp og ut.\nHan er trøtt og modig\nnår morgenen kommer,\nog alt er flokete som før.",
                     "Uklok mann\ntror godt om alle\nsom hilser blidt.\nHan ser ikke\nat de legger snarer for ham,\nnår han sitter med kloke sammen.",
                     "Uklok mann\ntror godt om alle\nsom hilser blidt.\nDet ser han først\nnår han kommer til tings,\nat han har få venner.",
                     "Uklok mann\nvet alt, tror han,\nder han bor mellom bergene.\nMen når fremmedfolk\nfinner ham,\nviser han seg rådløs da.",
-                    "Uklok mann\nsom vanker ute,\ndet er tryggest han tier.\nAt han vet lite,\ndet merker ingen,\nuten at han snakker for mye.",
+                    "Uklok mann\nsom vanker ute,\ndet er tryggast han tier.\nAt han vet lite,\ndet merker ingen,\nutan at han snakker for mye.",
                     "Klok synes den\nsom kan spørre\nog selv si noe.\nIkke noen\nkan skjule det\nsom blir fortalt blant folk.",
                     "Overflod snakker\nden som aldri tier,\nbort i hytt og vær.\nEn rappkjeftet tunge\nsom er dårlig tøymt\ngjør ofte skade for seg selv.",
                     "Til narr skal ingen\nha en annen,\nom han går på gjesting.\nOfte synes den klok\nsom ikke blir spurt,\nnår han sitter trygt i ro.",
-                    "Gjest tror seg klok\nsom tar til sprangs,\nnår han har hånet gjest i gilde.\nHan vet ikke fullt ut,\nden som flirer i laget,\nom han ikke erter feil folk.",
+                    "Gjest tror seg klok\nsom tek til sprangs,\nnår han har hånet gjest i gilde.\nHan vet ikke fullt ut,\nden som flirer i laget,\nom han ikke erter feil folk.",
                     "Mange gode\nvenner du finner\nsom alltid må krangle i gilde.\nOpphav blir det\ntil evig strid,\nnår gjest er vrang mot gjest.",
                     "En dugelig frokost\nskal du spise jevnlig,\nnår du vil gå på gjesting.\nDa slipper du å sitte\nsulten og lei,\nså du orker lite å si.",
-                    "Omvei er det jevnt\ntil utrygg venn,\nom han bor midt i bygda.\nMen beinveier går\ntil den gode vennen,\nom han er langt av lei.",
+                    "Omvei er det jevnt\ntil utrygg venn,\nom han bor midt i bygda.\nMen beinveier går\ntil den gode vennen,\nom han er langt av leid.",
                     "Gå skal du,\nikke være gjest\nalltid på samme sted.\nKjær blir lei\nsom lenge sitter\nrolig på annens krakk.",
                     "Et lite bo\ner bedre enn intet,\nhjemme er hver mann herre.\nHar du to geiter\nog en sperrestue,\ndå trenger du ikke tigge.",
                     "Et lite bo\ner bedre enn intet,\nhjemme er hver mann herre.\nHjertet blør\nnår du må be\nom mat til hvert et måltid.",
@@ -1335,12 +1740,12 @@ export const textLibraryData: TextEntry[] = [
                     "Vennen sin\nskal en være venn,\nham og hans venn.\nMen med uvenns venn\nvennskap holde\npasser ikke for fagna folk.",
                     "Vet du en venn\nsom du tror vel,\nog du vil få glede hos ham:\ngi ham hele ditt sinn\nog spar ikke på gaven,\ndra og finn ham ofte.",
                     "Vet du en annen\nsom du tror ille,\nog du likevel vil få glede:\ndu skal snakke fagert,\nmen tenke falskt,\nog møte løgn med løgn.",
-                    "Et ord til om den\nsom du tror ille\nog ikke kan stole på:\nle skal du med ham\nog late som du er venn;\nlik skal være gave og lønn.",
+                    "Et ord til om den\nsom du tror ille\nog ikke kan stole på:\nle skal du med hamog late som du er venn;\nlik skal være gave og lønn.",
                     "Ung var jeg fordum,\njeg fór alene,\nvei-vill da jeg ble.\nRik syntes jeg\nnår jeg møtte noen;\nmann er manns glede.",
                     "Milde, modige\nmenn lever best,\nde spiser sjelden sorg.\nFor alt frykter\nudjerv dreng,\ngjerrig knurrer når han får.",
                     "Klærne mine\nkastet jeg til\nto tremenn på vollen.\nStolte karer\nble de med klærne,\nskamfull blir naken mann.",
                     "Tørker treet\nsom står i tunet,\ndet hjelper verken bark eller bar.\nSlik er hver mann\nsom mangler kjærlighet,\nhvorfor skal han lenge leve!",
-                    "Hotere enn ild\nbrenner hos ille venner\nfem dagers vennskap.\nMen det slokner\nnår den sjette kommer,\nda versner all vennskap.",
+                    "Hotere enn ild\nbrenner hos ille venner\nfem dagers vennskap.\nMen det sloknar\nnår den sjette kommer,\nda versner all vennskap.",
                     "Ikke trenger gaver\nså gjeve være,\nman får ofte ros for lite.\nMed et halvt brød\nog innholdet i glasset\nfikk jeg meg en felle.",
                     "Liten brann\ntenne ofte stor ild;\ngnist tenner gnist.\nVed samtale blir en mann\nkjent med menn,\nhan blir dum av å skjule seg bort.",
                     "Grunne sjøer\nog grunne sandstrender,\nog det er grunt i sinnet hos mange.\nDu finner ingen sted\nalle like kloke.\nAlle steder er det begge slag.",
@@ -1349,6 +1754,31 @@ export const textLibraryData: TextEntry[] = [
                     "Måtelig klok\nskal hver mann være;\noverklok være han ikke.\nSin skjebne ingen\nbør se på forhånd,\nda er han sælest i sinn."
                 ]
             }
-        ]
-    },
+        ],
+        lessonPlan: {
+            learningObjectives: [
+                "Bli kjent med livsvisdom og etikk i norrøn tid.",
+                "Analysere bruk av metaforer og ordtak i Håvamål.",
+                "Reflektere over relevansen av norrøne verdier i dag."
+            ],
+            preReading: [
+                "Hva vet du om vikingenes verdier og livssyn?",
+                "Hva tror du 'Håvamål' betyr? (Den høyes tale)."
+            ],
+            whileReading: [
+                "Finn eksempler på råd om vennskap.",
+                "Hva sier teksten om måtehold og vett?"
+            ],
+            postReading: [
+                "Hvilket av ordtakene synes du er mest aktuelt i dag?",
+                "Hva er 'vett' ifølge Håvamål? Hvordan skiller det seg fra moderne intelligens?",
+                "Diskuter strofen om at 'fe dør, frender dør'. Hva er det eneste som ikke dør?"
+            ],
+            writingTask: "Velg én strofe fra Håvamål og forklar hvordan den kan tolkes inn i en moderne kontekst (f.eks. sosiale medier eller skole).",
+            period: {
+                title: "Norrøn litteratur",
+                link: "/norsk/litteraturhistorie/placeholder-norron"
+            }
+        }
+    }
 ];
