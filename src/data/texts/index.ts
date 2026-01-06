@@ -18,6 +18,7 @@ import { pikenMedSvovelstikkene } from './entries/piken-med-svovelstikkene';
 import { smaNoklerStoreRom } from './entries/sma-nokler-store-rom';
 import { twitterNoveller } from './entries/twitter-noveller';
 import { ungGuttISno } from './entries/ung-gutt-i-sno';
+import { jegSer } from './entries/jeg-ser';
 
 export const textLibraryData: TextEntry[] = [
     aDrepeEtBarn,
@@ -31,6 +32,7 @@ export const textLibraryData: TextEntry[] = [
     fordummendeIntelligentTeknologi,
     havamal,
     hjortenISkogbrynet,
+    jegSer,
     karen,
     karensJul,
     kiBotox,
