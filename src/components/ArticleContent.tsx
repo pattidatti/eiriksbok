@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Volume2 } from 'lucide-react';
+import { Volume2, ChevronDown, Info } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getComponent } from './ComponentRegistry';
 import { useGlossary } from '../context/GlossaryContext';
@@ -28,6 +28,16 @@ const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
                         <HeaderTag key={pIndex} className={`font-bold text-slate-800 mb-4 mt-6 ${level === 1 ? 'text-2xl' : level === 2 ? 'text-xl' : 'text-lg'}`}>
                             {renderInlineMarkdown(content, concepts)}
                         </HeaderTag>
+                    );
+                }
+
+                // Check for blockquotes
+                if (paragraph.startsWith('>')) {
+                    const content = paragraph.replace(/^>\s*/gm, ''); // Remove > from start of lines
+                    return (
+                        <blockquote key={pIndex} className="my-6 pl-6 border-l-4 border-indigo-500 italic text-lg text-slate-700 bg-slate-50 py-3 pr-4 rounded-r-lg">
+                            {renderInlineMarkdown(content, concepts)}
+                        </blockquote>
                     );
                 }
 
@@ -263,6 +273,60 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 />
+                            </div>
+                        );
+
+                    case 'expandable':
+                        return (
+                            <details key={index} className="group my-6 bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm open:shadow-md transition-shadow">
+                                <summary className="flex items-center justify-between p-6 cursor-pointer bg-slate-50 hover:bg-slate-100 transition-colors list-none select-none">
+                                    <h3 className="text-xl font-bold text-slate-800">{block.title}</h3>
+                                    <ChevronDown className="w-5 h-5 text-slate-500 transition-transform group-open:rotate-180" />
+                                </summary>
+                                <div className="p-6 pt-2 text-slate-700 leading-relaxed border-t border-slate-100">
+                                    {renderWithMarkdown(block.content, mergedConcepts)}
+                                </div>
+                            </details>
+                        );
+
+                    case 'info_box':
+                        return (
+                            <div key={index} className="my-8 bg-blue-50 border border-blue-100 rounded-xl p-6 shadow-sm">
+                                <div className="flex items-start gap-3">
+                                    <Info className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                                    <div>
+                                        <h3 className="text-lg font-bold text-blue-900 mb-2">{block.title}</h3>
+                                        <div className="text-blue-800 leading-relaxed">
+                                            {renderWithMarkdown(block.content, mergedConcepts)}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+
+                    case 'comparison_card':
+                        return (
+                            <div key={index} className="my-10">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    {block.items?.map((item: any, i: number) => {
+                                        // Map string color names to tailwind classes
+                                        const colorMap: Record<string, string> = {
+                                            blue: 'bg-blue-50 border-blue-100 text-blue-900',
+                                            purple: 'bg-purple-50 border-purple-100 text-purple-900',
+                                            orange: 'bg-orange-50 border-orange-100 text-orange-900',
+                                            green: 'bg-green-50 border-green-100 text-green-900',
+                                            red: 'bg-red-50 border-red-100 text-red-900',
+                                        };
+                                        const colorClass = colorMap[item.color] || 'bg-slate-50 border-slate-100 text-slate-900';
+
+                                        return (
+                                            <div key={i} className={`p-6 rounded-xl border ${colorClass} shadow-sm`}>
+                                                <h4 className="text-lg font-bold mb-3">{item.title}</h4>
+                                                <p className="text-sm leading-relaxed opacity-90">{item.content}</p>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         );
 

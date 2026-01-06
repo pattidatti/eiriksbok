@@ -1,37 +1,81 @@
 {
     "id": "ny-romantikken",
-    "title": "Nyromantikken: Følelser og mystikk",
-    "ingress": "På 1890-tallet snudde stemningen igjen. Forfatterne gikk lei av problemer og samfunnskritikk. Nå ville de utforske det indre sjelelivet, naturens mystikk og det uforklarlige.",
-    "heroImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80",
+    "title": "Nyromantikken: Mystikk, sjel og underbevissthet",
+    "ingress": "Pendelen svinger alltid. Etter to tiår der alt skulle handle om samfunnsproblemer, kloakk og fattigdom, sa forfatterne stopp. De ville ikke lenger se utover på elendigheten – de ville se innover i sin egen sjel.",
+    "heroImage": "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=2574&auto=format&fit=crop",
     "content": [
         {
+            "type": "header",
+            "text": "1890-tallet: En reaksjon på Realismen"
+        },
+        {
             "type": "text",
-            "content": "Etter to tiår med realisme og debatt, kom en motreaksjon. Knut Hamsun reiste rundt og holdt foredrag der han kjeftet på de 'fire store' (Ibsen, Bjørnson, Kielland og Lie). Han mente de skrev kjedelig om samfunnsproblemer og 'typer' i stedet for virkelige, sammensatte mennesker.\n\nNyromantikken handlet om 'det ubevisste sjeleliv'. Forfatterne var opptatt av drømmer, angst, forelskelse og de små, rare følelsene vi ikke helt kan sette ord på. Naturen ble også viktig igjen, men nå var den ikke bare nasjonal og stolt – den var mystisk, levende og speilet menneskets følelser."
+            "content": "Se for deg at du har hørt på foredrag om politikk, kvinnesak og lønnsforhold i tjue år. Du er lei av fornuft. Du er lei av vitenskap. Du lengter etter noe som får hjertet til å banke litt fortere. Slik hadde de unge forfatterne det rundt 1890. Realismen hadde vært viktig og nødvendig, men nå føltes den tørr og kjedelig.\n\nKnut Hamsun reiste rundt på turné og regelrett skjelte ut de 'fire store' (Ibsen, Bjørnson, Kielland og Lie). Han mente de skrev om 'typer' og samfunnsroller, ikke om levende mennesker av kjøtt og blod. Hamsun ville skrive om 'det ubevisste sjeleliv' – om de rare, ulogiske tankene vi alle har, men som vi sjelden snakker om."
         },
         {
             "type": "header",
-            "text": "Viktige kjennetegn"
+            "text": "Hva kjennetegner perioden?"
         },
         {
             "type": "list",
             "items": [
-                "**Jeg-et i sentrum:** Mange bøker ble skrevet i jeg-form for å komme tett på hovedpersonens tanker.",
-                "**Lyrikk:** Diktet fikk en renessanse. Det var den beste formen for å uttrykke stemninger.",
-                "**Det irrasjonelle:** Man var opptatt av det som ikke kunne forklares med fornuft.",
-                "**Byen som fremmedgjørende:** Mens realistene så på byen som et sted for fremskritt (eller fattigdom), følte nyromantikerne seg ofte ensomme og fremmede i de store byene."
+                "**Følelser over fornuft:** Man var mer interessert i det mystiske, drømmeaktige og uforklarlige enn i vitenskapelige fakta.",
+                "**Ensomhet og fremmedfølelse:** Mange tekster handler om enkeltmennesket som vandrer alene i storbyen (Kristiania) og ikke passer inn.",
+                "**Naturen som stemning:** Naturen var ikke lenger bare 'vakker' (nasjonalromantikk) eller 'ressurs' (realisme), men besjelet. Den speilet hovedpersonens følelser. En mørk skog var ikke bare trær, men et bilde på angst eller sjalusi.",
+                "**Hverdagen er kjedelig:** Man søkte vekk fra det grå hverdagslivet mot noe 'høyere' og mer intenst, ofte gjennom kunst, rus eller intens forelskelse."
             ]
         },
         {
             "type": "header",
-            "text": "Sentrale forfattere"
+            "text": "Før og Etter: Et historisk blikk"
         },
         {
-            "type": "list",
+            "type": "text",
+            "content": "For å forstå nyromantikken, må vi se hva den kom fra og hva den førte til."
+        },
+        {
+            "type": "comparison_card",
             "items": [
-                "**Knut Hamsun:** Gjennombruddet kom med romanen *Sult* (1890). Den handler om en ung, fattig forfatter som vandrer rundt i Kristiania (Oslo) og sulter. Det skjer egentlig ikke så mye ytre handling, men vi får være med på alle de rare, hallusinerende tankene hans. I *Pan* (1894) møter vi løytnant Glahn og hans kompliserte kjærlighet til Edvarda i den nordnorske naturen.",
-                "**Sigbjørn Obstfelder:** Han skrev dikt som ikke rimte, noe som var veldig uvanlig på den tiden. Hans mest kjente dikt er «Jeg ser», der han føler at han har havnet på feil klode. Han beskriver følelsen av angst og fremmedfølelse i den moderne verden.",
-                "**Vilhelm Krag:** Det var han som egentlig 'startet' nyromantikken med diktet «Fandango» som han leste opp i Studentersamfundet i 1890."
+                {
+                    "title": "Realismen (1870-1890)",
+                    "content": "Lyskasteren rettet mot samfunnet. 'Sannheten skal frem'. Problemer under debatt. Fornuft, vitenskap og fremskritt. Litteraturen skal oppdra og forandre verden.",
+                    "color": "blue"
+                },
+                {
+                    "title": "Nyromantikken (1890-1905)",
+                    "content": "Lyskasteren rettet innover i sinnet. 'Hvem er jeg?'. Stemninger og mysterier. Skepsis til det moderne. Litteraturen skal uttrykke menneskets dypeste følelser, uavhengig av nytteverdi.",
+                    "color": "purple"
+                },
+                {
+                    "title": "Nyrealismen (1905-1935)",
+                    "content": "En blanding. Man beholdt den psykologiske innsikten fra nyromantikken, men begynte igjen å skrive om samfunnet og historien. Store etiske valg. Arbeiderklasse og historie.",
+                    "color": "orange"
+                }
             ]
+        },
+        {
+            "type": "header",
+            "text": "De viktigste stemmene"
+        },
+        {
+            "type": "expandable",
+            "title": "Knut Hamsun - Psykologiens mester",
+            "content": "Det var Hamsun som brøytet vei med romanen *Sult* (1890). Det er ingen vanlig historie med begynnelse og slutt. Den handler om en navnløs forfatter som sulter i Kristiania. Vi følger hans desperate kamp for mat, men mest av alt hans merkelige, feberaktige tanker. Han gjør irrasjonelle ting, lyver uten grunn og forelsker seg i kvinner han ikke kjenner.\n\n> «Det var i den tid jeg gikk omkring og sultet i Kristiania, denne forunderlige by som ingen forlater før han har fått merker av den...»\n\nI *Pan* (1894) møter vi løytnant Glahn i Nordland. Han lever i en hytte i skogen med hunden sin, Æsop. Naturen er hans beste venn, mens menneskene – og spesielt Edvarda, som han elsker og hater – forstår han seg ikke på. Boken er kjent for sitt vakre, lyriske språk."
+        },
+        {
+            "type": "expandable",
+            "title": "Sigbjørn Obstfelder - Den første modernisten",
+            "content": "Mens Hamsun skrev romaner, fornyet Obstfelder lyrikken. Dikt skulle rime og ha fast rytme, mente folk. 'Nei', sa Obstfelder. Han skrev 'frie vers' uten rim. Han følte seg fremmed i verden, som om han hadde havnet på feil planet. Diktet *Jeg ser* er kanskje periodens mest kjente uttrykk for fremmedfølelse:\n\n> «Jeg ser på den hvite himmel,\n> jeg ser på de gråblå skyer,\n> jeg ser på den blodige sol.\n> \n> Dette er altså verden.\n> Dette er altså klodenes hjem.\n> \n> En regndråpe!\n> \n> Jeg ser på de høye hus,\n> jeg ser på de tusende vinduer,\n> jeg ser på det fjerne kirketårn.\n> \n> Dette er altså jorden.\n> Dette er altså menneskenes hjem.\n> \n> ...\n> \n> Jeg er visst kommet på en feil klode!\n> Her er så underlig...»"
+        },
+        {
+            "type": "expandable",
+            "title": "Vilhelm Krag - Startskuddet",
+            "content": "Egentlig var det Vilhelm Krag som 'offisielt' startet perioden da han leste diktet *Fandango* i 1890. Diktet var eksotisk, fargerikt og handlet om musikk og dans – milevis unna de grå, triste realistiske tekstene folk var vant til."
+        },
+        {
+            "type": "info_box",
+            "title": "Hvorfor kaller vi det 'Ny'-romantikk?",
+            "content": "Fordi den ligner litt på den gamle romantikken (ca. 1800-1850). Begge periodene er opptatt av følelser, lengsel og natur. Forskjellen er at den gamle romantikken ofte var mer *harmonisk* og religiøs (Gud i naturen). Nyromantikken er mer *psykologisk*, urolig og moderne. Naturen er ikke nødvendigvis god, den er mystisk og kan være skremmende."
         }
     ],
     "createdDate": "2023-01-01T12:00:00Z",
