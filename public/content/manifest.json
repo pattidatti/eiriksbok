@@ -342,28 +342,28 @@
                     "tools": [
                         {
                             "id": "romantikken-sti",
-                            "title": "Læringssti: Drøm og Nasjon",
+                            "title": "Læringssti: Romantikken",
                             "description": "Da Norge fant sin sjel. En reise gjennom 1800-tallets føleri og nasjonsbygging.",
                             "link": "/norsk/litteraturhistorie/romantikken-sti",
                             "icon": "map"
                         },
                         {
                             "id": "realismen-sti",
-                            "title": "Læringssti: Sannheten på bordet",
+                            "title": "Læringssti: Realismen",
                             "description": "Fra dukkehjem til folkefiender. Når litteraturen skulle forandre samfunnet.",
                             "link": "/norsk/litteraturhistorie/realismen-sti",
                             "icon": "map"
                         },
                         {
                             "id": "nyromantikken-sti",
-                            "title": "Læringssti: Sjelenes mørke",
+                            "title": "Læringssti: Nyromantikken",
                             "description": "En reise gjennom 1890-årenes litteratur.",
                             "link": "/norsk/litteraturhistorie/nyromantikken-sti",
                             "icon": "map"
                         },
                         {
                             "id": "nyrealismen-sti",
-                            "title": "Læringssti: Det nye Norge",
+                            "title": "Læringssti: Nyrealismen",
                             "description": "Etter 1905 skulle landet bygges. En tid for historie, røtter og fabrikkpiper.",
                             "link": "/norsk/litteraturhistorie/nyrealismen-sti",
                             "icon": "map"
