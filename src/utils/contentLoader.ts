@@ -7,49 +7,13 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
             ? import.meta.env.BASE_URL
             : `${import.meta.env.BASE_URL}/`;
 
-        // Try standard path: content/subject/topic/lessonId.json
-        let lessonPath = subTopicId
-            ? `content/${subject}/${topic}/${subTopicId}/${lessonId}.json`
-            : `content/${subject}/${topic}/${lessonId}.json`;
-
-        console.log(`Attempting to fetch: ${basePath}${lessonPath}`);
-        let response = await fetch(`${basePath}${lessonPath}`, { cache: 'no-store' });
-
-        // Check if response is valid JSON (not HTML fallback)
-        const isJson = response.headers.get("content-type")?.includes("application/json");
-
-        // If not found OR not JSON (likely HTML fallback), try nested article path
-        if (!response.ok || !isJson) {
-            console.log(`First attempt failed (Status: ${response.status}, IsJSON: ${isJson}). Trying nested article path.`);
-            lessonPath = subTopicId
-                ? `content/${subject}/${topic}/${subTopicId}/${lessonId}/artikkel.json`
-                : `content/${subject}/${topic}/${lessonId}/artikkel.json`;
-            console.log(`Attempting to fetch: ${basePath}${lessonPath}`);
-            response = await fetch(`${basePath}${lessonPath}`, { cache: 'no-store' });
-        }
-
-        if (!response.ok) {
-            console.error(`Failed to fetch lesson: ${response.status} ${response.statusText} for path ${lessonPath}`);
-            return null;
-        }
-
-        // Final check for JSON on the fallback response
-        const finalIsJson = response.headers.get("content-type")?.includes("application/json");
-        if (!finalIsJson) {
-            console.error(`Failed to fetch lesson: Response was not JSON (likely HTML fallback) for path ${lessonPath}`);
-            return null;
-        }
-
-        const data = await response.json();
-
-        // Fetch manifest to get definitions and layout if present
+        // 1. First, fetch manifest to check if this lesson has a specific path override
+        // or to resolve its location in the hierarchy
+        let manifestLesson: any = null;
         try {
             const manifestResponse = await fetch(`${basePath}content/manifest.json`);
             if (manifestResponse.ok) {
                 const manifest = await manifestResponse.json() as Manifest;
-                let manifestLesson: any;
-
-                // Helper to find lesson in manifest
                 const findLesson = (nodes: any[]): any => {
                     for (const node of nodes) {
                         if (node.id === lessonId) return node;
@@ -76,33 +40,89 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
                     }
                     return null;
                 };
-
                 manifestLesson = findLesson(manifest.subjects);
-
-                if (manifestLesson) {
-                    // Merge definitions into concepts
-                    if (manifestLesson.definitions) {
-                        const newConcepts = manifestLesson.definitions.map((def: any, index: number) => ({
-                            id: `concept-${index}`,
-                            term: def.term,
-                            definition: def.definition
-                        }));
-                        data.concepts = [...(data.concepts || []), ...newConcepts];
-                    }
-
-                    // Merge other metadata
-                    if (manifestLesson.layout) data.layout = manifestLesson.layout;
-                    if (manifestLesson.year) data.year = manifestLesson.year;
-                    if (manifestLesson.tags) {
-                        // Merge tags without duplicates
-                        data.tags = [...new Set([...(data.tags || []), ...(manifestLesson.tags || [])])];
-                    }
-                }
             }
         } catch (e) {
-            console.warn("Failed to merge manifest data:", e);
+            console.warn("Failed to fetch/parse manifest pre-lookup:", e);
         }
 
+        // 2. Determine path(s) to try
+        let pathsToTry: string[] = [];
+
+        // If manifest says it links primarily to a JSON file (standard behavior for us)
+        // we construct the standard path.
+        const standardPath = subTopicId
+            ? `content/${subject}/${topic}/${subTopicId}/${lessonId}.json`
+            : `content/${subject}/${topic}/${lessonId}.json`;
+
+        pathsToTry.push(standardPath);
+
+        // Fallback: nested article structure
+        const articlePath = subTopicId
+            ? `content/${subject}/${topic}/${subTopicId}/${lessonId}/artikkel.json`
+            : `content/${subject}/${topic}/${lessonId}/artikkel.json`;
+        pathsToTry.push(articlePath);
+
+        // Special case: "Tools" or learning paths might be at the topic level even called from deeper?
+        // Or if the folder structure is simpler.
+        // For learning paths, they are often directly in the topic folder.
+        if (lessonId.includes('-sti')) {
+            pathsToTry.push(`content/${subject}/${topic}/${lessonId}.json`);
+        }
+
+        console.log(`Attempting fetch paths in order:`, pathsToTry);
+
+        let response: Response | null = null;
+        let usedPath = "";
+
+        for (const p of pathsToTry) {
+            try {
+                const r = await fetch(`${basePath}${p}`, { cache: 'no-store' });
+                const isJson = r.headers.get("content-type")?.includes("application/json");
+                if (r.ok && isJson) {
+                    response = r;
+                    usedPath = p;
+                    break;
+                }
+            } catch (e) { /* ignore and try next */ }
+        }
+
+        if (!response) {
+            console.error(`Failed to fetch lesson ${lessonId} after trying paths:`, pathsToTry);
+            return null;
+        }
+
+        const data = await response.json();
+
+        // 3. Robust Data Unwrapping
+        // Fix for the double-nesting issue: if data.learningPathData has a nested .learningPathData, unwrap it.
+        // Or if data itself is the wrapper but contains learningPathData.
+        if (data.learningPathData && data.learningPathData.learningPathData) {
+            console.log("Detected double-nested learningPathData, unwrapping...");
+            data.learningPathData = data.learningPathData.learningPathData;
+        }
+
+        // 4. Merge Manifest Data (Definitions, Layout, Tags)
+        if (manifestLesson) {
+            if (manifestLesson.definitions) {
+                const newConcepts = manifestLesson.definitions.map((def: any, index: number) => ({
+                    id: `concept-${index}`,
+                    term: def.term,
+                    definition: def.definition
+                }));
+                data.concepts = [...(data.concepts || []), ...newConcepts];
+            }
+            if (manifestLesson.layout) data.layout = manifestLesson.layout;
+            if (manifestLesson.year) data.year = manifestLesson.year;
+            if (manifestLesson.tags) {
+                data.tags = [...new Set([...(data.tags || []), ...(manifestLesson.tags || [])])];
+            }
+            // Ensure title/desc fallback from manifest if missing in file
+            if (!data.title && manifestLesson.title) data.title = manifestLesson.title;
+            if (!data.description && manifestLesson.description) data.description = manifestLesson.description;
+        }
+
+        console.log(`Successfully loaded lesson ${lessonId} from ${usedPath}`);
         return data as Lesson;
     } catch (error) {
         console.error("Error loading lesson:", error);
