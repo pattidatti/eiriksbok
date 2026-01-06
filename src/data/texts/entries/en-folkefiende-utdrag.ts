@@ -7,15 +7,15 @@ export const enFolkefiendeUtdrag: TextEntry = {
     year: 1882,
     genre: 'Drama',
     content: [
-        "DOKTOR STOCKMANN: Saken er den, ser I, at den sterkeste mann i verden, det er han som står mest alene.",
-        "MORTEN KIIL: Nå, nå, kjære svigersønn, ikke vær så stri! Tenk på din familie.",
-        "DOKTOR STOCKMANN: Min familie? Hva har min familie med sannheten å gjøre?",
-        "PETER STOCKMANN: Du ødelegger byen, Thomas! Ingen vil komme til badet hvis ryktet sprer seg om at vannet er forgiftet.",
-        "DOKTOR STOCKMANN: Men vannet ER forgiftet! Skal jeg tie stille om at folk blir syke, bare for at du skal tjene penger?",
-        "PETER STOCKMANN: Sannheten er ikke alltid det viktigste. Av og til må man tenke på fellesskapet.",
-        "DOKTOR STOCKMANN: Fellesskapet! Den forbannede kompakte majoritet! De som alltid mener det som er mest behagelig å mene.",
+        "(Doktor Stockmann samler sin familie rundt seg i stuen. Han har mistet alt – jobben, huset og vennene. Men han har ikke gitt opp.)",
+        "",
+        "DOKTOR STOCKMANN: Skulle jeg kanskje la meg slå til marken av den offentlige mening og den kompakte majoritet og slikt noe djevelskap? Nei takk, du!",
+        "FRU STOCKMANN: Men kjære Thomas da –",
+        "DOKTOR STOCKMANN: Jeg vil bare få banket inn i hodet på de kjøterne at de liberale er de frie menns lumskeste fiender, – at partiprogrammene vrir halsen om på alle unge levedyktige sannheter!",
         "...",
-        "DOKTOR STOCKMANN (reiser seg): Jeg akter ikke å bøye meg. Jeg vil si sannheten, om så hele byen styrter sammen!"
+        "DOKTOR STOCKMANN (fortrolig): Saken er den, ser I, at den sterkeste mann i verden, det er han som står mest alene.",
+        "FRU STOCKMANN (smiler og ryster på hodet): Å du Thomas –!",
+        "PETRA (trøstig, griper hans hender): Far!"
     ],
-    description: 'Dr. Stockmann oppdager at byens kurbad er forurenset, men ingen vil høre på ham fordi det vil koste penger. Han blir erklært som en «folkefiende».'
+    description: 'Sluttscenen der Dr. Stockmann, etter å ha blitt stemplet som fiende av hele byen, konkluderer med at styrke kommer fra selvstendighet.'
 };
