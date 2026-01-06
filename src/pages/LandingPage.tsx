@@ -33,7 +33,7 @@ export const LandingPage: React.FC = () => {
                                     prefetchTarget="SubjectPage"
                                     className="group block"
                                 >
-                                    <h2 className="text-6xl md:text-8xl font-display font-bold text-text-main hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 transition-all duration-300 transform origin-left hover:scale-105">
+                                    <h2 className="text-4xl sm:text-6xl md:text-8xl font-display font-bold text-text-main hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 transition-all duration-300 transform origin-left hover:scale-105 break-words tracking-tight leading-none">
                                         {subject.title}
                                     </h2>
                                 </PrefetchLink>

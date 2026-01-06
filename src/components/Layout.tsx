@@ -5,13 +5,16 @@ import { PrefetchLink } from './PrefetchLink';
 import { SearchOverlay } from './SearchOverlay';
 import { Breadcrumbs } from './Breadcrumbs';
 import { ScrollToTop } from './ScrollToTop';
+import { MobileMenu } from './MobileMenu';
 import { useSettings } from '../hooks/useSettings';
 import { useLayout } from '../context/LayoutContext';
+import { Menu } from 'lucide-react';
 
 export const Layout: React.FC = () => {
     const location = useLocation();
     const outlet = useOutlet();
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { settings, toggleDyslexicMode } = useSettings();
     const { isFullWidth, hideHeader } = useLayout();
 
@@ -31,10 +34,22 @@ export const Layout: React.FC = () => {
             {!hideHeader && (
                 <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-white/70 border-b border-white/20 shadow-sm transition-all duration-300">
                     <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-                        <Link to="/" className="flex items-center gap-3 text-xl font-display font-bold text-text-main no-underline tracking-tight group">
-                            <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain transition-transform group-hover:scale-110" />
-                            <span>BOK.HAALAND.DE</span>
-                        </Link>
+                        <div className="flex items-center gap-4">
+                            {/* Mobile Menu Trigger */}
+                            <button
+                                onClick={() => setIsMobileMenuOpen(true)}
+                                className="md:hidden p-2 -ml-2 text-text-muted hover:text-text-main transition-colors"
+                                aria-label="Åpne meny"
+                            >
+                                <Menu size={28} />
+                            </button>
+
+                            <Link to="/" className="flex items-center gap-3 text-xl font-display font-bold text-text-main no-underline tracking-tight group">
+                                <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain transition-transform group-hover:scale-110" />
+                                <span className="hidden sm:inline">BOK.HAALAND.DE</span>
+                                <span className="sm:hidden">EIRIKSBOK</span>
+                            </Link>
+                        </div>
 
                         <nav className="hidden md:flex items-center space-x-8">
                             <PrefetchLink to="/norsk" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/norsk')}`}>Norsk</PrefetchLink>
@@ -73,6 +88,7 @@ export const Layout: React.FC = () => {
             )}
 
             <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+            <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
 
             <main className={`relative z-10 ${isFullWidth ? '' : 'pt-8'}`}>
                 <div className={isFullWidth ? '' : 'max-w-7xl mx-auto px-6'}>
