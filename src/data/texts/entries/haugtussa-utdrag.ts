@@ -15,10 +15,17 @@ export const haugtussaUtdrag: TextEntry = {
         { term: "Sutt", definition: "Sorg/bekymring." }
     ],
     content: [
-        "Til deg, du hei og bleike myr\nmed bukkebær-lyng og herre,\neg gjev min song om hel og hyr,\neg gjev min song om sutt og styr,\nom alt som er til, desverre.",
-        "Her flyg den fugl som er forlatt\nog lider i såre savn,\nher flyg den fugl i den mørke natt\nog gråter så seint og så tidlig att\ni Vårherre Jesu navn.",
-        "Her stig det troll i den sterke tid,\nnår dagerne rinn i ring\no, det er dei tusseladdar som strid\nog vil deg vinne og ta deg i tider!\nOm kvelden, om kvelden, du ser deira ring!",
-        "Til deg, du hei og bleike myr,\neg gjev deg min song tilbake.\nHer er mitt liv, her er mitt styr,\nher er mi glede og alt mitt hyr,\nher vil eg og dø og våke."
+        "Til deg, du Hei og bleike Myr\nmed Bukkeblad,\nder Hegre stig og Heilo flyr,\neg gjev mitt Kvad.",
+        "Til deg, du visne Lyng um Haug,\nder Draumar sviv,\neg gjev min Song um Dimd og Draug\nog dulde Liv.",
+        "Eg kjenner deg, du Trollheim graa,\ndu Skugge-Natt!\nEg rømde rædd; men stundom maa\neg sjaa deg att.",
+        "Eg kjenner deg, du Havsens Marm,\nmed Galdre-Song;\ndu gauv meg Gru i rædde Barm\nso mang ein Gong.",
+        "Eg kjenner Striden tung og sein\nmot Trolldoms Vald.\nGud hjelpe oss for brotne Bein\nog Mannefall!",
+        "Eg kjenner deg, — eg kjenner deg,\nsom ikkje vann! —\nEg saag din Strid, eg veit din Veg\ni Skugge-Land.",
+        "Eg røynde sjølv den Striden stygg\ni mange Aar,\nmed ville Mot, med bøygde Rygg,\nmed svære Saar.",
+        "Du um meg sviv, du hjaa meg sit,\ndu arme Aand!\nI meg du enno riv og slit\ni dine Baand.",
+        "Eg veit det væl: dei sterke Troll,\nden Vilje rik;\nein Baat i Foss, eit Kvad i Moll,\nsløkkt i eit Skrik. —",
+        "Men Lerka stig fraa gløymde Grav\nmed Sigers Ljod,\nog Vinden stryker inn av Hav\nso frisk og god.",
+        "Og um me kjenner Graat og Gru\nog Saknad saar,\nso maa me Lerkesongen tru,\nsom lovar Vaar."
     ],
     reflectionTasks: [
         "Hvilket landskap beskrives i diktet?",
