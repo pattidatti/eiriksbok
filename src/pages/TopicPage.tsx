@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import { useManifest } from '../hooks/useManifest';
-import type { ManifestLesson } from '../types';
+
 import { motion } from 'framer-motion';
 import { motionPresets } from '../styles/motion-presets';
 import { LessonCard } from '../components/LessonCard';
@@ -83,8 +83,8 @@ export const TopicPage: React.FC = () => {
     const image = (activeItem as any).image;
 
     // Sorting Logic
-    const sortLessons = (lessons: ManifestLesson[]) => {
-        return [...lessons].sort((a: any, b: any) => {
+    const sortedLessons = React.useMemo(() => {
+        return [...rawLessons].sort((a: any, b: any) => {
             if (sortMode === 'alphabetical') return a.title.localeCompare(b.title);
             if (sortMode === 'year') {
                 const dateA = a.date || '9999';
@@ -99,17 +99,17 @@ export const TopicPage: React.FC = () => {
             }
             return 0;
         });
-    };
-
-    const sortedLessons = sortLessons(rawLessons);
+    }, [rawLessons, sortMode]);
 
     // Filter by tag if present in query params
     const queryParams = new URLSearchParams(location.search);
     const tagFilter = queryParams.get('tag');
 
-    const filteredLessons = tagFilter
-        ? sortedLessons.filter((l: any) => l.tags?.includes(tagFilter))
-        : sortedLessons;
+    const filteredLessons = React.useMemo(() => {
+        return tagFilter
+            ? sortedLessons.filter((l: any) => l.tags?.includes(tagFilter))
+            : sortedLessons;
+    }, [sortedLessons, tagFilter]);
 
     return (
         <div className="topic-page max-w-7xl mx-auto px-6 py-12">

@@ -77,7 +77,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
 
         for (const p of pathsToTry) {
             try {
-                const r = await fetch(`${basePath}${p}`, { cache: 'no-store' });
+                const r = await fetch(`${basePath}${p}`, { cache: 'no-cache' });
                 const isJson = r.headers.get("content-type")?.includes("application/json");
                 if (r.ok && isJson) {
                     response = r;
@@ -136,7 +136,7 @@ export async function fetchManifest(): Promise<Manifest | null> {
         const basePath = import.meta.env.BASE_URL.endsWith('/')
             ? import.meta.env.BASE_URL
             : `${import.meta.env.BASE_URL}/`;
-        const response = await fetch(`${basePath}content/manifest.json`, { cache: 'no-store' });
+        const response = await fetch(`${basePath}content/manifest.json`, { cache: 'no-cache' });
         if (!response.ok) return null;
         return await response.json() as Manifest;
     } catch (error) {
@@ -154,7 +154,7 @@ export async function fetchReligion(id: string): Promise<any | null> {
         // Handle ID with or without .json extension, and strip path if present
         // This handles "kristendom", "kristendom.json", and "data/religion/kristendom.json"
         const cleanId = id.replace(/\.json$/, '').split('/').pop();
-        const response = await fetch(`${basePath}data/religion/${cleanId}.json`);
+        const response = await fetch(`${basePath}data/religion/${cleanId}.json`, { cache: 'no-cache' });
         if (!response.ok) {
             console.error(`Failed to fetch religion: ${response.status} ${response.statusText}`);
             return null;
@@ -174,7 +174,7 @@ export async function fetchPhilosopher(id: string): Promise<Philosopher | null> 
             : `${import.meta.env.BASE_URL}/`;
 
         const cleanId = id.replace(/\.json$/, '').split('/').pop();
-        const response = await fetch(`${basePath}data/philosophy/${cleanId}.json`);
+        const response = await fetch(`${basePath}data/philosophy/${cleanId}.json`, { cache: 'no-cache' });
         if (!response.ok) {
             console.error(`Failed to fetch philosopher: ${response.status} ${response.statusText}`);
             return null;
