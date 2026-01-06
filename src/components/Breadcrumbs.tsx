@@ -47,7 +47,7 @@ export const Breadcrumbs: React.FC = () => {
     };
 
     return (
-        <nav className="flex items-center space-x-2 text-sm text-text-muted mb-6 overflow-x-auto whitespace-nowrap py-2">
+        <nav className="flex items-center space-x-2 text-sm text-text-muted mb-2 overflow-x-auto whitespace-nowrap py-2">
             <Link
                 to="/"
                 className="flex items-center hover:text-text-main transition-colors"

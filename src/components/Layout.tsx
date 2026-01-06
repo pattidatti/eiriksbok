@@ -90,7 +90,7 @@ export const Layout: React.FC = () => {
             <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
             <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
 
-            <main className={`relative z-10 ${isFullWidth ? '' : 'pt-8'}`}>
+            <main className={`relative z-10 ${isFullWidth ? '' : 'pt-4'}`}>
                 <div className={isFullWidth ? '' : 'max-w-7xl mx-auto px-6'}>
                     <Breadcrumbs />
                     <AnimatePresence mode="wait">

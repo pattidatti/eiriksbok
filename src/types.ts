@@ -138,6 +138,7 @@ export interface SidebarConfig {
     showRelated?: boolean;
     showConcepts?: boolean;
     showTools?: boolean;
+    showAudio?: boolean;
 }
 
 export interface Manifest {

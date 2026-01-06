@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-    Calendar,
-    Clock,
     Info,
     Volume2,
     PauseCircle,
@@ -196,66 +194,47 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
             </div>
 
             {/* Header Section */}
-            <div className="pt-24 pb-12 px-6 max-w-5xl mx-auto text-center">
+            <div className="pt-2 pb-4 md:pt-8 md:pb-6 px-6 max-w-5xl mx-auto text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                 >
-                    <div className="flex justify-center items-center gap-3 mb-6 flex-wrap">
-                        <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-wider rounded-full">
+                    {/* Mobile-Only Meta Row */}
+                    <div className="md:hidden flex flex-wrap justify-center items-center gap-3 text-xs font-bold text-slate-500 mb-3">
+                        <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 rounded-md uppercase tracking-wide">
                             {event.category}
                         </span>
-                        <span className="flex items-center text-slate-500 font-mono text-sm">
-                            <Calendar className="w-3 h-3 mr-1.5" />
-                            {event.year}
-                        </span>
-                        <span className="flex items-center text-slate-500 font-mono text-sm">
-                            <Clock className="w-3 h-3 mr-1.5" />
-                            {event.readTime}
-                        </span>
+                        <span>•</span>
+                        <span>{event.year}</span>
+                        <span>•</span>
+                        <span>{event.readTime}</span>
+                        {hasVoice && (
+                            <>
+                                <span>•</span>
+                                <button
+                                    onClick={handleListenClick}
+                                    className={`flex items-center gap-1.5 transition-colors ${isPlaying ? 'text-indigo-600' : 'text-slate-500'}`}
+                                >
+                                    {isPlaying ? (
+                                        isPaused ? <PlayCircle className="w-4 h-4" /> : <PauseCircle className="w-4 h-4 animate-pulse" />
+                                    ) : (
+                                        <Volume2 className="w-4 h-4" />
+                                    )}
+                                </button>
+                            </>
+                        )}
                     </div>
 
-                    <h1 className="text-4xl md:text-6xl font-display font-bold text-slate-900 mb-6 leading-tight">
+                    <h1 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold text-slate-900 mb-2 leading-tight">
                         {event.title}
                     </h1>
-
-
-
-                    {/* TTS Button */}
-                    {hasVoice && (
-                        <div className="flex justify-center mb-8">
-                            <button
-                                onClick={handleListenClick}
-                                className={`flex items-center px-5 py-2.5 rounded-full font-bold transition-all shadow-sm ${isPlaying
-                                    ? 'bg-indigo-600 text-white shadow-indigo-200'
-                                    : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
-                                    }`}
-                            >
-                                {isPlaying ? (
-                                    isPaused ? (
-                                        <>
-                                            <PlayCircle className="w-5 h-5 mr-2" /> Fortsett
-                                        </>
-                                    ) : (
-                                        <>
-                                            <PauseCircle className="w-5 h-5 mr-2" /> Pause
-                                        </>
-                                    )
-                                ) : (
-                                    <>
-                                        <Volume2 className="w-5 h-5 mr-2" /> Lytt til artikkel
-                                    </>
-                                )}
-                            </button>
-                        </div>
-                    )}
                 </motion.div>
             </div>
 
             {/* Hero Image Banner */}
             {event.layout !== 'tool' && (
-                <div className="max-w-6xl mx-auto px-6 mb-16">
+                <div className="max-w-6xl mx-auto px-6 mb-8 md:mb-12">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -274,11 +253,11 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
 
             {/* Main Content Container */}
             <div className={`${(event.layout === 'tool' || event.layout === 'learning-path') ? 'w-full' : 'max-w-6xl mx-auto px-6'}`}>
-                <div className={`${(event.layout === 'tool' || event.layout === 'learning-path') ? 'w-full' : 'bg-white rounded-3xl p-8 md:p-12'}`}>
+                <div className={`${(event.layout === 'tool' || event.layout === 'learning-path') ? 'w-full' : 'bg-white rounded-3xl p-5 md:p-10'}`}>
                     {event.layout === 'learning-path' && event.learningPathData ? (
                         <LearningPath data={event.learningPathData} />
                     ) : (
-                        <div className={`grid gap-16 ${event.layout === 'tool' ? 'grid-cols-1 w-full' : 'grid-cols-1 lg:grid-cols-[1fr_350px]'}`}>
+                        <div className={`grid gap-8 md:gap-12 ${event.layout === 'tool' ? 'grid-cols-1 w-full' : 'grid-cols-1 lg:grid-cols-[1fr_350px]'}`}>
                             {/* Left Column: Article Text */}
                             <div className="space-y-8">
                                 <ArticleContent
@@ -303,6 +282,17 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
                                     tags={event.tags}
                                     config={sidebarConfig}
                                     learningPaths={event.learningPaths}
+                                    audioState={{
+                                        isPlaying,
+                                        isPaused,
+                                        hasVoice,
+                                        onToggle: handleListenClick
+                                    }}
+                                    metadata={{
+                                        year: event.year,
+                                        readTime: event.readTime,
+                                        category: event.category
+                                    }}
                                 />
                             )}
                         </div>

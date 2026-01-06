@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Map, ChevronDown, ChevronUp } from 'lucide-react';
+import { BookOpen, Map, ChevronDown, ChevronUp, Volume2, PauseCircle, PlayCircle } from 'lucide-react';
 import { TimelineComponent } from './TimelineComponent';
 import type { SidebarConfig } from '../types';
 
@@ -13,6 +13,17 @@ interface RichSidebarProps {
     tags?: string[];
     config?: SidebarConfig;
     learningPaths?: { id: string; title: string; url: string }[];
+    audioState?: {
+        isPlaying: boolean;
+        isPaused: boolean;
+        hasVoice: boolean;
+        onToggle: () => void;
+    };
+    metadata?: {
+        year: string;
+        readTime: string;
+        category: string;
+    };
 }
 
 const InteractiveMapPlaceholder: React.FC = () => (
@@ -58,10 +69,56 @@ const ExpandableSection: React.FC<{ title: string; children: React.ReactNode; de
     );
 };
 
-export const RichSidebar: React.FC<RichSidebarProps> = ({ details, timelineEvents, relatedArticles, mapData, tags, config, learningPaths }) => {
+export const RichSidebar: React.FC<RichSidebarProps> = ({ details, timelineEvents, relatedArticles, mapData, tags, config, learningPaths, audioState, metadata }) => {
     return (
         <div className="space-y-8">
             <div className="sticky top-8">
+                {/* Desktop: Audio Player & Key Info */}
+                <div className="hidden md:block space-y-4 mb-8">
+                    {config?.showAudio !== false && audioState?.hasVoice && (
+                        <button
+                            onClick={audioState.onToggle}
+                            className={`w-full flex items-center justify-between p-4 rounded-xl transition-all shadow-sm group border ${audioState.isPlaying
+                                ? 'bg-indigo-600 border-indigo-500 text-white'
+                                : 'bg-white border-slate-200 text-slate-700 hover:border-indigo-300 hover:shadow-md'
+                                }`}
+                        >
+                            <span className="font-bold text-sm flex items-center">
+                                {audioState.isPlaying ? (
+                                    audioState.isPaused ? (
+                                        <>
+                                            <PlayCircle className="w-5 h-5 mr-3" />
+                                            Fortsett avspilling
+                                        </>
+                                    ) : (
+                                        <>
+                                            <PauseCircle className="w-5 h-5 mr-3" />
+                                            Pause opplesning
+                                        </>
+                                    )
+                                ) : (
+                                    <>
+                                        <Volume2 className={`w-5 h-5 mr-3 ${audioState.isPlaying ? 'text-white' : 'text-indigo-600'}`} />
+                                        Lytt til artikkel
+                                    </>
+                                )}
+                            </span>
+                        </button>
+                    )}
+
+                    {metadata && (
+                        <div className="grid grid-cols-2 gap-2">
+                            <div className="bg-slate-50 border border-slate-100 p-3 rounded-lg flex flex-col items-center justify-center text-center">
+                                <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-1">Periode</span>
+                                <span className="font-mono text-sm font-bold text-slate-700">{metadata.year}</span>
+                            </div>
+                            <div className="bg-slate-50 border border-slate-100 p-3 rounded-lg flex flex-col items-center justify-center text-center">
+                                <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-1">Lesetid</span>
+                                <span className="font-mono text-sm font-bold text-slate-700">{metadata.readTime}</span>
+                            </div>
+                        </div>
+                    )}
+                </div>
                 {learningPaths && learningPaths.length > 0 && (
                     <div className="space-y-3 mb-8">
                         {learningPaths.map(path => (
