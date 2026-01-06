@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { X, BookOpen, GraduationCap, History, Globe, Music, Dumbbell } from 'lucide-react';
 import { PrefetchLink } from './PrefetchLink';
 
@@ -39,7 +39,7 @@ const itemVariants: Variants = {
 interface MenuItem {
     label: string;
     path: string;
-    icon: React.ElementType;
+    icon: any;
     prefetchTarget?: string;
 }
 
