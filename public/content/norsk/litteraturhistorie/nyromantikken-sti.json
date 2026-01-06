@@ -1,0 +1,258 @@
+{
+    "id": "nyromantikken-sti",
+    "title": "Læringssti: Sjelenes mørke",
+    "description": "En reise inn i 1890-årenes mystiske, emosjonelle og ofte mørke litteratur.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "1890-1905",
+    "readTime": "45-60 min",
+    "learningPathData": {
+        "id": "nyromantikken-sti",
+        "title": "Sjelenes mørke: En reise inn i Nyromantikken",
+        "description": "Bli med tilbake til 1890-årene, der fornuften må vike for følelser, og gatelyktene i Kristiania kaster lange skygger.",
+        "steps": [
+            {
+                "id": "intro",
+                "phase": "Fase 1: Pendelen svinger",
+                "title": "Nok fornuft nå!",
+                "type": "fakta",
+                "content": "Du står i Kristiania, 1890. Byen er i endring; hestekjerrene skrangler fortsatt, men det elektriske lyset har begynt å jage bort skyggene.\n\nLikevel er det nettopp skyggene folk nå søker. Etter år med Realisme – der alt handlet om samfunnsproblemer, kvinnesak og politikk – er folk blitt leie.\n\n«Nok fornuft nå!» roper de unge forfatterne. De vil ikke lenger skrive om samfunnet der ute, men om følelsene der inne. De vil ha mystikk, drømmer og det uforklarlige som skjuler seg i menneskesinnets mørkeste kroker.",
+                "tasks": [
+                    "Hva kjennetegnet perioden før Nyromantikken (Realismen)? (Tips: Det handlet mye om sannhet og samfunn).",
+                    "Hvorfor tror du folk ble leie av 'problemer under debatt'?",
+                    "Tenk deg at litteraturhistorien er som en pendel. Hvorfor tror vi den svinger fra fornuft til følelser?"
+                ],
+                "links": [
+                    {
+                        "title": "Les om Nyromantikken",
+                        "url": "/norsk/litteraturhistorie/ny-romantikken"
+                    }
+                ]
+            },
+            {
+                "id": "reaksjonen",
+                "phase": "Fase 1: Pendelen svinger",
+                "title": "Opprøret mot Realismen",
+                "type": "refleksjon",
+                "content": "Tenk deg forskjellen på et fotografi og et maleri. Realistene (Ibsen, Kielland) ville være som fotografer: De ville vise samfunnet nøyaktig slik det var, med alle sine feil og mangler, for å fikse det.\n\nNyromantikerne fnøs av dette. De ville heller være malere som farger virkeligheten med sine egne følelser. «Hva med sjelen?» spurte de.\n\n«Hva med det irrasjonelle – alt det rare vi føler og gjør som ikke kan forklares med fornuft?» De snudde ryggen til samfunnet og så innover i seg selv.",
+                "tasks": [
+                    "Realismen prøvde å vise verden nøyaktig som den var, som et fotografi. Hva er Nyromantikken da? (Kanskje et maleri av en drøm?)",
+                    "Tenk på filmer eller bøker du liker. Handler de mest om ytre handling eller om hva karakterene føler (indre følelser)?",
+                    "Hvorfor tror du unge forfattere ofte gjør opprør mot foreldrene sine (generasjonen før dem)?"
+                ]
+            },
+            {
+                "id": "isak-tekst",
+                "phase": "Fase 1: Pendelen svinger",
+                "title": "Det uforklarlige",
+                "type": "ressurs",
+                "content": "Jonas Lie var egentlig realist, men selv han merket at tidene skiftet. I 'Isak og Brønøpresten' møter vi noe som vitenskapen ikke kan forklare. En sjøstøvel (høy støvel) som ikke vil gi slipp...",
+                "tasks": [
+                    "Les teksten 'Isak og Brønøpresten'.",
+                    "Presten representerer fornuften og Isak representerer følelsen/overtroen. Hvem vinner i historien?"
+                ],
+                "links": [
+                    {
+                        "title": "Les teksten",
+                        "url": "/norsk/bibliotek/isak-og-bronopresten"
+                    }
+                ]
+            },
+            {
+                "id": "jeg-et",
+                "phase": "Fase 2: Jeg-et og Storbyen",
+                "title": "Fremmed i egen by",
+                "type": "fakta",
+                "content": "Har du noen gang følt deg helt alene, selv om du er midt i en folkemengde? Det kalles fremmedgjøring, og det var en følelse mange kjente på da byene vokste frem.\n\nSigbjørn Obstfelder beskrev dette best av alle. I diktet 'Jeg ser' ser han ikke på byen med beundring, men med frykt og undring. Han føler seg ikke hjemme på jorden.\n\nHan ser på menneskene, husene og himmelen med et blikk som om han nettopp har landet fra en annen planet.",
+                "tasks": [
+                    "Hva betyr 'fremmedgjøring'? (Prøv å forklare det med egne ord).",
+                    "Hvorfor tror du storbyer (som Kristiania/Oslo) kan få folk til å føle seg mer ensomme enn på bygda?"
+                ],
+                "links": [
+                    {
+                        "title": "Les diktet 'Jeg ser'",
+                        "url": "/norsk/bibliotek/jeg-ser"
+                    }
+                ]
+            },
+            {
+                "id": "sult-scenario",
+                "phase": "Fase 2: Jeg-et og Storbyen",
+                "title": "Vandring i sult",
+                "type": "utfordring",
+                "content": "Du er en fattig forfatter i Kristiania. Du har ikke spist på tre dager. Stoltheten din hindrer deg i å tigge. Hva gjør du når desperasjonen (fortvilelsen) tar overhånd?",
+                "component": {
+                    "name": "ScenarioRoleplay",
+                    "props": {
+                        "title": "Sultens valg",
+                        "intro": "Magen skriker. Du har en blyantstump og litt papir i lommen, men ingen vil kjøpe tekstene dine.",
+                        "startId": "start",
+                        "scenarios": [
+                            {
+                                "id": "start",
+                                "text": "Du går forbi en slakterbutikk. Lukten av pølser slår mot deg. En hund gnager på et ben utenfor.",
+                                "options": [
+                                    {
+                                        "label": "Stjel benet fra hunden",
+                                        "nextId": "stjel"
+                                    },
+                                    {
+                                        "label": "Gå stolt videre",
+                                        "nextId": "stolt"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "stjel",
+                                "text": "Du napper til deg benet. Det er nesten ikke kjøtt på det, og det er skittent. Folk ser på deg. Du føler en blanding av triumf og kvalme.",
+                                "options": [
+                                    {
+                                        "label": "Spis det",
+                                        "nextId": "spis"
+                                    },
+                                    {
+                                        "label": "Kast det fra deg i vemmelse",
+                                        "nextId": "kast"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "stolt",
+                                "text": "Du retter ryggen. Du er et åndsmenneske, ikke et dyr! Men svimmelheten tar deg, og du må støtte deg til en lyktestolpe. En politimann ser mistenksomt på deg.",
+                                "options": [
+                                    {
+                                        "label": "Si at du er syk",
+                                        "nextId": "syk"
+                                    },
+                                    {
+                                        "label": "Late som ingenting",
+                                        "nextId": "late"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "spis",
+                                "text": "Du gnager. Det smaker jord og gammelt fett. Plutselig går det opp for deg hva du gjør. Du kaster opp. (Dette ligner på en scene i Hamsuns 'Sult')",
+                                "options": [
+                                    {
+                                        "label": "Les utdraget fra Sult",
+                                        "nextId": "les"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "kast",
+                                "text": "Du kaster benet. 'Gud, du er en elendig Gud!' roper du inni deg. (Du reagerte nettopp som Hamsuns hovedperson)",
+                                "options": [
+                                    {
+                                        "label": "Les utdraget fra Sult",
+                                        "nextId": "les"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "syk",
+                                "text": "Politimannen ber deg flytte deg. I denne byen er det ikke plass til svakhet.",
+                                "options": [
+                                    {
+                                        "label": "Gå videre",
+                                        "nextId": "les"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "late",
+                                "text": "Du samler dine siste krefter og går videre. Ingen skal få se deg lide.",
+                                "options": [
+                                    {
+                                        "label": "Les utdraget fra Sult",
+                                        "nextId": "les"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "les",
+                                "text": "Knut Hamsun beskrev nettopp disse irrasjonelle, desperate øyeblikkene. Det handlet ikke om samfunnet, men om 'det ubevisste sjeleliv'.",
+                                "options": []
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "sult-lesing",
+                "phase": "Fase 2: Jeg-et og Storbyen",
+                "title": "Det ubevisste sjeleliv",
+                "type": "ressurs",
+                "content": "Les utdraget fra Knut Hamsuns gjennombruddsroman 'Sult'. Legg merke til hvordan han beskriver tankene som kretser rundt og rundt, ofte uten logikk.",
+                "tasks": [
+                    "Les teksten.",
+                    "Hvorfor tror du denne boken ble en sensasjon i 1890?"
+                ],
+                "links": [
+                    {
+                        "title": "Gå til teksten",
+                        "url": "/norsk/bibliotek/sult-utdrag"
+                    }
+                ]
+            },
+            {
+                "id": "lyrikk-intro",
+                "phase": "Fase 3: Stemning og Musikk",
+                "title": "Ord som musikk",
+                "type": "fakta",
+                "content": "Men Nyromantikken var ikke bare mørk angst og sult. Den var også en fest for sansene! Noen diktere var lei av at ordene alltid måtte «bety» noe viktig.\n\nDe ville heller at diktene skulle være som musikk. De lekte med rim, rytme og klang.\n\nDa Vilhelm Krag leste diktet sitt 'Fandango', ble studentene så begeistret over de eksotiske og musikalske ordene at de bar ham på gullstol hjem gjennom Kristianias gater.",
+                "tasks": [
+                    "Hva betyr det at et dikt er 'musikalsk'?",
+                    "Prøv å lese et dikt høyt og legg merke til rytmen."
+                ]
+            },
+            {
+                "id": "fandango-lesing",
+                "phase": "Fase 3: Stemning og Musikk",
+                "title": "Fandango!",
+                "type": "ressurs",
+                "content": "Les diktet som startet hele perioden. Legg merke til at det ikke handler om norske bønder eller politikk, men om en eksotisk, spansk dans.",
+                "tasks": [
+                    "Les 'Fandango'.",
+                    "Hvilke farger og lyder finner du i diktet?"
+                ],
+                "links": [
+                    {
+                        "title": "Les Fandango",
+                        "url": "/norsk/bibliotek/fandango"
+                    }
+                ]
+            },
+            {
+                "id": "haugtussa",
+                "phase": "Fase 3: Stemning og Musikk",
+                "title": "Tilbake til naturen",
+                "type": "ressurs",
+                "content": "Arne Garborg tok nyromantikken med hjem til Jæren. I 'Haugtussa' møter vi Veslemøy som er synsk (ser de underjordiske). Naturen er ikke bare vakker, den er besjelt og mystisk.",
+                "tasks": [
+                    "Les utdraget fra Haugtussa.",
+                    "Hvordan skiller denne naturbeskrivelsen seg fra Nasjonalromantikken?"
+                ],
+                "links": [
+                    {
+                        "title": "Les fra Haugtussa",
+                        "url": "/norsk/bibliotek/haugtussa-utdrag"
+                    }
+                ]
+            },
+            {
+                "id": "oppsummering",
+                "phase": "Avslutning",
+                "title": "Hva har vi lært?",
+                "type": "oppgave",
+                "content": "Nyromantikken var en tid for følelser, mystikk, sjeleliv og musikalitet. Forfatterne vendte blikket innover.",
+                "tasks": [
+                    "Nevn tre kjente forfattere fra perioden.",
+                    "Forklar begrepet 'Det ubevisste sjeleliv'.",
+                    "Hvorfor er 'Sult' en viktig bok?"
+                ]
+            }
+        ]
+    }
+}

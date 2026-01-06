@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Tooltip } from './Tooltip';
 import type { Concept } from '../types';
+import type { GlossaryEntry } from '../context/GlossaryContext';
 
-export const renderInlineMarkdown = (text: string, concepts?: Concept[]) => {
+export const renderInlineMarkdown = (text: string, concepts?: (Concept | GlossaryEntry)[]) => {
     if (!text) return null;
 
     let elements: React.ReactNode[] = [text];
@@ -69,19 +70,20 @@ export const renderInlineMarkdown = (text: string, concepts?: Concept[]) => {
     if (concepts && concepts.length > 0) {
         // concepts can be either Concept[] or GlossaryEntry[]
         const sortedConcepts = [...concepts].sort((a, b) => {
-            const termA = (a.term || a.title || '');
-            const termB = (b.term || b.title || '');
+            // Safe access for title/term
+            const termA = (a.term || ('title' in a ? (a as Concept).title : '') || '');
+            const termB = (b.term || ('title' in b ? (b as Concept).title : '') || '');
             return termB.length - termA.length;
         });
 
-        const pattern = new RegExp(`\\b(${sortedConcepts.map(c => (c.term || c.title || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`, 'gi');
+        const pattern = new RegExp(`\\b(${sortedConcepts.map(c => ((c.term || ('title' in c ? (c as Concept).title : '') || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))).join('|')})\\b`, 'gi');
 
         elements = elements.flatMap((el): React.ReactNode[] => {
             if (typeof el !== 'string') return [el];
 
             // Use split with capturing group to keep delimiters (the concepts)
             return el.split(pattern).map((part, i) => {
-                const concept: any = sortedConcepts.find(c => (c.term || c.title || '').toLowerCase() === part.toLowerCase());
+                const concept: any = sortedConcepts.find(c => (c.term || ('title' in c ? (c as Concept).title : '') || '').toLowerCase() === part.toLowerCase());
                 if (concept) {
                     return (
                         <Tooltip

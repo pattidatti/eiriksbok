@@ -20,6 +20,9 @@ import { twitterNoveller } from './entries/twitter-noveller';
 import { ungGuttISno } from './entries/ung-gutt-i-sno';
 import { jegSer } from './entries/jeg-ser';
 import { isakOgBronopresten } from './entries/isak-og-bronopresten';
+import { sultUtdrag } from './entries/sult-utdrag';
+import { fandango } from './entries/fandango';
+import { haugtussaUtdrag } from './entries/haugtussa-utdrag';
 
 export const textLibraryData: TextEntry[] = [
     aDrepeEtBarn,
@@ -35,6 +38,9 @@ export const textLibraryData: TextEntry[] = [
     hjortenISkogbrynet,
     isakOgBronopresten,
     jegSer,
+    sultUtdrag,
+    fandango,
+    haugtussaUtdrag,
     karen,
     karensJul,
     kiBotox,

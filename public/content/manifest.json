@@ -339,6 +339,15 @@
                     "title": "Litteraturhistorie",
                     "description": "Fra sagaer til samtidslitteratur.",
                     "image": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80",
+                    "tools": [
+                        {
+                            "id": "nyromantikken-sti",
+                            "title": "Læringssti: Sjelenes mørke",
+                            "description": "En reise gjennom 1890-årenes litteratur.",
+                            "link": "/norsk/litteraturhistorie/nyromantikken-sti",
+                            "icon": "map"
+                        }
+                    ],
                     "lessons": [
                         {
                             "id": "nasjonalromantikken",

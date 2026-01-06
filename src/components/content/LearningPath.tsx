@@ -46,7 +46,12 @@ const getStepColor = (type: LearningPathStep['type']) => {
     }
 };
 
+import { renderInlineMarkdown } from '../markdownUtils';
+import { useGlossary } from '../../context/GlossaryContext';
+
 export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
+    const { entries } = useGlossary();
+
     return (
         <div className="max-w-4xl mx-auto py-8 px-6">
             <header className="mb-10 text-center">
@@ -59,7 +64,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                         {data.title}
                     </h1>
                     <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                        {data.description}
+                        {renderInlineMarkdown(data.description, entries)}
                     </p>
                 </motion.div>
             </header>
@@ -112,7 +117,11 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                                             {step.title}
                                         </h3>
                                         <div className="prose prose-sm prose-slate max-w-none text-slate-600 leading-relaxed mb-3">
-                                            {step.content}
+                                            {step.content.split('\n\n').map((paragraph, i) => (
+                                                <p key={i} className="mb-4 last:mb-0">
+                                                    {renderInlineMarkdown(paragraph, entries)}
+                                                </p>
+                                            ))}
                                         </div>
 
                                         {step.component && (
@@ -141,7 +150,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                                                             <span className="font-mono text-xs font-bold text-slate-400 mt-1 bg-white px-1.5 py-0.5 rounded shadow-sm border border-slate-200">
                                                                 {index + 1}.{i + 1}
                                                             </span>
-                                                            <span className="text-sm">{task}</span>
+                                                            <span className="text-sm">{renderInlineMarkdown(task, entries)}</span>
                                                         </li>
                                                     ))}
                                                 </ul>
