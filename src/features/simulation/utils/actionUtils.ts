@@ -80,7 +80,7 @@ export const checkActionRequirements = (
     totalTicks: number = 0
 ): ValidationResult => {
     let actionId = typeof action === 'string' ? action : action.type;
-    let payload = typeof action === 'object' ? { ...action } : {};
+    const payload = typeof action === 'object' ? { ...action } : {};
 
     // Handle prefixed actions from UI (e.g. REFINE_plank)
     if (actionId.startsWith('REFINE_') && !REFINERY_RECIPES[actionId]) {
@@ -210,7 +210,7 @@ export const getActionCostString = (
     totalTicks: number = 0
 ): string | null => {
     let actionId = typeof action === 'string' ? action : action.type;
-    let payload = typeof action === 'object' ? { ...action } : {};
+    const payload = typeof action === 'object' ? { ...action } : {};
 
     // Handle prefixed actions from UI (e.g. REFINE_plank)
     if (actionId.startsWith('REFINE_') && !REFINERY_RECIPES[actionId]) {

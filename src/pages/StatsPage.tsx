@@ -57,7 +57,7 @@ export const StatsPage: React.FC = () => {
 
             const formatted: ViewData[] = Object.entries(rawViews).map(([key, count]) => {
                 const parts = key.split('_');
-                let type: 'topic' | 'lesson' = parts.length === 2 ? 'topic' : 'lesson';
+                const type: 'topic' | 'lesson' = parts.length === 2 ? 'topic' : 'lesson';
                 const title = parts.slice(1).map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' / ');
 
                 // Calculate Avg Time for this page

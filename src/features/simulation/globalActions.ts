@@ -29,7 +29,7 @@ export const handleGlobalTrade = async (pin: string, playerId: string, action: a
     const marketItemRef = ref(db, `simulation_rooms/${pin}/markets/${regionId}/${resource}`);
 
     // Result State
-    let tradeResult: { success: boolean, message: string, cost?: number, revenue?: number, amount: number, price?: number } = {
+    const tradeResult: { success: boolean, message: string, cost?: number, revenue?: number, amount: number, price?: number } = {
         success: false, message: "Init", amount: 0
     };
 
@@ -355,7 +355,7 @@ export const handleGlobalTax = async (pin: string, playerId: string, _action: an
 
     const taxationPromises = Object.keys(players).map(async (targetId) => {
         const targetRef = ref(db, `simulation_rooms/${pin}/players/${targetId}`);
-        let taxesFromThisPlayer = { gold: 0, grain: 0 };
+        const taxesFromThisPlayer = { gold: 0, grain: 0 };
 
         await runTransaction(targetRef, (p) => {
             if (!p || p.role !== 'PEASANT' || p.regionId !== playerId) return; // Only tax own peasants (if ID matches region)
@@ -929,7 +929,7 @@ export const handleAbdicate = async (pin: string, playerId: string) => {
 
     const regionId = player.regionId;
 
-    let success = false;
+    const success = false;
 
     // 1. Demote Player
     await runTransaction(playerRef, (p) => {

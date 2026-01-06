@@ -18,7 +18,7 @@ export const SawingGame: React.FC<{
 
         const interval = setInterval(() => {
             setIndicatorPos((prev) => {
-                let next = prev + (direction * 3 * speedMultiplier);
+                const next = prev + (direction * 3 * speedMultiplier);
                 if (next >= 100) {
                     setDirection(-1);
                     return 100;

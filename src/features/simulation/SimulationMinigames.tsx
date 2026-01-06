@@ -158,7 +158,7 @@ export const MinigameOverlay: React.FC<MinigameProps> = ({ type, onComplete, onC
 
         let base = 10;
         let skillType = 'FARMING';
-        let actionType = type;
+        const actionType = type;
 
         switch (type) {
             case 'MINE':

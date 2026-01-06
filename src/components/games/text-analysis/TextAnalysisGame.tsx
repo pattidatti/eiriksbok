@@ -167,7 +167,12 @@ export const TextAnalysisGame: React.FC<TextAnalysisGameProps> = ({ data, onComp
 
             {showConfetti && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-                    <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" onClick={() => setShowConfetti(false)} />
+                    <button
+                        className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm w-full h-full border-none cursor-default"
+                        onClick={() => setShowConfetti(false)}
+                        aria-label="Lukk"
+                        type="button"
+                    />
 
                     <motion.div
                         initial={{ scale: 0.9, opacity: 0 }}

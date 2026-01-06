@@ -1,4 +1,4 @@
-import type { Lesson, Manifest, Philosopher } from '../types';
+import type { Lesson, Manifest, Philosopher, ManifestLesson, ManifestTopic, ManifestSubTopic, ManifestSubject, TopicTool } from '../types';
 
 export async function fetchLesson(subject: string, topic: string, lessonId: string, subTopicId?: string): Promise<Lesson | null> {
     try {
@@ -9,32 +9,32 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
 
         // 1. First, fetch manifest to check if this lesson has a specific path override
         // or to resolve its location in the hierarchy
-        let manifestLesson: any = null;
+        let manifestLesson: ManifestLesson | ManifestTopic | ManifestSubTopic | ManifestSubject | null = null;
         try {
             const manifestResponse = await fetch(`${basePath}content/manifest.json`);
             if (manifestResponse.ok) {
                 const manifest = await manifestResponse.json() as Manifest;
-                const findLesson = (nodes: any[]): any => {
+                const findLesson = (nodes: (ManifestSubject | ManifestTopic | ManifestSubTopic | ManifestLesson | TopicTool)[]): ManifestLesson | ManifestTopic | ManifestSubTopic | ManifestSubject | TopicTool | null => {
                     for (const node of nodes) {
                         if (node.id === lessonId) return node;
-                        if (node.lessons) {
+                        if ('lessons' in node && node.lessons) {
                             const found = findLesson(node.lessons);
                             if (found) return found;
                         }
-                        if (node.topics) {
+                        if ('topics' in node && node.topics) {
                             const found = findLesson(node.topics);
                             if (found) return found;
                         }
-                        if (node.subTopics) {
+                        if ('subTopics' in node && node.subTopics) {
                             const found = findLesson(node.subTopics);
                             if (found) return found;
                         }
-                        if (node.tools) {
+                        if ('tools' in node && node.tools) {
                             const found = findLesson(node.tools);
                             if (found) return found;
                         }
-                        if (node.subjects) {
-                            const found = findLesson(node.subjects);
+                        if ('subjects' in node && node.subjects) { // Recursion for robustness if structure changes
+                            const found = findLesson(node.subjects as any); // Type cast simplified for deep recursion
                             if (found) return found;
                         }
                     }
@@ -47,7 +47,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
         }
 
         // 2. Determine path(s) to try
-        let pathsToTry: string[] = [];
+        const pathsToTry: string[] = [];
 
         // If manifest says it links primarily to a JSON file (standard behavior for us)
         // we construct the standard path.
@@ -104,22 +104,23 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
 
         // 4. Merge Manifest Data (Definitions, Layout, Tags)
         if (manifestLesson) {
-            if (manifestLesson.definitions) {
-                const newConcepts = manifestLesson.definitions.map((def: any, index: number) => ({
+            const typedLesson = manifestLesson as any;
+            if (typedLesson.definitions) {
+                const newConcepts = typedLesson.definitions.map((def: { term: string, definition: string }, index: number) => ({
                     id: `concept-${index}`,
                     term: def.term,
                     definition: def.definition
                 }));
                 data.concepts = [...(data.concepts || []), ...newConcepts];
             }
-            if (manifestLesson.layout) data.layout = manifestLesson.layout;
-            if (manifestLesson.year) data.year = manifestLesson.year;
-            if (manifestLesson.tags) {
-                data.tags = [...new Set([...(data.tags || []), ...(manifestLesson.tags || [])])];
+            if (typedLesson.layout) data.layout = typedLesson.layout;
+            if (typedLesson.year) data.year = typedLesson.year;
+            if (typedLesson.tags) {
+                data.tags = [...new Set([...(data.tags || []), ...(typedLesson.tags || [])])];
             }
             // Ensure title/desc fallback from manifest if missing in file
-            if (!data.title && manifestLesson.title) data.title = manifestLesson.title;
-            if (!data.description && manifestLesson.description) data.description = manifestLesson.description;
+            if (!data.title && typedLesson.title) data.title = typedLesson.title;
+            if (!data.description && typedLesson.description) data.description = typedLesson.description;
         }
 
         console.log(`Successfully loaded lesson ${lessonId} from ${usedPath}`);

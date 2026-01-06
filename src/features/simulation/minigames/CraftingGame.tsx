@@ -14,7 +14,7 @@ export const CraftingGame: React.FC<{ onComplete: (score: number) => void, speed
         if (isFinished || isHitStopping) return; // Pause loop
         const interval = setInterval(() => {
             setTargetPos(p => {
-                let next = p + (0.8 * targetDir.current * speedMultiplier);
+                const next = p + (0.8 * targetDir.current * speedMultiplier);
                 if (next > 90) { targetDir.current = -1; return 90; }
                 if (next < 10) { targetDir.current = 1; return 10; }
                 return next;

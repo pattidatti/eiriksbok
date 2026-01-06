@@ -48,8 +48,8 @@ export const SpontaneousOrderSim: React.FC = () => {
             nvy *= 0.98;
 
             // Update position
-            let nx = a.x + nvx;
-            let ny = a.y + nvy;
+            const nx = a.x + nvx;
+            const ny = a.y + nvy;
 
             // Bounce off walls
             if (nx < 0 || nx > 100) nvx *= -1;

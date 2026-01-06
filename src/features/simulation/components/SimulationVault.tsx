@@ -360,7 +360,7 @@ const RagdollSlot: React.FC<RagdollSlotProps> = ({
             <div className="min-h-[1.75rem] flex items-center justify-center pointer-events-none z-20">
                 <span className={`text-xs font-black uppercase tracking-[0.15em] whitespace-nowrap px-4 py-1.5 rounded-full border shadow-xl backdrop-blur-md transition-all duration-500
                     ${isCompatible ? 'text-indigo-100 bg-indigo-600 border-indigo-400 scale-105 shadow-indigo-500/50' :
-                        !!item ? 'text-slate-200 bg-slate-900/90 border-white/20' :
+                        item ? 'text-slate-200 bg-slate-900/90 border-white/20' :
                             'text-slate-300 bg-black/60 border-white/10'}
                 `}>
                     {label}

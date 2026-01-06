@@ -12,8 +12,8 @@ export const TrappingGame: React.FC<{ onComplete: (score: number) => void, speed
         if (isFinished) return;
         const interval = setInterval(() => {
             setPos(p => {
-                let speed = 3 / speedMultiplier; // Slower is easier
-                let next = p + (speed * dir);
+                const speed = 3 / speedMultiplier; // Slower is easier
+                const next = p + (speed * dir);
                 if (next > 100) { setDir(-1); return 100; }
                 if (next < 0) { setDir(1); return 0; }
                 return next;

@@ -17,7 +17,7 @@ export const useSnakeGame = () => {
     const [status, setStatus] = useState<GameStatus>('MENU');
     const [score, setScore] = useState(0);
     const [wallsEnabled, setWallsEnabled] = useState(true);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
     const [foodItems, setFoodItems] = useState<FoodItem[]>([]);
 
     // Refs
@@ -94,7 +94,7 @@ export const useSnakeGame = () => {
         const currentDir = directionRef.current;
         const currentWalls = wallsEnabledRef.current; // New Ref needed
 
-        let newHead = { ...currentHead };
+        const newHead = { ...currentHead };
 
         switch (currentDir) {
             case 'UP': newHead.y -= 1; break;
@@ -149,7 +149,7 @@ export const useSnakeGame = () => {
         }
 
         // Logic for moving
-        let newSnake = [newHead, ...snakeRef.current];
+        const newSnake = [newHead, ...snakeRef.current];
         if (!grew) {
             newSnake.pop(); // Remove tail if we didn't grow
         }

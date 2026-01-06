@@ -31,7 +31,7 @@ export const BakingGame: React.FC<{ onComplete: (score: number) => void, speedMu
         const moveInterval = setInterval(() => {
             setTargetCenter(prev => {
                 const speed = 0.8; // Movement speed of the zone
-                let next = prev + (speed * targetDir.current);
+                const next = prev + (speed * targetDir.current);
 
                 // Keep zone within reasonable bounds so it's obtainable (e.g., 40% to 90%)
                 if (next > 90) {

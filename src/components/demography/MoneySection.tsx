@@ -52,7 +52,7 @@ export const MoneySection: React.FC = () => {
             if (tradeMode === 'barter') {
                 ctx.beginPath();
                 for (let i = 0; i < positionedNodes.length; i++) {
-                    let next = positionedNodes[(i + 1) % positionedNodes.length];
+                    const next = positionedNodes[(i + 1) % positionedNodes.length];
                     ctx.moveTo(positionedNodes[i].x, positionedNodes[i].y);
                     ctx.lineTo(next.x, next.y);
                 }

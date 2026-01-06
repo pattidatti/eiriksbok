@@ -60,7 +60,7 @@ export const TextLibraryPage: React.FC = () => {
     ];
 
     const filteredAndSortedTexts = useMemo(() => {
-        let result = textLibraryData.filter(text => {
+        const result = textLibraryData.filter(text => {
             const matchesSearch = text.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 text.author.toLowerCase().includes(searchTerm.toLowerCase());
             const matchesGenre = selectedGenre ? text.genre === selectedGenre : true;

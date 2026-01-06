@@ -51,8 +51,8 @@ export const HarvestingGame: React.FC<{
         const interval = setInterval(() => {
             // Move pointer
             setPointerPos(prev => {
-                let speed = 2 / speedMultiplier;
-                let next = prev + (speed * dirRef.current);
+                const speed = 2 / speedMultiplier;
+                const next = prev + (speed * dirRef.current);
                 if (next > 100) { dirRef.current = -1; return 100; }
                 if (next < 0) { dirRef.current = 1; return 0; }
                 return next;
@@ -61,7 +61,7 @@ export const HarvestingGame: React.FC<{
             // Move Target (Drift)
             setTargetPos(prev => {
                 const driftSpeed = 0.3; // Slower drift
-                let next = prev + (driftSpeed * targetDirRef.current);
+                const next = prev + (driftSpeed * targetDirRef.current);
 
                 // Randomly change direction sometimes to make it unpredictable
                 if (Math.random() < 0.02) targetDirRef.current *= -1;
@@ -81,7 +81,7 @@ export const HarvestingGame: React.FC<{
         // Calculate distance from dynamic target position instead of static 50
         const distance = Math.abs(pointerPos - targetPos);
 
-        let score = distance < 5 ? 1.0 : distance < 15 ? 0.7 : distance < 25 ? 0.4 : 0.1;
+        const score = distance < 5 ? 1.0 : distance < 15 ? 0.7 : distance < 25 ? 0.4 : 0.1;
 
         // Calculate yield for this hit
         const actionType = isMining ? 'MINE' : isQuarrying ? 'QUARRY' : isForaging ? 'FORAGE' : 'WORK';

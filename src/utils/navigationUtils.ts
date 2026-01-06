@@ -6,7 +6,7 @@ import type { ManifestTopic } from '../types';
  * Otherwise, it returns the link to the topic page.
  */
 export const getTopicLink = (subjectId: string, topic: ManifestTopic): string => {
-    let allLessons: { id: string; subTopicId?: string }[] = [];
+    const allLessons: { id: string; subTopicId?: string }[] = [];
 
     // Collect lessons from direct lessons
     if (topic.lessons) {

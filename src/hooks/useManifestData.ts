@@ -24,7 +24,7 @@ export const useManifestData = () => {
 
         // Defer calculation to avoid blocking main thread on initial render
         const timer = setTimeout(() => {
-            let lessons: ProcessedLesson[] = [];
+            const lessons: ProcessedLesson[] = [];
 
             // Flatten manifest structure
             manifest.subjects?.forEach((subject: any) => {
