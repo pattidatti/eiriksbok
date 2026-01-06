@@ -23,6 +23,12 @@ import { isakOgBronopresten } from './entries/isak-og-bronopresten';
 import { sultUtdrag } from './entries/sult-utdrag';
 import { fandango } from './entries/fandango';
 import { haugtussaUtdrag } from './entries/haugtussa-utdrag';
+import { wergelandUtdrag } from './entries/wergeland-utdrag';
+import { norskeFolkeeventyr } from './entries/norske-folkeeventyr';
+import { etDukkehjemUtdrag } from './entries/et-dukkehjem-utdrag';
+import { enFolkefiendeUtdrag } from './entries/en-folkefiende-utdrag';
+import { kristinLavransdatterUtdrag } from './entries/kristin-lavransdatter-utdrag';
+import { storbyNattUtdrag } from './entries/storby-natt-utdrag';
 
 export const textLibraryData: TextEntry[] = [
     aDrepeEtBarn,
@@ -41,6 +47,12 @@ export const textLibraryData: TextEntry[] = [
     sultUtdrag,
     fandango,
     haugtussaUtdrag,
+    wergelandUtdrag,
+    norskeFolkeeventyr,
+    etDukkehjemUtdrag,
+    enFolkefiendeUtdrag,
+    kristinLavransdatterUtdrag,
+    storbyNattUtdrag,
     karen,
     karensJul,
     kiBotox,

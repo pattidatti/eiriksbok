@@ -7,7 +7,9 @@ export interface TextEntry {
     language?: 'bm.' | 'nn.';
     url?: string;
     content?: string[];
+    year?: number; // Alias for publishedYear
     publishedYear?: number;
+    description?: string; // Short description for previews
     createdDate?: string;
     lastUpdated?: string;
     definitions?: { term: string; definition: string }[];

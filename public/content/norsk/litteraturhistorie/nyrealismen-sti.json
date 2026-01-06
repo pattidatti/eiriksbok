@@ -1,0 +1,92 @@
+{
+    "id": "nyrealismen-sti",
+    "title": "Læringssti: Det nye Norge",
+    "description": "Etter 1905 skulle landet bygges. En tid for historie, røtter og fabrikkpiper.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "1905-1940",
+    "readTime": "30-45 min",
+    "learningPathData": {
+        "id": "nyrealismen-sti",
+        "title": "Det nye Norge: Nyrealismen",
+        "description": "Vi er blitt en fri nasjon (1905)! Men hvem er vi nå? Forfatterne ser bakover i historien og framover mot den nye industrien.",
+        "steps": [
+            {
+                "id": "intro",
+                "phase": "Fase 1: Etisk realisme",
+                "title": "Norge er fritt!",
+                "type": "fakta",
+                "content": "Jubel i gatene! I 1905 brøt vi ut av unionen med Sverige. Nå skulle vi bygge landet.\n\nMen hva betyr det å være et fritt menneske? Forfatterne i Nyrealismen var opptatt av DE STORE VALGENE. Ikke bare samfunnsproblemer (som i Realismen), men spørsmål om Gud, skyld, ansvar og røtter.",
+                "tasks": [
+                    "Hva skjedde i 1905?",
+                    "Hvorfor tror du forfatterne ble opptatt av 'røtter' (historie) akkurat nå?"
+                ],
+                "links": [
+                    {
+                        "title": "Les om Nyrealismen",
+                        "url": "/norsk/litteraturhistorie/ny-realismen"
+                    }
+                ]
+            },
+            {
+                "id": "undset-tekst",
+                "phase": "Fase 1: Etisk realisme",
+                "title": "Valgets kval",
+                "type": "ressurs",
+                "content": "Sigrid Undset vant Nobelprisen for bøkene om Kristin Lavransdatter. Hun skrev om middelalderen, men menneskene føltes som oss.\n\nKristin forelsker seg i 'feil' mann, Erlend. Hun må velge mellom faren sin (og Gud) eller lidenskapen. Hun velger Erlend. Men prisen hun må betale er skyldfølelse.\n\nUndset sa det best: 'Menneskenes hjerter forandres aldeles intet i alle dager'.",
+                "tasks": [
+                    "Les utdraget fra 'Kristin Lavransdatter'.",
+                    "Hva mener Undset med at 'menneskenes hjerter ikke forandres'?",
+                    "Hvilket valg stod Kristin overfor?"
+                ],
+                "links": [
+                    {
+                        "title": "Les utdraget",
+                        "url": "/norsk/bibliotek/kristin-lavransdatter-utdrag"
+                    }
+                ]
+            },
+            {
+                "id": "arbeiderklassen",
+                "phase": "Fase 2: Historie og røtter",
+                "title": "Byen og fabrikken",
+                "type": "fakta",
+                "content": "Mens Undset skrev om riddere, skjedde det noe nytt i byene. Fabrikkpipene røk. Arbeiderklassen vokste.\n\nHittiil hadde litteraturen handlet mest om rike folk eller bønder. Nå fikk arbeiderne sin stemme. De skrev ikke om fuglesang, men om gatestein, maskiner og kampen for rettferdighet.",
+                "tasks": [
+                    "Hvordan forandret Norge seg på starten av 1900-tallet?",
+                    "Hvorfor er det viktig at arbeiderne fikk sine egne forfattere?"
+                ]
+            },
+            {
+                "id": "storby-natt",
+                "phase": "Fase 2: Historie og røtter",
+                "title": "Gatens poesi",
+                "type": "ressurs",
+                "content": "Rudolf Nilsen elsket Oslo (Kristiania). Men ikke denpene vestkanten. Han elsket østkanten, fabrikkene og asfalten.\n\nI diktet 'Storby-natt' sier han at han ikke bryr seg om fjell og hav. Han har sin sjel i gatens larm.",
+                "tasks": [
+                    "Les diktet 'Storby-natt'.",
+                    "Hva er det poeten elsker ved byen?",
+                    "Sammenlign dette med Nasjonalromantikken (som elsket fjell og fjord). Hva er forskjellen?"
+                ],
+                "links": [
+                    {
+                        "title": "Les diktet",
+                        "url": "/norsk/bibliotek/storby-natt-utdrag"
+                    }
+                ]
+            },
+            {
+                "id": "oppsummering",
+                "phase": "Avslutning",
+                "title": "Hva har vi lært?",
+                "type": "oppgave",
+                "content": "Nyrealismen (1905-1940) handlet om å bygge landet. Undset så bakover til middelalderen for å finne evige sannheter, mens Rudolf Nilsen så framover mot den nye industribyen.",
+                "tasks": [
+                    "Hva skrev Sigrid Undset om?",
+                    "Hva er 'etisk realisme'?",
+                    "Hva handlet Rudolf Nilsens dikt om?"
+                ]
+            }
+        ]
+    }
+}

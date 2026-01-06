@@ -1,0 +1,97 @@
+{
+    "id": "realismen-sti",
+    "title": "Læringssti: Sannheten på bordet",
+    "description": "Fra dukkehjem til folkefiender. Når litteraturen skulle forandre samfunnet.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "1870-1890",
+    "readTime": "35-50 min",
+    "learningPathData": {
+        "id": "realismen-sti",
+        "title": "Sannheten på bordet: Realismen",
+        "description": "Nok drømmerier! Nå skal vi snakke om det som er sant, vondt og vanskelig. Bli med Ibsen og Kielland inn i de borgerlige stuene.",
+        "steps": [
+            {
+                "id": "intro",
+                "phase": "Fase 1: Problemer under debatt",
+                "title": "Slutt på eventyret",
+                "type": "fakta",
+                "content": "Året er 1871. En dansk mann ved navn Georg Brandes holder en tale i København. Han roper ut: 'Det at en litteratur lever, viser seg i at den setter problemer under debatt!'.\n\nDette ble startskuddet for Realismen. Slutt på troll og prinser. Nå skulle man skrive om kvinneundertrykkelse, fattigdom, kirken og skolen.\n\nForfatterne ville være som leger: De skulle finne sykdommene i samfunnet og kurere dem.",
+                "tasks": [
+                    "Hva mente Brandes med å 'sette problemer under debatt'?",
+                    "Hvis du skulle skrevet en realistisk bok i dag, hvilket samfunnsproblem ville du skrevet om?"
+                ],
+                "links": [
+                    {
+                        "title": "Les om Realismen",
+                        "url": "/norsk/litteraturhistorie/realismen"
+                    }
+                ]
+            },
+            {
+                "id": "karen-case",
+                "phase": "Fase 1: Problemer under debatt",
+                "title": "Fattigdom og dobbelmoral",
+                "type": "ressurs",
+                "content": "Alexander Kielland brant av sinne. I 'Karen' forteller han om en ung jente på en kro.\n\nHun blir lurt av en mann fra overklassen, og samfunnet bryr seg ikke. Historien ender tragisk, men Kielland ville ikke bare at vi skulle gråte. Han ville at vi skulle bli sinte.",
+                "tasks": [
+                    "Les novellen 'Karen'.",
+                    "Hvorfor tror du Kielland lot historien ende så trist? (Hint: Ville han skape debatt?)"
+                ],
+                "links": [
+                    {
+                        "title": "Les 'Karen'",
+                        "url": "/norsk/bibliotek/karen"
+                    }
+                ]
+            },
+            {
+                "id": "individet",
+                "phase": "Fase 2: Individets frihet",
+                "title": "Jeg må finne meg selv",
+                "type": "fakta",
+                "content": "Det viktigste ordet i Realismen er 'Sannhet'. Og den vanskeligste sannheten er ofte hvem man selv er.\n\nHenrik Ibsen skrev om mennesker som følte seg fanget i 'perfekte' liv. I 'Et Dukkehjem' har Nora alt: penger, barn og en mann. Men hun føler seg som en dukke i et lekehus. Til slutt gjør hun det utenkelige: Hun går.",
+                "tasks": [
+                    "Hvorfor var det så sjokkerende at en mor forlot barna sine på 1800-tallet?",
+                    "Er det egoistisk av Nora å gå, eller var det nødvendig?"
+                ],
+                "links": [
+                    {
+                        "title": "Les utdraget fra 'Et Dukkehjem'",
+                        "url": "/norsk/bibliotek/et-dukkehjem-utdrag"
+                    }
+                ]
+            },
+            {
+                "id": "folkefiende",
+                "phase": "Fase 2: Individets frihet",
+                "title": "Den sterkeste mann",
+                "type": "ressurs",
+                "content": "Ibsen stoppet ikke der. I 'En folkefiende' stiller han et farlig spørsmål: Hva hvis flertallet tar feil?\n\nDr. Stockmann finner gift i byens badevann, men ingen vil høre fordi det vil koste penger å fikse det. Han blir stående helt alene mot 'den kompakte majoritet'.\n\nHan konkluderer med at 'Den sterkeste mann i verden, det er han som står mest alene'.",
+                "tasks": [
+                    "Les utdraget fra 'En folkefiende'.",
+                    "Er du enig med Dr. Stockmann? Er det alltid best å følge flertallet?",
+                    "Kan du nevne noen i historien som har stått alene for en sak?"
+                ],
+                "links": [
+                    {
+                        "title": "Les utdraget",
+                        "url": "/norsk/bibliotek/en-folkefiende-utdrag"
+                    }
+                ]
+            },
+            {
+                "id": "oppsummering",
+                "phase": "Avslutning",
+                "title": "Hva har vi lært?",
+                "type": "oppgave",
+                "content": "Realismen handlet om å si sannheten, selv om den var ubehagelig. Brandes startet det, Kielland angrep urettferdighet, og Ibsen kjempet for individet.",
+                "tasks": [
+                    "Hva betyr 'å sette problemer under debatt'?",
+                    "Hva gjorde Nora til slutt?",
+                    "Hvem er 'den sterkeste mann' ifølge Dr. Stockmann?"
+                ]
+            }
+        ]
+    }
+}

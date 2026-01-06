@@ -1,0 +1,103 @@
+{
+    "id": "romantikken-sti",
+    "title": "Læringssti: Drøm og Nasjon",
+    "description": "Da Norge fant sin sjel. En reise gjennom 1800-tallets føleri og nasjonsbygging.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "1830-1870",
+    "readTime": "30-45 min",
+    "learningPathData": {
+        "id": "romantikken-sti",
+        "title": "Drøm og Nasjon: Romantikken i Norge",
+        "description": "Bli med tilbake til da Norge våknet opp. Fra rabulisten Wergeland til Asbjørnsen og Moe i skogen.",
+        "steps": [
+            {
+                "id": "intro",
+                "phase": "Fase 1: En nasjon våkner",
+                "title": "Hvem er vi egentlig?",
+                "type": "fakta",
+                "content": "Vi er i 1830. Norge har nettopp fått sin egen grunnlov (1814), men vi føler oss fortsatt litt 'danske'.\n\nHvordan skal vi finne oss selv? Dikterne begynte å se bakover.\n\nTil vikingtiden. Til middelalderen. De lette etter det *ekte* norske. 'Hva er vår sjel?' spurte de.",
+                "tasks": [
+                    "Hvorfor tror du det var så viktig å finne det 'norske' akkurat på 1800-tallet?",
+                    "Hva tenker du er typisk norsk i dag?"
+                ],
+                "links": [
+                    {
+                        "title": "Les om Nasjonalromantikken",
+                        "url": "/norsk/litteraturhistorie/nasjonalromantikken"
+                    }
+                ]
+            },
+            {
+                "id": "wergeland-welhaven",
+                "phase": "Fase 1: En nasjon våkner",
+                "title": "Kulturkampen",
+                "type": "refleksjon",
+                "content": "Tenk deg to kamphaner. Den ene er vill, gal og elsker alt som er norsk og 'bøndsk'. Han heter Henrik Wergeland.\n\nDen andre er streng, ryddig og mener vi må holde på kulturen fra Europa (spesielt Danmark) for ikke å bli barbarer. Han heter Johan Sebastian Welhaven.\n\nDisse to kranglet så blekket sprutet i avisene. Det var 1800-tallets kommentarfelt-krig!",
+                "tasks": [
+                    "Wergeland ville bryte reglene, Welhaven ville følge dem. Hvem er du mest lik?",
+                    "Hvorfor tror du Wergeland ble folkets helt til slutt (han er han på 17. mai-statuene)?"
+                ]
+            },
+            {
+                "id": "mig-selv-tekst",
+                "phase": "Fase 1: En nasjon våkner",
+                "title": "Jeg i slet lune?",
+                "type": "ressurs",
+                "content": "Wergeland fikk mye kjeft. Folk mente diktene hans var rotete og gale. Her svarer han kritikerne i diktet 'Mig selv'.\n\nLegg merke til selvtilliten. Han sammenligner seg selv med insekter og stjerner. Han trenger bare et glimt av sol for å være lykkelig.",
+                "tasks": [
+                    "Les utdraget fra 'Mig selv'.",
+                    "Hva sier Wergeland om humøret sitt?",
+                    "Hvem er hans venner (ifølge diktet)?"
+                ],
+                "links": [
+                    {
+                        "title": "Les 'Mig selv'",
+                        "url": "/norsk/bibliotek/meg-selv"
+                    }
+                ]
+            },
+            {
+                "id": "eventyr-innsamling",
+                "phase": "Fase 2: Det nasjonale gjennombrudd",
+                "title": "Ut på tur, aldri sur",
+                "type": "fakta",
+                "content": "Mens Wergeland kranglet i byen, tok to andre karer sekken på ryggen.\n\nAsbjørnsen og Moe gikk inn i de dype skogene. De snakket med gamle koner og bønder. De lette etter eventyr.\n\nOg de fant gull! Troll, huldra, og Askeladden. Da de ga ut eventyrene, skjønte byfolk at de norske bøndene hadde en skattkiste av historier.",
+                "tasks": [
+                    "Hvorfor var det viktig at eventyrene ble skrevet ned?",
+                    "Vi sier at eventyrene er 'typisk norske'. Hva er det som gjør dem norske? (Tenk på naturen)."
+                ]
+            },
+            {
+                "id": "askeladden-tekst",
+                "phase": "Fase 2: Det nasjonale gjennombrudd",
+                "title": "Askeladden lurer trollet",
+                "type": "ressurs",
+                "content": "Askeladden er den norske helten. Han er ikke sterk, og han er ikke rik. Men han er smart.\n\nI dette eventyret møter han et troll som er mye sterkere enn ham. Hvordan vinner han? Jo, ved å bruke hodet (og en ost).",
+                "tasks": [
+                    "Les utdraget fra 'Askeladden som kappåt med trollet'.",
+                    "Hva gjør Askeladden for å skremme trollet?",
+                    "Hva sier dette om hva nordmenn verdsetter? (Styrke eller list?)"
+                ],
+                "links": [
+                    {
+                        "title": "Les eventyret",
+                        "url": "/norsk/bibliotek/norske-folkeeventyr"
+                    }
+                ]
+            },
+            {
+                "id": "oppsummering",
+                "phase": "Avslutning",
+                "title": "Hva har vi lært?",
+                "type": "oppgave",
+                "content": "Romantikken lærte oss å være stolte av Norge. Wergeland ga oss lidenskapen, og Asbjørnsen & Moe ga oss røttene våre.",
+                "tasks": [
+                    "Hva var forskjellen på Wergeland og Welhaven?",
+                    "Hva fant Asbjørnsen og Moe i skogen?",
+                    "Nevn ett trekk ved Askeladden."
+                ]
+            }
+        ]
+    }
+}
