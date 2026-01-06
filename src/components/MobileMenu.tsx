@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { X, BookOpen, GraduationCap, History, Globe, Music, Dumbbell } from 'lucide-react';
 import { PrefetchLink } from './PrefetchLink';
 
@@ -9,7 +8,7 @@ interface MobileMenuProps {
     onClose: () => void;
 }
 
-const menuVariants = {
+const menuVariants: Variants = {
     closed: {
         x: "100%",
         opacity: 0,
@@ -32,7 +31,7 @@ const menuVariants = {
     }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
     closed: { x: 50, opacity: 0 },
     open: { x: 0, opacity: 1 }
 };
