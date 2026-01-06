@@ -82,14 +82,14 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         initial="closed"
                         animate="open"
                         exit="closed"
-                        className="fixed inset-y-0 right-0 w-[85vw] max-w-sm bg-slate-950/95 backdrop-blur-xl border-l border-white/10 z-50 md:hidden shadow-2xl flex flex-col"
+                        className="fixed inset-y-0 right-0 w-[85vw] max-w-sm bg-white/95 backdrop-blur-xl border-l border-slate-200 z-50 md:hidden shadow-2xl flex flex-col"
                     >
                         {/* Header */}
-                        <div className="flex items-center justify-between p-6 border-b border-white/10">
-                            <span className="text-xl font-display font-bold text-white tracking-widest">MENY</span>
+                        <div className="flex items-center justify-between p-6 border-b border-slate-100">
+                            <span className="text-xl font-display font-bold text-slate-900 tracking-widest">MENY</span>
                             <button
                                 onClick={onClose}
-                                className="p-2 text-text-muted hover:text-white hover:bg-white/10 rounded-full transition-colors"
+                                className="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
                                 aria-label="Lukk meny"
                             >
                                 <X size={28} />
@@ -104,12 +104,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                                         to={item.path}
                                         prefetchTarget={item.prefetchTarget}
                                         onClick={onClose}
-                                        className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-all active:scale-95 border border-transparent hover:border-white/5"
+                                        className="group flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-all active:scale-95 border border-transparent hover:border-slate-100"
                                     >
-                                        <div className="p-3 bg-indigo-500/10 text-indigo-400 group-hover:text-indigo-300 group-hover:bg-indigo-500/20 rounded-lg transition-colors">
+                                        <div className="p-3 bg-indigo-50 text-indigo-600 group-hover:text-indigo-700 group-hover:bg-indigo-100 rounded-lg transition-colors">
                                             <item.icon size={24} />
                                         </div>
-                                        <span className="text-xl font-medium text-text-main group-hover:text-white">
+                                        <span className="text-xl font-medium text-slate-700 group-hover:text-slate-900">
                                             {item.label}
                                         </span>
                                     </PrefetchLink>
@@ -118,8 +118,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         </div>
 
                         {/* Footer / Meta */}
-                        <div className="p-6 border-t border-white/10 bg-black/20">
-                            <p className="text-center text-sm text-text-muted">
+                        <div className="p-6 border-t border-slate-100 bg-slate-50">
+                            <p className="text-center text-sm text-slate-400">
                                 © Eiriksbok 2026
                             </p>
                         </div>
