@@ -138,27 +138,8 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                                             </div>
                                         )}
 
-                                        {step.tasks && step.tasks.length > 0 && (
-                                            <div className={`rounded-lg p-4 mb-4 ${step.type === 'oppgave' ? 'bg-orange-100/30' : 'bg-slate-50'}`}>
-                                                <h4 className="font-bold text-slate-700 mb-2 flex items-center text-sm">
-                                                    <ArrowRight className="w-4 h-4 mr-2 text-slate-400" />
-                                                    Oppgaver
-                                                </h4>
-                                                <ul className="space-y-3">
-                                                    {step.tasks.map((task, i) => (
-                                                        <li key={i} className="flex items-start gap-3 text-slate-600">
-                                                            <span className="font-mono text-xs font-bold text-slate-400 mt-1 bg-white px-1.5 py-0.5 rounded shadow-sm border border-slate-200">
-                                                                {index + 1}.{i + 1}
-                                                            </span>
-                                                            <span className="text-sm">{renderInlineMarkdown(task, entries)}</span>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
-
                                         {step.links && step.links.length > 0 && (
-                                            <div className="flex flex-wrap gap-3">
+                                            <div className="flex flex-wrap gap-3 mb-6">
                                                 {step.links.map((link, i) => {
                                                     const isExternal = link.external || link.url.startsWith('http');
 
@@ -187,6 +168,25 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                                                         </Link>
                                                     );
                                                 })}
+                                            </div>
+                                        )}
+
+                                        {step.tasks && step.tasks.length > 0 && (
+                                            <div className={`rounded-lg p-4 mb-4 ${step.type === 'oppgave' ? 'bg-orange-100/30' : 'bg-slate-50'}`}>
+                                                <h4 className="font-bold text-slate-700 mb-2 flex items-center text-sm">
+                                                    <ArrowRight className="w-4 h-4 mr-2 text-slate-400" />
+                                                    Oppgaver
+                                                </h4>
+                                                <ul className="space-y-3">
+                                                    {step.tasks.map((task, i) => (
+                                                        <li key={i} className="flex items-start gap-3 text-slate-600">
+                                                            <span className="font-mono text-xs font-bold text-slate-400 mt-1 bg-white px-1.5 py-0.5 rounded shadow-sm border border-slate-200">
+                                                                {index + 1}.{i + 1}
+                                                            </span>
+                                                            <span className="text-sm">{renderInlineMarkdown(task, entries)}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
                                             </div>
                                         )}
                                     </div>
