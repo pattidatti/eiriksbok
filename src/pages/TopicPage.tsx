@@ -33,6 +33,41 @@ export const TopicPage: React.FC = () => {
     const currentTopic = subjectData?.topics.find((t: any) => t.id === topicId);
     const currentSubTopic = currentTopic?.subTopics?.find((st: any) => st.id === subTopicId);
 
+    const activeItem = currentSubTopic || currentTopic;
+
+    // Define rawLessons early for useMemo, defaulting to empty array if data isn't ready
+    const rawLessons = activeItem?.lessons || [];
+
+    // Sorting Logic - Moved up to avoid early return hook violation
+    const sortedLessons = React.useMemo(() => {
+        if (!rawLessons) return [];
+        return [...rawLessons].sort((a: any, b: any) => {
+            if (sortMode === 'alphabetical') return a.title.localeCompare(b.title);
+            if (sortMode === 'year') {
+                const dateA = a.date || '9999';
+                const dateB = b.date || '9999';
+                return dateA.localeCompare(dateB);
+            }
+            if (sortMode === 'newest') {
+                // Assuming date field represents published/added date
+                const dateA = a.date || '0000';
+                const dateB = b.date || '0000';
+                return dateB.localeCompare(dateA);
+            }
+            return 0;
+        });
+    }, [rawLessons, sortMode]);
+
+    // Filter by tag if present in query params - Moved up
+    const queryParams = new URLSearchParams(location.search);
+    const tagFilter = queryParams.get('tag');
+
+    const filteredLessons = React.useMemo(() => {
+        return tagFilter
+            ? sortedLessons.filter((l: any) => l.tags?.includes(tagFilter))
+            : sortedLessons;
+    }, [sortedLessons, tagFilter]);
+
     usePageTitle(currentSubTopic?.title || currentTopic?.title || 'Emne', !!currentTopic);
 
     useEffect(() => {
@@ -57,16 +92,11 @@ export const TopicPage: React.FC = () => {
         return <ErrorBoundary><HistoryLongLines /></ErrorBoundary>;
     }
 
-
-
-    const lessonInTopic = currentTopic?.lessons?.find(l => l.id === subTopicId) ||
-        currentTopic?.tools?.find(t => t.id === subTopicId);
+    const lessonInTopic = currentTopic?.lessons?.find((l: any) => l.id === subTopicId) ||
+        currentTopic?.tools?.find((t: any) => t.id === subTopicId);
     if (lessonInTopic) {
         return <ErrorBoundary><LessonPage lessonIdOverride={subTopicId} /></ErrorBoundary>;
     }
-
-    const activeItem = currentSubTopic || currentTopic;
-
 
     console.log('TopicPage Debug Stringified:', JSON.stringify({
         topicId,
@@ -75,41 +105,11 @@ export const TopicPage: React.FC = () => {
         tools: activeItem?.tools
     }, null, 2));
 
-
-    const rawLessons = activeItem.lessons || [];
+    // Safe to assume activeItem exists here due to earlier checks
     const subTopics = !currentSubTopic && currentTopic.subTopics ? currentTopic.subTopics : [];
-    const title = activeItem.title;
-    const description = (activeItem as any).description;
-    const image = (activeItem as any).image;
-
-    // Sorting Logic
-    const sortedLessons = React.useMemo(() => {
-        return [...rawLessons].sort((a: any, b: any) => {
-            if (sortMode === 'alphabetical') return a.title.localeCompare(b.title);
-            if (sortMode === 'year') {
-                const dateA = a.date || '9999';
-                const dateB = b.date || '9999';
-                return dateA.localeCompare(dateB);
-            }
-            if (sortMode === 'newest') {
-                // Assuming date field represents published/added date
-                const dateA = a.date || '0000';
-                const dateB = b.date || '0000';
-                return dateB.localeCompare(dateA);
-            }
-            return 0;
-        });
-    }, [rawLessons, sortMode]);
-
-    // Filter by tag if present in query params
-    const queryParams = new URLSearchParams(location.search);
-    const tagFilter = queryParams.get('tag');
-
-    const filteredLessons = React.useMemo(() => {
-        return tagFilter
-            ? sortedLessons.filter((l: any) => l.tags?.includes(tagFilter))
-            : sortedLessons;
-    }, [sortedLessons, tagFilter]);
+    const title = activeItem!.title;
+    const description = (activeItem as any)?.description;
+    const image = (activeItem as any)?.image;
 
     return (
         <div className="topic-page max-w-7xl mx-auto px-6 py-12">
@@ -174,11 +174,11 @@ export const TopicPage: React.FC = () => {
             </div>
 
             {/* Tools Section */}
-            {activeItem.tools && activeItem.tools.length > 0 && (
+            {activeItem!.tools && activeItem!.tools.length > 0 && (
                 <div className="mb-12">
                     <h2 className="text-2xl font-display font-bold text-text-main mb-6">Verktøy & Ressurser</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {activeItem.tools.map((tool: any) => (
+                        {activeItem!.tools.map((tool: any) => (
                             <Link
                                 key={tool.id}
                                 to={tool.link}
