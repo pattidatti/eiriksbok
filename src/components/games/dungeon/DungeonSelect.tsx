@@ -57,7 +57,7 @@ export const DungeonSelect: React.FC<DungeonSelectProps> = ({ onSelect }) => {
 
             {!selectedSubject ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-                    {subjects.map((subject, i) => (
+                    {subjects.map((subject: any, i: number) => (
                         <motion.button
                             key={subject.id}
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -92,7 +92,7 @@ export const DungeonSelect: React.FC<DungeonSelectProps> = ({ onSelect }) => {
                             <Sword className="w-5 h-5 opacity-50 group-hover:rotate-45 transition-transform" />
                         </motion.button>
 
-                        {topics.map((topic, i) => (
+                        {topics.map((topic: any, i: number) => (
                             <motion.button
                                 key={topic.id}
                                 initial={{ opacity: 0, x: -20 }}

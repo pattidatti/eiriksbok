@@ -52,8 +52,8 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
         // Collect all searchable items
 
         // 1. Manifest Content
-        manifest.subjects.forEach(subject => {
-            subject.topics.forEach(topic => {
+        manifest.subjects.forEach((subject: any) => {
+            subject.topics.forEach((topic: any) => {
                 // Add Topic
                 allItems.push({
                     type: 'topic',
@@ -91,8 +91,8 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                 };
 
                 if (topic.subTopics) {
-                    topic.subTopics.forEach(subTopic => {
-                        subTopic.lessons.forEach(lesson => {
+                    topic.subTopics.forEach((subTopic: any) => {
+                        subTopic.lessons.forEach((lesson: any) => {
                             processLesson(lesson, `/${subject.id}/${topic.id}/${subTopic.id}/${lesson.id}`, subTopic.title);
                         });
                     });
