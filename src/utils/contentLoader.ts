@@ -1,148 +1,186 @@
 import type { Lesson, Manifest, Philosopher, ManifestLesson, ManifestTopic, ManifestSubTopic, ManifestSubject, TopicTool } from '../types';
 
-export async function fetchLesson(subject: string, topic: string, lessonId: string, subTopicId?: string): Promise<Lesson | null> {
-    try {
-        console.log(`fetchLesson called with: subject=${subject}, topic=${topic}, lessonId=${lessonId}, subTopicId=${subTopicId}`);
-        const basePath = import.meta.env.BASE_URL.endsWith('/')
-            ? import.meta.env.BASE_URL
-            : `${import.meta.env.BASE_URL}/`;
+// --- Global Cache for Manifest ---
+let globalManifestPromise: Promise<Manifest | null> | null = null;
+let cachedManifest: Manifest | null = null;
 
-        // 1. First, fetch manifest to check if this lesson has a specific path override
-        // or to resolve its location in the hierarchy
-        let manifestLesson: ManifestLesson | ManifestTopic | ManifestSubTopic | ManifestSubject | null = null;
-        try {
-            const manifestResponse = await fetch(`${basePath}content/manifest.json`);
-            if (manifestResponse.ok) {
-                const manifest = await manifestResponse.json() as Manifest;
-                const findLesson = (nodes: (ManifestSubject | ManifestTopic | ManifestSubTopic | ManifestLesson | TopicTool)[]): ManifestLesson | ManifestTopic | ManifestSubTopic | ManifestSubject | TopicTool | null => {
-                    for (const node of nodes) {
-                        if (node.id === lessonId) return node;
-                        if ('lessons' in node && node.lessons) {
-                            const found = findLesson(node.lessons);
-                            if (found) return found;
-                        }
-                        if ('topics' in node && node.topics) {
-                            const found = findLesson(node.topics);
-                            if (found) return found;
-                        }
-                        if ('subTopics' in node && node.subTopics) {
-                            const found = findLesson(node.subTopics);
-                            if (found) return found;
-                        }
-                        if ('tools' in node && node.tools) {
-                            const found = findLesson(node.tools);
-                            if (found) return found;
-                        }
-                        if ('subjects' in node && node.subjects) { // Recursion for robustness if structure changes
-                            const found = findLesson(node.subjects as any); // Type cast simplified for deep recursion
-                            if (found) return found;
-                        }
-                    }
-                    return null;
-                };
-                manifestLesson = findLesson(manifest.subjects);
-            }
-        } catch (e) {
-            console.warn("Failed to fetch/parse manifest pre-lookup:", e);
-        }
-
-        // 2. Determine path(s) to try
-        const pathsToTry: string[] = [];
-
-        // If manifest says it links primarily to a JSON file (standard behavior for us)
-        // we construct the standard path.
-        const standardPath = subTopicId
-            ? `content/${subject}/${topic}/${subTopicId}/${lessonId}.json`
-            : `content/${subject}/${topic}/${lessonId}.json`;
-
-        pathsToTry.push(standardPath);
-
-        // Fallback: nested article structure
-        const articlePath = subTopicId
-            ? `content/${subject}/${topic}/${subTopicId}/${lessonId}/artikkel.json`
-            : `content/${subject}/${topic}/${lessonId}/artikkel.json`;
-        pathsToTry.push(articlePath);
-
-        // Special case: "Tools" or learning paths might be at the topic level even called from deeper?
-        // Or if the folder structure is simpler.
-        // For learning paths, they are often directly in the topic folder.
-        if (lessonId.includes('-sti')) {
-            pathsToTry.push(`content/${subject}/${topic}/${lessonId}.json`);
-        }
-
-        console.log(`Attempting fetch paths in order:`, pathsToTry);
-
-        let response: Response | null = null;
-        let usedPath = "";
-
-        for (const p of pathsToTry) {
-            try {
-                const r = await fetch(`${basePath}${p}`, { cache: 'no-cache' });
-                const isJson = r.headers.get("content-type")?.includes("application/json");
-                if (r.ok && isJson) {
-                    response = r;
-                    usedPath = p;
-                    break;
-                }
-            } catch (e) { /* ignore and try next */ }
-        }
-
-        if (!response) {
-            console.error(`Failed to fetch lesson ${lessonId} after trying paths:`, pathsToTry);
-            return null;
-        }
-
-        const data = await response.json();
-
-        // 3. Robust Data Unwrapping
-        // Fix for the double-nesting issue: if data.learningPathData has a nested .learningPathData, unwrap it.
-        // Or if data itself is the wrapper but contains learningPathData.
-        if (data.learningPathData && data.learningPathData.learningPathData) {
-            console.log("Detected double-nested learningPathData, unwrapping...");
-            data.learningPathData = data.learningPathData.learningPathData;
-        }
-
-        // 4. Merge Manifest Data (Definitions, Layout, Tags)
-        if (manifestLesson) {
-            const typedLesson = manifestLesson as any;
-            if (typedLesson.definitions) {
-                const newConcepts = typedLesson.definitions.map((def: { term: string, definition: string }, index: number) => ({
-                    id: `concept-${index}`,
-                    term: def.term,
-                    definition: def.definition
-                }));
-                data.concepts = [...(data.concepts || []), ...newConcepts];
-            }
-            if (typedLesson.layout) data.layout = typedLesson.layout;
-            if (typedLesson.year) data.year = typedLesson.year;
-            if (typedLesson.tags) {
-                data.tags = [...new Set([...(data.tags || []), ...(typedLesson.tags || [])])];
-            }
-            // Ensure title/desc fallback from manifest if missing in file
-            if (!data.title && typedLesson.title) data.title = typedLesson.title;
-            if (!data.description && typedLesson.description) data.description = typedLesson.description;
-        }
-
-        console.log(`Successfully loaded lesson ${lessonId} from ${usedPath}`);
-        return data as Lesson;
-    } catch (error) {
-        console.error("Error loading lesson:", error);
-        return null;
-    }
+export function getCachedManifest(): Manifest | null {
+    return cachedManifest;
 }
 
 export async function fetchManifest(): Promise<Manifest | null> {
-    try {
-        const basePath = import.meta.env.BASE_URL.endsWith('/')
-            ? import.meta.env.BASE_URL
-            : `${import.meta.env.BASE_URL}/`;
-        const response = await fetch(`${basePath}content/manifest.json`, { cache: 'no-cache' });
-        if (!response.ok) return null;
-        return await response.json() as Manifest;
-    } catch (error) {
-        console.error("Error loading manifest:", error);
+    if (globalManifestPromise) return globalManifestPromise;
+
+    const basePath = import.meta.env.BASE_URL.endsWith('/')
+        ? import.meta.env.BASE_URL
+        : `${import.meta.env.BASE_URL}/`;
+
+    globalManifestPromise = fetch(`${basePath}content/manifest.json`, { cache: 'default' })
+        .then(async (response) => {
+            if (!response.ok) {
+                console.error("Failed to fetch manifest:", response.statusText);
+                return null;
+            }
+            const data = await response.json() as Manifest;
+            cachedManifest = data;
+            return data;
+        })
+        .catch((error) => {
+            console.error("Error loading manifest:", error);
+            return null;
+        });
+
+    return globalManifestPromise;
+}
+
+
+export async function fetchLesson(subject: string, topic: string, lessonId: string, subTopicId?: string): Promise<Lesson | null> {
+    const basePath = import.meta.env.BASE_URL.endsWith('/')
+        ? import.meta.env.BASE_URL
+        : `${import.meta.env.BASE_URL}/`;
+
+    console.log(`[OptimisticLoader] fetchLesson called for: ${lessonId}`);
+
+    // --- 1. Construct Optimistic Paths ---
+    // We guess where the file is likely to be to start fetching IMMEDIATELY.
+    const pathsToTry: string[] = [];
+
+    // Prioritize standard paths
+    if (subTopicId) {
+        pathsToTry.push(`content/${subject}/${topic}/${subTopicId}/${lessonId}.json`);
+        pathsToTry.push(`content/${subject}/${topic}/${subTopicId}/${lessonId}/artikkel.json`);
+        // Special case: learning paths in subfolders
+        if (lessonId.includes('-sti')) {
+            pathsToTry.push(`content/${subject}/${topic}/${subTopicId}/${lessonId}.json`);
+        }
+    } else {
+        pathsToTry.push(`content/${subject}/${topic}/${lessonId}.json`);
+        pathsToTry.push(`content/${subject}/${topic}/${lessonId}/artikkel.json`);
+        // Special case: learning paths in topic folders
+        if (lessonId.includes('-sti')) {
+            pathsToTry.push(`content/${subject}/${topic}/${lessonId}.json`);
+        }
+    }
+
+    // --- 2. Parallel Execution ---
+    // Start fetching the content from the guessed paths AND the manifest simultaneously.
+
+    // Helper to try all paths in sequence (but started immediately in parallel with manifest)
+    const contentFetchPromise = (async () => {
+        for (const p of pathsToTry) {
+            try {
+                // Using 'no-cache' for development, but in prod this should be default or handled better
+                const r = await fetch(`${basePath}${p}`);
+                const isJson = r.headers.get("content-type")?.includes("application/json");
+                if (r.ok && isJson) {
+                    console.log(`[OptimisticLoader] Cache Hit/Success for path: ${p}`);
+                    return { response: r, usedPath: p };
+                }
+            } catch (e) { /* ignore */ }
+        }
+        return null;
+    })();
+
+    // Ensure manifest is loading (idempotent due to singleton)
+    const manifestFetchPromise = fetchManifest();
+
+    // --- 3. Await Results & Fallback ---
+
+    // We wait for the content. If we find it, GREAT! We render immediately.
+    // If we don't find it, ONLY THEN do we wait for the manifest to look up the "official" path.
+    let contentResult = await contentFetchPromise;
+
+    let manifestLesson: ManifestLesson | ManifestTopic | ManifestSubTopic | ManifestSubject | TopicTool | null = null;
+    const manifest = await manifestFetchPromise; // Blocking only if we need metadata merging or fallback
+
+    // Logic to find lesson node in manifest for metadata stuff
+    if (manifest) {
+        const findLesson = (nodes: (ManifestSubject | ManifestTopic | ManifestSubTopic | ManifestLesson | TopicTool)[]): ManifestLesson | ManifestTopic | ManifestSubTopic | ManifestSubject | TopicTool | null => {
+            for (const node of nodes) {
+                if (node.id === lessonId) return node;
+                if ('lessons' in node && node.lessons) {
+                    const found = findLesson(node.lessons);
+                    if (found) return found;
+                }
+                if ('topics' in node && node.topics) {
+                    const found = findLesson(node.topics);
+                    if (found) return found;
+                }
+                if ('subTopics' in node && node.subTopics) {
+                    const found = findLesson(node.subTopics);
+                    if (found) return found;
+                }
+                if ('tools' in node && node.tools) {
+                    const found = findLesson(node.tools);
+                    if (found) return found;
+                }
+                if ('subjects' in node && node.subjects) {
+                    const found = findLesson(node.subjects as any);
+                    if (found) return found;
+                }
+            }
+            return null;
+        };
+        manifestLesson = findLesson(manifest.subjects);
+    }
+
+
+    // --- 4. Deep Fallback via Manifest (if optimistic paths failed) ---
+    if (!contentResult && manifestLesson) {
+        // If we found the node in the manifest, maybe it has a custom 'link' or special structure we missed?
+        // This is the "Safety Net"
+        console.warn(`[OptimisticLoader] Optimistic paths failed. Checking manifest for custom link/structure.`);
+
+        // Assuming if it's a tool/link we might fetch that? Or if it's just a misnamed file?
+        // For now, we return null if optimistic paths failed, as our file structure is standard.
+        // BUT, we can try one last desperate thing: if the node has a 'link' property that ends in .json
+        if ('link' in manifestLesson && (manifestLesson as any).link && (manifestLesson as any).link.endsWith('.json')) {
+            const customLink = (manifestLesson as any).link;
+            try {
+                const r = await fetch(customLink.startsWith('http') ? customLink : `${basePath}${customLink}`);
+                if (r.ok) {
+                    contentResult = { response: r, usedPath: customLink };
+                }
+            } catch (e) { console.error("Fallback fetch failed", e) }
+        }
+    }
+
+
+    if (!contentResult) {
+        console.error(`[OptimisticLoader] Failed to load lesson ${lessonId} after trying paths:`, pathsToTry);
         return null;
     }
+
+    // --- 5. Process Data ---
+    const data = await contentResult.response.json();
+
+    // Fix double-nesting
+    if (data.learningPathData && data.learningPathData.learningPathData) {
+        data.learningPathData = data.learningPathData.learningPathData;
+    }
+
+    // --- 6. Merge Metadata from Manifest (enrichment) ---
+    // Even if content loaded fast, we want to stamp it with official tags/years if available.
+    if (manifestLesson) {
+        const typedLesson = manifestLesson as any;
+        if (typedLesson.definitions) {
+            const newConcepts = typedLesson.definitions.map((def: { term: string, definition: string }, index: number) => ({
+                id: `concept-${index}`,
+                term: def.term,
+                definition: def.definition
+            }));
+            data.concepts = [...(data.concepts || []), ...newConcepts];
+        }
+        if (typedLesson.layout) data.layout = typedLesson.layout;
+        if (typedLesson.year) data.year = typedLesson.year;
+        if (typedLesson.tags) {
+            data.tags = [...new Set([...(data.tags || []), ...(typedLesson.tags || [])])];
+        }
+        if (!data.title && typedLesson.title) data.title = typedLesson.title;
+        if (!data.description && typedLesson.description) data.description = typedLesson.description;
+    }
+
+    return data as Lesson;
 }
 
 export async function fetchReligion(id: string): Promise<any | null> {
