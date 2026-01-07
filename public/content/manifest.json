@@ -1883,6 +1883,20 @@
                             "link": "/oving/detektiv/berlinmuren",
                             "image": "/images/detective/berlin_wall_hero.png",
                             "icon": "search"
+                        },
+                        {
+                            "id": "mongolske-riket",
+                            "title": "Det Mongolske Riket",
+                            "description": "Stormen fra øst som endret verdenshistorien.",
+                            "image": "/images/history/mongolske-riket-hero.jpg",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "middelalder",
+                                "asia",
+                                "mongolene"
+                            ],
+                            "createdDate": "2026-01-07T00:00:00Z"
                         }
                     ]
                 },

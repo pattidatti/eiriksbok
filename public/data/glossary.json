@@ -572,6 +572,18 @@
     "type": "concept"
   },
   {
+    "id": "meritokrati",
+    "term": "Meritokrati",
+    "definition": "Et system der makt og ansvar fordeles basert på evner og ferdigheter, fremfor arv eller sosial status.",
+    "links": [
+      {
+        "title": "Det Mongolske Riket",
+        "url": "/historie/middelalder/mongolske-riket"
+      }
+    ],
+    "type": "concept"
+  },
+  {
     "term": "merkantilisme",
     "definition": "En økonomisk politikk der målet var å samle mest mulig gull og sølv i statskassen ved å eksportere mer enn man importerte.",
     "subject": "historie",
@@ -694,6 +706,18 @@
       "appellformer"
     ],
     "subject": "norsk"
+  },
+  {
+    "id": "pax-mongolica",
+    "term": "Pax Mongolica",
+    "definition": "En periode med relativ stabilitet og fred i Eurasia på 1200- og 1300-tallet under det mongolske herredømmet, som muliggjorde trygg handel langs Silkeveien.",
+    "links": [
+      {
+        "title": "Det Mongolske Riket",
+        "url": "/historie/middelalder/mongolske-riket"
+      }
+    ],
+    "type": "concept"
   },
   {
     "term": "Pax Romana",
@@ -1083,6 +1107,18 @@
     "type": "concept"
   },
   {
+    "id": "yam",
+    "term": "Yam",
+    "definition": "Mongolenes effektive post- og kommunikasjonsnettverk, bestående av faste skyss-stasjoner med friske hester.",
+    "links": [
+      {
+        "title": "Det Mongolske Riket",
+        "url": "/historie/middelalder/mongolske-riket"
+      }
+    ],
+    "type": "concept"
+  },
+  {
     "term": "Zeppeliner",
     "definition": "Et stort, styrbart luftskip med stivt skjelett, brukt til bombing og speiding.",
     "subject": "historie",
@@ -1211,6 +1247,15 @@
     "subject": "historie",
     "lifespan": "63 f.Kr. – 14 e.Kr.",
     "link": "/historie/romerriket/augustus"
+  },
+  {
+    "id": "genghis-khan",
+    "term": "Genghis Khan (Temüjin)",
+    "lifespan": "1162 - 1227",
+    "definition": "Grunnleggeren av Mongolriket og en av historiens mest betydningsfulle erobrere.",
+    "image": "/images/people/genghis-khan.jpg",
+    "link": "/historie/middelalder/mongolske-riket",
+    "type": "person"
   },
   {
     "term": "Guru Gobind Singh",
@@ -1354,6 +1399,15 @@
     "subject": "historie",
     "lifespan": "ca. 1455 – 1502",
     "link": "/historie/middelalder/knut-alvsson"
+  },
+  {
+    "id": "kublai-khan",
+    "term": "Kublai Khan",
+    "lifespan": "1215 - 1294",
+    "definition": "Barnebarn av Genghis Khan, grunnlegger av Yuan-dynastiet i Kina og vert for Marco Polo.",
+    "image": "/images/people/kublai-khan.jpg",
+    "link": "/historie/middelalder/mongolske-riket",
+    "type": "person"
   },
   {
     "term": "Marcus Antonius",

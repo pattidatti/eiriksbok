@@ -3340,5 +3340,56 @@
       "selvstendighet",
       "diplomati"
     ]
+  },
+  {
+    "id": "genghis-khan-unification",
+    "title": "Genghis Khan samler mongolene",
+    "description": "Temüjin utnevnes til Genghis Khan og starter erobringen av det eurasiske kontinentet.",
+    "startDate": 1206,
+    "endDate": null,
+    "displayDate": "1206",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "middelalder",
+    "link": "/historie/middelalder/mongolske-riket",
+    "tags": [
+      "mongolene",
+      "erobring",
+      "asia"
+    ]
+  },
+  {
+    "id": "mongol-invasion-europe",
+    "title": "Mongolene invaderer Europa",
+    "description": "Mongolske horder beseirer russiske, polske og ungarske hærer og når utkanten av Wien.",
+    "startDate": 1241,
+    "endDate": null,
+    "displayDate": "1241",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "middelalder",
+    "link": "/historie/middelalder/mongolske-riket",
+    "tags": [
+      "krig",
+      "europa",
+      "mongolene"
+    ]
+  },
+  {
+    "id": "baghdad-fall",
+    "title": "Bagdads fall",
+    "description": "Hulagu Khan erobrer Bagdad, noe som markerer slutten på den islamske gullalderen.",
+    "startDate": 1258,
+    "endDate": null,
+    "displayDate": "1258",
+    "type": "sub-event",
+    "subjectId": "historie",
+    "topicId": "middelalder",
+    "link": "/historie/middelalder/mongolske-riket",
+    "tags": [
+      "krig",
+      "islam",
+      "midtausten"
+    ]
   }
 ]
