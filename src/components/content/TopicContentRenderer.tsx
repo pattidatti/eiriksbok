@@ -72,13 +72,12 @@ export const TopicContentRenderer: React.FC<TopicContentRendererProps> = ({ cont
                         );
 
                     case 'paragraph':
-                        console.log('Rendering paragraph:', block.text);
                         return (
-                            <div key={index} className="border-2 border-red-500 p-2">
+                            <motion.div key={index} variants={item}>
                                 <p className="text-lg text-slate-700 leading-relaxed whitespace-pre-wrap">
-                                    {block.text || 'EMPTY TEXT'}
+                                    {block.text}
                                 </p>
-                            </div>
+                            </motion.div>
                         );
 
                     case 'list':

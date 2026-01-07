@@ -209,9 +209,6 @@ export const TopicPage: React.FC = () => {
             {/* Main Content Renderer */}
             {(activeItem as any)?.content && (
                 <div className="mb-16">
-                    <div className="bg-slate-100 p-4 rounded mb-4 text-xs font-mono overflow-auto max-h-40 border border-red-500">
-                        DEBUG DATA: {JSON.stringify((activeItem as any).content.slice(0, 5), null, 2)}
-                    </div>
                     <TopicContentRenderer content={(activeItem as any).content} />
                 </div>
             )}

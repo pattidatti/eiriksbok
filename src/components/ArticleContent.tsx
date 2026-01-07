@@ -114,6 +114,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                 const activeClass = isActive ? "bg-yellow-100 ring-2 ring-yellow-300 relative" : "";
 
                 switch (type) {
+                    case 'paragraph':
                     case 'text':
                         return (
                             <div
