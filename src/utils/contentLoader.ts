@@ -58,7 +58,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
                 // We fire manifest fetch but don't block UNLESS we need it? 
                 // Actually, let's keep the existing flow but use the data we just got.
                 // We still want to enrich it.
-                fetchManifest().then(manifest => {
+                fetchManifest().then(() => {
                     // We can't really "return" validation data later easily without state.
                     // But strictly speaking, the lesson loads NOW.
                     // The existing logic below can handle enrichment if we structure this right.
