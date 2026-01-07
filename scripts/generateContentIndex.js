@@ -1,4 +1,3 @@
-
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -6,11 +5,17 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const CONTENT_DIR = path.join(__dirname, '../public/content');
-const OUTPUT_FILE = path.join(__dirname, '../src/generated/contentMap.ts');
+const contentDir = path.join(__dirname, '../public/content');
+const outputFile = path.join(__dirname, '../src/generated/contentMap.ts');
+const outputDir = path.dirname(outputFile);
+
+// Ensure output dir exists
+if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+}
 
 const contentMap = {};
-const duplicates = [];
+const collisionSet = new Set();
 
 function scanDirectory(dir) {
     const files = fs.readdirSync(dir);
@@ -21,53 +26,40 @@ function scanDirectory(dir) {
 
         if (stat.isDirectory()) {
             scanDirectory(fullPath);
-        } else if (file.endsWith('.json')) {
-            try {
-                const content = fs.readFileSync(fullPath, 'utf-8');
-                const json = JSON.parse(content);
+        } else if (file.endsWith('.json') && file !== 'manifest.json') {
+            const relativePath = path.relative(path.join(__dirname, '../public'), fullPath).replace(/\\/g, '/');
 
-                // We map based on the 'id' field in the JSON 
-                // OR the filename if no ID exists (fallback)
-                const id = json.id || path.basename(file, '.json');
+            // Determine ID
+            let id = '';
+            if (file === 'artikkel.json') {
+                const parts = relativePath.split('/');
+                id = parts[parts.length - 2];
+            } else {
+                id = path.basename(file, '.json');
+            }
 
-                if (id) {
-                    if (contentMap[id]) {
-                        duplicates.push({ id, path1: contentMap[id], path2: fullPath });
-                    } else {
-                        // Store relative path from public root
-                        // e.g., content/norsk/litteraturhistorie/romantikken-sti.json
-                        const relativePath = path.relative(path.join(__dirname, '../public'), fullPath).replace(/\\/g, '/');
-                        contentMap[id] = relativePath;
-                    }
+            if (contentMap[id] || collisionSet.has(id)) {
+                // It's a collision
+                collisionSet.add(id);
+                if (contentMap[id]) {
+                    delete contentMap[id]; // Remove it from usable map to avoid ambiguity
                 }
-            } catch (e) {
-                console.warn(`Warning: Failed to parse ${fullPath}: ${e.message}`);
+            } else {
+                contentMap[id] = relativePath;
             }
         }
     }
 }
 
-console.log('🔍 Scanning content directory...');
-if (fs.existsSync(CONTENT_DIR)) {
-    scanDirectory(CONTENT_DIR);
-} else {
-    console.error(`❌ Content directory not found: ${CONTENT_DIR}`);
-    process.exit(1);
-}
+console.log('Scanning content directory...');
+scanDirectory(contentDir);
 
-const fileContent = `/**
- * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
- * Run 'node scripts/generateContentIndex.js' to update
- */
+const fileContent = `// Auto-generated content index. Do not edit manually.
 export const contentMap: Record<string, string> = ${JSON.stringify(contentMap, null, 4)};
 `;
 
-fs.writeFileSync(OUTPUT_FILE, fileContent);
-
-console.log(`✅ Content map generated with ${Object.keys(contentMap).length} entries.`);
-console.log(`ats wrote to: ${OUTPUT_FILE}`);
-
-if (duplicates.length > 0) {
-    console.warn('\n⚠️  Duplicate IDs found (First one wins):');
-    duplicates.forEach(d => console.warn(`  ID: "${d.id}" \n    - ${d.path1} \n    - ${d.path2}`));
+fs.writeFileSync(outputFile, fileContent);
+console.log(`Generated content map with ${Object.keys(contentMap).length} unique entries.`);
+if (collisionSet.size > 0) {
+    console.log(`Excluded ${collisionSet.size} ambiguous IDs (collisions).`);
 }

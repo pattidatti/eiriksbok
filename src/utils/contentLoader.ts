@@ -1,4 +1,6 @@
 import type { Lesson, Manifest, Philosopher, ManifestLesson, ManifestTopic, ManifestSubTopic, ManifestSubject, TopicTool } from '../types';
+// @ts-ignore
+import { contentMap } from '../generated/contentMap';
 
 // --- Global Cache for Manifest ---
 let globalManifestPromise: Promise<Manifest | null> | null = null;
@@ -41,7 +43,76 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
 
     console.log(`[OptimisticLoader] fetchLesson called for: ${lessonId}`);
 
-    // --- 1. Construct Optimistic Paths ---
+    // --- 1. Deterministic Lookup (The "Content Index" Strategy) ---
+    // If we KNOW where the file is from the build-time map, use it.
+    // This solves "Kald Krig Sti" and other edge cases.
+    if (contentMap && contentMap[lessonId]) {
+        const indexedPath = contentMap[lessonId];
+        console.log(`[OptimisticLoader] Deterministic match found: ${indexedPath}`);
+        try {
+            const r = await fetch(`${basePath}${indexedPath}`, { cache: 'no-cache' }); // Force freshness
+            if (r.ok) {
+                const data = await r.json();
+
+                // Enrich with manifest if available (lazy)
+                // We fire manifest fetch but don't block UNLESS we need it? 
+                // Actually, let's keep the existing flow but use the data we just got.
+                // We still want to enrich it.
+                fetchManifest().then(manifest => {
+                    // We can't really "return" validation data later easily without state.
+                    // But strictly speaking, the lesson loads NOW.
+                    // The existing logic below can handle enrichment if we structure this right.
+                });
+
+                // Standard processing
+                if (data.learningPathData && data.learningPathData.learningPathData) {
+                    data.learningPathData = data.learningPathData.learningPathData;
+                }
+
+                // We restart the manifest fetch to ensure it's cached for sidebar
+                const manifest = await fetchManifest();
+                if (manifest) {
+                    // Quick finder logic duplicated for now or refactored? 
+                    // Let's reuse the finder logic below if we want to be clean, 
+                    // OR just return the data raw if speed is key. 
+                    // Let's copy the enrichment logic here for robustness.
+                    // Logic to find lesson node in manifest for metadata stuff
+                    const findLesson = (nodes: any[]): any => {
+                        for (const node of nodes) {
+                            if (node.id === lessonId) return node;
+                            if (node.lessons) { const f = findLesson(node.lessons); if (f) return f; }
+                            if (node.topics) { const f = findLesson(node.topics); if (f) return f; }
+                            if (node.subTopics) { const f = findLesson(node.subTopics); if (f) return f; }
+                            if (node.tools) { const f = findLesson(node.tools); if (f) return f; }
+                            if (node.subjects) { const f = findLesson(node.subjects); if (f) return f; }
+                        }
+                        return null;
+                    };
+                    const manifestLesson = findLesson(manifest.subjects);
+
+                    if (manifestLesson) {
+                        if (manifestLesson.definitions) {
+                            const newConcepts = manifestLesson.definitions.map((def: any, index: number) => ({
+                                id: `concept-${index}`, term: def.term, definition: def.definition
+                            }));
+                            data.concepts = [...(data.concepts || []), ...newConcepts];
+                        }
+                        if (manifestLesson.layout) data.layout = manifestLesson.layout;
+                        if (manifestLesson.year) data.year = manifestLesson.year;
+                        if (manifestLesson.tags) data.tags = [...new Set([...(data.tags || []), ...(manifestLesson.tags || [])])];
+                        if (!data.title && manifestLesson.title) data.title = manifestLesson.title;
+                        if (!data.description && manifestLesson.description) data.description = manifestLesson.description;
+                    }
+                }
+                return data as Lesson;
+            }
+        } catch (e) {
+            console.warn("[OptimisticLoader] Deterministic fetch failed, falling back to guessing.", e);
+        }
+    }
+
+
+    // --- 2. Construct Optimistic Paths (Fallback/Original Logic) ---
     // We guess where the file is likely to be to start fetching IMMEDIATELY.
     const pathsToTry: string[] = [];
 
@@ -62,7 +133,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
         }
     }
 
-    // --- 2. Parallel Execution ---
+    // --- 3. Parallel Execution ---
     // Start fetching the content from the guessed paths AND the manifest simultaneously.
 
     // Helper to try all paths in sequence (but started immediately in parallel with manifest)
@@ -84,7 +155,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     // Ensure manifest is loading (idempotent due to singleton)
     const manifestFetchPromise = fetchManifest();
 
-    // --- 3. Await Results & Fallback ---
+    // --- 4. Await Results & Fallback ---
 
     // We wait for the content. If we find it, GREAT! We render immediately.
     // If we don't find it, ONLY THEN do we wait for the manifest to look up the "official" path.
@@ -125,7 +196,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     }
 
 
-    // --- 4. Deep Fallback via Manifest (if optimistic paths failed) ---
+    // --- 5. Deep Fallback via Manifest (if optimistic paths failed) ---
     if (!contentResult && manifestLesson) {
         // If we found the node in the manifest, maybe it has a custom 'link' or special structure we missed?
         // This is the "Safety Net"
@@ -151,7 +222,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
         return null;
     }
 
-    // --- 5. Process Data ---
+    // --- 6. Process Data ---
     const data = await contentResult.response.json();
 
     // Fix double-nesting
@@ -159,7 +230,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
         data.learningPathData = data.learningPathData.learningPathData;
     }
 
-    // --- 6. Merge Metadata from Manifest (enrichment) ---
+    // --- 7. Merge Metadata from Manifest (enrichment) ---
     // Even if content loaded fast, we want to stamp it with official tags/years if available.
     if (manifestLesson) {
         const typedLesson = manifestLesson as any;
