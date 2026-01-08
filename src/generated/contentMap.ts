@@ -1,305 +1,1544 @@
 // Auto-generated content index. Do not edit manually.
-export const contentMap: Record<string, string> = {
-    "aksemaktene": "content/concepts/aksemaktene.json",
-    "aksjeselskap": "content/concepts/aksjeselskap.json",
-    "allianse": "content/concepts/allianse.json",
-    "anarki": "content/concepts/anarki.json",
-    "anarko-kapitalisme": "content/concepts/anarko-kapitalisme.json",
-    "anarko-kommunisme": "content/concepts/anarko-kommunisme.json",
-    "anschluss": "content/concepts/anschluss.json",
-    "artilleri": "content/concepts/artilleri.json",
-    "autoritaert-diktatur": "content/concepts/autoritaert-diktatur.json",
-    "avkolonisering": "content/concepts/avkolonisering.json",
-    "blankoblankett": "content/concepts/blankoblankett.json",
-    "blitzkrieg": "content/concepts/blitzkrieg.json",
-    "blokade": "content/concepts/blokade.json",
-    "d-dagen": "content/concepts/d-dagen.json",
-    "dachau": "content/concepts/dachau.json",
-    "de-allierte": "content/concepts/de-allierte.json",
-    "de-forente-nasjoner-fn": "content/concepts/de-forente-nasjoner-fn.json",
-    "defenestrasjon": "content/concepts/defenestrasjon.json",
-    "dendrokronologi": "content/concepts/dendrokronologi.json",
-    "diktatur": "content/concepts/diktatur.json",
-    "direkte-demokrati": "content/concepts/direkte-demokrati.json",
-    "enigma": "content/concepts/enigma.json",
-    "ententen": "content/concepts/ententen.json",
-    "etos": "content/concepts/etos.json",
-    "ettergivenhetspolitikk": "content/concepts/ettergivenhetspolitikk.json",
-    "fascisme": "content/concepts/fascisme.json",
-    "foerromersk-jernalder": "content/concepts/foerromersk-jernalder.json",
-    "folkeforbundet": "content/concepts/folkeforbundet.json",
-    "folkevandringstiden": "content/concepts/folkevandringstiden.json",
-    "glasnost": "content/concepts/glasnost.json",
-    "gurdwara": "content/concepts/gurdwara.json",
-    "guru-granth-sahib": "content/concepts/guru-granth-sahib.json",
-    "guru": "content/concepts/guru.json",
-    "habsburgerne": "content/concepts/habsburgerne.json",
-    "helsetning": "content/concepts/helsetning.json",
-    "holocaust": "content/concepts/holocaust.json",
-    "imperialisme": "content/concepts/imperialisme.json",
-    "ingenmannsland": "content/concepts/ingenmannsland.json",
-    "investiturstriden": "content/concepts/investiturstriden.json",
-    "jernteppet": "content/concepts/jernteppet.json",
-    "justinianerpesten": "content/concepts/justinianerpesten.json",
-    "justinianske-pest": "content/concepts/justinianske-pest.json",
-    "kalmarunionen": "content/concepts/kalmarunionen.json",
-    "kapitalisme": "content/concepts/kapitalisme.json",
-    "khalsa": "content/concepts/khalsa.json",
-    "kirtan": "content/concepts/kirtan.json",
-    "koloni": "content/concepts/koloni.json",
-    "kommunisme": "content/concepts/kommunisme.json",
-    "komsakulturen": "content/concepts/komsakulturen.json",
-    "krigserstatning": "content/concepts/krigserstatning.json",
-    "langar": "content/concepts/langar.json",
-    "lebensraum": "content/concepts/lebensraum.json",
-    "leddsetning": "content/concepts/leddsetning.json",
-    "leiesoldater": "content/concepts/leiesoldater.json",
-    "logos": "content/concepts/logos.json",
-    "mad": "content/concepts/mad.json",
-    "mandatomrde": "content/concepts/mandatomrde.json",
-    "manhattan-prosjektet": "content/concepts/manhattan-prosjektet.json",
-    "marshallhjelpen": "content/concepts/marshallhjelpen.json",
-    "meritokrati": "content/concepts/meritokrati.json",
-    "merkantilisme": "content/concepts/merkantilisme.json",
-    "merovingerne": "content/concepts/merovingerne.json",
-    "molotov-ribbentrop-pakten": "content/concepts/molotov-ribbentrop-pakten.json",
-    "monarki": "content/concepts/monarki.json",
-    "monopol": "content/concepts/monopol.json",
-    "nasjonalisme": "content/concepts/nasjonalisme.json",
-    "nrnbergprosessene": "content/concepts/nrnbergprosessene.json",
-    "oligarki": "content/concepts/oligarki.json",
-    "operasjon-barbarossa": "content/concepts/operasjon-barbarossa.json",
-    "opium": "content/concepts/opium.json",
-    "oppdemming": "content/concepts/oppdemming.json",
-    "parlamentarisk-republikk": "content/concepts/parlamentarisk-republikk.json",
-    "parlamentarisk-stat": "content/concepts/parlamentarisk-stat.json",
-    "patos": "content/concepts/patos.json",
-    "pax-mongolica": "content/concepts/pax-mongolica.json",
-    "pax-romana": "content/concepts/pax-romana.json",
-    "penicillin": "content/concepts/penicillin.json",
-    "perestrojka": "content/concepts/perestrojka.json",
-    "president-republikk": "content/concepts/president-republikk.json",
-    "radar": "content/concepts/radar.json",
-    "raf": "content/concepts/raf.json",
-    "rekognosering": "content/concepts/rekognosering.json",
-    "representativt-demokrati": "content/concepts/representativt-demokrati.json",
-    "republikk": "content/concepts/republikk.json",
-    "rhinen": "content/concepts/rhinen.json",
-    "rubicon": "content/concepts/rubicon.json",
-    "schlieffen-planen": "content/concepts/schlieffen-planen.json",
-    "selvbestemmelsesrett": "content/concepts/selvbestemmelsesrett.json",
-    "senantikken": "content/concepts/senantikken.json",
-    "sennepsgass": "content/concepts/sennepsgass.json",
-    "sentralmaktene": "content/concepts/sentralmaktene.json",
-    "sepoy": "content/concepts/sepoy.json",
-    "sikh": "content/concepts/sikh.json",
-    "skyttergravskrig": "content/concepts/skyttergravskrig.json",
-    "sosialisme": "content/concepts/sosialisme.json",
-    "stalingrad": "content/concepts/stalingrad.json",
-    "stfronten": "content/concepts/stfronten.json",
-    "stormaktstiden": "content/concepts/stormaktstiden.json",
-    "stridsvogn": "content/concepts/stridsvogn.json",
-    "subjektet": "content/concepts/subjektet.json",
-    "suverenitetsprinsippet": "content/concepts/suverenitetsprinsippet.json",
-    "te": "content/concepts/te.json",
-    "teknokrati": "content/concepts/teknokrati.json",
-    "tekstil": "content/concepts/tekstil.json",
-    "teokrati": "content/concepts/teokrati.json",
-    "total-krig": "content/concepts/total-krig.json",
-    "totalitaert-diktatur": "content/concepts/totalitaert-diktatur.json",
-    "traktbegerkulturen": "content/concepts/traktbegerkulturen.json",
-    "truman-doktrinen": "content/concepts/truman-doktrinen.json",
-    "uinnskrenket-ubtkrig": "content/concepts/uinnskrenket-ubtkrig.json",
-    "ultimatum": "content/concepts/ultimatum.json",
-    "unionsopplosningen-1905": "content/concepts/unionsopplosningen-1905.json",
-    "utmattelseskrig": "content/concepts/utmattelseskrig.json",
-    "v2": "content/concepts/v2.json",
-    "verbalet": "content/concepts/verbalet.json",
-    "versailles-traktaten": "content/concepts/versailles-traktaten.json",
-    "vestfronten": "content/concepts/vestfronten.json",
-    "weimarrepublikken": "content/concepts/weimarrepublikken.json",
-    "yam": "content/concepts/yam.json",
-    "zeppeliner": "content/concepts/zeppeliner.json",
-    "zimmermann-telegrammet": "content/concepts/zimmermann-telegrammet.json",
-    "scanner-config": "content/config/scanner-config.json",
-    "global-timeline": "content/global-timeline.json",
-    "bakgrunn": "content/historie/andre-verdenskrig/bakgrunn.json",
-    "konsentrasjonsleirene": "content/historie/andre-verdenskrig/konsentrasjonsleirene.json",
-    "demo-artikkel": "content/historie/demo-artikkel/demo-artikkel.json",
-    "atomvapenkapplopet": "content/historie/den-kalde-krigen/atomvapenkapplopet.json",
-    "cuba-krisen": "content/historie/den-kalde-krigen/cuba-krisen.json",
-    "kald-krig-sti": "content/historie/den-kalde-krigen/kald-krig-sti.json",
-    "koreakrigen": "content/historie/den-kalde-krigen/koreakrigen.json",
-    "kultur": "content/historie/den-kalde-krigen/kultur.json",
-    "nato-vs-warszawa": "content/historie/den-kalde-krigen/nato-vs-warszawa.json",
-    "romkapplopet": "content/historie/den-kalde-krigen/romkapplopet.json",
-    "suez-krisen": "content/historie/den-kalde-krigen/suez-krisen.json",
-    "veien-mot-slutt": "content/historie/den-kalde-krigen/veien-mot-slutt.json",
-    "vietnamkrigen": "content/historie/den-kalde-krigen/vietnamkrigen.json",
-    "opptakt": "content/historie/forste-verdenskrig/opptakt.json",
-    "jordbruk-og-sivilisasjoner": "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json",
-    "britisk-imperium": "content/historie/kolonialisering/britisk-imperium.json",
-    "eic": "content/historie/kolonialisering/eic.json",
-    "europa-erobrer-verden": "content/historie/kolonialisering/europa-erobrer-verden.json",
-    "fransk-kolonirike": "content/historie/kolonialisering/fransk-kolonirike.json",
-    "portugisisk-kolonialisering": "content/historie/kolonialisering/portugisisk-kolonialisering.json",
-    "spansk-kolonialisering": "content/historie/kolonialisering/spansk-kolonialisering.json",
-    "trekanthandelen": "content/historie/kolonialisering/trekanthandelen.json",
-    "voc": "content/historie/kolonialisering/voc.json",
-    "menneskets-tidlige-historie": "content/historie/menneskets-tidlige-historie/menneskets-tidlige-historie.json",
-    "boktrykkerkunsten": "content/historie/middelalderen/boktrykkerkunsten.json",
-    "det-hellige-romerske-rike": "content/historie/middelalderen/det-hellige-romerske-rike.json",
-    "middelalderen": "content/historie/middelalderen/middelalderen.json",
-    "svartedauden-sti": "content/historie/middelalderen/svartedauden-sti.json",
-    "tidlig-middelalder": "content/historie/middelalderen/tidlig-middelalder.json",
-    "hamskiftet": "content/historie/norgeshistorie/hamskiftet/artikkel.json",
-    "klimakrisen-536": "content/historie/norgeshistorie/klimakrisen-536/artikkel.json",
-    "norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json",
-    "perserriket": "content/historie/perserriket/artikkel.json",
-    "30-aarskrigen": "content/historie/reformasjonen/30-aarskrigen.json",
-    "arven-etter-romerriket": "content/historie/romerriket/arven-etter-romerriket.json",
-    "augustus-og-keiserdomme": "content/historie/romerriket/augustus-og-keiserdomme.json",
-    "den-romerske-legionen": "content/historie/romerriket/den-romerske-legionen.json",
-    "handel-og-silkeveien": "content/historie/romerriket/handel-og-silkeveien.json",
-    "hverdagsliv-i-roma": "content/historie/romerriket/hverdagsliv-i-roma.json",
-    "legitimitet-og-kristendom": "content/historie/romerriket/legitimitet-og-kristendom.json",
-    "pompeii": "content/historie/romerriket/pompeii.json",
-    "romerriket-sti": "content/historie/romerriket/romerriket-sti.json",
-    "romersk-start": "content/historie/romerriket/romersk-start.json",
-    "romerske-guder": "content/historie/romerriket/romerske-guder.json",
-    "romerske-keisere": "content/historie/romerriket/romerske-keisere.json",
-    "vestromerrikets-fall": "content/historie/romerriket/vestromerrikets-fall.json",
-    "sveriges-historie": "content/historie/sveriges-historie/sveriges-historie/artikkel.json",
-    "test-artikkel": "content/historie/test-artikkel.json",
-    "vikingtiden": "content/historie/vikingtiden/artikkel.json",
-    "asatro": "content/historie/vikingtiden/asatro.json",
-    "danelagen": "content/historie/vikingtiden/danelagen.json",
-    "hypotesen-norden-vs-frankrike": "content/historie/vikingtiden/hypotesen-norden-vs-frankrike.json",
-    "kristningen-av-norge": "content/historie/vikingtiden/kristningen-av-norge.json",
-    "normandie": "content/historie/vikingtiden/normandie.json",
-    "oppdagelsesreiser": "content/historie/vikingtiden/oppdagelsesreiser.json",
-    "rikssamlingen": "content/historie/vikingtiden/rikssamlingen.json",
-    "samfunn-og-rett": "content/historie/vikingtiden/samfunn-og-rett.json",
-    "skipsteknologi": "content/historie/vikingtiden/skipsteknologi.json",
-    "veien-mot-ost": "content/historie/vikingtiden/veien-mot-ost.json",
-    "vikingtiden-sti": "content/historie/vikingtiden/vikingtiden-sti.json",
-    "mongolske-riket": "content/history/mongolske-riket.json",
-    "greenland": "content/interactive/detective/greenland.json",
-    "isdalskvinnen": "content/interactive/detective/isdalskvinnen.json",
-    "karl-xii": "content/interactive/detective/karl-xii.json",
-    "lindisfarne": "content/interactive/detective/lindisfarne.json",
-    "stiklestad": "content/interactive/detective/stiklestad.json",
-    "tungtvann": "content/interactive/detective/tungtvann.json",
-    "vardo": "content/interactive/detective/vardo.json",
-    "dygdsetikk": "content/krle/etikk/dygdsetikk.json",
-    "naturrett": "content/krle/etikk/naturrett.json",
-    "non-aggression": "content/krle/etikk/non-aggression.json",
-    "pliktetikk": "content/krle/etikk/pliktetikk.json",
-    "utilitarisme": "content/krle/etikk/utilitarisme.json",
-    "aristoteles_friendship": "content/krle/filosofi/quests/aristoteles_friendship.json",
-    "descartes_dualism": "content/krle/filosofi/quests/descartes_dualism.json",
-    "kant_enlightenment": "content/krle/filosofi/quests/kant_enlightenment.json",
-    "nietzsche_abyss": "content/krle/filosofi/quests/nietzsche_abyss.json",
-    "platon_ring": "content/krle/filosofi/quests/platon_ring.json",
-    "socratic_dialogue": "content/krle/filosofi/quests/socratic_dialogue.json",
-    "sokrates_gadfly": "content/krle/filosofi/quests/sokrates_gadfly.json",
-    "dap": "content/krle/religion/kristendom/dap/artikkel.json",
-    "introduksjon": "content/krle/religion/sikhisme/introduksjon/artikkel.json",
-    "akkorder-og-harmoni": "content/musikk/grunnleggende/akkorder-og-harmoni.json",
-    "notasjon": "content/musikk/grunnleggende/notasjon.json",
-    "takt-og-rytme": "content/musikk/grunnleggende/takt-og-rytme.json",
-    "bass-intro": "content/musikk/instrumenter/bass-intro.json",
-    "gitar-intro": "content/musikk/instrumenter/gitar-intro.json",
-    "piano-intro": "content/musikk/instrumenter/piano-intro.json",
-    "trommer-intro": "content/musikk/instrumenter/trommer-intro.json",
-    "lat-struktur": "content/musikk/komposisjon/lat-struktur.json",
-    "akkordbank": "content/musikk/oppslag/akkordbank.json",
-    "latskriver": "content/musikk/oppslag/latskriver.json",
-    "rytmebank": "content/musikk/oppslag/rytmebank.json",
-    "vurderingskriterier": "content/musikk/vurdering/vurderingskriterier.json",
-    "setningsanalyse": "content/norsk/grammatikk/setningsanalyse.json",
-    "nasjonalromantikken": "content/norsk/litteraturhistorie/nasjonalromantikken.json",
-    "ny-realismen": "content/norsk/litteraturhistorie/ny-realismen.json",
-    "ny-romantikken": "content/norsk/litteraturhistorie/ny-romantikken.json",
-    "nyrealismen-sti": "content/norsk/litteraturhistorie/nyrealismen-sti.json",
-    "nyromantikken-sti": "content/norsk/litteraturhistorie/nyromantikken-sti.json",
-    "realismen-sti": "content/norsk/litteraturhistorie/realismen-sti.json",
-    "realismen": "content/norsk/litteraturhistorie/realismen.json",
-    "romantikken-sti": "content/norsk/litteraturhistorie/romantikken-sti.json",
-    "adjektiv": "content/norsk/ordklasser/adjektiv.json",
-    "adverb": "content/norsk/ordklasser/adverb.json",
-    "konjunksjoner-subjunksjoner": "content/norsk/ordklasser/konjunksjoner-subjunksjoner.json",
-    "preposisjoner": "content/norsk/ordklasser/preposisjoner.json",
-    "pronomen": "content/norsk/ordklasser/pronomen.json",
-    "substantiv": "content/norsk/ordklasser/substantiv.json",
-    "verb": "content/norsk/ordklasser/verb.json",
-    "grunnleggende-retorikk": "content/norsk/retorikk/grunnleggende-retorikk.json",
-    "niva-1-grunnmuren": "content/norsk/setningsoppbygging/niva-1-grunnmuren.json",
-    "niva-2-utvidet": "content/norsk/setningsoppbygging/niva-2-utvidet.json",
-    "niva-3-v2-regelen": "content/norsk/setningsoppbygging/niva-3-v2-regelen.json",
-    "niva-4-leddsetninger": "content/norsk/setningsoppbygging/niva-4-leddsetninger.json",
-    "7-vanlige-plot": "content/norsk/skrivehjelp/7-vanlige-plot.json",
-    "hvordan-skrive-dikt": "content/norsk/skrivehjelp/hvordan-skrive-dikt.json",
-    "hvordan-skrive-eventyr": "content/norsk/skrivehjelp/hvordan-skrive-eventyr.json",
-    "hvordan-skrive-novelle": "content/norsk/skrivehjelp/hvordan-skrive-novelle.json",
-    "hvordan-skrive-roman": "content/norsk/skrivehjelp/hvordan-skrive-roman.json",
-    "tekstsjangre": "content/norsk/tekstsjangre/artikkel.json",
-    "debattinnlegg": "content/norsk/tekstsjangre/debattinnlegg.json",
-    "dikt": "content/norsk/tekstsjangre/dikt.json",
-    "eventyr": "content/norsk/tekstsjangre/eventyr.json",
-    "kommentar": "content/norsk/tekstsjangre/kommentar.json",
-    "novelle": "content/norsk/tekstsjangre/novelle.json",
-    "roman": "content/norsk/tekstsjangre/roman.json",
-    "birger-jarl": "content/people/birger-jarl.json",
-    "clovis-i": "content/people/clovis-i.json",
-    "david-hume": "content/people/david-hume.json",
-    "dronning-elizabeth-i": "content/people/dronning-elizabeth-i.json",
-    "friedrich-nietzsche": "content/people/friedrich-nietzsche.json",
-    "gaius-octavius": "content/people/gaius-octavius.json",
-    "genghis-khan": "content/people/genghis-khan.json",
-    "gustav-ii-adolf": "content/people/gustav-ii-adolf.json",
-    "gustav-vasa": "content/people/gustav-vasa.json",
-    "henrik-krummedige": "content/people/henrik-krummedige.json",
-    "jeanne-d-arc": "content/people/jeanne-d-arc.json",
-    "john-locke": "content/people/john-locke.json",
-    "julius-caesar": "content/people/julius-caesar.json",
-    "kleopatra": "content/people/kleopatra.json",
-    "kublai-khan": "content/people/kublai-khan.json",
-    "marcus-antonius": "content/people/marcus-antonius.json",
-    "martin-heidegger": "content/people/martin-heidegger.json",
-    "oscar-ii": "content/people/oscar-ii.json",
-    "thomas-aquinas": "content/people/thomas-aquinas.json",
-    "befolkningspyramider": "content/samfunnskunnskap/demografi/befolkningspyramider.json",
-    "finanskriser": "content/samfunnskunnskap/demografi-okonomi/finanskriser.json",
-    "inflasjon-og-rente": "content/samfunnskunnskap/demografi-okonomi/inflasjon-og-rente.json",
-    "produksjon": "content/samfunnskunnskap/demografi-okonomi/produksjon.json",
-    "casus-belli": "content/samfunnskunnskap/ideer-og-verdenssyn/casus-belli.json",
-    "det-unormale": "content/samfunnskunnskap/ideer-og-verdenssyn/det-unormale.json",
-    "eskatologi": "content/samfunnskunnskap/ideer-og-verdenssyn/eskatologi.json",
-    "fn": "content/samfunnskunnskap/ideer-og-verdenssyn/fn.json",
-    "framskrittstro": "content/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro.json",
-    "humanisme": "content/samfunnskunnskap/ideer-og-verdenssyn/humanisme.json",
-    "naturens-sjel": "content/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel.json",
-    "sannhetens-historie": "content/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie.json",
-    "store-sykluser": "content/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser.json",
-    "utopier": "content/samfunnskunnskap/ideer-og-verdenssyn/utopier.json",
-    "ekkokamre": "content/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre.json",
-    "flokkmentalitet": "content/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet.json",
-    "kjendismakt": "content/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt.json",
-    "robotene-kommer": "content/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer.json",
-    "ytringsvett-vs-ytringsmot": "content/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot.json",
-    "antikken-visjoner": "content/samfunnskunnskap/styringsformer/antikken-visjoner.json",
-    "demokrati-ansikter": "content/samfunnskunnskap/styringsformer/demokrati-ansikter.json",
-    "diktaturet": "content/samfunnskunnskap/styringsformer/diktaturet.json",
-    "elitenes-herredomme": "content/samfunnskunnskap/styringsformer/elitenes-herredomme.json",
-    "foydalisme": "content/samfunnskunnskap/styringsformer/foydalisme.json",
-    "makt-og-legitimitet": "content/samfunnskunnskap/styringsformer/makt-og-legitimitet.json",
-    "monarkiet": "content/samfunnskunnskap/styringsformer/monarkiet.json",
-    "opplysningstid": "content/samfunnskunnskap/styringsformer/opplysningstid.json",
-    "stortinget": "content/samfunnskunnskap/styringsformer/stortinget.json",
-    "teokrati-teknokrati": "content/samfunnskunnskap/styringsformer/teokrati-teknokrati.json",
-    "uten-hersker": "content/samfunnskunnskap/styringsformer/uten-hersker.json",
-    "utforsk": "content/samfunnskunnskap/styringsformer/utforsk.json",
-    "medieval-baron": "content/scenarios/medieval-baron.json",
-    "roman-soldier": "content/scenarios/roman-soldier.json"
+export const contentMap: Record<string, string | string[]> = {
+    "aksemaktene": [
+        "content/concepts/aksemaktene.json"
+    ],
+    "aksjeselskap": [
+        "content/concepts/aksjeselskap.json"
+    ],
+    "allianse": [
+        "content/concepts/allianse.json"
+    ],
+    "anarki": [
+        "content/concepts/anarki.json"
+    ],
+    "anarko-kapitalisme": [
+        "content/concepts/anarko-kapitalisme.json"
+    ],
+    "anarko-kommunisme": [
+        "content/concepts/anarko-kommunisme.json"
+    ],
+    "anschluss": [
+        "content/concepts/anschluss.json"
+    ],
+    "artilleri": [
+        "content/concepts/artilleri.json"
+    ],
+    "autoritaert-diktatur": [
+        "content/concepts/autoritaert-diktatur.json"
+    ],
+    "avkolonisering": [
+        "content/concepts/avkolonisering.json"
+    ],
+    "blankoblankett": [
+        "content/concepts/blankoblankett.json"
+    ],
+    "blitzkrieg": [
+        "content/concepts/blitzkrieg.json"
+    ],
+    "blokade": [
+        "content/concepts/blokade.json"
+    ],
+    "d-dagen": [
+        "content/concepts/d-dagen.json"
+    ],
+    "dachau": [
+        "content/concepts/dachau.json"
+    ],
+    "de-allierte": [
+        "content/concepts/de-allierte.json"
+    ],
+    "de-forente-nasjoner-fn": [
+        "content/concepts/de-forente-nasjoner-fn.json"
+    ],
+    "defenestrasjon": [
+        "content/concepts/defenestrasjon.json"
+    ],
+    "dendrokronologi": [
+        "content/concepts/dendrokronologi.json"
+    ],
+    "diktatur": [
+        "content/concepts/diktatur.json"
+    ],
+    "direkte-demokrati": [
+        "content/concepts/direkte-demokrati.json"
+    ],
+    "enigma": [
+        "content/concepts/enigma.json"
+    ],
+    "ententen": [
+        "content/concepts/ententen.json"
+    ],
+    "etos": [
+        "content/concepts/etos.json"
+    ],
+    "ettergivenhetspolitikk": [
+        "content/concepts/ettergivenhetspolitikk.json"
+    ],
+    "fascisme": [
+        "content/concepts/fascisme.json"
+    ],
+    "foerromersk-jernalder": [
+        "content/concepts/foerromersk-jernalder.json"
+    ],
+    "folkeforbundet": [
+        "content/concepts/folkeforbundet.json"
+    ],
+    "folkevandringstiden": [
+        "content/concepts/folkevandringstiden.json"
+    ],
+    "glasnost": [
+        "content/concepts/glasnost.json"
+    ],
+    "gurdwara": [
+        "content/concepts/gurdwara.json"
+    ],
+    "guru-gobind-singh": [
+        "content/concepts/guru-gobind-singh.json",
+        "content/people/guru-gobind-singh.json"
+    ],
+    "guru-granth-sahib": [
+        "content/concepts/guru-granth-sahib.json"
+    ],
+    "guru-nanak": [
+        "content/concepts/guru-nanak.json",
+        "content/people/guru-nanak.json"
+    ],
+    "guru": [
+        "content/concepts/guru.json"
+    ],
+    "habsburgerne": [
+        "content/concepts/habsburgerne.json"
+    ],
+    "helsetning": [
+        "content/concepts/helsetning.json"
+    ],
+    "holocaust": [
+        "content/concepts/holocaust.json"
+    ],
+    "imperialisme": [
+        "content/concepts/imperialisme.json"
+    ],
+    "ingenmannsland": [
+        "content/concepts/ingenmannsland.json"
+    ],
+    "investiturstriden": [
+        "content/concepts/investiturstriden.json"
+    ],
+    "jernteppet": [
+        "content/concepts/jernteppet.json"
+    ],
+    "justinianerpesten": [
+        "content/concepts/justinianerpesten.json"
+    ],
+    "justinianske-pest": [
+        "content/concepts/justinianske-pest.json"
+    ],
+    "kalmarunionen": [
+        "content/concepts/kalmarunionen.json"
+    ],
+    "kapitalisme": [
+        "content/concepts/kapitalisme.json"
+    ],
+    "khalsa": [
+        "content/concepts/khalsa.json"
+    ],
+    "kirtan": [
+        "content/concepts/kirtan.json"
+    ],
+    "koloni": [
+        "content/concepts/koloni.json"
+    ],
+    "kommunisme": [
+        "content/concepts/kommunisme.json"
+    ],
+    "komsakulturen": [
+        "content/concepts/komsakulturen.json"
+    ],
+    "krigserstatning": [
+        "content/concepts/krigserstatning.json"
+    ],
+    "langar": [
+        "content/concepts/langar.json"
+    ],
+    "lebensraum": [
+        "content/concepts/lebensraum.json"
+    ],
+    "leddsetning": [
+        "content/concepts/leddsetning.json"
+    ],
+    "leiesoldater": [
+        "content/concepts/leiesoldater.json"
+    ],
+    "logos": [
+        "content/concepts/logos.json"
+    ],
+    "mad": [
+        "content/concepts/mad.json"
+    ],
+    "mandatomrde": [
+        "content/concepts/mandatomrde.json"
+    ],
+    "manhattan-prosjektet": [
+        "content/concepts/manhattan-prosjektet.json"
+    ],
+    "marshallhjelpen": [
+        "content/concepts/marshallhjelpen.json"
+    ],
+    "meritokrati": [
+        "content/concepts/meritokrati.json"
+    ],
+    "merkantilisme": [
+        "content/concepts/merkantilisme.json"
+    ],
+    "merovingerne": [
+        "content/concepts/merovingerne.json"
+    ],
+    "molotov-ribbentrop-pakten": [
+        "content/concepts/molotov-ribbentrop-pakten.json"
+    ],
+    "monarki": [
+        "content/concepts/monarki.json"
+    ],
+    "monopol": [
+        "content/concepts/monopol.json"
+    ],
+    "nasjonalisme": [
+        "content/concepts/nasjonalisme.json"
+    ],
+    "nrnbergprosessene": [
+        "content/concepts/nrnbergprosessene.json"
+    ],
+    "oligarki": [
+        "content/concepts/oligarki.json"
+    ],
+    "operasjon-barbarossa": [
+        "content/concepts/operasjon-barbarossa.json"
+    ],
+    "opium": [
+        "content/concepts/opium.json"
+    ],
+    "oppdemming": [
+        "content/concepts/oppdemming.json"
+    ],
+    "parlamentarisk-republikk": [
+        "content/concepts/parlamentarisk-republikk.json"
+    ],
+    "parlamentarisk-stat": [
+        "content/concepts/parlamentarisk-stat.json"
+    ],
+    "patos": [
+        "content/concepts/patos.json"
+    ],
+    "pax-mongolica": [
+        "content/concepts/pax-mongolica.json"
+    ],
+    "pax-romana": [
+        "content/concepts/pax-romana.json"
+    ],
+    "penicillin": [
+        "content/concepts/penicillin.json"
+    ],
+    "perestrojka": [
+        "content/concepts/perestrojka.json"
+    ],
+    "president-republikk": [
+        "content/concepts/president-republikk.json"
+    ],
+    "radar": [
+        "content/concepts/radar.json"
+    ],
+    "raf": [
+        "content/concepts/raf.json"
+    ],
+    "rekognosering": [
+        "content/concepts/rekognosering.json"
+    ],
+    "representativt-demokrati": [
+        "content/concepts/representativt-demokrati.json"
+    ],
+    "republikk": [
+        "content/concepts/republikk.json"
+    ],
+    "rhinen": [
+        "content/concepts/rhinen.json"
+    ],
+    "rubicon": [
+        "content/concepts/rubicon.json"
+    ],
+    "schlieffen-planen": [
+        "content/concepts/schlieffen-planen.json"
+    ],
+    "selvbestemmelsesrett": [
+        "content/concepts/selvbestemmelsesrett.json"
+    ],
+    "senantikken": [
+        "content/concepts/senantikken.json"
+    ],
+    "sennepsgass": [
+        "content/concepts/sennepsgass.json"
+    ],
+    "sentralmaktene": [
+        "content/concepts/sentralmaktene.json"
+    ],
+    "sepoy": [
+        "content/concepts/sepoy.json"
+    ],
+    "sikh": [
+        "content/concepts/sikh.json"
+    ],
+    "skyttergravskrig": [
+        "content/concepts/skyttergravskrig.json"
+    ],
+    "sosialisme": [
+        "content/concepts/sosialisme.json"
+    ],
+    "stalingrad": [
+        "content/concepts/stalingrad.json"
+    ],
+    "stfronten": [
+        "content/concepts/stfronten.json"
+    ],
+    "stormaktstiden": [
+        "content/concepts/stormaktstiden.json"
+    ],
+    "stridsvogn": [
+        "content/concepts/stridsvogn.json"
+    ],
+    "subjektet": [
+        "content/concepts/subjektet.json"
+    ],
+    "suverenitetsprinsippet": [
+        "content/concepts/suverenitetsprinsippet.json"
+    ],
+    "te": [
+        "content/concepts/te.json"
+    ],
+    "teknokrati": [
+        "content/concepts/teknokrati.json"
+    ],
+    "tekstil": [
+        "content/concepts/tekstil.json"
+    ],
+    "teokrati": [
+        "content/concepts/teokrati.json"
+    ],
+    "total-krig": [
+        "content/concepts/total-krig.json"
+    ],
+    "totalitaert-diktatur": [
+        "content/concepts/totalitaert-diktatur.json"
+    ],
+    "traktbegerkulturen": [
+        "content/concepts/traktbegerkulturen.json"
+    ],
+    "truman-doktrinen": [
+        "content/concepts/truman-doktrinen.json"
+    ],
+    "uinnskrenket-ubtkrig": [
+        "content/concepts/uinnskrenket-ubtkrig.json"
+    ],
+    "ultimatum": [
+        "content/concepts/ultimatum.json"
+    ],
+    "unionsopplosningen-1905": [
+        "content/concepts/unionsopplosningen-1905.json"
+    ],
+    "utmattelseskrig": [
+        "content/concepts/utmattelseskrig.json"
+    ],
+    "v2": [
+        "content/concepts/v2.json"
+    ],
+    "verbalet": [
+        "content/concepts/verbalet.json"
+    ],
+    "versailles-traktaten": [
+        "content/concepts/versailles-traktaten.json"
+    ],
+    "vestfronten": [
+        "content/concepts/vestfronten.json"
+    ],
+    "weimarrepublikken": [
+        "content/concepts/weimarrepublikken.json"
+    ],
+    "yam": [
+        "content/concepts/yam.json"
+    ],
+    "zeppeliner": [
+        "content/concepts/zeppeliner.json"
+    ],
+    "zimmermann-telegrammet": [
+        "content/concepts/zimmermann-telegrammet.json"
+    ],
+    "scanner-config": [
+        "content/config/scanner-config.json"
+    ],
+    "global-timeline": [
+        "content/global-timeline.json"
+    ],
+    "bakgrunn": [
+        "content/historie/andre-verdenskrig/bakgrunn.json"
+    ],
+    "konsekvenser": [
+        "content/historie/andre-verdenskrig/konsekvenser.json",
+        "content/historie/forste-verdenskrig/konsekvenser.json"
+    ],
+    "konsentrasjonsleirene": [
+        "content/historie/andre-verdenskrig/konsentrasjonsleirene.json"
+    ],
+    "krigens-lop": [
+        "content/historie/andre-verdenskrig/krigens-lop.json",
+        "content/historie/forste-verdenskrig/krigens-lop.json"
+    ],
+    "oversikt": [
+        "content/historie/andre-verdenskrig/oversikt.json",
+        "content/historie/den-kalde-krigen/oversikt.json",
+        "content/historie/forste-verdenskrig/oversikt.json"
+    ],
+    "teknologi": [
+        "content/historie/andre-verdenskrig/teknologi.json",
+        "content/historie/forste-verdenskrig/teknologi.json"
+    ],
+    "demo-artikkel": [
+        "content/historie/demo-artikkel/demo-artikkel.json"
+    ],
+    "atomvapenkapplopet": [
+        "content/historie/den-kalde-krigen/atomvapenkapplopet.json"
+    ],
+    "berlinmuren": [
+        "content/historie/den-kalde-krigen/berlinmuren.json",
+        "content/interactive/detective/berlinmuren.json"
+    ],
+    "cuba-krisen": [
+        "content/historie/den-kalde-krigen/cuba-krisen.json"
+    ],
+    "kald-krig-sti": [
+        "content/historie/den-kalde-krigen/kald-krig-sti.json"
+    ],
+    "koreakrigen": [
+        "content/historie/den-kalde-krigen/koreakrigen.json"
+    ],
+    "kultur": [
+        "content/historie/den-kalde-krigen/kultur.json"
+    ],
+    "nato-vs-warszawa": [
+        "content/historie/den-kalde-krigen/nato-vs-warszawa.json"
+    ],
+    "romkapplopet": [
+        "content/historie/den-kalde-krigen/romkapplopet.json"
+    ],
+    "suez-krisen": [
+        "content/historie/den-kalde-krigen/suez-krisen.json"
+    ],
+    "veien-mot-slutt": [
+        "content/historie/den-kalde-krigen/veien-mot-slutt.json"
+    ],
+    "vietnamkrigen": [
+        "content/historie/den-kalde-krigen/vietnamkrigen.json"
+    ],
+    "opptakt": [
+        "content/historie/forste-verdenskrig/opptakt.json"
+    ],
+    "jordbruk-og-sivilisasjoner": [
+        "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json"
+    ],
+    "britisk-imperium": [
+        "content/historie/kolonialisering/britisk-imperium.json"
+    ],
+    "eic": [
+        "content/historie/kolonialisering/eic.json"
+    ],
+    "europa-erobrer-verden": [
+        "content/historie/kolonialisering/europa-erobrer-verden.json"
+    ],
+    "fransk-kolonirike": [
+        "content/historie/kolonialisering/fransk-kolonirike.json"
+    ],
+    "portugisisk-kolonialisering": [
+        "content/historie/kolonialisering/portugisisk-kolonialisering.json"
+    ],
+    "spansk-kolonialisering": [
+        "content/historie/kolonialisering/spansk-kolonialisering.json"
+    ],
+    "trekanthandelen": [
+        "content/historie/kolonialisering/trekanthandelen.json"
+    ],
+    "voc": [
+        "content/historie/kolonialisering/voc.json"
+    ],
+    "menneskets-tidlige-historie": [
+        "content/historie/menneskets-tidlige-historie/menneskets-tidlige-historie.json"
+    ],
+    "boktrykkerkunsten": [
+        "content/historie/middelalderen/boktrykkerkunsten.json"
+    ],
+    "det-hellige-romerske-rike": [
+        "content/historie/middelalderen/det-hellige-romerske-rike.json"
+    ],
+    "middelalderen": [
+        "content/historie/middelalderen/middelalderen.json"
+    ],
+    "svartedauden-sti": [
+        "content/historie/middelalderen/svartedauden-sti.json"
+    ],
+    "svartedauden": [
+        "content/historie/middelalderen/svartedauden.json",
+        "content/interactive/detective/svartedauden.json"
+    ],
+    "tidlig-middelalder": [
+        "content/historie/middelalderen/tidlig-middelalder.json"
+    ],
+    "hamskiftet": [
+        "content/historie/norgeshistorie/hamskiftet/artikkel.json"
+    ],
+    "klimakrisen-536": [
+        "content/historie/norgeshistorie/klimakrisen-536/artikkel.json"
+    ],
+    "knut-alvsson": [
+        "content/historie/norgeshistorie/knut-alvsson/artikkel.json",
+        "content/people/knut-alvsson.json"
+    ],
+    "norge-for-vikingene": [
+        "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json"
+    ],
+    "perserriket": [
+        "content/historie/perserriket/artikkel.json"
+    ],
+    "30-aarskrigen": [
+        "content/historie/reformasjonen/30-aarskrigen.json"
+    ],
+    "arven-etter-romerriket": [
+        "content/historie/romerriket/arven-etter-romerriket.json"
+    ],
+    "augustus-og-keiserdomme": [
+        "content/historie/romerriket/augustus-og-keiserdomme.json"
+    ],
+    "den-romerske-legionen": [
+        "content/historie/romerriket/den-romerske-legionen.json"
+    ],
+    "diokletian": [
+        "content/historie/romerriket/diokletian.json",
+        "content/people/diokletian.json"
+    ],
+    "handel-og-silkeveien": [
+        "content/historie/romerriket/handel-og-silkeveien.json"
+    ],
+    "hverdagsliv-i-roma": [
+        "content/historie/romerriket/hverdagsliv-i-roma.json"
+    ],
+    "legitimitet-og-kristendom": [
+        "content/historie/romerriket/legitimitet-og-kristendom.json"
+    ],
+    "pompeii": [
+        "content/historie/romerriket/pompeii.json"
+    ],
+    "romerriket-sti": [
+        "content/historie/romerriket/romerriket-sti.json"
+    ],
+    "romersk-start": [
+        "content/historie/romerriket/romersk-start.json"
+    ],
+    "romerske-guder": [
+        "content/historie/romerriket/romerske-guder.json"
+    ],
+    "romerske-keisere": [
+        "content/historie/romerriket/romerske-keisere.json"
+    ],
+    "vestromerrikets-fall": [
+        "content/historie/romerriket/vestromerrikets-fall.json"
+    ],
+    "sveriges-historie": [
+        "content/historie/sveriges-historie/sveriges-historie/artikkel.json"
+    ],
+    "test-artikkel": [
+        "content/historie/test-artikkel.json"
+    ],
+    "vikingtiden": [
+        "content/historie/vikingtiden/artikkel.json"
+    ],
+    "asatro": [
+        "content/historie/vikingtiden/asatro.json"
+    ],
+    "danelagen": [
+        "content/historie/vikingtiden/danelagen.json"
+    ],
+    "hypotesen-norden-vs-frankrike": [
+        "content/historie/vikingtiden/hypotesen-norden-vs-frankrike.json"
+    ],
+    "karl-den-store": [
+        "content/historie/vikingtiden/karl-den-store.json",
+        "content/people/karl-den-store.json"
+    ],
+    "kristningen-av-norge": [
+        "content/historie/vikingtiden/kristningen-av-norge.json"
+    ],
+    "normandie": [
+        "content/historie/vikingtiden/normandie.json"
+    ],
+    "oppdagelsesreiser": [
+        "content/historie/vikingtiden/oppdagelsesreiser.json"
+    ],
+    "rikssamlingen": [
+        "content/historie/vikingtiden/rikssamlingen.json"
+    ],
+    "samfunn-og-rett": [
+        "content/historie/vikingtiden/samfunn-og-rett.json"
+    ],
+    "skipsteknologi": [
+        "content/historie/vikingtiden/skipsteknologi.json"
+    ],
+    "veien-mot-ost": [
+        "content/historie/vikingtiden/veien-mot-ost.json"
+    ],
+    "vikingtiden-sti": [
+        "content/historie/vikingtiden/vikingtiden-sti.json"
+    ],
+    "mongolske-riket": [
+        "content/history/mongolske-riket.json"
+    ],
+    "greenland": [
+        "content/interactive/detective/greenland.json"
+    ],
+    "isdalskvinnen": [
+        "content/interactive/detective/isdalskvinnen.json"
+    ],
+    "karl-xii": [
+        "content/interactive/detective/karl-xii.json"
+    ],
+    "lindisfarne": [
+        "content/interactive/detective/lindisfarne.json"
+    ],
+    "stiklestad": [
+        "content/interactive/detective/stiklestad.json"
+    ],
+    "tungtvann": [
+        "content/interactive/detective/tungtvann.json"
+    ],
+    "vardo": [
+        "content/interactive/detective/vardo.json"
+    ],
+    "dygdsetikk": [
+        "content/krle/etikk/dygdsetikk.json"
+    ],
+    "intro": [
+        "content/krle/etikk/intro.json",
+        "content/krle/filosofi/intro.json",
+        "content/krle/religion/bahai/intro.json",
+        "content/krle/religion/buddhisme/intro.json",
+        "content/krle/religion/hinduisme/intro.json",
+        "content/krle/religion/jehovas-vitner/intro.json",
+        "content/krle/religion/jodedom/intro.json",
+        "content/krle/religion/mormonisme/intro.json"
+    ],
+    "naturrett": [
+        "content/krle/etikk/naturrett.json"
+    ],
+    "non-aggression": [
+        "content/krle/etikk/non-aggression.json"
+    ],
+    "pliktetikk": [
+        "content/krle/etikk/pliktetikk.json"
+    ],
+    "utilitarisme": [
+        "content/krle/etikk/utilitarisme.json"
+    ],
+    "aquinas": [
+        "content/krle/filosofi/aquinas.json",
+        "content/krle/filosofi/quests/aquinas.json"
+    ],
+    "arendt": [
+        "content/krle/filosofi/arendt.json",
+        "content/krle/filosofi/quests/arendt.json"
+    ],
+    "aristoteles": [
+        "content/krle/filosofi/aristoteles.json",
+        "content/krle/filosofi/quests/aristoteles.json",
+        "content/people/aristoteles.json"
+    ],
+    "augustin": [
+        "content/krle/filosofi/augustin.json",
+        "content/krle/filosofi/quests/augustin.json",
+        "content/people/augustin.json"
+    ],
+    "beauvoir": [
+        "content/krle/filosofi/beauvoir.json",
+        "content/krle/filosofi/quests/beauvoir.json"
+    ],
+    "descartes": [
+        "content/krle/filosofi/descartes.json",
+        "content/krle/filosofi/quests/descartes.json"
+    ],
+    "heidegger": [
+        "content/krle/filosofi/heidegger.json",
+        "content/krle/filosofi/quests/heidegger.json"
+    ],
+    "hume": [
+        "content/krle/filosofi/hume.json",
+        "content/krle/filosofi/quests/hume.json"
+    ],
+    "kant": [
+        "content/krle/filosofi/kant.json",
+        "content/krle/filosofi/quests/kant.json"
+    ],
+    "kierkegaard": [
+        "content/krle/filosofi/kierkegaard.json",
+        "content/krle/filosofi/quests/kierkegaard.json"
+    ],
+    "locke": [
+        "content/krle/filosofi/locke.json",
+        "content/krle/filosofi/quests/locke.json"
+    ],
+    "mises": [
+        "content/krle/filosofi/mises.json",
+        "content/krle/filosofi/quests/mises.json"
+    ],
+    "nietzsche": [
+        "content/krle/filosofi/nietzsche.json",
+        "content/krle/filosofi/quests/nietzsche.json"
+    ],
+    "platon": [
+        "content/krle/filosofi/platon.json",
+        "content/krle/filosofi/quests/platon.json",
+        "content/people/platon.json"
+    ],
+    "aristoteles_friendship": [
+        "content/krle/filosofi/quests/aristoteles_friendship.json"
+    ],
+    "descartes_dualism": [
+        "content/krle/filosofi/quests/descartes_dualism.json"
+    ],
+    "kant_enlightenment": [
+        "content/krle/filosofi/quests/kant_enlightenment.json"
+    ],
+    "nietzsche_abyss": [
+        "content/krle/filosofi/quests/nietzsche_abyss.json"
+    ],
+    "platon_ring": [
+        "content/krle/filosofi/quests/platon_ring.json"
+    ],
+    "rothbard": [
+        "content/krle/filosofi/quests/rothbard.json",
+        "content/krle/filosofi/rothbard.json"
+    ],
+    "socratic_dialogue": [
+        "content/krle/filosofi/quests/socratic_dialogue.json"
+    ],
+    "sokrates_gadfly": [
+        "content/krle/filosofi/quests/sokrates_gadfly.json"
+    ],
+    "sokrates": [
+        "content/krle/filosofi/sokrates.json",
+        "content/people/sokrates.json"
+    ],
+    "bonn": [
+        "content/krle/religion/bahai/bonn/artikkel.json",
+        "content/krle/religion/buddhisme/bonn/artikkel.json",
+        "content/krle/religion/hinduisme/bonn/artikkel.json",
+        "content/krle/religion/islam/bonn/artikkel.json",
+        "content/krle/religion/jehovas-vitner/bonn/artikkel.json",
+        "content/krle/religion/jodedom/bonn/artikkel.json",
+        "content/krle/religion/kristendom/bonn/artikkel.json",
+        "content/krle/religion/mormonisme/bonn/artikkel.json"
+    ],
+    "frelse": [
+        "content/krle/religion/bahai/frelse/artikkel.json",
+        "content/krle/religion/buddhisme/frelse/artikkel.json",
+        "content/krle/religion/hinduisme/frelse/artikkel.json",
+        "content/krle/religion/islam/frelse/artikkel.json",
+        "content/krle/religion/jehovas-vitner/frelse/artikkel.json",
+        "content/krle/religion/jodedom/frelse/artikkel.json",
+        "content/krle/religion/kristendom/frelse/artikkel.json",
+        "content/krle/religion/mormonisme/frelse/artikkel.json"
+    ],
+    "grunnleggere": [
+        "content/krle/religion/bahai/grunnleggere/artikkel.json",
+        "content/krle/religion/buddhisme/grunnleggere/artikkel.json",
+        "content/krle/religion/hinduisme/grunnleggere/artikkel.json",
+        "content/krle/religion/islam/grunnleggere/artikkel.json",
+        "content/krle/religion/jehovas-vitner/grunnleggere/artikkel.json",
+        "content/krle/religion/jodedom/grunnleggere/artikkel.json",
+        "content/krle/religion/kristendom/grunnleggere/artikkel.json",
+        "content/krle/religion/mormonisme/grunnleggere/artikkel.json",
+        "content/krle/religion/sikhisme/grunnleggere/artikkel.json"
+    ],
+    "gudsbilde": [
+        "content/krle/religion/bahai/gudsbilde/artikkel.json",
+        "content/krle/religion/buddhisme/gudsbilde/artikkel.json",
+        "content/krle/religion/hinduisme/gudsbilde/artikkel.json",
+        "content/krle/religion/islam/gudsbilde/artikkel.json",
+        "content/krle/religion/jehovas-vitner/gudsbilde/artikkel.json",
+        "content/krle/religion/jodedom/gudsbilde/artikkel.json",
+        "content/krle/religion/kristendom/gudsbilde/artikkel.json",
+        "content/krle/religion/mormonisme/gudsbilde/artikkel.json"
+    ],
+    "hellige-tekster": [
+        "content/krle/religion/bahai/hellige-tekster/artikkel.json",
+        "content/krle/religion/buddhisme/hellige-tekster/artikkel.json",
+        "content/krle/religion/hinduisme/hellige-tekster/artikkel.json",
+        "content/krle/religion/islam/hellige-tekster/artikkel.json",
+        "content/krle/religion/jehovas-vitner/hellige-tekster/artikkel.json",
+        "content/krle/religion/jodedom/hellige-tekster/artikkel.json",
+        "content/krle/religion/kristendom/hellige-tekster/artikkel.json",
+        "content/krle/religion/mormonisme/hellige-tekster/artikkel.json",
+        "content/krle/religion/sikhisme/hellige-tekster/artikkel.json"
+    ],
+    "overgangsriter": [
+        "content/krle/religion/bahai/overgangsriter/artikkel.json",
+        "content/krle/religion/buddhisme/overgangsriter/artikkel.json",
+        "content/krle/religion/hinduisme/overgangsriter/artikkel.json",
+        "content/krle/religion/islam/overgangsriter/artikkel.json",
+        "content/krle/religion/jehovas-vitner/overgangsriter/artikkel.json",
+        "content/krle/religion/jodedom/overgangsriter/artikkel.json",
+        "content/krle/religion/kristendom/overgangsriter/artikkel.json",
+        "content/krle/religion/mormonisme/overgangsriter/artikkel.json"
+    ],
+    "sentrale-trekk": [
+        "content/krle/religion/bahai/sentrale-trekk/artikkel.json",
+        "content/krle/religion/buddhisme/sentrale-trekk/artikkel.json",
+        "content/krle/religion/hinduisme/sentrale-trekk/artikkel.json",
+        "content/krle/religion/islam/sentrale-trekk/artikkel.json",
+        "content/krle/religion/jehovas-vitner/sentrale-trekk/artikkel.json",
+        "content/krle/religion/jodedom/sentrale-trekk/artikkel.json",
+        "content/krle/religion/kristendom/sentrale-trekk/artikkel.json",
+        "content/krle/religion/mormonisme/sentrale-trekk/artikkel.json",
+        "content/krle/religion/sikhisme/sentrale-trekk/artikkel.json"
+    ],
+    "skapelse": [
+        "content/krle/religion/islam/skapelse/artikkel.json",
+        "content/krle/religion/kristendom/skapelse/artikkel.json"
+    ],
+    "dap": [
+        "content/krle/religion/kristendom/dap/artikkel.json"
+    ],
+    "introduksjon": [
+        "content/krle/religion/sikhisme/introduksjon/artikkel.json"
+    ],
+    "akkorder-og-harmoni": [
+        "content/musikk/grunnleggende/akkorder-og-harmoni.json"
+    ],
+    "notasjon": [
+        "content/musikk/grunnleggende/notasjon.json"
+    ],
+    "takt-og-rytme": [
+        "content/musikk/grunnleggende/takt-og-rytme.json"
+    ],
+    "bass-intro": [
+        "content/musikk/instrumenter/bass-intro.json"
+    ],
+    "gitar-intro": [
+        "content/musikk/instrumenter/gitar-intro.json"
+    ],
+    "piano-intro": [
+        "content/musikk/instrumenter/piano-intro.json"
+    ],
+    "trommer-intro": [
+        "content/musikk/instrumenter/trommer-intro.json"
+    ],
+    "lat-struktur": [
+        "content/musikk/komposisjon/lat-struktur.json"
+    ],
+    "akkordbank": [
+        "content/musikk/oppslag/akkordbank.json"
+    ],
+    "latskriver": [
+        "content/musikk/oppslag/latskriver.json"
+    ],
+    "rytmebank": [
+        "content/musikk/oppslag/rytmebank.json"
+    ],
+    "vurderingskriterier": [
+        "content/musikk/vurdering/vurderingskriterier.json"
+    ],
+    "setningsanalyse": [
+        "content/norsk/grammatikk/setningsanalyse.json"
+    ],
+    "nasjonalromantikken": [
+        "content/norsk/litteraturhistorie/nasjonalromantikken.json"
+    ],
+    "ny-realismen": [
+        "content/norsk/litteraturhistorie/ny-realismen.json"
+    ],
+    "ny-romantikken": [
+        "content/norsk/litteraturhistorie/ny-romantikken.json"
+    ],
+    "nyrealismen-sti": [
+        "content/norsk/litteraturhistorie/nyrealismen-sti.json"
+    ],
+    "nyromantikken-sti": [
+        "content/norsk/litteraturhistorie/nyromantikken-sti.json"
+    ],
+    "realismen-sti": [
+        "content/norsk/litteraturhistorie/realismen-sti.json"
+    ],
+    "realismen": [
+        "content/norsk/litteraturhistorie/realismen.json"
+    ],
+    "romantikken-sti": [
+        "content/norsk/litteraturhistorie/romantikken-sti.json"
+    ],
+    "adjektiv": [
+        "content/norsk/ordklasser/adjektiv.json"
+    ],
+    "adverb": [
+        "content/norsk/ordklasser/adverb.json"
+    ],
+    "konjunksjoner-subjunksjoner": [
+        "content/norsk/ordklasser/konjunksjoner-subjunksjoner.json"
+    ],
+    "preposisjoner": [
+        "content/norsk/ordklasser/preposisjoner.json"
+    ],
+    "pronomen": [
+        "content/norsk/ordklasser/pronomen.json"
+    ],
+    "substantiv": [
+        "content/norsk/ordklasser/substantiv.json"
+    ],
+    "verb": [
+        "content/norsk/ordklasser/verb.json"
+    ],
+    "grunnleggende-retorikk": [
+        "content/norsk/retorikk/grunnleggende-retorikk.json"
+    ],
+    "niva-1-grunnmuren": [
+        "content/norsk/setningsoppbygging/niva-1-grunnmuren.json"
+    ],
+    "niva-2-utvidet": [
+        "content/norsk/setningsoppbygging/niva-2-utvidet.json"
+    ],
+    "niva-3-v2-regelen": [
+        "content/norsk/setningsoppbygging/niva-3-v2-regelen.json"
+    ],
+    "niva-4-leddsetninger": [
+        "content/norsk/setningsoppbygging/niva-4-leddsetninger.json"
+    ],
+    "7-vanlige-plot": [
+        "content/norsk/skrivehjelp/7-vanlige-plot.json"
+    ],
+    "hvordan-skrive-dikt": [
+        "content/norsk/skrivehjelp/hvordan-skrive-dikt.json"
+    ],
+    "hvordan-skrive-eventyr": [
+        "content/norsk/skrivehjelp/hvordan-skrive-eventyr.json"
+    ],
+    "hvordan-skrive-novelle": [
+        "content/norsk/skrivehjelp/hvordan-skrive-novelle.json"
+    ],
+    "hvordan-skrive-roman": [
+        "content/norsk/skrivehjelp/hvordan-skrive-roman.json"
+    ],
+    "tekstsjangre": [
+        "content/norsk/tekstsjangre/artikkel.json"
+    ],
+    "debattinnlegg": [
+        "content/norsk/tekstsjangre/debattinnlegg.json"
+    ],
+    "dikt": [
+        "content/norsk/tekstsjangre/dikt.json"
+    ],
+    "eventyr": [
+        "content/norsk/tekstsjangre/eventyr.json"
+    ],
+    "kommentar": [
+        "content/norsk/tekstsjangre/kommentar.json"
+    ],
+    "novelle": [
+        "content/norsk/tekstsjangre/novelle.json"
+    ],
+    "roman": [
+        "content/norsk/tekstsjangre/roman.json"
+    ],
+    "birger-jarl": [
+        "content/people/birger-jarl.json"
+    ],
+    "clovis-i": [
+        "content/people/clovis-i.json"
+    ],
+    "david-hume": [
+        "content/people/david-hume.json"
+    ],
+    "dronning-elizabeth-i": [
+        "content/people/dronning-elizabeth-i.json"
+    ],
+    "friedrich-nietzsche": [
+        "content/people/friedrich-nietzsche.json"
+    ],
+    "gaius-octavius": [
+        "content/people/gaius-octavius.json"
+    ],
+    "genghis-khan": [
+        "content/people/genghis-khan.json"
+    ],
+    "gustav-ii-adolf": [
+        "content/people/gustav-ii-adolf.json"
+    ],
+    "gustav-vasa": [
+        "content/people/gustav-vasa.json"
+    ],
+    "henrik-krummedige": [
+        "content/people/henrik-krummedige.json"
+    ],
+    "jeanne-d-arc": [
+        "content/people/jeanne-d-arc.json"
+    ],
+    "john-locke": [
+        "content/people/john-locke.json"
+    ],
+    "julius-caesar": [
+        "content/people/julius-caesar.json"
+    ],
+    "kleopatra": [
+        "content/people/kleopatra.json"
+    ],
+    "kublai-khan": [
+        "content/people/kublai-khan.json"
+    ],
+    "marcus-antonius": [
+        "content/people/marcus-antonius.json"
+    ],
+    "martin-heidegger": [
+        "content/people/martin-heidegger.json"
+    ],
+    "oscar-ii": [
+        "content/people/oscar-ii.json"
+    ],
+    "thomas-aquinas": [
+        "content/people/thomas-aquinas.json"
+    ],
+    "befolkningspyramider": [
+        "content/samfunnskunnskap/demografi/befolkningspyramider.json"
+    ],
+    "finanskriser": [
+        "content/samfunnskunnskap/demografi-okonomi/finanskriser.json"
+    ],
+    "inflasjon-og-rente": [
+        "content/samfunnskunnskap/demografi-okonomi/inflasjon-og-rente.json"
+    ],
+    "produksjon": [
+        "content/samfunnskunnskap/demografi-okonomi/produksjon.json"
+    ],
+    "casus-belli": [
+        "content/samfunnskunnskap/ideer-og-verdenssyn/casus-belli.json"
+    ],
+    "det-unormale": [
+        "content/samfunnskunnskap/ideer-og-verdenssyn/det-unormale.json"
+    ],
+    "eskatologi": [
+        "content/samfunnskunnskap/ideer-og-verdenssyn/eskatologi.json"
+    ],
+    "fn": [
+        "content/samfunnskunnskap/ideer-og-verdenssyn/fn.json"
+    ],
+    "framskrittstro": [
+        "content/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro.json"
+    ],
+    "humanisme": [
+        "content/samfunnskunnskap/ideer-og-verdenssyn/humanisme.json"
+    ],
+    "naturens-sjel": [
+        "content/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel.json"
+    ],
+    "sannhetens-historie": [
+        "content/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie.json"
+    ],
+    "store-sykluser": [
+        "content/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser.json"
+    ],
+    "utopier": [
+        "content/samfunnskunnskap/ideer-og-verdenssyn/utopier.json"
+    ],
+    "ekkokamre": [
+        "content/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre.json"
+    ],
+    "flokkmentalitet": [
+        "content/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet.json"
+    ],
+    "kjendismakt": [
+        "content/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt.json"
+    ],
+    "robotene-kommer": [
+        "content/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer.json"
+    ],
+    "ytringsvett-vs-ytringsmot": [
+        "content/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot.json"
+    ],
+    "antikken-visjoner": [
+        "content/samfunnskunnskap/styringsformer/antikken-visjoner.json"
+    ],
+    "demokrati-ansikter": [
+        "content/samfunnskunnskap/styringsformer/demokrati-ansikter.json"
+    ],
+    "diktaturet": [
+        "content/samfunnskunnskap/styringsformer/diktaturet.json"
+    ],
+    "elitenes-herredomme": [
+        "content/samfunnskunnskap/styringsformer/elitenes-herredomme.json"
+    ],
+    "foydalisme": [
+        "content/samfunnskunnskap/styringsformer/foydalisme.json"
+    ],
+    "makt-og-legitimitet": [
+        "content/samfunnskunnskap/styringsformer/makt-og-legitimitet.json"
+    ],
+    "monarkiet": [
+        "content/samfunnskunnskap/styringsformer/monarkiet.json"
+    ],
+    "opplysningstid": [
+        "content/samfunnskunnskap/styringsformer/opplysningstid.json"
+    ],
+    "stortinget": [
+        "content/samfunnskunnskap/styringsformer/stortinget.json"
+    ],
+    "teokrati-teknokrati": [
+        "content/samfunnskunnskap/styringsformer/teokrati-teknokrati.json"
+    ],
+    "uten-hersker": [
+        "content/samfunnskunnskap/styringsformer/uten-hersker.json"
+    ],
+    "utforsk": [
+        "content/samfunnskunnskap/styringsformer/utforsk.json"
+    ],
+    "medieval-baron": [
+        "content/scenarios/medieval-baron.json"
+    ],
+    "roman-soldier": [
+        "content/scenarios/roman-soldier.json"
+    ]
+};
+
+/**
+ * Hierarchical lookup for exact matches using context.
+ * Key format: "subject/topic/lessonId" or "subject/topic/subtopic/lessonId"
+ */
+export const hierarchicalContentMap: Record<string, string> = {
+    "concepts/aksemaktene.json/aksemaktene": "content/concepts/aksemaktene.json",
+    "concepts/aksjeselskap.json/aksjeselskap": "content/concepts/aksjeselskap.json",
+    "concepts/allianse.json/allianse": "content/concepts/allianse.json",
+    "concepts/anarki.json/anarki": "content/concepts/anarki.json",
+    "concepts/anarko-kapitalisme.json/anarko-kapitalisme": "content/concepts/anarko-kapitalisme.json",
+    "concepts/anarko-kommunisme.json/anarko-kommunisme": "content/concepts/anarko-kommunisme.json",
+    "concepts/anschluss.json/anschluss": "content/concepts/anschluss.json",
+    "concepts/artilleri.json/artilleri": "content/concepts/artilleri.json",
+    "concepts/autoritaert-diktatur.json/autoritaert-diktatur": "content/concepts/autoritaert-diktatur.json",
+    "concepts/avkolonisering.json/avkolonisering": "content/concepts/avkolonisering.json",
+    "concepts/blankoblankett.json/blankoblankett": "content/concepts/blankoblankett.json",
+    "concepts/blitzkrieg.json/blitzkrieg": "content/concepts/blitzkrieg.json",
+    "concepts/blokade.json/blokade": "content/concepts/blokade.json",
+    "concepts/d-dagen.json/d-dagen": "content/concepts/d-dagen.json",
+    "concepts/dachau.json/dachau": "content/concepts/dachau.json",
+    "concepts/de-allierte.json/de-allierte": "content/concepts/de-allierte.json",
+    "concepts/de-forente-nasjoner-fn.json/de-forente-nasjoner-fn": "content/concepts/de-forente-nasjoner-fn.json",
+    "concepts/defenestrasjon.json/defenestrasjon": "content/concepts/defenestrasjon.json",
+    "concepts/dendrokronologi.json/dendrokronologi": "content/concepts/dendrokronologi.json",
+    "concepts/diktatur.json/diktatur": "content/concepts/diktatur.json",
+    "concepts/direkte-demokrati.json/direkte-demokrati": "content/concepts/direkte-demokrati.json",
+    "concepts/enigma.json/enigma": "content/concepts/enigma.json",
+    "concepts/ententen.json/ententen": "content/concepts/ententen.json",
+    "concepts/etos.json/etos": "content/concepts/etos.json",
+    "concepts/ettergivenhetspolitikk.json/ettergivenhetspolitikk": "content/concepts/ettergivenhetspolitikk.json",
+    "concepts/fascisme.json/fascisme": "content/concepts/fascisme.json",
+    "concepts/foerromersk-jernalder.json/foerromersk-jernalder": "content/concepts/foerromersk-jernalder.json",
+    "concepts/folkeforbundet.json/folkeforbundet": "content/concepts/folkeforbundet.json",
+    "concepts/folkevandringstiden.json/folkevandringstiden": "content/concepts/folkevandringstiden.json",
+    "concepts/glasnost.json/glasnost": "content/concepts/glasnost.json",
+    "concepts/gurdwara.json/gurdwara": "content/concepts/gurdwara.json",
+    "concepts/guru-gobind-singh.json/guru-gobind-singh": "content/concepts/guru-gobind-singh.json",
+    "concepts/guru-granth-sahib.json/guru-granth-sahib": "content/concepts/guru-granth-sahib.json",
+    "concepts/guru-nanak.json/guru-nanak": "content/concepts/guru-nanak.json",
+    "concepts/guru.json/guru": "content/concepts/guru.json",
+    "concepts/habsburgerne.json/habsburgerne": "content/concepts/habsburgerne.json",
+    "concepts/helsetning.json/helsetning": "content/concepts/helsetning.json",
+    "concepts/holocaust.json/holocaust": "content/concepts/holocaust.json",
+    "concepts/imperialisme.json/imperialisme": "content/concepts/imperialisme.json",
+    "concepts/ingenmannsland.json/ingenmannsland": "content/concepts/ingenmannsland.json",
+    "concepts/investiturstriden.json/investiturstriden": "content/concepts/investiturstriden.json",
+    "concepts/jernteppet.json/jernteppet": "content/concepts/jernteppet.json",
+    "concepts/justinianerpesten.json/justinianerpesten": "content/concepts/justinianerpesten.json",
+    "concepts/justinianske-pest.json/justinianske-pest": "content/concepts/justinianske-pest.json",
+    "concepts/kalmarunionen.json/kalmarunionen": "content/concepts/kalmarunionen.json",
+    "concepts/kapitalisme.json/kapitalisme": "content/concepts/kapitalisme.json",
+    "concepts/khalsa.json/khalsa": "content/concepts/khalsa.json",
+    "concepts/kirtan.json/kirtan": "content/concepts/kirtan.json",
+    "concepts/koloni.json/koloni": "content/concepts/koloni.json",
+    "concepts/kommunisme.json/kommunisme": "content/concepts/kommunisme.json",
+    "concepts/komsakulturen.json/komsakulturen": "content/concepts/komsakulturen.json",
+    "concepts/krigserstatning.json/krigserstatning": "content/concepts/krigserstatning.json",
+    "concepts/langar.json/langar": "content/concepts/langar.json",
+    "concepts/lebensraum.json/lebensraum": "content/concepts/lebensraum.json",
+    "concepts/leddsetning.json/leddsetning": "content/concepts/leddsetning.json",
+    "concepts/leiesoldater.json/leiesoldater": "content/concepts/leiesoldater.json",
+    "concepts/logos.json/logos": "content/concepts/logos.json",
+    "concepts/mad.json/mad": "content/concepts/mad.json",
+    "concepts/mandatomrde.json/mandatomrde": "content/concepts/mandatomrde.json",
+    "concepts/manhattan-prosjektet.json/manhattan-prosjektet": "content/concepts/manhattan-prosjektet.json",
+    "concepts/marshallhjelpen.json/marshallhjelpen": "content/concepts/marshallhjelpen.json",
+    "concepts/meritokrati.json/meritokrati": "content/concepts/meritokrati.json",
+    "concepts/merkantilisme.json/merkantilisme": "content/concepts/merkantilisme.json",
+    "concepts/merovingerne.json/merovingerne": "content/concepts/merovingerne.json",
+    "concepts/molotov-ribbentrop-pakten.json/molotov-ribbentrop-pakten": "content/concepts/molotov-ribbentrop-pakten.json",
+    "concepts/monarki.json/monarki": "content/concepts/monarki.json",
+    "concepts/monopol.json/monopol": "content/concepts/monopol.json",
+    "concepts/nasjonalisme.json/nasjonalisme": "content/concepts/nasjonalisme.json",
+    "concepts/nrnbergprosessene.json/nrnbergprosessene": "content/concepts/nrnbergprosessene.json",
+    "concepts/oligarki.json/oligarki": "content/concepts/oligarki.json",
+    "concepts/operasjon-barbarossa.json/operasjon-barbarossa": "content/concepts/operasjon-barbarossa.json",
+    "concepts/opium.json/opium": "content/concepts/opium.json",
+    "concepts/oppdemming.json/oppdemming": "content/concepts/oppdemming.json",
+    "concepts/parlamentarisk-republikk.json/parlamentarisk-republikk": "content/concepts/parlamentarisk-republikk.json",
+    "concepts/parlamentarisk-stat.json/parlamentarisk-stat": "content/concepts/parlamentarisk-stat.json",
+    "concepts/patos.json/patos": "content/concepts/patos.json",
+    "concepts/pax-mongolica.json/pax-mongolica": "content/concepts/pax-mongolica.json",
+    "concepts/pax-romana.json/pax-romana": "content/concepts/pax-romana.json",
+    "concepts/penicillin.json/penicillin": "content/concepts/penicillin.json",
+    "concepts/perestrojka.json/perestrojka": "content/concepts/perestrojka.json",
+    "concepts/president-republikk.json/president-republikk": "content/concepts/president-republikk.json",
+    "concepts/radar.json/radar": "content/concepts/radar.json",
+    "concepts/raf.json/raf": "content/concepts/raf.json",
+    "concepts/rekognosering.json/rekognosering": "content/concepts/rekognosering.json",
+    "concepts/representativt-demokrati.json/representativt-demokrati": "content/concepts/representativt-demokrati.json",
+    "concepts/republikk.json/republikk": "content/concepts/republikk.json",
+    "concepts/rhinen.json/rhinen": "content/concepts/rhinen.json",
+    "concepts/rubicon.json/rubicon": "content/concepts/rubicon.json",
+    "concepts/schlieffen-planen.json/schlieffen-planen": "content/concepts/schlieffen-planen.json",
+    "concepts/selvbestemmelsesrett.json/selvbestemmelsesrett": "content/concepts/selvbestemmelsesrett.json",
+    "concepts/senantikken.json/senantikken": "content/concepts/senantikken.json",
+    "concepts/sennepsgass.json/sennepsgass": "content/concepts/sennepsgass.json",
+    "concepts/sentralmaktene.json/sentralmaktene": "content/concepts/sentralmaktene.json",
+    "concepts/sepoy.json/sepoy": "content/concepts/sepoy.json",
+    "concepts/sikh.json/sikh": "content/concepts/sikh.json",
+    "concepts/skyttergravskrig.json/skyttergravskrig": "content/concepts/skyttergravskrig.json",
+    "concepts/sosialisme.json/sosialisme": "content/concepts/sosialisme.json",
+    "concepts/stalingrad.json/stalingrad": "content/concepts/stalingrad.json",
+    "concepts/stfronten.json/stfronten": "content/concepts/stfronten.json",
+    "concepts/stormaktstiden.json/stormaktstiden": "content/concepts/stormaktstiden.json",
+    "concepts/stridsvogn.json/stridsvogn": "content/concepts/stridsvogn.json",
+    "concepts/subjektet.json/subjektet": "content/concepts/subjektet.json",
+    "concepts/suverenitetsprinsippet.json/suverenitetsprinsippet": "content/concepts/suverenitetsprinsippet.json",
+    "concepts/te.json/te": "content/concepts/te.json",
+    "concepts/teknokrati.json/teknokrati": "content/concepts/teknokrati.json",
+    "concepts/tekstil.json/tekstil": "content/concepts/tekstil.json",
+    "concepts/teokrati.json/teokrati": "content/concepts/teokrati.json",
+    "concepts/total-krig.json/total-krig": "content/concepts/total-krig.json",
+    "concepts/totalitaert-diktatur.json/totalitaert-diktatur": "content/concepts/totalitaert-diktatur.json",
+    "concepts/traktbegerkulturen.json/traktbegerkulturen": "content/concepts/traktbegerkulturen.json",
+    "concepts/truman-doktrinen.json/truman-doktrinen": "content/concepts/truman-doktrinen.json",
+    "concepts/uinnskrenket-ubtkrig.json/uinnskrenket-ubtkrig": "content/concepts/uinnskrenket-ubtkrig.json",
+    "concepts/ultimatum.json/ultimatum": "content/concepts/ultimatum.json",
+    "concepts/unionsopplosningen-1905.json/unionsopplosningen-1905": "content/concepts/unionsopplosningen-1905.json",
+    "concepts/utmattelseskrig.json/utmattelseskrig": "content/concepts/utmattelseskrig.json",
+    "concepts/v2.json/v2": "content/concepts/v2.json",
+    "concepts/verbalet.json/verbalet": "content/concepts/verbalet.json",
+    "concepts/versailles-traktaten.json/versailles-traktaten": "content/concepts/versailles-traktaten.json",
+    "concepts/vestfronten.json/vestfronten": "content/concepts/vestfronten.json",
+    "concepts/weimarrepublikken.json/weimarrepublikken": "content/concepts/weimarrepublikken.json",
+    "concepts/yam.json/yam": "content/concepts/yam.json",
+    "concepts/zeppeliner.json/zeppeliner": "content/concepts/zeppeliner.json",
+    "concepts/zimmermann-telegrammet.json/zimmermann-telegrammet": "content/concepts/zimmermann-telegrammet.json",
+    "config/scanner-config.json/scanner-config": "content/config/scanner-config.json",
+    "global-timeline.json/undefined/global-timeline": "content/global-timeline.json",
+    "historie/andre-verdenskrig/bakgrunn": "content/historie/andre-verdenskrig/bakgrunn.json",
+    "historie/andre-verdenskrig/konsekvenser": "content/historie/andre-verdenskrig/konsekvenser.json",
+    "historie/andre-verdenskrig/konsentrasjonsleirene": "content/historie/andre-verdenskrig/konsentrasjonsleirene.json",
+    "historie/andre-verdenskrig/krigens-lop": "content/historie/andre-verdenskrig/krigens-lop.json",
+    "historie/andre-verdenskrig/oversikt": "content/historie/andre-verdenskrig/oversikt.json",
+    "historie/andre-verdenskrig/teknologi": "content/historie/andre-verdenskrig/teknologi.json",
+    "historie/demo-artikkel/demo-artikkel": "content/historie/demo-artikkel/demo-artikkel.json",
+    "historie/den-kalde-krigen/atomvapenkapplopet": "content/historie/den-kalde-krigen/atomvapenkapplopet.json",
+    "historie/den-kalde-krigen/berlinmuren": "content/historie/den-kalde-krigen/berlinmuren.json",
+    "historie/den-kalde-krigen/cuba-krisen": "content/historie/den-kalde-krigen/cuba-krisen.json",
+    "historie/den-kalde-krigen/kald-krig-sti": "content/historie/den-kalde-krigen/kald-krig-sti.json",
+    "historie/den-kalde-krigen/koreakrigen": "content/historie/den-kalde-krigen/koreakrigen.json",
+    "historie/den-kalde-krigen/kultur": "content/historie/den-kalde-krigen/kultur.json",
+    "historie/den-kalde-krigen/nato-vs-warszawa": "content/historie/den-kalde-krigen/nato-vs-warszawa.json",
+    "historie/den-kalde-krigen/oversikt": "content/historie/den-kalde-krigen/oversikt.json",
+    "historie/den-kalde-krigen/romkapplopet": "content/historie/den-kalde-krigen/romkapplopet.json",
+    "historie/den-kalde-krigen/suez-krisen": "content/historie/den-kalde-krigen/suez-krisen.json",
+    "historie/den-kalde-krigen/veien-mot-slutt": "content/historie/den-kalde-krigen/veien-mot-slutt.json",
+    "historie/den-kalde-krigen/vietnamkrigen": "content/historie/den-kalde-krigen/vietnamkrigen.json",
+    "historie/forste-verdenskrig/konsekvenser": "content/historie/forste-verdenskrig/konsekvenser.json",
+    "historie/forste-verdenskrig/krigens-lop": "content/historie/forste-verdenskrig/krigens-lop.json",
+    "historie/forste-verdenskrig/opptakt": "content/historie/forste-verdenskrig/opptakt.json",
+    "historie/forste-verdenskrig/oversikt": "content/historie/forste-verdenskrig/oversikt.json",
+    "historie/forste-verdenskrig/teknologi": "content/historie/forste-verdenskrig/teknologi.json",
+    "historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner": "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json",
+    "historie/kolonialisering/britisk-imperium": "content/historie/kolonialisering/britisk-imperium.json",
+    "historie/kolonialisering/eic": "content/historie/kolonialisering/eic.json",
+    "historie/kolonialisering/europa-erobrer-verden": "content/historie/kolonialisering/europa-erobrer-verden.json",
+    "historie/kolonialisering/fransk-kolonirike": "content/historie/kolonialisering/fransk-kolonirike.json",
+    "historie/kolonialisering/portugisisk-kolonialisering": "content/historie/kolonialisering/portugisisk-kolonialisering.json",
+    "historie/kolonialisering/spansk-kolonialisering": "content/historie/kolonialisering/spansk-kolonialisering.json",
+    "historie/kolonialisering/trekanthandelen": "content/historie/kolonialisering/trekanthandelen.json",
+    "historie/kolonialisering/voc": "content/historie/kolonialisering/voc.json",
+    "historie/menneskets-tidlige-historie/menneskets-tidlige-historie": "content/historie/menneskets-tidlige-historie/menneskets-tidlige-historie.json",
+    "historie/middelalderen/boktrykkerkunsten": "content/historie/middelalderen/boktrykkerkunsten.json",
+    "historie/middelalderen/det-hellige-romerske-rike": "content/historie/middelalderen/det-hellige-romerske-rike.json",
+    "historie/middelalderen/middelalderen": "content/historie/middelalderen/middelalderen.json",
+    "historie/middelalderen/svartedauden-sti": "content/historie/middelalderen/svartedauden-sti.json",
+    "historie/middelalderen/svartedauden": "content/historie/middelalderen/svartedauden.json",
+    "historie/middelalderen/tidlig-middelalder": "content/historie/middelalderen/tidlig-middelalder.json",
+    "historie/norgeshistorie/hamskiftet/hamskiftet": "content/historie/norgeshistorie/hamskiftet/artikkel.json",
+    "historie/norgeshistorie/klimakrisen-536/klimakrisen-536": "content/historie/norgeshistorie/klimakrisen-536/artikkel.json",
+    "historie/norgeshistorie/knut-alvsson/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson/artikkel.json",
+    "historie/norgeshistorie/norge-for-vikingene/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json",
+    "historie/perserriket/perserriket": "content/historie/perserriket/artikkel.json",
+    "historie/reformasjonen/30-aarskrigen": "content/historie/reformasjonen/30-aarskrigen.json",
+    "historie/romerriket/arven-etter-romerriket": "content/historie/romerriket/arven-etter-romerriket.json",
+    "historie/romerriket/augustus-og-keiserdomme": "content/historie/romerriket/augustus-og-keiserdomme.json",
+    "historie/romerriket/den-romerske-legionen": "content/historie/romerriket/den-romerske-legionen.json",
+    "historie/romerriket/diokletian": "content/historie/romerriket/diokletian.json",
+    "historie/romerriket/handel-og-silkeveien": "content/historie/romerriket/handel-og-silkeveien.json",
+    "historie/romerriket/hverdagsliv-i-roma": "content/historie/romerriket/hverdagsliv-i-roma.json",
+    "historie/romerriket/legitimitet-og-kristendom": "content/historie/romerriket/legitimitet-og-kristendom.json",
+    "historie/romerriket/pompeii": "content/historie/romerriket/pompeii.json",
+    "historie/romerriket/romerriket-sti": "content/historie/romerriket/romerriket-sti.json",
+    "historie/romerriket/romersk-start": "content/historie/romerriket/romersk-start.json",
+    "historie/romerriket/romerske-guder": "content/historie/romerriket/romerske-guder.json",
+    "historie/romerriket/romerske-keisere": "content/historie/romerriket/romerske-keisere.json",
+    "historie/romerriket/vestromerrikets-fall": "content/historie/romerriket/vestromerrikets-fall.json",
+    "historie/sveriges-historie/sveriges-historie/sveriges-historie": "content/historie/sveriges-historie/sveriges-historie/artikkel.json",
+    "historie/test-artikkel.json/test-artikkel": "content/historie/test-artikkel.json",
+    "historie/vikingtiden/vikingtiden": "content/historie/vikingtiden/artikkel.json",
+    "historie/vikingtiden/asatro": "content/historie/vikingtiden/asatro.json",
+    "historie/vikingtiden/danelagen": "content/historie/vikingtiden/danelagen.json",
+    "historie/vikingtiden/hypotesen-norden-vs-frankrike": "content/historie/vikingtiden/hypotesen-norden-vs-frankrike.json",
+    "historie/vikingtiden/karl-den-store": "content/historie/vikingtiden/karl-den-store.json",
+    "historie/vikingtiden/kristningen-av-norge": "content/historie/vikingtiden/kristningen-av-norge.json",
+    "historie/vikingtiden/normandie": "content/historie/vikingtiden/normandie.json",
+    "historie/vikingtiden/oppdagelsesreiser": "content/historie/vikingtiden/oppdagelsesreiser.json",
+    "historie/vikingtiden/rikssamlingen": "content/historie/vikingtiden/rikssamlingen.json",
+    "historie/vikingtiden/samfunn-og-rett": "content/historie/vikingtiden/samfunn-og-rett.json",
+    "historie/vikingtiden/skipsteknologi": "content/historie/vikingtiden/skipsteknologi.json",
+    "historie/vikingtiden/veien-mot-ost": "content/historie/vikingtiden/veien-mot-ost.json",
+    "historie/vikingtiden/vikingtiden-sti": "content/historie/vikingtiden/vikingtiden-sti.json",
+    "history/mongolske-riket.json/mongolske-riket": "content/history/mongolske-riket.json",
+    "interactive/detective/berlinmuren": "content/interactive/detective/berlinmuren.json",
+    "interactive/detective/greenland": "content/interactive/detective/greenland.json",
+    "interactive/detective/isdalskvinnen": "content/interactive/detective/isdalskvinnen.json",
+    "interactive/detective/karl-xii": "content/interactive/detective/karl-xii.json",
+    "interactive/detective/lindisfarne": "content/interactive/detective/lindisfarne.json",
+    "interactive/detective/stiklestad": "content/interactive/detective/stiklestad.json",
+    "interactive/detective/svartedauden": "content/interactive/detective/svartedauden.json",
+    "interactive/detective/tungtvann": "content/interactive/detective/tungtvann.json",
+    "interactive/detective/vardo": "content/interactive/detective/vardo.json",
+    "krle/etikk/dygdsetikk": "content/krle/etikk/dygdsetikk.json",
+    "krle/etikk/intro": "content/krle/etikk/intro.json",
+    "krle/etikk/naturrett": "content/krle/etikk/naturrett.json",
+    "krle/etikk/non-aggression": "content/krle/etikk/non-aggression.json",
+    "krle/etikk/pliktetikk": "content/krle/etikk/pliktetikk.json",
+    "krle/etikk/utilitarisme": "content/krle/etikk/utilitarisme.json",
+    "krle/filosofi/aquinas": "content/krle/filosofi/aquinas.json",
+    "krle/filosofi/arendt": "content/krle/filosofi/arendt.json",
+    "krle/filosofi/aristoteles": "content/krle/filosofi/aristoteles.json",
+    "krle/filosofi/augustin": "content/krle/filosofi/augustin.json",
+    "krle/filosofi/beauvoir": "content/krle/filosofi/beauvoir.json",
+    "krle/filosofi/descartes": "content/krle/filosofi/descartes.json",
+    "krle/filosofi/heidegger": "content/krle/filosofi/heidegger.json",
+    "krle/filosofi/hume": "content/krle/filosofi/hume.json",
+    "krle/filosofi/intro": "content/krle/filosofi/intro.json",
+    "krle/filosofi/kant": "content/krle/filosofi/kant.json",
+    "krle/filosofi/kierkegaard": "content/krle/filosofi/kierkegaard.json",
+    "krle/filosofi/locke": "content/krle/filosofi/locke.json",
+    "krle/filosofi/mises": "content/krle/filosofi/mises.json",
+    "krle/filosofi/nietzsche": "content/krle/filosofi/nietzsche.json",
+    "krle/filosofi/platon": "content/krle/filosofi/platon.json",
+    "krle/filosofi/quests/aquinas": "content/krle/filosofi/quests/aquinas.json",
+    "krle/filosofi/quests/arendt": "content/krle/filosofi/quests/arendt.json",
+    "krle/filosofi/quests/aristoteles": "content/krle/filosofi/quests/aristoteles.json",
+    "krle/filosofi/quests/aristoteles_friendship": "content/krle/filosofi/quests/aristoteles_friendship.json",
+    "krle/filosofi/quests/augustin": "content/krle/filosofi/quests/augustin.json",
+    "krle/filosofi/quests/beauvoir": "content/krle/filosofi/quests/beauvoir.json",
+    "krle/filosofi/quests/descartes": "content/krle/filosofi/quests/descartes.json",
+    "krle/filosofi/quests/descartes_dualism": "content/krle/filosofi/quests/descartes_dualism.json",
+    "krle/filosofi/quests/heidegger": "content/krle/filosofi/quests/heidegger.json",
+    "krle/filosofi/quests/hume": "content/krle/filosofi/quests/hume.json",
+    "krle/filosofi/quests/kant": "content/krle/filosofi/quests/kant.json",
+    "krle/filosofi/quests/kant_enlightenment": "content/krle/filosofi/quests/kant_enlightenment.json",
+    "krle/filosofi/quests/kierkegaard": "content/krle/filosofi/quests/kierkegaard.json",
+    "krle/filosofi/quests/locke": "content/krle/filosofi/quests/locke.json",
+    "krle/filosofi/quests/mises": "content/krle/filosofi/quests/mises.json",
+    "krle/filosofi/quests/nietzsche": "content/krle/filosofi/quests/nietzsche.json",
+    "krle/filosofi/quests/nietzsche_abyss": "content/krle/filosofi/quests/nietzsche_abyss.json",
+    "krle/filosofi/quests/platon": "content/krle/filosofi/quests/platon.json",
+    "krle/filosofi/quests/platon_ring": "content/krle/filosofi/quests/platon_ring.json",
+    "krle/filosofi/quests/rothbard": "content/krle/filosofi/quests/rothbard.json",
+    "krle/filosofi/quests/socratic_dialogue": "content/krle/filosofi/quests/socratic_dialogue.json",
+    "krle/filosofi/quests/sokrates_gadfly": "content/krle/filosofi/quests/sokrates_gadfly.json",
+    "krle/filosofi/rothbard": "content/krle/filosofi/rothbard.json",
+    "krle/filosofi/sokrates": "content/krle/filosofi/sokrates.json",
+    "krle/religion/bahai/bonn": "content/krle/religion/bahai/bonn/artikkel.json",
+    "krle/religion/bahai/frelse": "content/krle/religion/bahai/frelse/artikkel.json",
+    "krle/religion/bahai/grunnleggere": "content/krle/religion/bahai/grunnleggere/artikkel.json",
+    "krle/religion/bahai/gudsbilde": "content/krle/religion/bahai/gudsbilde/artikkel.json",
+    "krle/religion/bahai/hellige-tekster": "content/krle/religion/bahai/hellige-tekster/artikkel.json",
+    "krle/religion/bahai/intro": "content/krle/religion/bahai/intro.json",
+    "krle/religion/bahai/overgangsriter": "content/krle/religion/bahai/overgangsriter/artikkel.json",
+    "krle/religion/bahai/sentrale-trekk": "content/krle/religion/bahai/sentrale-trekk/artikkel.json",
+    "krle/religion/buddhisme/bonn": "content/krle/religion/buddhisme/bonn/artikkel.json",
+    "krle/religion/buddhisme/frelse": "content/krle/religion/buddhisme/frelse/artikkel.json",
+    "krle/religion/buddhisme/grunnleggere": "content/krle/religion/buddhisme/grunnleggere/artikkel.json",
+    "krle/religion/buddhisme/gudsbilde": "content/krle/religion/buddhisme/gudsbilde/artikkel.json",
+    "krle/religion/buddhisme/hellige-tekster": "content/krle/religion/buddhisme/hellige-tekster/artikkel.json",
+    "krle/religion/buddhisme/intro": "content/krle/religion/buddhisme/intro.json",
+    "krle/religion/buddhisme/overgangsriter": "content/krle/religion/buddhisme/overgangsriter/artikkel.json",
+    "krle/religion/buddhisme/sentrale-trekk": "content/krle/religion/buddhisme/sentrale-trekk/artikkel.json",
+    "krle/religion/hinduisme/bonn": "content/krle/religion/hinduisme/bonn/artikkel.json",
+    "krle/religion/hinduisme/frelse": "content/krle/religion/hinduisme/frelse/artikkel.json",
+    "krle/religion/hinduisme/grunnleggere": "content/krle/religion/hinduisme/grunnleggere/artikkel.json",
+    "krle/religion/hinduisme/gudsbilde": "content/krle/religion/hinduisme/gudsbilde/artikkel.json",
+    "krle/religion/hinduisme/hellige-tekster": "content/krle/religion/hinduisme/hellige-tekster/artikkel.json",
+    "krle/religion/hinduisme/intro": "content/krle/religion/hinduisme/intro.json",
+    "krle/religion/hinduisme/overgangsriter": "content/krle/religion/hinduisme/overgangsriter/artikkel.json",
+    "krle/religion/hinduisme/sentrale-trekk": "content/krle/religion/hinduisme/sentrale-trekk/artikkel.json",
+    "krle/religion/islam/bonn": "content/krle/religion/islam/bonn/artikkel.json",
+    "krle/religion/islam/frelse": "content/krle/religion/islam/frelse/artikkel.json",
+    "krle/religion/islam/grunnleggere": "content/krle/religion/islam/grunnleggere/artikkel.json",
+    "krle/religion/islam/gudsbilde": "content/krle/religion/islam/gudsbilde/artikkel.json",
+    "krle/religion/islam/hellige-tekster": "content/krle/religion/islam/hellige-tekster/artikkel.json",
+    "krle/religion/islam/overgangsriter": "content/krle/religion/islam/overgangsriter/artikkel.json",
+    "krle/religion/islam/sentrale-trekk": "content/krle/religion/islam/sentrale-trekk/artikkel.json",
+    "krle/religion/islam/skapelse": "content/krle/religion/islam/skapelse/artikkel.json",
+    "krle/religion/jehovas-vitner/bonn": "content/krle/religion/jehovas-vitner/bonn/artikkel.json",
+    "krle/religion/jehovas-vitner/frelse": "content/krle/religion/jehovas-vitner/frelse/artikkel.json",
+    "krle/religion/jehovas-vitner/grunnleggere": "content/krle/religion/jehovas-vitner/grunnleggere/artikkel.json",
+    "krle/religion/jehovas-vitner/gudsbilde": "content/krle/religion/jehovas-vitner/gudsbilde/artikkel.json",
+    "krle/religion/jehovas-vitner/hellige-tekster": "content/krle/religion/jehovas-vitner/hellige-tekster/artikkel.json",
+    "krle/religion/jehovas-vitner/intro": "content/krle/religion/jehovas-vitner/intro.json",
+    "krle/religion/jehovas-vitner/overgangsriter": "content/krle/religion/jehovas-vitner/overgangsriter/artikkel.json",
+    "krle/religion/jehovas-vitner/sentrale-trekk": "content/krle/religion/jehovas-vitner/sentrale-trekk/artikkel.json",
+    "krle/religion/jodedom/bonn": "content/krle/religion/jodedom/bonn/artikkel.json",
+    "krle/religion/jodedom/frelse": "content/krle/religion/jodedom/frelse/artikkel.json",
+    "krle/religion/jodedom/grunnleggere": "content/krle/religion/jodedom/grunnleggere/artikkel.json",
+    "krle/religion/jodedom/gudsbilde": "content/krle/religion/jodedom/gudsbilde/artikkel.json",
+    "krle/religion/jodedom/hellige-tekster": "content/krle/religion/jodedom/hellige-tekster/artikkel.json",
+    "krle/religion/jodedom/intro": "content/krle/religion/jodedom/intro.json",
+    "krle/religion/jodedom/overgangsriter": "content/krle/religion/jodedom/overgangsriter/artikkel.json",
+    "krle/religion/jodedom/sentrale-trekk": "content/krle/religion/jodedom/sentrale-trekk/artikkel.json",
+    "krle/religion/kristendom/bonn": "content/krle/religion/kristendom/bonn/artikkel.json",
+    "krle/religion/kristendom/dap": "content/krle/religion/kristendom/dap/artikkel.json",
+    "krle/religion/kristendom/frelse": "content/krle/religion/kristendom/frelse/artikkel.json",
+    "krle/religion/kristendom/grunnleggere": "content/krle/religion/kristendom/grunnleggere/artikkel.json",
+    "krle/religion/kristendom/gudsbilde": "content/krle/religion/kristendom/gudsbilde/artikkel.json",
+    "krle/religion/kristendom/hellige-tekster": "content/krle/religion/kristendom/hellige-tekster/artikkel.json",
+    "krle/religion/kristendom/overgangsriter": "content/krle/religion/kristendom/overgangsriter/artikkel.json",
+    "krle/religion/kristendom/sentrale-trekk": "content/krle/religion/kristendom/sentrale-trekk/artikkel.json",
+    "krle/religion/kristendom/skapelse": "content/krle/religion/kristendom/skapelse/artikkel.json",
+    "krle/religion/mormonisme/bonn": "content/krle/religion/mormonisme/bonn/artikkel.json",
+    "krle/religion/mormonisme/frelse": "content/krle/religion/mormonisme/frelse/artikkel.json",
+    "krle/religion/mormonisme/grunnleggere": "content/krle/religion/mormonisme/grunnleggere/artikkel.json",
+    "krle/religion/mormonisme/gudsbilde": "content/krle/religion/mormonisme/gudsbilde/artikkel.json",
+    "krle/religion/mormonisme/hellige-tekster": "content/krle/religion/mormonisme/hellige-tekster/artikkel.json",
+    "krle/religion/mormonisme/intro": "content/krle/religion/mormonisme/intro.json",
+    "krle/religion/mormonisme/overgangsriter": "content/krle/religion/mormonisme/overgangsriter/artikkel.json",
+    "krle/religion/mormonisme/sentrale-trekk": "content/krle/religion/mormonisme/sentrale-trekk/artikkel.json",
+    "krle/religion/sikhisme/grunnleggere": "content/krle/religion/sikhisme/grunnleggere/artikkel.json",
+    "krle/religion/sikhisme/hellige-tekster": "content/krle/religion/sikhisme/hellige-tekster/artikkel.json",
+    "krle/religion/sikhisme/introduksjon": "content/krle/religion/sikhisme/introduksjon/artikkel.json",
+    "krle/religion/sikhisme/sentrale-trekk": "content/krle/religion/sikhisme/sentrale-trekk/artikkel.json",
+    "musikk/grunnleggende/akkorder-og-harmoni": "content/musikk/grunnleggende/akkorder-og-harmoni.json",
+    "musikk/grunnleggende/notasjon": "content/musikk/grunnleggende/notasjon.json",
+    "musikk/grunnleggende/takt-og-rytme": "content/musikk/grunnleggende/takt-og-rytme.json",
+    "musikk/instrumenter/bass-intro": "content/musikk/instrumenter/bass-intro.json",
+    "musikk/instrumenter/gitar-intro": "content/musikk/instrumenter/gitar-intro.json",
+    "musikk/instrumenter/piano-intro": "content/musikk/instrumenter/piano-intro.json",
+    "musikk/instrumenter/trommer-intro": "content/musikk/instrumenter/trommer-intro.json",
+    "musikk/komposisjon/lat-struktur": "content/musikk/komposisjon/lat-struktur.json",
+    "musikk/oppslag/akkordbank": "content/musikk/oppslag/akkordbank.json",
+    "musikk/oppslag/latskriver": "content/musikk/oppslag/latskriver.json",
+    "musikk/oppslag/rytmebank": "content/musikk/oppslag/rytmebank.json",
+    "musikk/vurdering/vurderingskriterier": "content/musikk/vurdering/vurderingskriterier.json",
+    "norsk/grammatikk/setningsanalyse": "content/norsk/grammatikk/setningsanalyse.json",
+    "norsk/litteraturhistorie/nasjonalromantikken": "content/norsk/litteraturhistorie/nasjonalromantikken.json",
+    "norsk/litteraturhistorie/ny-realismen": "content/norsk/litteraturhistorie/ny-realismen.json",
+    "norsk/litteraturhistorie/ny-romantikken": "content/norsk/litteraturhistorie/ny-romantikken.json",
+    "norsk/litteraturhistorie/nyrealismen-sti": "content/norsk/litteraturhistorie/nyrealismen-sti.json",
+    "norsk/litteraturhistorie/nyromantikken-sti": "content/norsk/litteraturhistorie/nyromantikken-sti.json",
+    "norsk/litteraturhistorie/realismen-sti": "content/norsk/litteraturhistorie/realismen-sti.json",
+    "norsk/litteraturhistorie/realismen": "content/norsk/litteraturhistorie/realismen.json",
+    "norsk/litteraturhistorie/romantikken-sti": "content/norsk/litteraturhistorie/romantikken-sti.json",
+    "norsk/ordklasser/adjektiv": "content/norsk/ordklasser/adjektiv.json",
+    "norsk/ordklasser/adverb": "content/norsk/ordklasser/adverb.json",
+    "norsk/ordklasser/konjunksjoner-subjunksjoner": "content/norsk/ordklasser/konjunksjoner-subjunksjoner.json",
+    "norsk/ordklasser/preposisjoner": "content/norsk/ordklasser/preposisjoner.json",
+    "norsk/ordklasser/pronomen": "content/norsk/ordklasser/pronomen.json",
+    "norsk/ordklasser/substantiv": "content/norsk/ordklasser/substantiv.json",
+    "norsk/ordklasser/verb": "content/norsk/ordklasser/verb.json",
+    "norsk/retorikk/grunnleggende-retorikk": "content/norsk/retorikk/grunnleggende-retorikk.json",
+    "norsk/setningsoppbygging/niva-1-grunnmuren": "content/norsk/setningsoppbygging/niva-1-grunnmuren.json",
+    "norsk/setningsoppbygging/niva-2-utvidet": "content/norsk/setningsoppbygging/niva-2-utvidet.json",
+    "norsk/setningsoppbygging/niva-3-v2-regelen": "content/norsk/setningsoppbygging/niva-3-v2-regelen.json",
+    "norsk/setningsoppbygging/niva-4-leddsetninger": "content/norsk/setningsoppbygging/niva-4-leddsetninger.json",
+    "norsk/skrivehjelp/7-vanlige-plot": "content/norsk/skrivehjelp/7-vanlige-plot.json",
+    "norsk/skrivehjelp/hvordan-skrive-dikt": "content/norsk/skrivehjelp/hvordan-skrive-dikt.json",
+    "norsk/skrivehjelp/hvordan-skrive-eventyr": "content/norsk/skrivehjelp/hvordan-skrive-eventyr.json",
+    "norsk/skrivehjelp/hvordan-skrive-novelle": "content/norsk/skrivehjelp/hvordan-skrive-novelle.json",
+    "norsk/skrivehjelp/hvordan-skrive-roman": "content/norsk/skrivehjelp/hvordan-skrive-roman.json",
+    "norsk/tekstsjangre/tekstsjangre": "content/norsk/tekstsjangre/artikkel.json",
+    "norsk/tekstsjangre/debattinnlegg": "content/norsk/tekstsjangre/debattinnlegg.json",
+    "norsk/tekstsjangre/dikt": "content/norsk/tekstsjangre/dikt.json",
+    "norsk/tekstsjangre/eventyr": "content/norsk/tekstsjangre/eventyr.json",
+    "norsk/tekstsjangre/kommentar": "content/norsk/tekstsjangre/kommentar.json",
+    "norsk/tekstsjangre/novelle": "content/norsk/tekstsjangre/novelle.json",
+    "norsk/tekstsjangre/roman": "content/norsk/tekstsjangre/roman.json",
+    "people/aristoteles.json/aristoteles": "content/people/aristoteles.json",
+    "people/augustin.json/augustin": "content/people/augustin.json",
+    "people/birger-jarl.json/birger-jarl": "content/people/birger-jarl.json",
+    "people/clovis-i.json/clovis-i": "content/people/clovis-i.json",
+    "people/david-hume.json/david-hume": "content/people/david-hume.json",
+    "people/diokletian.json/diokletian": "content/people/diokletian.json",
+    "people/dronning-elizabeth-i.json/dronning-elizabeth-i": "content/people/dronning-elizabeth-i.json",
+    "people/friedrich-nietzsche.json/friedrich-nietzsche": "content/people/friedrich-nietzsche.json",
+    "people/gaius-octavius.json/gaius-octavius": "content/people/gaius-octavius.json",
+    "people/genghis-khan.json/genghis-khan": "content/people/genghis-khan.json",
+    "people/guru-gobind-singh.json/guru-gobind-singh": "content/people/guru-gobind-singh.json",
+    "people/guru-nanak.json/guru-nanak": "content/people/guru-nanak.json",
+    "people/gustav-ii-adolf.json/gustav-ii-adolf": "content/people/gustav-ii-adolf.json",
+    "people/gustav-vasa.json/gustav-vasa": "content/people/gustav-vasa.json",
+    "people/henrik-krummedige.json/henrik-krummedige": "content/people/henrik-krummedige.json",
+    "people/jeanne-d-arc.json/jeanne-d-arc": "content/people/jeanne-d-arc.json",
+    "people/john-locke.json/john-locke": "content/people/john-locke.json",
+    "people/julius-caesar.json/julius-caesar": "content/people/julius-caesar.json",
+    "people/karl-den-store.json/karl-den-store": "content/people/karl-den-store.json",
+    "people/kleopatra.json/kleopatra": "content/people/kleopatra.json",
+    "people/knut-alvsson.json/knut-alvsson": "content/people/knut-alvsson.json",
+    "people/kublai-khan.json/kublai-khan": "content/people/kublai-khan.json",
+    "people/marcus-antonius.json/marcus-antonius": "content/people/marcus-antonius.json",
+    "people/martin-heidegger.json/martin-heidegger": "content/people/martin-heidegger.json",
+    "people/oscar-ii.json/oscar-ii": "content/people/oscar-ii.json",
+    "people/platon.json/platon": "content/people/platon.json",
+    "people/sokrates.json/sokrates": "content/people/sokrates.json",
+    "people/thomas-aquinas.json/thomas-aquinas": "content/people/thomas-aquinas.json",
+    "samfunnskunnskap/demografi/befolkningspyramider": "content/samfunnskunnskap/demografi/befolkningspyramider.json",
+    "samfunnskunnskap/demografi-okonomi/finanskriser": "content/samfunnskunnskap/demografi-okonomi/finanskriser.json",
+    "samfunnskunnskap/demografi-okonomi/inflasjon-og-rente": "content/samfunnskunnskap/demografi-okonomi/inflasjon-og-rente.json",
+    "samfunnskunnskap/demografi-okonomi/produksjon": "content/samfunnskunnskap/demografi-okonomi/produksjon.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/casus-belli": "content/samfunnskunnskap/ideer-og-verdenssyn/casus-belli.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/det-unormale": "content/samfunnskunnskap/ideer-og-verdenssyn/det-unormale.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/eskatologi": "content/samfunnskunnskap/ideer-og-verdenssyn/eskatologi.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/fn": "content/samfunnskunnskap/ideer-og-verdenssyn/fn.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/framskrittstro": "content/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/humanisme": "content/samfunnskunnskap/ideer-og-verdenssyn/humanisme.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel": "content/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie": "content/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/store-sykluser": "content/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/utopier": "content/samfunnskunnskap/ideer-og-verdenssyn/utopier.json",
+    "samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre": "content/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre.json",
+    "samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet": "content/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet.json",
+    "samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt": "content/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt.json",
+    "samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer": "content/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer.json",
+    "samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot": "content/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot.json",
+    "samfunnskunnskap/styringsformer/antikken-visjoner": "content/samfunnskunnskap/styringsformer/antikken-visjoner.json",
+    "samfunnskunnskap/styringsformer/demokrati-ansikter": "content/samfunnskunnskap/styringsformer/demokrati-ansikter.json",
+    "samfunnskunnskap/styringsformer/diktaturet": "content/samfunnskunnskap/styringsformer/diktaturet.json",
+    "samfunnskunnskap/styringsformer/elitenes-herredomme": "content/samfunnskunnskap/styringsformer/elitenes-herredomme.json",
+    "samfunnskunnskap/styringsformer/foydalisme": "content/samfunnskunnskap/styringsformer/foydalisme.json",
+    "samfunnskunnskap/styringsformer/makt-og-legitimitet": "content/samfunnskunnskap/styringsformer/makt-og-legitimitet.json",
+    "samfunnskunnskap/styringsformer/monarkiet": "content/samfunnskunnskap/styringsformer/monarkiet.json",
+    "samfunnskunnskap/styringsformer/opplysningstid": "content/samfunnskunnskap/styringsformer/opplysningstid.json",
+    "samfunnskunnskap/styringsformer/stortinget": "content/samfunnskunnskap/styringsformer/stortinget.json",
+    "samfunnskunnskap/styringsformer/teokrati-teknokrati": "content/samfunnskunnskap/styringsformer/teokrati-teknokrati.json",
+    "samfunnskunnskap/styringsformer/uten-hersker": "content/samfunnskunnskap/styringsformer/uten-hersker.json",
+    "samfunnskunnskap/styringsformer/utforsk": "content/samfunnskunnskap/styringsformer/utforsk.json",
+    "scenarios/medieval-baron.json/medieval-baron": "content/scenarios/medieval-baron.json",
+    "scenarios/roman-soldier.json/roman-soldier": "content/scenarios/roman-soldier.json"
 };

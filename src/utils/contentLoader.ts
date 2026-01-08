@@ -1,6 +1,6 @@
 import type { Lesson, Manifest, Philosopher, ManifestLesson, ManifestTopic, ManifestSubTopic, ManifestSubject, TopicTool } from '../types';
 // @ts-ignore
-import { contentMap } from '../generated/contentMap';
+import { contentMap, hierarchicalContentMap } from '../generated/contentMap';
 
 // --- Global Cache for Manifest ---
 let globalManifestPromise: Promise<Manifest | null> | null = null;
@@ -41,42 +41,56 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
         ? import.meta.env.BASE_URL
         : `${import.meta.env.BASE_URL}/`;
 
-    console.log(`[OptimisticLoader] fetchLesson called for: ${lessonId}`);
+    console.log(`[OptimisticLoader] fetchLesson called for: ${lessonId} (Subject: ${subject}, Topic: ${topic})`);
 
     // --- 1. Deterministic Lookup (The "Content Index" Strategy) ---
-    // If we KNOW where the file is from the build-time map, use it.
-    // This solves "Kald Krig Sti" and other edge cases.
-    if (contentMap && contentMap[lessonId]) {
-        const indexedPath = contentMap[lessonId];
-        console.log(`[OptimisticLoader] Deterministic match found: ${indexedPath}`);
+    let pathFromIndex: string | null = null;
+
+    // 1A. Exact Hierarchical Match (Highest Priority)
+    const hierarchyKey = subTopicId
+        ? `${subject}/${topic}/${subTopicId}/${lessonId}`.toLowerCase()
+        : `${subject}/${topic}/${lessonId}`.toLowerCase();
+
+    if (hierarchicalContentMap && hierarchicalContentMap[hierarchyKey]) {
+        pathFromIndex = hierarchicalContentMap[hierarchyKey];
+        console.log(`[OptimisticLoader] Hierarchical match: ${pathFromIndex}`);
+    }
+    // 1B. Flat Match with Collision Resolution
+    else if (contentMap && contentMap[lessonId]) {
+        const entry = contentMap[lessonId];
+        if (Array.isArray(entry)) {
+            // Pick the one that matches our context best
+            pathFromIndex = entry.find(p => p.includes(`/${subject}/`) && p.includes(`/${topic}/`)) || entry[0];
+            console.log(`[OptimisticLoader] Collision resolved: ${pathFromIndex}`);
+        } else {
+            pathFromIndex = entry as string;
+            console.log(`[OptimisticLoader] Flat match: ${pathFromIndex}`);
+        }
+    }
+    // 1C. Fuzzy Flat Match (Fallback for casing/dash mismatches)
+    else if (contentMap) {
+        const normalizedId = lessonId.toLowerCase().replace(/-/g, '');
+        const fuzzyMatch = Object.keys(contentMap).find(k => k.toLowerCase().replace(/-/g, '') === normalizedId);
+        if (fuzzyMatch) {
+            const entry = contentMap[fuzzyMatch];
+            pathFromIndex = Array.isArray(entry) ? entry[0] : entry as string;
+            console.log(`[OptimisticLoader] Fuzzy match found: ${pathFromIndex}`);
+        }
+    }
+
+    if (pathFromIndex) {
         try {
-            const r = await fetch(`${basePath}${indexedPath}`, { cache: 'no-cache' }); // Force freshness
+            const r = await fetch(`${basePath}${pathFromIndex}`, { cache: 'no-cache' });
             if (r.ok) {
                 const data = await r.json();
-
-                // Enrich with manifest if available (lazy)
-                // We fire manifest fetch but don't block UNLESS we need it? 
-                // Actually, let's keep the existing flow but use the data we just got.
-                // We still want to enrich it.
-                fetchManifest().then(() => {
-                    // We can't really "return" validation data later easily without state.
-                    // But strictly speaking, the lesson loads NOW.
-                    // The existing logic below can handle enrichment if we structure this right.
-                });
 
                 // Standard processing
                 if (data.learningPathData && data.learningPathData.learningPathData) {
                     data.learningPathData = data.learningPathData.learningPathData;
                 }
 
-                // We restart the manifest fetch to ensure it's cached for sidebar
                 const manifest = await fetchManifest();
                 if (manifest) {
-                    // Quick finder logic duplicated for now or refactored? 
-                    // Let's reuse the finder logic below if we want to be clean, 
-                    // OR just return the data raw if speed is key. 
-                    // Let's copy the enrichment logic here for robustness.
-                    // Logic to find lesson node in manifest for metadata stuff
                     const findLesson = (nodes: any[]): any => {
                         for (const node of nodes) {
                             if (node.id === lessonId) return node;
@@ -99,7 +113,9 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
                         }
                         if (manifestLesson.layout) data.layout = manifestLesson.layout;
                         if (manifestLesson.year) data.year = manifestLesson.year;
-                        if (manifestLesson.tags) data.tags = [...new Set([...(data.tags || []), ...(manifestLesson.tags || [])])];
+                        if (manifestLesson.tags) {
+                            data.tags = [...new Set([...(data.tags || []), ...(manifestLesson.tags || [])])];
+                        }
                         if (!data.title && manifestLesson.title) data.title = manifestLesson.title;
                         if (!data.description && manifestLesson.description) data.description = manifestLesson.description;
                     }
