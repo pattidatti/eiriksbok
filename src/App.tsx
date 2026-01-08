@@ -59,6 +59,7 @@ const SimulationHost = React.lazy(routeFactories.SimulationHost);
 const SimulationPlayer = React.lazy(routeFactories.SimulationPlayer);
 const SimulationProfile = React.lazy(() => import('./features/simulation/SimulationProfile').then(m => ({ default: m.SimulationProfile })));
 const SimulationLayout = React.lazy(() => import('./features/simulation/SimulationLayout').then(module => ({ default: module.SimulationLayout })));
+const PresentationPage = React.lazy(routeFactories.PresentationPage);
 
 
 import { usePresence } from './hooks/usePresence';
@@ -146,6 +147,11 @@ function AppContent() {
               <Route path="krle/religion/:religionId" element={<ReligionPage />} />
 
 
+
+              <Route path=":subjectId/:topicId/present/:lessonId" element={<PresentationPage />} />
+              <Route path=":subjectId/:topicId/present/:lessonId/projector" element={<PresentationPage />} />
+              <Route path=":subjectId/:topicId/:subTopicId/present/:lessonId" element={<PresentationPage />} />
+              <Route path=":subjectId/:topicId/:subTopicId/present/:lessonId/projector" element={<PresentationPage />} />
 
               <Route path=":subjectId" element={<SubjectPage />} />
               <Route path=":subjectId/:topicId" element={<TopicPage />} />

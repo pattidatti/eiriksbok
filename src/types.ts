@@ -75,6 +75,7 @@ export interface Lesson {
     flashcards?: { front: string; back: string }[];
     learningPathData?: LearningPathData;
     learningPaths?: { id: string; title: string; url: string }[];
+    presentation?: PresentationData;
 }
 
 export interface Quote {
@@ -249,4 +250,63 @@ export interface LearningPathData {
     steps: LearningPathStep[];
     targetTopicId?: string;
     targetSubjectId?: string;
+    presentation?: PresentationData;
+}
+
+// --- Presentation & Slide System ---
+
+export type SlideLayout =
+    | 'title'      // Big central title
+    | 'content'    // Progressive points + Image
+    | 'comparison' // Two columns for comparison
+    | 'interactive'// Full-screen focused component
+    | 'quote'      // Large quote focus
+    | 'discussion' // Discussion prompts/tasks focus
+    | 'summary';   // Wrap-up points
+
+export interface SlideRevealItem {
+    id: string;
+    text: string;
+    type?: 'bullet' | 'summary' | 'key-fact';
+}
+
+export interface Slide {
+    id: string;
+    title: string;
+    layout: SlideLayout;
+
+    // Content for the student (Projector)
+    summary?: string;
+    points?: SlideRevealItem[];
+    image?: string;
+
+    // Teacher-only data (Laptop)
+    teacherNotes?: string;
+    depthLevel?: number; // 0-10 for pacing/detail level
+    talkingPoints?: string[];
+
+    // Interactive integration
+    component?: {
+        name: string;
+        props?: Record<string, any>;
+    };
+
+    // Transitions & Visuals
+    backgroundOpacity?: number;
+    visualEffect?: 'blur' | 'scale' | 'none';
+
+    // Source tracking
+    sourceBlockId?: string; // Reference back to the original content block
+}
+
+export interface PresentationData {
+    id: string;
+    title: string;
+    slides: Slide[];
+    config?: {
+        theme?: 'dark' | 'light' | 'sepia';
+        transitionSpeed?: number;
+        showTimer?: boolean;
+        autoGenerateFromContent?: boolean; // If true, we use the mapper
+    };
 }

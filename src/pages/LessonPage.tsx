@@ -89,7 +89,9 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             setFullWidth(false);
         }
 
-        return () => setFullWidth(false);
+        return () => {
+            setFullWidth(false);
+        };
     }, [lesson, setFullWidth]);
 
     const loading = lessonLoading;
