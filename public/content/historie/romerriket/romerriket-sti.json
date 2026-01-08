@@ -127,7 +127,7 @@
                 "phase": "Fase 2: Keisere og Pax Romana (27 f.Kr - 180 e.Kr)",
                 "title": "Augustus: Arkitekten bak freden",
                 "type": "fakta",
-                "content": "Borgerkrigene har revet Roma i stykker i årevis. Broder har drept broder. Men nå stiger en ung mann frem fra asken. Augustus. Han lover fred, men prisen er friheten. Du ser ham forvandle Roma fra en by av murstein til en by av marmor. Er det verdt det?",
+                "content": "Borgerkrigene har revet Roma i stykker i årevis. Broder har drept broder. Men nå stiger en ung mann frem fra asken. Augustus. He lover fred, men prisen er friheten. Du ser ham forvandle Roma fra en by av murstein til en by av marmor. Er det verdt det?",
                 "tasks": [
                     "Hvem var Augustus' berømte onkel?",
                     "Hva betyr tittelen 'Augustus'?",
@@ -241,7 +241,7 @@
                         "scenarios": [
                             {
                                 "id": "start",
-                                "text": "Din motstander er en 'Murmillo' med stort skjold. Han brøler og går til angrep. Hva gjør du?",
+                                "text": "Din motstander is en 'Murmillo' med stort skjold. Han brøler og går til angrep. Hva gjør du?",
                                 "options": [
                                     {
                                         "label": "Gå defensivt og vent på en åpning.",
@@ -269,7 +269,7 @@
                             },
                             {
                                 "id": "attack_fail",
-                                "text": "Han blokkerer lett med det store skjoldet sitt og slår deg bevisstløs med skjoldkanten.",
+                                "text": "He blokkerer lett med det store skjoldet sitt og slår deg bevisstløs med skjoldkanten.",
                                 "options": [
                                     {
                                         "label": "Håp på keiserens nåde.",
@@ -279,7 +279,7 @@
                             },
                             {
                                 "id": "victory",
-                                "text": "Han faller! Du setter sverdet mot halsen hans. Publikum roper. Keiseren reiser seg. Tommelen avgjør alt.",
+                                "text": "He faller! Du setter sverdet mot halsen hans. Publikum roper. Keiseren reiser seg. Tommelen avgjør alt.",
                                 "options": [
                                     {
                                         "label": "Seieren er din!",
@@ -453,6 +453,300 @@
                     "Lag en modell av Colosseum eller en akvedukt."
                 ]
             }
-        ]
+        ],
+        "presentation": {
+            "id": "rom-pres-1",
+            "title": "Romerriket: En Reise Gjennom Tid",
+            "config": {
+                "theme": "dark",
+                "autoGenerateFromContent": false
+            },
+            "slides": [
+                {
+                    "id": "pres-intro",
+                    "title": "ROMERRIKET",
+                    "layout": "title",
+                    "summary": "FRA LANDSBY TIL VERDENSRIKE",
+                    "image": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=2000&auto=format&fit=crop",
+                    "teacherNotes": "Velkommen til en reise gjennom 1200 år med historie. I dag skal vi ikke bare lese om årstall, vi skal leve oss inn i Romas storhetstid og fall.\n\nStart med å spørre klassen: Hva tenker dere på når jeg sier 'Roma'? (Gladiatorer, søyler, Cæsar, pizza?)."
+                },
+                {
+                    "id": "pres-republic",
+                    "title": "Republikkens Fødsel",
+                    "layout": "content",
+                    "summary": "SPQR: Senatet og det romerske folk",
+                    "points": [
+                        {
+                            "id": "p1",
+                            "text": "Roma kaster kongene i 509 f.Kr.",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "p2",
+                            "text": "Maktfordeling: Konsuler og Senatet",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "p3",
+                            "text": "Striden mellom Patrisiere (rike) og Plebeiere (folket)",
+                            "type": "bullet"
+                        }
+                    ],
+                    "image": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=1000&auto=format&fit=crop",
+                    "teacherNotes": "Roma startet som et kongedømme, men romerne lærte å hate konger etter Tarquinius Superbus. \n\nForklar begrepet SPQR (Senatus Populusque Romanus). Dette var ikke et demokrati slik vi kjenner det, men et system bygget på 'Checks and Balances'.",
+                    "talkingPoints": [
+                        "Hvorfor var romerne så skeptiske til én person med all makt?",
+                        "Hva skjer i et samfunn når de få rike bestemmer over de mange fattige?"
+                    ]
+                },
+                {
+                    "id": "pres-legion",
+                    "title": "Verdens Kraftigste Krigsmaskin",
+                    "layout": "content",
+                    "summary": "Legionæren: Roma's ryggrad",
+                    "points": [
+                        {
+                            "id": "l1",
+                            "text": "Marius' reformer: Profesjonelle soldater",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "l2",
+                            "text": "Hard disiplin og 3 mil marsj hver dag",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "l3",
+                            "text": "Effektivitet fremfor heltemot",
+                            "type": "bullet"
+                        }
+                    ],
+                    "image": "https://images.unsplash.com/photo-1599827059174-88469e38f906?q=80&w=1000&auto=format&fit=crop",
+                    "teacherNotes": "Legionen var mer enn bare soldater; de var ingeniører. De bygget veier, broer og leirer uansett hvor de dro. \n\nNevn 'Marius' muldyr' – soldatene bar alt selv. Dette gjorde hæren rask og uavhengig av forsyningslinjer.",
+                    "talkingPoints": [
+                        "Hvordan endret det Roma at soldatene nå var lojale mot generalene sine fremfor staten?",
+                        "Beskriv Testudo-formasjonen."
+                    ]
+                },
+                {
+                    "id": "pres-pack",
+                    "title": "Oppdrag: Pakk Sekken",
+                    "layout": "interactive",
+                    "component": {
+                        "name": "PackTheBag",
+                        "props": {
+                            "capacity": 40,
+                            "targetValue": 80,
+                            "description": "Du skal på marsj mot nord. Centurionen sjekker at sekken er pakket korrekt. Du bærer alt du eier på ryggen. Har du husket det viktigste for å overleve i felt?",
+                            "items": [
+                                {
+                                    "id": "gladius",
+                                    "name": "Gladius (Sverd)",
+                                    "weight": 2,
+                                    "value": 30,
+                                    "icon": "🗡️"
+                                },
+                                {
+                                    "id": "scutum",
+                                    "name": "Scutum (Skjold)",
+                                    "weight": 10,
+                                    "value": 40,
+                                    "icon": "🛡️"
+                                },
+                                {
+                                    "id": "pilum",
+                                    "name": "Pilum (Spyd)",
+                                    "weight": 4,
+                                    "value": 20,
+                                    "icon": "🔱"
+                                },
+                                {
+                                    "id": "rations",
+                                    "name": "Rasjoner (Kjøtt/Korn)",
+                                    "weight": 5,
+                                    "value": 25,
+                                    "icon": "🥩"
+                                }
+                            ]
+                        }
+                    },
+                    "teacherNotes": "La elevene prøve seg på interaktiviteten. Dette viser hvor tungt utstyret faktisk var.\n\nFokuser på balansen mellom forsvar (skjoldet er det tyngste) og angrep."
+                },
+                {
+                    "id": "pres-augustus",
+                    "title": "Augustus & Pax Romana",
+                    "layout": "content",
+                    "summary": "Fra murstein til marmor",
+                    "points": [
+                        {
+                            "id": "a1",
+                            "text": "Bringer fred etter 100 år med borgerkrig",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "a2",
+                            "text": "Pax Romana: 200 år med stabilitet",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "a3",
+                            "text": "Keiseren som 'Gud på jord'",
+                            "type": "bullet"
+                        }
+                    ],
+                    "image": "https://images.unsplash.com/photo-1518112390110-f9a2e1d496e8?q=80&w=1000&auto=format&fit=crop",
+                    "teacherNotes": "Augustus var en mester i propaganda. Han kalte seg 'Princeps' (førstesegler) for å ikke virke som en konge, men han hadde all makt.\n\nDiskuter sitatet: 'Jeg fant Roma i murstein og etterlot den i marmor'.",
+                    "talkingPoints": [
+                        "Er folk villige til å ofre frihet for trygghet og fred?",
+                        "Hvordan brukte Augustus kunst for å styrke sin makt?"
+                    ]
+                },
+                {
+                    "id": "pres-pompeii",
+                    "title": "Pompeii: Tiden står stille",
+                    "layout": "content",
+                    "summary": "Vesuvs vrede i år 79 e.Kr.",
+                    "points": [
+                        {
+                            "id": "p1",
+                            "text": "En hel by begravd i aske på få timer",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "p2",
+                            "text": "Tidskapsel for romersk dagligliv",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "p3",
+                            "text": "Hva graffiti og matrester forteller oss",
+                            "type": "bullet"
+                        }
+                    ],
+                    "image": "https://images.unsplash.com/photo-1522030239044-12bc14a38fa4?q=80&w=1000&auto=format&fit=crop",
+                    "teacherNotes": "Pompeii er arkeologiens hellige gral. Fordi byen ble dekket av aske, ikke lava, ble alt bevart. \n\nFortell om de tomme hulrommene i asken der mennesker døde, som arkelogene fylte med gips.",
+                    "talkingPoints": [
+                        "Hvorfor er Pompeii mer 'ekte' enn historiebøker skrevet av rike romere?",
+                        "Hva ville arkeologer funnet i ditt hus om 2000 år?"
+                    ]
+                },
+                {
+                    "id": "pres-circus",
+                    "title": "Brød og Sirkus",
+                    "layout": "discussion",
+                    "summary": "Panem et Circenses",
+                    "points": [
+                        {
+                            "id": "c1",
+                            "text": "Colosseum: Verdens mest brutale teater",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "c2",
+                            "text": "Gratis mat og underholdning som maktmiddel",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "c3",
+                            "text": "Gladiatoren: Fra slave til superstjerne",
+                            "type": "bullet"
+                        }
+                    ],
+                    "image": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1000&auto=format&fit=crop",
+                    "teacherNotes": "Hvorfor brukte keiserne enorme summer på gratis underholdning? For å unngå opprør. En sulten befolkning er en farlig befolkning.\n\nColosseum kunne fylles med vann for sjøslag!",
+                    "talkingPoints": [
+                        "Har vi 'brød og sirkus' i dag? (TikTok, Reality-TV, Billig mat?)",
+                        "Hvorfor elsket romerne vold som underholdning?"
+                    ]
+                },
+                {
+                    "id": "pres-christianity",
+                    "title": "Korset over Ørnen",
+                    "layout": "content",
+                    "summary": "Fra forfølgelse til statsreligion",
+                    "points": [
+                        {
+                            "id": "k1",
+                            "text": "De første kristne: 'Ateister og opprørere'",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "k2",
+                            "text": "Konstantin og seieren ved den milviske bro",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "k3",
+                            "text": "Romerriket blir fundamentet for kirken",
+                            "type": "bullet"
+                        }
+                    ],
+                    "image": "https://images.unsplash.com/photo-1548678967-f1ecd54335ae?q=80&w=1000&auto=format&fit=crop",
+                    "teacherNotes": "Dette er et av historiens største paradokser: Riket som korsfestet Jesus, endte opp med å spre hans lære til hele verden.\n\nForklar hvorfor kristendommen var attraktiv for de fattige og slavene (likhet for Gud).",
+                    "talkingPoints": [
+                        "Hvorfor var keiserne så redde for de kristne?",
+                        "Hvordan hjalp de romerske veiene med å spre den nye troen?"
+                    ]
+                },
+                {
+                    "id": "pres-fall",
+                    "title": "Lyset slukkes i Vest",
+                    "layout": "content",
+                    "summary": "Hvorfor falt giganten?",
+                    "points": [
+                        {
+                            "id": "f1",
+                            "text": "Indre kriser: Økonomi, korrupsjon og borgerkrig",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "f2",
+                            "text": "Ytre press: Folkevandringstiden og 'barbarene'",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "f3",
+                            "text": "Roma plyndres i 410 og 455 e.Kr.",
+                            "type": "bullet"
+                        }
+                    ],
+                    "image": "https://images.unsplash.com/photo-1605142859862-978be7eba909?q=80&w=1000&auto=format&fit=crop",
+                    "teacherNotes": "Ingenting varer evig. Roma falt ikke på én dag, men gjennom en langsom prosess over 200 år.\n\nNevn at Østromerriket (Bysants) overlevde i 1000 år til!",
+                    "talkingPoints": [
+                        "Kan et imperium bli for stort til å styres?",
+                        "Ligner dagens utfordringer i Vesten på Romas fall?"
+                    ]
+                },
+                {
+                    "id": "pres-legacy",
+                    "title": "Hva har romerne gjort for oss?",
+                    "layout": "summary",
+                    "summary": "ARVEN ETTER ROMA",
+                    "points": [
+                        {
+                            "id": "a1",
+                            "text": "Rettsstaten og lovverket",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "a2",
+                            "text": "Språket: Latin er overalt",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "a3",
+                            "text": "Infrastruktur: Betong, veier og akvedukter",
+                            "type": "bullet"
+                        }
+                    ],
+                    "image": "https://images.unsplash.com/photo-1503917988258-f87a78e3c995?q=80&w=1000&auto=format&fit=crop",
+                    "teacherNotes": "Avslutt med å se oss rundt. Juss, medisin, arkitektur – alt har røtter i Roma.\n\nTakk for følget på denne tidsreisen!",
+                    "talkingPoints": [
+                        "Hvilke latinske ord bruker du hver dag?",
+                        "Hvor ser du romersk arkitektur i din egen by?"
+                    ]
+                }
+            ]
+        }
     }
 }

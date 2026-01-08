@@ -5,6 +5,7 @@ import { mapContentToPresentation } from '../utils/presentationUtils';
 import { PresentationController } from '../components/presentation/PresentationController';
 import { ProjectorView } from '../components/presentation/ProjectorView';
 import { useNavigate } from 'react-router-dom';
+import { useLayout } from '../context/LayoutContext';
 
 export const PresentationPage: React.FC = () => {
     const { subjectId, topicId, subTopicId, lessonId } = useParams<{
@@ -16,6 +17,7 @@ export const PresentationPage: React.FC = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
+    const layout = useLayout();
     const isProjector = location.pathname.endsWith('/projector');
 
     // Fetch the lesson data
@@ -25,6 +27,27 @@ export const PresentationPage: React.FC = () => {
         lessonId || '',
         subTopicId
     );
+
+    // Presentation Mode: Full screen focus
+    React.useLayoutEffect(() => {
+        if (layout) {
+            layout.setHideHeader(true);
+            layout.setFullWidth(true);
+        }
+
+        return () => {
+            if (layout) {
+                layout.setHideHeader(false);
+                layout.setFullWidth(false);
+            }
+        };
+    }, [layout]);
+
+    // Level 1: Auto-generate or Use Curated
+    const presentationData = React.useMemo(() => {
+        if (!lesson) return null;
+        return mapContentToPresentation(lesson, lesson.id || lessonId || 'unknown');
+    }, [lesson, lessonId]);
 
     if (isLoading) {
         return (
@@ -37,7 +60,7 @@ export const PresentationPage: React.FC = () => {
         );
     }
 
-    if (!lesson) {
+    if (!lesson || !presentationData) {
         return (
             <div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">
                 <div className="text-center">
@@ -52,9 +75,6 @@ export const PresentationPage: React.FC = () => {
             </div>
         );
     }
-
-    // Level 1: Auto-generate the presentation from the lesson content
-    const presentationData = mapContentToPresentation(lesson, lesson.id);
 
     if (isProjector) {
         return <ProjectorView data={presentationData} />;

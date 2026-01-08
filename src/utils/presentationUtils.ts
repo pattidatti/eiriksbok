@@ -6,22 +6,59 @@ import type { Lesson, LearningPathData, PresentationData, Slide, SlideRevealItem
  * for manual overrides if present in the data.
  */
 export const mapContentToPresentation = (
-    data: Lesson | LearningPathData,
+    data: Lesson | LearningPathData | any,
     id: string
 ): PresentationData => {
-    // 1. If we already have manual presentation data, use it (Level 2: Decoration)
-    if (data.presentation) {
-        return data.presentation;
+    // 1. Deep Discovery Utility
+    const deepFind = (obj: any, key: string): any => {
+        if (!obj || typeof obj !== 'object') return null;
+
+        // If the key exists directly on this level and is what we expect
+        if (obj[key] && typeof obj[key] === 'object') {
+            // For presentation, we want to ensure it actually has slides
+            if (key === 'presentation' && Array.isArray(obj[key].slides)) return obj[key];
+            if (key !== 'presentation') return obj[key];
+        }
+
+        for (const k in obj) {
+            if (obj[k] && typeof obj[k] === 'object' && k !== 'presentation') {
+                const found = deepFind(obj[k], key);
+                if (found) return found;
+            }
+        }
+        return null;
+    };
+
+    // 2. Discover Data
+    // Priority: root -> learningPathData -> deep search
+    const curatedPresentation = (data.presentation && Array.isArray(data.presentation.slides))
+        ? data.presentation
+        : (data.learningPathData?.presentation && Array.isArray(data.learningPathData.presentation.slides))
+            ? data.learningPathData.presentation
+            : deepFind(data, 'presentation');
+
+    const steps = data.steps || data.learningPathData?.steps || deepFind(data, 'steps') || [];
+    const contentBlocks = data.content || data.learningPathData?.content || deepFind(data, 'content') || [];
+
+    console.log(`[PresentationMapper] Discovery for ID: ${id}`, {
+        hasCurated: !!curatedPresentation,
+        curatedSlides: curatedPresentation?.slides?.length || 0,
+        hasSteps: steps.length > 0,
+        hasBlocks: contentBlocks.length > 0
+    });
+
+    // Prioritize curated presentation
+    if (curatedPresentation) {
+        return curatedPresentation;
     }
 
+    // 3. Fallback: Hybrid Generation
     const slides: Slide[] = [];
-    const title = data.title;
+    const title = data.title || curatedPresentation?.title || (data as any).learningPathData?.title || 'Uten Tittel';
+    const heroImage = (data as Lesson).heroImage || (data as any).learningPathData?.heroImage || '/og-image.png';
+    const category = (data as Lesson).category || 'Undervisning';
 
-    const lessonData = data as Lesson;
-    const heroImage = lessonData.heroImage;
-    const category = lessonData.category || 'Undervisning';
-
-    // 2. Initial Title Slide
+    // A. Intro Slide
     slides.push({
         id: 'slide-intro',
         title: title,
@@ -31,68 +68,78 @@ export const mapContentToPresentation = (
         teacherNotes: `Velkommen til denne økten om ${title}.`
     });
 
-    // 3. Handle Learning Path Data (Steps)
-    if ('steps' in data) {
-        data.steps.forEach((step, index) => {
+    // B. Map Steps (Learning Paths)
+    if (steps.length > 0) {
+        steps.forEach((step: any, index: number) => {
             const slideId = `slide-${step.id || index}`;
-
-            // Logic: Each step becomes a slide. 
-            // - Facts/Reflections -> Content slides
-            // - Tasks -> Discussion slides
-            // - Components -> Interactive slides
-
             const points: SlideRevealItem[] = [];
 
-            // Heuristic for extraction: 
-            // Split content by periods to get punchy summary points
-            const sentences = step.content.split('.').filter(s => s.trim().length > 10);
-            sentences.slice(0, 3).forEach((s, idx) => {
-                points.push({
-                    id: `${slideId}-p-${idx}`,
-                    text: s.trim() + '.',
-                    type: 'bullet'
+            if (step.content) {
+                const sentences = step.content.split('.').filter((s: string) => s.trim().length > 10);
+                sentences.slice(0, 3).forEach((s: string, idx: number) => {
+                    points.push({
+                        id: `${slideId}-p-${idx}`,
+                        text: s.trim() + '.',
+                        type: 'bullet'
+                    });
                 });
-            });
-
-            const slide: Slide = {
-                id: slideId,
-                title: step.title,
-                layout: step.type === 'refleksjon' || step.tasks ? 'discussion' : 'content',
-                summary: sentences[0],
-                points: points,
-                teacherNotes: step.content, // Full depth for the teacher
-                talkingPoints: step.tasks,
-                image: heroImage, // Fallback
-                visualEffect: 'scale'
-            };
-
-            // If there's a component, prioritize interactive layout
-            if (step.component) {
-                slide.layout = 'interactive';
-                slide.component = step.component;
             }
 
-            slides.push(slide);
+            slides.push({
+                id: slideId,
+                title: step.title || `Del ${index + 1}`,
+                layout: step.type === 'refleksjon' || step.tasks ? 'discussion' : 'content',
+                summary: step.content ? step.content.substring(0, 150) + '...' : undefined,
+                points: points,
+                teacherNotes: step.content,
+                talkingPoints: step.tasks,
+                image: heroImage,
+                component: step.component,
+                visualEffect: 'scale'
+            });
         });
     }
-
-    if ('content' in data && data.content) {
-        data.content.forEach((block, index) => {
-            const blockTitle = (block as any).title || (block.type === 'header' ? block.content : null);
-            if (blockTitle) {
+    // C. Map Content Blocks (Standard Articles)
+    else if (contentBlocks.length > 0) {
+        contentBlocks.forEach((block: any, index: number) => {
+            if (block.type === 'text' || block.type === 'header') {
+                const blockTitle = block.title || (block.type === 'header' ? block.content : undefined);
+                if (blockTitle || block.content) {
+                    slides.push({
+                        id: `block-${index}`,
+                        title: blockTitle || title,
+                        layout: 'content',
+                        summary: block.content?.substring(0, 150),
+                        teacherNotes: block.content,
+                        image: heroImage
+                    });
+                }
+            } else if (block.type === 'component') {
                 slides.push({
-                    id: `block-${index}`,
-                    title: blockTitle,
-                    layout: 'content',
-                    summary: block.type === 'text' ? block.content?.substring(0, 100) + '...' : undefined,
-                    teacherNotes: block.type === 'text' ? block.content : undefined,
+                    id: `comp-${index}`,
+                    title: block.name,
+                    layout: 'interactive',
+                    component: { name: block.name, props: block.props },
                     image: heroImage
                 });
             }
         });
+    } else {
+        // D. Debugging Slide: If NO content was found
+        slides.push({
+            id: 'slide-debug',
+            title: 'Innholdet lastes ikke korrekt',
+            layout: 'content',
+            summary: `Kunne ikke finne 'steps' eller 'content' i data-objektet for ID: ${id}`,
+            teacherNotes: `Data Keys: ${Object.keys(data).join(', ')} | Subject: ${(data as any).subjectId}`,
+            points: [
+                { id: 'd1', text: 'Sjekk om JSON-filen har riktig struktur.', type: 'bullet' },
+                { id: 'd2', text: 'Prøv å laste siden på nytt (Hard Refresh).', type: 'bullet' }
+            ]
+        });
     }
 
-    // 5. Final Summary Slide
+    // E. Outro Slide
     slides.push({
         id: 'slide-outro',
         title: 'Oppsummering',
@@ -114,3 +161,5 @@ export const mapContentToPresentation = (
         }
     };
 };
+
+

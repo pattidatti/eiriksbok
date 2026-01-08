@@ -20,7 +20,18 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
     const { state, updateState } = usePresentationSync(data.id, 'controller');
     const [elapsedSeconds, setElapsedSeconds] = useState(0);
 
-    const currentSlide = data.slides[state.currentSlideIndex] || data.slides[0];
+    const currentSlide = data.slides[state.currentSlideIndex] || data.slides[0] || { title: 'Laster...', layout: 'title' };
+
+    // Reset to first slide on initial load if we are the controller and it's a fresh mounting
+    // Use a ref to track if we've already done this to allow refreshes to persist
+    const hasInitialReset = React.useRef(false);
+    useEffect(() => {
+        if (!hasInitialReset.current) {
+            console.log(`[PresentationController] Initial Reset for ${data.id}`);
+            updateState({ currentSlideIndex: 0, currentRevealIndex: -1 });
+            hasInitialReset.current = true;
+        }
+    }, [updateState, data.id]);
 
     // Timer logic
     useEffect(() => {
@@ -32,6 +43,13 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
         const mins = Math.floor(totalSeconds / 60);
         const secs = totalSeconds % 60;
         return `${mins}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    const resetPresentation = () => {
+        if (confirm('Vil du starte presentasjonen på nytt? Alle prosjektør-visninger vil også bli nullstilt.')) {
+            updateState({ currentSlideIndex: 0, currentRevealIndex: -1 });
+            setElapsedSeconds(0);
+        }
     };
 
     const next = () => {
@@ -73,13 +91,16 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
             {/* Header / Stats */}
             <div className="bg-slate-800 p-4 flex justify-between items-center border-b border-white/10">
                 <div className="flex items-center gap-6">
-                    <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-lg">
+                    <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-lg" title="Lukk">
                         <Library className="w-5 h-5" />
                     </button>
-                    <h2 className="text-xl font-bold truncate max-w-md">{data.title}</h2>
+                    <h2 className="text-xl font-bold truncate max-w-sm">{data.title}</h2>
+                    <span className="text-[10px] text-slate-500 font-mono mt-1 px-2 py-0.5 border border-white/10 rounded uppercase">
+                        ID: {data.id} | {data.slides.length} Lysbilder
+                    </span>
                 </div>
 
-                <div className="flex items-center gap-8">
+                <div className="flex items-center gap-6">
                     <div className="flex items-center gap-2 text-indigo-300 font-mono text-xl">
                         <Clock className="w-5 h-5" />
                         {formatTime(elapsedSeconds)}
@@ -87,6 +108,14 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
                     <div className="text-slate-400 font-mono">
                         Slide {state.currentSlideIndex + 1} / {data.slides.length}
                     </div>
+                    <div className="h-6 w-[1px] bg-white/10 mx-2" />
+                    <button
+                        onClick={resetPresentation}
+                        className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-all"
+                        title="Start på nytt"
+                    >
+                        <Library className="w-5 h-5" />
+                    </button>
                     <button
                         onClick={openProjectorWindow}
                         className="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg flex items-center gap-2 font-bold transition-colors"
