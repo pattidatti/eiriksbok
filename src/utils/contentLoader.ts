@@ -1,4 +1,4 @@
-import type { Lesson, Manifest, Philosopher, ManifestLesson, ManifestTopic, ManifestSubTopic, ManifestSubject, TopicTool } from '../types';
+import type { Lesson, Manifest, Philosopher } from '../types';
 // @ts-ignore
 // import { contentMap, hierarchicalContentMap } from '../generated/contentMap'; // REMOVED
 
@@ -17,6 +17,10 @@ let cachedRegistry: ContentIndex | null = null;
 
 export function getCachedManifest(): Manifest | null {
     return cachedManifest;
+}
+
+export function getCachedRegistry(): ContentIndex | null {
+    return cachedRegistry;
 }
 
 const getBasePath = () => {
