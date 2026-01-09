@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const contentDir = path.join(__dirname, '../public/content');
-const outputFile = path.join(__dirname, '../src/generated/contentMap.ts');
+const outputFile = path.join(__dirname, '../public/content/content-index.json');
 const outputDir = path.dirname(outputFile);
 
 // Ensure output dir exists
@@ -27,16 +27,18 @@ function scanDirectory(dir) {
 
         if (stat.isDirectory()) {
             scanDirectory(fullPath);
-        } else if (file.endsWith('.json') && file !== 'manifest.json') {
-            const relativePath = path.relative(path.join(__dirname, '../public'), fullPath).replace(/\\/g, '/');
+        } else if (file.endsWith('.json') && file !== 'manifest.json' && file !== 'content-index.json') {
+            const relativePath = path.relative(path.join(__dirname, '../public'), fullPath)
+                .replace(/\\/g, '/')
+                .toLowerCase(); // Force lowercase for file path
             const parts = relativePath.split('/');
 
             // Determine ID
             let id = '';
             if (file === 'artikkel.json') {
-                id = parts[parts.length - 2];
+                id = parts[parts.length - 2].toLowerCase();
             } else {
-                id = path.basename(file, '.json');
+                id = path.basename(file, '.json').toLowerCase();
             }
 
             // 1. Add to Collision-Aware Flat Map
@@ -65,15 +67,13 @@ function scanDirectory(dir) {
 console.log('Scanning content directory...');
 scanDirectory(contentDir);
 
-const fileContent = `// Auto-generated content index. Do not edit manually.
-export const contentMap: Record<string, string | string[]> = ${JSON.stringify(collisionMap, null, 4)};
+const outputData = {
+    buildId: Date.now(),
+    contentMap: collisionMap,
+    hierarchicalMap: hierarchicalMap
+};
 
-/**
- * Hierarchical lookup for exact matches using context.
- * Key format: "subject/topic/lessonId" or "subject/topic/subtopic/lessonId"
- */
-export const hierarchicalContentMap: Record<string, string> = ${JSON.stringify(hierarchicalMap, null, 4)};
-`;
+const fileContent = JSON.stringify(outputData, null, 2);
 
 fs.writeFileSync(outputFile, fileContent);
 console.log(`Generated content map with ${Object.keys(collisionMap).length} IDs.`);

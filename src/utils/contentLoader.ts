@@ -1,21 +1,62 @@
 import type { Lesson, Manifest, Philosopher, ManifestLesson, ManifestTopic, ManifestSubTopic, ManifestSubject, TopicTool } from '../types';
 // @ts-ignore
-import { contentMap, hierarchicalContentMap } from '../generated/contentMap';
+// import { contentMap, hierarchicalContentMap } from '../generated/contentMap'; // REMOVED
 
-// --- Global Cache for Manifest ---
+// --- Registry Types ---
+interface ContentIndex {
+    buildId: number;
+    contentMap: Record<string, string | string[]>;
+    hierarchicalMap: Record<string, string>;
+}
+
+// --- Global Cache ---
 let globalManifestPromise: Promise<Manifest | null> | null = null;
 let cachedManifest: Manifest | null = null;
+let globalRegistryPromise: Promise<ContentIndex | null> | null = null;
+let cachedRegistry: ContentIndex | null = null;
 
 export function getCachedManifest(): Manifest | null {
     return cachedManifest;
 }
 
+const getBasePath = () => {
+    return import.meta.env.BASE_URL.endsWith('/')
+        ? import.meta.env.BASE_URL
+        : `${import.meta.env.BASE_URL}/`;
+};
+
+/**
+ * Loads the authoritative content index.
+ */
+export async function fetchRegistry(): Promise<ContentIndex | null> {
+    if (globalRegistryPromise) return globalRegistryPromise;
+
+    const basePath = getBasePath();
+    console.log(`[ContentRegistry] Fetching registry from: ${basePath}content/content-index.json`);
+
+    globalRegistryPromise = fetch(`${basePath}content/content-index.json`, { cache: 'no-cache' })
+        .then(async (response) => {
+            if (!response.ok) {
+                console.error("[ContentRegistry] Failed to fetch registry:", response.statusText);
+                return null;
+            }
+            const data = await response.json() as ContentIndex;
+            cachedRegistry = data;
+            console.log(`[ContentRegistry] Loaded index with ${Object.keys(data.contentMap).length} entries (Build: ${data.buildId})`);
+            return data;
+        })
+        .catch((error) => {
+            console.error("[ContentRegistry] Error loading registry:", error);
+            return null;
+        });
+
+    return globalRegistryPromise;
+}
+
 export async function fetchManifest(): Promise<Manifest | null> {
     if (globalManifestPromise) return globalManifestPromise;
 
-    const basePath = import.meta.env.BASE_URL.endsWith('/')
-        ? import.meta.env.BASE_URL
-        : `${import.meta.env.BASE_URL}/`;
+    const basePath = getBasePath();
 
     globalManifestPromise = fetch(`${basePath}content/manifest.json`, { cache: 'default' })
         .then(async (response) => {
@@ -35,257 +76,135 @@ export async function fetchManifest(): Promise<Manifest | null> {
     return globalManifestPromise;
 }
 
-
+/**
+ * Authority-based content loader.
+ * Eliminates "guessing" in favor of deterministic resolution.
+ */
 export async function fetchLesson(subject: string, topic: string, lessonId: string, subTopicId?: string): Promise<Lesson | null> {
-    const basePath = import.meta.env.BASE_URL.endsWith('/')
-        ? import.meta.env.BASE_URL
-        : `${import.meta.env.BASE_URL}/`;
+    const basePath = getBasePath();
+    const normalizedId = lessonId.toLowerCase();
 
-    console.log(`[OptimisticLoader] fetchLesson called for: ${lessonId} (Subject: ${subject}, Topic: ${topic})`);
+    console.log(`[ContentLoader] Resolving: ${normalizedId} (Context: ${subject}/${topic})`);
 
-    // --- 1. Deterministic Lookup (The "Content Index" Strategy) ---
-    let pathFromIndex: string | null = null;
-
-    // 1A. Exact Hierarchical Match (Highest Priority)
-    const hierarchyKey = subTopicId
-        ? `${subject}/${topic}/${subTopicId}/${lessonId}`.toLowerCase()
-        : `${subject}/${topic}/${lessonId}`.toLowerCase();
-
-    if (hierarchicalContentMap && hierarchicalContentMap[hierarchyKey]) {
-        pathFromIndex = hierarchicalContentMap[hierarchyKey];
-        console.log(`[OptimisticLoader] Hierarchical match: ${pathFromIndex}`);
+    // 1. Ensure Registry is loaded
+    const registry = await fetchRegistry();
+    if (!registry) {
+        console.error(`[ContentLoader] Registry unavailable. Cannot resolve ${lessonId}`);
+        return null;
     }
-    // 1B. Flat Match with Collision Resolution
-    else if (contentMap && contentMap[lessonId]) {
-        const entry = contentMap[lessonId];
+
+    // 2. Deterministic Lookup
+    let resolvedPath: string | null = null;
+
+    // 2A. Hierarchical Match (Context-aware, case-insensitive via index normalization)
+    const contextKey = subTopicId
+        ? `${subject}/${topic}/${subTopicId}/${normalizedId}`.toLowerCase()
+        : `${subject}/${topic}/${normalizedId}`.toLowerCase();
+
+    if (registry.hierarchicalMap[contextKey]) {
+        resolvedPath = registry.hierarchicalMap[contextKey];
+        console.log(`[ContentLoader] Hierarchical hit: ${resolvedPath}`);
+    }
+    // 2B. Flat Lookup (Collision-aware)
+    else if (registry.contentMap[normalizedId]) {
+        const entry = registry.contentMap[normalizedId];
         if (Array.isArray(entry)) {
-            // Pick the one that matches our context best
-            pathFromIndex = entry.find(p => p.includes(`/${subject}/`) && p.includes(`/${topic}/`)) || entry[0];
-            console.log(`[OptimisticLoader] Collision resolved: ${pathFromIndex}`);
+            // Find best fit based on subject/topic context
+            resolvedPath = entry.find(p => p.includes(`/${subject.toLowerCase()}/`) && p.includes(`/${topic.toLowerCase()}/`)) || entry[0];
+            console.log(`[ContentLoader] Flat hit (collision resolved): ${resolvedPath}`);
         } else {
-            pathFromIndex = entry as string;
-            console.log(`[OptimisticLoader] Flat match: ${pathFromIndex}`);
-        }
-    }
-    // 1C. Fuzzy Flat Match (Fallback for casing/dash mismatches)
-    else if (contentMap) {
-        const normalizedId = lessonId.toLowerCase().replace(/-/g, '');
-        const fuzzyMatch = Object.keys(contentMap).find(k => k.toLowerCase().replace(/-/g, '') === normalizedId);
-        if (fuzzyMatch) {
-            const entry = contentMap[fuzzyMatch];
-            pathFromIndex = Array.isArray(entry) ? entry[0] : entry as string;
-            console.log(`[OptimisticLoader] Fuzzy match found: ${pathFromIndex}`);
+            resolvedPath = entry;
+            console.log(`[ContentLoader] Flat hit: ${resolvedPath}`);
         }
     }
 
-    if (pathFromIndex) {
+    // 3. Execution
+    if (resolvedPath) {
         try {
-            const r = await fetch(`${basePath}${pathFromIndex}`, { cache: 'no-cache' });
-            if (r.ok) {
-                const data = await r.json();
+            const r = await fetch(`${basePath}${resolvedPath}`, { cache: 'no-cache' });
+            if (!r.ok) throw new Error(`Fetch failed: ${r.status}`);
 
-                // Standard processing
-                if (data.learningPathData && data.learningPathData.learningPathData) {
-                    data.learningPathData = data.learningPathData.learningPathData;
-                }
+            const data = await r.json();
 
-                const manifest = await fetchManifest();
-                if (manifest) {
-                    const findLesson = (nodes: any[]): any => {
-                        for (const node of nodes) {
-                            if (node.id === lessonId) return node;
-                            if (node.lessons) { const f = findLesson(node.lessons); if (f) return f; }
-                            if (node.topics) { const f = findLesson(node.topics); if (f) return f; }
-                            if (node.subTopics) { const f = findLesson(node.subTopics); if (f) return f; }
-                            if (node.tools) { const f = findLesson(node.tools); if (f) return f; }
-                            if (node.subjects) { const f = findLesson(node.subjects); if (f) return f; }
-                        }
-                        return null;
-                    };
-                    const manifestLesson = findLesson(manifest.subjects);
-
-                    if (manifestLesson) {
-                        if (manifestLesson.definitions) {
-                            const newConcepts = manifestLesson.definitions.map((def: any, index: number) => ({
-                                id: `concept-${index}`, term: def.term, definition: def.definition
-                            }));
-                            data.concepts = [...(data.concepts || []), ...newConcepts];
-                        }
-                        if (manifestLesson.layout) data.layout = manifestLesson.layout;
-                        if (manifestLesson.year) data.year = manifestLesson.year;
-                        if (manifestLesson.tags) {
-                            data.tags = [...new Set([...(data.tags || []), ...(manifestLesson.tags || [])])];
-                        }
-                        if (!data.title && manifestLesson.title) data.title = manifestLesson.title;
-                        if (!data.description && manifestLesson.description) data.description = manifestLesson.description;
-                    }
-                }
-                return data as Lesson;
+            // Processing: Fix double-nesting if present
+            if (data.learningPathData && data.learningPathData.learningPathData) {
+                data.learningPathData = data.learningPathData.learningPathData;
             }
+
+            // Enrich metadata from manifest
+            const manifest = await fetchManifest();
+            if (manifest) {
+                const node = findNodeInManifest(manifest.subjects, lessonId);
+                if (node) enrichLessonWithMetadata(data, node);
+            }
+
+            return data as Lesson;
         } catch (e) {
-            console.warn("[OptimisticLoader] Deterministic fetch failed, falling back to guessing.", e);
+            console.error(`[ContentLoader] Failed to load resolved path: ${resolvedPath}`, e);
         }
     }
 
-
-    // --- 2. Construct Optimistic Paths (Fallback/Original Logic) ---
-    // We guess where the file is likely to be to start fetching IMMEDIATELY.
-    const pathsToTry: string[] = [];
-
-    // Prioritize standard paths
-    if (subTopicId) {
-        pathsToTry.push(`content/${subject}/${topic}/${subTopicId}/${lessonId}.json`);
-        pathsToTry.push(`content/${subject}/${topic}/${subTopicId}/${lessonId}/artikkel.json`);
-        // Special case: learning paths in subfolders
-        if (lessonId.includes('-sti')) {
-            pathsToTry.push(`content/${subject}/${topic}/${subTopicId}/${lessonId}.json`);
-        }
-    } else {
-        pathsToTry.push(`content/${subject}/${topic}/${lessonId}.json`);
-        pathsToTry.push(`content/${subject}/${topic}/${lessonId}/artikkel.json`);
-        // Special case: learning paths in topic folders
-        if (lessonId.includes('-sti')) {
-            pathsToTry.push(`content/${subject}/${topic}/${lessonId}.json`);
-        }
-    }
-
-    // --- 3. Parallel Execution ---
-    // Start fetching the content from the guessed paths AND the manifest simultaneously.
-
-    // Helper to try all paths in sequence (but started immediately in parallel with manifest)
-    const contentFetchPromise = (async () => {
-        for (const p of pathsToTry) {
+    // 4. Emergency Safety Net (Manifest-based link)
+    console.warn(`[ContentLoader] Path resolution failed for ${lessonId}. Trying manifest fallback.`);
+    const manifest = await fetchManifest();
+    if (manifest) {
+        const node = findNodeInManifest(manifest.subjects, lessonId);
+        if (node && 'link' in node && typeof node.link === 'string' && node.link.endsWith('.json')) {
             try {
-                // Using 'no-cache' for development, but in prod this should be default or handled better
-                const r = await fetch(`${basePath}${p}`);
-                const isJson = r.headers.get("content-type")?.includes("application/json");
-                if (r.ok && isJson) {
-                    console.log(`[OptimisticLoader] Cache Hit/Success for path: ${p}`);
-                    return { response: r, usedPath: p };
+                const link = node.link.startsWith('http') ? node.link : `${basePath}${node.link.startsWith('/') ? node.link.slice(1) : node.link}`;
+                const r = await fetch(link);
+                if (r.ok) {
+                    const data = await r.json();
+                    enrichLessonWithMetadata(data, node);
+                    return data as Lesson;
                 }
             } catch (e) { /* ignore */ }
         }
-        return null;
-    })();
-
-    // Ensure manifest is loading (idempotent due to singleton)
-    const manifestFetchPromise = fetchManifest();
-
-    // --- 4. Await Results & Fallback ---
-
-    // We wait for the content. If we find it, GREAT! We render immediately.
-    // If we don't find it, ONLY THEN do we wait for the manifest to look up the "official" path.
-    let contentResult = await contentFetchPromise;
-
-    let manifestLesson: ManifestLesson | ManifestTopic | ManifestSubTopic | ManifestSubject | TopicTool | null = null;
-    const manifest = await manifestFetchPromise; // Blocking only if we need metadata merging or fallback
-
-    // Logic to find lesson node in manifest for metadata stuff
-    if (manifest) {
-        const findLesson = (nodes: (ManifestSubject | ManifestTopic | ManifestSubTopic | ManifestLesson | TopicTool)[]): ManifestLesson | ManifestTopic | ManifestSubTopic | ManifestSubject | TopicTool | null => {
-            for (const node of nodes) {
-                if (node.id === lessonId) return node;
-                if ('lessons' in node && node.lessons) {
-                    const found = findLesson(node.lessons);
-                    if (found) return found;
-                }
-                if ('topics' in node && node.topics) {
-                    const found = findLesson(node.topics);
-                    if (found) return found;
-                }
-                if ('subTopics' in node && node.subTopics) {
-                    const found = findLesson(node.subTopics);
-                    if (found) return found;
-                }
-                if ('tools' in node && node.tools) {
-                    const found = findLesson(node.tools);
-                    if (found) return found;
-                }
-                if ('subjects' in node && node.subjects) {
-                    const found = findLesson(node.subjects as any);
-                    if (found) return found;
-                }
-            }
-            return null;
-        };
-        manifestLesson = findLesson(manifest.subjects);
     }
 
-
-    // --- 5. Deep Fallback via Manifest (if optimistic paths failed) ---
-    if (!contentResult && manifestLesson) {
-        // If we found the node in the manifest, maybe it has a custom 'link' or special structure we missed?
-        // This is the "Safety Net"
-        console.warn(`[OptimisticLoader] Optimistic paths failed. Checking manifest for custom link/structure.`);
-
-        // Assuming if it's a tool/link we might fetch that? Or if it's just a misnamed file?
-        // For now, we return null if optimistic paths failed, as our file structure is standard.
-        // BUT, we can try one last desperate thing: if the node has a 'link' property that ends in .json
-        if ('link' in manifestLesson && (manifestLesson as any).link && (manifestLesson as any).link.endsWith('.json')) {
-            const customLink = (manifestLesson as any).link;
-            try {
-                const r = await fetch(customLink.startsWith('http') ? customLink : `${basePath}${customLink}`);
-                if (r.ok) {
-                    contentResult = { response: r, usedPath: customLink };
-                }
-            } catch (e) { console.error("Fallback fetch failed", e) }
-        }
-    }
-
-
-    if (!contentResult) {
-        console.error(`[OptimisticLoader] Failed to load lesson ${lessonId} after trying paths:`, pathsToTry);
-        return null;
-    }
-
-    // --- 6. Process Data ---
-    const data = await contentResult.response.json();
-
-    // Fix double-nesting
-    if (data.learningPathData && data.learningPathData.learningPathData) {
-        data.learningPathData = data.learningPathData.learningPathData;
-    }
-
-    // --- 7. Merge Metadata from Manifest (enrichment) ---
-    // Even if content loaded fast, we want to stamp it with official tags/years if available.
-    if (manifestLesson) {
-        const typedLesson = manifestLesson as any;
-        if (typedLesson.definitions) {
-            const newConcepts = typedLesson.definitions.map((def: { term: string, definition: string }, index: number) => ({
-                id: `concept-${index}`,
-                term: def.term,
-                definition: def.definition
-            }));
-            data.concepts = [...(data.concepts || []), ...newConcepts];
-        }
-        if (typedLesson.layout) data.layout = typedLesson.layout;
-        if (typedLesson.year) data.year = typedLesson.year;
-        if (typedLesson.tags) {
-            data.tags = [...new Set([...(data.tags || []), ...(typedLesson.tags || [])])];
-        }
-        if (!data.title && typedLesson.title) data.title = typedLesson.title;
-        if (!data.description && typedLesson.description) data.description = typedLesson.description;
-    }
-
-    return data as Lesson;
+    console.error(`[ContentLoader] Critical Failure: Could not find content for ${lessonId}`);
+    return null;
 }
+
+// --- Helpers ---
+
+function findNodeInManifest(nodes: any[], id: string): any | null {
+    for (const node of nodes) {
+        if (node.id === id) return node;
+        const children = node.lessons || node.topics || node.subTopics || node.tools || node.subjects;
+        if (children) {
+            const found = findNodeInManifest(children, id);
+            if (found) return found;
+        }
+    }
+    return null;
+}
+
+function enrichLessonWithMetadata(data: any, manifestNode: any) {
+    if (manifestNode.definitions) {
+        const newConcepts = manifestNode.definitions.map((def: any, index: number) => ({
+            id: `concept-${index}`, term: def.term, definition: def.definition
+        }));
+        data.concepts = [...(data.concepts || []), ...newConcepts];
+    }
+    if (manifestNode.layout) data.layout = manifestNode.layout;
+    if (manifestNode.year) data.year = manifestNode.year;
+    if (manifestNode.tags) {
+        data.tags = [...new Set([...(data.tags || []), ...(manifestNode.tags || [])])];
+    }
+    if (!data.title && manifestNode.title) data.title = manifestNode.title;
+    if (!data.description && manifestNode.description) data.description = manifestNode.description;
+}
+
+// --- Specialized Loaders (Maintain compatibility but use registry eventually if needed) ---
 
 export async function fetchReligion(id: string): Promise<any | null> {
     try {
-        const basePath = import.meta.env.BASE_URL.endsWith('/')
-            ? import.meta.env.BASE_URL
-            : `${import.meta.env.BASE_URL}/`;
-
-        // Handle ID with or without .json extension, and strip path if present
-        // This handles "kristendom", "kristendom.json", and "data/religion/kristendom.json"
+        const basePath = getBasePath();
         const cleanId = id.replace(/\.json$/, '').split('/').pop();
         const response = await fetch(`${basePath}data/religion/${cleanId}.json`, { cache: 'no-cache' });
-        if (!response.ok) {
-            console.error(`Failed to fetch religion: ${response.status} ${response.statusText}`);
-            return null;
-        }
-        const data = await response.json();
-        return data;
+        if (!response.ok) return null;
+        return await response.json();
     } catch (error) {
         console.error("Error loading religion:", error);
         return null;
@@ -294,18 +213,11 @@ export async function fetchReligion(id: string): Promise<any | null> {
 
 export async function fetchPhilosopher(id: string): Promise<Philosopher | null> {
     try {
-        const basePath = import.meta.env.BASE_URL.endsWith('/')
-            ? import.meta.env.BASE_URL
-            : `${import.meta.env.BASE_URL}/`;
-
+        const basePath = getBasePath();
         const cleanId = id.replace(/\.json$/, '').split('/').pop();
         const response = await fetch(`${basePath}data/philosophy/${cleanId}.json`, { cache: 'no-cache' });
-        if (!response.ok) {
-            console.error(`Failed to fetch philosopher: ${response.status} ${response.statusText}`);
-            return null;
-        }
-        const data = await response.json();
-        return data as Philosopher;
+        if (!response.ok) return null;
+        return await response.json() as Philosopher;
     } catch (error) {
         console.error("Error loading philosopher:", error);
         return null;
