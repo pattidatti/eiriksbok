@@ -225,8 +225,11 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     // --- 6. Process Data ---
     const data = await contentResult.response.json();
 
-    // Fix double-nesting
-    if (data.learningPathData && data.learningPathData.learningPathData) {
+    // Fix double-nesting if it exists (some older or generated content might have this)
+    if (data.learningPathData &&
+        typeof data.learningPathData === 'object' &&
+        'learningPathData' in data.learningPathData &&
+        data.learningPathData.learningPathData) {
         data.learningPathData = data.learningPathData.learningPathData;
     }
 

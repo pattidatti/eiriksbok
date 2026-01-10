@@ -157,8 +157,8 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         const articleData = {
             id: lesson.id,
             year: lesson.year || '',
-            title: lesson.title,
-            description: getFirstTextContent(lesson.content || [])?.substring(0, 150) + '...' || '',
+            title: lesson.title || lesson.learningPathData?.title || 'Læringssti',
+            description: lesson.title ? (getFirstTextContent(lesson.content || [])?.substring(0, 150) + '...' || '') : (lesson.learningPathData?.description || ''),
             content: lesson.content || [],
             details: lesson.details || lesson.concepts?.map(c => `${c.term}: ${c.definition}`) || [],
             category: lesson.category || lesson.topic,
