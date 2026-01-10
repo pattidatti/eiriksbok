@@ -60,7 +60,10 @@
                     "props": {
                         "capacity": 40,
                         "targetValue": 80,
-                        "description": "Du skal på marsj mot nord. Centurionen sjekker at sekken er pakket korrekt. Du bærer alt du eier på ryggen. Har du husket det viktigste for å overleve i felt?",
+                        "title": "Legionær-sekken: Klar for marsj?",
+                        "descriptionOverride": "Du skal på marsj mot nord. Centurionen sjekker at sekken er pakket korrekt. Du bærer alt du eier på ryggen. Har du husket det viktigste for å overleve i felt?",
+                        "overweightLabel": "Sekken er for tung for en lang marsj!",
+                        "successLabel": "Legionæren er klar for tjeneste!",
                         "items": [
                             {
                                 "id": "gladius",
@@ -537,7 +540,10 @@
                         "props": {
                             "capacity": 40,
                             "targetValue": 80,
-                            "description": "Du skal på marsj mot nord. Centurionen sjekker at sekken er pakket korrekt. Du bærer alt du eier på ryggen. Har du husket det viktigste for å overleve i felt?",
+                            "title": "Legionær-sekken: Klar for marsj?",
+                            "descriptionOverride": "Du skal på marsj mot nord. Centurionen sjekker at sekken er pakket korrekt. Du bærer alt du eier på ryggen. Har du husket det viktigste for å overleve i felt?",
+                            "overweightLabel": "Sekken er for tung for en lang marsj!",
+                            "successLabel": "Legionæren er klar for tjeneste!",
                             "items": [
                                 {
                                     "id": "gladius",

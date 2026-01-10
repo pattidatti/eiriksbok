@@ -135,6 +135,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
                 typeof data.learningPathData === 'object' &&
                 'learningPathData' in data.learningPathData &&
                 data.learningPathData.learningPathData) {
+                console.log(`[ContentLoader] Detected double-nested learningPathData for ${lessonId}, fixing...`);
                 data.learningPathData = data.learningPathData.learningPathData;
             }
 
@@ -142,8 +143,16 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
             const manifest = await fetchManifest();
             if (manifest) {
                 const node = findNodeInManifest(manifest.subjects, lessonId);
+                console.log(`[ContentLoader] Found manifest node for ${lessonId}:`, node?.title);
                 if (node) enrichLessonWithMetadata(data, node);
             }
+
+            console.log(`[ContentLoader] Successfully loaded ${lessonId}. Data structure:`, {
+                hasContent: !!data.content,
+                contentLength: data.content?.length,
+                hasLearningPathData: !!data.learningPathData,
+                layout: data.layout
+            });
 
             return data as Lesson;
         } catch (e) {

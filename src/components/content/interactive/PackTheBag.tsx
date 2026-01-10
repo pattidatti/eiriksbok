@@ -24,10 +24,10 @@ export const PackTheBag: React.FC<PackTheBagProps> = ({
     capacity,
     items,
     targetValue,
-    title = "Last Knarren",
+    title = "Pakk sekken",
     descriptionOverride,
-    overweightLabel = "Skipet er for tungt!",
-    successLabel = "Klar for avreise!",
+    overweightLabel = "Det er for tungt!",
+    successLabel = "Alt er klart!",
     pendingLabel = "Mangler utstyr..."
 }) => {
     const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
@@ -67,7 +67,7 @@ export const PackTheBag: React.FC<PackTheBagProps> = ({
 
             <div className="p-6">
                 <p className="text-slate-600 mb-6 text-sm">
-                    {descriptionOverride || `Du skal seile til Island. Velg utstyr som gir nok overlevelsesverdi (${targetValue} poeng) uten at skipet synker (${capacity} kg).`}
+                    {descriptionOverride || (items.length > 0 ? `Velg utstyr som gir nok verdi (${targetValue} poeng) uten å overstige grensen (${capacity} kg).` : "Ingen ting å pakke.")}
                 </p>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
