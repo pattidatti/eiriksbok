@@ -16,7 +16,14 @@ export const Layout: React.FC = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { settings, toggleDyslexicMode } = useSettings();
-    const { isFullWidth, hideHeader } = useLayout();
+    const { isFullWidth, hideHeader: contextHideHeader } = useLayout();
+
+    // Hard override for presentation and simulation modes
+    const path = location.pathname.toLowerCase();
+    const isPresentationMode = path.includes('/present');
+    const isSimulationMode = path.includes('/sim/play/');
+    const hideHeader = contextHideHeader || isPresentationMode || isSimulationMode;
+    const forceFullWidth = isFullWidth || isPresentationMode || isSimulationMode;
 
     const isActive = (path: string) => {
         return location.pathname.startsWith(path) ? 'text-text-main font-semibold' : 'text-text-muted hover:text-text-main';
@@ -90,9 +97,9 @@ export const Layout: React.FC = () => {
             <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
             <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
 
-            <main className={`relative z-10 ${isFullWidth ? '' : 'pt-4'}`}>
-                <div className={isFullWidth ? '' : 'max-w-7xl mx-auto px-6'}>
-                    <Breadcrumbs />
+            <main className={`relative z-10 ${forceFullWidth ? '' : 'pt-4'}`}>
+                <div className={forceFullWidth ? '' : 'max-w-7xl mx-auto px-6'}>
+                    {!hideHeader && !forceFullWidth && <Breadcrumbs />}
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={location.pathname}
