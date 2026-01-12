@@ -90,43 +90,82 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
 
     console.log(`[ContentLoader] Resolving: ${normalizedId} (Context: ${subject}/${topic})`);
 
-    // 1. Ensure Registry is loaded
-    const registry = await fetchRegistry();
-    if (!registry) {
-        console.error(`[ContentLoader] Registry unavailable. Cannot resolve ${lessonId}`);
-        return null;
-    }
+    // 1. Ensure Registry is loaded (but don't fail if it's missing)
+    let registry = await fetchRegistry();
 
-    // 2. Deterministic Lookup
+    // --- TIER 1: REGISTRY (Performance & Exact Match) ---
+    // If registry is available, it is the authority.
     let resolvedPath: string | null = null;
 
-    // 2A. Hierarchical Match (Context-aware, case-insensitive via index normalization)
-    const contextKey = subTopicId
-        ? `${subject}/${topic}/${subTopicId}/${normalizedId}`.toLowerCase()
-        : `${subject}/${topic}/${normalizedId}`.toLowerCase();
+    if (registry) {
+        // 1A. Hierarchical Match
+        const contextKey = subTopicId
+            ? `${subject}/${topic}/${subTopicId}/${normalizedId}`.toLowerCase()
+            : `${subject}/${topic}/${normalizedId}`.toLowerCase();
 
-    if (registry.hierarchicalMap[contextKey]) {
-        resolvedPath = registry.hierarchicalMap[contextKey];
-        console.log(`[ContentLoader] Hierarchical hit: ${resolvedPath}`);
-    }
-    // 2B. Flat Lookup (Collision-aware)
-    else if (registry.contentMap[normalizedId]) {
-        const entry = registry.contentMap[normalizedId];
-        if (Array.isArray(entry)) {
-            // Find best fit based on subject/topic context
-            resolvedPath = entry.find(p => p.includes(`/${subject.toLowerCase()}/`) && p.includes(`/${topic.toLowerCase()}/`)) || entry[0];
-            console.log(`[ContentLoader] Flat hit (collision resolved): ${resolvedPath}`);
-        } else {
-            resolvedPath = entry;
-            console.log(`[ContentLoader] Flat hit: ${resolvedPath}`);
+        if (registry.hierarchicalMap[contextKey]) {
+            resolvedPath = registry.hierarchicalMap[contextKey];
+            console.log(`[ContentLoader] Tier 1A (Hierarchy) hit: ${resolvedPath}`);
+        }
+        // 1B. Flat Lookup
+        else if (registry.contentMap[normalizedId]) {
+            const entry = registry.contentMap[normalizedId];
+            if (Array.isArray(entry)) {
+                resolvedPath = entry.find(p => p.includes(`/${subject.toLowerCase()}/`) && p.includes(`/${topic.toLowerCase()}/`)) || entry[0];
+                console.log(`[ContentLoader] Tier 1B (Flat-Collision) hit: ${resolvedPath}`);
+            } else {
+                resolvedPath = entry;
+                console.log(`[ContentLoader] Tier 1B (Flat) hit: ${resolvedPath}`);
+            }
         }
     }
 
-    // 3. Execution
+    // --- TIER 2: MANIFEST AUTHORITY (Robustness) ---
+    // If Registry failed or is missing, consult the Manifest. 
+    // This is critical for "Learning Paths" which have clean URLs in manifest but need .json files.
+    if (!resolvedPath) {
+        const manifest = await fetchManifest();
+        if (manifest) {
+            const node = findNodeInManifest(manifest.subjects, lessonId);
+            if (node && node.link) {
+                // Construct path from manifest link
+                // 1. Remove leading slash
+                let path = node.link.startsWith('/') ? node.link.slice(1) : node.link;
+                // 2. Ensure it starts with 'content/' if it's not an external URL
+                if (!path.startsWith('http') && !path.startsWith('content/')) {
+                    path = `content/${path}`;
+                }
+                // 3. Ensure it ends with .json
+                if (!path.endsWith('.json')) {
+                    path += '.json';
+                }
+
+                resolvedPath = path;
+                console.log(`[ContentLoader] Tier 2 (Manifest) derived path: ${resolvedPath}`);
+            }
+        }
+    }
+
+    // --- TIER 3: CONVENTION (Last Resort) ---
+    // If all else fails, assume standard structure.
+    if (!resolvedPath) {
+        const subPath = subTopicId ? `${subTopicId}/` : '';
+        resolvedPath = `content/${subject}/${topic}/${subPath}${normalizedId}.json`;
+        console.warn(`[ContentLoader] Tier 3 (Convention) fallback used: ${resolvedPath}`);
+    }
+
+    // --- EXECUTION ---
     if (resolvedPath) {
         try {
-            const r = await fetch(`${basePath}${resolvedPath}`, { cache: 'no-cache' });
-            if (!r.ok) throw new Error(`Fetch failed: ${r.status}`);
+            // Handle external URLs vs local paths
+            const finalUrl = resolvedPath.startsWith('http') ? resolvedPath : `${basePath}${resolvedPath}`;
+
+            const r = await fetch(finalUrl, { cache: 'no-cache' });
+            if (!r.ok) {
+                // If Tier 3 failed, it's a true 404.
+                console.error(`[ContentLoader] Fetch failed for path: ${finalUrl} (${r.status})`);
+                return null;
+            }
 
             const data = await r.json();
 
@@ -143,42 +182,19 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
             const manifest = await fetchManifest();
             if (manifest) {
                 const node = findNodeInManifest(manifest.subjects, lessonId);
-                console.log(`[ContentLoader] Found manifest node for ${lessonId}:`, node?.title);
+                // console.log(`[ContentLoader] Found manifest node for ${lessonId}:`, node?.title);
                 if (node) enrichLessonWithMetadata(data, node);
             }
 
-            console.log(`[ContentLoader] Successfully loaded ${lessonId}. Data structure:`, {
-                hasContent: !!data.content,
-                contentLength: data.content?.length,
-                hasLearningPathData: !!data.learningPathData,
-                layout: data.layout
-            });
+            console.log(`[ContentLoader] Successfully loaded ${lessonId}`);
 
             return data as Lesson;
         } catch (e) {
             console.error(`[ContentLoader] Failed to load resolved path: ${resolvedPath}`, e);
+            return null;
         }
     }
 
-    // 4. Emergency Safety Net (Manifest-based link)
-    console.warn(`[ContentLoader] Path resolution failed for ${lessonId}. Trying manifest fallback.`);
-    const manifest = await fetchManifest();
-    if (manifest) {
-        const node = findNodeInManifest(manifest.subjects, lessonId);
-        if (node && 'link' in node && typeof node.link === 'string' && node.link.endsWith('.json')) {
-            try {
-                const link = node.link.startsWith('http') ? node.link : `${basePath}${node.link.startsWith('/') ? node.link.slice(1) : node.link}`;
-                const r = await fetch(link);
-                if (r.ok) {
-                    const data = await r.json();
-                    enrichLessonWithMetadata(data, node);
-                    return data as Lesson;
-                }
-            } catch (e) { /* ignore */ }
-        }
-    }
-
-    console.error(`[ContentLoader] Critical Failure: Could not find content for ${lessonId}`);
     return null;
 }
 
