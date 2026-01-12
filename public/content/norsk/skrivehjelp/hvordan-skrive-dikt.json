@@ -8,45 +8,123 @@
     "content": [
         {
             "type": "text",
-            "content": "Å skrive dikt handler om å male bilder med ord. Det er ingen faste regler, men her er noen tips for å komme i gang."
+            "content": "Et dikt er som en suppeterning av språk: Mye smak komprimert på liten plass. Å skrive dikt handler om å male bilder med ord, røre ved følelser og si mye ved å si lite. Her er din guide fra blanke ark til ferdig dikt."
         },
         {
             "type": "header",
-            "text": "1. Finn et tema"
+            "text": "1. Det gylne prinsippet: 'Vis det, ikke si det'"
         },
         {
             "type": "text",
-            "content": "Hva vil du si? Handler det om kjærlighet, natur, sorg eller glede? Konsentrer deg om én følelse eller tanke."
+            "content": "Dette er hjørnesteinen i god skrivekunst. I stedet for å *rapportere* følelser eller hendelser til leseren, skal du *male* dem frem gjennom sansene."
+        },
+        {
+            "type": "comparison",
+            "before": {
+                "label": "Å fortelle (Referat)",
+                "content": "Jeg var trist og lei meg fordi det regnet ute."
+            },
+            "after": {
+                "label": "Å vise (Opplevelse)",
+                "content": "Jeg tegnet streker i duggen på ruten mens himmelen gråt stille mot taksteinene."
+            }
+        },
+        {
+            "type": "text",
+            "content": "Ser du forskjellen? I det andre eksempelet *føler* vi stemningen i stedet for bare å få den rapportert."
         },
         {
             "type": "header",
-            "text": "2. Lek med ordene"
+            "text": "2. Verktøykassen: Språklige bilder"
         },
         {
             "type": "text",
-            "content": "Smak på ordene. Bruk allitterasjon (bokstavrim) som 'sus og dus'. Prøv å finne nye måter å beskrive ting på."
+            "content": "For å skape disse bildene, bruker vi språklige virkemidler. Her er de viktigste verktøyene du bør ha i kassen:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Metafor**: Å si at noe *er* noe annet. Det skaper en sterk forbindelse. \n*Eksempel: 'Du er en rose i vinterhagen min.'*",
+                "**Sammenligning**: Å si at noe er *som* eller *lik* noe annet. Litt mildere enn metafor. \n*Eksempel: 'Sinnet hans var som et tordenvær som bygget seg opp.'*",
+                "**Besjeling**: Å gi døde ting liv eller menneskelige egenskaper. \n*Eksempel: 'Vinden hvisket hemmeligheter i trærne.'*",
+                "**Kontrast**: Å sette motsetninger opp mot hverandre for å forsterke dem. \n*Eksempel: 'Svart sorg og hvit glede', 'Liten kropp, stor skygge'.*"
+            ]
         },
         {
             "type": "header",
-            "text": "3. Bruk sansene"
+            "text": "3. Form og Rim: Orden eller Kaos?"
         },
         {
             "type": "text",
-            "content": "Ikke bare fortell hva som skjer. Beskriv lukter, lyder og farger. 'Solen var gul' er kjedelig. 'Solen stekte som en sint veps' er bedre."
+            "content": "Formen på diktet ditt er ikke tilfeldig. Den skal være med på å fortelle historien. Skriver du om kaos og forvirring? Da kan en rotete, oppstykket form passe best (fri form). Skriver du om trygghet og orden? Da kan faste rim og rytme være lurt."
+        },
+        {
+            "type": "subheader",
+            "text": "Linjedeling"
+        },
+        {
+            "type": "text",
+            "content": "Hvor du velger å bryte linjen bestemmer pausen. Et linjeskift er en liten pustepause som gir ordet før eller etter ekstra vekt."
+        },
+        {
+            "type": "poem",
+            "content": "Du gikk.\nIkke."
+        },
+        {
+            "type": "text",
+            "content": "Her får 'Ikke' en enorm tyngde fordi det står alene."
+        },
+        {
+            "type": "subheader",
+            "text": "Rimmønster"
+        },
+        {
+            "type": "text",
+            "content": "Mange tror dikt *må* rime. Det må de ikke, men rim kan binde teksten sammen og skape musikalitet. Her er de vanligste mønstrene:"
+        },
+        {
+            "type": "poem",
+            "title": "Parrim (AABB)",
+            "content": "Jeg gikk en tur på stien\nog søkte skogens viden\nDer så jeg en liten fugl\nsom satt bak et hjul"
+        },
+        {
+            "type": "poem",
+            "title": "Kryssrim (ABAB)",
+            "content": "Fjellet står så grått og kaldt\nmot himmelens blåe tak\nHer oppe glemmer jeg alt\nav byens støy og mak"
+        },
+        {
+            "type": "poem",
+            "title": "Omsluttende rim (ABBA)",
+            "content": "En verden full av is\nHvor ingen blomster gror\nHvor ingen setter spor\nTil en høyere pris"
         },
         {
             "type": "header",
-            "text": "4. Bryt reglene"
+            "text": "4. Kom i gang: En trinnvis oppskrift"
         },
         {
-            "type": "text",
-            "content": "Du trenger ikke rim. Du trenger ikke store bokstaver. Du bestemmer formen."
+            "type": "list",
+            "ordered": true,
+            "items": [
+                "**Idémyldring**: Legg et blankt ark foran deg. Skriv temaet i midten. Skriv ned absolutt alt du assosierer med det. Her finnes ingen sensur!",
+                "**Utvelgelse**: Se på myldret ditt. Hvilke ord smaker best? Hvilke bilder er sterkest? Ring rundt dine favoritter.",
+                "**Første utkast (Råtekst)**: Skriv raskt. Ikke tenk på rim eller regler. Bare få ordene ut av hodet og ned på papiret.",
+                "**Siselering (Redigering)**: Nå starter det virkelige arbeidet. Kutt nådeløst. Trenger du fyllord som 'veldig', 'ganske' eller 'liksom'? Sannsynligvis ikke.",
+                "**Oppsett**: Eksperimenter med linjedeling. Hva skjer hvis du lar ett viktig ord stå helt alene på en linje?"
+            ]
+        },
+        {
+            "type": "info",
+            "title": "Husk!",
+            "content": "Det finnes ingen 'feil' i poesi. Hvis du bryter en regel med vilje for å få frem en effekt, er det kunst. Hvis du gjør det ved en feil, er det læring. Bare skriv!"
         }
     ],
     "tags": [
         "skrivehjelp",
-        "dikt"
+        "dikt",
+        "lyrikk",
+        "virkemidler"
     ],
+    "year": "Nåtid",
     "relatedLink": {
         "text": "Les om sjangeren Dikt",
         "url": "/norsk/tekstsjangre/dikt"

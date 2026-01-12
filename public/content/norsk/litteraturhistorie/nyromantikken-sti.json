@@ -66,12 +66,17 @@
                 "content": "Har du noen gang følt deg helt alene, selv om du er midt i en folkemengde? Det kalles fremmedgjøring, og det var en følelse mange kjente på da byene vokste frem.\n\nSigbjørn Obstfelder beskrev dette best av alle. I diktet 'Jeg ser' ser han ikke på byen med beundring, men med frykt og undring. Han føler seg ikke hjemme på jorden.\n\nHan ser på menneskene, husene og himmelen med et blikk som om han nettopp har landet fra en annen planet.",
                 "tasks": [
                     "Hva betyr 'fremmedgjøring'? (Prøv å forklare det med egne ord).",
-                    "Hvorfor tror du storbyer (som Kristiania/Oslo) kan få folk til å føle seg mer ensomme enn på bygda?"
+                    "Hvorfor tror du storbyer (som Kristiania/Oslo) kan få folk til å føle seg mer ensomme enn på bygda?",
+                    "Skriv et kort dikt om en person som opplever fremmedgjøring."
                 ],
                 "links": [
                     {
                         "title": "Les diktet 'Jeg ser'",
                         "url": "/norsk/bibliotek/jeg-ser"
+                    },
+                    {
+                        "title": "Skrivetips: Hvordan skrive dikt",
+                        "url": "/norsk/skrivehjelp/hvordan-skrive-dikt"
                     }
                 ]
             },
@@ -180,19 +185,38 @@
                 }
             },
             {
-                "id": "sult-lesing",
+                "id": "sult-del1",
                 "phase": "Fase 2: Jeg-et og Storbyen",
-                "title": "Det ubevisste sjeleliv",
+                "title": "Sult: Desperasjonen",
                 "type": "ressurs",
-                "content": "Les utdraget fra Knut Hamsuns gjennombruddsroman 'Sult'. Legg merke til hvordan han beskriver tankene som kretser rundt og rundt, ofte uten logikk.",
+                "content": "Vi skal lese utdraget fra Knut Hamsuns gjennombruddsroman 'Sult'.\n\nI første del møter vi hovedpersonen mens han vandrer sulten rundt i Kristiania. Legg merke til hvordan tankene hans kverner rundt stolthet og ydmykelse.",
                 "tasks": [
-                    "Les teksten.",
-                    "Hvorfor tror du denne boken ble en sensasjon i 1890?"
+                    "Les Utdrag 1.",
+                    "Hvorfor tror du han lyver til pantelåneren om vesten?",
+                    "Hva forteller beskrivelsen av Kristiania i første setning om hovedpersonens forhold til byen?"
                 ],
                 "links": [
                     {
-                        "title": "Gå til teksten",
+                        "title": "Gå til Utdrag 1",
                         "url": "/norsk/bibliotek/sult-utdrag"
+                    }
+                ]
+            },
+            {
+                "id": "sult-del2",
+                "phase": "Fase 2: Jeg-et og Storbyen",
+                "title": "Sult: Møtet med Ylajali",
+                "type": "ressurs",
+                "content": "Senere i boken får hovedpersonen endelig møte kvinnen han har drømt om, 'Ylajali'.\n\nScroll ned til **Utdrag 2** i teksten.",
+                "tasks": [
+                    "Les Utdrag 2.",
+                    "Hvorfor skifter han brått fra å være ydmyk til å være aggressiv?",
+                    "Hvordan reagerer Ylajali på oppførselen hans?"
+                ],
+                "links": [
+                    {
+                        "title": "Gå til Utdrag 2",
+                        "url": "/norsk/bibliotek/sult-utdrag#utdrag-2-side-129-141"
                     }
                 ]
             },
@@ -203,7 +227,7 @@
                 "type": "fakta",
                 "content": "Men Nyromantikken var ikke bare mørk angst og sult. Den var også en fest for sansene! Noen diktere var lei av at ordene alltid måtte «bety» noe viktig.\n\nDe ville heller at diktene skulle være som musikk. De lekte med rim, rytme og klang.\n\nDa Vilhelm Krag leste diktet sitt 'Fandango', ble studentene så begeistret over de eksotiske og musikalske ordene at de bar ham på gullstol hjem gjennom Kristianias gater.",
                 "tasks": [
-                    "Hva betyr det at et dikt er 'musikalsk'?",
+                    "Hva tror du det betyr at et dikt er 'musikalsk'?",
                     "Prøv å lese et dikt høyt og legg merke til rytmen."
                 ]
             },

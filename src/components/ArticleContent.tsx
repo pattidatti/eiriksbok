@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Volume2, ChevronDown, Info } from 'lucide-react';
+import { Volume2, ChevronDown, Info, CheckCircle2, XCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getComponent } from './ComponentRegistry';
 import { useGlossary } from '../context/GlossaryContext';
@@ -145,11 +145,77 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                             </div>
                         );
 
+
+
+                    case 'poem':
+                        return (
+                            <div key={index} className="my-10 max-w-lg mx-auto">
+                                <div className="bg-[#fcfbf7] border border-[#e8e6dc] p-8 rounded-sm shadow-sm relative overflow-hidden">
+                                    {/* Decorative top border */}
+                                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent opacity-50" />
+
+                                    {block.title && (
+                                        <h4 className="font-serif italic text-lg text-slate-500 text-center mb-6">
+                                            {block.title}
+                                        </h4>
+                                    )}
+
+                                    <div className="font-serif text-lg leading-loose text-slate-800 text-center whitespace-pre-line">
+                                        {block.content}
+                                    </div>
+
+                                    {block.author && (
+                                        <div className="mt-6 text-center text-sm font-sans font-bold text-slate-400 uppercase tracking-widest">
+                                            — {block.author}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        );
+
                     case 'header':
                         return (
                             <h2 key={index} className="text-2xl font-bold text-slate-800 mb-4 mt-8">
                                 {block.content || block.text || block.value}
                             </h2>
+                        );
+
+                    case 'subheader':
+                        return (
+                            <h3 key={index} className="text-xl font-bold text-slate-800 mb-3 mt-6">
+                                {block.content || block.text || block.value}
+                            </h3>
+                        );
+
+                    case 'comparison':
+                        return (
+                            <div key={index} className="my-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {/* 'Before' / Negative Card */}
+                                <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden group hover:shadow-md transition-shadow">
+                                    <div className="bg-slate-50 border-b border-slate-100 p-4 flex items-center gap-3">
+                                        <XCircle className="w-5 h-5 text-red-500" />
+                                        <span className="font-bold text-slate-700 uppercase tracking-wide text-sm">
+                                            {block.before?.label || 'Før'}
+                                        </span>
+                                    </div>
+                                    <div className="p-6 text-slate-600 italic leading-relaxed bg-slate-50/30">
+                                        "{block.before?.content}"
+                                    </div>
+                                </div>
+
+                                {/* 'After' / Positive Card */}
+                                <div className="bg-white rounded-xl shadow-sm border border-green-200 overflow-hidden group hover:shadow-md transition-shadow relative">
+                                    <div className="bg-green-50 border-b border-green-100 p-4 flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-green-600" />
+                                        <span className="font-bold text-green-800 uppercase tracking-wide text-sm">
+                                            {block.after?.label || 'Etter'}
+                                        </span>
+                                    </div>
+                                    <div className="p-6 text-slate-800 font-medium leading-relaxed bg-green-50/10">
+                                        "{block.after?.content}"
+                                    </div>
+                                </div>
+                            </div>
                         );
 
                     case 'section':
@@ -164,12 +230,41 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
 
                     case 'list':
                         const ListTag = block.ordered ? 'ol' : 'ul';
+
+                        // Check if this is a "Definition List" (items start with **Bold**:)
+                        const isDefinitionList = block.items?.every((item: string) =>
+                            item.trim().startsWith('**') && item.includes('**:')
+                        );
+
+                        if (isDefinitionList) {
+                            return (
+                                <div key={index} className="my-10 space-y-6">
+                                    {block.items?.map((item: string, i: number) => {
+                                        // Parse "**Title**: Content"
+                                        const match = item.match(/^\*\*(.*?)\*\*:\s*(.*)/);
+                                        if (!match) return null;
+
+                                        const [, title, content] = match;
+
+                                        return (
+                                            <div key={i} className="bg-slate-50 rounded-xl p-6 border border-slate-100 hover:border-indigo-100 transition-colors">
+                                                <div className="font-bold text-indigo-900 text-lg mb-2">{title}</div>
+                                                <div className="text-slate-700 leading-relaxed">
+                                                    {renderInlineMarkdown(content, mergedConcepts)}
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            );
+                        }
+
                         const listStyle = block.ordered ? "list-decimal" : "list-disc";
 
                         return (
-                            <ListTag key={index} className={`${listStyle} list-inside space-y-2 mb-8 text-slate-700`}>
+                            <ListTag key={index} className={`${listStyle} list-outside ml-6 space-y-3 mb-8 text-slate-700`}>
                                 {block.items?.map((item: string, i: number) => (
-                                    <li key={i} className="leading-relaxed">
+                                    <li key={i} className="leading-relaxed pl-2">
                                         {renderInlineMarkdown(item, mergedConcepts)}
                                     </li>
                                 ))}
@@ -290,6 +385,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                             </details>
                         );
 
+                    case 'info':
                     case 'info_box':
                         return (
                             <div key={index} className="my-8 bg-blue-50 border border-blue-100 rounded-xl p-6 shadow-sm">
