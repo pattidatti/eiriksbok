@@ -4,7 +4,7 @@ export interface TextEntry {
     author: string;
     genre: string;
     theme?: string[];
-    language?: 'bm.' | 'nn.';
+    language?: string;
     url?: string;
     content?: string[];
     year?: number; // Alias for publishedYear
