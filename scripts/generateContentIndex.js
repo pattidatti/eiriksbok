@@ -35,10 +35,48 @@ function scanDirectory(dir) {
 
             // Determine ID
             let id = '';
+
+            // Files that are too generic and MUST include parent context
+            // e.g. "oversikt.json" inside "ww2" -> "ww2-oversikt"
+            const genericBlocklist = [
+                'oversikt', 'intro', 'bakgrunn', 'konsekvenser', 'teknologi',
+                'kultur', 'opptakt', 'krigens-lop', 'frelse', 'bønn', 'bonn',
+                'grunnleggere', 'gudsbilde', 'hellige-tekster', 'overgangsriter',
+                'sentrale-trekk', 'artikkel', 'skapelse', 'berlinmuren', 'svartedauden'
+            ];
+
+            const filenameNoExt = path.basename(file, '.json').toLowerCase();
+            const parentFolder = parts[parts.length - 2].toLowerCase();
+            const grandparentFolder = parts.length > 3 ? parts[parts.length - 3].toLowerCase() : null;
+
+            const isQuest = parts.includes('quests');
+            const isDetective = parts.includes('detective');
+
+            // Strategy 1: "Artikkel" Pattern (Religions)
+            // content/religion/bahai/bonn/artikkel.json -> "bahai-bonn"
             if (file === 'artikkel.json') {
-                id = parts[parts.length - 2].toLowerCase();
-            } else {
-                id = path.basename(file, '.json').toLowerCase();
+                // Check if parent is generic (e.g. "bonn")
+                if (genericBlocklist.includes(parentFolder) && grandparentFolder) {
+                    id = `${grandparentFolder}-${parentFolder}`;
+                } else {
+                    id = parentFolder;
+                }
+            }
+            // Strategy 2: Quests & Detective Game Content
+            else if (isQuest) {
+                id = `quest-${filenameNoExt}`;
+            }
+            else if (isDetective) {
+                id = `detective-${filenameNoExt}`;
+            }
+            // Strategy 3: Generic Filenames 
+            // content/history/ww2/oversikt.json -> "ww2-oversikt"
+            else if (genericBlocklist.includes(filenameNoExt)) {
+                id = `${parentFolder}-${filenameNoExt}`;
+            }
+            // Strategy 4: Standard
+            else {
+                id = filenameNoExt;
             }
 
             // 1. Add to Collision-Aware Flat Map
