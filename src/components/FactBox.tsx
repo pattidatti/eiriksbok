@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, Lightbulb } from 'lucide-react';
-import { GlossaryText } from './GlossaryText';
 import { motion, AnimatePresence } from 'framer-motion';
+import { renderInlineMarkdown } from './markdownUtils';
+import { useGlossary } from '../context/GlossaryContext';
 
 interface FactBoxProps {
     title?: string;
@@ -12,6 +13,7 @@ interface FactBoxProps {
 
 export const FactBox: React.FC<FactBoxProps> = ({ title = 'Visste du at?', content, items }) => {
     const [isOpen, setIsOpen] = useState(true);
+    const { entries } = useGlossary();
 
     // Combine content and items into a unified list
     const contentLines = content ? content.split('\n') : [];
@@ -21,11 +23,11 @@ export const FactBox: React.FC<FactBoxProps> = ({ title = 'Visste du at?', conte
         <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="my-8 rounded-2xl overflow-hidden border border-indigo-100 bg-gradient-to-br from-indigo-50/50 to-white shadow-sm"
+            className="my-8 rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50/50 to-white shadow-sm transition-colors duration-300"
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full p-5 flex items-center justify-between text-left group bg-indigo-50/30 hover:bg-indigo-50/80 transition-all duration-300"
+                className={`w-full p-5 flex items-center justify-between text-left group bg-indigo-50/30 hover:bg-indigo-50/80 transition-all duration-300 ${isOpen ? 'rounded-t-2xl' : 'rounded-2xl'}`}
                 aria-expanded={isOpen}
             >
                 <div className="flex items-center gap-3">
@@ -44,28 +46,23 @@ export const FactBox: React.FC<FactBoxProps> = ({ title = 'Visste du at?', conte
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
+                        initial={{ height: 0, opacity: 0, overflow: 'hidden' }}
+                        animate={{
+                            height: 'auto',
+                            opacity: 1,
+                            transitionEnd: { overflow: 'visible' }
+                        }}
+                        exit={{ height: 0, opacity: 0, overflow: 'hidden' }}
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="overflow-hidden"
                     >
-                        <div className="p-6 pt-2 text-slate-600 text-base leading-relaxed space-y-4 border-t border-indigo-100/50">
+                        <div className="p-6 pt-2 text-slate-600 text-base leading-relaxed space-y-4 border-t border-indigo-100/50 rounded-b-2xl">
                             {allItems.length > 0 ? (
                                 <ul className="space-y-3">
                                     {allItems.map((line, index) => (
                                         <li key={index} className="flex gap-3 items-start">
                                             <span className="mt-2 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
                                             <span>
-                                                {line.split(/(\*\*.*?\*\*|\*[^*]+?\*)/g).map((part, i) => {
-                                                    if (part.startsWith('**') && part.endsWith('**')) {
-                                                        return <strong key={i} className="text-indigo-900 font-semibold"><GlossaryText content={part.slice(2, -2)} /></strong>;
-                                                    }
-                                                    if (part.startsWith('*') && part.endsWith('*')) {
-                                                        return <em key={i} className="text-slate-500"><GlossaryText content={part.slice(1, -1)} /></em>;
-                                                    }
-                                                    return <GlossaryText key={i} content={part} />;
-                                                })}
+                                                {renderInlineMarkdown(line, entries)}
                                             </span>
                                         </li>
                                     ))}
