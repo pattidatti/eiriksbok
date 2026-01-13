@@ -2,6 +2,14 @@
 
 Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok.
 
+### Bugs
+- [ ] Loading bar forsvinner ikke når den er ferdig. 
+- [ ] Tilbakeknappen skal gå tilbake til forrige side (slik som i browseren), ikke opp et nivå. 
+- [ ] Lysbildefunksjonen skal bare vises i læringsstier. 
+- [ ] Det er en del linker som er ullfullstendige eller er skrevet i klartekst, ikke ekte linker. 
+- [ ] Det er en del tabeller/sammenligninger som mangler innhold. 
+- [ ] Læringsstier laster ikke. Må gå ut og inn på en annen før de vises. Major bug. 
+
 ## 💡 Ideer
 - [ ] Hvert emne bør ha en kort beskrivelse, overblikk over fagbegreper og hva som er viktig. 
 - [ ] En tidslinje inne på historie som heter alle hendelser nevnt i artiklene, ikke bare artiklene selv. 
