@@ -1630,5 +1630,37 @@
     "type": "person",
     "subject": "historie",
     "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Gamal Abdel Nasser",
+    "definition": "Egypts president (1956–1970). Nasjonaliserte Suezkanalen, noe som førte til Suezkrisen. En sentral leder innen arabisk nasjonalisme og alliansefrihet.",
+    "lifespan": "1918–1970",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Ho Chi Minh",
+    "definition": "Vietnamesisk revolusjonær leder som kjempet mot fransk kolonimakt og senere USA i Vietnamkrigen. Grunnlegger av det kommunistiske Nord-Vietnam.",
+    "lifespan": "1890–1969",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Winston Churchill",
+    "definition": "Storbritannias statsminister under andre verdenskrig. En sentral alliert leder som senere advarte mot Sovjetunionen og munnhellet begrepet 'Jernteppet'.",
+    "lifespan": "1874–1965",
+    "type": "person",
+    "subject": "historie",
+    "topic": "andre-verdenskrig"
+  },
+  {
+    "term": "Mao Zedong",
+    "definition": "Leder av det kinesiske kommunistpartiet og grunnlegger av Folkerepublikken Kina (1949). Kjent for sine radikale reformer som 'Det store spranget' og kulturrevolusjonen.",
+    "lifespan": "1893–1976",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
   }
 ]
