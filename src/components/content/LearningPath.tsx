@@ -10,10 +10,11 @@ import {
     ExternalLink,
     Gamepad2,
     ArrowRight,
-    Brain
+    Brain,
+    Monitor
 } from 'lucide-react';
 import type { LearningPathData, LearningPathStep } from '../../types';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { getComponent } from '../ComponentRegistry';
 
 interface LearningPathProps {
@@ -51,6 +52,8 @@ import { useGlossary } from '../../context/GlossaryContext';
 
 export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
     const { entries } = useGlossary();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     return (
         <div className="max-w-4xl mx-auto py-8 px-6">
@@ -81,13 +84,22 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                         return (
                             <React.Fragment key={step.id}>
                                 {showPhase && (
-                                    <div className="relative pl-14 py-4">
+                                    <div className="relative pl-14 py-4 flex items-center justify-between">
                                         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center z-10">
                                             <div className="w-3 h-3 rounded-full bg-slate-300 border-2 border-white" />
                                         </div>
                                         <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">
                                             Fase: {step.phase}
                                         </h2>
+
+                                        <button
+                                            onClick={() => navigate(`${location.pathname}/present`)}
+                                            className="flex items-center gap-2 px-3 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-xs font-bold hover:bg-indigo-100 transition-colors border border-indigo-200/50"
+                                            title="Start presentasjon"
+                                        >
+                                            <Monitor className="w-3 h-3" />
+                                            Lysbilder
+                                        </button>
                                     </div>
                                 )}
                                 <motion.div

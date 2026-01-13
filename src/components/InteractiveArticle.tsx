@@ -5,8 +5,7 @@ import {
     Volume2,
     PauseCircle,
     PlayCircle,
-    ArrowLeft,
-    Monitor
+    ArrowLeft
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ArticleContent } from './ArticleContent';
@@ -180,33 +179,20 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, o
             {/* Progress Bar */}
             <motion.div
                 className="fixed top-16 left-0 h-1 bg-indigo-600 z-50"
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
+                initial={{ width: "0%", opacity: 1 }}
+                animate={{ width: "100%", opacity: 0 }}
+                transition={{
+                    width: { duration: 1.5, ease: "easeInOut" },
+                    opacity: { duration: 0.3, delay: 1.5, ease: "easeIn" }
+                }}
             />
 
             {/* Navigation Bar */}
             <div className="fixed top-32 left-0 w-full p-4 flex justify-between items-center z-40 pointer-events-none">
                 <div className="pointer-events-auto flex gap-2">
+
                     <button
-                        onClick={() => {
-                            // Construct the presentation URL
-                            // Check if we have subject/topic/lesson structure
-                            if (event.subjectId && event.topicId) {
-                                navigate(`/${event.subjectId}/${event.topicId}/present/${event.id}`);
-                            } else {
-                                // Fallback for other path structures
-                                navigate(`${window.location.pathname}/present`);
-                            }
-                        }}
-                        className="flex items-center px-4 py-2 bg-indigo-600 rounded-full text-white font-bold hover:bg-indigo-500 transition-all shadow-sm hover:shadow-md group border border-indigo-500/50"
-                        title="Start presentasjon (Lærer-modus)"
-                    >
-                        <Monitor className="w-4 h-4 mr-2" />
-                        Lysbilder
-                    </button>
-                    <button
-                        onClick={onClose}
+                        onClick={() => navigate(-1)}
                         className="flex items-center px-4 py-2 bg-white/80 backdrop-blur-md rounded-full text-slate-900 font-bold hover:bg-white transition-all shadow-sm hover:shadow-md group border border-slate-200/50"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
