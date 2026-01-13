@@ -31,9 +31,14 @@ const getBasePath = () => {
 
 /**
  * Loads the authoritative content index.
+ * Implements "getOrFetch" with self-healing cache for failures.
  */
 export async function fetchRegistry(): Promise<ContentIndex | null> {
+    // Return existing promise if inflight
     if (globalRegistryPromise) return globalRegistryPromise;
+
+    // Return cached value if already successful
+    if (cachedRegistry) return Promise.resolve(cachedRegistry);
 
     const basePath = getBasePath();
     console.log(`[ContentRegistry] Fetching registry from: ${basePath}content/content-index.json`);
@@ -41,8 +46,8 @@ export async function fetchRegistry(): Promise<ContentIndex | null> {
     globalRegistryPromise = fetch(`${basePath}content/content-index.json`, { cache: 'no-cache' })
         .then(async (response) => {
             if (!response.ok) {
-                console.error("[ContentRegistry] Failed to fetch registry:", response.statusText);
-                return null;
+                // Critical: Do not cache the failure!
+                throw new Error(`Failed to fetch registry: ${response.statusText}`);
             }
             const data = await response.json() as ContentIndex;
             cachedRegistry = data;
@@ -51,6 +56,8 @@ export async function fetchRegistry(): Promise<ContentIndex | null> {
         })
         .catch((error) => {
             console.error("[ContentRegistry] Error loading registry:", error);
+            // Critical: Reset the promise so we can try again later/next time
+            globalRegistryPromise = null;
             return null;
         });
 
@@ -59,14 +66,14 @@ export async function fetchRegistry(): Promise<ContentIndex | null> {
 
 export async function fetchManifest(): Promise<Manifest | null> {
     if (globalManifestPromise) return globalManifestPromise;
+    if (cachedManifest) return Promise.resolve(cachedManifest);
 
     const basePath = getBasePath();
 
     globalManifestPromise = fetch(`${basePath}content/manifest.json`, { cache: 'default' })
         .then(async (response) => {
             if (!response.ok) {
-                console.error("Failed to fetch manifest:", response.statusText);
-                return null;
+                throw new Error(`Failed to fetch manifest: ${response.statusText}`);
             }
             const data = await response.json() as Manifest;
             cachedManifest = data;
@@ -74,6 +81,7 @@ export async function fetchManifest(): Promise<Manifest | null> {
         })
         .catch((error) => {
             console.error("Error loading manifest:", error);
+            globalManifestPromise = null;
             return null;
         });
 
@@ -88,10 +96,19 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     const basePath = getBasePath();
     const normalizedId = lessonId.toLowerCase();
 
-    console.log(`[ContentLoader] Resolving: ${normalizedId} (Context: ${subject}/${topic})`);
+    // console.log(`[ContentLoader] Resolving: ${normalizedId} (Context: ${subject}/${topic})`);
 
-    // 1. Ensure Registry is loaded (but don't fail if it's missing)
+    // 1. Ensure Registry is loaded
+    // We intentionally await this. If it fails, it returns null (via catch above).
+    // BUT we need to decide if we want to THROW here to trigger retries in React Query.
     let registry = await fetchRegistry();
+    const manifest = await fetchManifest();
+
+    // If both critical indexes failed, we can't reliably resolve anything.
+    // Throwing an error here allows React Query to retry the operation.
+    if (!registry && !manifest) {
+        throw new Error("[ContentLoader] Critical: Registry and Manifest failed to load. Retrying...");
+    }
 
     // --- TIER 1: REGISTRY (Performance & Exact Match) ---
     // If registry is available, it is the authority.
@@ -105,17 +122,17 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
 
         if (registry.hierarchicalMap[contextKey]) {
             resolvedPath = registry.hierarchicalMap[contextKey];
-            console.log(`[ContentLoader] Tier 1A (Hierarchy) hit: ${resolvedPath}`);
+            // console.log(`[ContentLoader] Tier 1A (Hierarchy) hit: ${resolvedPath}`);
         }
         // 1B. Flat Lookup
         else if (registry.contentMap[normalizedId]) {
             const entry = registry.contentMap[normalizedId];
             if (Array.isArray(entry)) {
                 resolvedPath = entry.find(p => p.includes(`/${subject.toLowerCase()}/`) && p.includes(`/${topic.toLowerCase()}/`)) || entry[0];
-                console.log(`[ContentLoader] Tier 1B (Flat-Collision) hit: ${resolvedPath}`);
+                // console.log(`[ContentLoader] Tier 1B (Flat-Collision) hit: ${resolvedPath}`);
             } else {
                 resolvedPath = entry;
-                console.log(`[ContentLoader] Tier 1B (Flat) hit: ${resolvedPath}`);
+                // console.log(`[ContentLoader] Tier 1B (Flat) hit: ${resolvedPath}`);
             }
         }
     }
@@ -123,26 +140,23 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     // --- TIER 2: MANIFEST AUTHORITY (Robustness) ---
     // If Registry failed or is missing, consult the Manifest. 
     // This is critical for "Learning Paths" which have clean URLs in manifest but need .json files.
-    if (!resolvedPath) {
-        const manifest = await fetchManifest();
-        if (manifest) {
-            const node = findNodeInManifest(manifest.subjects, lessonId);
-            if (node && node.link) {
-                // Construct path from manifest link
-                // 1. Remove leading slash
-                let path = node.link.startsWith('/') ? node.link.slice(1) : node.link;
-                // 2. Ensure it starts with 'content/' if it's not an external URL
-                if (!path.startsWith('http') && !path.startsWith('content/')) {
-                    path = `content/${path}`;
-                }
-                // 3. Ensure it ends with .json
-                if (!path.endsWith('.json')) {
-                    path += '.json';
-                }
-
-                resolvedPath = path;
-                console.log(`[ContentLoader] Tier 2 (Manifest) derived path: ${resolvedPath}`);
+    if (!resolvedPath && manifest) {
+        const node = findNodeInManifest(manifest.subjects, lessonId);
+        if (node && node.link) {
+            // Construct path from manifest link
+            // 1. Remove leading slash
+            let path = node.link.startsWith('/') ? node.link.slice(1) : node.link;
+            // 2. Ensure it starts with 'content/' if it's not an external URL
+            if (!path.startsWith('http') && !path.startsWith('content/')) {
+                path = `content/${path}`;
             }
+            // 3. Ensure it ends with .json
+            if (!path.endsWith('.json')) {
+                path += '.json';
+            }
+
+            resolvedPath = path;
+            console.log(`[ContentLoader] Tier 2 (Manifest) derived path: ${resolvedPath}`);
         }
     }
 
@@ -151,7 +165,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     if (!resolvedPath) {
         const subPath = subTopicId ? `${subTopicId}/` : '';
         resolvedPath = `content/${subject}/${topic}/${subPath}${normalizedId}.json`;
-        console.warn(`[ContentLoader] Tier 3 (Convention) fallback used: ${resolvedPath}`);
+        // console.warn(`[ContentLoader] Tier 3 (Convention) fallback used: ${resolvedPath}`);
     }
 
     // --- EXECUTION ---
@@ -162,8 +176,10 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
 
             const r = await fetch(finalUrl, { cache: 'no-cache' });
             if (!r.ok) {
-                // If Tier 3 failed, it's a true 404.
+                // If Tier 3 failed, it might be a true 404.
                 console.error(`[ContentLoader] Fetch failed for path: ${finalUrl} (${r.status})`);
+                // If we were relying on Tier 3 (Convention) and it failed, keep it null (404).
+                // But if we found it in Registry (Tier 1) and it failed, that's a data consistency error.
                 return null;
             }
 
@@ -179,19 +195,19 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
             }
 
             // Enrich metadata from manifest
-            const manifest = await fetchManifest();
             if (manifest) {
                 const node = findNodeInManifest(manifest.subjects, lessonId);
                 // console.log(`[ContentLoader] Found manifest node for ${lessonId}:`, node?.title);
                 if (node) enrichLessonWithMetadata(data, node);
             }
 
-            console.log(`[ContentLoader] Successfully loaded ${lessonId}`);
+            // console.log(`[ContentLoader] Successfully loaded ${lessonId}`);
 
             return data as Lesson;
         } catch (e) {
             console.error(`[ContentLoader] Failed to load resolved path: ${resolvedPath}`, e);
-            return null;
+            // If the JSON parsing fails or network cuts out mid-stream, throw to retry.
+            throw e;
         }
     }
 
