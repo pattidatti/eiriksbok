@@ -167,6 +167,26 @@
                 ]
             },
             {
+                "id": "cold-war-suez",
+                "title": "Suez: Solnedgang for imperiene",
+                "type": "fakta",
+                "content": "1956. Solen brenner i Egypt, og Nasser har nasjonalisert kanalen. Britene og franskmennene raser – de tror de fortsatt styrer verden. De sender tropper sammen med Israel. Men du ser noe merkelig: For første gang står USA og Sovjet sammen. De gir beskjed: 'Gå hjem'. Og de gamle stormaktene adlyder. Imperienes tid er forbi. Nå er det bare to giganter igjen.",
+                "tasks": [
+                    "Hvorfor er Suez-krisen symbolet på at Storbritannia og Frankrike ikke lenger var supermakter?",
+                    "Hvordan reagerte USA og Sovjetunionen på trippel-invasjonen?",
+                    "Hva var 'Sèvres-protokollen'?",
+                    "Hvem var Gamal Abdel Nasser, og hva ville han oppnå?",
+                    "Hva ble konsekvensen for FNs rolle (UNEF)?",
+                    "Hvordan distraherte denne krisen verden fra oppstanden i Ungarn?"
+                ],
+                "links": [
+                    {
+                        "title": "Suez-krisen",
+                        "url": "/historie/den-kalde-krigen/suez-krisen"
+                    }
+                ]
+            },
+            {
                 "id": "cold-war-space",
                 "title": "Kampen om stjernene",
                 "type": "fakta",

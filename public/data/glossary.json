@@ -768,7 +768,7 @@
   },
   {
     "term": "RAF",
-    "definition": "Royal Air Force, Tyrkias flyvåpen som forsvarte landet under slaget om Storbritannia.",
+    "definition": "Royal Air Force, Storbritannias flyvåpen som forsvarte landet under slaget om Storbritannia.",
     "subject": "historie",
     "topic": "andre-verdenskrig",
     "tags": [],
@@ -1486,5 +1486,149 @@
     "subject": "historie",
     "lifespan": "1225 – 1274",
     "link": "/filosofi/middelalder/thomas-aquinas"
+  },
+  {
+    "term": "Franklin D. Roosevelt",
+    "definition": "USAs 32. president (1933–1945). Ledet USA gjennom store deler av andre verdenskrig og depresjonen. Eneste president som har sittet i mer enn to perioder.",
+    "lifespan": "1882–1945",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Harry S. Truman",
+    "definition": "USAs 33. president (1945–1953). Tok beslutningen om å bruke atombomben mot Japan. Innførte Truman-doktrinen for å demme opp mot kommunismen.",
+    "lifespan": "1884–1972",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Dwight D. Eisenhower",
+    "definition": "USAs 34. president (1953–1961). Tidligere øverstkommanderende for de allierte styrkene i Europa. Kjent for våpenkappløp og dominoteorien.",
+    "lifespan": "1890–1969",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "John F. Kennedy",
+    "definition": "USAs 35. president (1961–1963). Kjent for Cubakrisen, romkappløpet og engasjementet i Vietnam. Ble myrdet i Dallas.",
+    "lifespan": "1917–1963",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Lyndon B. Johnson",
+    "definition": "USAs 36. president (1963–1969). Overtok etter Kennedy. Kjent for \"Great Society\"-reformene og opptrappingen av Vietnamkrigen.",
+    "lifespan": "1908–1973",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Richard Nixon",
+    "definition": "USAs 37. president (1969–1974). Åpnet forbindelser med Kina og trakk USA ut av Vietnam. Måtte gå av etter Watergate-skandalen.",
+    "lifespan": "1913–1994",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Gerald Ford",
+    "definition": "USAs 38. president (1974–1977). Eneste president som aldri ble valgt som verken president eller visepresident.",
+    "lifespan": "1913–2006",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Jimmy Carter",
+    "definition": "USAs 39. president (1977–1981). Fokuserte på menneskerettigheter og fredsavtaler (Camp David), men slet med gisselkrisen i Iran.",
+    "lifespan": "1924–",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Ronald Reagan",
+    "definition": "USAs 40. president (1981–1989). Kjent for sin økonomiske politikk (\"Reaganomics\") og harde linje mot Sovjetunionen (\"Ondskapens imperium\").",
+    "lifespan": "1911–2004",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "George H. W. Bush",
+    "definition": "USAs 41. president (1989–1993). President da den kalde krigen tok slutt og Sovjetunionen kollapset.",
+    "lifespan": "1924–2018",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Bill Clinton",
+    "definition": "USAs 42. president (1993–2001). Ledet USA inn i en periode med økonomisk vekst etter den kalde krigen.",
+    "lifespan": "1946–",
+    "type": "person",
+    "subject": "historie",
+    "topic": "etterkrigstiden"
+  },
+  {
+    "term": "Vladimir Lenin",
+    "definition": "Leder av bolsjevikene og grunnleggeren av Sovjetunionen. Styrte fra revolusjonen i 1917 til sin død.",
+    "lifespan": "1870–1924",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Josef Stalin",
+    "definition": "Sovjetunionens leder fra midten av 1920-tallet til 1953. Kjent for industrialisering, utrenskninger og seieren i andre verdenskrig.",
+    "lifespan": "1878–1953",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Nikita Khrusjtsjov",
+    "definition": "Sovjetisk leder (1953–1964) som tok et oppgjør med Stalin. Kjent for Cubakrisen og \"fredelig sameksistens\", men også Berlinmuren.",
+    "lifespan": "1894–1971",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Leonid Brezjnev",
+    "definition": "Sovjetisk leder (1964–1982). Perioden var preget av stabilitet, men også stagnasjon. Slo ned Praha-våren i 1968.",
+    "lifespan": "1906–1982",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Jurij Andropov",
+    "definition": "Sovjetisk leder (1982–1984). Tidligere sjef for KGB. Forsøkte reformer, men var syk og styrte kort.",
+    "lifespan": "1914–1984",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Konstantin Tsjernenko",
+    "definition": "Sovjetisk leder (1984–1985). En overgangsfigur som representerte det gamle byråkratiet.",
+    "lifespan": "1911–1985",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
+  },
+  {
+    "term": "Mikhail Gorbatsjov",
+    "definition": "Siste leder av Sovjetunionen (1985–1991). Innførte reformene Glasnost og Perestrojka som bidro til kommunismens fall.",
+    "lifespan": "1931–2022",
+    "type": "person",
+    "subject": "historie",
+    "topic": "den-kalde-krigen"
   }
 ]

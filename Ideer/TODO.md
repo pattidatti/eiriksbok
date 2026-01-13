@@ -6,8 +6,8 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [x] Loading bar forsvinner ikke når den er ferdig. 
 - [x] Tilbakeknappen skal gå tilbake til forrige side (slik som i browseren), ikke opp et nivå. 
 - [x] Lysbildefunksjonen skal bare vises i læringsstier. 
-- [ ] Det er en del linker som er ullfullstendige eller er skrevet i klartekst i artiklene, ikke ekte linker. 
-- [ ] Det er en del tabeller/sammenligninger som mangler innhold i artiklene. 
+- [x] Det er en del linker som er ullfullstendige eller er skrevet i klartekst i artiklene, ikke ekte linker. 
+- [x] Det er en del tabeller/sammenligninger som mangler innhold i artiklene. 
 - [ ] Læringsstier laster ikke. Må gå ut og inn på en annen før de vises. Major bug. 
 
 ## 💡 Ideer

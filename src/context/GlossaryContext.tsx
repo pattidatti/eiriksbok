@@ -30,7 +30,10 @@ export const GlossaryProvider: React.FC<{ children: React.ReactNode }> = ({ chil
                 const response = await fetch(`${import.meta.env.BASE_URL}data/glossary.json`);
                 if (!response.ok) throw new Error('Failed to fetch glossary');
                 const data = await response.json();
-                setEntries(data);
+                const sortedData = data.sort((a: GlossaryEntry, b: GlossaryEntry) =>
+                    a.term.localeCompare(b.term, 'nb')
+                );
+                setEntries(sortedData);
             } catch (error) {
                 console.error('Error loading glossary:', error);
             } finally {
