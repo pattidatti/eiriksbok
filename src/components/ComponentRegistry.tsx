@@ -54,6 +54,7 @@ const TetrarchyVisualizer = lazy(() => import('./content/interactive/TetrarchyVi
 const PriceEdictExplorer = lazy(() => import('./content/interactive/PriceEdictExplorer').then(m => ({ default: m.PriceEdictExplorer })));
 const RomanDefenseModel = lazy(() => import('./content/interactive/RomanDefenseModel').then(m => ({ default: m.RomanDefenseModel })));
 const DetectiveEngine = lazy(() => import('./content/interactive/detective/DetectiveEngine').then(m => ({ default: m.DetectiveEngine })));
+const PovertySimulation = lazy(() => import('./content/interactive/PovertySimulation').then(m => ({ default: m.PovertySimulation })));
 
 // Viking/Historie
 const ConflictMap = lazy(() => import('./viking/ConflictMap').then(m => ({ default: m.ConflictMap })));
@@ -126,6 +127,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     PriceEdictExplorer,
     RomanDefenseModel,
     DetectiveEngine,
+    PovertySimulation,
 
     // Viking/History
     ConflictMap,
