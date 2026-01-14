@@ -11,40 +11,55 @@ import { renderInlineMarkdown } from './markdownUtils';
 const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
     if (!text) return null;
 
-    // Split by double newlines for paragraphs
-    const paragraphs = text.split(/\n\n+/);
+    // Split by double newlines for blocks
+    const blocks = text.split(/\n\n+/);
 
     return (
         <>
-            {paragraphs.map((paragraph, pIndex) => {
+            {blocks.map((block, index) => {
                 // Check for headers
-                if (paragraph.startsWith('#')) {
-                    const level = paragraph.match(/^#+/)?.[0].length || 0;
-                    const content = paragraph.replace(/^#+\s*/, '');
-
-                    const HeaderTag = `h${Math.min(level + 1, 6)}` as any; // Shift down one level (h1 -> h2)
-
+                if (block.startsWith('#')) {
+                    const level = block.match(/^#+/)?.[0].length || 0;
+                    const content = block.replace(/^#+\s*/, '');
+                    const HeaderTag = `h${Math.min(level + 1, 6)}` as any;
                     return (
-                        <HeaderTag key={pIndex} className={`font-bold text-slate-800 mb-4 mt-6 ${level === 1 ? 'text-2xl' : level === 2 ? 'text-xl' : 'text-lg'}`}>
+                        <HeaderTag key={index} className={`font-bold text-slate-800 mb-4 mt-6 ${level === 1 ? 'text-2xl' : level === 2 ? 'text-xl' : 'text-lg'}`}>
                             {renderInlineMarkdown(content, concepts)}
                         </HeaderTag>
                     );
                 }
 
                 // Check for blockquotes
-                if (paragraph.startsWith('>')) {
-                    const content = paragraph.replace(/^>\s*/gm, ''); // Remove > from start of lines
+                if (block.startsWith('>')) {
+                    const content = block.replace(/^>\s*/gm, '');
                     return (
-                        <blockquote key={pIndex} className="my-6 pl-6 border-l-4 border-indigo-500 italic text-lg text-slate-700 bg-slate-50 py-3 pr-4 rounded-r-lg">
+                        <blockquote key={index} className="my-6 pl-6 border-l-4 border-indigo-500 italic text-lg text-slate-700 bg-slate-50 py-3 pr-4 rounded-r-lg">
                             {renderInlineMarkdown(content, concepts)}
                         </blockquote>
                     );
                 }
 
+                // Check for Unordered Lists (starts with * or -)
+                if (block.match(/^(\*|-)\s/)) {
+                    const items = block.split(/\n/).filter(line => line.trim().match(/^(\*|-)\s/));
+                    return (
+                        <ul key={index} className="list-disc list-outside ml-6 space-y-2 mb-6 text-slate-700">
+                            {items.map((item, i) => {
+                                const content = item.replace(/^(\*|-)\s+/, '');
+                                return (
+                                    <li key={i} className="leading-relaxed pl-2">
+                                        {renderInlineMarkdown(content, concepts)}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    );
+                }
+
                 // Standard paragraph
                 return (
-                    <p key={pIndex} className="mb-4 leading-relaxed">
-                        {renderInlineMarkdown(paragraph, concepts)}
+                    <p key={index} className="mb-4 leading-relaxed">
+                        {renderInlineMarkdown(block, concepts)}
                     </p>
                 );
             })}
