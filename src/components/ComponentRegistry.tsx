@@ -63,6 +63,10 @@ const MigrationJourney = lazy(() => import('./content/interactive/demography/Mig
 const LifeExpectancyModel = lazy(() => import('./content/interactive/demography/LifeExpectancyModel').then(m => ({ default: m.LifeExpectancyModel })));
 const UrbanizationTimeline = lazy(() => import('./content/interactive/demography/UrbanizationTimeline').then(m => ({ default: m.UrbanizationTimeline })));
 
+// Economics
+const TradeLoopComponent = lazy(() => import('./content/interactive/okonomi/TradeLoopComponent').then(m => ({ default: m.TradeLoopComponent })));
+const SpecializationSlider = lazy(() => import('./content/interactive/okonomi/SpecializationSlider').then(m => ({ default: m.SpecializationSlider })));
+
 // Viking/Historie
 const ConflictMap = lazy(() => import('./viking/ConflictMap').then(m => ({ default: m.ConflictMap })));
 const FeudalPyramid = lazy(() => import('./viking/FeudalPyramid').then(m => ({ default: m.FeudalPyramid })));
@@ -142,6 +146,10 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     MigrationJourney,
     LifeExpectancyModel,
     UrbanizationTimeline,
+
+    // Economics
+    TradeLoopComponent,
+    SpecializationSlider,
 
     // Viking/History
     ConflictMap,

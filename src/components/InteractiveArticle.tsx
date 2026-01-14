@@ -139,7 +139,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
         const contextEnd = currentRange.end + buffer;
 
         return globalEvents
-            .filter(e => e.id.toString() !== event.id.toString())
+            .filter(e => e.id?.toString() !== event.id?.toString())
             .filter(e => {
                 const eStart = e.startDate;
                 const eEnd = e.endDate || e.startDate;
@@ -171,7 +171,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
     const relatedArticles = useRelatedContent(
         event.subjectId || '',
         event.topicId || '',
-        event.id.toString()
+        event.id?.toString() || ''
     ).slice(0, 5); // Limit to 5 related articles
 
     return (
