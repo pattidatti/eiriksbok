@@ -1,5 +1,4 @@
-```
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Sprout, AlertOctagon, Lightbulb } from 'lucide-react';
 
@@ -24,12 +23,14 @@ export const MalthusBoserupModel = () => {
         { time: 5, pop: 160, food: 200, innovation: true } // Innovation jump
     ];
 
+    const currentData = mode === 'malthus' ? malthusData : boserupData;
+
     return (
         <div className="w-full bg-slate-50 border border-slate-200 rounded-2xl shadow-sm overflow-hidden font-sans">
             <div className="flex border-b border-slate-200">
                 <button
                     onClick={() => setMode('malthus')}
-                    className={`flex - 1 p - 4 flex items - center justify - center gap - 2 transition - colors ${ mode === 'malthus' ? 'bg-white text-rose-600 font-bold shadow-sm' : 'text-slate-500 hover:bg-slate-100' } `}
+                    className={`flex-1 p-4 flex items-center justify-center gap-2 transition-colors ${mode === 'malthus' ? 'bg-white text-rose-600 font-bold shadow-sm' : 'text-slate-500 hover:bg-slate-100'}`}
                 >
                     <AlertOctagon className="w-4 h-4" />
                     Thomas Malthus
@@ -37,7 +38,7 @@ export const MalthusBoserupModel = () => {
                 <div className="w-px bg-slate-200" />
                 <button
                     onClick={() => setMode('boserup')}
-                    className={`flex - 1 p - 4 flex items - center justify - center gap - 2 transition - colors ${ mode === 'boserup' ? 'bg-white text-emerald-600 font-bold shadow-sm' : 'text-slate-500 hover:bg-slate-100' } `}
+                    className={`flex-1 p-4 flex items-center justify-center gap-2 transition-colors ${mode === 'boserup' ? 'bg-white text-emerald-600 font-bold shadow-sm' : 'text-slate-500 hover:bg-slate-100'}`}
                 >
                     <Lightbulb className="w-4 h-4" />
                     Ester Boserup
@@ -53,6 +54,22 @@ export const MalthusBoserupModel = () => {
 
                     {/* Visualization */}
                     <div className="relative w-full h-full flex items-end justify-between px-4 pb-2">
+                        {currentData.map((point, index) => (
+                            <div key={index} className="relative flex flex-col items-center justify-end h-full w-12 group">
+                                {/* Food Bar */}
+                                <motion.div
+                                    initial={{ height: 0 }}
+                                    animate={{ height: `${(point.food / 250) * 100}%` }}
+                                    className="w-4 bg-emerald-400 rounded-t-sm absolute bottom-0 left-1 opacity-80"
+                                />
+
+                                {/* Population Bar */}
+                                <motion.div
+                                    initial={{ height: 0 }}
+                                    animate={{ height: `${(point.pop / 250) * 100}%` }}
+                                    className={`w-4 rounded-t-sm absolute bottom-0 right-1 z-10 ${mode === 'malthus' && (point as any).crisis ? 'bg-rose-500' : 'bg-indigo-500'}`}
+                                />
+
                                 {/* Label */}
                                 <span className="absolute -bottom-6 text-xs text-slate-400 font-mono">T{point.time}</span>
 
@@ -61,7 +78,7 @@ export const MalthusBoserupModel = () => {
                                     <motion.div
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
-                                        className="absolute top-4 bg-yellow-100 text-yellow-700 p-1.5 rounded-full border border-yellow-200 shadow-sm"
+                                        className="absolute top-4 bg-yellow-100 text-yellow-700 p-1.5 rounded-full border border-yellow-200 shadow-sm z-20"
                                     >
                                         <Lightbulb className="w-4 h-4" />
                                     </motion.div>
@@ -70,7 +87,7 @@ export const MalthusBoserupModel = () => {
                                     <motion.div
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
-                                        className="absolute top-4 bg-rose-100 text-rose-700 p-1.5 rounded-full border border-rose-200 shadow-sm"
+                                        className="absolute top-4 bg-rose-100 text-rose-700 p-1.5 rounded-full border border-rose-200 shadow-sm z-20"
                                     >
                                         <AlertOctagon className="w-4 h-4" />
                                     </motion.div>
@@ -80,7 +97,7 @@ export const MalthusBoserupModel = () => {
                     </div>
 
                     {/* Legend */}
-                    <div className="absolute top-4 right-4 flex flex-col gap-2 bg-white/90 p-3 rounded-lg border border-slate-100 shadow-sm text-xs">
+                    <div className="absolute top-4 right-4 flex flex-col gap-2 bg-white/90 p-3 rounded-lg border border-slate-100 shadow-sm text-xs z-30">
                         <div className="flex items-center gap-2">
                             <div className="w-3 h-3 bg-emerald-400 rounded-sm" />
                             <span className="text-slate-600">Matproduksjon</span>
