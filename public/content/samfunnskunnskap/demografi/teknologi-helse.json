@@ -1,0 +1,91 @@
+{
+    "id": "teknologi-helse",
+    "title": "Teknologi og helse: Kampen mot døden",
+    "ingress": "For 150 år siden døde hvert fjerde barn i Norge før de fylte ett år. I dag er det tallet nesten null. Hva er det som har gjort at vi plutselig lever dobbelt så lenge?",
+    "image": "/images/lessons/demografi/helse_hero.png",
+    "heroImage": "/images/lessons/demografi/helse_hero.png",
+    "status": "published",
+    "layout": "rich",
+    "tags": [
+        "demografi",
+        "teknologi",
+        "helse",
+        "vitenskap"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "value": "Den største endringen i menneskehetens historie skjedde ikke da vi landet på månen, men da vi lærte oss å bekjempe de usynlige fiendene: bakterier og virus."
+        },
+        {
+            "type": "header",
+            "value": "De tre store revolusjonene"
+        },
+        {
+            "type": "header",
+            "value": "1. Hygiene og rent vann"
+        },
+        {
+            "type": "text",
+            "value": "At folk begynte å vaske hendene og at vi fikk underjordiske kloakksystemer har reddet flere liv enn alle medisiner til sammen. Rent drikkevann er fundamentet i den moderne demografien."
+        },
+        {
+            "type": "header",
+            "value": "2. Vaksiner"
+        },
+        {
+            "type": "text",
+            "value": "Sykdommer som kopper, polio og meslinger som før tok millioner av liv, er i dag nesten borte takket være vaksinering. Dette har ført til at barnedødeligheten har sunket dramatisk over hele verden."
+        },
+        {
+            "type": "header",
+            "value": "3. Antibiotika og moderne kirurgi"
+        },
+        {
+            "type": "text",
+            "value": "Oppdagelsen av penicillin i 1928 gjorde at en enkel halsbetennelse ikke lenger betydde døden. I dag kan vi bytte ut hjerter, operere med roboter og bruke KI for å finne nye medisiner."
+        },
+        {
+            "type": "header",
+            "value": "Et nytt problem: Forventet levealder"
+        },
+        {
+            "type": "text",
+            "value": "Når vi løser de ytre truslene, dukker det nye opp. I dag dør vi oftere av livsstilssykdommer som hjerte- og karsykdommer eller kreft, fordi vi lever så lenge at kroppen rett og slett slites ut. \n\n**Forventet levealder** i Norge har steget fra 45 år i 1850 til over 83 år i dag."
+        },
+        {
+            "type": "header",
+            "value": "Interaktivitet: Levealder-kalkulatoren"
+        },
+        {
+            "type": "component",
+            "name": "LifeExpectancyModel"
+        },
+        {
+            "type": "text",
+            "value": "Spørsmålet for fremtiden er ikke bare om vi kan leve lenger, men hvordan teknologien kan hjelpe oss til å ha god helse hele livet."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvilket tiltak har reddet flest liv historisk?",
+            "options": [
+                "Keisersnitt",
+                "Hjertemedisin",
+                "Rent drikkevann og hygiene",
+                "Plaster"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva skjedde med forventet levealder i Norge fra 1850 til i dag?",
+            "options": [
+                "Den er den samme",
+                "Den har sunket",
+                "Den har nesten doblet seg",
+                "Den er 120 år"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

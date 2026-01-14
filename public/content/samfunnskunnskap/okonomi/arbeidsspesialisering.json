@@ -1,0 +1,84 @@
+{
+    "id": "arbeidsspesialisering",
+    "title": "Arbeidsspesialisering: Samarbeidets magi",
+    "ingress": "Hvorfor kan ingen i dag lage en smarttelefon helt alene? Svaret ligger i arbeidsspesialisering – selve motoren i den moderne verden.",
+    "image": "/images/lessons/okonomi/arbeidsspesialisering_hero.png",
+    "heroImage": "/images/lessons/okonomi/arbeidsspesialisering_hero.png",
+    "status": "published",
+    "layout": "rich",
+    "tags": [
+        "økonomi",
+        "produksjon",
+        "spesialisering",
+        "samarbeid"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "value": "Tenk på en vanlig blyant. For å lage den trengs det tre utvunnet i én del av verden, grafitt fra en annen, gummi fra en tredje og lakk fra en fjerde. Ingen enkelperson vet hvordan man gjør alt dette. Vi er avhengige av hverandre."
+        },
+        {
+            "type": "header",
+            "value": "Adam Smith og knappenålsfabrikken"
+        },
+        {
+            "type": "text",
+            "value": "Den moderne økonomiens far, Adam Smith, beskrev dette i 1776 med et berømt eksempel: En knappenålsfabrikk. \n\nHvis én person skulle gjort alt selv – strukket tråden, rettet den ut, kuttet den, slipt spissen og festet hodet – ville han knapt klart å lage én nål om dagen. Men ved å dele oppgavene i 18 ulike trinn, kunne ti arbeidere lage over 48 000 nåler på en dag! \n\n**Produktiviteten økte altså med flere tusen prosent bare ved å organisere arbeidet annerledes.**"
+        },
+        {
+            "type": "header",
+            "value": "Fordeler med spesialisering"
+        },
+        {
+            "type": "list",
+            "ordered": false,
+            "items": [
+                "**Mestring:** Man blir ekstremt god når man gjør én ting ofte.",
+                "**Tidsbesparelse:** Man slipper å bytte mellom verktøy og maskiner hele tiden.",
+                "**Innovasjon:** Spesialister finner lettere opp smartere måter å gjøre jobben sin på."
+            ]
+        },
+        {
+            "type": "header",
+            "value": "Baksiden: Fremmedgjøring"
+        },
+        {
+            "type": "text",
+            "value": "Men alt har en pris. Karl Marx pekte på at når en arbeider bare utfører en liten, repeterende del av en prosess, kan han føle seg som en del av en maskin. Dette kalte han *fremmedgjøring*. \n\nMan mister stoltheten over det ferdige produktet og følelsen av å være en skapende håndverker. Vi blir rike på ting, men kanskje fattigere på meningsfylt arbeid?"
+        },
+        {
+            "type": "header",
+            "value": "Interaktivitet: Produksjons-linjen"
+        },
+        {
+            "type": "component",
+            "name": "SpecializationSlider"
+        },
+        {
+            "type": "text",
+            "value": "Uten arbeidsspesialisering ville vi alle vært fattige bønder som kjempet for å overleve. Spesialisering er det som gjør det mulig for oss å ha leger, lærere, ingeniører og YouTube-stjerner."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvilket eksempel brukte Adam Smith for å forklare økt produktivitet?",
+            "options": [
+                "En bilfabrikk",
+                "En knappenålsfabrikk",
+                "Et bakeri",
+                "En tekstilfabrikk"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva kalte Karl Marx følelsen av å miste kontakten med det man skaper?",
+            "options": [
+                "Inflasjon",
+                "Urbanisering",
+                "Fremmedgjøring",
+                "Kapitalisering"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

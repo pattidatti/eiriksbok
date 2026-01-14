@@ -1,5 +1,5 @@
 {
-  "buildId": 1768332992527,
+  "buildId": 1768382449213,
   "contentMap": {
     "aksemaktene": [
       "content/concepts/aksemaktene.json"
@@ -21,6 +21,10 @@
     ],
     "anschluss": [
       "content/concepts/anschluss.json"
+    ],
+    "arbeidsspesialisering": [
+      "content/concepts/arbeidsspesialisering.json",
+      "content/samfunnskunnskap/okonomi/arbeidsspesialisering.json"
     ],
     "artilleri": [
       "content/concepts/artilleri.json"
@@ -54,6 +58,9 @@
     ],
     "defenestrasjon": [
       "content/concepts/defenestrasjon.json"
+    ],
+    "demografisk-overgang": [
+      "content/concepts/demografisk-overgang.json"
     ],
     "dendrokronologi": [
       "content/concepts/dendrokronologi.json"
@@ -205,6 +212,9 @@
     "nasjonalisme": [
       "content/concepts/nasjonalisme.json"
     ],
+    "naturalhandel": [
+      "content/concepts/naturalhandel.json"
+    ],
     "nrnbergprosessene": [
       "content/concepts/nrnbergprosessene.json"
     ],
@@ -342,6 +352,10 @@
     ],
     "unionsopplosningen-1905": [
       "content/concepts/unionsopplosningen-1905.json"
+    ],
+    "urbanisering": [
+      "content/concepts/urbanisering.json",
+      "content/samfunnskunnskap/demografi/urbanisering.json"
     ],
     "utmattelseskrig": [
       "content/concepts/utmattelseskrig.json"
@@ -1105,6 +1119,9 @@
     "roman": [
       "content/norsk/tekstsjangre/roman.json"
     ],
+    "adam-smith": [
+      "content/people/adam-smith.json"
+    ],
     "aristoteles-bio": [
       "content/people/aristoteles-bio.json"
     ],
@@ -1125,6 +1142,9 @@
     ],
     "dronning-elizabeth-i": [
       "content/people/dronning-elizabeth-i.json"
+    ],
+    "ester-boserup": [
+      "content/people/ester-boserup.json"
     ],
     "friedrich-nietzsche": [
       "content/people/friedrich-nietzsche.json"
@@ -1189,17 +1209,29 @@
     "thomas-aquinas": [
       "content/people/thomas-aquinas.json"
     ],
+    "thomas-malthus": [
+      "content/people/thomas-malthus.json"
+    ],
     "befolkningspyramider": [
       "content/samfunnskunnskap/demografi/befolkningspyramider.json"
     ],
-    "finanskriser": [
-      "content/samfunnskunnskap/demografi-okonomi/finanskriser.json"
+    "den-demografiske-overgangen": [
+      "content/samfunnskunnskap/demografi/den-demografiske-overgangen.json"
     ],
-    "inflasjon-og-rente": [
-      "content/samfunnskunnskap/demografi-okonomi/inflasjon-og-rente.json"
+    "fattigdom": [
+      "content/samfunnskunnskap/demografi/fattigdom.json"
     ],
-    "produksjon": [
-      "content/samfunnskunnskap/demografi-okonomi/produksjon.json"
+    "demografi-intro": [
+      "content/samfunnskunnskap/demografi/intro.json"
+    ],
+    "malthus-vs-boserup": [
+      "content/samfunnskunnskap/demografi/malthus-vs-boserup.json"
+    ],
+    "migrasjon-push-pull": [
+      "content/samfunnskunnskap/demografi/migrasjon-push-pull.json"
+    ],
+    "teknologi-helse": [
+      "content/samfunnskunnskap/demografi/teknologi-helse.json"
     ],
     "casus-belli": [
       "content/samfunnskunnskap/ideer-og-verdenssyn/casus-belli.json"
@@ -1245,6 +1277,18 @@
     ],
     "ytringsvett-vs-ytringsmot": [
       "content/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot.json"
+    ],
+    "finanskriser": [
+      "content/samfunnskunnskap/okonomi/finanskriser.json"
+    ],
+    "inflasjon-og-rente": [
+      "content/samfunnskunnskap/okonomi/inflasjon-og-rente.json"
+    ],
+    "pengesystem-vs-naturalhandel": [
+      "content/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel.json"
+    ],
+    "produksjon": [
+      "content/samfunnskunnskap/okonomi/produksjon.json"
     ],
     "antikken-visjoner": [
       "content/samfunnskunnskap/styringsformer/antikken-visjoner.json"
@@ -1297,6 +1341,7 @@
     "concepts/anarko-kapitalisme.json/anarko-kapitalisme": "content/concepts/anarko-kapitalisme.json",
     "concepts/anarko-kommunisme.json/anarko-kommunisme": "content/concepts/anarko-kommunisme.json",
     "concepts/anschluss.json/anschluss": "content/concepts/anschluss.json",
+    "concepts/arbeidsspesialisering.json/arbeidsspesialisering": "content/concepts/arbeidsspesialisering.json",
     "concepts/artilleri.json/artilleri": "content/concepts/artilleri.json",
     "concepts/autoritaert-diktatur.json/autoritaert-diktatur": "content/concepts/autoritaert-diktatur.json",
     "concepts/avkolonisering.json/avkolonisering": "content/concepts/avkolonisering.json",
@@ -1308,6 +1353,7 @@
     "concepts/de-allierte.json/de-allierte": "content/concepts/de-allierte.json",
     "concepts/de-forente-nasjoner-fn.json/de-forente-nasjoner-fn": "content/concepts/de-forente-nasjoner-fn.json",
     "concepts/defenestrasjon.json/defenestrasjon": "content/concepts/defenestrasjon.json",
+    "concepts/demografisk-overgang.json/demografisk-overgang": "content/concepts/demografisk-overgang.json",
     "concepts/dendrokronologi.json/dendrokronologi": "content/concepts/dendrokronologi.json",
     "concepts/diktatur.json/diktatur": "content/concepts/diktatur.json",
     "concepts/direkte-demokrati.json/direkte-demokrati": "content/concepts/direkte-demokrati.json",
@@ -1358,6 +1404,7 @@
     "concepts/monarki.json/monarki": "content/concepts/monarki.json",
     "concepts/monopol.json/monopol": "content/concepts/monopol.json",
     "concepts/nasjonalisme.json/nasjonalisme": "content/concepts/nasjonalisme.json",
+    "concepts/naturalhandel.json/naturalhandel": "content/concepts/naturalhandel.json",
     "concepts/nrnbergprosessene.json/nrnbergprosessene": "content/concepts/nrnbergprosessene.json",
     "concepts/oligarki.json/oligarki": "content/concepts/oligarki.json",
     "concepts/operasjon-barbarossa.json/operasjon-barbarossa": "content/concepts/operasjon-barbarossa.json",
@@ -1404,6 +1451,7 @@
     "concepts/uinnskrenket-ubtkrig.json/uinnskrenket-ubtkrig": "content/concepts/uinnskrenket-ubtkrig.json",
     "concepts/ultimatum.json/ultimatum": "content/concepts/ultimatum.json",
     "concepts/unionsopplosningen-1905.json/unionsopplosningen-1905": "content/concepts/unionsopplosningen-1905.json",
+    "concepts/urbanisering.json/urbanisering": "content/concepts/urbanisering.json",
     "concepts/utmattelseskrig.json/utmattelseskrig": "content/concepts/utmattelseskrig.json",
     "concepts/v2.json/v2": "content/concepts/v2.json",
     "concepts/verbalet.json/verbalet": "content/concepts/verbalet.json",
@@ -1658,6 +1706,7 @@
     "norsk/tekstsjangre/kommentar": "content/norsk/tekstsjangre/kommentar.json",
     "norsk/tekstsjangre/novelle": "content/norsk/tekstsjangre/novelle.json",
     "norsk/tekstsjangre/roman": "content/norsk/tekstsjangre/roman.json",
+    "people/adam-smith.json/adam-smith": "content/people/adam-smith.json",
     "people/aristoteles-bio.json/aristoteles-bio": "content/people/aristoteles-bio.json",
     "people/augustin-bio.json/augustin-bio": "content/people/augustin-bio.json",
     "people/birger-jarl.json/birger-jarl": "content/people/birger-jarl.json",
@@ -1665,6 +1714,7 @@
     "people/david-hume.json/david-hume": "content/people/david-hume.json",
     "people/diokletian-bio.json/diokletian-bio": "content/people/diokletian-bio.json",
     "people/dronning-elizabeth-i.json/dronning-elizabeth-i": "content/people/dronning-elizabeth-i.json",
+    "people/ester-boserup.json/ester-boserup": "content/people/ester-boserup.json",
     "people/friedrich-nietzsche.json/friedrich-nietzsche": "content/people/friedrich-nietzsche.json",
     "people/gaius-octavius.json/gaius-octavius": "content/people/gaius-octavius.json",
     "people/genghis-khan.json/genghis-khan": "content/people/genghis-khan.json",
@@ -1686,10 +1736,15 @@
     "people/platon-bio.json/platon-bio": "content/people/platon-bio.json",
     "people/sokrates-bio.json/sokrates-bio": "content/people/sokrates-bio.json",
     "people/thomas-aquinas.json/thomas-aquinas": "content/people/thomas-aquinas.json",
+    "people/thomas-malthus.json/thomas-malthus": "content/people/thomas-malthus.json",
     "samfunnskunnskap/demografi/befolkningspyramider": "content/samfunnskunnskap/demografi/befolkningspyramider.json",
-    "samfunnskunnskap/demografi-okonomi/finanskriser": "content/samfunnskunnskap/demografi-okonomi/finanskriser.json",
-    "samfunnskunnskap/demografi-okonomi/inflasjon-og-rente": "content/samfunnskunnskap/demografi-okonomi/inflasjon-og-rente.json",
-    "samfunnskunnskap/demografi-okonomi/produksjon": "content/samfunnskunnskap/demografi-okonomi/produksjon.json",
+    "samfunnskunnskap/demografi/den-demografiske-overgangen": "content/samfunnskunnskap/demografi/den-demografiske-overgangen.json",
+    "samfunnskunnskap/demografi/fattigdom": "content/samfunnskunnskap/demografi/fattigdom.json",
+    "samfunnskunnskap/demografi/demografi-intro": "content/samfunnskunnskap/demografi/intro.json",
+    "samfunnskunnskap/demografi/malthus-vs-boserup": "content/samfunnskunnskap/demografi/malthus-vs-boserup.json",
+    "samfunnskunnskap/demografi/migrasjon-push-pull": "content/samfunnskunnskap/demografi/migrasjon-push-pull.json",
+    "samfunnskunnskap/demografi/teknologi-helse": "content/samfunnskunnskap/demografi/teknologi-helse.json",
+    "samfunnskunnskap/demografi/urbanisering": "content/samfunnskunnskap/demografi/urbanisering.json",
     "samfunnskunnskap/ideer-og-verdenssyn/casus-belli": "content/samfunnskunnskap/ideer-og-verdenssyn/casus-belli.json",
     "samfunnskunnskap/ideer-og-verdenssyn/det-unormale": "content/samfunnskunnskap/ideer-og-verdenssyn/det-unormale.json",
     "samfunnskunnskap/ideer-og-verdenssyn/eskatologi": "content/samfunnskunnskap/ideer-og-verdenssyn/eskatologi.json",
@@ -1705,6 +1760,11 @@
     "samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt": "content/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt.json",
     "samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer": "content/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer.json",
     "samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot": "content/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot.json",
+    "samfunnskunnskap/okonomi/arbeidsspesialisering": "content/samfunnskunnskap/okonomi/arbeidsspesialisering.json",
+    "samfunnskunnskap/okonomi/finanskriser": "content/samfunnskunnskap/okonomi/finanskriser.json",
+    "samfunnskunnskap/okonomi/inflasjon-og-rente": "content/samfunnskunnskap/okonomi/inflasjon-og-rente.json",
+    "samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel": "content/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel.json",
+    "samfunnskunnskap/okonomi/produksjon": "content/samfunnskunnskap/okonomi/produksjon.json",
     "samfunnskunnskap/styringsformer/antikken-visjoner": "content/samfunnskunnskap/styringsformer/antikken-visjoner.json",
     "samfunnskunnskap/styringsformer/demokrati-ansikter": "content/samfunnskunnskap/styringsformer/demokrati-ansikter.json",
     "samfunnskunnskap/styringsformer/diktaturet": "content/samfunnskunnskap/styringsformer/diktaturet.json",

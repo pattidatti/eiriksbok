@@ -1,0 +1,79 @@
+{
+    "id": "fattigdom",
+    "title": "Fattigdom: To sider av samme sak",
+    "ingress": "Hva vil det si å være fattig? Er du fattig hvis du ikke har råd til mat, eller er du fattig hvis du er den eneste i klassen som ikke har den nyeste iPhonen?",
+    "image": "/images/lessons/demografi/fattigdom_hero.png",
+    "heroImage": "/images/lessons/demografi/fattigdom_hero.png",
+    "status": "published",
+    "layout": "rich",
+    "tags": [
+        "økonomi",
+        "demografi",
+        "samfunn",
+        "ulikhet"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "value": "Fattigdom handler om mer enn mangel på penger. Det handler om mangel på muligheter, trygghet og deltakelse i samfunnet. Vi skiller mellom to hovedtyper fattigdom."
+        },
+        {
+            "type": "header",
+            "value": "1. Absolutt fattigdom"
+        },
+        {
+            "type": "text",
+            "value": "Dette er den dypeste formen for fattigdom. Den innebærer at man mangler det helt grunnleggende for å overleve: nok mat, rent vann, klær og et trygt sted å bo.\n\nVerdensbanken bruker en grense på ca. 2,15 dollar per dag for å definere ekstrem fattigdom. Selv om antallet mennesker i denne kategorien har falt kraftig de siste 30 årene, lever fortsatt millioner av mennesker under denne grensen, spesielt i krigsområder."
+        },
+        {
+            "type": "header",
+            "value": "2. Relativ fattigdom"
+        },
+        {
+            "type": "text",
+            "value": "I rike land som Norge snakker vi oftere om relativ fattigdom. Dette betyr at man er fattig sammenlignet med det generelle nivået i samfunnet man bor i.\n\nHvis alle naboene dine har råd til feriereiser, fritidsaktiviteter for barna og ordentlige klær, mens du ikke har det, kan du oppleve å falle utenfor. Relativ fattigdom handler ofte om **ekskludering** – at man ikke kan delta på de samme arenaene som de andre."
+        },
+        {
+            "type": "header",
+            "value": "Årsaker og sirkler"
+        },
+        {
+            "type": "text",
+            "value": "Fattigdom er ofte en sirkel. Hvis du er fattig, har du kanskje dårligere helse og mindre utdanning, som igjen gjør det vanskeligere å få en godt betalt jobb. Å bryte denne sirkelen er en av verdenssamfunnets største oppgaver."
+        },
+        {
+            "type": "header",
+            "value": "Interaktivitet: Sjansespillet"
+        },
+        {
+            "type": "component",
+            "name": "PovertySimulation"
+        },
+        {
+            "type": "text",
+            "value": "Hvordan vi løser fattigdom, avhenger av hvilket menneskesyn og hvilken økonomisk modell vi følger. Er løsningen mer frihandel, mer bistand, eller en bedre fordeling gjennom skattesystemet?"
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er definisjonen på absolutt fattigdom?",
+            "options": [
+                "At man har mindre enn naboen",
+                "At man mangler grunnleggende behov som mat og vann",
+                "At man ikke har råd til Netflix",
+                "At man må bo i et gammelt hus"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva er hovedfokuset når man snakker om relativ fattigdom?",
+            "options": [
+                "Hvor mange kalorier man spiser",
+                "Sosial ekskludering og ulikhet i et samfunn",
+                "Hvor mye gull man eier",
+                "Hvor langt man må gå etter vann"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

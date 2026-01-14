@@ -1,0 +1,71 @@
+{
+    "id": "urbanisering",
+    "title": "Urbanisering: Flukten til byen",
+    "ingress": "Aldri før har så mange mennesker bodd så tett. Hvorfor velger vi å forlate naturen for å bo i grå betongjungler?",
+    "image": "/images/lessons/demografi/urbanisering_hero.png",
+    "heroImage": "/images/lessons/demografi/urbanisering_hero.png",
+    "status": "published",
+    "layout": "rich",
+    "tags": [
+        "demografi",
+        "urbanisering",
+        "historie",
+        "byutvikling"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "value": "I år 1800 bodde bare 3 % av verdens befolkning i byer. I dag bor over 55 % av oss i urbane områder, og tallet stiger hver dag. Denne massive flytteprosessen kalles urbanisering."
+        },
+        {
+            "type": "header",
+            "value": "Hvorfor byer?"
+        },
+        {
+            "type": "text",
+            "value": "Byer er som magneter. De drar til seg folk fordi det er her pengene, jobbene og mulighetene finnes. \n\n*   **Arbeid:** I byene finnes det et mangfold av jobber som ikke er avhengig av jordbruk.\n*   **Sosialt:** Her finner man kafeer, kinoer, konserter og et bredere fellesskap.\n*   **Effektivitet:** Det er billigere å tilby strøm, vann, sykehus og skoler når folk bor tett."
+        },
+        {
+            "type": "header",
+            "value": "Prisen for å bo tett"
+        },
+        {
+            "type": "text",
+            "value": "Men urbanisering skaper også utfordringer. Når for mange flytter for raskt til en by uten at man har en plan, oppstår det problemer:\n*   **Slumdannelse:** Ulovlige bosetninger uten vann og kloakk.\n*   **Forurensning:** Eksos, støy og lysforurensning.\n*   **Ensomhet:** Paradoksalt nok kan man føle seg mer ensom blant millioner av fremmede enn i en liten landsby."
+        },
+        {
+            "type": "header",
+            "value": "Interaktivitet: Byens vekst"
+        },
+        {
+            "type": "component",
+            "name": "UrbanizationTimeline"
+        },
+        {
+            "type": "text",
+            "value": "Fremtidens byer må være grønnere og smartere hvis vi skal klare å huse alle de nye innbyggerne som er på vei."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvor stor andel av verdens befolkning bor i byer i dag?",
+            "options": [
+                "Ca. 10 %",
+                "Ca. 30 %",
+                "Over 55 %",
+                "Nesten 90 %"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva er en fordel med at folk bor tett i byer?",
+            "options": [
+                "Det blir mer støy",
+                "Det er billigere og mer effektivt å tilby offentlige tjenester",
+                "Man får bedre plass til å dyrke mat",
+                "Det er lettere å gå seg vill"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

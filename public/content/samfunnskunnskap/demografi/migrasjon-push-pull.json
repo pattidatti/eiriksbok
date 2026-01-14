@@ -1,0 +1,79 @@
+{
+    "id": "migrasjon-push-pull",
+    "title": "Migrasjon: Hvorfor flytter vi?",
+    "ingress": "Mennesket har alltid vært på flyttefot. Fra de første vandringene ut av Afrika til dagens flukt over Middelhavet. Men hva er det som egentlig får oss til å forlate hjemmet vårt?",
+    "image": "/images/lessons/demografi/migrasjon_hero.png",
+    "heroImage": "/images/lessons/demografi/migrasjon_hero.png",
+    "status": "published",
+    "layout": "rich",
+    "tags": [
+        "demografi",
+        "migrasjon",
+        "push-pull",
+        "historie"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "value": "Å flytte fra alt man kjenner – familie, venner, språk og kultur – er en av de største beslutningene et menneske kan ta. For å forstå migrasjon deler vi årsakene inn i to grupper: Faktorene som dytter oss vekk, og faktorene som drar oss til et nytt sted."
+        },
+        {
+            "type": "header",
+            "value": "Push-faktorer: Når du må dra"
+        },
+        {
+            "type": "text",
+            "value": "Push-faktorer (skyve-faktorer) er negative forhold på hjemstedet som gjør det vanskelig eller umulig å bli boende:\n*   **Krig og konflikt:** Den vanligste årsaken til at folk blir flyktninger.\n*   **Naturkatastrofer:** Tørke, flom eller jordskjelv som ødelegger livsgrunnlaget.\n*   **Arbeidsledighet:** Når det ikke finnes muligheter til å skaffe seg en inntekt."
+        },
+        {
+            "type": "header",
+            "value": "Pull-faktorer: Når du håper på mer"
+        },
+        {
+            "type": "text",
+            "value": "Pull-faktorer (dra-faktorer) er positive forhold ved destinasjonen som lokker folk til å komme:\n*   **Arbeid og økonomi:** Muligheten for en jobb og høyere lønn.\n*   **Trygghet:** Fred, demokrati og gode rettigheter.\n*   **Utdanning:** Bedre skoler og universiteter for barna."
+        },
+        {
+            "type": "header",
+            "value": "Internt vs eksternt: Urbanisering"
+        },
+        {
+            "type": "text",
+            "value": "Mye migrasjon skjer internt i et land. Den mest omfattende vandringen i nyere tid er urbaniseringen – at folk flytter fra bygda til byene for å jobbe i industri eller tjenesteyting."
+        },
+        {
+            "type": "header",
+            "value": "Interaktivitet: Reise-kartet"
+        },
+        {
+            "type": "component",
+            "name": "MigrationJourney"
+        },
+        {
+            "type": "text",
+            "value": "Migrasjon endrer både landet man drar fra (hjerneflukt eller mindre press på ressursene) og landet man kommer til (ny arbeidskraft eller utfordringer med integrering)."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er en typisk push-faktor?",
+            "options": [
+                "Gode skoler i nabolandet",
+                "Krig og konflikt",
+                "Spennende feriemuligheter",
+                "Høyere lønn"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva kalles det når folk flytter fra landsbygda til byene?",
+            "options": [
+                "Inversjon",
+                "Urbanisering",
+                "Inflasjon",
+                "Eskatologi"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

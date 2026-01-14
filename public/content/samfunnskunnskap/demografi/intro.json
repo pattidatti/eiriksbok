@@ -1,0 +1,60 @@
+{
+    "id": "intro",
+    "title": "Introduksjon: Mennesket i tall",
+    "ingress": "Hvorfor er vi så mange mennesker på jorda akkurat nå? Og hvorfor bor vi der vi bor? Demografi er læren om befolkning – pulsslaget til hele sivilisasjonen vår.",
+    "image": "/images/lessons/demografi/demografi_overgang_hero.png",
+    "heroImage": "/images/lessons/demografi/demografi_overgang_hero.png",
+    "status": "published",
+    "layout": "rich",
+    "tags": [
+        "demografi",
+        "befolkning",
+        "samfunn",
+        "statistikk"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "value": "Demografi høres kanskje ut som tørr statistikk, men det handler om alt som gjør oss til mennesker: fødsel, død, kjærlighet, flytting og drømmen om et bedre liv.\n\nRegnestykket for demografi er egentlig ganske enkelt:\n\n**Neste års befolkning = Årets befolkning + (fødte - døde) + (innvandrere - utvandrere)**\n\nMen bak disse tallene skjuler det seg dramatiske historier om teknologiske fremskritt, kriger, håp og store samfunnsendringer."
+        },
+        {
+            "type": "header",
+            "value": "Hvorfor er demografi viktig?"
+        },
+        {
+            "type": "text",
+            "value": "Når politikerne skal planlegge fremtiden, må de vite hvor mange vi kommer til å være. \n*   Trenger vi flere barnehager eller flere gamlehjem?\n*   Kommer det til å være nok folk til å jobbe i fabrikkene?\n*   Hvor skal vi bygge de nye husene?"
+        },
+        {
+            "type": "header",
+            "value": "Hva skal du lære i dette emnet?"
+        },
+        {
+            "type": "list",
+            "ordered": false,
+            "items": [
+                "**Den demografiske overgangen:** Veien fra mange barn til mange gamle.",
+                "**Migrasjon:** Hvorfor vi flytter på oss (Push og Pull).",
+                "**Bæreevne:** Klarer jorda å fø på oss alle? (Malthus vs Boserup).",
+                "**Fattigdom:** Hva skiller rik fra fattig i en global verden?",
+                "**Urbanisering:** Byenes voldsomme vekst."
+            ]
+        },
+        {
+            "type": "text",
+            "value": "Bli med på en reise gjennom tallene som former verden vår!"
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er den enkle definisjonen på ordet demografi?",
+            "options": [
+                "Læren om stjerner",
+                "Læren om befolkning",
+                "Læren om dinosaurer",
+                "Læren om penger"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

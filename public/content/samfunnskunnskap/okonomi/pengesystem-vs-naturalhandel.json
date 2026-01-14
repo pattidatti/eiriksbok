@@ -1,0 +1,79 @@
+{
+    "id": "pengesystem-vs-naturalhandel",
+    "title": "Penger vs. byttehandel: Tillitens historie",
+    "ingress": "Se for deg at du må gi bort yndlingsgenseren din bare for å få en pose epler. Slik var hverdagen før pengene ble oppfunnet. Hvordan ble vi enige om at en bit papir eller et tall på en skjerm er verdt mer enn en kilo salt?",
+    "image": "/images/lessons/okonomi/okonomi_penger_hero.png",
+    "heroImage": "/images/lessons/okonomi/okonomi_penger_hero.png",
+    "status": "published",
+    "layout": "rich",
+    "tags": [
+        "økonomi",
+        "penger",
+        "historie",
+        "tillit"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "value": "I dag tar vi penger for gitt. Du tæpper kortet, og vips, så er lunsjen betalt. Men penger er egentlig en av menneskehetens mest geniale oppfinnelser. For å forstå hvorfor, må vi dra tilbake til en tid der penger ikke fantes: byttehandelen (naturalhandel)."
+        },
+        {
+            "type": "header",
+            "value": "Problemet med byttehandel: Den doble tilfeldigheten"
+        },
+        {
+            "type": "text",
+            "value": "Naturalhandel fungerer fint i små grupper der alle kjenner alle. Jeg gir deg fisk, du gir meg ved. Men straks samfunnet blir større, oppstår et stort problem: *Double Coincidence of Wants* (den doble tilfeldigheten av behov).\n\nHvis jeg har fisk og trenger en ny øks, hjelper det ikke at jeg finner en øksemaker – hvis øksemakeren ikke vil ha fisk akkurat nå! Kanskje han trenger salt? Da må jeg først finne noen som har salt og vil ha fisk, og så bytte saltet mot øksen. Dette skaper enormt mye **friksjon** i økonomien."
+        },
+        {
+            "type": "header",
+            "value": "Løsningen: En felles hukommelse"
+        },
+        {
+            "type": "text",
+            "value": "Penger løser dette ved å fungere som et mellomledd. I stedet for å bytte vare mot vare, bytter vi vare mot *penger*. Penger er i bunn og grunn en felles hukommelse over hvem som har gjort noe for fellesskapet.\n\nHistorisk har vi brukt mange ting som penger:\n*   **Salt:** Romerske soldater fikk deler av lønnen i salt (derav ordet *salary*).\n*   **Kauriskjell:** Brukt som valuta i store deler av Asia og Afrika i århundrer.\n*   **Gull og sølv:** Foretrukket fordi det var sjeldent, holdbart og vanskelig å forfalske."
+        },
+        {
+            "type": "header",
+            "value": "Tillit: Fra gull til papir"
+        },
+        {
+            "type": "text",
+            "value": "Gull er tungt å bære på. Etter hvert begynte folk å låse gullet sitt inn i hvelv hos gullsmeder (de første bankene) og fikk en kvittering i retur. Snart begynte folk å handle med kvitteringene i stedet for det faktiske gullet. \n\nI dag har de fleste penger ingen fysisk verdi i seg selv. De er såkalte *fiat-penger* (latin for «la det bli»). Verdien kommer utelukkende fra vår felles **tillit** til at staten og andre mennesker vil godta dem som betaling."
+        },
+        {
+            "type": "header",
+            "value": "Prøv selv: Friksjons-måleren"
+        },
+        {
+            "type": "component",
+            "name": "TradeLoopComponent"
+        },
+        {
+            "type": "text",
+            "value": "Uten penger stopper spesialiseringen opp. Hvis du er en ekspert på å bygge fioliner, men nesten ingen trenger en fiolin akkurat i dag, ville du ha sultet uten penger. Penger gjør det mulig for oss å samarbeide på tvers av tid og avstand."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva kalles problemet der to personer må ønske akkurat det den andre har for å kunne bytte?",
+            "options": [
+                "Den doble tilfeldigheten",
+                "Bytte-paradokset",
+                "Markeds-friksjon",
+                "Inflasjons-fellen"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hvorfor ble gull foretrukket som penger historisk?",
+            "options": [
+                "Det smakte godt",
+                "Det var lett å smelte om til smykker",
+                "Det var sjeldent, holdbart og vanskelig å forfalske",
+                "Det ble funnet overalt i skogen"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

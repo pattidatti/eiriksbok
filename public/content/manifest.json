@@ -500,16 +500,16 @@
             "title": "Samfunnskunnskap",
             "topics": [
                 {
-                    "id": "demografi-okonomi",
-                    "title": "Demografi & økonomi",
-                    "description": "Befolkningsutvikling og økonomiske systemer.",
-                    "image": "/Eiriksbok/images/topics/demografi-okonomi.png",
+                    "id": "okonomi",
+                    "title": "Økonomi",
+                    "description": "Utforsk hvordan vi skaper verdi, fordeler ressurser og bygger tillit gjennom pengesystemer.",
+                    "image": "/Eiriksbok/images/topics/okonomi.png",
                     "lessons": [
                         {
                             "id": "produksjon",
                             "title": "Produksjon",
                             "description": "Hva bestemmer hva vi lager? Planøkonomi vs. Markedsøkonomi.",
-                            "image": "/Eiriksbok/images/topics/demografi-okonomi.png",
+                            "image": "/Eiriksbok/images/topics/okonomi.png",
                             "tags": [
                                 "økonomi",
                                 "produksjon",
@@ -519,17 +519,28 @@
                             "lastUpdated": "2023-12-16T12:00:00Z"
                         },
                         {
-                            "id": "intro",
-                            "title": "Introduksjon",
-                            "description": "Grunnleggende om befolkning og økonomi.",
+                            "id": "pengesystem-vs-naturalhandel",
+                            "title": "Penger vs. byttehandel",
+                            "description": "Fra salt og gull til digital tillit. Hvordan penger løste byttehandelens største problem.",
+                            "image": "/images/lessons/okonomi/okonomi_penger_hero.png",
                             "tags": [
-                                "demografi",
                                 "økonomi",
-                                "samfunn",
-                                "befolkning"
+                                "penger",
+                                "historie"
                             ],
-                            "createdDate": "2023-01-01T12:00:00Z",
-                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                            "createdDate": "2024-01-14T10:00:00Z"
+                        },
+                        {
+                            "id": "arbeidsspesialisering",
+                            "title": "Arbeidsspesialisering",
+                            "description": "Hvorfor vi lager mer når vi samarbeider, og hva det koster oss.",
+                            "image": "/images/lessons/okonomi/arbeidsspesialisering_hero.png",
+                            "tags": [
+                                "økonomi",
+                                "produksjon",
+                                "spesialisering"
+                            ],
+                            "createdDate": "2024-01-14T10:00:00Z"
                         },
                         {
                             "id": "inflasjon-og-rente",
@@ -554,6 +565,97 @@
                                 "økonomi",
                                 "krise",
                                 "syklus"
+                            ],
+                            "createdDate": "2023-01-01T12:00:00Z",
+                            "lastUpdated": "2025-12-03T17:25:16.499Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "demografi",
+                    "title": "Demografi",
+                    "description": "Lær om befolkningens utvikling, migrasjon og fremtidens utfordringer.",
+                    "image": "/Eiriksbok/images/topics/demografi.png",
+                    "lessons": [
+                        {
+                            "id": "den-demografiske-overgangen",
+                            "title": "Den demografiske overgangen",
+                            "description": "Hvorfor vi ble 8 milliarder mennesker, og hvorfor veksten stopper opp.",
+                            "image": "/images/lessons/demografi/demografi_overgang_hero.png",
+                            "tags": [
+                                "demografi",
+                                "befolkning",
+                                "historie"
+                            ],
+                            "createdDate": "2024-01-14T10:00:00Z"
+                        },
+                        {
+                            "id": "migrasjon-push-pull",
+                            "title": "Migrasjon: Hvorfor flytter vi?",
+                            "description": "Om krig, håp og jakten på et bedre liv. Push- og pull-faktorer forklart.",
+                            "image": "/images/lessons/demografi/migrasjon_hero.png",
+                            "tags": [
+                                "demografi",
+                                "migrasjon",
+                                "samfunn"
+                            ],
+                            "createdDate": "2024-01-14T10:00:00Z"
+                        },
+                        {
+                            "id": "malthus-vs-boserup",
+                            "title": "Malthus vs. Boserup",
+                            "description": "Klarer vi å mette hele verden? To syn på fremtiden.",
+                            "image": "/images/lessons/demografi/malthus_hero.png",
+                            "tags": [
+                                "demografi",
+                                "filosofi",
+                                "innovasjon"
+                            ],
+                            "createdDate": "2024-01-14T10:00:00Z"
+                        },
+                        {
+                            "id": "fattigdom",
+                            "title": "Fattigdom",
+                            "description": "Relativ vs. absolutt fattigdom. Hva vil det egentlig si å være fattig?",
+                            "image": "/images/lessons/demografi/fattigdom_hero.png",
+                            "tags": [
+                                "økonomi",
+                                "demografi",
+                                "samfunn"
+                            ],
+                            "createdDate": "2024-01-14T10:00:00Z"
+                        },
+                        {
+                            "id": "urbanisering",
+                            "title": "Urbanisering",
+                            "description": "Hvorfor flytter alle til byen? Fordeler og ulemper ved det moderne bylivet.",
+                            "image": "/images/lessons/demografi/urbanisering_hero.png",
+                            "tags": [
+                                "demografi",
+                                "byutvikling",
+                                "historie"
+                            ],
+                            "createdDate": "2024-01-14T10:00:00Z"
+                        },
+                        {
+                            "id": "teknologi-helse",
+                            "title": "Teknologi og helse",
+                            "description": "Hvordan vitenskapen har revolusjonert vår sjanse for å overleve.",
+                            "image": "/images/lessons/demografi/helse_hero.png",
+                            "tags": [
+                                "demografi",
+                                "teknologi",
+                                "vitenskap"
+                            ],
+                            "createdDate": "2024-01-14T10:00:00Z"
+                        },
+                        {
+                            "id": "intro",
+                            "title": "Introduksjon til demografi",
+                            "description": "Grunnleggende om befolkning.",
+                            "tags": [
+                                "demografi",
+                                "befolkning"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"

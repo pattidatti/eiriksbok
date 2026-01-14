@@ -10,7 +10,12 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [x] Det er en del tabeller/sammenligninger som mangler innhold i artiklene. 
 - [ ] Læringsstier laster ikke. Må gå ut og inn på en annen før de vises. Major bug. 
 
+## Læringsstier
+- [ ] Hver sett med oppgaver må ha en liten boks for å kopiere alle spørsmålene, slik at elevene enkelt kan få dem kopiert inn i skriveboken sin, uten å måtte skrive alt selv, eller dille med å merke alt. 
+- [ ] Det er ikke garantert at en læringssti laster, en må ofte gå inn og ut før den til slutt vises. 
+
 ## 💡 Ideer
+-
 - [ ] Hvert emne bør ha en kort beskrivelse, overblikk over fagbegreper og hva som er viktig. 
 - [ ] En tidslinje inne på historie som heter alle hendelser nevnt i artiklene, ikke bare artiklene selv. 
 - [ ] En mulighet for å flette sammen egne artikler, slik at man kan lage en egen lærebok.
@@ -25,7 +30,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 ### Samfunnskunnskap
 - [ ] Lage Økonomi som eget emne. Artikkel om pengesystem vs naturalhandel. 
-- [ ] Artikkel om arbeidsspesialisering. 
+- [ ] Artikkel om arbeidsspesialisering i økonomi. 
 - [ ] Demografi må få sitt eget emne, lage artikler om, demografisk overgang med utviklingsfaser, fødselsrate, dødsrate, befolkningstall, etc. BØr man ha ulike artikler om alt, eller en giga? EN artikkel om migrasjon og push/pull. En artikkel om Malthus og Boseup. Artikkel om relativ og absolutt fattigdom. Artikkel om befolkningspyramide, eller skal denne inn i demografisk overgang? Artikkel om urbanisering. Artikkel om teknologisk/idee utvikling siste 250 årene som har markant redusert dødsraten. 
 
 ### Historie

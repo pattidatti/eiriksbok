@@ -1,0 +1,103 @@
+{
+    "id": "den-demografiske-overgangen",
+    "title": "Den demografiske overgangen",
+    "ingress": "For 200 år siden var vi 1 milliard mennesker. I dag er vi over 8 milliarder. Hva skjedde? Og hvorfor sier forskerne nå at folketallet snart vil begynne å brenne ut?",
+    "image": "/images/lessons/demografi/demografi_overgang_hero.png",
+    "heroImage": "/images/lessons/demografi/demografi_overgang_hero.png",
+    "status": "published",
+    "layout": "rich",
+    "tags": [
+        "demografi",
+        "befolkning",
+        "historie",
+        "overgang"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "value": "Menneskehetens historie har i tusenvis av år vært preget av at vi fikk mange barn, men at mange også døde tidlig. Men så skjedde det noe revolusjonerende som endret alt."
+        },
+        {
+            "type": "header",
+            "value": "De 5 fasene"
+        },
+        {
+            "type": "text",
+            "value": "Den demografiske overgangen beskriver hvordan et land går fra høye fødsels- og dødsrater til lave. Vi deler det ofte inn i fem faser:"
+        },
+        {
+            "type": "header",
+            "value": "Fase 1: Likevekten (Før-industriell)"
+        },
+        {
+            "type": "text",
+            "value": "Høy fødselsrate og høy dødsrate. Folk får mange barn, men sykdom og sult gjør at få lever lenge. Folketallet er stabilt og lavt. Dette var situasjonen i hele verden frem til ca. 1800."
+        },
+        {
+            "type": "header",
+            "value": "Fase 2: Befolkningseksplosjonen"
+        },
+        {
+            "type": "text",
+            "value": "Bedre hygiene, medisiner og mer mat gjør at dødsraten stuper. Men folk fortsetter å få mange barn som før. Resultatet? En voldsom befolkningsvekst. Dette skjedde i Europa under den industrielle revolusjon, og i mange utviklingsland etter 1950."
+        },
+        {
+            "type": "header",
+            "value": "Fase 3: Bremsene settes på"
+        },
+        {
+            "type": "text",
+            "value": "Nå begynner også fødselsraten å falle. Hvorfor? Folk flytter til byene (urbanisering), barna blir ikke lenger sett på som gratis arbeidskraft på gården, og kvinner får mer utdanning og kontroll over egen kropp."
+        },
+        {
+            "type": "header",
+            "value": "Fase 4: Den nye likevekten (Moderne)"
+        },
+        {
+            "type": "text",
+            "value": "Både fødselsraten og dødsraten er lave. Folketallet stabiliserer seg. De fleste rike land befinner seg her i dag."
+        },
+        {
+            "type": "header",
+            "value": "Fase 5: Eldrebølgen og nedgang"
+        },
+        {
+            "type": "text",
+            "value": "I noen land (som Japan og Italia) blir det født så få barn at folketallet begynner å synke. Samtidig lever folk ekstremt lenge. Utfordringen blir da: Hvem skal passe på alle de eldre?"
+        },
+        {
+            "type": "header",
+            "value": "Interaktivitet: DTM-simulatoren"
+        },
+        {
+            "type": "component",
+            "name": "DTMSimulator"
+        },
+        {
+            "type": "text",
+            "value": "Selv om modellen fungerer som et kart, følger ikke alle land samme rute. Noen hopper over faser, mens andre blir stående fast. Men én ting er sikkert: Verdens befolkning er i ferd med å endre seg raskere enn noen gang før."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva kjennetegner Fase 2 i den demografiske overgangen?",
+            "options": [
+                "Både fødsels- og dødsraten er lave",
+                "Dødsraten faller, mens fødselsraten er høy",
+                "Folk slutter å få barn",
+                "Folketallet synker raskt"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva er en viktig årsak til at fødselsratene faller i Fase 3?",
+            "options": [
+                "Folk flytter til skogs",
+                "Kvinner får økt utdanning og urbanisering",
+                "Det blir forbudt å få barn",
+                "Dødsraten øker igjen"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}
