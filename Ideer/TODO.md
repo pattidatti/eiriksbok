@@ -23,6 +23,11 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 ## content
 
+### Samfunnskunnskap
+- [ ] Lage Økonomi som eget emne. Artikkel om pengesystem vs naturalhandel. 
+- [ ] Artikkel om arbeidsspesialisering. 
+- [ ] Demografi må få sitt eget emne, lage artikler om, demografisk overgang med utviklingsfaser, fødselsrate, dødsrate, befolkningstall, etc. BØr man ha ulike artikler om alt, eller en giga? EN artikkel om migrasjon og push/pull. En artikkel om Malthus og Boseup. Artikkel om relativ og absolutt fattigdom. Artikkel om befolkningspyramide, eller skal denne inn i demografisk overgang? Artikkel om urbanisering. Artikkel om teknologisk/idee utvikling siste 250 årene som har markant redusert dødsraten. 
+
 ### Historie
 - [ ] Artikler om kolonier gjennom tidene, fra Hellas, Romer, til moderne kolonier. I samme artikkel; hvordan dette ofte er en del av imperialismen. Ingen av disse konseptene er verken nye eller europeiske. Lage passende interaktive modeller som understreker konseptene og eksemplifiserer hendelser. 
 - [ ] Artikkel om store folkevandringer gjennom historien, knytte dette til migrasjonsteorien i samfunnskunnskap. 
