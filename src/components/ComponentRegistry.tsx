@@ -56,6 +56,13 @@ const RomanDefenseModel = lazy(() => import('./content/interactive/RomanDefenseM
 const DetectiveEngine = lazy(() => import('./content/interactive/detective/DetectiveEngine').then(m => ({ default: m.DetectiveEngine })));
 const PovertySimulation = lazy(() => import('./content/interactive/PovertySimulation').then(m => ({ default: m.PovertySimulation })));
 
+// Demography
+const DTMSimulator = lazy(() => import('./content/interactive/demography/DTMSimulator').then(m => ({ default: m.DTMSimulator })));
+const MalthusBoserupModel = lazy(() => import('./content/interactive/demography/MalthusBoserupModel').then(m => ({ default: m.MalthusBoserupModel })));
+const MigrationJourney = lazy(() => import('./content/interactive/demography/MigrationJourney').then(m => ({ default: m.MigrationJourney })));
+const LifeExpectancyModel = lazy(() => import('./content/interactive/demography/LifeExpectancyModel').then(m => ({ default: m.LifeExpectancyModel })));
+const UrbanizationTimeline = lazy(() => import('./content/interactive/demography/UrbanizationTimeline').then(m => ({ default: m.UrbanizationTimeline })));
+
 // Viking/Historie
 const ConflictMap = lazy(() => import('./viking/ConflictMap').then(m => ({ default: m.ConflictMap })));
 const FeudalPyramid = lazy(() => import('./viking/FeudalPyramid').then(m => ({ default: m.FeudalPyramid })));
@@ -128,6 +135,13 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     RomanDefenseModel,
     DetectiveEngine,
     PovertySimulation,
+
+    // Demography
+    DTMSimulator,
+    MalthusBoserupModel,
+    MigrationJourney,
+    LifeExpectancyModel,
+    UrbanizationTimeline,
 
     // Viking/History
     ConflictMap,

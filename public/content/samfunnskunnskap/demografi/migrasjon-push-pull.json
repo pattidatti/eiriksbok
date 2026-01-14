@@ -23,7 +23,7 @@
         },
         {
             "type": "text",
-            "value": "Push-faktorer (skyve-faktorer) er negative forhold på hjemstedet som gjør det vanskelig eller umulig å bli boende:\n*   **Krig og konflikt:** Den vanligste årsaken til at folk blir flyktninger.\n*   **Naturkatastrofer:** Tørke, flom eller jordskjelv som ødelegger livsgrunnlaget.\n*   **Arbeidsledighet:** Når det ikke finnes muligheter til å skaffe seg en inntekt."
+            "value": "Push-faktorer (skyve-faktorer) er negative forhold på hjemstedet som gjør det vanskelig eller umulig å bli boende:\n*   Krig og konflikt: Den vanligste årsaken til at folk blir flyktninger.\n*   Naturkatastrofer: Tørke, flom eller jordskjelv som ødelegger livsgrunnlaget.\n*   Arbeidsledighet: Når det ikke finnes muligheter til å skaffe seg en inntekt."
         },
         {
             "type": "header",
@@ -31,7 +31,7 @@
         },
         {
             "type": "text",
-            "value": "Pull-faktorer (dra-faktorer) er positive forhold ved destinasjonen som lokker folk til å komme:\n*   **Arbeid og økonomi:** Muligheten for en jobb og høyere lønn.\n*   **Trygghet:** Fred, demokrati og gode rettigheter.\n*   **Utdanning:** Bedre skoler og universiteter for barna."
+            "value": "Pull-faktorer (dra-faktorer) er positive forhold ved destinasjonen som lokker folk til å komme:\n*   Arbeid og økonomi: Muligheten for en jobb og høyere lønn.\n*   Trygghet: Fred, demokrati og gode rettigheter.\n*   Utdanning: Bedre skoler og universiteter for barna."
         },
         {
             "type": "header",

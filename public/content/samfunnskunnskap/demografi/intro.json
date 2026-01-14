@@ -15,7 +15,7 @@
     "content": [
         {
             "type": "text",
-            "value": "Demografi høres kanskje ut som tørr statistikk, men det handler om alt som gjør oss til mennesker: fødsel, død, kjærlighet, flytting og drømmen om et bedre liv.\n\nRegnestykket for demografi er egentlig ganske enkelt:\n\n**Neste års befolkning = Årets befolkning + (fødte - døde) + (innvandrere - utvandrere)**\n\nMen bak disse tallene skjuler det seg dramatiske historier om teknologiske fremskritt, kriger, håp og store samfunnsendringer."
+            "value": "Demografi høres kanskje ut som tørr statistikk, men det handler om alt som gjør oss til mennesker: fødsel, død, kjærlighet, flytting og drømmen om et bedre liv.\n\nRegnestykket for demografi er egentlig ganske enkelt:\n\nNeste års befolkning = Årets befolkning + (fødte - døde) + (innvandrere - utvandrere)\n\nMen bak disse tallene skjuler det seg dramatiske historier om teknologiske fremskritt, kriger, håp og store samfunnsendringer."
         },
         {
             "type": "header",
@@ -33,11 +33,11 @@
             "type": "list",
             "ordered": false,
             "items": [
-                "**Den demografiske overgangen:** Veien fra mange barn til mange gamle.",
-                "**Migrasjon:** Hvorfor vi flytter på oss (Push og Pull).",
-                "**Bæreevne:** Klarer jorda å fø på oss alle? (Malthus vs Boserup).",
-                "**Fattigdom:** Hva skiller rik fra fattig i en global verden?",
-                "**Urbanisering:** Byenes voldsomme vekst."
+                "Den demografiske overgangen: Veien fra mange barn til mange gamle.",
+                "Migrasjon: Hvorfor vi flytter på oss (Push og Pull).",
+                "Bæreevne: Klarer jorda å fø på oss alle? (Malthus vs Boserup).",
+                "Fattigdom: Hva skiller rik fra fattig i en global verden?",
+                "Urbanisering: Byenes voldsomme vekst."
             ]
         },
         {
