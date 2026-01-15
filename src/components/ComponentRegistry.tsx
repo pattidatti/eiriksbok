@@ -12,6 +12,7 @@ import { QuoteBlock } from './QuoteBlock';
 import { Comparison } from './Comparison';
 import { LineChart } from './LineChart';
 import { EmperorStats } from './EmperorStats';
+import { LinkButton } from './tools/LinkButton';
 
 // Lazy-loaded components for better performance
 // Interactive Content
@@ -99,6 +100,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     Comparison,
     LineChart,
     EmperorStats,
+    LinkButton,
 
     // Interactive Content
     InflationCalculator,

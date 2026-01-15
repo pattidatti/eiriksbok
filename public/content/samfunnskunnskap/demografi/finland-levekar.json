@@ -113,6 +113,14 @@
             "value": "Avslutningsvis ser vi at Finlands demografiske historie er tett sammenvevd med landets økonomiske og sosiale utvikling. Fra å være et land som sendte sine barn til utlandet for å overleve, har Finland nå blitt avhengig av arbeidsinnvandring for å opprettholde velferden. Sirkelen er dermed sluttet, men utfordringene er endret. Mens 1800-tallets problem var for mange munner å mette med for lite mat, er det 21. århundrets utfordring å finne nok hender til å pleie en aldrende befolkning."
         },
         {
+            "type": "component",
+            "name": "LinkButton",
+            "props": {
+                "to": "/norsk/skrivehjelp/hvordan-fore-kilder",
+                "text": "Lær mer om kildebruk (APA 7)"
+            }
+        },
+        {
             "type": "header",
             "value": "Litteraturliste"
         },
