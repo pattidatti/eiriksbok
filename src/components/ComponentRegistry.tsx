@@ -63,6 +63,7 @@ const MigrationJourney = lazy(() => import('./content/interactive/demography/Mig
 const LifeExpectancyModel = lazy(() => import('./content/interactive/demography/LifeExpectancyModel').then(m => ({ default: m.LifeExpectancyModel })));
 const UrbanizationTimeline = lazy(() => import('./content/interactive/demography/UrbanizationTimeline').then(m => ({ default: m.UrbanizationTimeline })));
 const PopulationPyramidBuilder = lazy(() => import('../components/tools/PopulationPyramidBuilder').then(m => ({ default: m.PopulationPyramidBuilder })));
+const UrbanSprawlSim = lazy(() => import('./content/interactive/demography/UrbanSprawlSim').then(m => ({ default: m.UrbanSprawlSim })));
 
 // Economics
 const TradeLoopComponent = lazy(() => import('./content/interactive/okonomi/TradeLoopComponent').then(m => ({ default: m.TradeLoopComponent })));
@@ -148,6 +149,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     LifeExpectancyModel,
     UrbanizationTimeline,
     PopulationPyramidBuilder,
+    UrbanSprawlSim,
 
     // Economics
     TradeLoopComponent,

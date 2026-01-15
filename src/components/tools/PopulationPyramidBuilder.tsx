@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Baby, HeartPulse } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
-import { Slider } from './ui/slider';
 
 type AgeGroup = {
     range: string;
@@ -26,8 +24,7 @@ export const PopulationPyramidBuilder: React.FC = () => {
             '40-44', '45-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80+'
         ];
 
-        // Base population factor
-        let population = 1000;
+
 
         // Calculate decay factor based on life expectancy
         // Higher life expectancy = lower decay (more people survive)
@@ -100,13 +97,14 @@ export const PopulationPyramidBuilder: React.FC = () => {
                             </label>
                             <span className="text-blue-600 font-mono font-bold">{birthRate} pr 1000</span>
                         </div>
-                        <Slider
-                            value={[birthRate]}
-                            onValueChange={(v) => setBirthRate(v[0])}
+                        <input
+                            type="range"
+                            value={birthRate}
+                            onChange={(e) => setBirthRate(Number(e.target.value))}
                             min={10}
                             max={50}
                             step={1}
-                            className="py-4"
+                            className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
                         />
                         <p className="text-xs text-slate-500">
                             Hvor mange barn fødes per 1000 innbyggere? (10 = Lavt, 50 = Høyt)
@@ -121,13 +119,14 @@ export const PopulationPyramidBuilder: React.FC = () => {
                             </label>
                             <span className="text-red-600 font-mono font-bold">{lifeExpectancy} år</span>
                         </div>
-                        <Slider
-                            value={[lifeExpectancy]}
-                            onValueChange={(v) => setLifeExpectancy(v[0])}
+                        <input
+                            type="range"
+                            value={lifeExpectancy}
+                            onChange={(e) => setLifeExpectancy(Number(e.target.value))}
                             min={50}
                             max={90}
                             step={1}
-                            className="py-4"
+                            className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-red-600"
                         />
                         <p className="text-xs text-slate-500">
                             Hvor lenge lever folk i gjennomsnitt? (50 = Lavt, 90 = Høyt)

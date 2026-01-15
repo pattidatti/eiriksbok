@@ -35,11 +35,19 @@
         },
         {
             "type": "header",
-            "value": "Årsaker og sirkler"
+            "value": "3. The Boots Theory: Hvorfor det er dyrt å være fattig"
         },
         {
             "type": "text",
-            "value": "Fattigdom er ofte en sirkel. Hvis du er fattig, har du kanskje dårligere helse og mindre utdanning, som igjen gjør det vanskeligere å få en godt betalt jobb. Å bryte denne sirkelen er en av verdenssamfunnets største oppgaver."
+            "value": "Forfatteren Terry Pratchett beskrev økonomisk ulikhet gjennom \"støvel-teorien\":\n\nEn rik mann kan kjøpe støvler til 1000 kr som varer i 10 år. En fattig mann har ikke 1000 kr, så han kjøper billige støvler til 200 kr. Men disse går i stykker hvert år.\n\nOver en periode på 10 år har den fattige mannen brukt 2000 kr på støvler – dobbelt så mye som den rike – og han har fortsatt våte føtter. Fattigdom fanger folk i kortsiktige, dyre løsninger."
+        },
+        {
+            "type": "header",
+            "value": "4. Gini-koeffisienten: Måling av ulikhet"
+        },
+        {
+            "type": "text",
+            "value": "Hvordan vet vi om et land er rettferdig? Vi bruker en skala fra 0 til 1 som kalles Gini-koeffisienten.\n\n*   **0:** Total likhet (alle eier nøyaktig like mye).\n*   **1:** Total ulikhet (én person eier alt).\n\nNorge har en Gini på ca 0.27 (veldig likt). Sør-Afrika har ca 0.63 (ekstremt ulikt). Høy ulikhet skaper ofte kriminalitet og politisk uro."
         },
         {
             "type": "header",
@@ -51,7 +59,7 @@
         },
         {
             "type": "text",
-            "value": "Hvordan vi løser fattigdom, avhenger av hvilket menneskesyn og hvilken økonomisk modell vi følger. Er løsningen mer frihandel, mer bistand, eller en bedre fordeling gjennom skattesystemet?"
+            "value": "I denne simulatoren ser du hvordan uforutsette utgifter kan velte lasset når du lever på marginene. Er det virkelig bare å \"ta seg sammen\", eller er systemet rigget mot deg?"
         }
     ],
     "quiz": [

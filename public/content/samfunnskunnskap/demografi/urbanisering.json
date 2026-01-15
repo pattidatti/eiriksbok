@@ -43,15 +43,15 @@
         },
         {
             "type": "header",
-            "value": "Interaktivitet: Byens tidslinje"
+            "value": "Interaktivitet: By-Simulatoren"
         },
         {
             "type": "text",
-            "value": "Se hvordan verdens bybefolkning har vokst fra den industrielle revolusjon og frem til i dag."
+            "value": "I denne simulatoren er *du* byplanleggeren. Se hvordan slum og skyskrapere vokser frem basert på dine valg om sonering. Kan du lage en by som både er stor og god å leve i?"
         },
         {
             "type": "component",
-            "name": "UrbanizationTimeline"
+            "name": "UrbanSprawlSim"
         },
         {
             "type": "text",
