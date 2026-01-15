@@ -23,7 +23,7 @@ const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
                     const content = block.replace(/^#+\s*/, '');
                     const HeaderTag = `h${Math.min(level + 1, 6)}` as any;
                     return (
-                        <HeaderTag key={index} className={`font-bold text-slate-800 mb-4 mt-6 ${level === 1 ? 'text-2xl' : level === 2 ? 'text-xl' : 'text-lg'}`}>
+                        <HeaderTag key={index} className={`font-bold text-slate-900 mb-4 mt-8 tracking-tight ${level === 1 ? 'text-2xl' : level === 2 ? 'text-xl' : 'text-lg'}`}>
                             {renderInlineMarkdown(content, concepts)}
                         </HeaderTag>
                     );
@@ -33,7 +33,7 @@ const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
                 if (block.startsWith('>')) {
                     const content = block.replace(/^>\s*/gm, '');
                     return (
-                        <blockquote key={index} className="my-6 pl-6 border-l-4 border-indigo-500 italic text-lg text-slate-700 bg-slate-50 py-3 pr-4 rounded-r-lg">
+                        <blockquote key={index} className="my-10 pl-8 border-l-2 border-slate-900 font-serif text-2xl italic text-slate-800 leading-relaxed">
                             {renderInlineMarkdown(content, concepts)}
                         </blockquote>
                     );
@@ -138,8 +138,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
 
                 // Check for active state if interactive
                 const isActive = activeBlockIndex === index;
-                const interactiveClass = onBlockClick ? "cursor-pointer transition-colors duration-200 hover:bg-blue-50 rounded-lg p-2 -mx-2" : "";
-                const activeClass = isActive ? "bg-yellow-100 ring-2 ring-yellow-300 relative" : "";
+                const interactiveClass = onBlockClick ? "cursor-pointer transition-all duration-300 hover:bg-slate-50/80 hover:shadow-sm rounded-xl p-4 -mx-4" : "";
+                const activeClass = isActive ? "bg-amber-50/40 relative shadow-sm border border-amber-100/50" : "";
 
                 switch (type) {
                     case 'paragraph':
@@ -165,7 +165,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                                 ease: "easeInOut"
                                             }}
                                         >
-                                            <Volume2 className="w-5 h-5 text-yellow-600" />
+                                            <Volume2 className="w-5 h-5 text-amber-600" />
                                         </motion.div>
                                     </div>
                                 )}
@@ -203,14 +203,14 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
 
                     case 'header':
                         return (
-                            <h2 key={index} className="text-2xl font-bold text-slate-800 mb-4 mt-8">
+                            <h2 key={index} className="text-2xl font-bold text-slate-900 mb-4 mt-8 tracking-tight">
                                 {(block as any).content || (block as any).text || (block as any).value}
                             </h2>
                         );
 
                     case 'subheader':
                         return (
-                            <h3 key={index} className="text-xl font-bold text-slate-800 mb-3 mt-6">
+                            <h3 key={index} className="text-xl font-bold text-slate-900 mb-3 mt-6 tracking-tight">
                                 {(block as any).content || (block as any).text || (block as any).value}
                             </h3>
                         );
@@ -346,12 +346,14 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
 
                     case 'quote':
                         return (
-                            <blockquote key={index} className="my-8 pl-8 border-l-4 border-indigo-500 italic text-xl text-slate-700 bg-slate-50 py-4 pr-4 rounded-r-lg shadow-sm">
-                                "{(block as any).content}"
+                            <blockquote key={index} className="my-12 pl-6 border-l-2 border-slate-900">
+                                <p className="font-serif text-2xl italic text-slate-800 leading-relaxed">
+                                    "{(block as any).content}"
+                                </p>
                                 {((block as any).author || (block as any).source) && (
-                                    <footer className="mt-4 text-sm not-italic flex flex-col text-slate-500 font-medium">
-                                        {(block as any).author && <cite className="not-italic text-slate-800 text-base mb-1">— {(block as any).author}</cite>}
-                                        {(block as any).source && <span className="text-slate-400">{(block as any).source}</span>}
+                                    <footer className="mt-6 text-sm not-italic flex flex-col font-medium tracking-wide">
+                                        {(block as any).author && <cite className="not-italic text-slate-900 font-bold uppercase text-xs mb-1">— {(block as any).author}</cite>}
+                                        {(block as any).source && <span className="text-slate-500">{(block as any).source}</span>}
                                     </footer>
                                 )}
                             </blockquote>
@@ -416,12 +418,12 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                     case 'info':
                     case 'info_box':
                         return (
-                            <div key={index} className="my-8 bg-blue-50 border border-blue-100 rounded-xl p-6 shadow-sm">
-                                <div className="flex items-start gap-3">
-                                    <Info className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                            <div key={index} className="my-8 bg-white border border-slate-200 rounded-xl p-6 shadow-sm group hover:shadow-md transition-shadow">
+                                <div className="flex items-start gap-4">
+                                    <Info className="w-5 h-5 text-slate-400 flex-shrink-0 mt-1 group-hover:text-slate-600 transition-colors" />
                                     <div>
-                                        <h3 className="text-lg font-bold text-blue-900 mb-2">{(block as any).title}</h3>
-                                        <div className="text-blue-800 leading-relaxed">
+                                        <h3 className="text-base font-bold text-slate-900 mb-2 uppercase tracking-wide">{(block as any).title}</h3>
+                                        <div className="text-slate-600 leading-relaxed">
                                             {renderWithMarkdown((block as any).content, mergedConcepts)}
                                         </div>
                                     </div>
