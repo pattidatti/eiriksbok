@@ -1,7 +1,7 @@
 {
     "id": "migrasjon-push-pull",
-    "title": "Migrasjon: Hvorfor flytter vi?",
-    "ingress": "Mennesket har alltid vært på flyttefot. Fra de første vandringene ut av Afrika til dagens flukt over Middelhavet. Men hva er det som egentlig får oss til å forlate hjemmet vårt?",
+    "title": "Migrasjon: Hvorfor drar vi?",
+    "ingress": "Mennesket har alltid vært på flyttefot. Fra de første vandringene ut av Afrika til dagens flukt over Middelhavet. Men hva er det som er så ille hjemme at du velger å forlate alt du eier?",
     "image": "/images/lessons/demografi/migrasjon_hero.png",
     "heroImage": "/images/lessons/demografi/migrasjon_hero.png",
     "status": "published",
@@ -9,7 +9,7 @@
     "tags": [
         "demografi",
         "migrasjon",
-        "push-pull",
+        "flyktninger",
         "historie"
     ],
     "content": [
@@ -18,60 +18,68 @@
             "value": "Å flytte fra alt man kjenner – familie, venner, språk og kultur – er en av de største beslutningene et menneske kan ta. For å forstå migrasjon deler vi årsakene inn i to grupper: Faktorene som dytter oss vekk, og faktorene som drar oss til et nytt sted."
         },
         {
-            "type": "header",
-            "value": "Push-faktorer: Når du må dra"
-        },
-        {
-            "type": "text",
-            "value": "Push-faktorer (skyve-faktorer) er negative forhold på hjemstedet som gjør det vanskelig eller umulig å bli boende:\n\n*   Krig og konflikt: Den vanligste årsaken til at folk blir flyktninger.\n*   Naturkatastrofer: Tørke, flom eller jordskjelv som ødelegger livsgrunnlaget.\n*   Arbeidsledighet: Når det ikke finnes muligheter til å skaffe seg en inntekt."
-        },
-        {
-            "type": "header",
-            "value": "Pull-faktorer: Når du håper på mer"
-        },
-        {
-            "type": "text",
-            "value": "Pull-faktorer (dra-faktorer) er positive forhold ved destinasjonen som lokker folk til å komme:\n\n*   Arbeid og økonomi: Muligheten for en jobb og høyere lønn.\n*   Trygghet: Fred, demokrati og gode rettigheter.\n*   Utdanning: Bedre skoler og universiteter for barna."
-        },
-        {
-            "type": "header",
-            "value": "Internt vs eksternt: Urbanisering"
-        },
-        {
-            "type": "text",
-            "value": "Mye migrasjon skjer internt i et land. Den mest omfattende vandringen i nyere tid er urbaniseringen – at folk flytter fra bygda til byene for å jobbe i industri eller tjenesteyting."
-        },
-        {
-            "type": "header",
-            "value": "Interaktivitet: Reise-kartet"
-        },
-        {
             "type": "component",
             "name": "MigrationJourney"
         },
         {
+            "type": "header",
+            "value": "Push-faktorer: Når du MÅ dra"
+        },
+        {
             "type": "text",
-            "value": "Migrasjon endrer både landet man drar fra (hjerneflukt eller mindre press på ressursene) og landet man kommer til (ny arbeidskraft eller utfordringer med integrering)."
+            "value": "Push-faktorer (skyve-faktorer) er negative forhold på hjemstedet. Det handler ofte om ren overlevelse.\n\n*   **Krig og konflikt:** Den vanligste årsaken til flukt i dag (f.eks. Syria, Ukraina).\n*   **Naturkatastrofer:** Tørke eller flom som ødelegger livsgrunnlaget.\n*   **Politisk forfølgelse:** Å bli fengslet for sine meninger."
+        },
+        {
+            "type": "header",
+            "value": "Pull-faktorer: Drømmen om noe bedre"
+        },
+        {
+            "type": "text",
+            "value": "Pull-faktorer (dra-faktorer) er det som lokker deg til et bestemt sted. Hvorfor drar ikke alle flyktninger til nabolandet?\n\n*   **Økonomi:** Høyere lønn og jobbmuligheter.\n*   **Trygghet:** Stabilt demokrati og rettsvesen.\n*   **Frihet:** Muligheten til å være seg selv."
+        },
+        {
+            "type": "header",
+            "value": "Case 1: Den store utvandringen (1825–1920)"
+        },
+        {
+            "type": "text",
+            "value": "Visste du at over 800 000 nordmenn utvandret til Amerika? Kun Irland mistet en større andel av befolkningen sin.\n\n*   **Push:** Norge var fattig. Gårdene var for små til å deles opp mellom alle sønnene. Det var rett og slett ikke nok mat.\n*   **Pull:** \"The Homestead Act\" i USA lovet gratis jord til alle som ville dyrke den. Brev fra slektninger fortalte om et land der alle kunne bli rike."
+        },
+        {
+            "type": "header",
+            "value": "Case 2: Flyktningkrisen og den arabiske våren (2015)"
+        },
+        {
+            "type": "text",
+            "value": "I 2011 brøt det ut opprør i mange arabiske land (Den arabiske våren). I Syria utviklet det seg til en brutal borgerkrig. \n\nMillioner ble drevet på flukt. Dette er et klassisk eksempel på ekstreme **Push-faktorer** (bomber og kjemiske våpen). Mange søkte seg mot Europa (**Pull-faktor**: Trygghet og menneskerettigheter), noe som skapte store politiske diskusjoner i EU."
+        },
+        {
+            "type": "header",
+            "value": "Den skjulte økonomien: Remittances"
+        },
+        {
+            "type": "text",
+            "value": "Migrasjon endrer også landet man drar fra. Når migranter får jobb i rike land, sender de ofte penger hjem til familien. Dette kalles *remittances* (pengeoversendelser).\n\nFaktisk sendes det MER penger hjem via remittances enn all verdens u-hjelp til sammen! Disse pengene betaler for skolegang og helsehjelp i hjemlandet."
         }
     ],
     "quiz": [
         {
-            "question": "Hva er en typisk push-faktor?",
+            "question": "Hva var den viktigste Pull-faktoren for norske utvandrere til Amerika?",
             "options": [
-                "Gode skoler i nabolandet",
-                "Krig og konflikt",
-                "Spennende feriemuligheter",
-                "Høyere lønn"
+                "Bedre skiføre",
+                "Gratis jordbruksland",
+                "Unngå militærtjeneste",
+                "Billigere alkohol"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hva kalles det når folk flytter fra landsbygda til byene?",
+            "question": "Hva er remittances?",
             "options": [
-                "Inversjon",
-                "Urbanisering",
-                "Inflasjon",
-                "Eskatologi"
+                "En type visum",
+                "Penger migranter sender hjem til familien",
+                "En sykdom som sprer seg med migrasjon",
+                "Avgiften for å krysse en grense"
             ],
             "correctAnswer": 1
         }

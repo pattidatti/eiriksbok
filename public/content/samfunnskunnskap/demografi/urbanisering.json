@@ -1,41 +1,53 @@
 {
     "id": "urbanisering",
-    "title": "Urbanisering: Flukten til byen",
-    "ingress": "Aldri før har så mange mennesker bodd så tett. Hvorfor velger vi å forlate naturen for å bo i grå betongjungler?",
+    "title": "Urbanisering: Betongmagneten",
+    "ingress": "Aldri før har så mange mennesker bodd så tett. For første gang i historien er vi en urban art. Men er storbyen en drøm eller et mareritt?",
     "image": "/images/lessons/demografi/urbanisering_hero.png",
     "heroImage": "/images/lessons/demografi/urbanisering_hero.png",
     "status": "published",
     "layout": "rich",
     "tags": [
         "demografi",
-        "urbanisering",
-        "historie",
-        "byutvikling"
+        "byutvikling",
+        "bærekraft",
+        "megabyer"
     ],
     "content": [
         {
             "type": "text",
-            "value": "I år 1800 bodde bare 3 % av verdens befolkning i byer. I dag bor over 55 % av oss i urbane områder, og tallet stiger hver dag. Denne massive flytteprosessen kalles urbanisering."
+            "value": "I 2007 krysset verden en magisk grense: For første gang bodde flere mennesker i byer enn på landsbygda. Dette kalles urbanisering."
         },
         {
             "type": "header",
-            "value": "Hvorfor byer?"
+            "value": "Megabyer: Når byer blir land"
         },
         {
             "type": "text",
-            "value": "Byer er som magneter. De drar til seg folk fordi det er her pengene, jobbene og mulighetene finnes. \n\n*   Arbeid: I byene finnes det et mangfold av jobber som ikke er avhengig av jordbruk.\n*   Sosialt: Her finner man kafeer, kinoer, konserter og et bredere fellesskap.\n*   Effektivitet: Det er billigere å tilby strøm, vann, sykehus og skoler når folk bor tett."
+            "value": "En megaby er en by med over 10 millioner innbyggere. I 1950 var det bare to (New York og Tokyo). I dag er det over 30.\n\n*   **Tokyo (37 mill):** En velsmurt maskin. Tog går på sekundet, gatene er rene. Orden.\n*   **Lagos (15 mill):** En eksplosjon av vekst. Trafikkaos, strømbrudd, men også en enormt kreativ energi. Kaos."
         },
         {
             "type": "header",
-            "value": "Prisen for å bo tett"
+            "value": "Byens to ansikter: Slum vs. Forstad"
         },
         {
             "type": "text",
-            "value": "Men urbanisering skaper også utfordringer. Når for mange flytter for raskt til en by uten at man har en plan, oppstår det problemer:\n\n*   Slumdannelse: Ulovlige bosetninger uten vann og kloakk.\n*   Forurensning: Eksos, støy og lysforurensning.\n*   Ensomhet: Paradoksalt nok kan man føle seg mer ensom blant millioner av fremmede enn i en liten landsby."
+            "value": "Urbanisering skaper enorme forskjeller. I Rio de Janeiro ligger luksusleiligheter vegg i vegg med *favelas* (slumområder).\n\n*   **Slummen:** Ofte ulovlig bebyggelse uten vann og kloakk. Men for mange er det det eneste stedet de har råd til å bo nær jobbene.\n*   **Forstaden:** Eneboliger langt utenfor sentrum. Krever ofte at man eier bil, noe som skaper kø og forurensning."
         },
         {
             "type": "header",
-            "value": "Interaktivitet: Byens vekst"
+            "value": "Miljø: Den urbane varmeøya"
+        },
+        {
+            "type": "text",
+            "value": "Betong og asfalt suger til seg solvarme. Derfor er byer ofte 2-3 grader varmere enn landsbygda rundt. Dette kalles *Urban Heat Island*-effekten. \n\nI fremtiden må vi bygge byer som puster – med parker, grønne tak og trær som gir skygge."
+        },
+        {
+            "type": "header",
+            "value": "Interaktivitet: Byens tidslinje"
+        },
+        {
+            "type": "text",
+            "value": "Se hvordan verdens bybefolkning har vokst fra den industrielle revolusjon og frem til i dag."
         },
         {
             "type": "component",
@@ -43,27 +55,27 @@
         },
         {
             "type": "text",
-            "value": "Fremtidens byer må være grønnere og smartere hvis vi skal klare å huse alle de nye innbyggerne som er på vei."
+            "value": "Er fremtiden gigantiske megabyer som dekker halve kontinentet, eller vil vi flytte ut igjen takket være hjemmekontor og internett?"
         }
     ],
     "quiz": [
         {
-            "question": "Hvor stor andel av verdens befolkning bor i byer i dag?",
+            "question": "Hva er grensen for at en by kalles en 'Megaby'?",
             "options": [
-                "Ca. 10 %",
-                "Ca. 30 %",
-                "Over 55 %",
-                "Nesten 90 %"
+                "1 million innbyggere",
+                "5 millioner innbyggere",
+                "10 millioner innbyggere",
+                "100 millioner innbyggere"
             ],
             "correctAnswer": 2
         },
         {
-            "question": "Hva er en fordel med at folk bor tett i byer?",
+            "question": "Hva er 'Urban Heat Island'-effekten?",
             "options": [
-                "Det blir mer støy",
-                "Det er billigere og mer effektivt å tilby offentlige tjenester",
-                "Man får bedre plass til å dyrke mat",
-                "Det er lettere å gå seg vill"
+                "At folk i byer kjøper flere varmeovner",
+                "At byer er betydelig varmere enn omlandet pga. asfalt og betong",
+                "At alle byer bør bygges på øyer",
+                "At det er populært å dra til syden"
             ],
             "correctAnswer": 1
         }

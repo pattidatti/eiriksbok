@@ -1,75 +1,114 @@
 {
     "id": "malthus-vs-boserup",
-    "title": "Malthus vs. Boserup: Vil det bli nok mat til alle?",
-    "ingress": "Er vi i ferd med å gå tom for ressurser, eller vil vi alltid finne opp en løsning i siste liten? Kampen mellom pessimisten Malthus og optimisten Boserup preger fortsatt debatten om klima og befolkning.",
+    "title": "Malthus: Dommedag vs. Teknologi",
+    "ingress": "Er vi for mange mennesker på jorda? Thomas Malthus mente vi ville sulte ihjel. Esther Boserup mente vi ville finne opp en løsning. Hvem fikk rett?",
     "image": "/images/lessons/demografi/malthus_hero.png",
     "heroImage": "/images/lessons/demografi/malthus_hero.png",
     "status": "published",
     "layout": "rich",
     "tags": [
         "demografi",
-        "filosofi",
         "ressurser",
-        "innovasjon"
+        "teknologi",
+        "teori"
     ],
     "content": [
         {
             "type": "text",
-            "value": "Hvor mange mennesker tåler jorden? Dette spørsmålet har to klassiske svar som står i sterk kontrast til hverandre."
+            "value": "I 1798 skrev en engelsk prest, Thomas Malthus, en bok som skulle skremme verden. Han mente at befolkningen vokste mye raskere enn matproduksjonen."
         },
         {
             "type": "header",
-            "value": "Thomas Malthus: Dommedagsprofeten"
+            "value": "Malthus: Pessimisten"
         },
         {
             "type": "text",
-            "value": "I 1798 skrev Thomas Malthus en bok som skremte vettet av mange. Han hevdet at befolkningen vokser *geometrisk* (1, 2, 4, 8...), mens matproduksjonen bare vokser *aritmetisk* (1, 2, 3, 4...).\n\nKonklusjonen hans var dyster: Før eller siden vil vi nå en «malthusiansk krise» der det ikke finnes nok mat. Resultatet ville bli sult, krig og elendighet som ville tvinge folketallet ned igjen. Malthus mente vi burde begrense antall barn for å unngå katastrofen."
+            "value": "Malthus sitt regnestykke var enkelt:\n\n*   Befolkningen vokser **eksponentielt** (1, 2, 4, 8, 16...)\n*   Matproduksjonen vokser **lineært** (1, 2, 3, 4, 5...)\n\nFør eller siden vil kurvene krysse hverandre. Da får vi sultkatastrofer, krig og pest som reduserer befolkningen igjen. Naturen rydder opp."
         },
         {
             "type": "header",
-            "value": "Ester Boserup: Oppfinnernes forsvarer"
+            "value": "Boserup: Optimisten"
         },
         {
             "type": "text",
-            "value": "Nesten 200 år senere snudde danske Ester Boserup teorien på hodet. Hun mente at nød er moren til alle oppfinnelser. Når befolkningen øker og maten blir knapp, blir vi tvunget til å finne opp bedre måter å dyrke jorda på.\n\nHistorien har så langt støttet Boserup. Vi har gått fra treplog til traktorer, kunstgjødsel og genmodifisering. Vi produserer i dag mer mat enn noen gang før, til tross for at vi er åtte ganger flere mennesker enn på Malthus' tid."
+            "value": "I 1965 kom den danske økonomen Esther Boserup med et mot-svar: **\"Nød lærer naken kvinne å spinne.\"**\n\nHun mente at når vi blir for mange, blir vi tvunget til å finne opp ny teknologi. Befolkningspress fører ikke til sult, men til innovasjon."
         },
         {
             "type": "header",
-            "value": "Interaktivitet: Innovasjons-kampen"
+            "value": "Fasiten: Den grønne revolusjonen"
+        },
+        {
+            "type": "text",
+            "value": "Hittil har Boserup fått rett. På 1960-tallet fryktet man massesult i India. Løsningen kom fra en amerikansk agronom ved navn **Norman Borlaug**. Han utviklet nye hvete- og ristyper som ga mye større avlinger.\n\nResultatet? Vi produserer i dag mer enn nok mat til 8 milliarder mennesker."
+        },
+        {
+            "type": "component",
+            "name": "LineChart",
+            "props": {
+                "title": "Kornavling i Norge (kg/dekar)",
+                "xAxisLabel": "År",
+                "yAxisLabel": "Kg per dekar",
+                "data": [
+                    {
+                        "year": 1900,
+                        "value": 140
+                    },
+                    {
+                        "year": 1950,
+                        "value": 220
+                    },
+                    {
+                        "year": 1970,
+                        "value": 310
+                    },
+                    {
+                        "year": 1990,
+                        "value": 410
+                    },
+                    {
+                        "year": 2020,
+                        "value": 530
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "value": "Grafen over viser utviklingen i Norge. På 100 år har vi klart å nesten firedoble hvor mye mat vi får ut av hver jordlapp. Kunstgjødsel, traktorer og bedre frø har knust Malthus sin pessimisme."
+        },
+        {
+            "type": "header",
+            "value": "Bæreevne: Hvor går grensen?"
+        },
+        {
+            "type": "text",
+            "value": "Selv om vi kan produsere nok mat, har jorda en tålegrense (*carrying capacity*). Spørsmålet i dag er ikke om vi går tom for mat, men om teknologien vår ødelegger økosystemene vi er avhengige av."
         },
         {
             "type": "component",
             "name": "MalthusBoserupModel"
-        },
-        {
-            "type": "header",
-            "value": "Hvem har rett i dag?"
-        },
-        {
-            "type": "text",
-            "value": "Selv om Boserup vant den første runden, er debatten ikke over. I dag handler den ikke bare om mat, men om jordens bæreevne generelt. Kan vi fortsette å innovere oss ut av klimakrisen og tap av naturmangfold, eller vil Malthus få rett til slutt hvis vi ikke endrer livsstil?"
         }
     ],
     "quiz": [
         {
-            "question": "Hvorfor mente Malthus at vi ville gå tom for mat?",
+            "question": "Hva mente Thomas Malthus ville skje?",
             "options": [
-                "Fordi folk ville slutte å jobbe",
-                "Fordi befolkningen vokser raskere enn matproduksjonen",
-                "Fordi insekter ville spise all maten",
-                "Fordi jorda ville bli for varm"
+                "Vi ville flytte til andre planeter",
+                "Befolkningen ville vokse raskere enn matproduksjonen",
+                "Teknologien ville redde oss",
+                "Folk ville slutte å få barn frivillig"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hva er hovedpoenget til Ester Boserup?",
+            "question": "Hvem er kjent som 'far' til den grønne revolusjonen?",
             "options": [
-                "Folk må få færre barn",
-                "Befolkningsvekst fører til innovasjon og bedre metoder",
-                "Vi bør alle bli vegetarianere",
-                "Jorda har en fast grense for hvor mange folk den tåler"
+                "Esther Boserup",
+                "Thomas Malthus",
+                "Norman Borlaug",
+                "Albert Einstein"
             ],
-            "correctAnswer": 1
+            "correctAnswer": 2
         }
     ]
 }

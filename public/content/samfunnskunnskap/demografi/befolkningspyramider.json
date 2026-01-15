@@ -1,7 +1,108 @@
 {
-    "title": "Befolkningspyramider",
-    "fact": "Visste du at Japan har en av verdens eldste befolkninger, og det selges nå flere bleier til voksne enn til babyer der?",
-    "description": "Lær å tolke befolkningspyramider for å forstå sammensetningen av en befolkning og forutsi fremtidig utvikling.",
-    "createdDate": "2023-01-01T12:00:00Z",
-    "lastUpdated": "2025-12-03T17:25:16.499Z"
+    "id": "befolkningspyramider",
+    "title": "Befolkningspyramider: Samfunnets Fingeravtrykk",
+    "ingress": "Hvis du kunne ta et røntgenbilde av et helt land, ville det se ut som en befolkningspyramide. Den avslører alt: Kriger, epidemier, babybooms og fremtiden til pensjonistene.",
+    "image": "/images/lessons/demografi/befolkning_hero.png",
+    "heroImage": "/images/lessons/demografi/befolkning_hero.png",
+    "status": "published",
+    "layout": "rich",
+    "tags": [
+        "demografi",
+        "statistikk",
+        "befolkning",
+        "sammfunn"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "value": "En befolkningspyramide er ikke bare statistikk; det er summen av millioner av menneskelige valg og skjebner. Hver søyle i diagrammet forteller en historie om hvem som ble født, hvem som flyttet, og hvem som døde."
+        },
+        {
+            "type": "header",
+            "value": "De 5 Formene: Fra Kaos til Orden"
+        },
+        {
+            "type": "text",
+            "value": "Verdens land kan grovt sett deles inn i fem former, som nøye følger den demografiske overgangen (DTM). Ved å se på formen, kan du umiddelbart si hvor utviklet et land er."
+        },
+        {
+            "type": "component",
+            "name": "PopulationPyramidBuilder"
+        },
+        {
+            "type": "header",
+            "value": "Fase 1: Den Konkave Pyramiden (Historisk)"
+        },
+        {
+            "type": "text",
+            "value": "Denne formen finnes nesten ikke lenger i dagens verden, unntatt hos isolerte stammefolk i Amazonas. Den har en ekstremt bred base (svært mange barn blir født), men sidene buer bratt innover fordi dødeligheten er så høy i alle aldre. Livet er hardt og kort."
+        },
+        {
+            "type": "header",
+            "value": "Fase 2: Den Ekte Pyramiden (Ekspansiv)"
+        },
+        {
+            "type": "text",
+            "value": "**Eksempel: Niger eller Angola.**\n\nHer ser vi den klassiske trekantformen. Basen er bred fordi fødselsraten fortsatt er høy, men folk begynner å leve lenger enn i Fase 1.\n\n*   **Hva det betyr for samfunnet:** En enormt ung befolkning. Dette krever store investeringer i skoler og arbeidsplasser. Hvis staten feiler her, kan det føre til uro og arbeidsledighet."
+        },
+        {
+            "type": "header",
+            "value": "Fase 3: Den Avrundede Pyramiden"
+        },
+        {
+            "type": "text",
+            "value": "**Eksempel: India eller Mexico.**\n\nHer begynner basen å krympe litt, eller vokser i hvert fall ikke like raskt. Sidene blir rettere fordi flere lever opp til voksen alder. Landet er i rask økonomisk vekst, og kvinner får færre barn."
+        },
+        {
+            "type": "header",
+            "value": "Fase 4: Bikuben / Søylen (Stasjonær)"
+        },
+        {
+            "type": "text",
+            "value": "**Eksempel: USA eller Norge.**\n\nNår fødselsraten er lav og dødsraten er lav, ser diagrammet nesten ut som en søyle eller en bikube. Hver aldersgruppe er omtrent like stor, frem til alderdommen.\n\n*   **Hva det betyr for samfunnet:** Stabilitet. Samfunnet er rikt og velutviklet, men veksten stopper opp."
+        },
+        {
+            "type": "header",
+            "value": "Fase 5: Urnen (Konstriktiv)"
+        },
+        {
+            "type": "text",
+            "value": "**Eksempel: Japan eller Italia.**\n\nDette er fremtidens store utfordring. Basen er smalere enn toppen – det fødes færre barn enn det finnes eldre. Pyramiden ser ut som en urne eller en kiste.\n\n*   **Hva det betyr for samfunnet:** Eldrebølge. Hvem skal jobbe og betale skatt for å støtte de mange pensjonistene? Dette kalles en høy *forsørgerbyrde*."
+        },
+        {
+            "type": "info_box",
+            "title": "Forsørgerbyrden",
+            "content": "Forsørgerbyrden er forholdet mellom de som jobber (15-64 år) og de som ikke jobber (barn og pensjonister). I Fase 2 er byrden mange barn. I Fase 5 er byrden mange eldre."
+        },
+        {
+            "type": "header",
+            "value": "Hvordan lese \"hakkene\" i diagrammet?"
+        },
+        {
+            "type": "text",
+            "value": "Hvis du ser nøye på en virkelig pyramide (sjekk gjerne data fra *populationpyramid.net*), vil du ofte se ujevne hakk inn eller ut.\n\n*   **Et innhugg i menn 20-30 år:** Kan tyde på en krig der soldater døde, eller stor utvandring av arbeidskraft.\n*   **En utbuling i 60-åringene:** Dette er \"Baby Boomers\" – generasjonen født like etter 2. verdenskrig da optimismen var stor."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvilket land er et typisk eksempel på en Fase 5-pyramide (Urne)?",
+            "options": [
+                "Nigeria",
+                "Japan",
+                "India",
+                "USA"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva forteller en bred base i pyramiden?",
+            "options": [
+                "At folk lever lenge",
+                "At det er høy arbeidsledighet",
+                "At det fødes mange barn",
+                "At mange flytter ut av landet"
+            ],
+            "correctAnswer": 2
+        }
+    ]
 }

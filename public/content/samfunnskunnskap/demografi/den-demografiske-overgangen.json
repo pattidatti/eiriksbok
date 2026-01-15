@@ -1,7 +1,7 @@
 {
     "id": "den-demografiske-overgangen",
-    "title": "Den demografiske overgangen",
-    "ingress": "For 200 år siden var vi 1 milliard mennesker. I dag er vi over 8 milliarder. Hva skjedde? Og hvorfor sier forskerne nå at folketallet snart vil begynne å brenne ut?",
+    "title": "Den demografiske overgangen: En reise i 5 faser",
+    "ingress": "For 200 år siden var vi 1 milliard mennesker. I dag er vi over 8 milliarder. Hva skjedde? Og hvorfor sier forskerne nå at folketallet snart vil begynne å krympe?",
     "image": "/images/lessons/demografi/demografi_overgang_hero.png",
     "heroImage": "/images/lessons/demografi/demografi_overgang_hero.png",
     "status": "published",
@@ -9,37 +9,34 @@
     "tags": [
         "demografi",
         "befolkning",
-        "historie",
-        "overgang"
+        "utvikling",
+        "historie"
     ],
     "content": [
         {
             "type": "text",
-            "value": "Menneskehetens historie har i tusenvis av år vært preget av at vi fikk mange barn, men at mange også døde tidlig. Men så skjedde det noe revolusjonerende som endret alt."
+            "value": "Menneskehetens historie har i tusenvis av år vært preget av at vi fikk mange barn, men at mange også døde tidlig. Men så skjedde det noe revolusjonerende som endret alt: Vi sluttet å dø som fluer."
         },
         {
             "type": "header",
-            "value": "De 5 fasene"
+            "value": "Fase 1: Den skjøre likevekten (Før 1800)"
         },
         {
             "type": "text",
-            "value": "Den demografiske overgangen beskriver hvordan et land går fra høye fødsels- og dødsrater til lave. Vi deler det ofte inn i fem faser:"
+            "value": "**Kjennetegn:** Høy fødselsrate + Høy dødsrate = Lav vekst.\n\nFolk fikk 6-8 barn, men kanskje bare 2 vokste opp. Sult, krig og sykdommer holdt befolkningen nede. \n\n*   **Historisk eksempel:** Svartedauden i Europa. \n*   **I dag:** Ingen land er i denne fasen lenger, kun isolerte stammer i Amazonas."
         },
         {
             "type": "header",
-            "value": "Fase 1: Likevekten (Før-industriell)"
+            "value": "Fase 2: Eksplosjonen (Industriell Revolusjon)"
         },
         {
             "type": "text",
-            "value": "Høy fødselsrate og høy dødsrate. Folk får mange barn, men sykdom og sult gjør at få lever lenge. Folketallet er stabilt og lavt. Dette var situasjonen i hele verden frem til ca. 1800."
+            "value": "**Kjennetegn:** Dødsraten stuper, men fødselsraten er fortsatt høy.\n\nPlutselig får vi såpe, kloakk og medisiner. Barna overlever! Men kulturen henger igjen – folk fortsetter å få like mange barn som før. Resultatet er en befolkningseksplosjon.\n\n*   **Eksempel i dag:** Afghanistan, Niger og mange land i Afrika sør for Sahara."
         },
         {
-            "type": "header",
-            "value": "Fase 2: Befolkningseksplosjonen"
-        },
-        {
-            "type": "text",
-            "value": "Bedre hygiene, medisiner og mer mat gjør at dødsraten stuper. Men folk fortsetter å få mange barn som før. Resultatet? En voldsom befolkningsvekst. Dette skjedde i Europa under den industrielle revolusjon, og i mange utviklingsland etter 1950."
+            "type": "info_box",
+            "title": "Utviklingsfellen",
+            "content": "Noen land blir sittende fast i Fase 2. Befolkningen vokser fortere enn økonomien klarer å skape jobber. Dette kalles \"The Development Trap\". Uten jobber forblir folk fattige, og fattige får ofte flere barn som en forsikring."
         },
         {
             "type": "header",
@@ -47,27 +44,31 @@
         },
         {
             "type": "text",
-            "value": "Nå begynner også fødselsraten å falle. Hvorfor? Folk flytter til byene (urbanisering), barna blir ikke lenger sett på som gratis arbeidskraft på gården, og kvinner får mer utdanning og kontroll over egen kropp."
+            "value": "**Kjennetegn:** Fødselsraten begynner å falle.\n\nHvorfor? Folk flytter til byene (urbanisering). På en bondegård er barn gratis arbeidskraft; i en by er barn dyre i drift (skole, klær, iphones). Samtidig får kvinner utdanning og prevensjon, og velger å få færre barn.\n\n*   **Eksempel i dag:** Brasil, India, Mexico."
         },
         {
             "type": "header",
-            "value": "Fase 4: Den nye likevekten (Moderne)"
+            "value": "Fase 4: Den moderne likevekten"
         },
         {
             "type": "text",
-            "value": "Både fødselsraten og dødsraten er lave. Folketallet stabiliserer seg. De fleste rike land befinner seg her i dag."
+            "value": "**Kjennetegn:** Lav fødselsrate + Lav dødsrate = Lav vekst.\n\nFolketallet flater ut. De fleste lever lenge, og familier har i snitt under 2 barn.\n\n*   **Eksempel i dag:** Norge, USA, Kina."
         },
         {
             "type": "header",
-            "value": "Fase 5: Eldrebølgen og nedgang"
+            "value": "Fase 5: Nedgangstider (Eldrebølgen)"
         },
         {
             "type": "text",
-            "value": "I noen land (som Japan og Italia) blir det født så få barn at folketallet begynner å synke. Samtidig lever folk ekstremt lenge. Utfordringen blir da: Hvem skal passe på alle de eldre?"
+            "value": "**Kjennetegn:** Dødsraten er høyere enn fødselsraten.\n\nIkke fordi folk dør unge, men fordi det er så mange gamle mennesker! Samtidig velger mange unge å ikke få barn i det hele tatt. Folketallet krymper.\n\n*   **Eksempel i dag:** Japan, Italia, Tyskland."
         },
         {
             "type": "header",
             "value": "Interaktivitet: DTM-simulatoren"
+        },
+        {
+            "type": "text",
+            "value": "Prøv selv: Se hvordan endringer i dødsrate og fødselsrate påvirker totalbefolkningen over tid."
         },
         {
             "type": "component",
@@ -75,27 +76,27 @@
         },
         {
             "type": "text",
-            "value": "Selv om modellen fungerer som et kart, følger ikke alle land samme rute. Noen hopper over faser, mens andre blir stående fast. Men én ting er sikkert: Verdens befolkning er i ferd med å endre seg raskere enn noen gang før."
+            "value": "Modellen er tegnet som en togreise som alle land må gjennom. Men tar vi feil? Kanskje Afrikas befolkningsvekst vil stoppe opp mye raskere enn vi tror, takket være smarttelefoner og internett?"
         }
     ],
     "quiz": [
         {
-            "question": "Hva kjennetegner Fase 2 i den demografiske overgangen?",
+            "question": "Hvorfor stuper dødsraten i Fase 2?",
             "options": [
-                "Både fødsels- og dødsraten er lave",
-                "Dødsraten faller, mens fødselsraten er høy",
-                "Folk slutter å få barn",
-                "Folketallet synker raskt"
+                "Folk slutter å krige",
+                "Bedre hygiene og medisiner (vaksiner)",
+                "Klimaet blir varmere",
+                "Folk flytter til månen"
             ],
             "correctAnswer": 1
         },
         {
-            "question": "Hva er en viktig årsak til at fødselsratene faller i Fase 3?",
+            "question": "Hva er 'Utviklingsfellen'?",
             "options": [
-                "Folk flytter til skogs",
-                "Kvinner får økt utdanning og urbanisering",
-                "Det blir forbudt å få barn",
-                "Dødsraten øker igjen"
+                "Når et land blir for rikt for fort",
+                "Når befolkningen vokser raskere enn antall jobber",
+                "Når alle flytter til utlandet",
+                "Når teknologien slutter å virke"
             ],
             "correctAnswer": 1
         }
