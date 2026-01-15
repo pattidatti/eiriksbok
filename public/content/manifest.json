@@ -650,6 +650,18 @@
                             "createdDate": "2024-01-14T10:00:00Z"
                         },
                         {
+                            "id": "finland-levekar",
+                            "title": "Fra Sult til Smarttelefoner",
+                            "description": "En demografisk analyse av Finlands reise fra fattigdom til velferdsstat.",
+                            "image": "/images/lessons/demografi/finland_hero.png",
+                            "tags": [
+                                "demografi",
+                                "finland",
+                                "levekår"
+                            ],
+                            "createdDate": "2026-01-15T12:00:00Z"
+                        },
+                        {
                             "id": "intro",
                             "title": "Introduksjon til demografi",
                             "description": "Grunnleggende om befolkning.",

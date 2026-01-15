@@ -33,17 +33,26 @@ interface LineChartProps {
     data: DataPoint[];
     xAxisLabel?: string;
     yAxisLabel?: string;
+    datasetLabel?: string;
+    color?: string;
 }
 
-export const LineChart: React.FC<LineChartProps> = ({ title, data, xAxisLabel, yAxisLabel }) => {
+export const LineChart: React.FC<LineChartProps> = ({
+    title,
+    data,
+    xAxisLabel,
+    yAxisLabel,
+    datasetLabel = 'Befolkning',
+    color = 'rgb(79, 70, 229)' // Default to Indigo 600
+}) => {
     const chartData = {
         labels: data.map(d => d.year),
         datasets: [
             {
-                label: 'Befolkning',
+                label: datasetLabel,
                 data: data.map(d => d.value),
-                borderColor: 'rgb(79, 70, 229)', // Indigo 600
-                backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                borderColor: color,
+                backgroundColor: color.replace('rgb', 'rgba').replace(')', ', 0.1)'),
                 tension: 0.3,
                 fill: true,
                 pointBackgroundColor: '#fff',
