@@ -101,8 +101,12 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     // 1. Ensure Registry is loaded
     // We intentionally await this. If it fails, it returns null (via catch above).
     // BUT we need to decide if we want to THROW here to trigger retries in React Query.
-    let registry = await fetchRegistry();
-    const manifest = await fetchManifest();
+    // 1. Ensure Registry and Manifest are loaded (Parallelized)
+    // We intentionally await both. If one fails, we handle it below.
+    const [registry, manifest] = await Promise.all([
+        fetchRegistry(),
+        fetchManifest()
+    ]);
 
     // If both critical indexes failed, we can't reliably resolve anything.
     // Throwing an error here allows React Query to retry the operation.

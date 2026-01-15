@@ -81,14 +81,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
 
     if (!content || !Array.isArray(content)) return null;
 
-    // Merge explicit concepts with global ones, explicit takes priority
-    const mergedConcepts = [...(explicitConcepts || [])];
-    globalEntries.forEach(entry => {
-        if (!mergedConcepts.some(c => c.term.toLowerCase() === entry.term.toLowerCase())) {
-            mergedConcepts.push(entry as unknown as Concept);
-        }
-    });
-
+    // URL-safe (legacy) fallback logic
     // DEBUG: Fallback fetch if content is truncated
     const [fullContent, setFullContent] = React.useState<ContentBlock[] | null>(null);
 
@@ -103,6 +96,26 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                 .catch(err => console.error('ArticleContent: Fetch failed', err));
         }
     }, [content, fallbackUrl]);
+
+    // OPTIMIZATION: Memoize concept merging to avoid O(N*M) loop on every render.
+    // Use a Set for O(1) lookups instead of .some().
+    const mergedConcepts = React.useMemo(() => {
+        const baseConcepts = explicitConcepts || [];
+        const uniqueTerms = new Set(baseConcepts.map(c => c.term.toLowerCase()));
+
+        const merged = [...baseConcepts];
+
+        // Only loop through global entries once
+        for (const entry of globalEntries) {
+            const termLower = entry.term.toLowerCase();
+            if (!uniqueTerms.has(termLower)) {
+                uniqueTerms.add(termLower);
+                merged.push(entry as unknown as Concept);
+            }
+        }
+
+        return merged;
+    }, [explicitConcepts, globalEntries]);
 
     const displayContent = fullContent || content;
 
