@@ -59,7 +59,7 @@
         {
             "id": "challenge_materialism",
             "speaker": "Descartes",
-            "text": "Men hvis "jeg" bare er hjernen, da er jeg ikke fri. Da er jeg bare dominobrikker som faller. Føler du deg ikke fri?",
+            "text": "Men hvis \"jeg\" bare er hjernen, da er jeg ikke fri. Da er jeg bare dominobrikker som faller. Føler du deg ikke fri?",
             "choices": [
                 {
                     "id": "free_will",

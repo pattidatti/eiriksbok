@@ -42,7 +42,8 @@ function scanDirectory(dir) {
                 'oversikt', 'intro', 'bakgrunn', 'konsekvenser', 'teknologi',
                 'kultur', 'opptakt', 'krigens-lop', 'frelse', 'bønn', 'bonn',
                 'grunnleggere', 'gudsbilde', 'hellige-tekster', 'overgangsriter',
-                'sentrale-trekk', 'artikkel', 'skapelse', 'berlinmuren', 'svartedauden'
+                'sentrale-trekk', 'artikkel', 'skapelse', 'berlinmuren', 'svartedauden',
+                'arbeidsspesialisering', 'urbanisering'
             ];
 
             const filenameNoExt = path.basename(file, '.json').toLowerCase();

@@ -32,12 +32,14 @@ c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\norsk\tekstsjangre\n
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\norsk\tekstsjangre\roman.json -> https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\genghis-khan.json -> /images/people/genghis-khan.jpg
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\kublai-khan.json -> /images/people/kublai-khan.jpg
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\samfunnskunnskap\demografi-okonomi\finanskriser.json -> https://images.unsplash.com/photo-1535320903710-d9cf113ebdb0?auto=format&fit=crop&q=80
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\samfunnskunnskap\demografi-okonomi\inflasjon-og-rente.json -> https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\samfunnskunnskap\demografi-okonomi\produksjon.json -> /Eiriksbok/images/topics/demografi-okonomi.png
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\samfunnskunnskap\demografi\befolkningspyramider.json -> /images/lessons/demografi/befolkning_hero.png
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\samfunnskunnskap\okonomi\finanskriser.json -> https://images.unsplash.com/photo-1535320903710-d9cf113ebdb0?auto=format&fit=crop&q=80
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\samfunnskunnskap\okonomi\inflasjon-og-rente.json -> https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\samfunnskunnskap\okonomi\produksjon.json -> /Eiriksbok/images/topics/demografi-okonomi.png
 
 --- NO IMAGE FIELD ---
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\content-index.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\global-timeline.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\manifest.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\aksemaktene.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\aksjeselskap.json
@@ -46,6 +48,7 @@ c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\anarki.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\anarko-kapitalisme.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\anarko-kommunisme.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\anschluss.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\arbeidsspesialisering.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\artilleri.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\autoritaert-diktatur.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\avkolonisering.json
@@ -57,6 +60,7 @@ c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\dachau.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\de-allierte.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\de-forente-nasjoner-fn.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\defenestrasjon.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\demografisk-overgang.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\dendrokronologi.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\diktatur.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\direkte-demokrati.json
@@ -107,6 +111,7 @@ c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\molotov-rib
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\monarki.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\monopol.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\nasjonalisme.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\naturalhandel.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\nrnbergprosessene.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\oligarki.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\operasjon-barbarossa.json
@@ -153,6 +158,7 @@ c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\truman-dokt
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\uinnskrenket-ubtkrig.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\ultimatum.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\unionsopplosningen-1905.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\urbanisering.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\utmattelseskrig.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\v2.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\concepts\verbalet.json
@@ -190,6 +196,7 @@ c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\krle\filosofi\quests
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\krle\filosofi\quests\augustin.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\krle\filosofi\quests\beauvoir.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\krle\filosofi\quests\descartes.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\krle\filosofi\quests\descartes_dualism.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\krle\filosofi\quests\heidegger.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\krle\filosofi\quests\hume.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\krle\filosofi\quests\kant.json
@@ -290,33 +297,35 @@ c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\norsk\setningsoppbyg
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\norsk\setningsoppbygging\niva-2-utvidet.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\norsk\setningsoppbygging\niva-3-v2-regelen.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\norsk\setningsoppbygging\niva-4-leddsetninger.json
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\aristoteles.json
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\augustin.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\adam-smith.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\aristoteles-bio.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\augustin-bio.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\birger-jarl.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\clovis-i.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\david-hume.json
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\diokletian.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\diokletian-bio.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\dronning-elizabeth-i.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\ester-boserup.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\friedrich-nietzsche.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\gaius-octavius.json
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\guru-gobind-singh.json
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\guru-nanak.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\guru-gobind-singh-bio.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\guru-nanak-bio.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\gustav-ii-adolf.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\gustav-vasa.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\henrik-krummedige.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\jeanne-d-arc.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\john-locke.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\julius-caesar.json
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\karl-den-store.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\karl-den-store-bio.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\kleopatra.json
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\knut-alvsson.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\knut-alvsson-bio.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\marcus-antonius.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\martin-heidegger.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\oscar-ii.json
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\platon.json
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\sokrates.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\platon-bio.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\sokrates-bio.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\thomas-aquinas.json
-c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\samfunnskunnskap\demografi\befolkningspyramider.json
+c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\people\thomas-malthus.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\samfunnskunnskap\styringsformer\utforsk.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\scenarios\medieval-baron.json
 c:\Users\Eirik\Documents\Eiriksbok\Eiriksbok\public\content\scenarios\roman-soldier.json

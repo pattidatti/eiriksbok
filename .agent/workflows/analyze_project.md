@@ -28,7 +28,7 @@ description: Performs a comprehensive "ULTRATHINK" analysis of the codebase, cov
    ```
 
 4. **Component & Design Audit**
-   - Identify usage of core UI components vs raw HTML/Tailwind to ensure "Dark Immersion" consistency.
+   - Identify usage of core UI components vs raw HTML/Tailwind to ensure "light theme" consistency.
    - Search for "TODO", "FIXME", or deprecated patterns.
    
    ```bash
@@ -41,6 +41,6 @@ description: Performs a comprehensive "ULTRATHINK" analysis of the codebase, cov
    - The report must cover:
      - **Technical Health**: Lint/Type errors, Build status.
      - **Architecture**: Manifest integrity, Component reusability.
-     - **UX/UI**: Adherence to "Dark Immersion", Mobile responsiveness (inferred from code), Accessibility.
+     - **UX/UI**: Adherence to "Light theme", Mobile responsiveness (inferred from code), Accessibility.
      - **Content**: Missing assets, Structure.
      - **Action Plan**: Prioritized list of improvements.

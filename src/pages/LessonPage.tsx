@@ -16,7 +16,8 @@ import { useReadingTime } from '../hooks/useReadingTime';
 import { useLayout } from '../context/LayoutContext';
 
 const getFirstTextContent = (blocks: ContentBlock[]): string | undefined => {
-    const block = blocks.find((b): b is Extract<ContentBlock, { type: 'text' }> => b.type === 'text' && !!(b.content || b.text));
+    const block = blocks.find((b): b is Extract<ContentBlock, { type: 'text' | 'paragraph' }> =>
+        (b.type === 'text' || b.type === 'paragraph') && !!(b.content || b.text));
     return block?.content || block?.text;
 };
 

@@ -363,7 +363,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                         );
 
                     case 'video':
-                        const videoUrl = block.url || (block as any).value;
+                        const videoUrl = (block as any).url || (block as any).value;
                         const videoTitle = (block as any).title || "YouTube video";
                         // Extract video ID from URL if it's a full link
                         let embedUrl = videoUrl;
