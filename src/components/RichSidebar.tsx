@@ -69,7 +69,7 @@ const ExpandableSection: React.FC<{ title: string; children: React.ReactNode; de
     );
 };
 
-export const RichSidebar: React.FC<RichSidebarProps> = ({ details, timelineEvents, relatedArticles, mapData, tags, config, learningPaths, audioState, metadata }) => {
+export const RichSidebar: React.FC<RichSidebarProps> = React.memo(({ details, timelineEvents, relatedArticles, mapData, tags, config, learningPaths, audioState, metadata }) => {
     return (
         <div className="space-y-8">
             <div className="sticky top-8">
@@ -218,4 +218,4 @@ export const RichSidebar: React.FC<RichSidebarProps> = ({ details, timelineEvent
             </div>
         </div>
     );
-};
+});

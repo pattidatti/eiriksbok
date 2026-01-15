@@ -290,12 +290,12 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
                                     tags={event.tags}
                                     config={sidebarConfig}
                                     learningPaths={event.learningPaths}
-                                    audioState={{
+                                    audioState={React.useMemo(() => ({
                                         isPlaying,
                                         isPaused,
                                         hasVoice,
                                         onToggle: handleListenClick
-                                    }}
+                                    }), [isPlaying, isPaused, hasVoice, handleListenClick])}
                                     metadata={{
                                         year: event.year,
                                         readTime: event.readTime,
