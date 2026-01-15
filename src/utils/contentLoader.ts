@@ -223,10 +223,20 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
 function findNodeInManifest(nodes: any[], id: string): ManifestLesson | any | null {
     for (const node of nodes) {
         if (node.id === id) return node;
-        const children = node.lessons || node.topics || node.subTopics || node.tools || node.subjects;
-        if (children) {
-            const found = findNodeInManifest(children, id);
-            if (found) return found;
+
+        const childCollections = [
+            node.lessons,
+            node.topics,
+            node.subTopics,
+            node.tools,
+            node.subjects
+        ];
+
+        for (const collection of childCollections) {
+            if (collection && Array.isArray(collection)) {
+                const found = findNodeInManifest(collection, id);
+                if (found) return found;
+            }
         }
     }
     return null;
