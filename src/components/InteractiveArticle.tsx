@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArticleContent } from './ArticleContent';
 import { RichSidebar } from './RichSidebar';
 import { LearningPath } from './content/LearningPath';
-import type { ContentBlock, LearningPathData } from '../types';
+import type { ContentBlock, LearningPathData, MapData, Concept } from '../types';
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
 import { cleanTextForSpeech } from '../utils/speechUtils';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
@@ -36,9 +36,9 @@ export type ArticleData = {
     heroImage?: string;
 
     fact?: string;
-    mapData?: any;
+    mapData?: MapData;
     tags?: string[];
-    concepts?: any[];
+    concepts?: Concept[];
     topicId?: string;
     subjectId?: string;
     learningPathData?: LearningPathData;

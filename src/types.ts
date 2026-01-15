@@ -39,19 +39,31 @@ export interface MapData {
 }
 
 export type ContentBlock =
-    | { type: 'text'; content?: string; text?: string; title?: string }
-    | { type: 'header'; content: string }
-    | { type: 'image'; src: string; caption?: string; alt: string }
-    | { type: 'component'; name: string; props?: Record<string, unknown> }
+    | { type: 'text' | 'paragraph'; content?: string; text?: string; title?: string; value?: string }
+    | { type: 'header'; content?: string; text?: string; value?: string }
+    | { type: 'subheader'; content?: string; text?: string; value?: string }
+    | { type: 'image'; src: string; caption?: string; alt?: string; content?: string }
+    | { type: 'component'; name: string; props?: Record<string, unknown>; component?: string }
     | { type: 'section'; title?: string; content: ContentBlock[] }
-    | { type: 'list'; items: string[] }
-    | { type: 'link'; text: string; url: string; icon?: string };
+    | { type: 'list'; items: string[]; ordered?: boolean }
+    | { type: 'link'; text: string; url: string; icon?: string; value?: string }
+    | { type: 'poem'; title?: string; content: string; author?: string }
+    | { type: 'comparison'; before: { label?: string; content: string }; after: { label?: string; content: string } }
+    | { type: 'video'; url: string; title?: string; value?: string }
+    | { type: 'quote'; content: string; author?: string; source?: string }
+    | { type: 'expandable'; title: string; content: string }
+    | { type: 'info' | 'info_box'; title?: string; content: string }
+    | { type: 'comparison_card'; items: { title: string; content: string; color: string }[] }
+    | { type: 'quiz'; questions: QuizQuestion[] }
+    | { type: 'undefined';[key: string]: any };
+
 
 export interface Lesson {
     id: string;
     title: string;
     subject: string;
     topic: string;
+    description?: string;
     content?: ContentBlock[]; // New flexible content
     // Rich layout fields
     heroImage?: string;
@@ -87,6 +99,8 @@ export interface Quote {
 export interface ManifestLesson {
     id: string;
     title: string;
+    year?: string;
+    layout?: 'standard' | 'rich' | 'tool' | 'learning-path';
     date?: string;
     createdDate?: string;
     updatedDate?: string;

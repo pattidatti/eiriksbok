@@ -1,4 +1,4 @@
-import type { Lesson, Manifest, Philosopher } from '../types';
+import type { Lesson, Manifest, Philosopher, ManifestLesson } from '../types';
 // @ts-ignore
 // import { contentMap, hierarchicalContentMap } from '../generated/contentMap'; // REMOVED
 
@@ -216,7 +216,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
 
 // --- Helpers ---
 
-function findNodeInManifest(nodes: any[], id: string): any | null {
+function findNodeInManifest(nodes: any[], id: string): ManifestLesson | any | null {
     for (const node of nodes) {
         if (node.id === id) return node;
         const children = node.lessons || node.topics || node.subTopics || node.tools || node.subjects;
@@ -228,7 +228,7 @@ function findNodeInManifest(nodes: any[], id: string): any | null {
     return null;
 }
 
-function enrichLessonWithMetadata(data: any, manifestNode: any) {
+function enrichLessonWithMetadata(data: Lesson, manifestNode: ManifestLesson) {
     if (manifestNode.definitions) {
         const newConcepts = manifestNode.definitions.map((def: any, index: number) => ({
             id: `concept-${index}`, term: def.term, definition: def.definition

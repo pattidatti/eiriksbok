@@ -68,7 +68,7 @@ const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
 };
 
 interface ArticleContentProps {
-    content: any[];
+    content: ContentBlock[];
     concepts?: Concept[];
     activeBlockIndex?: number;
     onBlockClick?: (index: number) => void;
@@ -85,7 +85,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
     const mergedConcepts = [...(explicitConcepts || [])];
     globalEntries.forEach(entry => {
         if (!mergedConcepts.some(c => c.term.toLowerCase() === entry.term.toLowerCase())) {
-            mergedConcepts.push(entry as any);
+            mergedConcepts.push(entry as unknown as Concept);
         }
     });
 
@@ -111,10 +111,10 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
             {displayContent.map((block, index) => {
                 // ... (rest of the mapping using mergedConcepts instead of concepts)
                 // Handle 'type' (standard), 'name' (legacy), and '__typename' (GraphQL)
-                let type = block.type || block.name;
+                let type = block.type || (block as any).name;
 
-                if (!type && block.__typename) {
-                    switch (block.__typename) {
+                if (!type && (block as any).__typename) {
+                    switch ((block as any).__typename) {
                         case 'ArticleContentText': type = 'text'; break;
                         case 'ArticleContentImage': type = 'image'; break;
                         case 'ArticleContentHeader': type = 'header'; break;
@@ -137,9 +137,9 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 className={`mb-6 text-lg text-slate-700 leading-relaxed group ${interactiveClass} ${activeClass}`}
                                 onClick={() => onBlockClick?.(index)}
                             >
-                                {block.title && (
+                                {(block as any).title && (
                                     <h3 className="text-2xl font-bold text-slate-800 mb-4 block">
-                                        {block.title}
+                                        {(block as any).title}
                                     </h3>
                                 )}
                                 {isActive && (
@@ -156,7 +156,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                         </motion.div>
                                     </div>
                                 )}
-                                {renderWithMarkdown(block.content || block.text || block.value, mergedConcepts)}
+                                {renderWithMarkdown((block as any).content || (block as any).text || (block as any).value, mergedConcepts)}
                             </div>
                         );
 
@@ -169,19 +169,19 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                     {/* Decorative top border */}
                                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent opacity-50" />
 
-                                    {block.title && (
+                                    {(block as any).title && (
                                         <h4 className="font-serif italic text-lg text-slate-500 text-center mb-6">
-                                            {block.title}
+                                            {(block as any).title}
                                         </h4>
                                     )}
 
                                     <div className="font-serif text-lg leading-loose text-slate-800 text-center whitespace-pre-line">
-                                        {block.content}
+                                        {(block as any).content}
                                     </div>
 
-                                    {block.author && (
+                                    {(block as any).author && (
                                         <div className="mt-6 text-center text-sm font-sans font-bold text-slate-400 uppercase tracking-widest">
-                                            — {block.author}
+                                            — {(block as any).author}
                                         </div>
                                     )}
                                 </div>
@@ -191,14 +191,14 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                     case 'header':
                         return (
                             <h2 key={index} className="text-2xl font-bold text-slate-800 mb-4 mt-8">
-                                {block.content || block.text || block.value}
+                                {(block as any).content || (block as any).text || (block as any).value}
                             </h2>
                         );
 
                     case 'subheader':
                         return (
                             <h3 key={index} className="text-xl font-bold text-slate-800 mb-3 mt-6">
-                                {block.content || block.text || block.value}
+                                {(block as any).content || (block as any).text || (block as any).value}
                             </h3>
                         );
 
@@ -210,11 +210,11 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                     <div className="bg-slate-50 border-b border-slate-100 p-4 flex items-center gap-3">
                                         <XCircle className="w-5 h-5 text-red-500" />
                                         <span className="font-bold text-slate-700 uppercase tracking-wide text-sm">
-                                            {block.before?.label || 'Før'}
+                                            {(block as any).before?.label || 'Før'}
                                         </span>
                                     </div>
                                     <div className="p-6 text-slate-600 italic leading-relaxed bg-slate-50/30">
-                                        "{block.before?.content}"
+                                        "{(block as any).before?.content}"
                                     </div>
                                 </div>
 
@@ -223,11 +223,11 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                     <div className="bg-green-50 border-b border-green-100 p-4 flex items-center gap-3">
                                         <CheckCircle2 className="w-5 h-5 text-green-600" />
                                         <span className="font-bold text-green-800 uppercase tracking-wide text-sm">
-                                            {block.after?.label || 'Etter'}
+                                            {(block as any).after?.label || 'Etter'}
                                         </span>
                                     </div>
                                     <div className="p-6 text-slate-800 font-medium leading-relaxed bg-green-50/10">
-                                        "{block.after?.content}"
+                                        "{(block as any).after?.content}"
                                     </div>
                                 </div>
                             </div>
@@ -236,25 +236,25 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                     case 'section':
                         return (
                             <div key={index} className="my-8">
-                                {block.title && (
-                                    <h2 className="text-2xl font-bold text-slate-800 mb-4">{block.title}</h2>
+                                {(block as any).title && (
+                                    <h2 className="text-2xl font-bold text-slate-800 mb-4">{(block as any).title}</h2>
                                 )}
-                                {block.content && <ArticleContent content={block.content} concepts={mergedConcepts} />}
+                                {(block as any).content && <ArticleContent content={(block as any).content} concepts={mergedConcepts} />}
                             </div>
                         );
 
                     case 'list':
-                        const ListTag = block.ordered ? 'ol' : 'ul';
+                        const ListTag = (block as any).ordered ? 'ol' : 'ul';
 
                         // Check if this is a "Definition List" (items start with **Bold**:)
-                        const isDefinitionList = block.items?.every((item: string) =>
+                        const isDefinitionList = (block as any).items?.every((item: string) =>
                             item.trim().startsWith('**') && item.includes('**:')
                         );
 
                         if (isDefinitionList) {
                             return (
                                 <div key={index} className="my-10 space-y-6">
-                                    {block.items?.map((item: string, i: number) => {
+                                    {(block as any).items?.map((item: string, i: number) => {
                                         // Parse "**Title**: Content"
                                         const match = item.match(/^\*\*(.*?)\*\*:\s*(.*)/);
                                         if (!match) return null;
@@ -274,11 +274,11 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                             );
                         }
 
-                        const listStyle = block.ordered ? "list-decimal" : "list-disc";
+                        const listStyle = (block as any).ordered ? "list-decimal" : "list-disc";
 
                         return (
                             <ListTag key={index} className={`${listStyle} list-outside ml-6 space-y-3 mb-8 text-slate-700`}>
-                                {block.items?.map((item: string, i: number) => (
+                                {(block as any).items?.map((item: string, i: number) => (
                                     <li key={i} className="leading-relaxed pl-2">
                                         {renderInlineMarkdown(item, mergedConcepts)}
                                     </li>
@@ -290,20 +290,20 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                         return (
                             <figure key={index} className="my-8">
                                 <img
-                                    src={block.src}
-                                    alt={block.alt || ''}
+                                    src={(block as any).src}
+                                    alt={(block as any).alt || ''}
                                     className="w-full rounded-xl shadow-lg"
                                 />
-                                {block.caption && (
+                                {(block as any).caption && (
                                     <figcaption className="mt-2 text-center text-sm text-gray-400 italic">
-                                        {block.caption}
+                                        {(block as any).caption}
                                     </figcaption>
                                 )}
                             </figure>
                         );
 
                     case 'component':
-                        const ComponentName = block.name || block.component;
+                        const ComponentName = (block as any).name || (block as any).component;
                         const RegisteredComponent = getComponent(ComponentName);
 
                         if (!RegisteredComponent) {
@@ -316,7 +316,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
 
                         return (
                             <React.Suspense key={index} fallback={<div className="h-40 w-full animate-pulse bg-slate-100 rounded-xl my-4 flex items-center justify-center text-slate-400">Laster modul...</div>}>
-                                <RegisteredComponent {...(block.props || {})} />
+                                <RegisteredComponent {...((block as any).props || {})} />
                             </React.Suspense>
                         );
 
@@ -326,7 +326,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                         return (
                             <div key={index} className="my-12">
                                 <QuizComp
-                                    questions={(block.questions as any) || []}
+                                    questions={(block as any).questions || []}
                                 />
                             </div>
                         );
@@ -334,37 +334,37 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                     case 'quote':
                         return (
                             <blockquote key={index} className="my-8 pl-8 border-l-4 border-indigo-500 italic text-xl text-slate-700 bg-slate-50 py-4 pr-4 rounded-r-lg shadow-sm">
-                                "{block.content}"
-                                {(block.author || block.source) && (
+                                "{(block as any).content}"
+                                {((block as any).author || (block as any).source) && (
                                     <footer className="mt-4 text-sm not-italic flex flex-col text-slate-500 font-medium">
-                                        {block.author && <cite className="not-italic text-slate-800 text-base mb-1">— {block.author}</cite>}
-                                        {block.source && <span className="text-slate-400">{block.source}</span>}
+                                        {(block as any).author && <cite className="not-italic text-slate-800 text-base mb-1">— {(block as any).author}</cite>}
+                                        {(block as any).source && <span className="text-slate-400">{(block as any).source}</span>}
                                     </footer>
                                 )}
                             </blockquote>
                         );
 
                     case 'link':
-                        const isExternal = block.url?.startsWith('http');
+                        const isExternal = (block as any).url?.startsWith('http');
                         const className = "inline-flex items-center gap-2 px-6 py-3 bg-indigo-50 text-indigo-700 rounded-full font-medium hover:bg-indigo-100 transition-colors my-4";
 
                         if (isExternal) {
                             return (
-                                <a key={index} href={block.url} className={className} target="_blank" rel="noopener noreferrer">
-                                    {block.text}
+                                <a key={index} href={(block as any).url} className={className} target="_blank" rel="noopener noreferrer">
+                                    {(block as any).text}
                                 </a>
                             );
                         }
 
                         return (
-                            <Link key={index} to={block.url} className={className}>
-                                {block.text}
+                            <Link key={index} to={(block as any).url} className={className}>
+                                {(block as any).text}
                             </Link>
                         );
 
                     case 'video':
-                        const videoUrl = block.url || block.value;
-                        const videoTitle = block.title || "YouTube video";
+                        const videoUrl = block.url || (block as any).value;
+                        const videoTitle = (block as any).title || "YouTube video";
                         // Extract video ID from URL if it's a full link
                         let embedUrl = videoUrl;
                         if (videoUrl.includes('youtube.com/watch?v=')) {
@@ -391,11 +391,11 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                         return (
                             <details key={index} className="group my-6 bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm open:shadow-md transition-shadow">
                                 <summary className="flex items-center justify-between p-6 cursor-pointer bg-slate-50 hover:bg-slate-100 transition-colors list-none select-none">
-                                    <h3 className="text-xl font-bold text-slate-800">{block.title}</h3>
+                                    <h3 className="text-xl font-bold text-slate-800">{(block as any).title}</h3>
                                     <ChevronDown className="w-5 h-5 text-slate-500 transition-transform group-open:rotate-180" />
                                 </summary>
                                 <div className="p-6 pt-2 text-slate-700 leading-relaxed border-t border-slate-100">
-                                    {renderWithMarkdown(block.content, mergedConcepts)}
+                                    {renderWithMarkdown((block as any).content, mergedConcepts)}
                                 </div>
                             </details>
                         );
@@ -407,9 +407,9 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                 <div className="flex items-start gap-3">
                                     <Info className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                                     <div>
-                                        <h3 className="text-lg font-bold text-blue-900 mb-2">{block.title}</h3>
+                                        <h3 className="text-lg font-bold text-blue-900 mb-2">{(block as any).title}</h3>
                                         <div className="text-blue-800 leading-relaxed">
-                                            {renderWithMarkdown(block.content, mergedConcepts)}
+                                            {renderWithMarkdown((block as any).content, mergedConcepts)}
                                         </div>
                                     </div>
                                 </div>
@@ -420,7 +420,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                         return (
                             <div key={index} className="my-10">
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                    {block.items?.map((item: any, i: number) => {
+                                    {(block as any).items?.map((item: { title: string; content: string; color: string }, i: number) => {
                                         // Map string color names to tailwind classes
                                         const colorMap: Record<string, string> = {
                                             blue: 'bg-blue-50 border-blue-100 text-blue-900',
@@ -444,10 +444,10 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
 
                     default:
                         // Fallback for unknown blocks, try to render content if available
-                        if (block.content && typeof block.content === 'string') {
+                        if ((block as any).content && typeof (block as any).content === 'string') {
                             return (
                                 <div key={index} className="mb-4 text-slate-700">
-                                    {renderWithMarkdown(block.content, mergedConcepts)}
+                                    {renderWithMarkdown((block as any).content, mergedConcepts)}
                                 </div>
                             );
                         }
