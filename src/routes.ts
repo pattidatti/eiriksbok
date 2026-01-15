@@ -49,9 +49,7 @@ export const routeFactories: Record<string, PageFactory> = {
     TimeTravelPage: () => import('./pages/TimeTravelPage').then(module => ({ default: module.TimeTravelPage })),
     TimeTravelGamePage: () => import('./pages/TimeTravelGamePage').then(module => ({ default: module.TimeTravelGamePage })),
 
-    // Simulation Game
-    SimulationLobby: () => import('./features/simulation/SimulationLobby').then(module => ({ default: module.SimulationLobby })),
-    SimulationHost: () => import('./features/simulation/SimulationHost').then(module => ({ default: module.SimulationHost })),
-    SimulationPlayer: () => import('./features/simulation/SimulationPlayer').then(module => ({ default: module.SimulationPlayer })),
+
     PresentationPage: () => import('./pages/PresentationPage').then(module => ({ default: module.PresentationPage })),
 };
+

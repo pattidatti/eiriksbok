@@ -1,3 +1,7 @@
+---
+description: 
+---
+
 # Håndbok: Lage nye læringsstier i Eiriksbok
 
 Dette dokumentet beskriver den komplette prosessen for å opprette, strukturere og implementere nye læringsstier. En læringssti er en kuratert reise gjennom et emne, som binder sammen artikler, oppgaver og interaktive spill.
@@ -213,6 +217,7 @@ Før du sier deg ferdig:
 3.  [ ] **Progresjon**: Er det en logisk rekkefølge fra enkle fakta til komplekse oppgaver?
 4.  [ ] **Variasjon**: Bland lesing, refleksjon og interaktive spill. Unngå 10 "fakta"-kort på rad.
 5.  [ ] **Testing**: Åpne stien i nettleseren og klikk gjennom alle stegene. Spill gjennom scenariene for å sjekke at logikken holder.
+7.  [ ] **Data Synchronization:** Run `node scripts/scan-concepts.js` to update the global glossary and people records.
 
 ## 6. Tips & Triks
 
