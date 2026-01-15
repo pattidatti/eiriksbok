@@ -1,5 +1,5 @@
 {
-  "buildId": 1768465967229,
+  "buildId": 1768506912551,
   "contentMap": {
     "aksemaktene": [
       "content/concepts/aksemaktene.json"
@@ -1086,6 +1086,9 @@
     "7-vanlige-plot": [
       "content/norsk/skrivehjelp/7-vanlige-plot.json"
     ],
+    "hvordan-fore-kilder": [
+      "content/norsk/skrivehjelp/hvordan-fore-kilder.json"
+    ],
     "hvordan-skrive-dikt": [
       "content/norsk/skrivehjelp/hvordan-skrive-dikt.json"
     ],
@@ -1220,6 +1223,9 @@
     ],
     "fattigdom": [
       "content/samfunnskunnskap/demografi/fattigdom.json"
+    ],
+    "finland-levekar": [
+      "content/samfunnskunnskap/demografi/finland-levekar.json"
     ],
     "demografi-intro": [
       "content/samfunnskunnskap/demografi/intro.json"
@@ -1695,6 +1701,7 @@
     "norsk/setningsoppbygging/niva-3-v2-regelen": "content/norsk/setningsoppbygging/niva-3-v2-regelen.json",
     "norsk/setningsoppbygging/niva-4-leddsetninger": "content/norsk/setningsoppbygging/niva-4-leddsetninger.json",
     "norsk/skrivehjelp/7-vanlige-plot": "content/norsk/skrivehjelp/7-vanlige-plot.json",
+    "norsk/skrivehjelp/hvordan-fore-kilder": "content/norsk/skrivehjelp/hvordan-fore-kilder.json",
     "norsk/skrivehjelp/hvordan-skrive-dikt": "content/norsk/skrivehjelp/hvordan-skrive-dikt.json",
     "norsk/skrivehjelp/hvordan-skrive-eventyr": "content/norsk/skrivehjelp/hvordan-skrive-eventyr.json",
     "norsk/skrivehjelp/hvordan-skrive-novelle": "content/norsk/skrivehjelp/hvordan-skrive-novelle.json",
@@ -1740,6 +1747,7 @@
     "samfunnskunnskap/demografi/befolkningspyramider": "content/samfunnskunnskap/demografi/befolkningspyramider.json",
     "samfunnskunnskap/demografi/den-demografiske-overgangen": "content/samfunnskunnskap/demografi/den-demografiske-overgangen.json",
     "samfunnskunnskap/demografi/fattigdom": "content/samfunnskunnskap/demografi/fattigdom.json",
+    "samfunnskunnskap/demografi/finland-levekar": "content/samfunnskunnskap/demografi/finland-levekar.json",
     "samfunnskunnskap/demografi/demografi-intro": "content/samfunnskunnskap/demografi/intro.json",
     "samfunnskunnskap/demografi/malthus-vs-boserup": "content/samfunnskunnskap/demografi/malthus-vs-boserup.json",
     "samfunnskunnskap/demografi/migrasjon-push-pull": "content/samfunnskunnskap/demografi/migrasjon-push-pull.json",
