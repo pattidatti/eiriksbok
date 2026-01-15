@@ -1,0 +1,112 @@
+{
+    "id": "hvordan-fore-kilder",
+    "title": "Hvordan føre kilder (APA 7)",
+    "ingress": "Er du redd for plagiat? Slapp av. Her er oppskriften på hvordan du henviser til nettsider, videoer og aviser.",
+    "image": "/images/lessons/norsk/citation_hero.png",
+    "heroImage": "/images/lessons/norsk/citation_hero.png",
+    "status": "published",
+    "layout": "rich",
+    "tags": [
+        "skrivehjelp",
+        "kildebruk",
+        "apa7",
+        "fagartikkel"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "value": "Å føre kilder handler om ærlighet og sporbarhet. Du skal gi æren til den som eier tankene, og du skal gi leseren et kart slik at de kan finne frem til kilden selv. I skolen bruker vi som regel stilen APA 7. Den kan virke streng, men den følger en enkel logikk som gjentar seg: Hvem har laget det? Når ble det laget? Hva heter det? Hvor finner jeg det?"
+        },
+        {
+            "type": "header",
+            "value": "Del 1: I teksten"
+        },
+        {
+            "type": "text",
+            "value": "Når du skriver en setning hvor du bruker fakta fra en kilde, må du vise det med en gang. Dette kalles en løpende henvisning. Det enkleste er å sette en parentes til slutt i setningen med forfatterens navn og årstallet kilden ble publisert."
+        },
+        {
+            "type": "comparison",
+            "before": {
+                "label": "Uten kilde (Feil)",
+                "content": "Finland er verdens lykkeligste land."
+            },
+            "after": {
+                "label": "Med kilde (Riktig)",
+                "content": "Finland er verdens lykkeligste land (FN-sambandet, 2023)."
+            }
+        },
+        {
+            "type": "header",
+            "value": "Del 2: Litteraturlisten"
+        },
+        {
+            "type": "text",
+            "value": "Til slutt i teksten din skal du ha en liste over alle kildene dine. Denne listen skal sorteres alfabetisk etter forfatterens etternavn eller organisasjonens navn. Her er oppskriftene på de tre vanligste kildene:"
+        },
+        {
+            "type": "subheader",
+            "value": "Nettsider (f.eks. SNL eller FN)"
+        },
+        {
+            "type": "text",
+            "value": "**Oppskrift:**\nForfatter/Organisasjon. (År). *Tittel på artikkelen*. Nettsidens navn. URL\n\n**Eksempel:**\nFN-sambandet. (2023). *Finland*. FN.no. https://www.fn.no/Land/finland"
+        },
+        {
+            "type": "subheader",
+            "value": "Video (f.eks. YouTube)"
+        },
+        {
+            "type": "text",
+            "value": "**Oppskrift:**\nKanalnavn. (År, Dato). *Videotittel* [Video]. YouTube. URL\n\n**Eksempel:**\nNRK Skole. (2023, 14. august). *Hva er demokrati?* [Video]. YouTube. https://www.youtube.com/watch?v=eksempel"
+        },
+        {
+            "type": "subheader",
+            "value": "Nettavis (f.eks. VG eller Aftenposten)"
+        },
+        {
+            "type": "text",
+            "value": "**Oppskrift:**\nEtternavn, Forbokstav. (År, Dato). *Tittel på artikkelen*. Avisens navn. URL\n\n**Eksempel:**\nRøed, L. (2024, 12. januar). *Slik løser vi klimakrisen*. Aftenposten. https://www.aftenposten.no/eksempel"
+        },
+        {
+            "type": "header",
+            "value": "Husk!"
+        },
+        {
+            "type": "text",
+            "value": "Hvis en kilde ikke har et personlig forfatternavn, bruker du navnet på organisasjonen (som \"Store norske leksikon\" eller \"Utdanningsdirektoratet\"). Finner du ikke årstallet? Da skriver du (u.å.) som betyr \"uten år\". Du trenger som regel ikke ta med datoen du leste kilden, med mindre innholdet endrer seg ofte (som på Wikipedia)."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva skal stå inni parentesen i teksten?",
+            "options": [
+                "Tittel og URL",
+                "Forfatter og årstall",
+                "Dato og klokkeslett",
+                "Bare årstall"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva skal stå i kursiv i litteraturlisten?",
+            "options": [
+                "Forfatterens navn",
+                "Tittelen på artikkelen/verket",
+                "URL-en",
+                "Årstallet"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvordan skal litteraturlisten sorteres?",
+            "options": [
+                "Etter når du fant kildene",
+                "Etter hvor viktige de er",
+                "Alfabetisk",
+                "Det er tilfeldig"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}
