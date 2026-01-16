@@ -16,7 +16,12 @@ export const useGlobalTimeline = () => {
                 let fetchedEvents: GlobalTimelineEvent[] = [];
 
                 if (response.ok) {
-                    fetchedEvents = await response.json();
+                    const data = await response.json();
+                    if (Array.isArray(data)) {
+                        fetchedEvents = data;
+                    } else if (data && typeof data === 'object' && Array.isArray(data.events)) {
+                        fetchedEvents = data.events;
+                    }
                 }
 
                 // Sort
