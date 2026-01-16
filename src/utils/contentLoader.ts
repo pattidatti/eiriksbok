@@ -96,123 +96,113 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     const basePath = getBasePath();
     const normalizedId = lessonId.toLowerCase();
 
-    // console.log(`[ContentLoader] Resolving: ${normalizedId} (Context: ${subject}/${topic})`);
-
-    // 1. Ensure Registry is loaded
-    // We intentionally await this. If it fails, it returns null (via catch above).
-    // BUT we need to decide if we want to THROW here to trigger retries in React Query.
     // 1. Ensure Registry and Manifest are loaded (Parallelized)
-    // We intentionally await both. If one fails, we handle it below.
     const [registry, manifest] = await Promise.all([
         fetchRegistry(),
         fetchManifest()
     ]);
 
-    // If both critical indexes failed, we can't reliably resolve anything.
-    // Throwing an error here allows React Query to retry the operation.
     if (!registry && !manifest) {
         throw new Error("[ContentLoader] Critical: Registry and Manifest failed to load. Retrying...");
     }
 
-    // --- TIER 1: REGISTRY (Performance & Exact Match) ---
-    // If registry is available, it is the authority.
-    let resolvedPath: string | null = null;
+    // Helper to attempt loading a path
+    const tryLoadPath = async (path: string, sourceTier: string): Promise<Lesson | null> => {
+        try {
+            const finalUrl = path.startsWith('http') ? path : `${basePath}${path}`;
+            const r = await fetch(finalUrl, { cache: 'no-cache' });
+            if (!r.ok) {
+                console.warn(`[ContentLoader] ${sourceTier} fetch failed: ${finalUrl} (${r.status})`);
+                return null;
+            }
+            const data = await r.json();
 
+            // Fix double-nesting
+            if (data.learningPathData &&
+                typeof data.learningPathData === 'object' &&
+                'learningPathData' in data.learningPathData &&
+                data.learningPathData.learningPathData) {
+                data.learningPathData = data.learningPathData.learningPathData;
+            }
+            return data as Lesson;
+        } catch (e) {
+            console.error(`[ContentLoader] ${sourceTier} error:`, e);
+            return null;
+        }
+    };
+
+    // --- TIER 1: REGISTRY (Performance & Exact Match) ---
     if (registry) {
-        // 1A. Hierarchical Match
+        let registryPath: string | null = null;
         const contextKey = subTopicId
             ? `${subject}/${topic}/${subTopicId}/${normalizedId}`.toLowerCase()
             : `${subject}/${topic}/${normalizedId}`.toLowerCase();
 
         if (registry.hierarchicalMap[contextKey]) {
-            resolvedPath = registry.hierarchicalMap[contextKey];
-            // console.log(`[ContentLoader] Tier 1A (Hierarchy) hit: ${resolvedPath}`);
-        }
-        // 1B. Flat Lookup
-        else if (registry.contentMap[normalizedId]) {
+            registryPath = registry.hierarchicalMap[contextKey];
+        } else if (registry.contentMap[normalizedId]) {
             const entry = registry.contentMap[normalizedId];
             if (Array.isArray(entry)) {
-                resolvedPath = entry.find(p => p.includes(`/${subject.toLowerCase()}/`) && p.includes(`/${topic.toLowerCase()}/`)) || entry[0];
-                // console.log(`[ContentLoader] Tier 1B (Flat-Collision) hit: ${resolvedPath}`);
+                registryPath = entry.find(p => p.includes(`/${subject.toLowerCase()}/`) && p.includes(`/${topic.toLowerCase()}/`)) || entry[0];
             } else {
-                resolvedPath = entry;
-                // console.log(`[ContentLoader] Tier 1B (Flat) hit: ${resolvedPath}`);
+                registryPath = entry;
             }
+        }
+
+        if (registryPath) {
+            const data = await tryLoadPath(registryPath, "Tier 1 (Registry)");
+            if (data) {
+                // Registry success - return immediately
+                // We typically don't enrich registry data with manifest data unless needed, 
+                // but to be consistent with previous logic, we can checking manifest for enrichment.
+                if (manifest) {
+                    const node = findNodeInManifest(manifest.subjects, lessonId);
+                    if (node) enrichLessonWithMetadata(data, node);
+                }
+                return data;
+            }
+            // If we are here, Tier 1 Found a path but Failed to load (404/Error).
+            // Proceed to Tier 2...
         }
     }
 
     // --- TIER 2: MANIFEST AUTHORITY (Robustness) ---
-    // If Registry failed or is missing, consult the Manifest. 
-    // This is critical for "Learning Paths" which have clean URLs in manifest but need .json files.
-    if (!resolvedPath && manifest) {
+    if (manifest) {
         const node = findNodeInManifest(manifest.subjects, lessonId);
         if (node && node.link) {
-            // Construct path from manifest link
-            // 1. Remove leading slash
             let path = node.link.startsWith('/') ? node.link.slice(1) : node.link;
-            // 2. Ensure it starts with 'content/' if it's not an external URL
             if (!path.startsWith('http') && !path.startsWith('content/')) {
                 path = `content/${path}`;
             }
-            // 3. Ensure it ends with .json
             if (!path.endsWith('.json')) {
                 path += '.json';
             }
 
-            resolvedPath = path;
-            console.log(`[ContentLoader] Tier 2 (Manifest) derived path: ${resolvedPath}`);
+            console.log(`[ContentLoader] Attempting Tier 2 (Manifest) path: ${path}`);
+            const data = await tryLoadPath(path, "Tier 2 (Manifest)");
+            if (data) {
+                enrichLessonWithMetadata(data, node);
+                return data;
+            }
         }
     }
 
     // --- TIER 3: CONVENTION (Last Resort) ---
-    // If all else fails, assume standard structure.
-    if (!resolvedPath) {
-        const subPath = subTopicId ? `${subTopicId}/` : '';
-        resolvedPath = `content/${subject}/${topic}/${subPath}${normalizedId}.json`;
-        // console.warn(`[ContentLoader] Tier 3 (Convention) fallback used: ${resolvedPath}`);
-    }
+    const subPath = subTopicId ? `${subTopicId}/` : '';
+    const conventionPath = `content/${subject}/${topic}/${subPath}${normalizedId}.json`;
+    // console.warn(`[ContentLoader] Attempting Tier 3 (Convention): ${conventionPath}`);
 
-    // --- EXECUTION ---
-    if (resolvedPath) {
-        try {
-            // Handle external URLs vs local paths
-            const finalUrl = resolvedPath.startsWith('http') ? resolvedPath : `${basePath}${resolvedPath}`;
-
-            const r = await fetch(finalUrl, { cache: 'no-cache' });
-            if (!r.ok) {
-                // If Tier 3 failed, it might be a true 404.
-                console.error(`[ContentLoader] Fetch failed for path: ${finalUrl} (${r.status})`);
-                // If we were relying on Tier 3 (Convention) and it failed, keep it null (404).
-                // But if we found it in Registry (Tier 1) and it failed, that's a data consistency error.
-                return null;
-            }
-
-            const data = await r.json();
-
-            // Processing: Fix double-nesting if present
-            if (data.learningPathData &&
-                typeof data.learningPathData === 'object' &&
-                'learningPathData' in data.learningPathData &&
-                data.learningPathData.learningPathData) {
-                console.log(`[ContentLoader] Detected double-nested learningPathData for ${lessonId}, fixing...`);
-                data.learningPathData = data.learningPathData.learningPathData;
-            }
-
-            // Enrich metadata from manifest
-            if (manifest) {
-                const node = findNodeInManifest(manifest.subjects, lessonId);
-                // console.log(`[ContentLoader] Found manifest node for ${lessonId}:`, node?.title);
-                if (node) enrichLessonWithMetadata(data, node);
-            }
-
-            // console.log(`[ContentLoader] Successfully loaded ${lessonId}`);
-
-            return data as Lesson;
-        } catch (e) {
-            console.error(`[ContentLoader] Failed to load resolved path: ${resolvedPath}`, e);
-            // If the JSON parsing fails or network cuts out mid-stream, throw to retry.
-            throw e;
+    // We can try loading convention path.
+    // Note: We don't have a manifest node specifically found for convention unless we SEARCH for it.
+    // Previous logic didn't enrich Tier 3 with manifest data unless it was found via Tier 2? 
+    // Wait, previous logic grabbed manifest node regardless.
+    const dataTier3 = await tryLoadPath(conventionPath, "Tier 3 (Convention)");
+    if (dataTier3) {
+        if (manifest) {
+            const node = findNodeInManifest(manifest.subjects, lessonId);
+            if (node) enrichLessonWithMetadata(dataTier3, node);
         }
+        return dataTier3;
     }
 
     return null;
