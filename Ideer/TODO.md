@@ -11,7 +11,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Læringsstier laster ikke. Må gå ut og inn på en annen før de vises. Major bug. 
 
 ## Læringsstier
-- [ ] Hver sett med oppgaver må ha en liten boks for å kopiere alle spørsmålene, slik at elevene enkelt kan få dem kopiert inn i skriveboken sin, uten å måtte skrive alt selv, eller dille med å merke alt. 
+- [ ] Læringsstier: Hver sett med oppgaver må ha en liten boks for å kopiere alle spørsmålene, slik at elevene enkelt kan få dem kopiert inn i skriveboken sin, uten å måtte skrive alt selv, eller dille med å merke alt. 
 - [ ] Det er ikke garantert at en læringssti laster, en må ofte gå inn og ut før den til slutt vises. 
 
 ## 💡 Ideer

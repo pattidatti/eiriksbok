@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
     CheckCircle2,
     Circle,
@@ -11,7 +11,9 @@ import {
     Gamepad2,
     ArrowRight,
     Brain,
-    Monitor
+    Monitor,
+    Clipboard,
+    Check
 } from 'lucide-react';
 import type { LearningPathData, LearningPathStep } from '../../types';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -49,6 +51,70 @@ const getStepColor = (type: LearningPathStep['type']) => {
 
 import { renderInlineMarkdown } from '../markdownUtils';
 import { useGlossary } from '../../context/GlossaryContext';
+
+const CopyTasksButton: React.FC<{ tasks: string[]; stepNumber: number }> = ({ tasks, stepNumber }) => {
+    const [copied, setCopied] = React.useState(false);
+
+    const handleCopy = async () => {
+        const formattedTasks = tasks.map((t, i) => `${stepNumber}.${i + 1} ${t}`).join('\n');
+        try {
+            await navigator.clipboard.writeText(formattedTasks);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            console.error('Failed to copy tasks:', err);
+        }
+    };
+
+    return (
+        <motion.button
+            onClick={handleCopy}
+            className="flex items-center gap-2 group relative"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            title="Kopier oppgaver til utklippstavlen"
+        >
+            <div className={`p-1.5 rounded-md transition-colors ${copied ? 'bg-emerald-100 text-emerald-600' : 'text-slate-400 hover:bg-slate-100 hover:text-indigo-600'}`}>
+                <AnimatePresence mode='wait' initial={false}>
+                    {copied ? (
+                        <motion.div
+                            key="check"
+                            initial={{ scale: 0, rotate: -90 }}
+                            animate={{ scale: 1, rotate: 0 }}
+                            exit={{ scale: 0, rotate: 90 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <Check className="w-4 h-4" />
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            key="copy"
+                            initial={{ scale: 0, rotate: -90 }}
+                            animate={{ scale: 1, rotate: 0 }}
+                            exit={{ scale: 0, rotate: 90 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <Clipboard className="w-4 h-4" />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+
+            <AnimatePresence>
+                {copied && (
+                    <motion.span
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 10 }}
+                        className="text-xs font-bold text-emerald-600 absolute left-full ml-2 whitespace-nowrap"
+                    >
+                        Kopiert!
+                    </motion.span>
+                )}
+            </AnimatePresence>
+        </motion.button>
+    );
+};
 
 export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
     const { entries } = useGlossary();
@@ -185,10 +251,13 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
 
                                         {step.tasks && step.tasks.length > 0 && (
                                             <div className={`rounded-lg p-4 mb-4 ${step.type === 'oppgave' ? 'bg-orange-100/30' : 'bg-slate-50'}`}>
-                                                <h4 className="font-bold text-slate-700 mb-2 flex items-center text-sm">
-                                                    <ArrowRight className="w-4 h-4 mr-2 text-slate-400" />
-                                                    Oppgaver
-                                                </h4>
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <h4 className="font-bold text-slate-700 flex items-center text-sm">
+                                                        <ArrowRight className="w-4 h-4 mr-2 text-slate-400" />
+                                                        Oppgaver
+                                                    </h4>
+                                                    <CopyTasksButton tasks={step.tasks} stepNumber={index + 1} />
+                                                </div>
                                                 <ul className="space-y-3">
                                                     {step.tasks.map((task, i) => (
                                                         <li key={i} className="flex items-start gap-3 text-slate-600">

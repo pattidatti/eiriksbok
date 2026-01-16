@@ -14,26 +14,56 @@
         "targetSubjectId": "historie",
         "steps": [
             {
-                "id": "intro-wave1",
+                "id": "wave1-intro",
                 "phase": "Fase 1: Den Atlantiske Bølgen (1776-1830)",
-                "title": "Den første gnisten",
+                "title": "Den første gnisten: 1776",
                 "type": "fakta",
-                "content": "Året er 1776. I Philadelphia sitter en gruppe menn og skriver et brev til kongen av England. De erklærer at «alle mennesker er skapt like». Det er startskuddet. Snart brenner det i Frankrike, på Haiti og i hele Latin-Amerika. Det gamle Europa mister grepet om den nye verden.",
+                "content": "Året er 1776. I Philadelphia sitter en gruppe menn og skriver et brev til kongen av England. De erklærer at «alle mennesker er skapt like». Det er startskuddet. Snart brenner det i Frankrike, på Haiti og i hele Latin-Amerika.",
                 "tasks": [
-                    "Hvilke ideer fra opplysningstiden inspirerte den amerikanske revolusjonen?",
-                    "Hvorfor er Haiti-revolusjonen unik i verdenshistorien?",
-                    "Hvem var 'kreolene' i Latin-Amerika, og hvorfor gjorde de opprør?",
-                    "Hvorfor lyktes USA med å bli én nasjon, mens Latin-Amerika ble splittet?"
+                    "Hvilken by ble brevet til kongen skrevet i?",
+                    "Hva mente grunnleggerne med at «alle mennesker er skapt like»?",
+                    "Hvorfor tror du disse ideene inspirerte folk i andre land til å gjøre opprør?",
+                    "Hvilke grupper av mennesker ble IKKE regnet som «like» i 1776?"
                 ],
                 "links": [
                     {
                         "title": "USA: Den første dominobrikken",
                         "url": "/historie/dekolonisering/usa-frigjoring"
-                    },
+                    }
+                ]
+            },
+            {
+                "id": "wave1-haiti",
+                "phase": "Fase 1: Den Atlantiske Bølgen (1776-1830)",
+                "title": "Den glemte revolusjonen: Haiti",
+                "type": "fakta",
+                "content": "På Haiti finner vi verdenshistoriens eneste vellykkede slaveopprør (1791-1804). Mens USA kjempet for politisk frihet, kjempet haitierne for sin egen menneskelighet. Frankrike mistet sin rikeste koloni.",
+                "tasks": [
+                    "Hvilket land var Haiti koloni under?",
+                    "Hva er forskjellen på den amerikanske revolusjonen og revolusjonen på Haiti?",
+                    "Hvorfor tror du Frankrike kjempet så hardt for å beholde Haiti?",
+                    "Hvorfor er det viktig å lære om akkurat dette slaveopprøret?"
+                ],
+                "links": [
                     {
                         "title": "Haiti: Den glemte revolusjonen",
                         "url": "/historie/dekolonisering/haiti"
-                    },
+                    }
+                ]
+            },
+            {
+                "id": "wave1-latin",
+                "phase": "Fase 1: Den Atlantiske Bølgen (1776-1830)",
+                "title": "Bolívars Drøm",
+                "type": "fakta",
+                "content": "I Latin-Amerika leder Simón Bolívar kampen mot Spania. Men hvem kjemper han egentlig for? De lokale elitene (kreolene) vil ha makt, men hva med urbefolkningen og de fattige?",
+                "tasks": [
+                    "Hva het mannen som ledet mye av frihetskampen i Latin-Amerika?",
+                    "Hvem var «kreolene»?",
+                    "Hvorfor ønsket kreolene å kvitte seg med spansk styre?",
+                    "Tror du urbefolkningen fikk det bedre etter frigjøringen? Hvorfor/hvorfor ikke?"
+                ],
+                "links": [
                     {
                         "title": "Latin-Amerika: Bolívars Drøm",
                         "url": "/historie/dekolonisering/latin-amerika"
@@ -41,26 +71,82 @@
                 ]
             },
             {
-                "id": "wave2-asia",
-                "phase": "Fase 2: Asia Våkner (1918-1955)",
-                "title": "Imperiene slår sprekker",
+                "id": "wave1-split",
+                "phase": "Fase 1: Den Atlantiske Bølgen (1776-1830)",
+                "title": "Splittelse vs. Enighet",
                 "type": "fakta",
-                "content": "Vi hopper frem til det 20. århundre. To verdenskriger har svekket Europa. Myten om den hvite manns uovervinnelighet ble knust da Japan erobret Asia. Nå krever Asia sin rett. I India går en mann i lendeklede mot verdens mektigste imperium, bevæpnet kun med sannhet. I Vietnam griper de til våpen.",
+                "content": "Etter frigjøringen utviklet kontinentene seg ulikt. USA samlet seg til én mektig nasjon (til tross for borgerkrig), mens Latin-Amerika splittet seg i mange mindre stater. Geografi og kolonihistorie spilte en avgjørende rolle.",
                 "tasks": [
-                    "Hva var 'Satyagraha'?",
-                    "Hvorfor ble India delt i to stater (India og Pakistan)?",
-                    "Hvordan påvirket Japans erobringer under 2. verdenskrig frigjøringskampen i Asia?",
-                    "Sammenlign Gandhis metoder med Ho Chi Minhs metoder."
+                    "Hvilket område ble til én stor nasjon?",
+                    "Nevn én årsak til at Latin-Amerika ble splittet i mange små land.",
+                    "Hva tror du er fordelen med å være ett stort land (som USA) fremfor mange små?",
+                    "Hvordan hadde verden sett ut i dag hvis Latin-Amerika hadde vært én supermakt?"
+                ]
+            },
+            {
+                "id": "wave2-gandhi",
+                "phase": "Fase 2: Asia Våkner (1918-1955)",
+                "title": "Gandhis Metode",
+                "type": "fakta",
+                "content": "Vi hopper frem til det 20. århundre. To verdenskriger har svekket Europa. I India går Mahatma Gandhi i spissen for en ny type frigjøringskamp. Ikke med våpen, men med sivil ulydighet og ikke-vold.",
+                "tasks": [
+                    "Hva het lederen for frigjøringskampen i India?",
+                    "Hva betyr «ikke-vold» i denne sammenhengen?",
+                    "Hvordan kan det å nekte å følge lover (sivil ulydighet) være et våpen?",
+                    "Hvorfor tror du britene til slutt ga opp India?"
                 ],
                 "links": [
                     {
                         "title": "India: Sjelenes frigjøring",
                         "url": "/historie/dekolonisering/india"
-                    },
+                    }
+                ]
+            },
+            {
+                "id": "wave2-partition",
+                "phase": "Fase 2: Asia Våkner (1918-1955)",
+                "title": "Prisen for Frihet: Delingen",
+                "type": "fakta",
+                "content": "Friheten i 1947 kom med en bismak. Religiøse motsetninger førte til at det britiske India ble delt i to: det hindu-dominerte India og det muslimske Pakistan. Millioner måtte flykte, og blodbadet var enormt.",
+                "tasks": [
+                    "Hvilke to stater ble opprettet da britene dro?",
+                    "Hvorfor følte mange muslimer at de trengte en egen stat?",
+                    "Hva skjer med mennesker når landegrenser tegnes basert på religion?",
+                    "Finnes det lignende konflikter i verden i dag?"
+                ]
+            },
+            {
+                "id": "wave2-japan",
+                "phase": "Fase 2: Asia Våkner (1918-1955)",
+                "title": "Den Japanske Bølgen",
+                "type": "fakta",
+                "content": "Under 2. verdenskrig erobret Japan store deler av Asia fra europeerne. Myten om «den hvite manns uovervinnelighet» ble knust. Da Japan tapte i 1945, oppsto det et maktvakuum som nasjonalistene utnyttet.",
+                "tasks": [
+                    "Hvilket asiatisk land erobret store områder under 2. verdenskrig?",
+                    "Hva skjedde med myten om at europeerne var uovervinnelige?",
+                    "Hvorfor ble det lettere for land som Vietnam og Indonesia å kreve frihet etter krigen?",
+                    "Er det alltid bra å bli «frigjort» av en annen makt?"
+                ],
+                "links": [
                     {
                         "title": "Sørøst-Asia: Vakuumet etter Japan",
                         "url": "/historie/dekolonisering/sorost-asia"
-                    },
+                    }
+                ]
+            },
+            {
+                "id": "wave2-methods",
+                "phase": "Fase 2: Asia Våkner (1918-1955)",
+                "title": "Ord eller Våpen?",
+                "type": "fakta",
+                "content": "Mens Gandhi valgte ikke-vold, valgte andre, som Ho Chi Minh i Vietnam, vepnet revolusjon. Veien mot frihet var ikke én, men mange.",
+                "tasks": [
+                    "Hva het den revolusjonære lederen i Vietnam?",
+                    "Hva er hovedforskjellen på Gandhis og Ho Chi Minhs metoder?",
+                    "Hvorfor tror du noen velger vold for å oppnå frihet?",
+                    "Hvilken metode tror du skaper det mest stabile samfunnet etterpå? Hvorfor?"
+                ],
+                "links": [
                     {
                         "title": "Midtøsten: Streker i sanden",
                         "url": "/historie/dekolonisering/midtosten-mandater"
@@ -68,26 +154,69 @@
                 ]
             },
             {
-                "id": "wave3-africa",
+                "id": "wave3-ghana",
                 "phase": "Fase 3: Afrikas Tiår (1957-1975)",
-                "title": "Vindens forandring",
+                "title": "Det politiske kongeriket",
                 "type": "fakta",
-                "content": "«The wind of change is blowing through this continent,» sa den britiske statsministeren i 1960. Han hadde rett. På få år ble kartet over Afrika tegnet på nytt. I Ghana heises det nye flagget med stolthet. I Algerie flyter blodet i gatene. I Kongo blir den kalde krigen glovarm.",
+                "content": "«Søk først det politiske kongeriket,» sa Kwame Nkrumah. I 1957 ble Ghana den første kolonien sør for Sahara som ble selvstendig. Optimismen var enorm.",
                 "tasks": [
-                    "Hva mente Nkrumah med at Ghana måtte søke 'det politiske kongeriket' først?",
-                    "Hvorfor ble frigjøringen i Algerie så mye blodigere enn i Ghana?",
-                    "Hvilken rolle spilte Den kalde krigen i Kongo-krisen?",
-                    "Hva var Pan-Afrikanisme?"
+                    "Hvilket år ble Ghana selvstendig?",
+                    "Hva het den første lederen av det frie Ghana?",
+                    "Hva mente Nkrumah med at de måtte søke «det politiske kongeriket» først?",
+                    "Hvorfor var Ghanas frihet så viktig for resten av Afrika?"
                 ],
                 "links": [
                     {
                         "title": "Ghana & Pan-Afrikanismen",
                         "url": "/historie/dekolonisering/ghana-panafrikanisme"
-                    },
+                    }
+                ]
+            },
+            {
+                "id": "wave3-panafricanism",
+                "phase": "Fase 3: Afrikas Tiår (1957-1975)",
+                "title": "Drømmen om Unitet",
+                "type": "fakta",
+                "content": "Mange afrikanske ledere drømte om et forent Afrika – Pan-Afrikanisme. De mente at kolonigrensene var kunstige og at bare et samlet Afrika kunne stå imot press fra stormaktene.",
+                "tasks": [
+                    "Hva betyr begrepet «Pan-Afrikanisme»?",
+                    "Hvorfor mente lederne at landegrensene i Afrika var «kunstige»?",
+                    "Hva skulle være fordelen med et «Afrikas Forente Stater»?",
+                    "Hvorfor tror du det er vanskelig å samle hele Afrika til ett rike?"
+                ]
+            },
+            {
+                "id": "wave3-violence",
+                "phase": "Fase 3: Afrikas Tiår (1957-1975)",
+                "title": "Når ord ikke holder",
+                "type": "fakta",
+                "content": "I Algerie ville ikke franskmennene gi slipp. Landet ble sett på som en del av Frankrike. Frigjøringskrigen ble brutal og blodig, i sterk kontrast til den fredelige overgangen i Ghana.",
+                "tasks": [
+                    "Hvilket land var Algerie koloni under?",
+                    "Hvorfor ble frigjøringen i Algerie blodig, mens Ghana var fredelig?",
+                    "Hva betyr det at Frankrike så på Algerie som «en del av seg selv»?",
+                    "Går det an å forstå hvorfor Frankrike ikke ville gi slipp? (Prøv å se saken fra to sider)"
+                ],
+                "links": [
                     {
                         "title": "Algerie & Vietnam: Krigens vei",
                         "url": "/historie/dekolonisering/frigjoringskrigene"
-                    },
+                    }
+                ]
+            },
+            {
+                "id": "wave3-kongo",
+                "phase": "Fase 3: Afrikas Tiår (1957-1975)",
+                "title": "Kald Krig i Tropene",
+                "type": "fakta",
+                "content": "Kongo ble en slagmark for Den kalde krigen. Landets enorme naturressurser gjorde det attraktivt for stormaktene. Lumumba ble fanget i spillet mellom USA, Sovjet og Belgia.",
+                "tasks": [
+                    "Hvilke ressurser gjorde Kongo attraktivt for stormaktene?",
+                    "Hva het statsministeren som ble fanget i maktspillet?",
+                    "Hvorfor blandet USA og Sovjet seg inn i konflikter i Afrika?",
+                    "Hvordan kan naturrikdom (som gull og diamanter) bli en forbannelse for et land?"
+                ],
+                "links": [
                     {
                         "title": "Kongo: Kaos i hjertet av Afrika",
                         "url": "/historie/dekolonisering/kongo"
@@ -95,21 +224,48 @@
                 ]
             },
             {
-                "id": "wave4-end",
+                "id": "wave4-portugal",
                 "phase": "Fase 4: Det Siste Kapittelet (1974-1994)",
-                "title": "Slutten på en æra",
+                "title": "Nellikrevolusjonen",
                 "type": "fakta",
-                "content": "Portugal klamrer seg fast til sine kolonier lenge etter at andre har gitt opp. Det kreves en revolusjon i Europa for å frigjøre Afrika. Og helt i sør kjemper Nelson Mandela mot et system som skiller folk etter hudfarge. Når han slippes fri i 1990, faller den siste brikken på plass.",
+                "content": "Portugal var det første koloniriket, og det siste til å gi slipp. Det måtte en revolusjon til i hjemlandet – Nellikrevolusjonen i 1974 – for å endelig frigjøre Angola og Mosambik.",
                 "tasks": [
-                    "Hva var sammenhengen mellom Nellikrevolusjonen i Portugal og frigjøringen av Angola/Mosambik?",
-                    "Hva var Apartheid?",
-                    "Hvordan kan vi si at dekoloniseringen formet verden vi lever i dag?"
+                    "Hva het revolusjonen i Portugal i 1974?",
+                    "Hvilke to afrikanske land ble frie etter denne revolusjonen?",
+                    "Hvorfor tror du Portugal holdt på koloniene sine lenger enn England og Frankrike?",
+                    "Hvordan kan en hendelse i Europa føre til frihet i Afrika?"
                 ],
                 "links": [
                     {
                         "title": "Det Siste Imperiet",
                         "url": "/historie/dekolonisering/siste-skanse"
                     }
+                ]
+            },
+            {
+                "id": "wave4-apartheid",
+                "phase": "Fase 4: Det Siste Kapittelet (1974-1994)",
+                "title": "Apartheid",
+                "type": "fakta",
+                "content": "I Sør-Afrika overlevde et rasistisk system lenge etter at resten av kontinentet var fritt. Apartheid (adskillelse) holdt det hvite mindretallet ved makten. Nelson Mandela ble symbolet på motstanden.",
+                "tasks": [
+                    "Hva betyr ordet «Apartheid»?",
+                    "Hvilken folkegruppe hadde makten under Apartheid-systemet?",
+                    "Hvem ble symbolet på motstanden mot dette systemet?",
+                    "Hvorfor tror du verden godtok dette systemet så lenge?"
+                ]
+            },
+            {
+                "id": "wave4-timeline",
+                "phase": "Fase 4: Det Siste Kapittelet (1974-1994)",
+                "title": "Tidslinjen fullføres",
+                "type": "fakta",
+                "content": "Fra 1776 til 1994 har verden forandret seg totalt. Nye nasjoner har oppstått på ruinene av gamle imperier. Frihetskampen formet det moderne verdenskartet.",
+                "tasks": [
+                    "Hvor mange år gikk det ca. fra USAs frigjøring (1776) til Apartheid falt (1994)?",
+                    "Hvorfor tror du frigjøringen skjedde i «bølger» og ikke overalt samtidig?",
+                    "Hvilken hendelse på tidslinjen synes du var den viktigste? Hvorfor?",
+                    "På hvilken måte har dekoloniseringen formet verdenskartet vi ser i dag?"
                 ],
                 "component": {
                     "name": "DragDropTimeline",
@@ -156,14 +312,42 @@
                 }
             },
             {
-                "id": "reflection",
-                "title": "Refleksjon: Er vi ferdige?",
+                "id": "reflection-neocol",
+                "title": "Refleksjon: Nykolonialisme",
+                "phase": "Refleksjon",
                 "type": "refleksjon",
-                "content": "Kartet er tegnet ferdig. Koloniene er borte. Men er dekoloniseringen over? Mange mener at økonomiske bånd og kulturell påvirkning fortsatt holder tidligere kolonier nede (nykolonialisme). Diskusjonen om repatriering av museumsgjenstander og omskriving av historiebøker viser at kampen om fortiden fortsatt pågår.",
+                "content": "Selv om flaggene er nye, mener mange at økonomiske bånd fortsatt binder tidligere kolonier til Vesten. Dette kalles ofte 'nykolonialisme'.",
                 "tasks": [
-                    "Hva menes med begrepet 'nykolonialisme'?",
-                    "Bør gamle kolonimakter betale erstatning for urett begått i fortiden?",
-                    "Hvordan merker vi arven etter kolonitiden i dagens Norge?"
+                    "Hva betyr begrepet «nykolonialisme»?",
+                    "Hvordan kan et land være fritt på papiret, men ufritt i virkeligheten?",
+                    "Hvorfor fortsetter mange fattige land å selge råvarer billig til rike land?",
+                    "Er det rettferdig å si at kolonitiden aldri tok helt slutt?"
+                ]
+            },
+            {
+                "id": "reflection-reparations",
+                "title": "Refleksjon: Oppgjør",
+                "phase": "Refleksjon",
+                "type": "refleksjon",
+                "content": "I dag diskuteres det om gamle kolonimakter bør betale erstatning for slaveri og tyveri av ressurser. Museer i Europa er fulle av kunstskatter fra koloniene.",
+                "tasks": [
+                    "Hva er «repatriering» av museumsgjenstander?",
+                    "Nevn ett argument FOR at kolonimaktene bør betale erstatning.",
+                    "Nevn ett argument MOT at dagens regjeringer skal betale for fortidens synder.",
+                    "Hva synes du er den mest rettferdige løsningen?"
+                ]
+            },
+            {
+                "id": "reflection-norway",
+                "title": "Refleksjon: Norge",
+                "phase": "Refleksjon",
+                "type": "refleksjon",
+                "content": "Norge hadde ingen egne kolonier (i moderne tid), men var en del av den vestlige økonomien som tjente på kolonialismen. I dag lever vi i et flerkulturelt samfunn som er direkte påvirket av denne historien.",
+                "tasks": [
+                    "Hadde Norge egne kolonier i Afrika eller Asia?",
+                    "Hvordan kunne norske rederier og kjøpmenn likevel tjene på kolonitiden?",
+                    "På hvilke måter kan vi se spor av den store verden i din egen by/tettsted?",
+                    "Hvorfor er det viktig at vi i Norge lærer om kolonitiden?"
                 ]
             }
         ]

@@ -1,5 +1,5 @@
 {
-  "buildId": 1768549731605,
+  "buildId": 1768560932829,
   "contentMap": {
     "aksemaktene": [
       "content/concepts/aksemaktene.json"
@@ -405,6 +405,42 @@
     ],
     "andre-verdenskrig-teknologi": [
       "content/historie/andre-verdenskrig/teknologi.json"
+    ],
+    "dekolonisering-sti": [
+      "content/historie/dekolonisering/dekolonisering-sti.json"
+    ],
+    "frigjoringskrigene": [
+      "content/historie/dekolonisering/frigjoringskrigene.json"
+    ],
+    "ghana-panafrikanisme": [
+      "content/historie/dekolonisering/ghana-panafrikanisme.json"
+    ],
+    "haiti": [
+      "content/historie/dekolonisering/haiti.json"
+    ],
+    "india": [
+      "content/historie/dekolonisering/india.json"
+    ],
+    "kongo": [
+      "content/historie/dekolonisering/kongo.json"
+    ],
+    "latin-amerika": [
+      "content/historie/dekolonisering/latin-amerika.json"
+    ],
+    "midtosten-mandater": [
+      "content/historie/dekolonisering/midtosten-mandater.json"
+    ],
+    "dekolonisering-oversikt": [
+      "content/historie/dekolonisering/oversikt.json"
+    ],
+    "siste-skanse": [
+      "content/historie/dekolonisering/siste-skanse.json"
+    ],
+    "sorost-asia": [
+      "content/historie/dekolonisering/sorost-asia.json"
+    ],
+    "usa-frigjoring": [
+      "content/historie/dekolonisering/usa-frigjoring.json"
     ],
     "demo-artikkel": [
       "content/historie/demo-artikkel/demo-artikkel.json"
@@ -1479,6 +1515,18 @@
     "historie/andre-verdenskrig/andre-verdenskrig-krigens-lop": "content/historie/andre-verdenskrig/krigens-lop.json",
     "historie/andre-verdenskrig/andre-verdenskrig-oversikt": "content/historie/andre-verdenskrig/oversikt.json",
     "historie/andre-verdenskrig/andre-verdenskrig-teknologi": "content/historie/andre-verdenskrig/teknologi.json",
+    "historie/dekolonisering/dekolonisering-sti": "content/historie/dekolonisering/dekolonisering-sti.json",
+    "historie/dekolonisering/frigjoringskrigene": "content/historie/dekolonisering/frigjoringskrigene.json",
+    "historie/dekolonisering/ghana-panafrikanisme": "content/historie/dekolonisering/ghana-panafrikanisme.json",
+    "historie/dekolonisering/haiti": "content/historie/dekolonisering/haiti.json",
+    "historie/dekolonisering/india": "content/historie/dekolonisering/india.json",
+    "historie/dekolonisering/kongo": "content/historie/dekolonisering/kongo.json",
+    "historie/dekolonisering/latin-amerika": "content/historie/dekolonisering/latin-amerika.json",
+    "historie/dekolonisering/midtosten-mandater": "content/historie/dekolonisering/midtosten-mandater.json",
+    "historie/dekolonisering/dekolonisering-oversikt": "content/historie/dekolonisering/oversikt.json",
+    "historie/dekolonisering/siste-skanse": "content/historie/dekolonisering/siste-skanse.json",
+    "historie/dekolonisering/sorost-asia": "content/historie/dekolonisering/sorost-asia.json",
+    "historie/dekolonisering/usa-frigjoring": "content/historie/dekolonisering/usa-frigjoring.json",
     "historie/demo-artikkel/demo-artikkel": "content/historie/demo-artikkel/demo-artikkel.json",
     "historie/den-kalde-krigen/atomvapenkapplopet": "content/historie/den-kalde-krigen/atomvapenkapplopet.json",
     "historie/den-kalde-krigen/den-kalde-krigen-berlinmuren": "content/historie/den-kalde-krigen/berlinmuren.json",
