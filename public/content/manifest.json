@@ -145,7 +145,7 @@
                     "id": "setningsoppbygging",
                     "title": "Setningsoppbygging",
                     "description": "Bygg forståelse stein for stein. Fra S-V til komplekse leddsetninger.",
-                    "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
+                    "image": "/images/topics/setningsoppbygging_hero.png",
                     "lessons": [
                         {
                             "id": "niva-1-grunnmuren",
@@ -209,7 +209,7 @@
                     "id": "tekstsjangre",
                     "title": "Tekstsjangre",
                     "description": "Lær om ulike typer tekster.",
-                    "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
+                    "image": "/images/topics/tekstsjangre_hero.png",
                     "lessons": [
                         {
                             "id": "novelle",
@@ -308,7 +308,7 @@
                     "id": "retorikk",
                     "title": "Retorikk",
                     "description": "Læren om talekunst og overbevisning.",
-                    "image": "https://images.unsplash.com/photo-1560130958-02f95cc2e330?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                    "image": "/images/topics/retorikk_hero.png",
                     "tools": [
                         {
                             "id": "concept-snake",
@@ -323,7 +323,7 @@
                             "id": "grunnleggende-retorikk",
                             "title": "Hva er retorikk?",
                             "description": "En innføring i etos, patos og logos.",
-                            "image": "https://images.unsplash.com/photo-1560130958-02f95cc2e330?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                            "image": "/images/topics/retorikk_hero.png",
                             "tags": [
                                 "retorikk",
                                 "språk",
@@ -338,7 +338,7 @@
                     "id": "litteraturhistorie",
                     "title": "Litteraturhistorie",
                     "description": "Fra sagaer til samtidslitteratur.",
-                    "image": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80",
+                    "image": "/images/topics/litteraturhistorie_hero.png",
                     "tools": [
                         {
                             "id": "romantikken-sti",
@@ -515,13 +515,13 @@
                     "id": "okonomi",
                     "title": "Økonomi",
                     "description": "Utforsk hvordan vi skaper verdi, fordeler ressurser og bygger tillit gjennom pengesystemer.",
-                    "image": "/Eiriksbok/images/topics/okonomi.png",
+                    "image": "/images/topics/okonomi_hero.png",
                     "lessons": [
                         {
                             "id": "produksjon",
                             "title": "Produksjon",
                             "description": "Hva bestemmer hva vi lager? Planøkonomi vs. Markedsøkonomi.",
-                            "image": "/Eiriksbok/images/topics/okonomi.png",
+                            "image": "/images/topics/okonomi_hero.png",
                             "tags": [
                                 "økonomi",
                                 "produksjon",
@@ -587,7 +587,7 @@
                     "id": "demografi",
                     "title": "Demografi",
                     "description": "Lær om befolkningens utvikling, migrasjon og fremtidens utfordringer.",
-                    "image": "/Eiriksbok/images/topics/demografi.png",
+                    "image": "/images/topics/demografi_hero.png",
                     "lessons": [
                         {
                             "id": "den-demografiske-overgangen",
@@ -690,7 +690,7 @@
                     "id": "styringsformer",
                     "title": "Styringsformer",
                     "description": "Demokrati, diktatur og alt imellom.",
-                    "image": "/Eiriksbok/images/topics/styringsformer.png",
+                    "image": "/images/topics/styringsformer_hero.png",
                     "tools": [
                         {
                             "id": "utforsk",
@@ -2389,13 +2389,13 @@
                     "id": "perserriket",
                     "title": "Perserriket",
                     "description": "Det første verdensriket, fra Kyros den store til Aleksander den store.",
-                    "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
+                    "image": "/images/topics/perserriket_hero.png",
                     "lessons": [
                         {
                             "id": "artikkel",
                             "title": "Perserriket",
                             "description": "Det første verdensriket.",
-                            "image": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80",
+                            "image": "/images/topics/perserriket_hero.png",
                             "tags": [
                                 "antikken",
                                 "midtøsten",
@@ -2435,13 +2435,13 @@
                     "id": "menneskets-tidlige-historie",
                     "title": "Menneskets tidlige historie",
                     "description": "Fra nomader i Afrika til spredning over hele kloden.",
-                    "image": "https://images.unsplash.com/photo-1564429247506-322ee8fc5190?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                    "image": "/images/topics/menneskets_tidlige_historie_hero.png",
                     "lessons": [
                         {
                             "id": "menneskets-tidlige-historie",
                             "title": "Menneskets tidlige historie",
                             "description": "Vår felles opprinnelse.",
-                            "image": "https://images.unsplash.com/photo-1564429247506-322ee8fc5190?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                            "image": "/images/topics/menneskets_tidlige_historie_hero.png",
                             "tags": [
                                 "forhistorie",
                                 "mennesket",
@@ -3046,7 +3046,7 @@
                             "id": "historiske-religioner",
                             "title": "Historiske Religioner",
                             "description": "Religioner som har formet historien, fra antikken til norrøn tid.",
-                            "image": "https://images.unsplash.com/photo-1555662369-0bd7982cb4c3?auto=format&fit=crop&q=80",
+                            "image": "/images/topics/historiske_religioner_hero.png",
                             "tools": [
                                 {
                                     "id": "romerske-guder-link",
