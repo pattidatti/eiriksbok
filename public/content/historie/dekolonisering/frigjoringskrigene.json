@@ -1,0 +1,111 @@
+{
+    "id": "frigjoringskrigene",
+    "title": "Algerie & Vietnam: Krigens vei",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1946-1962",
+    "category": "Verden",
+    "readTime": "15 min lesning",
+    "heroImage": "/images/historie/dekolonisering/algerie_hero.png",
+    "details": [
+        "Sammenligning av to blodige frigjøringskriger.",
+        "Hvorfor Frankrike nektet å gi slipp.",
+        "Geriljakrig og tortur."
+    ],
+    "timeline": [
+        {
+            "year": "1946",
+            "title": "Indokina-krigen starter",
+            "description": "Ho Chi Minh kjemper mot fransk retur."
+        },
+        {
+            "year": "1954",
+            "title": "Dien Bien Phu",
+            "description": "Fransk nederlag i Vietnam. Krigen i Algerie starter samme år."
+        },
+        {
+            "year": "1957",
+            "title": "Slaget om Alger",
+            "description": "Urban geriljakrig og fransk bruk av tortur."
+        },
+        {
+            "year": "1962",
+            "title": "Évian-avtalen",
+            "description": "Algerie blir uavhengig. 900 000 franskmenn flykter."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Mens Storbritannia ofte ga slipp på koloniene sine gjennom forhandlinger (som i India og Ghana), valgte Frankrike en annen vei: De kjempet med nebb og klør for å beholde imperiet. Det førte til to av det 20. århundrets mest brutale kriger: Vietnam og Algerie."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor var det så viktig?"
+        },
+        {
+            "type": "text",
+            "content": "For Frankrike handlet det om ære. Etter å ha blitt ydmyket av Tyskland under andre verdenskrig, ønsket de å bevise at de fortsatt var en stormakt. I tillegg var **Algerie** spesielt: Det var ikke bare en koloni, men juridisk sett en del av Frankrike. Over en million europeere (kalt *pieds-noirs* eller svartføtter) bodde der."
+        },
+        {
+            "type": "header",
+            "text": "Terror i Casbah"
+        },
+        {
+            "type": "text",
+            "content": "Frigjøringsbevegelsen FLN visste at de ikke kunne slå den franske hæren i åpne slag. I stedet startet de en **urban geriljakrig**. De plasserte bomber på kafeer og kinoer der de hvite bosetterne holdt til. Frankrike svarte med massiv brutalitet. Fallskjermjegerne brukte systematisk tortur for å avsløre FLNs nettverk. Frankrike vant militært i Algerie, men tapte moralsk og politisk. Verden (og den franske befolkningen hjemme) vendte seg mot krigen."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "To tapte kriger",
+                "leftTitle": "Vietnam (1946-54)",
+                "rightTitle": "Algerie (1954-62)",
+                "items": [
+                    {
+                        "label": "Fiende",
+                        "left": "Viet Minh (Kommunister)",
+                        "right": "FLN (Nasjonalister)"
+                    },
+                    {
+                        "label": "Terreng",
+                        "left": "Jungel og fjell",
+                        "right": "Ørken og storby (Alger)"
+                    },
+                    {
+                        "label": "Resultat",
+                        "left": "Militært nederlag (Dien Bien Phu)",
+                        "right": "Politisk nederlag (De Gaulle ga opp)"
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva kaltes de europeiske bosetterne i Algerie?",
+            "options": [
+                "Boere",
+                "Pieds-noirs (Svartføtter)",
+                "Kreoler",
+                "Mestiser"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hvordan endte krigen i Algerie?",
+            "options": [
+                "Frankrike vant militært og ble værende",
+                "Algerie ble uavhengig etter en politisk avtale",
+                "USA invaderte",
+                "FN overtok styringen"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2026-01-16T10:35:00Z",
+    "lastUpdated": "2026-01-16T10:35:00Z"
+}

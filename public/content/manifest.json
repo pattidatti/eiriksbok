@@ -1679,6 +1679,156 @@
                     ]
                 },
                 {
+                    "id": "dekolonisering",
+                    "title": "Frigjøring & Dekolonisering",
+                    "description": "200 år med frihetskamp: Fra Washington til Mandela.",
+                    "image": "/images/historie/dekolonisering/oversikt_hero.png",
+                    "tools": [
+                        {
+                            "id": "dekolonisering-sti",
+                            "title": "Læringssti: Frihetens Maraton",
+                            "description": "Følg frihetskampen gjennom 200 år og 3 kontinenter.",
+                            "type": "learning-path",
+                            "icon": "map",
+                            "link": "/historie/dekolonisering/dekolonisering-sti"
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "oversikt",
+                            "title": "Oversikt: Imperienes Fall",
+                            "description": "Fra 13 kolonier til 193 nasjoner. De tre store frigjøringsbølgene.",
+                            "image": "/images/historie/dekolonisering/oversikt_hero.png",
+                            "tags": [
+                                "historie",
+                                "dekolonisering",
+                                "oversikt",
+                                "kart"
+                            ]
+                        },
+                        {
+                            "id": "usa-frigjoring",
+                            "title": "USA: Den første dominobrikken",
+                            "description": "Hvordan 13 kolonier slo verdens mektigste imperium.",
+                            "image": "/images/historie/dekolonisering/usa_hero.png",
+                            "tags": [
+                                "historie",
+                                "dekolonisering",
+                                "usa",
+                                "revolusjon"
+                            ]
+                        },
+                        {
+                            "id": "haiti",
+                            "title": "Haiti: Den glemte revolusjonen",
+                            "description": "Det eneste vellykkede slaveopprøret i historien.",
+                            "image": "/images/historie/dekolonisering/haiti_hero.png",
+                            "tags": [
+                                "historie",
+                                "dekolonisering",
+                                "haiti",
+                                "slaveri"
+                            ]
+                        },
+                        {
+                            "id": "latin-amerika",
+                            "title": "Latin-Amerika: Bolívars Drøm",
+                            "description": "Elitenes frigjøring og drømmen som brast.",
+                            "image": "/images/historie/dekolonisering/latin_amerika_hero.png",
+                            "tags": [
+                                "historie",
+                                "dekolonisering",
+                                "latin-amerika",
+                                "bolivar"
+                            ]
+                        },
+                        {
+                            "id": "midtosten-mandater",
+                            "title": "Midtøsten: Streker i sanden",
+                            "description": "Sykes-Picot, Osmanrikets fall og løftebruddene.",
+                            "image": "/images/historie/dekolonisering/midtosten_hero.png",
+                            "tags": [
+                                "historie",
+                                "dekolonisering",
+                                "midtøsten",
+                                "osmanriket"
+                            ]
+                        },
+                        {
+                            "id": "india",
+                            "title": "India: Sjelenes frigjøring",
+                            "description": "Gandhi, ikke-vold og den blodige delingen.",
+                            "image": "/images/historie/dekolonisering/india_hero.png",
+                            "tags": [
+                                "historie",
+                                "dekolonisering",
+                                "india",
+                                "gandhi"
+                            ]
+                        },
+                        {
+                            "id": "sorost-asia",
+                            "title": "Sørøst-Asia: Vakuumet etter Japan",
+                            "description": "Hvordan myten om hvit overlegenhet ble knust.",
+                            "image": "/images/historie/dekolonisering/sorost_asia_hero.png",
+                            "tags": [
+                                "historie",
+                                "dekolonisering",
+                                "indonesia",
+                                "vietnam"
+                            ]
+                        },
+                        {
+                            "id": "ghana-panafrikanisme",
+                            "title": "Ghana & Pan-Afrikanismen",
+                            "description": "Nkrumah og drømmen om et forent Afrika.",
+                            "image": "/images/historie/dekolonisering/ghana_hero.png",
+                            "tags": [
+                                "historie",
+                                "dekolonisering",
+                                "afrika",
+                                "ghana"
+                            ]
+                        },
+                        {
+                            "id": "frigjoringskrigene",
+                            "title": "Algerie & Vietnam: Krigens vei",
+                            "description": "Når kolonimakten nekter å dra.",
+                            "image": "/images/historie/dekolonisering/algerie_hero.png",
+                            "tags": [
+                                "historie",
+                                "dekolonisering",
+                                "krig",
+                                "algerie"
+                            ]
+                        },
+                        {
+                            "id": "kongo",
+                            "title": "Kongo: Kaos i hjertet av Afrika",
+                            "description": "Lumumba, CIA og ressursforbannelsen.",
+                            "image": "/images/historie/dekolonisering/kongo_hero.png",
+                            "tags": [
+                                "historie",
+                                "dekolonisering",
+                                "kongo",
+                                "kald-krig"
+                            ]
+                        },
+                        {
+                            "id": "siste-skanse",
+                            "title": "Det Siste Imperiet",
+                            "description": "Portugals fall og slutten på Apartheid.",
+                            "image": "/images/historie/dekolonisering/siste_skanse_hero.png",
+                            "tags": [
+                                "historie",
+                                "dekolonisering",
+                                "portugal",
+                                "apartheid"
+                            ]
+                        }
+                    ]
+                },
+                {
                     "id": "vikingtiden",
                     "title": "Vikingtiden",
                     "description": "Plyndring, handel og rikssamling.",

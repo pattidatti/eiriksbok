@@ -1,0 +1,93 @@
+{
+    "id": "ghana-panafrikanisme",
+    "title": "Ghana & Pan-Afrikanismen",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1957-1966",
+    "category": "Verden",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/historie/dekolonisering/ghana_hero.png",
+    "details": [
+        "Første frie land i Afrika sør for Sahara (1957).",
+        "Kwame Nkrumah og Pan-Afrikanismen.",
+        "Drømmen om et forent Afrika."
+    ],
+    "timeline": [
+        {
+            "year": "1947",
+            "title": "UGCC dannes",
+            "description": "Det første nasjonalistpartiet i Gullkysten."
+        },
+        {
+            "year": "1957",
+            "title": "Uavhengighet",
+            "description": "Gullkysten blir til Ghana."
+        },
+        {
+            "year": "1963",
+            "title": "OAU opprettes",
+            "description": "Organisasjonen for afrikansk enhet grunnlegges i Addis Abeba."
+        },
+        {
+            "year": "1966",
+            "title": "Kupp mot Nkrumah",
+            "description": "Drømmen om enhet møter harde realiteter."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "6. mars 1957 var en merkedag. Det britiske flagget ble firt i Accra, og flagget til det nye landet **Ghana** gikk til topps. Det var det første landet i Afrika sør for Sahara som brøt lenkene til kolonimakten. Mannen bak triumfen var Kwame Nkrumah."
+        },
+        {
+            "type": "header",
+            "text": "Søk først det politiske kongeriket"
+        },
+        {
+            "type": "text",
+            "content": "Nkrumahs motto var: «Søk først det politiske kongeriket, så skal alt annet gis dere.» Han mente at økonomisk utvikling var umulig uten politisk frihet. Han var inspirert av **Pan-Afrikanismen**, en idé om at alle afrikanere (både på kontinentet og i diasporaen) hørte sammen og burde forenes."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "author": "Kwame Nkrumah",
+                "text": "Vår uavhengighet er meningsløs med mindre den er koblet til total frigjøring av det afrikanske kontinentet."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Drømmen om Afrikas Forente Stater"
+        },
+        {
+            "type": "text",
+            "content": "Nkrumah drømte om et «United States of Africa», et sterkt kontinent som kunne stå imot press fra både USA og Sovjetunionen. Han brukte Ghanas penger på å støtte frigjøringsbevegelser i andre land (som Guinea og Kongo).\n\nMen hjemme i Ghana gikk det dårligere. For å gjennomføre sine visjoner, gjorde Nkrumah seg selv til diktator og knuste opposisjonen. I 1966, mens han var på besøk i Kina, ble han styrtet i et militærkupp (sannsynligvis med hjelp fra CIA). Drømmen om et forent Afrika levde videre, men veien dit ble lengre enn han trodde."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva het kolonien før den ble til Ghana?",
+            "options": [
+                "Elfenbenskysten",
+                "Gullkysten",
+                "Slavekysten",
+                "Pepperkysten"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hva var Pan-Afrikanisme?",
+            "options": [
+                "En idé om at Afrika skal styres av Europa",
+                "En idé om at alle afrikanere bør forenes",
+                "En religion",
+                "En type musikk"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2026-01-16T10:30:00Z",
+    "lastUpdated": "2026-01-16T10:30:00Z"
+}

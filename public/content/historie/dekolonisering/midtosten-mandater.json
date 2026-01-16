@@ -1,0 +1,93 @@
+{
+    "id": "midtosten-mandater",
+    "title": "Midtøsten: Streker i sanden",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1916-1948",
+    "category": "Verden",
+    "readTime": "12 min lesning",
+    "heroImage": "/images/historie/dekolonisering/midtosten_hero.png",
+    "details": [
+        "Osmanrikets fall og delingen av Midtøsten.",
+        "Sykes-Picot-avtalen.",
+        "Opprinnelsen til Israel-Palestina-konflikten."
+    ],
+    "timeline": [
+        {
+            "year": "1916",
+            "title": "Sykes-Picot-avtalen",
+            "description": "Hemmelig avtale mellom Storbritannia og Frankrike."
+        },
+        {
+            "year": "1917",
+            "title": "Balfour-erklæringen",
+            "description": "Storbritannia støtter et jødisk hjemland i Palestina."
+        },
+        {
+            "year": "1920",
+            "title": "San Remo-konferansen",
+            "description": "Mandatområdene opprettes (Frankrike får Syria/Libanon, UK får Palestina/Irak)."
+        },
+        {
+            "year": "1948",
+            "title": "Israel opprettes",
+            "description": "Det britiske mandatet opphører."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Hvis du ser på et kart over Midtøsten, vil du legge merke til noe rart: Mange av grensene er snorrette linjer. De følger ikke elver, fjell eller folkegrupper. Hvorfor? Fordi de ble tegnet med linjal av to menn i et rom i London under første verdenskrig."
+        },
+        {
+            "type": "header",
+            "text": "Det store sviket"
+        },
+        {
+            "type": "text",
+            "content": "Under første verdenskrig trengte britene hjelp mot Osmanriket (som var alliert med Tyskland). De lovet de arabiske lederne et stort, selvstendig arabisk rike hvis de gjorde opprør mot tyrkerne. Araberne holdt sin del av avtalen (kjent gjennom Lawrence of Arabia).\n\nMen britene hadde allerede lovet bort landet til noen andre. I den hemmelige **Sykes-Picot-avtalen** (1916) hadde Storbritannia og Frankrike blitt enige om å dele Midtøsten mellom seg."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Mandatsystemet",
+                "content": "Etter krigen kalte de det ikke 'kolonier', men 'mandater'. Frankrike fikk Syria og Libanon. Storbritannia fikk Irak, Jordan og Palestina. I teorien skulle de forberede landene på selvstendighet, men i praksis styrte de dem som kolonier for å sikre olje og handelsruter."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Ett land, to folk"
+        },
+        {
+            "type": "text",
+            "content": "Samtidig ga den britiske utenriksministeren enda et løfte. I **Balfour-erklæringen** (1917) lovet han å støtte opprettelsen av et 'nasjonalt hjem for det jødiske folk' i Palestina. Dette kolliderte direkte med løftene gitt til araberne som allerede bodde der. Britenes dobbelspill la grunnlaget for en av verdens mest fastlåste konflikter."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hvem delte Midtøsten mellom seg i Sykes-Picot-avtalen?",
+            "options": [
+                "USA og Russland",
+                "Tyskland og Tyrkia",
+                "Storbritannia og Frankrike",
+                "Egypt og Saudi-Arabia"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q2",
+            "question": "Hva var et mandatområde?",
+            "options": [
+                "Et uavhengig land",
+                "En koloni styrt på vegne av Folkeforbundet",
+                "En militærbase",
+                "En handelssone"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2026-01-16T10:15:00Z",
+    "lastUpdated": "2026-01-16T10:15:00Z"
+}

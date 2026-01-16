@@ -1,0 +1,85 @@
+{
+    "id": "siste-skanse",
+    "title": "Det Siste Imperiet",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1961-1994",
+    "category": "Verden",
+    "readTime": "12 min lesning",
+    "heroImage": "/images/historie/dekolonisering/siste_skanse_hero.png",
+    "details": [
+        "Portugals kolonikriger.",
+        "Nellikrevolusjonen i 1974.",
+        "Apartheids fall i 1994."
+    ],
+    "timeline": [
+        {
+            "year": "1961",
+            "title": "Krigen i Angola starter",
+            "description": "Portugal nekter å gi slipp på koloniene."
+        },
+        {
+            "year": "1974",
+            "title": "Nellikrevolusjonen",
+            "description": "Diktaturet i Portugal faller. Koloniene får frihet."
+        },
+        {
+            "year": "1990",
+            "title": "Nelson Mandela løslates",
+            "description": "Begynnelsen på slutten for Apartheid."
+        },
+        {
+            "year": "1994",
+            "title": "Det nye Sør-Afrika",
+            "description": "Frie valg. Dekoloniseringen er (nesten) fullført."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "På 1960-tallet, da resten av Afrika feiret friheten, holdt ett land igjen. Portugal, styrt av diktatoren Salazar, insisterte på at Angola, Mosambik og Guinea-Bissau ikke var kolonier, men «oversjøiske provinser» som tilhørte Portugal for alltid."
+        },
+        {
+            "type": "header",
+            "text": "Den evige krigen"
+        },
+        {
+            "type": "text",
+            "content": "Fra 1961 til 1974 kjempet Portugal en blodig trefrontskrig i Afrika. Det tæret på landets økonomi og moral. Unge portugisiske vernepliktige døde i jungelen for en sak de ikke trodde på. Til slutt var det hæren selv som fikk nok.\n\n25. april 1974 rullet tanksene inn i Lisboa. Ikke for å undertrykke, men for å kaste diktaturet. Folk satte nelliker i løpene på geværene til soldatene. **Nellikrevolusjonen** førte til demokrati i Portugal – og umiddelbar uavhengighet for koloniene."
+        },
+        {
+            "type": "header",
+            "text": "Den siste skansen: Sør-Afrika"
+        },
+        {
+            "type": "text",
+            "content": "Da portugiserne dro, stod ett hvitt mindretallsstyre igjen: Apartheid-regimet i Sør-Afrika. Omgitt av nye, svarte nasjoner, ble Sør-Afrika mer og mer isolert. Etter tiår med internasjonal boikott og indre motstand (ledet av ANC), måtte regimet til slutt gi tapt.\n\nI 1994, da Nelson Mandela ble valgt til president, ble den siste store brikken i dekoloniseringen lagt på plass. Et kapittel som startet med Columbus i 1492 var omsider over."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva het revolusjonen i Portugal i 1974?",
+            "options": [
+                "Rose-revolusjonen",
+                "Nellik-revolusjonen",
+                "Fløyels-revolusjonen",
+                "Oktober-revolusjonen"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hvem ble Sør-Afrikas første svarte president?",
+            "options": [
+                "Desmond Tutu",
+                "Steve Biko",
+                "Nelson Mandela",
+                "Kwame Nkrumah"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "createdDate": "2026-01-16T10:45:00Z",
+    "lastUpdated": "2026-01-16T10:45:00Z"
+}

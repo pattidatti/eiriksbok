@@ -1,0 +1,111 @@
+{
+    "id": "india",
+    "title": "India: Sjelenes frigjøring",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1919-1947",
+    "category": "Verden",
+    "readTime": "15 min lesning",
+    "heroImage": "/images/historie/dekolonisering/india_hero.png",
+    "details": [
+        "Kampen mot Britisk India.",
+        "Gandhis ikke-vold (Satyagraha).",
+        "Delingen av India og Pakistan (Partition)."
+    ],
+    "timeline": [
+        {
+            "year": "1919",
+            "title": "Amritsar-massakren",
+            "description": "Britiske soldater skyter mot ubevæpnede demonstranter."
+        },
+        {
+            "year": "1930",
+            "title": "Saltmarsjen",
+            "description": "Gandhi går 40 mil for å lage ulovlig salt."
+        },
+        {
+            "year": "1942",
+            "title": "Quit India Movement",
+            "description": "Massiv sivil ulydighet under 2. verdenskrig."
+        },
+        {
+            "year": "1947",
+            "title": "Uavhengighet og Deling",
+            "description": "India og Pakistan blir to stater."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "India ble kalt «juvelen i kronen» i det britiske imperiet. Det var den rikeste og mest folkerike kolonien. Hvordan kunne en liten øy i Nord-Europa styre 300 millioner mennesker? Svaret var splitt og hersk, og militær overmakt. Men en mann i lendeklede skulle vise at det fantes en annen makt: Sannhetens makt."
+        },
+        {
+            "type": "header",
+            "text": "Satyagraha: Sannhetskraft"
+        },
+        {
+            "type": "text",
+            "content": "Mahatma Gandhi var utdannet advokat i London, men kastet dressen for å lede frigjøringskampen. Hans våpen var **ikke-vold** (ahimsa) og sivil ulydighet. Hvis lovene var urettferdige, skulle man bryte dem åpenlyst og ta straffen med verdighet.\n\nDet mest berømte eksempelet var **Saltmarsjen** i 1930. Britene hadde monopol på salt og skattla det hardt. Gandhi marsjerte til havet og plukket opp en neve salt. Tusenvis fulgte ham. Britene fengslet 60 000 mennesker, men de kunne ikke fengsle en hel nasjon. Verdensopinionen snudde seg mot britene."
+        },
+        {
+            "type": "header",
+            "text": "En blodig fødsel"
+        },
+        {
+            "type": "text",
+            "content": "Etter andre verdenskrig var Storbritannia blakk og utslitt. De innså at de måtte gi India frihet. Men India var delt religiøst. Muslimene, ledet av Muhammad Ali Jinnah, fryktet å bli en undertrykt minoritet i et hindu-dominert India. De krevde sin egen stat: Pakistan.\n\nResultatet ble en tragedie. Da britene trakk streken (Radcliffe Line) i 1947, måtte 15 millioner mennesker flykte over de nye grensene. Hinduer flyktet til India, muslimer til Pakistan. I kaoset ble opp mot en million mennesker drept. Gandhi selv ble myrdet året etter av en hindu-nasjonalist som mente han var for snill mot muslimene."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "To visjoner",
+                "leftTitle": "Mahatma Gandhi",
+                "rightTitle": "Muhammad Ali Jinnah",
+                "items": [
+                    {
+                        "label": "Mål",
+                        "left": "Et forent, sekulært India",
+                        "right": "En egen stat for muslimer (Pakistan)"
+                    },
+                    {
+                        "label": "Metode",
+                        "left": "Ikke-voldelig sivil ulydighet",
+                        "right": "Politisk forhandling og maktbalanse"
+                    },
+                    {
+                        "label": "Religion",
+                        "left": "Alle religioner er veier til Gud",
+                        "right": "Islam og hinduisme er to ulike nasjoner"
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva betyr 'ahimsa'?",
+            "options": [
+                "Hellig krig",
+                "Ikke-vold",
+                "Sannhet",
+                "Frihet"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hvorfor ble Pakistan opprettet?",
+            "options": [
+                "Fordi britene ville det",
+                "For å beskytte muslimenes rettigheter",
+                "Fordi Gandhi ba om det",
+                "På grunn av olje"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2026-01-16T10:20:00Z",
+    "lastUpdated": "2026-01-16T10:20:00Z"
+}

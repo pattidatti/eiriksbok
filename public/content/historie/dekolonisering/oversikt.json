@@ -1,0 +1,70 @@
+{
+    "id": "oversikt",
+    "title": "Oversikt: Imperienes Fall",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1776-1994",
+    "category": "Verden",
+    "readTime": "5 min lesning",
+    "heroImage": "/images/historie/dekolonisering/oversikt_hero.png",
+    "details": [
+        "Fra 13 kolonier til 193 nasjoner.",
+        "De tre store frigjøringsbølgene.",
+        "Hvordan kartet ble tegnet på nytt."
+    ],
+    "timeline": [],
+    "content": [
+        {
+            "type": "text",
+            "content": "For 300 år siden var verden delt inn i enorme imperier. Briter, franskmenn, spanjoler og portugisere styrte over store deler av kloden. I dag består FN av 193 selvstendige stater. Hvordan skjedde denne enorme forandringen? Vi kaller det **dekolonisering**.\n\nDet skjedde ikke over natten, og det skjedde ikke uten kamp. Historien om hvordan verden ble fri kan deles inn i tre store bølger."
+        },
+        {
+            "type": "component",
+            "name": "WaveMap",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Frihetens pris"
+        },
+        {
+            "type": "text",
+            "content": "Noen land, som Norge, fikk sin frihet fredelig. Andre, som Vietnam og Algerie, måtte kjempe blodige kriger. Noen ledere, som Gandhi, valgte ikke-vold. Andre, som Bolivar, valgte sverdet. Felles for dem alle var drømmen om selvstyre: Retten til å bestemme over egen fremtid."
+        },
+        {
+            "type": "component",
+            "name": "LinkButton",
+            "props": {
+                "text": "Start Tidsreisen: Frihetens Maraton",
+                "href": "/historie/dekolonisering/dekolonisering-sti",
+                "icon": "flag"
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva betyr dekolonisering?",
+            "options": [
+                "Å bygge nye kolonier",
+                "At kolonier blir selvstendige stater",
+                "Å oppdage nye land",
+                "Å reise til månen"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hvor mange store 'bølger' av dekolonisering snakker vi ofte om?",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "10"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "createdDate": "2026-01-16T11:00:00Z",
+    "lastUpdated": "2026-01-16T11:00:00Z"
+}

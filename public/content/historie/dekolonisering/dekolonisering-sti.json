@@ -1,0 +1,171 @@
+{
+    "id": "dekolonisering-sti",
+    "title": "Læringssti: Frihetens Maraton",
+    "description": "Følg frihetskampen gjennom 200 år og 3 kontinenter. Fra Washingtons sverd til Gandhis salt.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "1776 - 1994",
+    "readTime": "3-4 timer",
+    "learningPathData": {
+        "id": "dekolonisering-sti",
+        "title": "Frihetens Maraton",
+        "description": "Du er en tidsreisende observatør. Din oppgave er å følge frihetens flamme fra kontinent til kontinent. Du vil se imperier falle, nye nasjoner reise seg, og oppdage at prisen for frihet ofte er høy.",
+        "targetTopicId": "dekolonisering",
+        "targetSubjectId": "historie",
+        "steps": [
+            {
+                "id": "intro-wave1",
+                "phase": "Fase 1: Den Atlantiske Bølgen (1776-1830)",
+                "title": "Den første gnisten",
+                "type": "fakta",
+                "content": "Året er 1776. I Philadelphia sitter en gruppe menn og skriver et brev til kongen av England. De erklærer at «alle mennesker er skapt like». Det er startskuddet. Snart brenner det i Frankrike, på Haiti og i hele Latin-Amerika. Det gamle Europa mister grepet om den nye verden.",
+                "tasks": [
+                    "Hvilke ideer fra opplysningstiden inspirerte den amerikanske revolusjonen?",
+                    "Hvorfor er Haiti-revolusjonen unik i verdenshistorien?",
+                    "Hvem var 'kreolene' i Latin-Amerika, og hvorfor gjorde de opprør?",
+                    "Hvorfor lyktes USA med å bli én nasjon, mens Latin-Amerika ble splittet?"
+                ],
+                "links": [
+                    {
+                        "title": "USA: Den første dominobrikken",
+                        "url": "/historie/dekolonisering/usa-frigjoring"
+                    },
+                    {
+                        "title": "Haiti: Den glemte revolusjonen",
+                        "url": "/historie/dekolonisering/haiti"
+                    },
+                    {
+                        "title": "Latin-Amerika: Bolívars Drøm",
+                        "url": "/historie/dekolonisering/latin-amerika"
+                    }
+                ]
+            },
+            {
+                "id": "wave2-asia",
+                "phase": "Fase 2: Asia Våkner (1918-1955)",
+                "title": "Imperiene slår sprekker",
+                "type": "fakta",
+                "content": "Vi hopper frem til det 20. århundre. To verdenskriger har svekket Europa. Myten om den hvite manns uovervinnelighet ble knust da Japan erobret Asia. Nå krever Asia sin rett. I India går en mann i lendeklede mot verdens mektigste imperium, bevæpnet kun med sannhet. I Vietnam griper de til våpen.",
+                "tasks": [
+                    "Hva var 'Satyagraha'?",
+                    "Hvorfor ble India delt i to stater (India og Pakistan)?",
+                    "Hvordan påvirket Japans erobringer under 2. verdenskrig frigjøringskampen i Asia?",
+                    "Sammenlign Gandhis metoder med Ho Chi Minhs metoder."
+                ],
+                "links": [
+                    {
+                        "title": "India: Sjelenes frigjøring",
+                        "url": "/historie/dekolonisering/india"
+                    },
+                    {
+                        "title": "Sørøst-Asia: Vakuumet etter Japan",
+                        "url": "/historie/dekolonisering/sorost-asia"
+                    },
+                    {
+                        "title": "Midtøsten: Streker i sanden",
+                        "url": "/historie/dekolonisering/midtosten-mandater"
+                    }
+                ]
+            },
+            {
+                "id": "wave3-africa",
+                "phase": "Fase 3: Afrikas Tiår (1957-1975)",
+                "title": "Vindens forandring",
+                "type": "fakta",
+                "content": "«The wind of change is blowing through this continent,» sa den britiske statsministeren i 1960. Han hadde rett. På få år ble kartet over Afrika tegnet på nytt. I Ghana heises det nye flagget med stolthet. I Algerie flyter blodet i gatene. I Kongo blir den kalde krigen glovarm.",
+                "tasks": [
+                    "Hva mente Nkrumah med at Ghana måtte søke 'det politiske kongeriket' først?",
+                    "Hvorfor ble frigjøringen i Algerie så mye blodigere enn i Ghana?",
+                    "Hvilken rolle spilte Den kalde krigen i Kongo-krisen?",
+                    "Hva var Pan-Afrikanisme?"
+                ],
+                "links": [
+                    {
+                        "title": "Ghana & Pan-Afrikanismen",
+                        "url": "/historie/dekolonisering/ghana-panafrikanisme"
+                    },
+                    {
+                        "title": "Algerie & Vietnam: Krigens vei",
+                        "url": "/historie/dekolonisering/frigjoringskrigene"
+                    },
+                    {
+                        "title": "Kongo: Kaos i hjertet av Afrika",
+                        "url": "/historie/dekolonisering/kongo"
+                    }
+                ]
+            },
+            {
+                "id": "wave4-end",
+                "phase": "Fase 4: Det Siste Kapittelet (1974-1994)",
+                "title": "Slutten på en æra",
+                "type": "fakta",
+                "content": "Portugal klamrer seg fast til sine kolonier lenge etter at andre har gitt opp. Det kreves en revolusjon i Europa for å frigjøre Afrika. Og helt i sør kjemper Nelson Mandela mot et system som skiller folk etter hudfarge. Når han slippes fri i 1990, faller den siste brikken på plass.",
+                "tasks": [
+                    "Hva var sammenhengen mellom Nellikrevolusjonen i Portugal og frigjøringen av Angola/Mosambik?",
+                    "Hva var Apartheid?",
+                    "Hvordan kan vi si at dekoloniseringen formet verden vi lever i dag?"
+                ],
+                "links": [
+                    {
+                        "title": "Det Siste Imperiet",
+                        "url": "/historie/dekolonisering/siste-skanse"
+                    }
+                ],
+                "component": {
+                    "name": "DragDropTimeline",
+                    "props": {
+                        "title": "Frihetens Tidslinje",
+                        "events": [
+                            {
+                                "id": "usa",
+                                "year": 1776,
+                                "label": "USAs uavhengighet"
+                            },
+                            {
+                                "id": "haiti",
+                                "year": 1804,
+                                "label": "Haiti blir fritt"
+                            },
+                            {
+                                "id": "india",
+                                "year": 1947,
+                                "label": "India (og Pakistan) blir fritt"
+                            },
+                            {
+                                "id": "ghana",
+                                "year": 1957,
+                                "label": "Ghana blir fritt"
+                            },
+                            {
+                                "id": "kongo",
+                                "year": 1960,
+                                "label": "Kongo blir fritt (Kaosår)"
+                            },
+                            {
+                                "id": "algerie",
+                                "year": 1962,
+                                "label": "Algerie blir fritt"
+                            },
+                            {
+                                "id": "mandela",
+                                "year": 1994,
+                                "label": "Mandela blir president (Apartheid slutt)"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "reflection",
+                "title": "Refleksjon: Er vi ferdige?",
+                "type": "refleksjon",
+                "content": "Kartet er tegnet ferdig. Koloniene er borte. Men er dekoloniseringen over? Mange mener at økonomiske bånd og kulturell påvirkning fortsatt holder tidligere kolonier nede (nykolonialisme). Diskusjonen om repatriering av museumsgjenstander og omskriving av historiebøker viser at kampen om fortiden fortsatt pågår.",
+                "tasks": [
+                    "Hva menes med begrepet 'nykolonialisme'?",
+                    "Bør gamle kolonimakter betale erstatning for urett begått i fortiden?",
+                    "Hvordan merker vi arven etter kolonitiden i dagens Norge?"
+                ]
+            }
+        ]
+    }
+}

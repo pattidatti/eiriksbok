@@ -13,6 +13,7 @@ import { Comparison } from './Comparison';
 import { LineChart } from './LineChart';
 import { EmperorStats } from './EmperorStats';
 import { LinkButton } from './tools/LinkButton';
+import { WaveMap } from './content/interactive/WaveMap';
 
 // Lazy-loaded components for better performance
 // Interactive Content
@@ -101,6 +102,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     LineChart,
     EmperorStats,
     LinkButton,
+    WaveMap,
 
     // Interactive Content
     InflationCalculator,

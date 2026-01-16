@@ -1,0 +1,119 @@
+{
+    "id": "latin-amerika",
+    "title": "Latin-Amerika: Bolívars Drøm",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1808-1833",
+    "category": "Verden",
+    "readTime": "12 min lesning",
+    "heroImage": "/images/historie/dekolonisering/latin_amerika_hero.png",
+    "details": [
+        "Elitenes frigjøring (Kreoler).",
+        "Simon Bolívar og drømmen om et forent Sør-Amerika.",
+        "Fragmentering og borgerkrig."
+    ],
+    "timeline": [
+        {
+            "year": "1808",
+            "title": "Napoleon invaderer Spania",
+            "description": "Maktvakuum i koloniene."
+        },
+        {
+            "year": "1810",
+            "title": "Revolusjonene starter",
+            "description": "Juntaer tar makten i Caracas og Buenos Aires."
+        },
+        {
+            "year": "1819",
+            "title": "Gran Colombia",
+            "description": "Bolívar grunnlegger en storrepublikk."
+        },
+        {
+            "year": "1824",
+            "title": "Slaget ved Ayacucho",
+            "description": "Det siste spanske nederlaget i Sør-Amerika."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "På starten av 1800-tallet strakte det spanske imperiet seg fra California i nord til Ildlandet i sør. Men imperiet knaket i sammenføyningene. I motsetning til på Haiti, var det ikke slavene som ledet opprøret her, men den hvite overklassen født i Amerika, kjent som **kreoler**."
+        },
+        {
+            "type": "header",
+            "text": "Kreoler vs. Peninsulares"
+        },
+        {
+            "type": "text",
+            "content": "Konflikten handlet om makt og stillinger. Det spanske systemet favoriserte *peninsulares* – folk født i Spania. De fikk alle toppjobbene i administrasjonen og kirken. Kreolene, selv om de var rike og utdannede, ble holdt utenfor. Da Napoleon invaderte Spania i 1808 og avsatte kongen, så kreolene sin sjanse: «Vi er lojale mot kongen, ikke mot Napoleon,» sa de, og dannet sine egne regjeringer."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "To frigjørere",
+                "leftTitle": "Simón Bolívar (Nord)",
+                "rightTitle": "José de San Martín (Sør)",
+                "items": [
+                    {
+                        "label": "Tittel",
+                        "left": "El Libertador",
+                        "right": "Beskytteren"
+                    },
+                    {
+                        "label": "Stil",
+                        "left": "Visjonær og karismatisk",
+                        "right": "Militær strateg og beskjeden"
+                    },
+                    {
+                        "label": "Mål",
+                        "left": "Et forent, republikansk Sør-Amerika",
+                        "right": "Uavhengighet (gjerne monarki)"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Drømmen om Gran Colombia"
+        },
+        {
+            "type": "text",
+            "content": "Simón Bolívar hadde en visjon om at de spanske koloniene skulle forenes i én stor nasjon, akkurat som USA i nord. Han opprettet **Gran Colombia** (som dekket dagens Colombia, Venezuela, Ecuador og Panama). Men geografien i Sør-Amerika – med de enorme Andesfjellene og Amazonas-jungelen – gjorde kommunikasjon nesten umulig.\n\nI tillegg var det sterk rivalisering mellom de ulike lokale elitene (caudillos). Gran Colombia falt sammen i 1831, kort tid etter Bolívars død. Latin-Amerika ble splittet opp i mange mindre stater, preget av politisk ustabilitet og militærstyre."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "author": "Simón Bolívar",
+                "text": "Jeg har pløyd i havet."
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva var en 'kreol'?",
+            "options": [
+                "En person født i Spania",
+                "En person av blandet herkomst",
+                "En hvit person født i Amerika",
+                "En slave"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q2",
+            "question": "Hvorfor falt Gran Colombia sammen?",
+            "options": [
+                "Spansk invasjon",
+                "Geografi og indre maktkamp",
+                "Amerikansk innblanding",
+                "Økonomisk kollaps"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2026-01-16T10:10:00Z",
+    "lastUpdated": "2026-01-16T10:10:00Z"
+}

@@ -56,6 +56,13 @@
     "type": "concept"
   },
   {
+    "id": "arbeidsspesialisering",
+    "term": "Arbeidsspesialisering",
+    "definition": "Når en produksjonsprosess deles opp i mindre enkeltoppgaver, slik at hver arbeider blir spesialist på sin del av prosessen. Dette øker effektiviteten betydelig.",
+    "type": "concept",
+    "link": "/samfunnskunnskap/okonomi/arbeidsspesialisering"
+  },
+  {
     "term": "Artilleri",
     "definition": "Tunge skytevåpen som kanoner og bombekastere, ment for å skyte over lange avstander.",
     "subject": "historie",
@@ -145,6 +152,13 @@
     "topic": "reformasjonen",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "id": "demografisk-overgang",
+    "term": "Den demografiske overgangen",
+    "definition": "En modell som beskriver overgangen fra høye fødsels- og dødsrater til lave, en prosess som skjer når et land gjennomgår industriell utvikling og modernisering.",
+    "type": "concept",
+    "link": "/samfunnskunnskap/demografi/den-demografiske-overgangen"
   },
   {
     "term": "dendrokronologi",
@@ -637,6 +651,12 @@
     "type": "concept"
   },
   {
+    "id": "naturalhandel",
+    "term": "Naturalhandel (Byttehandel)",
+    "definition": "En økonomisk ordning der man bytter varer eller tjenester direkte mot hverandre uten å bruke penger som mellomledd.",
+    "type": "concept"
+  },
+  {
     "term": "Nürnbergprosessene",
     "definition": "Rettssakene mot ledende nazister etter krigen, der prinsippet om individuelt ansvar for krigsforbrytelser ble knesatt.",
     "subject": "historie",
@@ -1053,6 +1073,13 @@
     "link": "/historie/sveriges-historie/sveriges-historie"
   },
   {
+    "id": "urbanisering",
+    "term": "Urbanisering",
+    "definition": "En prosess der befolkningen flytter fra landsbygda til byer og tettsteder, slik at byområdene vokser og blir viktigere.",
+    "type": "concept",
+    "link": "/samfunnskunnskap/demografi/urbanisering"
+  },
+  {
     "term": "Utmattelseskrig",
     "definition": "En krigføring hvor målet er å slite ut fiendens ressurser og mannskap fremfor å vinne raske territorielle seire.",
     "subject": "historie",
@@ -1133,6 +1160,20 @@
     "topic": "forste-verdenskrig",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "id": "adam-smith",
+    "name": "Adam Smith",
+    "lifespan": "1723–1790",
+    "description": "Skotsk filosof og økonom, ofte kalt 'den moderne økonomiens far'. Hans mest kjente verk er 'The Wealth of Nations'.",
+    "links": [
+      {
+        "title": "Arbeidsspesialisering",
+        "url": "/samfunnskunnskap/okonomi/arbeidsspesialisering"
+      }
+    ],
+    "term": "Adam Smith",
+    "type": "person"
   },
   {
     "term": "Aristoteles",
@@ -1220,6 +1261,20 @@
     "tags": [],
     "lifespan": "1533 – 1603",
     "link": "/historie/kolonialisering/britisk-imperium",
+    "type": "person"
+  },
+  {
+    "id": "ester-boserup",
+    "name": "Ester Boserup",
+    "lifespan": "1910–1999",
+    "description": "Dansk økonom som utfordret malthusianske teorier ved å hevde at befolkningspress fører til innovasjon og forbedring av matproduksjon.",
+    "links": [
+      {
+        "title": "Malthus vs. Boserup",
+        "url": "/samfunnskunnskap/demografi/malthus-vs-boserup"
+      }
+    ],
+    "term": "Ester Boserup",
     "type": "person"
   },
   {
@@ -1486,5 +1541,19 @@
     "subject": "historie",
     "lifespan": "1225 – 1274",
     "link": "/filosofi/middelalder/thomas-aquinas"
+  },
+  {
+    "id": "thomas-malthus",
+    "name": "Thomas Malthus",
+    "lifespan": "1766–1834",
+    "description": "Britisk prest og økonom som advarte om at befolkningsvekst før eller siden ville føre til sultkatastrofer hvis den ikke ble kontrollert.",
+    "links": [
+      {
+        "title": "Malthus vs. Boserup",
+        "url": "/samfunnskunnskap/demografi/malthus-vs-boserup"
+      }
+    ],
+    "term": "Thomas Malthus",
+    "type": "person"
   }
 ]

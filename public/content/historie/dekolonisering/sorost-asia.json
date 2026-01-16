@@ -1,0 +1,85 @@
+{
+    "id": "sorost-asia",
+    "title": "Sørøst-Asia: Vakuumet etter Japan",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1940-1954",
+    "category": "Verden",
+    "readTime": "12 min lesning",
+    "heroImage": "/images/historie/dekolonisering/sorost_asia_hero.png",
+    "details": [
+        "Japans okkupasjon under 2. verdenskrig.",
+        "Indonesias uavhengighetskrig.",
+        "Vietnamkrigens begynnelse."
+    ],
+    "timeline": [
+        {
+            "year": "1942",
+            "title": "Singapore faller",
+            "description": "Japan overtar europeiske kolonier lynraskt."
+        },
+        {
+            "year": "1945",
+            "title": "Maktvakuum",
+            "description": "Japan overgir seg. Nasjonalister erklærer uavhengighet."
+        },
+        {
+            "year": "1949",
+            "title": "Indonesia fritt",
+            "description": "Nederland gir opp kolonien etter 4 års krig."
+        },
+        {
+            "year": "1954",
+            "title": "Dien Bien Phu",
+            "description": "Frankrike lider nederlag i Vietnam."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Før andre verdenskrig virket de europeiske kolonimaktene uovervinnelige. Britene, franskmennene og nederlenderne styrte Sørøst-Asia med jernhånd. Men i 1941-42 skjedde det utenkelige: Japan, en asiatisk nasjon, feide over regionen og knuste de europeiske hærene på få uker.\n\nJapans okkupasjon var brutal, men den beviste én ting: Den hvite mann var ikke overlegen. Da Japan tapte krigen i 1945, oppstod et **maktvakuum**. Før europeerne rakk å komme tilbake, erklærte nasjonalistene uavhengighet."
+        },
+        {
+            "type": "header",
+            "text": "Indonesia: Merdeka!"
+        },
+        {
+            "type": "text",
+            "content": "I Indonesia hadde nederlenderne styrt i 350 år. Nasjonalisten Sukarno erklærte Indonesia uavhengig to dager etter Japans overgivelse. Da nederlandske tropper kom tilbake for å 'gjenopprette ro og orden', møtte de en befolkning som ropte **'Merdeka!'** (Frihet!). Etter fire år med blodig geriljakrig og sterkt press fra USA (som truet med å kutte Marshallhjelpen til Nederland), måtte Nederland gi tapt i 1949."
+        },
+        {
+            "type": "header",
+            "text": "Vietnam: Ironien i historien"
+        },
+        {
+            "type": "text",
+            "content": "I Vietnam stod kommunisten Ho Chi Minh på et torg i Hanoi i 1945 og leste opp en uavhengighetserklæring. Han startet med å sitere den amerikanske uavhengighetserklæringen: «Alle mennesker er født like...».\n\nHo Chi Minh håpet på støtte fra USA. Men den kalde krigen var i gang. USA så på ham som en kommunist først, og en nasjonalist dernest. Derfor støttet USA Frankrikes forsøk på å ta tilbake kolonien. Det endte med et katastrofalt fransk nederlag ved **Dien Bien Phu** i 1954, som igjen ledet rett inn i den store Vietnamkrigen."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva viste Japans seire i 1942 de asiatiske folkene?",
+            "options": [
+                "At Japan var snille",
+                "At vestlige makter kunne beseires",
+                "At krig er bra",
+                "Ingenting"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hvilket land okkuperte Indonesia før krigen?",
+            "options": [
+                "Storbritannia",
+                "Frankrike",
+                "Nederland",
+                "Spania"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "createdDate": "2026-01-16T10:25:00Z",
+    "lastUpdated": "2026-01-16T10:25:00Z"
+}

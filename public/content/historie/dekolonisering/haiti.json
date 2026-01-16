@@ -1,0 +1,101 @@
+{
+    "id": "haiti",
+    "title": "Haiti: Den glemte revolusjonen",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1791-1804",
+    "category": "Verden",
+    "readTime": "12 min lesning",
+    "heroImage": "/images/historie/dekolonisering/haiti_hero.png",
+    "details": [
+        "Det eneste vellykkede slaveopprøret i historien.",
+        "Inspirert av den franske revolusjon.",
+        "Skapte verdens første svarte republikk."
+    ],
+    "timeline": [
+        {
+            "year": "1791",
+            "title": "Slaveopprøret starter",
+            "description": "Voodoo-seremonien ved Bois Caïman tenner gnisten."
+        },
+        {
+            "year": "1794",
+            "title": "Frankrike avskaffer slaveriet",
+            "description": "Et forsøk på å beholde kontrollen over kolonien."
+        },
+        {
+            "year": "1802",
+            "title": "Napoleon slår tilbake",
+            "description": "Sender en hær for å gjeninnføre slaveriet."
+        },
+        {
+            "year": "1804",
+            "title": "Uavhengighet",
+            "description": "Jean-Jacques Dessalines erklærer Haiti fritt."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "På slutten av 1700-tallet var den franske kolonien Saint-Domingue (senere Haiti) verdens rikeste koloni. Den produserte mer sukker og kaffe enn hele USA til sammen. Men rikdommen var bygget på brutalitet. 500 000 slaver levde under grusomme forhold, styrt av en liten elite hvite plantasjeeiere.\n\nDa den franske revolusjonen brøt ut i 1789 med slagordet «Frihet, likhet og brorskap», spurte slavene på Saint-Domingue: «Gjelder ikke dette oss også?»"
+        },
+        {
+            "type": "header",
+            "text": "Den svarte Spartacus"
+        },
+        {
+            "type": "text",
+            "content": "Opprøret ble ledet av **Toussaint Louverture**, en tidligere slave som viste seg å være et militært geni. Han organiserte en disiplinert hær som beseiret både spanske, britiske og til slutt franske styrker. Toussaint ønsket til å begynne med ikke totalt brudd med Frankrike, men krevde at slaveriet skulle opphøre og at svarte skulle behandles som likeverdige borgere."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Napoleons nederlag",
+                "content": "Napoleon Bonaparte likte ikke tanken på en styrtrik koloni styrt av eks-slaver. Han sendte 30 000 soldater for å knuse opprøret. Men de franske soldatene møtte to fiender: En innbitt geriljalyrmé og gulfeber. Tusenvis døde av sykdom, og hæren kollapset."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Prisen for frihet"
+        },
+        {
+            "type": "text",
+            "content": "Haiti ble uavhengig i 1804, men verden tilga aldri slaveopprøret. USA og europeiske makter nektet å anerkjenne den nye nasjonen av frykt for at opprøret skulle spre seg til deres egne slaver. I 1825 sendte Frankrike krigsskip og krevde en gigantisk erstatningssum for «tapt eiendom» (tapte slaver og plantasjer) for å anerkjenne Haiti.\n\nHaiti måtte ta opp enorme lån for å betale. Dette lammet landets økonomi i over hundre år og er en direkte årsak til at Haiti i dag er et av verdens fattigste land."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "author": "Toussaint Louverture",
+                "text": "In overthrowing me, you have cut down in San Domingo only the trunk of the tree of liberty. It will spring up again by the roots for they are numerous and deep."
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva var Saint-Domingues viktigste eksportvare?",
+            "options": [
+                "Gull",
+                "Sukker",
+                "Olje",
+                "Bomull"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hvorfor måtte Haiti betale erstatning til Frankrike?",
+            "options": [
+                "For krigskader",
+                "For tapte slaver og plantasjer",
+                "Som leie for landet",
+                "For militær beskyttelse"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2026-01-16T10:05:00Z",
+    "lastUpdated": "2026-01-16T10:05:00Z"
+}

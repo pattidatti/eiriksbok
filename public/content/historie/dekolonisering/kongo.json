@@ -1,0 +1,93 @@
+{
+    "id": "kongo",
+    "title": "Kongo: Kaos i hjertet av Afrika",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1960-1965",
+    "category": "Verden",
+    "readTime": "12 min lesning",
+    "heroImage": "/images/historie/dekolonisering/kongo_hero.png",
+    "details": [
+        "Fra belgisk koloni til kaos.",
+        "Patrice Lumumba og CIA.",
+        "Da den kalde krigen traff Afrika."
+    ],
+    "timeline": [
+        {
+            "year": "1885",
+            "title": "Kong Leopolds private eiendom",
+            "description": "Kongo Free State etableres. Terrorvelde."
+        },
+        {
+            "year": "1960",
+            "title": "30. juni: Uavhengighet",
+            "description": "Belgia trekker seg ut over natten. Lumumba blir statsminister."
+        },
+        {
+            "year": "1961",
+            "title": "Lumumba myrdes",
+            "description": "Drept av separatister med hjelp fra Belgia og CIA."
+        },
+        {
+            "year": "1965",
+            "title": "Mobutu tar makten",
+            "description": "Starter et kleptokrati som varer i 30 år."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Kongo er et enormt land, rikt på naturressurser som gummi, kobber, diamanter og uran. Men rikdommen har vært landets forbannelse. Under belgisk styre var utdanning forbudt for afrikanere over grunnskolenivå. Da Kongo ble uavhengig i 1960, hadde landet kun **30 universitetsutdannede** personer i en befolkning på 14 millioner. Det var ingen leger, ingen ingeniører, ingen offiserer."
+        },
+        {
+            "type": "header",
+            "text": "Lumumbas tale"
+        },
+        {
+            "type": "text",
+            "content": "På uavhengighetsdagen holdt kongen av Belgia en tale der han roste Belgias innsats. Den nye statsministeren, **Patrice Lumumba**, svarte med en flammende tale der han beskrev undertrykkelsen, rasismen og slaveriet folket hadde lidd under. Talen gjorde ham til en helt i afrikanernes øyne, men til en farlig fiende for Vesten."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Uran til atombomben",
+                "content": "Hvorfor var USA så interessert i Kongo? Shinkolobwe-gruven i Katanga-provinsen leverte uranet som ble brukt i Hiroshima-bomben. USA var livredde for at Sovjetunionen skulle få kontroll over disse gruvene."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kaos og Mord"
+        },
+        {
+            "type": "text",
+            "content": "Bare dager etter uavhengigheten brøt hæren sammen i mytteri. Den rike provinsen Katanga løsrev seg med belgisk støtte. Lumumba ba FN om hjelp, men ble avvist. I desperasjon ba han Sovjetunionen om hjelp. Det var dødsdommen hans.\n\nCIA og Belgia konspirerte for å fjerne ham. Lumumba ble fanget, torturert og henrettet i januar 1961. Oberst **Mobutu Sese Seko**, en vestlig alliert, tok makten og styrte landet (som han døpte om til Zaire) som sin egen bankkonto i over 30 år."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hvor mange universitetsutdannede kongolesere fantes det i 1960?",
+            "options": [
+                "Ca. 30",
+                "Ca. 3000",
+                "Ca. 300 000",
+                "Ingen"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hvorfor støttet USA diktatoren Mobutu?",
+            "options": [
+                "Han var demokrat",
+                "Han var anti-kommunist",
+                "Han var en god økonom",
+                "Han var i slekt med presidenten"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2026-01-16T10:40:00Z",
+    "lastUpdated": "2026-01-16T10:40:00Z"
+}

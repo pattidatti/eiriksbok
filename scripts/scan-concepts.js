@@ -82,10 +82,11 @@ function loadGlossaryData() {
         const conceptFiles = findJsonFiles(CONCEPTS_DIR);
         conceptFiles.forEach(file => {
             const content = JSON.parse(fs.readFileSync(file, 'utf-8'));
-            const term = content.term.toLowerCase();
+            if (!content.term && !content.name) return;
+            const term = (content.term || content.name).toLowerCase();
             // Auto-link if a match is found in manifest
             const autoLink = articleMap[term];
-            data.push({ ...content, type: 'concept', link: content.link || autoLink });
+            data.push({ ...content, term: content.term || content.name, type: 'concept', link: content.link || autoLink });
         });
     }
 
@@ -94,9 +95,10 @@ function loadGlossaryData() {
         const peopleFiles = findJsonFiles(PEOPLE_DIR);
         peopleFiles.forEach(file => {
             const content = JSON.parse(fs.readFileSync(file, 'utf-8'));
-            const term = content.term.toLowerCase();
+            if (!content.term && !content.name) return;
+            const term = (content.term || content.name).toLowerCase();
             const autoLink = articleMap[term];
-            data.push({ ...content, type: 'person', link: content.link || autoLink });
+            data.push({ ...content, term: content.term || content.name, type: 'person', link: content.link || autoLink });
         });
     }
 
