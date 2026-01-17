@@ -11,15 +11,37 @@ interface LayoutContextType {
 
 const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
 
+import { useLocation } from 'react-router-dom';
+
+const FULL_WIDTH_PATHS = [
+    '/oving/detektiv',
+    '/colonization',
+    '/tidslinje',
+    '/oving/tidsreise',
+    '/oving/etikk',
+    '/oving/simulering'
+];
+
 export const LayoutProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [isFullWidth, setFullWidth] = useState(false);
+    const location = useLocation();
+    const [manualFullWidth, setManualFullWidth] = useState(false);
     const [hideHeader, setHideHeader] = useState(false);
     const [hideBreadcrumbs, setHideBreadcrumbs] = useState(false);
+
+    // Derive isFullWidth from URL OR manual override
+    // This runs synchronously during render, preventing CLS for known paths
+    const isKnownFullWidthPath = FULL_WIDTH_PATHS.some(path => location.pathname.startsWith(path));
+    const isFullWidth = isKnownFullWidthPath || manualFullWidth;
+
+    // Reset manual override on navigation (optional, but good practice)
+    React.useEffect(() => {
+        setManualFullWidth(false);
+    }, [location.pathname]);
 
     return (
         <LayoutContext.Provider value={{
             isFullWidth,
-            setFullWidth,
+            setFullWidth: setManualFullWidth,
             hideHeader,
             setHideHeader,
             hideBreadcrumbs,

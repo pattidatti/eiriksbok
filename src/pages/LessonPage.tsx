@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, lazy, Suspense } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useManifest } from '../hooks/useManifest';
 import { useLesson } from '../hooks/useLesson';
@@ -8,7 +8,10 @@ import { GovernmentExplorer } from '../components/GovernmentExplorer';
 import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { InteractiveArticle } from '../components/InteractiveArticle';
-import { DetectiveEngine } from '../components/content/interactive/detective/DetectiveEngine';
+// Lazy load DetectiveEngine
+const DetectiveEngine = lazy(() => import('../components/content/interactive/detective/DetectiveEngine').then(module => ({ default: module.DetectiveEngine })));
+import { DetectiveSkeleton } from '../components/content/interactive/detective/DetectiveSkeleton';
+import { LessonSkeleton } from '../components/skeletons/LessonSkeleton';
 import type { DetectiveCase } from '../components/content/interactive/detective/types';
 import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -36,7 +39,6 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const { data: manifest } = useManifest();
     const { data: lesson, isLoading: lessonLoading, isError, error, refetch } = useLesson(subjectId, topicId, lessonId, subTopicId);
 
-    const [lessonImage, setLessonImage] = useState<string | undefined>(undefined);
     const navigate = useNavigate();
     const { addToHistory } = useUserHistory();
     const { setFullWidth } = useLayout();
@@ -62,27 +64,26 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         }
     }, [lesson, subjectId, addToHistory]);
 
-    useEffect(() => {
-        if (manifest && subjectId && topicId && lessonId) {
-            const subject = manifest.subjects.find(s => s.id === subjectId);
-            const topic = subject?.topics.find(t => t.id === topicId);
-            let foundLesson: ManifestLesson | undefined;
-            let topicImg = topic?.image;
+    // Optimized: Derive lessonImage directly without effect
+    const lessonImage = useMemo(() => {
+        if (!manifest || !subjectId || !topicId || !lessonId) return undefined;
 
-            if (subTopicId && topic?.subTopics) {
-                const subTopic = topic.subTopics.find(st => st.id === subTopicId);
-                foundLesson = subTopic?.lessons.find((l: any) => l.id === lessonId);
-                topicImg = subTopic?.image || topicImg;
-            } else if (topic?.lessons) {
-                foundLesson = topic.lessons.find((l: any) => l.id === lessonId);
-            }
+        const subject = manifest.subjects.find(s => s.id === subjectId);
+        const topic = subject?.topics.find(t => t.id === topicId);
+        let foundLesson: ManifestLesson | undefined;
+        let topicImg = topic?.image;
 
-            if (foundLesson?.image) {
-                setLessonImage(foundLesson.image);
-            } else if (topicImg) {
-                setLessonImage(topicImg);
-            }
+        if (subTopicId && topic?.subTopics) {
+            const subTopic = topic.subTopics.find(st => st.id === subTopicId);
+            foundLesson = subTopic?.lessons.find((l: any) => l.id === lessonId);
+            topicImg = subTopic?.image || topicImg;
+        } else if (topic?.lessons) {
+            foundLesson = topic.lessons.find((l: any) => l.id === lessonId);
         }
+
+        if (foundLesson?.image) return foundLesson.image;
+        if (topicImg) return topicImg;
+        return undefined;
     }, [manifest, subjectId, topicId, subTopicId, lessonId]);
 
     // Handle Layout Context
@@ -100,7 +101,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
     const loading = lessonLoading;
 
-    if (loading) return <div className="p-8 text-center">Laster leksjon...</div>;
+    if (loading) return <LessonSkeleton />;
 
     if (isError) {
         return <LearningPathErrorState type="network" error={error as Error} onRetry={() => refetch()} />;
@@ -173,7 +174,9 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             return (
                 <ErrorBoundary>
                     <div className="h-[calc(100vh-64px)] overflow-hidden">
-                        <DetectiveEngine data={lesson as unknown as DetectiveCase} />
+                        <Suspense fallback={<DetectiveSkeleton />}>
+                            <DetectiveEngine data={lesson as unknown as DetectiveCase} />
+                        </Suspense>
                     </div>
                 </ErrorBoundary>
             );
