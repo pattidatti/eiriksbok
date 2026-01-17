@@ -1,7 +1,14 @@
 {
     "title": "Finanskriser: Byggmesterens Dilemma",
     "description": "Hvorfor krasjer økonomien? En dypdykk i renter, konjunktursykluser og historien om en overambisiøs byggmester.",
-    "image": "https://images.unsplash.com/photo-1535320903710-d9cf113ebdb0?auto=format&fit=crop&q=80",
+    "image": "/content/samfunnskunnskap/okonomi/assets/finanskrise-byggmester-hero.png",
+    "heroImage": "/content/samfunnskunnskap/okonomi/assets/finanskrise-byggmester-hero.png",
+    "keyPoints": [
+        "Økonomien beveger seg i sykluser (boom og bust).",
+        "Renten er markedets viktigste signal om tilgjengelig sparing.",
+        "Kunstig lav rente skaper feilinvesteringer og bobler.",
+        "Krisen er en nødvendig korreksjon for å rense ut ulønnsomme prosjekter."
+    ],
     "tags": [
         "økonomi",
         "krise",
@@ -45,6 +52,12 @@
             "content": "Dette er et ekte signal. Byggmesteren ser at murstein er billig, og vet at han har nok materialer til å bygge 10 store hus. Han setter i gang, og samfunnet blir rikere."
         },
         {
+            "type": "image",
+            "src": "/content/samfunnskunnskap/okonomi/assets/finanskrise-boom-construction.png",
+            "alt": "Travl byggeplass i en 1920-talls storby",
+            "caption": "Under en 'boom' er det høy aktivitet og dundrende optimisme. Det virker som om ressursene er uendelige."
+        },
+        {
             "type": "header",
             "content": "Manipulasjonen"
         },
@@ -55,6 +68,12 @@
         {
             "type": "text",
             "content": "Dette skaper en Kredittekspansjon. Det ser ut som om det finnes masse sparing (billige penger), men i virkeligheten har ikke folk spart mer. Mengden fysiske ressurser (stål, betong, arbeidskraft) er den samme som før."
+        },
+        {
+            "type": "image",
+            "src": "/content/samfunnskunnskap/okonomi/assets/finanskrise-bank-loans.png",
+            "alt": "Bankmann deler ut lån i 1920-talls bank",
+            "caption": "Kredittekspansjon: Bankene pumper ut billige lån, noe som skaper en illusjon av rikdom og sparing."
         },
         {
             "type": "text",
@@ -99,6 +118,12 @@
         {
             "type": "text",
             "content": "Etter hvert som tiden går, begynner virkeligheten å trenge gjennom. Prisene på råvarer stiger kraftig fordi alle kjemper om de samme, knappe ressursene (Inflasjon). Sentralbanken blir ofte tvunget til å heve renten for å stoppe prisveksten."
+        },
+        {
+            "type": "image",
+            "src": "/content/samfunnskunnskap/okonomi/assets/finanskrise-bust-abandoned.png",
+            "alt": "Forlatt byggeplass i nedgangstider",
+            "caption": "Virkelighetssjekken: Når renten stiger, avsløres det at prosjektene aldri var liv laga. Byggeplasser blir stående som spøkelsesbyer."
         },
         {
             "type": "header",

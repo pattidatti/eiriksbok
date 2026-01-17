@@ -70,6 +70,7 @@ export interface Lesson {
     heroImage?: string;
     readTime?: string;
     details?: string[];
+    keyPoints?: string[];
     externalUrl?: string;
     layout?: 'standard' | 'rich' | 'tool' | 'learning-path';
     year?: string;
