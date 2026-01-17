@@ -16,6 +16,7 @@ import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
 import { useAnalytics } from '../hooks/useAnalytics';
 import { useReadingTime } from '../hooks/useReadingTime';
 import { useLayout } from '../context/LayoutContext';
+import { LearningPathErrorState } from '../components/content/LearningPathErrorState';
 
 const getFirstTextContent = (blocks: ContentBlock[]): string | undefined => {
     const block = blocks.find((b): b is Extract<ContentBlock, { type: 'text' | 'paragraph' }> =>
@@ -33,7 +34,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const subTopicId = lessonIdOverride ? undefined : params.subTopicId;
 
     const { data: manifest } = useManifest();
-    const { data: lesson, isLoading: lessonLoading } = useLesson(subjectId, topicId, lessonId, subTopicId);
+    const { data: lesson, isLoading: lessonLoading, isError, error, refetch } = useLesson(subjectId, topicId, lessonId, subTopicId);
 
     const [lessonImage, setLessonImage] = useState<string | undefined>(undefined);
     const navigate = useNavigate();
@@ -100,6 +101,15 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const loading = lessonLoading;
 
     if (loading) return <div className="p-8 text-center">Laster leksjon...</div>;
+
+    if (isError) {
+        return <LearningPathErrorState type="network" error={error as Error} onRetry={() => refetch()} />;
+    }
+
+    // Data Validation Guard
+    if (lesson && lesson.layout === 'learning-path' && !lesson.learningPathData) {
+        return <LearningPathErrorState type="data" onRetry={() => window.location.reload()} />;
+    }
 
     // --- Layout Configuration Strategy ---
     // Define default configs based on subject

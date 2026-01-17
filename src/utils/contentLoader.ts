@@ -46,7 +46,7 @@ export async function fetchRegistry(): Promise<ContentIndex | null> {
     globalRegistryPromise = fetch(`${basePath}content/content-index.json`, { cache: 'no-cache' })
         .then(async (response) => {
             if (!response.ok) {
-                // Critical: Do not cache the failure!
+                // Critical: This will trigger the rejection of the promise
                 throw new Error(`Failed to fetch registry: ${response.statusText}`);
             }
             const data = await response.json() as ContentIndex;
@@ -58,7 +58,8 @@ export async function fetchRegistry(): Promise<ContentIndex | null> {
             console.error("[ContentRegistry] Error loading registry:", error);
             // Critical: Reset the promise so we can try again later/next time
             globalRegistryPromise = null;
-            return null;
+            // Re-throw so Promise.all fails and react-query detects the error
+            throw error;
         });
 
     return globalRegistryPromise;
@@ -82,7 +83,7 @@ export async function fetchManifest(): Promise<Manifest | null> {
         .catch((error) => {
             console.error("Error loading manifest:", error);
             globalManifestPromise = null;
-            return null;
+            throw error;
         });
 
     return globalManifestPromise;
