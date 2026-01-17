@@ -64,6 +64,7 @@ export interface Lesson {
     subject: string;
     topic: string;
     description?: string;
+    engine?: string;
     content?: ContentBlock[]; // New flexible content
     // Rich layout fields
     heroImage?: string;

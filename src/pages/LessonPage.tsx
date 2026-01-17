@@ -8,6 +8,8 @@ import { GovernmentExplorer } from '../components/GovernmentExplorer';
 import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { InteractiveArticle } from '../components/InteractiveArticle';
+import { DetectiveEngine } from '../components/content/interactive/detective/DetectiveEngine';
+import type { DetectiveCase } from '../components/content/interactive/detective/types';
 import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
@@ -84,7 +86,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
     // Handle Layout Context
     useEffect(() => {
-        if (lesson && lesson.layout === 'tool') {
+        if (lesson && (lesson.layout === 'tool' || lesson.engine === 'historical-detective')) {
             setFullWidth(true);
         } else {
             setFullWidth(false);
@@ -157,6 +159,16 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
     // Standardize all lessons to use InteractiveArticle (Rich Layout)
     if (lesson) {
+        if (lesson.engine === 'historical-detective') {
+            return (
+                <ErrorBoundary>
+                    <div className="h-[calc(100vh-64px)] overflow-hidden">
+                        <DetectiveEngine data={lesson as unknown as DetectiveCase} />
+                    </div>
+                </ErrorBoundary>
+            );
+        }
+
         const articleData = {
             id: lesson.id,
             year: lesson.year || '',
