@@ -1,0 +1,12 @@
+{
+    "term": "Albert Einstein",
+    "definition": "Einstein revolusjonerte fysikken med sin relativitetsteori. Han ble et globalt kulturikon i mellomkrigstiden.",
+    "type": "person",
+    "tags": [
+        "fysikk",
+        "vitenskap",
+        "relativitetsteorien"
+    ],
+    "subject": "historie",
+    "lifespan": "1879 - 1955"
+}

@@ -131,6 +131,20 @@
         {
             "type": "paragraph",
             "text": "Mellomkrigskulturen var både et høydepunkt og en advarsel. Den viste menneskets evne til å skape skjønnhet og stille vanskelige spørsmål. Men den viste også at når gamle verdier forvitrer, kan frykten for kaos bli utnyttet av dem som tilbyr orden – for enhver pris."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Se også",
+            "id": "relatert"
+        },
+        {
+            "type": "FactBox",
+            "title": "Kulturens scener",
+            "facts": [
+                "[USA: Fra 'Roaring 20s' til New Deal](/historie/mellomkrigstiden/usa) – Jazzens hjemland.",
+                "[Tyskland: Veien mot nazismen](/historie/mellomkrigstiden/tyskland) – Weimar-kulturens undergang."
+            ]
         }
     ],
     "quiz": [

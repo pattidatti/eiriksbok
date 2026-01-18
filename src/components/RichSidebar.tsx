@@ -142,7 +142,7 @@ export const RichSidebar: React.FC<RichSidebarProps> = React.memo(({ details, ti
                     </div>
                 )}
 
-                {(details.length > 0 || (config?.showTimeline !== false && timelineEvents.length > 0)) && (
+                {(details.length > 0) && (
                     <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-8">
                         {details.length > 0 && (
                             <>
@@ -161,15 +161,7 @@ export const RichSidebar: React.FC<RichSidebarProps> = React.memo(({ details, ti
                             </>
                         )}
 
-                        {config?.showTimeline !== false && timelineEvents.length > 0 && (
-                            <div className={`${details.length > 0 ? 'mt-6 pt-6 border-t border-slate-200' : ''}`}>
-                                <TimelineComponent
-                                    events={timelineEvents}
-                                    title="Tidslinje"
-                                    compact={true}
-                                />
-                            </div>
-                        )}
+
                     </div>
                 )}
 
@@ -215,6 +207,16 @@ export const RichSidebar: React.FC<RichSidebarProps> = React.memo(({ details, ti
                         </ExpandableSection>
                     )}
                 </div>
+
+                {config?.showTimeline !== false && timelineEvents.length > 0 && (
+                    <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <TimelineComponent
+                            events={timelineEvents}
+                            title="Tidslinje"
+                            compact={true}
+                        />
+                    </div>
+                )}
             </div>
         </div>
     );

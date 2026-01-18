@@ -10,7 +10,7 @@
     "content": [
         {
             "type": "paragraph",
-            "text": "29. oktober 1929. Gulvet på New York Stock Exchange er kaos. Meglere skriker, telefonledninger overbelastes, tikkermaskinene går varm. På én dag forsvinner 14 milliarder dollar fra den amerikanske økonomien – en sum som tilsvarer hele statsbudsjettet til USA. I løpet av de neste ukene vil Wall Street tape 30 milliarder dollar – mer enn hele kostnaden for første verdenskrig. The Roaring Twenties er over. The Great Depression har begynt."
+            "text": " 29. oktober 1929. Gulvet på New York Stock Exchange er kaos. Meglere skriker, telefonledninger overbelastes, tikkermaskinene går varm. På én dag forsvinner 14 milliarder dollar fra den amerikanske økonomien – en sum som tilsvarer hele statsbudsjettet til USA. I løpet av de neste ukene vil Wall Street tape 30 milliarder dollar – mer enn hele kostnaden for første verdenskrig. The Roaring Twenties er over. The Great Depression har begynt."
         },
         {
             "type": "header",
@@ -20,7 +20,7 @@
         },
         {
             "type": "paragraph",
-            "text": "For å forstå krakket må vi først forstå bommen som kom før. Gjennom 1920-tallet steg de amerikanske aksjekursene jevnt og trutt – og deretter eksponentielt. Mellom 1921 og 1929 tredoblet Dow Jones-indeksen seg. Alle ville være med. Vanlige mennesker tok opp lån for å kjøpe aksjer. Bankene lånte ut villig. Federal Reserve, den amerikanske sentralbanken, holdt rentene lave og pumpet penger inn i økonomien."
+            "text": "For å forstå krakket må vi først forstå bommen som kom før. Gjennom 1920-tallet steg de amerikanske aksjekursene jevnt og trutt – og deretter eksponentielt. Mellom 1921 og 1929 tredoblet Dow Jones-indeksen seg. Alle ville være med. Vanlige mennesker tok opp lån for å kjøpe aksjer. Bankene lånte ut villig. Federal Reserve, den amerikanske sentralbanken, holdt rentene lave og pumpet penger inn i økonomien. [Hva skjer egentlig når renten er kunstig lav? Lær om tidspreferanse og renter i Økonomi-emnet.](/samfunnskunnskap/okonomi/inflasjon-og-rente)"
         },
         {
             "type": "paragraph",
@@ -63,7 +63,7 @@
         },
         {
             "type": "paragraph",
-            "text": "John Maynard Keynes, den briljante britiske økonomen, observerte depresjonen med voksende frustrasjon. Den klassiske økonomiske visdommen sa at markedet ville korrigere seg selv – at priser og lønninger ville falle til et nivå der full sysselsetting ble gjenopprettet. Men år etter år forble millioner arbeidsledige. Markedet korrigerte seg ikke."
+            "text": "John Maynard Keynes, den britiske økonomen, observerte depresjonen med voksende frustrasjon. Den klassiske økonomiske visdommen sa at markedet ville korrigere seg selv – at priser og lønninger ville falle til et nivå der full sysselsetting ble gjenopprettet. Men år etter år forble millioner arbeidsledige. Markedet korrigerte seg ikke."
         },
         {
             "type": "QuoteBlock",
@@ -87,7 +87,7 @@
         },
         {
             "type": "paragraph",
-            "text": "Men ikke alle var enige med Keynes. Den østerrikske økonomen Friedrich August von Hayek – som debatterte Keynes på London School of Economics gjennom 1930-tallet – hadde en helt annen diagnose. For Hayek var ikke depresjonen et resultat av for lite statlig inngripen, men av for mye."
+            "text": "Men ikke alle var enige med Keynes. Den østerrikske økonomen Friedrich August von Hayek – som debatterte Keynes på London School of Economics gjennom 1930-tallet – hadde en helt annen diagnose. For Hayek var ikke depresjonen et resultat av for lite statlig inngripen, men av for mye. [Vil du forstå teorien bak Hayeks advarsel? Les historien om Byggmesterens Dilemma her.](/samfunnskunnskap/okonomi/finanskriser)"
         },
         {
             "type": "paragraph",
@@ -170,8 +170,19 @@
             "text": "Dette er ikke bare et akademisk spørsmål. Det handler om millioner av menneskers liv – om familier som mister hjemmene sine, arbeidere som mister jobbene sine, samfunn som faller fra hverandre. Økonomiske kriser er ikke abstrakte kurver på et diagram. De er menneskelige tragedier."
         },
         {
-            "type": "paragraph",
-            "text": "Og derfor fortsetter debatten mellom Keynes og Hayek – to intellektuelle giganter som begge ønsket å forstå, og helbrede, kapitalismens sykliske sykdommer."
+            "type": "header",
+            "level": 2,
+            "text": "Se også",
+            "id": "relatert"
+        },
+        {
+            "type": "FactBox",
+            "title": "Fordypning og sammenhenger",
+            "facts": [
+                "[Tyskland: Veien mot nazismen](/historie/mellomkrigstiden/tyskland) – Se hvordan krakket banet vei for Hitler.",
+                "[USA: The New Deal](/historie/mellomkrigstiden/usa) – Løsningen? Hvordan Roosevelt møtte krisen.",
+                "[Samfunnskunnskap: Finanskriser](/samfunnskunnskap/okonomi/finanskriser) – Lær teorien om hvorfor økonomien krasjer."
+            ]
         }
     ],
     "quiz": [
@@ -214,6 +225,23 @@
                 "USA ble medlem av Folkeforbundet"
             ],
             "correctAnswer": 1
+        }
+    ],
+    "related": [
+        {
+            "id": "tyskland",
+            "title": "Se også: Tyskland - Veien mot nazismen",
+            "description": "Se hvordan krakket banet vei for Hitler."
+        },
+        {
+            "id": "usa",
+            "title": "Se også: USA - The New Deal",
+            "description": "Løsningen? Hvordan Roosevelt møtte krisen."
+        },
+        {
+            "id": "samfunnskunnskap/okonomi/finanskriser",
+            "title": "Fordypning: Finanskriser",
+            "description": "Lær teorien om hvorfor økonomien krasjer."
         }
     ]
 }

@@ -159,6 +159,44 @@
         {
             "type": "paragraph",
             "text": "Weimars fall er en advarsel for alle tider: demokrati er ikke selvopprettholdende. Det trenger borgere som tror på det, institusjoner som forsvarer det, og ledere som ikke utleverer det til dets fiender."
+        },
+        {
+            "type": "Comparison",
+            "title": "To sider av samme mynt? Hitler vs. Stalin",
+            "leftLabel": "Hitler (Nazisme)",
+            "rightLabel": "Stalin (Stalinisme)",
+            "rows": [
+                {
+                    "left": "Fokus på Rase (Det ariske folk)",
+                    "right": "Fokus på Klasse (Proletariatet)"
+                },
+                {
+                    "left": "Fienden er jødene og marxistene",
+                    "right": "Fienden er kulakker og kapitalister"
+                },
+                {
+                    "left": "Allierte med storindustrien",
+                    "right": "Statlig kontroll over all industri"
+                },
+                {
+                    "left": "Nasjonal ekspansjon (Lebensraum)",
+                    "right": "Sosialisme i ett land (først)"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Se også",
+            "id": "relatert"
+        },
+        {
+            "type": "FactBox",
+            "title": "Verden rundt Tyskland",
+            "facts": [
+                "[Det store krakket](/historie/mellomkrigstiden/borskrakk) – Økonomien som drepte Weimar.",
+                "[Italia: Fascismens fødsel](/historie/mellomkrigstiden/italia) – Mussolinis marsj som inspirerte Hitler."
+            ]
         }
     ],
     "quiz": [

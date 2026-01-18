@@ -165,6 +165,20 @@
         {
             "type": "paragraph",
             "text": "Italias marsj mot Roma var første gang i moderne tid at et demokrati frivillig overgav seg til en diktator. Det ble ikke den siste."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Se også",
+            "id": "relatert"
+        },
+        {
+            "type": "FactBox",
+            "title": "Fascismens kontekst",
+            "facts": [
+                "[Sovjetunionen: Stalins jernhånd](/historie/mellomkrigstiden/sovjet) – Frykten for 'De røde' som drev Mussolini.",
+                "[Folkeforbundet](/historie/mellomkrigstiden/folkeforbundet) – Hvordan Abessinia-krigen knuste fredshåpet."
+            ]
         }
     ],
     "quiz": [

@@ -172,6 +172,20 @@
         {
             "type": "paragraph",
             "text": "Arven er komplisert. Det moderne Japan, bygget på ruinene av 1945, er et av verdens mest fredelige demokratier. Men stridene om minnene – over Nanjing, over «komfortkvinner», over Yasukuni-helligdommen – viser at mellomkrigstidens skygger ennå ikke er fullt ut konfrontert."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Se også",
+            "id": "relatert"
+        },
+        {
+            "type": "FactBox",
+            "title": "Imperialismens nettverk",
+            "facts": [
+                "[Folkeforbundet](/historie/mellomkrigstiden/folkeforbundet) – Hvorfor verden ikke stoppet invasjonen.",
+                "[Tyskland: Veien mot nazismen](/historie/mellomkrigstiden/tyskland) – Japans allierte i vest."
+            ]
         }
     ],
     "quiz": [

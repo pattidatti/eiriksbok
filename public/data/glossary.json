@@ -118,6 +118,11 @@
     "type": "concept"
   },
   {
+    "term": "Børskrakket 1929",
+    "definition": "Det plutselige og dramatiske fallet i aksjekursene på Wall Street i oktober 1929. Krakket markerte starten på den store depresjonen som rammet hele verden.",
+    "type": "concept"
+  },
+  {
     "term": "D-dagen",
     "definition": "Den allierte invasjonen av Normandie i Frankrike 6. juni 1944.",
     "subject": "historie",
@@ -166,6 +171,11 @@
     "definition": "En modell som beskriver overgangen fra høye fødsels- og dødsrater til lave, en prosess som skjer når et land gjennomgår industriell utvikling og modernisering.",
     "type": "concept",
     "link": "/samfunnskunnskap/demografi/den-demografiske-overgangen"
+  },
+  {
+    "term": "Demokrati",
+    "definition": "En styreform hvor makten ligger hos folket, enten direkte eller gjennom valgte representanter. Demokratiet ble utfordret av totalitære regimer i mellomkrigstiden.",
+    "type": "concept"
   },
   {
     "term": "dendrokronologi",
@@ -259,7 +269,8 @@
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
-    "type": "concept"
+    "type": "concept",
+    "link": "/historie/mellomkrigstiden/folkeforbundet"
   },
   {
     "term": "Folkevandringstiden",
@@ -391,6 +402,11 @@
       "maktkamp"
     ],
     "subject": "historie"
+  },
+  {
+    "term": "Jazz",
+    "definition": "En musikksjanger som oppsto i det afroamerikanske miljøet i USA tidlig på 1900-tallet. Kjennetegnes av spilleglede, improvisasjon og synkoperte rytmer.",
+    "type": "concept"
   },
   {
     "term": "Jernteppet",
@@ -664,6 +680,16 @@
     "type": "concept"
   },
   {
+    "term": "Nazisme",
+    "definition": "En form for fascisme utviklet av Hitler og nazistpartiet i Tyskland. I tillegg til nasjonalisme og autoritært styre, er nazismen sterkt rasistisk og antisemittisk.",
+    "type": "concept"
+  },
+  {
+    "term": "The New Deal",
+    "definition": "En rekke økonomiske reformer og programmer innført av president Roosevelt for å bekjempe depresjonen i USA gjennom statlig inngripen og støtte.",
+    "type": "concept"
+  },
+  {
     "term": "Nürnbergprosessene",
     "definition": "Rettssakene mot ledende nazister etter krigen, der prinsippet om individuelt ansvar for krigsforbrytelser ble knesatt.",
     "subject": "historie",
@@ -810,6 +836,11 @@
     "type": "concept"
   },
   {
+    "term": "Relativitetsteorien",
+    "definition": "Albert Einsteins fysiske teorier som endret vår forståelse av tid, rom, masse og energi. Den består av den spesielle og den generelle relativitetsteorien.",
+    "type": "concept"
+  },
+  {
     "term": "representativt demokrati",
     "definition": "Folket velger representanter (politikere) som styrer for dem. Den vanligste formen for demokrati i dag. Vi holder valg med jevne mellomrom.",
     "subject": "samfunnskunnskap",
@@ -836,6 +867,11 @@
       "roma"
     ],
     "subject": "historie"
+  },
+  {
+    "term": "Det glade 20-tall",
+    "definition": "Betegnelse på 1920-tallet i USA og Vest-Europa, preget av økonomisk oppgang, kulturell blomstring, jazzmusikk og nye sosiale friheter.",
+    "type": "concept"
   },
   {
     "term": "Rubicon",
@@ -1204,6 +1240,18 @@
     "link": "/historie/antikken/platon-og-aristoteles"
   },
   {
+    "term": "Louis Armstrong",
+    "definition": "Armstrong var en pioner innen jazzmusikk, kjent for sitt trompetspill og sin karakteristiske sangstemme. Han formet 'The Jazz Age'.",
+    "type": "person",
+    "tags": [
+      "jazz",
+      "musikk",
+      "kultur"
+    ],
+    "subject": "historie",
+    "lifespan": "1901 - 1971"
+  },
+  {
     "term": "Augustin",
     "definition": "Også kjent som St. Augustin av Hippo. En av de viktigste kirkefedrene i den vestlige kristendommen, kjent for verket 'Gudstaten'.",
     "type": "person",
@@ -1279,6 +1327,31 @@
     "type": "person"
   },
   {
+    "term": "Albert Einstein",
+    "definition": "Einstein revolusjonerte fysikken med sin relativitetsteori. Han ble et globalt kulturikon i mellomkrigstiden.",
+    "type": "person",
+    "tags": [
+      "fysikk",
+      "vitenskap",
+      "relativitetsteorien"
+    ],
+    "subject": "historie",
+    "lifespan": "1879 - 1955"
+  },
+  {
+    "term": "Duke Ellington",
+    "definition": "Ellington var en av jazzhistoriens viktigste komponister og ledet et berømt storband som spilte på Cotton Club i Harlem.",
+    "type": "person",
+    "tags": [
+      "jazz",
+      "musikk",
+      "kultur",
+      "komponist"
+    ],
+    "subject": "historie",
+    "lifespan": "1899 - 1974"
+  },
+  {
     "id": "ester-boserup",
     "name": "Ester Boserup",
     "lifespan": "1910–1999",
@@ -1291,6 +1364,19 @@
     ],
     "term": "Ester Boserup",
     "type": "person"
+  },
+  {
+    "term": "Francisco Franco",
+    "definition": "General Franco ledet nasjonalistene til seier i den spanske borgerkrigen og styrte Spania som diktator frem til sin død.",
+    "type": "person",
+    "tags": [
+      "spania",
+      "diktator",
+      "fascisme",
+      "borgerkrig"
+    ],
+    "subject": "historie",
+    "lifespan": "1892 - 1975"
   },
   {
     "term": "Franz Ferdinand",
@@ -1413,6 +1499,20 @@
     "link": "/historie/middelalder/knut-alvsson"
   },
   {
+    "term": "Adolf Hitler",
+    "definition": "Adolf Hitler var leder av Nazi-Tyskland. Hans aggressive utenrikspolitikk utløste andre verdenskrig, og hans raseideologi førte til Holocaust.",
+    "type": "person",
+    "tags": [
+      "nazisme",
+      "tyskland",
+      "diktator",
+      "andre verdenskrig",
+      "holocaust"
+    ],
+    "subject": "historie",
+    "lifespan": "1889 - 1945"
+  },
+  {
     "term": "Jeanne d’Arc",
     "definition": "En fransk nasjonalhelt og helgen som ledet den franske hæren til flere viktige seire under Hundreårskrigen mot England.",
     "type": "person",
@@ -1463,6 +1563,18 @@
     "subject": "historie",
     "lifespan": "742 – 814",
     "link": "/historie/middelalder/karl-den-store"
+  },
+  {
+    "term": "John Maynard Keynes",
+    "definition": "Keynes argumenterte for at staten burde bruke penger i nedgangstider for å stimulere økonomien, en teori som ble svært innflytelsesrik.",
+    "type": "person",
+    "tags": [
+      "økonomi",
+      "storbritannia",
+      "keynesianisme"
+    ],
+    "subject": "historie",
+    "lifespan": "1883 - 1946"
   },
   {
     "term": "Kleopatra",
@@ -1526,6 +1638,19 @@
     "link": "/filosofi/eksistensialisme/martin-heidegger"
   },
   {
+    "term": "Benito Mussolini",
+    "definition": "Benito Mussolini grunnla fascismen og styrte Italia som diktator fra 1922 til 1943. Han allierte seg med Hitler under andre verdenskrig.",
+    "type": "person",
+    "tags": [
+      "fascisme",
+      "italia",
+      "diktator",
+      "andre verdenskrig"
+    ],
+    "subject": "historie",
+    "lifespan": "1883 - 1945"
+  },
+  {
     "term": "Nicholas II",
     "definition": "Russlands siste tsar. Hans regime ble preget av nederlaget i krigen mot Japan, undertrykkelse av revolusjonen i 1905, og til slutt den russiske revolusjonen i 1917 som førte til hans fall.",
     "type": "person",
@@ -1562,6 +1687,43 @@
     "link": "/historie/antikken/platon-og-aristoteles"
   },
   {
+    "term": "Franklin D. Roosevelt",
+    "definition": "Roosevelt, ofte kjent som FDR, ledet USA gjennom den store depresjonen med sitt 'New Deal'-program og under mesteparten av andre verdenskrig.",
+    "type": "person",
+    "tags": [
+      "usa",
+      "president",
+      "new deal",
+      "andre verdenskrig"
+    ],
+    "subject": "historie",
+    "lifespan": "1882 - 1945"
+  },
+  {
+    "term": "Haile Selassie",
+    "definition": "Haile Selassie appellerte forgjeves til Folkeforbundet da Italia invaderte Etiopia i 1935, og ble et symbol på motstand mot fascisme.",
+    "type": "person",
+    "tags": [
+      "etiopia",
+      "keiser",
+      "motstandskamp"
+    ],
+    "subject": "historie",
+    "lifespan": "1892 - 1975"
+  },
+  {
+    "term": "Bessie Smith",
+    "definition": "Kjent som 'The Empress of the Blues', var Bessie Smith den mest populære kvinnelige bluessangerinnen på 1920- og 30-tallet.",
+    "type": "person",
+    "tags": [
+      "blues",
+      "musikk",
+      "kvinnehistorie"
+    ],
+    "subject": "historie",
+    "lifespan": "1894 - 1937"
+  },
+  {
     "term": "Sokrates",
     "definition": "Gresk filosof fra Athen, regnet som en av grunnleggerne av vestlig filosofi. Han er kjent for den sokratiske metode (utspørring).",
     "type": "person",
@@ -1573,6 +1735,19 @@
     "subject": "historie",
     "lifespan": "ca. 470 f.Kr. – 399 f.Kr.",
     "link": "/historie/antikken/sokrates"
+  },
+  {
+    "term": "Josef Stalin",
+    "definition": "Josef Stalin var Sovjetunionens leder som industrialiserte landet med brutale midler og ledet det gjennom andre verdenskrig.",
+    "type": "person",
+    "tags": [
+      "kommunisme",
+      "sovjetunionen",
+      "diktator",
+      "andre verdenskrig"
+    ],
+    "subject": "historie",
+    "lifespan": "1878 - 1953"
   },
   {
     "term": "Thomas Aquinas",

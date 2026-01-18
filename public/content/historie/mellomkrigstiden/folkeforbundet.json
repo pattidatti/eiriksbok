@@ -160,6 +160,21 @@
         {
             "type": "paragraph",
             "text": "Men drømmen om å avskaffe krig forblir uoppfylt. FN har sine egne begrensninger – vetorett lammer ofte handling. Og som Folkeforbundet viste: internasjonale institusjoner er bare så sterke som medlemslandenes vilje til å bruke dem. Uten den viljen er de bare vakre bygninger i Genève og New York."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Se også",
+            "id": "relatert"
+        },
+        {
+            "type": "FactBox",
+            "title": "Krigens forspill",
+            "facts": [
+                "[Japan: Solens vei mot krig](/historie/mellomkrigstiden/japan) – Den første dominobrikken (Mandsjuria).",
+                "[Italia: Fascismens fødsel](/historie/mellomkrigstiden/italia) – Spikeren i kista (Abessinia).",
+                "[Midtøsten: De nye grensene](/historie/mellomkrigstiden/midtoesten) – Hvordan mandatene egentlig fungerte."
+            ]
         }
     ],
     "quiz": [

@@ -158,13 +158,38 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                 const interactiveClass = onBlockClick ? "cursor-pointer transition-all duration-300 hover:bg-slate-50/80 hover:shadow-sm rounded-xl p-4 -mx-4" : "";
                 const activeClass = isActive ? "bg-amber-50/40 relative shadow-sm border border-amber-100/50" : "";
 
+                // Check if the type is a registered component
+                const DirectComponent = getComponent(type);
+                if (DirectComponent) {
+                    // Prop mapping/aliases for easier JSON authoring
+                    const props = { ...(block as any) };
+
+                    // Alias mapping (legacy/alternative names to component props)
+                    if (props.facts && !props.items) props.items = props.facts;
+                    if (props.quote && !props.text) props.text = props.quote;
+                    if (props.quote && !props.content) props.content = props.quote;
+                    if (props.source && !props.author) props.author = props.source;
+                    if (props.rows && !props.items) props.items = props.rows;
+                    if (props.leftLabel && !props.leftTitle) props.leftTitle = props.leftLabel;
+                    if (props.rightLabel && !props.rightTitle) props.rightTitle = props.rightLabel;
+                    if (props.items && !props.events && (type as string) === 'TimelineComponent') props.events = props.items;
+
+                    return (
+                        <div key={index} className="my-8">
+                            <React.Suspense fallback={<div className="h-20 w-full animate-pulse bg-slate-50 rounded-xl" />}>
+                                <DirectComponent {...props} />
+                            </React.Suspense>
+                        </div>
+                    );
+                }
+
                 switch (type) {
                     case 'paragraph':
                     case 'text':
                         return (
                             <div
                                 key={index}
-                                className={`mb-6 text-lg text-slate-700 leading-relaxed group ${interactiveClass} ${activeClass}`}
+                                className={`mb-4 text-lg text-slate-700 leading-relaxed group ${interactiveClass} ${activeClass}`}
                                 onClick={() => onBlockClick?.(index)}
                             >
                                 {(block as any).title && (
@@ -265,9 +290,9 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
 
                     case 'section':
                         return (
-                            <div key={index} className="my-8">
+                            <div key={index} className="my-12">
                                 {(block as any).title && (
-                                    <h2 className="text-2xl font-bold text-slate-800 mb-4">{(block as any).title}</h2>
+                                    <h2 className="text-3xl font-display font-bold text-slate-900 mb-8 border-b border-slate-100 pb-4">{(block as any).title}</h2>
                                 )}
                                 {(block as any).content && <ArticleContent content={(block as any).content} concepts={mergedConcepts} />}
                             </div>

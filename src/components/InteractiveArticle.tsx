@@ -131,39 +131,80 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
     // Determine active content block for highlighting
     const activeContentIndex = activeBlockIndex !== -1 ? speechData.mapSpeechToContent[activeBlockIndex] : undefined;
 
-    // Merge internal timeline events with external context events
-    const contextEvents = React.useMemo(() => {
+    // Smart Context Logic for Timeline
+    const combinedTimeline = React.useMemo(() => {
         const currentRange = parseYearRange(event.year);
-        const buffer = 50;
+        // If we can't parse a start year, return empty
+        if (!currentRange.start) return [];
+
+        const duration = currentRange.end - currentRange.start;
+        // Dynamic buffer: 20% of duration, min 5 years, max 100 years
+        // Example: 1929-1933 (4y) -> buffer 5y
+        // Example: 800-1050 (250y) -> buffer 50y
+        const buffer = Math.max(5, Math.min(100, Math.ceil(duration * 0.2)));
+
         const contextStart = currentRange.start - buffer;
         const contextEnd = currentRange.end + buffer;
 
-        return globalEvents
+        // Helper to judge relevance
+        const getScore = (e: any) => {
+            let score = 0;
+            const eStart = e.startDate;
+            const eEnd = e.endDate || e.startDate;
+
+            // 1. Strict Overlap (+100)
+            // Event must overlap with the core article range
+            if (eStart <= currentRange.end && eEnd >= currentRange.start) {
+                score += 100;
+            }
+
+            // 2. Topic Match (+50)
+            if (e.topicId && event.topicId && e.topicId === event.topicId) {
+                score += 50;
+            }
+
+            // 3. Subject Match (+20)
+            if (e.subjectId && event.subjectId && e.subjectId === event.subjectId) {
+                score += 20;
+            }
+
+            // 4. Distance Penalty (-0.5 per year from center)
+            const eventCenter = (currentRange.start + currentRange.end) / 2;
+            const eCenter = (eStart + eEnd) / 2;
+            const distance = Math.abs(eventCenter - eCenter);
+            score -= (distance * 0.5);
+
+            return score;
+        };
+
+        const scoredEvents = globalEvents
             .filter(e => e.id?.toString() !== event.id?.toString())
+            .map(e => ({ ...e, score: getScore(e) }))
             .filter(e => {
                 const eStart = e.startDate;
                 const eEnd = e.endDate || e.startDate;
+                // Hard filter: Must physically fall within the buffered window
                 return (eStart <= contextEnd && eEnd >= contextStart);
-            })
-            .map(e => ({
-                year: e.displayDate || e.year || '',
-                startDate: e.startDate,
-                title: e.title,
-                description: e.description || '',
-                link: e.link
-            }));
-    }, [event, globalEvents]);
+            });
 
-    // Combine and sort by year
-    const combinedTimeline = React.useMemo(() => {
-        return [...contextEvents].sort((a, b) => {
-            const getStart = (item: any) => {
-                if (typeof item.startDate === 'number') return item.startDate;
-                return parseYearRange(item.year).start;
-            };
-            return getStart(a) - getStart(b);
+        // Sort: High score first, then chronological
+        scoredEvents.sort((a, b) => {
+            if (b.score !== a.score) return b.score - a.score;
+            return a.startDate - b.startDate;
         });
-    }, [contextEvents]);
+
+        // Density Control: Max 20 items
+        const topEvents = scoredEvents.slice(0, 20);
+
+        // Final Sort: Chronological for display
+        return topEvents.sort((a, b) => a.startDate - b.startDate).map(e => ({
+            year: e.displayDate || e.year || '',
+            startDate: e.startDate,
+            title: e.title,
+            description: e.description || '',
+            link: e.link
+        }));
+    }, [event, globalEvents]);
 
     // Find related articles using the shared hook
     // We use the event's subjectId and topicId if available, otherwise defaults or empty strings

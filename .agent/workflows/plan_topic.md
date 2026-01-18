@@ -30,6 +30,7 @@ description: The Unified Entry Point for Topic Planning. Triggers the Architect.
         *   **Narrative Beats:** Emotional hooks, core conflicts, and "Aha!" moments for every article.
         *   **Connections:** Links to existing content (e.g., "How WWI debt led to this depression").
     *   **Action:** Update `docs/Design documents/[id]-blueprint.md` with THIS specific content. The blueprint should look "ready for review" after one script run.
+    *   **KRLE Specifics:** If [Subject] is KRLE, you MUST add a **Comparison Matrix** section to the blueprint, mapping out which religions will be compared across which dimensions.
 
 7.  **Loop**:
     *   User reviews the blueprint file directly.

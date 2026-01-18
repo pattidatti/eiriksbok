@@ -162,6 +162,44 @@
         {
             "type": "paragraph",
             "text": "Mellomkrigstiden lærer oss at demokrati ikke er noe man bare har – det er noe man velger, igjen og igjen, selv når det er vanskelig."
+        },
+        {
+            "type": "Comparison",
+            "title": "To svar på krisen: USA vs. Norge",
+            "leftLabel": "The New Deal (USA)",
+            "rightLabel": "Kriseforliket (Norge)",
+            "rows": [
+                {
+                    "left": "Initiert av presidenten (Top-down)",
+                    "right": "Kompromiss i parlamentet (Samarbeid)"
+                },
+                {
+                    "left": "Fokus på offentlige arbeidsplasser (WPA/CCC)",
+                    "right": "Fokus på støtte til primærnæringer og sysselsetting"
+                },
+                {
+                    "left": "Møtte motstand i Høyesterett",
+                    "right": "La grunnlaget for tverrpolitisk enighet"
+                },
+                {
+                    "left": "Startet velferdsstaten (Social Security)",
+                    "right": "Startet velferdsstaten (Trygder)"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Se også",
+            "id": "relatert"
+        },
+        {
+            "type": "FactBox",
+            "title": "Norge i verden",
+            "facts": [
+                "[Det store krakket](/historie/mellomkrigstiden/borskrakk) – Hvorfor krisen traff Norge.",
+                "[USA: Fra 'Roaring 20s' til New Deal](/historie/mellomkrigstiden/usa) – Inspirasjonen for statlig inngripen."
+            ]
         }
     ],
     "quiz": [

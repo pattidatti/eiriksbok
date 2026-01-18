@@ -114,7 +114,12 @@ console.log(`Loaded ${glossaryData.length} entries (${glossaryData.filter(d => d
 fs.writeFileSync(GLOSSARY_FILE, JSON.stringify(glossaryData, null, 2));
 console.log(`Saved unified glossary to ${GLOSSARY_FILE}`);
 
-const articleFiles = findJsonFiles(CONTENT_DIR);
+const targetArgs = process.argv.slice(2);
+const searchDirs = targetArgs.length > 0
+    ? targetArgs.map(arg => path.resolve(process.cwd(), arg))
+    : [CONTENT_DIR];
+
+const articleFiles = searchDirs.flatMap(dir => findJsonFiles(dir));
 // Filter out the concepts and people directories from being scanned AS articles
 const filteredArticleFiles = articleFiles.filter(f => !f.includes('concepts/') && !f.includes('people/'));
 
