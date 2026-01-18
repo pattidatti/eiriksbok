@@ -1,0 +1,207 @@
+{
+    "id": "folkeforbundet",
+    "title": "Folkeforbundet: Drømmen om fred",
+    "category": "Mellomkrigstiden",
+    "year": "1920-1939",
+    "readTime": "15 minutter",
+    "layout": "rich",
+    "heroImage": "/images/mellomkrigstiden/hero_folkeforbundet.png",
+    "summary": "Det var ment å være slutten på alle kriger. I stedet ble Folkeforbundet vitne til sin egen maktesløshet.",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "«Folkenes Forbund» – League of Nations – ble grunnlagt i 1920 med det mest ambisiøse målet i historien: å avskaffe krig. Etter at millioner hadde dødd i en meningsløs slagtning, drømte statsmenn og fredsaktivister om en ny verdensorden. Nasjoner skulle løse konflikter gjennom forhandlinger, ikke våpen. Kollektiv sikkerhet skulle erstatte militær kapprustning. Det var en vakker idé. Det fungerte ikke."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Wilsons visjon",
+            "id": "wilson"
+        },
+        {
+            "type": "paragraph",
+            "text": "Drivkraften bak Folkeforbundet var Woodrow Wilson, USAs president. Hans «fjorten punkter» – presentert i 1918 som krigstidens fredsmål – inkluderte ideen om en internasjonal organisasjon for å garantere fred. Wilson var en idealist, en professor i statsvitenskap som trodde på fornuft og folkestyre."
+        },
+        {
+            "type": "QuoteBlock",
+            "quote": "Det må bli en fred uten seier... Bare en fred mellom likemenn kan vare.",
+            "source": "Woodrow Wilson, 1917",
+            "context": "Wilson advarte mot harde fredsbetingelser – men ble ikke hørt."
+        },
+        {
+            "type": "paragraph",
+            "text": "Wilson dro personlig til Paris for fredskonferansen i 1919 – den første amerikanske president som forlot landet mens han var i embetet. Han jobbet utrettelig for å få Folkeforbundet inn i Versaillestraktaten. For Wilson var Folkeforbundet verdens håp – garantien for at «denne krigen virkelig ble den siste»."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Født med dødbringende svakheter",
+            "id": "svakheter"
+        },
+        {
+            "type": "paragraph",
+            "text": "Men Folkeforbundet var sykt fra fødselen. Den mest ødeleggende svakheten: USA meldte seg aldri inn. Det amerikanske senatet, ledet av isolasjonisten Henry Cabot Lodge, nektet å ratifisere traktaten. Amerikanerne, lei av europeiske affærer, ville ikke forplikte seg til å sende soldater for å forsvare andre land. Wilson dro på en utmattende turné for å overbevise folket – og brøt sammen med et slag."
+        },
+        {
+            "type": "paragraph",
+            "text": "Uten USA – verdens mektigste nasjon – manglet Folkeforbundet muskler. De andre stormaktene – Storbritannia og Frankrike – var utmattet etter krigen og uvillige til å påta seg byrder. Og taperne – Tyskland, Østerrike, Sovjetunionen – sto utenfor i begynnelsen. Det var et «forbund av halvhjerter»."
+        },
+        {
+            "type": "FactBox",
+            "title": "Folkeforbundets struktur",
+            "facts": [
+                "Hovedkontor: Genève, Sveits.",
+                "Medlemmer på topp: 58 nasjoner (1934).",
+                "Viktige organer: Generalforsamlingen, Rådet, det permanente sekretariatet.",
+                "Tilknyttede organisasjoner: Den internasjonale domstolen i Haag, ILO (arbeidsorganisasjonen)."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Små seire",
+            "id": "seire"
+        },
+        {
+            "type": "paragraph",
+            "text": "Tross svakhetene hadde Folkeforbundet noen suksesser. Det løste mindre territorielle tvister – mellom Finland og Sverige om Ålandsøyene, mellom Hellas og Bulgaria etter en grensetrefning. Det administrerte de tidligere tyske koloniene gjennom mandatsystemet. Det bekjempet slaveri og arbeiderundertrykkelse gjennom ILO."
+        },
+        {
+            "type": "paragraph",
+            "text": "Folkeforbundet etablerte også internasjonal lov. Den permanente domstolen i Haag – forløperen til dagens internasjonale domstol – behandlet tvister mellom stater. Og idealet om kollektiv sikkerhet, selv om det feilet, plantet et frø som senere vokste til FN."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Mandsjuria: Den første testen",
+            "id": "mandsjuria"
+        },
+        {
+            "type": "paragraph",
+            "text": "I 1931 kom den første alvorlige testen – og Folkeforbundet feilet. Japan, som hadde økonomiske interesser i det kinesiske Mandsjuria, iscenesatte en sabotasje mot en jernbane og brukte det som påskudd for å invadere provinsen. Kina, et Folkeforbundsmedlem, appellerte om hjelp."
+        },
+        {
+            "type": "paragraph",
+            "text": "Folkeforbundet sendte en undersøkelseskommisjon – Lytton-kommisjonen – som brukte et helt år på å studere situasjonen. Konklusjonen var klar: Japan var aggressoren. Generalforsamlingen vedtok at Mandsjurias invasjon var ulovlig. Japan svarte med å melde seg ut av Folkeforbundet."
+        },
+        {
+            "type": "paragraph",
+            "text": "Og hva skjedde så? Ingenting. Ingen sanksjoner ble innført. Ingen hær ble sendt. Japan beholdt Mandsjuria. Diktatorene i Berlin og Roma tok notater: Folkeforbundet var en papirtiger."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Abessinia: Det endelige nederlaget",
+            "id": "abessinia"
+        },
+        {
+            "type": "paragraph",
+            "text": "I 1935 invaderte Italia Abessinia (Etiopia) – et av de få uavhengige afrikanske landene. Italias diktator Benito Mussolini ville bygge et nytt romersk imperium. Den etiopiske keiseren, Haile Selassie, reiste personlig til Genève for å appellere til Folkeforbundet."
+        },
+        {
+            "type": "QuoteBlock",
+            "quote": "Det er oss i dag. Det vil være dere i morgen.",
+            "source": "Keiser Haile Selassie, 1936",
+            "context": "Hans advarsel til Folkeforbundets generalforsamling ble ignorert."
+        },
+        {
+            "type": "paragraph",
+            "text": "Denne gangen var det sanksjoner – i teorien. Folkeforbundet forbød våpeneksport og noen finansielle transaksjoner med Italia. Men de viktigste varene – olje, stål, kull – ble unntatt fordi Storbritannia og Frankrike fryktet å provosere Mussolini for mye. USA, som ikke var medlem, handlet fritt med Italia."
+        },
+        {
+            "type": "paragraph",
+            "text": "Italia vant krigen. Mussolini brukte sennepsgass mot etiopiske soldater og sivile. Haile Selassie gikk i eksil. Og Folkeforbundets autoritet var knust. Da Hitler annekterte Østerrike i 1938 og invaderte Tsjekkoslovakia, var det ingen som ventet at Folkeforbundet skulle gjøre noe. Det gjorde det heller ikke."
+        },
+        {
+            "type": "TimelineComponent",
+            "title": "Folkeforbundets vei mot irrelevans",
+            "compact": true,
+            "events": [
+                {
+                    "year": "1920",
+                    "event": "Folkeforbundet grunnlegges – uten USA."
+                },
+                {
+                    "year": "1926",
+                    "event": "Tyskland blir medlem."
+                },
+                {
+                    "year": "1931",
+                    "event": "Japan invaderer Mandsjuria – ingen konsekvenser."
+                },
+                {
+                    "year": "1933",
+                    "event": "Japan og Tyskland melder seg ut."
+                },
+                {
+                    "year": "1935",
+                    "event": "Italia invaderer Abessinia – mislykkede sanksjoner."
+                },
+                {
+                    "year": "1939",
+                    "event": "Andre verdenskrig begynner. Folkeforbundet er irrelevant."
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Arven: Fra Folkeforbundet til FN",
+            "id": "arv"
+        },
+        {
+            "type": "paragraph",
+            "text": "Folkeforbundet ble formelt oppløst i 1946, da FN tok over. Men dets arv er kompleks. På den ene siden var det en fiasko – det klarte ikke å forhindre den krigen det var skapt for å unngå. På den andre siden etablerte det prinsippene som FN bygget videre på: kollektiv sikkerhet, internasjonal lov, fredelig konfliktløsning."
+        },
+        {
+            "type": "paragraph",
+            "text": "FNs grunnleggere lærte av Folkeforbundets feil. Sikkerhetsrådet fikk makt til å vedta bindende sanksjoner og militær aksjon. De fem største maktene (USA, Sovjet, Storbritannia, Frankrike, Kina) fikk vetorett – en kompromissløsning for å sikre at de faktisk ble medlemmer. USA ble denne gangen med."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men drømmen om å avskaffe krig forblir uoppfylt. FN har sine egne begrensninger – vetorett lammer ofte handling. Og som Folkeforbundet viste: internasjonale institusjoner er bare så sterke som medlemslandenes vilje til å bruke dem. Uten den viljen er de bare vakre bygninger i Genève og New York."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvem var drivkraften bak etableringen av Folkeforbundet?",
+            "options": [
+                "Winston Churchill",
+                "Woodrow Wilson",
+                "Georges Clemenceau",
+                "Vladimir Lenin"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var Folkeforbundets største svakhet fra starten?",
+            "options": [
+                "Det hadde ikke noe hovedkontor",
+                "USA meldte seg aldri inn",
+                "Det manglet finansiering",
+                "Det hadde for mange medlemmer"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva skjedde da Japan invaderte Mandsjuria i 1931?",
+            "options": [
+                "Folkeforbundet sendte tropper",
+                "USA erklærte krig mot Japan",
+                "Folkeforbundet fordømte invasjonen, men gjorde ingen ting effektivt",
+                "Japan ble kastet ut umiddelbart"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hvem advarte Folkeforbundet: 'Det er oss i dag. Det vil være dere i morgen'?",
+            "options": [
+                "Winston Churchill",
+                "Haile Selassie",
+                "Benito Mussolini",
+                "Adolf Hitler"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

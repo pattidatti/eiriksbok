@@ -37,9 +37,9 @@ Dette dokumentet gir en oversikt over hvordan Gravity Lærebok er bygget opp tek
 
 ## 🔑 Nøkkelkonsepter
 
-### 1. "Dark Immersion" Design
-Vi bruker et mørkt tema (`bg-slate-950`) med glassmorphism-effekter for å skape en moderne og oppslukende læringsopplevelse.
-- **Farger**: Mørk bakgrunn, lys tekst, aksentfarger (Indigo, Blue, Green) for interaksjon.
+### 1. Modern Glassmorphism Design
+Vi bruker et lett tema (`bg-slate-50`) med glassmorphism-effekter for å skape en moderne og fokusert læringsopplevelse.
+- **Farger**: Lys bakgrunn, mørk tekst, aksentfarger (Blue, Indigo) for interaksjon.
 - **Komponenter**: Bruk `ImmersiveCard` for innhold.
 
 ### 2. Manifest-basert Ruting
@@ -48,7 +48,13 @@ Hele strukturen på nettsiden (fag -> emner -> leksjoner) styres av `public/cont
 - URL-strukturen følger manifestet: `/fag/[fagId]/[emneId]/[leksjonId]`.
 
 ### 3. Innhold som Data
-Alt innhold (tekst, bilder, quiz) lagres som JSON-filer i `public/content`. Dette gjør det enkelt å redigere innhold uten å endre koden, og muliggjør bruk av CMS.
+Alt innhold (tekst, bilder, quiz) lagres som JSON-filer i `public/content`. Dette gjør det enkelt å redigere innhold uten å endre koden. 
+- **Innholdsindeks**: For å optimalisere ytelsen genereres en `content-index.json`-fil automatisk ved oppstart (`npm run dev`). Denne brukes av appen for raske oppslag på artikler og søk.
 
 ### 4. Interaktive Moduler
-I stedet for bare tekst, bruker vi interaktive React-komponenter for å forklare konsepter. Disse ligger i `src/components` og lastes inn dynamisk basert på innholdet.
+I stedet for bare tekst, bruker vi interaktive React-komponenter for å forklare konsepter. Disse ligger i `src/components` og lastes inn dynamisk basert på innholdet (f.eks. `ScenarioRoleplay`, `PackTheBag`, `InteractiveMap`).
+
+### 5. Den "Arkitektoniske" Arbeidsflyten
+Prosjektet bruker en modell der innholdet *designes* før det *bygges*.
+- **Blueprints**: Markdown-filer i `docs/Design documents/` fungerer som arkitekttegninger for nye emner.
+- **Automatisering**: Ved hjelp av custom agenter bruker vi workflows som `/plan_topic` og `/build_topic` for å transformere pedagogiske ideer til validert JSON-kode.

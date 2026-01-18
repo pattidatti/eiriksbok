@@ -1,0 +1,202 @@
+{
+    "id": "spania",
+    "title": "Spania: Den spanske borgerkrig",
+    "category": "Mellomkrigstiden",
+    "year": "1936-1939",
+    "readTime": "18 minutter",
+    "layout": "rich",
+    "heroImage": "/images/mellomkrigstiden/spania_krig.png",
+    "summary": "Guernica, Hemingway og ideologiens slagmark – den spanske borgerkrigen ble generalprøven på andre verdenskrig.",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Den 17. juli 1936 gjorde en gruppe spanske militæroffiserer – ledet av generalene Emilio Mola og Francisco Franco – statskupp mot den demokratisk valgte republikanske regjeringen. De forventet en rask seier. I stedet utløste de en tre år lang borgerkrig som tok livet av over 500 000 mennesker, og som ble et møtepunkt for tidens store ideologier: fascisme, kommunisme, demokrati og anarki."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Spanias splittede samfunn",
+            "id": "splittet"
+        },
+        {
+            "type": "paragraph",
+            "text": "Spania ved inngangen til 1930-tallet var et land av dype spenninger: mellom rike godseiere og jordløse bønder, mellom den katolske kirken og antiklerikale krefter, mellom sentralmakten i Madrid og regionale nasjonalismer i Katalonia og Baskerland, mellom tradisjon og modernitet."
+        },
+        {
+            "type": "paragraph",
+            "text": "I 1931 ble kongen styrtet og Den andre spanske republikk innført. Reformregjeringer prøvde å modernisere landet: jordreformer, verdsliggjøring av utdanning, autonomi for regionene. Men reformene var halvhjertede og skapte like mye motstand som støtte. Høyresiden samlet seg. I 1936 vant en Folkefront-koalisjon av sosialister, kommunister og liberale valget – knapt."
+        },
+        {
+            "type": "paragraph",
+            "text": "For militæret, kirken og jordeierne var dette utålelig. Spania sto på randen av — eller allerede i — sosial revolusjon. Statskuppet skulle redde Spanias «sivilisasjon»."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Krig bryter ut",
+            "id": "krig"
+        },
+        {
+            "type": "paragraph",
+            "text": "Kuppet mislyktes – delvis. I konservative regioner og marokko tok nasjonalistene kontroll. Men i Madrid, Barcelona, Valencia og Baskerland forble regjeringen – støttet av arbeiderbevegelsen – ved makten. Spania var delt i to."
+        },
+        {
+            "type": "paragraph",
+            "text": "Republikanersiden var et kaotisk lappeteppe: moderate sosialister, stalinistiske kommunister, trotskister, anarkister med sine kollektiver, katalanske separatister. De var ofte like opptatt av å bekjempe hverandre som fienden. Den anarkistiske bevegelsen i Katalonia startet en sosial revolusjon – fabrikker ble overtatt av arbeidere, jord kollektivisert, kirker brent."
+        },
+        {
+            "type": "paragraph",
+            "text": "Nasjonalistsiden var mer enhetlig, ledet av Franco som etter hvert konsoliderte makten. Den samlet katolikker, monarkister, fascister (Falangen), og konservative som alle var enige om én ting: republikanerne måtte knuses."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Internasjonal innblanding",
+            "id": "innblanding"
+        },
+        {
+            "type": "paragraph",
+            "text": "Den spanske borgerkrigen var aldri bare spansk. Hitler og Mussolini sendte umiddelbart støtte til Franco: våpen, fly, tropper. Den tyske «Condor-legionen» og italienske divisjoner ble avgjørende for nasjonalistenes fremgang. For diktatoren var Spania et laboratorium for å teste våpen og taktikk – og for å spre fascismen."
+        },
+        {
+            "type": "paragraph",
+            "text": "Storbritannia og Frankrike – redde for å provosere Hitler – valgte «ikke-intervensjon». En patetisk komité i London gjorde ingenting mens Tyskland og Italia intervenerte åpenlyst. Republikken ble svekket av mangel på våpen."
+        },
+        {
+            "type": "paragraph",
+            "text": "Bare Sovjetunionen – og Mexico – hjalp republikanerne betydelig. Stalin sendte våpen, rådgivere og det hemmelige politiet. Men hjelpen hadde en pris: kommunistene (styrt fra Moskva) skulle dominere republikanersiden, og eliminerte ofte andre grupper – inkludert en brutal undertrykkelse av de spanske anarkistene og trotskistene."
+        },
+        {
+            "type": "FactBox",
+            "title": "De internasjonale brigadene",
+            "facts": [
+                "Rundt 35 000 frivillige fra over 50 land reiste til Spania for å kjempe mot fascismen.",
+                "Brigademedlemmer inkluderte forfattere, arbeidere, studenter – og eventyrere.",
+                "Ernest Hemingway rapporterte fra krigen og skrev 'For hvem satisfaktionen' om erfaringen.",
+                "George Orwell kjempet for trotskistiske POUM og skrev 'Hyllest til Catalonia'.",
+                "Rundt en tredel av de frivillige døde eller ble såret."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Guernica: Krigens gru",
+            "id": "guernica"
+        },
+        {
+            "type": "paragraph",
+            "text": "Den 26. april 1937 bombet den tyske Condor-legionen den baskiske byen Guernica. Det var markedsdag; byen var full av sivile. I tre timer regnet det bomber og maskingeværild over forsvarsløse mennesker. Minst 200 – kanskje over 1000 – ble drept. Byen ble lagt i ruiner."
+        },
+        {
+            "type": "paragraph",
+            "text": "Guernica var uten militær betydning. Bombingen var terror – en systematisk test av hva som senere ble kjent som strategisk bombing av sivile. Den sjokkerte verden. Pablo Picasso malte sitt monumentale «Guernica» – en sorthhvitt fremstilling av krigens gru som ble ikonet for ånden av motstand mot fascismen."
+        },
+        {
+            "type": "QuoteBlock",
+            "quote": "Bombingen av Guernica er den mest forferdelige forbrytelsen som er begått i nåtidens historie.",
+            "source": "Den baskiske regjeringen, 1937",
+            "context": "Franco og nazistene benektet først hendelsen, deretter skyldte de på republikanerne selv."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Republikkens fall",
+            "id": "fall"
+        },
+        {
+            "type": "paragraph",
+            "text": "Til tross for desperat motstand – særlig i Madrid, som holdt ut i nesten tre år – mistet republikanerne gradvis terreng. Franco var tålmodig og hensynsløs. Han mente at å «rense» Spania for «røde» var like viktig som å vinne territorium. Masseterror mot sivile i erobrede områder var politikk."
+        },
+        {
+            "type": "paragraph",
+            "text": "I 1939 falt Barcelona, deretter Madrid. Den 1. april 1939 erklærte Franco seier. Republikanerne flyktet over grensen til Frankrike, hvor de ble internert under elendige forhold. Mange endte som flyktninger, noen få som motstandsfolk under andre verdenskrig."
+        },
+        {
+            "type": "TimelineComponent",
+            "title": "Den spanske borgerkrigen",
+            "compact": true,
+            "events": [
+                {
+                    "year": "1931",
+                    "event": "Den andre spanske republikk utropet."
+                },
+                {
+                    "year": "1936",
+                    "event": "Folkefronten vinner valget. Militærkupp i juli. Borgerkrigen starter."
+                },
+                {
+                    "year": "1937",
+                    "event": "Guernica bombes. Bataljonene i Jarama og Brunete."
+                },
+                {
+                    "year": "1938",
+                    "event": "Ebro-offensiven – republikkens siste store fremstøt."
+                },
+                {
+                    "year": "1939",
+                    "event": "Barcelona og Madrid faller. Franco erklærer seier."
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Arv: 40 år med diktatur",
+            "id": "arv"
+        },
+        {
+            "type": "paragraph",
+            "text": "Franco styrte Spania som diktator i nesten 40 år – helt til han døde i 1975. Hans regime var brutalt: massegraver fylt med republikanere, sensur, undertrykkelse av regionale identiteter. Under andre verdenskrig holdt han seg formelt nøytral, men sympatiserte åpent med Hitler og sendte frivillige til Østfronten."
+        },
+        {
+            "type": "paragraph",
+            "text": "Den spanske borgerkrigen var på mange måter en generalprøve på andre verdenskrig: aksens testfelt, demokratienes feighet, internasjonale frivillige som kjempet for idealer. Guernica var forsmak på Dresden og Hiroshima."
+        },
+        {
+            "type": "paragraph",
+            "text": "For de som kjempet der – Hemingway, Orwell, de navnløse tusenene i de internasjonale brigadene – var Spania frihetens siste skanse før mørket. De tapte. Og verden lærte for sent at fascismen ikke kunne stoppes med ikke-intervensjon."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva startet den spanske borgerkrigen?",
+            "options": [
+                "En invasjon fra Nazi-Tyskland",
+                "Et militærkupp mot den demokratiske regjeringen",
+                "En anarkistisk revolusjon i Barcelona",
+                "En konflikt mellom Spania og Portugal"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilke to land støttet aktivt General Franco?",
+            "options": [
+                "USA og Storbritannia",
+                "Nazi-Tyskland og fascistiske Italia",
+                "Sovjetunionen og Mexico",
+                "Frankrike og Portugal"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var Guernica, og hvorfor er det viktig?",
+            "options": [
+                "En avgjørende militær seier for republikanerne",
+                "En by som ble bombet av tyske fly, og som ble symbol på krigens gru",
+                "Navnet på en fascistisk milits",
+                "Stedet hvor Franco ble født"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvor lenge styrte Franco Spania etter borgerkrigen?",
+            "options": [
+                "5 år",
+                "10 år",
+                "Nesten 40 år",
+                "Han mistet makten i 1945"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

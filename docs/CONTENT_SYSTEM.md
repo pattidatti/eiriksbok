@@ -204,7 +204,16 @@ For å sikre god lesbarhet og flyt i teksttunge artikler, skal følgende regler 
 ## 5. Automation & Maintenance
 
 ### Scripts
-*   `node scripts/generate-timeline.js`: **CRITICAL**. Kjøres etter endringer i timeline-data.
-*   **Best Practices**:
-    1.  **Tags**: Bruk konsistente tags.
-    2.  **Datoer**: Bruk ISO-format (`YYYY-MM-DD`).
+*   **`npm run scan:content`**: **KRITISK**. Genererer `content-index.json`. Kjøres automatisk ved `npm run dev`.
+*   **`node scripts/generate-timeline.js`**: Brukes for å validere og bygge `global-timeline.json` hvis du har gjort manuelle endringer i tidslinjedata.
+
+## 6. Blueprints (Design-First)
+Før du faktisk skriver JSON, bør du ha en **Blueprint**.
+- Lokasjon: `docs/Design documents/[topic]-blueprint.md`.
+- Hensikt: Definere det narrative arket, visuelle prompts og læringsmål før bygging.
+- Verktøy: Bruk gjerne workflowen `/plan_topic` for å generere dette.
+
+## 7. Best Practices
+1.  **Tags**: Bruk konsistente tags på tvers av artikler og tidslinje.
+2.  **Datoer**: Bruk ISO-format (`YYYY-MM-DD`) for hendelser.
+3.  **Bilder**: Se `docs/image-style-guide.md` for hvordan du genererer bilder som passer inn i den visuelle estetikken.

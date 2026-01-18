@@ -1,0 +1,207 @@
+{
+    "id": "midtoesten",
+    "title": "Midtøsten: De nye grensene",
+    "category": "Mellomkrigstiden",
+    "year": "1916-1939",
+    "readTime": "18 minutter",
+    "layout": "rich",
+    "heroImage": "/images/mellomkrigstiden/map_midtoesten.png",
+    "summary": "Sykes-Picot, mandatsystemet og det arabiske bedraget – historien om hvordan europeiske kolonialmakter tegnet kartet over dagens Midtøsten.",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "I 1916, midt under første verdenskrig, satt to diplomater – briten Mark Sykes og franskmannen François Georges-Picot – over et kart over Midtøsten. Med penner og linjaler delte de opp det osmanske rikets arabiske provinser mellom seg. En rett linje fra Kirkuk i Irak til Haifa ved Middelhavet – kjent som «Sykes-Picot-linjen» – skulle definere fremtiden til millioner av mennesker. De kunne ikke ane at denne linjen ville skape konflikter som fortsatt raser i dag."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Det osmanske rikets fall",
+            "id": "osmansk-fall"
+        },
+        {
+            "type": "paragraph",
+            "text": "I over 400 år hadde det osmanske riket hersket over Midtøsten. Fra Istanbul kontrollerte sultanen et enormt territorium som strakte seg fra Algerie til Irak, fra Jemen til Balkan. Men riket var i forfall. «Europas syke mann» kalte man det. Og da osmanene allierte seg med Tyskland i første verdenskrig, underla de sin skjebne til krigens utfall."
+        },
+        {
+            "type": "paragraph",
+            "text": "Storbritannia og Frankrike så muligheten til å dele byttet. Men de trengte allierte i regionen. En britisk offiser, T.E. Lawrence – «Lawrence of Arabia» – ble sendt for å støtte en arabisk opprør mot osmanene. Han allierte seg med Sharif Hussein av Mekka, som drømte om et uavhengig arabisk rike."
+        },
+        {
+            "type": "QuoteBlock",
+            "quote": "Vi har vært 'en nasjon av kjøpmenn' så lenge at vi har mistet all skam over å bryte løfter.",
+            "source": "T.E. Lawrence",
+            "context": "Lawrence ble desillusjonert da han innså at britiske løfter til araberne var tomme."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Sykes-Picot-avtalen",
+            "id": "sykes-picot"
+        },
+        {
+            "type": "paragraph",
+            "text": "I hemmelighet – mens de lovte Hussein et arabisk rike – forhandlet Storbritannia og Frankrike om å dele Midtøsten seg imellom. Sykes-Picot-avtalen (1916) delte regionen i «innflytelsessoner»: Frankrike skulle få Syria og Libanon, Storbritannia Irak og Jordan. Palestina skulle være under internasjonal kontroll."
+        },
+        {
+            "type": "paragraph",
+            "text": "Da bolsjevikene tok makten i Russland i 1917, publiserte de de hemmelige avtalene for å diskreditere de kapitalistiske maktene. Araberene oppdaget bedraget. Tilliten var knust. Lawrence, som hadde ridd ved arabernes side, skrev at han følte seg «besudlet» av å ha vært redskap for denne politikken."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Balfour-erklæringen og Palestina",
+            "id": "balfour"
+        },
+        {
+            "type": "paragraph",
+            "text": "Som om dette ikke var komplisert nok, kom enda et løfte. I november 1917 sendte den britiske utenriksministeren Arthur Balfour et brev til Lord Rothschild, en leder for den britiske sionistbevegelsen. Brevet – Balfour-erklæringen – erklærte britisk støtte til «etableringen av et nasjonalt hjem for det jødiske folk i Palestina»."
+        },
+        {
+            "type": "paragraph",
+            "text": "Sionismen – bevegelsen for et jødisk hjemland – hadde vokst siden slutten av 1800-tallet, drevet av antisemittisme i Europa og drømmen om å gjenopprette et gammelt hjem. Theodor Herzl, sionismens grunnlegger, hadde sett løsningen på «det jødiske spørsmålet» i en jødisk stat. Nå, midt i krigens kaos, fikk bevegelsen stormaktsstøtte."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men Balfour-erklæringen inneholdt en fatal motsetning: den lovet et «nasjonalt hjem for det jødiske folk» samtidig som den sa at «ingenting skal gjøres som skader de sivile og religiøse rettighetene til de ikke-jødiske samfunnene i Palestina». I 1917 var 90% av Palestinas befolkning arabere. Hvordan kunne begge løftene holdes?"
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Mandatsystemet",
+            "id": "mandat"
+        },
+        {
+            "type": "paragraph",
+            "text": "Etter krigen ble Folkeforbundet etablert for å sikre fred. En av dets oppgaver var å håndtere de tidligere osmanske provinsene. Løsningen ble «mandatsystemet» – en juridisk konstruksjon som ga europeiske makter administrasjon over territorier som angivelig ikke var «klare for selvstyre»."
+        },
+        {
+            "type": "paragraph",
+            "text": "Frankrike fikk mandater over Syria og Libanon. Storbritannia fikk mandater over Irak, Transjordan (dagens Jordan) og Palestina. I teorien skulle mandatmaktene forberede befolkningen på selvstendighet. I praksis var det kolonialisme med nytt navn."
+        },
+        {
+            "type": "FactBox",
+            "title": "De nye statene",
+            "facts": [
+                "Irak: Skapt ved å slå sammen tre osmanske provinser (Mosul, Bagdad, Basra). Britene installerte en konge, Faisal I.",
+                "Syria: Frankrike splittet mandatet i flere enheter, inkludert Lebanon, for å favorisere kristne maronitter.",
+                "Transjordan: Opprettet i 1921 som et eget emirat under Faisals bror Abdullah.",
+                "Palestina: Administrert direkte av Storbritannia, med økende konflikt mellom jøder og arabere."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Arabisk nasjonalisme og opprør",
+            "id": "nasjonalisme"
+        },
+        {
+            "type": "paragraph",
+            "text": "Mandatsystemet møtte motstand fra dag én. I Syria brøt det ut opprør mot fransk styre i 1925-1927. Franskmennene slo det ned med brutal makt, inkludert bombing av Damaskus. I Irak opponerte stammene mot britisk kontroll; Royal Air Force – flyvåpenet – ble brukt til å «bombe dem til lydighet»."
+        },
+        {
+            "type": "paragraph",
+            "text": "Den arabiske nasjonalismen vokste. En ny generasjon av arabiske intellektuelle – utdannet i europeiske ideer om nasjonalisme og selvbestemmelse – krevde uavhengighet. Men grensene kolonimaktene hadde tegnet, tok ikke hensyn til etniske, religiøse eller stammeforhold. Sunnier, sjiaer, kurdere, kristne – alle ble kastet sammen i stater de ikke hadde valgt."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Palestina: Spirende konflikt",
+            "id": "palestina"
+        },
+        {
+            "type": "paragraph",
+            "text": "I Palestina vokste spenningen gjennom hele mellomkrigstiden. Jødisk immigrasjon fra Europa økte, særlig etter at nazistene kom til makten i Tyskland i 1933. Sionistiske organisasjoner kjøpte land og bygde kibbutzer. Den arabiske befolkningen følte seg truet."
+        },
+        {
+            "type": "paragraph",
+            "text": "I 1936-1939 brøt det arabiske opprøret ut. Araberne streiket, angrep jødiske bosetninger og britiske myndigheter. Britene slo opprøret ned med stor brutalitet – henrettelser, deportasjoner, kollektiv avstraffelse. Men da var det for sent å finne en fredelig løsning. Veien mot 1948 og den første arabisk-israelske krigen var lagt."
+        },
+        {
+            "type": "TimelineComponent",
+            "title": "Midtøstens formative år",
+            "compact": true,
+            "events": [
+                {
+                    "year": "1916",
+                    "event": "Sykes-Picot-avtalen inngås i hemmelighet."
+                },
+                {
+                    "year": "1917",
+                    "event": "Balfour-erklæringen støtter et jødisk hjemland."
+                },
+                {
+                    "year": "1920",
+                    "event": "Mandatsystemet etableres. Opprør i Irak."
+                },
+                {
+                    "year": "1925",
+                    "event": "Det store syriske opprøret mot fransk styre."
+                },
+                {
+                    "year": "1936",
+                    "event": "Det arabiske opprøret i Palestina begynner."
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Linjene som fortsatt gjelder",
+            "id": "arv"
+        },
+        {
+            "type": "paragraph",
+            "text": "Når vi ser på konfliktene i dagens Midtøsten – borgerkrigen i Syria, sekterisk vold i Irak, den israelske-palestinske konflikten – ser vi fortsatt skyggen av Sykes og Picot. Grensene de tegnet, ignorerte regionale realiteter. Løftene de ga, var uforenlige. Stadene de skapte, manglet legitimitet."
+        },
+        {
+            "type": "paragraph",
+            "text": "Dette betyr ikke at alle problemer i Midtøsten kan spores tilbake til kolonialismen. Regionale aktører har egne ambisjoner, ideologier og historier. Men fundamentet – kartene, grensene, strukturene – ble lagt i mellomkrigstiden av europeiske diplomater som sjelden møtte menneskene de tegnet linjer rundt."
+        },
+        {
+            "type": "paragraph",
+            "text": "Å forstå Midtøsten i dag krever å forstå denne historien – og å anerkjenne at det som virker som «urgamle konflikter» ofte er resultater av ganske moderne beslutninger."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var Sykes-Picot-avtalen?",
+            "options": [
+                "En fredsavtale mellom Tyrkia og Hellas",
+                "En hemmelig avtale om å dele Midtøsten mellom Storbritannia og Frankrike",
+                "En handelsavtale mellom arabiske land",
+                "En pakt mellom jødiske og arabiske ledere"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva lovet Balfour-erklæringen?",
+            "options": [
+                "Uavhengighet for alle arabiske land",
+                "Et nasjonalt hjem for det jødiske folk i Palestina",
+                "Britisk kontroll over hele Midtøsten",
+                "Fred mellom Frankrike og Tyskland"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var mandatsystemet?",
+            "options": [
+                "Et system for å la europeiske makter administrere tidligere osmanske territorier",
+                "En arabisk forsvarsallianse",
+                "En handelsavtale mellom Folkeforbundets medlemmer",
+                "Et flyktningeprogram etter første verdenskrig"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hva skjedde i Palestina 1936-1939?",
+            "options": [
+                "Jødisk masseinnvandring stoppet helt",
+                "Et arabisk opprør mot britisk styre og jødisk immigrasjon",
+                "Palestina ble uavhengig",
+                "Folkeforbundet tok over administrasjonen"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

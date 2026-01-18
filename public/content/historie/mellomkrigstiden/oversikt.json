@@ -1,0 +1,169 @@
+{
+    "id": "oversikt",
+    "title": "Mellomkrigstiden: En verden i endring",
+    "category": "Mellomkrigstiden",
+    "year": "1918-1939",
+    "readTime": "15 minutter",
+    "layout": "rich",
+    "heroImage": "/images/mellomkrigstiden/hero_oversikt.png",
+    "summary": "Festen er over, lysene slukkes, og i mørket våkner de gamle demonene. Mellomkrigstiden er historien om en verden som prøvde å hele seg selv – og feilet.",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Den 11. november 1918 stilnet kanonene over Europa. Klokkene i Paris ringte, soldater gråt i skyttergravene, og folk danset i gatene. «Krigen som skulle ende alle kriger» var endelig over. Men bak euforien lurte en mørk erkjennelse: verden var ikke den samme lenger. Fire store imperier – det osmanske, det habsburgske, det russiske og det tyske – hadde kollapset. Ti millioner soldater og syv millioner sivile var døde. En hel generasjon var traumatisert. Og i dette tomrommet skulle nye krefter, nye ideer og nye monstre vokse frem."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Versaillesfreden: Fred eller hevn?",
+            "id": "versailles"
+        },
+        {
+            "type": "paragraph",
+            "text": "I juni 1919 samlet seierherrene seg i Speilsalen i Versailles – det samme rommet hvor Tyskland stolt hadde proklamert sitt keiserdømme i 1871. Nå skulle ydmykelsen gjengjeldes. Versaillestraktaten påla Tyskland å akseptere eneskylden for krigen, å betale enorme krigserstatninger, å gi opp 13% av sitt landområde, og å redusere sin hær til 100 000 mann. Rhinland ble demilitarisert. Koloniene ble konfiskert."
+        },
+        {
+            "type": "paragraph",
+            "text": "Den franske statsministeren Georges Clemenceau hadde fått sin hevn. Men den britiske økonomen John Maynard Keynes advarte profetisk: dette var ikke fred, men en pause på tyve år før neste krig. Han fikk rett – nesten på dagen. Det tyske folket, som aldri hadde forstått hvorfor de tapte (ingen fiendtlig soldat hadde tråkket på tysk jord), følte seg forrådt og ydmyket. Dolkestøtlegenden – myten om at armeen ble dolket i ryggen av jøder, sosialister og politikere – festet seg i folkebevisstheten."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "De tre hovedstrømningene",
+            "id": "hovedstromninger"
+        },
+        {
+            "type": "paragraph",
+            "text": "For å forstå mellomkrigstiden må vi gripe fatt i tre store strømninger som preget perioden, og som til slutt kolliderte i en ny verdenskrig:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Demokratiets krise – de liberale verdiene som hadde seiret i 1918 ble satt under press fra alle kanter. Kunne demokratiet virkelig håndtere moderne massepolitikk?",
+                "Økonomisk turbulens – fra «The Roaring Twenties» til børskrakket i 1929, fra hyperinflasjon til massearbeidsledighet. Økonomien var en berg-og-dal-bane som knuste liv.",
+                "Totalitarismens fremmarsj – i Russland, Italia, Tyskland, Spania og Japan grep nye bevegelser makten med løfter om orden, storhet og en ny mennesketype."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Demokratiets gyldne øyeblikk – og fall",
+            "id": "demokrati"
+        },
+        {
+            "type": "paragraph",
+            "text": "I 1920 så det ut som liberalt demokrati hadde seiret over hele Europa. De gamle keiserdømmene var erstattet med republikker. President Woodrow Wilsons «fjorten punkter» – med selvbestemmelsesrett for alle folkeslag – hadde inspirert en bølge av nasjonale bevegelser. Polen, Tsjekkoslovakia, Jugoslavia, de baltiske statene – alle så dagens lys som uavhengige demokratier."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men demokratiet hadde dype problemer. Det manglet røtter. I land som hadde vært styrt av keisere og tsarer i århundrer, fantes det ingen tradisjon for fri debatt, kompromiss eller fredelig maktoverføring. Og når den økonomiske krisen slo til på 1930-tallet, ble demokratiet et offer for sin egen langsomhet. Folk ville ha handling, ikke debatter. De ville ha sterke ledere, ikke skravlende parlamenter."
+        },
+        {
+            "type": "FactBox",
+            "title": "Demokratiets tilbakegang",
+            "facts": [
+                "I 1920 var 28 europeiske stater demokratier.",
+                "I 1938 var bare 11 igjen – resten var diktaturer.",
+                "Bare Storbritannia, Frankrike og de skandinaviske landene holdt stand."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "En ny verdensorden?",
+            "id": "verdensorden"
+        },
+        {
+            "type": "paragraph",
+            "text": "Midt i kaoset forsøkte verdens nasjoner å bygge noe nytt. Folkeforbundet (League of Nations) ble grunnlagt i 1920 som et forum for kollektiv sikkerhet. Ideen var enkel: hvis én nasjon angrep en annen, ville alle de andre slå tilbake. Det skulle aldri bli krig igjen."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men Folkeforbundet var født med en dødelig svakhet: USA, den mektigste nasjonen, meldte seg aldri inn. Det amerikanske senatet, ledet av isolasjonister, nektet å ratifisere traktaten. Og uten USA – uten britiske og franske tropper villige til å dø for kollektiv sikkerhet – var Folkeforbundet en tiger uten tenner. Når Japan invaderte Mandsjuria i 1931, og Italia invaderte Abessinia (Etiopia) i 1935, kunne Folkeforbundet bare protestere. Diktatorene tok notater."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "«The Roaring Twenties» – et glimt av håp",
+            "id": "roaring-twenties"
+        },
+        {
+            "type": "paragraph",
+            "text": "Men ikke alt var mørke og undergangsstemning. 1920-tallet brakte også en eksplosjon av kreativitet, frihet og livsglede – i hvert fall for noen. I USA var det «The Roaring Twenties»: jazz, flapper-piker, Hollywood, radioen og bilen. Aksjer steg og steg. Alle kunne bli rike."
+        },
+        {
+            "type": "paragraph",
+            "text": "I Berlin blomstret Weimar-kulturen: kabaret, ekspresjonisme, Bauhaus-arkitektur, seksuell frigjøring. I Paris holdt Hemingway og Fitzgerald hoff. I London eksperimenterte Virginia Woolf med bevissthetsstrømmen. Det var som om verden prøvde å le bort traumene fra skyttergravene."
+        },
+        {
+            "type": "QuoteBlock",
+            "quote": "There are no second acts in American lives.",
+            "source": "F. Scott Fitzgerald",
+            "context": "Fra «The Great Gatsby» (1925), romanen som fanget Jazz Age-ens glitter og tomhet."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men under overflaten bygget det seg opp spenninger. Den amerikanske børsen var i en boble, drevet av kreditt og spekulasjon. Landbruket slet. Ulikheten økte. Og i oktober 1929 sprakk boblen."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Veien videre",
+            "id": "veien-videre"
+        },
+        {
+            "type": "paragraph",
+            "text": "Mellomkrigstiden var en epoke av ekstremer. Den rommet både den livsglade jazzen og konsentrasjonsleirenes brutalitet, både Folkeforbundets idealisme og diktatorenes kynisme, både Einsteins relativitetsteori og massenes mottakelighet for propaganda."
+        },
+        {
+            "type": "paragraph",
+            "text": "I de følgende artiklene skal vi dykke dypere ned i denne perioden. Vi skal besøke USA fra boom til bust, analysere børskrakket gjennom Keynes og Hayeks øyne, følge Stalins jernhånd over Sovjetunionen, se fascismen fødes i Italia og nazismen vokse seg sterk i Tyskland. Vi skal forstå hvordan Midtøsten fikk sine moderne grenser, hvorfor den spanske borgerkrigen ble en generalprøve på verdenskrigen, og hvordan Japan vandret mot Pearl Harbor."
+        },
+        {
+            "type": "paragraph",
+            "text": "For å forstå det 20. århundret – og vår egen tid – må vi forstå mellomkrigstiden. Det var her fremtiden ble avgjort."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva påla Versaillestraktaten Tyskland?",
+            "options": [
+                "Å akseptere eneskylden for krigen og betale erstatninger",
+                "Å bli medlem av Folkeforbundet umiddelbart",
+                "Å gi Østerrike tilbake til habsburgerne",
+                "Å avskaffe den tyske hæren fullstendig"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hvorfor ble Folkeforbundet svekket fra starten?",
+            "options": [
+                "Fordi Storbritannia nektet å delta",
+                "Fordi USA aldri meldte seg inn",
+                "Fordi Tyskland kontrollerte det",
+                "Fordi det manglet finansiering"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var dolkestøtlegenden?",
+            "options": [
+                "En militær strategi brukt under krigen",
+                "Myten om at den tyske hæren ble forrådt innenfra",
+                "En jødisk konspirasjonsteori fra Frankrike",
+                "En betegnelse på Versaillesfreden"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilken av disse hendelsene inntraff i 1929?",
+            "options": [
+                "Grunnleggelsen av Folkeforbundet",
+                "Undertegnelsen av Versaillesfreden",
+                "Børskrakket på Wall Street",
+                "Hitlers maktovertakelse"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

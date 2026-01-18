@@ -1,0 +1,337 @@
+{
+    "id": "mellomkrigstiden-sti",
+    "title": "Læringssti: Mellomkrigstiden",
+    "description": "Fra Versailles til verdenskrig – en reise gjennom epoken som formet det 20. århundret.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "1918-1939",
+    "readTime": "3-4 timer",
+    "learningPathData": {
+        "id": "mellomkrigstiden-sti",
+        "title": "Mellomkrigstiden: En verden på kanten",
+        "description": "Du står på ruinene av den store krigen. Keiserdømmer har falt, millioner er døde, og en hel verden prøver å forstå hva som gikk galt. I denne læringsstien skal du følge årene mellom 1918 og 1939 – fra Versailles' håp til Polens fall. Du vil se hvordan økonomiske kriser radikaliserte samfunn, hvordan demokratier kollapset, og hvordan nye ideologier – fascisme, nazisme, kommunisme – kjempet om sjelene. Ved slutten vil du forstå hvorfor verdenskrig nummer to ikke var et uhell, men resultatet av valg tatt i mellomkrigstiden.",
+        "targetTopicId": "mellomkrigstiden",
+        "targetSubjectId": "historie",
+        "steps": [
+            {
+                "id": "prolog",
+                "phase": "Akt 1: Opptakten",
+                "title": "Steg 0: Verden etter katastrofen",
+                "type": "fakta",
+                "content": "Velkommen til mellomkrigstiden. Før vi dykker inn, la oss sette scenen.\n\nDet er november 1918. Du er et menneske et sted i Europa – kanskje en soldat i skyttergravene, kanskje en kvinne som har jobbet på en våpenfabrikk, kanskje et barn som aldri har kjent noe annet enn rasjonering og frykt. Nå er krigen over. Men hva kommer nå?\n\nFire store imperier har kollapset: det russiske, det osmanske, det habsburgske og det tyske. Ti millioner soldater er døde. Syv millioner sivile. En hel generasjon er traumatisert. Grenser blir tegnet på nytt av diplomater som aldri har sett områdene de deler opp.\n\nVerden prøver å finne fotfeste igjen. Noen drømmer om en varig fred. Andre drømmer om hevn. Og i skyggene vokser nye bevegelser – sosialister som vil revolusjon, nasjonalister som vil storhet, og en underlig blanding som snart skal kalles fascisme.\n\nI denne læringsstien skal du følge denne historien fra triumfens eufori til nye katastrofer. Men først: les oversikten for å forstå de store linjene.",
+                "tasks": [
+                    "Hva var de fire keiserdømmene som kollapset etter første verdenskrig? (Fakta)",
+                    "Hvorfor mener teksten at verden 'prøvde å finne fotfeste igjen'? (Forståelse)",
+                    "Hva tror du det betydde for vanlige mennesker at grensene ble tegnet på nytt? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Mellomkrigstiden: En verden i endring",
+                        "url": "/historie/mellomkrigstiden/oversikt"
+                    }
+                ]
+            },
+            {
+                "id": "versailles",
+                "phase": "Akt 1: Opptakten",
+                "title": "Steg 1: Fredens pris",
+                "type": "fakta",
+                "content": "Du står i Speilsalen i Versailles. Det er juni 1919. Rundt deg sitter seierherrene – franske, britiske, amerikanske delegater. Den tyske delegasjonen er plassert som anklagede, ikke som forhandlingspartnere. De må signere en traktat de hater.\n\nVersaillestraktaten pålegger Tyskland eneansvar for krigen. Krigserstatninger på milliarder av gullmark. Tap av 13% av territoriet. En hær redusert til 100 000 mann. Rhinland demilitarisert. Kolonier konfiskert.\n\nDe allierte er fornøyde – særlig Frankrike, som endelig får sin hevn for 1871. Men en britisk økonom ved navn John Maynard Keynes advarer: dette er ikke fred, dette er en pause på tyve år.\n\nOg i Tyskland sprer det seg en giftig myte: at hæren aldri tapte på slagmarken, men ble 'dolket i ryggen' av politikere, sosialister, jøder. Dolkestøtlegenden vil forgifte den nye republikken.\n\nMens du leser om Versailles og Folkeforbundet, tenk på om freden var designet for å vare – eller for å hevne.",
+                "tasks": [
+                    "Hvilke territorielle og militære begrensninger påla Versaillestraktaten Tyskland? (Fakta)",
+                    "Hva var dolkestøtlegenden, og hvorfor var den farlig? (Forståelse)",
+                    "Tenk deg at du var tysk delegat i Versailles. Hvordan ville du reagert? (Empati)",
+                    "Keynes advarte om at dette var en 'pause på tyve år'. Hadde han rett? (Analyse)",
+                    "Sammenlign Versailles med andre fredsslutninger du kjenner. Hva gjør en god fredsavtale? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Mellomkrigstiden: En verden i endring",
+                        "url": "/historie/mellomkrigstiden/oversikt"
+                    },
+                    {
+                        "title": "Folkeforbundet: Drømmen om fred",
+                        "url": "/historie/mellomkrigstiden/folkeforbundet"
+                    }
+                ]
+            },
+            {
+                "id": "roaring-twenties",
+                "phase": "Akt 1: Opptakten",
+                "title": "Steg 2: Festen begynner",
+                "type": "fakta",
+                "content": "La oss forlate Europas problemer for et øyeblikk og reise til USA. Du lander i New York, kanskje 1925. Byen vibrerer av energi. Jazz strømmer ut fra klubber i Harlem. Flapper-piker med korte skjørt og enda kortere hår danser Charleston. Alle snakker om aksjer, spekulasjon, den uendelige bommen.\n\nDette er 'The Roaring Twenties' – tiåret av grenseløs optimisme. Masseproduserte biler, radio i hvert hjem, Hollywood-filmer som drømmer seg bort fra hverdagen. Forbudstiden forbyr alkohol, men speakeasies – hemmelige barer – blomstrer. Al Capone tjener millioner på smuglersprit.\n\nMen legg merke til sprekkene under den skinnende overflaten. Bøndene sliter. Ulikheten øker. Og alt det gode er finansiert med kreditt – lån som må betales tilbake. Folk kjøper aksjer 'on margin', og låner penger de ikke har for å investere i verdier som kanskje ikke er reelle.\n\nNår du leser om USAs mellomkrigstid, let etter tegnene på at boblen vokser – og vet at den snart vil sprekke.",
+                "tasks": [
+                    "Hva var forbudstiden, og hvorfor førte den til organisert kriminalitet? (Fakta)",
+                    "Forklar hva det vil si å kjøpe aksjer 'on margin'. (Forståelse)",
+                    "Hvorfor tror du folk var så villige til å låne penger for å investere? (Analyse)",
+                    "Sammenlign 1920-tallets optimisme med later økonomiske bobler (f.eks. dotcom, 2008). Ser du mønster? (Refleksjon)",
+                    "Hva forteller flapper-kulturen oss om endringer i kvinners rolle? (Utvidelse)"
+                ],
+                "links": [
+                    {
+                        "title": "USA: Fra 'The Roaring 20s' til 'The New Deal'",
+                        "url": "/historie/mellomkrigstiden/usa"
+                    },
+                    {
+                        "title": "Kultur: Da alt ble relativt",
+                        "url": "/historie/mellomkrigstiden/kultur"
+                    }
+                ]
+            },
+            {
+                "id": "krakket",
+                "phase": "Akt 2: Konfrontasjonen",
+                "title": "Steg 3: Festen er over",
+                "type": "utfordring",
+                "content": "29. oktober 1929. Black Tuesday. Du hører skriking fra Wall Street – ikke av smerte, men av ren panikk. Meglere som har levd høyt i årevis, ser nå formuer forsvinne på minutter. Tikkermaskinene kan ikke holde tritt med raset. 14 milliarder dollar forsvinner på én dag.\n\nBørskrakket er bare begynnelsen. Det som følger er The Great Depression – den verste økonomiske krisen i moderne historie. Banker går konkurs. Folk mister sparepengene. Fabrikker stenger. I 1933 er hver fjerde amerikaner arbeidsledig. Familier lever i teltleire – 'Hoovervilles' – oppkalt etter presidenten som ikke klarer å stoppe katastrofen.\n\nMen hva forårsaket det? Her møter du to konkurrerende forklaringer. John Maynard Keynes mener problemet er etterspørselssvikt – folk slutter å bruke penger, og staten må fylle tomrommet. Friedrich Hayek mener problemet er feilinvesteringer – skapt av sentralbankens kunstig lave renter. Begge er geniale. Begge har noe rett. Debatten fortsetter i dag.\n\nLes artikkelen om børskrakket og prøv å forstå begge sidene.",
+                "tasks": [
+                    "Hva skjedde på Black Tuesday, 29. oktober 1929? (Fakta)",
+                    "Forklar Keynes' teori om etterspørselssvikt med egne ord. (Forståelse)",
+                    "Forklar Hayeks teori om kredittekspansjon og feilinvestering. (Forståelse)",
+                    "Hvilken av de to teoriene finner du mest overbevisende? Begrunn svaret. (Analyse)",
+                    "Tenk på en moderne økonomisk krise. Hvilken teori ville best forklart den? (Refleksjon)",
+                    "Hvorfor er det vanskelig å avgjøre hvem som har 'rett' i økonomiske debatter? (Epistemologi)"
+                ],
+                "links": [
+                    {
+                        "title": "Det store krakket: Keynes vs. Hayek",
+                        "url": "/historie/mellomkrigstiden/borskrakk"
+                    }
+                ]
+            },
+            {
+                "id": "norge",
+                "phase": "Akt 2: Konfrontasjonen",
+                "title": "Steg 4: Krisen hjemme",
+                "type": "fakta",
+                "content": "Nå reiser vi hjem – til Norge. Kanskje du tenker at Norge, nøytralt under krigen, ble spart for mellomkrigstidens drama? Tenk om igjen.\n\nDu står ved en fabrikk i Telemark, kanskje 1931. Menstad heter stedet. Arbeidere har streiket i ukevis. Nå skal staten bryte streiken med makt – statspolitiet er på vei for å eskortere streikebrytere i land fra et skip. Arbeidere fra hele regionen har samlet seg for å stoppe dem.\n\nDet som følger – Menstad-slaget – blir et vendepunkt. Politi med bajonetter mot arbeidere med stein. Marinefartøyer i fjorden. Klassekampen har nådd sitt klimaks i Norge.\n\nMen historien slutter ikke der. Les om hvordan Norge fant en annen vei enn Tyskland og Italia. Kriseforliket i 1935 – kompromisset mellom Arbeiderpartiet og Bondepartiet – la grunnlaget for velferdsstaten. Mens andre land valgte ekstremisme, valgte nordmenn samarbeid. Hvorfor?",
+                "tasks": [
+                    "Hva var paripolitikken, og hvordan rammet den norsk økonomi? (Fakta)",
+                    "Beskriv hva som skjedde under Menstad-slaget i 1931. (Fakta)",
+                    "Hva var kriseforliket i 1935, og hvem inngikk det? (Fakta)",
+                    "Hvorfor tror du Norge valgte demokratisk kompromiss mens Tyskland valgte nazisme? (Analyse)",
+                    "Hva kan andre land lære av den norske veien gjennom mellomkrigstiden? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Norge i mellomkrigstiden",
+                        "url": "/historie/mellomkrigstiden/norge"
+                    }
+                ]
+            },
+            {
+                "id": "sovjet",
+                "phase": "Akt 2: Konfrontasjonen",
+                "title": "Steg 5: Jernhånden i øst",
+                "type": "refleksjon",
+                "content": "Mens Vesten sliter med depresjonen, bygges et radikalt annerledes samfunn i øst. Du står kanskje ved Dnepr-demningen – verdens største vannkraftverk – og ser ingeniørkunsten som forvandler et bondeland til en industrigant. Eller du står i en sulten landsby i Ukraina, 1932, og ser barna dø av sult mens staten tar kornet.\n\nStalins Sovjetunionen er begge disse tingene samtidig. Femårsplanene som skaper steder fra ingenting. Gulag-leirene som sluker millioner. Holodomor – den menneskeskapte hungersnøden som dreper 4-7 millioner ukrainere. Den store terroren som henretter gamle revolusjonære.\n\nDette er et eksperiment i total makt. En stat som former samfunnet med jernvilje – og knuser alle som står imot. Resultatet er imponerende industristatistikk og uhyrlige mørketall.\n\nNår du leser om Stalins Sovjet, prøv å holde begge bildene i hodet. Forstå hvordan ideologi kan rettferdiggjøre det urettferdiggjørbare.",
+                "tasks": [
+                    "Hva var femårsplanene, og hva oppnådde de? (Fakta)",
+                    "Hva var Holodomor, og var det en bevisst politikk? (Forståelse)",
+                    "Beskriv Gulag-systemet og dets rolle i sovjetisk økonomi. (Fakta)",
+                    "Hvordan kunne mennesker som ville skape et rettferdig samfunn ende opp med å skape et terrorregime? (Analyse)",
+                    "Hva betyr det at Stalins regime var 'totalitært'? Sammenlign med fascismen. (Sammenligning)",
+                    "Finnes det moderne lærdommer fra Stalins eksperiment? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Sovjetunionen: Stalins jernhånd",
+                        "url": "/historie/mellomkrigstiden/sovjet"
+                    }
+                ]
+            },
+            {
+                "id": "fascisme",
+                "phase": "Akt 2: Konfrontasjonen",
+                "title": "Steg 6: Fascismens fødsel",
+                "type": "fakta",
+                "content": "La oss vende tilbake til Europa – til Italia i 1922. Du står i Roma og ser tusenvis av menn i sorte skjorter marsjere gjennom gatene. De roper om nasjonen, om orden, om en sterk leder. Benito Mussolini står i spissen – en tidligere sosialist som har funnet en ny vei til makt.\n\n'Marsjen mot Roma' er mer bløff enn revolusjon. Hadde hæren fått ordre om å stoppe svartskjortene, ville de blitt knust. Men kong Viktor Emanuel nøler. I stedet for å erklære unntakstilstand, inviterer han Mussolini til å danne regjering. Demokratiet overgir seg uten kamp.\n\nFascismen er født. Men hva er den egentlig? Ikke kapitalisme, ikke sosialisme, men noe nytt: ultranasjonalisme kombinert med autoritær ledelse, vold som politisk virkemiddel, og forakt for liberale verdier som kompromiss og rettigheter. Staten over alt, individet er ingenting.\n\nItalia blir malen – snart vil andre kopiere den.",
+                "tasks": [
+                    "Hva var Mussolinis politiske bakgrunn før han ble fascist? (Fakta)",
+                    "Beskriv marsjen mot Roma og hvordan Mussolini faktisk fikk makten. (Fakta)",
+                    "Hva er de viktigste kjennetegnene ved fascistisk ideologi? (Forståelse)",
+                    "Hvordan kunne eliten – kongen, industrien, hæren – akseptere fascismen? (Analyse)",
+                    "Sammenlign fascismen med kommunismen: hva har de til felles, hva skiller dem? (Sammenligning)",
+                    "Ser du fascistiske trekk i moderne politiske bevegelser? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Italia: Fascismens fødsel",
+                        "url": "/historie/mellomkrigstiden/italia"
+                    }
+                ]
+            },
+            {
+                "id": "nazisme",
+                "phase": "Akt 2: Konfrontasjonen",
+                "title": "Steg 7: Demokratiets selvmord",
+                "type": "utfordring",
+                "content": "Nå kommer den mørkeste delen av historien. Du er i Tyskland, og du skal se hvordan et sivilisert, utdannet folk overga seg til barbariet.\n\nStart med hyperinflasjonen i 1923. En trillebår med penger for et brød. Middelklassens sparepenger utslettet over natten. Deretter de 'gyldne årene' – midlertidig stabilitet finansiert med amerikanske lån. Så børskrakket. Millioner arbeidsledige. Unge menn som vandrer gatene uten håp.\n\nInn i dette tomrommet kommer Adolf Hitler – en mislykket kunstner, en demagog med talent for hat. Nazistpartiet vokser fra 2,6% i 1928 til over 37% i 1932. Ikke et flertall, men det største partiet.\n\nOg så – 30. januar 1933 – utnevner president Hindenburg Hitler til rikskansler. Ikke gjennom revolusjon, men gjennom loven. De konservative tror de kan kontrollere ham. 'Vi har hyret ham,' sier de. Det er historiens mest skjebnesvangre feilberegning.",
+                "tasks": [
+                    "Hva var hyperinflasjonen i 1923, og hvorfor traumatiserte den tyskerne? (Fakta)",
+                    "Forklar dolkestøtlegenden og dens rolle i nazistisk propaganda. (Forståelse)",
+                    "Hvordan kom Hitler til makten i januar 1933? (Fakta)",
+                    "Hva var fullmaktsloven (Ermächtigungsgesetz), og hvorfor var den avgjørende? (Fakta)",
+                    "Hvorfor klarte ikke Weimar-demokratiet å stoppe Hitler? Analyser flere faktorer. (Analyse)",
+                    "Hva kan moderne demokratier lære av Weimars fall? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Tyskland: Veien mot nazismen",
+                        "url": "/historie/mellomkrigstiden/tyskland"
+                    }
+                ]
+            },
+            {
+                "id": "midtosten",
+                "phase": "Akt 2: Konfrontasjonen",
+                "title": "Steg 8: Linjer i sanden",
+                "type": "fakta",
+                "content": "La oss skifte fokus – vekk fra Europa, til en region som ennå bærer sårene fra mellomkrigstiden. Du står over et kart over Midtøsten i 1916. To diplomater – briten Mark Sykes og franskmannen François Georges-Picot – tegner linjer med linjal og penn. De deler det osmanske rikets arabiske provinser mellom seg, i hemmelighet.\n\nSamtidig har Storbritannia lovet araberne uavhengighet – i bytte mot opprør mot osmanene. Og i 1917 lover Storbritannia jødene et 'nasjonalt hjem i Palestina' – Balfour-erklæringen. Tre uforenlige løfter.\n\nEtter krigen blir Sykes-Picot virkelighet. Mandatsystemet – kolonialisme med nytt navn – gir Frankrike Syria og Libanon, Storbritannia Irak, Jordan og Palestina. Grensene tar ikke hensyn til stamme, religion eller etnisitet. Statene som skapes, mangler legitimitet.\n\nHvis du vil forstå Midtøsten i dag, må du forstå denne historien.",
+                "tasks": [
+                    "Hva var Sykes-Picot-avtalen, og hvorfor var den hemmelig? (Fakta)",
+                    "Hva lovet Balfour-erklæringen, og til hvem? (Fakta)",
+                    "Forklar mandatsystemet – var det virkelig 'forberedelse til selvstyre'? (Analyse)",
+                    "Hvorfor kalles grensene i Midtøsten 'kunstige'? (Forståelse)",
+                    "Hvordan preger mellomkrigstidens beslutninger dagens konflikter i Midtøsten? (Refleksjon)",
+                    "Tenk deg at du var arabisk leder i 1920. Hvordan ville du reagert på mandatsystemet? (Empati)"
+                ],
+                "links": [
+                    {
+                        "title": "Midtøsten: De nye grensene",
+                        "url": "/historie/mellomkrigstiden/midtoesten"
+                    }
+                ]
+            },
+            {
+                "id": "spania",
+                "phase": "Akt 3: Resolusjonen",
+                "title": "Steg 9: Generalprøven",
+                "type": "utfordring",
+                "content": "Vi nærmer oss slutten på mellomkrigstiden – men først en blodig generalprøve. Du står i Spania, sommeren 1936. Et militærkupp har delt landet i to. Republikanere – sosialister, anarkister, kommunister, liberale – mot nasjonalister – militære, fascister, monarkister, kirken.\n\nDen spanske borgerkrigen blir tiårets store ideologiske kamp. Hitler og Mussolini sender tropper og fly til Franco. Stalin sender rådgivere og våpen til republikanerne. Storbritannia og Frankrike holder seg 'nøytrale' – og lar fascismen vinne.\n\nFrivillige fra hele verden strømmer til Spania for å kjempe for republikken. Hemingway er der. Orwell er der. De internasjonale brigadene – idealister som tror at fascismen må stoppes her, eller aldri.\n\nOg så Guernica. En markedsdag i april 1937. Tyske fly bomber byen i tre timer. Hundrevis av sivile dør. Picasso maler sitt mesterverk som protest. Verden ser et glimt av hva som kommer.",
+                "tasks": [
+                    "Hva startet den spanske borgerkrigen i 1936? (Fakta)",
+                    "Hvilke land støttet Franco, og hvilke støttet republikken? (Fakta)",
+                    "Beskriv bombingen av Guernica og dens betydning. (Fakta)",
+                    "Hvorfor kalles borgerkrigen en 'generalprøve' på andre verdenskrig? (Analyse)",
+                    "Hva motiverte de internasjonale frivillige til å risikere livet i Spania? (Empati)",
+                    "Var britisk og fransk 'ikke-intervensjon' moralsk forsvarlig? (Etikk)"
+                ],
+                "links": [
+                    {
+                        "title": "Spania: Den spanske borgerkrig",
+                        "url": "/historie/mellomkrigstiden/spania"
+                    }
+                ]
+            },
+            {
+                "id": "japan",
+                "phase": "Akt 3: Resolusjonen",
+                "title": "Steg 10: Solens vei mot krig",
+                "type": "fakta",
+                "content": "Før vi avslutter, må vi vende blikket østover. I de europeiske dramaene glemmer vi lett at mellomkrigstiden også formet Asia – og at Stillehavs­krigen begynte lenge før Pearl Harbor.\n\nJapan i 1920-årene var ikke så ulikt Weimar. Eksperimenter med demokrati, kulturell blomstring, modernisering. Men da depresjonen slo til, radikaliserte unge offiserer seg. De hatet de 'korrupte' politikerne. De drømte om et imperium.\n\nI 1931 invaderte Kwantung-hæren Mandsjuria – uten regjeringens ordre. Da Folkeforbundet fordømte invasjonen, meldte Japan seg ut. I 1937 kom invasjonen av Kina – og med den, Nanjing-massakren, et av Stillehavskrigens grusomste kapitler.\n\nDa USA innførte oljeembargo i 1941, sto Japan overfor et valg: trekke seg tilbake, eller slå til. Admiral Yamamotos dristige plan – å ødelegge USAs Stillehavsflåte ved Pearl Harbor – var en desperat gambling. Den førte Japan inn i en krig det ikke kunne vinne.",
+                "tasks": [
+                    "Hva var Taishō-demokratiet, og hvorfor mislyktes det? (Fakta)",
+                    "Beskriv Mandsjuria-hendelsen i 1931 og dens konsekvenser. (Fakta)",
+                    "Hva skjedde under Nanjing-massakren i 1937? (Fakta)",
+                    "Hvorfor angrep Japan Pearl Harbor i 1941? (Forståelse)",
+                    "Sammenlign Japans vei mot militarisme med Tysklands. Hva er likt, hva er ulikt? (Analyse)",
+                    "Hvordan huskes mellomkrigstiden i Japan i dag, sammenlignet med Tyskland? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Japan: Solens vei mot krig",
+                        "url": "/historie/mellomkrigstiden/japan"
+                    }
+                ]
+            },
+            {
+                "id": "konklusjon",
+                "phase": "Akt 3: Resolusjonen",
+                "title": "Steg 11: Leksjonene fra mellomkrigstiden",
+                "type": "refleksjon",
+                "content": "Du har nå vandret gjennom to av de mest dramatiske tiårene i verdenshistorien. Fra Versailles' hevnfred til Polens fall i september 1939. Fra jazzens løfter til konsentrasjonsleirenes realiteter.\n\nHva har du lært? Kanskje dette:\n\nAt fred ikke automatisk følger krig – den må bygges med visdom og raushet. At økonomiske kriser kan destabilisere samfunn på måter som gjør det utenkelige mulig. At demokratier ikke er selvsagtee – de krever borgere som forsvarer dem. At ideologier som lover enkle løsninger på komplekse problemer, ofte bringer katastrofe. At mennesker som deg og meg kan bli delaktige i ufattelig ondskap – og at noen få, modige sjeler velger å stå imot.\n\nMellomkrigstiden er ikke bare fortid. Dens spørsmål – om nasjonalisme, om kapitalismens ustabilitet, om demokratiets sårbarhet, om hva mennesker er i stand til – er like aktuelle i dag.\n\nNå vet du hvorfor 1939 ikke var et uhell. Og kanskje vet du litt mer om hvordan vi kan unngå å gjenta historien.",
+                "tasks": [
+                    "Oppsummer de tre viktigste lærdommene du tar med deg fra mellomkrigstiden. (Syntese)",
+                    "Hvilken artikkel gjorde sterkest inntrykk på deg, og hvorfor? (Refleksjon)",
+                    "Ser du paralleller mellom mellomkrigstiden og dagens verden? Begrunn. (Analyse)",
+                    "Hva kunne vært gjort annerledes for å forhindre andre verdenskrig? (Kontrafaktisk)",
+                    "Hvordan vil du forklare mellomkrigstidens betydning til noen som aldri har hørt om den? (Kommunikasjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Mellomkrigstiden: En verden i endring",
+                        "url": "/historie/mellomkrigstiden/oversikt"
+                    }
+                ]
+            },
+            {
+                "id": "tidslinje-interaktiv",
+                "phase": "Akt 3: Resolusjonen",
+                "title": "Steg 12: Test din kunnskap",
+                "type": "oppgave",
+                "content": "Nå er det din tur til å vise hva du har lært. Under finner du en interaktiv tidslinje med noen av de viktigste hendelsene fra mellomkrigstiden. Din oppgave er å plassere dem i riktig kronologisk rekkefølge.\n\nTenk deg gjennom: Hva kom først – børskrakket eller nazistenes maktovertakelse? Marsjen mot Roma eller invasjonen av Mandsjuria? Versaillestraktaten eller den spanske borgerkrigen?\n\nHusk at hendelser henger sammen. Versailles skapte frustrasjon som næret nazismen. Krakket i 1929 skapte krisen som radikaliserte millioner. Folkeforbundets svakhet oppmuntret diktatorene.\n\nKlarer du å sette alle brikkene på plass?",
+                "tasks": [
+                    "Fullfør tidslinjen under.",
+                    "Velg én hendelse og forklar hvordan den påvirket hendelser som kom etter.",
+                    "Hva var det siste store vendepunktet før krigen brøt ut i 1939?"
+                ],
+                "links": [],
+                "component": {
+                    "name": "DragDropTimeline",
+                    "props": {
+                        "title": "Mellomkrigstidens store hendelser",
+                        "events": [
+                            {
+                                "id": "e1",
+                                "year": 1919,
+                                "label": "Versaillestraktaten signeres"
+                            },
+                            {
+                                "id": "e2",
+                                "year": 1920,
+                                "label": "Folkeforbundet grunnlegges"
+                            },
+                            {
+                                "id": "e3",
+                                "year": 1922,
+                                "label": "Marsjen mot Roma – Mussolini tar makten"
+                            },
+                            {
+                                "id": "e4",
+                                "year": 1929,
+                                "label": "Black Tuesday – Børskrakket"
+                            },
+                            {
+                                "id": "e5",
+                                "year": 1931,
+                                "label": "Japan invaderer Mandsjuria"
+                            },
+                            {
+                                "id": "e6",
+                                "year": 1933,
+                                "label": "Hitler utnevnes til rikskansler"
+                            },
+                            {
+                                "id": "e7",
+                                "year": 1936,
+                                "label": "Den spanske borgerkrigen begynner"
+                            },
+                            {
+                                "id": "e8",
+                                "year": 1937,
+                                "label": "Guernica bombes"
+                            },
+                            {
+                                "id": "e9",
+                                "year": 1939,
+                                "label": "Andre verdenskrig bryter ut"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

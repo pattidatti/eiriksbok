@@ -1,0 +1,209 @@
+{
+    "id": "norge",
+    "title": "Norge i mellomkrigstiden",
+    "category": "Mellomkrigstiden",
+    "year": "1918-1939",
+    "readTime": "18 minutter",
+    "layout": "rich",
+    "heroImage": "/images/mellomkrigstiden/norge_menstad.png",
+    "summary": "Paripolitikk, Menstad-slaget og kriseforliket – Norges vei fra etterkrigskrise til grunnlaget for velferdsstaten.",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Da kanonene tystnet over Europa i 1918, hadde Norge – nøytralt gjennom hele krigen – unngått blodbadet. Men nøytraliteten hadde en pris. Tusenvis av norske sjømenn hadde druknet da handelsskip ble torpedert av tyske ubåter. Og det økonomiske landskapet Norge vendte tilbake til, var dramatisk forandret. Mellomkrigstiden skulle bli en tid av dype økonomiske kriser, bitter klassekamp, og til slutt – et historisk kompromiss som la grunnlaget for det moderne Norge."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Etterkrigskrisen og paripolitikken",
+            "id": "paripolitikk"
+        },
+        {
+            "type": "paragraph",
+            "text": "Under første verdenskrig hadde Norge opplevd en kort boom. Etterspørselen etter norske varer var høy, prisene steg, og bøndene og næringslivet blomstret. Men da krigen tok slutt, kom krakket. Internasjonale markeder kollapset, og prisene på norske eksportvarer – særlig fisk og skipsfart – stupte."
+        },
+        {
+            "type": "paragraph",
+            "text": "Samtidig førte Norges Bank – under ledelse av Nicolai Rygg – en politikk som forsterket krisen. Målet var å bringe den norske kronen tilbake til den gamle gullverdien fra før krigen, den såkalte «paripolitikken». Det betydde å holde pengepolitikken stram, noe som førte til deflasjon (fallende priser), høye renter og tung gjeldsbyrde for bedrifter og bønder."
+        },
+        {
+            "type": "QuoteBlock",
+            "quote": "Kronens ære er nasjonens ære.",
+            "source": "Tidens konservative slagord",
+            "context": "Forsvaret for paripolitikken var knyttet til nasjonal prestisje."
+        },
+        {
+            "type": "paragraph",
+            "text": "Deflasjonen rammet de som hadde lån hardest – bønder som hadde lånt for å kjøpe land eller maskiner, og bedrifter som hadde investert i gode tider. Gjelden vokste i reell verdi mens inntektene falt. Konkurser og tvangsauksjoner fulgte. Arbeidsløsheten steg til nivåer Norge aldri hadde sett."
+        },
+        {
+            "type": "FactBox",
+            "title": "Norge i tall",
+            "facts": [
+                "Arbeidsløsheten blant fagforeningsmedlemmer var over 25% gjennom store deler av 1920-tallet.",
+                "156 banker gikk konkurs mellom 1920 og 1928.",
+                "Kronens verdi ble presset opp med over 50% under paripolitikken.",
+                "I 1933 var 42% av norske industriarbeidere arbeidsledige."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Klassekamp og radikalisering",
+            "id": "klassekamp"
+        },
+        {
+            "type": "paragraph",
+            "text": "Den økonomiske krisen radikaliserte det norske samfunnet. Arbeiderpartiet – inspirert av den russiske revolusjonen – meldte seg inn i Komintern, den kommunistiske internasjonalen, i 1919. Partiet var ikke bare et reformparti lenger; det erklærte seg som revolusjonært. Martin Tranmæl og andre ledere snakket om å bryte ned den borgerlige staten."
+        },
+        {
+            "type": "paragraph",
+            "text": "Høyresiden svarte med å organisere seg. Borgervernet – paramilitære grupper finansiert av næringslivet – ble opprettet for å beskytte samfunnet mot «bolsjeviktrusselen». Polariseringen mellom arbeiderbevegelsen og de borgerlige partiene var intens."
+        },
+        {
+            "type": "paragraph",
+            "text": "Samtidig dukket fascistiske bevegelser opp i Norge. Vidkun Quislings Nasjonal Samling ble stiftet i 1933, inspirert av Mussolini og Hitler. Men i motsetning til i Tyskland og Italia forble de norske fascistene marginale – de fikk aldri mer enn 2% av stemmene i frie valg."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Menstad-slaget",
+            "id": "menstad"
+        },
+        {
+            "type": "paragraph",
+            "text": "Den 8. juni 1931 eskalerte klassekampen til åpen konfrontasjon. Ved Menstad brygge utenfor Porsgrunn skulle streikebrytere losses i land for å bryte en streik ved Norsk Hydro. Arbeidere fra hele distriktet samlet seg for å stoppe dem. Statspolitiet – forløperen til dagens politi – ble sendt inn for å sikre at streikebrytere ble losses."
+        },
+        {
+            "type": "paragraph",
+            "text": "Det som fulgte ble kjent som Menstad-slaget. Arbeidere kastet stein. Politiet trakk seg tilbake, reformerte seg, og rykket frem igjen med bajonetter. Marinefartøyer lå ankret i fjorden. I flere timer raste kampen. Da det var over, var dusinvis skadet. Tre arbeidere ble dømt til fengselsstraff."
+        },
+        {
+            "type": "paragraph",
+            "text": "Menstad-slaget ble et symbol – for arbeiderbevegelsen på statens brutalitet og kapitalens makt, for de borgerlige på fare for revolusjon. Men paradoksalt nok bidro det også til en erkjennelse: Norge kunne ikke fortsette på denne veien. Noe måtte endre seg."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Kriseforliket 1935",
+            "id": "kriseforlik"
+        },
+        {
+            "type": "paragraph",
+            "text": "Vendepunktet kom i 1935. Arbeiderpartiet – som gradvis hadde moderert seg og fordømt Komintern – vant valget, men manglet flertall. Det som fulgte, var norgeshistoriens mest skjellsettende kompromiss."
+        },
+        {
+            "type": "paragraph",
+            "text": "Johan Nygaardsvold, Arbeiderpartiets leder, inngikk et forlik med Bondepartiet. Arbeiderpartiet skulle få støtte til sin krisepolitikk – offentlige arbeider, sysselsettingstiltak, støtte til arbeidsledige – i bytte mot at Bondepartiet fikk beskyttelsestoll og støtteordninger for landbruket."
+        },
+        {
+            "type": "paragraph",
+            "text": "Kriseforliket var mer enn bare politikk. Det var et signal om at Norge valgte samarbeid fremfor konflikt, reformisme fremfor revolusjon, demokrati fremfor diktatur. Mens Tyskland, Italia og Spania gikk til ekstremene, fant Norge en tredje vei."
+        },
+        {
+            "type": "TimelineComponent",
+            "title": "Norges mellomkrigstid",
+            "compact": true,
+            "events": [
+                {
+                    "year": "1920",
+                    "event": "Paripolitikken innføres. Økonomisk krise begynner."
+                },
+                {
+                    "year": "1927",
+                    "event": "Arbeiderpartiet bryter med Komintern."
+                },
+                {
+                    "year": "1931",
+                    "event": "Menstad-slaget. Klassekampen når sitt klimaks."
+                },
+                {
+                    "year": "1933",
+                    "event": "Nasjonal Samling stiftes. Arbeidsløsheten på topp."
+                },
+                {
+                    "year": "1935",
+                    "event": "Kriseforliket. Arbeiderpartiet danner regjering."
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Grunnlaget for velferdsstaten",
+            "id": "velferdsstat"
+        },
+        {
+            "type": "paragraph",
+            "text": "Kriseforliket la grunnlaget for den norske modellen – samarbeidet mellom stat, arbeidsgiver og arbeidstaker som skulle prege Norge i tiårene som fulgte. Hovedavtalen mellom LO og NAF (senere NHO) i 1935 institusjonaliserte dette samarbeidet på arbeidsmarkedet."
+        },
+        {
+            "type": "paragraph",
+            "text": "Nygaardsvold-regjeringen begynte også å bygge velferdsordninger. Arbeidsledighetstrygd, sykeforsikring og alderspensjon ble gradvis utvidet. Staten tok ansvar for borgernes grunnleggende trygghet – en radikal idé i samtiden."
+        },
+        {
+            "type": "paragraph",
+            "text": "Da andre verdenskrig brøt ut i 1939, var Norge på god vei mot et mer egalitært samfunn. Krigen avbrøt denne utviklingen, men da freden kom i 1945, ble velferdsstaten bygget videre på det fundamentet som var lagt i mellomkrigstiden."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "En norsk særvei?",
+            "id": "saervei"
+        },
+        {
+            "type": "paragraph",
+            "text": "Hvorfor gikk det annerledes i Norge enn i Tyskland eller Italia? Flere faktorer spilte inn: en sterk demokratisk tradisjon, et samfunn som var mindre preget av militarisme og imperiale ambisjoner, en arbeiderbevegelse som til slutt valgte reformisme, og et bondestand som samarbeidet med arbeiderne i stedet for å alliere seg med reaksjonære krefter."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men historien var på ingen måte forutbestemt. Det fantes fascister også i Norge. Det fantes revolusjonsromantikk i arbeiderbevegelsen. Menstad viste at vold var mulig. At Norge fant veien mot kompromiss og demokrati, var et resultat av konkrete valg tatt av konkrete mennesker i krisetider."
+        },
+        {
+            "type": "paragraph",
+            "text": "Mellomkrigstiden lærer oss at demokrati ikke er noe man bare har – det er noe man velger, igjen og igjen, selv når det er vanskelig."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var paripolitikken?",
+            "options": [
+                "En politikk for å senke renten",
+                "En politikk for å bringe kronen tilbake til førkrigs gullverdi",
+                "En politikk for å øke eksporten",
+                "En politikk for å styrke arbeiderrettigheter"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva skjedde under Menstad-slaget i 1931?",
+            "options": [
+                "Tyske tropper invaderte Norge",
+                "Arbeidere og politi kolliderte i forbindelse med en streik",
+                "Nasjonal Samling forsøkte statskupp",
+                "Norge erklærte krig mot Sverige"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var kriseforliket i 1935?",
+            "options": [
+                "En avtale mellom Norge og Tyskland",
+                "Et samarbeid mellom Arbeiderpartiet og Bondepartiet",
+                "En bankredning vedtatt av Stortinget",
+                "En militær pakt med Storbritannia"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilket parti ledet Norge fra 1935?",
+            "options": [
+                "Høyre",
+                "Bondepartiet",
+                "Arbeiderpartiet",
+                "Nasjonal Samling"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

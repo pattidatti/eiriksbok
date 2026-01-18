@@ -1,0 +1,207 @@
+{
+    "id": "usa",
+    "title": "USA: Fra 'The Roaring 20s' til 'The New Deal'",
+    "category": "Mellomkrigstiden",
+    "year": "1919-1939",
+    "readTime": "18 minutter",
+    "layout": "rich",
+    "heroImage": "/images/mellomkrigstiden/hero_usa.png",
+    "summary": "Fra grenseløs optimisme til dyp fortvilelse – USAs reise gjennom mellomkrigstiden er historien om kapitalismens ville syklus.",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Da første verdenskrig tok slutt, sto USA frem som verdens nye stormakt. Amerikanerne hadde kommet sent inn i krigen, tapt relativt få soldater, og tjent enormt på å levere våpen og forsyninger til de allierte. Mens Europa lå i ruiner, blomstret den amerikanske økonomien. Det var begynnelsen på det mest eventyrlige tiåret i amerikansk historie: «The Roaring Twenties»."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Velstandens tiår",
+            "id": "velstand"
+        },
+        {
+            "type": "paragraph",
+            "text": "På 1920-tallet forandret USA seg i et tempo verden aldri hadde sett. Bilen, som hadde vært en luksus for de rike, ble masseprodusert av Henry Ford og parkert i oppkjørselen til vanlige amerikanere. I 1920 hadde én av ti amerikanere bil. I 1929 var det én av fem. Bilen skapte forsteder, motorveier, bensinstasjoner og en helt ny livsstil."
+        },
+        {
+            "type": "paragraph",
+            "text": "Radioen forvandlet underholdning og informasjon. Plutselig kunne en president tale direkte til millioner av hjem. Reklamebransjen eksploderte. Jazzen – Afrikas rytmer filtrert gjennom New Orleans – danset opp Mississippi til Chicago og New York, hvor den ble lydsporet til et tiår. Louis Armstrong, Duke Ellington og Bessie Smith ble nasjonale stjerner."
+        },
+        {
+            "type": "FactBox",
+            "title": "Jazz Age i tall",
+            "facts": [
+                "Bilproduksjonen økte fra 1,9 millioner i 1920 til 5,3 millioner i 1929.",
+                "Innen 1930 hadde 40% av amerikanske hjem radio.",
+                "Elektrisitetsforbruket doblet seg på 1920-tallet.",
+                "Hollywood produserte 800 filmer i året på slutten av tiåret."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Flapper-piker og forbudstid",
+            "id": "flapper"
+        },
+        {
+            "type": "paragraph",
+            "text": "Krigen hadde frigjort kvinnene. De hadde jobbet på fabrikker mens mennene var i skyttergravene. Nå nektet de å gå tilbake til kjøkkenbenken. «Flapper»-piken ble symbolet på den nye kvinnen: kort hår, korte skjørt, sigaretter, makeup, og – skandale! – hun danset alene med menn hun ikke var gift med. I 1920 fikk amerikanske kvinner stemmerett."
+        },
+        {
+            "type": "paragraph",
+            "text": "Samtidig hersket forbudstiden (Prohibition). Det 18. grunnlovstillegget, som trådte i kraft i 1920, forbød produksjon, salg og transport av alkohol. Intensjonen var å skape et moralsk, edruelig Amerika. Resultatet ble det motsatte. Forbudet skapte et svart marked av enorme dimensjoner. Speakeasies – ulovlige barer skjult bak falske fasader – dukket opp i hver storby. Og organisert kriminalitet blomstret."
+        },
+        {
+            "type": "QuoteBlock",
+            "quote": "Prohibition is better than no liquor at all.",
+            "source": "Will Rogers",
+            "context": "Amerikansk komiker som fanget tidens kynisme."
+        },
+        {
+            "type": "paragraph",
+            "text": "Al Capone i Chicago tjente 100 millioner dollar i året på smuglervirksomhet. Politikere ble bestukket. Politi så en annen vei. Forbudet varte til 1933, da det ble opphevet av «The New Deal»-regjeringen – en erkjennelse av at det hadde skapt flere problemer enn det løste."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Spekulasjonsfeberen",
+            "id": "spekulasjon"
+        },
+        {
+            "type": "paragraph",
+            "text": "Gjennom 1920-tallet steg aksjekursene på Wall Street høyere og høyere. Alle ville være med. Vanlige mennesker – taxisjåfører, frisører, lærere – begynte å spekulere. De lånte penger for å kjøpe aksjer, sikre på at kursene bare ville fortsette oppover. Dette kalles å kjøpe «on margin» – du betalte bare en brøkdel av aksjens verdi og lånte resten. Så lenge markedet steg, var alle vinnere."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men under overflaten var økonomien syk. Kjøpekraften holdt ikke tritt med produksjonen. Bønder led under lave priser på landbruksprodukter. Ulikheten økte: de rike ble rikere, mens vanlige arbeidere stagnerte. Bankene var løst regulert og tok enorme risikoer. Og stadig mer av den økonomiske aktiviteten var basert på kreditt – fremtidig inntekt som kanskje aldri ville komme."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Black Tuesday: 29. oktober 1929",
+            "id": "black-tuesday"
+        },
+        {
+            "type": "paragraph",
+            "text": "Boblen sprakk i oktober 1929. Den 24. oktober – «Black Thursday» – begynte panikken. Investorer prøvde desperat å selge, men det var ingen kjøpere. Kursene stupte. Den følgende tirsdagen, 29. oktober, kollapset markedet fullstendig. 16 millioner aksjer ble dumpet på markedet. Formuer som hadde blomstret i årevis, fordampet på timer."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men dette var bare begynnelsen. Krakket utløste en dominoeffekt. Banker som hadde lånt ut penger til aksjespekulasjon, gikk konkurs. Når bankene falt, mistet folk sparepengene sine. Bedrifter som ikke fikk kreditt, måtte stenge. Arbeidsløsheten eksploderte. I 1933 var hver fjerde amerikaner arbeidsledig. Folk sto i brødkøer. Familier mistet hjemmene sine. «Hoovervilles» – slumleirer oppkalt etter den impopulære president Hoover – dukket opp i byene."
+        },
+        {
+            "type": "TimelineComponent",
+            "title": "Fra boom til bust",
+            "compact": true,
+            "events": [
+                {
+                    "year": "1920",
+                    "event": "Forbudstiden begynner. Radioen blir allemannseie."
+                },
+                {
+                    "year": "1927",
+                    "event": "Charles Lindbergh flyr alene over Atlanterhavet."
+                },
+                {
+                    "year": "1929",
+                    "event": "Børskrakket 29. oktober – Black Tuesday."
+                },
+                {
+                    "year": "1932",
+                    "event": "Arbeidsløsheten når 25%. Franklin D. Roosevelt velges."
+                },
+                {
+                    "year": "1933",
+                    "event": "FDR innfører The New Deal. Forbudstiden oppheves."
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Franklin D. Roosevelt og «The New Deal»",
+            "id": "new-deal"
+        },
+        {
+            "type": "paragraph",
+            "text": "I november 1932 ble Franklin Delano Roosevelt – «FDR» – valgt til president med et overveldende flertall. Han lovet «a new deal for the American people». I sin innsettelsestale erklærte han: «The only thing we have to fear is fear itself.» Det var et psykologisk vendepunkt."
+        },
+        {
+            "type": "paragraph",
+            "text": "The New Deal var ikke én politikk, men et helt arsenal av reformer, eksperimenter og arbeidsprogrammer. De første 100 dagene av FDRs presidentskap var en tornado av lovgivning: Emergency Banking Act gjenopprettet tilliten til bankene. Civilian Conservation Corps satte unge menn i arbeid med naturvern. Agricultural Adjustment Act hjalp bøndene. Social Security Act skapte et sikkerhetsnett for de eldre."
+        },
+        {
+            "type": "paragraph",
+            "text": "The New Deal var kontroversielt. Konservative kalte det sosialisme. Radikale mente det ikke gikk langt nok. Høyesterett underkjente flere lover. Men for millioner av amerikanere representerte det håp – og en stat som endelig brydde seg om vanlige folks skjebne."
+        },
+        {
+            "type": "FactBox",
+            "title": "The New Deals viktigste programmer",
+            "facts": [
+                "Works Progress Administration (WPA): Skapte 8 millioner jobber innen bygging, kunst og teater.",
+                "Civilian Conservation Corps (CCC): 3 millioner unge menn plantet trær og bygde parker.",
+                "Social Security Act (1935): Innførte pensjon for eldre og arbeidsledighetstrygd.",
+                "Tennessee Valley Authority (TVA): Bygde demninger og elektrifiserte fattige områder i Sør."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Arven etter mellomkrigstiden",
+            "id": "arv"
+        },
+        {
+            "type": "paragraph",
+            "text": "Da andre verdenskrig brøt ut i Europa i 1939, var den amerikanske økonomien fortsatt ikke fullt restituert. Arbeidsløsheten var ned fra 25% til rundt 15%, men det var krigsproduksjonen som endelig endte depresjonen. USAs rolle som «demokratiets arsenal» under andre verdenskrig fullførte den økonomiske gjenreisningen."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men arven fra mellomkrigstiden var varig. The New Deal etablerte prinsippet om at staten hadde et ansvar for sine borgeres velferd. Social Security, bankreguleringer og arbeidsrettigheter ble varige deler av det amerikanske samfunnet. Og leksjonene fra 1929 – om farene ved uregulert spekulasjon og for høy gjeldsbelastning – skulle bli viktige igjen, og igjen, og igjen."
+        },
+        {
+            "type": "paragraph",
+            "text": "USAs reise gjennom mellomkrigstiden illustrerer kapitalismens doble natur: dens evne til å skape enorm rikdom og innovasjon, men også dens tendens til kriser som rammer de svakeste hardest. Det er en leksjon som er like relevant i dag."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var forbudstiden (Prohibition)?",
+            "options": [
+                "Et forbud mot å eie aksjer",
+                "Et forbud mot produksjon og salg av alkohol",
+                "Et forbud mot jazz-musikk",
+                "Et forbud mot kvinnelig stemmerett"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva betyr det å kjøpe aksjer 'on margin'?",
+            "options": [
+                "Å kjøpe aksjer med kontanter",
+                "Å låne penger for å kjøpe aksjer",
+                "Å selge aksjer med tap",
+                "Å investere i utenlandske markeder"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var 'Hoovervilles'?",
+            "options": [
+                "Luksusleiligheter i New York",
+                "Slumleirer for arbeidsledige oppkalt etter presidenten",
+                "Fabrikkområder med høy produksjon",
+                "Flyplasser for kommersielle flyvninger"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilket av disse var et av The New Deal-programmene?",
+            "options": [
+                "Social Security Act",
+                "America First Act",
+                "Manifest Destiny Act",
+                "Monroe Doctrine"
+            ],
+            "correctAnswer": 0
+        }
+    ]
+}

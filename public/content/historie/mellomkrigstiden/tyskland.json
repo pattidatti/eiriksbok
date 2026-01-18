@@ -1,0 +1,206 @@
+{
+    "id": "tyskland",
+    "title": "Tyskland: Veien mot nazismen",
+    "category": "Mellomkrigstiden",
+    "year": "1918-1933",
+    "readTime": "20 minutter",
+    "layout": "rich",
+    "heroImage": "/images/mellomkrigstiden/hero_tyskland.png",
+    "summary": "Hyperinflasjon, Weimar-republikkens fall og Hitlers juridiske maktovertakelse – hvordan demokratiet begikk selvmord.",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "I november 1918, da keiserdømmet kollapset og kaiser Wilhelm II flyktet til Nederland, sto Tyskland ved et veiskille. Revolusjonen som hadde veltet monarkiet var kaotisk – matroser i Kiel hadde gjort mytteri, arbeiderråd dukket opp over hele landet, kommunister drømte om å gjenta det russiske eksperimentet. Men det ble det moderate sosialdemokratiske partiet (SPD) som grep roret og proklamerte en demokratisk republikk."
+        },
+        {
+            "type": "paragraph",
+            "text": "Weimar-republikken – oppkalt etter byen der grunnloven ble vedtatt – var Tysklands første demokrati. Men den ble født med en dødelig byrde: det var denne republikken som signerte Versaillestraktatens ydmykelse. For millioner av tyskere var demokratiet = svik."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Dolkestøtlegenden",
+            "id": "dolkestot"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ingen fiendtlig soldat hadde tråkket på tysk jord. Den tyske hæren sto dypt inne i Frankrike da våpenhvilen ble signert. Hvordan kunne de ha tapt? Svaret, ifølge nasjonalister og militærledere, var at hæren var blitt «dolket i ryggen» – av politikere, jøder, sosialister, forrædere på hjemmefronten."
+        },
+        {
+            "type": "QuoteBlock",
+            "quote": "Den tyske hæren er upåklagelig. Hadde den blitt støttet av hjemmefronten, hadde den aldri veket.",
+            "source": "Feltmarskalk Paul von Hindenburg, 1919",
+            "context": "Hindenburg spredte aktivt dolkestøtlegenden – og ble senere republikanske president."
+        },
+        {
+            "type": "paragraph",
+            "text": "Dolkestøtlegenden var løgn, men den var mektig. Den fritok militæret for ansvar. Den skapte syndebukker. Og den forgiftet den nye republikkens legitimitet fra starten. De som hadde grunnlagt demokratiet, var per definisjon «novemberforbrytere» i nasjonalistenes øyne."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Kaos og hyperinflasjon",
+            "id": "hyperinflasjon"
+        },
+        {
+            "type": "paragraph",
+            "text": "De første årene var preget av vold og ustabilitet. I januar 1919 forsøkte kommunistene Spartakistoppstand – ned slått brutalt av Freikorps, paramilitære veteraner. Kommunistlederne Rosa Luxemburg og Karl Liebknecht ble myrdet. I 1920 prøvde høyreekstremister Kapp-kuppet – stoppet av generalstreik. Politiske attentat – mot blant andre utenriksminister Walther Rathenau – skapte en atmosfære av frykt."
+        },
+        {
+            "type": "paragraph",
+            "text": "Så kom hyperinflasjonen. Da Frankrike okkuperte Ruhrområdet i 1923 fordi Tyskland hang etter med krigsskadeerstatninger, svarte den tyske regjeringen med «passiv motstand» – finansiert ved å trykke penger. Resultatet var økonomisk katastrofe. I januar 1923 kostet en dollar 18 000 mark. I november 1923: 4,2 billioner mark."
+        },
+        {
+            "type": "FactBox",
+            "title": "Hyperinflasjonens galskap",
+            "facts": [
+                "Barn brukte verdiløse sedler som byggeklosser.",
+                "En kaffekopp kunne doble i pris mens man drakk den.",
+                "Arbeiderene fikk lønn to ganger om dagen – og løp for å bruke den før verdien forsvant.",
+                "En trillebår med penger var nødvendig for å kjøpe et brød.",
+                "Middelklassens oppsparte verdier ble utslettet på måneder."
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Hyperinflasjonen traumatiserte en generasjon. Den som hadde spart hele livet, var plutselig fattig. Pensjonister sultet. Og tilliten til det økonomiske systemet – og de styrende – ble knust. I november 1923 forsøkte en ukjent agitator i München et væpnet kupp: ølhallkuppet. Det mislyktes, og Adolf Hitler havnet i fengsel."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "De gyldne årene – og illusjonen",
+            "id": "gyldne"
+        },
+        {
+            "type": "paragraph",
+            "text": "Mellom 1924 og 1929 stabiliserte Weimar seg. En ny valuta (Rentenmark) stoppet hyperinflasjonen. Dawes-planen (1924) restrukturerte krigsskadeerstatningene og åpnet for amerikanske lån. Produksjonen økte. Arbeidsløsheten falt. Berlin blomstret som kulturelt sentrum – jazz, film, Bauhaus, kabaret."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men stabiliteten var skjør. Den hvilte på utenlandsk kapital – særlig amerikanske lån. Den tyske industrien var avhengig av eksport til markeder som kunne stenge seg. Og under overflaten gnagde de politiske konfliktene videre. Nazistpartiet (NSDAP) var marginalisert – bare 2,6% av stemmene i 1928 – men ikke borte."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Krakket og radikaliseringen",
+            "id": "krakk"
+        },
+        {
+            "type": "paragraph",
+            "text": "Da Wall Street kollapset i oktober 1929, dro de amerikanske bankene lånene sine ut av Tyskland. Den tyske økonomien imploderte. Arbeidsløsheten eksploderte fra 1,4 millioner i 1929 til over 6 millioner i 1932 – nesten en tredel av arbeidsstyrken. Unge menn vandret gatene uten mål. Suppe­køene vokste."
+        },
+        {
+            "type": "paragraph",
+            "text": "I dette kaoset vokste ekstremistene. Kommunistpartiet (KPD) lovet revolusjon. Nazistpartiet lovet nasjonal gjenfødelse, arbeid, verdighet – og noen å skylde på. Mellom 1928 og 1932 gikk NSDAP fra 2,6% til 37,3% av stemmene. De ble Tysklands største parti."
+        },
+        {
+            "type": "TimelineComponent",
+            "title": "Weimars vei mot undergangen",
+            "compact": true,
+            "events": [
+                {
+                    "year": "1919",
+                    "event": "Weimar-grunnloven vedtas. Spartakistopprøret knuses."
+                },
+                {
+                    "year": "1923",
+                    "event": "Hyperinflasjon. Hitlers ølhallkupp mislykkes."
+                },
+                {
+                    "year": "1925",
+                    "event": "Hindenburg velges til president."
+                },
+                {
+                    "year": "1929",
+                    "event": "Wall Street-krakket. Massearbeidsløshet begynner."
+                },
+                {
+                    "year": "1932",
+                    "event": "NSDAP blir Tysklands største parti."
+                },
+                {
+                    "year": "1933",
+                    "event": "Hitler utnevnes til rikskansler."
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Demokratiets selvmord",
+            "id": "selvmord"
+        },
+        {
+            "type": "paragraph",
+            "text": "Den 30. januar 1933 utnevnte president Hindenburg Adolf Hitler til rikskansler. Det var ingen revolusjon, ingen marsj mot Berlin. Hitler kom til makten lovlig – utnevnt av presidenten, akseptert av konservative politikere som trodde de kunne kontrollere ham."
+        },
+        {
+            "type": "paragraph",
+            "text": "Franz von Papen, den konservative aristokraten som meklet Hitler til makten, sa overlegent: «Vi har hyret ham.» De trodde Hitler var en nyttig populist som kunne trekke massene, mens de selv styrte bak kulissene. Det var tidenes feilberegning."
+        },
+        {
+            "type": "paragraph",
+            "text": "I løpet av måneder hadde Hitler konsolidert diktatuet. Riksdagsbrannen (februar 1933) ga påskudd til massearrestasjoner av kommunister. Fullmaktsloven (mars 1933) ga regjeringen makt til å styre uten parlamentet. Fagforeninger ble oppløst. Partier ble forbudt. Jødene ble systematisk diskriminert. Da Hindenburg døde i 1934, kombinerte Hitler kansler- og presidentembetet. Han var nå «Führer» – Tysklands uinnskrenkede diktator."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Hvorfor falt Weimar?",
+            "id": "hvorfor"
+        },
+        {
+            "type": "paragraph",
+            "text": "Historikere har debattert dette i generasjoner. Var det Versailles' ydmykelse? Var det den økonomiske krisen? Var det Weimars svake grunnlov med sin proporsjonale valgordning og sterke president? Var det elitenes foraktfor demokratiet? Var det Hitlers karisma og nazistenes propaganda?"
+        },
+        {
+            "type": "paragraph",
+            "text": "Svaret er: alle disse – og mer. Weimar-republikken manglet overbevist demokrater. Hæren, byråkratiet, rettsvesenet, universitetene – alle var fylt av folk som lengtet tilbake til keiserdømmet. Da krisen kom, var det få som var villige til å dø for demokratiet."
+        },
+        {
+            "type": "paragraph",
+            "text": "Weimars fall er en advarsel for alle tider: demokrati er ikke selvopprettholdende. Det trenger borgere som tror på det, institusjoner som forsvarer det, og ledere som ikke utleverer det til dets fiender."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var dolkestøtlegenden?",
+            "options": [
+                "En militær strategi fra første verdenskrig",
+                "Myten om at den tyske hæren ble forrådt av politikere og andre grupper",
+                "En jødisk konspirasjon for å overta Tyskland",
+                "Et navn på Versaillestraktaten"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva forårsaket hyperinflasjonen i 1923?",
+            "options": [
+                "For strenge budsjettdisiplin",
+                "Trykking av penger for å finansiere passiv motstand mot Ruhrbesettelsen",
+                "Overinvesteringer i militæret",
+                "Børskrakk på Wall Street"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvordan kom Hitler til makten i 1933?",
+            "options": [
+                "Gjennom en voldelig revolusjon",
+                "Ved å vinne presidentvalget",
+                "Ved å bli utnevnt av president Hindenburg",
+                "Ved å invadere Berlin med SA-tropper"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva var fullmaktsloven (Ermächtigungsgesetz)?",
+            "options": [
+                "En lov som ga jødene stemmerett",
+                "En lov som ga regjeringen makt til å styre uten parlamentet",
+                "En lov som gjeninnførte monarkiet",
+                "En lov som forbød nazistpartiet"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

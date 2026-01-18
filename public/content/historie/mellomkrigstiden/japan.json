@@ -1,0 +1,219 @@
+{
+    "id": "japan",
+    "title": "Japan: Solens vei mot krig",
+    "category": "Mellomkrigstiden",
+    "year": "1918-1941",
+    "readTime": "17 minutter",
+    "layout": "rich",
+    "heroImage": "/images/mellomkrigstiden/hero_japan.png",
+    "summary": "Fra Taishō-demokratiet til militarismens triumf – hvordan Japan vandret fra vestlig inspirert modernisme til imperialistisk aggresjon.",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "I 1918 sto Japan som en av verdens stormakter. Det hadde beseiret Russland i 1905 – den første asiatiske seier over en europeisk stormakt i moderne tid. Det hadde annektert Korea. Det hadde kjempet på seierherrenes side i første verdenskrig og vunnet tyske kolonier i Stillehavet. Japan var det moderne Asia – og det så mot vest for inspirasjon."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Taishō-demokratiet",
+            "id": "taisho"
+        },
+        {
+            "type": "paragraph",
+            "text": "1910- og 1920-tallet – Taishō-perioden – var Japans eksperiment med liberal demokrati. Politiske partier styrte. Pressen var fri. Arbeiderbevegelsen organiserte seg. Kvinner begynte å kreve rettigheter. «Modan gāru» (modern girl) – den selvstendige, vestlig kledde japanske kvinnen – ble et symbol på endring."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men demokratiet hadde sine grenser. Kun de rikeste hadde stemmerett frem til 1925. Keiseren forble symbolsk hellig. Og militæret – hæren og marinen – sto utenfor sivil kontroll. Ifølge grunnloven rapporterte generalene direkte til keiseren, ikke til statsministeren."
+        },
+        {
+            "type": "QuoteBlock",
+            "quote": "Demokrati i Japan var som et vakkert tre plantet i sand – uten røtter.",
+            "source": "Moderne historiker",
+            "context": "Taishō-demokratiet manglet dype tradisjoner og solide institusjoner."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Økonomisk krise og nasjonalistisk reaksjon",
+            "id": "krise"
+        },
+        {
+            "type": "paragraph",
+            "text": "1929-krakket rammet Japan hardt. Silkeeksporten – vital for japanske bønder – kollapset da amerikanske forbrukere kuttet forbruket. Landsbyer sultet. Unge offiserer, ofte fra fattige rurale bakgrunner, ble radikalisert. De hatet de korrupte politikerne i Tokyo. De drømte om et «Shōwa-restaurasjon» – å rense Japan og la keiserens sanne vilje styre."
+        },
+        {
+            "type": "paragraph",
+            "text": "Ultranasjonalistiske organisasjoner blomstret. Noen fantaserte om «Pan-asianisme» – Japan som Asias frigjører fra vestlig imperialisme. Andre ville rett og slett erobre. Felles var troen på Japans unike misjon og forakt for vestlig liberalisme."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Mandsjuria: Militæret tar kontroll",
+            "id": "mandsjuria"
+        },
+        {
+            "type": "paragraph",
+            "text": "I september 1931 tok offiserer i Japans Kwantung-hær – stasjonert i det kinesiske Mandsjuria – saken i egne hender. De iscenesatte en sabotasje mot den japanske jernbanen og brukte det som påskudd for å invadere hele provinsen. Regjeringen i Tokyo – som ikke hadde gitt ordre – ble stilt overfor fullbyrdede fakta."
+        },
+        {
+            "type": "paragraph",
+            "text": "Mandsjuria-hendelsen viste militærets makt. Ingen ble straffet. Tvert imot ble offiserene hyllet som helter. Regjeringen, fanget av nasjonalistisk opinion, godkjente invasjonen i etterkant. Da Folkeforbundet fordømte Japan, meldte Japan seg ut."
+        },
+        {
+            "type": "FactBox",
+            "title": "Manchukuo",
+            "facts": [
+                "Japan opprettet marionett-staten 'Manchukuo' med den siste kinesiske keiseren, Puyi, som nominell leder.",
+                "I realiteten styrte Kwantung-hæren territoriet.",
+                "Mandsjuria ble plyndret for ressurser til japansk industri.",
+                "Over 100 000 koreanere og kinesere ble brukt som tvangsarbeidere."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Unge offiserers terrorisme",
+            "id": "terror"
+        },
+        {
+            "type": "paragraph",
+            "text": "Gjennom 1930-tallet utførte ultranasjonalistiske offiserer politiske attentater. Statsminister Inukai Tsuyoshi ble myrdet i 1932 av marineoffiserer. Andre attentat rammet bankfolk, industriledere, politikere. Morderne ble ofte behandlet mildt av domstolene – «patriotiske motiver» ble formidabel."
+        },
+        {
+            "type": "paragraph",
+            "text": "I februar 1936 forsøkte unge hæroffiserer et regelrett statskupp – «26. februar-hendelsen». De myrdet flere ministere og okkuperte sentrale bygninger i Tokyo. Keiser Hirohito fordømte kuppmakerne, og de ble arrestert og henrettet. Men paradoksalt nok styrket hendelsen militærets posisjon: ingen sivil politiker våget lenger å trosse generalene."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Krig i Kina",
+            "id": "kina"
+        },
+        {
+            "type": "paragraph",
+            "text": "I juli 1937 brukte Japan en mindre grensehendelse som påskudd for å invadere Kina for alvor. Det som startet som en «hendelse» ble en brutal krig. Den japanske hæren erobret Shanghai og deretter Nanjing, hovedstaden."
+        },
+        {
+            "type": "paragraph",
+            "text": "Det som skjedde i Nanjing i desember 1937 sjokkerte verden. I ukevis herjet japanske tropper i byen: massakrer på sivile og fanger, massevoldtekter, plyndring. Anslagene varierer, men minst 100 000 – kanskje over 300 000 – ble drept. «Nanjing-massakren» er fortsatt et omstridt minne i Øst-Asia."
+        },
+        {
+            "type": "paragraph",
+            "text": "Krigen i Kina ble en malstrøm. Japans hær erobret kystbyene, men klarte aldri å knekke kinesisk motstand i innlandet. Ressursene ble strukket. Og vestlige makter – særlig USA – begynte å legge press på Japan."
+        },
+        {
+            "type": "TimelineComponent",
+            "title": "Japans vei mot krig",
+            "compact": true,
+            "events": [
+                {
+                    "year": "1931",
+                    "event": "Mandsjuria invaderes. Folkeforbundet fordømmer Japan."
+                },
+                {
+                    "year": "1933",
+                    "event": "Japan melder seg ut av Folkeforbundet."
+                },
+                {
+                    "year": "1936",
+                    "event": "26. februar-kuppet. Militærets dominans bekreftet."
+                },
+                {
+                    "year": "1937",
+                    "event": "Invasjonen av Kina. Nanjing-massakren."
+                },
+                {
+                    "year": "1940",
+                    "event": "Japan slutter seg til Aksemaktene (Tyskland, Italia)."
+                },
+                {
+                    "year": "1941",
+                    "event": "Angrepet på Pearl Harbor. Japan er i krig med USA."
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Veien mot Pearl Harbor",
+            "id": "pearl-harbor"
+        },
+        {
+            "type": "paragraph",
+            "text": "USA reagerte på Japans aggresjon med økonomiske sanksjoner – først på stål og jernmalm, deretter i 1941 en total oljeembargo. For Japan, avhengig av amerikansk olje, var dette en strategisk krise. Uten olje ville marinen være lammet innen et par år."
+        },
+        {
+            "type": "paragraph",
+            "text": "Militærledelsen så to valg: trekke seg ut av Kina og forhandle med USA (politisk umulig for de nasjonalistiske kreftene), eller slå til mot de ressursrike europeiske koloniene i Sørøst-Asia – olje i Nederlandsk Øst-India, gummi og tinn i Malaya. Men det ville bety krig med Storbritannia, Nederland – og USA."
+        },
+        {
+            "type": "paragraph",
+            "text": "Admiral Isoroku Yamamoto – ironisk nok en mann som advarte mot krig med USA – planla et dristig slag: ødelegge den amerikanske Stillehavsflåten ved Pearl Harbor i Hawaii, og gi Japan tid til å bygge et uinntagelig imperium før amerikanerne kunne slå tilbake."
+        },
+        {
+            "type": "paragraph",
+            "text": "Den 7. desember 1941 angrep japanske fly Pearl Harbor. Over 2 400 amerikanere ble drept. Åtte slagskip ble ødelagt eller skadet. «En dag som vil leve i vanære», kalte president Roosevelt det. USA erklærte krig. Veien Japan hadde vandret gjennom mellomkrigstiden endte i den voldsomste konflikten i Stillehavet historien har sett."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Et moderniseringens paradoks",
+            "id": "paradoks"
+        },
+        {
+            "type": "paragraph",
+            "text": "Japans historie i mellomkrigstiden er et tragisk paradoks. Samme land som hadde skapt Taishō-demokratiet, Bauhaus-inspirert arkitektur og moderne litteratur, skapte også Nanjing-massakren og kamikaze-piloter. Moderniseringen ga verktøyene – industri, teknologi, organisasjon – men ikke automatisk de liberale verdiene."
+        },
+        {
+            "type": "paragraph",
+            "text": "Militarismen seiret fordi demokratiet var svakt, fordi økonomisk krise radikaliserte, og fordi imperialisme var tidens ideologi – også for vestlige makter. Japan lærte ekspansjon av de samme maktene som senere fordømte den."
+        },
+        {
+            "type": "paragraph",
+            "text": "Arven er komplisert. Det moderne Japan, bygget på ruinene av 1945, er et av verdens mest fredelige demokratier. Men stridene om minnene – over Nanjing, over «komfortkvinner», over Yasukuni-helligdommen – viser at mellomkrigstidens skygger ennå ikke er fullt ut konfrontert."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var Taishō-perioden i Japan?",
+            "options": [
+                "En periode med militaristisk ekspansjon",
+                "En periode med demokratisk eksperimentering på 1910-1920-tallet",
+                "En borgerkrig mellom keiseren og shogunen",
+                "Perioden etter andre verdenskrig"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva skjedde i Mandsjuria i 1931?",
+            "options": [
+                "USA invaderte japansk territorium",
+                "Japanske offiserer invaderte uten regjeringens klare ordre",
+                "Kina angrep Japan",
+                "Folkeforbundet sendte tropper"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var Nanjing-massakren?",
+            "options": [
+                "En naturkatastrofe som rammet Kina",
+                "Massedrap og overgrep utført av japanske tropper mot kinesiske sivile",
+                "Et slag mellom japanske og amerikanske styrker",
+                "Et kommunistisk opprør i Kina"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var årsaken til at Japan angrep Pearl Harbor?",
+            "options": [
+                "Amerikanske angrep på japanske skip",
+                "For å stoppe en amerikansk invasjon av Japan",
+                "For å nøytralisere USAs Stillehavsflåte og sikre ressurser i Sørøst-Asia",
+                "Et forsvar av Mandsjuria"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

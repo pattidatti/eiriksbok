@@ -31,8 +31,7 @@ Den beste editoren for webutvikling.
     - **TinaCMS**: (Valgfritt) Hvis du jobber mye med CMS-konfigurasjonen.
 
 ## 2. Klargjøring av prosjektet
-
-Siden prosjektet ligger i **Dropbox**, vil filene sannsynligvis allerede være synkronisert til maskinen din. Men `node_modules`-mappen (hvor alle bibliotekene ligger) skal **ikke** synkroniseres, så denne må bygges på nytt på hver maskin.
+Prosjektet administreres primært via **Git**. Hvis du har fått tilgang til filene via Dropbox, sørg for at du har de nyeste filene synkronisert. Hvis du bruker GitHub, klon repoet først.
 
 1.  **Åpne prosjektmappen** i VS Code.
 2.  Åpne en **Terminal** i VS Code (`Terminal` -> `New Terminal` i menyen).
@@ -40,7 +39,7 @@ Siden prosjektet ligger i **Dropbox**, vil filene sannsynligvis allerede være s
     ```bash
     npm install
     ```
-    *Dette kan ta noen minutter.*
+    *Dette bygger `node_modules` lokalt på din maskin. Denne mappen skal aldri synkroniseres eller sjekkes inn i Git.*
 
 ## 3. Starte utvikling
 

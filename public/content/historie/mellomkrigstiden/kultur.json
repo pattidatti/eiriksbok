@@ -1,0 +1,178 @@
+{
+    "id": "kultur",
+    "title": "Kultur: Da alt ble relativt",
+    "category": "Mellomkrigstiden",
+    "year": "1918-1939",
+    "readTime": "16 minutter",
+    "layout": "rich",
+    "heroImage": "/images/mellomkrigstiden/hero_kultur.png",
+    "summary": "Fra Einsteins relativitet til Bauhaus og jazz – mellomkrigstiden var en eksplosjon av modernisme som stilte spørsmål ved alt det gamle.",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Da første verdenskrig tok slutt, lå ikke bare byer i ruiner – grunnvoller av sivilisasjon var også rystet. Den gamle verdensordenen, med sine keisere og stabile verdier, var knust. En ny generasjon kunstnere, forfattere, arkitekter og tenkere spurte: kan vi i det hele tatt stole på noe? Mellomkrigstiden ble en tid for radikale eksperimenter – en epoke der alt ble relativt."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Einstein og den nye virkeligheten",
+            "id": "einstein"
+        },
+        {
+            "type": "paragraph",
+            "text": "I 1905 hadde en ukjent patentklerk i Sveits, Albert Einstein, publisert sin spesielle relativitetsteori. I 1915 kom den generelle relativitetsteorien, som viste at selv tid og rom bøyer seg. I 1919 bekreftet en britisk ekspedisjon – ved å observere en solformørkelse – at stjerners lys faktisk bøyde seg rundt solen, akkurat som Einstein hadde forutsagt."
+        },
+        {
+            "type": "paragraph",
+            "text": "Einstein ble verdens mest kjente vitenskapsmann over natten. Men for vanlige mennesker var budskapet svimlende: selv fysikkens lover – tid, rom, kausalitet – var ikke absolutte. Hvis ingenting var fast, hva kunne man da tro på? Einsteins teorier ble ofte misforstått som at «alt er relativt» – en filosofisk sannhet mer enn en fysisk formel."
+        },
+        {
+            "type": "QuoteBlock",
+            "quote": "Gud spiller ikke terning med universet.",
+            "source": "Albert Einstein",
+            "context": "Einstein var selv skeptisk til kvantemekanikken, som innførte sannsynlighet i fysikken."
+        },
+        {
+            "type": "paragraph",
+            "text": "Samtidig utviklet Werner Heisenberg usikkerhetsrelasjonene, som viste at man ikke kan kjenne både posisjon og hastighet til en partikkel med absolut presisjon. Kvantemekanikken – den rare verdenen av partikler og bølger – utfordret common sense. Virkeligheten selv så ut til å være fundamentalt usikker."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Den modernistiske eksplosjonen",
+            "id": "modernisme"
+        },
+        {
+            "type": "paragraph",
+            "text": "I kunsten spredte modernismen seg som en gressbrann. De gamle reglene – perspektiv, proporsjoner, representasjon – ble kastet over bord. Picasso og Braque hadde startet kubismen før krigen; nå eksploderte en jungel av bevegelser: surrealisme, dadaisme, konstruktivisme, futurisme."
+        },
+        {
+            "type": "paragraph",
+            "text": "Dadaistene, oppstått i Zürichs kabareter under krigen, reagerte på krigens meningsløshet med kunsterisk meningsløshet. Marcel Duchamps «Fontene» – et pissoar signert med et pseudonym og stilt ut som kunst – stilte det fundamentale spørsmålet: hva er kunst i det hele tatt? Hvis et pissoar kan være kunst, finnes det ingen essens, bare kontekst og valg."
+        },
+        {
+            "type": "paragraph",
+            "text": "Surrealistene, ledet av André Breton, dykket ned i det ubevisste – inspirert av Sigmund Freuds psykoanalyse. Salvador Dalí malte smeltende klokker og drømmelandskap. René Magritte stilte spørsmål ved virkeligheten selv: «Ceci n'est pas une pipe» – dette er ikke en pipe – sto det under hans berømte maleri av en pipe. Hva var virkelighet og hva var representasjon?"
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Bauhaus: Form følger funksjon",
+            "id": "bauhaus"
+        },
+        {
+            "type": "paragraph",
+            "text": "I arkitekturen grunnla Walter Gropius Bauhaus-skolen i Weimar i 1919. Bauhaus forente kunst, håndverk og teknologi i en ny estetikk: rene linjer, funksjonalitet, materialer som stål, glass og betong. Ornamentikk var overflødig – form skulle følge funksjon."
+        },
+        {
+            "type": "paragraph",
+            "text": "Bauhaus tiltrakk seg avantgarden: Wassily Kandinsky, Paul Klee, László Moholy-Nagy. Skolen flyttet til Dessau, så til Berlin, før nazistene stengte den i 1933 – de hatet den «degenererte» modernismen. Men Bauhaus-estetikken levde videre; da lærerne flyktet til USA, tok de med seg ideene som ble grunnlaget for moderne arkitektur."
+        },
+        {
+            "type": "FactBox",
+            "title": "Modernismens milepæler",
+            "facts": [
+                "1922: James Joyces «Ulysses» publiseres – en roman som bryter med alle fortellerteknikker.",
+                "1922: T.S. Eliots «The Waste Land» – et fragmentarisk dikt om sivilisasjonens sammenbrudd.",
+                "1927: Fritz Langs «Metropolis» – en visuelt banebrytende dystopisk film.",
+                "1929: Hemingways «A Farewell to Arms» – sparsom, moderne prosa om krigens meningsløshet."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Jazz Age og populærkultur",
+            "id": "jazz"
+        },
+        {
+            "type": "paragraph",
+            "text": "Mens avantgarden eksperimenterte, danset massene til jazz. Født i New Orleans' afroamerikanske miljøer vandret jazzen opp Mississippi til Chicago og så til New York. Louis Armstrong, Duke Ellington, Bessie Smith – navnene ble legendariske. I Harlem Renaissance blomstret en svart kulturell renessanse: litteratur, kunst, musikk som feiret afroamerikansk identitet."
+        },
+        {
+            "type": "paragraph",
+            "text": "Jazz var frihet – improvisasjon, synkopering, følelsesintensitet. For konservative var den skandaløs: primitiv, seksuell, farlig. For de unge var den befrielse. Josephine Baker, den afroamerikanske danseren som ble superstjerne i Paris, symboliserte epokets grensesprenging – kjønn, rase, nasjonal identitet ble alt forhandlet på nytt."
+        },
+        {
+            "type": "paragraph",
+            "text": "Og så var det filmen. Hollywood ble drømmefabrikken. Charlie Chaplins «Little Tramp» talte til millioner uten et ord (stumfilmen hadde sin egen poesi). Da lydfilmen kom i 1927 med «The Jazz Singer», endret mediet seg dramatisk. Hollywood-stjerner ble de nye gudene, deres liv dissekert i tabloidpressen."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Weimar-kulturen: Glimt før stormen",
+            "id": "weimar"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ingensteds blomstret mellomkrigsmodernismen mer intenst enn i Berlin under Weimar-republikken. Berlin på 1920-tallet var Europas mest vibrerende by: kabaret, eksperimentelt teater, nattklubber, seksuell frigjøring. Christopher Isherwood – som senere skrev «Goodbye to Berlin» – kalte det «et paradis av dekadanse»."
+        },
+        {
+            "type": "paragraph",
+            "text": "Bertolt Brecht og Kurt Weill skapte «Tolvskillingsoperaen» – en bitende satire over kapitalismen. Fritz Lang laget dystopiske mesterverker som «Metropolis» og «M». Magnus Hirschfeld ledet verdens første institutt for sexologi og kjempet for homofiles rettigheter."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men under overflaten lurte mørke krefter. Konservative og nazister hatet «den jødiske, kosmopolitiske dekadansen». I 1933 stengte de Hirschfelds institutt; bøkene ble brent på bål. Brecht flyktet. Weimar-kulturens lysende stjerner sluknet – eller ble slukket."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Tapet av felles sannhet",
+            "id": "sannhet"
+        },
+        {
+            "type": "paragraph",
+            "text": "Hva karakteriserte mellomkrigskulturen? Et fundamentalt trekk: tapet av felles sannhet. Vitenskapen viste at virkeligheten var relativere enn antatt. Kunsten fragmenterte perspektivet. Filosofien – fra Nietzsche til eksistensialistene – erklærte at Gud var død og at mennesket måtte skape sin egen mening."
+        },
+        {
+            "type": "paragraph",
+            "text": "For noen var dette frigjørende. Endelig kunne man eksperimentere, stille spørsmål, finne sin egen vei. For andre var det skremmende. Når alt er relativt, er ingenting sant. Og i dette vakuumet ventet demagogene med sine enkle svar: nasjonen, rasen, lederen – noe å tro på, noe å holde fast ved."
+        },
+        {
+            "type": "paragraph",
+            "text": "Mellomkrigskulturen var både et høydepunkt og en advarsel. Den viste menneskets evne til å skape skjønnhet og stille vanskelige spørsmål. Men den viste også at når gamle verdier forvitrer, kan frykten for kaos bli utnyttet av dem som tilbyr orden – for enhver pris."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva viste Einsteins relativitetsteori?",
+            "options": [
+                "At alt er moralsk relativt",
+                "At tid og rom ikke er absolutte",
+                "At religion er vitenskapelig bevist",
+                "At kvantemekanikken er feil"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var Bauhaus?",
+            "options": [
+                "En politisk bevegelse i Italia",
+                "En arkitektur- og designskole i Tyskland",
+                "En jazzmusikkstil fra New Orleans",
+                "En psykologisk retning grunnlagt av Freud"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva kjennetegnet dadaismen?",
+            "options": [
+                "Strenge regler for perspektiv og form",
+                "Reaksjon på krigens meningsløshet gjennom kunstnerisk absurditet",
+                "Feiring av klassiske greske idealer",
+                "Fokus på religiøs kunst"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvorfor er Weimar-kulturen historisk viktig?",
+            "options": [
+                "Den skapte den første lydfilmen",
+                "Den representerte en intens kulturell blomstring før nazismens undertrykking",
+                "Den var konservativ og tradisjonell",
+                "Den var basert i Paris"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

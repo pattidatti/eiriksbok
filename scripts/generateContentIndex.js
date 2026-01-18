@@ -56,12 +56,7 @@ function scanDirectory(dir) {
             // Strategy 1: "Artikkel" Pattern (Religions)
             // content/religion/bahai/bonn/artikkel.json -> "bahai-bonn"
             if (file === 'artikkel.json') {
-                // Check if parent is generic (e.g. "bonn")
-                if (genericBlocklist.includes(parentFolder) && grandparentFolder) {
-                    id = `${grandparentFolder}-${parentFolder}`;
-                } else {
-                    id = parentFolder;
-                }
+                id = parentFolder;
             }
             // Strategy 2: Quests & Detective Game Content
             else if (isQuest) {
@@ -73,7 +68,7 @@ function scanDirectory(dir) {
             // Strategy 3: Generic Filenames 
             // content/history/ww2/oversikt.json -> "ww2-oversikt"
             else if (genericBlocklist.includes(filenameNoExt)) {
-                id = `${parentFolder}-${filenameNoExt}`;
+                id = filenameNoExt;
             }
             // Strategy 4: Standard
             else {

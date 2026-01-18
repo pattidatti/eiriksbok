@@ -1,0 +1,212 @@
+{
+    "id": "italia",
+    "title": "Italia: Fascismens fødsel",
+    "category": "Mellomkrigstiden",
+    "year": "1919-1939",
+    "readTime": "18 minutter",
+    "layout": "rich",
+    "heroImage": "/images/mellomkrigstiden/hero_italia.png",
+    "summary": "Marsjen mot Roma, Mussolinis maktovertakelse og korporativstaten – Italia ble laboratoriet for en ny politisk bevegelse: fascismen.",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Italia hadde kjempet på vinnerens side i første verdenskrig – og følte seg som en taper. 600 000 italienske soldater hadde dødd i de alpine skyttergravene. Og til gjengjeld fikk Italia mindre territorium enn lovet i de hemmelige avtalene som hadde trukket landet inn i krigen. «Den kullsvidde seierens» bitterhet ble grobunn for noe helt nytt."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Benito Mussolini: Fra sosialist til fascist",
+            "id": "mussolini"
+        },
+        {
+            "type": "paragraph",
+            "text": "Benito Mussolini var sønn av en smed og en lærer fra Romagna. Han begynte som lidenskapelig sosialist – redaktør for partiavisen Avanti! og en brannfakkel i klassekampen. Men krigen forandret ham. Mussolini brøt med sosialistene da han støttet Italias deltakelse i krigen. Han meldte seg frivillig til fronten og ble såret av en granat."
+        },
+        {
+            "type": "paragraph",
+            "text": "Da han kom hjem, var han en desillusjonert veteran – og en politisk opportunist på jakt etter en bevegelse å lede. I 1919 grunnla han «Fasci Italiani di Combattimento» – kampbundter – med en blanding av veteraner, nasjonalister, syndikalister og eventyrere. Programmet var kaotisk: mot kapitalisme, mot sosialisme, for nasjonen, for handling. Symbolet var fascen – en bunt av pinner bundet rundt en øks, et romersk maktemblem."
+        },
+        {
+            "type": "QuoteBlock",
+            "quote": "Vårt program er enkelt: vi ønsker å styre Italia.",
+            "source": "Benito Mussolini",
+            "context": "Fasismen hadde ingen konsistent ideologi – bare en vilje til makt."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "De sorte skjortene og voldens politikk",
+            "id": "squadristi"
+        },
+        {
+            "type": "paragraph",
+            "text": "Italias liberale demokrati var svakt. Koalisjonsregjeringer skiftet hyppig. Inflasjon og arbeidsløshet plaget landet. Arbeidere organiserte streiker. Bønder okkuperte gods. Det virket som om revolusjon lå i luften – «de røde to årene» (biennio rosso) 1919-1920."
+        },
+        {
+            "type": "paragraph",
+            "text": "Mussolinis squadristi – «de sorte skjortene» – tilbød en løsning: brutal vold mot venstresiden. Finansiert av godseiere og industrialister, dro svartskjortene fra landsby til landsby og angrep sosialistiske partikontor, fagforeningshus og kooperativer. De tvang kommunister til å drikke rizinusolje. De banket opp motstandere. De ødela trykkpresser."
+        },
+        {
+            "type": "paragraph",
+            "text": "Og staten – politiet, hæren, domstolene – så en annen vei. For mange i eliten var fascistene nyttige idioter som knuste den røde trusselen. De undervurderte Mussolini. De trodde de kunne kontrollere ham."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Marsjen mot Roma",
+            "id": "marsjen"
+        },
+        {
+            "type": "paragraph",
+            "text": "I oktober 1922 bestemte Mussolini seg for å gripe makten. Han organiserte «marsjen mot Roma» – titusenvis av svartskjorter samlet seg for å marsjere mot hovedstaden. Det var et bløff: de var dårlig bevæpnet og dårlig organisert. Hadde hæren fått ordre om å stoppe dem, ville de blitt knust."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men statsminister Luigi Facta nølte. Kong Viktor Emanuel III nektet å signere unntakstilstanden som ville mobilisert hæren. I stedet, overraskende alle, inviterte kongen Mussolini til å danne regjering. Mussolini tok toget – ikke marsjen – til Roma, og ble statsminister."
+        },
+        {
+            "type": "paragraph",
+            "text": "Det var et statskupp kledd i legalitet. Mussolini ble utnevnt av kongen, godkjent av parlamentet. Men fundamentet var vold og trusler. Demokratiet begikk ikke selvmord; det ble myrdet av dem som burde ha beskyttet det."
+        },
+        {
+            "type": "TimelineComponent",
+            "title": "Fascismens maktovertakelse",
+            "compact": true,
+            "events": [
+                {
+                    "year": "1919",
+                    "event": "Mussolini grunnlegger fascistbevegelsen."
+                },
+                {
+                    "year": "1920",
+                    "event": "Squadristi angriper sosialistiske organisasjoner."
+                },
+                {
+                    "year": "1922",
+                    "event": "Marsjen mot Roma. Mussolini blir statsminister."
+                },
+                {
+                    "year": "1924",
+                    "event": "Mordet på Matteotti. Krisen brukes til å ta full kontroll."
+                },
+                {
+                    "year": "1925",
+                    "event": "Mussolini erklærer seg diktator."
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Diktaturet konsolideres",
+            "id": "diktatur"
+        },
+        {
+            "type": "paragraph",
+            "text": "De første årene beholdt Mussolini et skinn av demokrati. Parlamentet møttes fortsatt. Han hadde koalisjonspartnere. Men i 1924 ble sosialistlederen Giacomo Matteotti – som hadde dokumentert fascistisk valgfusk – bortført og drept av fascister. Opposisjonen forlot parlamentet i protest (den «aventinske secesjonen»)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Mussolini vaklet, men overlevde. I januar 1926 tok han full kontroll. Fagforeninger ble oppløst eller underordnet staten. Pressen ble sensurert. Politiske partier ble forbudt – unntatt fascistpartiet. Det hemmelige politiet (OVRA) arresterte motstandere. Mussolini ble «Il Duce» – lederen – med uinnskrenket makt."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Den korporative staten",
+            "id": "korporativisme"
+        },
+        {
+            "type": "paragraph",
+            "text": "Fascistisk ideologi var ullen, men det fantes kjernetanker. En av dem var korporativismen: ideen om at klassekonflikt kunne erstattes av samarbeid mellom arbeidere, arbeidsgivere og staten, organisert i «korporasjoner» for hver industrisektor."
+        },
+        {
+            "type": "paragraph",
+            "text": "I praksis betydde dette at fagforeninger ble til fascistiske kontrollerte organisasjoner. Streiker ble forbudt. Arbeidsgiverne beholdt makten; arbeiderne mistet sin. Korporativismen var anti-liberalisme (mot det frie markedet og individuell frihet) og anti-marxisme (mot klassekamp og sosialisme) – en «tredje vei» som angivelig kombinerte kapitalisme og statlig kontroll."
+        },
+        {
+            "type": "FactBox",
+            "title": "Fascismens kjennetegn",
+            "facts": [
+                "Ultranasjonalisme – nasjonen over alt, individet er ingenting uten staten.",
+                "En charismatisk leder – Il Duce – med absolutt makt.",
+                "Vold som politisk virkemiddel – squadristi, hemmelig politi, undertrykkelse.",
+                "Massemobilisering – parader, propaganda, ungdomsorganisasjoner.",
+                "Tradisjonelle verdier – familie, kirke, militarisme – kombinert med «revolusjonær» retorikk."
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Imperiedrømmer",
+            "id": "imperialisme"
+        },
+        {
+            "type": "paragraph",
+            "text": "Mussolini drømte om å gjenskape det romerske imperiet. I 1935 invaderte Italia Etiopia – en rå aggressorkrig med giftgass og massakrer. Folkeforbundet protesterte, men Mussolini triumferte. I 1936 erklærte han «imperiet» gjenopprettet."
+        },
+        {
+            "type": "paragraph",
+            "text": "Samtidig nærmte Italia seg Nazi-Tyskland. Mussolini og Hitler – begge fascinert av den andres regimer – inngikk «aksen Roma-Berlin» i 1936. Mussolini sendte tropper og fly til å støtte Franco i den spanske borgerkrigen. Italia ble stadig mer bundet til det tyske diktaturet som snart ville trekke det inn i historiens mest ødeleggende krig."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Fascismens arv",
+            "id": "arv"
+        },
+        {
+            "type": "paragraph",
+            "text": "Italia under Mussolini var aldri så totalitært som Nazi-Tyskland eller Stalins Sovjet. Monarkiet eksisterte fortsatt. Kirken beholdt innflytelse. Mange italienere navigerte fascismen uten å bli overbevist – de fulgte med for å overleve. Da krigen snudde mot Italia i 1943, falt Mussolini – avsatt av sitt eget parti og kongehuset."
+        },
+        {
+            "type": "paragraph",
+            "text": "Men fascismens idé – ultranasjonalisme kombinert med autoritær ledelse og massemobilisering – spredte seg over Europa. Hitler lærte av Mussolini (og gikk langt lenger). Fascistiske bevegelser dukket opp overalt, fra Spania til Romania. Ordet «fascisme» ble et begrep som definerte en ny type politisk monstrositet."
+        },
+        {
+            "type": "paragraph",
+            "text": "Italias marsj mot Roma var første gang i moderne tid at et demokrati frivillig overgav seg til en diktator. Det ble ikke den siste."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var Mussolinis politiske bakgrunn før fascismen?",
+            "options": [
+                "Liberal konsernsjef",
+                "Sosialistisk avisredaktør",
+                "Konservativ militærofficer",
+                "Monarkistisk aristokrat"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva skjedde under 'marsjen mot Roma' i 1922?",
+            "options": [
+                "Fascistene stormet parlamentet med våpen",
+                "Kongen inviterte Mussolini til å danne regjering i stedet for å stoppe marsjen",
+                "Hæren knuste fascistbevegelsen",
+                "Mussolini ble arrestert og fengslet"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var korporativismen i fascistisk ideologi?",
+            "options": [
+                "Fri markedsøkonomi uten reguleringer",
+                "Statskontrollert samarbeid mellom arbeider og arbeidsgiver",
+                "Arbeidereid av produksjonsmidlene",
+                "Kommunisme med fascistisk retorikk"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilket land invaderte Italia i 1935?",
+            "options": [
+                "Albanina",
+                "Etiopia",
+                "Libya",
+                "Hellas"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 {
-  "buildId": 1768740864762,
+  "buildId": 1768771752275,
   "contentMap": {
     "aksemaktene": [
       "content/concepts/aksemaktene.json"
@@ -22,8 +22,9 @@
     "anschluss": [
       "content/concepts/anschluss.json"
     ],
-    "concepts-arbeidsspesialisering": [
-      "content/concepts/arbeidsspesialisering.json"
+    "arbeidsspesialisering": [
+      "content/concepts/arbeidsspesialisering.json",
+      "content/samfunnskunnskap/okonomi/arbeidsspesialisering.json"
     ],
     "artilleri": [
       "content/concepts/artilleri.json"
@@ -33,6 +34,9 @@
     ],
     "avkolonisering": [
       "content/concepts/avkolonisering.json"
+    ],
+    "balfour-erklaeringen": [
+      "content/concepts/balfour-erklaeringen.json"
     ],
     "blankoblankett": [
       "content/concepts/blankoblankett.json"
@@ -89,7 +93,8 @@
       "content/concepts/foerromersk-jernalder.json"
     ],
     "folkeforbundet": [
-      "content/concepts/folkeforbundet.json"
+      "content/concepts/folkeforbundet.json",
+      "content/historie/mellomkrigstiden/folkeforbundet.json"
     ],
     "folkevandringstiden": [
       "content/concepts/folkevandringstiden.json"
@@ -296,7 +301,8 @@
       "content/concepts/sikh.json"
     ],
     "skyttergravskrig": [
-      "content/concepts/skyttergravskrig.json"
+      "content/concepts/skyttergravskrig.json",
+      "content/historie/forste-verdenskrig/skyttergravskrig.json"
     ],
     "sosialisme": [
       "content/concepts/sosialisme.json"
@@ -318,6 +324,9 @@
     ],
     "suverenitetsprinsippet": [
       "content/concepts/suverenitetsprinsippet.json"
+    ],
+    "sykes-picot": [
+      "content/concepts/sykes-picot.json"
     ],
     "te": [
       "content/concepts/te.json"
@@ -352,8 +361,9 @@
     "unionsopplosningen-1905": [
       "content/concepts/unionsopplosningen-1905.json"
     ],
-    "concepts-urbanisering": [
-      "content/concepts/urbanisering.json"
+    "urbanisering": [
+      "content/concepts/urbanisering.json",
+      "content/samfunnskunnskap/demografi/urbanisering.json"
     ],
     "utmattelseskrig": [
       "content/concepts/utmattelseskrig.json"
@@ -388,23 +398,30 @@
     "global-timeline": [
       "content/global-timeline.json"
     ],
-    "andre-verdenskrig-bakgrunn": [
+    "bakgrunn": [
       "content/historie/andre-verdenskrig/bakgrunn.json"
     ],
-    "andre-verdenskrig-konsekvenser": [
-      "content/historie/andre-verdenskrig/konsekvenser.json"
+    "konsekvenser": [
+      "content/historie/andre-verdenskrig/konsekvenser.json",
+      "content/historie/forste-verdenskrig/konsekvenser.json"
     ],
     "konsentrasjonsleirene": [
       "content/historie/andre-verdenskrig/konsentrasjonsleirene.json"
     ],
-    "andre-verdenskrig-krigens-lop": [
-      "content/historie/andre-verdenskrig/krigens-lop.json"
+    "krigens-lop": [
+      "content/historie/andre-verdenskrig/krigens-lop.json",
+      "content/historie/forste-verdenskrig/krigens-lop.json"
     ],
-    "andre-verdenskrig-oversikt": [
-      "content/historie/andre-verdenskrig/oversikt.json"
+    "oversikt": [
+      "content/historie/andre-verdenskrig/oversikt.json",
+      "content/historie/dekolonisering/oversikt.json",
+      "content/historie/den-kalde-krigen/oversikt.json",
+      "content/historie/forste-verdenskrig/oversikt.json",
+      "content/historie/mellomkrigstiden/oversikt.json"
     ],
-    "andre-verdenskrig-teknologi": [
-      "content/historie/andre-verdenskrig/teknologi.json"
+    "teknologi": [
+      "content/historie/andre-verdenskrig/teknologi.json",
+      "content/historie/forste-verdenskrig/teknologi.json"
     ],
     "dekolonisering-sti": [
       "content/historie/dekolonisering/dekolonisering-sti.json"
@@ -430,9 +447,6 @@
     "midtosten-mandater": [
       "content/historie/dekolonisering/midtosten-mandater.json"
     ],
-    "dekolonisering-oversikt": [
-      "content/historie/dekolonisering/oversikt.json"
-    ],
     "siste-skanse": [
       "content/historie/dekolonisering/siste-skanse.json"
     ],
@@ -448,7 +462,7 @@
     "atomvapenkapplopet": [
       "content/historie/den-kalde-krigen/atomvapenkapplopet.json"
     ],
-    "den-kalde-krigen-berlinmuren": [
+    "berlinmuren": [
       "content/historie/den-kalde-krigen/berlinmuren.json"
     ],
     "cuba-krisen": [
@@ -460,14 +474,12 @@
     "koreakrigen": [
       "content/historie/den-kalde-krigen/koreakrigen.json"
     ],
-    "den-kalde-krigen-kultur": [
-      "content/historie/den-kalde-krigen/kultur.json"
+    "kultur": [
+      "content/historie/den-kalde-krigen/kultur.json",
+      "content/historie/mellomkrigstiden/kultur.json"
     ],
     "nato-vs-warszawa": [
       "content/historie/den-kalde-krigen/nato-vs-warszawa.json"
-    ],
-    "den-kalde-krigen-oversikt": [
-      "content/historie/den-kalde-krigen/oversikt.json"
     ],
     "romkapplopet": [
       "content/historie/den-kalde-krigen/romkapplopet.json"
@@ -481,20 +493,23 @@
     "vietnamkrigen": [
       "content/historie/den-kalde-krigen/vietnamkrigen.json"
     ],
-    "forste-verdenskrig-konsekvenser": [
-      "content/historie/forste-verdenskrig/konsekvenser.json"
+    "hjemmefronten": [
+      "content/historie/forste-verdenskrig/hjemmefronten.json"
     ],
-    "forste-verdenskrig-krigens-lop": [
-      "content/historie/forste-verdenskrig/krigens-lop.json"
+    "norge-under-ww1": [
+      "content/historie/forste-verdenskrig/norge-under-ww1.json"
     ],
-    "forste-verdenskrig-opptakt": [
+    "opptakt": [
       "content/historie/forste-verdenskrig/opptakt.json"
     ],
-    "forste-verdenskrig-oversikt": [
-      "content/historie/forste-verdenskrig/oversikt.json"
+    "russiske-revolusjon": [
+      "content/historie/forste-verdenskrig/russiske-revolusjon.json"
     ],
-    "forste-verdenskrig-teknologi": [
-      "content/historie/forste-verdenskrig/teknologi.json"
+    "tyske-revolusjon": [
+      "content/historie/forste-verdenskrig/tyske-revolusjon.json"
+    ],
+    "ww1-sti": [
+      "content/historie/forste-verdenskrig/ww1-sti.json"
     ],
     "jordbruk-og-sivilisasjoner": [
       "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json"
@@ -523,6 +538,36 @@
     "voc": [
       "content/historie/kolonialisering/voc.json"
     ],
+    "borskrakk": [
+      "content/historie/mellomkrigstiden/borskrakk.json"
+    ],
+    "italia": [
+      "content/historie/mellomkrigstiden/italia.json"
+    ],
+    "japan": [
+      "content/historie/mellomkrigstiden/japan.json"
+    ],
+    "mellomkrigstiden-sti": [
+      "content/historie/mellomkrigstiden/mellomkrigstiden-sti.json"
+    ],
+    "midtoesten": [
+      "content/historie/mellomkrigstiden/midtoesten.json"
+    ],
+    "norge": [
+      "content/historie/mellomkrigstiden/norge.json"
+    ],
+    "sovjet": [
+      "content/historie/mellomkrigstiden/sovjet.json"
+    ],
+    "spania": [
+      "content/historie/mellomkrigstiden/spania.json"
+    ],
+    "tyskland": [
+      "content/historie/mellomkrigstiden/tyskland.json"
+    ],
+    "usa": [
+      "content/historie/mellomkrigstiden/usa.json"
+    ],
     "menneskets-tidlige-historie": [
       "content/historie/menneskets-tidlige-historie/menneskets-tidlige-historie.json"
     ],
@@ -538,7 +583,7 @@
     "svartedauden-sti": [
       "content/historie/middelalderen/svartedauden-sti.json"
     ],
-    "middelalderen-svartedauden": [
+    "svartedauden": [
       "content/historie/middelalderen/svartedauden.json"
     ],
     "tidlig-middelalder": [
@@ -679,8 +724,16 @@
     "dygdsetikk": [
       "content/krle/etikk/dygdsetikk.json"
     ],
-    "etikk-intro": [
-      "content/krle/etikk/intro.json"
+    "intro": [
+      "content/krle/etikk/intro.json",
+      "content/krle/filosofi/intro.json",
+      "content/krle/religion/bahai/intro.json",
+      "content/krle/religion/buddhisme/intro.json",
+      "content/krle/religion/hinduisme/intro.json",
+      "content/krle/religion/jehovas-vitner/intro.json",
+      "content/krle/religion/jodedom/intro.json",
+      "content/krle/religion/mormonisme/intro.json",
+      "content/samfunnskunnskap/demografi/intro.json"
     ],
     "naturrett": [
       "content/krle/etikk/naturrett.json"
@@ -717,9 +770,6 @@
     ],
     "hume": [
       "content/krle/filosofi/hume.json"
-    ],
-    "filosofi-intro": [
-      "content/krle/filosofi/intro.json"
     ],
     "kant": [
       "content/krle/filosofi/kant.json"
@@ -811,212 +861,88 @@
     "sokrates": [
       "content/krle/filosofi/sokrates.json"
     ],
-    "bahai-bonn": [
-      "content/krle/religion/bahai/bonn/artikkel.json"
+    "bonn": [
+      "content/krle/religion/bahai/bonn/artikkel.json",
+      "content/krle/religion/buddhisme/bonn/artikkel.json",
+      "content/krle/religion/hinduisme/bonn/artikkel.json",
+      "content/krle/religion/islam/bonn/artikkel.json",
+      "content/krle/religion/jehovas-vitner/bonn/artikkel.json",
+      "content/krle/religion/jodedom/bonn/artikkel.json",
+      "content/krle/religion/kristendom/bonn/artikkel.json",
+      "content/krle/religion/mormonisme/bonn/artikkel.json"
     ],
-    "bahai-frelse": [
-      "content/krle/religion/bahai/frelse/artikkel.json"
+    "frelse": [
+      "content/krle/religion/bahai/frelse/artikkel.json",
+      "content/krle/religion/buddhisme/frelse/artikkel.json",
+      "content/krle/religion/hinduisme/frelse/artikkel.json",
+      "content/krle/religion/islam/frelse/artikkel.json",
+      "content/krle/religion/jehovas-vitner/frelse/artikkel.json",
+      "content/krle/religion/jodedom/frelse/artikkel.json",
+      "content/krle/religion/kristendom/frelse/artikkel.json",
+      "content/krle/religion/mormonisme/frelse/artikkel.json"
     ],
-    "bahai-grunnleggere": [
-      "content/krle/religion/bahai/grunnleggere/artikkel.json"
+    "grunnleggere": [
+      "content/krle/religion/bahai/grunnleggere/artikkel.json",
+      "content/krle/religion/buddhisme/grunnleggere/artikkel.json",
+      "content/krle/religion/hinduisme/grunnleggere/artikkel.json",
+      "content/krle/religion/islam/grunnleggere/artikkel.json",
+      "content/krle/religion/jehovas-vitner/grunnleggere/artikkel.json",
+      "content/krle/religion/jodedom/grunnleggere/artikkel.json",
+      "content/krle/religion/kristendom/grunnleggere/artikkel.json",
+      "content/krle/religion/mormonisme/grunnleggere/artikkel.json",
+      "content/krle/religion/sikhisme/grunnleggere/artikkel.json"
     ],
-    "bahai-gudsbilde": [
-      "content/krle/religion/bahai/gudsbilde/artikkel.json"
+    "gudsbilde": [
+      "content/krle/religion/bahai/gudsbilde/artikkel.json",
+      "content/krle/religion/buddhisme/gudsbilde/artikkel.json",
+      "content/krle/religion/hinduisme/gudsbilde/artikkel.json",
+      "content/krle/religion/islam/gudsbilde/artikkel.json",
+      "content/krle/religion/jehovas-vitner/gudsbilde/artikkel.json",
+      "content/krle/religion/jodedom/gudsbilde/artikkel.json",
+      "content/krle/religion/kristendom/gudsbilde/artikkel.json",
+      "content/krle/religion/mormonisme/gudsbilde/artikkel.json"
     ],
-    "bahai-hellige-tekster": [
-      "content/krle/religion/bahai/hellige-tekster/artikkel.json"
+    "hellige-tekster": [
+      "content/krle/religion/bahai/hellige-tekster/artikkel.json",
+      "content/krle/religion/buddhisme/hellige-tekster/artikkel.json",
+      "content/krle/religion/hinduisme/hellige-tekster/artikkel.json",
+      "content/krle/religion/islam/hellige-tekster/artikkel.json",
+      "content/krle/religion/jehovas-vitner/hellige-tekster/artikkel.json",
+      "content/krle/religion/jodedom/hellige-tekster/artikkel.json",
+      "content/krle/religion/kristendom/hellige-tekster/artikkel.json",
+      "content/krle/religion/mormonisme/hellige-tekster/artikkel.json",
+      "content/krle/religion/sikhisme/hellige-tekster/artikkel.json"
     ],
-    "bahai-intro": [
-      "content/krle/religion/bahai/intro.json"
+    "overgangsriter": [
+      "content/krle/religion/bahai/overgangsriter/artikkel.json",
+      "content/krle/religion/buddhisme/overgangsriter/artikkel.json",
+      "content/krle/religion/hinduisme/overgangsriter/artikkel.json",
+      "content/krle/religion/islam/overgangsriter/artikkel.json",
+      "content/krle/religion/jehovas-vitner/overgangsriter/artikkel.json",
+      "content/krle/religion/jodedom/overgangsriter/artikkel.json",
+      "content/krle/religion/kristendom/overgangsriter/artikkel.json",
+      "content/krle/religion/mormonisme/overgangsriter/artikkel.json"
     ],
-    "bahai-overgangsriter": [
-      "content/krle/religion/bahai/overgangsriter/artikkel.json"
+    "sentrale-trekk": [
+      "content/krle/religion/bahai/sentrale-trekk/artikkel.json",
+      "content/krle/religion/buddhisme/sentrale-trekk/artikkel.json",
+      "content/krle/religion/hinduisme/sentrale-trekk/artikkel.json",
+      "content/krle/religion/islam/sentrale-trekk/artikkel.json",
+      "content/krle/religion/jehovas-vitner/sentrale-trekk/artikkel.json",
+      "content/krle/religion/jodedom/sentrale-trekk/artikkel.json",
+      "content/krle/religion/kristendom/sentrale-trekk/artikkel.json",
+      "content/krle/religion/mormonisme/sentrale-trekk/artikkel.json",
+      "content/krle/religion/sikhisme/sentrale-trekk/artikkel.json"
     ],
-    "bahai-sentrale-trekk": [
-      "content/krle/religion/bahai/sentrale-trekk/artikkel.json"
-    ],
-    "buddhisme-bonn": [
-      "content/krle/religion/buddhisme/bonn/artikkel.json"
-    ],
-    "buddhisme-frelse": [
-      "content/krle/religion/buddhisme/frelse/artikkel.json"
-    ],
-    "buddhisme-grunnleggere": [
-      "content/krle/religion/buddhisme/grunnleggere/artikkel.json"
-    ],
-    "buddhisme-gudsbilde": [
-      "content/krle/religion/buddhisme/gudsbilde/artikkel.json"
-    ],
-    "buddhisme-hellige-tekster": [
-      "content/krle/religion/buddhisme/hellige-tekster/artikkel.json"
-    ],
-    "buddhisme-intro": [
-      "content/krle/religion/buddhisme/intro.json"
-    ],
-    "buddhisme-overgangsriter": [
-      "content/krle/religion/buddhisme/overgangsriter/artikkel.json"
-    ],
-    "buddhisme-sentrale-trekk": [
-      "content/krle/religion/buddhisme/sentrale-trekk/artikkel.json"
-    ],
-    "hinduisme-bonn": [
-      "content/krle/religion/hinduisme/bonn/artikkel.json"
-    ],
-    "hinduisme-frelse": [
-      "content/krle/religion/hinduisme/frelse/artikkel.json"
-    ],
-    "hinduisme-grunnleggere": [
-      "content/krle/religion/hinduisme/grunnleggere/artikkel.json"
-    ],
-    "hinduisme-gudsbilde": [
-      "content/krle/religion/hinduisme/gudsbilde/artikkel.json"
-    ],
-    "hinduisme-hellige-tekster": [
-      "content/krle/religion/hinduisme/hellige-tekster/artikkel.json"
-    ],
-    "hinduisme-intro": [
-      "content/krle/religion/hinduisme/intro.json"
-    ],
-    "hinduisme-overgangsriter": [
-      "content/krle/religion/hinduisme/overgangsriter/artikkel.json"
-    ],
-    "hinduisme-sentrale-trekk": [
-      "content/krle/religion/hinduisme/sentrale-trekk/artikkel.json"
-    ],
-    "islam-bonn": [
-      "content/krle/religion/islam/bonn/artikkel.json"
-    ],
-    "islam-frelse": [
-      "content/krle/religion/islam/frelse/artikkel.json"
-    ],
-    "islam-grunnleggere": [
-      "content/krle/religion/islam/grunnleggere/artikkel.json"
-    ],
-    "islam-gudsbilde": [
-      "content/krle/religion/islam/gudsbilde/artikkel.json"
-    ],
-    "islam-hellige-tekster": [
-      "content/krle/religion/islam/hellige-tekster/artikkel.json"
-    ],
-    "islam-overgangsriter": [
-      "content/krle/religion/islam/overgangsriter/artikkel.json"
-    ],
-    "islam-sentrale-trekk": [
-      "content/krle/religion/islam/sentrale-trekk/artikkel.json"
-    ],
-    "islam-skapelse": [
-      "content/krle/religion/islam/skapelse/artikkel.json"
-    ],
-    "jehovas-vitner-bonn": [
-      "content/krle/religion/jehovas-vitner/bonn/artikkel.json"
-    ],
-    "jehovas-vitner-frelse": [
-      "content/krle/religion/jehovas-vitner/frelse/artikkel.json"
-    ],
-    "jehovas-vitner-grunnleggere": [
-      "content/krle/religion/jehovas-vitner/grunnleggere/artikkel.json"
-    ],
-    "jehovas-vitner-gudsbilde": [
-      "content/krle/religion/jehovas-vitner/gudsbilde/artikkel.json"
-    ],
-    "jehovas-vitner-hellige-tekster": [
-      "content/krle/religion/jehovas-vitner/hellige-tekster/artikkel.json"
-    ],
-    "jehovas-vitner-intro": [
-      "content/krle/religion/jehovas-vitner/intro.json"
-    ],
-    "jehovas-vitner-overgangsriter": [
-      "content/krle/religion/jehovas-vitner/overgangsriter/artikkel.json"
-    ],
-    "jehovas-vitner-sentrale-trekk": [
-      "content/krle/religion/jehovas-vitner/sentrale-trekk/artikkel.json"
-    ],
-    "jodedom-bonn": [
-      "content/krle/religion/jodedom/bonn/artikkel.json"
-    ],
-    "jodedom-frelse": [
-      "content/krle/religion/jodedom/frelse/artikkel.json"
-    ],
-    "jodedom-grunnleggere": [
-      "content/krle/religion/jodedom/grunnleggere/artikkel.json"
-    ],
-    "jodedom-gudsbilde": [
-      "content/krle/religion/jodedom/gudsbilde/artikkel.json"
-    ],
-    "jodedom-hellige-tekster": [
-      "content/krle/religion/jodedom/hellige-tekster/artikkel.json"
-    ],
-    "jodedom-intro": [
-      "content/krle/religion/jodedom/intro.json"
-    ],
-    "jodedom-overgangsriter": [
-      "content/krle/religion/jodedom/overgangsriter/artikkel.json"
-    ],
-    "jodedom-sentrale-trekk": [
-      "content/krle/religion/jodedom/sentrale-trekk/artikkel.json"
-    ],
-    "kristendom-bonn": [
-      "content/krle/religion/kristendom/bonn/artikkel.json"
+    "skapelse": [
+      "content/krle/religion/islam/skapelse/artikkel.json",
+      "content/krle/religion/kristendom/skapelse/artikkel.json"
     ],
     "dap": [
       "content/krle/religion/kristendom/dap/artikkel.json"
     ],
-    "kristendom-frelse": [
-      "content/krle/religion/kristendom/frelse/artikkel.json"
-    ],
-    "kristendom-grunnleggere": [
-      "content/krle/religion/kristendom/grunnleggere/artikkel.json"
-    ],
-    "kristendom-gudsbilde": [
-      "content/krle/religion/kristendom/gudsbilde/artikkel.json"
-    ],
-    "kristendom-hellige-tekster": [
-      "content/krle/religion/kristendom/hellige-tekster/artikkel.json"
-    ],
-    "kristendom-overgangsriter": [
-      "content/krle/religion/kristendom/overgangsriter/artikkel.json"
-    ],
-    "kristendom-sentrale-trekk": [
-      "content/krle/religion/kristendom/sentrale-trekk/artikkel.json"
-    ],
-    "kristendom-skapelse": [
-      "content/krle/religion/kristendom/skapelse/artikkel.json"
-    ],
-    "mormonisme-bonn": [
-      "content/krle/religion/mormonisme/bonn/artikkel.json"
-    ],
-    "mormonisme-frelse": [
-      "content/krle/religion/mormonisme/frelse/artikkel.json"
-    ],
-    "mormonisme-grunnleggere": [
-      "content/krle/religion/mormonisme/grunnleggere/artikkel.json"
-    ],
-    "mormonisme-gudsbilde": [
-      "content/krle/religion/mormonisme/gudsbilde/artikkel.json"
-    ],
-    "mormonisme-hellige-tekster": [
-      "content/krle/religion/mormonisme/hellige-tekster/artikkel.json"
-    ],
-    "mormonisme-intro": [
-      "content/krle/religion/mormonisme/intro.json"
-    ],
-    "mormonisme-overgangsriter": [
-      "content/krle/religion/mormonisme/overgangsriter/artikkel.json"
-    ],
-    "mormonisme-sentrale-trekk": [
-      "content/krle/religion/mormonisme/sentrale-trekk/artikkel.json"
-    ],
-    "sikhisme-grunnleggere": [
-      "content/krle/religion/sikhisme/grunnleggere/artikkel.json"
-    ],
-    "sikhisme-hellige-tekster": [
-      "content/krle/religion/sikhisme/hellige-tekster/artikkel.json"
-    ],
     "introduksjon": [
       "content/krle/religion/sikhisme/introduksjon/artikkel.json"
-    ],
-    "sikhisme-sentrale-trekk": [
-      "content/krle/religion/sikhisme/sentrale-trekk/artikkel.json"
     ],
     "akkorder-og-harmoni": [
       "content/musikk/grunnleggende/akkorder-og-harmoni.json"
@@ -1183,11 +1109,17 @@
     "ester-boserup": [
       "content/people/ester-boserup.json"
     ],
+    "franz-ferdinand": [
+      "content/people/franz-ferdinand.json"
+    ],
     "friedrich-nietzsche": [
       "content/people/friedrich-nietzsche.json"
     ],
     "gaius-octavius": [
       "content/people/gaius-octavius.json"
+    ],
+    "gavrilo-princip": [
+      "content/people/gavrilo-princip.json"
     ],
     "genghis-khan": [
       "content/people/genghis-khan.json"
@@ -1234,6 +1166,9 @@
     "martin-heidegger": [
       "content/people/martin-heidegger.json"
     ],
+    "nicholas-ii": [
+      "content/people/nicholas-ii.json"
+    ],
     "oscar-ii": [
       "content/people/oscar-ii.json"
     ],
@@ -1249,6 +1184,15 @@
     "thomas-malthus": [
       "content/people/thomas-malthus.json"
     ],
+    "vladimir-lenin": [
+      "content/people/vladimir-lenin.json"
+    ],
+    "wilhelm-ii": [
+      "content/people/wilhelm-ii.json"
+    ],
+    "woodrow-wilson": [
+      "content/people/woodrow-wilson.json"
+    ],
     "befolkningspyramider": [
       "content/samfunnskunnskap/demografi/befolkningspyramider.json"
     ],
@@ -1261,9 +1205,6 @@
     "finland-levekar": [
       "content/samfunnskunnskap/demografi/finland-levekar.json"
     ],
-    "demografi-intro": [
-      "content/samfunnskunnskap/demografi/intro.json"
-    ],
     "malthus-vs-boserup": [
       "content/samfunnskunnskap/demografi/malthus-vs-boserup.json"
     ],
@@ -1272,9 +1213,6 @@
     ],
     "teknologi-helse": [
       "content/samfunnskunnskap/demografi/teknologi-helse.json"
-    ],
-    "demografi-urbanisering": [
-      "content/samfunnskunnskap/demografi/urbanisering.json"
     ],
     "casus-belli": [
       "content/samfunnskunnskap/ideer-og-verdenssyn/casus-belli.json"
@@ -1320,9 +1258,6 @@
     ],
     "ytringsvett-vs-ytringsmot": [
       "content/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot.json"
-    ],
-    "okonomi-arbeidsspesialisering": [
-      "content/samfunnskunnskap/okonomi/arbeidsspesialisering.json"
     ],
     "finanskriser": [
       "content/samfunnskunnskap/okonomi/finanskriser.json"
@@ -1387,10 +1322,11 @@
     "concepts/anarko-kapitalisme.json/anarko-kapitalisme": "content/concepts/anarko-kapitalisme.json",
     "concepts/anarko-kommunisme.json/anarko-kommunisme": "content/concepts/anarko-kommunisme.json",
     "concepts/anschluss.json/anschluss": "content/concepts/anschluss.json",
-    "concepts/arbeidsspesialisering.json/concepts-arbeidsspesialisering": "content/concepts/arbeidsspesialisering.json",
+    "concepts/arbeidsspesialisering.json/arbeidsspesialisering": "content/concepts/arbeidsspesialisering.json",
     "concepts/artilleri.json/artilleri": "content/concepts/artilleri.json",
     "concepts/autoritaert-diktatur.json/autoritaert-diktatur": "content/concepts/autoritaert-diktatur.json",
     "concepts/avkolonisering.json/avkolonisering": "content/concepts/avkolonisering.json",
+    "concepts/balfour-erklaeringen.json/balfour-erklaeringen": "content/concepts/balfour-erklaeringen.json",
     "concepts/blankoblankett.json/blankoblankett": "content/concepts/blankoblankett.json",
     "concepts/blitzkrieg.json/blitzkrieg": "content/concepts/blitzkrieg.json",
     "concepts/blokade.json/blokade": "content/concepts/blokade.json",
@@ -1486,6 +1422,7 @@
     "concepts/stridsvogn.json/stridsvogn": "content/concepts/stridsvogn.json",
     "concepts/subjektet.json/subjektet": "content/concepts/subjektet.json",
     "concepts/suverenitetsprinsippet.json/suverenitetsprinsippet": "content/concepts/suverenitetsprinsippet.json",
+    "concepts/sykes-picot.json/sykes-picot": "content/concepts/sykes-picot.json",
     "concepts/te.json/te": "content/concepts/te.json",
     "concepts/teknokrati.json/teknokrati": "content/concepts/teknokrati.json",
     "concepts/tekstil.json/tekstil": "content/concepts/tekstil.json",
@@ -1497,7 +1434,7 @@
     "concepts/uinnskrenket-ubtkrig.json/uinnskrenket-ubtkrig": "content/concepts/uinnskrenket-ubtkrig.json",
     "concepts/ultimatum.json/ultimatum": "content/concepts/ultimatum.json",
     "concepts/unionsopplosningen-1905.json/unionsopplosningen-1905": "content/concepts/unionsopplosningen-1905.json",
-    "concepts/urbanisering.json/concepts-urbanisering": "content/concepts/urbanisering.json",
+    "concepts/urbanisering.json/urbanisering": "content/concepts/urbanisering.json",
     "concepts/utmattelseskrig.json/utmattelseskrig": "content/concepts/utmattelseskrig.json",
     "concepts/v2.json/v2": "content/concepts/v2.json",
     "concepts/verbalet.json/verbalet": "content/concepts/verbalet.json",
@@ -1509,12 +1446,12 @@
     "concepts/zimmermann-telegrammet.json/zimmermann-telegrammet": "content/concepts/zimmermann-telegrammet.json",
     "config/scanner-config.json/scanner-config": "content/config/scanner-config.json",
     "global-timeline.json/undefined/global-timeline": "content/global-timeline.json",
-    "historie/andre-verdenskrig/andre-verdenskrig-bakgrunn": "content/historie/andre-verdenskrig/bakgrunn.json",
-    "historie/andre-verdenskrig/andre-verdenskrig-konsekvenser": "content/historie/andre-verdenskrig/konsekvenser.json",
+    "historie/andre-verdenskrig/bakgrunn": "content/historie/andre-verdenskrig/bakgrunn.json",
+    "historie/andre-verdenskrig/konsekvenser": "content/historie/andre-verdenskrig/konsekvenser.json",
     "historie/andre-verdenskrig/konsentrasjonsleirene": "content/historie/andre-verdenskrig/konsentrasjonsleirene.json",
-    "historie/andre-verdenskrig/andre-verdenskrig-krigens-lop": "content/historie/andre-verdenskrig/krigens-lop.json",
-    "historie/andre-verdenskrig/andre-verdenskrig-oversikt": "content/historie/andre-verdenskrig/oversikt.json",
-    "historie/andre-verdenskrig/andre-verdenskrig-teknologi": "content/historie/andre-verdenskrig/teknologi.json",
+    "historie/andre-verdenskrig/krigens-lop": "content/historie/andre-verdenskrig/krigens-lop.json",
+    "historie/andre-verdenskrig/oversikt": "content/historie/andre-verdenskrig/oversikt.json",
+    "historie/andre-verdenskrig/teknologi": "content/historie/andre-verdenskrig/teknologi.json",
     "historie/dekolonisering/dekolonisering-sti": "content/historie/dekolonisering/dekolonisering-sti.json",
     "historie/dekolonisering/frigjoringskrigene": "content/historie/dekolonisering/frigjoringskrigene.json",
     "historie/dekolonisering/ghana-panafrikanisme": "content/historie/dekolonisering/ghana-panafrikanisme.json",
@@ -1523,28 +1460,34 @@
     "historie/dekolonisering/kongo": "content/historie/dekolonisering/kongo.json",
     "historie/dekolonisering/latin-amerika": "content/historie/dekolonisering/latin-amerika.json",
     "historie/dekolonisering/midtosten-mandater": "content/historie/dekolonisering/midtosten-mandater.json",
-    "historie/dekolonisering/dekolonisering-oversikt": "content/historie/dekolonisering/oversikt.json",
+    "historie/dekolonisering/oversikt": "content/historie/dekolonisering/oversikt.json",
     "historie/dekolonisering/siste-skanse": "content/historie/dekolonisering/siste-skanse.json",
     "historie/dekolonisering/sorost-asia": "content/historie/dekolonisering/sorost-asia.json",
     "historie/dekolonisering/usa-frigjoring": "content/historie/dekolonisering/usa-frigjoring.json",
     "historie/demo-artikkel/demo-artikkel": "content/historie/demo-artikkel/demo-artikkel.json",
     "historie/den-kalde-krigen/atomvapenkapplopet": "content/historie/den-kalde-krigen/atomvapenkapplopet.json",
-    "historie/den-kalde-krigen/den-kalde-krigen-berlinmuren": "content/historie/den-kalde-krigen/berlinmuren.json",
+    "historie/den-kalde-krigen/berlinmuren": "content/historie/den-kalde-krigen/berlinmuren.json",
     "historie/den-kalde-krigen/cuba-krisen": "content/historie/den-kalde-krigen/cuba-krisen.json",
     "historie/den-kalde-krigen/kald-krig-sti": "content/historie/den-kalde-krigen/kald-krig-sti.json",
     "historie/den-kalde-krigen/koreakrigen": "content/historie/den-kalde-krigen/koreakrigen.json",
-    "historie/den-kalde-krigen/den-kalde-krigen-kultur": "content/historie/den-kalde-krigen/kultur.json",
+    "historie/den-kalde-krigen/kultur": "content/historie/den-kalde-krigen/kultur.json",
     "historie/den-kalde-krigen/nato-vs-warszawa": "content/historie/den-kalde-krigen/nato-vs-warszawa.json",
-    "historie/den-kalde-krigen/den-kalde-krigen-oversikt": "content/historie/den-kalde-krigen/oversikt.json",
+    "historie/den-kalde-krigen/oversikt": "content/historie/den-kalde-krigen/oversikt.json",
     "historie/den-kalde-krigen/romkapplopet": "content/historie/den-kalde-krigen/romkapplopet.json",
     "historie/den-kalde-krigen/suez-krisen": "content/historie/den-kalde-krigen/suez-krisen.json",
     "historie/den-kalde-krigen/veien-mot-slutt": "content/historie/den-kalde-krigen/veien-mot-slutt.json",
     "historie/den-kalde-krigen/vietnamkrigen": "content/historie/den-kalde-krigen/vietnamkrigen.json",
-    "historie/forste-verdenskrig/forste-verdenskrig-konsekvenser": "content/historie/forste-verdenskrig/konsekvenser.json",
-    "historie/forste-verdenskrig/forste-verdenskrig-krigens-lop": "content/historie/forste-verdenskrig/krigens-lop.json",
-    "historie/forste-verdenskrig/forste-verdenskrig-opptakt": "content/historie/forste-verdenskrig/opptakt.json",
-    "historie/forste-verdenskrig/forste-verdenskrig-oversikt": "content/historie/forste-verdenskrig/oversikt.json",
-    "historie/forste-verdenskrig/forste-verdenskrig-teknologi": "content/historie/forste-verdenskrig/teknologi.json",
+    "historie/forste-verdenskrig/hjemmefronten": "content/historie/forste-verdenskrig/hjemmefronten.json",
+    "historie/forste-verdenskrig/konsekvenser": "content/historie/forste-verdenskrig/konsekvenser.json",
+    "historie/forste-verdenskrig/krigens-lop": "content/historie/forste-verdenskrig/krigens-lop.json",
+    "historie/forste-verdenskrig/norge-under-ww1": "content/historie/forste-verdenskrig/norge-under-ww1.json",
+    "historie/forste-verdenskrig/opptakt": "content/historie/forste-verdenskrig/opptakt.json",
+    "historie/forste-verdenskrig/oversikt": "content/historie/forste-verdenskrig/oversikt.json",
+    "historie/forste-verdenskrig/russiske-revolusjon": "content/historie/forste-verdenskrig/russiske-revolusjon.json",
+    "historie/forste-verdenskrig/skyttergravskrig": "content/historie/forste-verdenskrig/skyttergravskrig.json",
+    "historie/forste-verdenskrig/teknologi": "content/historie/forste-verdenskrig/teknologi.json",
+    "historie/forste-verdenskrig/tyske-revolusjon": "content/historie/forste-verdenskrig/tyske-revolusjon.json",
+    "historie/forste-verdenskrig/ww1-sti": "content/historie/forste-verdenskrig/ww1-sti.json",
     "historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner": "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json",
     "historie/kolonialisering/britisk-imperium": "content/historie/kolonialisering/britisk-imperium.json",
     "historie/kolonialisering/eic": "content/historie/kolonialisering/eic.json",
@@ -1554,12 +1497,25 @@
     "historie/kolonialisering/spansk-kolonialisering": "content/historie/kolonialisering/spansk-kolonialisering.json",
     "historie/kolonialisering/trekanthandelen": "content/historie/kolonialisering/trekanthandelen.json",
     "historie/kolonialisering/voc": "content/historie/kolonialisering/voc.json",
+    "historie/mellomkrigstiden/borskrakk": "content/historie/mellomkrigstiden/borskrakk.json",
+    "historie/mellomkrigstiden/folkeforbundet": "content/historie/mellomkrigstiden/folkeforbundet.json",
+    "historie/mellomkrigstiden/italia": "content/historie/mellomkrigstiden/italia.json",
+    "historie/mellomkrigstiden/japan": "content/historie/mellomkrigstiden/japan.json",
+    "historie/mellomkrigstiden/kultur": "content/historie/mellomkrigstiden/kultur.json",
+    "historie/mellomkrigstiden/mellomkrigstiden-sti": "content/historie/mellomkrigstiden/mellomkrigstiden-sti.json",
+    "historie/mellomkrigstiden/midtoesten": "content/historie/mellomkrigstiden/midtoesten.json",
+    "historie/mellomkrigstiden/norge": "content/historie/mellomkrigstiden/norge.json",
+    "historie/mellomkrigstiden/oversikt": "content/historie/mellomkrigstiden/oversikt.json",
+    "historie/mellomkrigstiden/sovjet": "content/historie/mellomkrigstiden/sovjet.json",
+    "historie/mellomkrigstiden/spania": "content/historie/mellomkrigstiden/spania.json",
+    "historie/mellomkrigstiden/tyskland": "content/historie/mellomkrigstiden/tyskland.json",
+    "historie/mellomkrigstiden/usa": "content/historie/mellomkrigstiden/usa.json",
     "historie/menneskets-tidlige-historie/menneskets-tidlige-historie": "content/historie/menneskets-tidlige-historie/menneskets-tidlige-historie.json",
     "historie/middelalderen/boktrykkerkunsten": "content/historie/middelalderen/boktrykkerkunsten.json",
     "historie/middelalderen/det-hellige-romerske-rike": "content/historie/middelalderen/det-hellige-romerske-rike.json",
     "historie/middelalderen/middelalderen": "content/historie/middelalderen/middelalderen.json",
     "historie/middelalderen/svartedauden-sti": "content/historie/middelalderen/svartedauden-sti.json",
-    "historie/middelalderen/middelalderen-svartedauden": "content/historie/middelalderen/svartedauden.json",
+    "historie/middelalderen/svartedauden": "content/historie/middelalderen/svartedauden.json",
     "historie/middelalderen/tidlig-middelalder": "content/historie/middelalderen/tidlig-middelalder.json",
     "historie/norgeshistorie/hamskiftet/hamskiftet": "content/historie/norgeshistorie/hamskiftet/artikkel.json",
     "historie/norgeshistorie/klimakrisen-536/klimakrisen-536": "content/historie/norgeshistorie/klimakrisen-536/artikkel.json",
@@ -1606,7 +1562,7 @@
     "interactive/detective/detective-tungtvann": "content/interactive/detective/tungtvann.json",
     "interactive/detective/detective-vardo": "content/interactive/detective/vardo.json",
     "krle/etikk/dygdsetikk": "content/krle/etikk/dygdsetikk.json",
-    "krle/etikk/etikk-intro": "content/krle/etikk/intro.json",
+    "krle/etikk/intro": "content/krle/etikk/intro.json",
     "krle/etikk/naturrett": "content/krle/etikk/naturrett.json",
     "krle/etikk/non-aggression": "content/krle/etikk/non-aggression.json",
     "krle/etikk/pliktetikk": "content/krle/etikk/pliktetikk.json",
@@ -1619,7 +1575,7 @@
     "krle/filosofi/descartes": "content/krle/filosofi/descartes.json",
     "krle/filosofi/heidegger": "content/krle/filosofi/heidegger.json",
     "krle/filosofi/hume": "content/krle/filosofi/hume.json",
-    "krle/filosofi/filosofi-intro": "content/krle/filosofi/intro.json",
+    "krle/filosofi/intro": "content/krle/filosofi/intro.json",
     "krle/filosofi/kant": "content/krle/filosofi/kant.json",
     "krle/filosofi/kierkegaard": "content/krle/filosofi/kierkegaard.json",
     "krle/filosofi/locke": "content/krle/filosofi/locke.json",
@@ -1650,75 +1606,75 @@
     "krle/filosofi/quests/quest-sokrates_gadfly": "content/krle/filosofi/quests/sokrates_gadfly.json",
     "krle/filosofi/rothbard": "content/krle/filosofi/rothbard.json",
     "krle/filosofi/sokrates": "content/krle/filosofi/sokrates.json",
-    "krle/religion/bahai/bahai-bonn": "content/krle/religion/bahai/bonn/artikkel.json",
-    "krle/religion/bahai/bahai-frelse": "content/krle/religion/bahai/frelse/artikkel.json",
-    "krle/religion/bahai/bahai-grunnleggere": "content/krle/religion/bahai/grunnleggere/artikkel.json",
-    "krle/religion/bahai/bahai-gudsbilde": "content/krle/religion/bahai/gudsbilde/artikkel.json",
-    "krle/religion/bahai/bahai-hellige-tekster": "content/krle/religion/bahai/hellige-tekster/artikkel.json",
-    "krle/religion/bahai/bahai-intro": "content/krle/religion/bahai/intro.json",
-    "krle/religion/bahai/bahai-overgangsriter": "content/krle/religion/bahai/overgangsriter/artikkel.json",
-    "krle/religion/bahai/bahai-sentrale-trekk": "content/krle/religion/bahai/sentrale-trekk/artikkel.json",
-    "krle/religion/buddhisme/buddhisme-bonn": "content/krle/religion/buddhisme/bonn/artikkel.json",
-    "krle/religion/buddhisme/buddhisme-frelse": "content/krle/religion/buddhisme/frelse/artikkel.json",
-    "krle/religion/buddhisme/buddhisme-grunnleggere": "content/krle/religion/buddhisme/grunnleggere/artikkel.json",
-    "krle/religion/buddhisme/buddhisme-gudsbilde": "content/krle/religion/buddhisme/gudsbilde/artikkel.json",
-    "krle/religion/buddhisme/buddhisme-hellige-tekster": "content/krle/religion/buddhisme/hellige-tekster/artikkel.json",
-    "krle/religion/buddhisme/buddhisme-intro": "content/krle/religion/buddhisme/intro.json",
-    "krle/religion/buddhisme/buddhisme-overgangsriter": "content/krle/religion/buddhisme/overgangsriter/artikkel.json",
-    "krle/religion/buddhisme/buddhisme-sentrale-trekk": "content/krle/religion/buddhisme/sentrale-trekk/artikkel.json",
-    "krle/religion/hinduisme/hinduisme-bonn": "content/krle/religion/hinduisme/bonn/artikkel.json",
-    "krle/religion/hinduisme/hinduisme-frelse": "content/krle/religion/hinduisme/frelse/artikkel.json",
-    "krle/religion/hinduisme/hinduisme-grunnleggere": "content/krle/religion/hinduisme/grunnleggere/artikkel.json",
-    "krle/religion/hinduisme/hinduisme-gudsbilde": "content/krle/religion/hinduisme/gudsbilde/artikkel.json",
-    "krle/religion/hinduisme/hinduisme-hellige-tekster": "content/krle/religion/hinduisme/hellige-tekster/artikkel.json",
-    "krle/religion/hinduisme/hinduisme-intro": "content/krle/religion/hinduisme/intro.json",
-    "krle/religion/hinduisme/hinduisme-overgangsriter": "content/krle/religion/hinduisme/overgangsriter/artikkel.json",
-    "krle/religion/hinduisme/hinduisme-sentrale-trekk": "content/krle/religion/hinduisme/sentrale-trekk/artikkel.json",
-    "krle/religion/islam/islam-bonn": "content/krle/religion/islam/bonn/artikkel.json",
-    "krle/religion/islam/islam-frelse": "content/krle/religion/islam/frelse/artikkel.json",
-    "krle/religion/islam/islam-grunnleggere": "content/krle/religion/islam/grunnleggere/artikkel.json",
-    "krle/religion/islam/islam-gudsbilde": "content/krle/religion/islam/gudsbilde/artikkel.json",
-    "krle/religion/islam/islam-hellige-tekster": "content/krle/religion/islam/hellige-tekster/artikkel.json",
-    "krle/religion/islam/islam-overgangsriter": "content/krle/religion/islam/overgangsriter/artikkel.json",
-    "krle/religion/islam/islam-sentrale-trekk": "content/krle/religion/islam/sentrale-trekk/artikkel.json",
-    "krle/religion/islam/islam-skapelse": "content/krle/religion/islam/skapelse/artikkel.json",
-    "krle/religion/jehovas-vitner/jehovas-vitner-bonn": "content/krle/religion/jehovas-vitner/bonn/artikkel.json",
-    "krle/religion/jehovas-vitner/jehovas-vitner-frelse": "content/krle/religion/jehovas-vitner/frelse/artikkel.json",
-    "krle/religion/jehovas-vitner/jehovas-vitner-grunnleggere": "content/krle/religion/jehovas-vitner/grunnleggere/artikkel.json",
-    "krle/religion/jehovas-vitner/jehovas-vitner-gudsbilde": "content/krle/religion/jehovas-vitner/gudsbilde/artikkel.json",
-    "krle/religion/jehovas-vitner/jehovas-vitner-hellige-tekster": "content/krle/religion/jehovas-vitner/hellige-tekster/artikkel.json",
-    "krle/religion/jehovas-vitner/jehovas-vitner-intro": "content/krle/religion/jehovas-vitner/intro.json",
-    "krle/religion/jehovas-vitner/jehovas-vitner-overgangsriter": "content/krle/religion/jehovas-vitner/overgangsriter/artikkel.json",
-    "krle/religion/jehovas-vitner/jehovas-vitner-sentrale-trekk": "content/krle/religion/jehovas-vitner/sentrale-trekk/artikkel.json",
-    "krle/religion/jodedom/jodedom-bonn": "content/krle/religion/jodedom/bonn/artikkel.json",
-    "krle/religion/jodedom/jodedom-frelse": "content/krle/religion/jodedom/frelse/artikkel.json",
-    "krle/religion/jodedom/jodedom-grunnleggere": "content/krle/religion/jodedom/grunnleggere/artikkel.json",
-    "krle/religion/jodedom/jodedom-gudsbilde": "content/krle/religion/jodedom/gudsbilde/artikkel.json",
-    "krle/religion/jodedom/jodedom-hellige-tekster": "content/krle/religion/jodedom/hellige-tekster/artikkel.json",
-    "krle/religion/jodedom/jodedom-intro": "content/krle/religion/jodedom/intro.json",
-    "krle/religion/jodedom/jodedom-overgangsriter": "content/krle/religion/jodedom/overgangsriter/artikkel.json",
-    "krle/religion/jodedom/jodedom-sentrale-trekk": "content/krle/religion/jodedom/sentrale-trekk/artikkel.json",
-    "krle/religion/kristendom/kristendom-bonn": "content/krle/religion/kristendom/bonn/artikkel.json",
+    "krle/religion/bahai/bonn": "content/krle/religion/bahai/bonn/artikkel.json",
+    "krle/religion/bahai/frelse": "content/krle/religion/bahai/frelse/artikkel.json",
+    "krle/religion/bahai/grunnleggere": "content/krle/religion/bahai/grunnleggere/artikkel.json",
+    "krle/religion/bahai/gudsbilde": "content/krle/religion/bahai/gudsbilde/artikkel.json",
+    "krle/religion/bahai/hellige-tekster": "content/krle/religion/bahai/hellige-tekster/artikkel.json",
+    "krle/religion/bahai/intro": "content/krle/religion/bahai/intro.json",
+    "krle/religion/bahai/overgangsriter": "content/krle/religion/bahai/overgangsriter/artikkel.json",
+    "krle/religion/bahai/sentrale-trekk": "content/krle/religion/bahai/sentrale-trekk/artikkel.json",
+    "krle/religion/buddhisme/bonn": "content/krle/religion/buddhisme/bonn/artikkel.json",
+    "krle/religion/buddhisme/frelse": "content/krle/religion/buddhisme/frelse/artikkel.json",
+    "krle/religion/buddhisme/grunnleggere": "content/krle/religion/buddhisme/grunnleggere/artikkel.json",
+    "krle/religion/buddhisme/gudsbilde": "content/krle/religion/buddhisme/gudsbilde/artikkel.json",
+    "krle/religion/buddhisme/hellige-tekster": "content/krle/religion/buddhisme/hellige-tekster/artikkel.json",
+    "krle/religion/buddhisme/intro": "content/krle/religion/buddhisme/intro.json",
+    "krle/religion/buddhisme/overgangsriter": "content/krle/religion/buddhisme/overgangsriter/artikkel.json",
+    "krle/religion/buddhisme/sentrale-trekk": "content/krle/religion/buddhisme/sentrale-trekk/artikkel.json",
+    "krle/religion/hinduisme/bonn": "content/krle/religion/hinduisme/bonn/artikkel.json",
+    "krle/religion/hinduisme/frelse": "content/krle/religion/hinduisme/frelse/artikkel.json",
+    "krle/religion/hinduisme/grunnleggere": "content/krle/religion/hinduisme/grunnleggere/artikkel.json",
+    "krle/religion/hinduisme/gudsbilde": "content/krle/religion/hinduisme/gudsbilde/artikkel.json",
+    "krle/religion/hinduisme/hellige-tekster": "content/krle/religion/hinduisme/hellige-tekster/artikkel.json",
+    "krle/religion/hinduisme/intro": "content/krle/religion/hinduisme/intro.json",
+    "krle/religion/hinduisme/overgangsriter": "content/krle/religion/hinduisme/overgangsriter/artikkel.json",
+    "krle/religion/hinduisme/sentrale-trekk": "content/krle/religion/hinduisme/sentrale-trekk/artikkel.json",
+    "krle/religion/islam/bonn": "content/krle/religion/islam/bonn/artikkel.json",
+    "krle/religion/islam/frelse": "content/krle/religion/islam/frelse/artikkel.json",
+    "krle/religion/islam/grunnleggere": "content/krle/religion/islam/grunnleggere/artikkel.json",
+    "krle/religion/islam/gudsbilde": "content/krle/religion/islam/gudsbilde/artikkel.json",
+    "krle/religion/islam/hellige-tekster": "content/krle/religion/islam/hellige-tekster/artikkel.json",
+    "krle/religion/islam/overgangsriter": "content/krle/religion/islam/overgangsriter/artikkel.json",
+    "krle/religion/islam/sentrale-trekk": "content/krle/religion/islam/sentrale-trekk/artikkel.json",
+    "krle/religion/islam/skapelse": "content/krle/religion/islam/skapelse/artikkel.json",
+    "krle/religion/jehovas-vitner/bonn": "content/krle/religion/jehovas-vitner/bonn/artikkel.json",
+    "krle/religion/jehovas-vitner/frelse": "content/krle/religion/jehovas-vitner/frelse/artikkel.json",
+    "krle/religion/jehovas-vitner/grunnleggere": "content/krle/religion/jehovas-vitner/grunnleggere/artikkel.json",
+    "krle/religion/jehovas-vitner/gudsbilde": "content/krle/religion/jehovas-vitner/gudsbilde/artikkel.json",
+    "krle/religion/jehovas-vitner/hellige-tekster": "content/krle/religion/jehovas-vitner/hellige-tekster/artikkel.json",
+    "krle/religion/jehovas-vitner/intro": "content/krle/religion/jehovas-vitner/intro.json",
+    "krle/religion/jehovas-vitner/overgangsriter": "content/krle/religion/jehovas-vitner/overgangsriter/artikkel.json",
+    "krle/religion/jehovas-vitner/sentrale-trekk": "content/krle/religion/jehovas-vitner/sentrale-trekk/artikkel.json",
+    "krle/religion/jodedom/bonn": "content/krle/religion/jodedom/bonn/artikkel.json",
+    "krle/religion/jodedom/frelse": "content/krle/religion/jodedom/frelse/artikkel.json",
+    "krle/religion/jodedom/grunnleggere": "content/krle/religion/jodedom/grunnleggere/artikkel.json",
+    "krle/religion/jodedom/gudsbilde": "content/krle/religion/jodedom/gudsbilde/artikkel.json",
+    "krle/religion/jodedom/hellige-tekster": "content/krle/religion/jodedom/hellige-tekster/artikkel.json",
+    "krle/religion/jodedom/intro": "content/krle/religion/jodedom/intro.json",
+    "krle/religion/jodedom/overgangsriter": "content/krle/religion/jodedom/overgangsriter/artikkel.json",
+    "krle/religion/jodedom/sentrale-trekk": "content/krle/religion/jodedom/sentrale-trekk/artikkel.json",
+    "krle/religion/kristendom/bonn": "content/krle/religion/kristendom/bonn/artikkel.json",
     "krle/religion/kristendom/dap": "content/krle/religion/kristendom/dap/artikkel.json",
-    "krle/religion/kristendom/kristendom-frelse": "content/krle/religion/kristendom/frelse/artikkel.json",
-    "krle/religion/kristendom/kristendom-grunnleggere": "content/krle/religion/kristendom/grunnleggere/artikkel.json",
-    "krle/religion/kristendom/kristendom-gudsbilde": "content/krle/religion/kristendom/gudsbilde/artikkel.json",
-    "krle/religion/kristendom/kristendom-hellige-tekster": "content/krle/religion/kristendom/hellige-tekster/artikkel.json",
-    "krle/religion/kristendom/kristendom-overgangsriter": "content/krle/religion/kristendom/overgangsriter/artikkel.json",
-    "krle/religion/kristendom/kristendom-sentrale-trekk": "content/krle/religion/kristendom/sentrale-trekk/artikkel.json",
-    "krle/religion/kristendom/kristendom-skapelse": "content/krle/religion/kristendom/skapelse/artikkel.json",
-    "krle/religion/mormonisme/mormonisme-bonn": "content/krle/religion/mormonisme/bonn/artikkel.json",
-    "krle/religion/mormonisme/mormonisme-frelse": "content/krle/religion/mormonisme/frelse/artikkel.json",
-    "krle/religion/mormonisme/mormonisme-grunnleggere": "content/krle/religion/mormonisme/grunnleggere/artikkel.json",
-    "krle/religion/mormonisme/mormonisme-gudsbilde": "content/krle/religion/mormonisme/gudsbilde/artikkel.json",
-    "krle/religion/mormonisme/mormonisme-hellige-tekster": "content/krle/religion/mormonisme/hellige-tekster/artikkel.json",
-    "krle/religion/mormonisme/mormonisme-intro": "content/krle/religion/mormonisme/intro.json",
-    "krle/religion/mormonisme/mormonisme-overgangsriter": "content/krle/religion/mormonisme/overgangsriter/artikkel.json",
-    "krle/religion/mormonisme/mormonisme-sentrale-trekk": "content/krle/religion/mormonisme/sentrale-trekk/artikkel.json",
-    "krle/religion/sikhisme/sikhisme-grunnleggere": "content/krle/religion/sikhisme/grunnleggere/artikkel.json",
-    "krle/religion/sikhisme/sikhisme-hellige-tekster": "content/krle/religion/sikhisme/hellige-tekster/artikkel.json",
+    "krle/religion/kristendom/frelse": "content/krle/religion/kristendom/frelse/artikkel.json",
+    "krle/religion/kristendom/grunnleggere": "content/krle/religion/kristendom/grunnleggere/artikkel.json",
+    "krle/religion/kristendom/gudsbilde": "content/krle/religion/kristendom/gudsbilde/artikkel.json",
+    "krle/religion/kristendom/hellige-tekster": "content/krle/religion/kristendom/hellige-tekster/artikkel.json",
+    "krle/religion/kristendom/overgangsriter": "content/krle/religion/kristendom/overgangsriter/artikkel.json",
+    "krle/religion/kristendom/sentrale-trekk": "content/krle/religion/kristendom/sentrale-trekk/artikkel.json",
+    "krle/religion/kristendom/skapelse": "content/krle/religion/kristendom/skapelse/artikkel.json",
+    "krle/religion/mormonisme/bonn": "content/krle/religion/mormonisme/bonn/artikkel.json",
+    "krle/religion/mormonisme/frelse": "content/krle/religion/mormonisme/frelse/artikkel.json",
+    "krle/religion/mormonisme/grunnleggere": "content/krle/religion/mormonisme/grunnleggere/artikkel.json",
+    "krle/religion/mormonisme/gudsbilde": "content/krle/religion/mormonisme/gudsbilde/artikkel.json",
+    "krle/religion/mormonisme/hellige-tekster": "content/krle/religion/mormonisme/hellige-tekster/artikkel.json",
+    "krle/religion/mormonisme/intro": "content/krle/religion/mormonisme/intro.json",
+    "krle/religion/mormonisme/overgangsriter": "content/krle/religion/mormonisme/overgangsriter/artikkel.json",
+    "krle/religion/mormonisme/sentrale-trekk": "content/krle/religion/mormonisme/sentrale-trekk/artikkel.json",
+    "krle/religion/sikhisme/grunnleggere": "content/krle/religion/sikhisme/grunnleggere/artikkel.json",
+    "krle/religion/sikhisme/hellige-tekster": "content/krle/religion/sikhisme/hellige-tekster/artikkel.json",
     "krle/religion/sikhisme/introduksjon": "content/krle/religion/sikhisme/introduksjon/artikkel.json",
-    "krle/religion/sikhisme/sikhisme-sentrale-trekk": "content/krle/religion/sikhisme/sentrale-trekk/artikkel.json",
+    "krle/religion/sikhisme/sentrale-trekk": "content/krle/religion/sikhisme/sentrale-trekk/artikkel.json",
     "musikk/grunnleggende/akkorder-og-harmoni": "content/musikk/grunnleggende/akkorder-og-harmoni.json",
     "musikk/grunnleggende/notasjon": "content/musikk/grunnleggende/notasjon.json",
     "musikk/grunnleggende/takt-og-rytme": "content/musikk/grunnleggende/takt-og-rytme.json",
@@ -1774,8 +1730,10 @@
     "people/diokletian-bio.json/diokletian-bio": "content/people/diokletian-bio.json",
     "people/dronning-elizabeth-i.json/dronning-elizabeth-i": "content/people/dronning-elizabeth-i.json",
     "people/ester-boserup.json/ester-boserup": "content/people/ester-boserup.json",
+    "people/franz-ferdinand.json/franz-ferdinand": "content/people/franz-ferdinand.json",
     "people/friedrich-nietzsche.json/friedrich-nietzsche": "content/people/friedrich-nietzsche.json",
     "people/gaius-octavius.json/gaius-octavius": "content/people/gaius-octavius.json",
+    "people/gavrilo-princip.json/gavrilo-princip": "content/people/gavrilo-princip.json",
     "people/genghis-khan.json/genghis-khan": "content/people/genghis-khan.json",
     "people/guru-gobind-singh-bio.json/guru-gobind-singh-bio": "content/people/guru-gobind-singh-bio.json",
     "people/guru-nanak-bio.json/guru-nanak-bio": "content/people/guru-nanak-bio.json",
@@ -1791,20 +1749,24 @@
     "people/kublai-khan.json/kublai-khan": "content/people/kublai-khan.json",
     "people/marcus-antonius.json/marcus-antonius": "content/people/marcus-antonius.json",
     "people/martin-heidegger.json/martin-heidegger": "content/people/martin-heidegger.json",
+    "people/nicholas-ii.json/nicholas-ii": "content/people/nicholas-ii.json",
     "people/oscar-ii.json/oscar-ii": "content/people/oscar-ii.json",
     "people/platon-bio.json/platon-bio": "content/people/platon-bio.json",
     "people/sokrates-bio.json/sokrates-bio": "content/people/sokrates-bio.json",
     "people/thomas-aquinas.json/thomas-aquinas": "content/people/thomas-aquinas.json",
     "people/thomas-malthus.json/thomas-malthus": "content/people/thomas-malthus.json",
+    "people/vladimir-lenin.json/vladimir-lenin": "content/people/vladimir-lenin.json",
+    "people/wilhelm-ii.json/wilhelm-ii": "content/people/wilhelm-ii.json",
+    "people/woodrow-wilson.json/woodrow-wilson": "content/people/woodrow-wilson.json",
     "samfunnskunnskap/demografi/befolkningspyramider": "content/samfunnskunnskap/demografi/befolkningspyramider.json",
     "samfunnskunnskap/demografi/den-demografiske-overgangen": "content/samfunnskunnskap/demografi/den-demografiske-overgangen.json",
     "samfunnskunnskap/demografi/fattigdom": "content/samfunnskunnskap/demografi/fattigdom.json",
     "samfunnskunnskap/demografi/finland-levekar": "content/samfunnskunnskap/demografi/finland-levekar.json",
-    "samfunnskunnskap/demografi/demografi-intro": "content/samfunnskunnskap/demografi/intro.json",
+    "samfunnskunnskap/demografi/intro": "content/samfunnskunnskap/demografi/intro.json",
     "samfunnskunnskap/demografi/malthus-vs-boserup": "content/samfunnskunnskap/demografi/malthus-vs-boserup.json",
     "samfunnskunnskap/demografi/migrasjon-push-pull": "content/samfunnskunnskap/demografi/migrasjon-push-pull.json",
     "samfunnskunnskap/demografi/teknologi-helse": "content/samfunnskunnskap/demografi/teknologi-helse.json",
-    "samfunnskunnskap/demografi/demografi-urbanisering": "content/samfunnskunnskap/demografi/urbanisering.json",
+    "samfunnskunnskap/demografi/urbanisering": "content/samfunnskunnskap/demografi/urbanisering.json",
     "samfunnskunnskap/ideer-og-verdenssyn/casus-belli": "content/samfunnskunnskap/ideer-og-verdenssyn/casus-belli.json",
     "samfunnskunnskap/ideer-og-verdenssyn/det-unormale": "content/samfunnskunnskap/ideer-og-verdenssyn/det-unormale.json",
     "samfunnskunnskap/ideer-og-verdenssyn/eskatologi": "content/samfunnskunnskap/ideer-og-verdenssyn/eskatologi.json",
@@ -1820,7 +1782,7 @@
     "samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt": "content/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt.json",
     "samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer": "content/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer.json",
     "samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot": "content/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot.json",
-    "samfunnskunnskap/okonomi/okonomi-arbeidsspesialisering": "content/samfunnskunnskap/okonomi/arbeidsspesialisering.json",
+    "samfunnskunnskap/okonomi/arbeidsspesialisering": "content/samfunnskunnskap/okonomi/arbeidsspesialisering.json",
     "samfunnskunnskap/okonomi/finanskriser": "content/samfunnskunnskap/okonomi/finanskriser.json",
     "samfunnskunnskap/okonomi/inflasjon-og-rente": "content/samfunnskunnskap/okonomi/inflasjon-og-rente.json",
     "samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel": "content/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel.json",

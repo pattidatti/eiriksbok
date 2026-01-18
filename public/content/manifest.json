@@ -1446,6 +1446,167 @@
                     ]
                 },
                 {
+                    "id": "mellomkrigstiden",
+                    "title": "Mellomkrigstiden",
+                    "description": "En tid av dype kriser, ekstreme ideologier og et skjørt håp som brast. Fra de glade 20-åra til fascismens mørke.",
+                    "image": "/images/mellomkrigstiden/hero_oversikt.png",
+                    "tools": [
+                        {
+                            "id": "mellomkrigstiden-sti",
+                            "title": "Læringssti: Mellomkrigstiden",
+                            "description": "En reise gjennom kriser og konflikter mellom de to verdenskrigene.",
+                            "link": "/historie/mellomkrigstiden/mellomkrigstiden-sti",
+                            "icon": "map"
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "oversikt",
+                            "title": "En verden i ubalanse",
+                            "description": "Oversikt over mellomkrigstiden og krigens etterspill.",
+                            "image": "/images/mellomkrigstiden/hero_oversikt.png",
+                            "tags": [
+                                "historie",
+                                "oversikt",
+                                "fred"
+                            ],
+                            "createdDate": "2026-01-18T22:00:00Z"
+                        },
+                        {
+                            "id": "usa",
+                            "title": "The Roaring Twenties",
+                            "description": "USA i mellomkrigstiden: Fra fest til depresjon.",
+                            "image": "/images/mellomkrigstiden/hero_usa.png",
+                            "tags": [
+                                "usa",
+                                "økonomi",
+                                "jazz"
+                            ],
+                            "createdDate": "2026-01-18T22:05:00Z"
+                        },
+                        {
+                            "id": "borskrakk",
+                            "title": "Det store krakket",
+                            "description": "Keynes vs. Hayek: Årsaker og løsninger på den økonomiske krisen.",
+                            "image": "/images/mellomkrigstiden/hero_borskrakk.png",
+                            "tags": [
+                                "økonomi",
+                                "krise",
+                                "børskrakk"
+                            ],
+                            "createdDate": "2026-01-18T22:10:00Z"
+                        },
+                        {
+                            "id": "norge",
+                            "title": "Klassekamp i Norge",
+                            "description": "Menstad-slaget og grunnlaget for velferdsstaten.",
+                            "image": "/images/mellomkrigstiden/norge_menstad.png",
+                            "tags": [
+                                "norge",
+                                "politikk",
+                                "velferdsstat"
+                            ],
+                            "createdDate": "2026-01-18T22:15:00Z"
+                        },
+                        {
+                            "id": "sovjet",
+                            "title": "Stalins jernhånd",
+                            "description": "Soviet under Stalin: Industrialisering og terror.",
+                            "image": "/images/mellomkrigstiden/stalin_industri.png",
+                            "tags": [
+                                "sovjet",
+                                "stalin",
+                                "totalitarisme"
+                            ],
+                            "createdDate": "2026-01-18T22:20:00Z"
+                        },
+                        {
+                            "id": "midtoesten",
+                            "title": "Det nye Midtøsten",
+                            "description": "Da kartet ble tegnet: Sykes-Picot og mandatsystemet.",
+                            "image": "/images/mellomkrigstiden/map_midtoesten.png",
+                            "tags": [
+                                "midtøsten",
+                                "geopolitikk",
+                                "mandat"
+                            ],
+                            "createdDate": "2026-01-18T22:25:00Z"
+                        },
+                        {
+                            "id": "kultur",
+                            "title": "Modernismens eksplosjon",
+                            "description": "Kultur og vitenskap: Fra Einstein til Bauhaus.",
+                            "image": "/images/mellomkrigstiden/hero_kultur.png",
+                            "tags": [
+                                "kultur",
+                                "modernisme",
+                                "vitenskap"
+                            ],
+                            "createdDate": "2026-01-18T22:30:00Z"
+                        },
+                        {
+                            "id": "folkeforbundet",
+                            "title": "Drømmen om fred",
+                            "description": "Folkeforbundet: Idealismen som feilet.",
+                            "image": "/images/mellomkrigstiden/hero_folkeforbundet.png",
+                            "tags": [
+                                "politikk",
+                                "fred",
+                                "diplomati"
+                            ],
+                            "createdDate": "2026-01-18T22:35:00Z"
+                        },
+                        {
+                            "id": "italia",
+                            "title": "Fascismens fødsel",
+                            "description": "Mussolini og veien mot totalitær makt.",
+                            "image": "/images/mellomkrigstiden/hero_italia.png",
+                            "tags": [
+                                "italia",
+                                "fascisme",
+                                "politikk"
+                            ],
+                            "createdDate": "2026-01-18T22:40:00Z"
+                        },
+                        {
+                            "id": "tyskland",
+                            "title": "Fra Weimar til mørke",
+                            "description": "Tyskland: Hyperinflasjon og Hitlers vei til makten.",
+                            "image": "/images/mellomkrigstiden/hero_tyskland.png",
+                            "tags": [
+                                "tyskland",
+                                "nazi",
+                                "politikk"
+                            ],
+                            "createdDate": "2026-01-18T22:45:00Z"
+                        },
+                        {
+                            "id": "spania",
+                            "title": "Den spanske borgerkrigen",
+                            "description": "Generalprøven på andre verdenskrig.",
+                            "image": "/images/mellomkrigstiden/spania_krig.png",
+                            "tags": [
+                                "spania",
+                                "borgerkrig",
+                                "ideologi"
+                            ],
+                            "createdDate": "2026-01-18T22:50:00Z"
+                        },
+                        {
+                            "id": "japan",
+                            "title": "Solens rike i øst",
+                            "description": "Japan: Fra modernisme til militarisme.",
+                            "image": "/images/mellomkrigstiden/hero_japan.png",
+                            "tags": [
+                                "japan",
+                                "militarisme",
+                                "krig"
+                            ],
+                            "createdDate": "2026-01-18T22:55:00Z"
+                        }
+                    ]
+                },
+                {
                     "id": "den-kalde-krigen",
                     "title": "Den Kalde Krigen",
                     "description": "Verden delt i to: Øst mot Vest i en kamp om verdensherredømme.",
