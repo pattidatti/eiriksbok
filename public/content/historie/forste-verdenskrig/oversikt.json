@@ -15,7 +15,6 @@
     "Fire imperier falt: Tyskland, Østerrike-Ungarn, Det osmanske riket og Russland.",
     "La grunnlaget for andre verdenskrig."
   ],
-  "timeline": [],
   "content": [
     {},
     {
@@ -25,6 +24,14 @@
         "text": "Lyset slukkes over hele Europa. Vi vil ikke se det tennes igjen i vår levetid.",
         "author": "Edward Grey, britisk utenriksminister, 3. august 1914"
       }
+    },
+    {
+      "type": "header",
+      "text": "1913: Stillheten før stormen"
+    },
+    {
+      "type": "text",
+      "content": "Året 1913 står i ettertid som symbolet på en tapt verden. I Europa ble denne perioden kalt *Belle Époque* – 'den vakre tiden'. Det var en gullalder preget av enorm teknologisk fremgang, blomstrende kunst og en urokkelig tro på at fremtiden bare ville bli bedre. Jernbaner bandt kontinentet sammen, elektrisiteten lyste opp storbyene, og de store imperiene kontrollerte nesten 80 prosent av jordens overflate. Europa 'eide' verden, økonomisk og militært.\n\nDenne verdenen virket biologisk stabil. De tre mektigste monarkene i Europa – Kong George V av Storbritannia, Keiser Wilhelm II av Tyskland og Tsar Nicholas II av Russland – var alle fettere. De var barnebarn av dronning Victoria, og i 1913 møttes de til storslått bryllup i Berlin. Ingen kunne forestille seg at disse familiemedlemmene bare et år senere skulle lede sine nasjoner inn i en gjensidig utslettelse som ville knuse tre av deres troner for alltid."
     },
     {
       "type": "text",
@@ -39,11 +46,20 @@
       "content": "I løpet av fire blodige år ble over 70 millioner militært personell mobilisert, inkludert 60 millioner europeere. Da våpnene stilnet i 1918, var tapstallene sjokkerende. Mer enn 9 millioner soldater hadde falt på slagmarken, og ytterligere 7 millioner sivile hadde mistet livet som følge av krigshandlinger, sult eller sykdom. En hel generasjon unge menn ble merket for livet, enten fysisk eller psykisk, noe som førte til betegnelsen den tapte generasjon.\n\nDet var en krig preget av stillstand og død i skyttergravene, men også av en rasende rask teknologisk utvikling som for alltid endret hvordan kriger utkjempes. I begynnelsen av krigen red offiserer til hest med fargesterke uniformer og sverd. Ved slutten av krigen hadde verden sett bruk av stridsvogner, ubåter, flammekastere, giftgass og fly i stor skala. Det var møtet mellom gammeldags taktikk og moderne, industriell teknologi som gjorde krigen så dødelig."
     },
     {
+      "type": "image",
+      "src": "/images/historie/forste-verdenskrig/oversikt_industriell_krig.png",
+      "caption": "Den industrielle krigen: Kvinner produserer artillerigranater i en britisk fabrikk, 1916. Krigen krevde total innsats fra hele samfunnet."
+    },
+    {
+      "type": "text",
+      "content": "Krigen var ikke bare en kamp mellom hærstyrker, men en 'total krig' som krevde mobilisering av hele befolkningen. For å forstå hvordan krigen påvirket de som var igjen hjemme, kan du lese om [hjemmefronten](/historie/forste-verdenskrig/hjemmefronten) og hvordan [Norge balanserte på en knivsegg som nøytral](/historie/forste-verdenskrig/norge-under-ww1) i en verden styrt av havet."
+    },
+    {
       "type": "component",
       "component": "FactBox",
       "props": {
         "title": "Enorme tapstall",
-        "content": "Aldri før hadde verden sett slike tapstall.\\n* Frankrike mistet nesten 1,4 millioner soldater, ca. 4% av befolkningen.\\n* Tyskland mistet over 2 millioner soldater.\\n* I gjennomsnitt døde ca. 6000 soldater **hver eneste dag** krigen varte."
+        "content": "Aldri før hadde verden sett slike tapstall.\nFrankrike mistet nesten 1,4 millioner soldater, ca. 4% av befolkningen.\nTyskland mistet over 2 millioner soldater.\nI gjennomsnitt døde ca. 6000 soldater **hver eneste dag** krigen varte."
       }
     },
     {
@@ -52,7 +68,7 @@
     },
     {
       "type": "text",
-      "content": "Årsakene til første verdenskrig er komplekse og debatteres fortsatt av historikere. Likevel peker de fleste på en kombinasjon av faktorer som hadde bygget seg opp over flere tiår. Europa var preget av imperialisme, der stormaktene konkurrerte om kolonier og ressurser i Afrika og Asia. Denne konkurransen skapte mistenksomhet og fiendskap. Samtidig var nasjonalismen på fremmarsj. Mange folkegrupper, spesielt på Balkan, ønsket selvstyre og egne nasjonalstater, noe som truet stabiliteten til de gamle multietniske imperiene som Østerrike-Ungarn og Det osmanske riket.\n\nFor å sikre seg mot angrep bygget stormaktene opp enorme militære styrker og inngikk komplekse allianser. Tanken var at ingen ville tørre å angripe hvis det betydde krig mot flere land samtidig. I realiteten fungerte alliansesystemet som en felle. En konflikt mellom to land kunne raskt dra med seg resten av kontinentet.\n\nDen utløsende årsaken ble attentatet på erkehertug Franz Ferdinand i Sarajevo 28. juni 1914. Erkehertugen var arving til den østerriksk-ungarske tronen, og ble skutt av Gavrilo Princip, en ung serbisk nasjonalist. Dette politiske drapet satte i gang en kjedereaksjon av diplomatiske kriser og krigserklæringer. Østerrike-Ungarn erklærte krig mot Serbia, Russland mobiliserte for å støtte Serbia, Tyskland erklærte krig mot Russland og Frankrike for å støtte Østerrike-Ungarn, og Storbritannia gikk med i krigen da Tyskland invaderte det nøytrale Belgia. I løpet av en måned («Juli-krisen») hadde en regional konflikt på Balkan eskalert til en verdenskrig."
+      "content": "Årsakene til første verdenskrig er komplekse og debatteres fortsatt av historikere. Likevel peker de fleste på en kombinasjon av faktorer som hadde bygget seg opp over flere tiår. Europa var preget av imperialisme, der stormaktene konkurrerte om kolonier og ressurser i Afrika og Asia. Denne konkurransen skapte mistenksomhet og fiendskap. Samtidig var nasjonalismen på fremmarsj. Mange folkegrupper, spesielt på Balkan, ønsket selvstyre og egne nasjonalstater, noe som truet stabiliteten til de gamle multietniske imperiene som Østerrike-Ungarn og Det osmanske riket.\n\nFor å sikre seg mot angrep bygget stormaktene opp enorme militære styrker og inngikk komplekse allianser. Tanken var at ingen ville tørre å angripe hvis det betydde krig mot flere land samtidig. I realiteten fungerte alliansesystemet som en felle. En konflikt mellom to land kunne raskt dra med seg resten av kontinentet.\n\nDen utløsende årsaken ble attentatet på erkehertug Franz Ferdinand i Sarajevo 28. juni 1914. Erkehertugen var arving til den østerriksk-ungarske tronen, og ble skutt av Gavrilo Princip, en ung serbisk nasjonalist. Dette politiske drapet satte i gang en kjedereaksjon av diplomatiske kriser og krigserklæringer. Du kan lese mer om de dype spenningene og hendelsene som førte til krigsutbruddet i [denne gjennomgangen av opptakten til krigen](/historie/forste-verdenskrig/opptakt)."
     },
     {
       "type": "header",
@@ -60,7 +76,11 @@
     },
     {
       "type": "text",
-      "content": "Krigens mest kjente skueplass var Vestfronten, som strakte seg som et sår gjennom Europa fra den sveitsiske grensen til Nordsjøen. Her stivnet krigen raskt til i en blodig stillstandskrig etter at den tyske fremrykkingen ble stoppet utenfor Paris høsten 1914. Soldatene på begge sider gravde seg ned i endeløse, komplekse systemer av skyttergraver, beskyttet av piggtråsperringer og dekket av maskingeværer.\n\nLivet i skyttergravene var preget av gjørme, rotter, sykdom og konstant frykt for artilleriangrep. Slag som Verdun og Somme i 1916 ble symboler på krigens meningsløse sløsing med menneskeliv. Ved Somme mistet britene nesten 20 000 mann bare den første dagen. Generalene sendte bølge etter bølge av soldater «over toppen» og inn i ingenmannsland, ofte for å bli meiet ned av fiendens ild, kun for å vinne noen få hundre meter med gjørmete landskap.\n\nPå Østfronten var krigføringen annerledes. Her var frontlinjen mye lengre, og skyttergravssystemene var ikke like utbygde. Dette åpnet for mer bevegelse og manøverkrigføring. Her kjempet Russland mot Tyskland og Østerrike-Ungarn over enorme landområder. Til tross for store russiske arméer led de ofte store tap på grunn av dårlig utstyr og ledelse. Etter den russiske revolusjonen i 1917 kollapset den russiske krigsinnsatsen, og landet trakk seg ut av krigen, noe som tillot Tyskland å flytte sine styrker vestover.\n\nKrigen ble også utkjempet i Alpene mellom Italia og Østerrike-Ungarn under ekstreme forhold, i Midtøsten der britene kjempet mot osmanene, og i koloniene i Afrika. Til sjøs prøvde Tyskland å sulte ut Storbritannia gjennom uinnskrenket ubåtkrig, der de senket handelsskip som fraktet forsyninger. Dette var en av hovedårsakene til at USA til slutt ble dratt inn i krigen i 1917."
+      "content": "Krigens mest kjente skueplass var Vestfronten, som strakte seg som et sår gjennom Europa fra den sveitsiske grensen til Nordsjøen. Her stivnet krigen raskt til i en blodig stillstandskrig etter at den tyske fremrykkingen ble stoppet utenfor Paris høsten 1914. Soldatene på begge sider gravde seg ned i endeløse, komplekse systemer av skyttergraver, beskyttet av piggtråsperringer og dekket av maskingeværer.\n\nLivet i skyttergravene var preget av gjørme, rotter, sykdom og konstant frykt for artilleriangrep. Denne formen for [skyttergravskrig](/historie/forste-verdenskrig/skyttergravskrig) ble definerende for konflikten, drevet frem av en eksplosiv [teknologisk utvikling](/historie/forste-verdenskrig/teknologi) som gjorde forsvar langt mer effektivt enn angrep. Slag som Verdun og Somme i 1916 ble symboler på krigens meningsløse sløsing med menneskeliv."
+    },
+    {
+      "type": "text",
+      "content": "På Østfronten var krigføringen annerledes. Her var frontlinjen mye lengre, og skyttergravssystemene var ikke like utbygde. Her kjempet Russland mot Tyskland og Østerrike-Ungarn over enorme landområder. Til tross for store russiske arméer led de ofte store tap på grunn av dårlig utstyr og ledelse. Etter den russiske revolusjonen i 1917 kollapset den russiske krigsinnsatsen, og landet trakk seg ut av krigen, noe som tillot Tyskland å flytte sine styrker vestover.\n\nKrigen ble også utkjempet i Alpene mellom Italia og Østerrike-Ungarn under ekstreme forhold, i Midtøsten der britene kjempet mot osmanene, og i koloniene i Afrika. Til sjøs prøvde Tyskland å sulte ut Storbritannia gjennom uinnskrenket ubåtkrig."
     },
     {
       "type": "header",
@@ -68,7 +88,16 @@
     },
     {
       "type": "text",
-      "content": "Året 1917 ble et vendepunkt. Russland trakk seg ut, men USA kom inn med friske styrker og enorme industrielle ressurser. Dette tippet gradvis vektskålen i Ententens favør. Våren 1918 satset Tyskland alt på en siste storoffensiv på vestfronten for å vinne krigen før amerikanerne ankom i full styrke. Offensiven hadde fremgang i starten, men stoppet opp på grunn av utmattelse og mangel på forsyninger.\n\nHøsten 1918 kollapset Sentralmaktene én etter én. Bulgaria, Det osmanske riket og Østerrike-Ungarn inngikk våpenhviler. Tyskland sto igjen alene, preget av sult og indre uro. Keiser Wilhelm II abdiserte 9. november, og Tyskland ble en republikk. Våpenhvilen trådte i kraft den 11. time, på den 11. dag, i den 11. måned i 1918. Kanonene stilnet endelig.\n\nFredsoppgjøret i Versailles året etter tegnet europakartet på nytt. Nye nasjoner som Polen, Tsjekkoslovakia, Jugoslavia, Finland og de baltiske statene oppsto fra ruinene av de gamle imperiene. Men freden var skjør. Tyskland ble pålagt det mange tyskere opplevde som en ydmykende fredsavtale, med enorme krav om krigserstatning, tap av landområder og tvungen demilitarisering. Følelsen av urettferdighet og bitterhet skulle i de neste tiårene gi grobunn for politisk ekstremisme, fremveksten av nazismen og til slutt en enda større katastrofe: andre verdenskrig. Slik sett var ikke første verdenskrig slutten på alle kriger, men snarere startskuddet for en trettiårsperiode med konflikt som nesten ødela den europeiske sivilisasjonen."
+      "content": "Året 1917 ble et vendepunkt. Russland trakk seg ut, men USA kom inn med friske styrker og enorme industrielle ressurser. Dette tippet gradvis vektskålen i Ententens favør. Våren 1918 satset Tyskland alt på en siste storoffensiv på vestfronten for å vinne krigen før amerikanerne ankom i full styrke.\n\nDet indre presset ble imidlertid for stort for de gamle stormaktene. Vi så dramatiske omveltninger som [den russiske revolusjon](/historie/forste-verdenskrig/russiske-revolusjon) og [den tyske revolusjon](/historie/forste-verdenskrig/tyske-revolusjon), som forandret Europa for alltid. Høsten 1918 kollapset Sentralmaktene én etter én, og våpenhvilen trådte i kraft den 11. november 1918."
+    },
+    {
+      "type": "image",
+      "src": "/images/historie/forste-verdenskrig/oversikt_fredsavtale.png",
+      "caption": "Freden i Speilsalen: Diplomater signerer Versailles-traktaten i 1919. Freden markerte slutten på krigen, men sådde også frøene til neste konflikt."
+    },
+    {
+      "type": "text",
+      "content": "Fredsoppgjøret i Versailles året etter tegnet europakartet på nytt. Men freden var skjør. Tyskland ble pålagt det mange tyskere opplevde som en ydmykende fredsavtale, noe som ga grobunn for politisk ekstremisme. Slik sett var ikke første verdenskrig slutten på alle kriger, men snarere startskuddet for en trettiårsperiode med konflikt. Du kan fordype deg videre i de dype [konsekvensene av krigen her](/historie/forste-verdenskrig/konsekvenser)."
     }
   ],
   "createdDate": "2025-12-21T14:00:00Z",

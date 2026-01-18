@@ -148,7 +148,8 @@ filteredArticleFiles.forEach(file => {
 
         // 4. Find Potential People (Title Case clusters)
         // This regex looks for Title Case words, allowing for some small connectors like 'den', 'von', 'de'
-        const nameMatches = fullText.match(/\b[A-ZÆØÅ][a-zæøå']+\b(\s+(den|von|de|di|d')\s+\b[A-ZÆØÅ][a-zæøå']+\b)?(\s+\b[A-ZÆØÅ][a-zæøå']+\b)*/g);
+        // Updated to handle Roman numerals and optional multiple words (Lenin, Franz Ferdinand, etc.)
+        const nameMatches = fullText.match(/\b[A-ZÆØÅ][a-zæøå']+\b(\s+(den|von|de|di|d'|af)\s+\b[A-ZÆØÅ][a-zæøå']+\b)?(\s+([A-ZÆØÅ][a-zæøå']+|I{1,3}|IV|VI{0,3}|IX|X))*/g);
 
         if (nameMatches) {
             nameMatches.forEach(name => {
@@ -157,8 +158,16 @@ filteredArticleFiles.forEach(file => {
                 if (stopWords.has(lowerName)) return;
                 if (knownTerms.has(lowerName)) return;
 
-                const excludes = ['Norge', 'Sverige', 'Danmark', 'Tyskland', 'Europa', 'Vesten', 'Verden', 'Nord-Norge', 'Sør-Norge', 'Oslo', 'Bergen', 'Romerriket', 'Middelalderen', 'Historien', 'Kirken', 'Staten', 'Byen', 'Landet', 'Gud', 'Guds', 'Jesus', 'Allah', 'Brahman', 'Buddha', 'Kristus'];
-                if (excludes.includes(name)) return;
+                const nameExcludes = [
+                    'Norge', 'Sverige', 'Danmark', 'Tyskland', 'Europa', 'Vesten', 'Verden', 'Nord-Norge', 'Sør-Norge',
+                    'Oslo', 'Bergen', 'Romerriket', 'Middelalderen', 'Historien', 'Kirken', 'Staten', 'Byen', 'Landet',
+                    'Gud', 'Guds', 'Jesus', 'Allah', 'Brahman', 'Buddha', 'Kristus', 'Frankrike', 'Russland', 'Storbritannia',
+                    'Østerrike', 'Ungarn', 'Italia', 'Belgia', 'Serbia', 'Balkan', 'USA', 'Amerika', 'Asia', 'Afrika',
+                    'Stillehavet', 'Atlanterhavet', 'Norden', 'London', 'Paris', 'Berlin', 'Wien', 'Sarajevo', 'Moskva',
+                    'Casus Belli', 'Pax Britannica', 'Ententen', 'Sentralmaktene', 'Triple Entente', 'Triple Alliance',
+                    'Dette', 'Denne', 'Disse', 'Hvorfor', 'Hvordan', 'Samtidig', 'Under', 'Etter', 'Da', 'Men', 'Og'
+                ];
+                if (nameExcludes.includes(name)) return;
 
                 if (!potentialPeople[name]) {
                     potentialPeople[name] = { count: 0, sources: [] };

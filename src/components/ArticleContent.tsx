@@ -39,6 +39,23 @@ const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
                     );
                 }
 
+                // Check for Ordered Lists (starts with number dot)
+                if (block.match(/^\d+\.\s/)) {
+                    const items = block.split(/\n/).filter(line => line.trim().match(/^\d+\.\s/));
+                    return (
+                        <ol key={index} className="list-decimal list-outside ml-6 space-y-2 mb-6 text-slate-700">
+                            {items.map((item, i) => {
+                                const content = item.replace(/^\d+\.\s+/, '');
+                                return (
+                                    <li key={i} className="leading-relaxed pl-2">
+                                        {renderInlineMarkdown(content, concepts)}
+                                    </li>
+                                );
+                            })}
+                        </ol>
+                    );
+                }
+
                 // Check for Unordered Lists (starts with * or -)
                 if (block.match(/^(\*|-)\s/)) {
                     const items = block.split(/\n/).filter(line => line.trim().match(/^(\*|-)\s/));

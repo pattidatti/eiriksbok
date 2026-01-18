@@ -1,45 +1,185 @@
 {
     "id": "ww1-sti",
     "title": "Læringssti: Sivilisasjonens Selvmord",
-    "description": "Følg menneskehetens nedstigning fra optimisme til industriell masseslakt.",
+    "description": "En reise fra 1914-optimismen til skyttergravenes helvete. Klarer du å forstå valgene som ødela en hel generasjon?",
     "layout": "learning-path",
     "category": "Læringssti",
     "year": "1914 - 1918",
     "readTime": "4-5 timer",
     "learningPathData": {
         "id": "ww1-sti",
-        "title": "Første verdenskrig",
-        "description": "En reise gjennom skyttergravene, revolusjonene og hjemmefrontens lidelser.",
+        "title": "Sivilisasjonens Selvmord",
+        "description": "Første verdenskrig var ikke bare slag. Det var sivilisasjonens kollaps. I denne stien skal du ikke bare lese om krigen – du skal stå i den.",
         "targetTopicId": "forste-verdenskrig",
         "targetSubjectId": "historie",
         "steps": [
             {
-                "id": "step-1",
-                "phase": "Fase 1: Opptakten",
-                "title": "Kruttønnen Europa",
-                "type": "artikkel",
-                "content": "Hvordan et skudd i Sarajevo satte verden i brann. Alliansene som dro alle med seg i dypet.",
+                "id": "step-0",
+                "phase": "Prolog: Den Gamle Verden",
+                "title": "Europa før stormen",
+                "type": "fakta",
+                "content": "Forestill deg at året er 1913. Europa er verdens ubestridte sentrum, en plass preget av en urokkelig tro på fremtiden. Jernbaner krysser grensene, elektrisiteten lyser opp byene, og folk lever i en fred som har vart så lenge at de har glemt hvordan krig smaker. Denne perioden kalles *Belle Époque* – den vakre tiden.\n\nDu beveger deg i en verden styrt av store keiserriker. De tre mektigste mennene i Europa – kongen av Storbritannia, keiseren av Tyskland og tsaren av Russland – er fettere. De skriver vennlige brev til hverandre og møtes i store familiebesøk. Ingen ser for seg at disse familiebåndene snart skal rives i stykker.\n\nI dette første steget skal du utforske hvordan denne 'perfekte' verdenen så ut på overflaten, før du lærer om de mørke spenningene som kokte under jorden. Se etter informasjon om hvem som egentlig styrte hva, og hvorfor freden var skjørere enn den så ut.",
                 "tasks": [
-                    "Hvorfor var alliansene farlige?",
-                    "Hva var 'August-begeistringen'?"
+                    "Hvilken periode kalles 'Belle Époque'? (Fakta)",
+                    "Nevn tre stormakter som var styrt av fettere i 1913. (Fakta)",
+                    "Hva betydde det at Europa 'eide' verden på denne tiden? (Forståelse)",
+                    "Hvorfor tror du det er farlig å glemme hva krig er? (Refleksjon)",
+                    "Hvordan kan langvarig fred gjøre et samfunn sårbar for krig? (Analyse)"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkel: Oversikt over krigen",
+                        "url": "/historie/forste-verdenskrig/oversikt"
+                    }
+                ]
+            },
+            {
+                "id": "step-1",
+                "phase": "Akt 1: Illusjonen (1914)",
+                "title": "Skuddet i Sarajevo",
+                "type": "interaktiv",
+                "content": "Det er en varm junidag i 1914. I den støvete byen Sarajevo på Balkan faller to skudd som skal endre alt. Erkehertug Franz Ferdinand, arvingen til det mektige Østerrike-Ungarn, er drept. Gjerningsmannen er en ung serbisk nasjonalist som vil ha frihet for sitt folk.\n\nDenne hendelsen er gnisten som lander i en kruttønne. Europa er nemlig delt i to store alliansegrupper. Hvis ett land blir angrepet, må de andre forsvare dem. Det som starter som en krangel mellom to land, drar raskt med seg hele kontinentet i en kjedereaksjon ingen klarer å stoppe.\n\nDu skal nå tre inn i rollen som diplomat. Du vil se hvor utrolig vanskelig det var å hindre katastrofen når alliansene først var inngått. Legg merke til hvordan løfter mellom land kan føre til en krig ingen egentlig ønsket.",
+                "component": {
+                    "name": "ScenarioRoleplay",
+                    "props": {
+                        "title": "Juli-krisen",
+                        "intro": "Østerrike-Ungarn må reagere på drapet. Men Russland støtter Serbia. Tyskland støtter oss. Ett feil steg betyr verdenskrig.",
+                        "startId": "start",
+                        "scenarios": [
+                            {
+                                "id": "start",
+                                "text": "Serbias regjering var sannsynligvis involvert i attentatet. Generalene krever krig. Hva gjør du?",
+                                "options": [
+                                    {
+                                        "label": "Erklær krig mot Serbia umiddelbart",
+                                        "nextId": "war"
+                                    },
+                                    {
+                                        "label": "Krev en internasjonal etterforskning",
+                                        "nextId": "peace"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "war",
+                                "text": "Du velger krig. Russland mobiliserer for å støtte Serbia. Tyskland erklærer krig mot Russland. Frankrike blir dratt med. Det er ingen vei tilbake.",
+                                "isEnding": true,
+                                "endingType": "historical",
+                                "feedback": "Dette er nøyaktig hva som skjedde. En lokal konflikt ble til en verdenskrig på grunn av alliansene."
+                            },
+                            {
+                                "id": "peace",
+                                "text": "Du prøver diplomati. Men Tyskland presser på. De vil ha krigen nå, før Russland blir for sterke. Dine forsøk blir ignorert.",
+                                "isEnding": true,
+                                "endingType": "alternative",
+                                "feedback": "Et edelt forsøk. Men krigsmaskineriet var allerede i gang. Alliansesystemet gjorde diplomati nesten umulig."
+                            }
+                        ]
+                    }
+                },
+                "tasks": [
+                    "Hvem var Gavrilo Princip? (Fakta)",
+                    "Hva var målet til organisasjonen 'Den sorte hånd'? (Forståelse)",
+                    "Hva betyr begrepet 'blankoblankett' i denne sammenhengen? (Fakta)",
+                    "Hvorfor førte alliansesystemet til at en lokal konflikt ble global? (Systemforståelse)",
+                    "Er det riktig å straffe et helt folk for gjerningene til en petite gruppe? (Etikk)",
+                    "Hvordan påvirket imperialismen spenningen mellom stormaktene? (Analyse)"
                 ],
                 "links": [
                     {
                         "title": "Les artikkel: Opptakt",
                         "url": "/historie/forste-verdenskrig/opptakt"
+                    },
+                    {
+                        "title": "Etikk: Plikt eller Konsekvens?",
+                        "url": "/krle/etikk/pliktetikk"
                     }
                 ]
             },
             {
                 "id": "step-2",
-                "phase": "Fase 2: Skyttergravene",
-                "title": "Livet i gjørma",
-                "type": "artikkel",
-                "content": "Krigen stopper opp. Vestfronten blir et sår gjennom Europa der menn lever og dør i gjørme.",
+                "phase": "Akt 1: Illusjonen (1914)",
+                "title": "August-begeistringen",
+                "type": "fakta",
+                "content": "August 1914. Europa koker av begeistring. Unge menn i millioner melder seg frivillig til krigen. De får blomster stukket i geværløpene og vinkes av gårde fra jernbanestasjonene som om de skal på en sommerleir. 'Hjemme til jul!', roper de.\n\nTyskland har en plan som skal sikre seieren raskt: Schlieffen-planen. De skal marsjere gjennom det nøytrale Belgia for å overrumple Frankrike. Ved å vinne i vest på bare noen uker, håper de å unngå å kjempe mot både Frankrike og Russland samtidig.\n\nI dette steget skal du se på hvorfor alle trodde krigen ville bli kort. Du vil lære om de militære planene som var laget på forhånd, og hvorfor tyskernes ferd gjennom nøytrale land trakk Storbritannia inn i krigen. Les nøye om hvordan planene feilet allerede de første ukene.",
                 "tasks": [
-                    "Hva var 'Shell Shock'?",
-                    "Hvordan fungerte skyttergravsystemet?"
+                    "Hva var hovedmålet med Schlieffen-planen? (Fakta)",
+                    "Hvorfor var tyskernes invasjon av Belgia så skjebnesvanger for Storbritannia? (Årsak)",
+                    "Hva mente man med at soldatene skulle være 'hjemme til jul'? (Fakta)",
+                    "Hvorfor feilet Schlieffen-planen i september 1914? (Analyse)",
+                    "Hvordan kan massesuggesjon og nasjonalisme forklare begeistringen ved krigsutbruddet? (Psykologi)"
                 ],
+                "links": [
+                    {
+                        "title": "Les artikkel: Krigens løp",
+                        "url": "/historie/forste-verdenskrig/krigens-lop"
+                    }
+                ]
+            },
+            {
+                "id": "step-3",
+                "phase": "Akt 2: Maskinen (1915-1917)",
+                "title": "Ned i gjørma",
+                "type": "interaktiv",
+                "content": "Drømmen om en kort krig døde i gjørma. Frontlinjen har stivnet helt. Fra Sveits til Nordsjøen har millioner av soldater gravd seg ned i dype grøfter – skyttergraver. Det som skulle være heroiske stormløp, har blitt til en grå hverdag fylt med vann, rotter, lus og en konstant fare for å bli sprengt i stykker.\n\nLivet i skyttergraven er en test av menneskelig utholdenhet. Mellom de to fiendtlige linjene ligger *Ingenmannsland*, et landskap av piggtråd og granatkratere hvor ingen overlever lenge. Soldatene kjemper mot elementene like mye som mot fienden.\n\nDu skal nå forberede deg på oppholdet ved fronten. Du må velge utstyr som hjelper deg å holde deg tørr og i live. Følg godt med på forklaringene om hvordan disse grøftene faktisk var bygget, og hva som skjedde med hodet til soldater som måtte sitte under artilleriild i ukesvis.",
+                "tasks": [
+                    "Hva var 'Ingenmannsland'? (Fakta)",
+                    "Hvorfor ble skyttergravene bygget i sikksakk (traverser)? (Teknisk forståelse)",
+                    "Hvordan prøvde soldatene å unngå 'skyttergravsfot'? (Fakta)",
+                    "Forklar fenomenet 'Live and let live'. (Forståelse)",
+                    "Hvorfor trodde man i starten at 'granatsjokk' var feighet? (Refleksjon)",
+                    "Hvordan påvirker konstant frykt og søvnmangel menneskets psyke? (Psykologi)"
+                ],
+                "component": {
+                    "name": "PackTheBag",
+                    "props": {
+                        "capacity": 100,
+                        "targetValue": 60,
+                        "instruction": "Pakk sekken for skyttergraven. Husk: Tørre føtter redder liv.",
+                        "items": [
+                            {
+                                "id": "socks",
+                                "name": "Tørre sokker",
+                                "weight": 10,
+                                "value": 50,
+                                "icon": "🧦",
+                                "description": "Motvirker skyttergravsfot."
+                            },
+                            {
+                                "id": "shovel",
+                                "name": "Spade",
+                                "weight": 30,
+                                "value": 40,
+                                "icon": "⛏️",
+                                "description": "Ditt viktigste våpen for å overleve artilleri."
+                            },
+                            {
+                                "id": "rifle",
+                                "name": "Gevær",
+                                "weight": 40,
+                                "value": 20,
+                                "icon": "🔫",
+                                "description": "Tungt, men påkrevd."
+                            },
+                            {
+                                "id": "chocolate",
+                                "name": "Sjokolade",
+                                "weight": 5,
+                                "value": 15,
+                                "icon": "🍫",
+                                "description": "Kortvarig energi og trøst."
+                            },
+                            {
+                                "id": "book",
+                                "name": "Bok",
+                                "weight": 10,
+                                "value": 5,
+                                "icon": "📖",
+                                "description": "Tidsfordriv i ventetiden."
+                            }
+                        ]
+                    }
+                },
                 "links": [
                     {
                         "title": "Les artikkel: Skyttergravskrig",
@@ -48,104 +188,169 @@
                 ]
             },
             {
-                "id": "step-3",
-                "phase": "Fase 3: Teknologien",
-                "title": "Dødens teknologi",
-                "type": "interaktiv",
-                "content": "Gass, tanks og fly. Hvordan den industrielle revolusjon ble brukt til å drepe mer effektivt.",
+                "id": "step-4",
+                "phase": "Akt 2: Maskinen (1915-1917)",
+                "title": "Dødens Industri",
+                "type": "artikkel",
+                "content": "Krigføring har endret ansikt. Første verdenskrig er den første *industrielle* krigen. Fabrikkene hjemme pumper ut granater, giftgass og maskingeværer som kan drepe tusenvis av mennesker på minutter. Tapperhet og mot betyr lite når man står foran en maskin.\n\nArtilleriet – de store kanonene – er krigens sanne konge. De maler jorden i stykker og forvandler frodige marker til månelandskap. Ved siden av dukker det opp nye monstre: fly som kjemper i skyene, ubåter som lurer i dypet, og stridsvogner som knuser alt i sin vei.\n\nI dette steget skal du lære om de dødelige verktøyene som tvang mennesket ned i bakken. Du skal se på hvordan teknologien gjorde krigen mer upersonlig og grusom. Prøv å forstå hvordan disse oppfinnelsene ble laget for å bryte stillstanden i skyttergravene, men ofte bare endte opp med å skape mer død.",
                 "tasks": [
-                    "Hvordan endret stridsvognen krigen?",
-                    "Hvorfor var gass så fryktet?"
+                    "Hvilket våpen ble kalt 'Dødens ljå'? (Fakta)",
+                    "Hvor stor andel av dødsfallene skyldtes artilleri? (Fakta)",
+                    "Hvorfor var giftgass så fryktet, selv om den ikke var militært avgjørende? (Analyse)",
+                    "Hva var kodenavnet på de første stridsvognene, og hvorfor? (Fakta)",
+                    "Hvordan endret flyene seg fra rekognosering til kamp i løpet av krigen? (Utvikling)",
+                    "Gjør teknologien oss mer følelsesmessig distansert fra drapet? (Etikk)"
                 ],
                 "links": [
                     {
-                        "title": "Utforsk: Teknologi",
+                        "title": "Les artikkel: Teknologi",
                         "url": "/historie/forste-verdenskrig/teknologi"
                     }
                 ]
             },
             {
-                "id": "step-4",
-                "phase": "Fase 4: Rød Storm",
-                "title": "Den Russiske Revolusjon",
+                "id": "step-5",
+                "phase": "Akt 3: Kollapsen (1917-1918)",
+                "title": "Rød Storm i Øst",
                 "type": "fordypning",
-                "content": "Mens soldatene dør i vest, kollapser tsarens rike i øst. Lenin lover 'Brød, Fred og Land'.",
+                "content": "Mens Vestfronten står fast, kollapser Russland innenfra. Landet er enormt, men krigen har tømt skattekisten og matlagrene. Russiske soldater dør i milliontall, ofte uten sko og ammunisjon. Sulten i byene fører til opprør, og Tsaren må gå av.\n\nMidt i kaoset fyller et hemmelig tog fra Tyskland. Om bord er Vladimir Lenin, en revolusjonær som lover folket det de lengter mest etter: 'Fred, brød og jord'. Han griper makten, og Russland trekker seg helt ut av krigen.\n\nDu skal nå se på hvordan krigføring kan føre til en revolusjon i et helt land. Legg merke til prisen Russland måtte betale for å få fred med Tyskland, og hvordan dette ga tyskerne en siste sjanse til å vinne krigen ved å flytte alle soldatene sine vestover.",
                 "tasks": [
-                    "Hvorfor gjorde folket opprør?",
-                    "Hva betydde Brest-Litovsk-freden for krigen?"
+                    "Hva skjedde i 'Februarrevolusjonen' i 1917? (Fakta)",
+                    "Hvorfor valgte den provisoriske regjeringen å fortsette krigen? (Forståelse)",
+                    "Hva var Lenins slagord for å vinne folket? (Fakta)",
+                    "Hvorfor hjalp Tyskland Lenin med å reise tilbake til Russland? (Strategi)",
+                    "Hva innebar fredsavtalen i Brest-Litovsk for Russland? (Konsekvens)",
+                    "Kunne Russland unngått revolusjon hvis de hadde trukket seg ut av krigen tidligere? (Hypotetisk)"
                 ],
                 "links": [
                     {
-                        "title": "Les: Rød Storm",
+                        "title": "Les artikkel: Russisk Revolusjon",
                         "url": "/historie/forste-verdenskrig/russiske-revolusjon"
                     }
                 ]
             },
             {
-                "id": "step-5",
-                "phase": "Fase 5: Total Krig",
-                "title": "Hjemmefronten",
-                "type": "artikkel",
-                "content": "Ingen går fri. Kvinner i fabrikkene, sultblokade og propaganda som forgifter sinnet.",
-                "tasks": [
-                    "Hva er 'total krig'?",
-                    "Hvordan ble propaganda brukt?"
-                ],
-                "links": [
-                    {
-                        "title": "Les: Hjemmefronten",
-                        "url": "/historie/forste-verdenskrig/hjemmefronten"
-                    }
-                ]
-            },
-            {
                 "id": "step-6",
-                "phase": "Fase 6: Norge",
-                "title": "Den nøytrale allierte",
-                "type": "fordypning",
-                "content": "Hvordan et lite, nøytralt land tjente penger på krigen, men betalte med sjøfolkenes liv.",
+                "phase": "Akt 3: Kollapsen (1917-1918)",
+                "title": "Sulten hjemme",
+                "type": "artikkel",
+                "content": "Krigen har blitt *total*. Det betyr at hele landet, ikke bare soldatene, er en del av krigen. Barn, kvinner og eldre jobber i fabrikkene for å lage ammunisjon. Uten innsatsen hjemme ville fronten kollapset på få dager.\n\nStorbritannia har brukt sin marine til å sperre alle forsyninger til Tyskland. Det er ingen mat å få. Vinteren 1916 heter 'Kålrotvinteren' – fordi folk ikke har annet å spise enn dyrefôr. Propagandaen jobber på spreng for å holde motet oppe og få folk til å hate fienden enda mer.\n\nDette steget handler om dem som ikke bar våpen. Du skal lære om 'Canary Girls' – kvinnene i fabrikkene – og hvordan sult ble brukt som et bevisst våpen for å knekke fienden. Se etter hvordan dette skillet mellom soldat og sivil begynte å forsvinne helt.",
                 "tasks": [
-                    "Hva var 'Jobbetiden'?",
-                    "Hvorfor ble Norge kalt 'den nøytrale allierte'?"
+                    "Hva kjennetegner en 'total krig'? (Fakta)",
+                    "Hvem var 'Canary Girls', og hvorfor fikk de det navnet? (Fakta)",
+                    "Hvordan ble kålrotvinteren et symbol på tysk lidelse? (Forståelse)",
+                    "Nevn tre hovedmål for statens propaganda. (Fakta)",
+                    "Hvorfor ble de sivile legitime mål i denne krigen? (Analyse)",
+                    "Er det greit å bruke sult som våpen mot en sivilbefolkning? (Etikk)"
                 ],
                 "links": [
                     {
-                        "title": "Les: Norge under WW1",
-                        "url": "/historie/forste-verdenskrig/norge-under-ww1"
+                        "title": "Les artikkel: Hjemmefronten",
+                        "url": "/historie/forste-verdenskrig/hjemmefronten"
+                    },
+                    {
+                        "title": "Økonomi: Ressurser og fordeling",
+                        "url": "/samfunnskunnskap/okonomi/produksjon"
                     }
                 ]
             },
             {
                 "id": "step-7",
-                "phase": "Fase 7: Sammenbruddet",
-                "title": "Tysk Revolusjon",
+                "phase": "Akt 3: Kollapsen (1917-1918)",
+                "title": "Den nøytrale allierte",
                 "type": "fordypning",
-                "content": "Mytteri i Kiel. Keiseren flykter. Tyskland kollapser innenfra.",
+                "content": "Hvor var Norge i alt dette? Vi erklærte oss nøytrale, som betyr at vi ikke skulle velge side. Men Norge eier en av verdens største handelsflåter, og havet er krigens viktigste vei. Britene tvinger Norge til å velge: seil for oss, eller vi stopper alt kull til deres egne skip.\n\nNorge bøyer av og blir den 'nøytrale allierte'. Norske skip frakter livsviktig utstyr for Storbritannia og Frankrike, og tyske ubåter svarer med å torpedere dem. Over 2000 norske sjøfolk mister livet i en krig de offisielt ikke er en del av.\n\nI dette steget skal du lære om 'Jobbetiden' – en tid der noen nordmenn tjente seg styrtrike på krigen, mens andre sultet. Du skal se på de moralske utfordringene ved å bo i et nøytralt land som likevel blir dratt med i stormen.",
                 "tasks": [
-                    "Hva var 'Dolkesjøtlegenden'?",
-                    "Hvorfor gjorde matrosene opprør?"
+                    "Hvorfor ble Norge kalt 'Den nøytrale allierte'? (Fakta)",
+                    "Hva var tyskernes reaksjon på at Norge seilte for britene? (Konsekvens)",
+                    "Hva kjennetegnet 'Jobbetiden' i Norge? (Fakta)",
+                    "Hva menes med begrepet 'torpedonervene'? (Forståelse)",
+                    "Hvordan skapte krigen større sosiale ulikheter i Norge? (Analyse)",
+                    "Hvordan påvirket dyrtiden arbeiderbevegelsen i Norge? (Forståelse)"
                 ],
                 "links": [
                     {
-                        "title": "Les: Tysk Revolusjon",
-                        "url": "/historie/forste-verdenskrig/tyske-revolusjon"
+                        "title": "Les artikkel: Norge under krigen",
+                        "url": "/historie/forste-verdenskrig/norge-under-ww1"
                     }
                 ]
             },
             {
                 "id": "step-8",
-                "phase": "Fase 8: Etterspillet",
-                "title": "En ny verden",
-                "type": "refleksjon",
-                "content": "Freden i Versailles. Kartet tegnes på nytt. Frøene til neste krig sås.",
+                "phase": "Akt 3: Kollapsen (1917-1918)",
+                "title": "Mytteri og Revolusjon",
+                "type": "fordypning",
+                "content": "November 1918. Tyskland har tapt kappløpet i vest etter at USA kom med i krigen med friske soldater. Den tyske hæren er utslitt. Men de stolte generalene vil ikke innrømme nederlag. De beordrer flåten ut i et siste slag mot Storbritannia – et rent selvmordstokt.\n\nDa matrosene i Kiel får ordren, svarer de med et tydelig 'NEI'. De slukker flammene på skipene og starter et opprør som sprer seg til hele landet. Keiseren må flykte, og en ny tysk republikk blir født i kaos.\n\nDu skal nå undersøke hvordan Tyskland kollapset fra innsiden. Du vil lære om den giftige myten som oppsto i etterkant: 'dolkesjøtlegenden'. Den sa at hæren aldri tapte på slagmarken, men ble forrådt av politikere og opprørere hjemme. Dette ble et farlig våpen for fremtiden.",
                 "tasks": [
-                    "Var fredsavtalen rettferdig?",
-                    "Hvordan endret europakartet seg?"
+                    "Hva utløste mytteriet i Kiel? (Fakta)",
+                    "Hva skjedde med keiser Wilhelm II i november 1918? (Fakta)",
+                    "Hva er 'Dolkesjøtlegenden', og hvem ble utpekt som syndebukker? (Forståelse)",
+                    "Hvorfor var denne myten så farlig for det unge tyske demokratiet? (Analyse)",
+                    "Hvorfor valgte generalene å legge ansvaret for freden på de sivile politikerne? (Strategi)"
                 ],
                 "links": [
                     {
-                        "title": "Les: Konsekvenser",
+                        "title": "Les artikkel: Tysk Revolusjon",
+                        "url": "/historie/forste-verdenskrig/tyske-revolusjon"
+                    }
+                ]
+            },
+            {
+                "id": "step-9",
+                "phase": "Etterspillet",
+                "title": "Freden som feilet",
+                "type": "interaktiv",
+                "content": "Klokken 11:00 den 11. november 1918 stilner kanonene. Det er fred, men verden er i sjokk. I de praktfulle salene i Versailles utenfor Paris sitter seierherrene og krangler om hvordan fremtiden skal se ut. Frankrike vil ha hevn og straffe Tyskland hardt.\n\nTyskland tvinges til å ta all skyld for krigen og betale en gjeld som er så enorm at de aldri kan klare det. Kartet over Europa tegnes helt på nytt, og nye land som Polen og Tsjekkoslovakia dukker opp. Men grensene er trukket på en måte som skaper nye konflikter.\n\nI dette siste steget skal du sortere hendelsene som fulgte etter krigen. Du vil se hvordan en dårlig fredsavtale og økonomisk krise la grunnlaget for at en ny og enda verre krig kunne starte bare tjue år senere. Se etter årsakene til at Folkeforbundet, som var ment å sikre freden, aldri ble sterkt nok.",
+                "tasks": [
+                    "Nevn tre nye stater som ble opprettet etter krigen. (Fakta)",
+                    "Hva innebar Artikkel 231 i Versailles-traktaten? (Fakta)",
+                    "Hvorfor ble Folkeforbundet sett på som for svakt? (Forståelse)",
+                    "Hvordan bidro de økonomiske kravene mot Tyskland til ustabilitet? (Analyse)",
+                    "Kunne en mer rettferdig fredsavtale ha hindret Hitlers vei til makten? (Refleksjon)",
+                    "Hvordan endret krigen kvinners rettigheter på lang sikt? (Forståelse)"
+                ],
+                "component": {
+                    "name": "DragDropTimeline",
+                    "props": {
+                        "title": "Veien mot stupet",
+                        "instruction": "Sett hendelsene i riktig rekkefølge for å se hvordan freden førte til ny krig.",
+                        "events": [
+                            {
+                                "id": "e1",
+                                "year": 1919,
+                                "label": "Versailles-traktaten"
+                            },
+                            {
+                                "id": "e2",
+                                "year": 1923,
+                                "label": "Hyperinflasjon i Tyskland"
+                            },
+                            {
+                                "id": "e3",
+                                "year": 1929,
+                                "label": "Børskrakket i USA"
+                            },
+                            {
+                                "id": "e4",
+                                "year": 1933,
+                                "label": "Hitler blir rikskansler"
+                            },
+                            {
+                                "id": "e5",
+                                "year": 1939,
+                                "label": "Invasjonen av Polen"
+                            }
+                        ]
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Les artikkel: Konsekvenser",
                         "url": "/historie/forste-verdenskrig/konsekvenser"
+                    },
+                    {
+                        "title": "Økonomi: Når penger dør (Inflasjon)",
+                        "url": "/samfunnskunnskap/okonomi/inflasjon-og-rente"
                     }
                 ]
             }

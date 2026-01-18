@@ -87,6 +87,13 @@
     "type": "concept"
   },
   {
+    "term": "Balfour-erklæringen",
+    "definition": "En formell uttalelse fra den britiske regjeringen i 1917 som uttrykte støtte til opprettelsen av et «nasjonalt hjem for det jødiske folk» i Palestina.",
+    "type": "concept",
+    "topic": "forste-verdenskrig",
+    "subject": "historie"
+  },
+  {
     "term": "Blankoblankett",
     "definition": "Fullmakt eller uforbeholden støtte. Refererer til Tysklands løfte til Østerrike-Ungarn i 1914.",
     "subject": "historie",
@@ -908,7 +915,8 @@
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
-    "type": "concept"
+    "type": "concept",
+    "link": "/historie/forste-verdenskrig/skyttergravskrig"
   },
   {
     "term": "sosialisme",
@@ -972,6 +980,13 @@
     "topic": "reformasjonen",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Sykes-Picot-avtalen",
+    "definition": "En hemmelig avtale fra 1916 mellom Storbritannia og Frankrike om å dele Det osmanske rikets arabiske provinser mellom seg etter krigen. Avtalen la grunnlaget for mange av dagens grenser i Midtøsten.",
+    "type": "concept",
+    "topic": "forste-verdenskrig",
+    "subject": "historie"
   },
   {
     "term": "te",
@@ -1278,6 +1293,16 @@
     "type": "person"
   },
   {
+    "term": "Franz Ferdinand",
+    "definition": "Erkehertug av Østerrike og arving til den østerriksk-ungarske tronen. Hans død i Sarajevo i 1914 ble den utløsende årsaken til første verdenskrig.",
+    "type": "person",
+    "fullName": "Franz Ferdinand von Österreich-Este",
+    "lifespan": "1863-1914",
+    "topic": "forste-verdenskrig",
+    "subject": "historie",
+    "image": "/images/people/franz-ferdinand.jpg"
+  },
+  {
     "term": "Friedrich Nietzsche",
     "definition": "Tysk filosof, kulturkritiker og lyriker, kjent for sine ideer om 'overmennesket', 'viljen til makt' og kritikken av kristen moral.",
     "type": "person",
@@ -1302,6 +1327,16 @@
     "subject": "historie",
     "lifespan": "63 f.Kr. – 14 e.Kr.",
     "link": "/historie/romerriket/augustus"
+  },
+  {
+    "term": "Gavrilo Princip",
+    "definition": "Serbisk nasjonalist og medlem av den revolusjonære gruppen Ung Bosnia. Han utførte attentatet på Franz Ferdinand i Sarajevo 28. juni 1914.",
+    "type": "person",
+    "fullName": "Gavrilo Princip",
+    "lifespan": "1894-1918",
+    "topic": "forste-verdenskrig",
+    "subject": "historie",
+    "image": "/images/people/gavrilo-princip.jpg"
   },
   {
     "id": "genghis-khan",
@@ -1491,6 +1526,16 @@
     "link": "/filosofi/eksistensialisme/martin-heidegger"
   },
   {
+    "term": "Nicholas II",
+    "definition": "Russlands siste tsar. Hans regime ble preget av nederlaget i krigen mot Japan, undertrykkelse av revolusjonen i 1905, og til slutt den russiske revolusjonen i 1917 som førte til hans fall.",
+    "type": "person",
+    "fullName": "Nikolaj Aleksandrovitsj Romanov",
+    "lifespan": "1868-1918",
+    "topic": "forste-verdenskrig",
+    "subject": "historie",
+    "image": "/images/people/nicholas-ii.jpg"
+  },
+  {
     "term": "Oscar II",
     "definition": "Konge av Sverige (1872–1907) og Norge (1872–1905). Han var den siste kongen i personalunionen mellom de to landene og spilte en viktig rolle i den fredelige unionsoppløsningen.",
     "type": "person",
@@ -1555,5 +1600,35 @@
     ],
     "term": "Thomas Malthus",
     "type": "person"
+  },
+  {
+    "term": "Vladimir Lenin",
+    "definition": "Russisk revolusjonær, politiker og teoretiker. Han ledet oktoberrevolusjonen i 1917 og grunnla Sovjetunionen som verdens første sosialistiske stat.",
+    "type": "person",
+    "fullName": "Vladimir Iljitsj Uljanov",
+    "lifespan": "1870-1924",
+    "topic": "forste-verdenskrig",
+    "subject": "historie",
+    "image": "/images/people/lenin.jpg"
+  },
+  {
+    "term": "Wilhelm II",
+    "definition": "Den siste tyske keiser og konge av Preussen. Han var kjent for sin militaristiske politikk og ledet Tyskland gjennom første verdenskrig fram til sin abdisjon i 1918.",
+    "type": "person",
+    "fullName": "Friedrich Wilhelm Viktor Albrecht von Preußen",
+    "lifespan": "1859-1941",
+    "topic": "forste-verdenskrig",
+    "subject": "historie",
+    "image": "/images/people/wilhelm-ii.jpg"
+  },
+  {
+    "term": "Woodrow Wilson",
+    "definition": "USAs 28. president. Han ledet USA gjennom første verdenskrig og var en av hovedarkitektene bak fredsavtalen i Versailles og stiftelsen av Folkeforbundet.",
+    "type": "person",
+    "fullName": "Thomas Woodrow Wilson",
+    "lifespan": "1856-1924",
+    "topic": "forste-verdenskrig",
+    "subject": "historie",
+    "image": "/images/people/woodrow-wilson.jpg"
   }
 ]

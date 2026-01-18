@@ -2465,6 +2465,86 @@
       ]
     },
     {
+      "id": "slaget-ved-somme",
+      "title": "Slaget ved Somme",
+      "description": "Den blodigste dagen i britisk militærhistorie.",
+      "startDate": 1916,
+      "endDate": null,
+      "displayDate": "1. juli 1916",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/skyttergravskrig",
+      "tags": [
+        "krig",
+        "slag"
+      ]
+    },
+    {
+      "id": "usa-krig-1917",
+      "title": "USA går med i krigen",
+      "description": "USA erklærer krig mot Tyskland.",
+      "startDate": 1917,
+      "endDate": null,
+      "displayDate": "6. april 1917",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/oversikt",
+      "tags": [
+        "krig",
+        "usa"
+      ]
+    },
+    {
+      "id": "bolsjevik-revolusjon",
+      "title": "Bolsjevik-revolusjonen",
+      "description": "Lenin tar makten i Russland.",
+      "startDate": 1917,
+      "endDate": null,
+      "displayDate": "7. november 1917",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/russiske-revolusjon",
+      "tags": [
+        "revolusjon",
+        "russland"
+      ]
+    },
+    {
+      "id": "vapenhvilen-1918",
+      "title": "Våpenhvilen",
+      "description": "Kanonene stilner på vestfronten.",
+      "startDate": 1918,
+      "endDate": null,
+      "displayDate": "11. november 1918",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/oversikt",
+      "tags": [
+        "fred",
+        "krigsslutt"
+      ]
+    },
+    {
+      "id": "versailles-traktaten",
+      "title": "Versailles-traktaten",
+      "description": "Den offisielle fredsavtalen signeres.",
+      "startDate": 1919,
+      "endDate": null,
+      "displayDate": "28. juni 1919",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/oversikt",
+      "tags": [
+        "fred",
+        "diplomati"
+      ]
+    },
+    {
       "id": "andre-verdenskrig-event",
       "title": "Andre verdenskrig",
       "description": "Verdenshistoriens største og dødeligste konflikt.",
@@ -2913,23 +2993,6 @@
         "renessansen",
         "krig",
         "religion"
-      ]
-    },
-    {
-      "id": "sarajevo-1914-casus",
-      "title": "Skuddene i Sarajevo",
-      "description": "Attentatet på Franz Ferdinand brukes som Casus Belli for den første verdenskrig.",
-      "startDate": 1914,
-      "endDate": null,
-      "displayDate": "1914",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
-      "tags": [
-        "krig",
-        "opptakt",
-        "første-verdenskrig"
       ]
     },
     {
