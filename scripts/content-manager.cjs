@@ -25,15 +25,35 @@ function saveDesignDoc(subjectSlug, content) {
 
 function findSubject(query) {
     const manifest = getManifest();
-    const normalize = (str) => str.toLowerCase().trim();
+    const normalize = (str) => str ? str.toLowerCase().trim() : "";
+    const queryNorm = normalize(query);
 
-    const found = manifest.subjects.find(s =>
-        normalize(s.id) === normalize(query) ||
-        normalize(s.title).includes(normalize(query))
-    );
+    // 1. Search Manifest (Recursive)
+    let found = null;
+
+    for (const subject of manifest.subjects) {
+        if (normalize(subject.id) === queryNorm || normalize(subject.title).includes(queryNorm)) {
+            found = { ...subject, type: 'subject', parentId: null };
+            break;
+        }
+        if (subject.topics) {
+            const topic = subject.topics.find(t => normalize(t.id) === queryNorm || normalize(t.title).includes(queryNorm));
+            if (topic) {
+                found = { ...topic, type: 'topic', parentId: subject.id };
+                break;
+            }
+        }
+    }
 
     if (found) {
-        const dirPath = path.join(CONTENT_DIR, found.id);
+        // Construct Path
+        let dirPath;
+        if (found.type === 'subject') {
+            dirPath = path.join(CONTENT_DIR, found.id);
+        } else {
+            dirPath = path.join(CONTENT_DIR, found.parentId, found.id);
+        }
+
         const existsInFs = fs.existsSync(dirPath);
         console.log(JSON.stringify({
             found: true,
@@ -41,24 +61,53 @@ function findSubject(query) {
             title: found.title,
             path: dirPath,
             inManifest: true,
-            inFS: existsInFs
+            inFS: existsInFs,
+            parentId: found.parentId
+        }, null, 2));
+        return;
+    }
+
+    // 2. Search File System (Recursive - 2 levels)
+    // Check Root Level
+    let rootDirs = [];
+    try {
+        rootDirs = fs.readdirSync(CONTENT_DIR).filter(f => fs.statSync(path.join(CONTENT_DIR, f)).isDirectory());
+    } catch (e) { rootDirs = []; }
+
+    let zombiePath = null;
+    let zombieId = null;
+
+    // Check Level 1 (Subjects)
+    const l1 = rootDirs.find(d => normalize(d) === queryNorm);
+    if (l1) {
+        zombiePath = path.join(CONTENT_DIR, l1);
+        zombieId = l1;
+    } else {
+        // Check Level 2 (Topics)
+        for (const root of rootDirs) {
+            const subDir = path.join(CONTENT_DIR, root);
+            try {
+                const subDirs = fs.readdirSync(subDir).filter(f => fs.statSync(path.join(subDir, f)).isDirectory());
+                const l2 = subDirs.find(d => normalize(d) === queryNorm);
+                if (l2) {
+                    zombiePath = path.join(subDir, l2);
+                    zombieId = l2;
+                    break;
+                }
+            } catch (e) { continue; }
+        }
+    }
+
+    if (zombiePath) {
+        console.log(JSON.stringify({
+            found: true,
+            id: zombieId,
+            path: zombiePath,
+            inManifest: false,
+            isZombie: true
         }, null, 2));
     } else {
-        // Check FS for "Zombie" (folder exists but no manifest entry)
-        const fsSubjects = fs.readdirSync(CONTENT_DIR).filter(f => fs.statSync(path.join(CONTENT_DIR, f)).isDirectory());
-        const zombie = fsSubjects.find(s => normalize(s) === normalize(query));
-
-        if (zombie) {
-            console.log(JSON.stringify({
-                found: true,
-                id: zombie,
-                path: path.join(CONTENT_DIR, zombie),
-                inManifest: false,
-                isZombie: true
-            }, null, 2));
-        } else {
-            console.log(JSON.stringify({ found: false }, null, 2));
-        }
+        console.log(JSON.stringify({ found: false }, null, 2));
     }
 }
 
