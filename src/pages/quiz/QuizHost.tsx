@@ -7,6 +7,8 @@ import { useManifest } from '../../hooks/useManifest';
 import { fetchLesson } from '../../utils/contentLoader';
 import { ArrowRight } from 'lucide-react';
 import { useQuizAudio } from '../../hooks/useQuizAudio';
+import { signInAnonymously } from 'firebase/auth';
+import { auth } from '../../lib/firebase';
 
 import type { QuizQuestion } from '../../types';
 
@@ -264,7 +266,15 @@ export const QuizHost: React.FC = () => {
         setIsLoadingQuestions(true);
 
         try {
-            setDebugStatus('Henter leksjonsliste...');
+            setDebugStatus('Henter leksjonsliste... (Logger inn)');
+
+            // Ensure auth
+            try {
+                await signInAnonymously(auth);
+            } catch (authError) {
+                console.warn("Anonymous auth failed, trying to proceed anyway:", authError);
+            }
+
             // 1. Fetch Questions
             const lessonsToFetch: any[] = [];
 
@@ -383,8 +393,14 @@ export const QuizHost: React.FC = () => {
 
         } catch (e) {
             console.error(e);
-            alert('Feil ved henting av spørsmål: ' + (e as any).message);
             setDebugStatus('Feil: ' + (e as any).message);
+
+            // Helpful Error Message for Firebase Permissions
+            if ((e as any).message && (e as any).message.includes('PERMISSION_DENIED')) {
+                alert('FEIL: Kunne ikke opprette rom. Firebase-tilgang nektet.\n\nÅrsak: Sikkerhetsreglene i Firebase Console har sannsynligvis utløpt.\n\nLøsning: Gå til Firebase Console -> Realtime Database -> Rules og oppdater reglene.');
+            } else {
+                alert('Feil ved henting av spørsmål: ' + (e as any).message);
+            }
         } finally {
             setIsLoadingQuestions(false);
         }
