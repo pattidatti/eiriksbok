@@ -11,9 +11,15 @@ This workflow covers the entire lifecycle of an article, from the initial pedago
 ## Phase 1: Planning & Design
 Focus on the "Soul" of the content before writing any code.
 
+### 0. The Blueprint Check (CRITICAL)
+- **Action:** Read `docs/Design documents/[subject]-design.md`.
+- **Constraint:** You MUST extract the "Pedagogical Blueprint" for this specific article.
+- **Fail Condition:** If no blueprint exists, STOP. Ask user to run `/plan_subject` phase 1 first.
+
 ### 1. Pedagogical Vision
 - **Tone:** Wondering, pedagogical, and narrative-driven. 
-- **Method:** "Show, don't just tell." Use concrete examples and narrations.
+- **Tone:** Derived from Blueprint.
+- **Method:** Implement the "Mental Model" defined in the Blueprint.
 - **Complexity:** Explain complex concepts (e.g., "Feudalisme") in an accessible way.
 - **Cross-linking:** Identify other articles or topics mentioned that should be linked (interndisiplinær kobling).
 

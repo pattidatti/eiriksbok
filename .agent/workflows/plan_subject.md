@@ -9,7 +9,8 @@ Trigger: User wants to create or upgrade an entire subject/topic.
 
 1.  **Subject Design Document (The Working Dashboard)**
     *   **Action:** Create or read `docs/Design documents/[subject]-design.md`.
-    *   **CRITICAL:** This file must be a LIVING DASHBOARD, not just a brief. Use the following structure:
+    *   **Guidance:** Read `@[/pedagogical-design]`.
+    *   **CRITICAL:** This file must be a LIVING DASHBOARD and a PEDAGOGICAL CONTRACT. Use the following structure:
 
     ```markdown
     # Subject Design: [Subject Name]
@@ -37,7 +38,16 @@ Trigger: User wants to create or upgrade an entire subject/topic.
         - *Bio Highlights*: ...
         - *File Status*: `[ ] Created`
 
-    ## 4. The Asset Tracker
+    ## 4. The Pedagogical Blueprint (Deep Specs)
+    *From `pedagogical-design` skill.*
+
+    ### Article 1: [Name]
+    **Goal:** ...
+    **Narrative Arc:** ...
+    **Mental Model:** ...
+    **Required Components:** ...
+
+    ## 5. The Asset Tracker
     - [ ] **Hero Image**: Prompt... `[ ] Generated`
     ```
 
