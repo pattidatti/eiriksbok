@@ -1,0 +1,33 @@
+{
+    "id": "tyske-revolusjon",
+    "title": "Mytteri og Forræderi: Den Tyske Revolusjon",
+    "description": "Fra matros-mytteri i Kiel til Keiserrikets fall.",
+    "layout": "rich",
+    "tags": [
+        "tyskland",
+        "revolusjon",
+        "mytteri",
+        "weimar"
+    ],
+    "heroImage": "/images/historie/forste-verdenskrig/tyske-revolusjon_hero.png",
+    "content": [
+        {
+            "type": "text",
+            "value": "Oktober 1918. Krigen er tapt, men admiralene vil sende flåten ut i et siste, ærerikt selvmordsangrep mot britene. Matrosene i Kiel sier nei. De gjør opprør."
+        },
+        {
+            "type": "fact",
+            "title": "Revolusjonen sprer seg",
+            "value": "Mytteriet tenner en ild. Arbeider- og soldatråd dannes over hele Tyskland, inspirert av Russland. Keiser Wilhelm II må flykte. Tyskland blir republikk over natten."
+        },
+        {
+            "type": "text",
+            "value": "Den nye regjeringen har ingen valg: De må signere våpenhvilen. Hæren marsjerer hjem med fanene høyt, og snart oppstår legenden: 'Vi ble ikke slått på slagmarken, men dolket i ryggen av forrædere hjemme'."
+        },
+        {
+            "type": "fact",
+            "title": "Dolkesjøtlegenden",
+            "value": "Denne løgnen – at sosialister og jøder forrådte hæren – ble giftig ammunisjon for høyre-ekstreme krefter, inkludert en ung korporal ved navn Adolf Hitler."
+        }
+    ]
+}

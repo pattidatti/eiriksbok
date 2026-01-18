@@ -1,23 +1,47 @@
 {
     "id": "hjemmefronten",
-    "title": "Hjemmefronten",
-    "description": "Kvinner i fabrikker og rasjonering av mat.",
+    "title": "Hjemmefronten og Propaganda",
+    "description": "I en total krig finnes det ingen sivile - bare deltakere uten uniform.",
     "layout": "rich",
     "tags": [
-        "samfunn",
-        "kvinner",
-        "økonomi"
+        "total-krig",
+        "sivile",
+        "propaganda",
+        "kvinnekamp"
     ],
     "heroImage": "/images/historie/forste-verdenskrig/hjemmefronten_hero.png",
     "content": [
         {
             "type": "text",
-            "value": "Mens mennene kjempet ved fronten, måtte kvinnene overta arbeidet i fabrikkene, jordbruket og transportsektoren. Dette endret kjønnsrollene permanent."
+            "value": "Første verdenskrig var den første 'totale krigen'. Det betydde at hele samfunnets ressurser ble mobilisert. Mens mennene døde ved fronten, måtte kvinnene holde hjulene i gang hjemme."
         },
         {
             "type": "fact",
-            "title": "Total Krig",
-            "value": "Ingen var sivile lenger. Hele nasjonens ressurser, fra mat til metall, ble rettet inn mot krigsinnsatsen."
+            "title": "Kvinnene i fabrikkene",
+            "value": "Med millioner av menn borte, overtok kvinner jobber som før var forbudt for dem. De laget granater i ammunisjonsfabrikkene ('munitionettes'), kjørte trikker og jobbet på jordene. Dette forandret kjønnsrollene for alltid og banet vei for stemmeretten."
+        },
+        {
+            "type": "text",
+            "value": "Men krigen ble også utkjempet med ord og bilder. Propaganda ble et våpen like viktig som kanoner. Regjeringene måtte overbevise folket om at krigen var rettferdig, og at fienden var et monster."
+        },
+        {
+            "type": "gallery",
+            "title": "Løgnens kunst",
+            "items": [
+                {
+                    "image": "/images/historie/forste-verdenskrig/propaganda-art.jpg",
+                    "caption": "Fienden ble ofte fremstilt som dyr eller djevler. Britiske plakater viste tyskere ('Hunere') som voldtektsmenn som truet sivilisasjonen."
+                },
+                {
+                    "image": "/images/historie/forste-verdenskrig/propaganda-join.jpg",
+                    "caption": "Rekrutteringsplakater spilte på samvittigheten. 'Daddy, what did YOU do in the Great War?'"
+                }
+            ]
+        },
+        {
+            "type": "fact",
+            "title": "Sultblokaden",
+            "value": "Storbritannia brukte sin marine til å blokkere all matforsyning til Tyskland. Under 'Kålrotvinteren' 1916-17 døde hundretusener av tyske sivile av sult. Dette var krig mot barn og gamle."
         }
     ]
 }

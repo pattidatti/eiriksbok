@@ -146,6 +146,70 @@ ${articles.map(a => `- [x] **Article ID**: \`${a}\``).join('\n')}
 }
 
 
+
+
+function registerToManifest(subjectId) {
+    const manifest = getManifest();
+    const subjectPath = getSubjectPath(subjectId);
+
+    if (!subjectPath) {
+        console.error(`[ERROR] Subject path not found for ID: ${subjectId}`);
+        process.exit(1);
+    }
+
+    const simpleId = path.basename(subjectPath);
+
+    // Find subject in manifest
+    let subjectObj = manifest.subjects.find(s => s.id === simpleId);
+
+    // If subject doesn't exist, create it (Basic scaffold)
+    if (!subjectObj) {
+        console.log(`[INFO] Subject '${simpleId}' not in manifest. Creating entry...`);
+        subjectObj = {
+            id: simpleId,
+            title: simpleId.charAt(0).toUpperCase() + simpleId.slice(1).replace(/-/g, ' '), // Temporary title
+            description: "Auto-generated subject entry.",
+            lessons: [],
+            topics: [] // Initialize both
+        };
+        manifest.subjects.push(subjectObj);
+    }
+
+    // Scan for articles
+    const files = fs.readdirSync(subjectPath).filter(f => f.endsWith('.json') && f !== 'index.json');
+    let addedCount = 0;
+
+    files.forEach(file => {
+        const articleId = file.replace('.json', '');
+
+        // Check if article exists in 'lessons' (flat) or any 'topic'
+        const existsInLessons = subjectObj.lessons && subjectObj.lessons.some(l => l.id === articleId);
+        const existsInTopics = subjectObj.topics && subjectObj.topics.some(t => t.lessons.some(l => l.id === articleId));
+
+        if (!existsInLessons && !existsInTopics) {
+            // New article! Default to adding to root 'lessons' for now.
+            //Ideally, we should parse the JSON to get the title, but for now we fallback to ID.
+            if (!subjectObj.lessons) subjectObj.lessons = [];
+
+            subjectObj.lessons.push({
+                id: articleId,
+                title: articleId.charAt(0).toUpperCase() + articleId.slice(1).replace(/-/g, ' '),
+                type: "article"
+            });
+            console.log(`[REGISTER] Added '${articleId}' to manifest.`);
+            addedCount++;
+        }
+    });
+
+    if (addedCount > 0) {
+        fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2), 'utf8');
+        console.log(`[SUCCESS] Registered ${addedCount} new articles in manifest.json`);
+    } else {
+        console.log(`[INFO] No new articles to register for '${simpleId}'.`);
+    }
+}
+
+
 // --- Main ---
 
 const args = process.argv.slice(2);
@@ -162,6 +226,9 @@ switch (command) {
     case '--reverse-engineer':
         reverseEngineer(param);
         break;
+    case '--register':
+        registerToManifest(param);
+        break;
     default:
-        console.log("Usage: node content-manager.cjs [--find <query> | --detect-zombies | --reverse-engineer <id>]");
+        console.log("Usage: node content-manager.cjs [--find <query> | --detect-zombies | --reverse-engineer <id> | --register <id>]");
 }

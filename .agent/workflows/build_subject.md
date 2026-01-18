@@ -2,31 +2,40 @@
 description: The Builder. Reads a Blueprint and creates the physical files and assets.
 ---
 
-1.  **Read Blueprint**:
+1.  **Read Context (The Foundation)**:
     *   File: `docs/Design documents/[Subject ID]-blueprint.md`
-    *   *Action:* Read the file content.
+    *   File: `docs/image-style-guide.md` (CRITICAL: You MUST use this for all images).
+    *   File: `.agent/workflows/plan_article.md` (CRITICAL: You MUST use the "Pedagogical Vision" and "Content Structure" rules from this file when writing JSON).
 
 2.  **Verify Sync**:
     *   Run: `node scripts/blueprint-manager.cjs --sync [Subject ID]`
-    *   *Goal:* Ensure we aren't overwriting manual changes.
 
 3.  **Execute Content Matrix (The Build)**:
     *   **Loop through each Article** defined in the Blueprint:
         *   **Check Existence:** Does the file exist?
-        *   **If Missing:**
-            *   Create the file using `write_to_file`.
-            *   *Content:* Stick to the defined "Beats" and "Pedagogical Goals".
-            *   *Style:* Use the "Visual Theme" from metadata.
-        *   **If Exists**: detailed log "Skipping [Article], already exists."
+        *   **If Missing -> CREATE (Deep Mode):**
+            *   *Action:* Create `public/content/[path]/[filename].json`.
+            *   *Content Rules (From plan_article):*
+                *   **Length:** Target 1500+ words. Do NOT write short summaries.
+                *   **Tone:** Narrative, wondering, pedagogical.
+                *   **Components:** Use `TimelineComponent` (compact), `FactBox`, and `QuoteBlock` where appropriate.
+                *   **Structure:** Introduction -> Core Sections -> Deep Dive/Conclusion.
+            *   *Input:* Use the "Beats", "Hook", and "Misconception" from the Blueprint as the seed. EXPAND on them significantly.
+        *   **If Exists**: Log "Skipping [Article], already exists."
 
-4.  **Execute Asset Tracker**:
+4.  **Execute Asset Tracker (Premium Visuals)**:
     *   **Loop through Assets**: 
-        *   Generate missing images using the defined prompts.
+        *   **Check Existence:** Does the file exist?
+        *   **If Missing -> GENERATE:**
+            *   *Style:* You MUST prepend the "Magical Keywords" from `image-style-guide.md` (e.g., "A highly realistic 4K cinematic photograph...").
+            *   *Prompt:* Combine the Style Guide header + The Blueprint Description.
 
 5.  **Compile Learning Path**:
     *   *Action:* Create/Update `public/content/[Subject ID]/[Subject ID]-sti.json`.
-    *   *Logic:* Map the "Learning Path" list from the blueprint directly to the JSON structure defined in `docs/LEARNING_PATH_GUIDE.md`.
+    *   *Logic:* Map the "Learning Path" list from the blueprint directly to the JSON structure.
 
-6.  **Final Polish**:
-    *   Run: `node scripts/blueprint-manager.cjs --sync [Subject ID]` (To check all the new boxes).
-    *   Notify User: "Build Complete. Access your subject at [URL]."
+6.  **Register & Final Polish**:
+    *   **Run:** `node scripts/content-manager.cjs --register [Subject ID]`
+    *   *Goal:* Ensure all new articles are listed in `manifest.json`.
+    *   **Run:** `node scripts/blueprint-manager.cjs --sync [Subject ID]`
+    *   **Notify User:** "Build Complete. Manifest Updated. Access your subject at [URL]."

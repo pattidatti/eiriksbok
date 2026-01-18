@@ -1,0 +1,33 @@
+{
+    "id": "norge-under-ww1",
+    "title": "Norge: Den nøytrale allierte",
+    "description": "Hvordan nøytralitet kostet 2000 norske sjøfolk livet.",
+    "layout": "rich",
+    "tags": [
+        "norge",
+        "nøytralitet",
+        "sjøfart",
+        "jobbetid"
+    ],
+    "heroImage": "/images/historie/forste-verdenskrig/norge-ww1_hero.png",
+    "content": [
+        {
+            "type": "text",
+            "value": "Norge erklærte seg nøytralt i 1914, men krigen kjente ingen grenser. Som en stor sjøfartsnasjon ble Norge livslinjen for Storbritannia. Tyske ubåter senket norske skip uten varsel."
+        },
+        {
+            "type": "fact",
+            "title": "Den Nøytrale Allierte",
+            "value": "Begrepet ble brukt om Norge fordi vi i praksis seilte for ententen (Storbritannia og Frankrike) mot at vi fikk kull og olje. Prisen var høy: Over 2000 sjøfolk døde."
+        },
+        {
+            "type": "text",
+            "value": "På land var situasjonen en annen. Det var 'Jobbetid' - en vill spekulasjonsbølge. Skipsaksjer skjøt i været, og nyrike nordmenn drakk champagne ('boblende vann') mens arbeiderklassen slet med dyrtid og rasjonering."
+        },
+        {
+            "type": "fact",
+            "title": "Dyrtid",
+            "value": "Mens noen ble millionærer på krigsfrakter, steg matprisene drastisk. Dette skapte stor sosial uro og la grunnlaget for en radikalisering av den norske arbeiderbevegelsen."
+        }
+    ]
+}

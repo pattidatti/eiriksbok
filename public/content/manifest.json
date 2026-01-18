@@ -1336,16 +1336,16 @@
                             "createdDate": "2025-12-21T14:05:00Z"
                         },
                         {
-                            "id": "propaganda",
-                            "title": "Propaganda",
-                            "description": "Kampen om sannheten og folkeviljen.",
-                            "image": "/images/historie/forste-verdenskrig/propaganda_hero.png",
+                            "id": "russiske-revolusjon",
+                            "title": "Rød Storm",
+                            "description": "Den russiske revolusjon, Lenin og Brest-Litovsk.",
+                            "image": "/images/historie/forste-verdenskrig/russiske_revolusjon_hero.png",
                             "tags": [
-                                "kultur",
-                                "media",
-                                "påvirkning"
+                                "revolusjon",
+                                "russland",
+                                "kommunisme"
                             ],
-                            "createdDate": "2025-12-21T14:15:00Z"
+                            "createdDate": "2026-01-18T18:00:00Z"
                         },
                         {
                             "id": "hjemmefronten",
@@ -1406,6 +1406,30 @@
                             ],
                             "createdDate": "2025-12-21T14:30:00Z",
                             "lastUpdated": "2025-12-21T14:30:00Z"
+                        },
+                        {
+                            "id": "norge-under-ww1",
+                            "title": "Norge: Den nøytrale allierte",
+                            "description": "Hvordan nøytralitet kostet 2000 norske sjøfolk livet.",
+                            "image": "/images/historie/forste-verdenskrig/norge_ww1_hero.png",
+                            "tags": [
+                                "norge",
+                                "sjøfart",
+                                "nøytralitet"
+                            ],
+                            "createdDate": "2026-01-18T18:05:00Z"
+                        },
+                        {
+                            "id": "tyske-revolusjon",
+                            "title": "Tysk Revolusjon",
+                            "description": "Mytteri, keiserens fall og dolkesjøtlegenden.",
+                            "image": "/images/historie/forste-verdenskrig/tyske_revolusjon_hero.png",
+                            "tags": [
+                                "tyskland",
+                                "revolusjon",
+                                "politikk"
+                            ],
+                            "createdDate": "2026-01-18T18:10:00Z"
                         },
                         {
                             "id": "konsekvenser",

@@ -1,23 +1,37 @@
 {
     "id": "skyttergravskrig",
-    "title": "Skyttergravskrig",
-    "description": "Livet og døden i gjørma på Vestfronten.",
+    "title": "Skyttergravskrig: Livet i gjørma",
+    "description": "Når krigen stopper opp, graver soldatene seg ned i et 700 km langt sår gjennom Europa.",
     "layout": "rich",
     "tags": [
         "krigføring",
         "vestfronten",
-        "soldatliv"
+        "soldatliv",
+        "psykologi"
     ],
     "heroImage": "/images/historie/forste-verdenskrig/skyttergravskrig_hero.png",
     "content": [
         {
             "type": "text",
-            "value": "Skyttergravskrigen var en ny og brutal form for krigføring som definerte første verdenskrig. I stedet for raske manøvrer, gravde hærene seg ned i et fastlåst system av grøfter som strakte seg fra Sveits til Nordsjøen."
+            "value": "Det første du la merke til var lukten. En kvalmende blanding av råtnende lik, klor, uvaskede kropper og våt jord. Dette var skyttergravene – et system av forsvarsverk som strakte seg fra den sveitsiske grensen til Nordsjøen."
         },
         {
             "type": "fact",
-            "title": "Ingemannsland",
-            "value": "Området mellom de to fiendtlige skyttergravslinjene var dekket av piggtråd, granatkratere og lik. Å krysse dette var nesten ensbetydende med selvmord."
+            "title": "Systemet",
+            "value": "En skyttergrav var ikke bare en grøft. Det var et komplekst nettverk med piggtrådsperringer, maskingeværreir, dekningsrom ('dugouts') og kommunikasjonslinjer. Forsvaret var alltid sterkere enn angrepet."
+        },
+        {
+            "type": "text",
+            "value": "For soldaten var livet en endeløs ventetid avbrutt av øyeblikk med ren terror. 'Stormangrep' betydde å klatre opp 'over the top' og løpe rett mot fiendens maskingevær. De fleste kom aldri frem til piggtråden."
+        },
+        {
+            "type": "fact",
+            "title": "Granatsjokk",
+            "value": "Bombardementet kunne vare i dager, uker. Det konstante drønnet og ristingen ødela nervesystemet til soldatene. Menn som var modige, ble redusert til skjelvende vrak, ute av stand til å snakke eller gå. I starten ble de kalt feiginger og skutt. Senere fikk det navnet 'Shell Shock'."
+        },
+        {
+            "type": "text",
+            "value": "Men midt i helvete oppstod også merkelige fenomener. 'Live and let live' – uoffisielle våpenhviler hvor soldater på begge sider lot være å skyte mens motparten spiste frokost eller hentet vann. De forsto at de delte den samme elendigheten."
         }
     ]
 }

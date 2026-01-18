@@ -1,125 +1,150 @@
 {
     "id": "ww1-sti",
-    "title": "Læringssti: Den Store Krigen",
-    "description": "Følg menneskehetens nedstigning fra Belle Époque-optimisme til skyttergravenes industrielle masseslakt.",
+    "title": "Læringssti: Sivilisasjonens Selvmord",
+    "description": "Følg menneskehetens nedstigning fra optimisme til industriell masseslakt.",
     "layout": "learning-path",
     "category": "Læringssti",
     "year": "1914 - 1918",
-    "readTime": "3-4 timer",
+    "readTime": "4-5 timer",
     "learningPathData": {
         "id": "ww1-sti",
-        "title": "Første verdenskrig: Sivilisasjonens selvmord",
-        "description": "Du følger en generasjon unge menn som marsjerte syngende ut i krigen, overbevist om at de ville være 'hjemme før jul'. Du vil oppleve hvordan moderne teknologi møtte gammeldags taktikk, og hvordan verden aldri ble den samme igjen.",
+        "title": "Første verdenskrig",
+        "description": "En reise gjennom skyttergravene, revolusjonene og hjemmefrontens lidelser.",
         "targetTopicId": "forste-verdenskrig",
         "targetSubjectId": "historie",
         "steps": [
             {
-                "id": "ww1-intro",
-                "phase": "Fase 1: Naiv Optimisme (1914)",
-                "title": "Hjem til jul?",
-                "type": "fakta",
-                "content": "Juli 1914. Solen skinner i Europa. Skuddene i Sarajevo har falt, men ingen tror på en verdenskrig. Keisere og konger sender ultimatum. Når krigen erklæres, jubler folk i gatene i Berlin, Paris og London. Unge menn melder seg frivillig. 'Det blir et eventyr,' sier de. 'Vi skal lære dem en lekse.' De vet ikke at de marsjerer inn i en kjøttkvern.",
+                "id": "step-1",
+                "phase": "Fase 1: Opptakten",
+                "title": "Kruttønnen Europa",
+                "type": "artikkel",
+                "content": "Hvordan et skudd i Sarajevo satte verden i brann. Alliansene som dro alle med seg i dypet.",
                 "tasks": [
-                    "Hva var 'Skuddene i Sarajevo'?",
-                    "Hvorfor var alliansesystemet så farlig?",
-                    "Hva menes med 'August-begeistringen'?",
-                    "Hva var Schlieffenplanen?",
-                    "Hvorfor trodde alle at krigen ville bli kort?"
+                    "Hvorfor var alliansene farlige?",
+                    "Hva var 'August-begeistringen'?"
                 ],
                 "links": [
                     {
-                        "title": "Opptakten",
+                        "title": "Les artikkel: Opptakt",
                         "url": "/historie/forste-verdenskrig/opptakt"
                     }
                 ]
             },
             {
-                "id": "ww1-trenches",
-                "phase": "Fase 2: Kjøttkverna (1915-1916)",
-                "title": "Skyttergravenes helvete",
-                "type": "fakta",
-                "content": "Bevegelse har stoppet opp. Fra Sveits til Nordsjøen graves det en 700 km lang grøft. Piggtråd, gjørme, rotter og liklukt. Maskingeværene meier ned alt som rører seg. Generalene beordrer 'stormangrep' mot piggtråden. Tusenvis dør for noen meter land. Det er en industriell slaktebenk.",
+                "id": "step-2",
+                "phase": "Fase 2: Skyttergravene",
+                "title": "Livet i gjørma",
+                "type": "artikkel",
+                "content": "Krigen stopper opp. Vestfronten blir et sår gjennom Europa der menn lever og dør i gjørme.",
                 "tasks": [
-                    "Hvordan så en typisk skyttergrav ut?",
-                    "Hva var 'Ingemannsland'?",
-                    "Hvorfor ga maskingeværet forsvaret en så stor fordel?",
-                    "Beskriv slaget ved Verdun eller Somme.",
-                    "Hva var 'skyttergravsfot'?"
+                    "Hva var 'Shell Shock'?",
+                    "Hvordan fungerte skyttergravsystemet?"
                 ],
                 "links": [
                     {
-                        "title": "Krigens løp",
-                        "url": "/historie/forste-verdenskrig/krigens-lop"
+                        "title": "Les artikkel: Skyttergravskrig",
+                        "url": "/historie/forste-verdenskrig/skyttergravskrig"
                     }
                 ]
             },
             {
-                "id": "ww1-tech",
-                "phase": "Fase 3: Dødens teknologi (1917)",
-                "title": "Kjemi og stål",
-                "type": "fakta",
-                "content": "Når maskingeværer ikke er nok, tar mennesket i bruk giftgass. En gul tåke driver over slagmarken. Soldater hoster opp lungene sine. Stridsvogner ruller klossete over gjørmen, usårbare for kuler. I luften duellerer 'Den Røde Baron' og andre flygere. Krigen driver teknologien framover med rasende fart.",
+                "id": "step-3",
+                "phase": "Fase 3: Teknologien",
+                "title": "Dødens teknologi",
+                "type": "interaktiv",
+                "content": "Gass, tanks og fly. Hvordan den industrielle revolusjon ble brukt til å drepe mer effektivt.",
                 "tasks": [
-                    "Hvilke typer gass ble brukt (sennepsgass, klor)?",
-                    "Hvordan endret stridsvognen krigføringen?",
-                    "Hva var uinnskrenket ubåtkrig?",
-                    "Hvordan ble fly brukt (fra speiding til bombing)?"
+                    "Hvordan endret stridsvognen krigen?",
+                    "Hvorfor var gass så fryktet?"
                 ],
                 "links": [
                     {
-                        "title": "Teknologi i krigen",
+                        "title": "Utforsk: Teknologi",
                         "url": "/historie/forste-verdenskrig/teknologi"
                     }
                 ]
             },
             {
-                "id": "ww1-homefront",
-                "title": "Hjemmefronten",
-                "type": "fakta",
-                "content": "Krigen er 'total'. Det betyr at hele samfunnet er involvert. Mens mennene dør i gjørma, går kvinnene inn i fabrikkene for å lage granater. Mat rasjoneres. Propagandaen maler fienden som monstre. Barn samler skrapmetall. Ingen går fri.",
+                "id": "step-4",
+                "phase": "Fase 4: Rød Storm",
+                "title": "Den Russiske Revolusjon",
+                "type": "fordypning",
+                "content": "Mens soldatene dør i vest, kollapser tsarens rike i øst. Lenin lover 'Brød, Fred og Land'.",
                 "tasks": [
-                    "Hva betyr begrepet 'total krig'?",
-                    "Hvordan endret krigen kvinnenes stilling i samfunnet?",
-                    "Hvordan ble propaganda brukt for å opprettholde kampviljen?",
-                    "Hvorfor var blokade og sult like viktige våpen som kanoner?"
-                ],
-                "links": []
-            },
-            {
-                "id": "ww1-collapse",
-                "phase": "Fase 4: Sammenbruddet (1918)",
-                "title": "Imperienes fall",
-                "type": "fakta",
-                "content": "Det er ikke bare soldater som knekker sammen – det er stater. I Russland gjør folket opprør, dreper tsaren og trekker seg ut. I Tyskland ulmer revolusjonen. Østerrike-Ungarn går i oppløsning. Klokken 11, den 11. dagen i den 11. måneden 1918, tier våpnene. Stillheten er øredøvende. En generasjon er borte.",
-                "tasks": [
-                    "Hva skjedde under den russiske revolusjon?",
-                    "Hvorfor tapte Tyskland krigen?",
-                    "Beskriv våpenhviledagen 11. november.",
-                    "Hvor mange mennesker døde totalt?"
+                    "Hvorfor gjorde folket opprør?",
+                    "Hva betydde Brest-Litovsk-freden for krigen?"
                 ],
                 "links": [
                     {
-                        "title": "Konsekvenser",
-                        "url": "/historie/forste-verdenskrig/konsekvenser"
+                        "title": "Les: Rød Storm",
+                        "url": "/historie/forste-verdenskrig/russiske-revolusjon"
                     }
                 ]
             },
             {
-                "id": "ww1-aftermath",
-                "phase": "Fase 5: En ny verden",
-                "title": "Freden som skapte krig",
-                "type": "refleksjon",
-                "content": "Seierherrene møtes i Versailles. Tyskland skal straffes. Kartet tegnes på nytt med linjal. Gamle imperier er borte, nye stater oppstår. Men fredsavtalen sår frøene til neste krig. Og soldatene som kommer hjem? De kalles 'Den tapte generasjon'. De har sett ting som ingen kan forstå.",
+                "id": "step-5",
+                "phase": "Fase 5: Total Krig",
+                "title": "Hjemmefronten",
+                "type": "artikkel",
+                "content": "Ingen går fri. Kvinner i fabrikkene, sultblokade og propaganda som forgifter sinnet.",
                 "tasks": [
-                    "Hva var hovedpunktene i Versailles-traktaten?",
-                    "Hvorfor mente mange at fredsavtalen var for hard?",
-                    "Hvordan endret europakartet seg?",
-                    "Hva var Folkeforbundet?",
-                    "Reflekter: Kunne andre verdenskrig vært unngått hvis freden i 1919 var annerledes?"
+                    "Hva er 'total krig'?",
+                    "Hvordan ble propaganda brukt?"
                 ],
                 "links": [
                     {
-                        "title": "Konsekvenser",
+                        "title": "Les: Hjemmefronten",
+                        "url": "/historie/forste-verdenskrig/hjemmefronten"
+                    }
+                ]
+            },
+            {
+                "id": "step-6",
+                "phase": "Fase 6: Norge",
+                "title": "Den nøytrale allierte",
+                "type": "fordypning",
+                "content": "Hvordan et lite, nøytralt land tjente penger på krigen, men betalte med sjøfolkenes liv.",
+                "tasks": [
+                    "Hva var 'Jobbetiden'?",
+                    "Hvorfor ble Norge kalt 'den nøytrale allierte'?"
+                ],
+                "links": [
+                    {
+                        "title": "Les: Norge under WW1",
+                        "url": "/historie/forste-verdenskrig/norge-under-ww1"
+                    }
+                ]
+            },
+            {
+                "id": "step-7",
+                "phase": "Fase 7: Sammenbruddet",
+                "title": "Tysk Revolusjon",
+                "type": "fordypning",
+                "content": "Mytteri i Kiel. Keiseren flykter. Tyskland kollapser innenfra.",
+                "tasks": [
+                    "Hva var 'Dolkesjøtlegenden'?",
+                    "Hvorfor gjorde matrosene opprør?"
+                ],
+                "links": [
+                    {
+                        "title": "Les: Tysk Revolusjon",
+                        "url": "/historie/forste-verdenskrig/tyske-revolusjon"
+                    }
+                ]
+            },
+            {
+                "id": "step-8",
+                "phase": "Fase 8: Etterspillet",
+                "title": "En ny verden",
+                "type": "refleksjon",
+                "content": "Freden i Versailles. Kartet tegnes på nytt. Frøene til neste krig sås.",
+                "tasks": [
+                    "Var fredsavtalen rettferdig?",
+                    "Hvordan endret europakartet seg?"
+                ],
+                "links": [
+                    {
+                        "title": "Les: Konsekvenser",
                         "url": "/historie/forste-verdenskrig/konsekvenser"
                     }
                 ]

@@ -1,0 +1,33 @@
+{
+    "id": "russiske-revolusjon",
+    "title": "Rød Storm: Den Russiske Revolusjon",
+    "description": "Hvordan krigen knekket tsaren og fødte Sovjetunionen.",
+    "layout": "rich",
+    "tags": [
+        "revolusjon",
+        "russland",
+        "ideologi",
+        "kommunisme"
+    ],
+    "heroImage": "/images/historie/forste-verdenskrig/russiske-revolusjon_hero.png",
+    "content": [
+        {
+            "type": "text",
+            "value": "Vinteren 1917. Russiske soldater fryser i skyttergravene. De mangler alt: støvler, ammunisjon, mat. Hjemme sulter familiene deres mens adelen fester i St. Petersburg. Det er begynnelsen på slutten for det gamle riket."
+        },
+        {
+            "type": "fact",
+            "title": "Brød, Fred og Land",
+            "value": "Lenins slagord traff rett i hjertet på folket. 'Brød' til de sultne, 'Fred' til soldatene, og 'Land' til bøndene. Det var et løfte ingen andre våget å gi."
+        },
+        {
+            "type": "text",
+            "value": "Tsar Nicholas II abdiserer i mars, men den provisoriske regjeringen gjør en fatal feil: De fortsetter krigen. I november (oktober etter gammel kalender) stormer bolsjevikene Vinterpalasset. Verden holder pusten. En ny ideologi har grepet makten."
+        },
+        {
+            "type": "fact",
+            "title": "Brest-Litovsk-freden",
+            "value": "Lenin holder løftet sitt. I 1918 signerer Russland en ydmykende fredsavtale med Tyskland. De mister enorme landområder, men bolsjevikene får ro til å kjempe sin egen borgerkrig."
+        }
+    ]
+}
