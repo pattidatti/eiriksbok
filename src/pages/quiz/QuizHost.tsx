@@ -317,7 +317,7 @@ export const QuizHost: React.FC = () => {
                 if (!lesson) return;
                 const meta = lessonsToFetch[index];
 
-                if (lesson?.quiz) {
+                if (lesson?.quiz && Array.isArray(lesson.quiz)) {
                     // Shuffle Options for each question
                     const textQuestions = lesson.quiz.map(q => {
                         // Create a copy of options with original indices
