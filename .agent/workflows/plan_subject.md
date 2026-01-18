@@ -16,16 +16,33 @@ Trigger: User wants to create a **NEW** subject.
             *   **Proceed** to Phase 2.
 
 ## Phase 2: The "Soul" Definition
-**Goal:** Create the Design Document (The Blueprint).
+**Goal:** Create the Design Document (The Blueprint) with Deep Roots.
 
-1.  **Create Design Doc**
-    *   **Action:** Use `generate_subject_design_doc` from `subject-management` skill.
-    *   **Path:** `docs/Design documents/[subject]-design.md`
-    *   **Context:** Ask user for the "Vision" if not provided.
+1.  **Gather Context (The Interview)**
+    *   **Agent Monologue:** "Before we build, I need to understand the soul of this subject."
+    *   **Action:** Ask user for:
+        *   **Visual Theme:** (e.g., "Cyberpunk", "Art Deco", "Gritty Realism").
+        *   **Pedagogical Context:** Target audience (Age 10-13, 13-16, 16+)? Prerequisite knowledge?
+        *   **Interdisciplinary Web:** Which OTHER subjects *must* this connect to? (e.g., "Economy", "Religion").
 
-2.  **Scaffold Content**
-    *   **Action:** `node scripts/content-manager.cjs --create "[Subject Name]"` (Implement this if needed, or manual mkdir).
-    *   **Note:** For now, focus on the Design Doc.
+2.  **Create Design Doc**
+    *   **Action:** Write to `docs/Design documents/[subject]-design.md`.
+    *   **Content Requirement:**
+        *   **Header:** Subject ID, Title, Status.
+        *   **The Soul (Vision):**
+            *   **Narrative Arc:** A story-driven overview (e.g., "The rise and fall of...").
+            *   **Visual Theme:** The keywords provided.
+        *   **The Web (Interdisciplinary):**
+            *   List the connections identified in step 1.
+            *   **Protocol:** "Every major concept here must also link to [Friend Subject]."
+        *   **The Dashboard (Status):**
+            *   `[ ] Core Narrative Articles`
+            *   `[ ] Key Figures`
+            *   `[ ] Essential Maps/Assets`
 
-## Phase 3: Handoff
-1.  **Notify User:** "Design Doc created at `docs/Design documents/...`. Please review the Vision. Run `/update_subject` when ready to build."
+## Phase 3: The Scaffold
+1.  **Create Directory**
+    *   **Action:** `node scripts/content-manager.cjs --create "[Subject ID]"` (or manually `mkdir`).
+
+2.  **Handoff**
+    *   **Notify User:** "Subject '[ID]' scaffolded. Design Doc created. I am ready to `/update_subject` to populate the narrative."
