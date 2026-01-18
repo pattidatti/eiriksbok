@@ -15,7 +15,17 @@ Før du skriver kode, må du strukturere stien pedagogisk.
 *   **Målgruppe**: Er det for introduksjon eller fordypning?
 *   **Omfang**: En god sti bør ha 10-20 steg.
 *   **Artikler**: Har vi de nødvendige underliggende artiklene? (Hvis ikke, må disse opprettes som "placeholders" først).
-*   **Narrativ bue**: Lag en gjennomgående historie. Bruk "Du"-perspektiv som utvikler seg (f.eks. fra bonde til konge).
+*   **Narrativ bue (3-Akters Modellen)**: Del stien inn i tre dramatiske akter for å håndtere kognitiv belastning:
+    1.  **Akt 1: Opptakten** (Etablering, målet settes).
+    2.  **Akt 2: Konfrontasjonen** (Kampen, utfordringene, vendepunktet).
+    3.  **Akt 3: Resolusjonen** (Resultatet, konsekvensene, lærdommen).
+*   **Perspektiv**: Bruk konsekvent "Du"-perspektiv som utvikler seg (f.eks. fra bonde til konge).
+
+### Obligatorisk "Steg 0": Onboarding
+Hver læringssti må starte med et **Steg 0 (Prolog)**. Dette steget skal:
+1.  Anta **null forkunnskap** hos eleven.
+2.  Sette den historiske scenen før dramatikken starter.
+3.  Bruke en oversiktsartikkel som kilde for å gi et trygt "fakta-fundament".
 
 ## 2. Filstruktur
 
@@ -61,17 +71,22 @@ Hvert steg i `steps`-arrayet kan være av typen:
 *   `oppgave`: Konkrete gjøremål.
 *   `ressurs`: Lenker til fordypning.
 
+Hvert steg skal ha **5-8 oppgaver** som følger **Blooms Taksonomi (Scaffolding-trappen)**:
+1.  **Fakta**: (Gjenkalling) Svar som finnes direkte i teksten.
+2.  **Forståelse**: (Forklaring) Eleven må forklare mekanismer eller årsaker.
+3.  **Analyse/Etikk**: (Refleksjon) Eleven må vurdere dilemmaer eller se lange linjer.
+
 ```json
 {
     "id": "unik-id-for-steget",
-    "phase": "Fase 1: Oppstart (Valgfritt, lager overskrift)",
+    "phase": "Akt 1: Navn på Akten",
     "title": "Stegets tittel",
     "type": "fakta", 
-    "content": "Selve teksten som vises i kortet. Bør være 50-80 ord. Sett scenen: 'Du står på torget...'. Skap kontekst før fakta.",
+    "content": "Selve teksten skal være guiding og narrativ. Skriv 1-3 avsnitt (ca. 150-300 ord). Beskriv scenen, forklar hva som skjer i verden, og gi eleven et hint om hva de skal lete etter i artiklene. 'Du står i gjørma... Se etter hvordan soldatene holdt seg tørre.'",
     "tasks": [
-        "Oppgave 1 - Enkel fakta",
-        "Oppgave 2 - ...",
-        "Oppgave 8 - Refleksjon (Mål: 5-8 oppgaver med stigende vanskelighetsgrad)"
+        "Hva skjedde med...? (Fakta)",
+        "Hvorfor var det viktig at...? (Forståelse)",
+        "Ville du valgt annerledes hvis...? (Etikk)"
     ],
     "links": [
         {
@@ -214,9 +229,10 @@ Før du sier deg ferdig:
 
 1.  [ ] **Lenker**: Fungerer alle interne lenker til artikler? Har du laget placeholder-artikler for manglende innhold?
 2.  [ ] **Bilder**: Har alle interaktive komponenter nødvendige ikoner/bilder?
-3.  [ ] **Progresjon**: Er det en logisk rekkefølge fra enkle fakta til komplekse oppgaver?
-4.  [ ] **Variasjon**: Bland lesing, refleksjon og interaktive spill. Unngå 10 "fakta"-kort på rad.
-5.  [ ] **Testing**: Åpne stien i nettleseren og klikk gjennom alle stegene. Spill gjennom scenariene for å sjekke at logikken holder.
+3.  [ ] **Pedagogisk Trapp**: Følger oppgavene Blooms taksonomi (Fakta -> Forståelse -> Refleksjon)?
+4.  [ ] **Narrativ Dybde**: Har hvert steg minst 150 ord med guiding tekst?
+5.  [ ] **Ghost-Fact Audit (KRITISK)**: Har du manuelt verifisert at alle 'Fakta'-spørsmål faktisk kan besvares ved å lese den lenkede artikkelen? Det er forbudt å spørre om noe som ikke står i kildematerialet.
+6.  [ ] **Testing**: Åpne stien i nettleseren og klikk gjennom alle stegene. Spill gjennom scenariene for å sjekke at logikken holder.
 7.  [ ] **Data Synchronization:** Run `node scripts/scan-concepts.js` to update the global glossary and people records.
 
 ## 6. Tips & Triks
