@@ -3,61 +3,69 @@
 
 ---
 
-## 1. The Philosophy
-A Subject is not merely a folder of files. It is a living entity with a **Soul**, a **Body**, and a **Spirit**. To create is to guide the Subject through these three phases of existence.
+## 1. The Core Philosophy
+**"The Blueprint is the Territory."**
 
-## 2. The Three Phases
+We do not build blindly. We do not write articles in isolation. We do not "hope" connections emerge.
+We **Architect** the subject first. The code, the files, and the assets are merely the physical projection of the **Subject Blueprint**.
 
-### Phase I: The Soul (Design)
-**Goal:** Define the Vision, the Narrative Arc, and the Interdisciplinary Web.
-*   **Input:** A concept (e.g., "The Cold War").
-*   **Tool:** `/plan_subject`
-*   **Outcome:** A `[subject]-design.md` file that acts as the blueprint.
-*   **Key Question:** "What is the story we are telling, and how does it connect to the world?"
+## 2. The Two Roles
+This system divides creation into two distinct phases, handled by two specialized workflows:
 
-### Phase II: The Body (Construction)
-**Goal:** Build the content, the flesh and bone of the subject.
-*   **Input:** The "Skeleton" (Design Doc).
-*   **Tool:** `/update_subject`
-*   **Outcome:** Generated articles, people, and assets.
-*   **Key Question:** "Does every piece of content serve the Narrative Arc?"
-*   **Note:** For Legacy/Retroactive subjects, this phase begins by reverse-engineering the skeleton.
+### Role 1: The Architect (Planning & Design)
+*   **Workflow:** `/architect [Subject Name]`
+*   **Goal:** Create or Update the **subject-blueprint.md**.
+*   **Behavior:**
+    *   **New Subject:** It interviews you to understand the specific vision (Theme, Goals, Connections) and scaffolds a new Blueprint.
+    *   **Existing Subject:** It performs a **Deep Audit**. It reads every existing file, checks the `manifest.json`, validates the `learning-path`, and then populates the Blueprint with the *current reality* + *Ulthathink improvements*.
+*   **The Output:** A "Living Spec" file. You edit this file directly. This is your creative canvas.
 
-### Phase III: The Spirit (Refinement)
-**Goal:** Elevate the subject from "Functional" to "Avant-Garde".
-*   **Input:** A working subject.
-*   **Tool:** `/refine_subject`
-*   **Outcome:** A masterpiece. Precise academic language, gripping visual themes, and deep "Focus Points" for every article.
-*   **Key Question:** "Is this premium?"
-
----
-
-## 3. The Ritual of Handoff
-We do not simply stop working. We hand off to the next phase.
-
-*   **Soul -> Body:** "The Soul is defined. Now, let us forge the Body." (`/update_subject`)
-*   **Body -> Spirit:** "Content built. Does it breathe? If not, polish the Spirit." (`/refine_subject`)
-*   **Spirit -> Completion:** "The Cycle is complete."
+### Role 2: The Builder (Execution)
+*   **Workflow:** `/build_subject [Subject Name]`
+*   **Goal:** Turn the Blueprint into Reality.
+*   **Behavior:**
+    *   It reads the `subject-blueprint.md`.
+    *   It compares it to the file system (The Diff).
+    *   **It Executes:**
+        *   Creates missing directories.
+        *   Generates missing articles (using the "Content Matrix" in the Blueprint).
+        *   Generates missing images (using the "Asset Tracker").
+        *   Compiles/Updates the `learning-path.json` to match the Blueprint's path.
 
 ---
 
-## 4. The Protocols of Creation
+## 3. The Subject Blueprint Structure
+This is the most important file in the project. It lives in `docs/Design documents/[subject]-blueprint.md`.
 
-### A. The Brick (Article Creation)
-*   **Rule:** NEVER create an article file manually.
-*   **Protocol:** You MUST use the `/plan_article` workflow.
-*   **Why:** `/plan_article` ensures accessibility, layout, and "Avant-Garde" styling are baked in.
+### A. Metadata
+Defines the `id`, `title`, and the "Visual Prompt" that controls the aesthetic of every generated image.
 
-### B. The Path (Learning Sequence)
-*   **Rule:** Content without a path is lost.
-*   **Protocol:** Every subject MUST have a `[subject]-sti.json` (Learning Path).
-*   **Trigger:**
-    *   **New Subject:** Create the path during Phase II.
-    *   **Update:** When adding an article, you MUST update the `[subject]-sti.json` to include it.
-*   **Reference:** Consult `docs/LEARNING_PATH_GUIDE.md` for specific JSON structures.
+### B. The Narrative Arc
+A high-level story. "In this subject, the student journeys from X to Y, discovering Z."
 
-### C. The Web (Cross-Pollination)
-*   **The Rule:** You rarely create a subject in isolation. You create a node in the web.
-*   **The Contract:** If you need a concept from another subject (e.g., *Economics* to explain *War*), you MUST:
-    1.  Create the request in the external subject's Design Doc.
-    2.  Add a "Learning Path Sync" task to that subject.
+### C. The Learning Path (The Spine)
+This is not just a list. It is the **sequence of experience**.
+*   *Format:* `1. Article: Introduction` -> `2. Quiz: Basic Concepts` -> `3. Article: Deep Dive`.
+*   The Builder uses this to generate the `[subject]-sti.json`.
+
+### D. The Content Matrix (The Bricks)
+The atomic plan for every article.
+*   **Title:** The display title.
+*   **File:** `filename.json`
+*   **Beats:** The specific key points the article must cover.
+*   **Modules:** "Timeline", "Map", "Quote".
+*   **Connections:** "Link to [Economics/Inflation]".
+
+### E. The Asset Tracker
+A list of every image and map required.
+*   `[ ] Hero Image: A gritty trench...`
+*   `[x] Map: Europe 1914`
+
+---
+
+## 4. The Golden Workflow
+1.  **Trigger:** `Run /architect "The Cold War"`
+2.  **Edit:** The Agent scaffolds the Blueprint. You open `docs/Design documents/cold-war-blueprint.md` and refine the beats, add a new article, or tweak the visual prompts.
+3.  **Approve:** You save the file.
+4.  **Build:** `Run /build_subject "The Cold War"` -> The Agent builds the physical files.
+5.  **Polished.**
