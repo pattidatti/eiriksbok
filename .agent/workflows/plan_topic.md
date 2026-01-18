@@ -23,7 +23,14 @@ description: The Unified Entry Point for Topic Planning. Triggers the Architect.
     *   If the blueprint exists:
         *   Ask: "I've synced the blueprint. Do you want to add new articles or refine the existing path?"
 
-6.  **Loop**:
-    *   User edits the plan (via agent instructions).
-    *   Agent updates `.md`.
-    *   *Exit Condition:* User says "Approve" or "Build it". -> Trigger `/build_subject`.
+6.  **The High-Fidelity Draft (CRITICAL)**:
+    *   **Do not create a generic scaffold.**
+    *   Use **ULTRATHINK** to brainstorm:
+        *   **Visual Prompts:** Specific, cinematic, and technically grounded for the Image Style Guide.
+        *   **Narrative Beats:** Emotional hooks, core conflicts, and "Aha!" moments for every article.
+        *   **Connections:** Links to existing content (e.g., "How WWI debt led to this depression").
+    *   **Action:** Update `docs/Design documents/[id]-blueprint.md` with THIS specific content. The blueprint should look "ready for review" after one script run.
+
+7.  **Loop**:
+    *   User reviews the blueprint file directly.
+    *   Exit Condition: User says "Approve" or "Build it". -> Trigger `/build_topic`.

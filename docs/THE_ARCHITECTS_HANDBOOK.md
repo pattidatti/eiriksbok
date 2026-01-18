@@ -26,8 +26,9 @@ We follow a strict hierarchy to map Norwegian pedagogy to our code:
 *   **Action:**
     1.  Run `/plan_topic [topic-id]`.
     2.  The Agent interviews you or reviews the current state.
-    3.  Together, you fill out the **Blueprint** (`docs/Design documents/[topic]-blueprint.md`).
-    4.  **CRITICAL:** You must define the `Parent (Fag)` in the metadata.
+    3.  **The Fidelity Rule:** The Agent MUST use ULTRATHINK to pre-fill the **Narrative Arc**, **Detailed Beats**, and **Image Prompts** directly into the Blueprint.
+    4.  Together, you refine the **Blueprint** (`docs/Design documents/[topic]-blueprint.md`).
+    5.  **CRITICAL:** You must define the `Parent (Fag)` in the metadata.
 
 ### Phase 2: Execution (`/build_topic`)
 *   **Trigger:** The Blueprint is approved.

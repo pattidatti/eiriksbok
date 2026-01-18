@@ -35,9 +35,15 @@ description: The Builder. Reads a Blueprint and creates the physical files and a
                 *   Update the `heroImage` field with the new path (e.g., `/images/[topic]/[filename]`).
                 *   *Verification:* Read the JSON back to ensure the path is saved.
 
-5.  **Compile Learning Path**:
+5.  **Compile Learning Path (The Pedagogy)**:
     *   *Action:* Create/Update `public/content/[Subject ID]/[Subject ID]-sti.json`.
-    *   *Logic:* Map the "Learning Path" list from the blueprint directly to the JSON structure.
+    *   *Workflow:* You MUST follow the `.agent/workflows/LEARNING_PATH_GUIDE.md` strictly for this step.
+    *   *Requirements:*
+        *   **Structure:** Implement the **3-Act Model** (Phase 1: Opptakt, Phase 2: Konfrontasjon, Phase 3: Resolusjon).
+        *   **Onboarding:** Every path MUST start with **Steg 0 (Prolog)** assuming zero prior knowledge.
+        *   **Step Depth:** Each step must have 150-300 words of narrative/guiding text (NOT just a list of links).
+        *   **Tasks:** Every step MUST have 5-8 tasks following **Blooms Taxonomy** (Fakta -> Forståelse -> Analyse).
+        *   **Interactivity:** Integrate at least one interactive component (e.g., `ScenarioRoleplay`, `PackTheBag`) where the narrative supports it.
 
 6.  **Register & Final Polish**:
     *   **Run:** `node scripts/content-manager.cjs --register [Subject ID]`
