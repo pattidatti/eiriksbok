@@ -29,6 +29,11 @@ description: The Builder. Reads a Blueprint and creates the physical files and a
         *   **If Missing -> GENERATE:**
             *   *Style:* You MUST prepend the "Magical Keywords" from `image-style-guide.md` (e.g., "A highly realistic 4K cinematic photograph...").
             *   *Prompt:* Combine the Style Guide header + The Blueprint Description.
+        *   **LINKING (CRITICAL):**
+            *   If the image type is "Hero":
+                *   Find the corresponding Article JSON.
+                *   Update the `heroImage` field with the new path (e.g., `/images/[topic]/[filename]`).
+                *   *Verification:* Read the JSON back to ensure the path is saved.
 
 5.  **Compile Learning Path**:
     *   *Action:* Create/Update `public/content/[Subject ID]/[Subject ID]-sti.json`.

@@ -5,10 +5,11 @@
 ---
 
 ## 1. Metadata
-*   **Subject ID:** `[e.g., cold-war]`
-*   **Topic ID:** `[e.g., historie]` (Optional parent)
-*   **Visual Theme:** `[e.g., Gritty, Noir, High-Contrast, 1940s photography style]`
-*   **Target Audience:** `[e.g., 10th Grade, Age 15-16]`
+*   **Type:** `Topic` (Emne)
+*   **Parent (Fag):** `[e.g., historie, norsk]` <!-- Must be an existing ID in manifest.json -->
+*   **Topic ID:** `[e.g., forste-verdenskrig]`
+*   **Title:** `[The Human-Readable Title]`
+*   **Visual Theme:** `[Adjective] [Adjective] [Noun]` (e.g., "Gritty Industrial Realism")
 
 ---
 

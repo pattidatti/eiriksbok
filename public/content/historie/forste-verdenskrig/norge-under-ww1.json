@@ -1,7 +1,7 @@
 {
     "id": "norge-under-ww1",
     "title": "Norge: Den nøytrale allierte",
-    "description": "Hvordan nøytralitet kostet 2000 norske sjøfolk livet.",
+    "description": "Hvordan nøytralitet skapte millionærer på land og enker langs hele kysten.",
     "layout": "rich",
     "tags": [
         "norge",
@@ -13,21 +13,82 @@
     "content": [
         {
             "type": "text",
-            "value": "Norge erklærte seg nøytralt i 1914, men krigen kjente ingen grenser. Som en stor sjøfartsnasjon ble Norge livslinjen for Storbritannia. Tyske ubåter senket norske skip uten varsel."
+            "value": "Da krigen brøt ut i 1914, erklærte Norge seg strengt nøytralt. 'Vi skal verne om vår nøytralitet med jernhard konsekvens', sa statsminister Gunnar Knudsen. Men for en nasjon som levde av havet, var isolasjon en umulighet. Norge hadde verdens fjerde største handelsflåte, og begge de krigførende partene var avhengige av norsk fraktkapasitet. I løpet av fire år skulle Norge balansere på en knivsegg mellom stormaktene, en balansegang som kostet dyrt i både menneskeliv og moral."
         },
         {
-            "type": "fact",
-            "title": "Den Nøytrale Allierte",
-            "value": "Begrepet ble brukt om Norge fordi vi i praksis seilte for ententen (Storbritannia og Frankrike) mot at vi fikk kull og olje. Prisen var høy: Over 2000 sjøfolk døde."
+            "type": "header",
+            "text": "Den Nøytrale Allierte"
         },
         {
             "type": "text",
-            "value": "På land var situasjonen en annen. Det var 'Jobbetid' - en vill spekulasjonsbølge. Skipsaksjer skjøt i været, og nyrike nordmenn drakk champagne ('boblende vann') mens arbeiderklassen slet med dyrtid og rasjonering."
+            "value": "I teorien handlet Norge med både Tyskland og Storbritannia. I praksis var vi avhengige av britene. Storbritannia kontrollerte kullforsyningen som de norske dampskipene trengte for å gå. Britene stilte et ultimatum: Hvis dere vil ha kull, må dere seile for oss og stoppe eksporten av fisk og kobber til Tyskland.\n\nNorge bøyde av. Vi ble det historikerne kaller 'Den nøytrale allierte'. Vi seilte med livsviktige forsyninger for Ententen, mens vi offisielt latet som vi ikke valgte side. Dette gjorde norske skip til legitime mål for tyske ubåter."
         },
         {
-            "type": "fact",
-            "title": "Dyrtid",
-            "value": "Mens noen ble millionærer på krigsfrakter, steg matprisene drastisk. Dette skapte stor sosial uro og la grunnlaget for en radikalisering av den norske arbeiderbevegelsen."
+            "type": "header",
+            "text": "Sjøfolkenes krig"
+        },
+        {
+            "type": "text",
+            "value": "Mens Norge tjente penger, betalte sjøfolkene prisen. Tyskland erklærte 'uinnskrenket ubåtkrig' i 1917, noe som betydde at de senket ethvert skip som nærmet seg Storbritannia, uavhengig av flagg. Norske skip ble torpedert uten varsel. Mannskapene i livbåtene ble ofte overlatt til seg selv i iskalde bølger langt til havs.\n\nTotalt mistet over 2000 norske sjøfolk livet, og nesten halvparten av den norske flåten ble senket. Mange sjøfolk som overlevde, slet med 'torpedonervene' (en variant av granatsjokk) resten av livet. Langs hele kysten satt enker igjen, mens rederne i byene hevet forsikringspengene."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Spionasje i Norge",
+                "content": "Fordi Norge var nøytralt og lå strategisk til, ble landet et knutepunkt for spionasje. Tyske agenter opererte i norske havner for å rapportere om skipsbevegelser, mens britiske agenter overvåket handelen med Tyskland."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Jobbetiden: Dansen rundt gullkalven"
+        },
+        {
+            "type": "text",
+            "value": "På land var situasjonen absurd annerledes. De enorme fraktratene skapte en økonomisk boom uten sidestykke, kjent som 'Jobbetiden'. Alle ville spekulere i skipsaksjer. Verdien på et skip kunne hundredobles på få uker. Tjenestepiker, lærere og fiskere satte sparepengene sine i aksjer, og over natten oppsto en klasse av nyrike 'jobbere'.\n\nNorske byer flommet over av luksus. Det ble drukket champagne ('boblende vann') i store mengder, og dyre biler ble importert til veier som knapt fantes. Det var en vill, hedonistisk dans, drevet av blodpenger fra krigen."
+        },
+        {
+            "type": "header",
+            "text": "Dyrtid og sosial uro"
+        },
+        {
+            "type": "text",
+            "value": "Men festen var ikke for alle. Mens spekulantene ble rike, førte krigen til at prisene på mat og brensel steg drastisk ('Dyrtid'). Vanlige arbeidere fikk det verre. Kjøtt og mel ble rasjonert. Forskjellen mellom de nyrike og de fattige ble provoserende synlig. Dette skapte en dyp bitterhet i arbeiderklassen, som førte til store demonstrasjoner i 1917 (Dyrtidsdemonstrasjonene). Inspirert av den russiske revolusjon begynte den norske arbeiderbevegelsen å radikaliseres, noe som skulle prege norsk politikk i mellomkrigstiden."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "norge-ww1-1",
+            "question": "Hvorfor ble Norge kalt 'Den nøytrale allierte'?",
+            "options": [
+                "Fordi Norge sendte soldater til Frankrike i hemmelighet",
+                "Fordi Norge i praksis seilte for og støttet Storbritannia til tross for nøytraliteten",
+                "Fordi Norge solgte våpen til begge sider",
+                "Fordi kong Haakon var britisk"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "norge-ww1-2",
+            "question": "Hva var 'Jobbetiden'?",
+            "options": [
+                "En periode med høy arbeidsledighet",
+                "En økonomisk oppgangstid preget av spekulasjon i skipsaksjer",
+                "Tiden da norske kvinner fikk jobb i fabrikker",
+                "Navnet på den tyske okkupasjonen"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "norge-ww1-3",
+            "question": "Omtrent hvor mange norske sjøfolk omkom under første verdenskrig?",
+            "options": [
+                "Ingen, Norge var nøytralt",
+                "Ca. 200",
+                "Over 2000",
+                "Over 10 000"
+            ],
+            "correctAnswer": 2
         }
     ]
 }

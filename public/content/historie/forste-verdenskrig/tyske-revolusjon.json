@@ -1,7 +1,7 @@
 {
     "id": "tyske-revolusjon",
     "title": "Mytteri og Forræderi: Den Tyske Revolusjon",
-    "description": "Fra matros-mytteri i Kiel til Keiserrikets fall.",
+    "description": "Hvordan krigen endte med at Tyskland kollapset innenfra, og myten som la grunnlaget for neste krig.",
     "layout": "rich",
     "tags": [
         "tyskland",
@@ -13,21 +13,82 @@
     "content": [
         {
             "type": "text",
-            "value": "Oktober 1918. Krigen er tapt, men admiralene vil sende flåten ut i et siste, ærerikt selvmordsangrep mot britene. Matrosene i Kiel sier nei. De gjør opprør."
+            "value": "Høsten 1918 var Tyskland i knestående. Hæren var utslitt, de allierte rykket frem, og sivilbefolkningen sultet på grunn av blokaden. Men den tyske militærledelsen, ledet av de stolte generalene Hindenburg og Ludendorff, nektet å innse nederlaget. De planla et siste, desperat trekk: Den tyske flåten skulle seile ut mot den overlegne britiske Royal Navy i et 'ærefullt' slag. Det ville være en sikker dødsdom for titusener av matroser."
         },
         {
-            "type": "fact",
-            "title": "Revolusjonen sprer seg",
-            "value": "Mytteriet tenner en ild. Arbeider- og soldatråd dannes over hele Tyskland, inspirert av Russland. Keiser Wilhelm II må flykte. Tyskland blir republikk over natten."
+            "type": "header",
+            "text": "Mytteriet i Kiel"
         },
         {
             "type": "text",
-            "value": "Den nye regjeringen har ingen valg: De må signere våpenhvilen. Hæren marsjerer hjem med fanene høyt, og snart oppstår legenden: 'Vi ble ikke slått på slagmarken, men dolket i ryggen av forrædere hjemme'."
+            "value": "I havnebyen Kiel sa matrosene stopp. 'Vi vil ikke dø for en tapt sak!' 29. oktober 1918 nektet de å adlyde ordre, slukket kjelene på skipene og arresterte offiserene sine. Opprøret spredte seg som ild i tørt gress over hele Tyskland. Arbeidere og soldater dannet revolusjonære råd (inspirert av russerne), og røde flagg vaiet fra rådhusene i Berlin, München og Hamburg."
         },
         {
-            "type": "fact",
-            "title": "Dolkesjøtlegenden",
-            "value": "Denne løgnen – at sosialister og jøder forrådte hæren – ble giftig ammunisjon for høyre-ekstreme krefter, inkludert en ung korporal ved navn Adolf Hitler."
+            "type": "header",
+            "text": "Keiseren abdiserer"
+        },
+        {
+            "type": "text",
+            "value": "Keiser Wilhelm II, selve symbolet på det gamle Tyskland, mistet støtten fra hæren. Den 9. november abdiserte han og flyktet i eksil til Nederland, hvor han ble boende resten av livet og hugget ved. Samme dag ble 'Den tyske republikk' proklamert fra en balkong i Riksdagsbygningen i Berlin. Det tyske keiserriket var historie."
+        },
+        {
+            "type": "header",
+            "text": "Våpenhvilen og kaoset"
+        },
+        {
+            "type": "text",
+            "value": "Den nye sivile regjeringen hadde ingen tid til å feire. De måtte signere en smertefull våpenhvile i en togvogn i skogen i Compiègne den 11. november 1918 kl. 11:00. Krigen var over, men i Tyskland fortsatte kampene i gatene mellom kommunister og høyreorienterte frikorps. Den nye Weimar-republikken ble født i blod og kaos."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Rosa Luxemburg og Karl Liebknecht",
+                "content": "To av de mest kjente lederne for den kommunistiske Spartakist-oppstanden i Berlin, Rosa Luxemburg og Karl Liebknecht, ble brutalt myrdet av frikorpssoldater (tidligere frontsoldater) i januar 1919. Liket av Luxemburg ble kastet i en kanal."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Dolkesjøtlegenden: En giftig løgn"
+        },
+        {
+            "type": "text",
+            "value": "Det mest skjebnesvangre som skjedde høsten 1918, var skapelsen av 'Dolkesjøtlegenden' (Dolchstoßlegende). Fordi krigen sluttet mens tyske soldater fortsatt sto på fransk jord, og fordi sensuren hadde holdt sannheten om nederlaget skjult for folket, oppsto en myte: 'Den tyske hæren ble ikke overvunnet i felt (på slagmarken), men ble dolket i ryggen av forrædere hjemme'.\n\nHvem var disse forræderne? Ifølge høyre-ekstreme var det sosialistene, kommunistene og jødene. Denne løgnen ble en sentral del av propagandaen til Adolf Hitler og nazistene. De brukte bitterheten over nederlaget og 'November-forbryterne' som signerte freden, til å bygge sin vei til makten."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "tyske-rev-1",
+            "question": "Hva utløste revolusjonen i Tyskland i 1918?",
+            "options": [
+                "Erobreringen av Berlin",
+                "Matrosmytteriet i Kiel",
+                "Keiserens død",
+                "Hitlers kuppforsøk"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "tyske-rev-2",
+            "question": "Hva gikk 'Dolkesjøtlegenden' ut på?",
+            "options": [
+                "At Tyskland tapte fordi de gikk tom for ammunisjon",
+                "At den tyske hæren var ubeseiret, men ble forrådt av politikere, sosialister og jøder på hjemmebane",
+                "At de allierte brukte ulovlige våpen",
+                "At keiseren var en spion"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "tyske-rev-3",
+            "question": "Hva skjedde med Keiser Wilhelm II?",
+            "options": [
+                "Han ble henrettet",
+                "Han ble Tysklands første president",
+                "Han abdiserte og rømte til Nederland",
+                "Han døde i slaget ved Somme"
+            ],
+            "correctAnswer": 2
         }
     ]
 }

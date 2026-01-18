@@ -1,6 +1,6 @@
 # Subject Blueprint: forste-verdenskrig
-> **Status:** `In-Progress`
-> **Version:** 1.1 (Revamp Plan)
+> **Status:** `In-Progress (Drafts Complete)`
+> **Version:** 1.2 (Reality Sync)
 
 ---
 
@@ -45,26 +45,28 @@ We start with the naive enthusiasm of 1914 ("The Adventure"), descend into the m
 *   **Pedagogical Goal:** Understand the alliance system and the "Domino Effect".
 
 ### Article 2: Skyttergravskrig (skyttergravskrig.json)
-*   **Status:** **CRITICAL UPDATE NEEDED** (Currently ~20 lines)
+*   **Status:** **Stub (Needs Expansion)**
+*   **Action Plan:** Expand via `/plan_article` (Target: 1200+ words).
 *   **Pedagogical Goal:** Convey the sensory horror and stalemate logic of trench warfare.
 *   **The Narrative Beats:**
-    *   [ ] **The Hook:** The smell of the trenches.
-    *   [ ] **The System:** It wasn't just a ditch; it was a machine of defense.
-    *   [ ] **The Psychological Toll:** Shell shock and "Live and let live".
+    *   [x] **The Hook:** The smell of the trenches.
+    *   [x] **The System:** It wasn't just a ditch; it was a machine of defense.
+    *   [x] **The Psychological Toll:** Shell shock and "Live and let live".
 *   **Global Connections:**
     *   [ ] Link to `teknologi` (Why defense beat offense).
 
 ### Article 3: Hjemmefronten (hjemmefronten.json)
-*   **Status:** **CRITICAL UPDATE NEEDED** (Currently ~15 lines)
+*   **Status:** **Stub (Needs Expansion)**
+*   **Action Plan:** Expand via `/plan_article`. Integrate `propaganda` fully.
 *   **Pedagogical Goal:** Explain "Total War" - how civilians became targets and tools.
 *   **narrative Beats:**
-    *   [ ] Women in the factories.
-    *   [ ] The Hunger Blockade (Turnip Winter).
-    *   [ ] Propaganda: Demonizing the enemy.
+    *   [x] Women in the factories.
+    *   [x] The Hunger Blockade (Turnip Winter).
+    *   [x] Propaganda: Demonizing the enemy.
 
 ### Article 4: Propaganda (propaganda.json)
-*   **Status:** **CRITICAL UPDATE NEEDED** (Currently ~15 lines)
-*   **Plan:** Merge into `hjemmefronten` or expand as a Gallery of Lies.
+*   **Status:** **MERGED** (Merged into `hjemmefronten`)
+*   **Plan:** Merged into `hjemmefronten` as a Gallery of Lies.
 *   **Pedagogical Goal:** Source criticism. How to read a poster.
 
 ### Article 5: Teknologi (teknologi.json)
@@ -72,30 +74,33 @@ We start with the naive enthusiasm of 1914 ("The Adventure"), descend into the m
 *   **Pedagogical Goal:** Industrial Revolution applied to killing.
 
 ### Article 6: Rød Storm - Den Russiske Revolusjon (russiske-revolusjon.json)
-*   **Status:** **NEW**
+*   **Status:** **Stub (Needs Expansion)**
+*   **Action Plan:** Expand via `/plan_article`. Create a Deep Dive into the ideology.
 *   **Pedagogical Goal:** Understand the ideological break and why Russia left the war.
 *   **The Narrative Beats:**
-    *   [ ] **Context:** Late feudalism meets industrial war. Hunger and incompetence at the front.
-    *   [ ] **The Event:** Lenin's train, "Bread, Peace, Land".
-    *   [ ] **The Impact:** Treaty of Brest-Litovsk – Germany can focus on the West.
+    *   [x] **Context:** Late feudalism meets industrial war. Hunger and incompetence at the front.
+    *   [x] **The Event:** Lenin's train, "Bread, Peace, Land".
+    *   [x] **The Impact:** Treaty of Brest-Litovsk – Germany can focus on the West.
 *   **Global Connections:**
     *   [ ] Future link to `den-kalde-krigen` (The birth of the ideological split).
 
 ### Article 7: Norge - Den Nøytrale Allierte (norge-under-ww1.json)
-*   **Status:** **NEW**
+*   **Status:** **Stub (Needs Expansion)**
+*   **Action Plan:** Expand via `/plan_article`. Focus on the "Merchant Fleet" dilemma.
 *   **Pedagogical Goal:** Understand how a small neutral country is affected by total war.
 *   **The Narrative Beats:**
-    *   [ ] **The Balancing Act:** Trading with both sides, but leaning towards Britain.
-    *   [ ] **The Merchant Fleet:** The "Neutral Ally" losing 2000 sailors to U-boats.
-    *   [ ] **Economic Boom & Bust:** Jobbetid, speculation, and the crash.
+    *   [x] **The Balancing Act:** Trading with both sides, but leaning towards Britain.
+    *   [x] **The Merchant Fleet:** The "Neutral Ally" losing 2000 sailors to U-boats.
+    *   [x] **Economic Boom & Bust:** Jobbetid, speculation, and the crash.
 
 ### Article 8: Den Tyske Revolusjon (tyske-revolusjon.json)
-*   **Status:** **NEW**
+*   **Status:** **Stub (Needs Expansion)**
+*   **Action Plan:** Expand via `/plan_article`. Link to the rise of Nazism.
 *   **Pedagogical Goal:** Understand the internal collapse of the Central Powers.
 *   **The Narrative Beats:**
-    *   [ ] **The Spark:** Kiel Mutiny - Sailors refusing a suicide mission.
-    *   [ ] **The Stab in the Back (Dolchstoßlegende):** How the myth was born that the army was "undefeated in the field".
-    *   [ ] **The Consequence:** From Kaiserreich to Weimar Republic.
+    *   [x] **The Spark:** Kiel Mutiny - Sailors refusing a suicide mission.
+    *   [x] **The Stab in the Back (Dolchstoßlegende):** How the myth was born that the army was "undefeated in the field".
+    *   [x] **The Consequence:** From Kaiserreich to Weimar Republic.
 *   **Global Connections:**
     *   [ ] Direct link to `mellomkrigstiden` and rise of Nazism. (legg inn i todo at dette emne må lages)
 
@@ -106,6 +111,6 @@ We start with the naive enthusiasm of 1914 ("The Adventure"), descend into the m
 
 | Status | Type | Description (Prompt Context) | Filename |
 | :--- | :--- | :--- | :--- |
-| `[ ]` | Hero | Wide shot of a dark, muddy No Man's Land with barbed wire silhouettes against a pale, gassed sky. | `ww1-hero-main.jpg` |
+| `[x]` | Hero | Wide shot of a dark, muddy No Man's Land with barbed wire silhouettes against a pale, gassed sky. | `ww1-hero-main.jpg` |
 | `[ ]` | Content | Close up of a gas mask pupil reflection showing an explosion. | `teknologi-gas.jpg` |
-| `[ ]` | Content | Propaganda poster corruption: A noble knight turning into a skeleton. | `propaganda-art.jpg` |
+| `[x]` | Content | Propaganda poster corruption: A noble knight turning into a skeleton. | `propaganda-art.jpg` |

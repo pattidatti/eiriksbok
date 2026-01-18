@@ -1,7 +1,7 @@
 {
     "id": "hjemmefronten",
-    "title": "Hjemmefronten og Propaganda",
-    "description": "I en total krig finnes det ingen sivile - bare deltakere uten uniform.",
+    "title": "Hjemmefronten: En total krig",
+    "description": "I en total krig finnes det ingen uskyldige sivile - bare deltakere uten uniform.",
     "layout": "rich",
     "tags": [
         "total-krig",
@@ -13,35 +13,92 @@
     "content": [
         {
             "type": "text",
-            "value": "Første verdenskrig var den første 'totale krigen'. Det betydde at hele samfunnets ressurser ble mobilisert. Mens mennene døde ved fronten, måtte kvinnene holde hjulene i gang hjemme."
+            "value": "Første verdenskrig markerte et veiskille i historien. Tidligere kriger hadde ofte vært utkjempet av profesjonelle hærer på avgrensede slagmarker, mens livet ellers gikk sin gang for de fleste. Denne krigen var annerledes. Det var den første 'totale krigen'.\n\nTotal krig betydde at hele nasjonens ressurser – industri, økonomi, landbruk og befolkning – ble mobilisert for seier. Skillet mellom soldat og sivil ble visket ut. Fabrikkarbeideren som laget granaten var like viktig for krigsinnsatsen som soldaten som fyrte den av. Og fordi de sivile var blitt en del av krigsmaskineriet, ble de også legitime mål."
         },
         {
-            "type": "fact",
-            "title": "Kvinnene i fabrikkene",
-            "value": "Med millioner av menn borte, overtok kvinner jobber som før var forbudt for dem. De laget granater i ammunisjonsfabrikkene ('munitionettes'), kjørte trikker og jobbet på jordene. Dette forandret kjønnsrollene for alltid og banet vei for stemmeretten."
+            "type": "header",
+            "text": "Kvinnene redder krigsmaskinen"
         },
         {
             "type": "text",
-            "value": "Men krigen ble også utkjempet med ord og bilder. Propaganda ble et våpen like viktig som kanoner. Regjeringene måtte overbevise folket om at krigen var rettferdig, og at fienden var et monster."
+            "value": "Med millioner av menn sendt til fronten, oppsto det en akutt mangel på arbeidskraft. Løsningen ble kvinnene. Før 1914 var kvinner i stor grad henvist til hjemmet eller lavtlønte serviceyrker. Nå overtok de jobber som tidligere var 'forbeholdt menn'.\n\nDe ble trikkeførere, politikonstabler, bønder ('Land Army') og ikke minst fabrikkarbeidere. I ammunisjonsfabrikkene sto kvinner – kalt 'Munitionettes' – og fylte granater med sprengstoff 12 timer om dagen. Arbeidet var farlig. Eksplosjoner var vanlige, og de giftige kjemikaliene gjorde at huden og håret deres ble gult, noe som ga dem kallenavnet 'Canary Girls' (kanarifugler)."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Veien mot stemmerett",
+                "content": "Kvinnenes innsats under krigen var et ugjendrivelig bevis på at de var like dyktige borgere som menn. Det ble umulig for politikerne å nekte dem politiske rettigheter etter krigen. I 1918 fikk kvinner over 30 år stemmerett i Storbritannia, og i årene etter fulgte mange andre land etter."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Sult som våpen: Blokaden"
+        },
+        {
+            "type": "text",
+            "value": "Storbritannia brukte sin mektige marine til å strupe Tysklands forsyninger. De opprettet en blokade i Nordsjøen som stanset all import av mat og gjødsel. Effekten var knusende. Uten kunstgjødsel sviktet avlingene, og uten import ble butikkhyllene tomme.\n\nVinteren 1916-1917 ble kjent som 'Kålrotvinteren' i Tyskland, fordi kålrot – som vanligvis var dyrefôr – ble hovednæringsmidlet. Erstatningsprodukter ('Ersatz') ble hverdagskost: brød laget av sagflis og potetskrell, kaffe laget av brente nøtter. Det anslås at over 700 000 tyske sivile døde av underernæring og sykdom som følge av blokaden. Dette var krigføring rettet direkte mot barn, gamle og kvinner."
+        },
+        {
+            "type": "header",
+            "text": "Krigen om sannheten: Propaganda"
+        },
+        {
+            "type": "text",
+            "value": "Når en hel nasjon skal ofre alt, må de tro på at saken er rettferdig. Derfor ble propaganda et like viktig våpen som maskingeværet. Regjeringene opprettet egne propagandakontorer som pumpet ut plakater, filmer og artikler med tre hovedmål:\n\n1.  **Rekruttering:** Appellere til pliktfølelse og mandighet ('Daddy, what did YOU do in the Great War?').\n2.  **Finansiering:** Få folk til å kjøpe krigsobligasjoner for å betale for krigen.\n3.  **Demonisering:** Fremstille fienden som umenneskelige monstre som måtte knuses."
         },
         {
             "type": "gallery",
-            "title": "Løgnens kunst",
+            "title": "Løgnens billedgalleri",
             "items": [
                 {
                     "image": "/images/historie/forste-verdenskrig/propaganda-art.jpg",
-                    "caption": "Fienden ble ofte fremstilt som dyr eller djevler. Britiske plakater viste tyskere ('Hunere') som voldtektsmenn som truet sivilisasjonen."
+                    "caption": "Fienden ble ofte umenneskeliggjort. Her ser vi et eksempel på hvordan den 'edle ridderen' blir forvridd til en trussel mot sivilisasjonen."
                 },
                 {
                     "image": "/images/historie/forste-verdenskrig/propaganda-join.jpg",
-                    "caption": "Rekrutteringsplakater spilte på samvittigheten. 'Daddy, what did YOU do in the Great War?'"
+                    "caption": "Rekrutteringsplakater spilte ofte på frykt eller skam. Hvis Tyskland ikke ble stoppet, ville de invadere ditt hjem."
                 }
             ]
         },
         {
-            "type": "fact",
-            "title": "Sultblokaden",
-            "value": "Storbritannia brukte sin marine til å blokkere all matforsyning til Tyskland. Under 'Kålrotvinteren' 1916-17 døde hundretusener av tyske sivile av sult. Dette var krig mot barn og gamle."
+            "type": "text",
+            "value": "Etter krigen følte mange seg lurt av de voldsomme overdrivelsene (som historier om at tyske soldater spiddet babyer på bajonetter). Denne kynismen gjorde at folk var mer skeptiske til advarsler om virkelige overgrep senere – for eksempel da nyhetene om Holocaust begynte å lekke ut under andre verdenskrig."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "hjemmefront-1",
+            "question": "Hva menes med begrepet 'total krig'?",
+            "options": [
+                "At krigen utkjempes på alle kontinenter",
+                "At hele samfunnets ressurser og befolkning mobiliseres for krigsinnsatsen",
+                "At alle soldater må bære våpen",
+                "At krigen varer i mer enn 4 år"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "hjemmefront-2",
+            "question": "Hva var 'Kålrotvinteren'?",
+            "options": [
+                "En spesielt kald vinter ved fronten i 1916",
+                "En periode med ekstrem matmangel i Tyskland grunnet den britiske blokaden",
+                "En ny type kamuflasje brukt av snikskyttere",
+                "Kallenavnet på den russiske revolusjonen"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "hjemmefront-3",
+            "question": "Hvordan påvirket krigen kvinners stilling i samfunnet?",
+            "options": [
+                "De mistet rettigheter fordi mennene tok alle jobbene",
+                "Det var ingen endring",
+                "De gikk inn i arbeidslivet i stor skala, noe som banet vei for stemmerett",
+                "De ble forbudt å arbeide i fabrikker av sikkerhetshensyn"
+            ],
+            "correctAnswer": 2
         }
     ]
 }

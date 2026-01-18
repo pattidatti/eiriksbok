@@ -1,7 +1,7 @@
 {
     "id": "russiske-revolusjon",
     "title": "Rød Storm: Den Russiske Revolusjon",
-    "description": "Hvordan krigen knekket tsaren og fødte Sovjetunionen.",
+    "description": "Hvordan første verdenskrig knekket tsar-riket og fødte det 20. århundrets store ideologiske konflikt.",
     "layout": "rich",
     "tags": [
         "revolusjon",
@@ -13,21 +13,82 @@
     "content": [
         {
             "type": "text",
-            "value": "Vinteren 1917. Russiske soldater fryser i skyttergravene. De mangler alt: støvler, ammunisjon, mat. Hjemme sulter familiene deres mens adelen fester i St. Petersburg. Det er begynnelsen på slutten for det gamle riket."
+            "value": "Vinteren 1916-1917 var nådeløs i Russland. Ved fronten frøs soldatene i hjel i sommeruniformer, uten støvler og ofte uten ammunisjon. I byene sto kvinnene i endeløse brødkøer i 30 minusgrader. Samtidig, i St. Petersburg (omdøpt til Petrograd), levde adelen i luksus, blinde for stormen som brygget. Det russiske imperiet, styrt av eneveldige Tsar Nicholas II, var en kjempe på leirføtter – et middelaldersk samfunn som holdt på å kollapse i møte med moderne, industriell krigføring."
         },
         {
-            "type": "fact",
-            "title": "Brød, Fred og Land",
-            "value": "Lenins slagord traff rett i hjertet på folket. 'Brød' til de sultne, 'Fred' til soldatene, og 'Land' til bøndene. Det var et løfte ingen andre våget å gi."
+            "type": "header",
+            "text": "Feburar: Tsaren faller"
         },
         {
             "type": "text",
-            "value": "Tsar Nicholas II abdiserer i mars, men den provisoriske regjeringen gjør en fatal feil: De fortsetter krigen. I november (oktober etter gammel kalender) stormer bolsjevikene Vinterpalasset. Verden holder pusten. En ny ideologi har grepet makten."
+            "value": "I mars 1917 (februar etter gammel russisk kalender) renner begeret over. Det startet som brødopptøyer blant kvinnelige tekstilarbeidere på kvinnedagen. Snart sluttet soldatene seg til demonstrantene i stedet for å skyte på dem. Uten hærens støtte var Tsaren maktesløs. Han abdiserte, og 300 år med Romanov-styre var over på en uke. En provisorisk regjering overtok, men de gjorde én fatal feil: De valgte å fortsette den upopulære krigen for å ære alliansen med Frankrike og Storbritannia."
         },
         {
-            "type": "fact",
-            "title": "Brest-Litovsk-freden",
-            "value": "Lenin holder løftet sitt. I 1918 signerer Russland en ydmykende fredsavtale med Tyskland. De mister enorme landområder, men bolsjevikene får ro til å kjempe sin egen borgerkrig."
+            "type": "header",
+            "text": "Lenins tog og Oktoberrevolusjonen"
+        },
+        {
+            "type": "text",
+            "value": "Tyskland så en sjanse til å slå Russland ut av krigen innenfra. De arrangerte en hemmelig togreise for Vladimir Lenin, lederen for de radikale bolsjevikene, fra eksil i Sveits tvers gjennom Tyskland og til Russland. Håpet var at han skulle skape kaos. Det fungerte over all forventning.\n\nLenin ankom med et program som var like enkelt som det var genialt: 'Brød, Fred og Land'.\n\n*   **Brød** til de sultne i byene.\n*   **Fred** til soldatene som døde i skyttergravene.\n*   **Land** til bøndene som trålte under jordeierne.\n\nIngen andre partier våget å love fred for enhver pris. Bolsjevikenes popularitet eksploderte. I november (oktober) 1917 stormet bolsjevikene Vinterpalasset og grep makten i et nesten ublodig kupp. Verdens første kommunistiske stat var født."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Tsarens lagnad",
+                "content": "Etter revolusjonen ble tsarfamilien holdt i husarrest. I juli 1918, midt under borgerkrigen, ble Tsar Nicholas II, hans kone Alexandra og deres fem barn brutalt henrettet i en kjeller i Jekaterinburg av bolsjevikene, for å hindre at de ble frigjort av den 'hvite' (kontrarevolusjonære) hæren."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Fred for enhver pris"
+        },
+        {
+            "type": "text",
+            "value": "Lenin holdt sitt løfte om fred, men prisen var høy. I mars 1918 signerte Russland fredsavtalen i Brest-Litovsk med Tyskland. Russland måtte gi fra seg enorme landområder: Polen, Baltikum, Finland og Ukraina – områder som inneholdt en tredjedel av Russlands befolkning og mesteparten av industrien.\n\nFor Tyskland var dette en triumf. Nå kunne de flytte hundretusener av soldater fra østfronten til vestfronten for et siste, avgjørende støt mot Frankrike. For de vestallierte (Ententen) ble bolsjevikene sett på som forrædere. Dette la grunnlaget for mistilliten mellom Vesten og Sovjetunionen som skulle prege hele det 20. århundret."
+        },
+        {
+            "type": "component",
+            "component": "QuoteBlock",
+            "props": {
+                "text": "Historien vil ikke tilgi oss hvis vi ikke griper makten nå.",
+                "author": "Vladimir Lenin, oktober 1917"
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "russiske-rev-1",
+            "question": "Hva var hovedårsaken til at Tsaren mistet makten i februar 1917?",
+            "options": [
+                "En invasjon fra Tyskland",
+                "Matmangel, krigstretthet og at soldatene nektet å skyte på demonstranter",
+                "Et diplomatisk press fra USA",
+                "Tsaren døde av sykdom"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "russiske-rev-2",
+            "question": "Hvorfor hjalp Tyskland Lenin med å reise tilbake til Russland?",
+            "options": [
+                "Fordi de sympatiserte med kommunismen",
+                "For å skape kaos i Russland og få landet ut av krigen",
+                "Fordi Lenin var tysk spion",
+                "De visste ikke hvem han var"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "russiske-rev-3",
+            "question": "Hva var konsekvensen av freden i Brest-Litovsk?",
+            "options": [
+                "Russland vant krigen",
+                "Russland mistet store landområder, og Tyskland kunne flytte soldatene sine vestover",
+                "Tyskland overga seg til Russland",
+                "Ingen endring i grensene"
+            ],
+            "correctAnswer": 1
         }
     ]
 }

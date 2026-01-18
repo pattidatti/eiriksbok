@@ -13,25 +13,99 @@
     "content": [
         {
             "type": "text",
-            "value": "Det første du la merke til var lukten. En kvalmende blanding av råtnende lik, klor, uvaskede kropper og våt jord. Dette var skyttergravene – et system av forsvarsverk som strakte seg fra den sveitsiske grensen til Nordsjøen."
+            "value": "Det første du la merke til var lukten. En kvalmende, søtlig eim som hang tungt over det flate landskapet i Flandern og Nord-Frankrike. Det var lukten av klor fra gassen, av uvasjede kropper, av våt jord, og fremfor alt: lukten av tusenvis av lik som langsomt råtnet i ingenmannsland, utenfor rekkevidde for begravelsespatruljene.\n\nDette var Vestfronten. Fra den sveitsiske grensen i sør til Nordsjøen i nord strakte det seg et sammenhengende sår gjennom Europa. Etter at den tyske offensiven stanset opp høsten 1914, og ingen av sidene klarte å omgå hverandre ('Kappløpet mot havet'), grep generalene til spadene. I løpet av noen måneder hadde de gravd seg ned. Det som skulle være en midlertidig løsning, ble til fire år med stillstand, gjørme og død."
         },
         {
-            "type": "fact",
-            "title": "Systemet",
-            "value": "En skyttergrav var ikke bare en grøft. Det var et komplekst nettverk med piggtrådsperringer, maskingeværreir, dekningsrom ('dugouts') og kommunikasjonslinjer. Forsvaret var alltid sterkere enn angrepet."
-        },
-        {
-            "type": "text",
-            "value": "For soldaten var livet en endeløs ventetid avbrutt av øyeblikk med ren terror. 'Stormangrep' betydde å klatre opp 'over the top' og løpe rett mot fiendens maskingevær. De fleste kom aldri frem til piggtråden."
-        },
-        {
-            "type": "fact",
-            "title": "Granatsjokk",
-            "value": "Bombardementet kunne vare i dager, uker. Det konstante drønnet og ristingen ødela nervesystemet til soldatene. Menn som var modige, ble redusert til skjelvende vrak, ute av stand til å snakke eller gå. I starten ble de kalt feiginger og skutt. Senere fikk det navnet 'Shell Shock'."
+            "type": "header",
+            "text": "Mer enn bare en grøft"
         },
         {
             "type": "text",
-            "value": "Men midt i helvete oppstod også merkelige fenomener. 'Live and let live' – uoffisielle våpenhviler hvor soldater på begge sider lot være å skyte mens motparten spiste frokost eller hentet vann. De forsto at de delte den samme elendigheten."
+            "value": "Det er en vanlig misforståelse at en skyttergrav bare var en enkel grøft. I realiteten var det et høyt spesialisert, industrielt forsvarsverk designet for én ting: Å gjøre det umulig for fienden å bryte gjennom. Et typisk skyttergravssystem besto av flere linjer:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Frontlinjen:** Her sto vaktpostene og herfra ble angrepene lansert. Den var sjelden en rett linje, men bygget i sikksakk ('traverser') for å hindre at en granat som traff grøfta kunne drepe alle i en lang rekke, og for å hindre fienden i å skyte langs hele graven hvis de brøt seg inn.",
+                "**Støttelinjen:** Noen hundre meter bak lå reservestyrkene, klare til å rykke frem hvis frontlinjen ble overmannet.",
+                "**Reserve-linjen:** Enda lengre bak, der slitne soldater kunne hvile litt tryggere.",
+                "**Kommunikasjonsgraver:** Dype grøfter som bandt alle linjene sammen, slik at mat, ammunisjon og nye soldater kunne fraktes trygt frem uten å bli sett."
+            ]
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Ingenmannsland",
+                "content": "Området mellom de to fiendtlige skyttergravene ble kalt 'Ingenmannsland'. Det kunne være alt fra noen få titalls meter til en kilometer bredt. Dette landskapet var fullstendig ødelagt av artilleri, fylt med kratere, gjørme og lik, og sperret av lag på lag med piggtråd. Å bevege seg her på dagtid var selvmord."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hverdagen i helvete"
+        },
+        {
+            "type": "text",
+            "value": "For den jevne soldat var ikke krigen preget av konstant kamp, men av en drepende kjedsomhet avbrutt av øyeblikk med ren terror. Rutinen var streng. Dagen startet med 'Stand-to' ved daggry, hvor alle sto klare ved geværene i tilfelle et morgenangrep. Deretter fulgte frokost, våpenpuss, reparasjon av sandsekker, og pumping av vann. Alltid pumping av vann.\n\nVannet var fienden like mye som tyskerne. I Flandern lå grunnvannet høyt. Gravde du en halv meter ned, traff du vann. Skyttergravene ble til gjørmebad. Soldater som sto i iskaldt vann i dagevis utviklet 'Skyttergravsfot' – en tilstand hvor føttene hovnet opp, ble følelsesløse og i verste fall koldbrannske. Løsningen ble å smøre føttene inn i hvalfett og skifte sokker to ganger daglig, hvis man var heldig."
+        },
+        {
+            "type": "component",
+            "component": "QuoteBlock",
+            "props": {
+                "text": "Vi lever i gjørma, vi spiser gjørme, vi drømmer gjørme. Jeg tror snart vi blir til gjørme selv.",
+                "author": "Brev fra en britisk soldat, 1916"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Granatsjokk: Når sinnet brister"
+        },
+        {
+            "type": "text",
+            "value": "Den største trusselen kom ikke fra geværkuler, men fra artilleriet. Over 60% av alle tap i krigen skyldtes granater. Men artilleriet gjorde mer enn å drepe kropper; det knuste sinn. Under de store offensivene, som ved Somme eller Verdun, kunne bombardementet vare i dagevis uten stans. Jorden ristet konstant. Larmen var ubeskrivelig.\n\nFølelsen av total hjelpeløshet – du kunne ikke kjempe tilbake, ikke rømme, bare sitte og vente på å bli sprengt – ødela nervesystemet til selv de sterkeste menn. Soldater begynte å skjelve ukontrollert, mistet evnen til å snakke, ble blinde uten fysiske skader, eller krøp sammen i fosterstilling. I starten ble disse mennene ofte stemplet som feiginger. Noen ble til og med stilt for krigsrett og skutt til skrekk og advarsel. Først senere fikk lidelsen et navn: 'Shell Shock' (granatsjokk), det vi i dag kjenner som posttraumatisk stresslidelse (PTSD)."
+        },
+        {
+            "type": "header",
+            "text": "Live and Let Live"
+        },
+        {
+            "type": "text",
+            "value": "Midt i denne brutaliteten oppsto et merkelig fenomen som historikere kaller 'Live and let live'-systemet. I rolige sektorer av fronten utviklet soldatene på begge sider en stilltiende avtale om ikke å drepe hverandre hvis de ikke måtte. Tyske snikskyttere lot være å skyte på briter som hentet vann. Britisk artilleri skjøt sine daglige runder på nøyaktig samme klokkeslett og sted hver dag, slik at tyskerne visste hvor de *ikke* skulle være.\n\nDette var ikke pasifisme, men pragmatisme. Soldatene forsto at 'hvis jeg dreper en av dem, vil de drepe en av oss'. De delte den samme elendigheten – regnet, rottene, lusene og gjørma. Hatet var ofte rettet mer mot offiserene bak linjene enn mot 'Fritz' eller 'Tommy' i den andre grøfta. Det mest kjente eksempelet er Julevåpenhvilen i 1914, hvor soldater klatret opp av skyttergravene, utvekslet gaver og spilte fotball i Ingenmannsland. Generalene ble rasende og sørget for at det aldri skjedde igjen, men den menneskelige impulsen til å overleve sammen kunne aldri helt kues."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "skyttergrav-1",
+            "question": "Hva var 'Ingenmannsland'?",
+            "options": [
+                "Området bak frontlinjen hvor soldatene hvilte",
+                "Det okkuperte området i Frankrike",
+                "Området mellom de to fiendtlige skyttergravene",
+                "Navnet på den tyske keiserens palass"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "skyttergrav-2",
+            "question": "Hva var hovedårsaken til fenomenet 'Shell Shock'?",
+            "options": [
+                "Dårlig mat og ernæring",
+                "Langvarig artilleribombardement og følelsen av hjelpeløshet",
+                "Mangelen på søvn",
+                "Smitte fra rottene i skyttergravene"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "skyttergrav-3",
+            "question": "Hva innebar 'Live and let live'-systemet?",
+            "options": [
+                "En offisiell fredsavtale mellom generalene",
+                "At soldatene nektet å bære våpen",
+                "En stilltiende avtale mellom soldatene om å begrense drepingen i rolige perioder",
+                "At sivile fikk love å passere gjennom frontlinjen"
+            ],
+            "correctAnswer": 2
         }
     ]
 }

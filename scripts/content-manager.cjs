@@ -21,6 +21,21 @@ function saveDesignDoc(subjectSlug, content) {
     console.log(`[SUCCESS] Design doc created: ${filePath}`);
 }
 
+// --- Blueprint Helpers ---
+function getBlueprintMetadata(subjectId) {
+    const docPath = path.join(path.resolve(__dirname, '../docs/Design documents'), `${subjectId}-blueprint.md`);
+    if (!fs.existsSync(docPath)) return null;
+
+    const content = fs.readFileSync(docPath, 'utf8');
+    const parentMatch = content.match(/\* \*\*Parent \(Fag\):\*\* `(.*?)`/);
+    const typeMatch = content.match(/\* \*\*Type:\*\* `(.*?)`/);
+
+    return {
+        parent: parentMatch ? parentMatch[1] : null,
+        type: typeMatch ? typeMatch[1] : null
+    };
+}
+
 // --- Core Commands ---
 
 function getSubjectPath(query) {
@@ -145,65 +160,83 @@ ${articles.map(a => `- [x] **Article ID**: \`${a}\``).join('\n')}
     saveDesignDoc(simpleId, template);
 }
 
-
-
-
-function registerToManifest(subjectId) {
+function registerToManifest(topicId) {
     const manifest = getManifest();
-    const subjectPath = getSubjectPath(subjectId);
+    const subjectPath = getSubjectPath(topicId); // This finds the folder in content/historie/...
 
     if (!subjectPath) {
-        console.error(`[ERROR] Subject path not found for ID: ${subjectId}`);
+        console.error(`[ERROR] Topic path not found for ID: ${topicId}`);
         process.exit(1);
     }
 
-    const simpleId = path.basename(subjectPath);
+    // 1. Get Metadata from Blueprint
+    const metadata = getBlueprintMetadata(topicId);
 
-    // Find subject in manifest
-    let subjectObj = manifest.subjects.find(s => s.id === simpleId);
-
-    // If subject doesn't exist, create it (Basic scaffold)
-    if (!subjectObj) {
-        console.log(`[INFO] Subject '${simpleId}' not in manifest. Creating entry...`);
-        subjectObj = {
-            id: simpleId,
-            title: simpleId.charAt(0).toUpperCase() + simpleId.slice(1).replace(/-/g, ' '), // Temporary title
-            description: "Auto-generated subject entry.",
-            lessons: [],
-            topics: [] // Initialize both
-        };
-        manifest.subjects.push(subjectObj);
+    // Fallback: If no metadata found (legacy flow), check specifically for 'historie' usage or strict warnings.
+    // For now, if no metadata, we warn.
+    if (!metadata || !metadata.parent) {
+        console.warn(`[WARN] Could not find 'Parent (Fag)' in blueprint for ${topicId}.`);
+        console.warn("Assuming manual intervention required or root subject.");
+        // If we want to support legacy creation of roots, we could assume 'Fag' if undefined, 
+        // but given the strict task, let's enforce failure or fallback to old root behavior with a warning.
+        // Let's FAIL to be strict as requested.
+        console.error("Please update the blueprint metadata to include: * **Parent (Fag):** `[id]`");
+        process.exit(1);
     }
 
-    // Scan for articles
+    const parentId = metadata.parent;
+    const simpleId = path.basename(subjectPath); // effectively topicId
+
+    // 2. Find Parent Subject (Fag)
+    let parentSubject = manifest.subjects.find(s => s.id === parentId);
+
+    if (!parentSubject) {
+        console.error(`[ERROR] Parent Subject '${parentId}' not found in manifest.`);
+        console.error(`You must create the Root Subject '${parentId}' manually or ensure the ID is correct.`);
+        process.exit(1);
+    }
+
+    // 3. Find or Create Topic Entry
+    if (!parentSubject.topics) parentSubject.topics = [];
+
+    let topicEntry = parentSubject.topics.find(t => t.id === simpleId);
+
+    if (!topicEntry) {
+        console.log(`[INFO] Topic '${simpleId}' not found in '${parentId}'. Creating entry...`);
+        topicEntry = {
+            id: simpleId,
+            title: simpleId.charAt(0).toUpperCase() + simpleId.slice(1).replace(/-/g, ' '),
+            description: "Auto-generated topic.",
+            lessons: []
+        };
+        parentSubject.topics.push(topicEntry);
+    }
+
+    // 4. Scan and Register Articles
     const files = fs.readdirSync(subjectPath).filter(f => f.endsWith('.json') && f !== 'index.json');
     let addedCount = 0;
 
     files.forEach(file => {
         const articleId = file.replace('.json', '');
 
-        // Check if article exists in 'lessons' (flat) or any 'topic'
-        const existsInLessons = subjectObj.lessons && subjectObj.lessons.some(l => l.id === articleId);
-        const existsInTopics = subjectObj.topics && subjectObj.topics.some(t => t.lessons.some(l => l.id === articleId));
+        // Check if article exists in this topic's lessons
+        if (!topicEntry.lessons) topicEntry.lessons = [];
+        const exists = topicEntry.lessons.some(l => l.id === articleId);
 
-        if (!existsInLessons && !existsInTopics) {
-            // New article! Default to adding to root 'lessons' for now.
-            //Ideally, we should parse the JSON to get the title, but for now we fallback to ID.
-            if (!subjectObj.lessons) subjectObj.lessons = [];
-
-            subjectObj.lessons.push({
+        if (!exists) {
+            topicEntry.lessons.push({
                 id: articleId,
                 title: articleId.charAt(0).toUpperCase() + articleId.slice(1).replace(/-/g, ' '),
                 type: "article"
             });
-            console.log(`[REGISTER] Added '${articleId}' to manifest.`);
+            console.log(`[REGISTER] Added '${articleId}' to topic '${simpleId}'.`);
             addedCount++;
         }
     });
 
     if (addedCount > 0) {
         fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2), 'utf8');
-        console.log(`[SUCCESS] Registered ${addedCount} new articles in manifest.json`);
+        console.log(`[SUCCESS] Registered ${addedCount} new articles in manifest.json under '${parentId}' > '${simpleId}'.`);
     } else {
         console.log(`[INFO] No new articles to register for '${simpleId}'.`);
     }

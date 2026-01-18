@@ -1,9 +1,9 @@
 ---
-description: The Unified Entry Point for Subject Planning. Triggers the Architect.
+description: The Unified Entry Point for Topic Planning. Triggers the Architect.
 ---
 
-1.  **Analyze Request**: Check if the user wants to work on a specific subject.
-    *   *Input:* Subject ID (e.g., "cold-war").
+1.  **Analyze Request**: Check if the user wants to work on a specific Topic (Emne).
+    *   *Input:* Topic ID (e.g., "cold-war").
 
 2.  **Initialize Blueprint**:
     *   Run: `node scripts/blueprint-manager.cjs --init [Subject ID]`

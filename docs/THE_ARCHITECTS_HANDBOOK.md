@@ -9,28 +9,30 @@
 We do not build blindly. We do not write articles in isolation. We do not "hope" connections emerge.
 We **Architect** the subject first. The code, the files, and the assets are merely the physical projection of the **Subject Blueprint**.
 
-## 2. The Two Roles
-This system divides creation into two distinct phases, handled by two specialized workflows:
+### 1.1 The Hierarchy of Knowledge
+We follow a strict hierarchy to map Norwegian pedagogy to our code:
+1.  **Fag (Subject):** The Root (e.g., `Historie`, `Norsk`, `Naturfag`). *Managed continuously.*
+2.  **Emne (Topic):** The Unit of Work (e.g., `The Cold War`, `Grammar`). *This is what you build.*
+3.  **Artikkel (Article):** The Atomic Lesson.
 
-### Role 1: The Architect (Planning & Design)
-*   **Workflow:** `/architect [Subject Name]`
-*   **Goal:** Create or Update the **subject-blueprint.md**.
-*   **Behavior:**
-    *   **New Subject:** It interviews you to understand the specific vision (Theme, Goals, Connections) and scaffolds a new Blueprint.
-    *   **Existing Subject:** It performs a **Deep Audit**. It reads every existing file, checks the `manifest.json`, validates the `learning-path`, and then populates the Blueprint with the *current reality* + *Ulthathink improvements*.
-*   **The Output:** A "Living Spec" file. You edit this file directly. This is your creative canvas.
+### 1.2 The Two Roles
+*   **The Architect (Planning):** You identify the need for a new **Topic**. You define its soul, its narrative arc, and its learning goals. You produce the **Subject Blueprint** (Topic Plan).
+*   **The Builder (Execution):** You execute the plan. You write the code, generate the assets, and compile the **Learning Path**.
 
-### Role 2: The Builder (Execution)
-*   **Workflow:** `/build_subject [Subject Name]`
-*   **Goal:** Turn the Blueprint into Reality.
-*   **Behavior:**
-    *   It reads the `subject-blueprint.md`.
-    *   It compares it to the file system (The Diff).
-    *   **It Executes:**
-        *   Creates missing directories.
-        *   Generates missing articles (using the "Content Matrix" in the Blueprint).
-        *   Generates missing images (using the "Asset Tracker").
-        *   Compiles/Updates the `learning-path.json` to match the Blueprint's path.
+## 2. The Golden Protocol
+
+### Phase 1: Planning (`/plan_topic`)
+*   **Trigger:** You want to create a new Topic or refine an existing one.
+*   **Action:**
+    1.  Run `/plan_topic [topic-id]`.
+    2.  The Agent interviews you or reviews the current state.
+    3.  Together, you fill out the **Blueprint** (`docs/Design documents/[topic]-blueprint.md`).
+    4.  **CRITICAL:** You must define the `Parent (Fag)` in the metadata.
+
+### Phase 2: Execution (`/build_topic`)
+*   **Trigger:** The Blueprint is approved.
+*   **Action:**
+    1.  Run `/build_topic [topic-id]`.
 
 ---
 
