@@ -1,0 +1,129 @@
+{
+    "id": "ww1-sti",
+    "title": "Læringssti: Den Store Krigen",
+    "description": "Følg menneskehetens nedstigning fra Belle Époque-optimisme til skyttergravenes industrielle masseslakt.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "1914 - 1918",
+    "readTime": "3-4 timer",
+    "learningPathData": {
+        "id": "ww1-sti",
+        "title": "Første verdenskrig: Sivilisasjonens selvmord",
+        "description": "Du følger en generasjon unge menn som marsjerte syngende ut i krigen, overbevist om at de ville være 'hjemme før jul'. Du vil oppleve hvordan moderne teknologi møtte gammeldags taktikk, og hvordan verden aldri ble den samme igjen.",
+        "targetTopicId": "forste-verdenskrig",
+        "targetSubjectId": "historie",
+        "steps": [
+            {
+                "id": "ww1-intro",
+                "phase": "Fase 1: Naiv Optimisme (1914)",
+                "title": "Hjem til jul?",
+                "type": "fakta",
+                "content": "Juli 1914. Solen skinner i Europa. Skuddene i Sarajevo har falt, men ingen tror på en verdenskrig. Keisere og konger sender ultimatum. Når krigen erklæres, jubler folk i gatene i Berlin, Paris og London. Unge menn melder seg frivillig. 'Det blir et eventyr,' sier de. 'Vi skal lære dem en lekse.' De vet ikke at de marsjerer inn i en kjøttkvern.",
+                "tasks": [
+                    "Hva var 'Skuddene i Sarajevo'?",
+                    "Hvorfor var alliansesystemet så farlig?",
+                    "Hva menes med 'August-begeistringen'?",
+                    "Hva var Schlieffenplanen?",
+                    "Hvorfor trodde alle at krigen ville bli kort?"
+                ],
+                "links": [
+                    {
+                        "title": "Opptakten",
+                        "url": "/historie/forste-verdenskrig/opptakt"
+                    }
+                ]
+            },
+            {
+                "id": "ww1-trenches",
+                "phase": "Fase 2: Kjøttkverna (1915-1916)",
+                "title": "Skyttergravenes helvete",
+                "type": "fakta",
+                "content": "Bevegelse har stoppet opp. Fra Sveits til Nordsjøen graves det en 700 km lang grøft. Piggtråd, gjørme, rotter og liklukt. Maskingeværene meier ned alt som rører seg. Generalene beordrer 'stormangrep' mot piggtråden. Tusenvis dør for noen meter land. Det er en industriell slaktebenk.",
+                "tasks": [
+                    "Hvordan så en typisk skyttergrav ut?",
+                    "Hva var 'Ingemannsland'?",
+                    "Hvorfor ga maskingeværet forsvaret en så stor fordel?",
+                    "Beskriv slaget ved Verdun eller Somme.",
+                    "Hva var 'skyttergravsfot'?"
+                ],
+                "links": [
+                    {
+                        "title": "Krigens løp",
+                        "url": "/historie/forste-verdenskrig/krigens-lop"
+                    }
+                ]
+            },
+            {
+                "id": "ww1-tech",
+                "phase": "Fase 3: Dødens teknologi (1917)",
+                "title": "Kjemi og stål",
+                "type": "fakta",
+                "content": "Når maskingeværer ikke er nok, tar mennesket i bruk giftgass. En gul tåke driver over slagmarken. Soldater hoster opp lungene sine. Stridsvogner ruller klossete over gjørmen, usårbare for kuler. I luften duellerer 'Den Røde Baron' og andre flygere. Krigen driver teknologien framover med rasende fart.",
+                "tasks": [
+                    "Hvilke typer gass ble brukt (sennepsgass, klor)?",
+                    "Hvordan endret stridsvognen krigføringen?",
+                    "Hva var uinnskrenket ubåtkrig?",
+                    "Hvordan ble fly brukt (fra speiding til bombing)?"
+                ],
+                "links": [
+                    {
+                        "title": "Teknologi i krigen",
+                        "url": "/historie/forste-verdenskrig/teknologi"
+                    }
+                ]
+            },
+            {
+                "id": "ww1-homefront",
+                "title": "Hjemmefronten",
+                "type": "fakta",
+                "content": "Krigen er 'total'. Det betyr at hele samfunnet er involvert. Mens mennene dør i gjørma, går kvinnene inn i fabrikkene for å lage granater. Mat rasjoneres. Propagandaen maler fienden som monstre. Barn samler skrapmetall. Ingen går fri.",
+                "tasks": [
+                    "Hva betyr begrepet 'total krig'?",
+                    "Hvordan endret krigen kvinnenes stilling i samfunnet?",
+                    "Hvordan ble propaganda brukt for å opprettholde kampviljen?",
+                    "Hvorfor var blokade og sult like viktige våpen som kanoner?"
+                ],
+                "links": []
+            },
+            {
+                "id": "ww1-collapse",
+                "phase": "Fase 4: Sammenbruddet (1918)",
+                "title": "Imperienes fall",
+                "type": "fakta",
+                "content": "Det er ikke bare soldater som knekker sammen – det er stater. I Russland gjør folket opprør, dreper tsaren og trekker seg ut. I Tyskland ulmer revolusjonen. Østerrike-Ungarn går i oppløsning. Klokken 11, den 11. dagen i den 11. måneden 1918, tier våpnene. Stillheten er øredøvende. En generasjon er borte.",
+                "tasks": [
+                    "Hva skjedde under den russiske revolusjon?",
+                    "Hvorfor tapte Tyskland krigen?",
+                    "Beskriv våpenhviledagen 11. november.",
+                    "Hvor mange mennesker døde totalt?"
+                ],
+                "links": [
+                    {
+                        "title": "Konsekvenser",
+                        "url": "/historie/forste-verdenskrig/konsekvenser"
+                    }
+                ]
+            },
+            {
+                "id": "ww1-aftermath",
+                "phase": "Fase 5: En ny verden",
+                "title": "Freden som skapte krig",
+                "type": "refleksjon",
+                "content": "Seierherrene møtes i Versailles. Tyskland skal straffes. Kartet tegnes på nytt med linjal. Gamle imperier er borte, nye stater oppstår. Men fredsavtalen sår frøene til neste krig. Og soldatene som kommer hjem? De kalles 'Den tapte generasjon'. De har sett ting som ingen kan forstå.",
+                "tasks": [
+                    "Hva var hovedpunktene i Versailles-traktaten?",
+                    "Hvorfor mente mange at fredsavtalen var for hard?",
+                    "Hvordan endret europakartet seg?",
+                    "Hva var Folkeforbundet?",
+                    "Reflekter: Kunne andre verdenskrig vært unngått hvis freden i 1919 var annerledes?"
+                ],
+                "links": [
+                    {
+                        "title": "Konsekvenser",
+                        "url": "/historie/forste-verdenskrig/konsekvenser"
+                    }
+                ]
+            }
+        ]
+    }
+}

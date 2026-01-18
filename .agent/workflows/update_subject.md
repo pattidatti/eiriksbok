@@ -37,11 +37,26 @@ Trigger: User wants to add content to an EXISTING subject.
         *   **Add Sync Task:** Add `[ ] Update Learning Path to link to 'Industrialized War'` in BOTH subjects.
 
 ## Phase 4: Execution
-1.  **Select & Execute**
+**Goal:** Build the content while maintaining strict protocols.
+
+1.  **Select & Execute (The Brick)**
     *   Pick the next logical item from the Design Doc.
-    *   If Article -> Run `/plan_article`.
+    *   If Article -> **MUST Run:** `/plan_article` (Do not create file manually).
     *   If Person -> Create `public/content/people/[name].json`.
     *   If Asset -> Run `/generate_image`.
-2.  **Update Dashboard**
+2.  **The Path Protocol (Learning Path)**
+    *   **Action:** Open `public/content/.../[subject]-sti.json`.
+    *   **Logic:** Does the new article fit the "Narrative Arc"?
+    *   **Execute:** Update `[subject]-sti.json` to include the new step. (See `docs/LEARNING_PATH_GUIDE.md`).
+    *   *Note:* If the path file does not exist, create it (following the Guide).
+3.  **Update Dashboard**
     *   Mark `[x]` in the Design Doc.
-    *   **Verify Learning Path:** Ensure the new item is added to the relevant Learning Path JSON.
+
+## Phase 5: Celebration
+1.  **Handoff**
+    *   **Monitor:** Check if the design doc is fully checked `[x]`.
+    *   **Notify User:**
+        ```
+        Content built. Does it breathe? If not, polish the Spirit.
+        > Run: `/refine_subject [ID]`
+        ```

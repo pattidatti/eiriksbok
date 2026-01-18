@@ -1311,9 +1311,54 @@
                 {
                     "id": "forste-verdenskrig",
                     "title": "Første verdenskrig",
-                    "description": "Den store krigen som endret verdenskartet (1914-1918).",
+                    "description": "En nedstigning fra Belle Époque-optimismen til skyttergravenes industrielle masseslakt. Historien om den gamle verdens død og det 20. århundrets voldsomme fødsel.",
                     "image": "/images/historie/forste-verdenskrig/oversikt_hero.png",
+                    "tools": [
+                        {
+                            "id": "ww1-sti",
+                            "title": "Læringssti: Den Store Krigen",
+                            "description": "Følg sivilisasjonens selvmord fra 1914 til 1918.",
+                            "link": "/historie/forste-verdenskrig/ww1-sti",
+                            "icon": "map"
+                        }
+                    ],
                     "lessons": [
+                        {
+                            "id": "skyttergravskrig",
+                            "title": "Skyttergravskrig",
+                            "description": "Livet og døden i gjørma på Vestfronten.",
+                            "image": "/images/historie/forste-verdenskrig/skyttergravskrig_hero.png",
+                            "tags": [
+                                "krigføring",
+                                "vestfronten",
+                                "soldatliv"
+                            ],
+                            "createdDate": "2025-12-21T14:05:00Z"
+                        },
+                        {
+                            "id": "propaganda",
+                            "title": "Propaganda",
+                            "description": "Kampen om sannheten og folkeviljen.",
+                            "image": "/images/historie/forste-verdenskrig/propaganda_hero.png",
+                            "tags": [
+                                "kultur",
+                                "media",
+                                "påvirkning"
+                            ],
+                            "createdDate": "2025-12-21T14:15:00Z"
+                        },
+                        {
+                            "id": "hjemmefronten",
+                            "title": "Hjemmefronten",
+                            "description": "Kvinner i fabrikker og total krig.",
+                            "image": "/images/historie/forste-verdenskrig/hjemmefronten_hero.png",
+                            "tags": [
+                                "samfunn",
+                                "kvinner",
+                                "økonomi"
+                            ],
+                            "createdDate": "2025-12-21T14:25:00Z"
+                        },
                         {
                             "id": "oversikt",
                             "title": "Oversikt",

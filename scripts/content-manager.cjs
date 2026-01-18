@@ -23,88 +23,58 @@ function saveDesignDoc(subjectSlug, content) {
 
 // --- Core Commands ---
 
-function findSubject(query) {
+function getSubjectPath(query) {
     const manifest = getManifest();
     const normalize = (str) => str ? str.toLowerCase().trim() : "";
     const queryNorm = normalize(query);
 
-    // 1. Search Manifest (Recursive)
-    let found = null;
-
+    // 1. Search Manifest
     for (const subject of manifest.subjects) {
         if (normalize(subject.id) === queryNorm || normalize(subject.title).includes(queryNorm)) {
-            found = { ...subject, type: 'subject', parentId: null };
-            break;
+            return path.join(CONTENT_DIR, subject.id);
         }
         if (subject.topics) {
             const topic = subject.topics.find(t => normalize(t.id) === queryNorm || normalize(t.title).includes(queryNorm));
             if (topic) {
-                found = { ...topic, type: 'topic', parentId: subject.id };
-                break;
+                return path.join(CONTENT_DIR, subject.id, topic.id);
             }
         }
     }
 
-    if (found) {
-        // Construct Path
-        let dirPath;
-        if (found.type === 'subject') {
-            dirPath = path.join(CONTENT_DIR, found.id);
-        } else {
-            dirPath = path.join(CONTENT_DIR, found.parentId, found.id);
-        }
-
-        const existsInFs = fs.existsSync(dirPath);
-        console.log(JSON.stringify({
-            found: true,
-            id: found.id,
-            title: found.title,
-            path: dirPath,
-            inManifest: true,
-            inFS: existsInFs,
-            parentId: found.parentId
-        }, null, 2));
-        return;
-    }
-
     // 2. Search File System (Recursive - 2 levels)
-    // Check Root Level
-    let rootDirs = [];
     try {
-        rootDirs = fs.readdirSync(CONTENT_DIR).filter(f => fs.statSync(path.join(CONTENT_DIR, f)).isDirectory());
-    } catch (e) { rootDirs = []; }
+        const rootDirs = fs.readdirSync(CONTENT_DIR).filter(f => fs.statSync(path.join(CONTENT_DIR, f)).isDirectory());
 
-    let zombiePath = null;
-    let zombieId = null;
+        // Level 1
+        const l1 = rootDirs.find(d => normalize(d) === queryNorm);
+        if (l1) return path.join(CONTENT_DIR, l1);
 
-    // Check Level 1 (Subjects)
-    const l1 = rootDirs.find(d => normalize(d) === queryNorm);
-    if (l1) {
-        zombiePath = path.join(CONTENT_DIR, l1);
-        zombieId = l1;
-    } else {
-        // Check Level 2 (Topics)
+        // Level 2
         for (const root of rootDirs) {
             const subDir = path.join(CONTENT_DIR, root);
             try {
                 const subDirs = fs.readdirSync(subDir).filter(f => fs.statSync(path.join(subDir, f)).isDirectory());
                 const l2 = subDirs.find(d => normalize(d) === queryNorm);
-                if (l2) {
-                    zombiePath = path.join(subDir, l2);
-                    zombieId = l2;
-                    break;
-                }
+                if (l2) return path.join(subDir, l2);
             } catch (e) { continue; }
         }
-    }
+    } catch (e) { return null; }
 
-    if (zombiePath) {
+    return null;
+}
+
+function findSubject(query) {
+    const dirPath = getSubjectPath(query);
+    if (dirPath) {
+        const id = path.basename(dirPath);
+        const parentPath = path.dirname(dirPath);
+        const parentId = path.basename(parentPath) === 'content' ? null : path.basename(parentPath);
+
         console.log(JSON.stringify({
             found: true,
-            id: zombieId,
-            path: zombiePath,
-            inManifest: false,
-            isZombie: true
+            id: id,
+            path: dirPath,
+            parentId: parentId
         }, null, 2));
     } else {
         console.log(JSON.stringify({ found: false }, null, 2));
@@ -127,23 +97,33 @@ function detectZombies() {
 }
 
 function reverseEngineer(subjectId) {
-    const dir = path.join(CONTENT_DIR, subjectId);
+    // Attempt to resolve path intelligently first
+    let dir = getSubjectPath(subjectId);
+
+    // Fallback to direct path joining if not found (or if user passed a path)
+    if (!dir) {
+        dir = path.resolve(CONTENT_DIR, subjectId);
+    }
+
     if (!fs.existsSync(dir)) {
         console.error(`[ERROR] Subject directory not found: ${dir}`);
         process.exit(1);
     }
 
+    // Ensure we use the simple ID for the filename to avoid directory issues
+    const simpleId = path.basename(dir);
+
     // Scan for existing articles
     const articles = [];
     try {
-        const files = fs.readdirSync(dir).filter(f => f.endsWith('.json')); // Assuming content is JSON
+        const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
         files.forEach(f => {
             articles.push(f.replace('.json', ''));
         });
     } catch (e) { }
 
-    const template = `# Subject Design: ${subjectId} (Retroactive)
-**Subject ID:** \`${subjectId}\`
+    const template = `# Subject Design: ${simpleId} (Retroactive)
+**Subject ID:** \`${simpleId}\`
 **Global Status:** \`[Maintenance]\`
 
 ## 1. The Dashboard (Status)
@@ -162,7 +142,7 @@ ${articles.map(a => `- [x] **Article ID**: \`${a}\``).join('\n')}
 - [ ] **Article ID**: \`...\`
 `;
 
-    saveDesignDoc(subjectId, template);
+    saveDesignDoc(simpleId, template);
 }
 
 

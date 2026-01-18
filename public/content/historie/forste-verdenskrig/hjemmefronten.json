@@ -1,0 +1,23 @@
+{
+    "id": "hjemmefronten",
+    "title": "Hjemmefronten",
+    "description": "Kvinner i fabrikker og rasjonering av mat.",
+    "layout": "rich",
+    "tags": [
+        "samfunn",
+        "kvinner",
+        "økonomi"
+    ],
+    "heroImage": "/images/historie/forste-verdenskrig/hjemmefronten_hero.png",
+    "content": [
+        {
+            "type": "text",
+            "value": "Mens mennene kjempet ved fronten, måtte kvinnene overta arbeidet i fabrikkene, jordbruket og transportsektoren. Dette endret kjønnsrollene permanent."
+        },
+        {
+            "type": "fact",
+            "title": "Total Krig",
+            "value": "Ingen var sivile lenger. Hele nasjonens ressurser, fra mat til metall, ble rettet inn mot krigsinnsatsen."
+        }
+    ]
+}

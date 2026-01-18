@@ -32,11 +32,14 @@ Trigger: User wants to create a **NEW** subject.
         *   **The Soul (Vision):**
             *   **Narrative Arc:** A story-driven overview (e.g., "The rise and fall of...").
             *   **Visual Theme:** The keywords provided.
+        *   **The Design Matrix (High Density):**
+            *   Create a table with columns: `Topic`, `Learning Goal`, `Hook/Metaphor`, `Key Vocabulary`, `Connected Subject`.
+            *   **Requirement:** Fill at least 5 rows. NO "TBD".
         *   **The Web (Interdisciplinary):**
             *   List the connections identified in step 1.
             *   **Protocol:** "Every major concept here must also link to [Friend Subject]."
         *   **The Dashboard (Status):**
-            *   `[ ] Core Narrative Articles`
+            *   `[ ] Core Narrative Articles` (Populated from Matrix)
             *   `[ ] Key Figures`
             *   `[ ] Essential Maps/Assets`
 
@@ -44,5 +47,9 @@ Trigger: User wants to create a **NEW** subject.
 1.  **Create Directory**
     *   **Action:** `node scripts/content-manager.cjs --create "[Subject ID]"` (or manually `mkdir`).
 
-2.  **Handoff**
-    *   **Notify User:** "Subject '[ID]' scaffolded. Design Doc created. I am ready to `/update_subject` to populate the narrative."
+2.  **Celebratory Handoff**
+    *   **Notify User:**
+        ```
+        The Soul is defined. Now, let us forge the Body.
+        > Run: `/update_subject [ID]`
+        ```

@@ -1,0 +1,23 @@
+{
+    "id": "skyttergravskrig",
+    "title": "Skyttergravskrig",
+    "description": "Livet og døden i gjørma på Vestfronten.",
+    "layout": "rich",
+    "tags": [
+        "krigføring",
+        "vestfronten",
+        "soldatliv"
+    ],
+    "heroImage": "/images/historie/forste-verdenskrig/skyttergravskrig_hero.png",
+    "content": [
+        {
+            "type": "text",
+            "value": "Skyttergravskrigen var en ny og brutal form for krigføring som definerte første verdenskrig. I stedet for raske manøvrer, gravde hærene seg ned i et fastlåst system av grøfter som strakte seg fra Sveits til Nordsjøen."
+        },
+        {
+            "type": "fact",
+            "title": "Ingemannsland",
+            "value": "Området mellom de to fiendtlige skyttergravslinjene var dekket av piggtråd, granatkratere og lik. Å krysse dette var nesten ensbetydende med selvmord."
+        }
+    ]
+}
