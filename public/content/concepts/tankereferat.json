@@ -1,8 +1,7 @@
 {
-    "id": "tankereferat",
-    "title": "Tankereferat",
-    "explanation": "En indirekte gjengivelse av hva en person tenker. Fortelleren refererer tankene i stedet for å sitere dem direkte.",
-    "example": "Hun tenkte på hvor redd hun var for å gå seg vill.",
+    "term": "tankereferat",
+    "definition": "En teknikk der forfatteren gjenforteller hva en karakter tenker, uten å bruke direkte sitat. Skaper mer avstand enn indre monolog.",
     "subject": "norsk",
-    "topic": "skrivehjelp"
+    "topic": "skrivehjelp",
+    "tags": []
 }

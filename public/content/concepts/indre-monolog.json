@@ -1,8 +1,7 @@
 {
-    "id": "indre-monolog",
-    "title": "Indre monolog",
-    "explanation": "En fremstilling av en persons tanker i direkte form, akkurat slik de tenkes. Ofte skrevet i presens og jeg-person.",
-    "example": "'Jeg må komme meg vekk herfra!' tenkte hun.",
+    "term": "indre monolog",
+    "definition": "En teknikk der forfatteren skriver karakterens tanker direkte. Ofte markert med tankestrek eller kursiv, eller flettet inn i teksten. Gir leseren direkte tilgang til karakterens hode.",
     "subject": "norsk",
-    "topic": "skrivehjelp"
+    "topic": "skrivehjelp",
+    "tags": []
 }

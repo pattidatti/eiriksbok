@@ -1,5 +1,13 @@
 [
   {
+    "term": "agens",
+    "definition": "Evnen til å handle og påvirke sine egne omgivelser. En karakter med agens tar egne valg som driver historien fremover, i stedet for å bare reagere på det som skjer.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "Aksemaktene",
     "definition": "Alliansen mellom Tyskland, Italia og Japan.",
     "subject": "historie",
@@ -385,6 +393,14 @@
     "type": "concept"
   },
   {
+    "term": "indre monolog",
+    "definition": "En teknikk der forfatteren skriver karakterens tanker direkte. Ofte markert med tankestrek eller kursiv, eller flettet inn i teksten. Gir leseren direkte tilgang til karakterens hode.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "Ingenmannsland",
     "definition": "Området mellom de to fiendtlige skyttergravslinjene, ofte dekket av piggtråd og kratere.",
     "subject": "historie",
@@ -662,6 +678,14 @@
     "definition": "Enerett til å drive handel eller virksomhet. Ingen andre får lov til å konkurrere.",
     "subject": "historie",
     "topic": "kolonialisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "motiv",
+    "definition": "Drivkraften bak en karakters handlinger. Det de ønsker å oppnå eller unngå. Uten et tydelig motiv blir karakteren ofte passiv og handlingen retningsløs.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
     "tags": [],
     "type": "concept"
   },
@@ -1023,6 +1047,22 @@
     "type": "concept",
     "topic": "forste-verdenskrig",
     "subject": "historie"
+  },
+  {
+    "term": "synsvinkel",
+    "definition": "Perspektivet fortellingen sees fra. Det avgjør hva leseren får vite og ikke. Vanlige synsvinkler er personal (førsteperson 'jeg' eller tredjeperson 'han/hun') og autoral (allvitende eller refererende).",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "tankereferat",
+    "definition": "En teknikk der forfatteren gjenforteller hva en karakter tenker, uten å bruke direkte sitat. Skaper mer avstand enn indre monolog.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": [],
+    "type": "concept"
   },
   {
     "term": "te",

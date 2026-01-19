@@ -466,7 +466,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                     <div>
                                         <h3 className="text-base font-bold text-slate-900 mb-2 uppercase tracking-wide">{(block as any).title}</h3>
                                         <div className="text-slate-600 leading-relaxed">
-                                            {renderWithMarkdown((block as any).content, mergedConcepts)}
+                                            {renderWithMarkdown((block as any).content || (block as any).text, mergedConcepts)}
                                         </div>
                                     </div>
                                 </div>

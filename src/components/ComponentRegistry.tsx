@@ -10,6 +10,7 @@ import { TimelineComponent } from './TimelineComponent';
 import { PlotGraph } from './PlotGraph';
 import { QuoteBlock } from './QuoteBlock';
 import { Comparison } from './Comparison';
+import { WritingFix } from './WritingFix';
 import { LineChart } from './LineChart';
 import { EmperorStats } from './EmperorStats';
 import { LinkButton } from './tools/LinkButton';
@@ -99,6 +100,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     PlotGraph,
     QuoteBlock,
     Comparison,
+    WritingFix,
     LineChart,
     EmperorStats,
     LinkButton,

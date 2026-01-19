@@ -24,19 +24,17 @@
         },
         {
             "type": "component",
-            "name": "Comparison",
+            "name": "WritingFix",
             "props": {
                 "title": "Begynte å...",
-                "leftTitle": "Svakt",
-                "rightTitle": "Sterkt",
                 "items": [
                     {
-                        "left": "Han begynte å løpe.",
-                        "right": "Han løp."
+                        "bad": "Han begynte å løpe.",
+                        "good": "Han løp."
                     },
                     {
-                        "left": "Hun begynte å gråte.",
-                        "right": "Hun gråt."
+                        "bad": "Hun begynte å gråte.",
+                        "good": "Hun gråt."
                     }
                 ]
             }
@@ -56,6 +54,19 @@
             "content": "I nesten alle fortellinger har hovedpersonen et motiv – noe de vil oppnå. Når leseren vet hva karakteren vil, skaper det engasjement. Et mål skaper også konflikt, fordi noe ofte står i veien."
         },
         {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Hva vil karakteren?",
+                "items": [
+                    {
+                        "bad": "Kari gikk inn på biblioteket og så på bøkene.",
+                        "good": "Kari stormet inn på biblioteket. Hun måtte finne den gamle boka før de stengte, ellers ville hemmeligheten være tapt for alltid."
+                    }
+                ]
+            }
+        },
+        {
             "type": "task",
             "id": "task-motiv",
             "title": "Oppgave: Vis motivasjonen",
@@ -71,7 +82,20 @@
         },
         {
             "type": "text",
-            "content": "\"Hei,\" sier Jens forsiktig. \"Jeg har en gul fotball.\"\n\"Så kult,\" svarer Adam litt uforstående."
+            "content": "\"Hei,\" sier Jens forsiktig. \"Jeg har en gul fotball.\"\n\n\"Så kult,\" svarer Adam litt uforstående. \"Men hvorfor er den dekket av søle?\""
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Dialog-layout",
+                "items": [
+                    {
+                        "bad": "\"Bli med ut!\" ropte han. \"Nei, jeg orker ikke,\" svarte hun fra sofaen.",
+                        "good": "\"Bli med ut!\" ropte han.\n\n\"Nei, jeg orker ikke,\" svarte hun fra sofaen."
+                    }
+                ]
+            }
         },
         {
             "type": "task",
@@ -88,6 +112,19 @@
             "content": "Synsvinkel er øyet vi ser historien gjennom. Ikke hopp mellom 'jeg' og 'han/hun' uten en plan. Det forvirrer leseren."
         },
         {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Valg av synsvinkel",
+                "items": [
+                    {
+                        "bad": "Jeg snek meg lydløst over gulvet. Hjertet mitt hamret så hardt at jeg var sikker på at de hørte det.",
+                        "good": "Erik snek seg lydløst over gulvet. Han merket ikke at skyggen bak ham kom nærmere."
+                    }
+                ]
+            }
+        },
+        {
             "type": "task",
             "id": "task-synsvinkel",
             "title": "Oppgave: Bytt perspektiv",
@@ -100,6 +137,19 @@
         {
             "type": "text",
             "content": "En karakter med agens tar valg og driver handlingen fremover. En passiv karakter lar bare ting skje. For å skape spenning, må hovedpersonen gjøre noe aktivt."
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Handlingskraft",
+                "items": [
+                    {
+                        "bad": "Sola brant. Han satt og ventet på at noen skulle hente ham.",
+                        "good": "Sola brant. Han visste at han ikke kunne bli her. Han pakket sekken og gikk mot fjellene."
+                    }
+                ]
+            }
         },
         {
             "type": "task",
@@ -116,6 +166,19 @@
             "content": "Ordet 'plutselig' forklarer at noe går fort, i stedet for å vise det. Beskriv heller hendelsen konkret og brått."
         },
         {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Overraskelsesmoment",
+                "items": [
+                    {
+                        "bad": "Plutselig gikk lyset.",
+                        "good": "Et høyt smell fikk ham til å hoppe. Alt ble svart."
+                    }
+                ]
+            }
+        },
+        {
             "type": "task",
             "id": "task-plutselig",
             "title": "Oppgave: Vis sjokket",
@@ -130,11 +193,17 @@
             "content": "Du kan vise karakterens indre på to måter: Tankereferat (indirekte) og Indre monolog (direkte). En blanding gjør teksten levende."
         },
         {
-            "type": "list",
-            "items": [
-                "Tankereferat: Hun tenkte at hun var redd.",
-                "Indre monolog: 'Jeg klarer ikke dette!' tenkte hun."
-            ]
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Indre liv",
+                "items": [
+                    {
+                        "bad": "Han lurte på om han burde dra hjem.",
+                        "good": "*Skal jeg dra nå? Hvis jeg blir, kommer jeg til å angre,* tenkte han."
+                    }
+                ]
+            }
         },
         {
             "type": "task",
@@ -152,15 +221,13 @@
         },
         {
             "type": "component",
-            "name": "Comparison",
+            "name": "WritingFix",
             "props": {
                 "title": "Beskrivelser",
-                "leftTitle": "Dramatisk",
-                "rightTitle": "Nøktern",
                 "items": [
                     {
-                        "left": "Hjertet dunket som en tromme. Kroppen var spent som en buestreng. Hun skalv som om fremtiden avhang av det.",
-                        "right": "Hun satt rett i ryggen. Fingrene lekte med glidelåsen. Det var fem minutter igjen."
+                        "bad": "Hjertet dunket som en tromme. Kroppen var spent som en buestreng. Hun skalv som om fremtiden avhang av det.",
+                        "good": "Hun satt rett i ryggen. Fingrene lekte med glidelåsen. Det var fem minutter igjen."
                     }
                 ]
             }
@@ -180,10 +247,14 @@
             "content": "Følelser bør utvikle seg som en spiral. Begynn med en liten tanke, og bygg på. Dette kalles emosjonell opptrapping."
         },
         {
+            "type": "text",
+            "content": "**Eksempel på opptrapping:**\nDet begynte som en liten klump i magen da hun så blikket hans. Var han sint? Jo flere minutter som gikk uten at han sa noe, jo tyngre ble luften i rommet. Til slutt føltes det som om veggene presset seg mot henne, og hun måtte bare komme seg ut."
+        },
+        {
             "type": "task",
             "id": "task-opptrapping",
             "title": "Oppgave: Spiralen",
-            "text": "Skriv en indre monolog som starter med en liten tanke (eks: 'Jeg tror ikke de liker meg') og blir mer og mer intens over 5-7 setninger."
+            "text": "Skriv en indre monolog som starter with en liten tanke (eks: 'Jeg tror ikke de liker meg') og blir mer og mer intens over 5-7 setninger."
         },
         {
             "type": "header",
@@ -192,6 +263,19 @@
         {
             "type": "text",
             "content": "For mange bilder gjør teksten rotete. Velg heller få, sterke bilder som virkelig treffer."
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Bilder og sammenligninger",
+                "items": [
+                    {
+                        "bad": "Han var sint som en tyr, rød som en tomat og brølte som en løve.",
+                        "good": "Raseriet brant som kaldt stål i brystet hans."
+                    }
+                ]
+            }
         },
         {
             "type": "task",
