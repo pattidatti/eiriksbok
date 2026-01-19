@@ -54,8 +54,8 @@ const EthicsExperimentPage = React.lazy(routeFactories.EthicsExperimentPage);
 const TimeTravelPage = React.lazy(routeFactories.TimeTravelPage);
 const TimeTravelGamePage = React.lazy(routeFactories.TimeTravelGamePage);
 
-
 const PresentationPage = React.lazy(routeFactories.PresentationPage);
+const LearningPathsHub = React.lazy(routeFactories.LearningPathsHub);
 
 
 import { usePresence } from './hooks/usePresence';
@@ -96,6 +96,7 @@ function AppContent() {
               <Route path="tidslinje" element={<GlobalTimelinePage />} />
               <Route path="persongalleri" element={<PersonGallery />} />
               <Route path="colonization" element={<ColonizationMap />} />
+              <Route path="laeringsstier" element={<LearningPathsHub />} />
 
               {/* Static routes must come before dynamic :subjectId routes */}
               <Route path="oving" element={<PracticePage />} />

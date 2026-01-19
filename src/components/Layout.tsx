@@ -10,6 +10,8 @@ import { useSettings } from '../hooks/useSettings';
 import { useLayout } from '../context/LayoutContext';
 import { Menu } from 'lucide-react';
 
+import { FeedbackWidget } from './FeedbackWidget'; // Added import
+
 export const Layout: React.FC = () => {
     const location = useLocation();
     const outlet = useOutlet();
@@ -42,16 +44,20 @@ export const Layout: React.FC = () => {
                 <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-white/70 border-b border-white/20 shadow-sm transition-all duration-300">
                     <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                         <div className="flex items-center gap-4">
+                            {/* Feedback Widget - Top Left */}
+                            <FeedbackWidget />
+
                             {/* Mobile Menu Trigger */}
                             <button
                                 onClick={() => setIsMobileMenuOpen(true)}
-                                className="md:hidden p-2 -ml-2 text-text-muted hover:text-text-main transition-colors"
+                                className="md:hidden p-2 text-text-muted hover:text-text-main transition-colors"
                                 aria-label="Åpne meny"
                             >
                                 <Menu size={28} />
                             </button>
 
                             <Link to="/" className="flex items-center gap-3 text-xl font-display font-bold text-text-main no-underline tracking-tight group">
+
                                 <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain transition-transform group-hover:scale-110" />
                                 <span className="hidden sm:inline">BOK.HAALAND.DE</span>
                                 <span className="sm:hidden">EIRIKSBOK</span>
@@ -64,6 +70,7 @@ export const Layout: React.FC = () => {
                             <PrefetchLink to="/historie" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/historie')}`}>Historie</PrefetchLink>
                             <PrefetchLink to="/krle" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/krle')}`}>KRLE</PrefetchLink>
                             <PrefetchLink to="/musikk" prefetchTarget="SubjectPage" className={`text-sm transition-colors ${isActive('/musikk')}`}>Musikk</PrefetchLink>
+                            <PrefetchLink to="/laeringsstier" prefetchTarget="Unknown" className={`text-sm transition-colors ${isActive('/laeringsstier')}`}>Læringsstier</PrefetchLink>
                             <PrefetchLink to="/oving" prefetchTarget="PracticePage" className={`text-sm transition-colors ${isActive('/oving')}`}>Øving</PrefetchLink>
                         </nav>
 

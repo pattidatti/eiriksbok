@@ -97,6 +97,60 @@
                 ]
             },
             {
+                "id": "step-prism",
+                "phase": "Prolog: Den Gamle Verden",
+                "title": "Perspektiver på katastrofen",
+                "type": "interaktiv",
+                "content": "Under den blanke overflaten i Belle Époque brygger det til storm. Hvem har rett til å starte en krig? Sannheten avhenger av øyet som ser.\n\nI denne interaktive modellen skal du utforske de motstridende interessene som krasjet sammen i juli 1914. Roter prismen for å forstå hvorfor hver nasjon følte at de *måtte* velge krig.",
+                "component": {
+                    "name": "PerspectivePrism",
+                    "props": {
+                        "title": "Juli 1914: Hvem har skylden?",
+                        "instruction": "Dra prismen sidelengs for å rotere. Klikk på pilene for å navigere.",
+                        "sides": [
+                            {
+                                "id": "austria",
+                                "title": "Østerrike-Ungarn",
+                                "color": "#1e3a8a",
+                                "icon": "🦅",
+                                "content": "**Vi må forsvare oss mot terrorisme.**\n\nVår tronarving er myrdet av serbiske nasjonalister. Serbia nekter å samarbeide om etterforskningen. Hvis vi ikke reagerer nå, vil riket vårt gå i oppløsning. \n\n*\"Dette er et spørsmål om ære og overlevelse.\"*",
+                                "sourceCredit": "Franz Joseph I"
+                            },
+                            {
+                                "id": "serbia",
+                                "title": "Serbia",
+                                "color": "#b91c1c",
+                                "icon": "⚔️",
+                                "content": "**Vi kjemper for frihet.**\n\nØsterrike-Ungarn har undertrykt slaverne i århundrer. Kravet deres krenker vår suverenitet som selvstendig nasjon. Vi kan ikke la dem diktere våre lover. \n\n*\"Bedre grav enn slave!\"*",
+                                "sourceCredit": "Nikola Pašić"
+                            },
+                            {
+                                "id": "germany",
+                                "title": "Tyskland",
+                                "color": "#0f172a",
+                                "icon": "🛡️",
+                                "content": "**Lojalitet fremfor alt.**\n\nVi har lovet å støtte vår eneste sanne allierte, Østerrike. Hvis de faller, er vi omringet av fiender. Russland mobiliserer allerede. Vi må slå til før vi blir knust. \n\n*\"Nibelungentro - troskap til døden.\"*",
+                                "sourceCredit": "Kaiser Wilhelm II"
+                            },
+                            {
+                                "id": "russia",
+                                "title": "Russland",
+                                "color": "#15803d",
+                                "icon": "🐻",
+                                "content": "**Beskytteren av de svake.**\n\nVi er storebror for alle slaviske folk. Vi kan ikke sitte stille og se på at Østerrike knuser lille Serbia. Det ville være et svik mot vår Gudgitte rolle. \n\n*\"Ingen skal røre våre brødre.\"*",
+                                "sourceCredit": "Tsar Nicholas II"
+                            }
+                        ]
+                    }
+                },
+                "tasks": [
+                    "Hvordan rettferdiggjorde Østerrike-Ungarn sin krigserklæring? (Forståelse)",
+                    "Hvorfor følte Tyskland seg truet av situasjonen? (Analyse)",
+                    "Hvilken rolle spilte nasjonalisme for Serbias handlinger? (Refleksjon)"
+                ],
+                "links": []
+            },
+            {
                 "id": "step-2",
                 "phase": "Akt 1: Illusjonen (1914)",
                 "title": "August-begeistringen",

@@ -57,6 +57,7 @@ const TetrarchyVisualizer = lazy(() => import('./content/interactive/TetrarchyVi
 const PriceEdictExplorer = lazy(() => import('./content/interactive/PriceEdictExplorer').then(m => ({ default: m.PriceEdictExplorer })));
 const RomanDefenseModel = lazy(() => import('./content/interactive/RomanDefenseModel').then(m => ({ default: m.RomanDefenseModel })));
 const DetectiveEngine = lazy(() => import('./content/interactive/detective/DetectiveEngine').then(m => ({ default: m.DetectiveEngine })));
+const PerspectivePrism = lazy(() => import('./content/interactive/PerspectivePrism').then(m => ({ default: m.PerspectivePrism })));
 const PovertySimulation = lazy(() => import('./content/interactive/PovertySimulation').then(m => ({ default: m.PovertySimulation })));
 
 // Demography
@@ -146,6 +147,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     PriceEdictExplorer,
     RomanDefenseModel,
     DetectiveEngine,
+    PerspectivePrism,
     PovertySimulation,
 
     // Demography

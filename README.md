@@ -63,6 +63,21 @@ Vi bygger bro mellom tekst og forståelse gjennom spesialiserte komponenter:
 
 ---
 
+## 📢 Tilbakemelding & Feedback
+Vi har et innebygd system for brukertilbakemeldinger. Data lagres i Firebase og kan hentes ut av administratorer.
+
+### For Administratorer: Hente ut data
+Siden tilbakemeldinger kan inneholde sensitiv info, er databasen **ikke** offentlig lesbar. Du trenger en `Database Secret` for å laste ned dataene.
+
+1. **Hent Secret**: Gå til Firebase Console -> Project Settings -> Service Accounts -> Database Secrets.
+2. **Kjør Script**:
+   ```bash
+   node scripts/fetch_feedback.cjs DIN_HEMMELIGHET_HER
+   ```
+3. **Resultat**: En fil `feedback_data.json` genereres med all historikk, inkludert nyttig context (URL, skjermstørrelse, user-agent).
+
+---
+
 ## 🔌 Teknisk Stack
 - **Framework**: React 19 + Vite
 - **Styling**: Tailwind CSS v4 (Vanilla logic)
