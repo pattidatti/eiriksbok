@@ -4,7 +4,7 @@
     "subject": "norsk",
     "topic": "skrivehjelp",
     "layout": "rich",
-    "heroImage": "/images/lessons/norsk/saktekst_hero.png",
+    "heroImage": "/images/lessons/norsk/saktekst_bridge_hero.png",
     "content": [
         {
             "type": "header",
@@ -100,6 +100,12 @@
                     "content": "For å gjøre avsnittet komplett, trenger vi en avslutningssetning. Denne setningen runder av poenget og kan gjerne peke fremover mot neste avsnitt."
                 },
                 {
+                    "type": "image",
+                    "src": "/images/lessons/norsk/saktekst_sleep_renovation.png",
+                    "alt": "En person som sover rolig i et nordisk soverom",
+                    "caption": "Søvn er som en 'vaskemaskin' for hjernen."
+                },
+                {
                     "type": "quote",
                     "content": "Søvn fungerer som hjernens eget renovasjonsanlegg. Når vi sover, fjerner kroppen nemlig giftstoffer som har samlet seg i løpet av dagen. Dette skjer spesielt i den dype søvnen, slik at vi våkner med en uthvilt hjerne. Uten nok hvile vil altså hjernen fungere dårligere, og vi vil slite med å lære nye ting."
                 },
@@ -116,6 +122,12 @@
                 {
                     "type": "text",
                     "content": "En god tekst består av mange avsnitt som jobber sammen. Overgangen mellom avsnittene er som en stafettpinne som gis videre. Du kan skape overgang ved å koble slutten på ett avsnitt til starten på det neste."
+                },
+                {
+                    "type": "image",
+                    "src": "/images/lessons/norsk/saktekst_relay_baton.png",
+                    "alt": "Stafettveksling",
+                    "caption": "Gode overganger fungerer som en stafettveksling mellom avsnittene."
                 },
                 {
                     "type": "comparison",
