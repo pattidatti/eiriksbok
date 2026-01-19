@@ -57,6 +57,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 
 ## 📝 Gjøremål (Todo)
+- [ ] Hangmann: Ordet man skal gjette flasher raskt før det forsinner igjen. Gjør det lett å jukse. 
 - [x] Chrono Cards. Vanskelig å navigere drag and drop når det er horisontal scrollbar.  App i full bredde kanskje, og noe annet?
 - [ ] Kronocards - Må kunne velge hvilke artikler som skal være med, og hva som skal være med i kortet. 
 - [ ] Global tidslinje må være mer kompakt. 
