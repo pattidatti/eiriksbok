@@ -1,5 +1,5 @@
 {
-  "buildId": 1768811360338,
+  "buildId": 1768820135787,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -69,6 +69,12 @@
     "defenestrasjon": [
       "content/concepts/defenestrasjon.json"
     ],
+    "delegat": [
+      "content/concepts/delegat.json"
+    ],
+    "demilitarisert": [
+      "content/concepts/demilitarisert.json"
+    ],
     "demografisk-overgang": [
       "content/concepts/demografisk-overgang.json"
     ],
@@ -83,6 +89,9 @@
     ],
     "direkte-demokrati": [
       "content/concepts/direkte-demokrati.json"
+    ],
+    "dolkestotlegenden": [
+      "content/concepts/dolkestotlegenden.json"
     ],
     "enigma": [
       "content/concepts/enigma.json"
@@ -99,6 +108,9 @@
     "fascisme": [
       "content/concepts/fascisme.json"
     ],
+    "femarsplan": [
+      "content/concepts/femarsplan.json"
+    ],
     "foerromersk-jernalder": [
       "content/concepts/foerromersk-jernalder.json"
     ],
@@ -109,8 +121,14 @@
     "folkevandringstiden": [
       "content/concepts/folkevandringstiden.json"
     ],
+    "fullmaktsloven": [
+      "content/concepts/fullmaktsloven.json"
+    ],
     "glasnost": [
       "content/concepts/glasnost.json"
+    ],
+    "gulag": [
+      "content/concepts/gulag.json"
     ],
     "gurdwara": [
       "content/concepts/gurdwara.json"
@@ -135,6 +153,12 @@
     ],
     "holocaust": [
       "content/concepts/holocaust.json"
+    ],
+    "holodomor": [
+      "content/concepts/holodomor.json"
+    ],
+    "hyperinflasjon": [
+      "content/concepts/hyperinflasjon.json"
     ],
     "imperialisme": [
       "content/concepts/imperialisme.json"
@@ -183,6 +207,9 @@
     ],
     "krigserstatning": [
       "content/concepts/krigserstatning.json"
+    ],
+    "kriseforliket": [
+      "content/concepts/kriseforliket.json"
     ],
     "langar": [
       "content/concepts/langar.json"
@@ -304,6 +331,9 @@
     "rhinen": [
       "content/concepts/rhinen.json"
     ],
+    "rhinland": [
+      "content/concepts/rhinland.json"
+    ],
     "roaring-20s": [
       "content/concepts/roaring-20s.json"
     ],
@@ -356,6 +386,9 @@
     "suverenitetsprinsippet": [
       "content/concepts/suverenitetsprinsippet.json"
     ],
+    "svartskjortene": [
+      "content/concepts/svartskjortene.json"
+    ],
     "sykes-picot": [
       "content/concepts/sykes-picot.json"
     ],
@@ -382,6 +415,9 @@
     ],
     "totalitaert-diktatur": [
       "content/concepts/totalitaert-diktatur.json"
+    ],
+    "traktat": [
+      "content/concepts/traktat.json"
     ],
     "traktbegerkulturen": [
       "content/concepts/traktbegerkulturen.json"
@@ -413,6 +449,9 @@
     ],
     "versailles-traktaten": [
       "content/concepts/versailles-traktaten.json"
+    ],
+    "versaillestraktaten": [
+      "content/concepts/versaillestraktaten.json"
     ],
     "vestfronten": [
       "content/concepts/vestfronten.json"
@@ -1407,20 +1446,26 @@
     "concepts/de-allierte.json/de-allierte": "content/concepts/de-allierte.json",
     "concepts/de-forente-nasjoner-fn.json/de-forente-nasjoner-fn": "content/concepts/de-forente-nasjoner-fn.json",
     "concepts/defenestrasjon.json/defenestrasjon": "content/concepts/defenestrasjon.json",
+    "concepts/delegat.json/delegat": "content/concepts/delegat.json",
+    "concepts/demilitarisert.json/demilitarisert": "content/concepts/demilitarisert.json",
     "concepts/demografisk-overgang.json/demografisk-overgang": "content/concepts/demografisk-overgang.json",
     "concepts/demokrati.json/demokrati": "content/concepts/demokrati.json",
     "concepts/dendrokronologi.json/dendrokronologi": "content/concepts/dendrokronologi.json",
     "concepts/diktatur.json/diktatur": "content/concepts/diktatur.json",
     "concepts/direkte-demokrati.json/direkte-demokrati": "content/concepts/direkte-demokrati.json",
+    "concepts/dolkestotlegenden.json/dolkestotlegenden": "content/concepts/dolkestotlegenden.json",
     "concepts/enigma.json/enigma": "content/concepts/enigma.json",
     "concepts/ententen.json/ententen": "content/concepts/ententen.json",
     "concepts/etos.json/etos": "content/concepts/etos.json",
     "concepts/ettergivenhetspolitikk.json/ettergivenhetspolitikk": "content/concepts/ettergivenhetspolitikk.json",
     "concepts/fascisme.json/fascisme": "content/concepts/fascisme.json",
+    "concepts/femarsplan.json/femarsplan": "content/concepts/femarsplan.json",
     "concepts/foerromersk-jernalder.json/foerromersk-jernalder": "content/concepts/foerromersk-jernalder.json",
     "concepts/folkeforbundet.json/folkeforbundet": "content/concepts/folkeforbundet.json",
     "concepts/folkevandringstiden.json/folkevandringstiden": "content/concepts/folkevandringstiden.json",
+    "concepts/fullmaktsloven.json/fullmaktsloven": "content/concepts/fullmaktsloven.json",
     "concepts/glasnost.json/glasnost": "content/concepts/glasnost.json",
+    "concepts/gulag.json/gulag": "content/concepts/gulag.json",
     "concepts/gurdwara.json/gurdwara": "content/concepts/gurdwara.json",
     "concepts/guru-gobind-singh.json/guru-gobind-singh": "content/concepts/guru-gobind-singh.json",
     "concepts/guru-granth-sahib.json/guru-granth-sahib": "content/concepts/guru-granth-sahib.json",
@@ -1429,6 +1474,8 @@
     "concepts/habsburgerne.json/habsburgerne": "content/concepts/habsburgerne.json",
     "concepts/helsetning.json/helsetning": "content/concepts/helsetning.json",
     "concepts/holocaust.json/holocaust": "content/concepts/holocaust.json",
+    "concepts/holodomor.json/holodomor": "content/concepts/holodomor.json",
+    "concepts/hyperinflasjon.json/hyperinflasjon": "content/concepts/hyperinflasjon.json",
     "concepts/imperialisme.json/imperialisme": "content/concepts/imperialisme.json",
     "concepts/indre-monolog.json/indre-monolog": "content/concepts/indre-monolog.json",
     "concepts/ingenmannsland.json/ingenmannsland": "content/concepts/ingenmannsland.json",
@@ -1445,6 +1492,7 @@
     "concepts/kommunisme.json/kommunisme": "content/concepts/kommunisme.json",
     "concepts/komsakulturen.json/komsakulturen": "content/concepts/komsakulturen.json",
     "concepts/krigserstatning.json/krigserstatning": "content/concepts/krigserstatning.json",
+    "concepts/kriseforliket.json/kriseforliket": "content/concepts/kriseforliket.json",
     "concepts/langar.json/langar": "content/concepts/langar.json",
     "concepts/lebensraum.json/lebensraum": "content/concepts/lebensraum.json",
     "concepts/leddsetning.json/leddsetning": "content/concepts/leddsetning.json",
@@ -1485,6 +1533,7 @@
     "concepts/representativt-demokrati.json/representativt-demokrati": "content/concepts/representativt-demokrati.json",
     "concepts/republikk.json/republikk": "content/concepts/republikk.json",
     "concepts/rhinen.json/rhinen": "content/concepts/rhinen.json",
+    "concepts/rhinland.json/rhinland": "content/concepts/rhinland.json",
     "concepts/roaring-20s.json/roaring-20s": "content/concepts/roaring-20s.json",
     "concepts/rubicon.json/rubicon": "content/concepts/rubicon.json",
     "concepts/schlieffen-planen.json/schlieffen-planen": "content/concepts/schlieffen-planen.json",
@@ -1502,6 +1551,7 @@
     "concepts/stridsvogn.json/stridsvogn": "content/concepts/stridsvogn.json",
     "concepts/subjektet.json/subjektet": "content/concepts/subjektet.json",
     "concepts/suverenitetsprinsippet.json/suverenitetsprinsippet": "content/concepts/suverenitetsprinsippet.json",
+    "concepts/svartskjortene.json/svartskjortene": "content/concepts/svartskjortene.json",
     "concepts/sykes-picot.json/sykes-picot": "content/concepts/sykes-picot.json",
     "concepts/synsvinkel.json/synsvinkel": "content/concepts/synsvinkel.json",
     "concepts/tankereferat.json/tankereferat": "content/concepts/tankereferat.json",
@@ -1511,6 +1561,7 @@
     "concepts/teokrati.json/teokrati": "content/concepts/teokrati.json",
     "concepts/total-krig.json/total-krig": "content/concepts/total-krig.json",
     "concepts/totalitaert-diktatur.json/totalitaert-diktatur": "content/concepts/totalitaert-diktatur.json",
+    "concepts/traktat.json/traktat": "content/concepts/traktat.json",
     "concepts/traktbegerkulturen.json/traktbegerkulturen": "content/concepts/traktbegerkulturen.json",
     "concepts/truman-doktrinen.json/truman-doktrinen": "content/concepts/truman-doktrinen.json",
     "concepts/uinnskrenket-ubtkrig.json/uinnskrenket-ubtkrig": "content/concepts/uinnskrenket-ubtkrig.json",
@@ -1521,6 +1572,7 @@
     "concepts/v2.json/v2": "content/concepts/v2.json",
     "concepts/verbalet.json/verbalet": "content/concepts/verbalet.json",
     "concepts/versailles-traktaten.json/versailles-traktaten": "content/concepts/versailles-traktaten.json",
+    "concepts/versaillestraktaten.json/versaillestraktaten": "content/concepts/versaillestraktaten.json",
     "concepts/vestfronten.json/vestfronten": "content/concepts/vestfronten.json",
     "concepts/weimarrepublikken.json/weimarrepublikken": "content/concepts/weimarrepublikken.json",
     "concepts/yam.json/yam": "content/concepts/yam.json",

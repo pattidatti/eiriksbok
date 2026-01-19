@@ -55,6 +55,7 @@ export type ContentBlock =
     | { type: 'info' | 'info_box'; title?: string; content: string }
     | { type: 'comparison_card'; items: { title: string; content: string; color: string }[] }
     | { type: 'quiz'; questions: QuizQuestion[] }
+    | { type: 'task'; title?: string; content?: string; text?: string }
     | { type: 'undefined';[key: string]: any };
 
 
