@@ -95,11 +95,23 @@
     "type": "concept"
   },
   {
+    "term": "Avsnitt",
+    "definition": "En del av en tekst som består av en eller flere setninger som henger sammen og handler om det samme temaet.",
+    "links": [],
+    "type": "concept"
+  },
+  {
     "term": "Balfour-erklæringen",
     "definition": "En formell uttalelse fra den britiske regjeringen i 1917 som uttrykte støtte til opprettelsen av et «nasjonalt hjem for det jødiske folk» i Palestina.",
     "type": "concept",
     "topic": "forste-verdenskrig",
     "subject": "historie"
+  },
+  {
+    "term": "Bindeord",
+    "definition": "Ord eller faste uttrykk som binder sammen setninger eller avsnitt (f.eks. 'derfor', 'men', 'på den andre siden').",
+    "links": [],
+    "type": "concept"
   },
   {
     "term": "Blankoblankett",
@@ -174,6 +186,27 @@
     "type": "concept"
   },
   {
+    "term": "Delegat",
+    "definition": "En person som er valgt eller utnevnt til å representere en gruppe, for eksempel et land i en fredsforhandling.",
+    "type": "concept",
+    "tags": [
+      "diplomati",
+      "politikk"
+    ],
+    "subject": "historie"
+  },
+  {
+    "term": "Demilitarisert",
+    "definition": "Et område der det ikke er lov å ha militære styrker, våpen eller forsvarsanlegg.",
+    "type": "concept",
+    "tags": [
+      "militæret",
+      "geografi",
+      "internasjonal politikk"
+    ],
+    "subject": "historie"
+  },
+  {
     "id": "demografisk-overgang",
     "term": "Den demografiske overgangen",
     "definition": "En modell som beskriver overgangen fra høye fødsels- og dødsrater til lave, en prosess som skjer når et land gjennomgår industriell utvikling og modernisering.",
@@ -216,6 +249,17 @@
     "topic": "styringsformer",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Dolkestøtlegenden",
+    "definition": "En konspirasjonsteori og myte om at den tyske hæren aldri tapte på slagmarken under første verdenskrig, men ble 'dolket i ryggen' av politikere, sosialister og jøder på hjemmebane.",
+    "type": "concept",
+    "tags": [
+      "tyskland",
+      "propaganda",
+      "første verdenskrig"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Enigma",
@@ -261,6 +305,17 @@
     "type": "concept"
   },
   {
+    "term": "Femårsplaner",
+    "definition": "Økonomiske planer i Sovjetunionen som fastsatte mål for produksjon fem år frem i tid. Målet var ofte en ekstremt rask industrialisering av landet.",
+    "type": "concept",
+    "tags": [
+      "sovjetunionen",
+      "stalin",
+      "økonomi"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Førromersk jernalder",
     "definition": "Den eldste delen av jernalderen i Norden, som strekker seg fra ca. 500 fvt. til begynnelsen av vår tidsregning.",
     "type": "concept",
@@ -293,6 +348,17 @@
     "link": "/historie/middelalderen/tidlig-middelalder"
   },
   {
+    "term": "Fullmaktsloven",
+    "definition": "En lov vedtatt i Tyskland i 1933 som ga Adolf Hitler og hans regjering rett til å vedta lover uten å gå veien om riksdagen. Dette gjorde ham i praksis til diktator.",
+    "type": "concept",
+    "tags": [
+      "tyskland",
+      "nazisme",
+      "diktatur"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Glasnost",
     "definition": "En reformpolitik lansert av Mikhail Gorbatsjov i Sovjetunionen på 1980-tallet. Ordet betyr 'åpenhet', og målet var å skape mer gjennomsiktighet i staten og mer ytringsfrihet for borgerne.",
     "subject": "historie",
@@ -303,6 +369,17 @@
       "frihet"
     ],
     "type": "concept"
+  },
+  {
+    "term": "Gulag",
+    "definition": "Et system av tvangsarbeidsleirer i Sovjetunionen der millioner av politiske fanger og kriminelle ble sendt for å utføre hardt arbeid under umenneskelige forhold.",
+    "type": "concept",
+    "tags": [
+      "sovjetunionen",
+      "stalin",
+      "undertrykkelse"
+    ],
+    "subject": "historie"
   },
   {
     "term": "gurdwara",
@@ -383,6 +460,29 @@
     "topic": "andre-verdenskrig",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Holodomor",
+    "definition": "En menneskeskapt hungersnød i Ukraina i 1932–1933, forårsaket av Stalins tvangskollektivisering. Flere millioner mennesker døde av sult.",
+    "type": "concept",
+    "tags": [
+      "sovjetunionen",
+      "ukraina",
+      "stalin",
+      "folkemord"
+    ],
+    "subject": "historie"
+  },
+  {
+    "term": "Hyperinflasjon",
+    "definition": "En ekstremt rask og ukontrollert økning i priser. Pengene mister sin verdi så fort at folk må ha trillebårer med sedler for å kjøpe helt vanlige varer som brød.",
+    "type": "concept",
+    "tags": [
+      "økonomi",
+      "weimarrepublikken",
+      "tyskland"
+    ],
+    "subject": "historie"
   },
   {
     "term": "imperialisme",
@@ -509,6 +609,12 @@
     "type": "concept"
   },
   {
+    "term": "Kommentarsetning",
+    "definition": "Setninger som utdyper, forklarer eller gir eksempler på det som ble presentert i temasetningen.",
+    "links": [],
+    "type": "concept"
+  },
+  {
     "term": "kommunisme",
     "definition": "Et klasseløst samfunn der all eiendom er felles. I teorien statsløst (som anarko-kommunisme), men i praksis ofte brukt om stater med streng planøkonomi.",
     "subject": "samfunnskunnskap",
@@ -534,6 +640,17 @@
     "topic": "forste-verdenskrig",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Kriseforliket",
+    "definition": "En politisk avtale i Norge i 1935 mellom Arbeiderpartiet og Bondepartiet. Avtalen bidro til å stabilisere landet under den økonomiske krisen og la grunnlaget for den moderne velferdsstaten.",
+    "type": "concept",
+    "tags": [
+      "norgeshistorie",
+      "mellomkrigstiden",
+      "politikk"
+    ],
+    "subject": "historie"
   },
   {
     "term": "langar",
@@ -893,6 +1010,17 @@
     "subject": "historie"
   },
   {
+    "term": "Rhinland",
+    "definition": "Et område i Vest-Tyskland langs elven Rhinen. Etter første verdenskrig ble det bestemt at området skulle være demilitarisert for å beskytte Frankrike mot nye angrep.",
+    "type": "concept",
+    "tags": [
+      "tyskland",
+      "geografi",
+      "mellomkrigstiden"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Det glade 20-tall",
     "definition": "Betegnelse på 1920-tallet i USA og Vest-Europa, preget av økonomisk oppgang, kulturell blomstring, jazzmusikk og nye sosiale friheter.",
     "type": "concept"
@@ -1042,6 +1170,17 @@
     "type": "concept"
   },
   {
+    "term": "Svartskjortene",
+    "definition": "De væpnede gruppene til de italienske fascistene under Mussolini. De brukte vold og trusler mot politiske motstandere.",
+    "type": "concept",
+    "tags": [
+      "fascisme",
+      "italia",
+      "vold"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Sykes-Picot-avtalen",
     "definition": "En hemmelig avtale fra 1916 mellom Storbritannia og Frankrike om å dele Det osmanske rikets arabiske provinser mellom seg etter krigen. Avtalen la grunnlaget for mange av dagens grenser i Midtøsten.",
     "type": "concept",
@@ -1089,6 +1228,12 @@
     "type": "concept"
   },
   {
+    "term": "Temasetning",
+    "definition": "Den første setningen i et avsnitt som forteller hva avsnittet skal handle om. Den fungerer som et løfte til leseren.",
+    "links": [],
+    "type": "concept"
+  },
+  {
     "term": "teokrati",
     "definition": "Gud eller religiøse ledere styrer samfunnet basert på hellige skrifter. Lovene i landet er basert på religionen. Eksempler er Vatikanstaten eller Iran.",
     "subject": "samfunnskunnskap",
@@ -1111,6 +1256,17 @@
     "topic": "styringsformer",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Traktat",
+    "definition": "En formell og bindende avtale mellom to eller flere stater, ofte brukt om fredsavtaler etter en krig.",
+    "type": "concept",
+    "tags": [
+      "diplomati",
+      "fredsavtale",
+      "politikk"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Traktbegerkulturen",
@@ -1199,7 +1355,18 @@
   },
   {
     "term": "Versailles-traktaten",
-    "definition": "Fredsavtalen som ble undertegnet i 1919 etter første verdenskrig. Avtalen la skylden for krigen på Tyskland og påla dem harde krigsskadeerstatninger.",
+    "definition": "Fredsavtalen fra 1919 som offisielt avsluttet første verdenskrig og påla Tyskland svært harde betingelser, inkludert enorme krigserstatninger.",
+    "type": "concept",
+    "tags": [
+      "første verdenskrig",
+      "tyskland",
+      "fredsavtale"
+    ],
+    "subject": "historie"
+  },
+  {
+    "term": "Versaillestraktaten",
+    "definition": "Fredsavtalen fra 1919 som offisielt avsluttet første verdenskrig og påla Tyskland svært harde betingelser, inkludert enorme krigserstatninger.",
     "type": "concept",
     "tags": [
       "første verdenskrig",

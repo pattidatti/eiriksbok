@@ -443,6 +443,18 @@
                             "createdDate": "2026-01-19T12:00:00Z"
                         },
                         {
+                            "id": "hvordan-skrive-gode-saktekster",
+                            "title": "Hvordan skrive gode saktekster",
+                            "description": "Lær å bygge gode avsnitt med temasetninger, kommentarsetninger og bindeord.",
+                            "image": "/images/lessons/norsk/saktekst_hero.png",
+                            "tags": [
+                                "skrivehjelp",
+                                "sakprosa",
+                                "tips"
+                            ],
+                            "createdDate": "2026-01-19T13:30:00Z"
+                        },
+                        {
                             "id": "hvordan-fore-kilder",
                             "title": "Hvordan føre kilder (APA 7)",
                             "description": "Oppskriften på hvordan du henviser til nettsider, videoer og aviser.",

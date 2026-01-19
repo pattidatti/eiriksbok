@@ -269,7 +269,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                         </span>
                                     </div>
                                     <div className="p-6 text-slate-600 italic leading-relaxed bg-slate-50/30">
-                                        "{(block as any).before?.content}"
+                                        {renderInlineMarkdown((block as any).before?.content || '', mergedConcepts)}
                                     </div>
                                 </div>
 
@@ -282,7 +282,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                         </span>
                                     </div>
                                     <div className="p-6 text-slate-800 font-medium leading-relaxed bg-green-50/10">
-                                        "{(block as any).after?.content}"
+                                        {renderInlineMarkdown((block as any).after?.content || '', mergedConcepts)}
                                     </div>
                                 </div>
                             </div>
@@ -412,8 +412,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                     case 'quote':
                         return (
                             <blockquote key={index} className="my-12 pl-6 border-l-2 border-slate-900">
-                                <p className="font-serif text-2xl italic text-slate-800 leading-relaxed">
-                                    "{(block as any).content}"
+                                <p className="font-serif text-2xl text-slate-800 leading-relaxed">
+                                    "{renderInlineMarkdown((block as any).content, mergedConcepts)}"
                                 </p>
                                 {((block as any).author || (block as any).source) && (
                                     <footer className="mt-6 text-sm not-italic flex flex-col font-medium tracking-wide">

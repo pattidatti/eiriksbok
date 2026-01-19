@@ -1,5 +1,5 @@
 {
-  "buildId": 1768820135787,
+  "buildId": 1768826008012,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -38,8 +38,14 @@
     "avkolonisering": [
       "content/concepts/avkolonisering.json"
     ],
+    "avsnitt": [
+      "content/concepts/avsnitt.json"
+    ],
     "balfour-erklaeringen": [
       "content/concepts/balfour-erklaeringen.json"
+    ],
+    "bindeord": [
+      "content/concepts/bindeord.json"
     ],
     "blankoblankett": [
       "content/concepts/blankoblankett.json"
@@ -198,6 +204,9 @@
     ],
     "koloni": [
       "content/concepts/koloni.json"
+    ],
+    "kommentarsetning": [
+      "content/concepts/kommentarsetning.json"
     ],
     "kommunisme": [
       "content/concepts/kommunisme.json"
@@ -406,6 +415,9 @@
     ],
     "tekstil": [
       "content/concepts/tekstil.json"
+    ],
+    "temasetning": [
+      "content/concepts/temasetning.json"
     ],
     "teokrati": [
       "content/concepts/teokrati.json"
@@ -1128,6 +1140,9 @@
     "hvordan-skrive-eventyr": [
       "content/norsk/skrivehjelp/hvordan-skrive-eventyr.json"
     ],
+    "hvordan-skrive-gode-saktekster": [
+      "content/norsk/skrivehjelp/hvordan-skrive-gode-saktekster.json"
+    ],
     "hvordan-skrive-novelle": [
       "content/norsk/skrivehjelp/hvordan-skrive-novelle.json"
     ],
@@ -1436,7 +1451,9 @@
     "concepts/artilleri.json/artilleri": "content/concepts/artilleri.json",
     "concepts/autoritaert-diktatur.json/autoritaert-diktatur": "content/concepts/autoritaert-diktatur.json",
     "concepts/avkolonisering.json/avkolonisering": "content/concepts/avkolonisering.json",
+    "concepts/avsnitt.json/avsnitt": "content/concepts/avsnitt.json",
     "concepts/balfour-erklaeringen.json/balfour-erklaeringen": "content/concepts/balfour-erklaeringen.json",
+    "concepts/bindeord.json/bindeord": "content/concepts/bindeord.json",
     "concepts/blankoblankett.json/blankoblankett": "content/concepts/blankoblankett.json",
     "concepts/blitzkrieg.json/blitzkrieg": "content/concepts/blitzkrieg.json",
     "concepts/blokade.json/blokade": "content/concepts/blokade.json",
@@ -1489,6 +1506,7 @@
     "concepts/khalsa.json/khalsa": "content/concepts/khalsa.json",
     "concepts/kirtan.json/kirtan": "content/concepts/kirtan.json",
     "concepts/koloni.json/koloni": "content/concepts/koloni.json",
+    "concepts/kommentarsetning.json/kommentarsetning": "content/concepts/kommentarsetning.json",
     "concepts/kommunisme.json/kommunisme": "content/concepts/kommunisme.json",
     "concepts/komsakulturen.json/komsakulturen": "content/concepts/komsakulturen.json",
     "concepts/krigserstatning.json/krigserstatning": "content/concepts/krigserstatning.json",
@@ -1558,6 +1576,7 @@
     "concepts/te.json/te": "content/concepts/te.json",
     "concepts/teknokrati.json/teknokrati": "content/concepts/teknokrati.json",
     "concepts/tekstil.json/tekstil": "content/concepts/tekstil.json",
+    "concepts/temasetning.json/temasetning": "content/concepts/temasetning.json",
     "concepts/teokrati.json/teokrati": "content/concepts/teokrati.json",
     "concepts/total-krig.json/total-krig": "content/concepts/total-krig.json",
     "concepts/totalitaert-diktatur.json/totalitaert-diktatur": "content/concepts/totalitaert-diktatur.json",
@@ -1846,6 +1865,7 @@
     "norsk/skrivehjelp/hvordan-fore-kilder": "content/norsk/skrivehjelp/hvordan-fore-kilder.json",
     "norsk/skrivehjelp/hvordan-skrive-dikt": "content/norsk/skrivehjelp/hvordan-skrive-dikt.json",
     "norsk/skrivehjelp/hvordan-skrive-eventyr": "content/norsk/skrivehjelp/hvordan-skrive-eventyr.json",
+    "norsk/skrivehjelp/hvordan-skrive-gode-saktekster": "content/norsk/skrivehjelp/hvordan-skrive-gode-saktekster.json",
     "norsk/skrivehjelp/hvordan-skrive-novelle": "content/norsk/skrivehjelp/hvordan-skrive-novelle.json",
     "norsk/skrivehjelp/hvordan-skrive-roman": "content/norsk/skrivehjelp/hvordan-skrive-roman.json",
     "norsk/skrivehjelp/skriv-bedre-historier": "content/norsk/skrivehjelp/skriv-bedre-historier.json",
