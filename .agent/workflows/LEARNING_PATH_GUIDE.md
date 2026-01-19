@@ -48,11 +48,12 @@ En læringssti består av metadata og en liste med steg.
 {
     "id": "mitt-emne-sti",
     "title": "Læringssti: Tittel",
-    "description": "Kort innsalg til eleven.",
+    "description": "Vises på kortet i Biblioteket. Må være selgende og konsis.",
     "layout": "learning-path",
     "category": "Læringssti",
-    "year": "Tidsperiode",
-    "readTime": "Estimat (f.eks 2-3 timer)",
+    "year": "1914-1918",
+    "readTime": "3 timer",
+    "heroImage": "/bilder/mitt-emne/hero.jpg", 
     "learningPathData": {
         "id": "mitt-emne-sti",
         "title": "Tittel inne i selve komponenten",
@@ -105,7 +106,30 @@ Du kan legge inn spill og verktøy direkte i et steg ved å bruke `component`-fe
 
 #### Tilgjengelige komponenter:
 
-**1. PackTheBag (Ressursstyring)**
+**1. BiasLens (Perspektiv/Kildekritikk)**
+Lar eleven se samme tekst gjennom ulike "linser" (f.eks. Fransk vs Tysk avis).
+```json
+"component": {
+    "name": "BiasLens",
+    "props": {
+        "title": "Krigspropaganda",
+        "baseContent": "Slaget var hardt...",
+        "lenses": [
+            {
+                "id": "german",
+                "label": "Tysk Avis",
+                "description": "Fokus på heroisme.",
+                "theme": { "color": "#ef4444", "bgColor": "bg-red-50", "borderColor": "border-red-200", "textColor": "text-slate-900" },
+                "replacements": [
+                    { "original": "Slaget", "replacement": "Den heroiske kampen", "explanation": "Propaganda..." }
+                ]
+            }
+        ]
+    }
+}
+```
+
+**2. PackTheBag (Ressursstyring)**
 Brukes for forberedelser, reiser eller økonomi.
 ```json
 "component": {
@@ -120,7 +144,7 @@ Brukes for forberedelser, reiser eller økonomi.
 }
 ```
 
-**2. ScenarioRoleplay (Valg-basert historie)**
+**3. ScenarioRoleplay (Valg-basert historie)**
 Brukes for dilemmaer og historisk empati.
 ```json
 "component": {
@@ -143,7 +167,7 @@ Brukes for dilemmaer og historisk empati.
 }
 ```
 
-**3. DebateSimulator (Argumentasjon)**
+**4. DebateSimulator (Argumentasjon)**
 Brukes for politikk, rettssaker eller konflikter.
 ```json
 "component": {
@@ -160,7 +184,7 @@ Brukes for politikk, rettssaker eller konflikter.
 }
 ```
 
-**4. DragDropTimeline (Rekkefølge)**
+**5. DragDropTimeline (Rekkefølge)**
 Brukes for hendelsesforløp.
 ```json
 "component": {
@@ -175,9 +199,16 @@ Brukes for hendelsesforløp.
 }
 ```
 
-## 4. Registrering i Manifest
+## 4. Registrering og Synlighet
 
-For at stien skal vises i systemet, må den registreres i `public/content/manifest.json` under riktig `topic`.
+### A. Synlighet i "Biblioteket" (Hub)
+Systemet scanner automatisk `public/content` etter filer som slutter på `-sti.json`.
+*   **Sortering:** Stiene sorteres etter Tidsperiode (`year`) og Fag (`subject`).
+*   **Fag:** Bestemmes av mappen filen ligger i (f.eks `/content/historie/...`).
+*   **Kortet:** Bruker `title`, `description` og `readTime` fra JSON-filen.
+
+### B. Synlighet på Emnesiden (Manifest)
+For at stien skal vises i sidebaren inne på et emne (f.eks. "Mellomkrigstiden"), må den registreres i `public/content/manifest.json`.
 
 ```json
 {
@@ -216,12 +247,12 @@ For at stien skal vises i systemet, må den registreres i `public/content/manife
 **Årsak:** Læringsstien er ikke registrert korrekt i `tools`-listen i manifestet, eller koden finner den ikke.
 **Løsning:** Sjekk at `tools`-blokken ligger på samme nivå som `lessons` inne i emnet.
 
-#### 4. Navigasjon på Emnekort
-**Symptom:** Klikk på emnet går rett til første artikkel, ikke oversikten.
-**Årsak:** Systemet tror emnet bare har én leksjon og hopper over forsiden.
-**Løsning:** Sørg for at `tools` er definert. Navigasjonslogikken skal prioritere oversiktssiden hvis verktøy finnes.
+#### 4. Hub vs Manifest
+**Symptom:** Stien synes i Biblioteket, men ikke på emnesiden.
+**Årsak:** Filen er opprettet, men du har glemt å legge den inn i `manifest.json`.
+**Løsning:** Følg steg 4B over.
 
-> **VIKTIG:** Sørg for at `id` i manifestet matcher filnavnet (uten .json) og `id` inne i JSON-filen.
+> **VIKTIG:** Sørg for at `id` i manifestet matcher `id` inne i JSON-filen.
 
 ## 5. Sjekkliste for Kvalitetssikring
 
@@ -233,7 +264,7 @@ Før du sier deg ferdig:
 4.  [ ] **Narrativ Dybde**: Har hvert steg minst 150 ord med guiding tekst?
 5.  [ ] **Ghost-Fact Audit (KRITISK)**: Har du manuelt verifisert at alle 'Fakta'-spørsmål faktisk kan besvares ved å lese den lenkede artikkelen? Det er forbudt å spørre om noe som ikke står i kildematerialet.
 6.  [ ] **Testing**: Åpne stien i nettleseren og klikk gjennom alle stegene. Spill gjennom scenariene for å sjekke at logikken holder.
-7.  [ ] **Data Synchronization:** Run `node scripts/scan-concepts.js` to update the global glossary and people records.
+7.  [ ] **Data Synchronization:** Run `node scripts/update-learning-paths.cjs` to update the library hub.
 
 ## 6. Tips & Triks
 

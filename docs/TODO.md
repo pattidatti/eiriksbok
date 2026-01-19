@@ -11,7 +11,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Læringsstier laster ikke. Må gå ut og inn på en annen før de vises. Major bug. 
 
 ## Læringsstier
-- [ ] Læringsstier: Hver sett med oppgaver må ha en liten boks for å kopiere alle spørsmålene, slik at elevene enkelt kan få dem kopiert inn i skriveboken sin, uten å måtte skrive alt selv, eller dille med å merke alt. 
+- [x] Læringsstier: Hver sett med oppgaver må ha en liten boks for å kopiere alle spørsmålene, slik at elevene enkelt kan få dem kopiert inn i skriveboken sin, uten å måtte skrive alt selv, eller dille med å merke alt. 
 - [ ] Det er ikke garantert at en læringssti laster, en må ofte gå inn og ut før den til slutt vises. 
 
 ## 💡 Ideer
@@ -29,9 +29,9 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 ## content
 
 ### Samfunnskunnskap
-- [ ] Lage Økonomi som eget emne. Artikkel om pengesystem vs naturalhandel. 
-- [ ] Artikkel om arbeidsspesialisering i økonomi. 
-- [ ] Demografi må få sitt eget emne, lage artikler om, demografisk overgang med utviklingsfaser, fødselsrate, dødsrate, befolkningstall, etc. BØr man ha ulike artikler om alt, eller en giga? EN artikkel om migrasjon og push/pull. En artikkel om Malthus og Boseup. Artikkel om relativ og absolutt fattigdom. Artikkel om befolkningspyramide, eller skal denne inn i demografisk overgang? Artikkel om urbanisering. Artikkel om teknologisk/idee utvikling siste 250 årene som har markant redusert dødsraten. 
+- [x] Lage Økonomi som eget emne. Artikkel om pengesystem vs naturalhandel. 
+- [x] Artikkel om arbeidsspesialisering i økonomi. 
+- [x] Demografi må få sitt eget emne, lage artikler om, demografisk overgang med utviklingsfaser, fødselsrate, dødsrate, befolkningstall, etc. BØr man ha ulike artikler om alt, eller en giga? EN artikkel om migrasjon og push/pull. En artikkel om Malthus og Boseup. Artikkel om relativ og absolutt fattigdom. Artikkel om befolkningspyramide, eller skal denne inn i demografisk overgang? Artikkel om urbanisering. Artikkel om teknologisk/idee utvikling siste 250 årene som har markant redusert dødsraten. 
 
 ### Historie
 - [ ] Artikler om kolonier gjennom tidene, fra Hellas, Romer, til moderne kolonier. I samme artikkel; hvordan dette ofte er en del av imperialismen. Ingen av disse konseptene er verken nye eller europeiske. Lage passende interaktive modeller som understreker konseptene og eksemplifiserer hendelser. 
@@ -45,7 +45,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 - [ ] Finne en logisk måte å skille retninger innen kristendom og islam. 
 - [x] Etikk og filosofi-emne. 
-- [ ] Artikkel om sekularisering
+- [ ] Emne om sekularisering
 - [x] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
 - [x] Emne om Sikhismen, utfyllende og ilstrekkelige artikler. Må implementeres i samme struktur som andre emner i krle og med kobling til sammenligningsverktøyene.
 
