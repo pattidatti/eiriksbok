@@ -4,7 +4,7 @@
     "subject": "norsk",
     "topic": "skrivehjelp",
     "layout": "rich",
-    "heroImage": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
+    "heroImage": "/images/topics/skrivehjelp_hero.png",
     "content": [
         {
             "type": "header",
@@ -18,6 +18,12 @@
             "type": "section",
             "title": "Del 1: Handling og Drivkraft",
             "content": [
+                {
+                    "type": "image",
+                    "src": "/images/topics/skrivehjelp_handling.png",
+                    "alt": "En reisende ved et veiskille i skogen",
+                    "caption": "Handling starter med valg – karakteren din må eie sin egen vei."
+                },
                 {
                     "type": "text",
                     "content": "For å skape en historie som fenger, må karakterene dine ha en grunn til å handle. Det holder ikke at ting skjer *med* dem – de må få ting til å skje. Dette starter helt nede på setningsnivå med aktive valg og kraftfulle verb."
@@ -107,6 +113,12 @@
             "type": "section",
             "title": "Del 2: Det Indre Livet og Dialog",
             "content": [
+                {
+                    "type": "image",
+                    "src": "/images/topics/skrivehjelp_dialog.png",
+                    "alt": "To personer i en intens samtale over et kart",
+                    "caption": "Dialog og indre liv skaper dybde og menneskelig kontakt."
+                },
                 {
                     "type": "text",
                     "content": "En god historie føles ekte når vi får tilgang til karakterenes indre univers. Men det er en balansekunst – for mye indre monolog kan stoppe fremdriften, mens for lite kan gjøre karakterene flate."
@@ -198,6 +210,12 @@
             "type": "section",
             "title": "Del 3: Stil og Perspektiv",
             "content": [
+                {
+                    "type": "image",
+                    "src": "/images/topics/skrivehjelp_stil.png",
+                    "alt": "Nærbilde av en sjakkpiece som plasseres med presisjon",
+                    "caption": "Stil handler om presisjon – hver detalj må ha en hensikt."
+                },
                 {
                     "type": "text",
                     "content": "Stil er forfatterens fingeravtrykk på teksten. Det handler om de små valgene: hvilke ord du velger, hvor lange setningene er, og hvilket perspektiv du velger å se verden gjennom."

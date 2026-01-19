@@ -44,7 +44,7 @@ export const WritingFix: React.FC<WritingFixProps> = ({ title, items }) => {
                         </div>
 
                         {/* Good version - Primary focus */}
-                        <div className="text-slate-800 text-lg leading-relaxed font-medium whitespace-pre-line">
+                        <div className="text-slate-800 text-base leading-relaxed font-normal whitespace-pre-line">
                             {renderInlineMarkdown(item.good, entries)}
                         </div>
 
