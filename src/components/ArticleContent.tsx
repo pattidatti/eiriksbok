@@ -375,6 +375,29 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                             </React.Suspense>
                         );
 
+                    case 'task':
+                        const taskContent = (block as any).content || (block as any).text;
+                        return (
+                            <div key={index} className="my-12 relative">
+                                <div className="absolute -top-4 -left-4 w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center shadow-sm z-10 transform -rotate-12">
+                                    <CheckCircle2 className="w-6 h-6" />
+                                </div>
+                                <div className="bg-gradient-to-br from-amber-50/50 to-white border-2 border-amber-100 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 p-4 opacity-5">
+                                        <CheckCircle2 size={120} />
+                                    </div>
+                                    <div className="relative">
+                                        <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                            {(block as any).title || 'Oppgave'}
+                                        </h3>
+                                        <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed text-lg">
+                                            {renderWithMarkdown(taskContent, mergedConcepts)}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+
                     case 'quiz':
                         const QuizComp = getComponent('Quiz');
                         if (!QuizComp) return null;

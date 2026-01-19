@@ -1,13 +1,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { X, Check } from 'lucide-react';
 import { renderInlineMarkdown } from './markdownUtils';
 import { useGlossary } from '../context/GlossaryContext';
 
 interface WritingFixItem {
     bad: string;
     good: string;
+    why?: string;
 }
 
 interface WritingFixProps {
@@ -19,40 +19,41 @@ export const WritingFix: React.FC<WritingFixProps> = ({ title, items }) => {
     const { entries } = useGlossary();
 
     return (
-        <div className="my-8 max-w-2xl mx-auto">
+        <div className="my-10 max-w-2xl mx-auto px-4 md:px-0">
             {title && (
-                <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4 ml-2">
+                <h4 className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] mb-4">
                     {title}
                 </h4>
             )}
-            <div className="bg-slate-50/50 rounded-2xl border border-slate-100 overflow-hidden">
+            <div className="space-y-8">
                 {items.map((item, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.05 }}
-                        className={`p-4 ${index !== items.length - 1 ? 'border-b border-slate-100' : ''}`}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className="relative pl-6 border-l border-slate-100 group"
                     >
-                        {/* Bad version */}
-                        <div className="flex items-start gap-3 mb-2 opacity-60">
-                            <div className="mt-1 p-0.5 bg-red-50 text-red-500 rounded-full flex-shrink-0">
-                                <X size={12} strokeWidth={3} />
-                            </div>
-                            <div className="text-slate-600 italic line-through decoration-red-200/50">
-                                {renderInlineMarkdown(item.bad, entries)}
-                            </div>
+                        {/* Status Indicator Dot */}
+                        <div className="absolute left-[-4.5px] top-2 w-2 h-2 rounded-full bg-slate-200 group-hover:bg-emerald-400 transition-colors duration-500" />
+
+                        {/* Bad version - Ghosted and Struck-through */}
+                        <div className="mb-1 text-slate-400/60 line-through decoration-slate-300/40 text-sm font-light italic whitespace-pre-line">
+                            {renderInlineMarkdown(item.bad, entries)}
                         </div>
 
-                        {/* Good version */}
-                        <div className="flex items-start gap-3">
-                            <div className="mt-1 p-0.5 bg-emerald-50 text-emerald-600 rounded-full flex-shrink-0">
-                                <Check size={12} strokeWidth={3} />
-                            </div>
-                            <div className="text-slate-800 font-medium">
-                                {renderInlineMarkdown(item.good, entries)}
-                            </div>
+                        {/* Good version - Primary focus */}
+                        <div className="text-slate-800 text-lg leading-relaxed font-medium whitespace-pre-line">
+                            {renderInlineMarkdown(item.good, entries)}
                         </div>
+
+                        {/* Why? - Optional context added for depth */}
+                        {item.why && (
+                            <div className="mt-2 text-xs text-slate-400 font-normal max-w-prose">
+                                {renderInlineMarkdown(item.why, entries)}
+                            </div>
+                        )}
                     </motion.div>
                 ))}
             </div>
