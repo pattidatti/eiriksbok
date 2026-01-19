@@ -194,13 +194,15 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                                         <h3 className={`text-xl font-bold mb-2 ${step.type === 'oppgave' ? 'text-orange-900' : 'text-slate-800'}`}>
                                             {step.title}
                                         </h3>
-                                        <div className="prose prose-sm prose-slate max-w-none text-slate-600 leading-relaxed mb-3">
-                                            {step.content.split('\n\n').map((paragraph, i) => (
-                                                <p key={i} className="mb-4 last:mb-0">
-                                                    {renderInlineMarkdown(paragraph, entries)}
-                                                </p>
-                                            ))}
-                                        </div>
+                                        {step.content && (
+                                            <div className="prose prose-sm prose-slate max-w-none text-slate-600 leading-relaxed mb-3">
+                                                {step.content.split('\n\n').map((paragraph, i) => (
+                                                    <p key={i} className="mb-4 last:mb-0">
+                                                        {renderInlineMarkdown(paragraph, entries)}
+                                                    </p>
+                                                ))}
+                                            </div>
+                                        )}
 
                                         {step.component && (
                                             <div className="mb-6 mt-4">

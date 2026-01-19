@@ -1,168 +1,151 @@
 import React, { useState, useMemo } from 'react';
 import { learningPathsData } from '../data/learningPathsHelper';
-import { SubjectSection } from '../components/learning-paths/SubjectSection';
-import { Search, Hash, BookOpen } from 'lucide-react';
+import { PathCard } from '../components/learning-paths/PathCard';
+import { FilterBar } from '../components/learning-paths/FilterBar';
+import { Search, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-// Sticky Sidebar Item
-const NavItem = ({ id, label, count, isActive, onClick }: any) => (
-    <button
-        onClick={onClick}
-        className={`
-            w-full text-left px-4 py-2 rounded-lg text-sm font-medium transition-colors flex justify-between items-center group
-            ${isActive ? 'bg-blue-50 text-blue-700' : 'text-text-muted hover:bg-black/5 hover:text-text-main'}
-        `}
-    >
-        <span>{label}</span>
-        <span className={`
-            text-xs px-2 py-0.5 rounded-full 
-            ${isActive ? 'bg-blue-100 text-blue-800' : 'bg-black/5 text-text-muted group-hover:bg-black/10'}
-        `}>
-            {count}
-        </span>
-    </button>
-);
 
 export const LearningPathsHub: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [activeSubject, setActiveSubject] = useState<string | null>(null);
+    const [selectedSubject, setSelectedSubject] = useState('Alle');
+
+    // Counts Logic for Filter Bar
+    const subjectCounts = useMemo(() => {
+        const counts: Record<string, number> = {};
+        learningPathsData.paths.forEach(p => {
+            const subj = p.subjectName; // Use Display Name for the filter bar
+            counts[subj] = (counts[subj] || 0) + 1;
+        });
+        return counts;
+    }, []);
+
+    // Get unique subjects for the filter bar (sorted by count or custom order)
+    const subjects = useMemo(() => {
+        const priority = ['Historie', 'Norsk', 'KRLE', 'Samfunnskunnskap', 'Musikk', 'Naturfag'];
+        const existing = Object.keys(subjectCounts);
+        return [
+            ...priority.filter(s => existing.includes(s)),
+            ...existing.filter(s => !priority.includes(s))
+        ];
+    }, [subjectCounts]);
 
     // Grouping Logic
-    const groupedPaths = useMemo(() => {
+    const sections = useMemo(() => {
+        const groups: Record<string, typeof learningPathsData.paths> = {};
+
+        // 1. Filter first
         const filtered = learningPathsData.paths.filter(p =>
             p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
             p.description.toLowerCase().includes(searchQuery.toLowerCase())
         );
 
-        const groups: Record<string, typeof filtered> = {};
-
+        // 2. Group
         filtered.forEach(path => {
-            const subj = path.subjectId;
+            // If specific subject selected, skip others
+            if (selectedSubject !== 'Alle' && path.subjectName !== selectedSubject) return;
+
+            const subj = path.subjectName;
             if (!groups[subj]) groups[subj] = [];
             groups[subj].push(path);
         });
 
-        // Ensure specific order if exists, otherwise alphabetical
-        const order = ['historie', 'norsk', 'krle', 'samfunnskunnskap', 'musikk', 'naturfag', 'annet'];
+        // 3. Order
+        const priority = ['Historie', 'Norsk', 'KRLE', 'Samfunnskunnskap', 'Musikk', 'Naturfag'];
+        const existing = Object.keys(groups);
+        const sortedKeys = [
+            ...priority.filter(s => existing.includes(s)),
+            ...existing.filter(s => !priority.includes(s))
+        ];
 
-        return order
-            .filter(subj => groups[subj]?.length > 0)
-            .map(subj => ({
-                id: subj,
-                name: groups[subj][0].subjectName, // Take name from first item
-                paths: groups[subj]
-            }));
-    }, [searchQuery]);
-
-    const scrollToSection = (id: string) => {
-        const el = document.getElementById(`subject-${id}`);
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-            setActiveSubject(id);
-        }
-    };
+        return sortedKeys.map(key => ({
+            name: key,
+            paths: groups[key]
+        }));
+    }, [searchQuery, selectedSubject]);
 
     return (
-        <div className="min-h-screen pb-20">
-            {/* Hero Section */}
-            <div className="relative pt-20 pb-12 px-6 bg-gradient-to-b from-blue-50/50 to-transparent">
-                <div className="max-w-7xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="max-w-2xl"
-                    >
-                        <h1 className="text-4xl md:text-5xl font-display font-bold text-text-main mb-4">
-                            Biblioteket
-                        </h1>
-                        <p className="text-lg text-text-muted mb-8 leading-relaxed">
-                            {learningPathsData.count} læringsstier samlet på ett sted.
-                            Gå i dybden, utforsk sammenhenger og følg din egen nysgjerrighet.
-                        </p>
+        <div className="min-h-screen pb-20 bg-slate-50/30">
+            {/* 1. COMPACT HEADER */}
+            <div className="pt-24 pb-6 px-6 sm:px-8 max-w-[1920px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6">
 
-                        {/* Search Bar */}
-                        <div className="relative max-w-lg">
-                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted" size={20} />
-                            <input
-                                type="text"
-                                placeholder="Søk etter emner, tidsepoker eller personer..."
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full pl-12 pr-4 py-3 bg-white/80 backdrop-blur border border-black/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm"
-                            />
-                        </div>
-                    </motion.div>
+                {/* Title */}
+                <div>
+                    <h1 className="text-3xl font-display font-bold text-slate-900 flex items-center gap-3">
+                        <BookOpen className="text-indigo-600" size={32} />
+                        Biblioteket
+                    </h1>
+                    <p className="text-slate-500 mt-2 text-sm max-w-lg">
+                        {learningPathsData.count} kuraterte læringsstier. Velg et fag eller søk fritt.
+                    </p>
+                </div>
+
+                {/* Search (Compact, Right Aligned) */}
+                <div className="relative w-full md:w-80 lg:w-96">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                    <input
+                        type="text"
+                        placeholder="Søk i biblioteket..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all shadow-sm text-sm"
+                    />
                 </div>
             </div>
 
-            {/* Main Content Layout */}
-            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 mt-8">
+            {/* 2. STICKY FILTER BAR */}
+            <FilterBar
+                subjects={subjects}
+                selectedSubject={selectedSubject}
+                onSelectSubject={setSelectedSubject}
+                counts={subjectCounts}
+            />
 
-                {/* Desktop Sidebar (Sticky) */}
-                <aside className="hidden lg:block lg:col-span-3">
-                    <div className="sticky top-24 space-y-2">
-                        <div className="flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider text-text-muted opacity-60">
-                            <Hash size={14} />
-                            <span>Fagområder</span>
+            {/* 3. GROUPED SECTIONS GRID */}
+            <div className="px-6 sm:px-8 py-8 max-w-[1920px] mx-auto space-y-12">
+                {sections.map(section => (
+                    <section key={section.name} id={`subject-${section.name}`}>
+                        {/* Section Header */}
+                        <div className="flex items-center gap-3 mb-6">
+                            <h2 className="text-xl font-bold text-slate-800">
+                                {section.name}
+                            </h2>
+                            <span className="bg-white border border-slate-200 text-slate-500 text-xs font-medium px-2.5 py-0.5 rounded-full shadow-sm">
+                                {section.paths.length}
+                            </span>
                         </div>
 
-                        {groupedPaths.map(group => (
-                            <NavItem
-                                key={group.id}
-                                id={group.id}
-                                label={group.name}
-                                count={group.paths.length}
-                                isActive={activeSubject === group.id}
-                                onClick={() => scrollToSection(group.id)}
-                            />
-                        ))}
-
-                        {groupedPaths.length === 0 && (
-                            <div className="px-4 py-4 text-sm text-text-muted italic">
-                                Ingen treff funnet.
-                            </div>
-                        )}
-                    </div>
-                </aside>
-
-                {/* Mobile Navigation (Horizontal Scroll) */}
-                <div className="lg:hidden col-span-1 overflow-x-auto pb-4 -mx-6 px-6 flex gap-2 sticky top-[64px] z-30 bg-bg-main/95 backdrop-blur border-b border-black/5">
-                    {groupedPaths.map(group => (
-                        <button
-                            key={group.id}
-                            onClick={() => scrollToSection(group.id)}
-                            className="whitespace-nowrap px-4 py-2 bg-white border border-black/10 rounded-full text-sm font-medium shadow-sm active:scale-95 transition-transform"
+                        <motion.div
+                            layout
+                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
                         >
-                            {group.name} ({group.paths.length})
+                            {section.paths.map(path => (
+                                <motion.div
+                                    layout
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.2 }}
+                                    key={path.id}
+                                >
+                                    <PathCard path={path} />
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </section>
+                ))}
+
+                {/* Empty State */}
+                {sections.length === 0 && (
+                    <div className="flex flex-col items-center justify-center py-32 text-slate-400">
+                        <Search size={48} className="mb-4 opacity-20" />
+                        <p className="text-lg font-medium">Ingen resultater funnet.</p>
+                        <button
+                            onClick={() => { setSearchQuery(''); setSelectedSubject('Alle'); }}
+                            className="mt-4 text-indigo-600 hover:underline text-sm"
+                        >
+                            Nullstill filtre
                         </button>
-                    ))}
-                </div>
-
-                {/* Content Area */}
-                <main className="lg:col-span-9 min-h-[50vh]">
-                    {groupedPaths.map(group => (
-                        <SubjectSection
-                            key={group.id}
-                            subjectId={group.id}
-                            subjectName={group.name}
-                            paths={group.paths}
-                        />
-                    ))}
-
-                    {groupedPaths.length === 0 && (
-                        <div className="flex flex-col items-center justify-center py-20 text-text-muted">
-                            <BookOpen size={48} className="mb-4 opacity-20" />
-                            <p className="text-lg">Ingen læringsstier passet til søket ditt.</p>
-                            <button
-                                onClick={() => setSearchQuery('')}
-                                className="mt-4 text-blue-600 hover:underline"
-                            >
-                                Nullstill søk
-                            </button>
-                        </div>
-                    )}
-                </main>
-
+                    </div>
+                )}
             </div>
         </div>
     );

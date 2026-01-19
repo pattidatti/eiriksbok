@@ -36,7 +36,81 @@
                 "phase": "Akt 1: Opptakten",
                 "title": "Steg 1: Fredens pris",
                 "type": "fakta",
-                "content": "Du står i Speilsalen i Versailles. Det er juni 1919. Rundt deg sitter seierherrene – franske, britiske, amerikanske delegater. Den tyske delegasjonen er plassert som anklagede, ikke som forhandlingspartnere. De må signere en traktat de hater.\n\nVersaillestraktaten pålegger Tyskland eneansvar for krigen. Krigserstatninger på milliarder av gullmark. Tap av 13% av territoriet. En hær redusert til 100 000 mann. Rhinland demilitarisert. Kolonier konfiskert.\n\nDe allierte er fornøyde – særlig Frankrike, som endelig får sin hevn for 1871. Men en britisk økonom ved navn John Maynard Keynes advarer: dette er ikke fred, dette er en pause på tyve år.\n\nOg i Tyskland sprer det seg en giftig myte: at hæren aldri tapte på slagmarken, men ble 'dolket i ryggen' av politikere, sosialister, jøder. Dolkestøtlegenden vil forgifte den nye republikken.\n\nMens du leser om Versailles og Folkeforbundet, tenk på om freden var designet for å vare – eller for å hevne.",
+                "component": {
+                    "name": "BiasLens",
+                    "props": {
+                        "title": "Versailles: Fred eller Diktat?",
+                        "baseContent": "Versaillestraktaten ble signert i 1919. Den påla Tyskland ansvar for krigens ødeleggelser og krevde at landet skulle betale erstatning. Tysklands militære ble redusert for å sikre freden. Grensene ble tegnet på nytt, og Tyskland mistet territorium.",
+                        "lenses": [
+                            {
+                                "id": "german",
+                                "label": "Tysk Perspektiv",
+                                "description": "Opplevelsen av å bli ydmyket",
+                                "theme": {
+                                    "color": "#991b1b",
+                                    "bgColor": "bg-[#fffbfb]",
+                                    "borderColor": "border-red-900/10",
+                                    "textColor": "text-gray-900"
+                                },
+                                "replacements": [
+                                    {
+                                        "original": "Versaillestraktaten",
+                                        "replacement": "Versailles-diktatet",
+                                        "explanation": "Tyskerne kalte traktaten et 'diktat' fordi de ikke fikk delta i forhandlingene, men måtte signere under trussel om invasjon."
+                                    },
+                                    {
+                                        "original": "påla Tyskland ansvar",
+                                        "replacement": "tvang på oss alene-skylden",
+                                        "explanation": "Paragraf 231 la all skyld for krigen på Tyskland. Dette ble opplevd som dypt urettferdig og en nasjonal ærekrenkelse."
+                                    },
+                                    {
+                                        "original": "betale erstatning",
+                                        "replacement": "betale en evig slavegjeld",
+                                        "explanation": "Erstatningssummene var astronomiske. Mange tyskere følte at de allierte ville gjøre dem til gjeldsslaver i generasjoner."
+                                    },
+                                    {
+                                        "original": "redusert for å sikre freden",
+                                        "replacement": "knust for å gjøre oss forsvarsløse",
+                                        "explanation": "Hæren ble begrenset til 100 000 mann uten fly eller stridsvogner. Tyskland følte seg nakne omgitt av bevæpnede fiender."
+                                    },
+                                    {
+                                        "original": "mistet territorium",
+                                        "replacement": "ble frastjålet fedrelandet",
+                                        "explanation": "Tyskland mistet 13% av landet sitt, inkludert viktige industriområder og områder med tysk befolkning."
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "french",
+                                "label": "Fransk Perspektiv",
+                                "description": "Kravet om rettferdighet og sikkerhet",
+                                "theme": {
+                                    "color": "#1e40af",
+                                    "bgColor": "bg-[#f8fafc]",
+                                    "borderColor": "border-blue-900/10",
+                                    "textColor": "text-gray-900"
+                                },
+                                "replacements": [
+                                    {
+                                        "original": "påla Tyskland ansvar",
+                                        "replacement": "krevde rettferdighet fra aggressoren",
+                                        "explanation": "For Frankrike, som hadde mistet 1,4 millioner menn og fått landet sitt ødelagt, handlet dette om rettferdighet."
+                                    },
+                                    {
+                                        "original": "betale erstatning",
+                                        "replacement": "betale for gjenoppbyggingen",
+                                        "explanation": "Frankrike lå i ruiner. Logikken var enkel: Den som ødelegger, må betale for reparasjonen."
+                                    },
+                                    {
+                                        "original": "sikre freden",
+                                        "replacement": "hindre nye tyske overgrep",
+                                        "explanation": "Clemenceaus hovedmål var å sikre at Tyskland aldri igjen ble sterk nok til å invadere Frankrike (som de hadde gjort i 1870 og 1914)."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
                 "tasks": [
                     "Hvilke territorielle og militære begrensninger påla Versaillestraktaten Tyskland? (Fakta)",
                     "Hva var dolkestøtlegenden, og hvorfor var den farlig? (Forståelse)",

@@ -59,6 +59,7 @@ const RomanDefenseModel = lazy(() => import('./content/interactive/RomanDefenseM
 const DetectiveEngine = lazy(() => import('./content/interactive/detective/DetectiveEngine').then(m => ({ default: m.DetectiveEngine })));
 const PerspectivePrism = lazy(() => import('./content/interactive/PerspectivePrism').then(m => ({ default: m.PerspectivePrism })));
 const PovertySimulation = lazy(() => import('./content/interactive/PovertySimulation').then(m => ({ default: m.PovertySimulation })));
+const BiasLens = lazy(() => import('./learning-path/BiasLens').then(m => ({ default: m.BiasLens })));
 
 // Demography
 const DTMSimulator = lazy(() => import('./content/interactive/demography/DTMSimulator').then(m => ({ default: m.DTMSimulator })));
@@ -149,6 +150,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     DetectiveEngine,
     PerspectivePrism,
     PovertySimulation,
+    BiasLens,
 
     // Demography
     DTMSimulator,

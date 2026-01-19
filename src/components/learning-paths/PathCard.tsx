@@ -33,65 +33,61 @@ export const PathCard: React.FC<PathCardProps> = ({ path }) => {
     // Standard Route: /fag/:subject/tema/:topic/sti/:learningPathId
     // If topicId is undefined or generelt, maybe we route differently? 
     // For now assuming the structure works, but cleaning "undefined" string if present.
-    const cleanTopicId = path.topicId === 'undefined' ? 'generelt' : path.topicId;
-    const linkTo = `/fag/${path.subjectId}/tema/${cleanTopicId}/sti/${path.id}`;
+    const linkTo = path.path;
 
     const colorClass = subjectColors[path.subjectId] || subjectColors['annet'];
     const textColorClass = subjectTextColors[path.subjectId] || subjectTextColors['annet'];
 
     return (
-        <Link to={linkTo} className="block h-full">
+        <Link to={linkTo} className="block h-full group">
             <motion.div
-                whileHover={{ y: -4, scale: 1.01 }}
+                whileHover={{ y: -2 }}
                 className={`
-                    relative h-full flex flex-col p-6 rounded-2xl
-                    backdrop-blur-md bg-white/40 
-                    border ${colorClass} transition-colors duration-300
-                    shadow-sm hover:shadow-md
-                    overflow-hidden group
+                    relative h-full flex flex-col p-5 rounded-xl
+                    bg-white/60 backdrop-blur-sm
+                    border ${colorClass} transition-all duration-300
+                    shadow-sm hover:shadow-md hover:bg-white/80
+                    overflow-hidden
                 `}
             >
-                {/* Decorative background gradient blob */}
+                {/* Decorative background gradient blob - simpler and smaller */}
                 <div className={`
-                    absolute -top-10 -right-10 w-32 h-32 rounded-full 
+                    absolute -top-12 -right-12 w-24 h-24 rounded-full 
                     bg-gradient-to-br ${colorClass.split(' ')[0]} ${colorClass.split(' ')[1]}
-                    opacity-20 blur-xl group-hover:scale-150 transition-transform duration-500
+                    opacity-10 group-hover:opacity-20 transition-opacity duration-300
                 `} />
 
                 {/* Header: Subject & Year */}
-                <div className="flex justify-between items-start mb-4 relative z-10">
-                    <span className={`text-xs font-bold uppercase tracking-wider ${textColorClass}`}>
+                <div className="flex justify-between items-start mb-3 relative z-10">
+                    <span className={`text-[10px] font-bold uppercase tracking-widest ${textColorClass}`}>
                         {path.subjectName}
                     </span>
                     {path.year && (
-                        <div className="flex items-center gap-1 text-xs text-text-muted bg-white/50 px-2 py-1 rounded-full">
-                            <Calendar size={12} />
+                        <div className="flex items-center gap-1 text-[10px] text-text-muted bg-white/60 px-2 py-0.5 rounded-full border border-black/5">
+                            <Calendar size={10} />
                             <span>{path.year}</span>
                         </div>
                     )}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-display font-bold text-text-main mb-2 leading-tight group-hover:text-blue-700 transition-colors">
+                <h3 className="text-lg font-display font-bold text-slate-800 mb-2 leading-tight group-hover:text-blue-700 transition-colors">
                     {path.title.replace('Læringssti: ', '')}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-text-muted mb-6 flex-grow line-clamp-3">
+                <p className="text-sm text-slate-600 mb-4 flex-grow line-clamp-3 leading-relaxed">
                     {path.description}
                 </p>
 
                 {/* Footer: Meta & Action */}
-                <div className="flex items-center justify-between mt-auto pt-4 border-t border-black/5 relative z-10">
-                    <div className="flex items-center gap-2 text-xs text-text-muted">
-                        <Clock size={14} />
+                <div className="flex items-center justify-between mt-auto pt-3 border-t border-black/5 relative z-10">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                        <Clock size={12} />
                         <span>{path.readTime || '2-3 timer'}</span>
                     </div>
 
-                    <span className="flex items-center gap-1 text-sm font-medium text-text-main opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                        Start
-                        <ArrowRight size={16} />
-                    </span>
+                    <ArrowRight size={14} className="text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                 </div>
             </motion.div>
         </Link>

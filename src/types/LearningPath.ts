@@ -7,6 +7,7 @@ export interface LearningPathMetadata {
     topicId: string;
     year?: string;
     readTime?: string;
+    path: string;
     fileRelativePath: string;
 }
 

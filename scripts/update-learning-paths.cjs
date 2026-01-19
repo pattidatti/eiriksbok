@@ -49,23 +49,30 @@ function scanLearningPaths() {
                     return;
                 }
 
-                // Determine Subject ID
-                // Prefer explicit targetSubjectId, fallback to inferring from path, fallback to 'annet'
-                let subjectId = data.targetSubjectId || data.learningPathData?.targetSubjectId;
+                // INFERENCE LOGIC
+                // Get path relative to 'content' directory
+                const relativePath = path.relative(CONTENT_DIR, file);
+                const pathParts = relativePath.split(path.sep);
 
-                if (!subjectId) {
-                    // Try to infer from path: .../content/historie/...
-                    const parts = file.split(path.sep);
-                    const contentIndex = parts.indexOf('content');
-                    if (contentIndex !== -1 && parts[contentIndex + 1]) {
-                        const potentialSubject = parts[contentIndex + 1].toLowerCase();
-                        if (SUBJECTS[potentialSubject]) {
-                            subjectId = potentialSubject;
-                        }
-                    }
+                // Default inferences
+                let inferredSubject = 'annet';
+                let inferredTopic = 'generelt';
+
+                // Assuming structure: content/{subject}/{topic}/{filename}
+                if (pathParts.length >= 2) {
+                    inferredSubject = pathParts[0].toLowerCase();
+                }
+                if (pathParts.length >= 3) {
+                    inferredTopic = pathParts[1].toLowerCase(); // Folder inside subject is Topic
                 }
 
-                subjectId = subjectId || 'annet';
+                // Use explicit values if present, otherwise inferred
+                const subjectId = data.targetSubjectId || data.learningPathData?.targetSubjectId || inferredSubject;
+                const topicId = data.targetTopicId || data.learningPathData?.targetTopicId || inferredTopic;
+
+                // Construct the link URL
+                // Route: /:subjectId/:topicId/:lessonId
+                const linkUrl = `/${subjectId}/${topicId}/${data.id}`;
 
                 // Extract Metadata
                 const metadata = {
@@ -74,19 +81,15 @@ function scanLearningPaths() {
                     description: data.description || data.learningPathData?.description || "",
                     subjectId: subjectId,
                     subjectName: SUBJECTS[subjectId]?.name || subjectId,
-                    topicId: data.targetTopicId || data.learningPathData?.targetTopicId || "generelt",
+                    topicId: topicId,
                     year: data.year,
                     readTime: data.readTime,
-                    path: `/sub/${subjectId}/topic/${data.targetTopicId}/sti/${data.id}`, // Constructing link path, might need adjustment based on routing
-                    // Simplified: We usually link to topics, but for learning paths do we have a direct viewer?
-                    // Assuming standard route: /fag/emne/sti/id or similiar.
-                    // Actually, existing paths are accessed via their topic pages usually. 
-                    // Let's store the raw IDs so the component can build the link.
-                    fileRelativePath: path.relative(CONTENT_DIR, file)
+                    path: linkUrl, // Use the correct application route
+                    fileRelativePath: relativePath
                 };
 
                 learningPaths.push(metadata);
-                console.log(`✅ Found: ${metadata.title} (${metadata.subjectName})`);
+                console.log(`✅ Found: ${metadata.title} -> ${linkUrl}`);
 
             } catch (err) {
                 console.error(`❌ Error parsing ${file}:`, err.message);
@@ -94,9 +97,26 @@ function scanLearningPaths() {
         }
     });
 
-    // Sort by Subject then by Title
+    // Helper to parse start year from string "750 f.Kr - 1066" or "1940"
+    const getStartYear = (yearStr) => {
+        if (!yearStr) return 9999;
+        const firstPart = yearStr.split('-')[0].trim().toLowerCase();
+        let year = parseInt(firstPart.replace(/\D/g, ''));
+        if (firstPart.includes('f.kr') || firstPart.includes('b.c')) {
+            year = -year;
+        }
+        return isNaN(year) ? 9999 : year;
+    };
+
+    // Sort by Subject then by Year (Chronological) then by Title
     learningPaths.sort((a, b) => {
         if (a.subjectId !== b.subjectId) return a.subjectId.localeCompare(b.subjectId);
+
+        const yearA = getStartYear(a.year);
+        const yearB = getStartYear(b.year);
+
+        if (yearA !== yearB) return yearA - yearB;
+
         return a.title.localeCompare(b.title);
     });
 

@@ -43,7 +43,18 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const { addToHistory } = useUserHistory();
     const { setFullWidth } = useLayout();
 
-    usePageTitle(lesson?.title || 'Leksjon', !!lesson);
+    const pageTitle = useMemo(() => {
+        if (!lesson) return 'Leksjon';
+        // Check for learning path type
+        if (lesson.layout === 'learning-path' || lesson.category === 'Læringssti' || lesson.learningPathData) {
+            // Avoid double prefix if it's already there
+            if (lesson.title.startsWith('Læringssti:')) return lesson.title;
+            return `Læringssti: ${lesson.title}`;
+        }
+        return lesson.title;
+    }, [lesson]);
+
+    usePageTitle(pageTitle, !!lesson);
 
     // Global Timeline Hook
     const { events: globalTimelineEvents } = useGlobalTimeline();
