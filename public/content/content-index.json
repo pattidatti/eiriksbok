@@ -1,6 +1,9 @@
 {
-  "buildId": 1768771752275,
+  "buildId": 1768811360338,
   "contentMap": {
+    "agens": [
+      "content/concepts/agens.json"
+    ],
     "aksemaktene": [
       "content/concepts/aksemaktene.json"
     ],
@@ -47,6 +50,10 @@
     "blokade": [
       "content/concepts/blokade.json"
     ],
+    "borskrakk": [
+      "content/concepts/borskrakk.json",
+      "content/historie/mellomkrigstiden/borskrakk.json"
+    ],
     "d-dagen": [
       "content/concepts/d-dagen.json"
     ],
@@ -64,6 +71,9 @@
     ],
     "demografisk-overgang": [
       "content/concepts/demografisk-overgang.json"
+    ],
+    "demokrati": [
+      "content/concepts/demokrati.json"
     ],
     "dendrokronologi": [
       "content/concepts/dendrokronologi.json"
@@ -129,11 +139,17 @@
     "imperialisme": [
       "content/concepts/imperialisme.json"
     ],
+    "indre-monolog": [
+      "content/concepts/indre-monolog.json"
+    ],
     "ingenmannsland": [
       "content/concepts/ingenmannsland.json"
     ],
     "investiturstriden": [
       "content/concepts/investiturstriden.json"
+    ],
+    "jazz": [
+      "content/concepts/jazz.json"
     ],
     "jernteppet": [
       "content/concepts/jernteppet.json"
@@ -213,11 +229,20 @@
     "monopol": [
       "content/concepts/monopol.json"
     ],
+    "motiv": [
+      "content/concepts/motiv.json"
+    ],
     "nasjonalisme": [
       "content/concepts/nasjonalisme.json"
     ],
     "naturalhandel": [
       "content/concepts/naturalhandel.json"
+    ],
+    "nazisme": [
+      "content/concepts/nazisme.json"
+    ],
+    "new-deal": [
+      "content/concepts/new-deal.json"
     ],
     "nrnbergprosessene": [
       "content/concepts/nrnbergprosessene.json"
@@ -267,6 +292,9 @@
     "rekognosering": [
       "content/concepts/rekognosering.json"
     ],
+    "relativitetsteorien": [
+      "content/concepts/relativitetsteorien.json"
+    ],
     "representativt-demokrati": [
       "content/concepts/representativt-demokrati.json"
     ],
@@ -275,6 +303,9 @@
     ],
     "rhinen": [
       "content/concepts/rhinen.json"
+    ],
+    "roaring-20s": [
+      "content/concepts/roaring-20s.json"
     ],
     "rubicon": [
       "content/concepts/rubicon.json"
@@ -327,6 +358,12 @@
     ],
     "sykes-picot": [
       "content/concepts/sykes-picot.json"
+    ],
+    "synsvinkel": [
+      "content/concepts/synsvinkel.json"
+    ],
+    "tankereferat": [
+      "content/concepts/tankereferat.json"
     ],
     "te": [
       "content/concepts/te.json"
@@ -537,9 +574,6 @@
     ],
     "voc": [
       "content/historie/kolonialisering/voc.json"
-    ],
-    "borskrakk": [
-      "content/historie/mellomkrigstiden/borskrakk.json"
     ],
     "italia": [
       "content/historie/mellomkrigstiden/italia.json"
@@ -1061,6 +1095,9 @@
     "hvordan-skrive-roman": [
       "content/norsk/skrivehjelp/hvordan-skrive-roman.json"
     ],
+    "skriv-bedre-historier": [
+      "content/norsk/skrivehjelp/skriv-bedre-historier.json"
+    ],
     "tekstsjangre": [
       "content/norsk/tekstsjangre/artikkel.json"
     ],
@@ -1088,6 +1125,9 @@
     "aristoteles-bio": [
       "content/people/aristoteles-bio.json"
     ],
+    "armstrong": [
+      "content/people/armstrong.json"
+    ],
     "augustin-bio": [
       "content/people/augustin-bio.json"
     ],
@@ -1106,8 +1146,17 @@
     "dronning-elizabeth-i": [
       "content/people/dronning-elizabeth-i.json"
     ],
+    "einstein": [
+      "content/people/einstein.json"
+    ],
+    "ellington": [
+      "content/people/ellington.json"
+    ],
     "ester-boserup": [
       "content/people/ester-boserup.json"
+    ],
+    "franco": [
+      "content/people/franco.json"
     ],
     "franz-ferdinand": [
       "content/people/franz-ferdinand.json"
@@ -1139,6 +1188,9 @@
     "henrik-krummedige": [
       "content/people/henrik-krummedige.json"
     ],
+    "hitler": [
+      "content/people/hitler.json"
+    ],
     "jeanne-d-arc": [
       "content/people/jeanne-d-arc.json"
     ],
@@ -1150,6 +1202,9 @@
     ],
     "karl-den-store-bio": [
       "content/people/karl-den-store-bio.json"
+    ],
+    "keynes": [
+      "content/people/keynes.json"
     ],
     "kleopatra": [
       "content/people/kleopatra.json"
@@ -1166,6 +1221,9 @@
     "martin-heidegger": [
       "content/people/martin-heidegger.json"
     ],
+    "mussolini": [
+      "content/people/mussolini.json"
+    ],
     "nicholas-ii": [
       "content/people/nicholas-ii.json"
     ],
@@ -1175,8 +1233,20 @@
     "platon-bio": [
       "content/people/platon-bio.json"
     ],
+    "roosevelt": [
+      "content/people/roosevelt.json"
+    ],
+    "selassie": [
+      "content/people/selassie.json"
+    ],
+    "smith": [
+      "content/people/smith.json"
+    ],
     "sokrates-bio": [
       "content/people/sokrates-bio.json"
+    ],
+    "stalin": [
+      "content/people/stalin.json"
     ],
     "thomas-aquinas": [
       "content/people/thomas-aquinas.json"
@@ -1315,6 +1385,7 @@
     ]
   },
   "hierarchicalMap": {
+    "concepts/agens.json/agens": "content/concepts/agens.json",
     "concepts/aksemaktene.json/aksemaktene": "content/concepts/aksemaktene.json",
     "concepts/aksjeselskap.json/aksjeselskap": "content/concepts/aksjeselskap.json",
     "concepts/allianse.json/allianse": "content/concepts/allianse.json",
@@ -1330,12 +1401,14 @@
     "concepts/blankoblankett.json/blankoblankett": "content/concepts/blankoblankett.json",
     "concepts/blitzkrieg.json/blitzkrieg": "content/concepts/blitzkrieg.json",
     "concepts/blokade.json/blokade": "content/concepts/blokade.json",
+    "concepts/borskrakk.json/borskrakk": "content/concepts/borskrakk.json",
     "concepts/d-dagen.json/d-dagen": "content/concepts/d-dagen.json",
     "concepts/dachau.json/dachau": "content/concepts/dachau.json",
     "concepts/de-allierte.json/de-allierte": "content/concepts/de-allierte.json",
     "concepts/de-forente-nasjoner-fn.json/de-forente-nasjoner-fn": "content/concepts/de-forente-nasjoner-fn.json",
     "concepts/defenestrasjon.json/defenestrasjon": "content/concepts/defenestrasjon.json",
     "concepts/demografisk-overgang.json/demografisk-overgang": "content/concepts/demografisk-overgang.json",
+    "concepts/demokrati.json/demokrati": "content/concepts/demokrati.json",
     "concepts/dendrokronologi.json/dendrokronologi": "content/concepts/dendrokronologi.json",
     "concepts/diktatur.json/diktatur": "content/concepts/diktatur.json",
     "concepts/direkte-demokrati.json/direkte-demokrati": "content/concepts/direkte-demokrati.json",
@@ -1357,8 +1430,10 @@
     "concepts/helsetning.json/helsetning": "content/concepts/helsetning.json",
     "concepts/holocaust.json/holocaust": "content/concepts/holocaust.json",
     "concepts/imperialisme.json/imperialisme": "content/concepts/imperialisme.json",
+    "concepts/indre-monolog.json/indre-monolog": "content/concepts/indre-monolog.json",
     "concepts/ingenmannsland.json/ingenmannsland": "content/concepts/ingenmannsland.json",
     "concepts/investiturstriden.json/investiturstriden": "content/concepts/investiturstriden.json",
+    "concepts/jazz.json/jazz": "content/concepts/jazz.json",
     "concepts/jernteppet.json/jernteppet": "content/concepts/jernteppet.json",
     "concepts/justinianerpesten.json/justinianerpesten": "content/concepts/justinianerpesten.json",
     "concepts/justinianske-pest.json/justinianske-pest": "content/concepts/justinianske-pest.json",
@@ -1385,8 +1460,11 @@
     "concepts/molotov-ribbentrop-pakten.json/molotov-ribbentrop-pakten": "content/concepts/molotov-ribbentrop-pakten.json",
     "concepts/monarki.json/monarki": "content/concepts/monarki.json",
     "concepts/monopol.json/monopol": "content/concepts/monopol.json",
+    "concepts/motiv.json/motiv": "content/concepts/motiv.json",
     "concepts/nasjonalisme.json/nasjonalisme": "content/concepts/nasjonalisme.json",
     "concepts/naturalhandel.json/naturalhandel": "content/concepts/naturalhandel.json",
+    "concepts/nazisme.json/nazisme": "content/concepts/nazisme.json",
+    "concepts/new-deal.json/new-deal": "content/concepts/new-deal.json",
     "concepts/nrnbergprosessene.json/nrnbergprosessene": "content/concepts/nrnbergprosessene.json",
     "concepts/oligarki.json/oligarki": "content/concepts/oligarki.json",
     "concepts/operasjon-barbarossa.json/operasjon-barbarossa": "content/concepts/operasjon-barbarossa.json",
@@ -1403,9 +1481,11 @@
     "concepts/radar.json/radar": "content/concepts/radar.json",
     "concepts/raf.json/raf": "content/concepts/raf.json",
     "concepts/rekognosering.json/rekognosering": "content/concepts/rekognosering.json",
+    "concepts/relativitetsteorien.json/relativitetsteorien": "content/concepts/relativitetsteorien.json",
     "concepts/representativt-demokrati.json/representativt-demokrati": "content/concepts/representativt-demokrati.json",
     "concepts/republikk.json/republikk": "content/concepts/republikk.json",
     "concepts/rhinen.json/rhinen": "content/concepts/rhinen.json",
+    "concepts/roaring-20s.json/roaring-20s": "content/concepts/roaring-20s.json",
     "concepts/rubicon.json/rubicon": "content/concepts/rubicon.json",
     "concepts/schlieffen-planen.json/schlieffen-planen": "content/concepts/schlieffen-planen.json",
     "concepts/selvbestemmelsesrett.json/selvbestemmelsesrett": "content/concepts/selvbestemmelsesrett.json",
@@ -1423,6 +1503,8 @@
     "concepts/subjektet.json/subjektet": "content/concepts/subjektet.json",
     "concepts/suverenitetsprinsippet.json/suverenitetsprinsippet": "content/concepts/suverenitetsprinsippet.json",
     "concepts/sykes-picot.json/sykes-picot": "content/concepts/sykes-picot.json",
+    "concepts/synsvinkel.json/synsvinkel": "content/concepts/synsvinkel.json",
+    "concepts/tankereferat.json/tankereferat": "content/concepts/tankereferat.json",
     "concepts/te.json/te": "content/concepts/te.json",
     "concepts/teknokrati.json/teknokrati": "content/concepts/teknokrati.json",
     "concepts/tekstil.json/tekstil": "content/concepts/tekstil.json",
@@ -1714,6 +1796,7 @@
     "norsk/skrivehjelp/hvordan-skrive-eventyr": "content/norsk/skrivehjelp/hvordan-skrive-eventyr.json",
     "norsk/skrivehjelp/hvordan-skrive-novelle": "content/norsk/skrivehjelp/hvordan-skrive-novelle.json",
     "norsk/skrivehjelp/hvordan-skrive-roman": "content/norsk/skrivehjelp/hvordan-skrive-roman.json",
+    "norsk/skrivehjelp/skriv-bedre-historier": "content/norsk/skrivehjelp/skriv-bedre-historier.json",
     "norsk/tekstsjangre/tekstsjangre": "content/norsk/tekstsjangre/artikkel.json",
     "norsk/tekstsjangre/debattinnlegg": "content/norsk/tekstsjangre/debattinnlegg.json",
     "norsk/tekstsjangre/dikt": "content/norsk/tekstsjangre/dikt.json",
@@ -1723,13 +1806,17 @@
     "norsk/tekstsjangre/roman": "content/norsk/tekstsjangre/roman.json",
     "people/adam-smith.json/adam-smith": "content/people/adam-smith.json",
     "people/aristoteles-bio.json/aristoteles-bio": "content/people/aristoteles-bio.json",
+    "people/armstrong.json/armstrong": "content/people/armstrong.json",
     "people/augustin-bio.json/augustin-bio": "content/people/augustin-bio.json",
     "people/birger-jarl.json/birger-jarl": "content/people/birger-jarl.json",
     "people/clovis-i.json/clovis-i": "content/people/clovis-i.json",
     "people/david-hume.json/david-hume": "content/people/david-hume.json",
     "people/diokletian-bio.json/diokletian-bio": "content/people/diokletian-bio.json",
     "people/dronning-elizabeth-i.json/dronning-elizabeth-i": "content/people/dronning-elizabeth-i.json",
+    "people/einstein.json/einstein": "content/people/einstein.json",
+    "people/ellington.json/ellington": "content/people/ellington.json",
     "people/ester-boserup.json/ester-boserup": "content/people/ester-boserup.json",
+    "people/franco.json/franco": "content/people/franco.json",
     "people/franz-ferdinand.json/franz-ferdinand": "content/people/franz-ferdinand.json",
     "people/friedrich-nietzsche.json/friedrich-nietzsche": "content/people/friedrich-nietzsche.json",
     "people/gaius-octavius.json/gaius-octavius": "content/people/gaius-octavius.json",
@@ -1740,19 +1827,26 @@
     "people/gustav-ii-adolf.json/gustav-ii-adolf": "content/people/gustav-ii-adolf.json",
     "people/gustav-vasa.json/gustav-vasa": "content/people/gustav-vasa.json",
     "people/henrik-krummedige.json/henrik-krummedige": "content/people/henrik-krummedige.json",
+    "people/hitler.json/hitler": "content/people/hitler.json",
     "people/jeanne-d-arc.json/jeanne-d-arc": "content/people/jeanne-d-arc.json",
     "people/john-locke.json/john-locke": "content/people/john-locke.json",
     "people/julius-caesar.json/julius-caesar": "content/people/julius-caesar.json",
     "people/karl-den-store-bio.json/karl-den-store-bio": "content/people/karl-den-store-bio.json",
+    "people/keynes.json/keynes": "content/people/keynes.json",
     "people/kleopatra.json/kleopatra": "content/people/kleopatra.json",
     "people/knut-alvsson-bio.json/knut-alvsson-bio": "content/people/knut-alvsson-bio.json",
     "people/kublai-khan.json/kublai-khan": "content/people/kublai-khan.json",
     "people/marcus-antonius.json/marcus-antonius": "content/people/marcus-antonius.json",
     "people/martin-heidegger.json/martin-heidegger": "content/people/martin-heidegger.json",
+    "people/mussolini.json/mussolini": "content/people/mussolini.json",
     "people/nicholas-ii.json/nicholas-ii": "content/people/nicholas-ii.json",
     "people/oscar-ii.json/oscar-ii": "content/people/oscar-ii.json",
     "people/platon-bio.json/platon-bio": "content/people/platon-bio.json",
+    "people/roosevelt.json/roosevelt": "content/people/roosevelt.json",
+    "people/selassie.json/selassie": "content/people/selassie.json",
+    "people/smith.json/smith": "content/people/smith.json",
     "people/sokrates-bio.json/sokrates-bio": "content/people/sokrates-bio.json",
+    "people/stalin.json/stalin": "content/people/stalin.json",
     "people/thomas-aquinas.json/thomas-aquinas": "content/people/thomas-aquinas.json",
     "people/thomas-malthus.json/thomas-malthus": "content/people/thomas-malthus.json",
     "people/vladimir-lenin.json/vladimir-lenin": "content/people/vladimir-lenin.json",

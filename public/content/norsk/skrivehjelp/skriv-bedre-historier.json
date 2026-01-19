@@ -1,0 +1,223 @@
+{
+    "id": "skriv-bedre-historier",
+    "title": "Skriv bedre historier: En komplett guide",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "layout": "rich",
+    "heroImage": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
+    "content": [
+        {
+            "type": "header",
+            "text": "Introduksjon"
+        },
+        {
+            "type": "text",
+            "content": "Denne guiden gir deg verktøyene for å skrive meningsfulle og engasjerende historier. Enten du skriver eventyr, noveller eller romaner, er prinsippene de samme."
+        },
+        {
+            "type": "header",
+            "text": "1. Unngå 'begynte å' – bare si hva som skjer"
+        },
+        {
+            "type": "text",
+            "content": "Når du skriver 'begynte å', bruker du en svak verbkonstruksjon. Det gjør teksten mindre direkte. Bruk heller et aktivt verb. Da skjønner leseren at noe faktisk skjer, i stedet for at det kanskje snart skjer."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Begynte å...",
+                "leftTitle": "Svakt",
+                "rightTitle": "Sterkt",
+                "items": [
+                    {
+                        "left": "Han begynte å løpe.",
+                        "right": "Han løp."
+                    },
+                    {
+                        "left": "Hun begynte å gråte.",
+                        "right": "Hun gråt."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "task",
+            "id": "task-begynte-a",
+            "title": "Oppgave: Stram opp setningene",
+            "text": "Skriv om disse setningene uten å bruke 'begynte':\n1. Hun begynte å gråte.\n2. De begynte å krangle.\n3. Jeg begynte å føle meg redd."
+        },
+        {
+            "type": "header",
+            "text": "2. Vis hva hovedpersonen vil (Motivasjon)"
+        },
+        {
+            "type": "text",
+            "content": "I nesten alle fortellinger har hovedpersonen et motiv – noe de vil oppnå. Når leseren vet hva karakteren vil, skaper det engasjement. Et mål skaper også konflikt, fordi noe ofte står i veien."
+        },
+        {
+            "type": "task",
+            "id": "task-motiv",
+            "title": "Oppgave: Vis motivasjonen",
+            "text": "Skriv et kort åpningsavsnitt der du viser:\n- Hvem hovedpersonen er\n- Hva de vil (målet deres)\n- Hvordan de prøver å få det til"
+        },
+        {
+            "type": "header",
+            "text": "3. Replikker på ny linje (Dialog)"
+        },
+        {
+            "type": "text",
+            "content": "Når karakterer snakker, må du følge to regler for at det skal være leselig: Ny linje for hver ny taler, og tydelige anførselstegn eller replikkstreker."
+        },
+        {
+            "type": "text",
+            "content": "\"Hei,\" sier Jens forsiktig. \"Jeg har en gul fotball.\"\n\"Så kult,\" svarer Adam litt uforstående."
+        },
+        {
+            "type": "task",
+            "id": "task-dialog",
+            "title": "Oppgave: Skriv en krangel",
+            "text": "Skriv en kort samtale mellom to personer som krangler om hvem som skal ta ut søpla. Husk ny linje for hver person."
+        },
+        {
+            "type": "header",
+            "text": "4. Velg én synsvinkel og hold deg til den"
+        },
+        {
+            "type": "text",
+            "content": "Synsvinkel er øyet vi ser historien gjennom. Ikke hopp mellom 'jeg' og 'han/hun' uten en plan. Det forvirrer leseren."
+        },
+        {
+            "type": "task",
+            "id": "task-synsvinkel",
+            "title": "Oppgave: Bytt perspektiv",
+            "text": "Skriv en kort scene to ganger:\n1. Først i jeg-form (jeg så, jeg følte)\n2. Så i tredjeperson (han så, hun følte)"
+        },
+        {
+            "type": "header",
+            "text": "5. La hovedpersonen handle (Agens)"
+        },
+        {
+            "type": "text",
+            "content": "En karakter med agens tar valg og driver handlingen fremover. En passiv karakter lar bare ting skje. For å skape spenning, må hovedpersonen gjøre noe aktivt."
+        },
+        {
+            "type": "task",
+            "id": "task-agens",
+            "title": "Oppgave: Fra passiv til aktiv",
+            "text": "Gjør om dette til en aktiv handling med agens:\n'Huset brant. Hun ble redd. Folk ropte.'"
+        },
+        {
+            "type": "header",
+            "text": "6. Unngå ordet 'plutselig'"
+        },
+        {
+            "type": "text",
+            "content": "Ordet 'plutselig' forklarer at noe går fort, i stedet for å vise det. Beskriv heller hendelsen konkret og brått."
+        },
+        {
+            "type": "task",
+            "id": "task-plutselig",
+            "title": "Oppgave: Vis sjokket",
+            "text": "Skriv en scene der noe overraskende skjer. Ikke bruk ordet 'plutselig'. Vis det gjennom karakterens fysiske reaksjoner."
+        },
+        {
+            "type": "header",
+            "text": "7. Tanker og indre stemme"
+        },
+        {
+            "type": "text",
+            "content": "Du kan vise karakterens indre på to måter: Tankereferat (indirekte) og Indre monolog (direkte). En blanding gjør teksten levende."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Tankereferat: Hun tenkte at hun var redd.",
+                "Indre monolog: 'Jeg klarer ikke dette!' tenkte hun."
+            ]
+        },
+        {
+            "type": "task",
+            "id": "task-tanker",
+            "title": "Oppgave: Indre liv",
+            "text": "Skriv en tanke i en vanskelig situasjon på tre måter:\n1. Som tankereferat\n2. Som indre monolog\n3. Som en blanding av tanke og handling"
+        },
+        {
+            "type": "header",
+            "text": "8. Bruk rolige beskrivelser – ikke overdriv"
+        },
+        {
+            "type": "text",
+            "content": "En nøktern stil virker ofte sterkere enn en dramatisk stil full av store ord. Less is more."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Beskrivelser",
+                "leftTitle": "Dramatisk",
+                "rightTitle": "Nøktern",
+                "items": [
+                    {
+                        "left": "Hjertet dunket som en tromme. Kroppen var spent som en buestreng. Hun skalv som om fremtiden avhang av det.",
+                        "right": "Hun satt rett i ryggen. Fingrene lekte med glidelåsen. Det var fem minutter igjen."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "task",
+            "id": "task-beskrivelse",
+            "title": "Oppgave: Nøktern vs. Dramatisk",
+            "text": "Velg en følelse (sorg, sinne, skam). Skriv to beskrivelser:\n1. En dramatisk versjon med sterke ord.\n2. En nøktern versjon med konkrete detaljer."
+        },
+        {
+            "type": "header",
+            "text": "9. Bygg opp følelser litt etter litt"
+        },
+        {
+            "type": "text",
+            "content": "Følelser bør utvikle seg som en spiral. Begynn med en liten tanke, og bygg på. Dette kalles emosjonell opptrapping."
+        },
+        {
+            "type": "task",
+            "id": "task-opptrapping",
+            "title": "Oppgave: Spiralen",
+            "text": "Skriv en indre monolog som starter med en liten tanke (eks: 'Jeg tror ikke de liker meg') og blir mer og mer intens over 5-7 setninger."
+        },
+        {
+            "type": "header",
+            "text": "10. Ikke bruk for mange sammenligninger"
+        },
+        {
+            "type": "text",
+            "content": "For mange bilder gjør teksten rotete. Velg heller få, sterke bilder som virkelig treffer."
+        },
+        {
+            "type": "task",
+            "id": "task-sammenligninger",
+            "title": "Oppgave: Kill your darlings",
+            "text": "Finn en tekst du har skrevet. Fjern halvparten av sammenligningene. Ble teksten sterkere?"
+        },
+        {
+            "type": "header",
+            "text": "Bonus: Skriv en mininovelle"
+        },
+        {
+            "type": "text",
+            "content": "Velg én av teknikkene over og skriv en kort novelle (maks 200 ord) der du bevisst bruker teknikken."
+        },
+        {
+            "type": "info",
+            "title": "Videre lesning",
+            "text": "Trenger du ideer til handlingen? Sjekk ut artikkelen om [7 vanlige plot](/norsk/skrivehjelp/7-vanlige-plot) for inspirasjon."
+        }
+    ],
+    "tags": [
+        "skrivehjelp",
+        "fortelling",
+        "tips",
+        "kreativ skriving"
+    ],
+    "createdDate": "2026-01-19T12:00:00Z"
+}

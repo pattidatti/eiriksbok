@@ -431,6 +431,18 @@
                     "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
                     "lessons": [
                         {
+                            "id": "skriv-bedre-historier",
+                            "title": "Skriv bedre historier",
+                            "description": "En komplett guide til å skrive meningsfulle og engasjerende historier.",
+                            "image": "/images/lessons/norsk/skriv-bedre-historier-hero.png",
+                            "tags": [
+                                "skrivehjelp",
+                                "fortelling",
+                                "tips"
+                            ],
+                            "createdDate": "2026-01-19T12:00:00Z"
+                        },
+                        {
                             "id": "hvordan-fore-kilder",
                             "title": "Hvordan føre kilder (APA 7)",
                             "description": "Oppskriften på hvordan du henviser til nettsider, videoer og aviser.",

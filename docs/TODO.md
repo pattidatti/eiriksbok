@@ -51,6 +51,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 ### Norsk
 - [x] Artikler i norskfaget-litteraturhistorie mangler sidebar. 
+- [ ] Utvide innholdet i artiklen Hvordan skrive [dikt, eventyr, novele, roman, debattinnlegg, reflekterende tekst, artikkel]. 
 ### Musikk
 - [ ] Implementere https://sites.google.com/bergensskolen.com/musikk/start og lage en logisk struktur på emnet. 
 

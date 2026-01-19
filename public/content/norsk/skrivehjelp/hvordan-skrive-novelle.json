@@ -41,6 +41,11 @@
         {
             "type": "text",
             "content": "Du trenger ikke å løse alle tråder. En åpen slutt kan få leseren til å tenke videre på historien din."
+        },
+        {
+            "type": "info",
+            "title": "Vil du bli enda bedre?",
+            "text": "Sjekk ut vår komplette guide: [Skriv bedre historier](/norsk/skrivehjelp/skriv-bedre-historier) for 10 konkrete tips som løfter teksten din."
         }
     ],
     "tags": [
