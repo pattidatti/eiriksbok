@@ -1,5 +1,27 @@
 [
   {
+    "id": "-OjQe8CHdGUuqG76PS9O",
+    "dyslexicMode": true,
+    "message": "Dette er en generell tanke om det meste på siden. Jeg lurer på om det er lurt å poengtere at bildene som brukes er KI genererte, der det er brukt KI.",
+    "timestamp": 1768916816830,
+    "type": "user_feedback",
+    "url": "https://bok.haaland.de/historie/den-kalde-krigen/oversikt",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0",
+    "viewport": "1272x564",
+    "date": "20.1.2026, 14:46:56"
+  },
+  {
+    "id": "-OjQbqKifFPl9av9Owhd",
+    "dyslexicMode": true,
+    "message": "I oppgavene \"rydd opp i setningen\" (på alle nivåene) er setningene allerede korrekte, så der er ingenting å \"rydde\" :)",
+    "timestamp": 1768916215259,
+    "type": "user_feedback",
+    "url": "https://bok.haaland.de/norsk/setningsoppbygging/niva-3-v2-regelen",
+    "userAgent": "Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+    "viewport": "1300x731",
+    "date": "20.1.2026, 14:36:55"
+  },
+  {
     "id": "-OjMU-jD3THAbk26__yi",
     "dyslexicMode": false,
     "message": "Test, her ser alt ok ut.",
