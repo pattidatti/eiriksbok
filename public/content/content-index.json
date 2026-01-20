@@ -1,5 +1,5 @@
 {
-  "buildId": 1768844056682,
+  "buildId": 1768896297508,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -325,6 +325,12 @@
     "raf": [
       "content/concepts/raf.json"
     ],
+    "refleksjon": [
+      "content/concepts/refleksjon.json"
+    ],
+    "refleksjonsmarkorer": [
+      "content/concepts/refleksjonsmarkorer.json"
+    ],
     "rekognosering": [
       "content/concepts/rekognosering.json"
     ],
@@ -442,6 +448,9 @@
     ],
     "ultimatum": [
       "content/concepts/ultimatum.json"
+    ],
+    "undring": [
+      "content/concepts/undring.json"
     ],
     "unionsopplosningen-1905": [
       "content/concepts/unionsopplosningen-1905.json"
@@ -1146,6 +1155,9 @@
     "hvordan-skrive-novelle": [
       "content/norsk/skrivehjelp/hvordan-skrive-novelle.json"
     ],
+    "hvordan-skrive-reflekterende": [
+      "content/norsk/skrivehjelp/hvordan-skrive-reflekterende.json"
+    ],
     "hvordan-skrive-roman": [
       "content/norsk/skrivehjelp/hvordan-skrive-roman.json"
     ],
@@ -1546,6 +1558,8 @@
     "concepts/president-republikk.json/president-republikk": "content/concepts/president-republikk.json",
     "concepts/radar.json/radar": "content/concepts/radar.json",
     "concepts/raf.json/raf": "content/concepts/raf.json",
+    "concepts/refleksjon.json/refleksjon": "content/concepts/refleksjon.json",
+    "concepts/refleksjonsmarkorer.json/refleksjonsmarkorer": "content/concepts/refleksjonsmarkorer.json",
     "concepts/rekognosering.json/rekognosering": "content/concepts/rekognosering.json",
     "concepts/relativitetsteorien.json/relativitetsteorien": "content/concepts/relativitetsteorien.json",
     "concepts/representativt-demokrati.json/representativt-demokrati": "content/concepts/representativt-demokrati.json",
@@ -1585,6 +1599,7 @@
     "concepts/truman-doktrinen.json/truman-doktrinen": "content/concepts/truman-doktrinen.json",
     "concepts/uinnskrenket-ubtkrig.json/uinnskrenket-ubtkrig": "content/concepts/uinnskrenket-ubtkrig.json",
     "concepts/ultimatum.json/ultimatum": "content/concepts/ultimatum.json",
+    "concepts/undring.json/undring": "content/concepts/undring.json",
     "concepts/unionsopplosningen-1905.json/unionsopplosningen-1905": "content/concepts/unionsopplosningen-1905.json",
     "concepts/urbanisering.json/urbanisering": "content/concepts/urbanisering.json",
     "concepts/utmattelseskrig.json/utmattelseskrig": "content/concepts/utmattelseskrig.json",
@@ -1867,6 +1882,7 @@
     "norsk/skrivehjelp/hvordan-skrive-eventyr": "content/norsk/skrivehjelp/hvordan-skrive-eventyr.json",
     "norsk/skrivehjelp/hvordan-skrive-gode-saktekster": "content/norsk/skrivehjelp/hvordan-skrive-gode-saktekster.json",
     "norsk/skrivehjelp/hvordan-skrive-novelle": "content/norsk/skrivehjelp/hvordan-skrive-novelle.json",
+    "norsk/skrivehjelp/hvordan-skrive-reflekterende": "content/norsk/skrivehjelp/hvordan-skrive-reflekterende.json",
     "norsk/skrivehjelp/hvordan-skrive-roman": "content/norsk/skrivehjelp/hvordan-skrive-roman.json",
     "norsk/skrivehjelp/skriv-bedre-historier": "content/norsk/skrivehjelp/skriv-bedre-historier.json",
     "norsk/tekstsjangre/tekstsjangre": "content/norsk/tekstsjangre/artikkel.json",

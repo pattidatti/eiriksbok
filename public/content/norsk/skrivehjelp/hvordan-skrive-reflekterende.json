@@ -1,0 +1,135 @@
+{
+    "id": "hvordan-skrive-reflekterende",
+    "title": "Hvordan skrive reflekterende",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "layout": "rich",
+    "heroImage": "/images/lessons/norsk/hvordan-skrive-reflekterende-hero.png",
+    "content": [
+        {
+            "type": "header",
+            "text": "Introduksjon"
+        },
+        {
+            "type": "text",
+            "content": "Å skrive reflekterende er som å holde opp et speil for egne tanker. Det holder ikke bare å gjenfortelle hva som står i en tekst eller hva som har skjedd. Du må gå dypere. Du må undre deg, stille spørsmål og vurdere saken fra flere sider."
+        },
+        {
+            "type": "info_box",
+            "title": "Hva er refleksjon?",
+            "content": "Refleksjon betyr å tenke grundig over noe. I en tekst betyr det at du viser leseren din *tankeprosess* – ikke bare resultatet av den."
+        },
+        {
+            "type": "header",
+            "text": "Refleksjons-raketten: 4 steg til en bedre tekst"
+        },
+        {
+            "type": "text",
+            "content": "Hvordan går man fra et kjedelig referat til en spennende refleksjon? Her er fire steg du kan følge:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "1. Forstå: Vis at du har skjønt hva teksten eller temaet handler om.",
+                "2. Spørre: Hvorfor er det slik? Hva er årsaken til at forfatteren skriver dette?",
+                "3. Undre: Finnes det andre måter å se dette på? Hva om situasjonen var annerledes?",
+                "4. Vurdere: Hva mener du selv? Er argumentene gode? Virker historien troverdig?"
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Fra referat til refleksjon"
+        },
+        {
+            "type": "text",
+            "content": "Mange elever går i 'referat-fella'. De skriver bare det de ser. Se forskjellen på disse to eksemplene:"
+        },
+        {
+            "type": "comparison",
+            "before": {
+                "label": "Referat (Kjedelig)",
+                "content": "Forfatteren skriver at mange unge bruker mye tid på skjerm i dag. Dette fører til mindre søvn."
+            },
+            "after": {
+                "label": "Refleksjon (Mye bedre)",
+                "content": "Når forfatteren påstår at skjermbruk stjeler nattesøvnen, lurer jeg på om det bare er skjermen i seg selv som er problemet. Kanskje er det behovet for å være sosial som er viktigst? På den ene siden gir mobilen oss kontakt, men på den andre siden kan vi spørre oss om prisen for denne kontakten er for høy hvis den går ut over helsa."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Refleksjon over sakprosa"
+        },
+        {
+            "type": "text",
+            "content": "Når du reflekterer over sakprosa (artikler, innlegg, taler), handler det ofte om å vurdere innholdet og budskapet."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Vurder troverdighet: Bruker forfatteren gode kilder?",
+                "Se saken fra flere sider: Finnes det motargumenter som forfatteren ikke nevner?",
+                "Bruk egne erfaringer: Er dette noe du kjenner deg igjen i fra din egen hverdag?"
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Refleksjon over skjønnlitteratur"
+        },
+        {
+            "type": "text",
+            "content": "I noveller, dikt og romaner finnes det sjelden ett riktig svar. Her er målet å utforske teksten."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Undre deg over temaet: Hva handler dette *egentlig* om? Vennskap, svikt eller kanskje ensomhet?",
+                "Symbolikk: Hva betyr den lukkede døra eller det visne treet? Kan det tolkes på flere måter?",
+                "Det er lov å være usikker: Du kan gjerne skrive 'Jeg er usikker på om... men jeg får et inntrykk av at...'"
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Verktøykassa: Refleksjonsmarkører"
+        },
+        {
+            "type": "text",
+            "content": "For å vise leseren at du reflekterer, kan du bruke spesielle ord og uttrykk. Dette kaller vi refleksjonsmarkører."
+        },
+        {
+            "type": "fact_box",
+            "title": "Nyttige uttrykk",
+            "content": "- 'Kanskje betyr dette at...'\n- 'Det gir meg et inntrykk av...'\n- 'Spørsmålet er om...'\n- 'På den ene siden... på den andre siden...'\n- 'Jeg lurer på om forfatteren mener...'\n- 'Dette kan føre til at...'"
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er hovedforskjellen på referat og refleksjon?",
+            "options": [
+                "Referat er lengre enn refleksjon",
+                "Referat gjengir fakta, mens refleksjon undersøker tanker og vurderinger",
+                "Refleksjon brukes bare i dikt",
+                "Det er ingen forskjell"
+            ],
+            "answer": 1,
+            "explanation": "Et referat forteller bare hva som har skjedd, mens en refleksjon går dypere og undersøker årsaker, meninger og ulike perspektiver."
+        },
+        {
+            "question": "Hva er en refleksjonsmarkør?",
+            "options": [
+                "En type penn man bruker til å streke under tekst",
+                "Et ord som viser at du tenker selv i teksten",
+                "Overskriften i en artikkel",
+                "Navnet på forfatteren"
+            ],
+            "answer": 1,
+            "explanation": "Refleksjonsmarkører er ord som 'kanskje', 'jeg lurer på' eller 'på den ene siden', som signaliserer til leseren at du reflekterer."
+        }
+    ],
+    "tags": [
+        "skrivehjelp",
+        "refleksjon",
+        "norsk",
+        "pedagogikk"
+    ],
+    "createdDate": "2026-01-20T09:00:00Z"
+}

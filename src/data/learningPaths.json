@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-01-19T18:50:52.090Z",
-  "count": 11,
+  "updatedAt": "2026-01-20T08:19:24.730Z",
+  "count": 12,
   "paths": [
     {
       "id": "romerriket-sti",
@@ -133,6 +133,18 @@
       "readTime": "30-45 min",
       "path": "/norsk/litteraturhistorie/nyrealismen-sti",
       "fileRelativePath": "norsk\\litteraturhistorie\\nyrealismen-sti.json"
+    },
+    {
+      "id": "reflekterende-skriving-sti",
+      "title": "Læringssti: Hvordan skrive reflekterende",
+      "description": "Lær å gå fra kjedelige referater til spennende refleksjoner. Vi guider deg steg for steg!",
+      "subjectId": "norsk",
+      "subjectName": "Norsk",
+      "topicId": "skrivehjelp",
+      "year": "2024",
+      "readTime": "45 minutter",
+      "path": "/norsk/skrivehjelp/reflekterende-skriving-sti",
+      "fileRelativePath": "norsk\\skrivehjelp\\reflekterende-skriving-sti.json"
     }
   ]
 }

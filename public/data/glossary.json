@@ -969,6 +969,22 @@
     "type": "concept"
   },
   {
+    "id": "refleksjon",
+    "term": "Refleksjon",
+    "definition": "Å tenke grundig over noe fra flere sider for å oppnå dypere forståelse. I skriving betyr det å undersøke egne tanker, spørsmål og vurderinger i møte med et tema eller en tekst.",
+    "context": "Norsk",
+    "links": [],
+    "type": "concept"
+  },
+  {
+    "id": "refleksjonsmarkorer",
+    "term": "Refleksjonsmarkører",
+    "definition": "Ord og uttrykk som signaliserer til leseren at forfatteren tenker selv og vurderer saken (f.eks. 'kanskje', 'det kan virke som', 'på den ene siden').",
+    "context": "Norsk",
+    "links": [],
+    "type": "concept"
+  },
+  {
     "term": "Rekognosering",
     "definition": "Militær speiding for å samle informasjon om fiendens posisjoner og styrker.",
     "subject": "historie",
@@ -1305,6 +1321,14 @@
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "id": "undring",
+    "term": "Undring",
+    "definition": "En åpen og nysgjerrig måte å nærme seg en tekst eller et tema på. Det handler om å stille spørsmål uten nødvendigvis å ha et ferdig svar, og utforske ulike muligheter.",
+    "context": "Norsk",
+    "links": [],
     "type": "concept"
   },
   {
