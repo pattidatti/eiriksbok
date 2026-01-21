@@ -68,28 +68,33 @@ export const renderInlineMarkdown = (text: string, concepts?: (Concept | Glossar
 
     // 4. Concepts/Glossary (Tooltips)
     if (concepts && concepts.length > 0) {
-        // concepts can be either Concept[] or GlossaryEntry[]
-        const sortedConcepts = [...concepts].sort((a, b) => {
-            // Safe access for title/term
-            const termA = (a.term || ('title' in a ? (a as Concept).title : '') || '');
-            const termB = (b.term || ('title' in b ? (b as Concept).title : '') || '');
-            return termB.length - termA.length;
-        });
+        // Flatten all terms and aliases for matching
+        const allTerms = concepts.flatMap(c => {
+            const baseTerm = (c.term || ('title' in c ? (c as Concept).title : '') || '');
+            const aliases = (c as any).aliases || []; // Handle optional aliases
+            return [
+                { term: baseTerm, concept: c },
+                ...aliases.map((a: string) => ({ term: a, concept: c }))
+            ];
+        }).filter(t => t.term.length > 0)
+            .sort((a, b) => b.term.length - a.term.length); // Prioritize longest matches
 
-        const pattern = new RegExp(`\\b(${sortedConcepts.map(c => ((c.term || ('title' in c ? (c as Concept).title : '') || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))).join('|')})\\b`, 'gi');
+        // Create a unified regex for all terms and aliases
+        const pattern = new RegExp(`\\b(${allTerms.map(t => t.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`, 'gi');
 
         elements = elements.flatMap((el): React.ReactNode[] => {
             if (typeof el !== 'string') return [el];
 
-            // Use split with capturing group to keep delimiters (the concepts)
             return el.split(pattern).map((part, i) => {
-                const concept: any = sortedConcepts.find(c => (c.term || ('title' in c ? (c as Concept).title : '') || '').toLowerCase() === part.toLowerCase());
-                if (concept) {
+                const match = allTerms.find(t => t.term.toLowerCase() === part.toLowerCase());
+
+                if (match) {
+                    const concept: any = match.concept;
                     return (
                         <Tooltip
                             key={`c-${i}-${part.substring(0, 10)}`}
                             text={concept.definition || concept.description || ''}
-                            type={concept.type} // support 'concept' or 'person'
+                            type={concept.type}
                             link={concept.link}
                         >
                             {part}

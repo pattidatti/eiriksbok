@@ -1548,6 +1548,23 @@
     "link": "/historie/romerriket/diokletian"
   },
   {
+    "term": "Douglas MacArthur",
+    "aliases": [
+      "MacArthur",
+      "MacArthurs"
+    ],
+    "definition": "Amerikansk general som ledet FN-styrkene under store deler av Koreakrigen og er kjent for sin dristige landgang ved Inchon.",
+    "type": "person",
+    "tags": [
+      "USA",
+      "general",
+      "Koreakrigen",
+      "stillehavskrigen"
+    ],
+    "subject": "historie",
+    "lifespan": "1880 - 1964"
+  },
+  {
     "term": "dronning elizabeth i",
     "definition": "Dronning av England fra 1558 til 1603. Hun ga EIC monopol på handel med Østen.",
     "subject": "historie",
@@ -1715,6 +1732,22 @@
     "subject": "historie",
     "lifespan": "1496 – 1560",
     "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
+    "term": "Harry S. Truman",
+    "aliases": [
+      "Truman"
+    ],
+    "definition": "USAs 33. president (1945–1953) som styrte under begynnelsen av den kalde krigen og lanserte Truman-doktrinen for å demme opp for kommunismen.",
+    "type": "person",
+    "tags": [
+      "USA",
+      "president",
+      "den kalde krigen",
+      "koreakrigen"
+    ],
+    "subject": "historie",
+    "lifespan": "1884 - 1972"
   },
   {
     "term": "Henrik Krummedige",
