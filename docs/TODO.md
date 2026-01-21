@@ -40,6 +40,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [x] Den kalde krigen emne. En hovedartikkel, og flere subartikler om spesifikke hendelser. 
 - [ ] Artikkel om hvordan USAs intervenering ofte har ført til backfire, Ho chi min, Vietnamkrigen, Afghanistan, taliban, støtte Sadam Hussein, annet? 
 - [ ] Artikler om mange av sentrale hendelsene i midtøsten. 
+- [ ] @file:folkeforbundet timeline component i teksten har bare tall, ikke innhold. 
 
 ### KRLE
 

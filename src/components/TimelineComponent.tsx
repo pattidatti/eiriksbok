@@ -17,7 +17,7 @@ interface TimelineComponentProps {
     compact?: boolean;
 }
 
-export const TimelineComponent: React.FC<TimelineComponentProps> = ({ events, title, compact = false }) => {
+export const TimelineComponent: React.FC<TimelineComponentProps> = ({ events = [], title, compact = false }) => {
     if (compact) {
         return (
             <div className="py-4">

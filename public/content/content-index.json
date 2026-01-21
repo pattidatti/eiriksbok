@@ -1,5 +1,5 @@
 {
-  "buildId": 1768896297508,
+  "buildId": 1768981303156,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -1161,6 +1161,9 @@
     "hvordan-skrive-roman": [
       "content/norsk/skrivehjelp/hvordan-skrive-roman.json"
     ],
+    "reflekterende-skriving-sti": [
+      "content/norsk/skrivehjelp/reflekterende-skriving-sti.json"
+    ],
     "skriv-bedre-historier": [
       "content/norsk/skrivehjelp/skriv-bedre-historier.json"
     ],
@@ -1884,6 +1887,7 @@
     "norsk/skrivehjelp/hvordan-skrive-novelle": "content/norsk/skrivehjelp/hvordan-skrive-novelle.json",
     "norsk/skrivehjelp/hvordan-skrive-reflekterende": "content/norsk/skrivehjelp/hvordan-skrive-reflekterende.json",
     "norsk/skrivehjelp/hvordan-skrive-roman": "content/norsk/skrivehjelp/hvordan-skrive-roman.json",
+    "norsk/skrivehjelp/reflekterende-skriving-sti": "content/norsk/skrivehjelp/reflekterende-skriving-sti.json",
     "norsk/skrivehjelp/skriv-bedre-historier": "content/norsk/skrivehjelp/skriv-bedre-historier.json",
     "norsk/tekstsjangre/tekstsjangre": "content/norsk/tekstsjangre/artikkel.json",
     "norsk/tekstsjangre/debattinnlegg": "content/norsk/tekstsjangre/debattinnlegg.json",
