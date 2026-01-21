@@ -65,6 +65,9 @@ const PowderKeg = lazy(() => import('./content/interactive/PowderKeg').then(m =>
 const DreadnoughtDuel = lazy(() => import('./content/interactive/DreadnoughtDuel').then(m => ({ default: m.DreadnoughtDuel })));
 const TrenchCrossSection = lazy(() => import('./content/interactive/TrenchCrossSection').then(m => ({ default: m.default })));
 const AttritionWarfare = lazy(() => import('./content/interactive/AttritionWarfare').then(m => ({ default: m.default })));
+const TankInterior = lazy(() => import('./content/interactive/TankInterior').then(m => ({ default: m.default })));
+const GasAttackSim = lazy(() => import('./content/interactive/GasAttackSim').then(m => ({ default: m.default })));
+const TsarsDilemma = lazy(() => import('./content/interactive/TsarsDilemma').then(m => ({ default: m.default })));
 
 // Demography
 const DTMSimulator = lazy(() => import('./content/interactive/demography/DTMSimulator').then(m => ({ default: m.DTMSimulator })));
@@ -161,6 +164,9 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     DreadnoughtDuel,
     TrenchCrossSection,
     AttritionWarfare,
+    TankInterior,
+    GasAttackSim,
+    TsarsDilemma,
 
     // Demography
     DTMSimulator,

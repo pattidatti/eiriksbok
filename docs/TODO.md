@@ -28,6 +28,10 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 ## content
 
+## Begreper eller personer
+- Pasifisme, pragmatisme, Lenin, 
+- Tooltip inni factbox clipper, må rendres over. 
+
 ### Samfunnskunnskap
 - [x] Lage Økonomi som eget emne. Artikkel om pengesystem vs naturalhandel. 
 - [x] Artikkel om arbeidsspesialisering i økonomi. 

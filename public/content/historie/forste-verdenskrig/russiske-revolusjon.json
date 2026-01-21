@@ -16,6 +16,11 @@
             "value": "Vinteren 1916-1917 var nådeløs i Russland. Ved fronten frøs soldatene i hjel i sommeruniformer, uten støvler og ofte uten ammunisjon. I byene sto kvinnene i endeløse brødkøer i 30 minusgrader. Samtidig, i St. Petersburg (omdøpt til Petrograd), levde adelen i luksus, blinde for stormen som brygget. Det russiske imperiet, styrt av eneveldige Tsar Nicholas II, var en kjempe på leirføtter – et middelaldersk samfunn som holdt på å kollapse i møte med moderne, industriell krigføring."
         },
         {
+            "type": "component",
+            "component": "TsarsDilemma",
+            "props": {}
+        },
+        {
             "type": "header",
             "text": "Feburar: Tsaren faller"
         },
@@ -30,6 +35,18 @@
         {
             "type": "text",
             "value": "Tyskland så en sjanse til å slå Russland ut av krigen innenfra. De arrangerte en hemmelig togreise for Vladimir Lenin, lederen for de radikale bolsjevikene, fra eksil i Sveits tvers gjennom Tyskland og til Russland. Håpet var at han skulle skape kaos. Det fungerte over all forventning.\n\nLenin ankom med et program som var like enkelt som det var genialt: 'Brød, Fred og Land'.\n\n*   **Brød** til de sultne i byene.\n*   **Fred** til soldatene som døde i skyttergravene.\n*   **Land** til bøndene som trålte under jordeierne.\n\nIngen andre partier våget å love fred for enhver pris. Bolsjevikenes popularitet eksploderte. I november (oktober) 1917 stormet bolsjevikene Vinterpalasset og grep makten i et nesten ublodig kupp. Verdens første kommunistiske stat var født."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/forste-verdenskrig/lenin_taler.png",
+            "alt": "Lenin taler til folkemengden fra en pansret bil i Petrograd",
+            "caption": "Lenins enkle budskap om 'Brød, Fred og Land' traff en nerve hos det krigstrøtte russiske folket."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/forste-verdenskrig/vinterpalasset_stormes.png",
+            "alt": "Bolsjevikene rykker frem mot Vinterpalasset om natten",
+            "caption": "Stormingen av Vinterpalasset markerte slutten på den provisoriske regjeringen og starten på bolsjevik-styret."
         },
         {
             "type": "component",
