@@ -34,11 +34,22 @@ Focus on the "Soul" of the content before writing any code.
     - Required for historical topics with timelines.
     - Includes interactive sidebar with TOC and map links.
 - **Component Selection:**
-    - `TimelineComponent`: Use inside articles with `compact: true`.
-    - `Comparison`: For comparing concepts/figures.
-    - `QuoteBlock`: For primary sources.
-    - `FactBox`: For technical details.
-    - Also make a model that underscores what the article is about, interaktive, beautiful, fun and insightfull. 
+    - **Core Text Tools:**
+        - `WritingFix`: [NEW] Essential for language/writing topics (show "Bad" vs "Good" examples).
+        - `QuoteBlock`: For primary sources/citates.
+        - `FactBox`: For technical details/summaries.
+        - `GlossaryTooltip`: For inline definitions (automatic, but can be manual).
+    - **Visualizations:**
+        - `AllianceChain`: For causal chains (e.g. historical alliances).
+        - `TimelineComponent`: Use inside articles with `compact: true`.
+        - `LineChart` / `PlotGraph`: For statistical data.
+        - `RelationshipMap`: For network visualizations.
+    - **Simulations & Models:**
+        - Extensive library available (e.g., `GovernmentExplorer`, `InflationCalculator`, `TrolleyProblem`).
+        - **Guideline:** Check `ComponentRegistry.tsx` for specific domain tools (History, Econ, Demography) before reinventing the wheel.
+    - **Assessment:**
+        - `Quiz`: 3-5 questions at the end.
+    - **General Rule:** Make a model that underscores what the article is about. Make it interactive, beautiful, fun, and insightful. 
 
 
 

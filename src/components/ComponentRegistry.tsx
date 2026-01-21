@@ -63,6 +63,8 @@ const BiasLens = lazy(() => import('./learning-path/BiasLens').then(m => ({ defa
 const AllianceChain = lazy(() => import('./content/interactive/AllianceChain').then(m => ({ default: m.AllianceChain })));
 const PowderKeg = lazy(() => import('./content/interactive/PowderKeg').then(m => ({ default: m.PowderKeg })));
 const DreadnoughtDuel = lazy(() => import('./content/interactive/DreadnoughtDuel').then(m => ({ default: m.DreadnoughtDuel })));
+const TrenchCrossSection = lazy(() => import('./content/interactive/TrenchCrossSection').then(m => ({ default: m.default })));
+const AttritionWarfare = lazy(() => import('./content/interactive/AttritionWarfare').then(m => ({ default: m.default })));
 
 // Demography
 const DTMSimulator = lazy(() => import('./content/interactive/demography/DTMSimulator').then(m => ({ default: m.DTMSimulator })));
@@ -157,6 +159,8 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     AllianceChain,
     PowderKeg,
     DreadnoughtDuel,
+    TrenchCrossSection,
+    AttritionWarfare,
 
     // Demography
     DTMSimulator,

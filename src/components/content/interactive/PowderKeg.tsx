@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { Flame, Globe, Handshake, Swords, Skull, AlertTriangle, ArrowRight } from 'lucide-react';
+import { Flame, Globe, Handshake, Swords, Skull, AlertTriangle } from 'lucide-react';
 
 interface Ingredient {
     id: string;
     name: string;
-    icon: React.ElementType;
+    icon: any; // Relaxed type to avoid Lucide/React conflicts in build
     description: string;
     color: string;
 }
@@ -48,20 +48,7 @@ export const PowderKeg: React.FC = () => {
         }
     }, [pressure, isExploded, pulseDuration, barrelControls]);
 
-    const handleDragEnd = (ingredient: Ingredient, info: any) => {
-        // Simple hit detection logic (in a real app, use a proper drop zone rect)
-        // We assume if dragged far enough down/center, it's dropped.
-        // Since we don't have refs to rects easily without more code, 
-        // we'll rely on the user dragging it "over" the barrel area visually.
-        // For this prototype, ANY drag release effectively counts if we want to be generous,
-        // OR we can check `info.point.y` vs existing elements. 
-        // Let's use a simplified check: if dropped, we add it. 
-        // Real-world: Check bounding box intersection. Used simplified "always add on drop" for now 
-        // but better to checking offset. 
-        // Let's implement a visual target.
-
-        // Actually, framer-motion drag constraints are tricky without refs.
-        // Let's assume if it was dragged, the user intended to drop it.
+    const handleDragEnd = (ingredient: Ingredient) => {
         addIngredient(ingredient.id);
     };
 
@@ -170,7 +157,7 @@ export const PowderKeg: React.FC = () => {
                                 <DraggableIngredient
                                     key={ing.id}
                                     data={ing}
-                                    onDrop={() => addIngredient(ing.id)}
+                                    onDrop={() => handleDragEnd(ing)}
                                 />
                             )
                         ))}
@@ -180,7 +167,7 @@ export const PowderKeg: React.FC = () => {
                         <DraggableIngredient
                             key={SPARK.id}
                             data={SPARK}
-                            onDrop={() => addIngredient(SPARK.id)}
+                            onDrop={() => handleDragEnd(SPARK)}
                             isSpark
                         />
                     )}
@@ -249,7 +236,7 @@ const DraggableIngredient: React.FC<{ data: Ingredient; onDrop: () => void; isSp
             whileDrag={{ scale: 1.1, zIndex: 100, rotate: 5 }}
             whileHover={{ scale: 1.05, cursor: 'grab' }}
             whileTap={{ cursor: 'grabbing' }}
-            onDragEnd={(event, info) => {
+            onDragEnd={(_event, info) => {
                 // Simple drop detection logic: if dragged down by > 100px
                 if (info.offset.y > 100) {
                     onDrop();
