@@ -60,6 +60,9 @@ const DetectiveEngine = lazy(() => import('./content/interactive/detective/Detec
 const PerspectivePrism = lazy(() => import('./content/interactive/PerspectivePrism').then(m => ({ default: m.PerspectivePrism })));
 const PovertySimulation = lazy(() => import('./content/interactive/PovertySimulation').then(m => ({ default: m.PovertySimulation })));
 const BiasLens = lazy(() => import('./learning-path/BiasLens').then(m => ({ default: m.BiasLens })));
+const AllianceChain = lazy(() => import('./content/interactive/AllianceChain').then(m => ({ default: m.AllianceChain })));
+const PowderKeg = lazy(() => import('./content/interactive/PowderKeg').then(m => ({ default: m.PowderKeg })));
+const DreadnoughtDuel = lazy(() => import('./content/interactive/DreadnoughtDuel').then(m => ({ default: m.DreadnoughtDuel })));
 
 // Demography
 const DTMSimulator = lazy(() => import('./content/interactive/demography/DTMSimulator').then(m => ({ default: m.DTMSimulator })));
@@ -151,6 +154,9 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     PerspectivePrism,
     PovertySimulation,
     BiasLens,
+    AllianceChain,
+    PowderKeg,
+    DreadnoughtDuel,
 
     // Demography
     DTMSimulator,

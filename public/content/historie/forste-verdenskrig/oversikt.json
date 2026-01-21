@@ -71,6 +71,10 @@
       "content": "Årsakene til første verdenskrig er komplekse og debatteres fortsatt av historikere. Likevel peker de fleste på en kombinasjon av faktorer som hadde bygget seg opp over flere tiår. Europa var preget av imperialisme, der stormaktene konkurrerte om kolonier og ressurser i Afrika og Asia. Denne konkurransen skapte mistenksomhet og fiendskap. Samtidig var nasjonalismen på fremmarsj. Mange folkegrupper, spesielt på Balkan, ønsket selvstyre og egne nasjonalstater, noe som truet stabiliteten til de gamle multietniske imperiene som Østerrike-Ungarn og Det osmanske riket.\n\nFor å sikre seg mot angrep bygget stormaktene opp enorme militære styrker og inngikk komplekse allianser. Tanken var at ingen ville tørre å angripe hvis det betydde krig mot flere land samtidig. I realiteten fungerte alliansesystemet som en felle. En konflikt mellom to land kunne raskt dra med seg resten av kontinentet.\n\nDen utløsende årsaken ble attentatet på erkehertug Franz Ferdinand i Sarajevo 28. juni 1914. Erkehertugen var arving til den østerriksk-ungarske tronen, og ble skutt av Gavrilo Princip, en ung serbisk nasjonalist. Dette politiske drapet satte i gang en kjedereaksjon av diplomatiske kriser og krigserklæringer. Du kan lese mer om de dype spenningene og hendelsene som førte til krigsutbruddet i [denne gjennomgangen av opptakten til krigen](/historie/forste-verdenskrig/opptakt)."
     },
     {
+      "type": "component",
+      "component": "AllianceChain"
+    },
+    {
       "type": "header",
       "text": "Krigen på ulike fronter"
     },

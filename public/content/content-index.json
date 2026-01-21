@@ -1,5 +1,5 @@
 {
-  "buildId": 1768981303156,
+  "buildId": 1768987808876,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -1212,6 +1212,9 @@
     "diokletian-bio": [
       "content/people/diokletian-bio.json"
     ],
+    "douglas-macarthur": [
+      "content/people/douglas-macarthur.json"
+    ],
     "dronning-elizabeth-i": [
       "content/people/dronning-elizabeth-i.json"
     ],
@@ -1253,6 +1256,9 @@
     ],
     "gustav-vasa": [
       "content/people/gustav-vasa.json"
+    ],
+    "harry-truman": [
+      "content/people/harry-truman.json"
     ],
     "henrik-krummedige": [
       "content/people/henrik-krummedige.json"
@@ -1904,6 +1910,7 @@
     "people/clovis-i.json/clovis-i": "content/people/clovis-i.json",
     "people/david-hume.json/david-hume": "content/people/david-hume.json",
     "people/diokletian-bio.json/diokletian-bio": "content/people/diokletian-bio.json",
+    "people/douglas-macarthur.json/douglas-macarthur": "content/people/douglas-macarthur.json",
     "people/dronning-elizabeth-i.json/dronning-elizabeth-i": "content/people/dronning-elizabeth-i.json",
     "people/einstein.json/einstein": "content/people/einstein.json",
     "people/ellington.json/ellington": "content/people/ellington.json",
@@ -1918,6 +1925,7 @@
     "people/guru-nanak-bio.json/guru-nanak-bio": "content/people/guru-nanak-bio.json",
     "people/gustav-ii-adolf.json/gustav-ii-adolf": "content/people/gustav-ii-adolf.json",
     "people/gustav-vasa.json/gustav-vasa": "content/people/gustav-vasa.json",
+    "people/harry-truman.json/harry-truman": "content/people/harry-truman.json",
     "people/henrik-krummedige.json/henrik-krummedige": "content/people/henrik-krummedige.json",
     "people/hitler.json/hitler": "content/people/hitler.json",
     "people/jeanne-d-arc.json/jeanne-d-arc": "content/people/jeanne-d-arc.json",
