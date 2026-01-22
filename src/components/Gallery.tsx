@@ -26,11 +26,11 @@ export const Gallery: React.FC<GalleryProps> = ({ title, items }) => {
             <div className={`grid grid-cols-1 ${items.length > 1 ? 'md:grid-cols-2' : ''} gap-6`}>
                 {items.map((item, index) => (
                     <figure key={index} className="group relative overflow-hidden rounded-xl shadow-md border border-slate-100 bg-white">
-                        <div className="aspect-video overflow-hidden">
+                        <div className="w-full overflow-hidden bg-slate-50">
                             <img
                                 src={item.image}
                                 alt={item.alt || item.caption || 'Gallery image'}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                             />
                         </div>
                         {item.caption && (
