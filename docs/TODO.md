@@ -28,9 +28,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - Tooltip inni factbox clipper, må rendres over. 
 
 ### Samfunnskunnskap
-- [x] Lage Økonomi som eget emne. Artikkel om pengesystem vs naturalhandel. 
-- [x] Artikkel om arbeidsspesialisering i økonomi. 
-- [x] Demografi må få sitt eget emne, lage artikler om, demografisk overgang med utviklingsfaser, fødselsrate, dødsrate, befolkningstall, etc. BØr man ha ulike artikler om alt, eller en giga? EN artikkel om migrasjon og push/pull. En artikkel om Malthus og Boseup. Artikkel om relativ og absolutt fattigdom. Artikkel om befolkningspyramide, eller skal denne inn i demografisk overgang? Artikkel om urbanisering. Artikkel om teknologisk/idee utvikling siste 250 årene som har markant redusert dødsraten. 
+
 
 ### Historie
 - [ ] Artikler om kolonier gjennom tidene, fra Hellas, Romer, til moderne kolonier. I samme artikkel; hvordan dette ofte er en del av imperialismen. Ingen av disse konseptene er verken nye eller europeiske. Lage passende interaktive modeller som understreker konseptene og eksemplifiserer hendelser. 
@@ -93,3 +91,6 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [x] Det er en del tabeller/sammenligninger som mangler innhold i artiklene. 
 - [x] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
 - [x] Emne om Sikhismen, utfyllende og ilstrekkelige artikler. Må implementeres i samme struktur som andre emner i krle og med kobling til sammenligningsverktøyene.
+- [x] Lage Økonomi som eget emne. Artikkel om pengesystem vs naturalhandel. 
+- [x] Artikkel om arbeidsspesialisering i økonomi. 
+- [x] Demografi må få sitt eget emne, lage artikler om, demografisk overgang med utviklingsfaser, fødselsrate, dødsrate, befolkningstall, etc. BØr man ha ulike artikler om alt, eller en giga? EN artikkel om migrasjon og push/pull. En artikkel om Malthus og Boseup. Artikkel om relativ og absolutt fattigdom. Artikkel om befolkningspyramide, eller skal denne inn i demografisk overgang? Artikkel om urbanisering. Artikkel om teknologisk/idee utvikling siste 250 årene som har markant redusert dødsraten. 

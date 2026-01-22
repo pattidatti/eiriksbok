@@ -15,6 +15,7 @@ import { LineChart } from './LineChart';
 import { EmperorStats } from './EmperorStats';
 import { LinkButton } from './tools/LinkButton';
 import { WaveMap } from './content/interactive/WaveMap';
+import { Gallery } from './Gallery';
 
 // Lazy-loaded components for better performance
 // Interactive Content
@@ -167,6 +168,8 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TankInterior,
     GasAttackSim,
     TsarsDilemma,
+    CensorTask: lazy(() => import('./historie/CensorTask').then(m => ({ default: m.CensorTask }))),
+    PropagandaDecoder: lazy(() => import('./historie/PropagandaDecoder').then(m => ({ default: m.PropagandaDecoder }))),
 
     // Demography
     DTMSimulator,
@@ -197,6 +200,8 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     SongStructureBuilder,
     ArrangementPlanner,
     SongwriterStudio,
+    Gallery,
+    gallery: Gallery,
 };
 
 export const getComponent = (name: string) => {

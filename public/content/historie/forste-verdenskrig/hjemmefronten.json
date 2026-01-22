@@ -24,6 +24,20 @@
             "value": "Med millioner av menn sendt til fronten, oppsto det en akutt mangel på arbeidskraft. Løsningen ble kvinnene. Før 1914 var kvinner i stor grad henvist til hjemmet eller lavtlønte serviceyrker. Nå overtok de jobber som tidligere var 'forbeholdt menn'.\n\nDe ble trikkeførere, politikonstabler, bønder ('Land Army') og ikke minst fabrikkarbeidere. I ammunisjonsfabrikkene sto kvinner – kalt 'Munitionettes' – og fylte granater med sprengstoff 12 timer om dagen. Arbeidet var farlig. Eksplosjoner var vanlige, og de giftige kjemikaliene gjorde at huden og håret deres ble gult, noe som ga dem kallenavnet 'Canary Girls' (kanarifugler)."
         },
         {
+            "type": "gallery",
+            "title": "Kvinner i nye roller",
+            "items": [
+                {
+                    "image": "/images/historie/forste-verdenskrig/kvinner-i-fabrikk.png",
+                    "caption": "Ammunisjonsfabrikker var farlige arbeidsplasser. Kvinnene her ble kalt 'Munitionettes'."
+                },
+                {
+                    "image": "/images/historie/forste-verdenskrig/kvinnelig-trikkeforer.png",
+                    "caption": "Kvinner overtok også mange offentlige roller, som her som trikkefører i London."
+                }
+            ]
+        },
+        {
             "type": "component",
             "component": "FactBox",
             "props": {
@@ -40,6 +54,16 @@
             "value": "Storbritannia brukte sin mektige marine til å strupe Tysklands forsyninger. De opprettet en blokade i Nordsjøen som stanset all import av mat og gjødsel. Effekten var knusende. Uten kunstgjødsel sviktet avlingene, og uten import ble butikkhyllene tomme.\n\nVinteren 1916-1917 ble kjent som 'Kålrotvinteren' i Tyskland, fordi kålrot – som vanligvis var dyrefôr – ble hovednæringsmidlet. Erstatningsprodukter ('Ersatz') ble hverdagskost: brød laget av sagflis og potetskrell, kaffe laget av brente nøtter. Det anslås at over 700 000 tyske sivile døde av underernæring og sykdom som følge av blokaden. Dette var krigføring rettet direkte mot barn, gamle og kvinner."
         },
         {
+            "type": "image",
+            "src": "/images/historie/forste-verdenskrig/kalrotvinteren.png",
+            "caption": "Kålrotvinteren 1916-1917: En tysk familie spiser sitt snaue måltid bestående av kålrot og erstatningsbrød."
+        },
+        {
+            "type": "component",
+            "component": "CensorTask",
+            "props": {}
+        },
+        {
             "type": "header",
             "text": "Krigen om sannheten: Propaganda"
         },
@@ -48,16 +72,21 @@
             "value": "Når en hel nasjon skal ofre alt, må de tro på at saken er rettferdig. Derfor ble propaganda et like viktig våpen som maskingeværet. Regjeringene opprettet egne propagandakontorer som pumpet ut plakater, filmer og artikler med tre hovedmål:\n\n1.  **Rekruttering:** Appellere til pliktfølelse og mandighet ('Daddy, what did YOU do in the Great War?').\n2.  **Finansiering:** Få folk til å kjøpe krigsobligasjoner for å betale for krigen.\n3.  **Demonisering:** Fremstille fienden som umenneskelige monstre som måtte knuses."
         },
         {
+            "type": "component",
+            "component": "PropagandaDecoder",
+            "props": {}
+        },
+        {
             "type": "gallery",
             "title": "Løgnens billedgalleri",
             "items": [
                 {
-                    "image": "/images/historie/forste-verdenskrig/propaganda-art.jpg",
-                    "caption": "Fienden ble ofte umenneskeliggjort. Her ser vi et eksempel på hvordan den 'edle ridderen' blir forvridd til en trussel mot sivilisasjonen."
+                    "image": "/images/historie/forste-verdenskrig/propaganda_brute_web.jpg",
+                    "caption": "Fienden ble ofte umenneskeliggjort. 'Destroy This Mad Brute' (1917) fremstiller Tyskland som en gorilla med 'Kultur'-kølle som truer sivilisasjonen."
                 },
                 {
-                    "image": "/images/historie/forste-verdenskrig/propaganda-join.jpg",
-                    "caption": "Rekrutteringsplakater spilte ofte på frykt eller skam. Hvis Tyskland ikke ble stoppet, ville de invadere ditt hjem."
+                    "image": "/images/historie/forste-verdenskrig/propaganda_wait_web.jpg",
+                    "caption": "Rekrutteringsplakater spilte ofte på frykt. 'Will you fight now or wait for this' (1918) viser fienden som invaderer hjemmet ditt."
                 }
             ]
         },
