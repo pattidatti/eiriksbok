@@ -3,11 +3,7 @@
 Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok.
 
 ### Bugs
-- [x] Loading bar forsvinner ikke når den er ferdig. 
-- [x] Tilbakeknappen skal gå tilbake til forrige side (slik som i browseren), ikke opp et nivå. 
-- [x] Lysbildefunksjonen skal bare vises i læringsstier. 
-- [x] Det er en del linker som er ullfullstendige eller er skrevet i klartekst i artiklene, ikke ekte linker. 
-- [x] Det er en del tabeller/sammenligninger som mangler innhold i artiklene. 
+
 - [ ] Læringsstier laster ikke. Må gå ut og inn på en annen før de vises. Major bug. 
 
 ## Læringsstier
@@ -28,8 +24,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 ## content
 
-## Begreper eller personer
-- Pasifisme, pragmatisme, Lenin, 
+## Begreper eller personer 
 - Tooltip inni factbox clipper, må rendres over. 
 
 ### Samfunnskunnskap
@@ -51,8 +46,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Finne en logisk måte å skille retninger innen kristendom og islam. 
 - [x] Etikk og filosofi-emne. 
 - [ ] Emne om sekularisering
-- [x] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
-- [x] Emne om Sikhismen, utfyllende og ilstrekkelige artikler. Må implementeres i samme struktur som andre emner i krle og med kobling til sammenligningsverktøyene.
+
 
 ### Norsk
 - [x] Artikler i norskfaget-litteraturhistorie mangler sidebar. 
@@ -92,3 +86,10 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
     - Fly fortere med W - Gir ekstra poeng å fly fort. 
     - Lage eget utviklingsdokument med ideer og progresjon for utvikling. 
 - [x] Global timeline. Sjekke duplikater og fjerne dem. 
+- [x] Loading bar forsvinner ikke når den er ferdig. 
+- [x] Tilbakeknappen skal gå tilbake til forrige side (slik som i browseren), ikke opp et nivå. 
+- [x] Lysbildefunksjonen skal bare vises i læringsstier. 
+- [x] Det er en del linker som er ullfullstendige eller er skrevet i klartekst i artiklene, ikke ekte linker. 
+- [x] Det er en del tabeller/sammenligninger som mangler innhold i artiklene. 
+- [x] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
+- [x] Emne om Sikhismen, utfyllende og ilstrekkelige artikler. Må implementeres i samme struktur som andre emner i krle og med kobling til sammenligningsverktøyene.

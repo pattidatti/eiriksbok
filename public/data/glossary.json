@@ -891,6 +891,17 @@
     "type": "concept"
   },
   {
+    "term": "Pasifisme",
+    "definition": "En grunnleggende holdning som tar avstand fra bruk av vold og krig for å løse konflikter. Pasifister arbeider for fredelige løsninger.",
+    "type": "concept",
+    "tags": [
+      "første verdenskrig",
+      "fred",
+      "ideologi"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Patos",
     "definition": "En av de tre retoriske appellformene. Handler om å vekke følelser hos mottakeren.",
     "type": "concept",
@@ -943,6 +954,17 @@
       "reform"
     ],
     "type": "concept"
+  },
+  {
+    "term": "Pragmatisme",
+    "definition": "En tenkemåte som vektlegger praktiske resultater og løsninger fremfor teoretiske prinsipper eller ideologi. I politikken handler det ofte om å finne løsninger som fungerer (realpolitikk).",
+    "type": "concept",
+    "tags": [
+      "politikk",
+      "filosofi",
+      "styringsformer"
+    ],
+    "subject": "samfunnskunnskap"
   },
   {
     "term": "president-republikk",
@@ -2042,6 +2064,9 @@
   },
   {
     "term": "Vladimir Lenin",
+    "aliases": [
+      "Lenin"
+    ],
     "definition": "Russisk revolusjonær, politiker og teoretiker. Han ledet oktoberrevolusjonen i 1917 og grunnla Sovjetunionen som verdens første sosialistiske stat.",
     "type": "person",
     "fullName": "Vladimir Iljitsj Uljanov",

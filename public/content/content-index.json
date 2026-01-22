@@ -1,5 +1,5 @@
 {
-  "buildId": 1768992863937,
+  "buildId": 1769078922679,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -301,6 +301,9 @@
     "parlamentarisk-stat": [
       "content/concepts/parlamentarisk-stat.json"
     ],
+    "pasifisme": [
+      "content/concepts/pasifisme.json"
+    ],
     "patos": [
       "content/concepts/patos.json"
     ],
@@ -315,6 +318,9 @@
     ],
     "perestrojka": [
       "content/concepts/perestrojka.json"
+    ],
+    "pragmatisme": [
+      "content/concepts/pragmatisme.json"
     ],
     "president-republikk": [
       "content/concepts/president-republikk.json"
@@ -1559,11 +1565,13 @@
     "concepts/oppdemming.json/oppdemming": "content/concepts/oppdemming.json",
     "concepts/parlamentarisk-republikk.json/parlamentarisk-republikk": "content/concepts/parlamentarisk-republikk.json",
     "concepts/parlamentarisk-stat.json/parlamentarisk-stat": "content/concepts/parlamentarisk-stat.json",
+    "concepts/pasifisme.json/pasifisme": "content/concepts/pasifisme.json",
     "concepts/patos.json/patos": "content/concepts/patos.json",
     "concepts/pax-mongolica.json/pax-mongolica": "content/concepts/pax-mongolica.json",
     "concepts/pax-romana.json/pax-romana": "content/concepts/pax-romana.json",
     "concepts/penicillin.json/penicillin": "content/concepts/penicillin.json",
     "concepts/perestrojka.json/perestrojka": "content/concepts/perestrojka.json",
+    "concepts/pragmatisme.json/pragmatisme": "content/concepts/pragmatisme.json",
     "concepts/president-republikk.json/president-republikk": "content/concepts/president-republikk.json",
     "concepts/radar.json/radar": "content/concepts/radar.json",
     "concepts/raf.json/raf": "content/concepts/raf.json",
