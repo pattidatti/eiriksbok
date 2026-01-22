@@ -170,6 +170,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TsarsDilemma,
     CensorTask: lazy(() => import('./historie/CensorTask').then(m => ({ default: m.CensorTask }))),
     PropagandaDecoder: lazy(() => import('./historie/PropagandaDecoder').then(m => ({ default: m.PropagandaDecoder }))),
+    TrumansDilemma: lazy(() => import('./historie/TrumansDilemma').then(m => ({ default: m.TrumansDilemma }))),
 
     // Demography
     DTMSimulator,

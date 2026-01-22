@@ -33,6 +33,11 @@
         },
         {
             "type": "component",
+            "name": "TrumansDilemma",
+            "props": {}
+        },
+        {
+            "type": "component",
             "name": "FactBox",
             "props": {
                 "title": "FNs f\u00f8rste krig",

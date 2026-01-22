@@ -32,6 +32,12 @@
             "value": "Mens Norge tjente penger, betalte sjøfolkene prisen. Tyskland erklærte 'uinnskrenket ubåtkrig' i 1917, noe som betydde at de senket ethvert skip som nærmet seg Storbritannia, uavhengig av flagg. Norske skip ble torpedert uten varsel. Mannskapene i livbåtene ble ofte overlatt til seg selv i iskalde bølger langt til havs.\n\nTotalt mistet over 2000 norske sjøfolk livet, og nesten halvparten av den norske flåten ble senket. Mange sjøfolk som overlevde, slet med 'torpedonervene' (en variant av granatsjokk) resten av livet. Langs hele kysten satt enker igjen, mens rederne i byene hevet forsikringspengene."
         },
         {
+            "type": "image",
+            "src": "/images/historie/forste-verdenskrig/norge_ww1_merchant_navy.png",
+            "alt": "Norsk dampskip i storm under første verdenskrig",
+            "caption": "Livet til sjøs var livsfarlig. Mange sjøfolk endte i livbåter etter torpederinger."
+        },
+        {
             "type": "component",
             "component": "FactBox",
             "props": {
@@ -48,12 +54,24 @@
             "value": "På land var situasjonen absurd annerledes. De enorme fraktratene skapte en økonomisk boom uten sidestykke, kjent som 'Jobbetiden'. Alle ville spekulere i skipsaksjer. Verdien på et skip kunne hundredobles på få uker. Tjenestepiker, lærere og fiskere satte sparepengene sine i aksjer, og over natten oppsto en klasse av nyrike 'jobbere'.\n\nNorske byer flommet over av luksus. Det ble drukket champagne ('boblende vann') i store mengder, og dyre biler ble importert til veier som knapt fantes. Det var en vill, hedonistisk dans, drevet av blodpenger fra krigen."
         },
         {
+            "type": "image",
+            "src": "/images/historie/forste-verdenskrig/norge_ww1_jobbetid.png",
+            "alt": "Fest for nyrike jobbere i Kristiania",
+            "caption": "Jobbetiden var preget av vill spekulasjon og overforbruk blant de nyrike."
+        },
+        {
             "type": "header",
             "text": "Dyrtid og sosial uro"
         },
         {
             "type": "text",
             "value": "Men festen var ikke for alle. Mens spekulantene ble rike, førte krigen til at prisene på mat og brensel steg drastisk ('Dyrtid'). Vanlige arbeidere fikk det verre. Kjøtt og mel ble rasjonert. Forskjellen mellom de nyrike og de fattige ble provoserende synlig. Dette skapte en dyp bitterhet i arbeiderklassen, som førte til store demonstrasjoner i 1917 (Dyrtidsdemonstrasjonene). Inspirert av den russiske revolusjon begynte den norske arbeiderbevegelsen å radikaliseres, noe som skulle prege norsk politikk i mellomkrigstiden."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/forste-verdenskrig/norge_ww1_dyrtid.png",
+            "alt": "Rasjoneringkø i Kristiania",
+            "caption": "Dyrtiden rammet hardt. Vanlige folk måtte stå i lange køer for rasjonerte varer."
         }
     ],
     "quiz": [
