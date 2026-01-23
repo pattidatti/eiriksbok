@@ -11,7 +11,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Det er ikke garantert at en læringssti laster, en må ofte gå inn og ut før den til slutt vises. 
 
 ## 💡 Ideer
--
+- [ ] Slaveri gjennom tidene, hvordan dette ofte var en del av imperialismen, hvordan det ble avskaffet ulike steder. Eget emne i historie. Læringsstier kan heller koble seg på. 
 - [ ] Hvert emne bør ha en kort beskrivelse, overblikk over fagbegreper og hva som er viktig. 
 - [ ] En tidslinje inne på historie som heter alle hendelser nevnt i artiklene, ikke bare artiklene selv. 
 - [ ] En mulighet for å flette sammen egne artikler, slik at man kan lage en egen lærebok.

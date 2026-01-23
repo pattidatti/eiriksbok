@@ -168,6 +168,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TankInterior,
     GasAttackSim,
     TsarsDilemma,
+    TriangularTradeMap: lazy(() => import('./content/interactive/TriangularTradeMap').then(m => ({ default: m.TriangularTradeMap }))),
     CensorTask: lazy(() => import('./historie/CensorTask').then(m => ({ default: m.CensorTask }))),
     PropagandaDecoder: lazy(() => import('./historie/PropagandaDecoder').then(m => ({ default: m.PropagandaDecoder }))),
     TrumansDilemma: lazy(() => import('./historie/TrumansDilemma').then(m => ({ default: m.TrumansDilemma }))),
@@ -203,6 +204,8 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     SongwriterStudio,
     Gallery,
     gallery: Gallery,
+    comparison: Comparison,
+    triangularTradeMap: lazy(() => import('./content/interactive/TriangularTradeMap').then(m => ({ default: m.TriangularTradeMap }))),
 };
 
 export const getComponent = (name: string) => {

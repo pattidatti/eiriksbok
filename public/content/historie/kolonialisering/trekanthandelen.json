@@ -1,9 +1,120 @@
 {
-    "title": "Trekanthandelen",
-    "fact": "Visste du at sukkerproduksjonen i Karibia var så krevende at gjennomsnittlig levealder for en slave på en sukkerplantasje var under 7 år?",
-    "description": "Trekanthandelen bandt sammen Europa, Afrika og Amerika i et brutalt handelssystem basert på slaveri, råvarer og ferdigvarer.",
-    "year": "1500-1850",
-    "timeline": [],
-    "createdDate": "2023-01-01T12:00:00Z",
-    "lastUpdated": "2025-12-03T17:25:16.499Z"
+    "id": "trekanthandelen",
+    "title": "Trekant-handelen: Det Søte Livets Pris",
+    "description": "Hvordan europeisk sukkersug skapte verdens mest brutale handelssystem.",
+    "image": "/images/historie/kolonialisering/trekant-handel-hero.jpg",
+    "layout": "rich",
+    "tags": [
+        "historie",
+        "kolonialisering",
+        "slavehandel",
+        "økonomi",
+        "afrika"
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Et dødelig kretsløp"
+        },
+        {
+            "type": "text",
+            "content": "På 1700-tallet var sukker det olje er i dag: verdens mest ettertraktede vare. For å tilfredsstille Europas søtsug, utviklet stormaktene et handelssystem som bandt sammen tre kontinenter i et jerngrep. Dette systemet, kjent som trekant-handelen, var en maskin for profitt drevet av menneskelig lidelse."
+        },
+        {
+            "type": "component",
+            "component": "TriangularTradeMap",
+            "props": {
+                "title": "Trekant-handelen i sanntid"
+            }
+        },
+        {
+            "type": "header",
+            "content": "Slik fungerte systemet"
+        },
+        {
+            "type": "text",
+            "content": "Systemet var enkelt, men brutalt effektivt. Skipene seilte aldri tomme. Hver etappe av reisen genererte profitt, og hver etappe finansierte den neste."
+        },
+        {
+            "type": "factbox",
+            "title": "De tre rutene",
+            "content": "1. **Europa til Afrika:** Skipene lastet våpen, tekstiler, brennevin og metallvarer. Dette ble byttet mot mennesker.\n2. **Afrika til Amerika (Midtpassasjen):** Enslaved mennesker ble stuet sammen under dekk og fraktet over Atlanterhavet.\n3. **Amerika til Europa:** Produktene slavene produserte – sukker, bomull, tobakk og kaffe – ble fraktet tilbake til europeiske markeder."
+        },
+        {
+            "type": "header",
+            "content": "Midtpassasjen: Reisen uten retur"
+        },
+        {
+            "type": "text",
+            "content": "Den midtre delen av reisen, fra Afrika til Amerika, er det mørkeste kapittelet i maritim historie. "
+        },
+        {
+            "type": "quote",
+            "content": "Skrikene fra kvinnene og stønnene fra de døende gjorde det hele til en scene av skrekk nesten utenkelig.",
+            "author": "Olaudah Equiano",
+            "source": "En beretning om livet til Olaudah Equiano, 1789"
+        },
+        {
+            "type": "text",
+            "content": "Mellom 10 og 15 prosent av de som ble tvunget om bord døde under overfarten. De døde av sykdom, dehydrering, vold eller selvmord. De som overlevde, ble solgt som kveg ved ankomst."
+        },
+        {
+            "type": "comparison",
+            "title": "Forskjellen på slaveri",
+            "leftTitle": "Livegenskap / Kontraktsarbeid",
+            "rightTitle": "Chattel Slavery (Eiendomsslaveri)",
+            "leftItems": [
+                "Ofte tidsbegrenset (f.eks. 7 år for gjeld)",
+                "Beholdt visse rettigheter",
+                "Barna arvet ikke nødvendigvis statusen",
+                "Basert på sosial klasse eller gjeld"
+            ],
+            "rightItems": [
+                "Livsvarig tilstand",
+                "Slaven var juridisk sett en ting (eiendom)",
+                "Statusen var arvelig (født slave)",
+                "Ensrettet basert på rase"
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Arven etter handelen"
+        },
+        {
+            "type": "text",
+            "content": "Trekant-handelen la grunnlaget for den industrielle revolusjon. Kapitalen som ble tjent på sukker og slaver finansierte fabrikker, jernbaner og banker i byer som Liverpool, Bristol og Nantes. Samtidig ble det afrikanske kontinentet tappet for sin viktigste ressurs: unge, friske mennesker. Konsekvensene av denne ubalansen preger fortsatt verden i dag gjennom økonomisk ulikhet og systemisk rasisme."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var hovedproduktet som ble fraktet fra Amerika til Europa?",
+            "options": [
+                "Våpen",
+                "Slaver",
+                "Sukker",
+                "Tekstiler"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva kalles etappen fra Afrika til Amerika?",
+            "options": [
+                "Gullruten",
+                "Midtpassasjen",
+                "Silkeveien",
+                "Frihetsreisen"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva er 'Chattel Slavery'?",
+            "options": [
+                "Slaveri for gjeld",
+                "Slaveri hvor mennesker eies som eiendom",
+                "Midlertidig arbeidskraft",
+                "Slaveri i antikken"
+            ],
+            "correctAnswer": 1
+        }
+    ]
 }

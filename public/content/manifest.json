@@ -1900,6 +1900,20 @@
                             "createdDate": "2025-12-22T10:00:00Z"
                         },
                         {
+                            "id": "trekanthandelen",
+                            "title": "Trekant-handelen",
+                            "description": "Hvordan europeisk sukkersug skapte verdens mest brutale handelssystem.",
+                            "image": "/images/historie/kolonialisering/trekant-handel-hero.jpg",
+                            "tags": [
+                                "historie",
+                                "kolonialisering",
+                                "slavehandel",
+                                "økonomi",
+                                "afrika"
+                            ],
+                            "createdDate": "2026-01-23T12:00:00Z"
+                        },
+                        {
                             "id": "britisk-imperium",
                             "title": "Det britiske imperiet",
                             "description": "Solen som aldri gikk ned: Handel, bosetting og dominans.",
