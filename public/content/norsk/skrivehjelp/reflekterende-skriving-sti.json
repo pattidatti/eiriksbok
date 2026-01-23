@@ -84,18 +84,13 @@
                 "phase": "Akt 2: Verktøyene",
                 "title": "Refleksjons-raketten",
                 "type": "fakta",
-                "content": "For å hjelpe deg i gang har vi laget 'Refleksjons-raketten'. Den har fire trinn som tar deg fra jorda (fakta) til stjernene (vurdere).\n\n1. **Forstå**: Hva skjer?\n2. **Spørre**: Hvorfor?\n3. **Undre**: Hva om?\n4. **Vurdere**: Hva mener du?",
+                "content": "For å hjelpe deg i gang har vi laget 'Refleksjons-raketten'. Den har fire trinn som tar deg fra jorda (fakta) til stjernene (vurdere).\n\n1. **Forstå**: Hva skjer?\n\n2. **Spørre**: Hvorfor?\n\n3. **Undre**: Hva om?\n\n4. **Vurdere**: Hva mener du?",
                 "tasks": [
                     "Hvilket trinn i raketten handler om å se saken fra andre sider?",
                     "Hvorfor tror du det er viktig å starte med å 'forstå' før man begynner å 'vurdere'?",
                     "Hvilket trinn synes du virker vanskeligst?"
                 ],
-                "links": [
-                    {
-                        "title": "Lær om Refleksjons-raketten",
-                        "url": "/norsk/skrivehjelp/hvordan-skrive-reflekterende"
-                    }
-                ]
+                "links": []
             },
             {
                 "id": "steg-4",
@@ -103,8 +98,29 @@
                 "title": "Verktøykassa: Markører",
                 "type": "fakta",
                 "content": "Noen ganger trenger tankene dine litt drahjelp fra språket. Vi kaller dem 'refleksjonsmarkører'. Dette er faste uttrykk som signaliserer til leseren at 'Nå tenker jeg!'.\n\nEksempler er: 'Sett i lys av...', 'Det kan tolkes som...', 'Jeg stiller spørsmål ved...'.",
+                "component": {
+                    "name": "TextHighlighter",
+                    "props": {
+                        "instruction": "Marker ordene som viser at forfatteren tenker og vurderer (refleksjonsmarkører).",
+                        "text": "Mange voksne sier at gaming er bortkastet tid. På den ene siden kan det stemme at man blir sittende mye i ro. Men på den andre siden lærer man både engelsk og samarbeid når man spiller med andre. Jeg lurer på om de voksne egentlig bare er misunnelige på at vi har det så gøy.",
+                        "correctWords": [
+                            {
+                                "word": "På den ene siden",
+                                "category": "adverbial"
+                            },
+                            {
+                                "word": "Men på den andre siden",
+                                "category": "adverbial"
+                            },
+                            {
+                                "word": "Jeg lurer på om",
+                                "category": "adverbial"
+                            }
+                        ]
+                    }
+                },
                 "tasks": [
-                    "Finn tre refleksjonsmarkører i artikkelen.",
+                    "Hva er  refleksjonsmarkører, og hvorfor bruker vi dem?",
                     "Lag en setning om lekser ved å bruke markøren 'På den ene siden... på den andre siden...'",
                     "Hvorfor gjør disse ordene teksten din mer troverdig?"
                 ],
@@ -124,7 +140,8 @@
                 "tasks": [
                     "Les starten på Alises tekst. Hvordan introduserer hun temaet sitt?",
                     "Finn et sted i teksten hvor Alise viser undring eller refleksjon.",
-                    "Hvem er forfatteren av teksten?"
+                    "Hvem er forfatteren av teksten?",
+                    "Hvordan bruker Alise sine egne følelser for å beskrive leseopplevelsen?"
                 ],
                 "links": [
                     {

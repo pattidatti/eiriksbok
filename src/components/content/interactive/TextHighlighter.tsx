@@ -127,12 +127,12 @@ export const TextHighlighter: React.FC<TextHighlighterProps> = ({ text, correctW
             )}
 
             <div className="p-6">
-                <div className="flex flex-wrap gap-2 text-lg leading-loose font-medium text-slate-700">
+                <div className="flex flex-wrap gap-x-1 gap-y-2.5 text-lg leading-loose font-medium text-slate-700">
                     {words.map((word, i) => {
                         const userCat = selections[i];
                         const correctCat = getCorrectCategory(i);
 
-                        let className = "px-2 py-1 rounded cursor-pointer transition-all duration-200 border-b-2 ";
+                        let className = "px-1 py-1 rounded cursor-pointer transition-all duration-200 border-b-2 ";
 
                         // Default state
                         if (!userCat && !showResults) {
