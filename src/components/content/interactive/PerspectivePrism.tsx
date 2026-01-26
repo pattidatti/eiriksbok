@@ -45,7 +45,7 @@ export const PerspectivePrism: React.FC<PerspectivePrismProps> = ({
         const updateWidth = () => {
             if (containerRef.current) {
                 // Limit max width for better 3D effect on desktop
-                const newWidth = Math.min(containerRef.current.offsetWidth, 500);
+                const newWidth = Math.min(containerRef.current.offsetWidth, 420);
                 setWidth(newWidth);
             }
         };
@@ -82,8 +82,8 @@ export const PerspectivePrism: React.FC<PerspectivePrismProps> = ({
             rotateY: targetAngle,
             transition: {
                 type: "spring",
-                stiffness: 150,
-                damping: 20,
+                stiffness: 200,
+                damping: 18,
                 mass: 1.2
             }
         });
@@ -94,7 +94,7 @@ export const PerspectivePrism: React.FC<PerspectivePrismProps> = ({
 
     return (
         <div className="my-12 flex flex-col items-center select-none">
-            <h3 className="text-2xl font-serif text-slate-800 dark:text-slate-100 mb-2">{title}</h3>
+            <h3 className="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-2">{title}</h3>
 
             {/* Instruction with explicit visual cue */}
             <div className="text-slate-500 dark:text-slate-400 mb-8 flex flex-col items-center gap-2 text-center animate-pulse">
@@ -106,7 +106,7 @@ export const PerspectivePrism: React.FC<PerspectivePrismProps> = ({
 
             <div
                 ref={containerRef}
-                className={`${styles.scene} h-[550px] w-full max-w-[600px] cursor-grab active:cursor-grabbing touch-none perspective-[1200px]`}
+                className={`${styles.scene} h-[420px] w-full max-w-[420px] cursor-grab active:cursor-grabbing touch-none perspective-[1200px]`}
             >
                 <motion.div
                     className={styles.prism}
@@ -149,16 +149,16 @@ export const PerspectivePrism: React.FC<PerspectivePrismProps> = ({
                                         color: 'white'
                                     }}
                                 >
-                                    <div className="p-3 bg-white/20 rounded-lg mr-4 backdrop-blur-md shadow-inner text-2xl">
+                                    <div className="p-3 bg-white/20 rounded-lg mr-4 shadow-inner text-2xl">
                                         {side.icon || '📜'}
                                     </div>
-                                    <h4 className="font-bold text-xl tracking-tight text-shadow-sm truncate">
+                                    <h4 className="font-bold text-xl tracking-tight truncate">
                                         {side.title}
                                     </h4>
                                 </div>
 
                                 {/* Body Content - Improved readability */}
-                                <div className="p-8 h-[calc(100%-5rem)] overflow-y-auto bg-white/90 dark:bg-slate-900/95 backdrop-blur-md scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-600">
+                                <div className="p-6 pb-8 h-[calc(100%-5rem)] overflow-y-auto bg-white/95 dark:bg-slate-900/95 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-600">
                                     {side.image && (
                                         <div className="mb-6 rounded-lg overflow-hidden h-40 w-full shadow-md border border-slate-200 dark:border-slate-700 relative group">
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
@@ -171,7 +171,7 @@ export const PerspectivePrism: React.FC<PerspectivePrismProps> = ({
                                     )}
 
                                     {/* Quote style branding */}
-                                    <div className="prose dark:prose-invert prose-lg leading-relaxed text-slate-800 dark:text-slate-100">
+                                    <div className="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
                                         {side.content.split('\n').map((p, i) => {
                                             if (p.startsWith('**') && p.endsWith('**')) { // Simple bold detection
                                                 return <p key={i} className="font-bold text-xl text-slate-900 dark:text-white mb-4 border-l-4 border-blue-500 pl-4">{p.replace(/\*\*/g, '')}</p>;
@@ -202,10 +202,7 @@ export const PerspectivePrism: React.FC<PerspectivePrismProps> = ({
                 </motion.div>
 
                 {/* 3D Depth Floor Shadow to ground the object */}
-                <div
-                    className="absolute bottom-[-60px] left-1/2 -translate-x-1/2 w-[60%] h-[30px] bg-black/20 blur-2xl rounded-[100%]"
-                    style={{ transform: 'rotateX(90deg) translateZ(-50px)' }}
-                />
+                {/* 3D Depth Floor Shadow Removed for cleaner look */}
             </div>
 
             {/* Navigation Controls - More prominent */}
@@ -225,8 +222,8 @@ export const PerspectivePrism: React.FC<PerspectivePrismProps> = ({
                                 key={i}
                                 onClick={() => rotateToSide(i)}
                                 className={`h-3 rounded-full transition-all duration-300 shadow-sm ${i === normalizedIndex
-                                        ? 'w-10 bg-blue-600 dark:bg-blue-400 scale-100 ring-2 ring-blue-200 dark:ring-blue-900'
-                                        : 'w-3 bg-slate-300 dark:bg-slate-600 hover:bg-slate-400'
+                                    ? 'w-10 bg-blue-600 dark:bg-blue-400 scale-100 ring-2 ring-blue-200 dark:ring-blue-900'
+                                    : 'w-3 bg-slate-300 dark:bg-slate-600 hover:bg-slate-400'
                                     }`}
                                 aria-label={`Go to side ${i + 1}`}
                             />

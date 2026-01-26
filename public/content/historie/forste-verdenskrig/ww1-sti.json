@@ -42,37 +42,82 @@
                 "component": {
                     "name": "ScenarioRoleplay",
                     "props": {
-                        "title": "Juli-krisen",
-                        "intro": "Østerrike-Ungarn må reagere på drapet. Men Russland støtter Serbia. Tyskland støtter oss. Ett feil steg betyr verdenskrig.",
+                        "title": "Juli-krisen: Veien til katastrofen",
+                        "intro": "Europa holder pusten. Du er diplomat i Østerrike-Ungarn. Dine valg vil avgjøre om verden går under. Husk: Historien er en nådeløs dommer.",
                         "startId": "start",
                         "scenarios": [
                             {
                                 "id": "start",
-                                "text": "Serbias regjering var sannsynligvis involvert i attentatet. Generalene krever krig. Hva gjør du?",
+                                "text": "Erkehertug Franz Ferdinand er drept i Sarajevo. Hæren krever hevn mot Serbia. Russland truer med krig hvis vi angriper. Hva gjør du først?",
                                 "options": [
                                     {
-                                        "label": "Erklær krig mot Serbia umiddelbart",
-                                        "nextId": "war"
+                                        "label": "Søk støtte hos Tyskland (Blankofullmakt)",
+                                        "nextId": "blank_check"
                                     },
                                     {
-                                        "label": "Krev en internasjonal etterforskning",
-                                        "nextId": "peace"
+                                        "label": "Handle alene (Vær forsiktig)",
+                                        "nextId": "peace_early"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "blank_check",
+                                "text": "Keiser Wilhelm II av Tyskland lover full støtte, uansett hva som skjer. Han sier: 'Det er nå eller aldri!' Med tysk ryggdekning føler du deg usårbar. Hva gjør du med Serbia?",
+                                "options": [
+                                    {
+                                        "label": "Send et umulig ultimatum",
+                                        "nextId": "ultimatum"
+                                    },
+                                    {
+                                        "label": "Inviter til fredskonferanse",
+                                        "nextId": "peace_late"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "ultimatum",
+                                "text": "Du sender et ultimatum designet for å bli avvist. Blant annet krever du at østerriksk politi skal etterforske fritt på serbisk jord. Det er en fornærmelse mot Serbias suverenitet.",
+                                "options": [
+                                    {
+                                        "label": "Vent på svaret",
+                                        "nextId": "serbian_reply"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "serbian_reply",
+                                "text": "Utrolig nok svarer Serbia! De godtar nesten alt, unntatt politi-kravet. Keiser Wilhelm i Tyskland sier: 'All grunn til krig er borte!' Men generalene dine er rasende. De vil ha krig.",
+                                "options": [
+                                    {
+                                        "label": "Godta svaret (Avlys krigen)",
+                                        "nextId": "peace_late"
+                                    },
+                                    {
+                                        "label": "Erklær krig (Det er for sent å snu)",
+                                        "nextId": "war"
                                     }
                                 ]
                             },
                             {
                                 "id": "war",
-                                "text": "Du velger krig. Russland mobiliserer for å støtte Serbia. Tyskland erklærer krig mot Russland. Frankrike blir dratt med. Det er ingen vei tilbake.",
+                                "text": "Du erklærer krig. Russland mobiliserer. Tyskland angriper Frankrike gjennom Belgia. Storbritannia blir med. Verden står i brann. Din stahet har startet Sivilisasjonens Selvmord.",
                                 "isEnding": true,
                                 "endingType": "historical",
-                                "feedback": "Dette er nøyaktig hva som skjedde. En lokal konflikt ble til en verdenskrig på grunn av alliansene."
+                                "feedback": "Dette er den brutale sannheten. En kjede av stolthet, frykt og misforståelser førte verden ut i avgrunnen."
                             },
                             {
-                                "id": "peace",
-                                "text": "Du prøver diplomati. Men Tyskland presser på. De vil ha krigen nå, før Russland blir for sterke. Dine forsøk blir ignorert.",
+                                "id": "peace_early",
+                                "text": "Du velger å være forsiktig. Uten tysk støtte tør ikke Østerrike angripe. Krisen går over. Freden bevares... i en måned til. Men historiebøkene forblir tomme.",
                                 "isEnding": true,
                                 "endingType": "alternative",
-                                "feedback": "Et edelt forsøk. Men krigsmaskineriet var allerede i gang. Alliansesystemet gjorde diplomati nesten umulig."
+                                "feedback": "Du reddet freden, men feilet spillet. Historien krevde en krig. Prøv å forstå hvorfor lederne valgte annerledes."
+                            },
+                            {
+                                "id": "peace_late",
+                                "text": "Du trekker i nødbremsen. Keiser Wilhelm puster lettet ut. En konferanse i London løser krisen diplomtisk. Ingen verdenskrig i 1914.",
+                                "isEnding": true,
+                                "endingType": "alternative",
+                                "feedback": "Et fornuftig valg som kunne reddet millioner. Men i 1914 var frykten for å virke svak større enn fornuften."
                             }
                         ]
                     }
@@ -270,7 +315,7 @@
                 "content": "Mens Vestfronten står fast, kollapser Russland innenfra. Landet er enormt, men krigen har tømt skattekisten og matlagrene. Russiske soldater dør i milliontall, ofte uten sko og ammunisjon. Sulten i byene fører til opprør, og Tsaren må gå av.\n\nMidt i kaoset fyller et hemmelig tog fra Tyskland. Om bord er Vladimir Lenin, en revolusjonær som lover folket det de lengter mest etter: 'Fred, brød og jord'. Han griper makten, og Russland trekker seg helt ut av krigen.\n\nDu skal nå se på hvordan krigføring kan føre til en revolusjon i et helt land. Legg merke til prisen Russland måtte betale for å få fred med Tyskland, og hvordan dette ga tyskerne en siste sjanse til å vinne krigen ved å flytte alle soldatene sine vestover.",
                 "tasks": [
                     "Hva skjedde i 'Februarrevolusjonen' i 1917? (Fakta)",
-                    "Hvorfor valgte den provisoriske regjeringen å fortsette krigen? (Forståelse)",
+                    "Hva skjedde med keiser Wilhelm II i november 1918? (Fakta)",
                     "Hva var Lenins slagord for å vinne folket? (Fakta)",
                     "Hvorfor hjalp Tyskland Lenin med å reise tilbake til Russland? (Strategi)",
                     "Hva innebar fredsavtalen i Brest-Litovsk for Russland? (Konsekvens)",
@@ -358,7 +403,7 @@
                 "tasks": [
                     "Nevn tre nye stater som ble opprettet etter krigen. (Fakta)",
                     "Hva innebar Artikkel 231 i Versailles-traktaten? (Fakta)",
-                    "Hvorfor ble Folkeforbundet sett på som for svakt? (Forståelse)",
+                    "Hva ble konsekvensen av at USA ikke ble med i Folkeforbundet? (Analyse)",
                     "Hvordan bidro de økonomiske kravene mot Tyskland til ustabilitet? (Analyse)",
                     "Kunne en mer rettferdig fredsavtale ha hindret Hitlers vei til makten? (Refleksjon)",
                     "Hvordan endret krigen kvinners rettigheter på lang sikt? (Forståelse)"
