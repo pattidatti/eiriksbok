@@ -30,6 +30,11 @@
       "text": "1913: Stillheten før stormen"
     },
     {
+      "type": "image",
+      "src": "/images/historie/forste-verdenskrig/oversikt_1913_monarker.png",
+      "caption": "Fetterne som eide verden: Kong George V, Keiser Wilhelm II og Tsar Nicholas II i Berlin, 1913. Året etter var de i krig med hverandre."
+    },
+    {
       "type": "text",
       "content": "Året 1913 står i ettertid som symbolet på en tapt verden. I Europa ble denne perioden kalt *Belle Époque* – 'den vakre tiden'. Det var en gullalder preget av enorm teknologisk fremgang, blomstrende kunst og en urokkelig tro på at fremtiden bare ville bli bedre. Jernbaner bandt kontinentet sammen, elektrisiteten lyste opp storbyene, og de store imperiene kontrollerte nesten 80 prosent av jordens overflate. Europa 'eide' verden, økonomisk og militært.\n\nDenne verdenen virket biologisk stabil. De tre mektigste monarkene i Europa – Kong George V av Storbritannia, Keiser Wilhelm II av Tyskland og Tsar Nicholas II av Russland – var alle fettere. De var barnebarn av dronning Victoria, og i 1913 møttes de til storslått bryllup i Berlin. Ingen kunne forestille seg at disse familiemedlemmene bare et år senere skulle lede sine nasjoner inn i en gjensidig utslettelse som ville knuse tre av deres troner for alltid."
     },
@@ -68,7 +73,16 @@
     },
     {
       "type": "text",
-      "content": "Årsakene til første verdenskrig er komplekse og debatteres fortsatt av historikere. Likevel peker de fleste på en kombinasjon av faktorer som hadde bygget seg opp over flere tiår. Europa var preget av imperialisme, der stormaktene konkurrerte om kolonier og ressurser i Afrika og Asia. Denne konkurransen skapte mistenksomhet og fiendskap. Samtidig var nasjonalismen på fremmarsj. Mange folkegrupper, spesielt på Balkan, ønsket selvstyre og egne nasjonalstater, noe som truet stabiliteten til de gamle multietniske imperiene som Østerrike-Ungarn og Det osmanske riket.\n\nFor å sikre seg mot angrep bygget stormaktene opp enorme militære styrker og inngikk komplekse allianser. Tanken var at ingen ville tørre å angripe hvis det betydde krig mot flere land samtidig. I realiteten fungerte alliansesystemet som en felle. En konflikt mellom to land kunne raskt dra med seg resten av kontinentet.\n\nDen utløsende årsaken ble attentatet på erkehertug Franz Ferdinand i Sarajevo 28. juni 1914. Erkehertugen var arving til den østerriksk-ungarske tronen, og ble skutt av Gavrilo Princip, en ung serbisk nasjonalist. Dette politiske drapet satte i gang en kjedereaksjon av diplomatiske kriser og krigserklæringer. Du kan lese mer om de dype spenningene og hendelsene som førte til krigsutbruddet i [denne gjennomgangen av opptakten til krigen](/historie/forste-verdenskrig/opptakt)."
+      "content": "Årsakene til første verdenskrig er komplekse og debatteres fortsatt av historikere. Likevel peker de fleste på en kombinasjon av faktorer som hadde bygget seg opp over flere tiår. Europa var preget av imperialisme, der stormaktene konkurrerte om kolonier og ressurser i Afrika og Asia. Denne konkurransen skapte mistenksomhet og fiendskap. Samtidig var nasjonalismen på fremmarsj. Mange folkegrupper, spesielt på Balkan, ønsket selvstyre og egne nasjonalstater, noe som truet stabiliteten til de gamle multietniske imperiene som Østerrike-Ungarn og Det osmanske riket.\n\nFor å sikre seg mot angrep bygget stormaktene opp enorme militære styrker og inngikk komplekse allianser. Tanken var at ingen ville tørre å angripe hvis det betydde krig mot flere land samtidig. I realiteten fungerte alliansesystemet som en felle. En konflikt mellom to land kunne raskt dra med seg resten av kontinentet."
+    },
+    {
+      "type": "image",
+      "src": "/images/historie/forste-verdenskrig/oversikt_sarajevo_1914.png",
+      "caption": "Skjebnebilen: Erkehertug Franz Ferdinand og hertuginne Sophie i Sarajevo, minutter før skuddene falt."
+    },
+    {
+      "type": "text",
+      "content": "Den utløsende årsaken ble attentatet på erkehertug Franz Ferdinand i Sarajevo 28. juni 1914. Erkehertugen var arving til den østerriksk-ungarske tronen, og ble skutt av Gavrilo Princip, en ung serbisk nasjonalist. Dette politiske drapet satte i gang en kjedereaksjon av diplomatiske kriser og krigserklæringer. Du kan lese mer om de dype spenningene og hendelsene som førte til krigsutbruddet i [denne gjennomgangen av opptakten til krigen](/historie/forste-verdenskrig/opptakt)."
     },
     {
       "type": "component",
@@ -84,7 +98,16 @@
     },
     {
       "type": "text",
-      "content": "På Østfronten var krigføringen annerledes. Her var frontlinjen mye lengre, og skyttergravssystemene var ikke like utbygde. Her kjempet Russland mot Tyskland og Østerrike-Ungarn over enorme landområder. Til tross for store russiske arméer led de ofte store tap på grunn av dårlig utstyr og ledelse. Etter den russiske revolusjonen i 1917 kollapset den russiske krigsinnsatsen, og landet trakk seg ut av krigen, noe som tillot Tyskland å flytte sine styrker vestover.\n\nKrigen ble også utkjempet i Alpene mellom Italia og Østerrike-Ungarn under ekstreme forhold, i Midtøsten der britene kjempet mot osmanene, og i koloniene i Afrika. Til sjøs prøvde Tyskland å sulte ut Storbritannia gjennom uinnskrenket ubåtkrig."
+      "content": "På Østfronten var krigføringen annerledes. Her var frontlinjen mye lengre, og skyttergravssystemene var ikke like utbygde. Her kjempet Russland mot Tyskland og Østerrike-Ungarn over enorme landområder. Til tross for store russiske arméer led de ofte store tap på grunn av dårlig utstyr og ledelse. Etter den russiske revolusjonen i 1917 kollapset den russiske krigsinnsatsen, og landet trakk seg ut av krigen, noe som tillot Tyskland å flytte sine styrker vestover."
+    },
+    {
+      "type": "image",
+      "src": "/images/historie/forste-verdenskrig/oversikt_alpefronten.png",
+      "caption": "Den hvite krigen: I Dolomittene kjempet soldater mot både fienden og naturen i 3000 meters høyde."
+    },
+    {
+      "type": "text",
+      "content": "Krigen ble også utkjempet i Alpene mellom Italia og Østerrike-Ungarn under ekstreme forhold, i Midtøsten der britene kjempet mot osmanene, og i koloniene i Afrika. Til sjøs prøvde Tyskland å sulte ut Storbritannia gjennom uinnskrenket ubåtkrig."
     },
     {
       "type": "header",
