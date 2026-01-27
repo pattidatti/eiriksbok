@@ -5,75 +5,146 @@
     "heroImage": "/images/lessons/norsk/virkemidler/synsvinkel-hero.png",
     "content": [
         {
+            "type": "header",
+            "text": "Det usynlige kameraet"
+        },
+        {
             "type": "text",
-            "content": "Tenk deg at det har skjedd et slagsmål i skolegården. Rektor ser det fra vinduet (utenfra). Den som slår ser det med sinne (innenfra). Den som blir slått ser det med frykt (innenfra). Hvem forteller sannheten? Alle og ingen. Valg av synsvinkel bestemmer *alt* leseren får vite."
+            "content": "Når du ser en film, er du alltid klar over hva kameraet viser deg. Noen ganger filmer det nært på ansiktet til helten, andre ganger henger det høyt oppe i lufta som en fugl. I litteraturen er synsvinkelen forfatterens kamera. Det bestemmer ikke bare hva vi ser, men også hva vi får vite, hva vi får føle, og hvem vi heier på.\n\nValg av synsvinkel er kanskje det viktigste valget en forfatter tar. Hvis Harry Potter var fortalt fra synsvinkelen til Voldemort, ville det vært en helt annen bok (kanskje en tragedie om en misforstått leder?). Synsvinkelen farger sannheten. I denne leksjonen skal vi se på de tre hovedlinsene forfattere bruker, og hvordan de påvirker måten du leser på."
         },
         {
             "type": "header",
-            "text": "Perspektivprismet: Hvem ser vi gjennom?"
-        },
-        {
-            "type": "text",
-            "content": "Vi skiller vanligvis mellom tre hovedtyper synsvinkel. Prøv å se den samme scenen gjennom tre ulike linser her:"
+            "text": "Perspektivprismet"
         },
         {
             "type": "interactive",
             "component": "PerspectivePrism",
             "props": {
-                "scene": "En jente (Anna) sitter alene på en benk og gråter. En gutt (Jonas) går forbi.",
-                "lenses": [
+                "title": "Samme scene - Ulik sannhet",
+                "instruction": "Roter prismet for å se hvordan synsvinkelen endrer teksten totalt.",
+                "sides": [
                     {
-                        "name": "Personal (1. person - Jeg)",
-                        "description": "Vi er INNE i hodet til Jonas. Vi vet kun det han vet.",
-                        "text": "Jeg så henne sitte der. Skulle jeg gå bort? Hjertet mitt hamret. Hva om hun bare ba meg dra til helvete? Jeg senket blikket og gikk forbi, selv om jeg hadde lyst til å snu."
+                        "id": "personal",
+                        "title": "Personal (Jeg)",
+                        "color": "#6366f1",
+                        "icon": "👤",
+                        "content": "**Jeg** så henne sitte der. Skulle jeg gå bort? Hjertet mitt hamret i brystet som en skremt fugl. Hva om hun ikke ville ha meg der? Hva om hun bare ba meg dra til helvete? Jeg senket blikket og gikk forbi, selv om hvert fiber i kroppen skrek at jeg burde snu."
                     },
                     {
-                        "name": "Autoral (Refererende - Flue på veggen)",
-                        "description": "Vi ser kun det som skjer utenfra. Ingen tanker.",
-                        "text": "Anna satt på benken med ansiktet i hendene. Skuldrene hennes ristet. Jonas kom gående nedover stien. Han stoppet opp et øyeblikk, så på henne, og gikk deretter raskt videre uten å si noe."
+                        "id": "autoral",
+                        "title": "Autoral (Flue)",
+                        "color": "#10b981",
+                        "icon": "🎥",
+                        "content": "Anna satt på benken med ansiktet begravd i hendene. Skuldrene hennes ristet svakt. Jonas kom gående nedover stien. Han stoppet opp et øyeblikk omtrent to meter fra henne, så på henne, og strammet grepet om skolesekken. Deretter gikk han raskt videre uten å si noe."
                     },
                     {
-                        "name": "Allvitende (Gud)",
-                        "description": "Forfatteren vet alt om alle.",
-                        "text": "Anna trodde hun var helt alene i sorgen, uvitende om at Jonas nettopp hadde rundet hjørnet. Jonas, som lenge hadde vært forelsket i henne, kjente en stikkende smerte i brystet, men frykten for avvisning var større enn medlidenheten. Han gikk forbi, en avgjørelse han skulle angre på resten av livet."
+                        "id": "allvitende",
+                        "title": "Allvitende (Gud)",
+                        "color": "#f59e0b",
+                        "icon": "👑",
+                        "content": "Anna trodde hun var helt alene i sorgen, uvitende om at Jonas nettopp hadde rundet hjørnet. Jonas, som lenge hadde vært hemmelig forelsket i henne, kjente en stikkende smerte i brystet da han så tårene. Men frykten for avvisning var større enn medlidenheten i dag. Han gikk forbi, en avgjørelse han skulle komme til å angre på resten av livet."
                     }
                 ]
             }
         },
         {
+            "type": "section",
+            "title": "Del 1: Hvem ser?",
+            "content": [
+                {
+                    "type": "header",
+                    "text": "1. Personal synsvinkel (Jeg)"
+                },
+                {
+                    "type": "text",
+                    "content": "Her er vi fanget inne i hodet til én karakter, vanligvis hovedpersonen. Vi ser verden utelukkende gjennom deres øyne. Det betyr at vi vet alt om hva denne personen tenker, føler, drømmer og frykter. Men det betyr også at vi er blinde for alt annet. Vi aner ikke hva de andre karakterene tenker, med mindre de sier det høyt.\n\nDette skaper en intens nærhet. Vi blir «venner» med hovedpersonen og tar ofte deres parti i konflikter, fordi vi forstår hvorfor de gjør som de gjør. Begrensningen er at vi kan bli lurt. Hvis hovedpersonen misforstår en situasjon, misforstår vi den også. Vi er låst til deres versjon av sannheten."
+                },
+                {
+                    "type": "quote",
+                    "content": "Jeg visste at han løy. Jeg kunne se det på måten han flakket med blikket.",
+                    "author": "(Subjektiv tolkning)"
+                },
+                {
+                    "type": "info_box",
+                    "title": "Hvorfor virker det?",
+                    "content": "Det skaper maksimal identifikasjon. Leseren opplever historien *som* hovedpersonen."
+                },
+                {
+                    "type": "header",
+                    "text": "2. Autoral synsvinkel (Flue på veggen)"
+                },
+                {
+                    "type": "text",
+                    "content": "Her trekker forfatteren seg tilbake og blir et objektivt filmkamera. Vi ser bare det som kan sees og høres utenfra: Handlinger, dialog, utseende og omgivelser. Vi får aldri vite hva noen tenker eller føler direkte. Hvis en person er sint, står det ikke «han var sint». I stedet står det «han smalt hånden i bordet og ble rød i ansiktet».\n\nDette kalles ofte «referende» synsvinkel. Det krever mer av leseren, fordi vi må tolke tegnene selv. Vi må være detektiver som leser kroppsspråk og replikker for å forstå hva som foregår under overflaten. Ernest Hemingway var mesteren av denne stilen."
+                },
+                {
+                    "type": "quote",
+                    "content": "Han reiste seg brått. Stolen veltet bak ham.",
+                    "author": "(Objektiv observasjon)"
+                },
+                {
+                    "type": "info_box",
+                    "title": "Hvorfor virker det?",
+                    "content": "Det føles realistisk og rått. Forfatteren tvinger ikke sin mening på leseren (Show, don't tell)."
+                },
+                {
+                    "type": "header",
+                    "text": "3. Allvitende synsvinkel (Gud)"
+                },
+                {
+                    "type": "text",
+                    "content": "Her er fortelleren som en gud som svever over handlingen. Denne fortelleren vet absolutt alt. Han kan se inn i hodet på alle karakterene samtidig. Han vet hva som har skjedd i fortiden, og ofte hva som skal skje i fremtiden. Han kan hoppe fra sted til sted på et øyeblikk.\n\nForfatteren kan også kommentere handlingen direkte, og si ting som «liten visste de at dette var deres siste måltid». Dette gir en enorm frihet til å fortelle store, kompliserte historier med mange karakterer. Ulempen er at det kan skape distanse. Vi kommer kanskje ikke like tett innpå én enkelt person som i personal synsvinkel."
+                },
+                {
+                    "type": "quote",
+                    "content": "Mens hun gråt på soverommet, satt han i stuen og smilte, uvitende om sorgen.",
+                    "author": "(Full oversikt)"
+                },
+                {
+                    "type": "info_box",
+                    "title": "Hvorfor virker det?",
+                    "content": "Gir full kontroll og oversikt. Perfekt for episke fortellinger og for å skape ironi (når leseren vet mer enn karakterene)."
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "title": "Del 2: Kan vi stole på dem?",
+            "content": [
+                {
+                    "type": "header",
+                    "text": "4. Den upålitelige forteller"
+                },
+                {
+                    "type": "text",
+                    "content": "Dette er et av de mest spennende grepene i moderne litteratur. Vanligvis stoler vi på at «Jeg»-personen forteller sannheten. Men hva om «Jeg»-personen er en lystløgner? Eller et barn som ikke forstår hva de voksne gjør? Eller en morder som prøver å rettferdiggjøre handlingene sine?\n\nEn upålitelig forteller gir oss en versjon av historien som er vridd. Leseren må hele tiden være på vakt og lese «mellom linjene» for å finne ut hva som egentlig er sant. Det skaper en dobbel bunn i historien: Det fortelleren *sier*, og det vi *skjønner* at faktisk skjer."
+                },
+                {
+                    "type": "quote",
+                    "content": "Jeg måtte låse henne inne i kjelleren. Det var det eneste trygge stedet for henne.",
+                    "author": "(Beskyttelse eller kidnapping?)"
+                },
+                {
+                    "type": "info_box",
+                    "title": "Hvorfor virker det?",
+                    "content": "Det aktiverer leseren maksimalt. Vi må avsløre fortelleren. Det skaper psykologisk dybde og uhygge."
+                }
+            ]
+        },
+        {
             "type": "header",
-            "text": "Den upålitelige fortelleren"
+            "text": "Oppsummering"
         },
         {
             "type": "text",
-            "content": "Kan vi stole på «Jeget» i fortellingen? Ikke alltid. En upålitelig forteller kan lyve for oss, være sinnssyk, eller bare misforstå hva som skjer rundt seg. Dette er et genialt grep for å skape spenning. Leseren må leke detektiv: Hva er sant, og hva er bare i hodet til hovedpersonen?"
+            "content": "Synsvinkel er ikke bare et teknisk valg, det er et valg om sannhet. Vil du ha den intense, subjektive sannheten (Personal)? Den kalde, objektive fakta-sannheten (Autoral)? Eller den store, altomfattende oversikten (Allvitende)? Det finnes ingen fasit, bare ulike måter å se verden på."
         },
         {
             "type": "link",
-            "target": "norsk/skrivehjelp/skriv-bedre-historier",
-            "text": "Tips: Show, don't tell - vis følelser gjennom handling"
-        },
-        {
-            "type": "header",
-            "text": "Stemme og Replikk"
-        },
-        {
-            "type": "text",
-            "content": "Alle karakterer må ha sin egen stemme. En professor på 60 snakker ikke likt som en gamer på 14. Dialog skal drive handlingen fremover eller avsløre noe om karakterene. Tomprat («Hei, hvordan går det?») bør klippes bort."
-        },
-        {
-            "type": "interactive",
-            "component": "ScenarioRoleplay",
-            "props": {
-                "scenario": "To venner møtes etter at den ene har sveket den andre.",
-                "roles": [
-                    "Sviker",
-                    "Offer"
-                ],
-                "goal": "Avslør underteksten. De snakker om været, men mener noe annet."
-            }
+            "target": "norsk/virkemidler/tid-og-struktur",
+            "text": "Neste leksjon: Tid og Struktur"
         }
     ],
     "createdDate": "2024-05-22T10:00:00Z",
-    "lastUpdated": "2024-05-22T10:00:00Z"
+    "lastUpdated": "2026-01-27T11:05:00Z"
 }
