@@ -1,0 +1,176 @@
+{
+    "id": "bildesprak-og-effekter",
+    "title": "Språkets farger: Bilder og effekter",
+    "ingress": "Ord er ikke bare informasjon – de er maling. Lær forskjellen på å si at «han var sint» og «han eksploderte».",
+    "heroImage": "/images/lessons/norsk/virkemidler/bilder-hero.png",
+    "content": [
+        {
+            "type": "header",
+            "text": "Det usynlige maleriet"
+        },
+        {
+            "type": "text",
+            "content": "Hvorfor «føler» vi noe når vi leser, selv om det bare er svarte bokstaver på hvitt papir? Hemmeligheten ligger i hvordan forfatteren maler bilder i hodet ditt. Se forskjellen selv:"
+        },
+        {
+            "type": "interactive",
+            "component": "WritingFix",
+            "props": {
+                "title": "Show, Don't Tell",
+                "items": [
+                    {
+                        "bad": "Det var en skummel natt. Det regnet og blåste.",
+                        "good": "Vinden ulte rundt hushjørnene som en såret ulv. Regnet pisket mot ruten.",
+                        "why": "Konkrete sanseinntrykk skaper bilder. Adjektiver (skummel) forteller bare konklusjonen."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "De tre store: Metafor, Sammenligning og Besjeling"
+        },
+        {
+            "type": "text",
+            "content": "Dette er de viktigste verktøyene i verktøykassa. Mange blander dem, men de har ulik effekt."
+        },
+        {
+            "type": "interactive",
+            "component": "Comparison",
+            "props": {
+                "title": "Metafor vs. Sammenligning",
+                "leftTitle": "Metafor (Er)",
+                "rightTitle": "Sammenligning (Som)",
+                "items": [
+                    {
+                        "left": "Du er en **rose**.",
+                        "right": "Du er **som** en rose."
+                    },
+                    {
+                        "left": "Livet **er** en reise.",
+                        "right": "Livet **ligner på** en reise."
+                    },
+                    {
+                        "left": "Han har et hjerte av stein.",
+                        "right": "Hjertet hans er hardt som stein."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "**Besjeling** er når døde ting får liv. «*Vinden hvisket*» eller «*Huset myste med vinduene*». Dette gir naturen sjel og vilje."
+        },
+        {
+            "type": "link",
+            "target": "norsk/litteraturhistorie/romantikken-sti",
+            "text": "Se hvordan Wergeland brukte besjeling i Romantikken"
+        },
+        {
+            "type": "header",
+            "text": "Symbolenes hemmelige språk"
+        },
+        {
+            "type": "text",
+            "content": "Et bilde skaper en stemning der og da. Et **symbol** betyr noe mer. En due er ikke bare en fugl, det er fred. Et hjerte er ikke bare en muskel, det er kjærlighet."
+        },
+        {
+            "type": "interactive",
+            "component": "TextHighlighter",
+            "props": {
+                "instruction": "Finn symbolene i teksten (Døden, Kjærlighet, Håp).",
+                "text": "Mannen i den svarte kappen gikk forbi. Han holdt en rød rose i hånden, men den visnet da han rørte ved den. Langt borte lyste et fyrtårn.",
+                "correctWords": [
+                    {
+                        "word": "svarte kappen",
+                        "category": "subject"
+                    },
+                    {
+                        "word": "rød rose",
+                        "category": "object"
+                    },
+                    {
+                        "word": "fyrtårn",
+                        "category": "adverbial"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Tekstens Rytmeboks: Kontrast og Gjentakelse"
+        },
+        {
+            "type": "text",
+            "content": "Bilder skaper synsinntrykk, men kontraster og gjentakelser skaper rytme og følelser."
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Kontrast:** Å sette to motsetninger opp mot hverandre forsterker begge. Lys/Mørke, Liv/Død, Sorg/Glede. Det er ingen skygge uten lys.",
+                "**Gjentakelse:** Når et ord eller en setning kommer igjen flere ganger, skjønner vi at det er viktig. Det kan være masete, eller det kan være suggererende, som refrenget i en sang."
+            ]
+        },
+        {
+            "type": "interactive",
+            "component": "QuoteBlock",
+            "props": {
+                "author": "Sigbjørn Obstfelder",
+                "source": "Jeg ser",
+                "text": "Jeg ser på den hvite himmel,\njeg ser på de gråblå skyer,\njeg ser på den blodige sol.\n\nDette er altså verden.\nDette er altså klodenes hjem."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Oppsummering"
+        },
+        {
+            "type": "text",
+            "content": "Når du skriver selv, ikke bare fortell hva som skjer. Vis det. Bruk metaforer for å forklare følelser, og symboler for å gi teksten dybde. Tenk på deg selv som en maler, og ordene som farger."
+        },
+        {
+            "type": "link",
+            "target": "norsk/skrivehjelp/hvordan-skrive-dikt",
+            "text": "Lær å bruke disse effektene i egne dikt"
+        },
+        {
+            "type": "link",
+            "target": "norsk/virkemidler/synsvinkel-og-stemme",
+            "text": "Neste leksjon: Synsvinkel og Stemme"
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er forskjellen på en metafor og en sammenligning?",
+            "options": [
+                "Ingen forskjell.",
+                "Metafor sier at noe ER noe annet, sammenligning sier det er SOM noe annet.",
+                "Sammenligning brukes bare i dikt.",
+                "Metafor er alltid negativt ladet."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva betyr 'Show, don't tell'?",
+            "options": [
+                "Skriv så kort som mulig.",
+                "Bruk mange adjektiver.",
+                "Vis handling gjennom sanseinntrykk i stedet for å bare konstatere fakta.",
+                "Lag en video i stedet for tekst."
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hvilket virkemiddel brukes i setningen: 'Vinden hvisket hemmeligheter'?",
+            "options": [
+                "Metafor",
+                "Kontrast",
+                "Besjeling",
+                "Symbol"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "createdDate": "2024-05-22T10:00:00Z",
+    "lastUpdated": "2026-01-27T09:00:00Z"
+}

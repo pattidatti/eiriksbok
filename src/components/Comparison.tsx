@@ -22,6 +22,15 @@ interface ComparisonProps {
     // Support for legacy single-content props
     leftContent?: string;
     rightContent?: string;
+
+    // Support for "before/after" legacy structure (normalized to left/right)
+    before?: LegacyComparisonSide;
+    after?: LegacyComparisonSide;
+}
+
+interface LegacyComparisonSide {
+    label: string;
+    content: string;
 }
 
 export const Comparison: React.FC<ComparisonProps> = ({
@@ -32,12 +41,26 @@ export const Comparison: React.FC<ComparisonProps> = ({
     leftItems,
     rightItems,
     leftContent,
-    rightContent
+    rightContent,
+    before,
+    after
 }) => {
     const { entries } = useGlossary();
 
     // Normalizing data
     let displayItems: ComparisonItem[] = items || [];
+
+    // Protocol: "Avant-Garde" override for legacy "before/after" structure
+    if (displayItems.length === 0 && before && after) {
+        displayItems = [{
+            left: before.content,
+            right: after.content
+        }];
+        // If titles are missing, use the labels from the payload
+        // Note: We use the incoming prop if it exists, otherwise fallback to the before/after label
+        if (!leftTitle) leftTitle = before.label || 'Før';
+        if (!rightTitle) rightTitle = after.label || 'Etter';
+    }
 
     // Fallback: Legacy list structure
     if (displayItems.length === 0 && leftItems && rightItems) {

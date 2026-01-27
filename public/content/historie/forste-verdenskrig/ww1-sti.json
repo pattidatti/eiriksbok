@@ -127,7 +127,7 @@
                     "Hva var målet til organisasjonen 'Den sorte hånd'? (Forståelse)",
                     "Hva betyr begrepet 'blankoblankett' i denne sammenhengen? (Fakta)",
                     "Hvorfor førte alliansesystemet til at en lokal konflikt ble global? (Systemforståelse)",
-                    "Er det riktig å straffe et helt folk for gjerningene til en petite gruppe? (Etikk)",
+                    "Er det riktig å straffe et helt folk for gjerningene til en liten gruppe? (Etikk)",
                     "Hvordan påvirket imperialismen spenningen mellom stormaktene? (Analyse)"
                 ],
                 "links": [
@@ -158,7 +158,7 @@
                                 "title": "Østerrike-Ungarn",
                                 "color": "#1e3a8a",
                                 "icon": "🦅",
-                                "content": "**Vi må forsvare oss mot terrorisme.**\n\nVår tronarving er myrdet av serbiske nasjonalister. Serbia nekter å samarbeide om etterforskningen. Hvis vi ikke reagerer nå, vil riket vårt gå i oppløsning. \n\n*\"Dette er et spørsmål om ære og overlevelse.\"*",
+                                "content": "**Vi må forsvare oss.** Tronarvingen vår er myrdet. Serbia nekter å samarbeide. Hvis vi ikke reagerer nå, vil riket gå i oppløsning.\n\n*\"Dette er et spørsmål om ære.\"*",
                                 "sourceCredit": "Franz Joseph I"
                             },
                             {
@@ -166,7 +166,7 @@
                                 "title": "Serbia",
                                 "color": "#b91c1c",
                                 "icon": "⚔️",
-                                "content": "**Vi kjemper for frihet.**\n\nØsterrike-Ungarn har undertrykt slaverne i århundrer. Kravet deres krenker vår suverenitet som selvstendig nasjon. Vi kan ikke la dem diktere våre lover. \n\n*\"Bedre grav enn slave!\"*",
+                                "content": "**Vi kjemper for frihet.** Østerrike-Ungarn har undertrykt oss lenge nok. Vi lar dem ikke diktere våre lover og krenke vår suverenitet.\n\n*\"Bedre grav enn slave!\"*",
                                 "sourceCredit": "Nikola Pašić"
                             },
                             {
@@ -174,7 +174,7 @@
                                 "title": "Tyskland",
                                 "color": "#0f172a",
                                 "icon": "🛡️",
-                                "content": "**Lojalitet fremfor alt.**\n\nVi har lovet å støtte vår eneste sanne allierte, Østerrike. Hvis de faller, er vi omringet av fiender. Russland mobiliserer allerede. Vi må slå til før vi blir knust. \n\n*\"Nibelungentro - troskap til døden.\"*",
+                                "content": "**Lojalitet fremfor alt.** Vi må støtte vår allierte Østerrike. Russland mobiliserer, og vi er omringet. Vi må slå til før vi blir knust.\n\n*\"Troskap til døden.\"*",
                                 "sourceCredit": "Kaiser Wilhelm II"
                             },
                             {
@@ -182,7 +182,7 @@
                                 "title": "Russland",
                                 "color": "#15803d",
                                 "icon": "🐻",
-                                "content": "**Beskytteren av de svake.**\n\nVi er storebror for alle slaviske folk. Vi kan ikke sitte stille og se på at Østerrike knuser lille Serbia. Det ville være et svik mot vår Gudgitte rolle. \n\n*\"Ingen skal røre våre brødre.\"*",
+                                "content": "**Beskytter av de svake.** Vi er storebror for de slaviske folkene. Vi kan ikke se på at Østerrike knuser lille Serbia. Det ville være et svik.\n\n*\"Ingen skal røre våre brødre.\"*",
                                 "sourceCredit": "Tsar Nicholas II"
                             }
                         ]

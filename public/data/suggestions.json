@@ -79,6 +79,16 @@
       }
     ],
     [
+      "Besjeling",
+      {
+        "count": 2,
+        "sources": [
+          "Hvordan skrive dikt",
+          "Språkets farger: Bilder og effekter"
+        ]
+      }
+    ],
+    [
       "Ingress:",
       {
         "count": 2,
@@ -105,6 +115,26 @@
         "sources": [
           "Debattinnlegg",
           "Kommentar"
+        ]
+      }
+    ],
+    [
+      "Kontrast:",
+      {
+        "count": 2,
+        "sources": [
+          "Dikt (Lyrikk)",
+          "Språkets farger: Bilder og effekter"
+        ]
+      }
+    ],
+    [
+      "Gjentakelse:",
+      {
+        "count": 2,
+        "sources": [
+          "Dikt (Lyrikk)",
+          "Språkets farger: Bilder og effekter"
         ]
       }
     ],
@@ -312,6 +342,33 @@
         "count": 1,
         "sources": [
           "Skyttergravskrig: Livet i gjørma"
+        ]
+      }
+    ],
+    [
+      "Europa til Afrika:",
+      {
+        "count": 1,
+        "sources": [
+          "Trekant-handelen: Det Søte Livets Pris"
+        ]
+      }
+    ],
+    [
+      "Afrika til Amerika (Midtpassasjen):",
+      {
+        "count": 1,
+        "sources": [
+          "Trekant-handelen: Det Søte Livets Pris"
+        ]
+      }
+    ],
+    [
+      "Amerika til Europa:",
+      {
+        "count": 1,
+        "sources": [
+          "Trekant-handelen: Det Søte Livets Pris"
         ]
       }
     ],
@@ -854,60 +911,6 @@
           "Norge før vikingene"
         ]
       }
-    ],
-    [
-      "Militær kontroll og vaktposter:",
-      {
-        "count": 1,
-        "sources": [
-          "Norge før vikingene"
-        ]
-      }
-    ],
-    [
-      "Høvdingseter/Permanente bosetninger:",
-      {
-        "count": 1,
-        "sources": [
-          "Norge før vikingene"
-        ]
-      }
-    ],
-    [
-      "Kultiske steder:",
-      {
-        "count": 1,
-        "sources": [
-          "Norge før vikingene"
-        ]
-      }
-    ],
-    [
-      "7.3 Datering og Kasusstudier",
-      {
-        "count": 1,
-        "sources": [
-          "Norge før vikingene"
-        ]
-      }
-    ],
-    [
-      "Tabell 1: Utvalgte bygdeborger og deres karakteristika",
-      {
-        "count": 1,
-        "sources": [
-          "Norge før vikingene"
-        ]
-      }
-    ],
-    [
-      "7.4 Borgenes endelikt",
-      {
-        "count": 1,
-        "sources": [
-          "Norge før vikingene"
-        ]
-      }
     ]
   ],
   "frequentTerms": [
@@ -1032,7 +1035,7 @@
     [
       "verden",
       {
-        "count": 257,
+        "count": 258,
         "sources": [
           "Konsekvenser: En delt verden",
           "Konsentrasjonsleirene",
@@ -1062,6 +1065,7 @@
           "Europa erobrer verden",
           "Det franske imperiet: Pels, allianser og sukker",
           "Det spanske imperiet: Gull, Gud og ære",
+          "Trekant-handelen: Det Søte Livets Pris",
           "Japan: Solens vei mot krig",
           "Mellomkrigstiden: En verden i endring",
           "Sovjetunionen: Stalins jernhånd",
@@ -1151,7 +1155,7 @@
     [
       "store",
       {
-        "count": 235,
+        "count": 236,
         "sources": [
           "Konsekvenser: En delt verden",
           "Konsentrasjonsleirene",
@@ -1228,6 +1232,7 @@
           "Fagartikkel",
           "Novelle",
           "Roman",
+          "Språkets farger: Bilder og effekter",
           "Casus Belli: Historiens farligste argumenter",
           "Det 'unormale': Idéhistorien om sykdom og galskap",
           "Eskatologi: Historien om verdens undergang",
@@ -1376,7 +1381,7 @@
     [
       "første",
       {
-        "count": 184,
+        "count": 185,
         "sources": [
           "Geopolitikk og Opptakt: Veien mot stupet",
           "Konsekvenser: En delt verden",
@@ -1453,6 +1458,7 @@
           "Hvordan skrive dikt",
           "Hvordan skrive eventyr",
           "Hvordan skrive gode saktekster",
+          "Tidens tannhjul: Manipulasjon av tid",
           "Eskatologi: Historien om verdens undergang",
           "Troen på framskrittet: Blir alt egentlig bedre?",
           "Mennesket i sentrum: Humanismens fødsel",
@@ -1474,7 +1480,7 @@
     [
       "mennesker",
       {
-        "count": 153,
+        "count": 156,
         "sources": [
           "Konsekvenser: En delt verden",
           "Konsentrasjonsleirene",
@@ -1488,6 +1494,7 @@
           "Det britiske ostindiske kompani (EIC)",
           "Europa erobrer verden",
           "Det spanske imperiet: Gull, Gud og ære",
+          "Trekant-handelen: Det Søte Livets Pris",
           "Det store krakket: Keynes vs. Hayek",
           "Kultur: Da alt ble relativt",
           "Midtøsten: De nye grensene",
@@ -1557,7 +1564,7 @@
     [
       "europa",
       {
-        "count": 147,
+        "count": 149,
         "sources": [
           "Konsekvenser: En delt verden",
           "Konsentrasjonsleirene",
@@ -1577,6 +1584,7 @@
           "Det franske imperiet: Pels, allianser og sukker",
           "Det portugisiske sjøimperiet: Handelens herskere",
           "Det spanske imperiet: Gull, Gud og ære",
+          "Trekant-handelen: Det Søte Livets Pris",
           "Det nederlandske ostindiske kompani (VOC)",
           "Det store krakket: Keynes vs. Hayek",
           "Italia: Fascismens fødsel",
@@ -1845,7 +1853,7 @@
     [
       "gjorde",
       {
-        "count": 114,
+        "count": 115,
         "sources": [
           "Geopolitikk og Opptakt: Veien mot stupet",
           "Konsentrasjonsleirene",
@@ -1865,6 +1873,7 @@
           "Europa erobrer verden",
           "Det portugisiske sjøimperiet: Handelens herskere",
           "Det spanske imperiet: Gull, Gud og ære",
+          "Trekant-handelen: Det Søte Livets Pris",
           "Det nederlandske ostindiske kompani (VOC)",
           "Folkeforbundet: Drømmen om fred",
           "Spania: Den spanske borgerkrig",
@@ -2140,6 +2149,79 @@
       }
     ],
     [
+      "aldri",
+      {
+        "count": 105,
+        "sources": [
+          "Haiti: Den glemte revolusjonen",
+          "USA: Den første dominobrikken",
+          "Atomvåpenkappløpet: Terrorbalanse på kanten av stupet",
+          "Berlinmuren: Symbolet på en delt verden",
+          "Cuba-krisen 1962: Verden på kanten av utslettelse",
+          "Koreakrigen 1950-1953: Den glemte krigen som aldri tok slutt",
+          "Romkappløpet: Veien mot stjernene og månen",
+          "Veien mot slutten: Sovjetunionens sammenbrudd",
+          "Konsekvenser: Et nytt Europa",
+          "Første verdenskrig: En oversikt",
+          "Det britiske imperiet: Solen som aldri gikk ned",
+          "Europa erobrer verden",
+          "Det spanske imperiet: Gull, Gud og ære",
+          "Trekant-handelen: Det Søte Livets Pris",
+          "Det store krakket: Keynes vs. Hayek",
+          "Folkeforbundet: Drømmen om fred",
+          "Italia: Fascismens fødsel",
+          "Japan: Solens vei mot krig",
+          "Norge i mellomkrigstiden",
+          "Mellomkrigstiden: En verden i endring",
+          "Spania: Den spanske borgerkrig",
+          "USA: Fra 'The Roaring 20s' til 'The New Deal'",
+          "Det hellige romerske rike",
+          "Norge før vikingene",
+          "30-årskrigen: Europa i flammer",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "Handel og Silkeveien",
+          "Pompeii: Byen som ble frosset i tid",
+          "Romas grunnleggelse og republikken",
+          "Vikingtiden: En brytningstid for Norden",
+          "Åsatru: En verden av lureri og skjebne",
+          "Stormen fra Øst: Det Mongolske Riket",
+          "Dygdsetikk",
+          "Naturretten",
+          "Ikke-aggresjonsprinsippet",
+          "Pliktetikk",
+          "Utilitarisme",
+          "Thomas Aquinas",
+          "Hannah Arendt",
+          "Simone de Beauvoir",
+          "David Hume",
+          "Immanuel Kant",
+          "Ludwig von Mises",
+          "Sokrates",
+          "En ukjennbar Gud",
+          "Skapelsen i Islam",
+          "Adverb",
+          "Nivå 2: Objekt og Adverbial",
+          "Skriv bedre historier: En komplett guide",
+          "Casus Belli: Historiens farligste argumenter",
+          "Eskatologi: Historien om verdens undergang",
+          "Troen på framskrittet: Blir alt egentlig bedre?",
+          "Ekkokamre og informasjonsbobler",
+          "Kjendismakt og influensere",
+          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
+          "Ytringsvett vs ytringsmot",
+          "Finanskriser: Byggmesterens Dilemma",
+          "Demokratiets mange ansikter",
+          "Diktaturet: Makt uten grenser",
+          "Elitenes herredømme: Oligarki og Plutokrati",
+          "Føydalisme: Da personlige bånd styrte Europa",
+          "Makt og legitimitet: Hvorfor styres vi?",
+          "Monarkiet: Fra Guds nåde til folkets konge",
+          "Gud eller Eksperter? Teokrati og Teknokrati",
+          "Uten hersker: Anarkiets drøm og teorier"
+        ]
+      }
+    ],
+    [
       "begynte",
       {
         "count": 104,
@@ -2208,81 +2290,9 @@
       }
     ],
     [
-      "aldri",
-      {
-        "count": 104,
-        "sources": [
-          "Haiti: Den glemte revolusjonen",
-          "USA: Den første dominobrikken",
-          "Atomvåpenkappløpet: Terrorbalanse på kanten av stupet",
-          "Berlinmuren: Symbolet på en delt verden",
-          "Cuba-krisen 1962: Verden på kanten av utslettelse",
-          "Koreakrigen 1950-1953: Den glemte krigen som aldri tok slutt",
-          "Romkappløpet: Veien mot stjernene og månen",
-          "Veien mot slutten: Sovjetunionens sammenbrudd",
-          "Konsekvenser: Et nytt Europa",
-          "Første verdenskrig: En oversikt",
-          "Det britiske imperiet: Solen som aldri gikk ned",
-          "Europa erobrer verden",
-          "Det spanske imperiet: Gull, Gud og ære",
-          "Det store krakket: Keynes vs. Hayek",
-          "Folkeforbundet: Drømmen om fred",
-          "Italia: Fascismens fødsel",
-          "Japan: Solens vei mot krig",
-          "Norge i mellomkrigstiden",
-          "Mellomkrigstiden: En verden i endring",
-          "Spania: Den spanske borgerkrig",
-          "USA: Fra 'The Roaring 20s' til 'The New Deal'",
-          "Det hellige romerske rike",
-          "Norge før vikingene",
-          "30-årskrigen: Europa i flammer",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "Handel og Silkeveien",
-          "Pompeii: Byen som ble frosset i tid",
-          "Romas grunnleggelse og republikken",
-          "Vikingtiden: En brytningstid for Norden",
-          "Åsatru: En verden av lureri og skjebne",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Dygdsetikk",
-          "Naturretten",
-          "Ikke-aggresjonsprinsippet",
-          "Pliktetikk",
-          "Utilitarisme",
-          "Thomas Aquinas",
-          "Hannah Arendt",
-          "Simone de Beauvoir",
-          "David Hume",
-          "Immanuel Kant",
-          "Ludwig von Mises",
-          "Sokrates",
-          "En ukjennbar Gud",
-          "Skapelsen i Islam",
-          "Adverb",
-          "Nivå 2: Objekt og Adverbial",
-          "Skriv bedre historier: En komplett guide",
-          "Casus Belli: Historiens farligste argumenter",
-          "Eskatologi: Historien om verdens undergang",
-          "Troen på framskrittet: Blir alt egentlig bedre?",
-          "Ekkokamre og informasjonsbobler",
-          "Kjendismakt og influensere",
-          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
-          "Ytringsvett vs ytringsmot",
-          "Finanskriser: Byggmesterens Dilemma",
-          "Demokratiets mange ansikter",
-          "Diktaturet: Makt uten grenser",
-          "Elitenes herredømme: Oligarki og Plutokrati",
-          "Føydalisme: Da personlige bånd styrte Europa",
-          "Makt og legitimitet: Hvorfor styres vi?",
-          "Monarkiet: Fra Guds nåde til folkets konge",
-          "Gud eller Eksperter? Teokrati og Teknokrati",
-          "Uten hersker: Anarkiets drøm og teorier"
-        ]
-      }
-    ],
-    [
       "nesten",
       {
-        "count": 102,
+        "count": 103,
         "sources": [
           "Krigens løp: Fra lynkrig til ragnarok",
           "Andre verdenskrig: En oversikt",
@@ -2300,6 +2310,7 @@
           "Europa erobrer verden",
           "Det portugisiske sjøimperiet: Handelens herskere",
           "Det spanske imperiet: Gull, Gud og ære",
+          "Trekant-handelen: Det Søte Livets Pris",
           "Det nederlandske ostindiske kompani (VOC)",
           "Mellomkrigstiden: En verden i endring",
           "Sovjetunionen: Stalins jernhånd",
@@ -2528,6 +2539,71 @@
       }
     ],
     [
+      "betyr",
+      {
+        "count": 92,
+        "sources": [
+          "Andre verdenskrig: En oversikt",
+          "Det store krakket: Keynes vs. Hayek",
+          "Midtøsten: De nye grensene",
+          "Hamskiftet",
+          "Den romerske legionen",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "De Romerske Gudene",
+          "Veien mot Øst: Guder, Slaver og Keisere",
+          "Dygdsetikk",
+          "Hva er etikk?",
+          "Naturretten",
+          "Ikke-aggresjonsprinsippet",
+          "Pliktetikk",
+          "Utilitarisme",
+          "Augustin",
+          "Martin Heidegger",
+          "David Hume",
+          "Hva er filosofi?",
+          "Søren Kierkegaard",
+          "John Locke",
+          "Sokrates",
+          "Bahá'u'lláh",
+          "Tripitaka: De tre kurver",
+          "Ingen enkelt grunnlegger",
+          "Sentrale trekk i Islam",
+          "Sentrale trekk i Kristendommen",
+          "Introduksjon til sikhismen",
+          "Akkorder og Harmoni",
+          "Notasjon",
+          "Pronomen",
+          "Hvordan skrive reflekterende",
+          "Skriv bedre historier: En komplett guide",
+          "Eventyr",
+          "Novelle",
+          "Språkets farger: Bilder og effekter",
+          "Tidens tannhjul: Manipulasjon av tid",
+          "Casus Belli: Historiens farligste argumenter",
+          "Det 'unormale': Idéhistorien om sykdom og galskap",
+          "Eskatologi: Historien om verdens undergang",
+          "Troen på framskrittet: Blir alt egentlig bedre?",
+          "De store syklusene: Sivilisasjoners vekst og fall",
+          "Utopier: Drømmen om det perfekte samfunn",
+          "Kjendismakt og influensere",
+          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
+          "Ytringsvett vs ytringsmot",
+          "Finanskriser: Byggmesterens Dilemma",
+          "Inflasjon og rente",
+          "Antikkens visjoner: Platon og Aristoteles",
+          "Demokratiets mange ansikter",
+          "Diktaturet: Makt uten grenser",
+          "Elitenes herredømme: Oligarki og Plutokrati",
+          "Makt og legitimitet: Hvorfor styres vi?",
+          "Monarkiet: Fra Guds nåde til folkets konge",
+          "Opplysningstid og Samfunnskontrakten",
+          "Stortinget",
+          "Gud eller Eksperter? Teokrati og Teknokrati",
+          "Uten hersker: Anarkiets drøm og teorier"
+        ]
+      }
+    ],
+    [
       "samfunn",
       {
         "count": 91,
@@ -2579,72 +2655,9 @@
       }
     ],
     [
-      "betyr",
-      {
-        "count": 89,
-        "sources": [
-          "Andre verdenskrig: En oversikt",
-          "Det store krakket: Keynes vs. Hayek",
-          "Midtøsten: De nye grensene",
-          "Hamskiftet",
-          "Den romerske legionen",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "De Romerske Gudene",
-          "Veien mot Øst: Guder, Slaver og Keisere",
-          "Dygdsetikk",
-          "Hva er etikk?",
-          "Naturretten",
-          "Ikke-aggresjonsprinsippet",
-          "Pliktetikk",
-          "Utilitarisme",
-          "Augustin",
-          "Martin Heidegger",
-          "David Hume",
-          "Hva er filosofi?",
-          "Søren Kierkegaard",
-          "John Locke",
-          "Sokrates",
-          "Bahá'u'lláh",
-          "Tripitaka: De tre kurver",
-          "Ingen enkelt grunnlegger",
-          "Sentrale trekk i Islam",
-          "Sentrale trekk i Kristendommen",
-          "Introduksjon til sikhismen",
-          "Akkorder og Harmoni",
-          "Notasjon",
-          "Pronomen",
-          "Hvordan skrive reflekterende",
-          "Skriv bedre historier: En komplett guide",
-          "Eventyr",
-          "Novelle",
-          "Casus Belli: Historiens farligste argumenter",
-          "Det 'unormale': Idéhistorien om sykdom og galskap",
-          "Eskatologi: Historien om verdens undergang",
-          "Troen på framskrittet: Blir alt egentlig bedre?",
-          "De store syklusene: Sivilisasjoners vekst og fall",
-          "Utopier: Drømmen om det perfekte samfunn",
-          "Kjendismakt og influensere",
-          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
-          "Ytringsvett vs ytringsmot",
-          "Finanskriser: Byggmesterens Dilemma",
-          "Inflasjon og rente",
-          "Antikkens visjoner: Platon og Aristoteles",
-          "Demokratiets mange ansikter",
-          "Diktaturet: Makt uten grenser",
-          "Elitenes herredømme: Oligarki og Plutokrati",
-          "Makt og legitimitet: Hvorfor styres vi?",
-          "Monarkiet: Fra Guds nåde til folkets konge",
-          "Opplysningstid og Samfunnskontrakten",
-          "Stortinget",
-          "Gud eller Eksperter? Teokrati og Teknokrati",
-          "Uten hersker: Anarkiets drøm og teorier"
-        ]
-      }
-    ],
-    [
       "alltid",
       {
-        "count": 87,
+        "count": 88,
         "sources": [
           "Andre verdenskrig: En oversikt",
           "Det Siste Imperiet",
@@ -2687,6 +2700,7 @@
           "Nivå 1: Grunnmuren (S-V)",
           "Hvordan skrive eventyr",
           "Eventyr",
+          "Hvem eier historien? Synsvinkel og stemme",
           "Eskatologi: Historien om verdens undergang",
           "Mennesket i sentrum: Humanismens fødsel",
           "Sannhetens historie: Fra åpenbaring til algoritme",
@@ -2709,7 +2723,7 @@
     [
       "samme",
       {
-        "count": 86,
+        "count": 87,
         "sources": [
           "Geopolitikk og Opptakt: Veien mot stupet",
           "Krigens løp: Fra lynkrig til ragnarok",
@@ -2741,6 +2755,7 @@
           "Skriv bedre historier: En komplett guide",
           "Dikt (Lyrikk)",
           "Eventyr",
+          "Hvem eier historien? Synsvinkel og stemme",
           "Eskatologi: Historien om verdens undergang",
           "Troen på framskrittet: Blir alt egentlig bedre?",
           "Mennesket i sentrum: Humanismens fødsel",
@@ -3034,6 +3049,68 @@
       }
     ],
     [
+      "livet",
+      {
+        "count": 75,
+        "sources": [
+          "Konsentrasjonsleirene",
+          "Andre verdenskrig: En oversikt",
+          "Teknologi: Våpenkappløp og innovasjon",
+          "Krigens løp: Fra bevegelse til stillstand",
+          "Første verdenskrig: En oversikt",
+          "Europa erobrer verden",
+          "Spania: Den spanske borgerkrig",
+          "Tyskland: Veien mot nazismen",
+          "Middelalderen: En tusenårig forvandling",
+          "Svartedauden",
+          "Hamskiftet",
+          "536 - Året da solen forsvant",
+          "Knut Alvsson – ridderen som trosset kong Hans",
+          "Norge før vikingene",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "Hverdagslivet i Roma",
+          "De romerske keiserne",
+          "Hypotesen: Norden vs. Frankrike",
+          "Stormen fra Øst: Det Mongolske Riket",
+          "Dygdsetikk",
+          "Ikke-aggresjonsprinsippet",
+          "Utilitarisme",
+          "Thomas Aquinas",
+          "Hannah Arendt",
+          "Aristoteles",
+          "Søren Kierkegaard",
+          "Friedrich Nietzsche",
+          "Åndelig utvikling",
+          "Nirvana: Utslukning",
+          "Siddhartha Gautama (Buddha)",
+          "Moksha: Frigjøring",
+          "Overgangsriter i Hinduismen",
+          "Sentrale trekk i Hinduismen",
+          "Dommens dag og Paradis",
+          "Sentrale trekk i Islam",
+          "Paradis på jord",
+          "Livet her og nå",
+          "Sentrale trekk i Jødedommen",
+          "Overgangsriter i Kristendommen",
+          "Guruene – sikhismens læremestre",
+          "Sentrale trekk i sikhismen",
+          "Nasjonalromantikken: Da Norge fant sin sjel",
+          "Nyrealismen: Etikk og historie",
+          "Realismen: Sannheten skal frem",
+          "Hvordan skrive novelle",
+          "Eventyr",
+          "Tidens tannhjul: Manipulasjon av tid",
+          "Eskatologi: Historien om verdens undergang",
+          "Ytringsvett vs ytringsmot",
+          "Antikkens visjoner: Platon og Aristoteles",
+          "Demokratiets mange ansikter",
+          "Diktaturet: Makt uten grenser",
+          "Makt og legitimitet: Hvorfor styres vi?",
+          "Opplysningstid og Samfunnskontrakten"
+        ]
+      }
+    ],
+    [
       "førte",
       {
         "count": 74,
@@ -3138,70 +3215,9 @@
       }
     ],
     [
-      "livet",
-      {
-        "count": 74,
-        "sources": [
-          "Konsentrasjonsleirene",
-          "Andre verdenskrig: En oversikt",
-          "Teknologi: Våpenkappløp og innovasjon",
-          "Krigens løp: Fra bevegelse til stillstand",
-          "Første verdenskrig: En oversikt",
-          "Europa erobrer verden",
-          "Spania: Den spanske borgerkrig",
-          "Tyskland: Veien mot nazismen",
-          "Middelalderen: En tusenårig forvandling",
-          "Svartedauden",
-          "Hamskiftet",
-          "536 - Året da solen forsvant",
-          "Knut Alvsson – ridderen som trosset kong Hans",
-          "Norge før vikingene",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "Hverdagslivet i Roma",
-          "De romerske keiserne",
-          "Hypotesen: Norden vs. Frankrike",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Dygdsetikk",
-          "Ikke-aggresjonsprinsippet",
-          "Utilitarisme",
-          "Thomas Aquinas",
-          "Hannah Arendt",
-          "Aristoteles",
-          "Søren Kierkegaard",
-          "Friedrich Nietzsche",
-          "Åndelig utvikling",
-          "Nirvana: Utslukning",
-          "Siddhartha Gautama (Buddha)",
-          "Moksha: Frigjøring",
-          "Overgangsriter i Hinduismen",
-          "Sentrale trekk i Hinduismen",
-          "Dommens dag og Paradis",
-          "Sentrale trekk i Islam",
-          "Paradis på jord",
-          "Livet her og nå",
-          "Sentrale trekk i Jødedommen",
-          "Overgangsriter i Kristendommen",
-          "Guruene – sikhismens læremestre",
-          "Sentrale trekk i sikhismen",
-          "Nasjonalromantikken: Da Norge fant sin sjel",
-          "Nyrealismen: Etikk og historie",
-          "Realismen: Sannheten skal frem",
-          "Hvordan skrive novelle",
-          "Eventyr",
-          "Eskatologi: Historien om verdens undergang",
-          "Ytringsvett vs ytringsmot",
-          "Antikkens visjoner: Platon og Aristoteles",
-          "Demokratiets mange ansikter",
-          "Diktaturet: Makt uten grenser",
-          "Makt og legitimitet: Hvorfor styres vi?",
-          "Opplysningstid og Samfunnskontrakten"
-        ]
-      }
-    ],
-    [
       "forstå",
       {
-        "count": 73,
+        "count": 74,
         "sources": [
           "Konsentrasjonsleirene",
           "En verden i to: Oversikt over den kalde krigen",
@@ -3233,6 +3249,7 @@
           "Hvordan skrive reflekterende",
           "Skriv bedre historier: En komplett guide",
           "Dikt (Lyrikk)",
+          "Tidens tannhjul: Manipulasjon av tid",
           "Det 'unormale': Idéhistorien om sykdom og galskap",
           "Naturens sjel: Fra hellig til ressurs",
           "Sannhetens historie: Fra åpenbaring til algoritme",
@@ -3288,6 +3305,58 @@
           "Forente Nasjoner (FN): Verdens sikkerhetsråd",
           "Demokratiets mange ansikter",
           "Monarkiet: Fra Guds nåde til folkets konge"
+        ]
+      }
+    ],
+    [
+      "verdens",
+      {
+        "count": 72,
+        "sources": [
+          "Krigens løp: Fra lynkrig til ragnarok",
+          "Teknologi: Våpenkappløp og innovasjon",
+          "Haiti: Den glemte revolusjonen",
+          "Midtøsten: Streker i sanden",
+          "USA: Den første dominobrikken",
+          "Koreakrigen 1950-1953: Den glemte krigen som aldri tok slutt",
+          "Romkappløpet: Veien mot stjernene og månen",
+          "Suez-krisen 1956: Da de gamle imperiene falt",
+          "Konsekvenser: Et nytt Europa",
+          "Krigens løp: Fra bevegelse til stillstand",
+          "Opptakten: Veien mot katastrofen",
+          "Første verdenskrig: En oversikt",
+          "Det britiske imperiet: Solen som aldri gikk ned",
+          "Europa erobrer verden",
+          "Det franske imperiet: Pels, allianser og sukker",
+          "Det portugisiske sjøimperiet: Handelens herskere",
+          "Det spanske imperiet: Gull, Gud og ære",
+          "Trekant-handelen: Det Søte Livets Pris",
+          "Det nederlandske ostindiske kompani (VOC)",
+          "Folkeforbundet: Drømmen om fred",
+          "Japan: Solens vei mot krig",
+          "Kultur: Da alt ble relativt",
+          "Mellomkrigstiden: En verden i endring",
+          "Sovjetunionen: Stalins jernhånd",
+          "USA: Fra 'The Roaring 20s' til 'The New Deal'",
+          "536 - Året da solen forsvant",
+          "Fra republikk til keiserdømme: Augustus",
+          "Hverdagslivet i Roma",
+          "Romas grunnleggelse og republikken",
+          "Sveriges historie: Fra østfarere til moderne nasjon",
+          "Åsatru: En verden av lureri og skjebne",
+          "Oppdagelsesreiser i Vesterled",
+          "Stormen fra Øst: Det Mongolske Riket",
+          "Dygdsetikk",
+          "Utilitarisme",
+          "Augustin",
+          "Sentrale trekk i Kristendommen",
+          "Introduksjon til sikhismen",
+          "Notasjon",
+          "Rytmebank",
+          "Eventyr",
+          "Forente Nasjoner (FN): Verdens sikkerhetsråd",
+          "Naturens sjel: Fra hellig til ressurs",
+          "De store syklusene: Sivilisasjoners vekst og fall"
         ]
       }
     ],
@@ -3386,57 +3455,6 @@
       }
     ],
     [
-      "verdens",
-      {
-        "count": 71,
-        "sources": [
-          "Krigens løp: Fra lynkrig til ragnarok",
-          "Teknologi: Våpenkappløp og innovasjon",
-          "Haiti: Den glemte revolusjonen",
-          "Midtøsten: Streker i sanden",
-          "USA: Den første dominobrikken",
-          "Koreakrigen 1950-1953: Den glemte krigen som aldri tok slutt",
-          "Romkappløpet: Veien mot stjernene og månen",
-          "Suez-krisen 1956: Da de gamle imperiene falt",
-          "Konsekvenser: Et nytt Europa",
-          "Krigens løp: Fra bevegelse til stillstand",
-          "Opptakten: Veien mot katastrofen",
-          "Første verdenskrig: En oversikt",
-          "Det britiske imperiet: Solen som aldri gikk ned",
-          "Europa erobrer verden",
-          "Det franske imperiet: Pels, allianser og sukker",
-          "Det portugisiske sjøimperiet: Handelens herskere",
-          "Det spanske imperiet: Gull, Gud og ære",
-          "Det nederlandske ostindiske kompani (VOC)",
-          "Folkeforbundet: Drømmen om fred",
-          "Japan: Solens vei mot krig",
-          "Kultur: Da alt ble relativt",
-          "Mellomkrigstiden: En verden i endring",
-          "Sovjetunionen: Stalins jernhånd",
-          "USA: Fra 'The Roaring 20s' til 'The New Deal'",
-          "536 - Året da solen forsvant",
-          "Fra republikk til keiserdømme: Augustus",
-          "Hverdagslivet i Roma",
-          "Romas grunnleggelse og republikken",
-          "Sveriges historie: Fra østfarere til moderne nasjon",
-          "Åsatru: En verden av lureri og skjebne",
-          "Oppdagelsesreiser i Vesterled",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Dygdsetikk",
-          "Utilitarisme",
-          "Augustin",
-          "Sentrale trekk i Kristendommen",
-          "Introduksjon til sikhismen",
-          "Notasjon",
-          "Rytmebank",
-          "Eventyr",
-          "Forente Nasjoner (FN): Verdens sikkerhetsråd",
-          "Naturens sjel: Fra hellig til ressurs",
-          "De store syklusene: Sivilisasjoners vekst og fall"
-        ]
-      }
-    ],
-    [
       "enorme",
       {
         "count": 70,
@@ -3480,6 +3498,59 @@
           "Finanskriser: Byggmesterens Dilemma",
           "Diktaturet: Makt uten grenser",
           "Føydalisme: Da personlige bånd styrte Europa",
+          "Makt og legitimitet: Hvorfor styres vi?",
+          "Monarkiet: Fra Guds nåde til folkets konge"
+        ]
+      }
+    ],
+    [
+      "handler",
+      {
+        "count": 70,
+        "sources": [
+          "Det store krakket: Keynes vs. Hayek",
+          "Knut Alvsson – ridderen som trosset kong Hans",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "Fra Princeps til Guds utvalgte",
+          "Dygdsetikk",
+          "Hva er etikk?",
+          "Utilitarisme",
+          "Hannah Arendt",
+          "Simone de Beauvoir",
+          "Ludwig von Mises",
+          "Friedrich Nietzsche",
+          "Nirvana: Utslukning",
+          "Vedaene og Bhagavad Gita",
+          "Sentrale trekk i Islam",
+          "Livet her og nå",
+          "Bibelen",
+          "Mormons bok",
+          "Akkorder og Harmoni",
+          "Vurdering og Egenøving",
+          "Setningsanalyse",
+          "Nyrealismen: Etikk og historie",
+          "Nyromantikken: Mystikk, sjel og underbevissthet",
+          "Hva er retorikk?",
+          "Hvordan skrive dikt",
+          "Hvordan skrive gode saktekster",
+          "Hvordan skrive novelle",
+          "Hvordan skrive reflekterende",
+          "Skriv bedre historier: En komplett guide",
+          "Dikt (Lyrikk)",
+          "Eventyr",
+          "Novelle",
+          "Tidens tannhjul: Manipulasjon av tid",
+          "Det 'unormale': Idéhistorien om sykdom og galskap",
+          "Eskatologi: Historien om verdens undergang",
+          "Mennesket i sentrum: Humanismens fødsel",
+          "Ekkokamre og informasjonsbobler",
+          "Flokkmentalitetens psykologi",
+          "Kjendismakt og influensere",
+          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
+          "Ytringsvett vs ytringsmot",
+          "Demokratiets mange ansikter",
+          "Diktaturet: Makt uten grenser",
+          "Elitenes herredømme: Oligarki og Plutokrati",
           "Makt og legitimitet: Hvorfor styres vi?",
           "Monarkiet: Fra Guds nåde til folkets konge"
         ]
@@ -3545,6 +3616,111 @@
       }
     ],
     [
+      "bruker",
+      {
+        "count": 69,
+        "sources": [
+          "Teknologi: Våpenkappløp og innovasjon",
+          "Det store krakket: Keynes vs. Hayek",
+          "Arven etter Romerriket",
+          "Fra republikk til keiserdømme: Augustus",
+          "Dygdsetikk",
+          "Hva er etikk?",
+          "Naturretten",
+          "Ikke-aggresjonsprinsippet",
+          "Pliktetikk",
+          "Immanuel Kant",
+          "Ludwig von Mises",
+          "Platon",
+          "En ukjennbar Gud",
+          "Ny verden-oversettelsen",
+          "Bønn i Jødedommen",
+          "Notasjon",
+          "Nasjonalromantikken: Da Norge fant sin sjel",
+          "Adjektiv",
+          "Bindeord (Konjunksjoner)",
+          "Pronomen",
+          "Hva er retorikk?",
+          "Hvordan skrive dikt",
+          "Hvordan skrive reflekterende",
+          "Skriv bedre historier: En komplett guide",
+          "Debattinnlegg",
+          "Dikt (Lyrikk)",
+          "Eventyr",
+          "Kommentar",
+          "Roman",
+          "Tidens tannhjul: Manipulasjon av tid",
+          "Mennesket i sentrum: Humanismens fødsel",
+          "Utopier: Drømmen om det perfekte samfunn",
+          "Ekkokamre og informasjonsbobler",
+          "Kjendismakt og influensere",
+          "Ytringsvett vs ytringsmot",
+          "Finanskriser: Byggmesterens Dilemma",
+          "Inflasjon og rente",
+          "Produksjon: Hvorfor vi lager ting",
+          "Antikkens visjoner: Platon og Aristoteles",
+          "Demokratiets mange ansikter",
+          "Diktaturet: Makt uten grenser",
+          "Opplysningstid og Samfunnskontrakten",
+          "Gud eller Eksperter? Teokrati og Teknokrati"
+        ]
+      }
+    ],
+    [
+      "samtidig",
+      {
+        "count": 69,
+        "sources": [
+          "Midtøsten: Streker i sanden",
+          "Berlinmuren: Symbolet på en delt verden",
+          "Cuba-krisen 1962: Verden på kanten av utslettelse",
+          "Kultur og propaganda: Kampen om hjerter og sinn",
+          "En verden i to: Oversikt over den kalde krigen",
+          "Suez-krisen 1956: Da de gamle imperiene falt",
+          "Vietnamkrigen: Supermakten som møtte veggen i jungelen",
+          "Krigens løp: Fra bevegelse til stillstand",
+          "Opptakten: Veien mot katastrofen",
+          "Første verdenskrig: En oversikt",
+          "Europa erobrer verden",
+          "Det portugisiske sjøimperiet: Handelens herskere",
+          "Det spanske imperiet: Gull, Gud og ære",
+          "Trekant-handelen: Det Søte Livets Pris",
+          "Det nederlandske ostindiske kompani (VOC)",
+          "Det store krakket: Keynes vs. Hayek",
+          "Italia: Fascismens fødsel",
+          "Kultur: Da alt ble relativt",
+          "Midtøsten: De nye grensene",
+          "Norge i mellomkrigstiden",
+          "USA: Fra 'The Roaring 20s' til 'The New Deal'",
+          "Menneskets tidlige historie",
+          "Middelalderen: En tusenårig forvandling",
+          "536 - Året da solen forsvant",
+          "Knut Alvsson – ridderen som trosset kong Hans",
+          "Norge før vikingene",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "De Romerske Gudene",
+          "Vikingtiden: En brytningstid for Norden",
+          "Kristningen og Vikingtidens Slutt",
+          "Pliktetikk",
+          "Augustin",
+          "David Hume",
+          "Immanuel Kant",
+          "Akkorder og Harmoni",
+          "Notasjon",
+          "Piano: Introduksjon",
+          "Nasjonalromantikken: Da Norge fant sin sjel",
+          "Hva er retorikk?",
+          "Hvordan skrive gode saktekster",
+          "Roman",
+          "Utopier: Drømmen om det perfekte samfunn",
+          "Flokkmentalitetens psykologi",
+          "Finanskriser: Byggmesterens Dilemma",
+          "Demokratiets mange ansikter",
+          "Makt og legitimitet: Hvorfor styres vi?"
+        ]
+      }
+    ],
+    [
       "mennesket",
       {
         "count": 69,
@@ -3588,107 +3764,69 @@
       }
     ],
     [
-      "samtidig",
+      "viktigste",
       {
         "count": 68,
         "sources": [
-          "Midtøsten: Streker i sanden",
-          "Berlinmuren: Symbolet på en delt verden",
-          "Cuba-krisen 1962: Verden på kanten av utslettelse",
-          "Kultur og propaganda: Kampen om hjerter og sinn",
+          "Teknologi: Våpenkappløp og innovasjon",
           "En verden i to: Oversikt over den kalde krigen",
-          "Suez-krisen 1956: Da de gamle imperiene falt",
-          "Vietnamkrigen: Supermakten som møtte veggen i jungelen",
-          "Krigens løp: Fra bevegelse til stillstand",
-          "Opptakten: Veien mot katastrofen",
-          "Første verdenskrig: En oversikt",
           "Europa erobrer verden",
           "Det portugisiske sjøimperiet: Handelens herskere",
           "Det spanske imperiet: Gull, Gud og ære",
+          "Trekant-handelen: Det Søte Livets Pris",
           "Det nederlandske ostindiske kompani (VOC)",
-          "Det store krakket: Keynes vs. Hayek",
-          "Italia: Fascismens fødsel",
-          "Kultur: Da alt ble relativt",
-          "Midtøsten: De nye grensene",
-          "Norge i mellomkrigstiden",
-          "USA: Fra 'The Roaring 20s' til 'The New Deal'",
-          "Menneskets tidlige historie",
+          "Folkeforbundet: Drømmen om fred",
           "Middelalderen: En tusenårig forvandling",
-          "536 - Året da solen forsvant",
+          "Tidlig middelalder: Folkevandring og forvandling",
           "Knut Alvsson – ridderen som trosset kong Hans",
-          "Norge før vikingene",
+          "Arven etter Romerriket",
+          "Fra republikk til keiserdømme: Augustus",
+          "Den romerske legionen",
           "Diokletian: Da Romerriket ble gjenfødt",
+          "Handel og Silkeveien",
+          "Hverdagslivet i Roma",
           "De Romerske Gudene",
-          "Vikingtiden: En brytningstid for Norden",
-          "Kristningen og Vikingtidens Slutt",
-          "Pliktetikk",
-          "Augustin",
-          "David Hume",
-          "Immanuel Kant",
-          "Akkorder og Harmoni",
-          "Notasjon",
-          "Piano: Introduksjon",
-          "Nasjonalromantikken: Da Norge fant sin sjel",
-          "Hva er retorikk?",
-          "Hvordan skrive gode saktekster",
-          "Roman",
-          "Utopier: Drømmen om det perfekte samfunn",
-          "Flokkmentalitetens psykologi",
-          "Finanskriser: Byggmesterens Dilemma",
-          "Demokratiets mange ansikter",
-          "Makt og legitimitet: Hvorfor styres vi?"
-        ]
-      }
-    ],
-    [
-      "handler",
-      {
-        "count": 68,
-        "sources": [
-          "Det store krakket: Keynes vs. Hayek",
-          "Knut Alvsson – ridderen som trosset kong Hans",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "Fra Princeps til Guds utvalgte",
-          "Dygdsetikk",
+          "Sveriges historie: Fra østfarere til moderne nasjon",
+          "Åsatru: En verden av lureri og skjebne",
+          "Samfunn og Rett i vikingtiden",
+          "Skipet: Vikingtidens viktigste teknologi",
+          "Veien mot Øst: Guder, Slaver og Keisere",
+          "Stormen fra Øst: Det Mongolske Riket",
           "Hva er etikk?",
-          "Utilitarisme",
-          "Hannah Arendt",
-          "Simone de Beauvoir",
-          "Ludwig von Mises",
-          "Friedrich Nietzsche",
-          "Nirvana: Utslukning",
-          "Vedaene og Bhagavad Gita",
-          "Sentrale trekk i Islam",
-          "Livet her og nå",
+          "Naturretten",
+          "Aristoteles",
+          "Augustin",
+          "Hva er filosofi?",
+          "Søren Kierkegaard",
+          "John Locke",
+          "Sokrates",
+          "Kitáb-i-Aqdas",
+          "Puja og Bønn i Hinduismen",
+          "Bønn (Salah) i Islam",
+          "Profeten Muhammad",
+          "Tawhid: Guds enhet",
+          "Bønn i Jødedommen",
+          "Abraham og Moses",
+          "Jesus Kristus",
           "Bibelen",
-          "Mormons bok",
-          "Akkorder og Harmoni",
-          "Vurdering og Egenøving",
           "Setningsanalyse",
-          "Nyrealismen: Etikk og historie",
           "Nyromantikken: Mystikk, sjel og underbevissthet",
-          "Hva er retorikk?",
+          "Realismen: Sannheten skal frem",
+          "Verb",
           "Hvordan skrive dikt",
           "Hvordan skrive gode saktekster",
-          "Hvordan skrive novelle",
-          "Hvordan skrive reflekterende",
-          "Skriv bedre historier: En komplett guide",
+          "Hvordan skrive roman",
+          "Fagartikkel",
           "Dikt (Lyrikk)",
-          "Eventyr",
-          "Novelle",
-          "Det 'unormale': Idéhistorien om sykdom og galskap",
-          "Eskatologi: Historien om verdens undergang",
-          "Mennesket i sentrum: Humanismens fødsel",
-          "Ekkokamre og informasjonsbobler",
-          "Flokkmentalitetens psykologi",
+          "Språkets farger: Bilder og effekter",
+          "Utopier: Drømmen om det perfekte samfunn",
           "Kjendismakt og influensere",
           "Robotene kommer: Fremtidens arbeid og menneskets verdi",
-          "Ytringsvett vs ytringsmot",
-          "Demokratiets mange ansikter",
-          "Diktaturet: Makt uten grenser",
+          "Finanskriser: Byggmesterens Dilemma",
           "Elitenes herredømme: Oligarki og Plutokrati",
+          "Føydalisme: Da personlige bånd styrte Europa",
           "Makt og legitimitet: Hvorfor styres vi?",
-          "Monarkiet: Fra Guds nåde til folkets konge"
+          "Uten hersker: Anarkiets drøm og teorier"
         ]
       }
     ],
@@ -3834,71 +3972,6 @@
       }
     ],
     [
-      "viktigste",
-      {
-        "count": 66,
-        "sources": [
-          "Teknologi: Våpenkappløp og innovasjon",
-          "En verden i to: Oversikt over den kalde krigen",
-          "Europa erobrer verden",
-          "Det portugisiske sjøimperiet: Handelens herskere",
-          "Det spanske imperiet: Gull, Gud og ære",
-          "Det nederlandske ostindiske kompani (VOC)",
-          "Folkeforbundet: Drømmen om fred",
-          "Middelalderen: En tusenårig forvandling",
-          "Tidlig middelalder: Folkevandring og forvandling",
-          "Knut Alvsson – ridderen som trosset kong Hans",
-          "Arven etter Romerriket",
-          "Fra republikk til keiserdømme: Augustus",
-          "Den romerske legionen",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "Handel og Silkeveien",
-          "Hverdagslivet i Roma",
-          "De Romerske Gudene",
-          "Sveriges historie: Fra østfarere til moderne nasjon",
-          "Åsatru: En verden av lureri og skjebne",
-          "Samfunn og Rett i vikingtiden",
-          "Skipet: Vikingtidens viktigste teknologi",
-          "Veien mot Øst: Guder, Slaver og Keisere",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Hva er etikk?",
-          "Naturretten",
-          "Aristoteles",
-          "Augustin",
-          "Hva er filosofi?",
-          "Søren Kierkegaard",
-          "John Locke",
-          "Sokrates",
-          "Kitáb-i-Aqdas",
-          "Puja og Bønn i Hinduismen",
-          "Bønn (Salah) i Islam",
-          "Profeten Muhammad",
-          "Tawhid: Guds enhet",
-          "Bønn i Jødedommen",
-          "Abraham og Moses",
-          "Jesus Kristus",
-          "Bibelen",
-          "Setningsanalyse",
-          "Nyromantikken: Mystikk, sjel og underbevissthet",
-          "Realismen: Sannheten skal frem",
-          "Verb",
-          "Hvordan skrive dikt",
-          "Hvordan skrive gode saktekster",
-          "Hvordan skrive roman",
-          "Fagartikkel",
-          "Dikt (Lyrikk)",
-          "Utopier: Drømmen om det perfekte samfunn",
-          "Kjendismakt og influensere",
-          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
-          "Finanskriser: Byggmesterens Dilemma",
-          "Elitenes herredømme: Oligarki og Plutokrati",
-          "Føydalisme: Da personlige bånd styrte Europa",
-          "Makt og legitimitet: Hvorfor styres vi?",
-          "Uten hersker: Anarkiets drøm og teorier"
-        ]
-      }
-    ],
-    [
       "preget",
       {
         "count": 66,
@@ -3949,59 +4022,9 @@
       }
     ],
     [
-      "bruker",
-      {
-        "count": 65,
-        "sources": [
-          "Teknologi: Våpenkappløp og innovasjon",
-          "Det store krakket: Keynes vs. Hayek",
-          "Arven etter Romerriket",
-          "Fra republikk til keiserdømme: Augustus",
-          "Dygdsetikk",
-          "Hva er etikk?",
-          "Naturretten",
-          "Ikke-aggresjonsprinsippet",
-          "Pliktetikk",
-          "Immanuel Kant",
-          "Ludwig von Mises",
-          "Platon",
-          "En ukjennbar Gud",
-          "Ny verden-oversettelsen",
-          "Bønn i Jødedommen",
-          "Notasjon",
-          "Nasjonalromantikken: Da Norge fant sin sjel",
-          "Adjektiv",
-          "Bindeord (Konjunksjoner)",
-          "Pronomen",
-          "Hva er retorikk?",
-          "Hvordan skrive dikt",
-          "Hvordan skrive reflekterende",
-          "Skriv bedre historier: En komplett guide",
-          "Debattinnlegg",
-          "Dikt (Lyrikk)",
-          "Eventyr",
-          "Kommentar",
-          "Roman",
-          "Mennesket i sentrum: Humanismens fødsel",
-          "Utopier: Drømmen om det perfekte samfunn",
-          "Ekkokamre og informasjonsbobler",
-          "Kjendismakt og influensere",
-          "Ytringsvett vs ytringsmot",
-          "Finanskriser: Byggmesterens Dilemma",
-          "Inflasjon og rente",
-          "Produksjon: Hvorfor vi lager ting",
-          "Antikkens visjoner: Platon og Aristoteles",
-          "Demokratiets mange ansikter",
-          "Diktaturet: Makt uten grenser",
-          "Opplysningstid og Samfunnskontrakten",
-          "Gud eller Eksperter? Teokrati og Teknokrati"
-        ]
-      }
-    ],
-    [
       "stedet",
       {
-        "count": 64,
+        "count": 65,
         "sources": [
           "Konsentrasjonsleirene",
           "Krigens løp: Fra lynkrig til ragnarok",
@@ -4043,6 +4066,7 @@
           "Skriv bedre historier: En komplett guide",
           "Novelle",
           "Roman",
+          "Tidens tannhjul: Manipulasjon av tid",
           "Det 'unormale': Idéhistorien om sykdom og galskap",
           "Troen på framskrittet: Blir alt egentlig bedre?",
           "Naturens sjel: Fra hellig til ressurs",
@@ -4112,6 +4136,53 @@
       }
     ],
     [
+      "bruke",
+      {
+        "count": 63,
+        "sources": [
+          "Krigens løp: Fra lynkrig til ragnarok",
+          "Berlinmuren: Symbolet på en delt verden",
+          "NATO vs. Warszawapakten: En delt verden",
+          "Det portugisiske sjøimperiet: Handelens herskere",
+          "Det store krakket: Keynes vs. Hayek",
+          "Folkeforbundet: Drømmen om fred",
+          "Boktrykkerkunsten",
+          "Norge før vikingene",
+          "Arven etter Romerriket",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "Handel og Silkeveien",
+          "Hverdagslivet i Roma",
+          "Romas grunnleggelse og republikken",
+          "Danelagen: Da England var norsk",
+          "Hypotesen: Norden vs. Frankrike",
+          "Ikke-aggresjonsprinsippet",
+          "Pliktetikk",
+          "Utilitarisme",
+          "Martin Heidegger",
+          "Immanuel Kant",
+          "Bønn i Kristendommen",
+          "Vurdering og Egenøving",
+          "Hva er retorikk?",
+          "Hvordan skrive gode saktekster",
+          "Hvordan skrive reflekterende",
+          "Skriv bedre historier: En komplett guide",
+          "Debattinnlegg",
+          "Dikt (Lyrikk)",
+          "Novelle",
+          "Språkets farger: Bilder og effekter",
+          "Sannhetens historie: Fra åpenbaring til algoritme",
+          "Kjendismakt og influensere",
+          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
+          "Ytringsvett vs ytringsmot",
+          "Finanskriser: Byggmesterens Dilemma",
+          "Makt og legitimitet: Hvorfor styres vi?",
+          "Opplysningstid og Samfunnskontrakten",
+          "Gud eller Eksperter? Teokrati og Teknokrati",
+          "Uten hersker: Anarkiets drøm og teorier"
+        ]
+      }
+    ],
+    [
       "slutten",
       {
         "count": 62,
@@ -4153,52 +4224,6 @@
           "Robotene kommer: Fremtidens arbeid og menneskets verdi",
           "Føydalisme: Da personlige bånd styrte Europa",
           "Monarkiet: Fra Guds nåde til folkets konge"
-        ]
-      }
-    ],
-    [
-      "bruke",
-      {
-        "count": 62,
-        "sources": [
-          "Krigens løp: Fra lynkrig til ragnarok",
-          "Berlinmuren: Symbolet på en delt verden",
-          "NATO vs. Warszawapakten: En delt verden",
-          "Det portugisiske sjøimperiet: Handelens herskere",
-          "Det store krakket: Keynes vs. Hayek",
-          "Folkeforbundet: Drømmen om fred",
-          "Boktrykkerkunsten",
-          "Norge før vikingene",
-          "Arven etter Romerriket",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "Handel og Silkeveien",
-          "Hverdagslivet i Roma",
-          "Romas grunnleggelse og republikken",
-          "Danelagen: Da England var norsk",
-          "Hypotesen: Norden vs. Frankrike",
-          "Ikke-aggresjonsprinsippet",
-          "Pliktetikk",
-          "Utilitarisme",
-          "Martin Heidegger",
-          "Immanuel Kant",
-          "Bønn i Kristendommen",
-          "Vurdering og Egenøving",
-          "Hva er retorikk?",
-          "Hvordan skrive gode saktekster",
-          "Hvordan skrive reflekterende",
-          "Skriv bedre historier: En komplett guide",
-          "Debattinnlegg",
-          "Dikt (Lyrikk)",
-          "Novelle",
-          "Sannhetens historie: Fra åpenbaring til algoritme",
-          "Kjendismakt og influensere",
-          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
-          "Ytringsvett vs ytringsmot",
-          "Finanskriser: Byggmesterens Dilemma",
-          "Makt og legitimitet: Hvorfor styres vi?",
-          "Opplysningstid og Samfunnskontrakten",
-          "Gud eller Eksperter? Teokrati og Teknokrati",
-          "Uten hersker: Anarkiets drøm og teorier"
         ]
       }
     ],
@@ -4250,6 +4275,162 @@
       }
     ],
     [
+      "hverandre",
+      {
+        "count": 61,
+        "sources": [
+          "Geopolitikk og Opptakt: Veien mot stupet",
+          "En verden i to: Oversikt over den kalde krigen",
+          "Romkappløpet: Veien mot stjernene og månen",
+          "Suez-krisen 1956: Da de gamle imperiene falt",
+          "Krigens løp: Fra bevegelse til stillstand",
+          "Opptakten: Veien mot katastrofen",
+          "Teknologi: Industrialisert død",
+          "Det store krakket: Keynes vs. Hayek",
+          "Spania: Den spanske borgerkrig",
+          "Norge før vikingene",
+          "Arven etter Romerriket",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "Handel og Silkeveien",
+          "Romas grunnleggelse og republikken",
+          "Vestromerrikets fall",
+          "Karl den Store: Europas Far",
+          "Kristningen og Vikingtidens Slutt",
+          "Skipet: Vikingtidens viktigste teknologi",
+          "Stormen fra Øst: Det Mongolske Riket",
+          "Dygdsetikk",
+          "Hva er etikk?",
+          "Naturretten",
+          "Ikke-aggresjonsprinsippet",
+          "Pliktetikk",
+          "Utilitarisme",
+          "Thomas Aquinas",
+          "Hannah Arendt",
+          "David Hume",
+          "Ludwig von Mises",
+          "Overgangsriter i Hinduismen",
+          "Overgangsriter i Kristendommen",
+          "Introduksjon til sikhismen",
+          "Trommer: Introduksjon",
+          "Nasjonalromantikken: Da Norge fant sin sjel",
+          "Hvordan skrive dikt",
+          "Dikt (Lyrikk)",
+          "Eventyr",
+          "Novelle",
+          "Språkets farger: Bilder og effekter",
+          "Tidens tannhjul: Manipulasjon av tid",
+          "Mennesket i sentrum: Humanismens fødsel",
+          "Ekkokamre og informasjonsbobler",
+          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
+          "Ytringsvett vs ytringsmot",
+          "Inflasjon og rente",
+          "Antikkens visjoner: Platon og Aristoteles",
+          "Diktaturet: Makt uten grenser",
+          "Elitenes herredømme: Oligarki og Plutokrati",
+          "Opplysningstid og Samfunnskontrakten",
+          "Uten hersker: Anarkiets drøm og teorier"
+        ]
+      }
+    ],
+    [
+      "kommer",
+      {
+        "count": 61,
+        "sources": [
+          "USA: Den første dominobrikken",
+          "Teknologi: Industrialisert død",
+          "Norge før vikingene",
+          "Arven etter Romerriket",
+          "Hverdagslivet i Roma",
+          "Test Artikkel med Blandet Innhold",
+          "Veien mot Øst: Guder, Slaver og Keisere",
+          "Hva er etikk?",
+          "Naturretten",
+          "Ikke-aggresjonsprinsippet",
+          "Pliktetikk",
+          "Utilitarisme",
+          "Aristoteles",
+          "David Hume",
+          "Hva er filosofi?",
+          "Platon",
+          "Sentrale trekk i Bahá'í",
+          "Sentrale trekk i Hinduismen",
+          "Dommens dag og Paradis",
+          "Bønn i Jehovas vitner",
+          "Frelse og nåde",
+          "Guru Granth Sahib",
+          "Sentrale trekk i sikhismen",
+          "Akkorder og Harmoni",
+          "Takt og Rytme",
+          "Piano: Introduksjon",
+          "Låtens Anatomi",
+          "Bindeord (Konjunksjoner)",
+          "Dikt (Lyrikk)",
+          "Eventyr",
+          "Novelle",
+          "Roman",
+          "Språkets farger: Bilder og effekter",
+          "Tidens tannhjul: Manipulasjon av tid",
+          "Det 'unormale': Idéhistorien om sykdom og galskap",
+          "Eskatologi: Historien om verdens undergang",
+          "Troen på framskrittet: Blir alt egentlig bedre?",
+          "Mennesket i sentrum: Humanismens fødsel",
+          "Sannhetens historie: Fra åpenbaring til algoritme",
+          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
+          "Ytringsvett vs ytringsmot",
+          "Inflasjon og rente",
+          "Antikkens visjoner: Platon og Aristoteles",
+          "Demokratiets mange ansikter",
+          "Elitenes herredømme: Oligarki og Plutokrati",
+          "Makt og legitimitet: Hvorfor styres vi?",
+          "Stortinget",
+          "Gud eller Eksperter? Teokrati og Teknokrati",
+          "Uten hersker: Anarkiets drøm og teorier"
+        ]
+      }
+    ],
+    [
+      "tiden",
+      {
+        "count": 61,
+        "sources": [
+          "Cuba-krisen 1962: Verden på kanten av utslettelse",
+          "Romkappløpet: Veien mot stjernene og månen",
+          "Krigens løp: Fra bevegelse til stillstand",
+          "Det britiske imperiet: Solen som aldri gikk ned",
+          "Det britiske ostindiske kompani (EIC)",
+          "Det portugisiske sjøimperiet: Handelens herskere",
+          "Tidlig middelalder: Folkevandring og forvandling",
+          "536 - Året da solen forsvant",
+          "Knut Alvsson – ridderen som trosset kong Hans",
+          "Norge før vikingene",
+          "Fra republikk til keiserdømme: Augustus",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "De romerske keiserne",
+          "Samfunn og Rett i vikingtiden",
+          "Ikke-aggresjonsprinsippet",
+          "Utilitarisme",
+          "Martin Heidegger",
+          "Sokrates",
+          "Bahá'u'lláh",
+          "Realismen: Sannheten skal frem",
+          "Pronomen",
+          "Tidens tannhjul: Manipulasjon av tid",
+          "Eskatologi: Historien om verdens undergang",
+          "Troen på framskrittet: Blir alt egentlig bedre?",
+          "Mennesket i sentrum: Humanismens fødsel",
+          "Ekkokamre og informasjonsbobler",
+          "Kjendismakt og influensere",
+          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
+          "Ytringsvett vs ytringsmot",
+          "Arbeidsspesialisering: Samarbeidets magi",
+          "Finanskriser: Byggmesterens Dilemma",
+          "Diktaturet: Makt uten grenser",
+          "Opplysningstid og Samfunnskontrakten"
+        ]
+      }
+    ],
+    [
       "keiseren",
       {
         "count": 61,
@@ -4273,6 +4454,57 @@
           "Karl den Store: Europas Far",
           "Ytringsvett vs ytringsmot",
           "Føydalisme: Da personlige bånd styrte Europa"
+        ]
+      }
+    ],
+    [
+      "skjer",
+      {
+        "count": 61,
+        "sources": [
+          "Det store krakket: Keynes vs. Hayek",
+          "Hva er etikk?",
+          "Utilitarisme",
+          "Martin Heidegger",
+          "Overgangsriter i Jehovas vitner",
+          "Livet her og nå",
+          "Overgangsriter i Jødedommen",
+          "Overgangsriter i Mormonismen",
+          "Låtens Anatomi",
+          "Setningsanalyse",
+          "Adverb",
+          "Bindeord (Konjunksjoner)",
+          "Preposisjoner",
+          "Substantiv",
+          "Verb",
+          "Nivå 1: Grunnmuren (S-V)",
+          "Nivå 3: V2-Regelen",
+          "Hvordan skrive dikt",
+          "Hvordan skrive gode saktekster",
+          "Hvordan skrive novelle",
+          "Hvordan skrive roman",
+          "Skriv bedre historier: En komplett guide",
+          "Eventyr",
+          "Kommentar",
+          "Novelle",
+          "Språkets farger: Bilder og effekter",
+          "Hvem eier historien? Synsvinkel og stemme",
+          "Tidens tannhjul: Manipulasjon av tid",
+          "Casus Belli: Historiens farligste argumenter",
+          "Det 'unormale': Idéhistorien om sykdom og galskap",
+          "Eskatologi: Historien om verdens undergang",
+          "Mennesket i sentrum: Humanismens fødsel",
+          "Ekkokamre og informasjonsbobler",
+          "Flokkmentalitetens psykologi",
+          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
+          "Ytringsvett vs ytringsmot",
+          "Finanskriser: Byggmesterens Dilemma",
+          "Inflasjon og rente",
+          "Demokratiets mange ansikter",
+          "Diktaturet: Makt uten grenser",
+          "Elitenes herredømme: Oligarki og Plutokrati",
+          "Makt og legitimitet: Hvorfor styres vi?",
+          "Gud eller Eksperter? Teokrati og Teknokrati"
         ]
       }
     ],
@@ -4374,153 +4606,41 @@
       }
     ],
     [
-      "hverandre",
+      "systemet",
       {
         "count": 59,
         "sources": [
-          "Geopolitikk og Opptakt: Veien mot stupet",
-          "En verden i to: Oversikt over den kalde krigen",
-          "Romkappløpet: Veien mot stjernene og månen",
-          "Suez-krisen 1956: Da de gamle imperiene falt",
-          "Krigens løp: Fra bevegelse til stillstand",
+          "Konsentrasjonsleirene",
+          "Andre verdenskrig: En oversikt",
+          "Latin-Amerika: Bolívars Drøm",
+          "Berlinmuren: Symbolet på en delt verden",
+          "Veien mot slutten: Sovjetunionens sammenbrudd",
           "Opptakten: Veien mot katastrofen",
-          "Teknologi: Industrialisert død",
+          "Europa erobrer verden",
+          "Trekant-handelen: Det Søte Livets Pris",
           "Det store krakket: Keynes vs. Hayek",
-          "Spania: Den spanske borgerkrig",
-          "Norge før vikingene",
+          "Tyskland: Veien mot nazismen",
+          "Det hellige romerske rike",
+          "Middelalderen: En tusenårig forvandling",
           "Arven etter Romerriket",
           "Diokletian: Da Romerriket ble gjenfødt",
-          "Handel og Silkeveien",
           "Romas grunnleggelse og republikken",
-          "Vestromerrikets fall",
+          "De romerske keiserne",
           "Karl den Store: Europas Far",
-          "Kristningen og Vikingtidens Slutt",
-          "Skipet: Vikingtidens viktigste teknologi",
           "Stormen fra Øst: Det Mongolske Riket",
-          "Dygdsetikk",
-          "Hva er etikk?",
-          "Naturretten",
-          "Ikke-aggresjonsprinsippet",
-          "Pliktetikk",
-          "Utilitarisme",
-          "Thomas Aquinas",
-          "Hannah Arendt",
-          "David Hume",
-          "Ludwig von Mises",
-          "Overgangsriter i Hinduismen",
-          "Overgangsriter i Kristendommen",
-          "Introduksjon til sikhismen",
-          "Trommer: Introduksjon",
-          "Nasjonalromantikken: Da Norge fant sin sjel",
-          "Hvordan skrive dikt",
-          "Dikt (Lyrikk)",
-          "Eventyr",
-          "Novelle",
-          "Mennesket i sentrum: Humanismens fødsel",
-          "Ekkokamre og informasjonsbobler",
-          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
-          "Ytringsvett vs ytringsmot",
-          "Inflasjon og rente",
-          "Antikkens visjoner: Platon og Aristoteles",
-          "Diktaturet: Makt uten grenser",
-          "Elitenes herredømme: Oligarki og Plutokrati",
-          "Opplysningstid og Samfunnskontrakten",
-          "Uten hersker: Anarkiets drøm og teorier"
-        ]
-      }
-    ],
-    [
-      "kommer",
-      {
-        "count": 59,
-        "sources": [
-          "USA: Den første dominobrikken",
-          "Teknologi: Industrialisert død",
-          "Norge før vikingene",
-          "Arven etter Romerriket",
-          "Hverdagslivet i Roma",
-          "Test Artikkel med Blandet Innhold",
-          "Veien mot Øst: Guder, Slaver og Keisere",
-          "Hva er etikk?",
-          "Naturretten",
-          "Ikke-aggresjonsprinsippet",
-          "Pliktetikk",
-          "Utilitarisme",
-          "Aristoteles",
-          "David Hume",
-          "Hva er filosofi?",
-          "Platon",
-          "Sentrale trekk i Bahá'í",
-          "Sentrale trekk i Hinduismen",
-          "Dommens dag og Paradis",
-          "Bønn i Jehovas vitner",
-          "Frelse og nåde",
-          "Guru Granth Sahib",
-          "Sentrale trekk i sikhismen",
-          "Akkorder og Harmoni",
-          "Takt og Rytme",
-          "Piano: Introduksjon",
-          "Låtens Anatomi",
-          "Bindeord (Konjunksjoner)",
-          "Dikt (Lyrikk)",
-          "Eventyr",
-          "Novelle",
-          "Roman",
-          "Det 'unormale': Idéhistorien om sykdom og galskap",
-          "Eskatologi: Historien om verdens undergang",
-          "Troen på framskrittet: Blir alt egentlig bedre?",
-          "Mennesket i sentrum: Humanismens fødsel",
-          "Sannhetens historie: Fra åpenbaring til algoritme",
-          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
-          "Ytringsvett vs ytringsmot",
-          "Inflasjon og rente",
+          "Søren Kierkegaard",
+          "Substantiv",
+          "Naturens sjel: Fra hellig til ressurs",
           "Antikkens visjoner: Platon og Aristoteles",
           "Demokratiets mange ansikter",
-          "Elitenes herredømme: Oligarki og Plutokrati",
-          "Makt og legitimitet: Hvorfor styres vi?",
-          "Stortinget",
-          "Gud eller Eksperter? Teokrati og Teknokrati",
-          "Uten hersker: Anarkiets drøm og teorier"
-        ]
-      }
-    ],
-    [
-      "tiden",
-      {
-        "count": 59,
-        "sources": [
-          "Cuba-krisen 1962: Verden på kanten av utslettelse",
-          "Romkappløpet: Veien mot stjernene og månen",
-          "Krigens løp: Fra bevegelse til stillstand",
-          "Det britiske imperiet: Solen som aldri gikk ned",
-          "Det britiske ostindiske kompani (EIC)",
-          "Det portugisiske sjøimperiet: Handelens herskere",
-          "Tidlig middelalder: Folkevandring og forvandling",
-          "536 - Året da solen forsvant",
-          "Knut Alvsson – ridderen som trosset kong Hans",
-          "Norge før vikingene",
-          "Fra republikk til keiserdømme: Augustus",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "De romerske keiserne",
-          "Samfunn og Rett i vikingtiden",
-          "Ikke-aggresjonsprinsippet",
-          "Utilitarisme",
-          "Martin Heidegger",
-          "Sokrates",
-          "Bahá'u'lláh",
-          "Realismen: Sannheten skal frem",
-          "Pronomen",
-          "Eskatologi: Historien om verdens undergang",
-          "Troen på framskrittet: Blir alt egentlig bedre?",
-          "Mennesket i sentrum: Humanismens fødsel",
-          "Ekkokamre og informasjonsbobler",
-          "Kjendismakt og influensere",
-          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
-          "Ytringsvett vs ytringsmot",
-          "Arbeidsspesialisering: Samarbeidets magi",
-          "Finanskriser: Byggmesterens Dilemma",
           "Diktaturet: Makt uten grenser",
-          "Opplysningstid og Samfunnskontrakten"
+          "Elitenes herredømme: Oligarki og Plutokrati",
+          "Føydalisme: Da personlige bånd styrte Europa",
+          "Makt og legitimitet: Hvorfor styres vi?",
+          "Monarkiet: Fra Guds nåde til folkets konge",
+          "Opplysningstid og Samfunnskontrakten",
+          "Stortinget",
+          "Uten hersker: Anarkiets drøm og teorier"
         ]
       }
     ],
@@ -4568,6 +4688,62 @@
           "Opplysningstid og Samfunnskontrakten",
           "Gud eller Eksperter? Teokrati og Teknokrati",
           "Uten hersker: Anarkiets drøm og teorier"
+        ]
+      }
+    ],
+    [
+      "kjent",
+      {
+        "count": 58,
+        "sources": [
+          "Geopolitikk og Opptakt: Veien mot stupet",
+          "Konsentrasjonsleirene",
+          "Latin-Amerika: Bolívars Drøm",
+          "Midtøsten: Streker i sanden",
+          "Atomvåpenkappløpet: Terrorbalanse på kanten av stupet",
+          "Berlinmuren: Symbolet på en delt verden",
+          "Cuba-krisen 1962: Verden på kanten av utslettelse",
+          "Koreakrigen 1950-1953: Den glemte krigen som aldri tok slutt",
+          "Kultur og propaganda: Kampen om hjerter og sinn",
+          "Krigens løp: Fra bevegelse til stillstand",
+          "Opptakten: Veien mot katastrofen",
+          "Det britiske imperiet: Solen som aldri gikk ned",
+          "Det britiske ostindiske kompani (EIC)",
+          "Det franske imperiet: Pels, allianser og sukker",
+          "Trekant-handelen: Det Søte Livets Pris",
+          "Midtøsten: De nye grensene",
+          "Norge i mellomkrigstiden",
+          "Sovjetunionen: Stalins jernhånd",
+          "Spania: Den spanske borgerkrig",
+          "Middelalderen: En tusenårig forvandling",
+          "Norge før vikingene",
+          "Perserriket: Det første verdensriket",
+          "30-årskrigen: Europa i flammer",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "De Romerske Gudene",
+          "De romerske keiserne",
+          "Sveriges historie: Fra østfarere til moderne nasjon",
+          "Vikingtiden: En brytningstid for Norden",
+          "Åsatru: En verden av lureri og skjebne",
+          "Danelagen: Da England var norsk",
+          "Kristningen og Vikingtidens Slutt",
+          "Samfunn og Rett i vikingtiden",
+          "Stormen fra Øst: Det Mongolske Riket",
+          "Naturretten",
+          "Ikke-aggresjonsprinsippet",
+          "David Hume",
+          "Immanuel Kant",
+          "Nyrealismen: Etikk og historie",
+          "Nyromantikken: Mystikk, sjel og underbevissthet",
+          "Realismen: Sannheten skal frem",
+          "Hvordan skrive roman",
+          "Eventyr",
+          "Novelle",
+          "De store syklusene: Sivilisasjoners vekst og fall",
+          "Ekkokamre og informasjonsbobler",
+          "Kjendismakt og influensere",
+          "Føydalisme: Da personlige bånd styrte Europa",
+          "Monarkiet: Fra Guds nåde til folkets konge"
         ]
       }
     ],
@@ -4652,61 +4828,6 @@
           "Simone de Beauvoir",
           "Forente Nasjoner (FN): Verdens sikkerhetsråd",
           "De store syklusene: Sivilisasjoners vekst og fall",
-          "Monarkiet: Fra Guds nåde til folkets konge"
-        ]
-      }
-    ],
-    [
-      "kjent",
-      {
-        "count": 57,
-        "sources": [
-          "Geopolitikk og Opptakt: Veien mot stupet",
-          "Konsentrasjonsleirene",
-          "Latin-Amerika: Bolívars Drøm",
-          "Midtøsten: Streker i sanden",
-          "Atomvåpenkappløpet: Terrorbalanse på kanten av stupet",
-          "Berlinmuren: Symbolet på en delt verden",
-          "Cuba-krisen 1962: Verden på kanten av utslettelse",
-          "Koreakrigen 1950-1953: Den glemte krigen som aldri tok slutt",
-          "Kultur og propaganda: Kampen om hjerter og sinn",
-          "Krigens løp: Fra bevegelse til stillstand",
-          "Opptakten: Veien mot katastrofen",
-          "Det britiske imperiet: Solen som aldri gikk ned",
-          "Det britiske ostindiske kompani (EIC)",
-          "Det franske imperiet: Pels, allianser og sukker",
-          "Midtøsten: De nye grensene",
-          "Norge i mellomkrigstiden",
-          "Sovjetunionen: Stalins jernhånd",
-          "Spania: Den spanske borgerkrig",
-          "Middelalderen: En tusenårig forvandling",
-          "Norge før vikingene",
-          "Perserriket: Det første verdensriket",
-          "30-årskrigen: Europa i flammer",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "De Romerske Gudene",
-          "De romerske keiserne",
-          "Sveriges historie: Fra østfarere til moderne nasjon",
-          "Vikingtiden: En brytningstid for Norden",
-          "Åsatru: En verden av lureri og skjebne",
-          "Danelagen: Da England var norsk",
-          "Kristningen og Vikingtidens Slutt",
-          "Samfunn og Rett i vikingtiden",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Naturretten",
-          "Ikke-aggresjonsprinsippet",
-          "David Hume",
-          "Immanuel Kant",
-          "Nyrealismen: Etikk og historie",
-          "Nyromantikken: Mystikk, sjel og underbevissthet",
-          "Realismen: Sannheten skal frem",
-          "Hvordan skrive roman",
-          "Eventyr",
-          "Novelle",
-          "De store syklusene: Sivilisasjoners vekst og fall",
-          "Ekkokamre og informasjonsbobler",
-          "Kjendismakt og influensere",
-          "Føydalisme: Da personlige bånd styrte Europa",
           "Monarkiet: Fra Guds nåde til folkets konge"
         ]
       }
@@ -4898,54 +5019,6 @@
       }
     ],
     [
-      "skjer",
-      {
-        "count": 57,
-        "sources": [
-          "Det store krakket: Keynes vs. Hayek",
-          "Hva er etikk?",
-          "Utilitarisme",
-          "Martin Heidegger",
-          "Overgangsriter i Jehovas vitner",
-          "Livet her og nå",
-          "Overgangsriter i Jødedommen",
-          "Overgangsriter i Mormonismen",
-          "Låtens Anatomi",
-          "Setningsanalyse",
-          "Adverb",
-          "Bindeord (Konjunksjoner)",
-          "Preposisjoner",
-          "Substantiv",
-          "Verb",
-          "Nivå 1: Grunnmuren (S-V)",
-          "Nivå 3: V2-Regelen",
-          "Hvordan skrive dikt",
-          "Hvordan skrive gode saktekster",
-          "Hvordan skrive novelle",
-          "Hvordan skrive roman",
-          "Skriv bedre historier: En komplett guide",
-          "Eventyr",
-          "Kommentar",
-          "Novelle",
-          "Casus Belli: Historiens farligste argumenter",
-          "Det 'unormale': Idéhistorien om sykdom og galskap",
-          "Eskatologi: Historien om verdens undergang",
-          "Mennesket i sentrum: Humanismens fødsel",
-          "Ekkokamre og informasjonsbobler",
-          "Flokkmentalitetens psykologi",
-          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
-          "Ytringsvett vs ytringsmot",
-          "Finanskriser: Byggmesterens Dilemma",
-          "Inflasjon og rente",
-          "Demokratiets mange ansikter",
-          "Diktaturet: Makt uten grenser",
-          "Elitenes herredømme: Oligarki og Plutokrati",
-          "Makt og legitimitet: Hvorfor styres vi?",
-          "Gud eller Eksperter? Teokrati og Teknokrati"
-        ]
-      }
-    ],
-    [
       "deler",
       {
         "count": 56,
@@ -4996,6 +5069,55 @@
       }
     ],
     [
+      "brukte",
+      {
+        "count": 56,
+        "sources": [
+          "Konsentrasjonsleirene",
+          "Krigens løp: Fra lynkrig til ragnarok",
+          "Teknologi: Våpenkappløp og innovasjon",
+          "Algerie & Vietnam: Krigens vei",
+          "Ghana & Pan-Afrikanismen",
+          "USA: Den første dominobrikken",
+          "Berlinmuren: Symbolet på en delt verden",
+          "Cuba-krisen 1962: Verden på kanten av utslettelse",
+          "Kultur og propaganda: Kampen om hjerter og sinn",
+          "Vietnamkrigen: Supermakten som møtte veggen i jungelen",
+          "Teknologi: Industrialisert død",
+          "Det britiske imperiet: Solen som aldri gikk ned",
+          "Det spanske imperiet: Gull, Gud og ære",
+          "Folkeforbundet: Drømmen om fred",
+          "Japan: Solens vei mot krig",
+          "Norge før vikingene",
+          "30-årskrigen: Europa i flammer",
+          "Arven etter Romerriket",
+          "Fra republikk til keiserdømme: Augustus",
+          "Den romerske legionen",
+          "Hverdagslivet i Roma",
+          "Fra Princeps til Guds utvalgte",
+          "Romas grunnleggelse og republikken",
+          "De romerske keiserne",
+          "Vikingtiden: En brytningstid for Norden",
+          "Skipet: Vikingtidens viktigste teknologi",
+          "Veien mot Øst: Guder, Slaver og Keisere",
+          "Stormen fra Øst: Det Mongolske Riket",
+          "Hva er etikk?",
+          "Naturretten",
+          "Pliktetikk",
+          "René Descartes",
+          "Murray Rothbard",
+          "Siddhartha Gautama (Buddha)",
+          "Rytmebank",
+          "Realismen: Sannheten skal frem",
+          "Språkets farger: Bilder og effekter",
+          "Ekkokamre og informasjonsbobler",
+          "Antikkens visjoner: Platon og Aristoteles",
+          "Føydalisme: Da personlige bånd styrte Europa",
+          "Monarkiet: Fra Guds nåde til folkets konge"
+        ]
+      }
+    ],
+    [
       "menneske",
       {
         "count": 56,
@@ -5035,44 +5157,6 @@
           "Antikkens visjoner: Platon og Aristoteles",
           "Makt og legitimitet: Hvorfor styres vi?",
           "Gud eller Eksperter? Teokrati og Teknokrati",
-          "Uten hersker: Anarkiets drøm og teorier"
-        ]
-      }
-    ],
-    [
-      "systemet",
-      {
-        "count": 56,
-        "sources": [
-          "Konsentrasjonsleirene",
-          "Andre verdenskrig: En oversikt",
-          "Latin-Amerika: Bolívars Drøm",
-          "Berlinmuren: Symbolet på en delt verden",
-          "Veien mot slutten: Sovjetunionens sammenbrudd",
-          "Opptakten: Veien mot katastrofen",
-          "Europa erobrer verden",
-          "Det store krakket: Keynes vs. Hayek",
-          "Tyskland: Veien mot nazismen",
-          "Det hellige romerske rike",
-          "Middelalderen: En tusenårig forvandling",
-          "Arven etter Romerriket",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "Romas grunnleggelse og republikken",
-          "De romerske keiserne",
-          "Karl den Store: Europas Far",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Søren Kierkegaard",
-          "Substantiv",
-          "Naturens sjel: Fra hellig til ressurs",
-          "Antikkens visjoner: Platon og Aristoteles",
-          "Demokratiets mange ansikter",
-          "Diktaturet: Makt uten grenser",
-          "Elitenes herredømme: Oligarki og Plutokrati",
-          "Føydalisme: Da personlige bånd styrte Europa",
-          "Makt og legitimitet: Hvorfor styres vi?",
-          "Monarkiet: Fra Guds nåde til folkets konge",
-          "Opplysningstid og Samfunnskontrakten",
-          "Stortinget",
           "Uten hersker: Anarkiets drøm og teorier"
         ]
       }
@@ -5159,54 +5243,6 @@
       }
     ],
     [
-      "brukte",
-      {
-        "count": 55,
-        "sources": [
-          "Konsentrasjonsleirene",
-          "Krigens løp: Fra lynkrig til ragnarok",
-          "Teknologi: Våpenkappløp og innovasjon",
-          "Algerie & Vietnam: Krigens vei",
-          "Ghana & Pan-Afrikanismen",
-          "USA: Den første dominobrikken",
-          "Berlinmuren: Symbolet på en delt verden",
-          "Cuba-krisen 1962: Verden på kanten av utslettelse",
-          "Kultur og propaganda: Kampen om hjerter og sinn",
-          "Vietnamkrigen: Supermakten som møtte veggen i jungelen",
-          "Teknologi: Industrialisert død",
-          "Det britiske imperiet: Solen som aldri gikk ned",
-          "Det spanske imperiet: Gull, Gud og ære",
-          "Folkeforbundet: Drømmen om fred",
-          "Japan: Solens vei mot krig",
-          "Norge før vikingene",
-          "30-årskrigen: Europa i flammer",
-          "Arven etter Romerriket",
-          "Fra republikk til keiserdømme: Augustus",
-          "Den romerske legionen",
-          "Hverdagslivet i Roma",
-          "Fra Princeps til Guds utvalgte",
-          "Romas grunnleggelse og republikken",
-          "De romerske keiserne",
-          "Vikingtiden: En brytningstid for Norden",
-          "Skipet: Vikingtidens viktigste teknologi",
-          "Veien mot Øst: Guder, Slaver og Keisere",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Hva er etikk?",
-          "Naturretten",
-          "Pliktetikk",
-          "René Descartes",
-          "Murray Rothbard",
-          "Siddhartha Gautama (Buddha)",
-          "Rytmebank",
-          "Realismen: Sannheten skal frem",
-          "Ekkokamre og informasjonsbobler",
-          "Antikkens visjoner: Platon og Aristoteles",
-          "Føydalisme: Da personlige bånd styrte Europa",
-          "Monarkiet: Fra Guds nåde til folkets konge"
-        ]
-      }
-    ],
-    [
       "viser",
       {
         "count": 55,
@@ -5244,6 +5280,89 @@
           "Kjendismakt og influensere",
           "Demokratiets mange ansikter",
           "Elitenes herredømme: Oligarki og Plutokrati",
+          "Uten hersker: Anarkiets drøm og teorier"
+        ]
+      }
+    ],
+    [
+      "europeiske",
+      {
+        "count": 54,
+        "sources": [
+          "Konsekvenser: En delt verden",
+          "Andre verdenskrig: En oversikt",
+          "Haiti: Den glemte revolusjonen",
+          "Sørøst-Asia: Vakuumet etter Japan",
+          "USA: Den første dominobrikken",
+          "En verden i to: Oversikt over den kalde krigen",
+          "Konsekvenser: Et nytt Europa",
+          "Det britiske ostindiske kompani (EIC)",
+          "Europa erobrer verden",
+          "Det portugisiske sjøimperiet: Handelens herskere",
+          "Det spanske imperiet: Gull, Gud og ære",
+          "Trekant-handelen: Det Søte Livets Pris",
+          "Det nederlandske ostindiske kompani (VOC)",
+          "Folkeforbundet: Drømmen om fred",
+          "Japan: Solens vei mot krig",
+          "Midtøsten: De nye grensene",
+          "Det hellige romerske rike",
+          "Middelalderen: En tusenårig forvandling",
+          "Arven etter Romerriket",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "Kristningen og Vikingtidens Slutt",
+          "Veien mot Øst: Guder, Slaver og Keisere",
+          "Nasjonalromantikken: Da Norge fant sin sjel",
+          "Gud eller Eksperter? Teokrati og Teknokrati"
+        ]
+      }
+    ],
+    [
+      "historie",
+      {
+        "count": 54,
+        "sources": [
+          "Konsentrasjonsleirene",
+          "Andre verdenskrig: En oversikt",
+          "Cuba-krisen 1962: Verden på kanten av utslettelse",
+          "En verden i to: Oversikt over den kalde krigen",
+          "Vietnamkrigen: Supermakten som møtte veggen i jungelen",
+          "Jordbruk og Sivilisasjoner",
+          "Europa erobrer verden",
+          "Trekant-handelen: Det Søte Livets Pris",
+          "Det nederlandske ostindiske kompani (VOC)",
+          "Japan: Solens vei mot krig",
+          "USA: Fra 'The Roaring 20s' til 'The New Deal'",
+          "Menneskets tidlige historie",
+          "Det hellige romerske rike",
+          "Tidlig middelalder: Folkevandring og forvandling",
+          "536 - Året da solen forsvant",
+          "Knut Alvsson – ridderen som trosset kong Hans",
+          "Norge før vikingene",
+          "Romas grunnleggelse og republikken",
+          "Vestromerrikets fall",
+          "Sveriges historie: Fra østfarere til moderne nasjon",
+          "Vikingtiden: En brytningstid for Norden",
+          "Stormen fra Øst: Det Mongolske Riket",
+          "Dygdsetikk",
+          "Thomas Aquinas",
+          "Augustin",
+          "Simone de Beauvoir",
+          "Nasjonalromantikken: Da Norge fant sin sjel",
+          "Nyromantikken: Mystikk, sjel og underbevissthet",
+          "Realismen: Sannheten skal frem",
+          "De 7 grunnleggende plottene",
+          "Skriv bedre historier: En komplett guide",
+          "Dikt (Lyrikk)",
+          "Det 'unormale': Idéhistorien om sykdom og galskap",
+          "Eskatologi: Historien om verdens undergang",
+          "Troen på framskrittet: Blir alt egentlig bedre?",
+          "Mennesket i sentrum: Humanismens fødsel",
+          "Flokkmentalitetens psykologi",
+          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
+          "Antikkens visjoner: Platon og Aristoteles",
+          "Diktaturet: Makt uten grenser",
+          "Monarkiet: Fra Guds nåde til folkets konge",
+          "Opplysningstid og Samfunnskontrakten",
           "Uten hersker: Anarkiets drøm og teorier"
         ]
       }
@@ -5576,37 +5695,6 @@
       }
     ],
     [
-      "europeiske",
-      {
-        "count": 53,
-        "sources": [
-          "Konsekvenser: En delt verden",
-          "Andre verdenskrig: En oversikt",
-          "Haiti: Den glemte revolusjonen",
-          "Sørøst-Asia: Vakuumet etter Japan",
-          "USA: Den første dominobrikken",
-          "En verden i to: Oversikt over den kalde krigen",
-          "Konsekvenser: Et nytt Europa",
-          "Det britiske ostindiske kompani (EIC)",
-          "Europa erobrer verden",
-          "Det portugisiske sjøimperiet: Handelens herskere",
-          "Det spanske imperiet: Gull, Gud og ære",
-          "Det nederlandske ostindiske kompani (VOC)",
-          "Folkeforbundet: Drømmen om fred",
-          "Japan: Solens vei mot krig",
-          "Midtøsten: De nye grensene",
-          "Det hellige romerske rike",
-          "Middelalderen: En tusenårig forvandling",
-          "Arven etter Romerriket",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "Kristningen og Vikingtidens Slutt",
-          "Veien mot Øst: Guder, Slaver og Keisere",
-          "Nasjonalromantikken: Da Norge fant sin sjel",
-          "Gud eller Eksperter? Teokrati og Teknokrati"
-        ]
-      }
-    ],
-    [
       "soldater",
       {
         "count": 53,
@@ -5646,56 +5734,6 @@
       }
     ],
     [
-      "historie",
-      {
-        "count": 53,
-        "sources": [
-          "Konsentrasjonsleirene",
-          "Andre verdenskrig: En oversikt",
-          "Cuba-krisen 1962: Verden på kanten av utslettelse",
-          "En verden i to: Oversikt over den kalde krigen",
-          "Vietnamkrigen: Supermakten som møtte veggen i jungelen",
-          "Jordbruk og Sivilisasjoner",
-          "Europa erobrer verden",
-          "Det nederlandske ostindiske kompani (VOC)",
-          "Japan: Solens vei mot krig",
-          "USA: Fra 'The Roaring 20s' til 'The New Deal'",
-          "Menneskets tidlige historie",
-          "Det hellige romerske rike",
-          "Tidlig middelalder: Folkevandring og forvandling",
-          "536 - Året da solen forsvant",
-          "Knut Alvsson – ridderen som trosset kong Hans",
-          "Norge før vikingene",
-          "Romas grunnleggelse og republikken",
-          "Vestromerrikets fall",
-          "Sveriges historie: Fra østfarere til moderne nasjon",
-          "Vikingtiden: En brytningstid for Norden",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Dygdsetikk",
-          "Thomas Aquinas",
-          "Augustin",
-          "Simone de Beauvoir",
-          "Nasjonalromantikken: Da Norge fant sin sjel",
-          "Nyromantikken: Mystikk, sjel og underbevissthet",
-          "Realismen: Sannheten skal frem",
-          "De 7 grunnleggende plottene",
-          "Skriv bedre historier: En komplett guide",
-          "Dikt (Lyrikk)",
-          "Det 'unormale': Idéhistorien om sykdom og galskap",
-          "Eskatologi: Historien om verdens undergang",
-          "Troen på framskrittet: Blir alt egentlig bedre?",
-          "Mennesket i sentrum: Humanismens fødsel",
-          "Flokkmentalitetens psykologi",
-          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
-          "Antikkens visjoner: Platon og Aristoteles",
-          "Diktaturet: Makt uten grenser",
-          "Monarkiet: Fra Guds nåde til folkets konge",
-          "Opplysningstid og Samfunnskontrakten",
-          "Uten hersker: Anarkiets drøm og teorier"
-        ]
-      }
-    ],
-    [
       "norske",
       {
         "count": 53,
@@ -5720,6 +5758,53 @@
           "Monarkiet: Fra Guds nåde til folkets konge",
           "Opplysningstid og Samfunnskontrakten",
           "Stortinget"
+        ]
+      }
+    ],
+    [
+      "grunnlaget",
+      {
+        "count": 53,
+        "sources": [
+          "Teknologi: Våpenkappløp og innovasjon",
+          "Midtøsten: Streker i sanden",
+          "Teknologi: Industrialisert død",
+          "Jordbruk og Sivilisasjoner",
+          "Europa erobrer verden",
+          "Trekant-handelen: Det Søte Livets Pris",
+          "Det nederlandske ostindiske kompani (VOC)",
+          "Kultur: Da alt ble relativt",
+          "Norge i mellomkrigstiden",
+          "Boktrykkerkunsten",
+          "Det hellige romerske rike",
+          "Middelalderen: En tusenårig forvandling",
+          "Tidlig middelalder: Folkevandring og forvandling",
+          "Hamskiftet",
+          "536 - Året da solen forsvant",
+          "Norge før vikingene",
+          "30-årskrigen: Europa i flammer",
+          "Arven etter Romerriket",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "Sveriges historie: Fra østfarere til moderne nasjon",
+          "Stormen fra Øst: Det Mongolske Riket",
+          "Naturretten",
+          "Pliktetikk",
+          "Thomas Aquinas",
+          "Aristoteles",
+          "Hva er filosofi?",
+          "Søren Kierkegaard",
+          "Ludwig von Mises",
+          "Friedrich Nietzsche",
+          "Sokrates",
+          "Overgangsriter i Islam",
+          "Nasjonalromantikken: Da Norge fant sin sjel",
+          "Det 'unormale': Idéhistorien om sykdom og galskap",
+          "Naturens sjel: Fra hellig til ressurs",
+          "Sannhetens historie: Fra åpenbaring til algoritme",
+          "Utopier: Drømmen om det perfekte samfunn",
+          "Inflasjon og rente",
+          "Makt og legitimitet: Hvorfor styres vi?",
+          "Monarkiet: Fra Guds nåde til folkets konge"
         ]
       }
     ],
@@ -6096,52 +6181,6 @@
       }
     ],
     [
-      "grunnlaget",
-      {
-        "count": 52,
-        "sources": [
-          "Teknologi: Våpenkappløp og innovasjon",
-          "Midtøsten: Streker i sanden",
-          "Teknologi: Industrialisert død",
-          "Jordbruk og Sivilisasjoner",
-          "Europa erobrer verden",
-          "Det nederlandske ostindiske kompani (VOC)",
-          "Kultur: Da alt ble relativt",
-          "Norge i mellomkrigstiden",
-          "Boktrykkerkunsten",
-          "Det hellige romerske rike",
-          "Middelalderen: En tusenårig forvandling",
-          "Tidlig middelalder: Folkevandring og forvandling",
-          "Hamskiftet",
-          "536 - Året da solen forsvant",
-          "Norge før vikingene",
-          "30-årskrigen: Europa i flammer",
-          "Arven etter Romerriket",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "Sveriges historie: Fra østfarere til moderne nasjon",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Naturretten",
-          "Pliktetikk",
-          "Thomas Aquinas",
-          "Aristoteles",
-          "Hva er filosofi?",
-          "Søren Kierkegaard",
-          "Ludwig von Mises",
-          "Friedrich Nietzsche",
-          "Sokrates",
-          "Overgangsriter i Islam",
-          "Nasjonalromantikken: Da Norge fant sin sjel",
-          "Det 'unormale': Idéhistorien om sykdom og galskap",
-          "Naturens sjel: Fra hellig til ressurs",
-          "Sannhetens historie: Fra åpenbaring til algoritme",
-          "Utopier: Drømmen om det perfekte samfunn",
-          "Inflasjon og rente",
-          "Makt og legitimitet: Hvorfor styres vi?",
-          "Monarkiet: Fra Guds nåde til folkets konge"
-        ]
-      }
-    ],
-    [
       "romerske",
       {
         "count": 52,
@@ -6166,50 +6205,45 @@
       }
     ],
     [
-      "enorm",
+      "siste",
       {
         "count": 51,
         "sources": [
-          "Konsekvenser: En delt verden",
-          "Konsentrasjonsleirene",
-          "Teknologi: Våpenkappløp og innovasjon",
-          "Berlinmuren: Symbolet på en delt verden",
+          "Geopolitikk og Opptakt: Veien mot stupet",
+          "Det Siste Imperiet",
           "Koreakrigen 1950-1953: Den glemte krigen som aldri tok slutt",
-          "NATO vs. Warszawapakten: En delt verden",
-          "Romkappløpet: Veien mot stjernene og månen",
+          "Veien mot slutten: Sovjetunionens sammenbrudd",
           "Vietnamkrigen: Supermakten som møtte veggen i jungelen",
           "Første verdenskrig: En oversikt",
-          "Teknologi: Industrialisert død",
-          "Europa erobrer verden",
-          "Det portugisiske sjøimperiet: Handelens herskere",
-          "Det spanske imperiet: Gull, Gud og ære",
-          "Det nederlandske ostindiske kompani (VOC)",
-          "USA: Fra 'The Roaring 20s' til 'The New Deal'",
-          "Boktrykkerkunsten",
-          "Middelalderen: En tusenårig forvandling",
+          "Italia: Fascismens fødsel",
+          "Sovjetunionen: Stalins jernhånd",
+          "Spania: Den spanske borgerkrig",
+          "Det hellige romerske rike",
+          "Tidlig middelalder: Folkevandring og forvandling",
           "536 - Året da solen forsvant",
+          "Knut Alvsson – ridderen som trosset kong Hans",
           "Norge før vikingene",
+          "30-årskrigen: Europa i flammer",
           "Arven etter Romerriket",
-          "Den romerske legionen",
-          "Handel og Silkeveien",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "Fra Princeps til Guds utvalgte",
           "Romas grunnleggelse og republikken",
           "Vestromerrikets fall",
-          "Åsatru: En verden av lureri og skjebne",
-          "Danelagen: Da England var norsk",
-          "Hypotesen: Norden vs. Frankrike",
+          "Kristningen og Vikingtidens Slutt",
           "Stormen fra Øst: Det Mongolske Riket",
-          "Pliktetikk",
-          "Hvordan skrive dikt",
+          "Aristoteles",
+          "Simone de Beauvoir",
+          "Sokrates",
+          "Profeten Muhammad",
+          "Sentrale trekk i Islam",
+          "Sentrale trekk i Mormonismen",
+          "Låtens Anatomi",
+          "De 7 grunnleggende plottene",
+          "Tidens tannhjul: Manipulasjon av tid",
           "Det 'unormale': Idéhistorien om sykdom og galskap",
-          "Eskatologi: Historien om verdens undergang",
-          "Sannhetens historie: Fra åpenbaring til algoritme",
           "De store syklusene: Sivilisasjoners vekst og fall",
-          "Kjendismakt og influensere",
-          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
           "Ytringsvett vs ytringsmot",
-          "Diktaturet: Makt uten grenser",
-          "Monarkiet: Fra Guds nåde til folkets konge",
-          "Stortinget",
+          "Demokratiets mange ansikter",
           "Gud eller Eksperter? Teokrati og Teknokrati",
           "Uten hersker: Anarkiets drøm og teorier"
         ]
@@ -6417,32 +6451,9 @@
       }
     ],
     [
-      "India",
-      {
-        "count": 40,
-        "sources": [
-          "Konsekvenser: En delt verden",
-          "Algerie & Vietnam: Krigens vei",
-          "India: Sjelenes frigjøring",
-          "NATO vs. Warszawapakten: En delt verden",
-          "Det britiske imperiet: Solen som aldri gikk ned",
-          "Det britiske ostindiske kompani (EIC)",
-          "Europa erobrer verden",
-          "Det portugisiske sjøimperiet: Handelens herskere",
-          "Det nederlandske ostindiske kompani (VOC)",
-          "Japan: Solens vei mot krig",
-          "Handel og Silkeveien",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Siddhartha Gautama (Buddha)",
-          "Ingen enkelt grunnlegger",
-          "Introduksjon til sikhismen"
-        ]
-      }
-    ],
-    [
       "Tenk",
       {
-        "count": 39,
+        "count": 41,
         "sources": [
           "Det spanske imperiet: Gull, Gud og ære",
           "536 - Året da solen forsvant",
@@ -6466,6 +6477,8 @@
           "Nivå 4: Leddsetninger",
           "Hvordan skrive gode saktekster",
           "Debattinnlegg",
+          "Språkets farger: Bilder og effekter",
+          "Hvem eier historien? Synsvinkel og stemme",
           "Eskatologi: Historien om verdens undergang",
           "De store syklusene: Sivilisasjoners vekst og fall",
           "Ekkokamre og informasjonsbobler",
@@ -6474,6 +6487,29 @@
           "Makt og legitimitet: Hvorfor styres vi?",
           "Gud eller Eksperter? Teokrati og Teknokrati",
           "Uten hersker: Anarkiets drøm og teorier"
+        ]
+      }
+    ],
+    [
+      "India",
+      {
+        "count": 40,
+        "sources": [
+          "Konsekvenser: En delt verden",
+          "Algerie & Vietnam: Krigens vei",
+          "India: Sjelenes frigjøring",
+          "NATO vs. Warszawapakten: En delt verden",
+          "Det britiske imperiet: Solen som aldri gikk ned",
+          "Det britiske ostindiske kompani (EIC)",
+          "Europa erobrer verden",
+          "Det portugisiske sjøimperiet: Handelens herskere",
+          "Det nederlandske ostindiske kompani (VOC)",
+          "Japan: Solens vei mot krig",
+          "Handel og Silkeveien",
+          "Stormen fra Øst: Det Mongolske Riket",
+          "Siddhartha Gautama (Buddha)",
+          "Ingen enkelt grunnlegger",
+          "Introduksjon til sikhismen"
         ]
       }
     ],
@@ -6999,6 +7035,26 @@
       }
     ],
     [
+      "Europas",
+      {
+        "count": 17,
+        "sources": [
+          "Opptakten: Veien mot katastrofen",
+          "Europa erobrer verden",
+          "Trekant-handelen: Det Søte Livets Pris",
+          "Kultur: Da alt ble relativt",
+          "Midtøsten: De nye grensene",
+          "Middelalderen: En tusenårig forvandling",
+          "536 - Året da solen forsvant",
+          "30-årskrigen: Europa i flammer",
+          "Diokletian: Da Romerriket ble gjenfødt",
+          "Sveriges historie: Fra østfarere til moderne nasjon",
+          "Danelagen: Da England var norsk",
+          "Platon"
+        ]
+      }
+    ],
+    [
       "Kant",
       {
         "count": 17,
@@ -7035,25 +7091,6 @@
       }
     ],
     [
-      "Europas",
-      {
-        "count": 16,
-        "sources": [
-          "Opptakten: Veien mot katastrofen",
-          "Europa erobrer verden",
-          "Kultur: Da alt ble relativt",
-          "Midtøsten: De nye grensene",
-          "Middelalderen: En tusenårig forvandling",
-          "536 - Året da solen forsvant",
-          "30-årskrigen: Europa i flammer",
-          "Diokletian: Da Romerriket ble gjenfødt",
-          "Sveriges historie: Fra østfarere til moderne nasjon",
-          "Danelagen: Da England var norsk",
-          "Platon"
-        ]
-      }
-    ],
-    [
       "Deres",
       {
         "count": 16,
@@ -7069,6 +7106,28 @@
           "Demokratiets mange ansikter",
           "Føydalisme: Da personlige bånd styrte Europa",
           "Monarkiet: Fra Guds nåde til folkets konge"
+        ]
+      }
+    ],
+    [
+      "Hver",
+      {
+        "count": 16,
+        "sources": [
+          "Trekant-handelen: Det Søte Livets Pris",
+          "Det hellige romerske rike",
+          "Middelalderen: En tusenårig forvandling",
+          "Den romerske legionen",
+          "De Romerske Gudene",
+          "Stormen fra Øst: Det Mongolske Riket",
+          "Guruene – sikhismens læremestre",
+          "Takt og Rytme",
+          "Naturens sjel: Fra hellig til ressurs",
+          "De store syklusene: Sivilisasjoners vekst og fall",
+          "Ekkokamre og informasjonsbobler",
+          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
+          "Makt og legitimitet: Hvorfor styres vi?",
+          "Opplysningstid og Samfunnskontrakten"
         ]
       }
     ],
@@ -7101,6 +7160,28 @@
       }
     ],
     [
+      "Arven",
+      {
+        "count": 15,
+        "sources": [
+          "Suez-krisen 1956: Da de gamle imperiene falt",
+          "Det britiske imperiet: Solen som aldri gikk ned",
+          "Europa erobrer verden",
+          "Trekant-handelen: Det Søte Livets Pris",
+          "Folkeforbundet: Drømmen om fred",
+          "Japan: Solens vei mot krig",
+          "USA: Fra 'The Roaring 20s' til 'The New Deal'",
+          "Tidlig middelalder: Folkevandring og forvandling",
+          "Fra republikk til keiserdømme: Augustus",
+          "Stormen fra Øst: Det Mongolske Riket",
+          "Ludwig von Mises",
+          "Antikkens visjoner: Platon og Aristoteles",
+          "Føydalisme: Da personlige bånd styrte Europa",
+          "Opplysningstid og Samfunnskontrakten"
+        ]
+      }
+    ],
+    [
       "Keiseren",
       {
         "count": 15,
@@ -7114,27 +7195,6 @@
           "De romerske keiserne",
           "Vestromerrikets fall",
           "Karl den Store: Europas Far"
-        ]
-      }
-    ],
-    [
-      "Hver",
-      {
-        "count": 15,
-        "sources": [
-          "Det hellige romerske rike",
-          "Middelalderen: En tusenårig forvandling",
-          "Den romerske legionen",
-          "De Romerske Gudene",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Guruene – sikhismens læremestre",
-          "Takt og Rytme",
-          "Naturens sjel: Fra hellig til ressurs",
-          "De store syklusene: Sivilisasjoners vekst og fall",
-          "Ekkokamre og informasjonsbobler",
-          "Robotene kommer: Fremtidens arbeid og menneskets verdi",
-          "Makt og legitimitet: Hvorfor styres vi?",
-          "Opplysningstid og Samfunnskontrakten"
         ]
       }
     ],
@@ -7170,30 +7230,9 @@
       }
     ],
     [
-      "Arven",
-      {
-        "count": 14,
-        "sources": [
-          "Suez-krisen 1956: Da de gamle imperiene falt",
-          "Det britiske imperiet: Solen som aldri gikk ned",
-          "Europa erobrer verden",
-          "Folkeforbundet: Drømmen om fred",
-          "Japan: Solens vei mot krig",
-          "USA: Fra 'The Roaring 20s' til 'The New Deal'",
-          "Tidlig middelalder: Folkevandring og forvandling",
-          "Fra republikk til keiserdømme: Augustus",
-          "Stormen fra Øst: Det Mongolske Riket",
-          "Ludwig von Mises",
-          "Antikkens visjoner: Platon og Aristoteles",
-          "Føydalisme: Da personlige bånd styrte Europa",
-          "Opplysningstid og Samfunnskontrakten"
-        ]
-      }
-    ],
-    [
       "Bruk",
       {
-        "count": 14,
+        "count": 15,
         "sources": [
           "Akkorder og Harmoni",
           "Låtens Anatomi",
@@ -7202,7 +7241,8 @@
           "Hvordan skrive reflekterende",
           "Skriv bedre historier: En komplett guide",
           "Fagartikkel",
-          "Debattinnlegg"
+          "Debattinnlegg",
+          "Språkets farger: Bilder og effekter"
         ]
       }
     ],
@@ -7832,6 +7872,22 @@
       }
     ],
     [
+      "Prøv",
+      {
+        "count": 9,
+        "sources": [
+          "Takt og Rytme",
+          "Piano: Introduksjon",
+          "Trommer: Introduksjon",
+          "Låtens Anatomi",
+          "Vurdering og Egenøving",
+          "Nivå 1: Grunnmuren (S-V)",
+          "Dikt (Lyrikk)",
+          "Hvem eier historien? Synsvinkel og stemme"
+        ]
+      }
+    ],
+    [
       "Mandsjuria",
       {
         "count": 8,
@@ -7990,19 +8046,6 @@
           "Hva er etikk?",
           "Hva er filosofi?",
           "Sokrates"
-        ]
-      }
-    ],
-    [
-      "Locke",
-      {
-        "count": 8,
-        "sources": [
-          "Naturretten",
-          "John Locke",
-          "Ludwig von Mises",
-          "Murray Rothbard",
-          "Opplysningstid og Samfunnskontrakten"
         ]
       }
     ]

@@ -335,6 +335,48 @@
                     ]
                 },
                 {
+                    "id": "virkemidler",
+                    "title": "Virkemidler",
+                    "description": "Forfatterens verktøykasse. Lær hvordan tekst bygges opp.",
+                    "image": "/images/topics/virkemidler_hero.png",
+                    "tools": [],
+                    "lessons": [
+                        {
+                            "id": "tid-og-struktur",
+                            "title": "Tidens tannhjul",
+                            "description": "Manipulasjon av tid: In medias res, frampek og tilbakeblikk.",
+                            "tags": [
+                                "virkemidler",
+                                "tid"
+                            ],
+                            "image": "/images/lessons/norsk/virkemidler/tid-hero.png",
+                            "createdDate": "2026-01-27T12:00:00Z"
+                        },
+                        {
+                            "id": "bildesprak-og-effekter",
+                            "title": "Språkets farger",
+                            "description": "Metafor, sammenligning og tekstens rytme.",
+                            "tags": [
+                                "virkemidler",
+                                "bilder"
+                            ],
+                            "image": "/images/lessons/norsk/virkemidler/bilder-hero.png",
+                            "createdDate": "2026-01-27T12:00:00Z"
+                        },
+                        {
+                            "id": "synsvinkel-og-stemme",
+                            "title": "Hvem eier historien?",
+                            "description": "Synsvinkel, perspektiv og fortellerstemme.",
+                            "tags": [
+                                "virkemidler",
+                                "synsvinkel"
+                            ],
+                            "image": "/images/lessons/norsk/virkemidler/synsvinkel-hero.png",
+                            "createdDate": "2026-01-27T12:00:00Z"
+                        }
+                    ]
+                },
+                {
                     "id": "litteraturhistorie",
                     "title": "Litteraturhistorie",
                     "description": "Fra sagaer til samtidslitteratur.",

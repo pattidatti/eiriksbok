@@ -1,5 +1,5 @@
 {
-  "buildId": 1769419176008,
+  "buildId": 1769501717186,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -1194,6 +1194,15 @@
     "roman": [
       "content/norsk/tekstsjangre/roman.json"
     ],
+    "bildesprak-og-effekter": [
+      "content/norsk/virkemidler/bildesprak-og-effekter.json"
+    ],
+    "synsvinkel-og-stemme": [
+      "content/norsk/virkemidler/synsvinkel-og-stemme.json"
+    ],
+    "tid-og-struktur": [
+      "content/norsk/virkemidler/tid-og-struktur.json"
+    ],
     "adam-smith": [
       "content/people/adam-smith.json"
     ],
@@ -1910,6 +1919,9 @@
     "norsk/tekstsjangre/kommentar": "content/norsk/tekstsjangre/kommentar.json",
     "norsk/tekstsjangre/novelle": "content/norsk/tekstsjangre/novelle.json",
     "norsk/tekstsjangre/roman": "content/norsk/tekstsjangre/roman.json",
+    "norsk/virkemidler/bildesprak-og-effekter": "content/norsk/virkemidler/bildesprak-og-effekter.json",
+    "norsk/virkemidler/synsvinkel-og-stemme": "content/norsk/virkemidler/synsvinkel-og-stemme.json",
+    "norsk/virkemidler/tid-og-struktur": "content/norsk/virkemidler/tid-og-struktur.json",
     "people/adam-smith.json/adam-smith": "content/people/adam-smith.json",
     "people/aristoteles-bio.json/aristoteles-bio": "content/people/aristoteles-bio.json",
     "people/armstrong.json/armstrong": "content/people/armstrong.json",

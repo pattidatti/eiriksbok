@@ -1,0 +1,94 @@
+{
+    "id": "tid-og-struktur",
+    "title": "Tidens tannhjul: Manipulasjon av tid",
+    "ingress": "Forfattere er ikke slaver av klokka. De kan skru tiden tilbake, hoppe framover, eller fryse et øyeblikk. Lær hvordan du blir en tidsreisende i din egen tekst.",
+    "heroImage": "/images/lessons/norsk/virkemidler/tid-hero.png",
+    "content": [
+        {
+            "type": "text",
+            "content": "Har du tenkt over at en actionfilm sjelden starter med at helten pusser tennene? Nei, den starter midt i eksplosjonen! Hvorfor? Fordi det skaper nysgjerrighet. Vi kastes rett inn i handlingen og må pusle sammen brikkene selv. Dette er bare ett av mange verktøy forfattere bruker for å manipulere tid."
+        },
+        {
+            "type": "header",
+            "text": "Fortalt tid vs. Fortelletid"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå tid i litteratur, må vi skille mellom to begreper som ligner på hverandre, men betyr helt forskjellige ting:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Fortalt tid:** Hvor lang tid handlingen i boka *faktisk* tar. Handler boka om en dag i livet til hovedpersonen (som i *Ulysses*), eller strekker den seg over 100 år (som i *Hundre års ensomhet*)?",
+                "**Fortelletid:** Hvor lang tid det tar å *lese* boka. Bruker forfatteren ti sider på å beskrive et sekund (utvidet øyeblikk), eller hopper hen over ti år på en setning (referat)?"
+            ]
+        },
+        {
+            "type": "interactive",
+            "component": "ChronoZoom",
+            "props": {
+                "events": [
+                    {
+                        "time": "08:00",
+                        "description": "Hovedpersonen våkner."
+                    },
+                    {
+                        "time": "08:05",
+                        "description": "Tannpuss (Hoppet over i teksten)."
+                    },
+                    {
+                        "time": "12:00",
+                        "description": "Lunsj (Beskrevet nøye)."
+                    },
+                    {
+                        "time": "2030",
+                        "description": "Han ser tilbake på livet sitt."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "In medias res: Pangstarten"
+        },
+        {
+            "type": "text",
+            "content": "*In medias res* er latin og betyr «midt i tingene». I stedet for å starte med «Det var en gang», starter forfatteren midt i en dramatisk hendelse. Dette tvinger leseren til å stille spørsmål: Hvem er disse folkene? Hvorfor løper de? Hva skjer nå? Det er en effektiv måte å hekte leseren på fra første setning."
+        },
+        {
+            "type": "header",
+            "text": "Frampek og Tilbakeblikk"
+        },
+        {
+            "type": "text",
+            "content": "Forfatteren kan også gi oss hint om fremtiden eller avsløre fortiden underveis."
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Frampek (Hinting):** Små hint om at noe (ofte noe dramatisk) kommer til å skje. «Han visste ikke da at dette var siste gang han skulle se henne.» Dette skaper uhygge og forventning.",
+                "**Tilbakeblikk (Retrospektiv):** Handlingen stopper opp, og vi ser tilbake på noe som har skjedd før. Dette er Henrik Ibsens favorittmetode. I stykkene hans skjer det meste *før* teppet går opp, og handlingen handler om å rulle opp fortidens hemmeligheter."
+            ]
+        },
+        {
+            "type": "link",
+            "target": "norsk/litteraturhistorie/realismen",
+            "text": "Les mer om Ibsens retrospektive teknikk"
+        },
+        {
+            "type": "header",
+            "text": "Utvidet øyeblikk: Når tiden står stille"
+        },
+        {
+            "type": "text",
+            "content": "Har du noen gang vært i en bilulykke, eller falt ned fra et tre? Da føles det ofte som om tiden går i sakte film. Du rekker å tenke tusen tanker på ett sekund. Forfattere bruker «utvidet øyeblikk» for å skape denne effekten. De bruker mange sider på å beskrive en veldig kort hendelse for å vise hvor viktig akkurat dette øyeblikket er for hovedpersonen."
+        },
+        {
+            "type": "link",
+            "target": "norsk/skrivehjelp/7-vanlige-plot",
+            "text": "Se hvordan tid brukes i ulike plotstrukturer"
+        }
+    ],
+    "createdDate": "2024-05-22T10:00:00Z",
+    "lastUpdated": "2024-05-22T10:00:00Z"
+}

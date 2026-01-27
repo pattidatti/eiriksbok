@@ -1,0 +1,79 @@
+{
+    "id": "synsvinkel-og-stemme",
+    "title": "Hvem eier historien? Synsvinkel og stemme",
+    "ingress": "Det er ikke bare HVA som fortelles, men HVEM som forteller det. Bli kjent med den allvitende guden og den upålitelige løgneren.",
+    "heroImage": "/images/lessons/norsk/virkemidler/synsvinkel-hero.png",
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at det har skjedd et slagsmål i skolegården. Rektor ser det fra vinduet (utenfra). Den som slår ser det med sinne (innenfra). Den som blir slått ser det med frykt (innenfra). Hvem forteller sannheten? Alle og ingen. Valg av synsvinkel bestemmer *alt* leseren får vite."
+        },
+        {
+            "type": "header",
+            "text": "Perspektivprismet: Hvem ser vi gjennom?"
+        },
+        {
+            "type": "text",
+            "content": "Vi skiller vanligvis mellom tre hovedtyper synsvinkel. Prøv å se den samme scenen gjennom tre ulike linser her:"
+        },
+        {
+            "type": "interactive",
+            "component": "PerspectivePrism",
+            "props": {
+                "scene": "En jente (Anna) sitter alene på en benk og gråter. En gutt (Jonas) går forbi.",
+                "lenses": [
+                    {
+                        "name": "Personal (1. person - Jeg)",
+                        "description": "Vi er INNE i hodet til Jonas. Vi vet kun det han vet.",
+                        "text": "Jeg så henne sitte der. Skulle jeg gå bort? Hjertet mitt hamret. Hva om hun bare ba meg dra til helvete? Jeg senket blikket og gikk forbi, selv om jeg hadde lyst til å snu."
+                    },
+                    {
+                        "name": "Autoral (Refererende - Flue på veggen)",
+                        "description": "Vi ser kun det som skjer utenfra. Ingen tanker.",
+                        "text": "Anna satt på benken med ansiktet i hendene. Skuldrene hennes ristet. Jonas kom gående nedover stien. Han stoppet opp et øyeblikk, så på henne, og gikk deretter raskt videre uten å si noe."
+                    },
+                    {
+                        "name": "Allvitende (Gud)",
+                        "description": "Forfatteren vet alt om alle.",
+                        "text": "Anna trodde hun var helt alene i sorgen, uvitende om at Jonas nettopp hadde rundet hjørnet. Jonas, som lenge hadde vært forelsket i henne, kjente en stikkende smerte i brystet, men frykten for avvisning var større enn medlidenheten. Han gikk forbi, en avgjørelse han skulle angre på resten av livet."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Den upålitelige fortelleren"
+        },
+        {
+            "type": "text",
+            "content": "Kan vi stole på «Jeget» i fortellingen? Ikke alltid. En upålitelig forteller kan lyve for oss, være sinnssyk, eller bare misforstå hva som skjer rundt seg. Dette er et genialt grep for å skape spenning. Leseren må leke detektiv: Hva er sant, og hva er bare i hodet til hovedpersonen?"
+        },
+        {
+            "type": "link",
+            "target": "norsk/skrivehjelp/skriv-bedre-historier",
+            "text": "Tips: Show, don't tell - vis følelser gjennom handling"
+        },
+        {
+            "type": "header",
+            "text": "Stemme og Replikk"
+        },
+        {
+            "type": "text",
+            "content": "Alle karakterer må ha sin egen stemme. En professor på 60 snakker ikke likt som en gamer på 14. Dialog skal drive handlingen fremover eller avsløre noe om karakterene. Tomprat («Hei, hvordan går det?») bør klippes bort."
+        },
+        {
+            "type": "interactive",
+            "component": "ScenarioRoleplay",
+            "props": {
+                "scenario": "To venner møtes etter at den ene har sveket den andre.",
+                "roles": [
+                    "Sviker",
+                    "Offer"
+                ],
+                "goal": "Avslør underteksten. De snakker om været, men mener noe annet."
+            }
+        }
+    ],
+    "createdDate": "2024-05-22T10:00:00Z",
+    "lastUpdated": "2024-05-22T10:00:00Z"
+}
