@@ -97,14 +97,22 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     const basePath = getBasePath();
     const normalizedId = lessonId.toLowerCase();
 
-    // 1. Ensure Registry and Manifest are loaded (Parallelized)
+    // 1. Ensure Registry and Manifest are loaded (Parallelized with Graceful Failure)
+    // We wrap these in a way that failures don't crash the entire Promise.all
     const [registry, manifest] = await Promise.all([
-        fetchRegistry(),
-        fetchManifest()
+        fetchRegistry().catch(err => {
+            console.warn("[ContentLoader] Registry load failed (non-critical):", err);
+            return null;
+        }),
+        fetchManifest().catch(err => {
+            console.warn("[ContentLoader] Manifest load failed (non-critical):", err);
+            return null;
+        })
     ]);
 
+    // Note: We DO NOT throw if both fail. We allow Tier 3 (Convention) to attempt blindly.
     if (!registry && !manifest) {
-        throw new Error("[ContentLoader] Critical: Registry and Manifest failed to load. Retrying...");
+        console.warn("[ContentLoader] Both Registry and Manifest failed. Proceeding to Tier 3 fallback.");
     }
 
     // Helper to attempt loading a path
