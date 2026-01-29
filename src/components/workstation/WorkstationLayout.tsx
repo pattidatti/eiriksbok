@@ -44,7 +44,7 @@ const SidebarItem = ({ icon: Icon, label, active, onClick }: { icon: any, label:
     </motion.button>
 );
 
-const MissionControl = () => (
+const MissionControl = ({ activeTool }: { activeTool: 'writer' | 'xray' | 'scrapbook' }) => (
     <div className="w-80 h-full bg-slate-900/80 backdrop-blur-xl border-l border-white/5 p-6 flex flex-col pointer-events-auto">
         <h3 className="text-amber-500/80 font-mono text-xs tracking-[0.2em] uppercase mb-6 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
@@ -52,7 +52,7 @@ const MissionControl = () => (
         </h3>
 
         <div className="space-y-6">
-            <div className="bg-black/40 border border-white/10 p-4 rounded-lg relative overflow-hidden group">
+            <div className={`bg-black/40 border p-4 rounded-lg relative overflow-hidden group transition-all duration-300 ${activeTool === 'xray' ? 'border-amber-500/30 shadow-[0_0_15px_rgba(245,158,11,0.1)]' : 'border-white/10 opacity-60 hover:opacity-100'}`}>
                 <div className="absolute top-0 right-0 p-2 opacity-50"><HelpCircle size={16} className="text-stone-500" /></div>
                 <h4 className="text-stone-200 font-serif text-xl mb-2">Jakten på Metaforen</h4>
                 <p className="text-stone-400 text-sm leading-relaxed">

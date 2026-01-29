@@ -1,0 +1,163 @@
+{
+    "id": "alv-erlingsson",
+    "title": "Alv Erlingsson: Piratjarlen",
+    "description": "Historien om Alv Erlingsson, kongens favoritt som ble Norges mest beryktede sjørøver.",
+    "image": "/images/historie/norgeshistorie/alv-erlingsson/hero.png",
+    "tags": [
+        "historie",
+        "norge",
+        "middelalder",
+        "sjørøveri",
+        "adel"
+    ],
+    "layout": "rich",
+    "year": "ca. 1260–1290",
+    "timeline": [
+        {
+            "year": 1260,
+            "title": "Født",
+            "description": "Alv Erlingsson fødes inn i den mektige Tanberg-ætten."
+        },
+        {
+            "year": 1276,
+            "title": "Jarl av Sarpsborg",
+            "description": "Utnevnes til jarl og styrer Borgarsyssel (Østfold)."
+        },
+        {
+            "year": 1284,
+            "title": "Kaperkrigen",
+            "description": "Alv starter en brutal kaperkrig mot tyske kjøpmenn."
+        },
+        {
+            "year": 1285,
+            "title": "Slaget ved Helsingborg",
+            "description": "Angriper Helsingborg, men krigen ender med tap for Norge."
+        },
+        {
+            "year": 1290,
+            "title": "Henrettelsen",
+            "description": "Fanges i Helsingborg og henrettes på steile og hjul."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Han var kongens yndling, en diplomat i europeisk toppklasse, og en av Norges mektigste menn. Men Alv Erlingsson er ikke husket for sine dannede manerer ved det skotske hoffet eller sine strategiske evner. Han er husket som \"Mindre Alv\" – piratjarlen som forvandlet Skagerrak til et mareritt for Hansaen, og som endte sine dager knust på et hjul i Helsingborg. Historien om Alv er fortellingen om den gamle adelens siste, desperate kamp mot en stadig sterkere kongemakt, og om hvordan grensen mellom ridder og røver kan viskes ut når politikken slår feil. Dette skjedde i [middelalderen](/historie/middelalderen/middelalderen), en tid preget av maktkamp."
+        },
+        {
+            "type": "header",
+            "text": "Ridderen: Kongens høyre hånd"
+        },
+        {
+            "type": "text",
+            "content": "Alv Erlingsson kom fra den mektige Tanberg-ætten på Ringerike og var født inn i den absolutte eliten. Under kong Magnus Lagabøte nøt familien stor respekt, men det var under den unge kong Eirik Magnusson at Alv virkelig skjøt fart mot toppen. Han ble utnevnt til jarl av Sarpsborg – en tittel som ga ham kontroll over det strategiske Borgarsyssel (Østfold). Han bygget sin base på Isegran i Glomma, en festning som skulle bli beryktet."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/norgeshistorie/alv-erlingsson/alv-court.png",
+            "caption": "Diplomaten Alv: En mann som behersket både sverd og ord, her i audiens hos Dronning Yolanda.",
+            "alt": "Alv Erlingsson bukker for Dronning Yolanda i en middelaldersk hoffscene."
+        },
+        {
+            "type": "text",
+            "content": "Som kongens favoritt ble han sendt på prestisjetunge oppdrag. Han reiste til det skotske hoffet, forhandlet om ekteskap og allianser, og ble omtalt som en ridder av stor prakt. På 1280-tallet var Alv Erlingsson selve bildet på en vellykket stormann: rik, mektig og respektert."
+        },
+        {
+            "type": "header",
+            "text": "Sjørøveren: Krigen mot Hansaen"
+        },
+        {
+            "type": "text",
+            "content": "Men tidene endret seg. Da kong Eiriks bror, hertug Haakon (senere kong Haakon V), begynte å kreve mer makt, havnet Alv på kollisjonskurs. Samtidig var Norge i konflikt med de tyske hansastedene, som dominerte handelen i Nord-Europa. Alv, som så seg selv som en uavhengig fyrste, tok saken i egne hender. Han utstedt det vi i dag ville kalt kaperbrev til seg selv – tillatelse til å angripe fiendtlige skip."
+        },
+        {
+            "type": "comparison",
+            "leftTitle": "Jarlen av Sarpsborg",
+            "rightTitle": "Mindre Alv",
+            "leftContent": "Som jarl var Alv lovens vokter. Han krevde inn skatt, dømte i tvister og representerte kongen. Han var en \"byggherre\" som forsterket Isegran og sikret grensen mot Sverige.",
+            "rightContent": "Som \"Mindre Alv\" (et kallenavn som kanskje spilte på at han var den \"yngre\", men som ble synonymt med fare) var han en hensynsløs kriger. Han plyndret tyske handelsskip, brente danske byer og drepte besetninger uten nåde."
+        },
+        {
+            "type": "text",
+            "content": "Krigen mot Hansaen i 1284–1285 ble brutal. Alvs skip herjet i Øresund og Skagerrak. Han angrep ikke bare tyske skip, men også danske havner. Høydepunktet var et dristig raid mot Skagen, og senere et angrep på selve Helsingborg. Men Hansaen var mektig. De svarte med en handelsblokade som kvelte Norge. Det ble hungersnød, og kongemakten måtte bøye av. Freden i Kalmar i 1285 ble et nederlag for Norge – og for Alv. Han måtte betale enorme erstatninger, noe han nektet."
+        },
+        {
+            "type": "header",
+            "text": "Opprøreren: Angrepet på Oslo"
+        },
+        {
+            "type": "text",
+            "content": "Nå var Alv trengt opp i et hjørne. Han var blakk etter krigen, og hertug Haakon ville stramme grepet. I 1287 eksploderte konflikten. Alv gikk til åpent opprør. Han samlet mennene sine og seilte mot Oslo. Målet var å ta hertug Haakons nye borg, Akershus, som var under bygging, og fange kommandanten der."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/norgeshistorie/alv-erlingsson/alv-raid.png",
+            "caption": "Terror i Oslo: Alvs menn setter byen i brann under raidet i 1287.",
+            "alt": "Nattlig angrep på Oslo med brennende trehus og kjempende soldater."
+        },
+        {
+            "type": "text",
+            "content": "Angrepet på Oslo ble en blodig fiasko. Han klarte ikke å ta borgen, men i raseriet satte han Oslo i brann og plyndret byen. Han drepte hertugens høvedsmann, Hallvard gullsko, og ble lyst fredløs i hele riket. Jarlen var blitt en flyktning. Han rømte til sjøs og levde nå som en ekte pirat, en \"lovløs\" som angrep alt og alle fra basen sin."
+        },
+        {
+            "type": "header",
+            "text": "Endeliktet: Steile og hjul"
+        },
+        {
+            "type": "text",
+            "content": "Eventyret fikk en brå og brutal slutt våren 1290. Alv ble gjenkjent i Helsingborg – byen han tidligere hadde angrepet. Han ble tatt til fange av de danske vaktene. Straffen for sjørøveri var nådeløs."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/norgeshistorie/alv-erlingsson/alv-death.png",
+            "caption": "En advarsel til alle: Steile og hjul var en vanærende og grusom henrettelsesmetode.",
+            "alt": "Et ødelagt henrettelseshjul silhuettert mot en dyster himmel."
+        },
+        {
+            "type": "text",
+            "content": "Alv Erlingsson ble dømt til døden på «steile og hjul». Det innebar at bøddelen knuste lemmene hans med en jernklubbe mens han levde, før den ødelagte kroppen ble flettet inn i et vognhjul og heist opp på en stake til spott og spe. Det var en død reservert for de verste forbrytere, en siste ydmykelse for mannen som en gang hadde spist ved kongens bord."
+        },
+        {
+            "type": "quote",
+            "content": "«Derved falt Norges ære, da hr. Alv falt.»",
+            "author": "Islandsk årbok (senere tids vitnemål)",
+            "description": "Selv om han døde som en forbryter, levde minnet om hans mot videre i folkeminnet."
+        },
+        {
+            "type": "text",
+            "content": "Alvs død markerte slutten på en æra. Den gamle, selvstendige adelen som kunne utfordre kongen var borte. Kong Haakon V (som overtok tronen i 1299) ville ikke tolerere slike «småkonger». Han flyttet hovedstaden til Oslo, bygde ferdig Akershus, og sentraliserte makten. Alv Erlingsson ble stående igjen som en tragisk figur – en mann som ikke forstod at tiden hadde løpt fra ham."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var Alv Erlingssons tittel før han ble fredløs?",
+            "options": [
+                "Hertug av Oppland",
+                "Jarl av Sarpsborg",
+                "Baron av Rosendal",
+                "Ridder av Bergen"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvem var Alv Erlingssons hovedfiende innad i Norge?",
+            "options": [
+                "Kong Eirik Magnusson",
+                "Hertug Haakon (Haakon V)",
+                "Erkebiskopen i Nidaros",
+                "Dronning Eufemia"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvordan ble Alv Erlingsson henrettet?",
+            "options": [
+                "Halshogging med sverd",
+                "Han ble hengt",
+                "På steile og hjul",
+                "Brent på bålet"
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

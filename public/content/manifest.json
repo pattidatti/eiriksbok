@@ -1235,6 +1235,22 @@
                             ]
                         },
                         {
+                            "id": "alv-erlingsson",
+                            "title": "Alv Erlingsson: Piratjarlen",
+                            "description": "Historien om Alv Erlingsson, kongens favoritt som ble Norges mest beryktede sjørøver.",
+                            "image": "/images/historie/norgeshistorie/alv-erlingsson/hero.png",
+                            "year": "1290",
+                            "tags": [
+                                "historie",
+                                "norge",
+                                "middelalder",
+                                "sjørøveri",
+                                "adel"
+                            ],
+                            "createdDate": "2026-01-30T00:00:00Z",
+                            "lastUpdated": "2026-01-30T00:00:00Z"
+                        },
+                        {
                             "id": "knut-alvsson",
                             "title": "Knut Alvsson",
                             "description": "Ridderen som trosset kong Hans.",
