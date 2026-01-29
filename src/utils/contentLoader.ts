@@ -121,6 +121,9 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
             const finalUrl = path.startsWith('http') ? path : `${basePath}${path}`;
             const r = await fetch(finalUrl, { cache: 'no-cache' });
             if (!r.ok) {
+                // If it's a 404, we return null to allow falling back to next tier
+                // But for 500s or other server errors, we might want to retry?
+                // For now, let's treat any non-ok as "Not Found" for that tier.
                 console.warn(`[ContentLoader] ${sourceTier} fetch failed: ${finalUrl} (${r.status})`);
                 return null;
             }
@@ -135,8 +138,9 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
             }
             return data as Lesson;
         } catch (e) {
-            console.error(`[ContentLoader] ${sourceTier} error:`, e);
-            return null;
+            console.error(`[ContentLoader] ${sourceTier} network error:`, e);
+            // Critical Change: Throw error so React Query retries!
+            throw e;
         }
     };
 
