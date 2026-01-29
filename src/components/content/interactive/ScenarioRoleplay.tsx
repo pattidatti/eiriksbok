@@ -13,7 +13,7 @@ interface Scenario {
     id: string;
     text: string;
     image?: string;
-    options: Option[];
+    options?: Option[];
 }
 
 interface ScenarioRoleplayProps {
@@ -48,7 +48,8 @@ export const ScenarioRoleplay: React.FC<ScenarioRoleplayProps> = ({ title, intro
         );
     }
 
-    const isEnding = currentScenario.options.length === 0;
+    const options = currentScenario.options || [];
+    const isEnding = options.length === 0;
 
     return (
         <div className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm font-sans mx-auto max-w-2xl">
@@ -87,7 +88,7 @@ export const ScenarioRoleplay: React.FC<ScenarioRoleplayProps> = ({ title, intro
 
                         {/* Options */}
                         <div className="space-y-3">
-                            {currentScenario.options.map((option, idx) => (
+                            {options.map((option, idx) => (
                                 <button
                                     key={idx}
                                     onClick={() => handleOptionClick(option)}

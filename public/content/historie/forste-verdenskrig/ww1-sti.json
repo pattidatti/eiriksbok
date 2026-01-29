@@ -20,6 +20,7 @@
                 "type": "fakta",
                 "content": "Forestill deg at året er 1913. Europa er verdens ubestridte sentrum, en plass preget av en urokkelig tro på fremtiden. Jernbaner krysser grensene, elektrisiteten lyser opp byene, og folk lever i en fred som har vart så lenge at de har glemt hvordan krig smaker. Denne perioden kalles *Belle Époque* – den vakre tiden.\n\nDu beveger deg i en verden styrt av store keiserriker. De tre mektigste mennene i Europa – kongen av Storbritannia, keiseren av Tyskland og tsaren av Russland – er fettere. De skriver vennlige brev til hverandre og møtes i store familiebesøk. Ingen ser for seg at disse familiebåndene snart skal rives i stykker.\n\nI dette første steget skal du utforske hvordan denne 'perfekte' verdenen så ut på overflaten, før du lærer om de mørke spenningene som kokte under jorden. Se etter informasjon om hvem som egentlig styrte hva, og hvorfor freden var skjørere enn den så ut.",
                 "tasks": [
+                    "Les artikelen over, første del: 'Stille før stormen' (Lese)",
                     "Hvilken periode kalles 'Belle Époque'? (Fakta)",
                     "Nevn tre stormakter som var styrt av fettere i 1913. (Fakta)",
                     "Hva betydde det at Europa 'eide' verden på denne tiden? (Forståelse)",
@@ -42,47 +43,93 @@
                 "component": {
                     "name": "ScenarioRoleplay",
                     "props": {
-                        "title": "Juli-krisen",
-                        "intro": "Østerrike-Ungarn må reagere på drapet. Men Russland støtter Serbia. Tyskland støtter oss. Ett feil steg betyr verdenskrig.",
+                        "title": "Juli-krisen: Veien til katastrofen",
+                        "intro": "Europa holder pusten. Du er diplomat i Østerrike-Ungarn. Dine valg vil avgjøre om verden går under. Husk: Historien er en nådeløs dommer.",
                         "startId": "start",
                         "scenarios": [
                             {
                                 "id": "start",
-                                "text": "Serbias regjering var sannsynligvis involvert i attentatet. Generalene krever krig. Hva gjør du?",
+                                "text": "Erkehertug Franz Ferdinand er drept i Sarajevo. Hæren krever hevn mot Serbia. Russland truer med krig hvis vi angriper. Hva gjør du først?",
                                 "options": [
                                     {
-                                        "label": "Erklær krig mot Serbia umiddelbart",
-                                        "nextId": "war"
+                                        "label": "Søk støtte hos Tyskland (Blankofullmakt)",
+                                        "nextId": "blank_check"
                                     },
                                     {
-                                        "label": "Krev en internasjonal etterforskning",
-                                        "nextId": "peace"
+                                        "label": "Handle alene (Vær forsiktig)",
+                                        "nextId": "peace_early"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "blank_check",
+                                "text": "Keiser Wilhelm II av Tyskland lover full støtte, uansett hva som skjer. Han sier: 'Det er nå eller aldri!' Med tysk ryggdekning føler du deg usårbar. Hva gjør du med Serbia?",
+                                "options": [
+                                    {
+                                        "label": "Send et umulig ultimatum",
+                                        "nextId": "ultimatum"
+                                    },
+                                    {
+                                        "label": "Inviter til fredskonferanse",
+                                        "nextId": "peace_late"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "ultimatum",
+                                "text": "Du sender et ultimatum designet for å bli avvist. Blant annet krever du at østerriksk politi skal etterforske fritt på serbisk jord. Det er en fornærmelse mot Serbias suverenitet.",
+                                "options": [
+                                    {
+                                        "label": "Vent på svaret",
+                                        "nextId": "serbian_reply"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "serbian_reply",
+                                "text": "Utrolig nok svarer Serbia! De godtar nesten alt, unntatt politi-kravet. Keiser Wilhelm i Tyskland sier: 'All grunn til krig er borte!' Men generalene dine er rasende. De vil ha krig.",
+                                "options": [
+                                    {
+                                        "label": "Godta svaret (Avlys krigen)",
+                                        "nextId": "peace_late"
+                                    },
+                                    {
+                                        "label": "Erklær krig (Det er for sent å snu)",
+                                        "nextId": "war"
                                     }
                                 ]
                             },
                             {
                                 "id": "war",
-                                "text": "Du velger krig. Russland mobiliserer for å støtte Serbia. Tyskland erklærer krig mot Russland. Frankrike blir dratt med. Det er ingen vei tilbake.",
+                                "text": "Du erklærer krig. Russland mobiliserer. Tyskland angriper Frankrike gjennom Belgia. Storbritannia blir med. Verden står i brann. Din stahet har startet Sivilisasjonens Selvmord.",
                                 "isEnding": true,
                                 "endingType": "historical",
-                                "feedback": "Dette er nøyaktig hva som skjedde. En lokal konflikt ble til en verdenskrig på grunn av alliansene."
+                                "feedback": "Dette er den brutale sannheten. En kjede av stolthet, frykt og misforståelser førte verden ut i avgrunnen."
                             },
                             {
-                                "id": "peace",
-                                "text": "Du prøver diplomati. Men Tyskland presser på. De vil ha krigen nå, før Russland blir for sterke. Dine forsøk blir ignorert.",
+                                "id": "peace_early",
+                                "text": "Du velger å være forsiktig. Uten tysk støtte tør ikke Østerrike angripe. Krisen går over. Freden bevares... i en måned til. Men historiebøkene forblir tomme.",
                                 "isEnding": true,
                                 "endingType": "alternative",
-                                "feedback": "Et edelt forsøk. Men krigsmaskineriet var allerede i gang. Alliansesystemet gjorde diplomati nesten umulig."
+                                "feedback": "Du reddet freden, men feilet spillet. Historien krevde en krig. Prøv å forstå hvorfor lederne valgte annerledes."
+                            },
+                            {
+                                "id": "peace_late",
+                                "text": "Du trekker i nødbremsen. Keiser Wilhelm puster lettet ut. En konferanse i London løser krisen diplomtisk. Ingen verdenskrig i 1914.",
+                                "isEnding": true,
+                                "endingType": "alternative",
+                                "feedback": "Et fornuftig valg som kunne reddet millioner. Men i 1914 var frykten for å virke svak større enn fornuften."
                             }
                         ]
                     }
                 },
                 "tasks": [
+                    "Les artikelen 'Opptakt' og lær om hva som skjer like før krigen",
                     "Hvem var Gavrilo Princip? (Fakta)",
                     "Hva var målet til organisasjonen 'Den sorte hånd'? (Forståelse)",
                     "Hva betyr begrepet 'blankoblankett' i denne sammenhengen? (Fakta)",
                     "Hvorfor førte alliansesystemet til at en lokal konflikt ble global? (Systemforståelse)",
-                    "Er det riktig å straffe et helt folk for gjerningene til en petite gruppe? (Etikk)",
+                    "Er det riktig å straffe et helt folk for gjerningene til en liten gruppe? (Etikk)",
                     "Hvordan påvirket imperialismen spenningen mellom stormaktene? (Analyse)"
                 ],
                 "links": [
@@ -113,7 +160,7 @@
                                 "title": "Østerrike-Ungarn",
                                 "color": "#1e3a8a",
                                 "icon": "🦅",
-                                "content": "**Vi må forsvare oss mot terrorisme.**\n\nVår tronarving er myrdet av serbiske nasjonalister. Serbia nekter å samarbeide om etterforskningen. Hvis vi ikke reagerer nå, vil riket vårt gå i oppløsning. \n\n*\"Dette er et spørsmål om ære og overlevelse.\"*",
+                                "content": "**Vi må forsvare oss.** Tronarvingen vår er myrdet. Serbia nekter å samarbeide. Hvis vi ikke reagerer nå, vil riket gå i oppløsning.\n\n*\"Dette er et spørsmål om ære.\"*",
                                 "sourceCredit": "Franz Joseph I"
                             },
                             {
@@ -121,7 +168,7 @@
                                 "title": "Serbia",
                                 "color": "#b91c1c",
                                 "icon": "⚔️",
-                                "content": "**Vi kjemper for frihet.**\n\nØsterrike-Ungarn har undertrykt slaverne i århundrer. Kravet deres krenker vår suverenitet som selvstendig nasjon. Vi kan ikke la dem diktere våre lover. \n\n*\"Bedre grav enn slave!\"*",
+                                "content": "**Vi kjemper for frihet.** Østerrike-Ungarn har undertrykt oss lenge nok. Vi lar dem ikke diktere våre lover og krenke vår suverenitet.\n\n*\"Bedre grav enn slave!\"*",
                                 "sourceCredit": "Nikola Pašić"
                             },
                             {
@@ -129,7 +176,7 @@
                                 "title": "Tyskland",
                                 "color": "#0f172a",
                                 "icon": "🛡️",
-                                "content": "**Lojalitet fremfor alt.**\n\nVi har lovet å støtte vår eneste sanne allierte, Østerrike. Hvis de faller, er vi omringet av fiender. Russland mobiliserer allerede. Vi må slå til før vi blir knust. \n\n*\"Nibelungentro - troskap til døden.\"*",
+                                "content": "**Lojalitet fremfor alt.** Vi må støtte vår allierte Østerrike. Russland mobiliserer, og vi er omringet. Vi må slå til før vi blir knust.\n\n*\"Troskap til døden.\"*",
                                 "sourceCredit": "Kaiser Wilhelm II"
                             },
                             {
@@ -137,7 +184,7 @@
                                 "title": "Russland",
                                 "color": "#15803d",
                                 "icon": "🐻",
-                                "content": "**Beskytteren av de svake.**\n\nVi er storebror for alle slaviske folk. Vi kan ikke sitte stille og se på at Østerrike knuser lille Serbia. Det ville være et svik mot vår Gudgitte rolle. \n\n*\"Ingen skal røre våre brødre.\"*",
+                                "content": "**Beskytter av de svake.** Vi er storebror for de slaviske folkene. Vi kan ikke se på at Østerrike knuser lille Serbia. Det ville være et svik.\n\n*\"Ingen skal røre våre brødre.\"*",
                                 "sourceCredit": "Tsar Nicholas II"
                             }
                         ]
@@ -157,6 +204,7 @@
                 "type": "fakta",
                 "content": "August 1914. Europa koker av begeistring. Unge menn i millioner melder seg frivillig til krigen. De får blomster stukket i geværløpene og vinkes av gårde fra jernbanestasjonene som om de skal på en sommerleir. 'Hjemme til jul!', roper de.\n\nTyskland har en plan som skal sikre seieren raskt: Schlieffen-planen. De skal marsjere gjennom det nøytrale Belgia for å overrumple Frankrike. Ved å vinne i vest på bare noen uker, håper de å unngå å kjempe mot både Frankrike og Russland samtidig.\n\nI dette steget skal du se på hvorfor alle trodde krigen ville bli kort. Du vil lære om de militære planene som var laget på forhånd, og hvorfor tyskernes ferd gjennom nøytrale land trakk Storbritannia inn i krigen. Les nøye om hvordan planene feilet allerede de første ukene.",
                 "tasks": [
+                    "Les artikkelen 'Krigens løp'",
                     "Hva var hovedmålet med Schlieffen-planen? (Fakta)",
                     "Hvorfor var tyskernes invasjon av Belgia så skjebnesvanger for Storbritannia? (Årsak)",
                     "Hva mente man med at soldatene skulle være 'hjemme til jul'? (Fakta)",
@@ -270,7 +318,7 @@
                 "content": "Mens Vestfronten står fast, kollapser Russland innenfra. Landet er enormt, men krigen har tømt skattekisten og matlagrene. Russiske soldater dør i milliontall, ofte uten sko og ammunisjon. Sulten i byene fører til opprør, og Tsaren må gå av.\n\nMidt i kaoset fyller et hemmelig tog fra Tyskland. Om bord er Vladimir Lenin, en revolusjonær som lover folket det de lengter mest etter: 'Fred, brød og jord'. Han griper makten, og Russland trekker seg helt ut av krigen.\n\nDu skal nå se på hvordan krigføring kan føre til en revolusjon i et helt land. Legg merke til prisen Russland måtte betale for å få fred med Tyskland, og hvordan dette ga tyskerne en siste sjanse til å vinne krigen ved å flytte alle soldatene sine vestover.",
                 "tasks": [
                     "Hva skjedde i 'Februarrevolusjonen' i 1917? (Fakta)",
-                    "Hvorfor valgte den provisoriske regjeringen å fortsette krigen? (Forståelse)",
+                    "Hva skjedde med keiser Wilhelm II i november 1918? (Fakta)",
                     "Hva var Lenins slagord for å vinne folket? (Fakta)",
                     "Hvorfor hjalp Tyskland Lenin med å reise tilbake til Russland? (Strategi)",
                     "Hva innebar fredsavtalen i Brest-Litovsk for Russland? (Konsekvens)",
@@ -358,7 +406,7 @@
                 "tasks": [
                     "Nevn tre nye stater som ble opprettet etter krigen. (Fakta)",
                     "Hva innebar Artikkel 231 i Versailles-traktaten? (Fakta)",
-                    "Hvorfor ble Folkeforbundet sett på som for svakt? (Forståelse)",
+                    "Hva ble konsekvensen av at USA ikke ble med i Folkeforbundet? (Analyse)",
                     "Hvordan bidro de økonomiske kravene mot Tyskland til ustabilitet? (Analyse)",
                     "Kunne en mer rettferdig fredsavtale ha hindret Hitlers vei til makten? (Refleksjon)",
                     "Hvordan endret krigen kvinners rettigheter på lang sikt? (Forståelse)"

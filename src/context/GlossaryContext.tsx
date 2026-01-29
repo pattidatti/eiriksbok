@@ -10,6 +10,7 @@ export interface GlossaryEntry {
     image?: string;
     link?: string;
     lifespan?: string;
+    aliases?: string[];
 }
 
 interface GlossaryContextType {

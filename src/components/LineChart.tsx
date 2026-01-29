@@ -30,7 +30,8 @@ interface DataPoint {
 
 interface LineChartProps {
     title: string;
-    data: DataPoint[];
+    data?: DataPoint[];
+    points?: any[]; // Aliased data from some JSON files
     xAxisLabel?: string;
     yAxisLabel?: string;
     datasetLabel?: string;
@@ -39,18 +40,39 @@ interface LineChartProps {
 
 export const LineChart: React.FC<LineChartProps> = ({
     title,
-    data,
+    data = [],
+    points,
     xAxisLabel,
     yAxisLabel,
     datasetLabel = 'Befolkning',
     color = 'rgb(79, 70, 229)' // Default to Indigo 600
 }) => {
+    // Normalize data: support 'points' prop and 'x/y' property names
+    const normalizedData: DataPoint[] = React.useMemo(() => {
+        const source = (points && Array.isArray(points)) ? points : data;
+        if (!source || !Array.isArray(source)) return [];
+
+        return source.map(item => ({
+            year: item.year ?? item.x ?? 0,
+            value: item.value ?? item.y ?? 0
+        }));
+    }, [data, points]);
+
+    if (normalizedData.length === 0) {
+        return (
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 my-10 min-h-[100px] flex flex-col items-center justify-center">
+                <h3 className="text-sm font-bold text-slate-400 mb-2">{title}</h3>
+                <p className="text-xs text-slate-300 italic">Ingen data tilgjengelig</p>
+            </div>
+        );
+    }
+
     const chartData = {
-        labels: data.map(d => d.year),
+        labels: normalizedData.map(d => d.year),
         datasets: [
             {
                 label: datasetLabel,
-                data: data.map(d => d.value),
+                data: normalizedData.map(d => d.value),
                 borderColor: color,
                 backgroundColor: color.replace('rgb', 'rgba').replace(')', ', 0.1)'),
                 tension: 0.3,

@@ -1,5 +1,8 @@
 {
     "term": "Vladimir Lenin",
+    "aliases": [
+        "Lenin"
+    ],
     "definition": "Russisk revolusjonær, politiker og teoretiker. Han ledet oktoberrevolusjonen i 1917 og grunnla Sovjetunionen som verdens første sosialistiske stat.",
     "type": "person",
     "fullName": "Vladimir Iljitsj Uljanov",

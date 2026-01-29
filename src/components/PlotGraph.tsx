@@ -15,7 +15,7 @@ interface PlotGraphProps {
 }
 
 export const PlotGraph: React.FC<PlotGraphProps> = ({
-    points,
+    points = [],
     title,
     description,
     xAxisLabel = "Tid",
@@ -26,6 +26,15 @@ export const PlotGraph: React.FC<PlotGraphProps> = ({
     const width = 400;
     const height = 200;
     const padding = 40;
+
+    if (!points || points.length === 0) {
+        return (
+            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm my-8">
+                <h3 className="text-lg font-bold text-slate-800 mb-2">{title}</h3>
+                <p className="text-slate-400 italic text-sm">Ingen datapunkter tilgjengelig.</p>
+            </div>
+        );
+    }
 
     const minX = Math.min(...points.map(p => p.x));
     const maxX = Math.max(...points.map(p => p.x));

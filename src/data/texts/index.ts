@@ -29,6 +29,7 @@ import { etDukkehjemUtdrag } from './entries/et-dukkehjem-utdrag';
 import { enFolkefiendeUtdrag } from './entries/en-folkefiende-utdrag';
 import { kristinLavransdatterUtdrag } from './entries/kristin-lavransdatter-utdrag';
 import { storbyNattUtdrag } from './entries/storby-natt-utdrag';
+import { minLeserhistorie } from './entries/min-leserhistorie';
 
 export const textLibraryData: TextEntry[] = [
     aDrepeEtBarn,
@@ -61,4 +62,5 @@ export const textLibraryData: TextEntry[] = [
     smaNoklerStoreRom,
     twitterNoveller,
     ungGuttISno,
+    minLeserhistorie,
 ];

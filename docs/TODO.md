@@ -3,11 +3,7 @@
 Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok.
 
 ### Bugs
-- [x] Loading bar forsvinner ikke når den er ferdig. 
-- [x] Tilbakeknappen skal gå tilbake til forrige side (slik som i browseren), ikke opp et nivå. 
-- [x] Lysbildefunksjonen skal bare vises i læringsstier. 
-- [x] Det er en del linker som er ullfullstendige eller er skrevet i klartekst i artiklene, ikke ekte linker. 
-- [x] Det er en del tabeller/sammenligninger som mangler innhold i artiklene. 
+
 - [ ] Læringsstier laster ikke. Må gå ut og inn på en annen før de vises. Major bug. 
 
 ## Læringsstier
@@ -15,7 +11,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Det er ikke garantert at en læringssti laster, en må ofte gå inn og ut før den til slutt vises. 
 
 ## 💡 Ideer
--
+- [ ] Slaveri gjennom tidene, hvordan dette ofte var en del av imperialismen, hvordan det ble avskaffet ulike steder. Eget emne i historie. Læringsstier kan heller koble seg på. 
 - [ ] Hvert emne bør ha en kort beskrivelse, overblikk over fagbegreper og hva som er viktig. 
 - [ ] En tidslinje inne på historie som heter alle hendelser nevnt i artiklene, ikke bare artiklene selv. 
 - [ ] En mulighet for å flette sammen egne artikler, slik at man kan lage en egen lærebok.
@@ -28,10 +24,11 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 ## content
 
+## Begreper eller personer 
+- Tooltip inni factbox clipper, må rendres over. 
+
 ### Samfunnskunnskap
-- [x] Lage Økonomi som eget emne. Artikkel om pengesystem vs naturalhandel. 
-- [x] Artikkel om arbeidsspesialisering i økonomi. 
-- [x] Demografi må få sitt eget emne, lage artikler om, demografisk overgang med utviklingsfaser, fødselsrate, dødsrate, befolkningstall, etc. BØr man ha ulike artikler om alt, eller en giga? EN artikkel om migrasjon og push/pull. En artikkel om Malthus og Boseup. Artikkel om relativ og absolutt fattigdom. Artikkel om befolkningspyramide, eller skal denne inn i demografisk overgang? Artikkel om urbanisering. Artikkel om teknologisk/idee utvikling siste 250 årene som har markant redusert dødsraten. 
+
 
 ### Historie
 - [ ] Artikler om kolonier gjennom tidene, fra Hellas, Romer, til moderne kolonier. I samme artikkel; hvordan dette ofte er en del av imperialismen. Ingen av disse konseptene er verken nye eller europeiske. Lage passende interaktive modeller som understreker konseptene og eksemplifiserer hendelser. 
@@ -40,14 +37,14 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [x] Den kalde krigen emne. En hovedartikkel, og flere subartikler om spesifikke hendelser. 
 - [ ] Artikkel om hvordan USAs intervenering ofte har ført til backfire, Ho chi min, Vietnamkrigen, Afghanistan, taliban, støtte Sadam Hussein, annet? 
 - [ ] Artikler om mange av sentrale hendelsene i midtøsten. 
+- [ ] @file:folkeforbundet timeline component i teksten har bare tall, ikke innhold. 
 
 ### KRLE
 
 - [ ] Finne en logisk måte å skille retninger innen kristendom og islam. 
 - [x] Etikk og filosofi-emne. 
 - [ ] Emne om sekularisering
-- [x] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
-- [x] Emne om Sikhismen, utfyllende og ilstrekkelige artikler. Må implementeres i samme struktur som andre emner i krle og med kobling til sammenligningsverktøyene.
+
 
 ### Norsk
 - [x] Artikler i norskfaget-litteraturhistorie mangler sidebar. 
@@ -87,3 +84,13 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
     - Fly fortere med W - Gir ekstra poeng å fly fort. 
     - Lage eget utviklingsdokument med ideer og progresjon for utvikling. 
 - [x] Global timeline. Sjekke duplikater og fjerne dem. 
+- [x] Loading bar forsvinner ikke når den er ferdig. 
+- [x] Tilbakeknappen skal gå tilbake til forrige side (slik som i browseren), ikke opp et nivå. 
+- [x] Lysbildefunksjonen skal bare vises i læringsstier. 
+- [x] Det er en del linker som er ullfullstendige eller er skrevet i klartekst i artiklene, ikke ekte linker. 
+- [x] Det er en del tabeller/sammenligninger som mangler innhold i artiklene. 
+- [x] Artikler om de ulike etiske systemene, kategorisert etter deontologisk, utilitarianisk, konsekvensilstisk, etc. 
+- [x] Emne om Sikhismen, utfyllende og ilstrekkelige artikler. Må implementeres i samme struktur som andre emner i krle og med kobling til sammenligningsverktøyene.
+- [x] Lage Økonomi som eget emne. Artikkel om pengesystem vs naturalhandel. 
+- [x] Artikkel om arbeidsspesialisering i økonomi. 
+- [x] Demografi må få sitt eget emne, lage artikler om, demografisk overgang med utviklingsfaser, fødselsrate, dødsrate, befolkningstall, etc. BØr man ha ulike artikler om alt, eller en giga? EN artikkel om migrasjon og push/pull. En artikkel om Malthus og Boseup. Artikkel om relativ og absolutt fattigdom. Artikkel om befolkningspyramide, eller skal denne inn i demografisk overgang? Artikkel om urbanisering. Artikkel om teknologisk/idee utvikling siste 250 årene som har markant redusert dødsraten. 

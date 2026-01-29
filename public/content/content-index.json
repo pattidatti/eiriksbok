@@ -1,5 +1,5 @@
 {
-  "buildId": 1769709794933,
+  "buildId": 1769678047646,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -301,6 +301,9 @@
     "parlamentarisk-stat": [
       "content/concepts/parlamentarisk-stat.json"
     ],
+    "pasifisme": [
+      "content/concepts/pasifisme.json"
+    ],
     "patos": [
       "content/concepts/patos.json"
     ],
@@ -316,6 +319,9 @@
     "perestrojka": [
       "content/concepts/perestrojka.json"
     ],
+    "pragmatisme": [
+      "content/concepts/pragmatisme.json"
+    ],
     "president-republikk": [
       "content/concepts/president-republikk.json"
     ],
@@ -324,6 +330,12 @@
     ],
     "raf": [
       "content/concepts/raf.json"
+    ],
+    "refleksjon": [
+      "content/concepts/refleksjon.json"
+    ],
+    "refleksjonsmarkorer": [
+      "content/concepts/refleksjonsmarkorer.json"
     ],
     "rekognosering": [
       "content/concepts/rekognosering.json"
@@ -442,6 +454,9 @@
     ],
     "ultimatum": [
       "content/concepts/ultimatum.json"
+    ],
+    "undring": [
+      "content/concepts/undring.json"
     ],
     "unionsopplosningen-1905": [
       "content/concepts/unionsopplosningen-1905.json"
@@ -1146,8 +1161,14 @@
     "hvordan-skrive-novelle": [
       "content/norsk/skrivehjelp/hvordan-skrive-novelle.json"
     ],
+    "hvordan-skrive-reflekterende": [
+      "content/norsk/skrivehjelp/hvordan-skrive-reflekterende.json"
+    ],
     "hvordan-skrive-roman": [
       "content/norsk/skrivehjelp/hvordan-skrive-roman.json"
+    ],
+    "reflekterende-skriving-sti": [
+      "content/norsk/skrivehjelp/reflekterende-skriving-sti.json"
     ],
     "skriv-bedre-historier": [
       "content/norsk/skrivehjelp/skriv-bedre-historier.json"
@@ -1173,6 +1194,15 @@
     "roman": [
       "content/norsk/tekstsjangre/roman.json"
     ],
+    "bildesprak-og-effekter": [
+      "content/norsk/virkemidler/bildesprak-og-effekter.json"
+    ],
+    "synsvinkel-og-stemme": [
+      "content/norsk/virkemidler/synsvinkel-og-stemme.json"
+    ],
+    "tid-og-struktur": [
+      "content/norsk/virkemidler/tid-og-struktur.json"
+    ],
     "adam-smith": [
       "content/people/adam-smith.json"
     ],
@@ -1196,6 +1226,9 @@
     ],
     "diokletian-bio": [
       "content/people/diokletian-bio.json"
+    ],
+    "douglas-macarthur": [
+      "content/people/douglas-macarthur.json"
     ],
     "dronning-elizabeth-i": [
       "content/people/dronning-elizabeth-i.json"
@@ -1238,6 +1271,9 @@
     ],
     "gustav-vasa": [
       "content/people/gustav-vasa.json"
+    ],
+    "harry-truman": [
+      "content/people/harry-truman.json"
     ],
     "henrik-krummedige": [
       "content/people/henrik-krummedige.json"
@@ -1538,14 +1574,18 @@
     "concepts/oppdemming.json/oppdemming": "content/concepts/oppdemming.json",
     "concepts/parlamentarisk-republikk.json/parlamentarisk-republikk": "content/concepts/parlamentarisk-republikk.json",
     "concepts/parlamentarisk-stat.json/parlamentarisk-stat": "content/concepts/parlamentarisk-stat.json",
+    "concepts/pasifisme.json/pasifisme": "content/concepts/pasifisme.json",
     "concepts/patos.json/patos": "content/concepts/patos.json",
     "concepts/pax-mongolica.json/pax-mongolica": "content/concepts/pax-mongolica.json",
     "concepts/pax-romana.json/pax-romana": "content/concepts/pax-romana.json",
     "concepts/penicillin.json/penicillin": "content/concepts/penicillin.json",
     "concepts/perestrojka.json/perestrojka": "content/concepts/perestrojka.json",
+    "concepts/pragmatisme.json/pragmatisme": "content/concepts/pragmatisme.json",
     "concepts/president-republikk.json/president-republikk": "content/concepts/president-republikk.json",
     "concepts/radar.json/radar": "content/concepts/radar.json",
     "concepts/raf.json/raf": "content/concepts/raf.json",
+    "concepts/refleksjon.json/refleksjon": "content/concepts/refleksjon.json",
+    "concepts/refleksjonsmarkorer.json/refleksjonsmarkorer": "content/concepts/refleksjonsmarkorer.json",
     "concepts/rekognosering.json/rekognosering": "content/concepts/rekognosering.json",
     "concepts/relativitetsteorien.json/relativitetsteorien": "content/concepts/relativitetsteorien.json",
     "concepts/representativt-demokrati.json/representativt-demokrati": "content/concepts/representativt-demokrati.json",
@@ -1585,6 +1625,7 @@
     "concepts/truman-doktrinen.json/truman-doktrinen": "content/concepts/truman-doktrinen.json",
     "concepts/uinnskrenket-ubtkrig.json/uinnskrenket-ubtkrig": "content/concepts/uinnskrenket-ubtkrig.json",
     "concepts/ultimatum.json/ultimatum": "content/concepts/ultimatum.json",
+    "concepts/undring.json/undring": "content/concepts/undring.json",
     "concepts/unionsopplosningen-1905.json/unionsopplosningen-1905": "content/concepts/unionsopplosningen-1905.json",
     "concepts/urbanisering.json/urbanisering": "content/concepts/urbanisering.json",
     "concepts/utmattelseskrig.json/utmattelseskrig": "content/concepts/utmattelseskrig.json",
@@ -1867,7 +1908,9 @@
     "norsk/skrivehjelp/hvordan-skrive-eventyr": "content/norsk/skrivehjelp/hvordan-skrive-eventyr.json",
     "norsk/skrivehjelp/hvordan-skrive-gode-saktekster": "content/norsk/skrivehjelp/hvordan-skrive-gode-saktekster.json",
     "norsk/skrivehjelp/hvordan-skrive-novelle": "content/norsk/skrivehjelp/hvordan-skrive-novelle.json",
+    "norsk/skrivehjelp/hvordan-skrive-reflekterende": "content/norsk/skrivehjelp/hvordan-skrive-reflekterende.json",
     "norsk/skrivehjelp/hvordan-skrive-roman": "content/norsk/skrivehjelp/hvordan-skrive-roman.json",
+    "norsk/skrivehjelp/reflekterende-skriving-sti": "content/norsk/skrivehjelp/reflekterende-skriving-sti.json",
     "norsk/skrivehjelp/skriv-bedre-historier": "content/norsk/skrivehjelp/skriv-bedre-historier.json",
     "norsk/tekstsjangre/tekstsjangre": "content/norsk/tekstsjangre/artikkel.json",
     "norsk/tekstsjangre/debattinnlegg": "content/norsk/tekstsjangre/debattinnlegg.json",
@@ -1876,6 +1919,9 @@
     "norsk/tekstsjangre/kommentar": "content/norsk/tekstsjangre/kommentar.json",
     "norsk/tekstsjangre/novelle": "content/norsk/tekstsjangre/novelle.json",
     "norsk/tekstsjangre/roman": "content/norsk/tekstsjangre/roman.json",
+    "norsk/virkemidler/bildesprak-og-effekter": "content/norsk/virkemidler/bildesprak-og-effekter.json",
+    "norsk/virkemidler/synsvinkel-og-stemme": "content/norsk/virkemidler/synsvinkel-og-stemme.json",
+    "norsk/virkemidler/tid-og-struktur": "content/norsk/virkemidler/tid-og-struktur.json",
     "people/adam-smith.json/adam-smith": "content/people/adam-smith.json",
     "people/aristoteles-bio.json/aristoteles-bio": "content/people/aristoteles-bio.json",
     "people/armstrong.json/armstrong": "content/people/armstrong.json",
@@ -1884,6 +1930,7 @@
     "people/clovis-i.json/clovis-i": "content/people/clovis-i.json",
     "people/david-hume.json/david-hume": "content/people/david-hume.json",
     "people/diokletian-bio.json/diokletian-bio": "content/people/diokletian-bio.json",
+    "people/douglas-macarthur.json/douglas-macarthur": "content/people/douglas-macarthur.json",
     "people/dronning-elizabeth-i.json/dronning-elizabeth-i": "content/people/dronning-elizabeth-i.json",
     "people/einstein.json/einstein": "content/people/einstein.json",
     "people/ellington.json/ellington": "content/people/ellington.json",
@@ -1898,6 +1945,7 @@
     "people/guru-nanak-bio.json/guru-nanak-bio": "content/people/guru-nanak-bio.json",
     "people/gustav-ii-adolf.json/gustav-ii-adolf": "content/people/gustav-ii-adolf.json",
     "people/gustav-vasa.json/gustav-vasa": "content/people/gustav-vasa.json",
+    "people/harry-truman.json/harry-truman": "content/people/harry-truman.json",
     "people/henrik-krummedige.json/henrik-krummedige": "content/people/henrik-krummedige.json",
     "people/hitler.json/hitler": "content/people/hitler.json",
     "people/jeanne-d-arc.json/jeanne-d-arc": "content/people/jeanne-d-arc.json",

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Check, RefreshCw, Eraser } from 'lucide-react';
+import { motion } from 'framer-motion';
+import confetti from 'canvas-confetti';
 
 import { renderInlineMarkdown } from '../../markdownUtils';
 
@@ -10,7 +12,7 @@ interface CorrectWord {
 
 interface TextHighlighterProps {
     text: string;
-    correctWords: (string | CorrectWord)[]; // List of words that are correct to click
+    correctWords: (string | CorrectWord)[]; // List of words/phrases that are correct
     instruction?: string;
 }
 
@@ -28,26 +30,51 @@ export const TextHighlighter: React.FC<TextHighlighterProps> = ({ text, correctW
     const [showResults, setShowResults] = useState(false);
 
     // Determine available categories from props
-    const categories = Array.from(new Set(correctWords.map(cw =>
+    const categories = useMemo(() => Array.from(new Set(correctWords.map(cw =>
         typeof cw === 'string' ? 'default' : cw.category
-    )));
+    ))), [correctWords]);
 
     const [activeCategory, setActiveCategory] = useState<string>(categories[0] || 'default');
 
-    // Parse correct answers into a map for easy lookup: index -> correctCategory
-    const words = text.split(' ');
+    const words = useMemo(() => text.split(' '), [text]);
 
     const cleanWord = (w: string) => w.replace(/[.,!?]/g, '').toLowerCase();
 
-    const getCorrectCategory = (index: number): string | null => {
-        const word = cleanWord(words[index]);
-        const match = correctWords.find(cw => {
-            const w = typeof cw === 'string' ? cw : cw.word;
-            return cleanWord(w) === word;
+    // Map each word index to its correct category (if any)
+    const correctCategoryMap = useMemo(() => {
+        const map = new Map<number, string>();
+
+        // Helper to check if a sequence matches
+        const matchesPhrase = (startIndex: number, phraseWords: string[]) => {
+            if (startIndex + phraseWords.length > words.length) return false;
+            for (let i = 0; i < phraseWords.length; i++) {
+                if (cleanWord(words[startIndex + i]) !== cleanWord(phraseWords[i])) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        correctWords.forEach(cw => {
+            const phrase = typeof cw === 'string' ? cw : cw.word;
+            const category = typeof cw === 'string' ? 'default' : cw.category;
+            const phraseWords = phrase.split(' ');
+
+            for (let i = 0; i < words.length; i++) {
+                if (matchesPhrase(i, phraseWords)) {
+                    // Mark all words in this occurrence
+                    for (let j = 0; j < phraseWords.length; j++) {
+                        map.set(i + j, category);
+                    }
+                }
+            }
         });
 
-        if (!match) return null;
-        return typeof match === 'string' ? 'default' : match.category;
+        return map;
+    }, [words, correctWords]);
+
+    const getCorrectCategory = (index: number): string | undefined => {
+        return correctCategoryMap.get(index);
     };
 
     const handleWordClick = (index: number) => {
@@ -71,6 +98,13 @@ export const TextHighlighter: React.FC<TextHighlighterProps> = ({ text, correctW
 
     const checkAnswers = () => {
         setShowResults(true);
+        if (score === maxScore && maxScore > 0) {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
     };
 
     const reset = () => {
@@ -82,26 +116,35 @@ export const TextHighlighter: React.FC<TextHighlighterProps> = ({ text, correctW
     let score = 0;
     let maxScore = 0;
 
+    // We calculate max score based on the number of correct indices found
+    // This allows for partial credit if multiple correct phrases exist
+    maxScore = correctCategoryMap.size;
+
     words.forEach((_, i) => {
-        const correctCat = getCorrectCategory(i);
+        const correctCat = correctCategoryMap.get(i);
         if (correctCat) {
-            maxScore++;
             if (selections[i] === correctCat) {
                 score++;
             }
-        } else if (selections[i]) {
-            // Penalize wrong highlights? For now, simple score.
         }
     });
 
     return (
-        <div className="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden my-8">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden my-8"
+        >
             <div className="bg-slate-50 p-4 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <h4 className="font-bold text-slate-700">{instruction ? renderInlineMarkdown(instruction) : "Marker ordene"}</h4>
                 {showResults && (
-                    <span className={`text-sm font-bold ${score === maxScore ? 'text-green-600' : 'text-orange-600'}`}>
+                    <motion.span
+                        initial={{ scale: 0.8 }}
+                        animate={{ scale: 1 }}
+                        className={`text-sm font-bold px-3 py-1 rounded-full ${score === maxScore ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}
+                    >
                         {score} / {maxScore} korrekte
-                    </span>
+                    </motion.span>
                 )}
             </div>
 
@@ -126,17 +169,18 @@ export const TextHighlighter: React.FC<TextHighlighterProps> = ({ text, correctW
                 </div>
             )}
 
-            <div className="p-6">
-                <div className="flex flex-wrap gap-2 text-lg leading-loose font-medium text-slate-700">
+            <div className="p-8">
+                <div className="flex flex-wrap gap-x-1.5 gap-y-3 text-lg leading-loose font-medium text-slate-700">
                     {words.map((word, i) => {
                         const userCat = selections[i];
                         const correctCat = getCorrectCategory(i);
 
-                        let className = "px-2 py-1 rounded cursor-pointer transition-all duration-200 border-b-2 ";
+                        let className = "px-1.5 py-0.5 rounded cursor-pointer border-b-2 ";
+
 
                         // Default state
                         if (!userCat && !showResults) {
-                            className += "border-transparent hover:bg-slate-100";
+                            className += "border-transparent hover:bg-slate-100 hover:scale-105";
                         }
 
                         // User Selection
@@ -156,24 +200,27 @@ export const TextHighlighter: React.FC<TextHighlighterProps> = ({ text, correctW
                                 } else {
                                     // Missed it or wrong cat
                                     const style = CATEGORY_STYLES[correctCat] || CATEGORY_STYLES.default;
-                                    className += `bg-transparent border-dashed ${style.border} text-slate-400 decoration-wavy underline`;
+                                    className += `bg-transparent border-dashed ${style.border} text-slate-400 decoration-wavy underline opacity-60`;
                                 }
                             } else if (userCat) {
                                 // Wrongly highlighted (was not supposed to be highlighted)
-                                className += "bg-red-50 border-red-200 text-red-300 line-through";
+                                className += "bg-red-50 border-red-200 text-red-300 line-through decoration-red-400";
                             } else {
-                                className += "border-transparent opacity-50";
+                                className += "border-transparent opacity-40 blur-[0.5px]";
                             }
                         }
 
                         return (
-                            <span
+                            <motion.span
                                 key={i}
+                                layout
                                 onClick={() => handleWordClick(i)}
                                 className={className}
+                                whileTap={{ scale: 0.95 }}
+                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                             >
                                 {word}
-                            </span>
+                            </motion.span>
                         );
                     })}
                 </div>
@@ -185,14 +232,14 @@ export const TextHighlighter: React.FC<TextHighlighterProps> = ({ text, correctW
                         <button
                             onClick={() => setSelections({})}
                             disabled={Object.keys(selections).length === 0}
-                            className="px-4 py-2 text-slate-500 rounded-lg font-medium hover:bg-slate-200 hover:text-slate-700 disabled:opacity-0 flex items-center gap-2 transition-opacity"
+                            className="px-4 py-2 text-slate-500 rounded-lg font-medium hover:bg-slate-200 hover:text-slate-700 disabled:opacity-0 flex items-center gap-2 transition-all duration-300"
                         >
                             <Eraser className="w-4 h-4" /> Nullstill
                         </button>
                         <button
                             onClick={checkAnswers}
                             disabled={Object.keys(selections).length === 0}
-                            className="px-4 py-2 bg-slate-900 text-white rounded-lg font-medium hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-sm"
+                            className="px-6 py-2 bg-slate-900 text-white rounded-lg font-medium hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center gap-2 shadow-sm transition-all duration-300"
                         >
                             <Check className="w-4 h-4" /> Sjekk svar
                         </button>
@@ -200,12 +247,13 @@ export const TextHighlighter: React.FC<TextHighlighterProps> = ({ text, correctW
                 ) : (
                     <button
                         onClick={reset}
-                        className="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg font-medium hover:bg-slate-300 flex items-center gap-2"
+                        className="px-6 py-2 bg-slate-200 text-slate-700 rounded-lg font-medium hover:bg-slate-300 hover:shadow-md flex items-center gap-2 transition-all duration-300"
                     >
                         <RefreshCw className="w-4 h-4" /> Prøv igjen
                     </button>
                 )}
             </div>
-        </div>
+        </motion.div>
     );
 };
+

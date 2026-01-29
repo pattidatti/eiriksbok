@@ -15,6 +15,7 @@ import { LineChart } from './LineChart';
 import { EmperorStats } from './EmperorStats';
 import { LinkButton } from './tools/LinkButton';
 import { WaveMap } from './content/interactive/WaveMap';
+import { Gallery } from './Gallery';
 
 // Lazy-loaded components for better performance
 // Interactive Content
@@ -60,6 +61,14 @@ const DetectiveEngine = lazy(() => import('./content/interactive/detective/Detec
 const PerspectivePrism = lazy(() => import('./content/interactive/PerspectivePrism').then(m => ({ default: m.PerspectivePrism })));
 const PovertySimulation = lazy(() => import('./content/interactive/PovertySimulation').then(m => ({ default: m.PovertySimulation })));
 const BiasLens = lazy(() => import('./learning-path/BiasLens').then(m => ({ default: m.BiasLens })));
+const AllianceChain = lazy(() => import('./content/interactive/AllianceChain').then(m => ({ default: m.AllianceChain })));
+const PowderKeg = lazy(() => import('./content/interactive/PowderKeg').then(m => ({ default: m.PowderKeg })));
+const DreadnoughtDuel = lazy(() => import('./content/interactive/DreadnoughtDuel').then(m => ({ default: m.DreadnoughtDuel })));
+const TrenchCrossSection = lazy(() => import('./content/interactive/TrenchCrossSection').then(m => ({ default: m.default })));
+const AttritionWarfare = lazy(() => import('./content/interactive/AttritionWarfare').then(m => ({ default: m.default })));
+const TankInterior = lazy(() => import('./content/interactive/TankInterior').then(m => ({ default: m.default })));
+const GasAttackSim = lazy(() => import('./content/interactive/GasAttackSim').then(m => ({ default: m.default })));
+const TsarsDilemma = lazy(() => import('./content/interactive/TsarsDilemma').then(m => ({ default: m.default })));
 
 // Demography
 const DTMSimulator = lazy(() => import('./content/interactive/demography/DTMSimulator').then(m => ({ default: m.DTMSimulator })));
@@ -151,6 +160,18 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     PerspectivePrism,
     PovertySimulation,
     BiasLens,
+    AllianceChain,
+    PowderKeg,
+    DreadnoughtDuel,
+    TrenchCrossSection,
+    AttritionWarfare,
+    TankInterior,
+    GasAttackSim,
+    TsarsDilemma,
+    TriangularTradeMap: lazy(() => import('./content/interactive/TriangularTradeMap').then(m => ({ default: m.TriangularTradeMap }))),
+    CensorTask: lazy(() => import('./historie/CensorTask').then(m => ({ default: m.CensorTask }))),
+    PropagandaDecoder: lazy(() => import('./historie/PropagandaDecoder').then(m => ({ default: m.PropagandaDecoder }))),
+    TrumansDilemma: lazy(() => import('./historie/TrumansDilemma').then(m => ({ default: m.TrumansDilemma }))),
 
     // Demography
     DTMSimulator,
@@ -181,6 +202,10 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     SongStructureBuilder,
     ArrangementPlanner,
     SongwriterStudio,
+    Gallery,
+    gallery: Gallery,
+    comparison: Comparison,
+    triangularTradeMap: lazy(() => import('./content/interactive/TriangularTradeMap').then(m => ({ default: m.TriangularTradeMap }))),
 };
 
 export const getComponent = (name: string) => {

@@ -1,0 +1,230 @@
+{
+    "id": "reflekterende-skriving-sti",
+    "title": "Læringssti: Hvordan skrive reflekterende",
+    "description": "Lær å gå fra kjedelige referater til spennende refleksjoner. Vi guider deg steg for steg!",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "2024",
+    "readTime": "45 minutter",
+    "heroImage": "/images/lessons/norsk/hvordan-skrive-reflekterende-hero.png",
+    "learningPathData": {
+        "id": "reflekterende-skriving-sti",
+        "title": "Jakten på den egne stemmen",
+        "description": "En reise gjennom tanker, undring og skriving. Lær å bruke 'speilet' for å se dypere i tekstene dine.",
+        "steps": [
+            {
+                "id": "steg-0",
+                "phase": "Akt 1: Hva er refleksjon?",
+                "title": "Prolog: Speilet",
+                "type": "fakta",
+                "content": "Tenk deg at du ser i et speil. Du ser ikke bare hvem som står der, men du ser kanskje også om du ser trøtt ut, om du er glad, eller om du ligner på faren din. Dette er refleksjon. I skriving betyr det å ikke bare fortelle *hva* som skjedde (referat), men å stoppe opp og tenke over *hvorfor* det skjedde og hva det betyr.\n\nMange elever tror at man 'bare skal skrive det man mener', men en god refleksjon er mer som en undersøkelse. Du er en detektiv i dine egne tanker.",
+                "tasks": [
+                    "Hva er den største forskjellen på et referat og en refleksjon?",
+                    "Hvorfor tror du det kalles 'speiling' når man tenker grundig over noe?",
+                    "Kan du komme på en ting du har reflektert over i dag? (For eksempel: 'Hvorfor ble jeg egentlig sur i morges?')"
+                ],
+                "links": [
+                    {
+                        "title": "Les introduksjonen om refleksjon",
+                        "url": "/norsk/skrivehjelp/hvordan-skrive-reflekterende"
+                    }
+                ]
+            },
+            {
+                "id": "steg-1",
+                "phase": "Akt 1: Hva er refleksjon?",
+                "title": "Detektiven i teksten",
+                "type": "fakta",
+                "content": "Når du skriver et referat, er du som en båndopptaker. Du bare gjentar det som er sagt. Når du reflekterer, er du som en forsker. Du ser på teksten og spør: 'Hvorfor skriver forfatteren dette? Hva vil de at jeg skal føle?'.\n\nI artikkelen om reflekterende skriving lærer du at refleksjon krever at du viser *tankeprosessen* din. Det betyr at du må ta med leseren på reisen fra 'Jeg ser dette' til 'Jeg lurer på om det betyr dette'.",
+                "tasks": [
+                    "Finn definisjonen av refleksjon i artikkelen.",
+                    "Hva menes med å vise 'tankeprosessen' sin?",
+                    "Hvorfor er det ikke nok å bare skrive et sammendrag?"
+                ],
+                "links": [
+                    {
+                        "title": "Hva er refleksjon?",
+                        "url": "/norsk/skrivehjelp/hvordan-skrive-reflekterende"
+                    }
+                ]
+            },
+            {
+                "id": "steg-2",
+                "phase": "Akt 1: Hva er refleksjon?",
+                "title": "Referat-fella",
+                "type": "utfordring",
+                "content": "Det er veldig lett å gå i 'referat-fella'. Du skriver og skriver, men så oppdager du at du bare har gjenfortalt handlingen. Se på eksempelet 'Fra referat til refleksjon' i artikkelen. Legg merke til hvordan den reflekterende teksten bruker ord som 'lurer jeg på', 'kanskje' og 'på den ene siden'.",
+                "component": {
+                    "name": "WritingFix",
+                    "props": {
+                        "title": "Unngå referat-fella",
+                        "items": [
+                            {
+                                "bad": "Forfatteren sier at sosiale medier er dårlig for unge.",
+                                "good": "Når forfatteren påstår at sosiale medier bare er negative, begynner jeg å lure på om det finnes andre sider ved saken. Kan det hende at de positive fellesskapene betyr mer enn vi tror?",
+                                "why": "Gå fra en konstatering til et spørsmål og en undring."
+                            }
+                        ]
+                    }
+                },
+                "tasks": [
+                    "Hva er forskjellen på setningene over?",
+                    "Hvilke 'hjelpeord' ser du i den gode setningen?",
+                    "Prøv å gjøre om denne setningen til en refleksjon: 'Elevene hadde ikke gjort leksene sine.'"
+                ],
+                "links": [
+                    {
+                        "title": "Se eksempler på refleksjon",
+                        "url": "/norsk/skrivehjelp/hvordan-skrive-reflekterende"
+                    }
+                ]
+            },
+            {
+                "id": "steg-3",
+                "phase": "Akt 2: Verktøyene",
+                "title": "Refleksjons-raketten",
+                "type": "fakta",
+                "content": "For å hjelpe deg i gang har vi laget 'Refleksjons-raketten'. Den har fire trinn som tar deg fra jorda (fakta) til stjernene (vurdere).\n\n1. **Forstå**: Hva skjer?\n\n2. **Spørre**: Hvorfor?\n\n3. **Undre**: Hva om?\n\n4. **Vurdere**: Hva mener du?",
+                "tasks": [
+                    "Hvilket trinn i raketten handler om å se saken fra andre sider?",
+                    "Hvorfor tror du det er viktig å starte med å 'forstå' før man begynner å 'vurdere'?",
+                    "Hvilket trinn synes du virker vanskeligst?"
+                ],
+                "links": []
+            },
+            {
+                "id": "steg-4",
+                "phase": "Akt 2: Verktøyene",
+                "title": "Verktøykassa: Markører",
+                "type": "fakta",
+                "content": "Noen ganger trenger tankene dine litt drahjelp fra språket. Vi kaller dem 'refleksjonsmarkører'. Dette er faste uttrykk som signaliserer til leseren at 'Nå tenker jeg!'.\n\nEksempler er: 'Sett i lys av...', 'Det kan tolkes som...', 'Jeg stiller spørsmål ved...'.",
+                "component": {
+                    "name": "TextHighlighter",
+                    "props": {
+                        "instruction": "Marker ordene som viser at forfatteren tenker og vurderer (refleksjonsmarkører).",
+                        "text": "Mange voksne sier at gaming er bortkastet tid. På den ene siden kan det stemme at man blir sittende mye i ro. Men på den andre siden lærer man både engelsk og samarbeid når man spiller med andre. Jeg lurer på om de voksne egentlig bare er misunnelige på at vi har det så gøy.",
+                        "correctWords": [
+                            {
+                                "word": "På den ene siden",
+                                "category": "adverbial"
+                            },
+                            {
+                                "word": "Men på den andre siden",
+                                "category": "adverbial"
+                            },
+                            {
+                                "word": "Jeg lurer på om",
+                                "category": "adverbial"
+                            }
+                        ]
+                    }
+                },
+                "tasks": [
+                    "Hva er  refleksjonsmarkører, og hvorfor bruker vi dem?",
+                    "Lag en setning om lekser ved å bruke markøren 'På den ene siden... på den andre siden...'",
+                    "Hvorfor gjør disse ordene teksten din mer troverdig?"
+                ],
+                "links": [
+                    {
+                        "title": "Se hele verktøykassa",
+                        "url": "/norsk/skrivehjelp/hvordan-skrive-reflekterende"
+                    }
+                ]
+            },
+            {
+                "id": "steg-5",
+                "phase": "Akt 2: Verktøyene",
+                "title": "Møt Alise",
+                "type": "fakta",
+                "content": "Nå skal vi se hvordan en ekte elev reflekterer. Alise på 15 år har skrevet om sin egen 'leserhistorie'. Hun forteller ikke bare hvilke bøker hun har lest, hun prøver å forstå *hvorfor* hun likte dem og hvordan hun har forandret seg.",
+                "tasks": [
+                    "Les starten på Alises tekst. Hvordan introduserer hun temaet sitt?",
+                    "Finn et sted i teksten hvor Alise viser undring eller refleksjon.",
+                    "Hvordan bruker Alise sine egne følelser for å beskrive leseopplevelsen?"
+                ],
+                "links": [
+                    {
+                        "title": "Les: Min leserhistorie",
+                        "url": "/norsk/bibliotek/min-leserhistorie"
+                    }
+                ]
+            },
+            {
+                "id": "steg-6",
+                "phase": "Akt 2: Verktøyene",
+                "title": "Alises tankeprosess",
+                "type": "oppgave",
+                "content": "Se på avsnittet hvor Alise skriver om filmen 'Maltesergåten'. Her viser hun en tydelig refleksjon over hvorfor hun ble skuffet over filmen i forhold til boka.\n\nHun forklarer *årsaken* (bildene i hodet) og *konsekvensen* (hvorfor hun ikke liker tegneserier).",
+                "tasks": [
+                    "Hvorfor ble Alise skuffet over filmen?",
+                    "Hvordan kobler hun denne opplevelsen til smaken sin for tegneserier?",
+                    "Prøv å finne en 'refleksjonsmarkør' i Alises tekst."
+                ],
+                "links": [
+                    {
+                        "title": "Gå tilbake til teksten",
+                        "url": "/norsk/bibliotek/min-leserhistorie"
+                    }
+                ]
+            },
+            {
+                "id": "steg-7",
+                "phase": "Akt 3: Din tur",
+                "title": "Oppdraget: Verden om 50 år",
+                "type": "oppgave",
+                "content": "Nå er det din tur til å være detektiven. Du skal nå begynne planleggingen av en reflekterende tekst om temaet: **'Hvordan ser verden ut om 50 år?'**.\n\nIkke bare skriv en liste over kule oppfinnelser. Du skal bruke det du har lært om undring og perspektiver. Hvordan vil vi leve? Hva har vi mistet? Hva har vi vunnet?",
+                "tasks": [
+                    "Skriv ned tre ting du tror vil være annerledes i 2074.",
+                    "Velg én av disse tingene og still et 'undrende' spørsmål (f.eks: 'Hvis roboter gjør alt arbeidet, hva skal vi mennesker bruke tiden til da?')",
+                    "Hvilken følelse får du når du tenker på fremtiden: Håp eller frykt? Hvorfor?"
+                ]
+            },
+            {
+                "id": "steg-8",
+                "phase": "Akt 3: Din tur",
+                "title": "Å se saken fra flere sider",
+                "type": "utfordring",
+                "content": "En god refleksjon viser ofte motsetninger. Bruk 'På den ene siden... på den andre siden'.\n\nLa oss ta kunstig intelligens (KI). På den ene siden kan det løse kreftgåten. På den andre siden kan vi miste kontrollen over våre egne liv.",
+                "component": {
+                    "name": "Comparison",
+                    "props": {
+                        "title": "To sider av fremtiden",
+                        "leftTitle": "Teknologi-optimist",
+                        "rightTitle": "Det reflekterende blikket",
+                        "leftContent": "I fremtiden vil teknologien løse alle våre problemer, fra rensing av hav til evig liv. Alt vil bli mer effektivt.",
+                        "rightContent": "Selv om teknologien lover oss en enklere hverdag, må vi spørre oss om vi mister noe verdifullt underveis. Vil det å slippe motstand og arbeid gjøre oss syke på en ny måte? Kanskje er det nettopp utfordringene som gjør oss menneskelige."
+                    }
+                },
+                "tasks": [
+                    "Hvilket av disse to perspektivene ligner mest på en refleksjon?",
+                    "Finn en motsetning i ditt eget tema om 50 år.",
+                    "Hvorfor er det viktig å ta med motargumenter?"
+                ]
+            },
+            {
+                "id": "steg-9",
+                "phase": "Akt 3: Din tur",
+                "title": "Bruk din egen 'leserhistorie'",
+                "type": "refleksjon",
+                "content": "Husker du Alise? Hun brukte sin personlige historie for å forklare tankene sine. Du kan gjøre det samme! Hvordan har verden endret seg siden du var liten? Kan du bruke det for å se 50 år frem i tid?",
+                "tasks": [
+                    "Tenk på en ting som har endret seg mye siden du var 5 år gammel.",
+                    "Hvordan kan du bruke denne erfaringen til å si noe om fremtiden?",
+                    "Prøv å skrive en setning som starter med: 'Når jeg ser tilbake på... og sammenligner det med...'"
+                ]
+            },
+            {
+                "id": "steg-10",
+                "phase": "Akt 3: Din tur",
+                "title": "Den store finalen",
+                "type": "oppgave",
+                "content": "Nå er du klar. Du har verktøyene, markørene og raketten. \n\n**Din oppgave:** Skriv en reflekterende tekst (ca. 400-600 ord) om verden om 50 år. \n\n**Husk:**\n- Bruk minst 3 refleksjonsmarkører.\n- Vis tankeprosessen din (bruk 'kanskje', 'jeg lurer på').\n- Se saken fra minst to sider.\n- Bruk en personlig erfaring for å belyse temaet.",
+                "tasks": [
+                    "Lag en disposisjon (innledning, hoveddel med to sider av saken, avslutning).",
+                    "Hvilken 'refleksjonsmarkør' vil du starte avslutningen din med?",
+                    "Gå gjennom teksten din til slutt: Har du gått i 'referat-fella' noen steder?"
+                ]
+            }
+        ]
+    }
+}

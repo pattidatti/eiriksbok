@@ -120,36 +120,21 @@ export const TextReaderPage: React.FC = () => {
         }
     };
 
-    const parseBold = (text: string) => {
-        const parts = text.split(/(<b>.*?<\/b>)/g);
-        return parts.map((part, i) => {
-            if (part.startsWith('<b>') && part.endsWith('</b>')) {
-                return <strong key={i} className="font-bold">{part.slice(3, -4)}</strong>;
-            }
-            return part;
-        });
-    };
-
-    const renderParagraph = (text: string, isComparison: boolean = false) => {
-        // First handle bold tags if no definitions
-        if (!textEntry?.definitions || isComparison) {
-            return parseBold(text);
-        }
+    const renderDefinitions = (text: string) => {
+        if (!textEntry?.definitions) return text;
 
         let parts: (string | React.ReactNode)[] = [text];
 
-        textEntry.definitions.forEach((def: { term: string; definition: string }, index: number) => {
+        textEntry.definitions.forEach((def, index) => {
             const newParts: (string | React.ReactNode)[] = [];
             parts.forEach(part => {
                 if (typeof part === 'string') {
-                    // Create a regex that matches the term case-insensitively and ensures word boundaries
                     const escapedTerm = def.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                     const regex = new RegExp(`\\b(${escapedTerm})\\b`, 'gi');
-
                     const split = part.split(regex);
 
                     for (let i = 0; i < split.length; i++) {
-                        if (i % 2 === 1) { // This is a match
+                        if (i % 2 === 1) {
                             newParts.push(
                                 <Tooltip key={`${index}-${i}`} text={def.definition}>
                                     {split[i]}
@@ -166,13 +151,42 @@ export const TextReaderPage: React.FC = () => {
             parts = newParts;
         });
 
-        // Finally, parse bold tags in any remaining string parts
-        return parts.flatMap(part => {
-            if (typeof part === 'string') {
-                return parseBold(part);
+        return parts;
+    };
+
+    const parseInlines = (text: string, isComparison: boolean = false) => {
+        const parts = text.split(/(\[.*?\]\(.*?\)|<b>.*?<\/b>|<i>.*?<\/i>)/g);
+        return parts.map((part, i) => {
+            if (part.startsWith('[') && part.includes('](') && part.endsWith(')')) {
+                const match = part.match(/\[(.*?)\]\((.*?)\)/);
+                if (match) {
+                    return (
+                        <a
+                            key={i}
+                            href={match[2]}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-indigo-600 hover:underline inline-flex items-center gap-1"
+                        >
+                            {renderDefinitions(match[1])}
+                        </a>
+                    );
+                }
             }
-            return part;
+            if (part.startsWith('<b>') && part.endsWith('</b>')) {
+                const inner = part.slice(3, -4);
+                return <strong key={i} className="font-bold">{isComparison ? inner : renderDefinitions(inner)}</strong>;
+            }
+            if (part.startsWith('<i>') && part.endsWith('</i>')) {
+                const inner = part.slice(3, -4);
+                return <em key={i} className="italic">{isComparison ? inner : renderDefinitions(inner)}</em>;
+            }
+            return isComparison ? part : renderDefinitions(part);
         });
+    };
+
+    const renderParagraph = (text: string, isComparison: boolean = false) => {
+        return parseInlines(text, isComparison);
     };
 
     if (!textEntry) {
@@ -481,14 +495,14 @@ export const TextReaderPage: React.FC = () => {
                                                 <div key={groupIndex}>
                                                     {group.header && (
                                                         <div className="font-bold text-indigo-900 mb-3">
-                                                            {parseBold(group.header)}
+                                                            {parseInlines(group.header)}
                                                         </div>
                                                     )}
                                                     {group.tasks.length > 0 && (
                                                         <ol className="list-decimal list-outside ml-5 space-y-2">
                                                             {group.tasks.map((task, taskIndex) => (
                                                                 <li key={taskIndex} className="pl-2">
-                                                                    {parseBold(task)}
+                                                                    {parseInlines(task)}
                                                                 </li>
                                                             ))}
                                                         </ol>
@@ -523,7 +537,7 @@ export const TextReaderPage: React.FC = () => {
                                     </h4>
                                     <ul className="list-disc list-outside ml-5 space-y-1 text-sm italic">
                                         {textEntry.lessonPlan.learningObjectives.map((obj: string, i: number) => (
-                                            <li key={i}>{parseBold(obj)}</li>
+                                            <li key={i}>{parseInlines(obj)}</li>
                                         ))}
                                     </ul>
                                 </div>
@@ -533,7 +547,7 @@ export const TextReaderPage: React.FC = () => {
                                         <h4 className="font-bold text-slate-900 mb-2">Før lesing</h4>
                                         <ul className="list-disc list-outside ml-5 space-y-2 text-sm">
                                             {textEntry.lessonPlan.preReading.map((task: string, i: number) => (
-                                                <li key={i}>{parseBold(task)}</li>
+                                                <li key={i}>{parseInlines(task)}</li>
                                             ))}
                                         </ul>
                                     </div>
@@ -541,7 +555,7 @@ export const TextReaderPage: React.FC = () => {
                                         <h4 className="font-bold text-slate-900 mb-2">Under lesing</h4>
                                         <ul className="list-disc list-outside ml-5 space-y-2 text-sm">
                                             {textEntry.lessonPlan.whileReading.map((task: string, i: number) => (
-                                                <li key={i}>{parseBold(task)}</li>
+                                                <li key={i}>{parseInlines(task)}</li>
                                             ))}
                                         </ul>
                                     </div>
@@ -551,7 +565,7 @@ export const TextReaderPage: React.FC = () => {
                                     <h4 className="font-bold text-slate-900 mb-2">Etter lesing</h4>
                                     <ul className="list-disc list-outside ml-5 space-y-2 text-sm">
                                         {textEntry.lessonPlan.postReading.map((task: string, i: number) => (
-                                            <li key={i}>{parseBold(task)}</li>
+                                            <li key={i}>{parseInlines(task)}</li>
                                         ))}
                                     </ul>
                                 </div>

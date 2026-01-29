@@ -15,7 +15,7 @@ interface WritingFixProps {
     items: WritingFixItem[];
 }
 
-export const WritingFix: React.FC<WritingFixProps> = ({ title, items }) => {
+export const WritingFix: React.FC<WritingFixProps> = ({ title, items = [] }) => {
     const { entries } = useGlossary();
 
     return (

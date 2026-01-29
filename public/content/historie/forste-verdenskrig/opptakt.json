@@ -27,7 +27,16 @@
     },
     {
       "type": "text",
-      "content": "På starten av 1900-tallet var Europa verdens sentrum både økonomisk, militært og kulturelt. Stormaktene Storbritannia, Frankrike og Tyskland konkurrerte om innflytelse ikke bare i Europa, men over hele kloden. Imperialismen var på sitt høydepunkt, og stormaktene hadde delt nesten hele Afrika og store deler av Asia mellom seg. Denne jakten på kolonier, ressurser og markeder skapte friksjon og konflikter. Tyskland, som ble samlet til ett rike først i 1871, var en ung og ambisiøs nasjon. Landet hadde en sterkt voksende industri og militærmakt, og følte at de kom for sent til oppdelingen av verden. Keiser Wilhelm II krevde at Tyskland skulle ha sin «plass i solen», noe som ble oppfattet som en trussel, spesielt av Storbritannia som fryktet for sin dominans på verdenshavene.\n\nFor å sikre seg mot angrep og styrke sin posisjon, inngikk landene allianser. Europa ble gradvis delt i to væpnede leire:"
+      "content": "På starten av 1900-tallet var Europa verdens sentrum både økonomisk, militært og kulturelt. Stormaktene Storbritannia, Frankrike og Tyskland konkurrerte om innflytelse ikke bare i Europa, men over hele kloden. Imperialismen var på sitt høydepunkt, og stormaktene hadde delt nesten hele Afrika og store deler av Asia mellom seg. Denne jakten på kolonier, ressurser og markeder skapte friksjon og konflikter. Tyskland, som ble samlet til ett rike først i 1871, var en ung og ambisiøs nasjon. Landet hadde en sterkt voksende industri og militærmakt, og følte at de kom for sent til oppdelingen av verden. Keiser Wilhelm II krevde at Tyskland skulle ha sin «plass i solen», noe som ble oppfattet som en trussel, spesielt av Storbritannia som fryktet for sin dominans på verdenshavene."
+    },
+    {
+      "type": "component",
+      "component": "DreadnoughtDuel",
+      "props": {}
+    },
+    {
+      "type": "text",
+      "content": "For å sikre seg mot angrep og styrke sin posisjon, inngikk landene allianser. Europa ble gradvis delt i to væpnede leire:"
     },
     {
       "type": "list",
@@ -98,6 +107,11 @@
         "Tyskland hadde en krigsplan, Schlieffen-planen, som gikk ut på å slå ut Frankrike raskt før Russland rakk å bli kampklare. Den raskeste veien til Paris gikk gjennom det nøytrale Belgia.",
         "Da tyske tropper marsjerte inn i Belgia 4. august, erklærte Storbritannia krig mot Tyskland, ettersom de hadde garantert for Belgias nøytralitet."
       ]
+    },
+    {
+      "type": "component",
+      "component": "PowderKeg",
+      "props": {}
     },
     {
       "type": "text",

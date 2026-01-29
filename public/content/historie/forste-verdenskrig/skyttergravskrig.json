@@ -33,6 +33,12 @@
             ]
         },
         {
+            "type": "image",
+            "src": "/images/historie/forste-verdenskrig/skyttergrav_luftfoto.png",
+            "alt": "Luftfoto av skyttergravssystemet",
+            "caption": "Sett ovenfra dannet skyttergravene et komplekst sikksakk-mønster (traverser) for å beskytte mot granatnedslag og inntrengere."
+        },
+        {
             "type": "component",
             "component": "FactBox",
             "props": {
@@ -47,6 +53,12 @@
         {
             "type": "text",
             "value": "For den jevne soldat var ikke krigen preget av konstant kamp, men av en drepende kjedsomhet avbrutt av øyeblikk med ren terror. Rutinen var streng. Dagen startet med 'Stand-to' ved daggry, hvor alle sto klare ved geværene i tilfelle et morgenangrep. Deretter fulgte frokost, våpenpuss, reparasjon av sandsekker, og pumping av vann. Alltid pumping av vann.\n\nVannet var fienden like mye som tyskerne. I Flandern lå grunnvannet høyt. Gravde du en halv meter ned, traff du vann. Skyttergravene ble til gjørmebad. Soldater som sto i iskaldt vann i dagevis utviklet 'Skyttergravsfot' – en tilstand hvor føttene hovnet opp, ble følelsesløse og i verste fall koldbrannske. Løsningen ble å smøre føttene inn i hvalfett og skifte sokker to ganger daglig, hvis man var heldig."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/forste-verdenskrig/skyttergrav_tverrsnitt.png",
+            "alt": "Tverrsnitt av en skyttergrav",
+            "caption": "Livet i jorda: Soldatene bodde i dype 'dugouts' under bakken mens vaktpostene sto på hevede trinn for å speide mot fienden."
         },
         {
             "type": "component",

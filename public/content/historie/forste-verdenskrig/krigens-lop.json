@@ -53,12 +53,22 @@
       "content": "Krigen på Vestfronten var preget av stillstand. Soldatene levde i komplekse nettverk av skyttergraver, ofte fylt med vann og gjørme. Hygienen var elendig, og soldatene var plaget av lus, rotter og sykdommer som skyttergravsfot. Mellom de to fiendtlige linjene lå Ingenmannsland, et øde, sønderskutt landskap dekket av piggtråd og granatkratere.\n\nSelve krigføringen fulgte et brutalt mønster. I dagesvis, noen ganger ukesvis, bombet artilleriet fiendens linjer for å ødelegge piggtråd og drepe forsvarerne. Deretter blåste offiserene i fløytene, og infanteriet klatret «over toppen» for å angripe. Men ofte hadde artilleriet ikke klart å ødelegge fiendens bunkere. Når soldatene løp over ingenmannsland, ble de møtt av en vegg av bly fra fiendens maskingeværer. Tapstallene var enorme, ofte for en gevinst på bare noen få hundre meter."
     },
     {
+      "type": "component",
+      "component": "TrenchCrossSection",
+      "props": {}
+    },
+    {
       "type": "header",
       "text": "1916: Det store slaktehuset"
     },
     {
       "type": "text",
       "content": "Året 1916 så to av historiens mest forferdelige slag. Tyskland, ledet av generalsjef Erich von Falkenhayn, bestemte seg for å angripe den franske festningsbyen Verdun. Målet var ikke nødvendigvis å ta byen, men å tvinge Frankrike til å forsvare den for enhver pris, og dermed «blø den franske hæren hvit». Slaget ved Verdun varte i ti måneder og kostet 700 000 soldater livet eller helsen. Det ble et symbol på fransk motstandsvilje, men til en forferdelig pris.\n\nFor å lette presset på Verdun iverksatte britene et massivt angrep ved elven Somme lenger nord. Den 1. juli 1916 startet angrepet. Til tross for et ukeslangt bombardement var de tyske stillingene intakte. Da de britiske soldatene gikk til angrep, ble de slaktet ned. Nesten 20 000 briter døde den første dagen, den blodigste i britisk militærhistorie. Da slaget ved Somme endte i november, hadde over en million menn på begge sider blitt drept eller såret. Frontlinjen hadde knapt flyttet seg."
+    },
+    {
+      "type": "component",
+      "component": "AttritionWarfare",
+      "props": {}
     },
     {
       "type": "header",

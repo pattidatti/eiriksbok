@@ -34,11 +34,44 @@ Focus on the "Soul" of the content before writing any code.
     - Required for historical topics with timelines.
     - Includes interactive sidebar with TOC and map links.
 - **Component Selection:**
-    - `TimelineComponent`: Use inside articles with `compact: true`.
-    - `Comparison`: For comparing concepts/figures.
-    - `QuoteBlock`: For primary sources.
-    - `FactBox`: For technical details.
-    - Also make a model that underscores what the article is about, interaktive, beautiful, fun and insightfull. 
+    - **Core Text Tools:**
+        - `WritingFix`: [NEW] Essential for language/writing topics (show "Bad" vs "Good" examples).
+        - `Comparison`: [NEW] Compare two texts, images, or concepts side-by-side.
+        - `QuoteBlock`: For primary sources/citates.
+        - `FactBox`: For technical details/summaries.
+        - `GlossaryTooltip`: For inline definitions (automatic, but can be manual).
+        - `TextHighlighter` / `SentenceBuilder` / `GrammarRuleCard`: For deep language analysis.
+    - **Media & Visuals:**
+        - `Gallery`: [NEW] For image collections (use consistent aspect ratios).
+        - `TimelineComponent`: Use inside articles with `compact: true`.
+        - `AllianceChain`: For causal chains (e.g. historical alliances).
+        - `RelationshipMap`: For network visualizations.
+        - `LineChart` / `PlotGraph`: For statistical data.
+    - **History Simulations (Modern/WWI):**
+        - `CensorTask`: [NEW] Interactive censorship simulation.
+        - `PropagandaDecoder`: [NEW] Analyze propaganda techniques.
+        - `TsarsDilemma`: [NEW] Decision-making game for the Russian Revolution.
+        - `PowderKeg` / `DreadnoughtDuel`: [NEW] WWI prelude simulations.
+        - `TrenchCrossSection` / `GasAttackSim` / `TankInterior` / `AttritionWarfare`.
+    - **History Simulations (Roman/Antiquity):**
+        - `RomanPantheonExplorer`: Interactive god explorer.
+        - `TetrarchyVisualizer` / `PriceEdictExplorer` / `RomanDefenseModel`.
+        - `DetectiveEngine`: Historical mystery solving.
+    - **Politics & Society:**
+        - `GovernmentExplorer`: Compare political systems.
+        - `TotalitarianSandbox` / `BanalityRoutine`: Explore authoritarianism.
+        - `FilterBubbleSim` / `ConformityExperiment` / `OstracismGame`: Social psychology.
+        - `AuthorityShifter` / `SocialContractDecider` / `TrolleyProblem`.
+    - **Economics & Demography:**
+        - `InflationCalculator` / `TimePreferenceModel`.
+        - `TradeLoopComponent` / `SpecializationSlider`: Trade mechanics.
+        - `DTMSimulator` / `UrbanizationTimeline` / `PopulationPyramidBuilder`.
+    - **Music & Creativity:**
+        - `VirtualPiano`: Playable instrument.
+        - `SongwriterStudio` / `BeatBuilder`: Creative music tools.
+    - **Assessment:**
+        - `Quiz`: 3-5 questions at the end.
+    - **General Rule:** Make a model that underscores what the article is about. Make it interactive, beautiful, fun, and insightful. 
 
 
 

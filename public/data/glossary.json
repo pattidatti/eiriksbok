@@ -891,6 +891,17 @@
     "type": "concept"
   },
   {
+    "term": "Pasifisme",
+    "definition": "En grunnleggende holdning som tar avstand fra bruk av vold og krig for å løse konflikter. Pasifister arbeider for fredelige løsninger.",
+    "type": "concept",
+    "tags": [
+      "første verdenskrig",
+      "fred",
+      "ideologi"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Patos",
     "definition": "En av de tre retoriske appellformene. Handler om å vekke følelser hos mottakeren.",
     "type": "concept",
@@ -945,6 +956,17 @@
     "type": "concept"
   },
   {
+    "term": "Pragmatisme",
+    "definition": "En tenkemåte som vektlegger praktiske resultater og løsninger fremfor teoretiske prinsipper eller ideologi. I politikken handler det ofte om å finne løsninger som fungerer (realpolitikk).",
+    "type": "concept",
+    "tags": [
+      "politikk",
+      "filosofi",
+      "styringsformer"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
     "term": "president-republikk",
     "definition": "Demokrati der presidenten har mye makt og velges uavhengig av parlamentet. Eksempel: USA. Presidenten leder regjeringen og kan ikke enkelt kastes av kongressen.",
     "subject": "samfunnskunnskap",
@@ -966,6 +988,22 @@
     "subject": "historie",
     "topic": "andre-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "id": "refleksjon",
+    "term": "Refleksjon",
+    "definition": "Å tenke grundig over noe fra flere sider for å oppnå dypere forståelse. I skriving betyr det å undersøke egne tanker, spørsmål og vurderinger i møte med et tema eller en tekst.",
+    "context": "Norsk",
+    "links": [],
+    "type": "concept"
+  },
+  {
+    "id": "refleksjonsmarkorer",
+    "term": "Refleksjonsmarkører",
+    "definition": "Ord og uttrykk som signaliserer til leseren at forfatteren tenker selv og vurderer saken (f.eks. 'kanskje', 'det kan virke som', 'på den ene siden').",
+    "context": "Norsk",
+    "links": [],
     "type": "concept"
   },
   {
@@ -1308,6 +1346,14 @@
     "type": "concept"
   },
   {
+    "id": "undring",
+    "term": "Undring",
+    "definition": "En åpen og nysgjerrig måte å nærme seg en tekst eller et tema på. Det handler om å stille spørsmål uten nødvendigvis å ha et ferdig svar, og utforske ulike muligheter.",
+    "context": "Norsk",
+    "links": [],
+    "type": "concept"
+  },
+  {
     "term": "Unionsoppløsningen 1905",
     "definition": "Den fredelige avslutningen på personalunionen mellom Sverige og Norge. Etter intense forhandlinger i Karlstad anerkjente Sverige Norges selvstendighet i oktober 1905.",
     "type": "concept",
@@ -1524,7 +1570,24 @@
     "link": "/historie/romerriket/diokletian"
   },
   {
-    "term": "dronning elizabeth i",
+    "term": "Douglas MacArthur",
+    "aliases": [
+      "MacArthur",
+      "MacArthurs"
+    ],
+    "definition": "Amerikansk general som ledet FN-styrkene under store deler av Koreakrigen og er kjent for sin dristige landgang ved Inchon.",
+    "type": "person",
+    "tags": [
+      "USA",
+      "general",
+      "Koreakrigen",
+      "stillehavskrigen"
+    ],
+    "subject": "historie",
+    "lifespan": "1880 - 1964"
+  },
+  {
+    "term": "Dronning Elizabeth I",
     "definition": "Dronning av England fra 1558 til 1603. Hun ga EIC monopol på handel med Østen.",
     "subject": "historie",
     "topic": "kolonialisering",
@@ -1691,6 +1754,22 @@
     "subject": "historie",
     "lifespan": "1496 – 1560",
     "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
+    "term": "Harry S. Truman",
+    "aliases": [
+      "Truman"
+    ],
+    "definition": "USAs 33. president (1945–1953) som styrte under begynnelsen av den kalde krigen og lanserte Truman-doktrinen for å demme opp for kommunismen.",
+    "type": "person",
+    "tags": [
+      "USA",
+      "president",
+      "den kalde krigen",
+      "koreakrigen"
+    ],
+    "subject": "historie",
+    "lifespan": "1884 - 1972"
   },
   {
     "term": "Henrik Krummedige",
@@ -1985,6 +2064,9 @@
   },
   {
     "term": "Vladimir Lenin",
+    "aliases": [
+      "Lenin"
+    ],
     "definition": "Russisk revolusjonær, politiker og teoretiker. Han ledet oktoberrevolusjonen i 1917 og grunnla Sovjetunionen som verdens første sosialistiske stat.",
     "type": "person",
     "fullName": "Vladimir Iljitsj Uljanov",

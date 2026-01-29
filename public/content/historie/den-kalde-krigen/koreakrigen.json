@@ -33,6 +33,11 @@
         },
         {
             "type": "component",
+            "name": "TrumansDilemma",
+            "props": {}
+        },
+        {
+            "type": "component",
             "name": "FactBox",
             "props": {
                 "title": "FNs f\u00f8rste krig",
@@ -46,6 +51,11 @@
         {
             "type": "text",
             "content": "Den 25. juni 1950 krysset nordkoreanske styrker den 38. breddegrad i et massivt overraskelsesangrep. Med sovjetiske tanks og utstyr feide de s\u00f8rover. Det s\u00f8rkoreanske forsvaret kollapset nesten umiddelbart, og Seoul falt i l\u00f8pet av dager.\n\nAmerikanske og s\u00f8rkoreanske styrker ble presset helt ned til det s\u00f8r\u00f8stlige hj\u00f8rnet av halv\u00f8ya, et omr\u00e5de kjent som Pusan-perimeteret. Her klorte de seg fast mens FN-styrkene samlet opp krefter. Verden ventet p\u00e5 at de siste s\u00f8rkoreanske forsvarslinjene skulle briste, men i september skjedde noe som endret alt."
+        },
+        {
+            "type": "image",
+            "src": "/images/lessons/den-kalde-krigen/koreakrigen_invasjon.png",
+            "caption": "Nordkoreanske T-34-tanks krysser den 38. breddegrad 25. juni 1950."
         },
         {
             "type": "header",
