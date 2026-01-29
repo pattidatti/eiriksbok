@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Scale, Users, Shield, ArrowRightLeft } from 'lucide-react';
+import { Scale, Users, Shield } from 'lucide-react';
 import { renderInlineMarkdown } from './markdownUtils';
 import { useGlossary } from '../context/GlossaryContext';
 
@@ -93,10 +93,7 @@ export const Comparison: React.FC<ComparisonProps> = ({
             )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 relative rounded-3xl border border-slate-200/60 overflow-hidden shadow-sm">
-                {/* Desktop Divider Icon */}
-                <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full items-center justify-center shadow-md border border-slate-100 text-slate-400">
-                    <ArrowRightLeft size={20} />
-                </div>
+
 
                 {/* Left Side (Technology/Structure) - Indigo Theme */}
                 <div className="flex flex-col h-full bg-indigo-50/30 backdrop-blur-sm md:border-r border-indigo-100">

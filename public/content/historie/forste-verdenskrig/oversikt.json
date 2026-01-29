@@ -43,6 +43,25 @@
       "content": "Første verdenskrig, som i sin samtid ble kalt Den store krigen, var en global konflikt som varte fra 1914 til 1918. Dette var den første krigen som involverte nasjoner fra alle kontinenter, og den markerte slutten på det 19. århundrets verdensorden. Konflikten involverte de fleste av verdens stormakter, organisert i to motstridende allianser: Ententen og Sentralmaktene. På Ententens side sto hovedsakelig Frankrike, det britiske imperiet, Russland og senere USA, Italia og Japan. Mot dem sto Sentralmaktene, ledet av Tyskland, Østerrike-Ungarn og Det osmanske riket. Krigen endret verdenskartet drastisk, førte til kollapsen av fire store imperier, og satte scenen for det 20. århundrets store politiske endringer.\n\nKrigen skilte seg fra alle tidligere konflikter gjennom sin industrielle skala. Aldri før hadde så mange menn blitt mobilisert til krigstjeneste, og aldri før hadde teknologien drept så effektivt. Da røyken la seg i november 1918, var verden ugjenkjennelig forandret, både politisk, sosialt og kulturelt. Det gamle Europa, styrt av konger og keisere, lå i ruiner, og nye nasjoner og ideologier kjempet om plassen i ruinene."
     },
     {
+      "type": "component",
+      "component": "Comparison",
+      "props": {
+        "title": "Europas Allianser",
+        "leftTitle": "Ententen",
+        "rightTitle": "Sentralmaktene",
+        "items": [
+          {
+            "left": "**Hovedmakter**\nFrankrike\nStorbritannia\nRussland",
+            "right": "**Hovedmakter**\nTyskland\nØsterrike-Ungarn"
+          },
+          {
+            "left": "**Andre allierte**\nItalia (1915)\nUSA (1917)\nSerbia",
+            "right": "**Støttespillere**\nDet osmanske riket\nBulgaria"
+          }
+        ]
+      }
+    },
+    {
       "type": "header",
       "text": "En verden i brann"
     },
