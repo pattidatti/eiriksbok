@@ -58,6 +58,8 @@ const PresentationPage = React.lazy(routeFactories.PresentationPage);
 const LearningPathsHub = React.lazy(routeFactories.LearningPathsHub);
 
 
+
+import { WorkstationLayout } from './components/workstation/WorkstationLayout';
 import { usePresence } from './hooks/usePresence';
 
 function App() {
@@ -97,6 +99,9 @@ function AppContent() {
               <Route path="persongalleri" element={<PersonGallery />} />
               <Route path="colonization" element={<ColonizationMap />} />
               <Route path="laeringsstier" element={<LearningPathsHub />} />
+
+              {/* Tools */}
+              <Route path="norsk/virkemidler/desk" element={<WorkstationLayout />} />
 
               {/* Static routes must come before dynamic :subjectId routes */}
               <Route path="oving" element={<PracticePage />} />

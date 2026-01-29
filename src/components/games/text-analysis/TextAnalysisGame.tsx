@@ -6,9 +6,11 @@ import { TextHighlighter } from './TextHighlighter';
 interface TextAnalysisGameProps {
     data: TextAnalysisGameData;
     onComplete?: (score: number) => void;
+    onFound?: (item: TextAnalysisSpan) => void;
+    transparent?: boolean;
 }
 
-export const TextAnalysisGame: React.FC<TextAnalysisGameProps> = ({ data, onComplete }) => {
+export const TextAnalysisGame: React.FC<TextAnalysisGameProps> = ({ data, onComplete, onFound, transparent = false }) => {
     const [foundSpans, setFoundSpans] = useState<TextAnalysisSpan[]>([]);
     const [selection, setSelection] = useState<{ start: number; end: number; rect: DOMRect | null } | null>(null);
     const [score, setScore] = useState(0);
@@ -58,6 +60,7 @@ export const TextAnalysisGame: React.FC<TextAnalysisGameProps> = ({ data, onComp
             setFoundSpans(newFound);
             setScore(prev => prev + 100);
             setFeedback({ message: "Riktig! " + matchingSolution.explanation, type: 'success' });
+            if (onFound) onFound(matchingSolution);
             setSelection(null); // Clear selection to hide menu
 
             // Check for completion
@@ -80,14 +83,14 @@ export const TextAnalysisGame: React.FC<TextAnalysisGameProps> = ({ data, onComp
     return (
         <div className="max-w-4xl mx-auto p-4 relative">
             {/* Header / Score */}
-            <div className="flex justify-between items-center mb-6 bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <div className={`flex justify-between items-center mb-6 p-4 rounded-xl border ${transparent ? 'bg-slate-900/40 border-white/10 backdrop-blur-md' : 'bg-slate-50 border-slate-200'}`}>
                 <div>
-                    <h2 className="text-2xl font-bold text-slate-800">{data.title}</h2>
-                    <p className="text-slate-600 text-sm">Finn {data.solutions.length} retoriske virkemidler i teksten.</p>
+                    <h2 className={`text-2xl font-bold ${transparent ? 'text-stone-200' : 'text-slate-800'}`}>{data.title}</h2>
+                    <p className={`${transparent ? 'text-stone-400' : 'text-slate-600'} text-sm`}>Finn {data.solutions.length} retoriske virkemidler i teksten.</p>
                 </div>
                 <div className="text-right">
-                    <div className="text-sm font-bold text-slate-500 uppercase">Poeng</div>
-                    <div className="text-3xl font-bold text-indigo-600">{score}</div>
+                    <div className={`text-sm font-bold ${transparent ? 'text-stone-500' : 'text-slate-500'} uppercase`}>Poeng</div>
+                    <div className={`text-3xl font-bold ${transparent ? 'text-amber-400' : 'text-indigo-600'}`}>{score}</div>
                 </div>
             </div>
 
