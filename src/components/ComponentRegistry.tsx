@@ -208,6 +208,8 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     SimpleTable: lazy(() => import('./SimpleTable').then(m => ({ default: m.SimpleTable }))),
     Hierarchy: lazy(() => import('./Hierarchy').then(m => ({ default: m.Hierarchy }))),
     triangularTradeMap: lazy(() => import('./content/interactive/TriangularTradeMap').then(m => ({ default: m.TriangularTradeMap }))),
+    HanseaticLedger: lazy(() => import('./content/interactive/hanseatene/HanseaticLedger').then(m => ({ default: m.HanseaticLedger }))),
+    HanseaticTradeMap: lazy(() => import('./content/interactive/hanseatene/HanseaticTradeMap').then(m => ({ default: m.HanseaticTradeMap }))),
 };
 
 export const getComponent = (name: string) => {
