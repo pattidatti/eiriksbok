@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronDown, Lightbulb } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,14 +7,16 @@ import { useGlossary } from '../context/GlossaryContext';
 interface FactBoxProps {
     title?: string;
     content?: string;
-    items?: string[]; // Added support for array content
+    items?: (string | { label: string; value: string })[]; // Added support for structured content
+    variant?: 'default' | 'grid';
 }
 
-export const FactBox: React.FC<FactBoxProps> = ({ title = 'Visste du at?', content, items }) => {
+export const FactBox: React.FC<FactBoxProps> = ({ title = 'Visste du at?', content, items, variant = 'default' }) => {
     const [isOpen, setIsOpen] = useState(true);
     const { entries } = useGlossary();
 
     // Combine content and items into a unified list
+    // Note: If content is provided, it's treated as string items
     const contentLines = content ? content.split('\n') : [];
     const allItems = items ? [...contentLines, ...items] : contentLines;
 
@@ -57,12 +58,24 @@ export const FactBox: React.FC<FactBoxProps> = ({ title = 'Visste du at?', conte
                     >
                         <div className="p-6 pt-2 text-slate-600 text-base leading-relaxed space-y-4 border-t border-indigo-100/50 rounded-b-2xl">
                             {allItems.length > 0 ? (
-                                <ul className="space-y-3">
+                                <ul className={`space-y-3 ${variant === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 gap-4 space-y-0' : ''}`}>
                                     {allItems.map((line, index) => (
-                                        <li key={index} className="flex gap-3 items-start">
+                                        <li key={index} className={`flex gap-3 items-start ${variant === 'grid' ? 'bg-white/50 p-3 rounded-lg border border-indigo-50' : ''}`}>
                                             <span className="mt-2 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
                                             <span>
-                                                {renderInlineMarkdown(line, entries)}
+                                                {typeof line === 'string' ? (
+                                                    renderInlineMarkdown(line, entries)
+                                                ) : (
+                                                    // Structured item rendering
+                                                    <>
+                                                        <strong className="block text-indigo-700 font-medium mb-1">
+                                                            {line.label}
+                                                        </strong>
+                                                        <span className="text-slate-600">
+                                                            {renderInlineMarkdown(line.value, entries)}
+                                                        </span>
+                                                    </>
+                                                )}
                                             </span>
                                         </li>
                                     ))}

@@ -1209,6 +1209,75 @@
       ]
     },
     {
+      "id": "svartedauden-norge",
+      "title": "Svartedauden kommer til Norge",
+      "description": "Pesten ankommer Bjørgvin med et handelsskip.",
+      "startDate": 1349,
+      "endDate": null,
+      "displayDate": "1349",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/svartedauden-sti",
+      "tags": [
+        "historie",
+        "norge",
+        "pest"
+      ]
+    },
+    {
+      "id": "hanseatene-kontor",
+      "title": "Det Hanseatiske Kontor",
+      "description": "Tyske kjøpmenn etablerer seg fast i Bergen og får monopol på handel.",
+      "startDate": 1350,
+      "endDate": 1754,
+      "displayDate": "1350-1754",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/hanseatene",
+      "tags": [
+        "handel",
+        "bergen",
+        "hansa"
+      ]
+    },
+    {
+      "id": "vitaliebrodrene-plyndring",
+      "title": "Vitaliebrødrene plyndrer Bergen",
+      "description": "Hanseatiske pirater angriper byen i to omganger og brenner ned kongsgården.",
+      "startDate": 1429,
+      "endDate": null,
+      "displayDate": "1429",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/hanseatene",
+      "tags": [
+        "krig",
+        "sjørøveri",
+        "bergen"
+      ]
+    },
+    {
+      "id": "munkeliv-drapet",
+      "title": "Drapet på Olav Nilsson",
+      "description": "Hanseatene angriper Munkeliv kloster, brenner det ned og dreper høvedsmannen.",
+      "startDate": 1455,
+      "endDate": null,
+      "displayDate": "1455",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/hanseatene",
+      "tags": [
+        "konflikt",
+        "hansa",
+        "bergen",
+        "kirke"
+      ]
+    },
+    {
       "id": "boktrykkerkunsten",
       "title": "Boktrykkerkunsten",
       "description": "Revolusjonen som spredte kunnskap.",

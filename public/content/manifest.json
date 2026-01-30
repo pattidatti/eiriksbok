@@ -1303,6 +1303,20 @@
                             ],
                             "createdDate": "2025-12-12T10:00:00Z",
                             "lastUpdated": "2025-12-12T10:00:00Z"
+                        },
+                        {
+                            "id": "hanseatene",
+                            "title": "Hanseatene",
+                            "description": "Kjøpmennene som formet Norge og Europa.",
+                            "image": "/images/historie/middelalderen/hanseatene-hero.png",
+                            "tags": [
+                                "historie",
+                                "norge",
+                                "handel",
+                                "bergen"
+                            ],
+                            "createdDate": "2026-01-30T12:00:00Z",
+                            "lastUpdated": "2026-01-30T12:00:00Z"
                         }
                     ]
                 },
@@ -2444,6 +2458,21 @@
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
+                        },
+                        {
+                            "id": "hanseatene",
+                            "title": "Hanseatene",
+                            "description": "Kjøpmennene som bygget Bergen og dominerte handelen.",
+                            "image": "/images/historie/middelalderen/hanseatene-hero.png",
+                            "layout": "rich",
+                            "tags": [
+                                "historie",
+                                "handel",
+                                "hansa",
+                                "middelalderen"
+                            ],
+                            "createdDate": "2026-01-30T12:00:00Z",
+                            "lastUpdated": "2026-01-30T12:00:00Z"
                         },
                         {
                             "id": "boktrykkerkunsten",

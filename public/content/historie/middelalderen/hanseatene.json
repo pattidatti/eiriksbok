@@ -1,0 +1,204 @@
+{
+    "id": "hanseatene",
+    "title": "Hanseatene: Kjøpmennene som bygget Norge",
+    "description": "Da Bergen ble verdens sentrum for tørrfisk og en del av Europas første handelsimperium.",
+    "image": "/images/historie/middelalderen/hanseatene-hero.png",
+    "tags": [
+        "historie",
+        "norge",
+        "middelalderen",
+        "handel",
+        "hansa"
+    ],
+    "layout": "rich",
+    "theme": "indigo",
+    "content": [
+        {
+            "type": "header",
+            "subtitle": "Fra Tyskland til Lofoten",
+            "content": "Da de første tunge koggene seilte inn i Vågen på 1200-tallet, markerte det starten på en økonomisk revolusjon. Hanseatene bandt det kalde nord sammen med det rike sør, og forvandlet Bergen til en global handelsmetropol."
+        },
+        {
+            "type": "text",
+            "title": "Veien til Makt",
+            "content": "For å forstå hanseatenes enorme makt, må vi se på kaoset som hersket i Europa etter vikingtiden. Pirater herjet havene, og veiene var utrygge. Svaret ble **Hansaen** – opprinnelig en betegnelse på en væpnet gruppe som reiste sammen for beskyttelse.\n\nDet utviklet seg til et gigantisk nettverk av over 170 byer, med Lübeck som hjertet. Deres makt hvilte på to ting: **Salt** (for å bevare mat) og **Skip** (de massive koggene som kunne laste mer enn noe annet skip på den tiden)."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "De fire pilarene (Kontorene)",
+                "variant": "grid",
+                "items": [
+                    {
+                        "label": "Bergen (Det Tyske Kontor)",
+                        "value": "Tørrfisk & Tran. Etablert for å kontrollere den norske fiskeeksporten."
+                    },
+                    {
+                        "label": "London (The Steelyard)",
+                        "value": "Ull & Tekstiler. Koblet engelsk ullproduksjon til flamske veverier."
+                    },
+                    {
+                        "label": "Novgorod (Petershof)",
+                        "value": "Pels & Voks. Porten til det enorme russiske markedet."
+                    },
+                    {
+                        "label": "Brugge (Huset i Brugge)",
+                        "value": "Finans & Luksus. Der nord møtte sør, og penger skiftet hender."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "title": "Det Norske Gullet",
+            "content": "Hvorfor valgte disse mektige kjøpmennene akkurat Bergen? Svaret er biologi. I nord svømte verdens største torskestamme, og det kjølige klimaet gjorde det mulig å tørke fisken til den ble hard som tre. Tørrfisken kunne lagres i årevis og var smekkfull av proteiner."
+        },
+        {
+            "type": "component",
+            "component": "QuoteBlock",
+            "props": {
+                "author": "Historisk ordtak",
+                "text": "Tørrfisken var det norske gullet. For det katolske Europa, som ikke kunne spise kjøtt i fasten, var den en gave fra Gud."
+            }
+        },
+        {
+            "type": "text",
+            "title": "Kornmonopolet",
+            "content": "Men handelen var ikke likevedig. Norge trengte korn. Etter Svartedauden lå mange gårder øde, og vi klarte ikke å brødfø oss selv. Hanseatene kontrollerte kornet fra Østersjøen. Dette ga dem et jerngrep: **Ingen fisk, intet mel.**"
+        },
+        {
+            "type": "component",
+            "component": "TimelineComponent",
+            "props": {
+                "compact": true,
+                "items": [
+                    {
+                        "year": "1248",
+                        "title": "Storbrann i Bergen",
+                        "description": "Legger grunnlaget for ny byutvikling og hanseatisk inntog."
+                    },
+                    {
+                        "year": "1350",
+                        "title": "Svartedauden & Monopol",
+                        "description": "Norsk adel svekkes, og hanseatene overtar kontrollen over utenrikshandelen."
+                    },
+                    {
+                        "year": "1429",
+                        "title": "Sjørøverangrepet",
+                        "description": "Vitaliebrødrene plyndrer Bergen med støtte fra hanseatene."
+                    },
+                    {
+                        "year": "1455",
+                        "title": "Mordet i Munkeliv",
+                        "description": "Olav Nilsson drepes av en tysk mobb. Hanseatenes makt er på sitt mest brutale."
+                    },
+                    {
+                        "year": "1754",
+                        "title": "Det Norske Kontor",
+                        "description": "Det tyske kontoret legges formelt ned og blir 'norsk'."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "title": "Livet i Kjøpmannsstuen",
+            "content": "Bryggen var en stat i staten. Ingen hanseat fikk gifte seg med norske kvinner. De levde i sølibat, under streng militær disiplin. Hensikten var klar: Lojaliteten skulle ligge til Lübeck, ikke til en norsk familie.\n\nHierarkiet var nådeløst:\n1. **Husbonden**: Eier og leder.\n2. **Gesellen**: Nestkommanderende og læremester.\n3. **Drengen**: Unggutten (ofte 12-14 år) som ble sendt hjemmefra for å lære. De ble herdet gjennom brutale 'leker' i Schøtstuene."
+        },
+        {
+            "type": "image",
+            "url": "/images/historie/middelalderen/bryggen-liv.png",
+            "alt": "Travle scener på Bryggen med tørrfisk og tyske kjøpmenn.",
+            "caption": "Livet på Bryggen var travelt, skittent og strengt regulert."
+        },
+        {
+            "type": "text",
+            "title": "Språkarven etter tidenes 'Class Clash'",
+            "content": "Når nordmenn og tyskere skulle handle, måtte de forstå hverandre. Resultatet ble en 'språkvask' av det norrøne språket. Vi mistet de kompliserte bøyningene og byttet ut gamle ord med nye, praktiske handelsord."
+        },
+        {
+            "type": "component",
+            "component": "Comparison",
+            "props": {
+                "leftTitle": "Norrønt (Før Hansa)",
+                "rightTitle": "Hanseatisk/Moderne Norsk",
+                "leftContent": "- Ete\n- Tale\n- Hefja\n- Kaup\n- Vitr",
+                "rightContent": "- Spise\n- Snakke\n- Begynne\n- Handel\n- Klok",
+                "beforeImage": "",
+                "afterImage": ""
+            }
+        },
+        {
+            "type": "text",
+            "title": "Pirater og Makt",
+            "content": "Hanseatene spilte ikke alltid rent spill. Da konkurrentene ble for sterke, eller norske adelsmenn prøvde å ta tilbake kontrollen, tydde de til vold. **Vitaliebrødrene** var en organisert piratflåte som ofte opererte med hanseatenes stilltiende velsignelse.\n\nDet mørkeste kapittelet kom i 1455, da den norske høvedsmannen Olav Nilsson ble jaget inn i Munkeliv Kloster. Hanseatene respekterte ikke kirkefreden; de satte fyr på klosteret og drepte ham og biskopen."
+        },
+        {
+            "type": "image",
+            "url": "/images/historie/middelalderen/vitaliebrodrene.png",
+            "alt": "Nattlig scene med brann og piratskip i Vågen.",
+            "caption": "Munkeliv Kloster brenner (1455)."
+        },
+        {
+            "type": "text",
+            "title": "Arven",
+            "content": "Ingen annen by i verden har bevart et hanseatisk kontor slik som Bergen. Bryggen er i dag på UNESCOs verdensarvliste, ikke bare som vakre trehus, men som et monument over en tid da handel bygde broer – og murer – mellom folk.\n\nHver gang du sier at du skal **'betale'** for en vare eller **'snakke'** med en venn, bruker du arven etter hanseatene."
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva var den viktigste varen hanseatene eksporterte fra Bergen?",
+                    "options": [
+                        "Tømmer",
+                        "Tørrfisk",
+                        "Jern",
+                        "Pels"
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hvilken by var 'hovedstaden' i Hansaforbundet?",
+                    "options": [
+                        "Bergen",
+                        "Hamburg",
+                        "Lübeck",
+                        "London"
+                    ],
+                    "correctAnswer": 2
+                },
+                {
+                    "question": "Hva het 'piratene' som herjet Bergen i 1429?",
+                    "options": [
+                        "Vitaliebrødrene",
+                        "Sortebrødrene",
+                        "Hansebrødrene",
+                        "Korsfarerne"
+                    ],
+                    "correctAnswer": 0
+                },
+                {
+                    "question": "Hvilket av disse ordene kommer fra hanseatene (nedertysk)?",
+                    "options": [
+                        "Ete",
+                        "Hus",
+                        "Kjøpe (fra Kaup)",
+                        "Spise"
+                    ],
+                    "correctAnswer": 3
+                },
+                {
+                    "question": "Hvorfor fikk ikke hanseatene gifte seg i Bergen?",
+                    "options": [
+                        "De var munker",
+                        "For å sikre lojalitet til hjembyen",
+                        "Det var ingen kvinner i Bergen",
+                        "Paven forbød det"
+                    ],
+                    "correctAnswer": 1
+                }
+            ]
+        }
+    ]
+}

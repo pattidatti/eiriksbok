@@ -1,5 +1,5 @@
 {
-  "buildId": 1769728054689,
+  "buildId": 1769780078841,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -12,9 +12,6 @@
     ],
     "allianse": [
       "content/concepts/allianse.json"
-    ],
-    "alv-erlingsson": [
-      "content/historie/norgeshistorie/alv-erlingsson/alv-erlingsson.json"
     ],
     "anarki": [
       "content/concepts/anarki.json"
@@ -680,6 +677,9 @@
     "det-hellige-romerske-rike": [
       "content/historie/middelalderen/det-hellige-romerske-rike.json"
     ],
+    "hanseatene": [
+      "content/historie/middelalderen/hanseatene.json"
+    ],
     "middelalderen": [
       "content/historie/middelalderen/middelalderen.json"
     ],
@@ -691,6 +691,9 @@
     ],
     "tidlig-middelalder": [
       "content/historie/middelalderen/tidlig-middelalder.json"
+    ],
+    "alv-erlingsson": [
+      "content/historie/norgeshistorie/alv-erlingsson/alv-erlingsson.json"
     ],
     "hamskiftet": [
       "content/historie/norgeshistorie/hamskiftet/artikkel.json"
@@ -1710,10 +1713,12 @@
     "historie/menneskets-tidlige-historie/menneskets-tidlige-historie": "content/historie/menneskets-tidlige-historie/menneskets-tidlige-historie.json",
     "historie/middelalderen/boktrykkerkunsten": "content/historie/middelalderen/boktrykkerkunsten.json",
     "historie/middelalderen/det-hellige-romerske-rike": "content/historie/middelalderen/det-hellige-romerske-rike.json",
+    "historie/middelalderen/hanseatene": "content/historie/middelalderen/hanseatene.json",
     "historie/middelalderen/middelalderen": "content/historie/middelalderen/middelalderen.json",
     "historie/middelalderen/svartedauden-sti": "content/historie/middelalderen/svartedauden-sti.json",
     "historie/middelalderen/svartedauden": "content/historie/middelalderen/svartedauden.json",
     "historie/middelalderen/tidlig-middelalder": "content/historie/middelalderen/tidlig-middelalder.json",
+    "historie/norgeshistorie/alv-erlingsson/alv-erlingsson": "content/historie/norgeshistorie/alv-erlingsson/alv-erlingsson.json",
     "historie/norgeshistorie/hamskiftet/hamskiftet": "content/historie/norgeshistorie/hamskiftet/artikkel.json",
     "historie/norgeshistorie/klimakrisen-536/klimakrisen-536": "content/historie/norgeshistorie/klimakrisen-536/artikkel.json",
     "historie/norgeshistorie/knut-alvsson/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson/artikkel.json",
