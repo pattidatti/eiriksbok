@@ -10,6 +10,7 @@ import { faderen } from './entries/faderen';
 import { fordummendeIntelligentTeknologi } from './entries/fordummende-intelligent-teknologi';
 import { havamal } from './entries/havamal';
 import { hjortenISkogbrynet } from './entries/hjorten-i-skogbrynet';
+import { ibnFadlanReisebeskrivelse } from './entries/ibn-fadlan-reisebeskrivelse';
 import { karen } from './entries/karen';
 import { karensJul } from './entries/karens-jul';
 import { kiBotox } from './entries/ki-botox';
@@ -43,6 +44,7 @@ export const textLibraryData: TextEntry[] = [
     fordummendeIntelligentTeknologi,
     havamal,
     hjortenISkogbrynet,
+    ibnFadlanReisebeskrivelse,
     isakOgBronopresten,
     jegSer,
     sultUtdrag,

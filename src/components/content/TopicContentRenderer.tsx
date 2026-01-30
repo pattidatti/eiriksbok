@@ -86,7 +86,7 @@ export const TopicContentRenderer: React.FC<TopicContentRendererProps> = ({ cont
                                 <figure className="rounded-xl overflow-hidden shadow-lg bg-surface-card border border-slate-100">
                                     <div className="aspect-video w-full relative">
                                         <Image
-                                            src={block.url}
+                                            src={block.url || block.src}
                                             alt={block.alt || block.caption || 'Article image'}
                                             className="w-full h-full object-cover"
                                         />
