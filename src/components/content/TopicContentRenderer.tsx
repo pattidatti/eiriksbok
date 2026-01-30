@@ -14,24 +14,44 @@ interface ContentBlock {
     items?: string[];
     component?: string;
     props?: any;
-    // For specific content types
     title?: string;
     description?: string;
     url?: string;
+    src?: string;
     caption?: string;
     alt?: string;
 }
 
-// ... (TopicContentRendererProps and variants)
+interface TopicContentRendererProps {
+    content: ContentBlock[];
+}
+
+const container = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+};
 
 export const TopicContentRenderer: React.FC<TopicContentRendererProps> = ({ content }) => {
-    // ... (check content)
+    if (!content) return null;
 
     return (
         <motion.div
-        // ... (props)
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="space-y-6"
         >
-            {content.map((block, index) => {
+            {content.map((block: ContentBlock, index: number) => {
                 switch (block.type) {
                     case 'header':
                         // ... (header logic)
@@ -70,7 +90,7 @@ export const TopicContentRenderer: React.FC<TopicContentRendererProps> = ({ cont
                         return (
                             <motion.div key={index} variants={item}>
                                 <ul className="space-y-3 my-4">
-                                    {block.items?.map((listItem, i) => (
+                                    {block.items?.map((listItem: string, i: number) => (
                                         <li key={i} className="flex items-start gap-3 text-slate-700">
                                             <span className="mt-2 w-1.5 h-1.5 bg-indigo-500 rounded-full flex-shrink-0" />
                                             <span><GlossaryText content={listItem} /></span>
