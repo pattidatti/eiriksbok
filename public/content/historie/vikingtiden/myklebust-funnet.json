@@ -1,0 +1,193 @@
+{
+    "id": "myklebust-funnet",
+    "title": "Skipet som ble brent",
+    "description": "Historien om Vestlandets mektigste vikingdynasti, en spektakulær skipsbegravelse og arkeologenes jakt på svarene.",
+    "image": "/images/lessons/vikingtiden/myklebust-hero.png",
+    "tags": [
+        "vikingtiden",
+        "arkeologi",
+        "myklebust",
+        "ritualer"
+    ],
+    "createdDate": "2026-01-31T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "content": "Skipet som ble brent"
+        },
+        {
+            "type": "text",
+            "content": "Mens Osebergskipet ble gravd ned og bevart for ettertiden, valgte høvdingene på Nordfjordeid en annen vei: De brant skipet i en spektakulær seremoni. Myklebustfunnet er historien om et dynasti som ville vise sin makt gjennom ild, og om arkeologene som i 150 år har forsøkt å forstå hvorfor."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Kort om Myklebustfunnet",
+                "items": [
+                    {
+                        "label": "Sted",
+                        "value": "Nordfjordeid, Vestland"
+                    },
+                    {
+                        "label": "Datering",
+                        "value": "Ca. 870 e.Kr."
+                    },
+                    {
+                        "label": "Skip",
+                        "value": "Myklebustskipet (ca. 30 meter langt)"
+                    },
+                    {
+                        "label": "Spesielt",
+                        "value": "Norges største brente skipshaug"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Maktsenteret i nord"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå Myklebust, må vi se bakover i tid. Funnene på Evebø og Mardal i Gloppen viser at et mektig dynasti etablerte seg i regionen allerede på 400-tallet. Den såkalte «Evebø-høvdingen» ble gravlagt i en drakt dekorert med fabeldyr (ofte tolket som løver), noe som vitner om kontakter langt utenfor Norges grenser – kanskje helt til Romerriket eller Bysants."
+        },
+        {
+            "type": "text",
+            "content": "På et tidspunkt flyttet dette maktsenteret seg til Nordfjordeid. Her, strategisk plassert som et veikryss for handel og ferdsel, reiste de Karnilshaugen – Vestlandets største gravhaug. Den ruver 12 meter over bakken og er plassert slik at solen kun treffer den ved vintersolverv, et fenomen som neppe er tilfeldig."
+        },
+        {
+            "type": "header",
+            "content": "Arkeologenes jakt: 1874 – 2024"
+        },
+        {
+            "type": "text",
+            "content": "I 1874 kom Anders Lorange, Bergens Museums første arkeolog, til Nordfjordeid. Han gravde i «Rundehåjen» og gjorde spektakulære funn, men metodene var grove etter dagens standard. Han etterlot seg dagbøker og – som en eksentrisk hilsen til fremtiden – flaskeposter i sjaktene."
+        },
+        {
+            "type": "image",
+            "url": "/images/lessons/vikingtiden/myklebust-utgravning.jpg",
+            "caption": "Sjakten gjennom gravhaugen: Slik ser det ut når arkeologene åpner historiens lag."
+        },
+        {
+            "type": "image",
+            "url": "/images/lessons/vikingtiden/lorange-flaskepost.png",
+            "caption": "Hilsen fra 1874: Anders Lorange la igjen en beskjed på latin i en flaske, som en tidskapsel til fremtidens finnere."
+        },
+        {
+            "type": "component",
+            "component": "Comparison",
+            "props": {
+                "title": "Arkeologi før og nå",
+                "before": {
+                    "label": "1874 (Anders Lorange)",
+                    "content": "Spade og sjaktgraving. Fokus på gjenstander. Store inngrep i terrenget. Ingen dokumentasjon av jordlag."
+                },
+                "after": {
+                    "label": "2024 (UiB/Morten Ramstad)",
+                    "content": "Georadar og mikroskopi. Fokus på kontekst og landskap. Ikke-inngripende metoder (sjekker 'uten å røre'). 3D-modellering."
+                }
+            }
+        },
+        {
+            "type": "text",
+            "content": "I 2024 vendte et team fra UiB tilbake, ledet av Morten Ramstad. Ved hjelp av georadar kunne de 'se' ned i jorden uten å grave. De fant spor etter en vollgrav rundt haugen – et fysisk skille mellom de levendes og de dødes verden. De fant også over 1000 skipsnagler, nok til å bekrefte at skipet var enormt, sannsynligvis større enn både Oseberg og Gokstad."
+        },
+        {
+            "type": "header",
+            "content": "Det store ildritualet"
+        },
+        {
+            "type": "text",
+            "content": "Hvorfor brenne et slikt praktskip? Svaret ligger i ritualene. Brenningen var ikke bare en destruksjon, men en transformasjon. Røyken skulle bære den døde høvdingen til dødsriket. Dette var en *performance* – et teaterstykke for de levende, designet for å sjokkere og imponere."
+        },
+        {
+            "type": "component",
+            "component": "QuoteBlock",
+            "props": {
+                "author": "Ibn Fadlan (921 e.Kr.)",
+                "source": "Beskrivelse av en vikingbegravelse ved Volga",
+                "quote": "Dere arabere er dumme... Dere tar den dere elsker mest og kaster ham i jorden, hvor krypdyr og ormer spiser ham. Vi brenner ham på et øyeblikk, så han farer umiddelbart til paradiset."
+            }
+        },
+        {
+            "type": "text",
+            "content": "I asken fant Lorange en keltisk bronsekjele, fylt med brente bein, skjoldbuler og en pilspiss. Kjelen var opprinnelig en hellig gjenstand fra et irsk kloster, nå brukt som urne for en norrøn krigerhøvding. Det ble også funnet bevisst ødelagte våpen – 'drept' for å følge eieren over i den andre verden."
+        },
+        {
+            "type": "header",
+            "content": "Gravene og dynastiet"
+        },
+        {
+            "type": "text",
+            "content": "Myklebust er ikke én grav, men et felt med fem. Her hviler generasjoner av et dynasti som styrte fjorden i over 200 år."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Hvem ligger begravd?",
+                "items": [
+                    {
+                        "label": "Haug 1 (Myklebustskipet)",
+                        "value": "En mektig mann, trolig 'King Audbjørn' som falt i 863."
+                    },
+                    {
+                        "label": "Haug 3 (Sjøatippen)",
+                        "value": "Seks graver, inkludert en mann kremert i båt med 8 skjold."
+                    },
+                    {
+                        "label": "Haug 5",
+                        "value": "Dobbeltgrav. En mann med Ulfberht-sverd og en kvinne med perler fra Midtøsten."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Dynastiets fall"
+        },
+        {
+            "type": "text",
+            "content": "Rundt år 870 slutter sporene brått. Hva skjedde? Svaret er trolig Harald Hårfagre. I slaget ved Solskjel i 863 falt kongen av Fjordane. Mange av vestlandshøvdingene nektet å underkaste seg Haralds nye sentralmakt og valgte heller å utvandre. Det er sannsynlig at etterkommerne av Myklebust-dynastiet var blant dem som satte seil vestover – til Island."
+        },
+        {
+            "type": "component",
+            "component": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva skiller Myklebustskipet fra Osebergskipet?",
+                        "options": [
+                            "Det var laget av eik",
+                            "Det ble brent i en seremoni",
+                            "Det ble senket i sjøen",
+                            "Det hadde ingen seil"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva avslørte georadar-undersøkelsene i 2024?",
+                        "options": [
+                            "En gullskatt",
+                            "En vollgrav rundt haugen",
+                            "Et nytt skip",
+                            "Ingenting"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hvem beskrev brenningen av et vikingskip ved Volga?",
+                        "options": [
+                            "Snorre Sturlason",
+                            "Anders Lorange",
+                            "Ibn Fadlan",
+                            "Harald Hårfagre"
+                        ],
+                        "correctAnswer": 2
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1067,6 +1067,40 @@
       ]
     },
     {
+      "id": "myklebust-skipet",
+      "title": "Myklebust-skipet brennes",
+      "description": "En spektakulær begravelse der Norges største vikingskip brennes i en haug på Nordfjordeid.",
+      "startDate": 850,
+      "endDate": null,
+      "displayDate": "ca. 850",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "vikingtiden",
+      "link": "/historie/vikingtiden/myklebust-funnet",
+      "tags": [
+        "vikingtiden",
+        "arkeologi",
+        "ritualer"
+      ]
+    },
+    {
+      "id": "slaget-ved-solskjel",
+      "title": "Slaget ved Solskjel",
+      "description": "Maktkampen om Vestlandet: Kong Audbjørn av Fjordane faller mot Harald Hårfagre.",
+      "startDate": 863,
+      "endDate": null,
+      "displayDate": "863",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "vikingtiden",
+      "link": "/historie/vikingtiden/myklebust-funnet",
+      "tags": [
+        "vikingtiden",
+        "krig",
+        "rikssamlingen"
+      ]
+    },
+    {
       "id": "veien-mot-ost",
       "title": "Veien mot æ˜st",
       "description": "Mens norske og danske vikinger dro vestover, dro svenskene østover. De grunnla Russland.",

@@ -2257,6 +2257,19 @@
                             "lastUpdated": "2025-12-22T20:25:00Z"
                         },
                         {
+                            "id": "myklebust-funnet",
+                            "title": "Skipet som ble brent",
+                            "description": "Historien om Vestlandets mektigste vikingdynasti og en spektakulær skipsbegravelse.",
+                            "image": "/images/lessons/vikingtiden/myklebust-hero.png",
+                            "tags": [
+                                "vikingtiden",
+                                "arkeologi",
+                                "ritualer",
+                                "norge"
+                            ],
+                            "createdDate": "2026-01-31T12:00:00Z"
+                        },
+                        {
                             "id": "samfunn-og-rett",
                             "title": "Samfunn og Rett",
                             "description": "Vikingtiden handlet om mer enn krig. Det var et samfunn med strenge lover og ære.",
