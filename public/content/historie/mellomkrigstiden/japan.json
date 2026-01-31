@@ -23,6 +23,12 @@
             "text": "1910- og 1920-tallet – Taishō-perioden – var Japans eksperiment med liberal demokrati. Politiske partier styrte. Pressen var fri. Arbeiderbevegelsen organiserte seg. Kvinner begynte å kreve rettigheter. «Modan gāru» (modern girl) – den selvstendige, vestlig kledde japanske kvinnen – ble et symbol på endring."
         },
         {
+            "type": "image",
+            "src": "/images/mellomkrigstiden/japan_ginza.png",
+            "caption": "Ginza-distriktet i Tokyo på 1920-tallet var sentrum for den nye, vestlige livsstilen. Lysreklamer, biler og 'modan gāru' preget gatebildet.",
+            "alt": "Mennesker og biler i Ginza-distriktet under Taishō-demokratiet."
+        },
+        {
             "type": "paragraph",
             "text": "Men demokratiet hadde sine grenser. Kun de rikeste hadde stemmerett frem til 1925. Keiseren forble symbolsk hellig. Og militæret – hæren og marinen – sto utenfor sivil kontroll. Ifølge grunnloven rapporterte generalene direkte til keiseren, ikke til statsministeren."
         },
@@ -59,6 +65,12 @@
         {
             "type": "paragraph",
             "text": "Mandsjuria-hendelsen viste militærets makt. Ingen ble straffet. Tvert imot ble offiserene hyllet som helter. Regjeringen, fanget av nasjonalistisk opinion, godkjente invasjonen i etterkant. Da Folkeforbundet fordømte Japan, meldte Japan seg ut."
+        },
+        {
+            "type": "image",
+            "src": "/images/mellomkrigstiden/japan_manchuria.png",
+            "caption": "Japanske soldater på patrulje langs jernbanelinjen i Mandsjuria, 1931. Det kalde landskapet ble åstedet for den første store aggressive handlingen som ledet mot verdenskrigen.",
+            "alt": "Japanske soldater i vinterlandskap i Mandsjuria."
         },
         {
             "type": "FactBox",
@@ -109,27 +121,33 @@
             "events": [
                 {
                     "year": "1931",
-                    "event": "Mandsjuria invaderes. Folkeforbundet fordømmer Japan."
+                    "title": "Mandsjuria invaderes",
+                    "description": "Japanske offiserer iscenesatte sabotasje for å rettferdiggjøre okkupasjon. Folkeforbundets fordømmelse førte til internasjonal isolasjon."
                 },
                 {
                     "year": "1933",
-                    "event": "Japan melder seg ut av Folkeforbundet."
+                    "title": "Utmelding av Folkeforbundet",
+                    "description": "Som svar på Lytton-rapportens kritikk av Mandsjuria-okkupasjonen, valgte Japan å forlate det internasjonale samfunnet."
                 },
                 {
                     "year": "1936",
-                    "event": "26. februar-kuppet. Militærets dominans bekreftet."
+                    "title": "26. februar-hendelsen",
+                    "description": "Et mislykket kuppforsøk fra radikale offiserer endte paradoksalt med å styrke militærets jerngrep over sivil politikk."
                 },
                 {
                     "year": "1937",
-                    "event": "Invasjonen av Kina. Nanjing-massakren."
+                    "title": "Fullskala krig mot Kina",
+                    "description": "Etter Marco Polo-bro-hendelsen eskalerte konflikten. Erobringen av Nanjing førte til brutale massakrer mot sivilbefolkningen."
                 },
                 {
                     "year": "1940",
-                    "event": "Japan slutter seg til Aksemaktene (Tyskland, Italia)."
+                    "title": "Trepakt-avtalen",
+                    "description": "Japan formaliserte alliansen med Tyskland og Italia, og knyttet sin skjebne til Aksemaktene i Europa."
                 },
                 {
                     "year": "1941",
-                    "event": "Angrepet på Pearl Harbor. Japan er i krig med USA."
+                    "title": "Angrepet på Pearl Harbor",
+                    "description": "Japan angrep USAs stillehavsflåte for å sikre dominans i Asia, noe som trakk USA inn i andre verdenskrig."
                 }
             ]
         },
@@ -150,6 +168,12 @@
         {
             "type": "paragraph",
             "text": "Admiral Isoroku Yamamoto – ironisk nok en mann som advarte mot krig med USA – planla et dristig slag: ødelegge den amerikanske Stillehavsflåten ved Pearl Harbor i Hawaii, og gi Japan tid til å bygge et uinntagelig imperium før amerikanerne kunne slå tilbake."
+        },
+        {
+            "type": "image",
+            "src": "/images/mellomkrigstiden/japan_pearl_harbor.png",
+            "caption": "Kido Butai – den japanske hangarskipsflåten – gjør seg klar til angrep ved daggry i desember 1941. Zero-flyene på dekket skulle snart endre historiens gang.",
+            "alt": "Japanske Zero-fly på dekket av et hangarskip før angrepet på Pearl Harbor."
         },
         {
             "type": "paragraph",

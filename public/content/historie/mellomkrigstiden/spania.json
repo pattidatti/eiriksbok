@@ -118,23 +118,28 @@
             "events": [
                 {
                     "year": "1931",
-                    "event": "Den andre spanske republikk utropet."
+                    "title": "Den andre spanske republikk",
+                    "description": "Republikken blir utropet etter at kongen flykter."
                 },
                 {
                     "year": "1936",
-                    "event": "Folkefronten vinner valget. Militærkupp i juli. Borgerkrigen starter."
+                    "title": "Borgerkrigen bryter ut",
+                    "description": "Folkefronten vinner valget. Militærkupp i juli utløser den spanske borgerkrigen."
                 },
                 {
                     "year": "1937",
-                    "event": "Guernica bombes. Bataljonene i Jarama og Brunete."
+                    "title": "Guernica bombes",
+                    "description": "Tyske fly bomber byen Guernica. Harde kamper ved Jarama og Brunete."
                 },
                 {
                     "year": "1938",
-                    "event": "Ebro-offensiven – republikkens siste store fremstøt."
+                    "title": "Ebro-offensiven",
+                    "description": "Republikkens siste store militære fremstøt mislykkes."
                 },
                 {
                     "year": "1939",
-                    "event": "Barcelona og Madrid faller. Franco erklærer seier."
+                    "title": "Francos seier",
+                    "description": "Barcelona og Madrid faller. Franco erklærer krigen for avsluttet."
                 }
             ]
         },

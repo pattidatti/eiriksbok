@@ -2041,7 +2041,7 @@
     [
       "tyskland",
       {
-        "count": 131,
+        "count": 132,
         "sources": [
           "Geopolitikk og Opptakt: Veien mot stupet",
           "Konsekvenser: En delt verden",
@@ -2078,6 +2078,7 @@
           "Norge før vikingene",
           "30-årskrigen: Europa i flammer",
           "Karl den Store: Europas Far",
+          "Skipet som ble brent",
           "Pliktetikk",
           "Hannah Arendt",
           "Nasjonalromantikken: Da Norge fant sin sjel",
@@ -8731,22 +8732,6 @@
       }
     ],
     [
-      "Slaget",
-      {
-        "count": 9,
-        "sources": [
-          "Krigens løp: Fra lynkrig til ragnarok",
-          "Andre verdenskrig: En oversikt",
-          "Teknologi: Våpenkappløp og innovasjon",
-          "Krigens løp: Fra bevegelse til stillstand",
-          "Hanseatene: Kjøpmennene som formet Norge og Europa gjennom tørrfisk, makt og språk",
-          "Fra republikk til keiserdømme: Augustus",
-          "Kristningen og Vikingtidens Slutt",
-          "Rikssamlingen: Da Norge ble ett"
-        ]
-      }
-    ],
-    [
       "Haiti",
       {
         "count": 9,
@@ -8827,6 +8812,20 @@
           "Europa erobrer verden",
           "Sovjetunionen: Stalins jernhånd",
           "Migrasjon: Hvorfor drar vi?"
+        ]
+      }
+    ],
+    [
+      "Sentral",
+      {
+        "count": 9,
+        "sources": [
+          "Konsekvenser: Et nytt Europa",
+          "Det hellige romerske rike",
+          "Middelalderen: En tusenårig forvandling",
+          "Norge før vikingene",
+          "Handel og Silkeveien",
+          "Stormen fra Øst: Det Mongolske Riket"
         ]
       }
     ]

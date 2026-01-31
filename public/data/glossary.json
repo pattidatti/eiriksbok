@@ -1544,6 +1544,19 @@
     "link": "/historie/antikken/princeps-til-guds-utvalgte"
   },
   {
+    "id": "bartolomeus-voet",
+    "name": "Bartolomeus Voet",
+    "type": "person",
+    "description": "Leder for Vitaliebrødrene, en beryktet piratgruppe som herjet i Nordsjøen og Østersjøen. Han ledet det voldsomme angrepet på Bergen i 1429, der store deler av byen ble brent ned.",
+    "tags": [
+      "middelalderen",
+      "hanseatene",
+      "pirater",
+      "vitaliebrødrene"
+    ],
+    "term": "Bartolomeus Voet"
+  },
+  {
     "term": "Birger Jarl",
     "definition": "Svensk jarl og statsmann på 1200-tallet. Han regnes som grunnleggeren av Stockholm og arkitekten bak et samlet svensk riksstyre gjennom sine 'fridlover'.",
     "type": "person",

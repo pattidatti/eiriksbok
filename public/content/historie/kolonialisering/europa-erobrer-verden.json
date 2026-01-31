@@ -59,24 +59,6 @@
             ]
         },
         {
-            "type": "comparison",
-            "title": "Koloniseringsmodeller",
-            "items": [
-                {
-                    "title": "Spania/Portugal",
-                    "description": "Direkte kongelig styre, fokus på utvinning av gull/sølv og religiøs konvertering."
-                },
-                {
-                    "title": "Nederland/Storbritannia",
-                    "description": "Drevet av private handelskompanier (VOC/EIC) with fokus på profitt, monopol og handelstasjoner."
-                },
-                {
-                    "title": "Frankrike",
-                    "description": "Blanding av pelshandel, militære utposter og et sterkt ønske om kulturell spredning (Mission Civilisatrice)."
-                }
-            ]
-        },
-        {
             "type": "header",
             "content": "Prolog: En verden som krymper"
         },
@@ -113,12 +95,24 @@
             "content": "I tillegg til skipene kom innovasjoner innen navigasjon og krigføring. Bruken av astrolabiet og sekstanten gjorde det mulig å beregne breddegrad ved hjelp av stjernene, mens kompasset ga retning selv i tåke. Men det kanskje viktigste fortrinnet var kanonene. Europeerne lærte seg å støpe jern- og bronsekanoner som kunne plasseres i skipssidene og avfyres som samlede bredsider. Dette gjorde europeiske skip til flytende festninger. Da de portugisiske skipene nådde det indiske hav, oppdaget de at de lokale handelsskipene nesten helt manglet forsvarsvåpen. Europa hadde ikke nødvendigvis de beste varene å selge, men de hadde de mest effektive våpnene å true med."
         },
         {
+            "type": "image",
+            "src": "/images/historie/kolonialisering/portugisisk-karavell.png",
+            "caption": "En portugisisk karavell, skipstypen som muliggjorde de lange reisene over Atlanterhavet.",
+            "alt": "Realistisk bilde av en karavell i storm"
+        },
+        {
             "type": "header",
             "content": "Pionerene: Spania og Portugal"
         },
         {
             "type": "text",
             "content": "De første som virkelig delte verden mellom seg, var de to katolske naboene på den iberiske halvøy: [Det spanske imperiet](/historie/kolonialisering/spansk-kolonialisering) og [Portugal](/historie/kolonialisering/portugisisk-kolonialisering). Spenningen mellom dem var så stor at paven måtte gripe inn. Gjennom Tordesillas-traktaten i 1494 ble det trukket en linje tvers gjennom Atlanterhavet. Alt som ble oppdaget vest for linjen skulle tilhøre Spania, og alt øst for den skulle tilhøre Portugal. Dette var en av historiens mest arrogante handlinger – to nasjoner som satte seg ned og delte en verden de knapt kjente, seg imellom."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/kolonialisering/tordesillas-traktaten.png",
+            "caption": "Tordesillas-traktaten (1494) delte verden mellom to supermakter, Spania og Portugal, med pavens velsignelse.",
+            "alt": "Maleri som viser signeringen av Tordesillas-traktaten"
         },
         {
             "type": "text",
@@ -149,6 +143,12 @@
             "content": "Prosessen var industriell i sitt omfang. Skip dro fra europeiske havner som Bristol, Nantes og København lastet med tekstiler, rom og geværer. I Afrika ble disse varene byttet mot fanger som var tatt i kriger mellom afrikanske kongedømmer. Deretter fulgte 'Mellompassasjen' – den marerittaktige reisen over Atlanterhavet der millioner av afrikanere ble stuet sammen i mørke og skitt under skipsdekkene. De som overlevde reisen, ble solgt som varer i Amerika og tvunget til å jobbe til de døde på sukker- og tobakksplantasjer. Varene de produserte ble sendt tilbake til Europa og solgt med enorm profitt. Denne slaveøkonomien var selve drivstoffet i den gryende globale kapitalismen, men den etterlot seg dype sår i både Afrika og Amerika som aldri har sluttet å blø."
         },
         {
+            "type": "image",
+            "src": "/images/historie/kolonialisering/trekanthandelen-havn.png",
+            "caption": "Havner i Europa ble knutepunkter i trekanthandelen, der varer og mennesker ble byttet med enorm profitt.",
+            "alt": "Havn i solnedgang med skip og handelsvarer"
+        },
+        {
             "type": "header",
             "content": "Ideologi og sivilisasjonsoppdraget"
         },
@@ -174,7 +174,25 @@
         },
         {
             "type": "component",
-            "name": "ColonialGovernance"
+            "component": "FactBox",
+            "props": {
+                "title": "Koloniseringsmodeller",
+                "variant": "grid",
+                "items": [
+                    {
+                        "label": "Spania/Portugal",
+                        "value": "Direkte kongelig styre, fokus på utvinning av gull/sølv og religiøs konvertering."
+                    },
+                    {
+                        "label": "Nederland/Storbritannia",
+                        "value": "Drevet av private handelskompanier (VOC/EIC) med fokus på profitt, monopol og handelstasjoner."
+                    },
+                    {
+                        "label": "Frankrike",
+                        "value": "Blanding av pelshandel, militære utposter og et sterkt ønske om kulturell spredning (Mission Civilisatrice)."
+                    }
+                ]
+            }
         },
         {
             "type": "header",
@@ -239,6 +257,12 @@
         {
             "type": "text",
             "content": "Samtidig ga industrien europeerne verktøyene de trengte for å erobre områder som tidligere hadde vært utilgjengelige. Dampmaskinen gjorde at skip kunne seile oppover de store afrikanske elvene som Niger og Kongo. Telegrafen gjorde at en kommando fra London eller Paris kunne nå en offiser i India på timer i stedet for måneder. Og kanskje viktigst av alt: Oppdagelsen av kinin gjorde det mulig for europeere å overleve malaria, den 'hvite manns grav' i Afrika. Kombinasjonen av moderne medisin, telegrafen og maskingeværet (Maxim-gun) gjorde at en liten gruppe europeiske soldater kunne kontrollere millioner av mennesker."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/kolonialisering/industriell-havn.png",
+            "caption": "Det industrielle London på slutten av 1800-tallet, sentrum for verdens største imperium.",
+            "alt": "Industriell havn i London med dampskip"
         },
         {
             "type": "header",
