@@ -75,23 +75,28 @@
             "events": [
                 {
                     "year": "1919",
-                    "event": "Mussolini grunnlegger fascistbevegelsen."
+                    "title": "Fascismens fødsel",
+                    "description": "Mussolini stifter «Kampgruppene» (Fasci Italiani di Combattimento) i Milano, med en eksplosiv blanding av nasjonalisme og sosialistisk retorikk."
                 },
                 {
                     "year": "1920",
-                    "event": "Squadristi angriper sosialistiske organisasjoner."
+                    "title": "Svartskjortenes terror",
+                    "description": "Fascistiske «squadristi» angriper fagforeninger, aviser og sosialister over hele landet mens myndighetene ser en annen vei."
                 },
                 {
                     "year": "1922",
-                    "event": "Marsjen mot Roma. Mussolini blir statsminister."
+                    "title": "Marsjen mot Roma",
+                    "description": "Mussolini truer med statskupp. Kongen nekter å bruke hæren og utnevner i stedet Mussolini til statsminister."
                 },
                 {
                     "year": "1924",
-                    "event": "Mordet på Matteotti. Krisen brukes til å ta full kontroll."
+                    "title": "Matteotti-affæren",
+                    "description": "Sosialistlederen Giacomo Matteotti myrdes av fascister etter å ha avslørt valgfusk. Regjeringen vakler, men opposisjonen klarer ikke å samle seg."
                 },
                 {
                     "year": "1925",
-                    "event": "Mussolini erklærer seg diktator."
+                    "title": "Diktaturet er et faktum",
+                    "description": "Mussolini tar ansvar for Matteottis død og innfører lover som forbyr opposisjonspartier. Han er nå ubestridt «Il Duce»."
                 }
             ]
         },

@@ -95,23 +95,28 @@
             "events": [
                 {
                     "year": "1920",
-                    "event": "Forbudstiden begynner. Radioen blir allemannseie."
+                    "title": "Forbudstiden starter",
+                    "description": "Det 18. grunnlovstillegget trer i kraft og forbyr alkohol. Samtidig eksploderer radiolytter-tallene og binder nasjonen sammen kulturelt."
                 },
                 {
                     "year": "1927",
-                    "event": "Charles Lindbergh flyr alene over Atlanterhavet."
+                    "title": "Lindbergh krysser Atlanteren",
+                    "description": "Charles Lindberghs soloflyvning fra New York til Paris blir et globalt symbol på teknologisk optimisme og individuelt heltemot."
                 },
                 {
                     "year": "1929",
-                    "event": "Børskrakket 29. oktober – Black Tuesday."
+                    "title": "Børskrakket",
+                    "description": "Wall Street kollapser på «Black Tuesday». Formuer fordamper, og verden kastes ut i den store depresjonen."
                 },
                 {
                     "year": "1932",
-                    "event": "Arbeidsløsheten når 25%. Franklin D. Roosevelt velges."
+                    "title": "Roosevelt velges",
+                    "description": "Midt i en tid med 25% arbeidsløshet, vinner Franklin D. Roosevelt valget med løfte om handling og håp."
                 },
                 {
                     "year": "1933",
-                    "event": "FDR innfører The New Deal. Forbudstiden oppheves."
+                    "title": "The New Deal",
+                    "description": "FDR lanserer sin massive reformpakke for å redde økonomien, og forbudstiden tar slutt."
                 }
             ]
         },

@@ -100,27 +100,33 @@
             "events": [
                 {
                     "year": "1919",
-                    "event": "Weimar-grunnloven vedtas. Spartakistopprøret knuses."
+                    "title": "Weimar-republikken fødes",
+                    "description": "En ny demokratisk grunnlov vedtas i byen Weimar. Samtidig slås kommunistiske opprør i Berlin brutalt ned, noe som splitter venstresiden."
                 },
                 {
                     "year": "1923",
-                    "event": "Hyperinflasjon. Hitlers ølhallkupp mislykkes."
+                    "title": "Kriseåret",
+                    "description": "Hyperinflasjonen gjør pengene verdiløse. Hitler forsøker statskupp i München (ølhallkuppet), men mislykkes og havner i fengsel."
                 },
                 {
                     "year": "1925",
-                    "event": "Hindenburg velges til president."
+                    "title": "Hindenburg blir president",
+                    "description": "Krigsherren fra første verdenskrig, Paul von Hindenburg, velges til statsoverhode. Det markerer en konservativ dreining for republikken."
                 },
                 {
                     "year": "1929",
-                    "event": "Wall Street-krakket. Massearbeidsløshet begynner."
+                    "title": "Den store depresjonen",
+                    "description": "Økonomisk kollaps i USA treffer Tyskland hardt. Amerikanske lån trekkes tilbake, og arbeidsløsheten skyter i været."
                 },
                 {
                     "year": "1932",
-                    "event": "NSDAP blir Tysklands største parti."
+                    "title": "Nazistenes gjennombrudd",
+                    "description": "NSDAP blir største parti i Riksdagen. Det politiske systemet er lammet, og gatene preges av voldelige sammenstøt."
                 },
                 {
                     "year": "1933",
-                    "event": "Hitler utnevnes til rikskansler."
+                    "title": "Hitler tar makten",
+                    "description": "Hindenburg utnevner Hitler til kansler 30. januar. Demokratiet avvikles raskt gjennom terror og fullmaktslover."
                 }
             ]
         },

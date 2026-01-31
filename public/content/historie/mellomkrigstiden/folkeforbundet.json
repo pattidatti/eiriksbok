@@ -119,27 +119,33 @@
             "events": [
                 {
                     "year": "1920",
-                    "event": "Folkeforbundet grunnlegges – uten USA."
+                    "title": "Folkeforbundet grunnlegges – uten USA",
+                    "description": "Organisasjonen etableres offisielt med hovedsete i Genève. Til tross for at president Woodrow Wilson var arkitekten bak ideen, stemte det amerikanske senatet imot medlemskap, noe som svekket forbundet fra første dag."
                 },
                 {
                     "year": "1926",
-                    "event": "Tyskland blir medlem."
+                    "title": "Tyskland blir medlem",
+                    "description": "Etter å ha vist vilje til forsoning gjennom Locarno-traktaten, ble Tyskland ønsket velkommen som medlem med fast plass i Rådet. Dette ble sett på som et stort steg mot normalisering av forholdene i Europa."
                 },
                 {
                     "year": "1931",
-                    "event": "Japan invaderer Mandsjuria – ingen konsekvenser."
+                    "title": "Japan invaderer Mandsjuria – ingen konsekvenser",
+                    "description": "Japan, en av stormaktene i Rådet, okkuperte den kinesiske provinsen Mandsjuria. Folkeforbundet sendte en kommisjon for å undersøke, men maktet ikke å tvinge Japan til å trekke seg tilbake, noe som avslørte organisasjonens maktesløshet."
                 },
                 {
                     "year": "1933",
-                    "event": "Japan og Tyskland melder seg ut."
+                    "title": "Japan og Tyskland melder seg ut",
+                    "description": "Etter at Folkeforbundet kritiserte invasjonen av Mandsjuria, forlot Japan organisasjonen i protest. Kort tid etter meldte også Hitler-Tyskland seg ut for å kunne ruste opp militæret uten internasjonal innblanding."
                 },
                 {
                     "year": "1935",
-                    "event": "Italia invaderer Abessinia – mislykkede sanksjoner."
+                    "title": "Italia invaderer Abessinia – mislykkede sanksjoner",
+                    "description": "Mussolini beordret invasjonen av Etiopia (Abessinia). Folkeforbundet innførte økonomiske sanksjoner, men unnlot å stenge Suezkanalen eller stoppe oljeeksporten, noe som gjorde tiltakene virkningsløse."
                 },
                 {
                     "year": "1939",
-                    "event": "Andre verdenskrig begynner. Folkeforbundet er irrelevant."
+                    "title": "Andre verdenskrig begynner",
+                    "description": "Da Hitler invaderte Polen og startet andre verdenskrig, var Folkeforbundet i praksis dødt. Organisasjonen hadde feilet i sitt hovedoppdrag om å forhindre en ny verdenskrig, og all aktivitet ble innstilt."
                 }
             ]
         },

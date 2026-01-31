@@ -107,23 +107,28 @@
             "events": [
                 {
                     "year": "1920",
-                    "event": "Paripolitikken innføres. Økonomisk krise begynner."
+                    "title": "Paripolitikken",
+                    "description": "Norges Bank starter den harde kuren for å gjeninnføre kronens gullverdi. Dette fører til deflasjon, gjeldskrise og mange konkurser."
                 },
                 {
                     "year": "1927",
-                    "event": "Arbeiderpartiet bryter med Komintern."
+                    "title": "Moskva-bruddet",
+                    "description": "Arbeiderpartiet bryter endelig med den kommunistiske internasjonale (Komintern) og velger en nasjonal, reformistisk kurs."
                 },
                 {
                     "year": "1931",
-                    "event": "Menstad-slaget. Klassekampen når sitt klimaks."
+                    "title": "Menstad-slaget",
+                    "description": "Streikende arbeidere og statspoliti støter sammen ved Menstad. Det blir stående som mellomkrigstidens mest dramatiske klassekamp."
                 },
                 {
                     "year": "1933",
-                    "event": "Nasjonal Samling stiftes. Arbeidsløsheten på topp."
+                    "title": "Nasjonal Samling stiftes",
+                    "description": "Vidkun Quisling stifter sitt fascistparti inspirert av Hitler og Mussolini, men partiet forblir marginalt i norske valg."
                 },
                 {
                     "year": "1935",
-                    "event": "Kriseforliket. Arbeiderpartiet danner regjering."
+                    "title": "Det historiske kriseforliket",
+                    "description": "Arbeiderpartiet og Bondepartiet inngår et kompromiss som sikrer flertallsregjering. Dette legger grunnlaget for den norske velferdsstaten."
                 }
             ]
         },

@@ -123,23 +123,28 @@
             "events": [
                 {
                     "year": "1916",
-                    "event": "Sykes-Picot-avtalen inngås i hemmelighet."
+                    "title": "Sykes-Picot-avtalen",
+                    "description": "Storbritannia og Frankrike inngår en hemmelig avtale om å dele de osmanske områdene i Midtøsten mellom seg etter krigen."
                 },
                 {
                     "year": "1917",
-                    "event": "Balfour-erklæringen støtter et jødisk hjemland."
+                    "title": "Balfour-erklæringen",
+                    "description": "Den britiske utenriksministeren lover støtte til et «jødisk nasjonalhjem» i Palestina, noe som legger grunnlag for fremtidig konflikt."
                 },
                 {
                     "year": "1920",
-                    "event": "Mandatsystemet etableres. Opprør i Irak."
+                    "title": "Mandatene fordeles",
+                    "description": "Folkeforbundet gir formelt Frankrike og Storbritannia kontroll over regionen. I Irak og Syria bryter det ut opprør mot de nye herrene."
                 },
                 {
                     "year": "1925",
-                    "event": "Det store syriske opprøret mot fransk styre."
+                    "title": "Opprør i Syria",
+                    "description": "Det store syriske opprøret mot det franske mandatstyret starter. Franskmennene svarer med å bombe Damaskus."
                 },
                 {
                     "year": "1936",
-                    "event": "Det arabiske opprøret i Palestina begynner."
+                    "title": "Palestina-opprøret",
+                    "description": "Arabere i Palestina gjør væpnet opprør mot britisk styre og økende jødisk innvandring. Konflikten varer i tre blodige år."
                 }
             ]
         },
