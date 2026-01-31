@@ -43,10 +43,36 @@ export const useManifestData = () => {
                         });
                     };
 
+                    const processTools = (toolList: any[], subTopicId?: string) => {
+                        toolList.forEach(t => {
+                            // Filter for learning paths
+                            // We treat tools that are learning paths as "lessons" for history/listing purposes
+                            if (t.id.includes('sti') || t.title.toLowerCase().includes('læringssti')) {
+                                lessons.push({
+                                    id: t.id,
+                                    title: t.title,
+                                    description: t.description || 'Læringssti',
+                                    subjectId: subject.id,
+                                    topicId: topic.id,
+                                    subTopicId,
+                                    topicTitle: topic.title,
+                                    layout: 'learning-path',
+                                    tags: ['Læringssti'],
+                                    // Use topic image as fallback if tool doesn't have specific image
+                                    image: t.image || t.icon || topic.image,
+                                    createdDate: new Date().toISOString() // Fallback date
+                                });
+                            }
+                        });
+                    };
+
                     if (topic.lessons) processLessons(topic.lessons);
+                    if (topic.tools) processTools(topic.tools);
+
                     if (topic.subTopics) {
                         topic.subTopics.forEach((st: any) => {
                             if (st.lessons) processLessons(st.lessons, st.id);
+                            if (st.tools) processTools(st.tools, st.id);
                         });
                     }
                 });
