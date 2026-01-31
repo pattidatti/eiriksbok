@@ -21,8 +21,9 @@
         },
         {
             "type": "image",
-            "url": "/images/lessons/vikingtiden/nordfjordeid-kart.png",
-            "caption": "Nordfjordeid: Et strategisk veikryss mellom fjorder og dalfører, der makten ble samlet."
+            "src": "/images/lessons/vikingtiden/nordfjordeid-kart.png",
+            "caption": "Nordfjordeid: Et strategisk veikryss mellom fjorder og dalfører, der makten ble samlet.",
+            "width": "50%"
         },
         {
             "type": "component",
@@ -46,20 +47,49 @@
             }
         },
         {
-            "type": "text",
-            "content": "Skipshaugen, som lokalt kalles Rundhøgjen, har i over et århundre ligget i skyggen av de mer berømte vikingskipene i Vestfold. Men nye undersøkelser i 2024, gjennomført av Universitetet i Bergen i samarbeid med Universitetet i Stavanger, bekrefter at Myklebustskipet var en formidabel gigant – kanskje det største vikingskipet som noen gang er funnet i Norge."
-        },
-        {
             "type": "header",
             "content": "Maktsenteret i nord"
         },
         {
             "type": "text",
-            "content": "For å forstå Myklebust, må vi se bakover i tid. Funnene på Evebø og Mardal i Gloppen viser at et mektig dynasti etablerte seg i regionen allerede på 400-tallet. Den såkalte «Evebø-høvdingen» ble gravlagt i en drakt dekorert med fabeldyr (ofte tolket som løver), noe som vitner om kontakter langt utenfor Norges grenser – kanskje helt til Romerriket eller Bysants."
+            "content": "For å forstå Myklebust, må vi se bakover i tid. Funnene på Evebø og Mardal i Gloppen viser at et mektig dynasti etablerte seg i regionen allerede på 400-tallet. Den såkalte «Evebø-høvdingen» ble gravlagt i en drakt dekorert med fabeldyr (ofte tolket som løver), noe som vitner om kontakter langt utenfor Norges grenser – kanskje helt til [Romerriket](/historie/romerriket) eller Bysants. Like utenfor Gloppen, finner vi Karnilshaugen – Vestlandets største gravhaug. Den er hele 80–90 meter i diameter, ruver 12 meter over bakken og er plassert slik at solen kun treffer den ved vintersolverv, et fenomen som neppe er tilfeldig."
         },
         {
             "type": "text",
-            "content": "På et tidspunkt flyttet dette maktsenteret seg til Nordfjordeid. Her, strategisk plassert som et veikryss for handel og ferdsel, reiste de Karnilshaugen – Vestlandets største gravhaug. Den er hele 80–90 meter i diameter, ruver 12 meter over bakken og er plassert slik at solen kun treffer den ved vintersolverv, et fenomen som neppe er tilfeldig."
+            "content": "På et tidspunkt flyttet dette maktsenteret seg til Nordfjordeid. Her, strategisk plassert som et veikryss for handel og ferdsel. Det ligger midt i fjorden, mellom fjordene, med Gloppen til sør, Stadt til vest og og dalføre til øst."
+        },
+        {
+            "type": "header",
+            "content": "Gravene og dynastiet"
+        },
+        {
+            "type": "text",
+            "content": "Myklebust er ikke én grav, men et felt med fem. Her hviler generasjoner av et dynasti som styrte fjorden i over 200 år."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Hvem ligger begravd?",
+                "items": [
+                    {
+                        "label": "Haug 1 (Myklebustskipet)",
+                        "value": "En mektig mann, trolig 'King Audbjørn' som falt i 863."
+                    },
+                    {
+                        "label": "Haug 3 (Sjøatippen)",
+                        "value": "Seks graver, inkludert en mann kremert i båt."
+                    },
+                    {
+                        "label": "Haug 5 - Volven?",
+                        "value": "Dobbeltgrav. Mann med Ulfberht-sverd ('med sjel, ulv og lys'). Kvinne med smykker fra Østen, tåring og et steikespidd."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "Haug 5 er kanskje den mest mystiske. Kvinnen som ligger her, ble gravlagt med et steikespidd. I vikingtidens symbolikk var slike spidd ofte knyttet til volver – spåkvinner som kunne se inn i fremtiden og øve seiðr (magi). Volvene brukte staver som lignet jernstenger eller spidd i sine ritualer. Sammen med tåringen og de eksotiske perlene, tegner dette bildet av en kvinne som var langt mer enn en husfrue; hun kan ha vært en åndelig leder for dynastiet."
         },
         {
             "type": "header",
@@ -67,52 +97,11 @@
         },
         {
             "type": "text",
-            "content": "Makten på Nordfjordeid strakte seg langt utover fjordene. I gravene er det funnet gjenstander som vitner om et nettverk som spente over kontinenter. Mest spektakulært er en tankering – en kvadratisk, åpen ramme i tre med skarpe 'tenner' på innsiden – som ellers bare er funnet i Afghanistan. At en så spesialisert gjenstand har reist fra Silkeveien til Nordfjordeid, forteller en utrolig historie om globale bånd."
+            "content": "Makten på Nordfjordeid strakte seg langt utover fjordene. I gravene er det funnet gjenstander som vitner om et nettverk som spente over kontinenter. Mest spektakulært er en tankering – en kvadratisk, åpen ramme i tre med skarpe 'tenner' på innsiden – som ellers bare er funnet i Afghanistan. At en så spesialisert gjenstand har reist fra [Silkeveien](/historie/romerriket/handel-og-silkeveien) til Nordfjordeid, forteller en utrolig historie om globale bånd."
         },
         {
             "type": "text",
             "content": "I asken lå også en keltisk bronsekjele, opprinnelig fra et irsk kloster. Kjelen er eldgammel, fra 400-500-tallet – flere århundrer før den ble lagt i graven som en urne. Dette var gjenstander med sjel og historie, kanskje arvestykker eller krigsbytte fra fjerne kyster."
-        },
-        {
-            "type": "header",
-            "content": "Arkeologenes jakt: 1874 – 2024"
-        },
-        {
-            "type": "text",
-            "content": "Den 5. oktober 1874 kom Anders Lorange til Nordfjordeid. Han gravde i det som i dag kalles Rundhøgjen og gjorde spektakulære funn, selv om han bare rakk å undersøke ca. en fjerdedel av haugen. Han etterlot seg dagbøker og – som en eksentrisk hilsen til fremtiden – flaskeposter i sjaktene."
-        },
-        {
-            "type": "text",
-            "content": "I dagboken beskrev Lorange hvordan han fant sverd, økser og spyd som var bevisst bøyd. Dette var ikke herverk, men et ritual: Våpnene ble 'drept' for at deres sjel skulle følge krigeren inn i etterlivet."
-        },
-        {
-            "type": "image",
-            "src": "/images/lessons/vikingtiden/myklebust-utgravning.jpg",
-            "caption": "Sjakten gjennom gravhaugen: Slik ser det ut når arkeologene åpner historiens lag."
-        },
-        {
-            "type": "image",
-            "src": "/images/lessons/vikingtiden/lorange-flaskepost.png",
-            "caption": "Hilsen fra 1874: Anders Lorange la igjen en beskjed på latin i en flaske, som en tidskapsel til fremtidens finnere."
-        },
-        {
-            "type": "component",
-            "component": "Comparison",
-            "props": {
-                "title": "Arkeologi før og nå",
-                "before": {
-                    "label": "1874 (Anders Lorange)",
-                    "content": "Spade og sjaktgraving. Fokus på gjenstander. Store inngrep i terrenget. Ingen dokumentasjon av jordlag."
-                },
-                "after": {
-                    "label": "2024 (UiB/Morten Ramstad)",
-                    "content": "Georadar og mikroskopi. Fokus på kontekst og landskap. Ikke-inngripende metoder (sjekker 'uten å røre'). 3D-modellering."
-                }
-            }
-        },
-        {
-            "type": "text",
-            "content": "I 2024 vendte et team fra UiB tilbake. Ved hjelp av georadar kunne de 'se' ned i jorden uten å grave. De fant spor etter en vollgrav rundt haugen, en flatmarksgrav og et produksjonsanlegg i nærheten. De nye utgravningene fulgte Loranges opprinnelige sjakt og avdekket over 500 nye skipsnagler. Sammen med de 600 naglene Lorange fant, bekrefter dette at skipet var enormt, med totalt flere tusen nagler skjult i haugen."
         },
         {
             "type": "header",
@@ -154,36 +143,56 @@
         },
         {
             "type": "header",
-            "content": "Gravene og dynastiet"
+            "content": "Dynastiets fall"
         },
         {
             "type": "text",
-            "content": "Myklebust er ikke én grav, men et felt med fem. Her hviler generasjoner av et dynasti som styrte fjorden i over 200 år."
+            "content": "Rundt år 870 slutter sporene brått. Hva skjedde? Svaret er trolig Harald Hårfagre. I slaget ved Solskjel i 863 falt kongen av Fjordane. Mange av vestlandshøvdingene nektet å underkaste seg Haralds nye sentralmakt og valgte heller å utvandre. Det er sannsynlig at etterkommerne av Myklebust-dynastiet var blant dem som satte seil vestover – til Island."
+        },
+        {
+            "type": "header",
+            "content": "Arkeologenes jakt: 1874 – 2024"
+        },
+        {
+            "type": "text",
+            "content": "Skipshaugen, som lokalt kalles Rundhøgjen, har i over et århundre ligget i skyggen av de mer berømte vikingskipene i Vestfold. Men nye undersøkelser i 2024, gjennomført av Universitetet i Bergen i samarbeid med Universitetet i Stavanger, bekrefter at Myklebustskipet var en formidabel gigant – kanskje det største vikingskipet som noen gang er funnet i Norge."
+        },
+        {
+            "type": "text",
+            "content": "Den 5. oktober 1874 kom Anders Lorange til Nordfjordeid. Han gravde i det som i dag kalles Rundhøgjen og gjorde spektakulære funn, selv om han bare rakk å undersøke ca. en fjerdedel av haugen. Han etterlot seg dagbøker og – som en eksentrisk hilsen til fremtiden – flaskeposter i sjaktene."
+        },
+        {
+            "type": "text",
+            "content": "I dagboken beskrev Lorange hvordan han fant sverd, økser og spyd som var bevisst bøyd. Dette var ikke herverk, men et ritual: Våpnene ble 'drept' for at deres sjel skulle følge krigeren inn i etterlivet."
+        },
+        {
+            "type": "image",
+            "src": "/images/lessons/vikingtiden/myklebust-utgravning.jpg",
+            "caption": "Sjakten gjennom gravhaugen: Slik ser det ut når arkeologene åpner historiens lag."
+        },
+        {
+            "type": "image",
+            "src": "/images/lessons/vikingtiden/lorange-flaskepost.png",
+            "caption": "Hilsen fra 1874: Anders Lorange la igjen en beskjed i en tom vinflaske fra Tyskland, som en tidskapsel til fremtidens finnere."
         },
         {
             "type": "component",
-            "component": "FactBox",
+            "component": "Comparison",
             "props": {
-                "title": "Hvem ligger begravd?",
-                "items": [
-                    {
-                        "label": "Haug 1 (Myklebustskipet)",
-                        "value": "En mektig mann, trolig 'King Audbjørn' som falt i 863."
-                    },
-                    {
-                        "label": "Haug 3 (Sjøatippen)",
-                        "value": "Seks graver, inkludert en mann kremert i båt."
-                    },
-                    {
-                        "label": "Haug 5 - Volven?",
-                        "value": "Dobbeltgrav. Mann med Ulfberht-sverd ('med sjel, ulv og lys'). Kvinne med smykker fra Østen, tåring og et steikespidd."
-                    }
-                ]
+                "title": "Arkeologi før og nå",
+                "before": {
+                    "label": "1874 (Anders Lorange)",
+                    "content": "Spade og sjaktgraving. Fokus på gjenstander. Store inngrep i terrenget. Ingen dokumentasjon av jordlag."
+                },
+                "after": {
+                    "label": "2024 (UiB/Morten Ramstad)",
+                    "content": "Georadar og mikroskopi. Fokus på kontekst og landskap. Ikke-inngripende metoder (sjekker 'uten å røre'). 3D-modellering."
+                }
             }
         },
         {
             "type": "text",
-            "content": "Haug 5 er kanskje den mest mystiske. Kvinnen som ligger her, ble gravlagt med et steikespidd. I vikingtidens symbolikk var slike spidd ofte knyttet til volver – spåkvinner som kunne se inn i fremtiden og øve seiðr (magi). Volvene brukte staver som lignet jernstenger eller spidd i sine ritualer. Sammen med tåringen og de eksotiske perlene, tegner dette bildet av en kvinne som var langt mer enn en husfrue; hun kan ha vært en åndelig leder for dynastiet."
+            "content": "I 2024 vendte et team fra UiB tilbake. Ved hjelp av georadar kunne de 'se' ned i jorden uten å grave. De fant spor etter en vollgrav rundt haugen, en flatmarksgrav og et produksjonsanlegg i nærheten. De nye utgravningene fulgte Loranges opprinnelige sjakt og avdekket over 500 nye skipsnagler. Sammen med de 600 naglene Lorange fant, bekrefter dette at skipet var enormt, med totalt flere tusen nagler skjult i haugen."
         },
         {
             "type": "header",
@@ -192,14 +201,6 @@
         {
             "type": "text",
             "content": "I dag er Myklebust en av sju norske skipsgravhauger som kartlegges for oppføring på UNESCOs verdensarvliste. Myklebust skiller seg ut som den eneste branngraven blant de utvalgte stedene, som også inkluderer Gjellestad, Storhaug, Herlaugshaugen, Oseberg, Gokstad og Borrehaugene. For å gi besøkende et inntrykk av skipets sanne størrelse, er det bygd en fullskala kopi på Sagastad i Nordfjordeid – 30 meter lang og 6 meter bred."
-        },
-        {
-            "type": "header",
-            "content": "Dynastiets fall"
-        },
-        {
-            "type": "text",
-            "content": "Rundt år 870 slutter sporene brått. Hva skjedde? Svaret er trolig Harald Hårfagre. I slaget ved Solskjel i 863 falt kongen av Fjordane. Mange av vestlandshøvdingene nektet å underkaste seg Haralds nye sentralmakt og valgte heller å utvandre. Det er sannsynlig at etterkommerne av Myklebust-dynastiet var blant dem som satte seil vestover – til Island."
         },
         {
             "type": "component",

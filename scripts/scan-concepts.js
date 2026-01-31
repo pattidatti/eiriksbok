@@ -142,9 +142,20 @@ filteredArticleFiles.forEach(file => {
             if (Array.isArray(obj)) {
                 obj.forEach(item => { text += extractText(item); });
             } else if (typeof obj === 'object' && obj !== null) {
-                if (obj.text) text += obj.text + " ";
+                if (obj.text) text += extractText(obj.text);
                 if (obj.content) text += extractText(obj.content);
                 if (obj.items) text += extractText(obj.items);
+                // Deep traversal for components
+                if (obj.props) text += extractText(obj.props);
+                if (obj.caption) text += extractText(obj.caption);
+                if (obj.value) text += extractText(obj.value);
+                if (obj.label) text += extractText(obj.label);
+                if (obj.questions) text += extractText(obj.questions);
+                if (obj.question) text += extractText(obj.question);
+                if (obj.options) text += extractText(obj.options);
+                if (obj.before) text += extractText(obj.before);
+                if (obj.after) text += extractText(obj.after);
+                if (obj.source) text += extractText(obj.source);
             }
             return text;
         }

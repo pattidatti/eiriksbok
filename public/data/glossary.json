@@ -143,6 +143,18 @@
     "type": "concept"
   },
   {
+    "id": "bysants",
+    "term": "Bysants",
+    "type": "concept",
+    "definition": "Det østromerske riket, med hovedstad i Konstantinopel (Miklagard). Et viktig imperium i middelalderen som hadde stor kulturell og økonomisk innflytelse på vikingene gjennom handel og leiesoldattjeneste (væringgarden).",
+    "tags": [
+      "imperium",
+      "middelalderen",
+      "handel",
+      "historie"
+    ]
+  },
+  {
     "term": "D-dagen",
     "definition": "Den allierte invasjonen av Normandie i Frankrike 6. juni 1944.",
     "subject": "historie",
@@ -1480,6 +1492,20 @@
     "type": "person"
   },
   {
+    "id": "anders-lorange",
+    "name": "Anders Lorange",
+    "type": "person",
+    "birthDate": "1847",
+    "deathDate": "1888",
+    "description": "Norsk arkeolog som ledet utgravningen av Myklebustskipet i 1874. Han var konservator ved Bergen Museum og en pioner innen vitenskapelig arkeologi i Norge.",
+    "tags": [
+      "arkeologi",
+      "vikingtiden",
+      "forskere"
+    ],
+    "term": "Anders Lorange"
+  },
+  {
     "term": "Aristoteles",
     "definition": "Gresk filosof og elev av Platon. Han var lærer for Aleksander den store og la grunnlaget for logikk og mange av dagens vitenskaper.",
     "type": "person",
@@ -1754,6 +1780,21 @@
     "subject": "historie",
     "lifespan": "1496 – 1560",
     "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
+    "id": "harald-harfagre",
+    "name": "Harald Hårfagre",
+    "type": "person",
+    "birthDate": "ca. 850",
+    "deathDate": "ca. 932",
+    "description": "Norges samlingskonge. Kjent for å ha samlet Norge til ett rike etter slaget i Hafrsfjord (ca. 872). Hans harde styre førte til at mange høvdinger, inkludert de fra Myklebust-dynastiet, utvandret til Island.",
+    "tags": [
+      "konge",
+      "vikingtiden",
+      "norgeshistorie",
+      "makt"
+    ],
+    "term": "Harald Hårfagre"
   },
   {
     "term": "Harry S. Truman",

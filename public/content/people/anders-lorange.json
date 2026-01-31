@@ -1,0 +1,13 @@
+{
+    "id": "anders-lorange",
+    "name": "Anders Lorange",
+    "type": "person",
+    "birthDate": "1847",
+    "deathDate": "1888",
+    "description": "Norsk arkeolog som ledet utgravningen av Myklebustskipet i 1874. Han var konservator ved Bergen Museum og en pioner innen vitenskapelig arkeologi i Norge.",
+    "tags": [
+        "arkeologi",
+        "vikingtiden",
+        "forskere"
+    ]
+}

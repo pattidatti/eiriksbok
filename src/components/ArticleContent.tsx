@@ -342,12 +342,18 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                         );
 
                     case 'image':
+                        const imgStyle = (block as any).width ? { width: (block as any).width } : {};
+                        // Use inline style to override w-full if width is provided.
+                        // We keep w-full as base class for responsiveness if no width is set, 
+                        // but inline width will take precedence.
+
                         return (
-                            <figure key={index} className="my-8">
+                            <figure key={index} className={`my-8 ${(block as any).width ? 'flex flex-col items-center' : ''}`}>
                                 <img
                                     src={(block as any).src}
                                     alt={(block as any).alt || ''}
                                     className="w-full rounded-xl shadow-lg"
+                                    style={imgStyle}
                                 />
                                 {(block as any).caption && (
                                     <figcaption className="mt-2 text-center text-sm text-gray-400 italic">
