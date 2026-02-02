@@ -111,7 +111,7 @@ export const Comparison: React.FC<ComparisonProps> = ({
                                 initial={{ opacity: 0, x: -10 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.1, ease: "easeOut" }}
-                                className="p-6 bg-white/80 rounded-2xl shadow-sm border border-indigo-100/50 text-indigo-900 leading-relaxed text-center break-words hyphens-auto"
+                                className="p-6 bg-white/80 rounded-2xl shadow-sm border border-indigo-100/50 text-indigo-900 leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap"
                             >
                                 {renderInlineMarkdown(item.left, entries)}
                             </motion.div>
@@ -135,7 +135,7 @@ export const Comparison: React.FC<ComparisonProps> = ({
                                 initial={{ opacity: 0, x: 10 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.1, ease: "easeOut" }}
-                                className="p-6 bg-white/80 rounded-2xl shadow-sm border border-amber-100/50 text-amber-900 leading-relaxed text-center break-words hyphens-auto"
+                                className="p-6 bg-white/80 rounded-2xl shadow-sm border border-amber-100/50 text-amber-900 leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap"
                             >
                                 {renderInlineMarkdown(item.right, entries)}
                             </motion.div>

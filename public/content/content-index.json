@@ -1,5 +1,5 @@
 {
-  "buildId": 1769798779191,
+  "buildId": 1770020649411,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -21,6 +21,9 @@
     ],
     "anarko-kommunisme": [
       "content/concepts/anarko-kommunisme.json"
+    ],
+    "anforselstegn": [
+      "content/concepts/anforselstegn.json"
     ],
     "anschluss": [
       "content/concepts/anschluss.json"
@@ -59,6 +62,9 @@
     "borskrakk": [
       "content/concepts/borskrakk.json",
       "content/historie/mellomkrigstiden/borskrakk.json"
+    ],
+    "bysants": [
+      "content/concepts/bysants.json"
     ],
     "d-dagen": [
       "content/concepts/d-dagen.json"
@@ -168,6 +174,9 @@
     ],
     "imperialisme": [
       "content/concepts/imperialisme.json"
+    ],
+    "indirekte-tale": [
+      "content/concepts/indirekte-tale.json"
     ],
     "indre-monolog": [
       "content/concepts/indre-monolog.json"
@@ -343,6 +352,9 @@
     "relativitetsteorien": [
       "content/concepts/relativitetsteorien.json"
     ],
+    "replikk": [
+      "content/concepts/replikk.json"
+    ],
     "representativt-demokrati": [
       "content/concepts/representativt-demokrati.json"
     ],
@@ -403,6 +415,9 @@
     ],
     "subjektet": [
       "content/concepts/subjektet.json"
+    ],
+    "subtekst": [
+      "content/concepts/subtekst.json"
     ],
     "suverenitetsprinsippet": [
       "content/concepts/suverenitetsprinsippet.json"
@@ -775,6 +790,9 @@
     ],
     "kristningen-av-norge": [
       "content/historie/vikingtiden/kristningen-av-norge.json"
+    ],
+    "myklebust-funnet": [
+      "content/historie/vikingtiden/myklebust-funnet.json"
     ],
     "normandie": [
       "content/historie/vikingtiden/normandie.json"
@@ -1155,6 +1173,9 @@
     "hvordan-fore-kilder": [
       "content/norsk/skrivehjelp/hvordan-fore-kilder.json"
     ],
+    "hvordan-skrive-dialog": [
+      "content/norsk/skrivehjelp/hvordan-skrive-dialog.json"
+    ],
     "hvordan-skrive-dikt": [
       "content/norsk/skrivehjelp/hvordan-skrive-dikt.json"
     ],
@@ -1212,6 +1233,9 @@
     "adam-smith": [
       "content/people/adam-smith.json"
     ],
+    "anders-lorange": [
+      "content/people/anders-lorange.json"
+    ],
     "aristoteles-bio": [
       "content/people/aristoteles-bio.json"
     ],
@@ -1220,6 +1244,9 @@
     ],
     "augustin-bio": [
       "content/people/augustin-bio.json"
+    ],
+    "bartolomeus-voet": [
+      "content/people/bartolomeus-voet.json"
     ],
     "birger-jarl": [
       "content/people/birger-jarl.json"
@@ -1277,6 +1304,9 @@
     ],
     "gustav-vasa": [
       "content/people/gustav-vasa.json"
+    ],
+    "harald-harfagre": [
+      "content/people/harald-harfagre.json"
     ],
     "harry-truman": [
       "content/people/harry-truman.json"
@@ -1488,6 +1518,7 @@
     "concepts/anarki.json/anarki": "content/concepts/anarki.json",
     "concepts/anarko-kapitalisme.json/anarko-kapitalisme": "content/concepts/anarko-kapitalisme.json",
     "concepts/anarko-kommunisme.json/anarko-kommunisme": "content/concepts/anarko-kommunisme.json",
+    "concepts/anforselstegn.json/anforselstegn": "content/concepts/anforselstegn.json",
     "concepts/anschluss.json/anschluss": "content/concepts/anschluss.json",
     "concepts/arbeidsspesialisering.json/arbeidsspesialisering": "content/concepts/arbeidsspesialisering.json",
     "concepts/artilleri.json/artilleri": "content/concepts/artilleri.json",
@@ -1500,6 +1531,7 @@
     "concepts/blitzkrieg.json/blitzkrieg": "content/concepts/blitzkrieg.json",
     "concepts/blokade.json/blokade": "content/concepts/blokade.json",
     "concepts/borskrakk.json/borskrakk": "content/concepts/borskrakk.json",
+    "concepts/bysants.json/bysants": "content/concepts/bysants.json",
     "concepts/d-dagen.json/d-dagen": "content/concepts/d-dagen.json",
     "concepts/dachau.json/dachau": "content/concepts/dachau.json",
     "concepts/de-allierte.json/de-allierte": "content/concepts/de-allierte.json",
@@ -1536,6 +1568,7 @@
     "concepts/holodomor.json/holodomor": "content/concepts/holodomor.json",
     "concepts/hyperinflasjon.json/hyperinflasjon": "content/concepts/hyperinflasjon.json",
     "concepts/imperialisme.json/imperialisme": "content/concepts/imperialisme.json",
+    "concepts/indirekte-tale.json/indirekte-tale": "content/concepts/indirekte-tale.json",
     "concepts/indre-monolog.json/indre-monolog": "content/concepts/indre-monolog.json",
     "concepts/ingenmannsland.json/ingenmannsland": "content/concepts/ingenmannsland.json",
     "concepts/investiturstriden.json/investiturstriden": "content/concepts/investiturstriden.json",
@@ -1594,6 +1627,7 @@
     "concepts/refleksjonsmarkorer.json/refleksjonsmarkorer": "content/concepts/refleksjonsmarkorer.json",
     "concepts/rekognosering.json/rekognosering": "content/concepts/rekognosering.json",
     "concepts/relativitetsteorien.json/relativitetsteorien": "content/concepts/relativitetsteorien.json",
+    "concepts/replikk.json/replikk": "content/concepts/replikk.json",
     "concepts/representativt-demokrati.json/representativt-demokrati": "content/concepts/representativt-demokrati.json",
     "concepts/republikk.json/republikk": "content/concepts/republikk.json",
     "concepts/rhinen.json/rhinen": "content/concepts/rhinen.json",
@@ -1614,6 +1648,7 @@
     "concepts/stormaktstiden.json/stormaktstiden": "content/concepts/stormaktstiden.json",
     "concepts/stridsvogn.json/stridsvogn": "content/concepts/stridsvogn.json",
     "concepts/subjektet.json/subjektet": "content/concepts/subjektet.json",
+    "concepts/subtekst.json/subtekst": "content/concepts/subtekst.json",
     "concepts/suverenitetsprinsippet.json/suverenitetsprinsippet": "content/concepts/suverenitetsprinsippet.json",
     "concepts/svartskjortene.json/svartskjortene": "content/concepts/svartskjortene.json",
     "concepts/sykes-picot.json/sykes-picot": "content/concepts/sykes-picot.json",
@@ -1746,6 +1781,7 @@
     "historie/vikingtiden/hypotesen-norden-vs-frankrike": "content/historie/vikingtiden/hypotesen-norden-vs-frankrike.json",
     "historie/vikingtiden/karl-den-store": "content/historie/vikingtiden/karl-den-store.json",
     "historie/vikingtiden/kristningen-av-norge": "content/historie/vikingtiden/kristningen-av-norge.json",
+    "historie/vikingtiden/myklebust-funnet": "content/historie/vikingtiden/myklebust-funnet.json",
     "historie/vikingtiden/normandie": "content/historie/vikingtiden/normandie.json",
     "historie/vikingtiden/oppdagelsesreiser": "content/historie/vikingtiden/oppdagelsesreiser.json",
     "historie/vikingtiden/rikssamlingen": "content/historie/vikingtiden/rikssamlingen.json",
@@ -1912,6 +1948,7 @@
     "norsk/setningsoppbygging/niva-4-leddsetninger": "content/norsk/setningsoppbygging/niva-4-leddsetninger.json",
     "norsk/skrivehjelp/7-vanlige-plot": "content/norsk/skrivehjelp/7-vanlige-plot.json",
     "norsk/skrivehjelp/hvordan-fore-kilder": "content/norsk/skrivehjelp/hvordan-fore-kilder.json",
+    "norsk/skrivehjelp/hvordan-skrive-dialog": "content/norsk/skrivehjelp/hvordan-skrive-dialog.json",
     "norsk/skrivehjelp/hvordan-skrive-dikt": "content/norsk/skrivehjelp/hvordan-skrive-dikt.json",
     "norsk/skrivehjelp/hvordan-skrive-eventyr": "content/norsk/skrivehjelp/hvordan-skrive-eventyr.json",
     "norsk/skrivehjelp/hvordan-skrive-gode-saktekster": "content/norsk/skrivehjelp/hvordan-skrive-gode-saktekster.json",
@@ -1931,9 +1968,11 @@
     "norsk/virkemidler/synsvinkel-og-stemme": "content/norsk/virkemidler/synsvinkel-og-stemme.json",
     "norsk/virkemidler/tid-og-struktur": "content/norsk/virkemidler/tid-og-struktur.json",
     "people/adam-smith.json/adam-smith": "content/people/adam-smith.json",
+    "people/anders-lorange.json/anders-lorange": "content/people/anders-lorange.json",
     "people/aristoteles-bio.json/aristoteles-bio": "content/people/aristoteles-bio.json",
     "people/armstrong.json/armstrong": "content/people/armstrong.json",
     "people/augustin-bio.json/augustin-bio": "content/people/augustin-bio.json",
+    "people/bartolomeus-voet.json/bartolomeus-voet": "content/people/bartolomeus-voet.json",
     "people/birger-jarl.json/birger-jarl": "content/people/birger-jarl.json",
     "people/clovis-i.json/clovis-i": "content/people/clovis-i.json",
     "people/david-hume.json/david-hume": "content/people/david-hume.json",
@@ -1953,6 +1992,7 @@
     "people/guru-nanak-bio.json/guru-nanak-bio": "content/people/guru-nanak-bio.json",
     "people/gustav-ii-adolf.json/gustav-ii-adolf": "content/people/gustav-ii-adolf.json",
     "people/gustav-vasa.json/gustav-vasa": "content/people/gustav-vasa.json",
+    "people/harald-harfagre.json/harald-harfagre": "content/people/harald-harfagre.json",
     "people/harry-truman.json/harry-truman": "content/people/harry-truman.json",
     "people/henrik-krummedige.json/henrik-krummedige": "content/people/henrik-krummedige.json",
     "people/hitler.json/hitler": "content/people/hitler.json",

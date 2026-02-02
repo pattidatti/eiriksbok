@@ -19,41 +19,59 @@ export const WritingFix: React.FC<WritingFixProps> = ({ title, items = [] }) => 
     const { entries } = useGlossary();
 
     return (
-        <div className="my-10 max-w-2xl mx-auto px-4 md:px-0">
+        <div className="my-16 max-w-2xl mx-auto px-4 md:px-0">
             {title && (
-                <h4 className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] mb-4">
+                <h4 className="text-xl font-bold text-slate-900 mb-8">
                     {title}
                 </h4>
             )}
-            <div className="space-y-8">
+            <div className="space-y-16">
                 {items.map((item, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1 }}
-                        className="relative pl-6 border-l border-slate-100 group"
+                        className="relative group"
                     >
-                        {/* Status Indicator Dot */}
-                        <div className="absolute left-[-4.5px] top-2 w-2 h-2 rounded-full bg-slate-200 group-hover:bg-emerald-400 transition-colors duration-500" />
+                        {/* Container for the comparison */}
+                        <div className="grid gap-6 md:gap-8">
 
-                        {/* Bad version - Ghosted and Struck-through */}
-                        <div className="mb-1 text-slate-400/60 line-through decoration-slate-300/40 text-sm font-light italic whitespace-pre-line">
-                            {renderInlineMarkdown(item.bad, entries)}
-                        </div>
-
-                        {/* Good version - Primary focus */}
-                        <div className="text-slate-800 text-base leading-relaxed font-normal whitespace-pre-line">
-                            {renderInlineMarkdown(item.good, entries)}
-                        </div>
-
-                        {/* Why? - Optional context added for depth */}
-                        {item.why && (
-                            <div className="mt-2 text-xs text-slate-400 font-normal max-w-prose">
-                                {renderInlineMarkdown(item.why, entries)}
+                            {/* BAD EXAMPLE */}
+                            <div>
+                                <h5 className="text-lg font-bold text-rose-400 mb-2 flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+                                    Unngå dette
+                                </h5>
+                                <div className="text-slate-500 font-serif italic text-lg leading-relaxed whitespace-pre-wrap">
+                                    {renderInlineMarkdown(item.bad, entries)}
+                                </div>
                             </div>
-                        )}
+
+                            {/* GOOD EXAMPLE */}
+                            <div>
+                                <h5 className="text-lg font-bold text-emerald-500 mb-2 flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    Prøv heller
+                                </h5>
+                                <div className="text-slate-900 text-lg leading-relaxed font-normal whitespace-pre-wrap transition-all duration-300">
+                                    {renderInlineMarkdown(item.good, entries)}
+                                </div>
+                            </div>
+
+                            {/* EXPLANATION */}
+                            {item.why && (
+                                <div className="mt-2 pt-4 border-t border-slate-50">
+                                    <h5 className="text-lg font-bold text-slate-900 mb-1">
+                                        Hvorfor?
+                                    </h5>
+                                    <div className="text-lg text-slate-600 leading-relaxed max-w-prose">
+                                        {renderInlineMarkdown(item.why, entries)}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </motion.div>
                 ))}
             </div>

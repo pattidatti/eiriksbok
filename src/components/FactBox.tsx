@@ -7,17 +7,21 @@ import { useGlossary } from '../context/GlossaryContext';
 interface FactBoxProps {
     title?: string;
     content?: string;
+    text?: string; // Alias for content
     items?: (string | { label: string; value: string })[]; // Added support for structured content
     variant?: 'default' | 'grid';
 }
 
-export const FactBox: React.FC<FactBoxProps> = ({ title = 'Visste du at?', content, items, variant = 'default' }) => {
+export const FactBox: React.FC<FactBoxProps> = ({ title = 'Visste du at?', content, text, items, variant = 'default' }) => {
     const [isOpen, setIsOpen] = useState(true);
     const { entries } = useGlossary();
 
+    // Use content if provided, otherwise fallback to text
+    const actualContent = content || text;
+
     // Combine content and items into a unified list
     // Note: If content is provided, it's treated as string items
-    const contentLines = content ? content.split('\n') : [];
+    const contentLines = actualContent ? actualContent.split('\n') : [];
     const allItems = items ? [...contentLines, ...items] : contentLines;
 
     return (

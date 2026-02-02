@@ -6,6 +6,8 @@ import { TimelineComponent } from '../TimelineComponent';
 import { GlossaryText } from '../GlossaryText';
 import { Image } from '../Image';
 import { QuoteBlock } from '../QuoteBlock';
+import { GrammarRuleCard } from './interactive/GrammarRuleCard';
+import { WritingFix } from '../WritingFix';
 
 interface ContentBlock {
     type: 'header' | 'paragraph' | 'list' | 'component' | 'image';
@@ -168,6 +170,22 @@ export const TopicContentRenderer: React.FC<TopicContentRendererProps> = ({ cont
                             return (
                                 <motion.div key={index} variants={item} className="my-12">
                                     <TimelineComponent {...block.props} events={events} />
+                                </motion.div>
+                            );
+                        }
+
+                        if (block.component === 'GrammarRuleCard') {
+                            return (
+                                <motion.div key={index} variants={item} className="my-12">
+                                    <GrammarRuleCard {...block.props} />
+                                </motion.div>
+                            );
+                        }
+
+                        if (block.component === 'WritingFix') {
+                            return (
+                                <motion.div key={index} variants={item} className="my-12">
+                                    <WritingFix {...block.props} />
                                 </motion.div>
                             );
                         }
