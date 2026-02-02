@@ -1,0 +1,163 @@
+{
+    "id": "analyse-fagartikkel",
+    "title": "Slik analyserer du: Sakprosa og Fagtekst",
+    "description": "Hva er sant, og hva er fremstilling? Lær å analysere reiseskildringer, fagartikler og dokumentarer.",
+    "subject": "norsk",
+    "topic": "analyse",
+    "layout": "rich",
+    "heroImage": "/images/lessons/norsk/analyse/analyse-fagartikkel-hero.png",
+    "image": "/images/lessons/analyse-fagartikkel.jpg",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Sakprosa handler om virkeligheten. Men all sakprosa er valgt ut og vinklet av noen. Vi skal se på en av verdens eldste reiseskildringer for å forstå forskjellen på *fakta* og *opplevelse*."
+        },
+        {
+            "type": "expandable",
+            "title": "📖 Les utdraget: Ibn Fadlans Reisebeskrivelse (år 921)",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Jeg så russerne da de var kommet dit med sine handelsvarer og hadde slått seg ned ved elven Atil. Jeg har aldri sett mer fullkomne kropper enn deres; de var som palmetrær. De er blonde og rødmusset."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Hver kvinne har på brystet en kapsel av jern, sølv, kobber eller gull, etter mannens velstand og inntekt. Til hver kapsel er festet en ring, og i den en kniv... Om halsen har de halskjeder av gull og sølv."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "De er de skitneste av Guds skapninger: De gjør seg ikke rene etter avføring eller vannlating, og vasker seg ikke etter samleie. De er som ville esler. De kommer fra sitt land og fortøyer sine skip ved bredden av Atil, som er en stor elv, og bygger store hus av tre på bredden."
+                },
+                {
+                    "type": "callToAction",
+                    "text": "Les hele teksten i biblioteket",
+                    "link": "/norsk/bibliotek/ibn-fadlan-reisebeskrivelse",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 1: Objektivitet vs. Subjektivitet"
+        },
+        {
+            "type": "paragraph",
+            "text": "Ibn Fadlan prøver å beskrive det han ser nøyaktig (kapsler, kniver, tatoveringer). Dette er **objektivt**. Men han dømmer dem også («skitneste av Guds skapninger», «ville esler»). Dette er **subjektivt**."
+        },
+        {
+            "type": "component",
+            "component": "WritingFix",
+            "props": {
+                "title": "Misforståelse: Sakprosa = Sannhet",
+                "correction": "Sakprosa forholder seg til *virkeligheten*, men den er alltid filtrert gjennom en forfatter.",
+                "explanation": "Ibn Fadlan kommer fra en renslig, muslimsk kultur. Hans møte med vikingene farges av hans egne verdier. Slik er det med moderne journalister også."
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 2: Kildekritikk"
+        },
+        {
+            "type": "paragraph",
+            "text": "Når du leser en fagtekst eller skildring, spør: Hvem skriver? Hvorfor skriver de? Og når skrev de?"
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "De 5 kildekritikk-spørsmålene",
+                "items": [
+                    {
+                        "label": "Avsender",
+                        "value": "Hvem har laget teksten? (Ekspert? Øyevitne?)"
+                    },
+                    {
+                        "label": "Formål",
+                        "value": "Vil de informere, selge, eller overbevise?"
+                    },
+                    {
+                        "label": "Datering",
+                        "value": "Er informasjonen fremdeles gyldig?"
+                    },
+                    {
+                        "label": "Vinkling",
+                        "value": "Hva er utelatt?"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 3: Fremstillingsmåter"
+        },
+        {
+            "type": "paragraph",
+            "text": "Hvordan presenteres stoffet? Bruker forfatteren fortelling (narrativ) eller bare faktaoppramsing?"
+        },
+        {
+            "type": "component",
+            "component": "Comparison",
+            "props": {
+                "title": "Fakta vs. Fortelling",
+                "items": [
+                    {
+                        "label": "Fakta",
+                        "content": "«Hver kvinne har på brystet en kapsel...» (Beskrivende)",
+                        "type": "neutral"
+                    },
+                    {
+                        "label": "Vurdering",
+                        "content": "«Jeg har aldri sett mer fullkomne kropper...» (Vurderende)",
+                        "type": "good"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "quiz",
+            "question": "Hva betyr det at en tekst er subjektiv?",
+            "options": [
+                "At den er usann",
+                "At den er preget av forfatterens personlige meninger og følelser",
+                "At den handler om et subjekt",
+                "At den er objektiv"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er en temasetning?",
+            "options": [
+                "Den morsomste setningen i teksten",
+                "Setningen som forteller hva avsnittet handler om",
+                "Den siste setningen i et dikt",
+                "Overskriften på artikkelen"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva er Fiskemodellen?",
+            "options": [
+                "En oppskrift på fiskesuppe",
+                "En struktur for fagartikler (Innledning, Hoveddel, Avslutning)",
+                "En måte å fiske etter lesere på",
+                "En metafor for livets gang"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "relatedLink": {
+        "text": "Eksempel på fagartikkel",
+        "url": "/norsk/bibliotek"
+    },
+    "tags": [
+        "analyse",
+        "sakprosa",
+        "fagartikkel"
+    ],
+    "createdDate": "2026-02-02T14:40:00Z"
+}

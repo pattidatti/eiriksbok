@@ -8,6 +8,7 @@ import { Image } from '../Image';
 import { QuoteBlock } from '../QuoteBlock';
 import { GrammarRuleCard } from './interactive/GrammarRuleCard';
 import { WritingFix } from '../WritingFix';
+import { getComponent } from '../ComponentRegistry';
 
 interface ContentBlock {
     type: 'header' | 'paragraph' | 'list' | 'component' | 'image';
@@ -186,6 +187,16 @@ export const TopicContentRenderer: React.FC<TopicContentRendererProps> = ({ cont
                             return (
                                 <motion.div key={index} variants={item} className="my-12">
                                     <WritingFix {...block.props} />
+                                </motion.div>
+                            );
+                        }
+
+                        // Dynamic Component Lookup (Refactor)
+                        const RegistryComponent = getComponent(block.component || '');
+                        if (RegistryComponent) {
+                            return (
+                                <motion.div key={index} variants={item} className="my-8">
+                                    <RegistryComponent {...block.props} />
                                 </motion.div>
                             );
                         }

@@ -78,6 +78,21 @@ export const Comparison: React.FC<ComparisonProps> = ({
         }];
     }
 
+    // Filter out completely empty rows to prevent ghost rows
+    displayItems = displayItems.filter(item =>
+        (item.label && item.label.trim().length > 0) ||
+        (item.left && item.left.trim().length > 0) ||
+        (item.right && item.right.trim().length > 0)
+    );
+
+    // Check if any items have labels
+    const hasLabels = displayItems.some(item => item.label && item.label.trim().length > 0);
+
+    // Dynamic grid layout: 3 columns if labels exist, 2 columns (50/50) if not
+    const gridClass = hasLabels
+        ? "grid grid-cols-1 md:grid-cols-[1fr_2fr_2fr]"
+        : "grid grid-cols-1 md:grid-cols-2";
+
     return (
         <div className="my-10 relative">
             {/* Decorative Background */}
@@ -94,10 +109,12 @@ export const Comparison: React.FC<ComparisonProps> = ({
 
             <div className="relative rounded-2xl border border-slate-200/60 overflow-hidden shadow-sm bg-white">
                 {/* Header Row */}
-                <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_2fr] border-b border-slate-100">
-                    <div className="hidden md:block p-4 bg-slate-50/50 md:border-r border-slate-100">
-                        {/* Empty spacer for Label column in header */}
-                    </div>
+                <div className={`${gridClass} border-b border-slate-100`}>
+                    {hasLabels && (
+                        <div className="hidden md:block p-4 bg-slate-50/50 md:border-r border-slate-100">
+                            {/* Empty spacer for Label column in header */}
+                        </div>
+                    )}
                     <div className="p-3 md:p-4 text-center bg-indigo-50/30 backdrop-blur-sm md:border-r border-indigo-100">
                         <div className="inline-flex items-center justify-center gap-2 px-3 py-1 bg-indigo-100/50 text-indigo-700 font-bold uppercase tracking-wider text-[10px] rounded-full">
                             <Users size={12} />
@@ -114,42 +131,53 @@ export const Comparison: React.FC<ComparisonProps> = ({
 
                 {/* Items Rows */}
                 <div className="flex flex-col">
-                    {displayItems.map((item, i) => (
-                        <div key={i} className={`grid grid-cols-1 md:grid-cols-[1fr_2fr_2fr] ${i !== displayItems.length - 1 ? 'border-b border-slate-50' : ''}`}>
-                            {/* Label Column (Centralized) */}
-                            <div className="p-3 md:p-4 bg-slate-50/30 md:border-r border-slate-100 flex items-center justify-center">
-                                {item.label && (
-                                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[11px] text-center">
-                                        {item.label}
-                                    </span>
+                    {displayItems.map((item, i) => {
+                        const hasLeft = item.left && item.left.trim().length > 0;
+                        const hasRight = item.right && item.right.trim().length > 0;
+
+                        return (
+                            <div key={i} className={`${gridClass} ${i !== displayItems.length - 1 ? 'border-b border-slate-50' : ''}`}>
+                                {/* Label Column (Centralized) */}
+                                {hasLabels && (
+                                    <div className="p-3 md:p-4 bg-slate-50/30 md:border-r border-slate-100 flex items-center justify-center">
+                                        {item.label && (
+                                            <span className="text-slate-500 font-bold uppercase tracking-wider text-[11px] text-center">
+                                                {item.label}
+                                            </span>
+                                        )}
+                                    </div>
                                 )}
-                            </div>
 
-                            {/* Left Side Item */}
-                            <div className="p-2 md:p-2.5 bg-indigo-50/5 md:border-r border-indigo-50">
-                                <motion.div
-                                    initial={{ opacity: 0, x: -10 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.05, ease: "easeOut" }}
-                                    className="h-full p-2.5 md:p-3.5 bg-white shadow-sm border border-indigo-100/40 text-indigo-900 text-sm md:text-base leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap flex items-center justify-center font-medium rounded-lg"
-                                >
-                                    {renderInlineMarkdown(item.left, entries)}
-                                </motion.div>
-                            </div>
+                                {/* Left Side Item */}
+                                <div className={`${hasLeft ? 'p-2 md:p-2.5' : 'p-0'} bg-indigo-50/5 md:border-r border-indigo-50 transition-all duration-200`}>
+                                    {hasLeft && (
+                                        <motion.div
+                                            initial={{ opacity: 0, x: -10 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: i * 0.05, ease: "easeOut" }}
+                                            className="h-full p-2.5 md:p-3.5 bg-white shadow-sm border border-indigo-100/40 text-indigo-900 text-sm md:text-base leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap flex items-center justify-center font-medium rounded-lg"
+                                        >
+                                            {renderInlineMarkdown(item.left, entries)}
+                                        </motion.div>
+                                    )}
+                                </div>
 
-                            {/* Right Side Item */}
-                            <div className="p-2 md:p-2.5 bg-amber-50/5">
-                                <motion.div
-                                    initial={{ opacity: 0, x: 10 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.05, ease: "easeOut" }}
-                                    className="h-full p-2.5 md:p-3.5 bg-white shadow-sm border border-amber-100/40 text-amber-900 text-sm md:text-base leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap flex items-center justify-center rounded-lg"
-                                >
-                                    {renderInlineMarkdown(item.right, entries)}
-                                </motion.div>
+                                {/* Right Side Item */}
+                                <div className={`${hasRight ? 'p-2 md:p-2.5' : 'p-0'} bg-amber-50/5 transition-all duration-200`}>
+                                    {hasRight && (
+                                        <motion.div
+                                            initial={{ opacity: 0, x: 10 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: i * 0.05, ease: "easeOut" }}
+                                            className="h-full p-2.5 md:p-3.5 bg-white shadow-sm border border-amber-100/40 text-amber-900 text-sm md:text-base leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap flex items-center justify-center rounded-lg"
+                                        >
+                                            {renderInlineMarkdown(item.right, entries)}
+                                        </motion.div>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </div>

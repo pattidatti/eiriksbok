@@ -1,0 +1,143 @@
+{
+    "id": "analyse-kommentar",
+    "title": "Slik analyserer du: Kommentar",
+    "description": "Lær å avsløre skribentens meninger og virkemidler. Analyse av argumentasjon, pathos og språklige bilder.",
+    "subject": "norsk",
+    "topic": "analyse",
+    "layout": "rich",
+    "heroImage": "/images/lessons/norsk/analyse/analyse-kommentar-hero.png",
+    "image": "/images/lessons/analyse-kommentar.jpg",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "En kommentar er en subjektiv sjanger. Forfatteren vil overbevise deg om noe. Din jobb er å finne ut *hva* de mener, og *hvordan* de prøver å påvirke deg."
+        },
+        {
+            "type": "expandable",
+            "title": "📖 Les kommentaren: KI er Botox for hjernen",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Bruker du en KI til å skrive for deg, ender du gjerne med en pen og glatt tekst – like død som en Botox-panne. Botox kan slette rynkene i fjeset ditt, og språkmodeller kan fikse dårlig grammatikk... Men bra blir det ikke, skriver kronikkforfatteren."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Akkurat som at Botox kan rette rynkene i fjeset ditt... KI-en utbedrer svakhetene dine, og teksten blir kanskje helt riktig – men likevel fullstendig feil. Det er nemlig variasjonene og småfeilene som gjør den menneskelig."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Studier viser at personer som har dempet de personlige variasjonene i fjeset sitt... faktisk blir mindre empatiske. Kanskje er det på samme måte med personer som ikke lenger er vant til å bruke sitt eget språk..."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Men hvis du skal skrive noe som skal nå fram til andre mennesker... må du gjøre jobben selv. Det er tungt, det går sakte, men det er utrolig tilfredsstillende."
+                },
+                {
+                    "type": "callToAction",
+                    "text": "Les hele kommentaren i biblioteket",
+                    "link": "/norsk/bibliotek/ki-botox",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 1: Hovedsynspunkt"
+        },
+        {
+            "type": "paragraph",
+            "text": "Hva er den *ene* setningen som oppsummerer teksten? Her er det: \"Bruk av KI gjør tekstene våre (og oss selv) kjedeligere, dummere og mindre empatiske.\""
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 2: Metaforbruk"
+        },
+        {
+            "type": "paragraph",
+            "text": "Forfatteren bruker én gjennomgående metafor: **Botox**. Dette er ekstremt effektivt."
+        },
+        {
+            "type": "component",
+            "component": "Comparison",
+            "props": {
+                "title": "Hvorfor virker metaforen?",
+                "items": [
+                    {
+                        "label": "Botox",
+                        "content": "Gjør deg penere på overflaten, men stiv og uttrykksløs.",
+                        "type": "neutral"
+                    },
+                    {
+                        "label": "KI-tekst",
+                        "content": "Gjør teksten feilfri (grammatisk), men kjedelig og upersonlig.",
+                        "type": "neutral"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 3: Appellformer (Patos)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Selv om teksten later som den er vitenskapelig (henviser til studier), spiller den mest på følelser (**Patos**). Han bruker ord som \"lidelse\", \"sur\", \"ræva tekst\", \"superkraft\"."
+        },
+        {
+            "type": "component",
+            "component": "WritingFix",
+            "props": {
+                "title": "Tips: Se etter 'Pluss- og minusord'",
+                "correction": "Ikke bare si at teksten har patos. Vis hvilke ord som er positivt ladet og hvilke som er negative.",
+                "explanation": "Her er 'hjemmelaget' positivt (tungt, men ekte), mens 'KI-laget' er negativt (glatt, dødt, juks)."
+            }
+        },
+        {
+            "type": "quiz",
+            "question": "Hva menes med hovedsynspunkt?",
+            "options": [
+                "Det første avsnittet i teksten",
+                "Forfatterens navn",
+                "Det viktigste budskapet forfatteren vil overbevise deg om",
+                "Overskriften"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva skiller en kommentar fra en nyhetsartikkel?",
+            "options": [
+                "Kommentaren er kortere",
+                "Kommentaren er subjektiv (har meninger), nyhetsartikkelen er objektiv",
+                "Kommentaren har ingen bilder",
+                "Det er ingen forskjell"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilket virkemiddel er vanlig i kommentarer?",
+            "options": [
+                "Rim og rytme",
+                "Eventyrtrekk",
+                "Ironi og sarkasme",
+                "In medias res"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "relatedLink": {
+        "text": "Les dagens kommentar",
+        "url": "/norsk/bibliotek"
+    },
+    "tags": [
+        "analyse",
+        "sakprosa",
+        "avis",
+        "kommentar"
+    ],
+    "createdDate": "2026-02-02T15:00:00Z"
+}

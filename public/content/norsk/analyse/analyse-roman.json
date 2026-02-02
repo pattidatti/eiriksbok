@@ -1,0 +1,143 @@
+{
+    "id": "analyse-roman",
+    "subject": "norsk",
+    "title": "Slik analyserer du: Romanutdrag",
+    "description": "Hvordan gå løs på en stor tekst? Lær å lese utdrag, forstå kontekst og analysere fortellerstemmer.",
+    "image": "/images/lessons/analyse-roman.jpg",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Å analysere et romanutdrag krever at du raskt orienterer deg. Hvem forteller? Hva står på spill *akkurat her*? Vi bruker Knut Hamsuns banebrytende roman *Sult* som eksempel."
+        },
+        {
+            "type": "expandable",
+            "title": "📖 Les utdraget: Sult (Ylajali-scenen)",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "«God aften!» sier det så... Jeg glemmer å smile, jeg tar ikke engang straks til hatten, jeg blir så forundret over å se henne komme denne veien... Ute på gangen hvor det var mørkt tok hun hånden min og lette meg frem. Jeg behøvde slett ikke å være så stille, sa hun..."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "«...De er så alt for tilbakeholden, her oppe... Nå kunne De for eksempel gjerne holde Deres hånd på min stolrygg, De kunne gjerne funnet på så mye av Dem selv...»"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Jeg satt fortapt og så på henne. Mitt hjerte slo høyt... «Jeg er så aldeles forelsket i Dem, og det er så urimelig...»"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "«Hør,» sa jeg, «De sitter vist her i den overtro at jeg kan kle meg og leve akkurat som jeg ønsker... men det kan jeg nok ikke, jeg er meget, meget fattig...» ... «Er De gal? Så, begynn nå!» ... «Ja, la meg få kysse Dem på brystet først, så»"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Den berømte scenen ender med at han blir kastet ut (eller kaster seg selv ut), fylt av skam og forvirring."
+                },
+                {
+                    "type": "callToAction",
+                    "text": "Les hele utdraget i biblioteket",
+                    "link": "/norsk/bibliotek/sult-utdrag",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 1: Fortellerstemmen"
+        },
+        {
+            "type": "paragraph",
+            "text": "*Sult* er kjent for sin intense **jeg-forteller**. Alt vi leser er filtrert gjennom hovedpersonens hode. Kan vi stole på ham?"
+        },
+        {
+            "type": "component",
+            "component": "WritingFix",
+            "props": {
+                "title": "Misforståelse: Jeg-person = Forfatter",
+                "correction": "Ikke skriv 'Hamsun føler at...'. Skriv 'Jeg-personen føler at...' eller 'Fortelleren opplever...'.",
+                "explanation": "Selv om Hamsun også sultet, er dette fiksjon. Jeg-personen er en karakter i boka."
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 2: Det ubevisste sjeleliv"
+        },
+        {
+            "type": "paragraph",
+            "text": "Legg merke til hvor raskt tankene hans skifter. Han går fra å være ydmyk til aggressiv, fra forelsket til fornærmet, på sekunder. Dette kalles *stream of consciousness* eller indre monolog."
+        },
+        {
+            "type": "component",
+            "component": "TextHighlighter",
+            "props": {
+                "text": "«Jeg visste ikke lenger av meg selv... he, jeg skulle dog ved den levende... Ingen skulle si om meg at jeg stod tilbake...»",
+                "highlights": [
+                    {
+                        "word": "Jeg visste ikke lenger av meg selv",
+                        "color": "blue",
+                        "comment": "Tap av kontroll."
+                    },
+                    {
+                        "word": "he, jeg skulle dog",
+                        "color": "orange",
+                        "comment": "Plutselig skifte til aggresjon/stolthet."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 3: Konflikten"
+        },
+        {
+            "type": "paragraph",
+            "text": "I dette utdraget er konflikten todelt. En ytre konflikt (vil han få Ylajali?) og en indre konflikt (stolthet vs. nød). Han ødelegger sjansen sin fordi han ikke klarer å være ærlig uten å føle skam."
+        },
+        {
+            "type": "quiz",
+            "question": "Hvorfor mislykkes hovedpersonen med Ylajali i denne scenen?",
+            "options": [
+                "Fordi han er for full",
+                "Fordi Ylajali egentlig ikke liker ham",
+                "Fordi hans egen stolthet og usikkerhet gjør at han oppfører seg rart",
+                "Fordi faren hennes kommer hjem"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er en dynamisk karakter?",
+            "options": [
+                "En karakter som løper fort",
+                "En karakter som forandrer seg i løpet av historien",
+                "En karakter som snakker høyt",
+                "En karakter som dør tidlig"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva er en parallellhandling?",
+            "options": [
+                "Når to karakterer sier det samme",
+                "Når boken har to slutter",
+                "To eller flere handlingstråder som foregår samtidig",
+                "Når boken er oversatt til to språk"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "relatedLink": {
+        "text": "Les utdrag fra romaner",
+        "url": "/norsk/bibliotek"
+    },
+    "tags": [
+        "analyse",
+        "roman",
+        "litteratur"
+    ],
+    "createdDate": "2026-02-02T14:30:00Z"
+}

@@ -1,12 +1,23 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, User, Tag, Volume2, PauseCircle, PlayCircle, Columns } from 'lucide-react';
+import { ArrowLeft, BookOpen, User, Tag, Volume2, PauseCircle, PlayCircle, Columns, Scan } from 'lucide-react';
 import { textLibraryData, type TextEntry } from '../data/textLibraryData';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { Tooltip } from '../components/Tooltip';
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
 import { cleanMarkdown } from '../utils/speechUtils';
+
+
+const genreToAnalysisMap: Record<string, string> = {
+    'novelle': 'analyse-novelle',
+    'dikt': 'analyse-dikt',
+    'romanutdrag': 'analyse-roman',
+    'eventyr': 'analyse-eventyr',
+    'fagartikkel': 'analyse-fagartikkel',
+    'debattinnlegg': 'analyse-debattinnlegg',
+    'kommentar': 'analyse-kommentar'
+};
 
 export const TextReaderPage: React.FC = () => {
     const { textId } = useParams<{ textId: string }>();
@@ -347,6 +358,19 @@ export const TextReaderPage: React.FC = () => {
                         >
                             <User size={18} />
                             Hvordan skrive {textEntry.genre.toLowerCase()}
+                        </button>
+                    </div>
+                )}
+
+                {/* Analysis Link - New Section */}
+                {!isSplitView && genreToAnalysisMap[textEntry.genre.toLowerCase()] && (
+                    <div className="mb-12 flex justify-center -mt-8">
+                        <button
+                            onClick={() => navigate(`/norsk/analyse/${genreToAnalysisMap[textEntry.genre.toLowerCase()]}`)}
+                            className="flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors font-medium border border-purple-100"
+                        >
+                            <Scan size={18} />
+                            Slik analyserer du {textEntry.genre.toLowerCase()}
                         </button>
                     </div>
                 )}

@@ -1,0 +1,98 @@
+{
+    "id": "analyse-eventyr",
+    "title": "Analyse av Eventyr",
+    "description": "Det var en gang... og det er alltid tre av dem. Lær eventyrets lover.",
+    "subject": "norsk",
+    "topic": "analyse",
+    "layout": "rich",
+    "heroImage": "/images/lessons/norsk/analyse/analyse-eventyr-hero.png",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Eventyret er kanskje den eldste formen for historiefortelling vi har. Det er en sjanger som følger strengere lover enn Norges Grunnlov. Hvis du kan disse lovene, kan du analysere ethvert eventyr på fem minutter."
+        },
+        {
+            "type": "header",
+            "text": "1. De magiske tallene",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Hvorfor har kongen alltid tre sønner? Hvorfor må Askeladden gjennom tre prøver? Tallet tre (og syv ni og tolv) skaper balanse og rytme. Det første forsøket feiler. Det andre feiler. Det tredje lykkes. Det bygger forventning."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Typiske Eventyrtrekk",
+                "items": [
+                    {
+                        "label": "Innledning",
+                        "value": "«Det var en gang...» - plasserer oss utenfor tid og sted."
+                    },
+                    {
+                        "label": "Personene",
+                        "value": "Ingen indre følelser. De er typer (den gode, den onde, den dumme)."
+                    },
+                    {
+                        "label": "Magiske tall",
+                        "value": "3, 7 og 12 går igjen."
+                    },
+                    {
+                        "label": "Avslutning",
+                        "value": "«...og så levde de lykkelig alle sine dager» (eller snipp, snapp, snute)."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 3: Kontraster"
+        },
+        {
+            "type": "paragraph",
+            "text": "Eventyr elsker motsetninger."
+        },
+        {
+            "type": "component",
+            "component": "Comparison",
+            "props": {
+                "title": "Askeladden vs. Trollet",
+                "items": [
+                    {
+                        "label": "Askeladden",
+                        "content": "Liten, fattig, klok, kreativ, modig (tør å lure trollet).",
+                        "type": "good"
+                    },
+                    {
+                        "label": "Trollet",
+                        "content": "Stort, rikt (eier skogen), dumt, lettlurt, brutalt.",
+                        "type": "bad"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "quiz",
+            "question": "Hva er moralen i eventyret om Askeladden som kappåt med trollet?",
+            "options": [
+                "Man skal aldri spise grøt med troll",
+                "Det er viktig å være sterkest",
+                "Den som er smart kan vinne over den som er sterk",
+                "Man må alltid høre på faren sin"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "relatedLink": {
+        "text": "Les eventyr i biblioteket",
+        "url": "/norsk/bibliotek"
+    },
+    "tags": [
+        "analyse",
+        "eventyr",
+        "folkediktning"
+    ],
+    "createdDate": "2026-02-02T14:20:00Z"
+}

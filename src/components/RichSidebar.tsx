@@ -171,20 +171,25 @@ export const RichSidebar: React.FC<RichSidebarProps> = React.memo(({ details, ti
                     <h3 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wider">Fordypning</h3>
 
                     {config?.showRelated !== false && relatedArticles.length > 0 && (
-                        <ExpandableSection title="Les mer i samme emne" defaultOpen={true}>
-                            <div className="space-y-2">
-                                {relatedArticles.map(article => (
+                        <ExpandableSection title="Relatert innhold" defaultOpen={true}>
+                            <div className="space-y-3">
+                                {relatedArticles.map((article: any) => (
                                     <Link
                                         key={article.id}
                                         to={article.url}
-                                        className="block p-2 rounded-lg hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all text-sm group"
+                                        className="block py-2 px-3 rounded-lg bg-white border border-slate-100 shadow-sm hover:border-indigo-200 hover:shadow-md hover:bg-slate-50 transition-all duration-300 group relative overflow-hidden"
                                     >
-                                        <span className="block font-medium text-slate-700 group-hover:text-indigo-700">
-                                            {article.title}
-                                        </span>
-                                        <span className="text-xs text-slate-400">
-                                            {article.date}
-                                        </span>
+                                        <div className="absolute top-0 right-0 w-0.5 h-full bg-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <div className="flex flex-col">
+                                            <span className="font-bold text-slate-700 group-hover:text-indigo-700 transition-colors text-sm truncate pr-2">
+                                                {article.title}
+                                            </span>
+                                            {article.date && (
+                                                <span className="text-[10px] text-slate-400 font-medium">
+                                                    {article.date}
+                                                </span>
+                                            )}
+                                        </div>
                                     </Link>
                                 ))}
                             </div>
@@ -192,15 +197,15 @@ export const RichSidebar: React.FC<RichSidebarProps> = React.memo(({ details, ti
                     )}
 
                     {tags && tags.length > 0 && (
-                        <ExpandableSection title="Relaterte Emner">
+                        <ExpandableSection title="Nøkkelord">
                             <div className="flex flex-wrap gap-2">
                                 {tags.map(tag => (
                                     <Link
                                         key={tag}
                                         to={`/sok?tag=${tag}`}
-                                        className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md border border-slate-200 hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-200 transition-colors"
+                                        className="px-2.5 py-1 bg-white text-slate-600 text-xs font-medium rounded-md border border-slate-200 hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-200 transition-all shadow-sm"
                                     >
-                                        {tag}
+                                        #{tag}
                                     </Link>
                                 ))}
                             </div>

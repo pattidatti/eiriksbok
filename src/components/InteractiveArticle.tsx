@@ -212,7 +212,8 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
     const relatedArticles = useRelatedContent(
         event.subjectId || '',
         event.topicId || '',
-        event.id?.toString() || ''
+        event.id?.toString() || '',
+        event.tags || []
     ).slice(0, 5); // Limit to 5 related articles
 
     return (

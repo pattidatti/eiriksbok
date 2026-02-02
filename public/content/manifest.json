@@ -219,7 +219,8 @@
                             "tags": [
                                 "skjønnlitteratur",
                                 "fortelling",
-                                "korthistorie"
+                                "korthistorie",
+                                "novelle"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
@@ -245,7 +246,8 @@
                             "tags": [
                                 "skjønnlitteratur",
                                 "fortelling",
-                                "bok"
+                                "bok",
+                                "roman"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
@@ -258,7 +260,8 @@
                             "tags": [
                                 "skjønnlitteratur",
                                 "lyrikk",
-                                "poesi"
+                                "poesi",
+                                "dikt"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
@@ -271,7 +274,8 @@
                             "tags": [
                                 "sakprosa",
                                 "fakta",
-                                "informasjon"
+                                "informasjon",
+                                "fagartikkel"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
@@ -284,7 +288,8 @@
                             "tags": [
                                 "sakprosa",
                                 "mening",
-                                "argumentasjon"
+                                "argumentasjon",
+                                "debattinnlegg"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
@@ -297,7 +302,8 @@
                             "tags": [
                                 "sakprosa",
                                 "mening",
-                                "analyse"
+                                "analyse",
+                                "kommentar"
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
@@ -373,6 +379,100 @@
                             ],
                             "image": "/images/lessons/norsk/virkemidler/synsvinkel-hero.png",
                             "createdDate": "2026-01-27T12:00:00Z"
+                        }
+                    ]
+                },
+                {
+                    "id": "analyse",
+                    "title": "Litterær Analyse",
+                    "description": "Se gjennom overflaten. Dekonstruer tekstens maskineri.",
+                    "image": "/images/topics/analyse_hero.png",
+                    "tools": [
+                        {
+                            "id": "analyse-sti",
+                            "title": "Læringssti: Codebreaker",
+                            "description": "En guidet reise fra leser til analytiker. Knekk kodene.",
+                            "link": "/norsk/analyse/analyse-sti",
+                            "icon": "map"
+                        }
+                    ],
+                    "lessons": [
+                        {
+                            "id": "analyse-novelle",
+                            "title": "Analysere Novelle",
+                            "description": "Se maskineriet bak fortellingen.",
+                            "image": "/images/lessons/norsk/analyse/analyse-novelle-hero.png",
+                            "tags": [
+                                "analyse",
+                                "novelle"
+                            ],
+                            "createdDate": "2026-02-02T14:00:00Z"
+                        },
+                        {
+                            "id": "analyse-eventyr",
+                            "title": "Analysere Eventyr",
+                            "description": "Det var en gang... og det er alltid tre av dem.",
+                            "image": "/images/lessons/norsk/analyse/analyse-eventyr-hero.png",
+                            "tags": [
+                                "analyse",
+                                "eventyr"
+                            ],
+                            "createdDate": "2026-02-02T14:20:00Z"
+                        },
+                        {
+                            "id": "analyse-dikt",
+                            "title": "Analysere Dikt",
+                            "description": "Pakk opp den komprimerte meningen.",
+                            "image": "/images/lessons/norsk/analyse/analyse-dikt-hero.png",
+                            "tags": [
+                                "analyse",
+                                "dikt"
+                            ],
+                            "createdDate": "2026-02-02T14:15:00Z"
+                        },
+                        {
+                            "id": "analyse-roman",
+                            "title": "Analysere Roman",
+                            "description": "De lange linjene: Karakter og utvikling.",
+                            "image": "/images/lessons/norsk/analyse/analyse-roman-hero.png",
+                            "tags": [
+                                "analyse",
+                                "roman"
+                            ],
+                            "createdDate": "2026-02-02T14:30:00Z"
+                        },
+                        {
+                            "id": "analyse-fagartikkel",
+                            "title": "Analysere Fagartikkel",
+                            "description": "Fakta satt i system: Fiskemodellen.",
+                            "image": "/images/lessons/norsk/analyse/analyse-fagartikkel-hero.png",
+                            "tags": [
+                                "analyse",
+                                "fagartikkel"
+                            ],
+                            "createdDate": "2026-02-02T14:40:00Z"
+                        },
+                        {
+                            "id": "analyse-debattinnlegg",
+                            "title": "Analysere Debattinnlegg",
+                            "description": "Etos, Patos og Logos: Avslør triksene.",
+                            "image": "/images/lessons/norsk/analyse/analyse-debattinnlegg-hero.png",
+                            "tags": [
+                                "analyse",
+                                "debatt"
+                            ],
+                            "createdDate": "2026-02-02T14:50:00Z"
+                        },
+                        {
+                            "id": "analyse-kommentar",
+                            "title": "Analysere Kommentar",
+                            "description": "Den subjektive stemmen: Skråblikk.",
+                            "image": "/images/lessons/norsk/analyse/analyse-kommentar-hero.png",
+                            "tags": [
+                                "analyse",
+                                "kommentar"
+                            ],
+                            "createdDate": "2026-02-02T15:00:00Z"
                         }
                     ]
                 },

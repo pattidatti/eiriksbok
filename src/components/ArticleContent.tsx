@@ -481,7 +481,11 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                                     <ChevronDown className="w-5 h-5 text-slate-500 transition-transform group-open:rotate-180" />
                                 </summary>
                                 <div className="p-6 pt-2 text-slate-700 leading-relaxed border-t border-slate-100">
-                                    {renderWithMarkdown((block as any).content, mergedConcepts)}
+                                    {Array.isArray((block as any).content) ? (
+                                        <ArticleContent content={(block as any).content} concepts={mergedConcepts} />
+                                    ) : (
+                                        renderWithMarkdown((block as any).content, mergedConcepts)
+                                    )}
                                 </div>
                             </details>
                         );

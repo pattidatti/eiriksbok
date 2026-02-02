@@ -1,0 +1,141 @@
+{
+    "id": "analyse-debattinnlegg",
+    "title": "Slik analyserer du: Debattinnlegg",
+    "description": "Lær å vurdere argumenter. Hva er holdbart, hva er relevant, og hvordan bygges en logisk rekke?",
+    "subject": "norsk",
+    "topic": "analyse",
+    "layout": "rich",
+    "heroImage": "/images/lessons/norsk/analyse/analyse-debattinnlegg-hero.png",
+    "image": "/images/lessons/analyse-debattinnlegg.jpg",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Debattinnlegg ligner på kommentarer, men er ofte kortet ned og spisset mot én spesifikk sak. Her er det *argumentasjonen* som står i sentrum."
+        },
+        {
+            "type": "expandable",
+            "title": "📖 Les innlegget: Fordummende intelligent teknologi",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Kunstig intelligens gjør oss dummere og dårligere. Fordi vi lar KI løse oppgavene, blir vi avhengige av teknologien og hjelpeløse når den svikter..."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Det viser seg nemlig at KI er en ferdighetstyv... Leger blir for eksempel dårligere til å gjøre kliniske undersøkelser... Forskning viser at studenter som har skrevet oppgaver på egen hånd, leverer bedre oppgaver."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Det kan virke meningsløst å lære seg ferdigheter når KI kan gjøre oppgavene raskere og enklere. Problemet er bare at da får man aldri selv utviklet ferdigheten – man blir avhengig av teknologien."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Først når vi har lært ferdighetene på den harde måten, gjennom øving og trening, blir KI en ferdighetsfremmer og ikke en ferdighetstyv."
+                },
+                {
+                    "type": "callToAction",
+                    "text": "Les hele innlegget i biblioteket",
+                    "link": "/norsk/bibliotek/fordummende-intelligent-teknologi",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 1: Logos (Fornuft)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Bjørn Hofmann bruker **Logos** sterkt. Han kommer med en påstand («KI gjør oss dummere») og støtter den med eksempler fra forskning (leger, studenter). Dette gjør teksten troverdig."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Sannhetskriterier",
+                "items": [
+                    {
+                        "label": "Holdbarhet",
+                        "value": "Er det sant? Han viser til forskning (høres sant ut)."
+                    },
+                    {
+                        "label": "Relevans",
+                        "value": "Har det med saken å gjøre? Ja, eksemplene støtter direkte opp om at ferdigheter forsvinner."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 2: Struktur og Mottorforestillinger"
+        },
+        {
+            "type": "paragraph",
+            "text": "En god debattant ser motstanderens argumenter. Hofmann skriver: «Det kan virke meningsløst å lære seg ferdigheter...». Han anerkjenner at KI er nyttig, *før* han skyter det ned. Dette kalles å imøtegå motargumenter."
+        },
+        {
+            "type": "component",
+            "component": "WritingFix",
+            "props": {
+                "title": "Tips: Ikke 'slakt' en tekst du er uenig i",
+                "correction": "Ikke skriv 'Forfatteren tar feil fordi jeg elsker KI'.",
+                "explanation": "Analyser *hvordan* han argumenterer. Er han saklig? Generaliserer han? Du kan være uenig, men du må vurdere kvaliteten på argumentene hans."
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Steg 3: Språklige virkemidler"
+        },
+        {
+            "type": "paragraph",
+            "text": "Han bruker begrepet **«Ferdighetstyv»** gjentatte ganger. Dette er et *plussord/minusord* som fester seg. Han personifiserer teknologien som en tyv."
+        },
+        {
+            "type": "quiz",
+            "question": "Hva er et motargument?",
+            "options": [
+                "Et argument som er surt",
+                "Et argument som støtter din sak",
+                "Et argument motparten ville brukt (som du må besvare)",
+                "En krangel"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er Patos?",
+            "options": [
+                "Å appellere til fornuft",
+                "Å appellere til følelser",
+                "Å bygge troverdighet",
+                "En gresk matrett"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva er forskjellen på en påstand og et argument?",
+            "options": [
+                "En påstand er sann, et argument er usant",
+                "Et argument inneholder en begrunnelse for påstanden",
+                "Ingen forskjell",
+                "Påstander er lengre enn argumenter"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "relatedLink": {
+        "text": "Se debattinnlegg i biblioteket",
+        "url": "/norsk/bibliotek"
+    },
+    "tags": [
+        "analyse",
+        "sidemål",
+        "retorikk",
+        "debatt"
+    ],
+    "createdDate": "2026-02-02T14:50:00Z"
+}
