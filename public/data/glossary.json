@@ -455,6 +455,12 @@
     "type": "concept"
   },
   {
+    "term": "Hamartia",
+    "definition": "Et begrep fra gammelgresk som betyr «den fatale feilen». Det viser til en karakterbrist eller en feilvurdering hos helten som fører til deres fall eller store utfordringer.",
+    "link": "/norsk/skrivehjelp/hvordan-lage-karakterer",
+    "type": "concept"
+  },
+  {
     "term": "Helsetning",
     "definition": "En setning som kan stå alene og gi fullstendig mening. Den inneholder minst et subjekt og et verbal.",
     "type": "concept",
@@ -589,6 +595,18 @@
     "subject": "samfunnskunnskap",
     "topic": "demografi-okonomi",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Karakterarketyper",
+    "definition": "Universelle rollemønstre eller «grunntyper» av karakterer som går igjen i historier på tvers av kulturer, som for eksempel Helten, Mentoren, Skyggen eller Hjelperen.",
+    "link": "/norsk/skrivehjelp/hvordan-lage-karakterer",
+    "type": "concept"
+  },
+  {
+    "term": "Karakterutvikling",
+    "definition": "Prosessen der en karakter i en historie endrer seg, vokser eller lærer noe nytt som følge av hendelsene de opplever. God karakterutvikling gjør at figurene føles levende og tredimensjonale.",
+    "link": "/norsk/skrivehjelp/hvordan-lage-karakterer",
     "type": "concept"
   },
   {
@@ -1135,6 +1153,12 @@
     "subject": "historie",
     "topic": "kolonialisering",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Show, don't tell",
+    "definition": "En skriveteknikk der man viser hva som skjer eller hva en karakter føler gjennom handlinger, sanser og detaljer, i stedet for å bare fortelle det direkte til leseren (f.eks. ved å beskrive skjelvende hender i stedet for å skrive «han var redd»).",
+    "link": "/norsk/skrivehjelp/hvordan-lage-karakterer",
     "type": "concept"
   },
   {

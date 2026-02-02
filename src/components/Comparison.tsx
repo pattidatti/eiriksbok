@@ -79,68 +79,77 @@ export const Comparison: React.FC<ComparisonProps> = ({
     }
 
     return (
-        <div className="my-16 relative">
+        <div className="my-10 relative">
             {/* Decorative Background */}
             <div className="absolute inset-0 bg-gradient-to-b from-slate-50/80 to-white rounded-3xl -z-10 backdrop-blur-sm" />
 
             {title && (
-                <div className="text-center mb-10">
-                    <div className="inline-flex items-center justify-center p-3 bg-indigo-50 text-indigo-600 rounded-full mb-4 shadow-sm">
-                        <Scale size={24} />
+                <div className="text-center mb-6">
+                    <div className="inline-flex items-center justify-center p-2.5 bg-indigo-50 text-indigo-600 rounded-full mb-3 shadow-sm">
+                        <Scale size={20} />
                     </div>
-                    <h3 className="text-2xl font-display font-bold text-slate-800">{title}</h3>
+                    <h3 className="text-xl font-display font-bold text-slate-800">{title}</h3>
                 </div>
             )}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 relative rounded-3xl border border-slate-200/60 overflow-hidden shadow-sm">
-
-
-                {/* Left Side (Technology/Structure) - Indigo Theme */}
-                <div className="flex flex-col h-full bg-indigo-50/30 backdrop-blur-sm md:border-r border-indigo-100">
-                    <div className="p-6 text-center border-b border-indigo-100">
-                        <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 bg-indigo-100/50 text-indigo-700 font-bold uppercase tracking-wider text-xs rounded-full">
-                            <Users size={14} />
+            <div className="relative rounded-2xl border border-slate-200/60 overflow-hidden shadow-sm bg-white">
+                {/* Header Row */}
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_2fr] border-b border-slate-100">
+                    <div className="hidden md:block p-4 bg-slate-50/50 md:border-r border-slate-100">
+                        {/* Empty spacer for Label column in header */}
+                    </div>
+                    <div className="p-3 md:p-4 text-center bg-indigo-50/30 backdrop-blur-sm md:border-r border-indigo-100">
+                        <div className="inline-flex items-center justify-center gap-2 px-3 py-1 bg-indigo-100/50 text-indigo-700 font-bold uppercase tracking-wider text-[10px] rounded-full">
+                            <Users size={12} />
                             {leftTitle}
                         </div>
                     </div>
-
-                    <div className="flex-grow p-8 flex flex-col gap-6">
-                        {displayItems.map((item, i) => (
-                            <motion.div
-                                key={`left-${i}`}
-                                initial={{ opacity: 0, x: -10 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: i * 0.1, ease: "easeOut" }}
-                                className="p-6 bg-white/80 rounded-2xl shadow-sm border border-indigo-100/50 text-indigo-900 leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap"
-                            >
-                                {renderInlineMarkdown(item.left, entries)}
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Right Side (Humanity/Reflection) - Amber Theme */}
-                <div className="flex flex-col h-full bg-amber-50/30 backdrop-blur-sm">
-                    <div className="p-6 text-center border-b border-amber-100">
-                        <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 bg-amber-100/50 text-amber-700 font-bold uppercase tracking-wider text-xs rounded-full">
-                            <Shield size={14} />
+                    <div className="p-3 md:p-4 text-center bg-amber-50/30 backdrop-blur-sm">
+                        <div className="inline-flex items-center justify-center gap-2 px-3 py-1 bg-amber-100/50 text-amber-700 font-bold uppercase tracking-wider text-[10px] rounded-full">
+                            <Shield size={12} />
                             {rightTitle}
                         </div>
                     </div>
+                </div>
 
-                    <div className="flex-grow p-8 flex flex-col gap-6">
-                        {displayItems.map((item, i) => (
-                            <motion.div
-                                key={`right-${i}`}
-                                initial={{ opacity: 0, x: 10 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: i * 0.1, ease: "easeOut" }}
-                                className="p-6 bg-white/80 rounded-2xl shadow-sm border border-amber-100/50 text-amber-900 leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap"
-                            >
-                                {renderInlineMarkdown(item.right, entries)}
-                            </motion.div>
-                        ))}
-                    </div>
+                {/* Items Rows */}
+                <div className="flex flex-col">
+                    {displayItems.map((item, i) => (
+                        <div key={i} className={`grid grid-cols-1 md:grid-cols-[1fr_2fr_2fr] ${i !== displayItems.length - 1 ? 'border-b border-slate-50' : ''}`}>
+                            {/* Label Column (Centralized) */}
+                            <div className="p-3 md:p-4 bg-slate-50/30 md:border-r border-slate-100 flex items-center justify-center">
+                                {item.label && (
+                                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[11px] text-center">
+                                        {item.label}
+                                    </span>
+                                )}
+                            </div>
+
+                            {/* Left Side Item */}
+                            <div className="p-2 md:p-2.5 bg-indigo-50/5 md:border-r border-indigo-50">
+                                <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.05, ease: "easeOut" }}
+                                    className="h-full p-2.5 md:p-3.5 bg-white shadow-sm border border-indigo-100/40 text-indigo-900 text-sm md:text-base leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap flex items-center justify-center font-medium rounded-lg"
+                                >
+                                    {renderInlineMarkdown(item.left, entries)}
+                                </motion.div>
+                            </div>
+
+                            {/* Right Side Item */}
+                            <div className="p-2 md:p-2.5 bg-amber-50/5">
+                                <motion.div
+                                    initial={{ opacity: 0, x: 10 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.05, ease: "easeOut" }}
+                                    className="h-full p-2.5 md:p-3.5 bg-white shadow-sm border border-amber-100/40 text-amber-900 text-sm md:text-base leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap flex items-center justify-center rounded-lg"
+                                >
+                                    {renderInlineMarkdown(item.right, entries)}
+                                </motion.div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

@@ -601,6 +601,18 @@
                                 "formatering"
                             ],
                             "createdDate": "2026-02-02T12:00:00Z"
+                        },
+                        {
+                            "id": "hvordan-lage-karakterer",
+                            "title": "Hvordan lage karakterer",
+                            "description": "Lær å bygge troverdige karakterer fra skjelett til sjel med Elias og Sara.",
+                            "image": "/images/lessons/norsk/hvordan-lage-karakterer-hero.png",
+                            "tags": [
+                                "skrivehjelp",
+                                "karakterer",
+                                "fortelling"
+                            ],
+                            "createdDate": "2026-02-02T13:30:00Z"
                         }
                     ]
                 }
