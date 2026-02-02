@@ -105,6 +105,34 @@
                 "Overskriften"
             ],
             "correctAnswer": 2
+        },
+        {
+            "type": "section",
+            "title": "Eksempel på fullstendig analyse",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Slik kan en retorisk analyse av denne kommentaren se ut."
+                },
+                {
+                    "type": "expandable",
+                    "title": "Les analysen av «KI er Botox»",
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "text": "I kommentaren «KI er Botox for hjernen» går forfatteren til angrep på det han mener er en sjelløs bruk av kunstig intelligens i tekstproduksjon. Ved å sammenligne KI med Botox, et middel som lammer muskler for å fjerne rynker, setter han tonen umiddelbart: Det som ser «pent» ut på overflaten, kan være dødt på innsiden."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Teksten preges av sterke virkemidler, særlig bruk av patos. Forfatteren bruker negativt ladde ord som «glatt», «død» og «juks» om KI-tekster, mens menneskelige feil og skrivemåter hylles som «ekte» og «empatiske». Han appellerer altså til leserens følelse av at det uperfekte også er det mest verdifulle."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Hovedpoenget kommer tydelig frem: Vi må tørre å skrive selv, med alle våre feil og mangler, for å bevare vår menneskelighet. Sammenligningen med Botox fungerer som en rød tråd gjennom hele teksten og gjør budskapet både visuelt og lettfattelig. Det er en tekst som ikke bare vil informere, men som vil riste i leseren."
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "quiz": [

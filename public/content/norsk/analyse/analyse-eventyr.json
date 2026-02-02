@@ -83,6 +83,34 @@
                 "Man må alltid høre på faren sin"
             ],
             "correctAnswer": 2
+        },
+        {
+            "type": "section",
+            "title": "Eksempel på fullstendig analyse",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Her ser du hvordan vi kan bruke eventyrtrekkene til å skrive en kort analyse av Askeladden."
+                },
+                {
+                    "type": "expandable",
+                    "title": "Les analysen av «Askeladden»",
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "text": "Eventyret «Askeladden som kappåt med trollet» er et klassisk undereventyr som følger sjangerens faste lover til punkt og prikke. Handlingen er bygget opp rundt tretallsloven: Det er tre brødre som skal til skogs for å hugge ved, og det er først på det tredje forsøket at helten lykkes."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Askeladden representerer den typiske eventyrhelten: Han er undervurdert, kreativ og modig. Mens brødrene Per og Pål (som representerer de som følger regler blindt) rømmer så fort trollet skriker, bruker Askeladden list. Trollet, på den annen side, er et bilde på de naturkreftene menneskene måtte kjempe mot. Det er sterkt og farlig, men også dumt og lett å lure."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Kontrasten mellom Askeladden og trollet er kjernen i eventyrets budskap. Det handler om at «ånd vinner over hånd» – kløkt er viktigere enn rå styrke. Når Askeladden lurer trollet til å skjære opp sin egen mage, viser eventyret oss at selv den minste kan vinne over den største, hvis man bare tør å tenke annerledes."
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "relatedLink": {

@@ -106,6 +106,34 @@
                 "Fordi faren hennes kommer hjem"
             ],
             "correctAnswer": 2
+        },
+        {
+            "type": "section",
+            "title": "Eksempel på fullstendig analyse",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Hvordan tolker vi den subjektive jeg-fortelleren? Her er en modelltekst."
+                },
+                {
+                    "type": "expandable",
+                    "title": "Les analysen av «Sult»",
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "text": "Utdraget fra Knut Hamsuns roman «Sult» skildrer hovedpersonens desperate og mislykkede møte med Ylajali. Scenen er preget av en intens *indre monolog*, hvor vi får direkte tilgang til hovedpersonens skiftende tanker og følelser. Han svinger lynraskt mellom ydmyk forelskelse og såret stolthet, noe som viser leseren hvor ustabil han er."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Fortellerinstansen er en klassisk personal jeg-forteller. Dette gjør at vi ser hele hendelsen utelukkende gjennom hans øyne. Når han sier at han «behøvde slett ikke å være så stille», prøver han å overbevise seg selv om at han har kontroll. Men gjennom handlingene hans – at han ikke klarer å ta henne på stolryggen, og hans desperate utbrudd om at han er fattig – forstår vi som lesere at han mister kontrollen."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Temaet i utdraget kretser rundt verdighet og skam. Hovedpersonen ønsker nærhet, men stoltheten hans står i veien. Han klarer ikke å være sårbar på en ekte måte, men tyr til aggresjon når han føler seg underlegen. Teksten viser oss det moderne menneskets fremmedfølelse: Han er ensom midt i møtet med en annen."
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "quiz": [

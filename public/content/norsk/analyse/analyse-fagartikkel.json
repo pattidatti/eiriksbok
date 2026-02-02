@@ -126,6 +126,34 @@
                 "At den er objektiv"
             ],
             "correctAnswer": 1
+        },
+        {
+            "type": "section",
+            "title": "Eksempel på fullstendig analyse",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Hvordan skriver man om en fagtekst? Her analyserer vi Ibn Fadlans reisebrev."
+                },
+                {
+                    "type": "expandable",
+                    "title": "Les analysen av «Reisebrev»",
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "text": "Ibn Fadlans reisebeskrivelse fra år 921 gir oss et unikt innblikk i vikingenes liv, sett gjennom øynene til en utenlandsk observatør. Teksten er en blanding av objektiv rapportering og subjektiv vurdering. Fadlan beskriver presist det han ser, som vikingenes «fullkomne kropper» og kvinnenes smykker. Dette gir teksten stor historisk verdi."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Samtidig er det tydelig at fremstillingen er preget av forfatterens eget ståsted. Som muslim fra en høytstående kultur reagerer han sterkt på vikingenes hygiene. Når han kaller dem «de skitneste av Guds skapninger» og sammenligner dem med «ville esler», går han fra å være observatør til å bli dommer. Han vurderer vikingene basert på *sine* egne normer for renslighet, ikke deres."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Denne dobbeltheten er viktig for å forstå teksten. Vi må lese beskrivelsene som fakta, men vurderingene som uttrykk for kulturkollisjon. Teksten lærer oss at ingen kilde er helt nøytral; selv en reisende som prøver å fortelle sannheten, vil alltid se verden gjennom sine egne briller."
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "quiz": [

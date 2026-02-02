@@ -103,6 +103,34 @@
                 "En krangel"
             ],
             "correctAnswer": 2
+        },
+        {
+            "type": "section",
+            "title": "Eksempel på fullstendig analyse",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Her ser vi på hvordan argumentasjonen i innlegget er bygget opp."
+                },
+                {
+                    "type": "expandable",
+                    "title": "Les analysen av «Intelligent Teknologi»",
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "text": "I debattinnlegget «Fordummende intelligent teknologi» argumenterer Bjørn Hofmann for at overdreven bruk av kunstig intelligens (KI) svekker menneskets egne evner. Hovedtesen hans er tydelig: KI fungerer som en «ferdighetstyv» som gjør oss hjelpeløse hvis vi overlater alt til maskinene."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Hofmann bygger opp argumentasjonen sin primært ved bruk av logos (fornuft). Han viser til konkrete eksempler fra legestanden og akademia for å underbygge påstanden om at ferdigheter forsvinner når de ikke brukes. Dette gir teksten tyngde og troverdighet. Samtidig bruker han begrepet «ferdighetstyv» som en effektiv metafor, noe som skaper et negativt bilde av teknologien."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Et styrkende trekk ved innlegget er måten han imøtegår motargumenter på. Han anerkjenner at det kan virke «meningsløst» å lære seg ting tungvint når KI kan gjøre det lett, men snur dette raskt til å handle om avhengighet. Han avslutter med en tydelig konklusjon: KI blir først en ressurs når vi *har* lært oss grunnleggende ferdigheter selv. Argumentasjonen henger dermed logisk sammen fra start til slutt."
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "quiz": [

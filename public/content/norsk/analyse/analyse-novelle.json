@@ -1,8 +1,5 @@
 {
     "id": "analyse-novelle",
-    "title": "Analyse av Novelle",
-    "description": "Se maskineriet bak fortellingen. Hvordan konstrueres et øyeblikk?",
-    "subject": "norsk",
     "title": "Slik analyserer du: Novelle",
     "description": "Lær å se bak handlingen. Avdekk novellens dypere lag ved å studere vendepunkt, 'Show, don't tell' og symbolbruk.",
     "image": "/images/lessons/analyse-novelle.jpg",
@@ -122,6 +119,34 @@
                     }
                 ]
             }
+        },
+        {
+            "type": "section",
+            "title": "Eksempel på fullstendig analyse",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Her ser du hvordan punktene over kan skrives sammen til en ferdig tekst. Legg merke til hvordan vi starter med motivet, går videre til komposisjonen, og avslutter med temaet."
+                },
+                {
+                    "type": "expandable",
+                    "title": "Les analysen av «Faderen»",
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "text": "Novellen «Faderen» av Bjørnstjerne Bjørnson handler om storbonde Tord Øverås og hans utvikling fra hovmod til ydmykhet. Motivet er en fars sterke ønske om å gi sønnene alt det beste: den beste dåpen, den beste konfirmasjonen og det rikeste giftermålet. Men bak denne omsorgen ligger det et behov for å vise frem egen makt og status."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Bjørnson har bygget kompoisjonen stramt opp rundt fire møter mellom Tord og presten. I de tre første møtene ser vi Tords hovmod vokse. Han kommer ikke for å be om Guds velsignelse, men for å kjøpe den. Hver gang legger han penger på bordet som om det var en handel. Vendepunktet inntreffer brått og brutalt når sønnen drukner rett før bryllupet. Her skifter novellen karakter fullstendig."
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "Etter ulykken møter vi Tord en siste gang. Nå er han ikke lenger den stolte bonden, men en «høy, foroverbøyd mann». I dette siste møtet med presten kommer novellens tema tydelig frem: Det er først når Tord mister alt, at han finner noe som er verdt å eie. Ved å selge gården og gi pengene til de fattige, viser han at han har gått fra ytre ære til indre sannhet. Ulykken knuste lykken hans, men reddet sjelen hans."
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "quiz": [
