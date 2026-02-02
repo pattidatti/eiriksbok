@@ -112,9 +112,10 @@
         {
             "type": "list",
             "items": [
-                "Karakterisering: Viser oss hvem personen er (dialekt, bannskap, usikkerhet).",
-                "Fremdrift: Driver handlingen fremover. Noe nytt må skje eller avsløres.",
-                "Atmosfære/Subtekst: Viser oss stemningen mellom personene."
+                "Karakterisering: Viser oss hvem personen er (mål, frykt, idéer, dialekt, bannskap, usikkerhet).",
+                "Fremdrift: Driver handlingen fremover. Noe nytt må skje, avsløres eller planlegges.",
+                "Atmosfære/Subtekst: Viser oss stemningen mellom personene.",
+                "Handlingsmarkører: Viser hva karakterene gjør mens de snakker. De står ikke i et hvit tomt rom."
             ]
         },
         {
