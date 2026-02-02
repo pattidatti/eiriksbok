@@ -58,6 +58,14 @@
             }
         },
         {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Hurtigtast for ny linje",
+                "text": "For å få en enkel ny linje i teksten, trykk CTRL+ENTER."
+            }
+        },
+        {
             "type": "header",
             "text": "3. Den usynlige taleren"
         },
