@@ -1,6 +1,6 @@
 {
     "id": "ww1-sti",
-    "title": "Læringssti: Sivilisasjonens Selvmord",
+    "title": "Læringssti: Første verdenskrig",
     "description": "En reise fra 1914-optimismen til skyttergravenes helvete. Klarer du å forstå valgene som ødela en hel generasjon?",
     "layout": "learning-path",
     "category": "Læringssti",
@@ -8,7 +8,7 @@
     "readTime": "4-5 timer",
     "learningPathData": {
         "id": "ww1-sti",
-        "title": "Sivilisasjonens Selvmord",
+        "title": "Første verdenskrig",
         "description": "Første verdenskrig var ikke bare slag. Det var sivilisasjonens kollaps. I denne stien skal du ikke bare lese om krigen – du skal stå i den.",
         "targetTopicId": "forste-verdenskrig",
         "targetSubjectId": "historie",

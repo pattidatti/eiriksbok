@@ -66,6 +66,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
     useEffect(() => {
         if (lesson) {
+            window.scrollTo(0, 0);
             addToHistory({
                 id: lesson.id,
                 title: lesson.title,
@@ -112,14 +113,14 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
     // Show loading if:
     // 1. Initial lesson query is loading
-    // 3. We have no lesson data yet but are still fetching (initial mounting phase)
-    // 2. We have a lesson layout that REQUIRES learningPathData, but it's missing while fetching
-    const isIncompletePathData = lesson?.layout === 'learning-path' && !lesson?.learningPathData;
+    // 2. We have no lesson data yet but are still fetching (initial mounting phase)
+    // 3. We have a lesson layout that REQUIRES learningPathData, but it's missing while fetching
+    const isIncompletePathData = lesson?.layout === 'learning-path' && (!lesson?.learningPathData || !lesson.learningPathData.steps);
     const loading = lessonLoading || (!lesson && isFetching) || (isIncompletePathData && isFetching);
 
     // Diagnostic logging
     if (loading || isFetching || lesson) {
-        console.log(`[LessonPage] Render: loading=${loading}, lessonLoading=${lessonLoading}, isFetching=${isFetching}, hasLesson=${!!lesson}, layout="${lesson?.layout || 'none'}", hasLPData=${!!lesson?.learningPathData}`);
+        console.log(`[LessonPage] Render: loading=${loading}, isFetching=${isFetching}, hasLesson=${!!lesson}, layout="${lesson?.layout || 'none'}", hasSteps=${!!lesson?.learningPathData?.steps}`);
     }
 
     if (loading) return <LessonSkeleton />;
@@ -228,6 +229,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         return (
             <ErrorBoundary>
                 <InteractiveArticle
+                    key={`${lesson.id}-${lesson.layout}-${lesson.learningPathData ? 'lp' : 'std'}`}
                     event={articleData}
                     onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
                     fallbackUrl={fallbackUrl}

@@ -24,9 +24,8 @@ export function getCachedRegistry(): ContentIndex | null {
 }
 
 const getBasePath = () => {
-    return import.meta.env.BASE_URL.endsWith('/')
-        ? import.meta.env.BASE_URL
-        : `${import.meta.env.BASE_URL}/`;
+    const rawBase = import.meta.env.BASE_URL || '/';
+    return rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 };
 
 /**
@@ -41,12 +40,14 @@ export async function fetchRegistry(): Promise<ContentIndex | null> {
     if (cachedRegistry) return Promise.resolve(cachedRegistry);
 
     const basePath = getBasePath();
-    console.log(`[ContentRegistry] Fetching registry from: ${basePath}content/content-index.json`);
+    // Pathological case: If basePath is wrong, relative fetches will 404
+    const url = `${basePath}content/content-index.json?v=${Date.now()}`;
+    console.log(`[ContentRegistry] Fetching registry from: ${url}`);
 
-    globalRegistryPromise = fetch(`${basePath}content/content-index.json`, { cache: 'no-cache' })
+    globalRegistryPromise = fetch(url, { cache: 'no-cache' })
         .then(async (response) => {
             if (!response.ok) {
-                // Critical: This will trigger the rejection of the promise
+                console.error(`[ContentRegistry] ❌ Fetch failed: ${response.status} ${response.statusText}`);
                 throw new Error(`Failed to fetch registry: ${response.statusText}`);
             }
             const data = await response.json() as ContentIndex;
