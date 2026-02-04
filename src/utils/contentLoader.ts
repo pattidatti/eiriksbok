@@ -97,6 +97,8 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     const basePath = getBasePath();
     const normalizedId = lessonId.toLowerCase();
 
+    console.log(`[ContentLoader] 🚀 fetchLesson called: subject="${subject}", topic="${topic}", lessonId="${lessonId}", subTopicId="${subTopicId || 'none'}"`);
+
     // 1. Ensure Registry and Manifest are loaded (Parallelized with Graceful Failure)
     // We wrap these in a way that failures don't crash the entire Promise.all
     const [registry, manifest] = await Promise.all([
@@ -109,6 +111,8 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
             return null;
         })
     ]);
+
+    console.log(`[ContentLoader] Data loaded: registry=${registry ? 'OK' : 'NULL'}, manifest=${manifest ? 'OK' : 'NULL'}`);
 
     // Note: We DO NOT throw if both fail. We allow Tier 3 (Convention) to attempt blindly.
     if (!registry && !manifest) {
@@ -151,8 +155,11 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
             ? `${subject}/${topic}/${subTopicId}/${normalizedId}`.toLowerCase()
             : `${subject}/${topic}/${normalizedId}`.toLowerCase();
 
+        console.log(`[ContentLoader] Tier 1: Looking up contextKey="${contextKey}"`);
+
         if (registry.hierarchicalMap[contextKey]) {
             registryPath = registry.hierarchicalMap[contextKey];
+            console.log(`[ContentLoader] Tier 1: Found in hierarchicalMap → "${registryPath}"`);
         } else if (registry.contentMap[normalizedId]) {
             const entry = registry.contentMap[normalizedId];
             if (Array.isArray(entry)) {
@@ -160,11 +167,15 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
             } else {
                 registryPath = entry;
             }
+            console.log(`[ContentLoader] Tier 1: Found in contentMap → "${registryPath}"`);
+        } else {
+            console.log(`[ContentLoader] Tier 1: NOT FOUND in registry`);
         }
 
         if (registryPath) {
             const data = await tryLoadPath(registryPath, "Tier 1 (Registry)");
             if (data) {
+                console.log(`[ContentLoader] Tier 1: ✅ Data loaded. layout="${data.layout}", hasLearningPathData=${!!data.learningPathData}`);
                 // Registry success - return immediately
                 // We typically don't enrich registry data with manifest data unless needed, 
                 // but to be consistent with previous logic, we can checking manifest for enrichment.
@@ -174,6 +185,7 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
                 }
                 return data;
             }
+            console.log(`[ContentLoader] Tier 1: ❌ Path found but data load failed, proceeding to Tier 2`);
             // If we are here, Tier 1 Found a path but Failed to load (404/Error).
             // Proceed to Tier 2...
         }

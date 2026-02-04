@@ -1557,8 +1557,8 @@
                     "tools": [
                         {
                             "id": "ww1-sti",
-                            "title": "Læringssti: Den Store Krigen",
-                            "description": "Følg sivilisasjonens selvmord fra 1914 til 1918.",
+                            "title": "WW1-sti",
+                            "description": "Følg første verdenskrig fra 1914 til 1918.",
                             "link": "/historie/forste-verdenskrig/ww1-sti",
                             "icon": "map"
                         }
