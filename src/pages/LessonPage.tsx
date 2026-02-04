@@ -119,6 +119,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const loading = lessonLoading || (!lesson && isFetching) || (isIncompletePathData && isFetching);
 
     // Diagnostic logging
+    console.count("[LessonPage] Render Count");
     if (loading || isFetching || lesson) {
         console.log(`[LessonPage] Render: loading=${loading}, isFetching=${isFetching}, hasLesson=${!!lesson}, layout="${lesson?.layout || 'none'}", hasSteps=${!!lesson?.learningPathData?.steps}`);
     }

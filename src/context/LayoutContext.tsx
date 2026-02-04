@@ -38,15 +38,17 @@ export const LayoutProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         setManualFullWidth(false);
     }, [location.pathname]);
 
+    const contextValue = React.useMemo(() => ({
+        isFullWidth,
+        setFullWidth: setManualFullWidth,
+        hideHeader,
+        setHideHeader,
+        hideBreadcrumbs,
+        setHideBreadcrumbs
+    }), [isFullWidth, hideHeader, hideBreadcrumbs]);
+
     return (
-        <LayoutContext.Provider value={{
-            isFullWidth,
-            setFullWidth: setManualFullWidth,
-            hideHeader,
-            setHideHeader,
-            hideBreadcrumbs,
-            setHideBreadcrumbs
-        }}>
+        <LayoutContext.Provider value={contextValue}>
             {children}
         </LayoutContext.Provider>
     );

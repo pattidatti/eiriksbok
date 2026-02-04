@@ -253,9 +253,9 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
             {/* Header Section */}
             <div className="pt-16 pb-4 md:pt-32 md:pb-6 px-6 max-w-5xl mx-auto text-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
                 >
                     {/* Mobile-Only Meta Row */}
                     <div className="md:hidden flex flex-wrap justify-center items-center gap-3 text-xs font-bold text-slate-500 mb-3">
