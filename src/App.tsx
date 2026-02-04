@@ -152,11 +152,11 @@ function AppContent() {
               <Route path=":subjectId/:topicId/:subTopicId/present/:lessonId/projector" element={<PresentationPage />} />
 
               <Route path=":subjectId" element={<SubjectPage />} />
-              <Route path=":subjectId/:topicId" element={<TopicPage />} />
-              <Route path=":subjectId/:topicId/:subTopicId" element={<TopicPage />} />
               <Route path=":subjectId/:topicId/:subTopicId/:lessonId" element={<LessonPage />} />
-              <Route path="/norsk/ordklasser/sortering" element={<WordSorterGame />} />
               <Route path=":subjectId/:topicId/:lessonId" element={<LessonPage />} />
+              <Route path=":subjectId/:topicId/:subTopicId" element={<TopicPage />} />
+              <Route path=":subjectId/:topicId" element={<TopicPage />} />
+              <Route path="/norsk/ordklasser/sortering" element={<WordSorterGame />} />
 
               {/* Backward compatibility / direct access */}
               <Route path="flashcards" element={<FlashcardPage />} />

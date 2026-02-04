@@ -216,6 +216,13 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
         event.tags || []
     ).slice(0, 5); // Limit to 5 related articles
 
+    // Diagnostic logging
+    console.log(`[InteractiveArticle] Rendering: title="${event.title}", layout="${event.layout}", hasContent=${!!event.content}, hasLPData=${!!event.learningPathData}, LPSteps=${event.learningPathData?.steps?.length}`);
+
+    if (event.layout === 'learning-path' && !event.learningPathData) {
+        console.warn(`[InteractiveArticle] WARNING: layout is learning-path but learningPathData is MISSING`);
+    }
+
     return (
         <div className="min-h-screen pb-20 relative z-20">
             {/* Progress Bar */}

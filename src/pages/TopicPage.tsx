@@ -11,7 +11,6 @@ import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { TopicInteractiveModel } from '../components/TopicInteractiveModel';
 import { TopicContentRenderer } from '../components/content/TopicContentRenderer';
-import { LessonPage } from './LessonPage';
 import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { PageSkeleton } from '../components/Skeleton';
@@ -93,11 +92,6 @@ export const TopicPage: React.FC = () => {
         return <ErrorBoundary><HistoryLongLines /></ErrorBoundary>;
     }
 
-    const lessonInTopic = currentTopic?.lessons?.find((l: any) => l.id === subTopicId) ||
-        currentTopic?.tools?.find((t: any) => t.id === subTopicId);
-    if (lessonInTopic) {
-        return <ErrorBoundary><LessonPage lessonIdOverride={subTopicId} /></ErrorBoundary>;
-    }
 
     console.log('TopicPage Debug Stringified:', JSON.stringify({
         topicId,
