@@ -50,7 +50,7 @@
         },
         {
             "type": "text",
-            "value": "**Oppskrift:**\nForfatter/Organisasjon. (År). *Tittel på artikkelen*. Nettsidens navn. URL\n\n**Eksempel:**\nFN-sambandet. (2023). *Finland*. FN.no. https://www.fn.no/Land/finland"
+            "value": "**Oppskrift:**\nForfatter/Organisasjon. (År). *Tittel på artikkelen*. Hentet dato fra URL\n\n**Eksempel:**\nFN-sambandet. (2023). *Finland*. Hentet 12.01.2024 fra https://www.fn.no/Land/finland \n\nHansen, P. (2023). *Hvordan fore kilder*. Hentet 12.01.2024 fra https://www.snl.no/kildehenvisning"
         },
         {
             "type": "subheader",
@@ -58,7 +58,7 @@
         },
         {
             "type": "text",
-            "value": "**Oppskrift:**\nKanalnavn. (År, Dato). *Videotittel* [Video]. YouTube. URL\n\n**Eksempel:**\nNRK Skole. (2023, 14. august). *Hva er demokrati?* [Video]. YouTube. https://www.youtube.com/watch?v=eksempel"
+            "value": "**Oppskrift:**\nKanalnavn. (År). *Videotittel* [Video]. YouTube. URL\n\n**Eksempel:**\nNRK Skole. (2023). *Hva er demokrati?* [Video]. YouTube. https://www.youtube.com/watch?v=eksempel"
         },
         {
             "type": "subheader",
@@ -66,7 +66,7 @@
         },
         {
             "type": "text",
-            "value": "**Oppskrift:**\nEtternavn, Forbokstav. (År, Dato). *Tittel på artikkelen*. Avisens navn. URL\n\n**Eksempel:**\nRøed, L. (2024, 12. januar). *Slik løser vi klimakrisen*. Aftenposten. https://www.aftenposten.no/eksempel"
+            "value": "**Oppskrift:**\nEtternavn, F. (År). *Tittel på artikkelen*. Avisens navn. URL\n\n**Eksempel:**\nRøed, L. (2024). *Slik løser vi klimakrisen*. Aftenposten. https://www.aftenposten.no/eksempel"
         },
         {
             "type": "header",

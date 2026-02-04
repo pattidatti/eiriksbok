@@ -163,6 +163,11 @@
                     }
                 ]
             }
+        },
+        {
+            "type": "component",
+            "name": "NuclearSimulator",
+            "props": {}
         }
     ],
     "quiz": [
