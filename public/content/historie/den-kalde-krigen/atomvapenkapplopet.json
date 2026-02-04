@@ -20,6 +20,11 @@
             "content": "Atomv\u00e5penkappl\u00f8pet var selve motoren i [den kalde krigen](/historie/den-kalde-krigen/oversikt). Det var ikke bare et kappl\u00f8p om \u00e5 ha de mest moderne v\u00e5pnene, men om \u00e5 ha s\u00e5 mange at fienden aldri ville t\u00f8re \u00e5 angripe. Dette skapte en unik og skremmende situasjon i verdenshistorien: For f\u00f8rste gang hadde menneskeheten utviklet teknologien til \u00e5 utslette seg selv fullstendig.\n\nKonflikten begynte med de amerikanske bombene over Hiroshima og Nagasaki i 1945, som avsluttet andre verdenskrig. I fire \u00e5r var USA alene om \u00e5 ha atomv\u00e5pen, men i 1949 sjokkerte Sovjetunionen verden med sin f\u00f8rste vellykkede test. Fra det \u00f8yeblikket var kappl\u00f8pet i gang."
         },
         {
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=YtCTzbh4mNQ",
+            "title": "Atombombene over Hiroshima og Nagasaki"
+        },
+        {
             "type": "component",
             "name": "FactBox",
             "props": {
@@ -97,6 +102,11 @@
         {
             "type": "text",
             "content": "Gjennom 50- og 60-tallet utf\u00f8rte b\u00e5de USA og Sovjet hundrevis av prøvesprengninger i atmosf\u00e6ren, under vann og under jorden. Den st\u00f8rste bomben som noensinne er sprengt var den sovjetiske Tsar Bomba i 1961, som hadde en sprengkraft p\u00e5 50 megatonn – over 3000 ganger kraftigere enn Hiroshima-bomben.\n\nDisse testene f\u00f8rte til stor bekymring for helse og milj\u00f8 p\u00e5 grunn av radioaktivt nedfall. Dette presset frem den f\u00f8rste store miljøbevegelsen og resulterte i Pr\u00f8vestansavtalen i 1963, som forb\u00f8 sprengninger i atmosf\u00e6ren, rommet og under vann."
+        },
+        {
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=VLU9WnTAtGI",
+            "title": "Tsar Bomba: Verdens kraftigste hydrogenbombe"
         },
         {
             "type": "header",

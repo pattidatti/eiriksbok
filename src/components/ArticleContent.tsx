@@ -453,12 +453,20 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                         const videoTitle = (block as any).title || "YouTube video";
                         // Extract video ID from URL if it's a full link
                         let embedUrl = videoUrl;
+
+                        // YouTube parameters for Norwegian subtitles
+                        const ytParams = "cc_load_policy=1&hl=nb&cc_lang_pref=nb";
+
                         if (videoUrl.includes('youtube.com/watch?v=')) {
                             const videoId = videoUrl.split('v=')[1]?.split('&')[0];
-                            embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                            embedUrl = `https://www.youtube.com/embed/${videoId}?${ytParams}`;
                         } else if (videoUrl.includes('youtu.be/')) {
                             const videoId = videoUrl.split('youtu.be/')[1]?.split('?')[0];
-                            embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                            embedUrl = `https://www.youtube.com/embed/${videoId}?${ytParams}`;
+                        } else if (embedUrl.includes('youtube.com/embed/')) {
+                            // If it's already an embed URL, append params
+                            const separator = embedUrl.includes('?') ? '&' : '?';
+                            embedUrl = `${embedUrl}${separator}${ytParams}`;
                         }
 
                         return (

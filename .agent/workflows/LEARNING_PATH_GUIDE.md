@@ -73,6 +73,12 @@ Hvert steg i `steps`-arrayet kan være av typen:
 *   `ressurs`: Lenker til fordypning.
 
 Hvert steg skal ha **5-8 oppgaver** som følger **Blooms Taksonomi (Scaffolding-trappen)**:
+
+> [!IMPORTANT]
+> **Regel for artikler**: Hvis et steg krever at eleven leser en artikkel for å finne svarene, skal dette **ALLTID** være den første oppgaven i `tasks`-arrayet. Oppgaven skal være en klikkbar lenke.
+> *   **Format**: `Les artikkelen [Artikkelnavn](/historie/emne/artikkel)`
+> *   **Viktig**: Bruk alltid **absolutt sti** (starter med `/`) for å sikre at lenken fungerer uavhengig av hvor eleven befinner seg i appen.
+
 1.  **Fakta**: (Gjenkalling) Svar som finnes direkte i teksten.
 2.  **Forståelse**: (Forklaring) Eleven må forklare mekanismer eller årsaker.
 3.  **Analyse/Etikk**: (Refleksjon) Eleven må vurdere dilemmaer eller se lange linjer.
@@ -85,6 +91,7 @@ Hvert steg skal ha **5-8 oppgaver** som følger **Blooms Taksonomi (Scaffolding-
     "type": "fakta", 
     "content": "Selve teksten skal være guiding og narrativ. Skriv 1-3 avsnitt (ca. 150-300 ord). Beskriv scenen, forklar hva som skjer i verden, og gi eleven et hint om hva de skal lete etter i artiklene. 'Du står i gjørma... Se etter hvordan soldatene holdt seg tørre.'",
     "tasks": [
+        "Les artikkelen [Slaget ved Somme](/historie/forste-verdenskrig/somme)",
         "Hva skjedde med...? (Fakta)",
         "Hvorfor var det viktig at...? (Forståelse)",
         "Ville du valgt annerledes hvis...? (Etikk)"
@@ -249,10 +256,10 @@ For at stien skal vises i sidebaren inne på et emne (f.eks. "Mellomkrigstiden")
 
 #### 4. Hub vs Manifest
 **Symptom:** Stien synes i Biblioteket, men ikke på emnesiden.
-**Årsak:** Filen er opprettet, men du har glemt å legge den inn i `manifest.json`.
-**Løsning:** Følg steg 4B over.
+**Årsak:** Filen er opprettet,4.  [ ] **Hub vs Manifest**: Er stien lagt inn i `manifest.json` under `tools`? Sjekk at `id` matcher.
+5.  [ ] **Standardiserte Oppgaver**: Er "Les artikkelen" den aller første oppgaven hvis artikkelen kreves? Bruker den en absolutt sti?
 
-> **VIKTIG:** Sørg for at `id` i manifestet matcher `id` inne i JSON-filen.
+> **TIPS:** Bruk `/historie/...` og ikke `historie/...` for lenker i `tasks`.
 
 ## 5. Sjekkliste for Kvalitetssikring
 
@@ -262,7 +269,7 @@ Før du sier deg ferdig:
 2.  [ ] **Bilder**: Har alle interaktive komponenter nødvendige ikoner/bilder?
 3.  [ ] **Pedagogisk Trapp**: Følger oppgavene Blooms taksonomi (Fakta -> Forståelse -> Refleksjon)?
 4.  [ ] **Narrativ Dybde**: Har hvert steg minst 150 ord med guiding tekst?
-5.  [ ] **Ghost-Fact Audit (KRITISK)**: Har du manuelt verifisert at alle 'Fakta'-spørsmål faktisk kan besvares ved å lese den lenkede artikkelen? Det er forbudt å spørre om noe som ikke står i kildematerialet.
+5.  [ ] **Ghost-Fact Audit (KRITISK)**: Har du manuelt verifisert at alle 'Fakta'-spørsmål faktisk kan besvares ved å lese den lenkede artikkelen? Det er forbudt å spørre om noe som ikke står i kildematerialet. Sjekk også at "Les artikkelen" er første steg.
 6.  [ ] **Testing**: Åpne stien i nettleseren og klikk gjennom alle stegene. Spill gjennom scenariene for å sjekke at logikken holder.
 7.  [ ] **Data Synchronization:** Run `node scripts/update-learning-paths.cjs` to update the library hub.
 

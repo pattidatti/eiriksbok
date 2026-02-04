@@ -1,5 +1,5 @@
 {
-  "buildId": 1770036879624,
+  "buildId": 1770190987661,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -1116,6 +1116,30 @@
     "vurderingskriterier": [
       "content/musikk/vurdering/vurderingskriterier.json"
     ],
+    "analyse-debattinnlegg": [
+      "content/norsk/analyse/analyse-debattinnlegg.json"
+    ],
+    "analyse-dikt": [
+      "content/norsk/analyse/analyse-dikt.json"
+    ],
+    "analyse-eventyr": [
+      "content/norsk/analyse/analyse-eventyr.json"
+    ],
+    "analyse-fagartikkel": [
+      "content/norsk/analyse/analyse-fagartikkel.json"
+    ],
+    "analyse-kommentar": [
+      "content/norsk/analyse/analyse-kommentar.json"
+    ],
+    "analyse-novelle": [
+      "content/norsk/analyse/analyse-novelle.json"
+    ],
+    "analyse-roman": [
+      "content/norsk/analyse/analyse-roman.json"
+    ],
+    "analyse-sti": [
+      "content/norsk/analyse/analyse-sti.json"
+    ],
     "setningsanalyse": [
       "content/norsk/grammatikk/setningsanalyse.json"
     ],
@@ -1944,6 +1968,14 @@
     "musikk/oppslag/latskriver": "content/musikk/oppslag/latskriver.json",
     "musikk/oppslag/rytmebank": "content/musikk/oppslag/rytmebank.json",
     "musikk/vurdering/vurderingskriterier": "content/musikk/vurdering/vurderingskriterier.json",
+    "norsk/analyse/analyse-debattinnlegg": "content/norsk/analyse/analyse-debattinnlegg.json",
+    "norsk/analyse/analyse-dikt": "content/norsk/analyse/analyse-dikt.json",
+    "norsk/analyse/analyse-eventyr": "content/norsk/analyse/analyse-eventyr.json",
+    "norsk/analyse/analyse-fagartikkel": "content/norsk/analyse/analyse-fagartikkel.json",
+    "norsk/analyse/analyse-kommentar": "content/norsk/analyse/analyse-kommentar.json",
+    "norsk/analyse/analyse-novelle": "content/norsk/analyse/analyse-novelle.json",
+    "norsk/analyse/analyse-roman": "content/norsk/analyse/analyse-roman.json",
+    "norsk/analyse/analyse-sti": "content/norsk/analyse/analyse-sti.json",
     "norsk/grammatikk/setningsanalyse": "content/norsk/grammatikk/setningsanalyse.json",
     "norsk/litteraturhistorie/nasjonalromantikken": "content/norsk/litteraturhistorie/nasjonalromantikken.json",
     "norsk/litteraturhistorie/ny-realismen": "content/norsk/litteraturhistorie/ny-realismen.json",
