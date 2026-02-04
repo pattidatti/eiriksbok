@@ -5,6 +5,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 ### Bugs
 
 - [ ] Læringsstier laster ikke. Må gå ut og inn på en annen før de vises. Major bug. 
+- Endre navn på ww1 fra sivilisajons selvmord til ww1 sti. 
 
 ## Læringsstier
 - [x] Læringsstier: Hver sett med oppgaver må ha en liten boks for å kopiere alle spørsmålene, slik at elevene enkelt kan få dem kopiert inn i skriveboken sin, uten å måtte skrive alt selv, eller dille med å merke alt. 

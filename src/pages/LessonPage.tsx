@@ -37,7 +37,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const subTopicId = lessonIdOverride ? undefined : params.subTopicId;
 
     const { data: manifest } = useManifest();
-    const { data: lesson, isLoading: lessonLoading, isError, error, refetch } = useLesson(subjectId, topicId, lessonId, subTopicId);
+    const { data: lesson, isLoading: lessonLoading, isError, error, refetch, isFetching } = useLesson(subjectId, topicId, lessonId, subTopicId);
 
     const navigate = useNavigate();
     const { addToHistory } = useUserHistory();
@@ -110,7 +110,9 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         };
     }, [lesson, setFullWidth]);
 
-    const loading = lessonLoading;
+    // Show loading if still fetching OR if data is incomplete for learning paths
+    const isIncompletePathData = lesson?.layout === 'learning-path' && !lesson?.learningPathData;
+    const loading = lessonLoading || (isIncompletePathData && isFetching);
 
     if (loading) return <LessonSkeleton />;
 
@@ -118,9 +120,9 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         return <LearningPathErrorState type="network" error={error as Error} onRetry={() => refetch()} />;
     }
 
-    // Data Validation Guard
-    if (lesson && lesson.layout === 'learning-path' && !lesson.learningPathData) {
-        return <LearningPathErrorState type="data" onRetry={() => window.location.reload()} />;
+    // Data Validation Guard - only show error if NOT fetching AND data is incomplete
+    if (lesson && lesson.layout === 'learning-path' && !lesson.learningPathData && !isFetching) {
+        return <LearningPathErrorState type="data" onRetry={() => refetch()} />;
     }
 
     // --- Layout Configuration Strategy ---

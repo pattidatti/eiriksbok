@@ -1,5 +1,5 @@
 {
-  "buildId": 1770190987661,
+  "buildId": 1770218921236,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -65,6 +65,10 @@
     ],
     "bysants": [
       "content/concepts/bysants.json"
+    ],
+    "casus-belli": [
+      "content/concepts/casus-belli.json",
+      "content/samfunnskunnskap/ideer-og-verdenssyn/casus-belli.json"
     ],
     "d-dagen": [
       "content/concepts/d-dagen.json"
@@ -1386,6 +1390,9 @@
     "martin-heidegger": [
       "content/people/martin-heidegger.json"
     ],
+    "mikhail-gorbatsjov": [
+      "content/people/mikhail-gorbatsjov.json"
+    ],
     "mussolini": [
       "content/people/mussolini.json"
     ],
@@ -1397,6 +1404,9 @@
     ],
     "platon-bio": [
       "content/people/platon-bio.json"
+    ],
+    "ronald-reagan": [
+      "content/people/ronald-reagan.json"
     ],
     "roosevelt": [
       "content/people/roosevelt.json"
@@ -1448,9 +1458,6 @@
     ],
     "teknologi-helse": [
       "content/samfunnskunnskap/demografi/teknologi-helse.json"
-    ],
-    "casus-belli": [
-      "content/samfunnskunnskap/ideer-og-verdenssyn/casus-belli.json"
     ],
     "det-unormale": [
       "content/samfunnskunnskap/ideer-og-verdenssyn/det-unormale.json"
@@ -1571,6 +1578,7 @@
     "concepts/blokade.json/blokade": "content/concepts/blokade.json",
     "concepts/borskrakk.json/borskrakk": "content/concepts/borskrakk.json",
     "concepts/bysants.json/bysants": "content/concepts/bysants.json",
+    "concepts/casus-belli.json/casus-belli": "content/concepts/casus-belli.json",
     "concepts/d-dagen.json/d-dagen": "content/concepts/d-dagen.json",
     "concepts/dachau.json/dachau": "content/concepts/dachau.json",
     "concepts/de-allierte.json/de-allierte": "content/concepts/de-allierte.json",
@@ -2058,10 +2066,12 @@
     "people/kublai-khan.json/kublai-khan": "content/people/kublai-khan.json",
     "people/marcus-antonius.json/marcus-antonius": "content/people/marcus-antonius.json",
     "people/martin-heidegger.json/martin-heidegger": "content/people/martin-heidegger.json",
+    "people/mikhail-gorbatsjov.json/mikhail-gorbatsjov": "content/people/mikhail-gorbatsjov.json",
     "people/mussolini.json/mussolini": "content/people/mussolini.json",
     "people/nicholas-ii.json/nicholas-ii": "content/people/nicholas-ii.json",
     "people/oscar-ii.json/oscar-ii": "content/people/oscar-ii.json",
     "people/platon-bio.json/platon-bio": "content/people/platon-bio.json",
+    "people/ronald-reagan.json/ronald-reagan": "content/people/ronald-reagan.json",
     "people/roosevelt.json/roosevelt": "content/people/roosevelt.json",
     "people/selassie.json/selassie": "content/people/selassie.json",
     "people/smith.json/smith": "content/people/smith.json",
