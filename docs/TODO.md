@@ -4,12 +4,12 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 ### Bugs
 
-- [ ] Læringsstier laster ikke. Må gå ut og inn på en annen før de vises. Major bug. 
-- Endre navn på ww1 fra sivilisajons selvmord til ww1 sti. 
+- [/] Læringsstier laster ikke konsekvent. (Jobber med robusthet, lagt til timeouts og cache-busting).
+- [x] Endre navn på ww1 fra sivilisajons selvmord til ww1 sti. 
 
 ## Læringsstier
 - [x] Læringsstier: Hver sett med oppgaver må ha en liten boks for å kopiere alle spørsmålene, slik at elevene enkelt kan få dem kopiert inn i skriveboken sin, uten å måtte skrive alt selv, eller dille med å merke alt. 
-- [ ] Det er ikke garantert at en læringssti laster, en må ofte gå inn og ut før den til slutt vises. 
+- [/] Det er ikke garantert at en læringssti laster (Implementert timeouts og bedre Tier 1-lookup i contentLoader.ts).
 
 ## 💡 Ideer
 - [ ] Slaveri gjennom tidene, hvordan dette ofte var en del av imperialismen, hvordan det ble avskaffet ulike steder. Eget emne i historie. Læringsstier kan heller koble seg på. 

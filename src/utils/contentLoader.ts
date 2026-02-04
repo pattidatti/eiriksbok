@@ -28,6 +28,20 @@ const getBasePath = () => {
     return rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 };
 
+const fetchWithTimeout = async (url: string, options: any = {}) => {
+    const { timeout = 8000 } = options;
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeout);
+    try {
+        const response = await fetch(url, { ...options, signal: controller.signal });
+        clearTimeout(id);
+        return response;
+    } catch (error) {
+        clearTimeout(id);
+        throw error;
+    }
+};
+
 /**
  * Loads the authoritative content index.
  * Implements "getOrFetch" with self-healing cache for failures.
@@ -44,11 +58,15 @@ export async function fetchRegistry(): Promise<ContentIndex | null> {
     const url = `${basePath}content/content-index.json?v=${Date.now()}`;
     console.log(`[ContentRegistry] Fetching registry from: ${url}`);
 
-    globalRegistryPromise = fetch(url, { cache: 'no-cache' })
+    globalRegistryPromise = fetchWithTimeout(url, { cache: 'no-cache' })
         .then(async (response) => {
             if (!response.ok) {
                 console.error(`[ContentRegistry] ❌ Fetch failed: ${response.status} ${response.statusText}`);
                 throw new Error(`Failed to fetch registry: ${response.statusText}`);
+            }
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error(`Expected JSON but got ${contentType}`);
             }
             const data = await response.json() as ContentIndex;
             cachedRegistry = data;
@@ -72,10 +90,15 @@ export async function fetchManifest(): Promise<Manifest | null> {
 
     const basePath = getBasePath();
 
-    globalManifestPromise = fetch(`${basePath}content/manifest.json`, { cache: 'default' })
+    const url = `${basePath}content/manifest.json?v=${Date.now()}`;
+    globalManifestPromise = fetchWithTimeout(url, { cache: 'default' })
         .then(async (response) => {
             if (!response.ok) {
                 throw new Error(`Failed to fetch manifest: ${response.statusText}`);
+            }
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error(`Expected JSON but got ${contentType}`);
             }
             const data = await response.json() as Manifest;
             cachedManifest = data;
@@ -124,14 +147,21 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     const tryLoadPath = async (path: string, sourceTier: string): Promise<Lesson | null> => {
         try {
             const finalUrl = path.startsWith('http') ? path : `${basePath}${path}`;
-            const r = await fetch(finalUrl, { cache: 'no-cache' });
+            // Add slight cache-busting for lessons too to avoid stale SW data on first visit
+            const fetchUrl = finalUrl.includes('?') ? finalUrl : `${finalUrl}?v=${Date.now()}`;
+
+            const r = await fetchWithTimeout(fetchUrl, { cache: 'no-cache' });
             if (!r.ok) {
-                // If it's a 404, we return null to allow falling back to next tier
-                // But for 500s or other server errors, we might want to retry?
-                // For now, let's treat any non-ok as "Not Found" for that tier.
-                console.warn(`[ContentLoader] ${sourceTier} fetch failed: ${finalUrl} (${r.status})`);
+                console.warn(`[ContentLoader] ${sourceTier} fetch failed: ${fetchUrl} (${r.status})`);
                 return null;
             }
+
+            const contentType = r.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                console.warn(`[ContentLoader] ${sourceTier} returned non-JSON: ${contentType}`);
+                return null;
+            }
+
             const data = await r.json();
 
             // Fix double-nesting

@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-01-20T08:19:24.730Z",
-  "count": 12,
+  "updatedAt": "2026-02-04T18:25:02.581Z",
+  "count": 13,
   "paths": [
     {
       "id": "romerriket-sti",
@@ -145,6 +145,17 @@
       "readTime": "45 minutter",
       "path": "/norsk/skrivehjelp/reflekterende-skriving-sti",
       "fileRelativePath": "norsk\\skrivehjelp\\reflekterende-skriving-sti.json"
+    },
+    {
+      "id": "analyse-sti",
+      "title": "Læringssti: Codebreaker",
+      "description": "En guidet reise fra leser til analytiker. Knekk kodene.",
+      "subjectId": "norsk",
+      "subjectName": "Norsk",
+      "topicId": "analyse",
+      "readTime": "45-60 min",
+      "path": "/norsk/analyse/analyse-sti",
+      "fileRelativePath": "norsk\\analyse\\analyse-sti.json"
     }
   ]
 }
