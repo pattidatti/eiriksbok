@@ -155,6 +155,19 @@
     ]
   },
   {
+    "term": "Casus belli",
+    "aliases": [],
+    "definition": "Latinsk uttrykk som betyr 'grunn til krig'. Brukes om en hendelse eller handling som gir en stat påskudd til å erklære krig.",
+    "type": "concept",
+    "tags": [
+      "diplomati",
+      "krig",
+      "latin"
+    ],
+    "subject": "historie",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli"
+  },
+  {
     "term": "D-dagen",
     "definition": "Den allierte invasjonen av Normandie i Frankrike 6. juni 1944.",
     "subject": "historie",
@@ -2002,6 +2015,23 @@
     "link": "/filosofi/eksistensialisme/martin-heidegger"
   },
   {
+    "term": "Mikhail Gorbatsjov",
+    "aliases": [
+      "Gorbatsjov",
+      "Gorbachev"
+    ],
+    "definition": "Sovjetunionens siste leder (1985–1991) som innførte reformene glasnost og perestrojka, og bidro til å avslutte den kalde krigen.",
+    "type": "person",
+    "tags": [
+      "Sovjetunionen",
+      "den kalde krigen",
+      "glasnost",
+      "perestrojka"
+    ],
+    "subject": "historie",
+    "lifespan": "1931 - 2022"
+  },
+  {
     "term": "Benito Mussolini",
     "definition": "Benito Mussolini grunnla fascismen og styrte Italia som diktator fra 1922 til 1943. Han allierte seg med Hitler under andre verdenskrig.",
     "type": "person",
@@ -2049,6 +2079,22 @@
     "subject": "historie",
     "lifespan": "ca. 427 f.Kr. – 347 f.Kr.",
     "link": "/historie/antikken/platon-og-aristoteles"
+  },
+  {
+    "term": "Ronald Reagan",
+    "aliases": [
+      "Reagan"
+    ],
+    "definition": "USAs 40. president (1981–1989) som førte en hard linje mot Sovjetunionen og oppfordret Gorbatsjov til å rive Berlinmuren.",
+    "type": "person",
+    "tags": [
+      "USA",
+      "president",
+      "den kalde krigen",
+      "Berlinmuren"
+    ],
+    "subject": "historie",
+    "lifespan": "1911 - 2004"
   },
   {
     "term": "Franklin D. Roosevelt",
