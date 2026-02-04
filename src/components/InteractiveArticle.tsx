@@ -224,7 +224,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
     }
 
     return (
-        <div className="min-h-screen pb-20 relative z-20">
+        <div className="min-h-screen pb-20 relative z-20" data-article-rendering="true">
             {/* Progress Bar */}
             <motion.div
                 className="fixed top-16 left-0 h-1 bg-indigo-600 z-50"
@@ -252,11 +252,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
 
             {/* Header Section */}
             <div className="pt-16 pb-4 md:pt-32 md:pb-6 px-6 max-w-5xl mx-auto text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                >
+                <div>
                     {/* Mobile-Only Meta Row */}
                     <div className="md:hidden flex flex-wrap justify-center items-center gap-3 text-xs font-bold text-slate-500 mb-3">
                         <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 rounded-md uppercase tracking-wide">
@@ -286,25 +282,20 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
                     <h1 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold text-slate-900 mb-2 leading-tight">
                         {event.title}
                     </h1>
-                </motion.div>
+                </div>
             </div>
 
             {/* Hero Image Banner */}
             {event.layout !== 'tool' && (
                 <div className="max-w-6xl mx-auto px-6 mb-8 md:mb-12">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.3 }}
-                        className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl"
-                    >
+                    <div className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl">
                         <ImageWithFallback
                             src={event.heroImage}
                             alt={event.title}
                             className="w-full h-full object-cover"
                             seed={event.title}
                         />
-                    </motion.div>
+                    </div>
                 </div>
             )}
 

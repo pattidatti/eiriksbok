@@ -107,7 +107,7 @@ export const Layout: React.FC = () => {
             <main className={`relative z-10 ${forceFullWidth ? '' : 'pt-4'}`}>
                 <div className={forceFullWidth ? '' : 'max-w-7xl mx-auto px-6'}>
                     {!hideHeader && !forceFullWidth && <Breadcrumbs />}
-                    <AnimatePresence mode="wait">
+                    <AnimatePresence>
                         <motion.div
                             key={location.pathname}
                             initial={{ opacity: 0, y: 20 }}

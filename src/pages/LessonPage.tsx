@@ -41,7 +41,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
     const navigate = useNavigate();
     const { addToHistory } = useUserHistory();
-    const { setFullWidth } = useLayout();
+    const { setFullWidth, setHideHeader, setHideBreadcrumbs } = useLayout();
 
     const pageTitle = useMemo(() => {
         if (!lesson) return 'Leksjon';
@@ -100,16 +100,28 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
     // Handle Layout Context
     useEffect(() => {
-        if (lesson && (lesson.layout === 'tool' || lesson.engine === 'historical-detective')) {
+        const isSpecialLayout = lesson && (
+            lesson.layout === 'tool' ||
+            lesson.layout === 'learning-path' ||
+            lesson.engine === 'historical-detective'
+        );
+
+        if (isSpecialLayout) {
             setFullWidth(true);
+            setHideHeader(true);
+            setHideBreadcrumbs(true);
         } else {
             setFullWidth(false);
+            setHideHeader(false);
+            setHideBreadcrumbs(false);
         }
 
         return () => {
             setFullWidth(false);
+            setHideHeader(false);
+            setHideBreadcrumbs(false);
         };
-    }, [lesson, setFullWidth]);
+    }, [lesson?.layout, lesson?.engine, setFullWidth, setHideHeader, setHideBreadcrumbs]);
 
     // Show loading if:
     // 1. Initial lesson query is loading
