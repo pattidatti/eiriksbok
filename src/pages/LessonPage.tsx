@@ -102,7 +102,6 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     useEffect(() => {
         const isSpecialLayout = lesson && (
             lesson.layout === 'tool' ||
-            lesson.layout === 'learning-path' ||
             lesson.engine === 'historical-detective'
         );
 
