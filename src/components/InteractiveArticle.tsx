@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import {
     Info,
@@ -68,7 +68,7 @@ const FactBox: React.FC<{ content: string }> = ({ content }) => (
 
 
 
-export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, fallbackUrl, sidebarConfig }) => {
+export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, fallbackUrl, sidebarConfig }) => {
     const navigate = useNavigate();
     const { events: globalEvents } = useGlobalTimeline();
     const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();
@@ -107,7 +107,8 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
         };
     }, [cancel]);
 
-    const handleListenClick = () => {
+    // Stabilize handlers with useCallback
+    const handleListenClick = useCallback(() => {
         if (isPlaying) {
             if (isPaused) {
                 resume();
@@ -119,14 +120,28 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
                 speak(speechData.blocks);
             }
         }
-    };
+    }, [isPlaying, isPaused, resume, pause, speak, speechData.blocks]);
 
-    const handleBlockClick = (contentIndex: number) => {
+    const handleBlockClick = useCallback((contentIndex: number) => {
         const speechIndex = speechData.mapContentToSpeech[contentIndex];
         if (speechIndex !== undefined) {
             playBlock(speechIndex);
         }
-    };
+    }, [speechData.mapContentToSpeech, playBlock]);
+
+    // Memoize sidebar props to prevent re-renders in RichSidebar
+    const audioState = useMemo(() => ({
+        isPlaying,
+        isPaused,
+        hasVoice,
+        onToggle: handleListenClick
+    }), [isPlaying, isPaused, hasVoice, handleListenClick]);
+
+    const metadata = useMemo(() => ({
+        year: event.year,
+        readTime: event.readTime,
+        category: event.category
+    }), [event.year, event.readTime, event.category]);
 
     // Determine active content block for highlighting
     const activeContentIndex = activeBlockIndex !== -1 ? speechData.mapSpeechToContent[activeBlockIndex] : undefined;
@@ -330,17 +345,8 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
                                     tags={event.tags}
                                     config={sidebarConfig}
                                     learningPaths={event.learningPaths}
-                                    audioState={React.useMemo(() => ({
-                                        isPlaying,
-                                        isPaused,
-                                        hasVoice,
-                                        onToggle: handleListenClick
-                                    }), [isPlaying, isPaused, hasVoice, handleListenClick])}
-                                    metadata={{
-                                        year: event.year,
-                                        readTime: event.readTime,
-                                        category: event.category
-                                    }}
+                                    audioState={audioState}
+                                    metadata={metadata}
                                 />
                             )}
                         </div>

@@ -93,7 +93,7 @@ interface ArticleContentProps {
     isTool?: boolean;
 }
 
-export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concepts: explicitConcepts, activeBlockIndex, onBlockClick, fallbackUrl, isTool = false }) => {
+export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ content, concepts: explicitConcepts, activeBlockIndex, onBlockClick, fallbackUrl, isTool = false }) => {
     const { entries: globalEntries } = useGlossary();
 
     if (!content || !Array.isArray(content)) return null;
@@ -112,7 +112,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
                 })
                 .catch(err => console.error('ArticleContent: Fetch failed', err));
         }
-    }, [content, fallbackUrl]);
+    }, [content, fallbackUrl, fullContent]);
 
     // OPTIMIZATION: Memoize concept merging to avoid O(N*M) loop on every render.
     // Use a Set for O(1) lookups instead of .some().
@@ -554,4 +554,4 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ content, concept
             })}
         </div >
     );
-};
+});

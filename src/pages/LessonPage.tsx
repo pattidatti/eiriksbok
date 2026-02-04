@@ -1,4 +1,4 @@
-import { useEffect, useMemo, lazy, Suspense } from 'react';
+import { useEffect, useMemo, lazy, Suspense, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useManifest } from '../hooks/useManifest';
 import { useLesson } from '../hooks/useLesson';
@@ -146,16 +146,74 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         return <LearningPathErrorState type="data" onRetry={() => refetch()} />;
     }
 
-    // --- Layout Configuration Strategy ---
-    // Define default configs based on subject
+    // --- Hooks & Memoization (Rule of Hooks: Must be top-level and unconditional) ---
     const isHistory = subjectId === 'historie';
 
-    const sidebarConfig: SidebarConfig = {
-        showTimeline: isHistory, // Only show timeline for history
-        showRelated: true,       // Always show related content
-        showConcepts: true,      // Always show concepts
-        showTools: true          // Always show tools
-    };
+    // Memoize Sidebar Configuration
+    const sidebarConfig = useMemo((): SidebarConfig => ({
+        showTimeline: isHistory,
+        showRelated: true,
+        showConcepts: true,
+        showTools: true
+    }), [isHistory]);
+
+    // Construct fallback URL for ArticleContent
+    const fallbackUrl = `${window.location.origin}${import.meta.env.BASE_URL.replace(/\/$/, '')}/content/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}/${lessonId}.json`;
+
+    // Gather relevant learning paths from the manifest
+    const relevantLearningPaths = useMemo(() => {
+        const subject = manifest?.subjects.find(s => s.id === subjectId);
+        const topic = subject?.topics.find(t => t.id === topicId);
+        const subTopic = topic?.subTopics?.find(st => st.id === subTopicId);
+
+        const allTopicTools = [
+            ...(topic?.tools || []),
+            ...(subTopic?.tools || [])
+        ];
+
+        return allTopicTools
+            .filter(t => t.id.includes('sti') || t.title.toLowerCase().includes('læringssti'))
+            .map(t => ({
+                id: t.id,
+                title: t.title,
+                url: t.link
+            }));
+    }, [manifest, subjectId, topicId, subTopicId]);
+
+    // Construct articleData with memoization
+    const articleData = useMemo(() => {
+        if (!lesson) return null;
+
+        return {
+            id: lesson.id,
+            year: lesson.year || '',
+            title: lesson.title || lesson.learningPathData?.title || 'Læringssti',
+            description: lesson.title
+                ? (getFirstTextContent(lesson.content || [])?.substring(0, 150) + '...' || '')
+                : (lesson.learningPathData?.description || ''),
+            content: lesson.content || [],
+            details: lesson.keyPoints || lesson.details || lesson.concepts?.map((c: any) => `${c.title || c.term}: ${c.description || c.definition}`) || [],
+            category: lesson.category || lesson.topic,
+            readTime: lesson.readTime || '5 min lesning',
+            heroImage: lesson.heroImage || lessonImage,
+            url: lesson.externalUrl,
+            layout: lesson.layout,
+            fact: lesson.fact,
+            mapData: lesson.mapData,
+            tags: lesson.tags,
+            subjectId: subjectId,
+            topicId: topicId,
+            learningPathData: lesson.learningPathData,
+            learningPaths: relevantLearningPaths
+        };
+    }, [lesson, lessonImage, subjectId, topicId, relevantLearningPaths]);
+
+    // Stable navigation handler
+    const handleClose = useCallback(() => {
+        navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`);
+    }, [navigate, subjectId, topicId, subTopicId]);
+
+    // --- Conditional Rendering & Layout Logic ---
 
     // Special handling for Demography module
     if (topicId === 'demografi-okonomi' && lessonId === 'intro') {
@@ -166,41 +224,12 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         return <GovernmentExplorer lesson={lesson} />;
     }
 
-
-
     // Check if this is a timeline event (regardless of subtopic)
     const timelineEvent = lessonId ? globalTimelineEvents.find(e =>
         e.title?.toLowerCase().replace(/\s+/g, '-') === lessonId.toLowerCase() ||
         e.title?.toLowerCase() === lessonId.toLowerCase() ||
         e.id.toString() === lessonId
     ) : null;
-
-    // Construct fallback URL for ArticleContent
-    const fallbackUrl = `${window.location.origin}${import.meta.env.BASE_URL.replace(/\/$/, '')}/content/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}/${lessonId}.json`;
-
-    // Gather relevant learning paths from the manifest
-    const subject = manifest?.subjects.find(s => s.id === subjectId);
-    const topic = subject?.topics.find(t => t.id === topicId);
-    const subTopic = topic?.subTopics?.find(st => st.id === subTopicId);
-
-    const allTopicTools = [
-        ...(topic?.tools || []),
-        ...(subTopic?.tools || [])
-    ];
-
-    const relevantLearningPaths = allTopicTools
-        .filter(t => {
-            const isPath = t.id.includes('sti') || t.title.toLowerCase().includes('læringssti');
-            // If it's a learning path defined in the topic, always show it
-            if (isPath) return true;
-
-            return false;
-        })
-        .map(t => ({
-            id: t.id,
-            title: t.title,
-            url: t.link
-        }));
 
     // Standardize all lessons to use InteractiveArticle (Rich Layout)
     if (lesson) {
@@ -216,34 +245,14 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             );
         }
 
-        const articleData = {
-            id: lesson.id,
-            year: lesson.year || '',
-            title: lesson.title || lesson.learningPathData?.title || 'Læringssti',
-            description: lesson.title ? (getFirstTextContent(lesson.content || [])?.substring(0, 150) + '...' || '') : (lesson.learningPathData?.description || ''),
-            content: lesson.content || [],
-            details: lesson.keyPoints || lesson.details || lesson.concepts?.map((c: any) => `${c.title || c.term}: ${c.description || c.definition}`) || [],
-            category: lesson.category || lesson.topic,
-            readTime: lesson.readTime || '5 min lesning',
-            heroImage: lesson.heroImage || lessonImage,
-            url: lesson.externalUrl,
-            layout: lesson.layout,
-
-            fact: lesson.fact,
-            mapData: lesson.mapData,
-            tags: lesson.tags,
-            subjectId: subjectId,
-            topicId: topicId,
-            learningPathData: lesson.learningPathData,
-            learningPaths: relevantLearningPaths
-        };
+        if (!articleData) return null;
 
         return (
             <ErrorBoundary>
                 <InteractiveArticle
                     key={`${lesson.id}-${lesson.layout}-${lesson.learningPathData ? 'lp' : 'std'}`}
                     event={articleData}
-                    onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
+                    onClose={handleClose}
                     fallbackUrl={fallbackUrl}
                     sidebarConfig={sidebarConfig}
                 />

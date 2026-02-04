@@ -14,6 +14,21 @@ let globalManifestPromise: Promise<Manifest | null> | null = null;
 let cachedManifest: Manifest | null = null;
 let globalRegistryPromise: Promise<ContentIndex | null> | null = null;
 let cachedRegistry: ContentIndex | null = null;
+let manifestLookupMap: Map<string, any> | null = null;
+
+// --- Versioning Logic ---
+/**
+ * Returns a version query string based on the environment.
+ * Development: Always fresh (Date.now())
+ * Production: Deterministic (buildId from registry)
+ */
+function getVersionQuery(): string {
+    const isDev = import.meta.env.DEV;
+    if (isDev) return `v=${Date.now()}`;
+
+    const buildId = cachedRegistry?.buildId;
+    return buildId ? `v=${buildId}` : `v=${Date.now()}`;
+}
 
 export function getCachedManifest(): Manifest | null {
     return cachedManifest;
@@ -90,7 +105,7 @@ export async function fetchManifest(): Promise<Manifest | null> {
 
     const basePath = getBasePath();
 
-    const url = `${basePath}content/manifest.json?v=${Date.now()}`;
+    const url = `${basePath}content/manifest.json?v=${Date.now()}`; // Manifest itself always fresh or cached by browser default
     globalManifestPromise = fetchWithTimeout(url, { cache: 'default' })
         .then(async (response) => {
             if (!response.ok) {
@@ -102,6 +117,28 @@ export async function fetchManifest(): Promise<Manifest | null> {
             }
             const data = await response.json() as Manifest;
             cachedManifest = data;
+
+            // Build the O(1) lookup map
+            const map = new Map<string, ManifestLesson>();
+            const indexNodes = (nodes: any[]) => {
+                for (const node of nodes) {
+                    if (node.id) map.set(node.id, node);
+
+                    const children = [
+                        node.lessons, node.topics, node.subTopics,
+                        node.tools, node.subjects
+                    ];
+
+                    for (const childArray of children) {
+                        if (childArray && Array.isArray(childArray)) {
+                            indexNodes(childArray);
+                        }
+                    }
+                }
+            };
+            indexNodes(data.subjects);
+            manifestLookupMap = map;
+
             return data;
         })
         .catch((error) => {
@@ -147,10 +184,10 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     const tryLoadPath = async (path: string, sourceTier: string): Promise<Lesson | null> => {
         try {
             const finalUrl = path.startsWith('http') ? path : `${basePath}${path}`;
-            // Add slight cache-busting for lessons too to avoid stale SW data on first visit
-            const fetchUrl = finalUrl.includes('?') ? finalUrl : `${finalUrl}?v=${Date.now()}`;
+            // Use smart caching strategy (deterministic buildId in prod, fresh in dev)
+            const fetchUrl = finalUrl.includes('?') ? finalUrl : `${finalUrl}?${getVersionQuery()}`;
 
-            const r = await fetchWithTimeout(fetchUrl, { cache: 'no-cache' });
+            const r = await fetchWithTimeout(fetchUrl, { cache: 'default' });
             if (!r.ok) {
                 console.warn(`[ContentLoader] ${sourceTier} fetch failed: ${fetchUrl} (${r.status})`);
                 return null;
@@ -210,8 +247,8 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
                 // Registry success - return immediately
                 // We typically don't enrich registry data with manifest data unless needed, 
                 // but to be consistent with previous logic, we can checking manifest for enrichment.
-                if (manifest) {
-                    const node = findNodeInManifest(manifest.subjects, lessonId);
+                if (manifestLookupMap) {
+                    const node = manifestLookupMap.get(lessonId);
                     if (node) enrichLessonWithMetadata(data, node);
                 }
                 return data;
@@ -223,10 +260,10 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     }
 
     // --- TIER 2: MANIFEST AUTHORITY (Robustness) ---
-    if (manifest) {
-        const node = findNodeInManifest(manifest.subjects, lessonId);
-        if (node && node.link) {
-            let path = node.link.startsWith('/') ? node.link.slice(1) : node.link;
+    if (manifestLookupMap) {
+        const node = manifestLookupMap.get(lessonId);
+        if (node && (node as any).link) {
+            let path = (node as any).link.startsWith('/') ? (node as any).link.slice(1) : (node as any).link;
             if (!path.startsWith('http') && !path.startsWith('content/')) {
                 path = `content/${path}`;
             }
@@ -254,8 +291,8 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     // Wait, previous logic grabbed manifest node regardless.
     const dataTier3 = await tryLoadPath(conventionPath, "Tier 3 (Convention)");
     if (dataTier3) {
-        if (manifest) {
-            const node = findNodeInManifest(manifest.subjects, lessonId);
+        if (manifestLookupMap) {
+            const node = manifestLookupMap.get(lessonId);
             if (node) enrichLessonWithMetadata(dataTier3, node);
         }
         return dataTier3;
@@ -264,29 +301,6 @@ export async function fetchLesson(subject: string, topic: string, lessonId: stri
     return null;
 }
 
-// --- Helpers ---
-
-function findNodeInManifest(nodes: any[], id: string): ManifestLesson | any | null {
-    for (const node of nodes) {
-        if (node.id === id) return node;
-
-        const childCollections = [
-            node.lessons,
-            node.topics,
-            node.subTopics,
-            node.tools,
-            node.subjects
-        ];
-
-        for (const collection of childCollections) {
-            if (collection && Array.isArray(collection)) {
-                const found = findNodeInManifest(collection, id);
-                if (found) return found;
-            }
-        }
-    }
-    return null;
-}
 
 function enrichLessonWithMetadata(data: Lesson, manifestNode: ManifestLesson) {
     if (manifestNode.definitions) {
