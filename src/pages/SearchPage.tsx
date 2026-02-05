@@ -6,6 +6,7 @@ import type { ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
 import { motionPresets } from '../styles/motion-presets';
 import { textLibraryData } from '../data/textLibraryData';
+import { learningPathsData } from '../data/learningPathsHelper';
 import { db } from '../lib/firebase';
 
 interface SearchResult {
@@ -70,6 +71,25 @@ export const SearchPage: React.FC = () => {
                         }
                     });
                 });
+
+                // Check Learning Paths for tags
+                learningPathsData.paths.forEach(path => {
+                    if ((path as any).tags?.some((t: string) => t.toLowerCase() === searchTag)) {
+                        found.push({
+                            lesson: {
+                                id: path.id,
+                                title: path.title,
+                                description: path.description,
+                                createdDate: (path as any).createdDate,
+                                tags: (path as any).tags
+                            },
+                            path: path.path,
+                            topicTitle: path.subjectName,
+                            subjectId: path.subjectId
+                        });
+                    }
+                });
+
                 setResults(found);
             } else {
                 // Show 15 most recent items (articles + texts) if no tag
@@ -114,6 +134,22 @@ export const SearchPage: React.FC = () => {
                         path: `/norsk/bibliotek/${text.id}`,
                         topicTitle: 'Bibliotek',
                         subjectId: 'norsk'
+                    });
+                });
+
+                // Add Learning Paths
+                learningPathsData.paths.forEach(path => {
+                    allContent.push({
+                        lesson: {
+                            id: path.id,
+                            title: path.title,
+                            description: path.description,
+                            createdDate: (path as any).createdDate,
+                            tags: (path as any).tags
+                        },
+                        path: path.path,
+                        topicTitle: path.subjectName,
+                        subjectId: path.subjectId
                     });
                 });
 
@@ -170,7 +206,7 @@ export const SearchPage: React.FC = () => {
                             Emne: <span className="text-neon-accent capitalize">{tag}</span>
                         </h1>
                         <p className="text-text-muted text-lg">
-                            Fant {results.length} {results.length === 1 ? 'artikkel' : 'artikler'} merket med "{tag}"
+                            Fant {results.length} {results.length === 1 ? 'treff' : 'treff'} merket med "{tag}"
                         </p>
                     </>
                 ) : (
@@ -179,7 +215,7 @@ export const SearchPage: React.FC = () => {
                             Nytt innhold
                         </h1>
                         <p className="text-text-muted text-lg">
-                            De siste publiserte artiklene og tekstene
+                            De siste publiserte artiklene, læringsstiene og tekstene
                         </p>
                     </>
                 )}

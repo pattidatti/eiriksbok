@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useManifest } from '../hooks/useManifest';
 import type { ManifestLesson } from '../types';
-import { Search, X } from 'lucide-react';
+import { Search, X, Map } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { textLibraryData } from '../data/textLibraryData';
+import { learningPathsData } from '../data/learningPathsHelper';
 import Fuse from 'fuse.js';
 
 interface SearchOverlayProps {
@@ -13,7 +14,7 @@ interface SearchOverlayProps {
 }
 
 interface SearchResult {
-    type: 'lesson' | 'topic' | 'concept' | 'library';
+    type: 'lesson' | 'topic' | 'concept' | 'library' | 'learning-path';
     title: string;
     path: string;
     description?: string;
@@ -116,6 +117,17 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
             });
         });
 
+        // 3. Learning Paths
+        learningPathsData.paths.forEach(path => {
+            allItems.push({
+                type: 'learning-path',
+                title: path.title,
+                path: path.path,
+                description: path.description,
+                tags: (path as any).tags || []
+            });
+        });
+
         if (!query.trim()) {
             setResults([]);
             return;
@@ -206,7 +218,8 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                                         className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 flex justify-between items-center transition-all group"
                                     >
                                         <div className="flex-1 min-w-0 mr-4">
-                                            <div className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors truncate">
+                                            <div className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors truncate flex items-center gap-2">
+                                                {result.type === 'learning-path' && <Map className="w-4 h-4 text-emerald-400" />}
                                                 {result.title}
                                             </div>
                                             <div className="text-sm text-slate-400 truncate">
@@ -227,8 +240,13 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                                                 </div>
                                             )}
                                         </div>
-                                        <div className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-white/10 text-slate-300 whitespace-nowrap">
-                                            {result.type === 'library' ? 'bibliotek' : result.type}
+                                        <div className={`text-xs font-bold uppercase tracking-wider px-2 py-1 rounded whitespace-nowrap ${result.type === 'learning-path'
+                                                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                                                : result.type === 'library'
+                                                    ? 'bg-white/10 text-slate-300'
+                                                    : 'bg-white/10 text-slate-300'
+                                            }`}>
+                                            {result.type === 'learning-path' ? 'læringssti' : result.type === 'library' ? 'bibliotek' : result.type}
                                         </div>
                                     </motion.div>
                                 </Link>

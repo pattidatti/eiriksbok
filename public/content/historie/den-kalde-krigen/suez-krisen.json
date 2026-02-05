@@ -27,6 +27,11 @@
             "content": "Suez-krisen i 1956 er et av de mest fascinerende og avgj\u00f8rende \u00f8yeblikkene i [den kalde krigen](/historie/den-kalde-krigen/oversikt). Det var en konflikt der fortiden m\u00f8tte fremtiden: Gamle kolonimakter som Storbritannia og Frankrike fors\u00f8kte \u00e5 hevde sin makt i en verden som n\u00e5 ble dominert av de nye supermaktene USA og Sovjetunionen.\n\nKrisen handlet om kontroll over Suezkanalen \u2013 den menneskebygde vannveien i Egypt som knytter Middelhavet til R\u00f8dehavet. For Europa var kanalen en livslinje, s\u00e6rlig for transport av olje fra de arabiske landene. Men for Egypt var den et symbol p\u00e5 vestlig dominans som de \u00f8nsket \u00e5 riste av seg."
         },
         {
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=0e7LZu_ceZQ",
+            "title": "Suez-krisen kort forklart (History Matters)"
+        },
+        {
             "type": "component",
             "name": "FactBox",
             "props": {
@@ -83,6 +88,11 @@
         {
             "type": "text",
             "content": "Den st\u00f8rste overraskelsen var reaksjonen fra USA. President Dwight D. Eisenhower ble rasende over at hans n\u00e6rmeste allierte hadde startet en krig bak hans rygg, s\u00e6rlig rett f\u00f8r et amerikansk presidentvalg. USA fryktet at krigen ville drive hele den arabiske verden rett i armene p\u00e5 Sovjetunionen.\n\nUSA valgte \u00e5 legge knallhardt \u00f8konomisk press p\u00e5 Storbritannia ved \u00e5 true med \u00e5 selge britiske pund, noe som kunne f\u00f8re til at den britiske \u00f8konomien kollapset. Samtidig truet Sovjetunionens leder, Nikita Khrusjtsjov, med atomangrep mot London og Paris hvis de ikke trakk seg ut. Under dette doble presset hadde Storbritannia og Frankrike ikke noe annet valg enn \u00e5 be om v\u00e5penhvile og trekke seg ut i van\u00e6re."
+        },
+        {
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=xICnObSHU0M",
+            "title": "Dokumentar: Suez-krisen 1956 (Timeline)"
         },
         {
             "type": "component",

@@ -1092,6 +1092,26 @@
     "link": "/historie/romerriket/augustus-og-keiserdomme"
   },
   {
+    "term": "Rettferdiggjøre",
+    "aliases": [
+      "rettferdiggjør",
+      "rettferdiggjorde",
+      "rettferdiggjort",
+      "rettferdiggjøring",
+      "rettferdiggjores"
+    ],
+    "definition": "Å forsvare, begrunne eller forklare hvorfor en handling eller beslutning er riktig eller nødvendig. I historisk sammenheng brukes det ofte om hvordan ledere eller stater forsvarer krigshandlinger eller politiske valg. Se også: [[Casus belli]] (grunn til krig).",
+    "subject": "historie",
+    "tags": [
+      "begrep",
+      "forklaring"
+    ],
+    "links": [
+      "casus-belli"
+    ],
+    "type": "concept"
+  },
+  {
     "term": "Rhinen",
     "definition": "En av Europas lengste og viktigste elver. I antikken utgjorde den sammen med Donau mye av den nordlige grensen (limes) for Romerriket.",
     "type": "concept",
@@ -1259,6 +1279,27 @@
       "setningsanalyse"
     ],
     "subject": "norsk"
+  },
+  {
+    "term": "Suverenitet",
+    "aliases": [
+      "suveren",
+      "suverent",
+      "suverene",
+      "suvereniteten",
+      "suverenitetshåndhevelse"
+    ],
+    "definition": "Å ha den øverste makten eller myndigheten over et område eller seg selv. I politisk sammenheng betyr det at en stat er selvstendig og har rett til å styre sine egne indre forhold uten innblanding utenfra. Se også: [[Suverenitetsprinsippet]].",
+    "subject": "samfunnskunnskap",
+    "tags": [
+      "politikk",
+      "makt",
+      "selvstendighet"
+    ],
+    "links": [
+      "suverenitetsprinsippet"
+    ],
+    "type": "concept"
   },
   {
     "term": "Suverenitetsprinsippet",
@@ -1566,6 +1607,22 @@
     "term": "Anders Lorange"
   },
   {
+    "term": "Anthony Eden",
+    "aliases": [
+      "Eden",
+      "Robert Anthony Eden"
+    ],
+    "definition": "Britisk politiker og statsminister (1955–1957). Han er særlig husket for sin rolle under Suezkrisen i 1956, som førte til hans avgang.",
+    "type": "person",
+    "lifespan": "1897 - 1977",
+    "subject": "historie",
+    "tags": [
+      "storbritannia",
+      "leder",
+      "suezkrisen"
+    ]
+  },
+  {
     "term": "Aristoteles",
     "definition": "Gresk filosof og elev av Platon. Han var lærer for Aleksander den store og la grunnlaget for logikk og mange av dagens vitenskaper.",
     "type": "person",
@@ -1782,6 +1839,24 @@
     "subject": "historie",
     "lifespan": "63 f.Kr. – 14 e.Kr.",
     "link": "/historie/romerriket/augustus"
+  },
+  {
+    "term": "Gamal Abdel Nasser",
+    "aliases": [
+      "Nasser",
+      "Gamal Abdel-Nasser"
+    ],
+    "definition": "Egyptisk offiser og politiker som var president i Egypt fra 1954 til sin død i 1970. Han er mest kjent for nasjonaliseringen av Suezkanalen, noe som utløste Suezkrisen i 1956.",
+    "type": "person",
+    "lifespan": "1918 - 1970",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "egypt",
+      "leder",
+      "suezkrisen",
+      "nasjonalisme"
+    ]
   },
   {
     "term": "Gavrilo Princip",
@@ -2076,6 +2151,23 @@
     "topic": "forste-verdenskrig",
     "subject": "historie",
     "image": "/images/people/nicholas-ii.jpg"
+  },
+  {
+    "term": "Nikita Khrusjtsjov",
+    "aliases": [
+      "Khrusjtsjov",
+      "Nikita Khrushchev"
+    ],
+    "definition": "Sovjetisk politiker som ledet Sovjetunionen under deler av den kalde krigen (1953–1964). Han var kjent for avstalinisering og for sin rolle under Cubakrisen.",
+    "type": "person",
+    "lifespan": "1894 - 1971",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "sovjet",
+      "leder",
+      "den kalde krigen"
+    ]
   },
   {
     "term": "Oscar II",

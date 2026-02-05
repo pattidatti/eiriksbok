@@ -1,5 +1,5 @@
 {
-  "buildId": 1770284917073,
+  "buildId": 1770298737286,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -377,6 +377,9 @@
     "republikk": [
       "content/concepts/republikk.json"
     ],
+    "rettferdiggjore": [
+      "content/concepts/rettferdiggjore.json"
+    ],
     "rhinen": [
       "content/concepts/rhinen.json"
     ],
@@ -437,6 +440,9 @@
     ],
     "subtekst": [
       "content/concepts/subtekst.json"
+    ],
+    "suverenitet": [
+      "content/concepts/suverenitet.json"
     ],
     "suverenitetsprinsippet": [
       "content/concepts/suverenitetsprinsippet.json"
@@ -1288,6 +1294,9 @@
     "anders-lorange": [
       "content/people/anders-lorange.json"
     ],
+    "anthony-eden": [
+      "content/people/anthony-eden.json"
+    ],
     "aristoteles-bio": [
       "content/people/aristoteles-bio.json"
     ],
@@ -1338,6 +1347,9 @@
     ],
     "gaius-octavius": [
       "content/people/gaius-octavius.json"
+    ],
+    "gamal-abdel-nasser": [
+      "content/people/gamal-abdel-nasser.json"
     ],
     "gavrilo-princip": [
       "content/people/gavrilo-princip.json"
@@ -1407,6 +1419,9 @@
     ],
     "nicholas-ii": [
       "content/people/nicholas-ii.json"
+    ],
+    "nikita-khrusjtsjov": [
+      "content/people/nikita-khrusjtsjov.json"
     ],
     "oscar-ii": [
       "content/people/oscar-ii.json"
@@ -1690,6 +1705,7 @@
     "concepts/replikk.json/replikk": "content/concepts/replikk.json",
     "concepts/representativt-demokrati.json/representativt-demokrati": "content/concepts/representativt-demokrati.json",
     "concepts/republikk.json/republikk": "content/concepts/republikk.json",
+    "concepts/rettferdiggjore.json/rettferdiggjore": "content/concepts/rettferdiggjore.json",
     "concepts/rhinen.json/rhinen": "content/concepts/rhinen.json",
     "concepts/rhinland.json/rhinland": "content/concepts/rhinland.json",
     "concepts/roaring-20s.json/roaring-20s": "content/concepts/roaring-20s.json",
@@ -1710,6 +1726,7 @@
     "concepts/stridsvogn.json/stridsvogn": "content/concepts/stridsvogn.json",
     "concepts/subjektet.json/subjektet": "content/concepts/subjektet.json",
     "concepts/subtekst.json/subtekst": "content/concepts/subtekst.json",
+    "concepts/suverenitet.json/suverenitet": "content/concepts/suverenitet.json",
     "concepts/suverenitetsprinsippet.json/suverenitetsprinsippet": "content/concepts/suverenitetsprinsippet.json",
     "concepts/svartskjortene.json/svartskjortene": "content/concepts/svartskjortene.json",
     "concepts/sykes-picot.json/sykes-picot": "content/concepts/sykes-picot.json",
@@ -2041,6 +2058,7 @@
     "norsk/virkemidler/tid-og-struktur": "content/norsk/virkemidler/tid-og-struktur.json",
     "people/adam-smith.json/adam-smith": "content/people/adam-smith.json",
     "people/anders-lorange.json/anders-lorange": "content/people/anders-lorange.json",
+    "people/anthony-eden.json/anthony-eden": "content/people/anthony-eden.json",
     "people/aristoteles-bio.json/aristoteles-bio": "content/people/aristoteles-bio.json",
     "people/armstrong.json/armstrong": "content/people/armstrong.json",
     "people/augustin-bio.json/augustin-bio": "content/people/augustin-bio.json",
@@ -2058,6 +2076,7 @@
     "people/franz-ferdinand.json/franz-ferdinand": "content/people/franz-ferdinand.json",
     "people/friedrich-nietzsche.json/friedrich-nietzsche": "content/people/friedrich-nietzsche.json",
     "people/gaius-octavius.json/gaius-octavius": "content/people/gaius-octavius.json",
+    "people/gamal-abdel-nasser.json/gamal-abdel-nasser": "content/people/gamal-abdel-nasser.json",
     "people/gavrilo-princip.json/gavrilo-princip": "content/people/gavrilo-princip.json",
     "people/genghis-khan.json/genghis-khan": "content/people/genghis-khan.json",
     "people/guru-gobind-singh-bio.json/guru-gobind-singh-bio": "content/people/guru-gobind-singh-bio.json",
@@ -2081,6 +2100,7 @@
     "people/mikhail-gorbatsjov.json/mikhail-gorbatsjov": "content/people/mikhail-gorbatsjov.json",
     "people/mussolini.json/mussolini": "content/people/mussolini.json",
     "people/nicholas-ii.json/nicholas-ii": "content/people/nicholas-ii.json",
+    "people/nikita-khrusjtsjov.json/nikita-khrusjtsjov": "content/people/nikita-khrusjtsjov.json",
     "people/oscar-ii.json/oscar-ii": "content/people/oscar-ii.json",
     "people/platon-bio.json/platon-bio": "content/people/platon-bio.json",
     "people/ronald-reagan.json/ronald-reagan": "content/people/ronald-reagan.json",
