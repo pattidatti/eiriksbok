@@ -143,6 +143,17 @@
     "type": "concept"
   },
   {
+    "term": "Budskap",
+    "definition": "Det forfatteren ønsker å formidle til leseren gjennom teksten. Ofte en moral, en lærdom eller en holdning til temaet som utforskes.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": [
+      "litterær analyse",
+      "skriving"
+    ],
+    "type": "concept"
+  },
+  {
     "id": "bysants",
     "term": "Bysants",
     "type": "concept",

@@ -47,8 +47,8 @@ export const minLeserhistorie: TextEntry = {
             "Hvilke sjangre har vært viktige for Alise i ulike aldre?"
         ],
         postReading: [
-            "Hva er tekstens **tema** og **budskap**? Bruk eksempler fra teksten for å forklare.",
-            "Begrunn hvorfor dette er en **reflekterende tekst**. Hvilke kjennetegn finner du?",
+            "Hva er tekstens tema og budskap? Bruk eksempler fra teksten for å forklare.",
+            "Begrunn hvorfor dette er en reflekterende tekst. Hvilke kjennetegn finner du?",
             "Hvorfor tror Alise at hun ble glad i å lese?",
             "Alise nevner at hun ble skuffet over filmatiseringen av 'Maltesergåten'. Har du opplevd noe lignende? Hvorfor skjer dette?",
             "Hvilke utfordringer nevner Alise med å opprettholde lesingen i dag?"

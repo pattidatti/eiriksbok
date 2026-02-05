@@ -48,7 +48,7 @@ export const aldriGodtNok: TextEntry = {
             "Hvilke råd fikk Karolina av terapeuten sin?"
         ],
         postReading: [
-            "Hva er tekstens **tema** og **budskap**? Underbygg svaret ditt med minst to eksempler fra teksten.",
+            "Hva er tekstens tema og budskap? Underbygg svaret ditt med minst to eksempler fra teksten.",
             "Hvilken **tekstsjanger** tilhører dette? Begrunn svaret ved å peke på kjennetegn i teksten (se gjerne kilde-linken for tips).",
             "Hvorfor tror du andres kommentarer har så stor makt over oss?",
             "Karolina skriver at 'ingen er perfekt'. Hvorfor er det likevel så lett å føle at alle andre er det?",
