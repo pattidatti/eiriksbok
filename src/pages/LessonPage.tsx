@@ -20,6 +20,8 @@ import { useAnalytics } from '../hooks/useAnalytics';
 import { useReadingTime } from '../hooks/useReadingTime';
 import { useLayout } from '../context/LayoutContext';
 import { LearningPathErrorState } from '../components/content/LearningPathErrorState';
+import { ArticleContent } from '../components/ArticleContent';
+
 
 const getFirstTextContent = (blocks: ContentBlock[]): string | undefined => {
     const block = blocks.find((b): b is Extract<ContentBlock, { type: 'text' | 'paragraph' }> =>
@@ -122,30 +124,6 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         };
     }, [lesson?.layout, lesson?.engine, setFullWidth, setHideHeader, setHideBreadcrumbs]);
 
-    // Show loading if:
-    // 1. Initial lesson query is loading
-    // 2. We have no lesson data yet but are still fetching (initial mounting phase)
-    // 3. We have a lesson layout that REQUIRES learningPathData, but it's missing while fetching
-    const isIncompletePathData = lesson?.layout === 'learning-path' && (!lesson?.learningPathData || !lesson.learningPathData.steps);
-    const loading = lessonLoading || (!lesson && isFetching) || (isIncompletePathData && isFetching);
-
-    // Diagnostic logging
-    console.count("[LessonPage] Render Count");
-    if (loading || isFetching || lesson) {
-        console.log(`[LessonPage] Render: loading=${loading}, isFetching=${isFetching}, hasLesson=${!!lesson}, layout="${lesson?.layout || 'none'}", hasSteps=${!!lesson?.learningPathData?.steps}`);
-    }
-
-    if (loading) return <LessonSkeleton />;
-
-    if (isError) {
-        return <LearningPathErrorState type="network" error={error as Error} onRetry={() => refetch()} />;
-    }
-
-    // Data Validation Guard - only show error if NOT fetching AND data is incomplete
-    if (lesson && lesson.layout === 'learning-path' && !lesson.learningPathData && !isFetching) {
-        return <LearningPathErrorState type="data" onRetry={() => refetch()} />;
-    }
-
     // --- Hooks & Memoization (Rule of Hooks: Must be top-level and unconditional) ---
     const isHistory = subjectId === 'historie';
 
@@ -203,15 +181,48 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             tags: lesson.tags,
             subjectId: subjectId,
             topicId: topicId,
-            learningPathData: lesson.learningPathData,
-            learningPaths: relevantLearningPaths
+            learningPaths: relevantLearningPaths,
+            learningPathData: lesson.learningPathData
         };
     }, [lesson, lessonImage, subjectId, topicId, relevantLearningPaths]);
 
-    // Stable navigation handler
+    // Stabilized close handler
     const handleClose = useCallback(() => {
-        navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`);
+        const backUrl = subTopicId
+            ? `/${subjectId}/${topicId}/${subTopicId}`
+            : `/${subjectId}/${topicId}`;
+        navigate(backUrl);
     }, [navigate, subjectId, topicId, subTopicId]);
+
+    // Diagnostic logging
+    console.count("[LessonPage] Render Count");
+    if (lessonLoading || isFetching || lesson) {
+        console.log(`[LessonPage] Render: lessonLoading=${lessonLoading}, isFetching=${isFetching}, hasLesson=${!!lesson}, layout="${lesson?.layout || 'none'}", hasSteps=${!!lesson?.learningPathData?.steps}`);
+    }
+
+    // --- Loading & Error States (After all hooks) ---
+
+    // Show loading if:
+    // 1. Initial lesson query is loading
+    // 2. We have no lesson data yet but are still fetching (initial mounting phase)
+    // 3. We have a lesson layout that REQUIRES learningPathData, but it's missing while fetching
+    const isIncompletePathData = lesson?.layout === 'learning-path' && (!lesson?.learningPathData || !lesson.learningPathData.steps);
+    const loading = lessonLoading || (!lesson && isFetching) || (isIncompletePathData && isFetching);
+
+    if (loading) return <LessonSkeleton />;
+
+    if (isError) {
+        return <LearningPathErrorState type="network" error={error as Error} onRetry={() => refetch()} />;
+    }
+
+    // Data Validation Guard - only show error if NOT fetching AND data is incomplete
+    if (lesson && lesson.layout === 'learning-path' && !lesson.learningPathData && !isFetching) {
+        return <LearningPathErrorState type="data" onRetry={() => refetch()} />;
+    }
+
+    if (!lesson || !articleData) {
+        return <LessonSkeleton />;
+    }
 
     // --- Conditional Rendering & Layout Logic ---
 
@@ -222,6 +233,22 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
     if (topicId === 'styringsformer' && lessonId === 'utforsk' && lesson) {
         return <GovernmentExplorer lesson={lesson} />;
+    }
+
+    // Logic for specific layouts
+    if (lesson.layout === 'tool') {
+        return (
+            <div className="min-h-screen bg-slate-50 pt-20">
+                <div className="max-w-7xl mx-auto px-4 py-8">
+                    <ArticleContent
+                        content={lesson.content || []}
+                        concepts={lesson.concepts}
+                        isTool={true}
+                        fallbackUrl={fallbackUrl}
+                    />
+                </div>
+            </div>
+        );
     }
 
     // Check if this is a timeline event (regardless of subtopic)
