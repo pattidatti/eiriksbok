@@ -1,5 +1,6 @@
 import type { TextEntry } from './types';
 import { aDrepeEtBarn } from './entries/a-drepe-et-barn';
+import { aldriGodtNok } from './entries/aldri-godt-nok';
 import { altBlirSomFor } from './entries/alt-blir-som-for';
 import { barsakh } from './entries/barsakh';
 import { detUsynligeBarnet } from './entries/det-usynlige-barnet';
@@ -34,6 +35,7 @@ import { minLeserhistorie } from './entries/min-leserhistorie';
 
 export const textLibraryData: TextEntry[] = [
     aDrepeEtBarn,
+    aldriGodtNok,
     altBlirSomFor,
     barsakh,
     detUsynligeBarnet,

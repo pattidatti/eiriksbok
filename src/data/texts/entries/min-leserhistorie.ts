@@ -4,7 +4,7 @@ export const minLeserhistorie: TextEntry = {
     id: 'min-leserhistorie',
     title: 'Min leserhistorie',
     author: 'Alise (15 år)',
-    genre: 'Sakprosa',
+    genre: 'Reflekterende tekst',
     language: 'bm.',
     theme: ['Leseglede', 'Identitet', 'Oppvekst'],
     publishedYear: 2024,
@@ -47,10 +47,16 @@ export const minLeserhistorie: TextEntry = {
             "Hvilke sjangre har vært viktige for Alise i ulike aldre?"
         ],
         postReading: [
+            "Hva er tekstens **tema** og **budskap**? Bruk eksempler fra teksten for å forklare.",
+            "Begrunn hvorfor dette er en **reflekterende tekst**. Hvilke kjennetegn finner du?",
             "Hvorfor tror Alise at hun ble glad i å lese?",
             "Alise nevner at hun ble skuffet over filmatiseringen av 'Maltesergåten'. Har du opplevd noe lignende? Hvorfor skjer dette?",
             "Hvilke utfordringer nevner Alise med å opprettholde lesingen i dag?"
         ],
-        writingTask: "Skriv din egen leserhistorie. Start med dine tidligste minner om bøker og lesing, og beskriv hvordan smaken din har endret seg frem til i dag. Bruk gjerne Alises tekst som inspirasjon."
+        writingTask: "Skriv din egen leserhistorie. Start med dine tidligste minner og beskriv hvordan smaken din har endret seg. Bruk gjerne Alises tekst som inspirasjon.",
+        period: {
+            title: "Hvordan skrive reflekterende",
+            link: "/norsk/skrivehjelp/hvordan-skrive-reflekterende"
+        }
     }
 };
