@@ -151,7 +151,8 @@
       "litterær analyse",
       "skriving"
     ],
-    "type": "concept"
+    "type": "concept",
+    "link": "/norsk/analyse/tema-og-budskap"
   },
   {
     "id": "bysants",
@@ -1323,6 +1324,17 @@
     "subject": "historie",
     "topic": "kolonialisering",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Tema",
+    "definition": "Det teksten dypest sett handler om på et abstrakt plan. Ofte et universelt menneskelig spørsmål eller en konflikt som tekstens handling illustrerer.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": [
+      "litterær analyse",
+      "skriving"
+    ],
     "type": "concept"
   },
   {

@@ -94,7 +94,7 @@ export const Comparison: React.FC<ComparisonProps> = ({
         : "grid grid-cols-1 md:grid-cols-2";
 
     return (
-        <div className="my-10 relative">
+        <div className="relative">
             {/* Decorative Background */}
             <div className="absolute inset-0 bg-gradient-to-b from-slate-50/80 to-white rounded-3xl -z-10 backdrop-blur-sm" />
 

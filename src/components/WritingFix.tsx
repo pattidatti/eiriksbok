@@ -19,13 +19,13 @@ export const WritingFix: React.FC<WritingFixProps> = ({ title, items = [] }) => 
     const { entries } = useGlossary();
 
     return (
-        <div className="my-16 max-w-2xl mx-auto px-4 md:px-0">
+        <div className="max-w-2xl mx-auto px-4 md:px-0">
             {title && (
                 <h4 className="text-xl font-bold text-slate-900 mb-8">
                     {title}
                 </h4>
             )}
-            <div className="space-y-16">
+            <div className="space-y-8">
                 {items.map((item, index) => (
                     <motion.div
                         key={index}

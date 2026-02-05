@@ -45,6 +45,12 @@
       "content": "Tysklands strategi, Schlieffen-planen, hvilte på hastighet. Den tyske hæren skulle marsjere raskt gjennom Belgia, feie ned gjennom Nord-Frankrike, omringe Paris og tvinge Frankrike til overgivelse før den russiske «dampveivalsen» i øst rakk å bli farlig. I starten så det ut til å virke. Tyskerne presset de allierte styrkene tilbake nesten helt til Paris. Men den franske motstanden var hardere enn ventet, og russerne angrep i øst raskere enn beregnet. I september 1914, under slaget ved Marne, klarte franske og britiske styrker mirakuløst å stoppe den tyske fremrykkingen. Schlieffen-planen hadde feilet.\n\nEtter slaget ved Marne forsøkte begge sider å flanke hverandre – å løpe rundt fiendens side for å komme bak dem. Dette ble kjent som «kappløpet mot havet». Ingen lyktes, og da de nådde Nordsjøen, hadde de ikke noe annet valg enn å grave seg ned for å beskytte seg mot fiendens ild. I løpet av noen få måneder ble en sammenhengende frontlinje av skyttergraver etabert fra den sveitsiske grensen i sør til kysten av Flandern i nord. Vestfronten var skapt, og den skulle flytte seg svært lite de neste fire årene."
     },
     {
+      "type": "image",
+      "src": "/images/historie/forste-verdenskrig/europa_kart_ww1.png",
+      "alt": "Kart over Europa 1914",
+      "caption": "Europakartet i 1914 med de fastlåste frontlinjene i øst og vest."
+    },
+    {
       "type": "header",
       "text": "Livet og døden i skyttergravene"
     },
@@ -79,6 +85,12 @@
       "content": "Samtidig raste krigen på Østfronten, der Tyskland og Østerrike-Ungarn kjempet mot Russland. Her var fronten så lang at skyttergraver ikke kunne dekke alt, og krigen var mer mobil. Tyskerne vant store seire, som ved Tannenberg, men russerne var utholdende. I sør kjempet Italia en brutal fjellkrig mot Østerrike i Alpene. I Midtøsten ledet den britiske offiseren T.E. Lawrence («Lawrence of Arabia») arabiske stammer i opprør mot det osmanske riket.\n\nTil sjøs dominerte den britiske marinen overflaten og blokkerte tyske havner, noe som førte til matmangel i Tyskland. Tyskland svarte med ubåtkrig for å senke forsyningsskipene som gikk til Storbritannia. I 1917 erklærte Tyskland «uinnskrenket ubåtkrig», som betydde at de ville senke alle skip, også nøytrale, som nærmet seg Storbritannia. Dette var et sjansespill som skulle få store konsekvenser."
     },
     {
+      "type": "image",
+      "src": "/images/historie/forste-verdenskrig/global_kart_ww1.png",
+      "alt": "Globalt kart over første verdenskrig",
+      "caption": "Krigen var global: Konflikter raste i Midtøsten, Afrika og på verdenshavene."
+    },
+    {
       "type": "header",
       "text": "1917: Vendepunktet"
     },
@@ -93,6 +105,20 @@
     {
       "type": "text",
       "content": "Våren 1918 var et kappløp med tiden. Tyskland måtte vinne på Vestfronten før de amerikanske styrkene ankom for fullt. De iverksatte «Michael-offensiven», en serie massive angrep som brøt gjennom skyttergravslinjene og truet Paris. Men tyskerne var utslitte, og forsyningene sviktet. Offensiven stoppet opp.\n\nI august startet de allierte, nå forsterket med friske amerikanske tropper og hundrevis av stridsvogner, sin motoffensiv («De hundre dagene»). Den tyske hæren ble presset tilbake, og moralen kollapset. Hjemme i Tyskland brøt det ut opprør blant matrosene, og revolusjonsstemningen spredte seg. Keiser Wilhelm II måtte flykte, og en ny tysk regjering ba om fred. Våpenhvilen ble signert i en jernbanevogn i Compiègne-skogen, og klokken 11.00 den 11. november 1918 stanset skytingen. Krigen var over, men freden gjensto å vinne."
+    },
+    {
+      "type": "component",
+      "component": "Gallery",
+      "props": {
+        "title": "Krigens slutt",
+        "items": [
+          {
+            "image": "/images/historie/forste-verdenskrig/vogn_armistice_1918.png",
+            "caption": "Jernbanevognen i Compiègne-skogen der våpenhvilen ble signert 11. november 1918.",
+            "alt": "Interiøret i Compiègne-vognen"
+          }
+        ]
+      }
     }
   ],
   "createdDate": "2025-12-21T14:20:00Z",

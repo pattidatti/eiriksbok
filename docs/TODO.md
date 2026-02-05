@@ -7,6 +7,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [/] Læringsstier laster ikke konsekvent. (Jobber med robusthet, lagt til timeouts og cache-busting).
 - [x] Endre navn på ww1 fra sivilisajons selvmord til ww1 sti. 
 - [ ] Ikke bug men; Oppdatere alle artiklene i Analyse-emnet, så de er like gode som dikt artikkelen. 
+- [ ] @krigens-lop må ha bilder av vognen i bunnen av artikkele. Må også ha et bilde i artikkelen som viser krigens forløp på et europakart. Må også være et kart som viser krigen på global skala; hvor skjer alt?
 
 ## Læringsstier
 - [x] Læringsstier: Hver sett med oppgaver må ha en liten boks for å kopiere alle spørsmålene, slik at elevene enkelt kan få dem kopiert inn i skriveboken sin, uten å måtte skrive alt selv, eller dille med å merke alt. 

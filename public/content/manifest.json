@@ -398,6 +398,19 @@
                     ],
                     "lessons": [
                         {
+                            "id": "tema-og-budskap",
+                            "title": "Tema og budskap",
+                            "description": "Lær å finne meningen bak teksten. Fra handling til tolkning.",
+                            "image": "/images/lessons/norsk/analyse/tema-og-budskap-hero.png",
+                            "tags": [
+                                "analyse",
+                                "tema",
+                                "budskap"
+                            ],
+                            "createdDate": "2026-02-05T10:00:00Z",
+                            "lastUpdated": "2026-02-05T10:00:00.000Z"
+                        },
+                        {
                             "id": "analyse-novelle",
                             "title": "Analysere Novelle",
                             "description": "Se maskineriet bak fortellingen.",

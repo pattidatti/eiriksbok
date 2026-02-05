@@ -1,0 +1,170 @@
+{
+    "id": "tema-og-budskap",
+    "title": "Tema og budskap",
+    "description": "Lær å finne meningen bak teksten. Fra handling til tolkning.",
+    "image": "/images/lessons/norsk/analyse/tema-og-budskap-hero.png",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Når vi leser en bok, ser en film eller hører på en sang, sitter vi ofte igjen med en følelse eller en tanke. Det er fordi teksten prøver å fortelle oss noe mer enn bare selve handlingen. I denne guiden skal vi se på hvordan du kan finne ut hva en tekst egentlig handler om."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "1. Hva er Tema? (Sjelen i historien)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Temaet er det teksten handler om på et dypere plan. Mens **handlingen** forteller hva som skjer (for eksempel: en gutt mister hunden sin), forteller **temaet** hva det handler om (for eksempel: sorg eller vennskap)."
+        },
+        {
+            "type": "paragraph",
+            "text": "Tenk på novellen **[Å drepe et barn](/norsk/bibliotek/a-drepe-et-barn)**. Handlingen er enkel: En bil kjører for fort og treffer et barn. Men hvis vi spør: *Hva handler dette egentlig om?*, ser vi at temaet er **ansvar** og hvordan små tilfeldigheter kan ødelegge liv i løpet av sekunder."
+        },
+        {
+            "type": "component",
+            "component": "WritingFix",
+            "props": {
+                "title": "Slik skriver du om tema",
+                "items": [
+                    {
+                        "bad": "Handlingen i 'Å drepe et barn' er at en mann kjører på et barn fordi han har dårlig tid.",
+                        "good": "Temaet i 'Å drepe et barn' er menneskelig ansvar og hvordan tilfeldigheter kan få fatale konsekvenser.",
+                        "why": "Gjenfortelling av handlingen (det som skjer) er ikke det samme som å analysere temaet (det det betyr)."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "Vanlige temaer i tekster kan være:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Vennskap og svik",
+                "Kjærlighet og hat",
+                "Å føle seg utenfor (utenforskap)",
+                "Makt og urettferdighet"
+            ]
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "2. Hva er Budskap? (Det forfatteren vil si)"
+        },
+        {
+            "type": "paragraph",
+            "text": "Budskapet er meningen eller 'lærdommen' i teksten. Det er ofte forfatterens måte å si sin mening om temaet på. Mens temaet ofte er ett eller to ord, er budskapet vanligvis en hel setning."
+        },
+        {
+            "type": "paragraph",
+            "text": "Et godt eksempel er diktet **[Jeg ser](/norsk/bibliotek/jeg-ser)** av Sigbjørn Obstfelder. Her sitter dikteren og ser på verden rundt seg, men føler seg ikke hjemme. Temaet her er **utenforskap**, men budskapet kan være at det moderne samfunnet føles kaldt og fremmed for mennesket."
+        },
+        {
+            "type": "component",
+            "component": "Comparison",
+            "props": {
+                "title": "Tema vs. Budskap",
+                "leftTitle": "Tema (Emne)",
+                "rightTitle": "Budskap (Mening)",
+                "items": [
+                    {
+                        "left": "Kjærlighet",
+                        "right": "Kjærligheten vinner over alt."
+                    },
+                    {
+                        "left": "Utenforskap",
+                        "right": "Det er ensomt å ikke passe inn i mengden."
+                    },
+                    {
+                        "left": "Fattigdom",
+                        "right": "Samfunnet burde hjelpe de som har minst."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "3. Slik finner du tema og budskap (Steg-for-steg)"
+        },
+        {
+            "type": "paragraph",
+            "text": "For å finne meningen bak teksten, må du være litt som en som leter etter spor. Her er tre ting du kan se etter:"
+        },
+        {
+            "type": "paragraph",
+            "text": "**Steg 1: Se etter gjentakelser og kontraster.** Er det ord eller bilder som dukker opp mange ganger? I **[Piken med svovelstikkene](/norsk/bibliotek/piken-med-svovelstikkene)** er det en kraftig kontrast mellom kulden ute og de varme synene piken får når hun tenner stikkene. Dette peker direkte mot temaet **fattigdom** og lengsel etter trygghet."
+        },
+        {
+            "type": "paragraph",
+            "text": "**Steg 2: Sjekk tittelen.** Ofte er tittelen en snarvei til temaet. Hvis en bok heter 'Sult' eller 'Vennskap', er det en god sjanse for at det er nettopp dette den handler om."
+        },
+        {
+            "type": "paragraph",
+            "text": "**Steg 3: Se på slutten.** Hvordan ender det? Hvis hovedpersonen lærer noe viktig, eller hvis alt går galt til slutt, gir det oss ofte et hint om hva forfatteren prøver å si (budskapet)."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "4. Tema i musikk, film og spill"
+        },
+        {
+            "type": "paragraph",
+            "text": "Det fine med temaer er at de er universelle. Du kan finne nøyaktig det samme temaet (for eksempel 'svik') i en gammel norrøn saga, i en moderne Netflix-serie som *Stranger Things*, eller i en sang av Olivia Rodrigo. Selv om handlingen og tiden er forskjellig, er menneskelige følelser ofte de samme."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "text": "Oppgaver"
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva er den viktigste forskjellen på handling og tema?",
+                    "options": [
+                        "Handling er det som skjer i teksten, mens tema er den dypere meningen.",
+                        "Tema er navnet på personene, mens handling er stedet de er på.",
+                        "Det er ingen forskjell, det betyr det samme.",
+                        "Handlingen er alltid kortere enn temaet."
+                    ],
+                    "correctAnswer": 0
+                },
+                {
+                    "question": "I diktet 'Jeg ser' er temaet utenforskap. Hva kunne vært et mulig budskap?",
+                    "options": [
+                        "At forfatteren liker å se ut av vinduet.",
+                        "At verden kan føles fremmed og rar for den som er ensom.",
+                        "At han burde kjøpe seg nye briller.",
+                        "At det er viktig å bo i et stort hus."
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hvis du skal finne temaet i 'Piken med svovelstikkene', hva bør du se etter?",
+                    "options": [
+                        "Hvor mange fyrstikker hun har igjen.",
+                        "Kontrasten mellom pikens fattigdom og varmen hun drømmer om.",
+                        "Navnet på forfatteren.",
+                        "Nøyaktig hvilken gate hun sitter i."
+                    ],
+                    "correctAnswer": 1
+                }
+            ]
+        }
+    ],
+    "relatedLink": {
+        "text": "Gå til biblioteket for å finne flere tekster",
+        "url": "/norsk/bibliotek"
+    },
+    "tags": [
+        "analyse",
+        "tema",
+        "budskap",
+        "tolkning"
+    ],
+    "createdDate": "2026-02-05T10:00:00Z",
+    "lastUpdated": "2026-02-05T10:25:00Z"
+}

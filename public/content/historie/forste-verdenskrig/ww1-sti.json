@@ -198,6 +198,22 @@
                 "links": []
             },
             {
+                "id": "step-prolog-drama",
+                "phase": "Prolog: Den Gamle Verden",
+                "title": "Drama: Gnisten i kruttønna",
+                "type": "oppgave",
+                "content": "Nå er det deres tur til å dramatisere den store kjedereaksjonen! I denne gruppeoppgaven skal dere vise hvordan en verden preget av fremtidstro og luksus kunne kollapse på grunn av gamle avtaler og et skjebnesvangert skudd.\n\nDere skal lage et lite skuespill (3-5 minutter) som forklarer opptakten til krigen for resten av klassen.",
+                "tasks": [
+                    "Forberedelse: Fordel rollene (Stormaktene, Franz Ferdinand, Gavrilo Princip).",
+                    "Scene 1: 'Belle Époque' – Vis den sorgløse stemningen før krisen.",
+                    "Scene 2: 'Alliansenes nett' – Vis hvem som har lovet å hjelpe hvem (Trippelententen vs. Sentralmaktene).",
+                    "Scene 3: 'Skuddet i Sarajevo' – Dramatiser hendelsen og den umiddelbare reaksjonen.",
+                    "Scene 4: 'Dominoeffekten' – Vis hvordan landene tvinges med i krigen ett etter ett.",
+                    "Presentasjon: Vis dramatiseringen for klassen."
+                ],
+                "links": []
+            },
+            {
                 "id": "step-2",
                 "phase": "Akt 1: Illusjonen (1914)",
                 "title": "August-begeistringen",
