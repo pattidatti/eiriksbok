@@ -47,7 +47,6 @@ export type ArticleData = {
 
 interface InteractiveArticleProps {
     event: ArticleData;
-    onClose: () => void;
     fallbackUrl?: string;
     sidebarConfig?: SidebarConfig;
 }
@@ -68,7 +67,7 @@ const FactBox: React.FC<{ content: string }> = ({ content }) => (
 
 
 
-export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, onClose, fallbackUrl, sidebarConfig }) => {
+export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, fallbackUrl, sidebarConfig }) => {
     const navigate = useNavigate();
     const { events: globalEvents } = useGlobalTimeline();
     const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();

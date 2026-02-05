@@ -1,5 +1,5 @@
-import { useEffect, useMemo, lazy, Suspense, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect, useMemo, lazy, Suspense } from 'react';
+import { useParams } from 'react-router-dom';
 import { useManifest } from '../hooks/useManifest';
 import { useLesson } from '../hooks/useLesson';
 import type { ContentBlock, SidebarConfig, ManifestLesson } from '../types';
@@ -41,7 +41,6 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     const { data: manifest } = useManifest();
     const { data: lesson, isLoading: lessonLoading, isError, error, refetch, isFetching } = useLesson(subjectId, topicId, lessonId, subTopicId);
 
-    const navigate = useNavigate();
     const { addToHistory } = useUserHistory();
     const { setFullWidth, setHideHeader, setHideBreadcrumbs } = useLayout();
 
@@ -186,13 +185,6 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
         };
     }, [lesson, lessonImage, subjectId, topicId, relevantLearningPaths]);
 
-    // Stabilized close handler
-    const handleClose = useCallback(() => {
-        const backUrl = subTopicId
-            ? `/${subjectId}/${topicId}/${subTopicId}`
-            : `/${subjectId}/${topicId}`;
-        navigate(backUrl);
-    }, [navigate, subjectId, topicId, subTopicId]);
 
     // Diagnostic logging
     console.count("[LessonPage] Render Count");
@@ -279,7 +271,6 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                 <InteractiveArticle
                     key={`${lesson.id}-${lesson.layout}-${lesson.learningPathData ? 'lp' : 'std'}`}
                     event={articleData}
-                    onClose={handleClose}
                     fallbackUrl={fallbackUrl}
                     sidebarConfig={sidebarConfig}
                 />
@@ -299,7 +290,6 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
                         category: timelineEvent.category || 'Historie',
                         readTime: timelineEvent.readTime || '3 min',
                     } as any}
-                    onClose={() => navigate(`/${subjectId}/${topicId}${subTopicId ? `/${subTopicId}` : ''}`)}
                     fallbackUrl={fallbackUrl}
                     sidebarConfig={sidebarConfig}
                 />
