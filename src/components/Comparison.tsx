@@ -157,7 +157,9 @@ export const Comparison: React.FC<ComparisonProps> = ({
                                             transition={{ delay: i * 0.05, ease: "easeOut" }}
                                             className="h-full p-2.5 md:p-3.5 bg-white shadow-sm border border-indigo-100/40 text-indigo-900 text-sm md:text-base leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap flex items-center justify-center font-medium rounded-lg"
                                         >
-                                            {renderInlineMarkdown(item.left, entries)}
+                                            <div className="w-full max-w-prose text-center">
+                                                {renderInlineMarkdown(item.left, entries)}
+                                            </div>
                                         </motion.div>
                                     )}
                                 </div>
@@ -171,7 +173,9 @@ export const Comparison: React.FC<ComparisonProps> = ({
                                             transition={{ delay: i * 0.05, ease: "easeOut" }}
                                             className="h-full p-2.5 md:p-3.5 bg-white shadow-sm border border-amber-100/40 text-amber-900 text-sm md:text-base leading-relaxed text-center break-words hyphens-auto whitespace-pre-wrap flex items-center justify-center rounded-lg"
                                         >
-                                            {renderInlineMarkdown(item.right, entries)}
+                                            <div className="w-full max-w-prose text-center">
+                                                {renderInlineMarkdown(item.right, entries)}
+                                            </div>
                                         </motion.div>
                                     )}
                                 </div>
