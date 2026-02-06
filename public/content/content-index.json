@@ -1,5 +1,5 @@
 {
-  "buildId": 1770362269426,
+  "buildId": 1770410134651,
   "contentMap": {
     "agens": [
       "content/concepts/agens.json"
@@ -1276,6 +1276,9 @@
     "novelle": [
       "content/norsk/tekstsjangre/novelle.json"
     ],
+    "reflekterende-tekst": [
+      "content/norsk/tekstsjangre/reflekterende-tekst.json"
+    ],
     "roman": [
       "content/norsk/tekstsjangre/roman.json"
     ],
@@ -2052,6 +2055,7 @@
     "norsk/tekstsjangre/eventyr": "content/norsk/tekstsjangre/eventyr.json",
     "norsk/tekstsjangre/kommentar": "content/norsk/tekstsjangre/kommentar.json",
     "norsk/tekstsjangre/novelle": "content/norsk/tekstsjangre/novelle.json",
+    "norsk/tekstsjangre/reflekterende-tekst": "content/norsk/tekstsjangre/reflekterende-tekst.json",
     "norsk/tekstsjangre/roman": "content/norsk/tekstsjangre/roman.json",
     "norsk/virkemidler/bildesprak-og-effekter": "content/norsk/virkemidler/bildesprak-og-effekter.json",
     "norsk/virkemidler/synsvinkel-og-stemme": "content/norsk/virkemidler/synsvinkel-og-stemme.json",

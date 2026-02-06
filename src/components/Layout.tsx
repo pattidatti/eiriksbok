@@ -8,8 +8,8 @@ import { ScrollToTop } from './ScrollToTop';
 import { MobileMenu } from './MobileMenu';
 import { useSettings } from '../hooks/useSettings';
 import { useLayout } from '../context/LayoutContext';
-import { Menu } from 'lucide-react';
-
+import { Menu, Search } from 'lucide-react';
+import { useSearchHotkeys } from '../hooks/useSearchHotkeys';
 import { FeedbackWidget } from './FeedbackWidget'; // Added import
 
 export const Layout: React.FC = () => {
@@ -19,6 +19,9 @@ export const Layout: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { settings, toggleDyslexicMode } = useSettings();
     const { isFullWidth, hideHeader: contextHideHeader } = useLayout();
+
+    // Add hotkey listener
+    useSearchHotkeys(() => setIsSearchOpen(true));
 
     // Hard override for presentation and simulation modes
     const path = location.pathname.toLowerCase();
@@ -88,13 +91,13 @@ export const Layout: React.FC = () => {
                             </button>
                             <button
                                 onClick={() => setIsSearchOpen(true)}
-                                className="p-2 text-text-muted hover:text-text-main transition-colors rounded-full hover:bg-black/5"
-                                aria-label="Søk"
+                                className="group relative p-2 text-text-muted hover:text-text-main transition-colors rounded-full hover:bg-black/5 flex items-center gap-2"
+                                aria-label="Søk (Ctrl+K)"
                             >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                </svg>
+                                <Search size={20} className="w-5 h-5" />
+                                <span className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 ml-1 text-[10px] font-medium text-slate-400 border border-slate-200 rounded bg-slate-50 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                    <span className="text-xs">Ctrl</span> K
+                                </span>
                             </button>
                         </div>
                     </div>

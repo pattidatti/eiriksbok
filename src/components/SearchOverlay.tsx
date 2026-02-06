@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useManifest } from '../hooks/useManifest';
+import { useScrollLock } from '../hooks/useScrollLock';
 import type { ManifestLesson } from '../types';
 import { Search, X, Map } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -24,23 +25,61 @@ interface SearchResult {
 export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState<SearchResult[]>([]);
+    const [selectedIndex, setSelectedIndex] = useState(0);
     const inputRef = useRef<HTMLInputElement>(null);
+    const listRef = useRef<HTMLDivElement>(null);
     const { data: manifest } = useManifest();
+    const navigate = useNavigate();
+
+    useScrollLock(isOpen);
 
     useEffect(() => {
-        if (isOpen && inputRef.current) {
-            inputRef.current.focus();
+        if (isOpen) {
+            // Focus input on open
+            if (inputRef.current) {
+                inputRef.current.focus();
+            }
+            // Reset selection
+            setSelectedIndex(0);
         }
+    }, [isOpen]);
+
+    // Handle Keyboard Navigation
+    useEffect(() => {
+        if (!isOpen) return;
 
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') onClose();
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                onClose();
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setSelectedIndex(prev => (prev + 1) % results.length);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setSelectedIndex(prev => (prev - 1 + results.length) % results.length);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (results[selectedIndex]) {
+                    navigate(results[selectedIndex].path);
+                    onClose();
+                }
+            }
         };
 
-        if (isOpen) {
-            window.addEventListener('keydown', handleKeyDown);
-        }
+        window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [isOpen, onClose]);
+    }, [isOpen, onClose, results, selectedIndex, navigate]);
+
+    // Auto-scroll to selected item
+    useEffect(() => {
+        if (listRef.current) {
+            const selectedElement = listRef.current.children[selectedIndex] as HTMLElement;
+            if (selectedElement) {
+                selectedElement.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            }
+        }
+    }, [selectedIndex]);
 
     useEffect(() => {
         if (!manifest) {
@@ -146,6 +185,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
 
         const searchResults = fuse.search(query);
         setResults(searchResults.map(result => result.item).slice(0, 50)); // Limit to 50 results
+        setSelectedIndex(0); // Reset selection on new results
 
         // Log search to Firebase (Debounced)
         const logTimer = setTimeout(() => {
@@ -190,6 +230,10 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                             <input
                                 ref={inputRef}
                                 type="text"
+                                role="combobox"
+                                aria-expanded="true"
+                                aria-controls="search-results"
+                                aria-activedescendant={results.length > 0 ? `result-${selectedIndex}` : undefined}
                                 placeholder="Søk etter begreper, leksjoner, tekster..."
                                 value={query}
                                 onChange={e => setQuery(e.target.value)}
@@ -203,7 +247,12 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                             </button>
                         </div>
 
-                        <div className="space-y-3 max-h-[60vh] overflow-y-auto custom-scrollbar">
+                        <div
+                            ref={listRef}
+                            id="search-results"
+                            role="listbox"
+                            className="space-y-3 max-h-[60vh] overflow-y-auto custom-scrollbar scroll-p-2"
+                        >
                             {results.map((result, index) => (
                                 <Link
                                     key={index}
@@ -212,10 +261,17 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                                     className="block no-underline"
                                 >
                                     <motion.div
+                                        id={`result-${index}`}
+                                        role="option"
+                                        aria-selected={index === selectedIndex}
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: index * 0.05 }}
-                                        className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 flex justify-between items-center transition-all group"
+                                        onMouseEnter={() => setSelectedIndex(index)}
+                                        className={`border rounded-xl p-4 flex justify-between items-center transition-all group cursor-pointer ${index === selectedIndex
+                                            ? 'bg-slate-800/90 border-indigo-500 shadow-lg shadow-indigo-500/20'
+                                            : 'bg-slate-900/60 border-white/5 hover:bg-slate-800/80 hover:border-white/20'
+                                            }`}
                                     >
                                         <div className="flex-1 min-w-0 mr-4">
                                             <div className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors truncate flex items-center gap-2">
@@ -241,10 +297,10 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose })
                                             )}
                                         </div>
                                         <div className={`text-xs font-bold uppercase tracking-wider px-2 py-1 rounded whitespace-nowrap ${result.type === 'learning-path'
-                                                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                                                : result.type === 'library'
-                                                    ? 'bg-white/10 text-slate-300'
-                                                    : 'bg-white/10 text-slate-300'
+                                            ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                                            : result.type === 'library'
+                                                ? 'bg-white/10 text-slate-300'
+                                                : 'bg-white/10 text-slate-300'
                                             }`}>
                                             {result.type === 'learning-path' ? 'læringssti' : result.type === 'library' ? 'bibliotek' : result.type}
                                         </div>

@@ -5,7 +5,6 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 ### Bugs
 
 - [ ] Ikke bug men; Oppdatere alle artiklene i Analyse-emnet, så de er like gode som dikt artikkelen. 
-- [x] Fikse brutte lenker i `aldri-godt-nok.ts` (kjennetegn og hvordan skrive reflekterende tekst).
 - [ ] Tidsreiser spillet: Lage tidsreise om tysksoldat ved frontlinjen og en om nordkoreaner under koreakrigen.
 ## Læringsstier
 
@@ -102,3 +101,4 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [x] Det er ikke garantert at en læringssti laster (Implementert timeouts og bedre Tier 1-lookup i contentLoader.ts).
 - [x] @file:folkeforbundet timeline component i teksten har bare tall, ikke innhold. 
 - [x] @krigens-lop må ha bilder av vognen i bunnen av artikkele. Må også ha et bilde i artikkelen som viser krigens forløp på et europakart. Må også være et kart som viser krigen på global skala; hvor skjer alt?
+- [x] Fikse brutte lenker i `aldri-godt-nok.ts` (kjennetegn og hvordan skrive reflekterende tekst).
