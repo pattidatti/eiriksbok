@@ -3,6 +3,7 @@
 Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok.
 
 ### Bugs
+- [ ] Sette inn kart i læringsstien kald krig, ww1. 
 
 - [/] Læringsstier laster ikke konsekvent. (Jobber med robusthet, lagt til timeouts og cache-busting).
 - [x] Endre navn på ww1 fra sivilisajons selvmord til ww1 sti. 

@@ -168,6 +168,19 @@
             "type": "component",
             "name": "NuclearSimulator",
             "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Hva skjer egentlig etter et atomangrep?"
+        },
+        {
+            "type": "text",
+            "content": "For \u00e5 forst\u00e5 de katastrofale f\u00f8lgene av et moderne atomangrep, kan vi se p\u00e5 denne visualiseringen fra Kurzgesagt. Videoen forklarer i detalj hva som skjer i de f\u00f8rste sekundene, minuttene og timene etter at en moderne hydrogenbombe treffer en storby \u2013 fra den intense ildkulen og trykkb\u00f8lgen til det d\u00f8delige radioaktive nedfallet."
+        },
+        {
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=5iPH-br_eJQ",
+            "title": "Hva skjer hvis en storby blir rammet?"
         }
     ],
     "quiz": [
