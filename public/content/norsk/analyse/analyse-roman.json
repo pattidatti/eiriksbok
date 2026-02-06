@@ -2,28 +2,71 @@
     "id": "analyse-roman",
     "subject": "norsk",
     "title": "Slik analyserer du: Romanutdrag",
-    "description": "Hvordan gå løs på en stor tekst? Lær å lese utdrag, forstå kontekst og analysere fortellerstemmer.",
+    "description": "Hvordan tolke det som skjer i hodet på hovedpersonen? En guide til indre monolog og upålitelige fortellere.",
     "image": "/images/lessons/analyse-roman.jpg",
     "content": [
         {
             "type": "paragraph",
-            "text": "Å analysere et romanutdrag krever at du raskt orienterer deg. Hvem forteller? Hva står på spill *akkurat her*? Vi bruker Knut Hamsuns banebrytende roman *Sult* som eksempel."
+            "text": "Når du leser en roman, er det viktigste spørsmålet ofte ikke *hva* som skjer, men *hvem* som forteller det. Ser vi verden utenfra (som et kamera) eller innenfra (gjennom noens tanker)? Og viktigst av alt: Kan vi egentlig stole på det fortelleren sier?"
+        },
+        {
+            "type": "header",
+            "text": "Verktøykassen: Fortellerteknikk",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Forfattere velger fortellerstemme nøye for å styre din opplevelse. Her er verktøyene du må kunne:"
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Nøkkelbegreper",
+                "items": [
+                    {
+                        "label": "Personal synsvinkel (Jeg-forteller)",
+                        "value": "Vi ser alt gjennom øynene til én person. Vi får vite tanker og følelser, men vi ser ikke helheten. Vi er «fanget» i hodet deres."
+                    },
+                    {
+                        "label": "Indre monolog",
+                        "value": "Tankestrøm. Forfatteren skriver tankene akkurat slik de oppstår – ofte rotete, ulogiske, raske og springende."
+                    },
+                    {
+                        "label": "Upålitelig forteller",
+                        "value": "Når jeg-personen lyver for seg selv (eller leseren). Vi må gjette sannheten basert på handlingene deres, ikke ordene."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Eksempelteksten: «Sult» (Ylajali-scenen)",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Vi ser på et utdrag fra Knut Hamsuns mesterverk. Hovedpersonen er lutfattig, sulten og desperat forelsket i Ylajali. Legg merke til hvordan tankene hans spinner ute av kontroll."
         },
         {
             "type": "expandable",
-            "title": "📖 Les utdraget: Sult (Ylajali-scenen)",
+            "title": "📖 Les utdraget fra «Sult»",
             "content": [
                 {
                     "type": "paragraph",
-                    "text": "«God aften!» sier det så... Jeg glemmer å smile, jeg tar ikke engang straks til hatten, jeg blir så forundret over å se henne komme denne veien... Ute på gangen hvor det var mørkt tok hun hånden min og lette meg frem. Jeg behøvde slett ikke å være så stille, sa hun..."
+                    "text": "*Dette er et utdrag. For å kunne analysere helheten, bør du lese hele teksten i biblioteket.*"
                 },
                 {
                     "type": "paragraph",
-                    "text": "«...De er så alt for tilbakeholden, her oppe... Nå kunne De for eksempel gjerne holde Deres hånd på min stolrygg, De kunne gjerne funnet på så mye av Dem selv...»"
+                    "text": "«God aften!» sier det så... Jeg glemmer å smile, jeg tar ikke engang straks til hatten... Ute på gangen tok hun hånden min. «Jeg behøvde slett ikke å være så stille,» sa hun..."
                 },
                 {
                     "type": "paragraph",
-                    "text": "Jeg satt fortapt og så på henne. Mitt hjerte slo høyt... «Jeg er så aldeles forelsket i Dem, og det er så urimelig...»"
+                    "text": "«...De er så alt for tilbakeholden... Nå kunne De for eksempel gjerne holde Deres hånd på min stolrygg, De kunne gjerne funnet på så mye av Dem selv...»"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Jeg satt fortapt og så på henne. Mitt hjerte slo høyt... «Jeg er så aldeles forelsket i Dem...»"
                 },
                 {
                     "type": "paragraph",
@@ -31,141 +74,67 @@
                 },
                 {
                     "type": "paragraph",
-                    "text": "Den berømte scenen ender med at han blir kastet ut (eller kaster seg selv ut), fylt av skam og forvirring."
+                    "text": "Scenen ender med at han kaster bort sjansen sin og rømmer i skam."
                 },
                 {
-                    "type": "callToAction",
-                    "text": "Les hele utdraget i biblioteket",
-                    "link": "/norsk/bibliotek/sult-utdrag",
+                    "type": "link",
+                    "text": "Les hele utdraget i biblioteket (Gratis)",
+                    "url": "/norsk/bibliotek/sult-utdrag",
                     "icon": "book"
                 }
             ]
         },
         {
             "type": "header",
-            "level": 2,
-            "text": "Steg 1: Fortellerstemmen"
+            "text": "Steg 1: Kaos i hodet (Indre monolog)",
+            "level": 2
         },
         {
             "type": "paragraph",
-            "text": "*Sult* er kjent for sin intense **jeg-forteller**. Alt vi leser er filtrert gjennom hovedpersonens hode. Kan vi stole på ham?"
-        },
-        {
-            "type": "component",
-            "component": "WritingFix",
-            "props": {
-                "title": "Misforståelse: Jeg-person = Forfatter",
-                "correction": "Ikke skriv 'Hamsun føler at...'. Skriv 'Jeg-personen føler at...' eller 'Fortelleren opplever...'.",
-                "explanation": "Selv om Hamsun også sultet, er dette fiksjon. Jeg-personen er en karakter i boka."
-            }
+            "text": "Det unike med Hamsun er at han viser oss **det ubevisste sjeleliv**. Han pynter ikke på tankene.\n\nSe på tempoet i teksten. I det ene øyeblikket er hovedpersonen ydmyk («Jeg satt fortapt»), i det neste er han aggressiv og stolt. Han svinger fra å elske henne («Mitt hjerte slo høyt») til å ville såre henne («Jeg er meget fattig»), alt dette skjer på sekunder. Dette er indre monolog i praksis: Tankene hopper frem og tilbake uten filter."
         },
         {
             "type": "header",
-            "level": 2,
-            "text": "Steg 2: Det ubevisste sjeleliv"
+            "text": "Steg 2: Analyser den upålitelige fortelleren",
+            "level": 2
         },
         {
             "type": "paragraph",
-            "text": "Legg merke til hvor raskt tankene hans skifter. Han går fra å være ydmyk til aggressiv, fra forelsket til fornærmet, på sekunder. Dette kalles *stream of consciousness* eller indre monolog."
-        },
-        {
-            "type": "component",
-            "component": "TextHighlighter",
-            "props": {
-                "text": "«Jeg visste ikke lenger av meg selv... he, jeg skulle dog ved den levende... Ingen skulle si om meg at jeg stod tilbake...»",
-                "highlights": [
-                    {
-                        "word": "Jeg visste ikke lenger av meg selv",
-                        "color": "blue",
-                        "comment": "Tap av kontroll."
-                    },
-                    {
-                        "word": "he, jeg skulle dog",
-                        "color": "orange",
-                        "comment": "Plutselig skifte til aggresjon/stolthet."
-                    }
-                ]
-            }
+            "text": "Når Ylajali faktisk inviterer ham inn («De kunne gjerne holde Deres hånd på min stolrygg»), får han panikk. Hvorfor?\n\nHvis du bare leser det han *sier*, virker det som han er ærlig («Jeg er fattig»). Men som analytiker må du se på *handlingen*. Hvorfor sier han dette akkurat nå? Han bruker sannheten som et våpen for å skyve henne unna. Han skammer seg så mye at han heller vil ødelegge sjansen sin enn å bli avslørt.\n\nHan er altså en **upålitelig forteller**: Han sier han vil ha henne, men gjør alt for å miste henne. Dette er typisk for en tragisk helt: Han *kan* få det han vil ha, men stoltheten står i veien."
         },
         {
             "type": "header",
-            "level": 2,
-            "text": "Steg 3: Konflikten"
+            "text": "Steg 3: Nyromantikken (Epoken)",
+            "level": 2
         },
         {
             "type": "paragraph",
-            "text": "I dette utdraget er konflikten todelt. En ytre konflikt (vil han få Ylajali?) og en indre konflikt (stolthet vs. nød). Han ødelegger sjansen sin fordi han ikke klarer å være ærlig uten å føle skam."
-        },
-        {
-            "type": "quiz",
-            "question": "Hvorfor mislykkes hovedpersonen med Ylajali i denne scenen?",
-            "options": [
-                "Fordi han er for full",
-                "Fordi Ylajali egentlig ikke liker ham",
-                "Fordi hans egen stolthet og usikkerhet gjør at han oppfører seg rart",
-                "Fordi faren hennes kommer hjem"
-            ],
-            "correctAnswer": 2
+            "text": "Denne teksten er typisk for 1890-tallet (Nyromantikken). I motsetning til Realistene (som Bjørnson), brydde ikke Hamsun seg om samfunnsproblemer eller politikk. Han ville utforske det mystiske menneskesinnet. Derfor skjer ikke handlingen ute i verden, men inni hodet på en forvirret mann. Teksten viser oss det moderne menneskets ensomhet."
         },
         {
             "type": "section",
-            "title": "Eksempel på fullstendig analyse",
+            "title": "Modelltekst: Slik skriver du analysen",
             "content": [
                 {
                     "type": "paragraph",
-                    "text": "Hvordan tolker vi den subjektive jeg-fortelleren? Her er en modelltekst."
+                    "text": "Her ser du hvordan du kan analysere den psykologiske utviklingen i teksten."
                 },
                 {
                     "type": "expandable",
                     "title": "Les analysen av «Sult»",
-                    "content": [
-                        {
-                            "type": "paragraph",
-                            "text": "Utdraget fra Knut Hamsuns roman «Sult» skildrer hovedpersonens desperate og mislykkede møte med Ylajali. Scenen er preget av en intens *indre monolog*, hvor vi får direkte tilgang til hovedpersonens skiftende tanker og følelser. Han svinger lynraskt mellom ydmyk forelskelse og såret stolthet, noe som viser leseren hvor ustabil han er."
-                        },
-                        {
-                            "type": "paragraph",
-                            "text": "Fortellerinstansen er en klassisk personal jeg-forteller. Dette gjør at vi ser hele hendelsen utelukkende gjennom hans øyne. Når han sier at han «behøvde slett ikke å være så stille», prøver han å overbevise seg selv om at han har kontroll. Men gjennom handlingene hans – at han ikke klarer å ta henne på stolryggen, og hans desperate utbrudd om at han er fattig – forstår vi som lesere at han mister kontrollen."
-                        },
-                        {
-                            "type": "paragraph",
-                            "text": "Temaet i utdraget kretser rundt verdighet og skam. Hovedpersonen ønsker nærhet, men stoltheten hans står i veien. Han klarer ikke å være sårbar på en ekte måte, men tyr til aggresjon når han føler seg underlegen. Teksten viser oss det moderne menneskets fremmedfølelse: Han er ensom midt i møtet med en annen."
-                        }
-                    ]
+                    "content": "Utdraget fra Knut Hamsuns «Sult» plasserer oss rett i sentrum av hovedpersonens desperate bevissthet. Gjennom en intens bruk av **personal synsvinkel** og **indre monolog**, ser vi verden gjennom hans forvirrede blikk. Teksten preges av voldsomme kast i følelseslivet: Han svinger lynraskt mellom dyp forelskelse og såret stolthet, fra underdanighet til arroganse, uten logisk sammenheng.\n\nSiden vi har en jeg-forteller, får vi vite alt han tenker, men vi kan ikke stole på dømmekraften hans (**upålitelig forteller**). Når Ylajali kommer med tydelige invitasjoner («De kunne gjerne holde Deres hånd...»), tolker han dette som en trussel mot sin egen verdighet. I stedet for å ta imot kjærligheten, reagerer han med å skyve henne unna ved å bekjenne sin fattigdom. Han bruker sannheten som et skjold for å beskytte seg mot nederlag.\n\nTeksten er et kroneksempel på nyromantikkens interesse for det ubevisste sjeleliv. Hamsun skildrer her hvordan stoltheten og skammen styrer mennesket, ofte mot dets egen vilje. Hovedpersonen er fremmedgjort fra sine egne følelser; han ødelegger det øyeblikket han har drømt om, og ender opp mer ensom enn før."
                 }
             ]
         }
     ],
-    "quiz": [
-        {
-            "question": "Hva er en dynamisk karakter?",
-            "options": [
-                "En karakter som løper fort",
-                "En karakter som forandrer seg i løpet av historien",
-                "En karakter som snakker høyt",
-                "En karakter som dør tidlig"
-            ],
-            "correctAnswer": 1
-        },
-        {
-            "question": "Hva er en parallellhandling?",
-            "options": [
-                "Når to karakterer sier det samme",
-                "Når boken har to slutter",
-                "To eller flere handlingstråder som foregår samtidig",
-                "Når boken er oversatt til to språk"
-            ],
-            "correctAnswer": 2
-        }
-    ],
     "relatedLink": {
-        "text": "Les utdrag fra romaner",
-        "url": "/norsk/bibliotek"
+        "text": "Lær mer om Nyromantikken",
+        "url": "/norsk/litteraturhistorie/ny-romantikken"
     },
     "tags": [
         "analyse",
         "roman",
         "litteratur"
     ],
-    "createdDate": "2026-02-02T14:30:00Z"
+    "createdDate": "2026-02-06T21:49:00Z"
 }

@@ -56,6 +56,7 @@ const TimeTravelGamePage = React.lazy(routeFactories.TimeTravelGamePage);
 
 const PresentationPage = React.lazy(routeFactories.PresentationPage);
 const LearningPathsHub = React.lazy(routeFactories.LearningPathsHub);
+const CompositionTool = React.lazy(routeFactories.CompositionTool);
 
 
 
@@ -102,6 +103,7 @@ function AppContent() {
 
               {/* Tools */}
               <Route path="norsk/virkemidler/desk" element={<WorkstationLayout />} />
+              <Route path="musikk/komposisjon" element={<CompositionTool />} />
 
               {/* Static routes must come before dynamic :subjectId routes */}
               <Route path="oving" element={<PracticePage />} />

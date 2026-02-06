@@ -1,126 +1,127 @@
 {
     "id": "analyse-eventyr",
-    "title": "Analyse av Eventyr",
-    "description": "Det var en gang... og det er alltid tre av dem. Lær eventyrets lover.",
+    "title": "Slik analyserer du: Eventyr",
+    "description": "Det var en gang... og det er alltid tre av dem. Her lærer du å knekke koden bak eventyrenes magi.",
     "subject": "norsk",
     "topic": "analyse",
     "layout": "rich",
     "heroImage": "/images/lessons/norsk/analyse/analyse-eventyr-hero.png",
+    "image": "/images/lessons/analyse-eventyr.jpg",
     "content": [
         {
             "type": "paragraph",
-            "text": "Eventyret er kanskje den eldste formen for historiefortelling vi har. Det er en sjanger som følger strengere lover enn Norges Grunnlov. Hvis du kan disse lovene, kan du analysere ethvert eventyr på fem minutter."
+            "text": "Mange tror at eventyr bare er fri fantasi, skrevet på slump. Sannheten er motsatt: Få sjangre følger strengere regler enn eventyret. Når du skal analysere et eventyr, trenger du derfor ikke gjette. Du trenger bare å sjekke om teksten følger \"lovene\"."
         },
         {
             "type": "header",
-            "text": "1. De magiske tallene",
+            "text": "Verktøykassen: Eventyrets lover",
             "level": 2
         },
         {
             "type": "paragraph",
-            "text": "Hvorfor har kongen alltid tre sønner? Hvorfor må Askeladden gjennom tre prøver? Tallet tre (og syv ni og tolv) skaper balanse og rytme. Det første forsøket feiler. Det andre feiler. Det tredje lykkes. Det bygger forventning."
+            "text": "Siden eventyr ble fortalt muntlig, trengte fortelleren faste mønstre for å huske historien. Disse mønstrene er dine analyseverktøy."
         },
         {
             "type": "component",
             "component": "FactBox",
             "props": {
-                "title": "Typiske Eventyrtrekk",
+                "title": "De tre viktigste reglene",
                 "items": [
                     {
-                        "label": "Innledning",
-                        "value": "«Det var en gang...» - plasserer oss utenfor tid og sted."
+                        "label": "Tretallsloven",
+                        "value": "Alt skjer tre ganger for å bygge spenning. De to første feiler, den tredje lykkes."
                     },
                     {
-                        "label": "Personene",
-                        "value": "Ingen indre følelser. De er typer (den gode, den onde, den dumme)."
+                        "label": "Typetegning (Svart/Hvitt)",
+                        "value": "Personene har ingen dybde. De er bare funksjoner: Den gode, den onde, den dumme. Ingen er \"litt snill\"."
                     },
                     {
-                        "label": "Magiske tall",
-                        "value": "3, 7 og 12 går igjen."
-                    },
-                    {
-                        "label": "Avslutning",
-                        "value": "«...og så levde de lykkelig alle sine dager» (eller snipp, snapp, snute)."
+                        "label": "Hjem-Ute-Hjem",
+                        "value": "Strukturen er alltid lik: Helten forlater tryggheten, består en prøve i det ukjente, og vender hjem som vinner."
                     }
                 ]
             }
         },
         {
             "type": "header",
-            "level": 2,
-            "text": "Steg 3: Kontraster"
+            "text": "Eksempelteksten: «Askeladden som kappåt»",
+            "level": 2
         },
         {
-            "type": "paragraph",
-            "text": "Eventyr elsker motsetninger."
-        },
-        {
-            "type": "component",
-            "component": "Comparison",
-            "props": {
-                "title": "Askeladden vs. Trollet",
-                "items": [
-                    {
-                        "label": "Askeladden",
-                        "content": "Liten, fattig, klok, kreativ, modig (tør å lure trollet).",
-                        "type": "good"
-                    },
-                    {
-                        "label": "Trollet",
-                        "content": "Stort, rikt (eier skogen), dumt, lettlurt, brutalt.",
-                        "type": "bad"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "quiz",
-            "question": "Hva er moralen i eventyret om Askeladden som kappåt med trollet?",
-            "options": [
-                "Man skal aldri spise grøt med troll",
-                "Det er viktig å være sterkest",
-                "Den som er smart kan vinne over den som er sterk",
-                "Man må alltid høre på faren sin"
-            ],
-            "correctAnswer": 2
-        },
-        {
-            "type": "section",
-            "title": "Eksempel på fullstendig analyse",
+            "type": "expandable",
+            "title": "📖 Les utdraget fra «Askeladden»",
             "content": [
                 {
                     "type": "paragraph",
-                    "text": "Her ser du hvordan vi kan bruke eventyrtrekkene til å skrive en kort analyse av Askeladden."
+                    "text": "*Dette er et utdrag. For å kunne analysere helheten, bør du lese hele teksten i biblioteket.*"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Det var en gang en bonde som hadde tre sønner... Den eldste, Per, skulle ut i skogen, men da trollet brølte, løp han hjem. Det samme skjedde med den andre, Pål. Men den tredje, Askeladden, ba om å få prøve seg..."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Da trollet truet med å drepe ham, klemte Askeladden vannet ut av en hvitost og sa det var en stein. Trollet ble redd. Senere, når de skulle spise grøt, lurte Askeladden trollet til å skjære hull i magen sin, slik at grøten rant ut."
+                },
+                {
+                    "type": "link",
+                    "text": "Les hele eventyret i biblioteket (Gratis)",
+                    "url": "/norsk/bibliotek/askeladden-som-kappaat-med-trollet",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Steg 1: Hvorfor alltid tre?",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Det første du ser i teksten, er tallet tre. Det er tre brødre. Hvorfor akkurat tre? Hvorfor ikke én eller fire?\n\nHvis bare Askeladden hadde dratt ut, hadde vi ikke forstått hvor farlig trollet var. Derfor må Per feile først. Da skjønner vi faren. Så drar Pål ut og feiler. Da skjønner vi at oppgaven er *umulig*. Spenningen stiger. Når Askeladden – som er minst og svakest – melder seg på tredje forsøk, er innsatsen på topp. Uten feilene til Per og Pål, ville ikke seieren til Askeladden vært like stor. Tretallet fungerer altså som en spenningskurve."
+        },
+        {
+            "type": "header",
+            "text": "Steg 2: Analyser kontrastene (Aktanter)",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "I moderne romaner er skurkene ofte litt snille også. Slik er det ikke i eventyr. Her er verden delt i to: Det gode og det onde. Vi kaller dette for *kontraster*.\n\nSe på Askeladden og Trollet. De er rake motsetninger:\n- Trollet er enormt stort. Askeladden er liten.\n- Trollet er sterkt. Askeladden er svak.\n- Trollet er rikt. Askeladden er fattig.\n\nMen den viktigste kontrasten er **Smart vs Dum**. Trollet har muskler, men Askeladden har hjerne. Når Askeladden klemmer vannet av osten og sier det er en stein, vinner han ikke ved å slåss, men ved å lyve (være listig). Dette er kjernen i analysen: Det er en kamp mellom Ånd (Hode) og Hånd (Muskler)."
+        },
+        {
+            "type": "header",
+            "text": "Steg 3: Hva er moralen?",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Hvorfor har folk fortalt denne historien til barna sine i hundrevis av år? Fordi den gir håp. Eventyret lærer oss at selv om du er minst, fattigst og har de dårligste oddsen, kan du likevel vinne. Du må bare tørre å tenke annerledes enn de andre (Per og Pål) og bruke hodet ditt. Askeladden representerer «den lille mann» som slår overmakten."
+        },
+        {
+            "type": "section",
+            "title": "Modelltekst: Slik syr du det sammen",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Når du skriver analysen, bruk begrepene aktivt for å forklare *hvorfor* historien er bygget opp som den er."
                 },
                 {
                     "type": "expandable",
                     "title": "Les analysen av «Askeladden»",
-                    "content": [
-                        {
-                            "type": "paragraph",
-                            "text": "Eventyret «Askeladden som kappåt med trollet» er et klassisk undereventyr som følger sjangerens faste lover til punkt og prikke. Handlingen er bygget opp rundt tretallsloven: Det er tre brødre som skal til skogs for å hugge ved, og det er først på det tredje forsøket at helten lykkes."
-                        },
-                        {
-                            "type": "paragraph",
-                            "text": "Askeladden representerer den typiske eventyrhelten: Han er undervurdert, kreativ og modig. Mens brødrene Per og Pål (som representerer de som følger regler blindt) rømmer så fort trollet skriker, bruker Askeladden list. Trollet, på den annen side, er et bilde på de naturkreftene menneskene måtte kjempe mot. Det er sterkt og farlig, men også dumt og lett å lure."
-                        },
-                        {
-                            "type": "paragraph",
-                            "text": "Kontrasten mellom Askeladden og trollet er kjernen i eventyrets budskap. Det handler om at «ånd vinner over hånd» – kløkt er viktigere enn rå styrke. Når Askeladden lurer trollet til å skjære opp sin egen mage, viser eventyret oss at selv den minste kan vinne over den største, hvis man bare tør å tenke annerledes."
-                        }
-                    ]
+                    "content": "Eventyret «Askeladden som kappåt med trollet» er et klassisk norsk undereventyr. Teksten følger sjangerens strenge lover slavisk, spesielt bruken av **tretallsloven**. Handlingen drives frem av tre brødre som skal prøve seg. De to første forsøkene (Per og Pål) fungerer som en spenningsbygger; deres fiasko understreker hvor farlig trollet er, og gjør at helten Askeladden starter med et umulig utgangspunkt.\n\nPersongalleriet er preget av typetegning uten indre sjelsliv. Askeladden er ikke en realistisk person, men et symbol på list og nysgjerrighet. Han står i skarp kontrast til Trollet, som representerer rå, uovervinnelig naturkraft. \n\nKjernen i eventyret er konflikten mellom disse to motpolene: Fysisk styrke (Trollet) mot mental kløkt (Askeladden). Når Askeladden lurer trollet til å skjære seg i magen, er det det endelige beviset på eventyrets moral: Det er «ånd» (intelligens) som seirer over «hånd» (styrke). Dette budskapet har gitt håp til generasjoner av nordmenn: Selv den minste kan felle den største, hvis man bare tør å bruke hodet."
                 }
             ]
         }
     ],
     "relatedLink": {
-        "text": "Les eventyr i biblioteket",
-        "url": "/norsk/bibliotek"
+        "text": "Les mer om Folkediktning",
+        "url": "/norsk/litteraturhistorie/folkediktning"
     },
     "tags": [
         "analyse",
         "eventyr",
         "folkediktning"
     ],
-    "createdDate": "2026-02-02T14:20:00Z"
+    "createdDate": "2026-02-06T21:45:00Z"
 }

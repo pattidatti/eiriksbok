@@ -4367,6 +4367,13 @@
                     "description": "Planlegg struktur",
                     "link": "/musikk/oppslag/latskriver",
                     "icon": "edit"
+                },
+                {
+                    "id": "komposisjon-tool",
+                    "title": "Komposisjon",
+                    "description": "Detaljert notasjon og akkordprogresjon.",
+                    "link": "/musikk/komposisjon",
+                    "icon": "music-2"
                 }
             ],
             "topics": [

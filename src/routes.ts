@@ -52,5 +52,6 @@ export const routeFactories: Record<string, PageFactory> = {
 
     PresentationPage: () => import('./pages/PresentationPage').then(module => ({ default: module.PresentationPage })),
     LearningPathsHub: () => import('./pages/LearningPathsHub').then(module => ({ default: module.LearningPathsHub })),
+    CompositionTool: () => import('./features/music/components/composition/CompositionTool').then(module => ({ default: module.CompositionTool })),
 };
 

@@ -1,7 +1,7 @@
 {
     "id": "analyse-kommentar",
     "title": "Slik analyserer du: Kommentar",
-    "description": "Lær å avsløre skribentens meninger og virkemidler. Analyse av argumentasjon, pathos og språklige bilder.",
+    "description": "Lær å avsløre skribentens meninger. Analyse av ironi, metaforer og hvordan du gjennomskuer manipulasjon.",
     "subject": "norsk",
     "topic": "analyse",
     "layout": "rich",
@@ -10,15 +10,58 @@
     "content": [
         {
             "type": "paragraph",
-            "text": "En kommentar er en subjektiv sjanger. Forfatteren vil overbevise deg om noe. Din jobb er å finne ut *hva* de mener, og *hvordan* de prøver å påvirke deg."
+            "text": "En kommentar i avisen skiller seg fra en nyhetsartikkel på ett viktig punkt: Den er ikke objektiv. Skribenten skriver ikke for å informere deg, men for å *provosere* deg til å mene det samme som hen. Din jobb er å gjennomskue triksene som brukes."
+        },
+        {
+            "type": "header",
+            "text": "Verktøykassen: Språklig ammunisjon",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Kommentatorer må fange oppmerksomheten din raskt. Derfor bruker de ofte sterke språklige bilder."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Klassiske virkemidler",
+                "items": [
+                    {
+                        "label": "Metafor (Overføring)",
+                        "value": "Å omtale noe som noe annet for å skape en assosiasjon. F.eks. «Politikken er et sirkus» (betyr: det er kaos)."
+                    },
+                    {
+                        "label": "Ironi (Det motsatte)",
+                        "value": "Når vi sier det motsatte av det vi mener, ofte med en spydig undertone. F.eks. «Så deilig med regn i ferien!»"
+                    },
+                    {
+                        "label": "Pluss- og minusord",
+                        "value": "Ord som er ladet med følelser. «Hjem» (pluss) vs «Bolig» (nøytralt). «Mulighet» (pluss) vs «Problem» (minus)."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Eksempelteksten: «KI er Botox for hjernen»",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Vi skal analysere en tekst som bruker en svært kreativ metafor for å advare mot kunstig intelligens."
         },
         {
             "type": "expandable",
-            "title": "📖 Les kommentaren: KI er Botox for hjernen",
+            "title": "📖 Les utdraget fra «KI er Botox»",
             "content": [
                 {
                     "type": "paragraph",
-                    "text": "Bruker du en KI til å skrive for deg, ender du gjerne med en pen og glatt tekst – like død som en Botox-panne. Botox kan slette rynkene i fjeset ditt, og språkmodeller kan fikse dårlig grammatikk... Men bra blir det ikke, skriver kronikkforfatteren."
+                    "text": "*Dette er et utdrag. For å kunne analysere helheten, bør du lese hele teksten i biblioteket.*"
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Bruker du en KI til å skrive for deg, ender du gjerne med en pen og glatt tekst – like død som en Botox-panne. Botox kan slette rynkene i fjeset ditt, og språkmodeller kan fikse dårlig grammatikk... Men bra blir det ikke..."
                 },
                 {
                     "type": "paragraph",
@@ -26,146 +69,68 @@
                 },
                 {
                     "type": "paragraph",
-                    "text": "Studier viser at personer som har dempet de personlige variasjonene i fjeset sitt... faktisk blir mindre empatiske. Kanskje er det på samme måte med personer som ikke lenger er vant til å bruke sitt eget språk..."
-                },
-                {
-                    "type": "paragraph",
                     "text": "Men hvis du skal skrive noe som skal nå fram til andre mennesker... må du gjøre jobben selv. Det er tungt, det går sakte, men det er utrolig tilfredsstillende."
                 },
                 {
-                    "type": "callToAction",
-                    "text": "Les hele kommentaren i biblioteket",
-                    "link": "/norsk/bibliotek/ki-botox",
+                    "type": "link",
+                    "text": "Les hele kommentaren i biblioteket (Gratis)",
+                    "url": "/norsk/bibliotek/ki-botox",
                     "icon": "book"
                 }
             ]
         },
         {
             "type": "header",
-            "level": 2,
-            "text": "Steg 1: Hovedsynspunkt"
+            "text": "Steg 1: Analyser metaforen",
+            "level": 2
         },
         {
             "type": "paragraph",
-            "text": "Hva er den *ene* setningen som oppsummerer teksten? Her er det: \"Bruk av KI gjør tekstene våre (og oss selv) kjedeligere, dummere og mindre empatiske.\""
+            "text": "Hele teksten hviler på én genial sammenligning: **KI = Botox**. Hvorfor valgte forfatteren akkurat dette bildet?\n\nTenk på hva Botox er: Et giftstoff man sprøyter inn for å se penere og yngre ut. Det fjerner rynker, men det fjerner også mimikk. Man ser «død» ut. \n\nVed å koble KI-tekster til Botox, sier forfatteren indirekte at:\n1.  KI-tekster ser pene ut på overflaten (feilfri grammatikk).\n2.  Men de mangler sjel og liv på innsiden (akkurat som et stivt ansikt).\n\nDette er en svært effektiv måte å snakke ned teknologien på, uten å bruke tekniske begreper."
         },
         {
             "type": "header",
-            "level": 2,
-            "text": "Steg 2: Metaforbruk"
+            "text": "Steg 2: Jakt på følelser (Patos)",
+            "level": 2
         },
         {
             "type": "paragraph",
-            "text": "Forfatteren bruker én gjennomgående metafor: **Botox**. Dette er ekstremt effektivt."
-        },
-        {
-            "type": "component",
-            "component": "Comparison",
-            "props": {
-                "title": "Hvorfor virker metaforen?",
-                "items": [
-                    {
-                        "label": "Botox",
-                        "content": "Gjør deg penere på overflaten, men stiv og uttrykksløs.",
-                        "type": "neutral"
-                    },
-                    {
-                        "label": "KI-tekst",
-                        "content": "Gjør teksten feilfri (grammatisk), men kjedelig og upersonlig.",
-                        "type": "neutral"
-                    }
-                ]
-            }
+            "text": "Forfatteren prøver å manipulere følelsene dine gjennom **pluss- og minusord**. Se på hvordan han omtaler KI vs Mennesket:\n\n*   **Om KI (Minusord):** «Død», «glatt», «juks», «stiv».\n*   **Om Mennesket (Plussord):** «Tilfredsstillende», «menneskelig», «nå frem».\n\nHan prøver å få oss til å føle avsky for det maskinelle, og stolthet over det menneskelige. Han fremstiller det å skrive selv som «tungt», men som en edel kamp."
         },
         {
             "type": "header",
-            "level": 2,
-            "text": "Steg 3: Appellformer (Patos)"
+            "text": "Steg 3: Paradokset (Ironi)",
+            "level": 2
         },
         {
             "type": "paragraph",
-            "text": "Selv om teksten later som den er vitenskapelig (henviser til studier), spiller den mest på følelser (**Patos**). Han bruker ord som \"lidelse\", \"sur\", \"ræva tekst\", \"superkraft\"."
-        },
-        {
-            "type": "component",
-            "component": "WritingFix",
-            "props": {
-                "title": "Tips: Se etter 'Pluss- og minusord'",
-                "correction": "Ikke bare si at teksten har patos. Vis hvilke ord som er positivt ladet og hvilke som er negative.",
-                "explanation": "Her er 'hjemmelaget' positivt (tungt, men ekte), mens 'KI-laget' er negativt (glatt, dødt, juks)."
-            }
-        },
-        {
-            "type": "quiz",
-            "question": "Hva menes med hovedsynspunkt?",
-            "options": [
-                "Det første avsnittet i teksten",
-                "Forfatterens navn",
-                "Det viktigste budskapet forfatteren vil overbevise deg om",
-                "Overskriften"
-            ],
-            "correctAnswer": 2
+            "text": "Les denne setningen nøye: *«Teksten blir kanskje helt riktig – men likevel fullstendig feil.»*\n\nHer bruker han et **paradoks** (en selvmotsigelse). Vanligvis tenker vi at «riktig» er bra. Men her snur han på det: Hvis en tekst er *for* perfekt, blir den kjedelig. Det er feilene våre som gjør oss til mennesker. Denne ironiske twisten tvinger leseren til å tenke nytt om hva kvalitet egentlig er."
         },
         {
             "type": "section",
-            "title": "Eksempel på fullstendig analyse",
+            "title": "Modelltekst: Slik skriver du analysen",
             "content": [
                 {
                     "type": "paragraph",
-                    "text": "Slik kan en retorisk analyse av denne kommentaren se ut."
+                    "text": "Her ser du hvordan du fletter analysen sammen til en helhet ved å bruke fagbegrepene."
                 },
                 {
                     "type": "expandable",
-                    "title": "Les analysen av «KI er Botox»",
-                    "content": [
-                        {
-                            "type": "paragraph",
-                            "text": "I kommentaren «KI er Botox for hjernen» går forfatteren til angrep på det han mener er en sjelløs bruk av kunstig intelligens i tekstproduksjon. Ved å sammenligne KI med Botox, et middel som lammer muskler for å fjerne rynker, setter han tonen umiddelbart: Det som ser «pent» ut på overflaten, kan være dødt på innsiden."
-                        },
-                        {
-                            "type": "paragraph",
-                            "text": "Teksten preges av sterke virkemidler, særlig bruk av patos. Forfatteren bruker negativt ladde ord som «glatt», «død» og «juks» om KI-tekster, mens menneskelige feil og skrivemåter hylles som «ekte» og «empatiske». Han appellerer altså til leserens følelse av at det uperfekte også er det mest verdifulle."
-                        },
-                        {
-                            "type": "paragraph",
-                            "text": "Hovedpoenget kommer tydelig frem: Vi må tørre å skrive selv, med alle våre feil og mangler, for å bevare vår menneskelighet. Sammenligningen med Botox fungerer som en rød tråd gjennom hele teksten og gjør budskapet både visuelt og lettfattelig. Det er en tekst som ikke bare vil informere, men som vil riste i leseren."
-                        }
-                    ]
+                    "title": "Les analysen av «KI-Botox»",
+                    "content": "I kommentaren «KI er Botox for hjernen» går forfatteren til angrep på en sjelløs bruk av kunstig intelligens. Tekstens bærebjelke er en utvidet metafor: Han sammenligner tekstroboter med rynkebehandlingen Botox. Dette bildet er svært effektivt fordi det henter negative assosiasjoner fra skjønnhetsindustrien (jåleri, gift, stivhet) og overfører dem til teknologien. Budskapet er tydelig: KI skaper et resultat som er «pent» på overflaten, men dødt og stivt på innsiden.\n\nFor å overbevise leseren, spiller forfatteren bevisst på følelser (Patos) gjennom bruk av pluss- og minusord. Han bruker ord som «glatt» og «død» for å beskrive maskinteksten, ord som vekker instinktivt ubehag. I kontrast hylles det menneskelige strevet som «tilfredsstillende». Han snur dermed opp ned på våre vanlige verdier: Det uperfekte (menneskelige) fremstilles som mer verdifullt enn det perfekte (maskinelle).\n\nGjennom en ironisk undertone får han frem at vi er i ferd med å lure oss selv. Vi tror vi sparer tid, men egentlig mister vi vår egen stemme. Teksten er derfor ikke bare en teknologikritikk, men et forsvar for det feilbarlige mennesket i møte med en perfekt maskin."
                 }
             ]
         }
     ],
-    "quiz": [
-        {
-            "question": "Hva skiller en kommentar fra en nyhetsartikkel?",
-            "options": [
-                "Kommentaren er kortere",
-                "Kommentaren er subjektiv (har meninger), nyhetsartikkelen er objektiv",
-                "Kommentaren har ingen bilder",
-                "Det er ingen forskjell"
-            ],
-            "correctAnswer": 1
-        },
-        {
-            "question": "Hvilket virkemiddel er vanlig i kommentarer?",
-            "options": [
-                "Rim og rytme",
-                "Eventyrtrekk",
-                "Ironi og sarkasme",
-                "In medias res"
-            ],
-            "correctAnswer": 2
-        }
-    ],
     "relatedLink": {
-        "text": "Les dagens kommentar",
-        "url": "/norsk/bibliotek"
+        "text": "Lær mer om Virkemidler",
+        "url": "/norsk/virkemidler"
     },
     "tags": [
         "analyse",
-        "sakprosa",
+        "kommentar",
         "avis",
-        "kommentar"
+        "retorikk"
     ],
-    "createdDate": "2026-02-02T15:00:00Z"
+    "createdDate": "2026-02-06T21:47:00Z"
 }

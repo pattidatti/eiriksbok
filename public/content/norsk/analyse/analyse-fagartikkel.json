@@ -1,7 +1,7 @@
 {
     "id": "analyse-fagartikkel",
-    "title": "Slik analyserer du: Sakprosa og Fagtekst",
-    "description": "Hva er sant, og hva er fremstilling? Lær å analysere reiseskildringer, fagartikler og dokumentarer.",
+    "title": "Slik analyserer du: Sakprosa",
+    "description": "Hvordan avsløre forfatterens «briller». En guide i kritisk lesning av reisebrev og artikler.",
     "subject": "norsk",
     "topic": "analyse",
     "layout": "rich",
@@ -10,182 +10,143 @@
     "content": [
         {
             "type": "paragraph",
-            "text": "Sakprosa handler om virkeligheten. Men all sakprosa er valgt ut og vinklet av noen. Vi skal se på en av verdens eldste reiseskildringer for å forstå forskjellen på *fakta* og *opplevelse*."
+            "text": "Når vi leser tekster fra virkeligheten (sakprosa), går vi ofte i en felle: Vi tror at vi leser den absolutte *sannheten*. Men ingen tekst er nøytral. Alt du leser er filtrert gjennom forfatterens hjerne. Din jobb som analytiker er å finne ut hvilken farge forfatteren har på brillene sine."
+        },
+        {
+            "type": "header",
+            "text": "Verktøykassen: Kritisk lesning",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "For å avsløre forfatterens holdning, må du se på adjektivene. Er de beskrivende (fakta) eller dømmende (mening)?"
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Nøkkelbegreper",
+                "items": [
+                    {
+                        "label": "Subjektiv vs Objektiv",
+                        "value": "Objektivt: «Mannen var 180 cm høy» (Kan måles). Subjektivt: «Mannen var ekkelt høy» (En følelse)."
+                    },
+                    {
+                        "label": "Kulturfilter (Etnosentrisme)",
+                        "value": "Når vi dømmer andre kulturer basert på våre egne regler. Vi ser på «oss» som normalen, og «dem» som avvikere."
+                    },
+                    {
+                        "label": "Tendens",
+                        "value": "Hvor vil forfatteren med teksten? Prøver han å skremme oss? Beundre noe? Sverte noen?"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Eksempelteksten: «Ibn Fadlans Reisebeskrivelse»",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Vi skal reise 1000 år tilbake i tid. En muslimsk diplomat fra Bagdad (Ibn Fadlan) møter vikingene for første gang ved elven Volga. Legg merke til hvordan han blander fakta og følelser."
         },
         {
             "type": "expandable",
-            "title": "📖 Les utdraget: Ibn Fadlans Reisebeskrivelse (år 921)",
+            "title": "📖 Les utdraget fra «Reisebeskrivelse»",
             "content": [
                 {
                     "type": "paragraph",
-                    "text": "Jeg så russerne da de var kommet dit med sine handelsvarer og hadde slått seg ned ved elven Atil. Jeg har aldri sett mer fullkomne kropper enn deres; de var som palmetrær. De er blonde og rødmusset."
+                    "text": "*Dette er et utdrag. For å kunne analysere helheten, bør du lese hele teksten i biblioteket.*"
                 },
                 {
                     "type": "paragraph",
-                    "text": "Hver kvinne har på brystet en kapsel av jern, sølv, kobber eller gull, etter mannens velstand og inntekt. Til hver kapsel er festet en ring, og i den en kniv... Om halsen har de halskjeder av gull og sølv."
+                    "text": "Jeg så russerne (vikingene) da de var kommet dit med sine handelsvarer... Jeg har aldri sett mer fullkomne kropper enn deres; de var som palmetrær. De er blonde og rødmusset."
                 },
                 {
                     "type": "paragraph",
-                    "text": "De er de skitneste av Guds skapninger: De gjør seg ikke rene etter avføring eller vannlating, og vasker seg ikke etter samleie. De er som ville esler. De kommer fra sitt land og fortøyer sine skip ved bredden av Atil, som er en stor elv, og bygger store hus av tre på bredden."
+                    "text": "Hver kvinne har på brystet en kapsel av jern, sølv, kobber eller gull... Til hver kapsel er festet en ring, og i den en kniv... Om halsen har de halskjeder av gull og sølv."
                 },
                 {
-                    "type": "callToAction",
-                    "text": "Les hele teksten i biblioteket",
-                    "link": "/norsk/bibliotek/ibn-fadlan-reisebeskrivelse",
+                    "type": "paragraph",
+                    "text": "De er de skitneste av Guds skapninger: De gjør seg ikke rene etter avføring eller vannlating, og vasker seg ikke etter samleie. De er som ville esler... De bygger store hus av tre på bredden."
+                },
+                {
+                    "type": "link",
+                    "text": "Les hele teksten i biblioteket (Gratis)",
+                    "url": "/norsk/bibliotek/ibn-fadlan-reisebeskrivelse",
                     "icon": "book"
                 }
             ]
         },
         {
             "type": "header",
-            "level": 2,
-            "text": "Steg 1: Objektivitet vs. Subjektivitet"
+            "text": "Steg 1: Skille snørr og barter",
+            "level": 2
         },
         {
             "type": "paragraph",
-            "text": "Ibn Fadlan prøver å beskrive det han ser nøyaktig (kapsler, kniver, tatoveringer). Dette er **objektivt**. Men han dømmer dem også («skitneste av Guds skapninger», «ville esler»). Dette er **subjektivt**."
-        },
-        {
-            "type": "component",
-            "component": "WritingFix",
-            "props": {
-                "title": "Misforståelse: Sakprosa = Sannhet",
-                "correction": "Sakprosa forholder seg til *virkeligheten*, men den er alltid filtrert gjennom en forfatter.",
-                "explanation": "Ibn Fadlan kommer fra en renslig, muslimsk kultur. Hans møte med vikingene farges av hans egne verdier. Slik er det med moderne journalister også."
-            }
-        },
-        {
-            "type": "header",
-            "level": 2,
-            "text": "Steg 2: Kildekritikk"
-        },
-        {
-            "type": "paragraph",
-            "text": "Når du leser en fagtekst eller skildring, spør: Hvem skriver? Hvorfor skriver de? Og når skrev de?"
-        },
-        {
-            "type": "component",
-            "component": "FactBox",
-            "props": {
-                "title": "De 5 kildekritikk-spørsmålene",
-                "items": [
-                    {
-                        "label": "Avsender",
-                        "value": "Hvem har laget teksten? (Ekspert? Øyevitne?)"
-                    },
-                    {
-                        "label": "Formål",
-                        "value": "Vil de informere, selge, eller overbevise?"
-                    },
-                    {
-                        "label": "Datering",
-                        "value": "Er informasjonen fremdeles gyldig?"
-                    },
-                    {
-                        "label": "Vinkling",
-                        "value": "Hva er utelatt?"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "header",
-            "level": 2,
-            "text": "Steg 3: Fremstillingsmåter"
-        },
-        {
-            "type": "paragraph",
-            "text": "Hvordan presenteres stoffet? Bruker forfatteren fortelling (narrativ) eller bare faktaoppramsing?"
+            "text": "Denne teksten svinger voldsomt. I det ene øyeblikket er forfatteren imponert, i det neste er han kvalm. La oss sortere setningene hans i to bokser: Hva han *ser* (Reporteren) og hva han *mener* (Dommeren)."
         },
         {
             "type": "component",
             "component": "Comparison",
             "props": {
-                "title": "Fakta vs. Fortelling",
+                "title": "Objektiv vs Subjektiv",
+                "leftTitle": "Reporteren (Fakta)",
+                "rightTitle": "Dommeren (Mening)",
                 "items": [
                     {
-                        "label": "Fakta",
-                        "content": "«Hver kvinne har på brystet en kapsel...» (Beskrivende)",
+                        "left": "«Har kapsel av jern på brystet»",
+                        "right": "«De er de skitneste av Guds skapninger»",
                         "type": "neutral"
                     },
                     {
-                        "label": "Vurdering",
-                        "content": "«Jeg har aldri sett mer fullkomne kropper...» (Vurderende)",
-                        "type": "good"
+                        "left": "«Blonde og rødmusset»",
+                        "right": "«De er som ville esler»",
+                        "type": "neutral"
                     }
                 ]
             }
         },
         {
-            "type": "quiz",
-            "question": "Hva betyr det at en tekst er subjektiv?",
-            "options": [
-                "At den er usann",
-                "At den er preget av forfatterens personlige meninger og følelser",
-                "At den handler om et subjekt",
-                "At den er objektiv"
-            ],
-            "correctAnswer": 1
+            "type": "paragraph",
+            "text": "Ser du forskjellen? Når han beskriver smykkene, kan vi stole på ham. Det er målbart. Men når han kaller dem «ville esler», slutter han å informere og begynner å *dømme*."
+        },
+        {
+            "type": "header",
+            "text": "Steg 2: Analyser kulturbrillene",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Hvorfor reagerer han så sterkt på hygienen deres? Hvorfor blir han sint?\n\nFor å forstå dette, må vi se på *konteksten*. Ibn Fadlan kommer fra Bagdad, verdensmetropolen på den tiden. Han er muslim, og i islam er rituell vask (Wudu) påbudt før bønn. Renslighet er ikke bare hygiene, det er religion. Når han ser vikingene dele samme vaskevannszfat, krasjer det med hele hans verdensbilde.\n\nHan ser dem altså gjennom sine egne «kulturbriller». Fordi de ikke følger *hans* regler for renslighet, stempler han dem som «ville esler». Dette er et perfekt eksempel på **etnosentrisme**: Å vurdere andres kultur som mindreverdig fordi den ikke ligner på din egen."
         },
         {
             "type": "section",
-            "title": "Eksempel på fullstendig analyse",
+            "title": "Modelltekst: Slik syr du det sammen",
             "content": [
                 {
                     "type": "paragraph",
-                    "text": "Hvordan skriver man om en fagtekst? Her analyserer vi Ibn Fadlans reisebrev."
+                    "text": "Her er et eksempel på hvordan du kan skrive en kildekritisk analyse."
                 },
                 {
                     "type": "expandable",
                     "title": "Les analysen av «Reisebrev»",
-                    "content": [
-                        {
-                            "type": "paragraph",
-                            "text": "Ibn Fadlans reisebeskrivelse fra år 921 gir oss et unikt innblikk i vikingenes liv, sett gjennom øynene til en utenlandsk observatør. Teksten er en blanding av objektiv rapportering og subjektiv vurdering. Fadlan beskriver presist det han ser, som vikingenes «fullkomne kropper» og kvinnenes smykker. Dette gir teksten stor historisk verdi."
-                        },
-                        {
-                            "type": "paragraph",
-                            "text": "Samtidig er det tydelig at fremstillingen er preget av forfatterens eget ståsted. Som muslim fra en høytstående kultur reagerer han sterkt på vikingenes hygiene. Når han kaller dem «de skitneste av Guds skapninger» og sammenligner dem med «ville esler», går han fra å være observatør til å bli dommer. Han vurderer vikingene basert på *sine* egne normer for renslighet, ikke deres."
-                        },
-                        {
-                            "type": "paragraph",
-                            "text": "Denne dobbeltheten er viktig for å forstå teksten. Vi må lese beskrivelsene som fakta, men vurderingene som uttrykk for kulturkollisjon. Teksten lærer oss at ingen kilde er helt nøytral; selv en reisende som prøver å fortelle sannheten, vil alltid se verden gjennom sine egne briller."
-                        }
-                    ]
+                    "content": "Ibn Fadlans reisebeskrivelse fra år 921 gir oss et unikt, men sterkt farget innblikk i vikingenes liv. Teksten er en hybrid av objektiv rapportering og subjektiv fordømmelse, og analysen krever at vi klarer å skille mellom disse to nivåene.\n\nPå den ene siden opptrer Ibn Fadlan som en presis feltarbeider. Han skildrer vikingenes «fullkomne kropper» med beundring, og gir detaljerte, nøytrale beskrivelser av kvinnenes smykker og draktskikker. Disse observasjonene har høy kildeverdi fordi de virker å være basert på direkte observasjon uten moralsk dom.\n\nMen teksten skifter brått karakter når temaet beveger seg inn på hygiene og moral. Som muslim fra en høykultur, ser Ibn Fadlan ned på vikingenes skikker. Når han beskriver dem som «de skitneste av Guds skapninger» og bruker metaforer som «ville esler», trer han ut av rollen som observatør. Han vurderer det han ser gjennom et strengt religiøst kulturfilter. Hans dom over vikingene sier derfor egentlig mer om hans egne verdier enn om vikingenes faktiske renslighet. Teksten er dermed et klassisk eksempel på etnosentrisk sakprosa, hvor forfatteren bruker sin egen kultur som målestokk for å dømme andre."
                 }
             ]
         }
     ],
-    "quiz": [
-        {
-            "question": "Hva er en temasetning?",
-            "options": [
-                "Den morsomste setningen i teksten",
-                "Setningen som forteller hva avsnittet handler om",
-                "Den siste setningen i et dikt",
-                "Overskriften på artikkelen"
-            ],
-            "correctAnswer": 1
-        },
-        {
-            "question": "Hva er Fiskemodellen?",
-            "options": [
-                "En oppskrift på fiskesuppe",
-                "En struktur for fagartikler (Innledning, Hoveddel, Avslutning)",
-                "En måte å fiske etter lesere på",
-                "En metafor for livets gang"
-            ],
-            "correctAnswer": 1
-        }
-    ],
     "relatedLink": {
-        "text": "Eksempel på fagartikkel",
-        "url": "/norsk/bibliotek"
+        "text": "Les mer om Artikkel og Sakprosa",
+        "url": "/norsk/tekstsjangre/artikkel"
     },
     "tags": [
         "analyse",
         "sakprosa",
-        "fagartikkel"
+        "kildekritikk",
+        "historie"
     ],
-    "createdDate": "2026-02-02T14:40:00Z"
+    "createdDate": "2026-02-06T21:46:00Z"
 }
