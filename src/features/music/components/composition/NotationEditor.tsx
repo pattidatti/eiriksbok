@@ -1,18 +1,20 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, LayoutGroup } from 'framer-motion';
 import type { Bar, RhythmNode, NoteDuration, NoteType } from './types';
 
 interface NotationEditorProps {
     bars: Bar[];
+    color: string;
     selectedDuration: NoteDuration;
     isRestMode: boolean;
-    onUpdateBar: (barId: string, nodes: RhythmNode[]) => void;
+    onUpdateBar: (barId: string, nodeIndex: number, duration: NoteDuration, isRest: boolean) => void;
     onAddChord: (barId: string, beat: number, chord: string) => void;
     onRemoveChord: (barId: string, chordIndex: number) => void;
 }
 
 export const NotationEditor: React.FC<NotationEditorProps> = ({
     bars,
+    color,
     selectedDuration,
     isRestMode,
     onUpdateBar,
@@ -23,22 +25,25 @@ export const NotationEditor: React.FC<NotationEditorProps> = ({
 
     return (
         <div className="w-full relative" onClick={() => setEditingChord(null)}>
-            <div className="flex flex-wrap gap-x-0 gap-y-12 items-start content-start">
-                {bars.map((bar, barIndex) => (
-                    <div key={bar.id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
-                        <BarView
-                            bar={bar}
-                            index={barIndex + 1}
-                            selectedDuration={selectedDuration}
-                            isRestMode={isRestMode}
-                            onUpdateNodes={(nodes) => onUpdateBar(bar.id, nodes)}
-                            onAddChord={(beat, chord) => onAddChord(bar.id, beat, chord)}
-                            onRemoveChord={(idx) => onRemoveChord(bar.id, idx)}
-                            setEditingChord={setEditingChord}
-                        />
-                    </div>
-                ))}
-            </div>
+            <LayoutGroup>
+                <div className="flex flex-wrap gap-x-0 gap-y-4 items-start content-start">
+                    {bars.map((bar, barIndex) => (
+                        <div key={bar.id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <BarView
+                                bar={bar}
+                                index={barIndex + 1}
+                                color={color}
+                                selectedDuration={selectedDuration}
+                                isRestMode={isRestMode}
+                                onNodeClick={(idx) => onUpdateBar(bar.id, idx, selectedDuration, isRestMode)}
+                                onRemoveChord={(idx) => onRemoveChord(bar.id, idx)}
+                                setEditingChord={setEditingChord}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </LayoutGroup>
+
 
             {/* Inline Chord Input Overlay */}
             {editingChord && (
@@ -79,92 +84,87 @@ export const NotationEditor: React.FC<NotationEditorProps> = ({
 const BarView: React.FC<{
     bar: Bar,
     index: number,
+    color: string,
     selectedDuration: NoteDuration,
     isRestMode: boolean,
-    onUpdateNodes: (nodes: RhythmNode[]) => void,
-    onAddChord: (beat: number, chord: string) => void,
+    onNodeClick: (nodeIndex: number) => void,
     onRemoveChord: (index: number) => void,
     setEditingChord: (data: { barId: string, beat: number, x: number, y: number }) => void
-}> = ({ bar, index, selectedDuration, isRestMode, onUpdateNodes, onAddChord, onRemoveChord, setEditingChord }) => {
-
-    const handleNodeClick = (nodeIndex: number) => {
-        // Replace logic: Update the clicked node with the selected duration/type
-        // In a real editor, this would handle splitting/merging logic to maintain time signature.
-        // For now: Simple replacement
-        const newNodes = [...bar.nodes];
-        newNodes[nodeIndex] = {
-            ...newNodes[nodeIndex],
-            type: isRestMode ? 'rest' : 'note',
-            duration: selectedDuration
-        };
-        onUpdateNodes(newNodes);
-    };
+}> = ({ bar, index, color, selectedDuration, isRestMode, onNodeClick, onRemoveChord, setEditingChord }) => {
 
     return (
-        <div className="relative w-full h-[220px] border-r-0 border-b border-slate-100 flex flex-col justify-center group transform transition-all hover:bg-white/50 rounded-xl hover:shadow-sm">
+        <div className={`relative w-full h-[100px] border-r-0 border-b border-slate-100 flex flex-col justify-end group transform transition-all hover:bg-white/50 rounded-xl hover:shadow-sm pb-1 overflow-hidden`}>
+            {/* Color tint background */}
+            <div className={`absolute inset-0 ${color} opacity-[0.06] pointer-events-none`} />
+
             {/* Bar Number */}
-            <div className="absolute top-4 left-4 text-[10px] font-serif font-bold text-slate-300 select-none">
+            <div className="absolute top-1.5 left-2 text-[9px] font-serif font-bold text-slate-300 select-none">
                 {index}
             </div>
 
-            {/* Chord Layer (Top) */}
-            <div className="absolute top-2 left-0 right-0 h-10 z-20 group/chord-layer">
-                {/* Visual Cue: Dotted line or faint text indicating clickable area */}
-                <div className="absolute inset-0 border-b border-indigo-100/50 opacity-0 group-hover/chord-layer:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                    <span className="text-[10px] text-indigo-300 font-sans tracking-widest uppercase">Klikk for å legge til akkord</span>
-                </div>
-
-                {bar.chords.map((chord, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ scale: 0, y: 5 }}
-                        animate={{ scale: 1, y: 0 }}
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            if (confirm(`Slette ${chord.chord}?`)) onRemoveChord(i);
-                        }}
-                        className="absolute -translate-x-1/2 bg-white px-2 py-0.5 rounded-lg text-slate-800 font-serif text-xs shadow-sm border border-slate-100 hover:bg-red-50 hover:border-red-200 hover:text-red-700 transition-colors cursor-pointer z-30 select-none"
-                        style={{ left: `${(chord.beatPosition / 4) * 100}%` }}
-                    >
-                        {chord.chord}
-                    </motion.div>
-                ))}
-
-                {/* Input Field Overlay (Conditional) or Global Handler */}
-                <div
-                    className="absolute inset-x-0 h-full cursor-text"
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        const rect = e.currentTarget.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const beat = Math.round((x / rect.width) * 4 * 2) / 2;
-
-                        // We use a custom Input element positioned at the click
-                        setEditingChord({ barId: bar.id, beat, x: e.clientX, y: rect.top });
-                    }}
-                />
-            </div>
-
-            {/* Staff Area */}
-            <div className="relative mx-4 h-32 flex items-center mt-6">
+            {/* Staff & Notes Area */}
+            <div className="relative mx-3 h-14 flex items-center">
                 {/* 5-Line Staff (Visual Only) */}
-                <div className="absolute inset-x-0 h-16 border-t border-b border-slate-200 opacity-40 flex flex-col justify-between py-[5px] pointer-events-none">
-                    <div className="w-full h-px bg-slate-200" />
-                    <div className="w-full h-px bg-slate-200" />
-                    <div className="w-full h-px bg-slate-200" />
+                <div className="absolute inset-x-0 h-8 border-t border-b border-slate-200 opacity-40 flex flex-col justify-between py-[2px] pointer-events-none">
+                    <div className={`w-full h-px ${color.replace('bg-', 'bg-').replace('-100', '-300')} opacity-30`} />
+                    <div className={`w-full h-px ${color.replace('bg-', 'bg-').replace('-100', '-300')} opacity-30`} />
+                    <div className={`w-full h-px ${color.replace('bg-', 'bg-').replace('-100', '-300')} opacity-30`} />
                 </div>
 
                 {/* Nodes Container */}
                 <div className="absolute inset-0 flex items-center z-10 w-full">
-                    {bar.nodes.map((node, i) => (
-                        <div
-                            key={node.id}
-                            onClick={() => handleNodeClick(i)}
-                            className="flex-1 flex justify-center items-center h-full relative group/note cursor-pointer hover:bg-indigo-50/20 rounded-md transition-colors"
-                        >
-                            <NoteSymbol type={node.type} duration={node.duration} />
-                        </div>
-                    ))}
+                    {bar.nodes.map((node, i) => {
+                        const beatPos = i;
+                        const nodeChord = bar.chords.find(c => Math.abs(c.beatPosition - beatPos) < 0.1);
+
+                        return (
+                            <motion.div
+                                key={node.id}
+                                layout
+                                className="flex-1 flex flex-col justify-end items-center h-full relative group/note"
+                            >
+                                {/* Chord Zone (Above Note) - Higher elevation */}
+                                <div
+                                    className="absolute -top-10 inset-x-0 h-10 flex items-center justify-center cursor-text z-20"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        const rect = e.currentTarget.getBoundingClientRect();
+                                        setEditingChord({ barId: bar.id, beat: beatPos, x: rect.left + rect.width / 2, y: rect.top });
+                                    }}
+                                >
+                                    {nodeChord ? (
+                                        <motion.div
+                                            initial={{ scale: 0 }}
+                                            animate={{ scale: 1 }}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                const idx = bar.chords.indexOf(nodeChord);
+                                                if (confirm(`Slette ${nodeChord.chord}?`)) onRemoveChord(idx);
+                                            }}
+                                            className={`bg-white/95 backdrop-blur-sm px-2.5 py-0.5 rounded text-slate-900 font-serif text-[15px] font-black shadow-lg border-2 ${color.replace('bg-', 'border-').replace('-100', '-300')} hover:bg-red-50 hover:border-red-200 hover:text-red-700 transition-colors cursor-pointer z-30`}
+                                        >
+                                            {nodeChord.chord}
+                                        </motion.div>
+                                    ) : (
+                                        <div className="opacity-0 group-hover/note:opacity-100 transition-opacity">
+                                            <div className="w-6 h-4 border border-dashed border-indigo-200 rounded flex items-center justify-center text-[8px] text-indigo-300 uppercase font-bold bg-white/50">
+                                                C
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div
+                                    onClick={() => onNodeClick(i)}
+                                    className="w-full flex justify-center items-center h-16 cursor-pointer hover:bg-indigo-50/20 rounded transition-colors group/symbol"
+                                >
+                                    <NoteSymbol type={node.type} duration={node.duration} />
+                                    {/* Split Glow Highlight */}
+                                    <div className="absolute inset-x-1 bottom-0 h-1 bg-indigo-500/0 group-hover/symbol:bg-indigo-500/10 rounded-full transition-all" />
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </div>

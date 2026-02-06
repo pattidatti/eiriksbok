@@ -1,5 +1,25 @@
 {
     "rules": {
+        "analytics": {
+            "views": {
+                "$id": {
+                    ".read": true,
+                    ".write": true
+                }
+            },
+            "active_users": {
+                "$id": {
+                    ".read": true,
+                    ".write": true
+                }
+            },
+            "unique_users": {
+                "$id": {
+                    ".read": true,
+                    ".write": "data.exists() || !data.exists()"
+                }
+            }
+        },
         "feedback": {
             "$feedbackId": {
                 ".write": "!data.exists() && newData.exists()",
@@ -13,6 +33,16 @@
         "quiz-data": {
             ".read": true,
             ".write": true
-        }
+        },
+        "compositions": {
+            ".read": true,
+            ".write": true
+        },
+        "presence": {
+            ".read": true,
+            ".write": true
+        },
+        ".read": false,
+        ".write": false
     }
 }

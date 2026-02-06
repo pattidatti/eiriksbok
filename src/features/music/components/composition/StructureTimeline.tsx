@@ -28,55 +28,58 @@ export const StructureTimeline: React.FC<StructureTimelineProps> = ({
     onRemoveSection
 }) => {
     return (
-        <div className="w-full space-y-4">
-            <div className="flex flex-wrap items-center gap-2 pb-2">
-                {sections.map((section) => (
-                    <motion.div
-                        key={section.id}
-                        layout
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        onClick={() => onSelectSection(section.id)}
-                        className={`
-                            relative h-10 px-4 rounded-full border cursor-pointer
-                            flex items-center gap-2 transition-all group
-                            ${section.id === activeSectionId ? 'ring-2 ring-offset-1 ring-slate-400 font-bold shadow-md transform scale-105' : 'opacity-80 hover:opacity-100 hover:scale-105 active:scale-95'}
-                            ${getSectionStyles(section.type)}
-                        `}
-                    >
-                        <span className="text-xs uppercase tracking-widest">{section.name}</span>
-                        {/* Delete Button */}
-                        <div
-                            role="button"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                if (confirm('Slette seksjon?')) onRemoveSection(section.id);
-                            }}
-                            className="ml-2 w-4 h-4 rounded-full bg-black/10 hover:bg-red-500 hover:text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all text-[10px]"
-                        >
-                            ✕
-                        </div>
-                    </motion.div>
-                ))}
-
-                {/* Add Section Group */}
-                <div className="flex items-center gap-2 pl-2 border-l border-slate-200 ml-2">
-                    {SECTION_TYPES.map((def) => (
-                        <button
-                            key={def.type}
-                            onClick={() => onAddSection(def.type)}
+        <div className="w-full flex flex-col gap-3">
+            {/* Current Structure Row */}
+            {sections.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2">
+                    {sections.map((section) => (
+                        <motion.div
+                            key={section.id}
+                            layout
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            onClick={() => onSelectSection(section.id)}
                             className={`
-                                h-8 px-3 rounded-full flex items-center gap-1.5
-                                text-xs font-bold uppercase tracking-wider
-                                transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-md
-                                ${def.color} opacity-80 hover:opacity-100
+                                relative h-8 px-3 rounded border cursor-pointer
+                                flex items-center gap-2 transition-all group
+                                ${section.id === activeSectionId ? 'ring-2 ring-slate-400 font-bold shadow-sm ring-inset' : 'opacity-70 hover:opacity-100 hover:bg-white'}
+                                ${getSectionStyles(section.type)}
                             `}
                         >
-                            <Plus size={12} strokeWidth={3} />
-                            {def.label}
-                        </button>
+                            <span className="text-[10px] font-black uppercase tracking-wider">{section.name}</span>
+                            <div
+                                role="button"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (confirm('Slette seksjon?')) onRemoveSection(section.id);
+                                }}
+                                className="w-3 h-3 rounded-full bg-black/5 hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all text-[8px]"
+                            >
+                                ✕
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
+            )}
+
+            {/* Add Section Palette (Separate Row) */}
+            <div className="flex items-center gap-2 border-t border-slate-100 pt-2 overflow-x-auto no-scrollbar">
+                <span className="text-[9px] font-black text-slate-300 uppercase tracking-widest mr-2 whitespace-nowrap">Legg til:</span>
+                {SECTION_TYPES.map((def) => (
+                    <button
+                        key={def.type}
+                        onClick={() => onAddSection(def.type)}
+                        className={`
+                            h-7 px-3 rounded flex items-center gap-1.5
+                            text-[9px] font-black uppercase tracking-tight
+                            transition-all hover:scale-105 active:scale-95 border border-transparent hover:border-black/5
+                            ${def.color} opacity-60 hover:opacity-100 whitespace-nowrap
+                        `}
+                    >
+                        <Plus size={10} strokeWidth={4} />
+                        {def.label}
+                    </button>
+                ))}
             </div>
         </div>
     );

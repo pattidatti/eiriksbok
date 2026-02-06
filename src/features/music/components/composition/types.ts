@@ -22,6 +22,8 @@ export interface Bar {
     }[];
 }
 
+export type InstrumentType = 'Vokal' | 'Trommer' | 'Bass' | 'Gitar' | 'Piano';
+
 export interface Section {
     id: string;
     type: SectionType;
@@ -29,13 +31,17 @@ export interface Section {
     bars: Bar[];
     color: string; // Hex or Tailwind class
     repeatCount: number;
+    instruments: InstrumentType[];
 }
 
 export interface Composition {
-    id: string;
+    id: string; // This will be our short alphanumeric ID / PIN
     title: string;
     tempo: number;
     sections: Section[];
+    creatorId?: string; // Randomly generated ID stored in LocalStorage
+    createdAt?: number;
+    lastModified?: number;
 }
 
 export const DEFAULT_BAR: Bar = {
