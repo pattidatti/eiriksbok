@@ -16,6 +16,7 @@ import { EmperorStats } from './EmperorStats';
 import { LinkButton } from './tools/LinkButton';
 import { WaveMap } from './content/interactive/WaveMap';
 import { Gallery } from './Gallery';
+import { MapCarousel } from './MapCarousel';
 
 // Lazy-loaded components for better performance
 // Interactive Content
@@ -211,6 +212,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     triangularTradeMap: lazy(() => import('./content/interactive/TriangularTradeMap').then(m => ({ default: m.TriangularTradeMap }))),
     HanseaticLedger: lazy(() => import('./content/interactive/hanseatene/HanseaticLedger').then(m => ({ default: m.HanseaticLedger }))),
     HanseaticTradeMap: lazy(() => import('./content/interactive/hanseatene/HanseaticTradeMap').then(m => ({ default: m.HanseaticTradeMap }))),
+    MapCarousel,
 };
 
 export const getComponent = (name: string) => {

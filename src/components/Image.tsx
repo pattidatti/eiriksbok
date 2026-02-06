@@ -6,6 +6,7 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     alt: string;
     seed?: string; // For placeholder generation if src fails or is missing
     className?: string;
+    priority?: boolean;
 }
 
 export const Image: React.FC<ImageProps> = ({
@@ -13,6 +14,7 @@ export const Image: React.FC<ImageProps> = ({
     alt,
     seed,
     className = '',
+    priority = false,
     ...props
 }) => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -55,7 +57,7 @@ export const Image: React.FC<ImageProps> = ({
     }
 
     return (
-        <div className={`relative overflow-hidden bg-surface-card ${className}`}>
+        <div className={`relative flex items-center justify-center overflow-hidden ${className}`}>
             {/* Blur placeholder (could be a tiny version of image, or just a color/skeleton) */}
             {!isLoaded && (
                 <div className="absolute inset-0 bg-white/5 animate-pulse" />
@@ -65,11 +67,11 @@ export const Image: React.FC<ImageProps> = ({
                 ref={imgRef}
                 src={currentSrc}
                 alt={alt}
-                loading="lazy"
+                loading={priority ? 'eager' : 'lazy'}
+                {...(priority ? { fetchpriority: 'high' } : {})}
                 onLoad={handleLoad}
                 onError={handleError}
-                className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'
-                    }`}
+                className={`max-w-full max-h-full transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className.includes('object-') ? '' : 'object-cover'}`}
                 {...props}
             />
         </div>

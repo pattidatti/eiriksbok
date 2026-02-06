@@ -206,6 +206,24 @@ Brukes for hendelsesforløp.
 }
 ```
 
+**6. MapCarousel (Historiske Kart)**
+Brukes for å sammenligne eller studere kart i detalj med innebygd lightbox.
+```json
+"component": {
+    "name": "MapCarousel",
+    "props": {
+        "title": "Europa i Endring",
+        "items": [
+            { 
+              "image": "/content/historie/forste-verdenskrig/assets/europa-map-1900.webp", 
+              "caption": "Statene og grensene i 1900.",
+              "alt": "Kart over Europa"
+            }
+        ]
+      }
+}
+```
+
 ## 4. Registrering og Synlighet
 
 ### A. Synlighet i "Biblioteket" (Hub)

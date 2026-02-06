@@ -29,6 +29,22 @@ Unngå generiske ord som "gamle dager". Bruk spesifikke detaljer:
 ## 5. Standard Format
 Vi bruker konsekvent **16:9** (bredskjerm) for både hero-bilder og inline-bilder for å gi applikasjonen et moderne, filmatisk uttrykk.
 
+## 6. Bildeoptimalisering & Ytelse
+
+For å sikre at Eiriksbok forblir "snappy" selv med tunge historiske kart, følger vi disse tekniske kravene:
+
+### ⚡ Tekniske Krav (WebP)
+- **Oppløsning:** Maks bredde **2560px** (4K-nivå) for detaljerte kart. Mindre illustrasjoner bør være **1600px**.
+- **Kvalitet:** Bruk **75-80% quality** i Sharp/WebP. Dette gir ofte 90-95% vektreduksjon uten synlig tap.
+- **Filstørrelse:** 
+    - Store kart: **< 500KB** (Vårt mål er ~300KB).
+    - Vanlige bilder: **< 100KB**.
+
+### 🚀 Image-komponenten
+Bruk `Image`-komponenten i React for å håndtere loading intelligent:
+- **`priority={true}`**: Bruk på "Above the fold" innhold (Hero-bilder eller det første kartet i en karusell). Dette setter `fetchpriority="high"` og `loading="eager"`.
+- **Default**: Bilder er ellers `loading="lazy"` for å spare båndbredde.
+
 ---
 
 ### Eksempel på en komplett prompt:

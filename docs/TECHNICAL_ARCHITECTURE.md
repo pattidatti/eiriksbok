@@ -54,6 +54,13 @@ Alt innhold (tekst, bilder, quiz) lagres som JSON-filer i `public/content`. Dett
 ### 4. Interaktive Moduler
 I stedet for bare tekst, bruker vi interaktive React-komponenter for å forklare konsepter. Disse ligger i `src/components` og lastes inn dynamisk basert på innholdet (f.eks. `ScenarioRoleplay`, `PackTheBag`, `InteractiveMap`).
 
+#### Standard Komponenter for Media
+- **`Image.tsx`**: Vår primære bildekomponent. Den støtter:
+    - **Priority Loading**: `priority={true}` setter `fetchpriority="high"` for LCP-optimalisering.
+    - **Smart Centering**: Innebygd flex-sentrering for å håndtere ulike aspekt-ratioer uten cropping.
+    - **Object-fit inheritance**: Tar i mot `className` for å styre om bildet skal være `cover` (hero) eller `contain` (kart).
+- **`MapCarousel.tsx`**: En spesialisert karusell for historiske kart. Den bruker en **grid-basert lightbox** (`grid-rows-[auto_1fr_auto]`) for å sikre at kartet alltid er 100% synlig i viewporten uten cropping, uavhengig av skjermoppløsning.
+
 ### 5. Den "Arkitektoniske" Arbeidsflyten
 Prosjektet bruker en modell der innholdet *designes* før det *bygges*.
 - **Blueprints**: Markdown-filer i `docs/Design documents/` fungerer som arkitekttegninger for nye emner.

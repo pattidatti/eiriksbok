@@ -214,6 +214,42 @@
                 "links": []
             },
             {
+                "id": "step-4-maps",
+                "phase": "Akt 1: Illusjonen (1914)",
+                "title": "Kart: Europa i endring",
+                "type": "interaktiv",
+                "content": "For å forstå krigens utbrudd og omfang må vi se på kartet. Hvordan var grensene trukket, og hvordan fungerte alliansene i praksis? Studer kartene under for å se det store bildet.",
+                "component": {
+                    "name": "MapCarousel",
+                    "props": {
+                        "title": "Historiske kart",
+                        "items": [
+                            {
+                                "image": "/content/historie/forste-verdenskrig/assets/europa-map-1900.webp",
+                                "caption": "Europa i 1900: Stormaktene og grensene før de store allianseblokkene ble låst.",
+                                "alt": "Kart over Europa 1900"
+                            },
+                            {
+                                "image": "/content/historie/forste-verdenskrig/assets/domino-effect-map.webp",
+                                "caption": "Dominoeffekten: Hvordan alliansene dro landene inn i krigen sommeren 1914.",
+                                "alt": "Kart over krigens spredning"
+                            },
+                            {
+                                "image": "/content/historie/forste-verdenskrig/assets/sykes-picot-map.webp",
+                                "caption": "En global konflikt: Planleggingen av det nye Midtøsten (Sykes-Picot).",
+                                "alt": "Kart over Sykes-Picot"
+                            }
+                        ]
+                    }
+                },
+                "tasks": [
+                    "Studer kartet over alliansene. Hvorfor følte Tyskland seg 'omringet'?",
+                    "Hvilke områder på kartet viser at konflikten raskt ble mer enn bare europeisk?",
+                    "Hvordan tror du grensene i 1900 påvirket ønsket om nasjonal selvstendighet på Balkan?"
+                ],
+                "links": []
+            },
+            {
                 "id": "step-2",
                 "phase": "Akt 1: Illusjonen (1914)",
                 "title": "August-begeistringen",
