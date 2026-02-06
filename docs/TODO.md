@@ -3,16 +3,11 @@
 Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok.
 
 ### Bugs
-- [x] Sette inn kart i læringsstien kald krig, ww1. 
 
-- [/] Læringsstier laster ikke konsekvent. (Jobber med robusthet, lagt til timeouts og cache-busting).
-- [x] Endre navn på ww1 fra sivilisajons selvmord til ww1 sti. 
 - [ ] Ikke bug men; Oppdatere alle artiklene i Analyse-emnet, så de er like gode som dikt artikkelen. 
-- [ ] @krigens-lop må ha bilder av vognen i bunnen av artikkele. Må også ha et bilde i artikkelen som viser krigens forløp på et europakart. Må også være et kart som viser krigen på global skala; hvor skjer alt?
 - [ ] Tidsreiser spillet: Lage tidsreise om tysksoldat ved frontlinjen og en om nordkoreaner under koreakrigen.
 ## Læringsstier
-- [x] Læringsstier: Hver sett med oppgaver må ha en liten boks for å kopiere alle spørsmålene, slik at elevene enkelt kan få dem kopiert inn i skriveboken sin, uten å måtte skrive alt selv, eller dille med å merke alt. 
-- [/] Det er ikke garantert at en læringssti laster (Implementert timeouts og bedre Tier 1-lookup i contentLoader.ts).
+
 
 ## 💡 Ideer
 - [ ] Slaveri gjennom tidene, hvordan dette ofte var en del av imperialismen, hvordan det ble avskaffet ulike steder. Eget emne i historie. Læringsstier kan heller koble seg på. 
@@ -39,17 +34,15 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Arikkeler om 1054 skisma 
 - [ ] Artikkel om hvordan USAs intervenering ofte har ført til backfire, Ho chi min, Vietnamkrigen, Afghanistan, taliban, støtte Sadam Hussein, annet? 
 - [ ] Artikler om mange av sentrale hendelsene i midtøsten. 
-- [x] @file:folkeforbundet timeline component i teksten har bare tall, ikke innhold. 
+
 
 ### KRLE
 
 - [ ] Finne en logisk måte å skille retninger innen kristendom og islam. 
-- [x] Etikk og filosofi-emne. 
 - [ ] Emne om sekularisering
 
 
 ### Norsk
-- [x] Artikler i norskfaget-litteraturhistorie mangler sidebar. 
 - [ ] Utvide innholdet i artiklen Hvordan skrive [dikt, eventyr, novele, roman, debattinnlegg, reflekterende tekst, artikkel]. 
 ### Musikk
 - [ ] Implementere https://sites.google.com/bergensskolen.com/musikk/start og lage en logisk struktur på emnet. 
@@ -57,7 +50,6 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 ## 📝 Gjøremål (Todo)
 - [ ] Hangmann: Ordet man skal gjette flasher raskt før det forsinner igjen. Gjør det lett å jukse. 
-- [x] Chrono Cards. Vanskelig å navigere drag and drop når det er horisontal scrollbar.  App i full bredde kanskje, og noe annet?
 - [ ] Kronocards - Må kunne velge hvilke artikler som skal være med, og hva som skal være med i kortet. 
 - [ ] Global tidslinje må være mer kompakt. 
 - [ ] Øving: retorikk. Hvordan unlocke lvl 2 etc? Legge til flere eksempler. 
@@ -98,3 +90,14 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [x] Demografi må få sitt eget emne, lage artikler om, demografisk overgang med utviklingsfaser, fødselsrate, dødsrate, befolkningstall, etc. BØr man ha ulike artikler om alt, eller en giga? EN artikkel om migrasjon og push/pull. En artikkel om Malthus og Boseup. Artikkel om relativ og absolutt fattigdom. Artikkel om befolkningspyramide, eller skal denne inn i demografisk overgang? Artikkel om urbanisering. Artikkel om teknologisk/idee utvikling siste 250 årene som har markant redusert dødsraten. 
 - Tooltip inni factbox clipper, må rendres over. 
 - [x] Den kalde krigen emne. En hovedartikkel, og flere subartikler om spesifikke hendelser. 
+- [x] Sette inn kart i læringsstien kald krig, ww1. 
+
+- [/] Læringsstier laster ikke konsekvent. (Jobber med robusthet, lagt til timeouts og cache-busting).
+- [x] Endre navn på ww1 fra sivilisajons selvmord til ww1 sti. 
+- [x] Læringsstier: Hver sett med oppgaver må ha en liten boks for å kopiere alle spørsmålene, slik at elevene enkelt kan få dem kopiert inn i skriveboken sin, uten å måtte skrive alt selv, eller dille med å merke alt. 
+- [x] Chrono Cards. Vanskelig å navigere drag and drop når det er horisontal scrollbar.  App i full bredde kanskje, og noe annet?
+- [x] Etikk og filosofi-emne. 
+- [x] Artikler i norskfaget-litteraturhistorie mangler sidebar. 
+- [x] Det er ikke garantert at en læringssti laster (Implementert timeouts og bedre Tier 1-lookup i contentLoader.ts).
+- [x] @file:folkeforbundet timeline component i teksten har bare tall, ikke innhold. 
+- [x] @krigens-lop må ha bilder av vognen i bunnen av artikkele. Må også ha et bilde i artikkelen som viser krigens forløp på et europakart. Må også være et kart som viser krigen på global skala; hvor skjer alt?
