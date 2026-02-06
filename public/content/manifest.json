@@ -307,6 +307,17 @@
                             ],
                             "createdDate": "2023-01-01T12:00:00Z",
                             "lastUpdated": "2025-12-03T17:25:16.499Z"
+                        },
+                        {
+                            "id": "reflekterende-tekst",
+                            "title": "Reflekterende tekst",
+                            "description": "Lær om kjennetegnene på refleksjon og undring i tekst.",
+                            "image": "/images/lessons/norsk/hvordan-skrive-reflekterende-hero.png",
+                            "tags": [
+                                "sakprosa",
+                                "refleksjon"
+                            ],
+                            "createdDate": "2026-02-06T10:00:00Z"
                         }
                     ]
                 },
@@ -616,7 +627,8 @@
                                 "refleksjon",
                                 "norsk"
                             ],
-                            "createdDate": "2026-01-20T09:00:00Z"
+                            "createdDate": "2026-01-20T09:00:00Z",
+                            "lastUpdated": "2026-02-06T10:00:00Z"
                         },
                         {
                             "id": "hvordan-skrive-gode-saktekster",

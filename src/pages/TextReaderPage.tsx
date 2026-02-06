@@ -346,14 +346,14 @@ export const TextReaderPage: React.FC = () => {
                 {!isSplitView && (
                     <div className="mb-12 flex flex-wrap gap-4 justify-center">
                         <button
-                            onClick={() => navigate(`/norsk/tekstsjangre/${textEntry.genre.toLowerCase()}`)}
+                            onClick={() => navigate(`/norsk/tekstsjangre/${textEntry.genre.toLowerCase().replace(/\s+/g, '-')}`)}
                             className="flex items-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-lg hover:bg-indigo-100 transition-colors font-medium"
                         >
                             <BookOpen size={18} />
                             Kjennetegn på {textEntry.genre.toLowerCase()}
                         </button>
                         <button
-                            onClick={() => navigate(`/norsk/skrivehjelp/hvordan-skrive-${textEntry.genre.toLowerCase()}`)}
+                            onClick={() => navigate(`/norsk/skrivehjelp/hvordan-skrive-${textEntry.genre.toLowerCase().replace(/\s+/g, '-')}`)}
                             className="flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition-colors font-medium"
                         >
                             <User size={18} />

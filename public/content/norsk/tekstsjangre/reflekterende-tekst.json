@@ -1,0 +1,77 @@
+{
+    "id": "reflekterende-tekst",
+    "title": "Reflekterende tekst",
+    "subject": "norsk",
+    "topic": "tekstsjangre",
+    "layout": "rich",
+    "heroImage": "/images/lessons/norsk/hvordan-skrive-reflekterende-hero.png",
+    "content": [
+        {
+            "type": "text",
+            "content": "En reflekterende tekst er en sjanger der forfatteren undersøker egne tanker, følelser og erfaringer knyttet til et bestemt tema. I motsetning til en rent informerende tekst, handler ikke den reflekterende teksten bare om å presentere fakta, men om å vise selve *tankeprosessen*. Det er en undrende og utforskende sjanger der målet ofte er å forstå noe bedre eller se en sak fra nye perspektiver."
+        },
+        {
+            "type": "header",
+            "text": "Kjennetegn"
+        },
+        {
+            "type": "text",
+            "content": "Her er de viktigste kjennetegnene på en reflekterende tekst:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Jeg-stemme:** Teksten tar utgangspunkt i forfatterens egne tanker og opplevelser.",
+                "**Undring og spørsmål:** Forfatteren stiller gjerne spørsmål til seg selv eller saken, uten nødvendigvis å ha alle svarene.",
+                "**Ulike perspektiver:** Teksten belyser saken fra flere sider («på den ene siden... på den andre siden...»).",
+                "**Tankesprang:** Det er lov å la tankene flytte seg mellom fortid og nåtid, eller mellom personlige opplevelser og mer generelle observasjoner.",
+                "**Refleksjonsmarkører:** Bruk av ord som *kanskje*, *jeg lurer på*, *det kan virke som* og *muligens* signaliserer at forfatteren reflekterer.",
+                "**Åpen tone:** Den er mindre bastant enn et debattinnlegg. Målet er ikke nødvendigvis å overbevise, men å utforske."
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Virkemidler"
+        },
+        {
+            "type": "list",
+            "items": [
+                "**Retoriske spørsmål:** Spørsmål som får leseren til å tenke, men som forfatteren ikke venter svar på.",
+                "**Sammenligninger og metaforer:** Brukes for å forklare abstrakte tanker eller følelser på en forståelig måte.",
+                "**Kontraster:** Å stille to ulike tanker eller situasjoner opp mot hverandre for å få frem poenget.",
+                "**Eksempler:** Bruk av konkrete eksempler fra eget liv for å illustrere et generelt poeng."
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Når skriver vi reflekterende?"
+        },
+        {
+            "type": "text",
+            "content": "Vi skriver ofte reflekterende i personlige tekster som *leserhistorier*, *blogger* eller *essays*. Men refleksjon er også en viktig del av litterær analyse og oppgaver der du skal vurdere et budskap eller et tema i lys av din egen verden."
+        },
+        {
+            "type": "header",
+            "text": "Eksempler fra biblioteket"
+        },
+        {
+            "type": "list",
+            "items": [
+                "[Aldri godt nok](/norsk/bibliotek/aldri-godt-nok) – En tekst om prestasjonspress og det å aldri føle at man strekker til.",
+                "[Min leserhistorie](/norsk/bibliotek/min-leserhistorie) – Alise reflekterer over hvordan hennes forhold til bøker har endret seg gjennom oppveksten.",
+                "[Fordummende intelligent teknologi](/norsk/bibliotek/fordummende-intelligent-teknologi) – En refleksjon over hvordan KI påvirker vår egen evne til å tenke."
+            ]
+        }
+    ],
+    "tags": [
+        "sakprosa",
+        "refleksjon",
+        "erfaring",
+        "undring"
+    ],
+    "relatedLink": {
+        "text": "Hvordan skrive reflekterende",
+        "url": "/norsk/skrivehjelp/hvordan-skrive-reflekterende"
+    },
+    "createdDate": "2026-02-06T10:00:00Z"
+}
