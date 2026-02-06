@@ -58,9 +58,9 @@ export const SongLibrary: React.FC<SongLibraryProps> = ({ isOpen, onClose, onSel
                     className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden"
                 >
                     <div className="flex items-center justify-between p-6 bg-slate-50 border-b border-slate-200">
-                        <div>
+                        <div className="flex items-center gap-2">
                             <h3 className="text-2xl font-serif font-black text-slate-900 tracking-tighter">Mine sanger</h3>
-                            <p className="text-xs text-slate-500 font-medium">Sanger du har opprettet på denne enheten</p>
+                            <p className="text-xs text-slate-500 font-medium pt-1">Sanger du har opprettet på denne enheten</p>
                         </div>
                         <button onClick={onClose} className="p-2 hover:bg-slate-200 rounded-full transition-colors">
                             <X size={20} className="text-slate-500" />
@@ -75,7 +75,7 @@ export const SongLibrary: React.FC<SongLibraryProps> = ({ isOpen, onClose, onSel
                             <div className="p-2 bg-emerald-600 text-white rounded-lg shadow-sm group-hover:scale-110 transition-transform">
                                 <Plus size={20} />
                             </div>
-                            <span className="font-bold uppercase tracking-widest text-xs">Lag en ny sang</span>
+                            <span className="font-bold uppercase tracking-widest text-[10px]">Lag en ny sang</span>
                         </button>
 
                         {loading ? (

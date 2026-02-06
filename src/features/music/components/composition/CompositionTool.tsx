@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { Settings, Folder, Users, Share2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useComposition } from './useComposition';
-import { useCompositionSync, getCreatorId } from './useCompositionSync';
+import { useCompositionSync } from './useCompositionSync';
+import { getCreatorId } from './utils';
 import { StructureTimeline } from './StructureTimeline';
 import { NotationEditor } from './NotationEditor';
 import { RhythmPalette } from './RhythmPalette';
@@ -11,7 +13,6 @@ import { SongLibrary } from './SongLibrary';
 
 export const CompositionTool: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams();
-    const navigate = useNavigate();
     const songId = searchParams.get('id');
 
     const {
@@ -31,7 +32,8 @@ export const CompositionTool: React.FC = () => {
         isRestMode,
         setIsRestMode,
         toggleInstrument,
-        renameComposition
+        renameComposition,
+        resetToDefault
     } = useComposition();
 
     const { activeUsers, isLoading, saveAsNew, deleteSong } = useCompositionSync(
@@ -42,6 +44,8 @@ export const CompositionTool: React.FC = () => {
 
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const [isLibraryOpen, setIsLibraryOpen] = useState(false);
+    const [isNamingOpen, setIsNamingOpen] = useState(false);
+    const [pendingName, setPendingName] = useState('');
 
     const isCreator = composition.creatorId === getCreatorId();
 
@@ -51,9 +55,16 @@ export const CompositionTool: React.FC = () => {
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
-    const handleNewSong = async () => {
-        const newId = await saveAsNew(composition);
+    const handleSaveAsNew = async () => {
+        if (!pendingName.trim()) return;
+
+        const newId = await saveAsNew({
+            ...composition,
+            title: pendingName
+        });
         setSearchParams({ id: newId });
+        setIsNamingOpen(false);
+        setPendingName('');
     };
 
     const handleSelectSong = (id: string) => {
@@ -192,7 +203,10 @@ export const CompositionTool: React.FC = () => {
                         <div className="h-40 flex flex-col items-center justify-center gap-4 border-t border-slate-100 mt-12 opacity-40 hover:opacity-100 transition-opacity">
                             {!songId && (
                                 <button
-                                    onClick={handleNewSong}
+                                    onClick={() => {
+                                        setPendingName(composition.title);
+                                        setIsNamingOpen(true);
+                                    }}
                                     className="px-8 py-3 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-black hover:shadow-xl transition-all hover:scale-105"
                                 >
                                     <Share2 size={16} />
@@ -226,7 +240,10 @@ export const CompositionTool: React.FC = () => {
                 isOpen={isLibraryOpen}
                 onClose={() => setIsLibraryOpen(false)}
                 onSelect={handleSelectSong}
-                onNew={() => navigate('/musikk/komposisjon')}
+                onNew={() => {
+                    resetToDefault();
+                    setSearchParams({});
+                }}
             />
 
             {/* Floating Palette */}
@@ -238,6 +255,53 @@ export const CompositionTool: React.FC = () => {
                     onToggleRestMode={() => setIsRestMode(!isRestMode)}
                 />
             )}
+
+            {/* Naming Modal */}
+            <AnimatePresence>
+                {isNamingOpen && (
+                    <div className="fixed inset-0 z-[110] flex items-center justify-center px-4">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsNamingOpen(false)}
+                            className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
+                        />
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            className="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl p-8 border border-slate-100"
+                        >
+                            <h3 className="text-2xl font-serif font-black text-slate-900 tracking-tighter mb-6">Navngi sangen din</h3>
+                            <input
+                                autoFocus
+                                type="text"
+                                value={pendingName}
+                                onChange={(e) => setPendingName(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && handleSaveAsNew()}
+                                placeholder="Min nye komposisjon..."
+                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900 mb-6 font-serif text-lg"
+                            />
+                            <div className="flex gap-3">
+                                <button
+                                    onClick={() => setIsNamingOpen(false)}
+                                    className="flex-1 py-3 px-4 rounded-xl text-slate-500 font-bold uppercase tracking-widest text-[10px] hover:bg-slate-50 transition-colors"
+                                >
+                                    Avbryt
+                                </button>
+                                <button
+                                    onClick={handleSaveAsNew}
+                                    disabled={!pendingName.trim()}
+                                    className="flex-[2] py-3 px-4 bg-slate-900 text-white rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-slate-800 transition-colors disabled:opacity-50"
+                                >
+                                    Lagre sang
+                                </button>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
 
             {/* Background Texture */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat z-0" />

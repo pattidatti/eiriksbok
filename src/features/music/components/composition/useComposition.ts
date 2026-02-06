@@ -1,12 +1,14 @@
 import { useState, useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import type { Composition, Section, Bar, RhythmNode, NoteDuration, SectionType, InstrumentType } from './types';
+import { getCreatorId } from './utils';
 
 export const useComposition = () => {
     const [composition, setComposition] = useState<Composition>({
         id: uuidv4(),
         title: 'Ny Sang',
         tempo: 120,
+        creatorId: getCreatorId(),
         sections: [
             {
                 id: uuidv4(),
@@ -232,6 +234,28 @@ export const useComposition = () => {
     }, []);
 
 
+    const resetToDefault = useCallback(() => {
+        const defaultComp: Composition = {
+            id: uuidv4(),
+            title: 'Ny Sang',
+            tempo: 120,
+            creatorId: getCreatorId(),
+            sections: [
+                {
+                    id: uuidv4(),
+                    type: 'intro',
+                    name: 'Intro',
+                    repeatCount: 1,
+                    instruments: [],
+                    color: 'bg-emerald-100',
+                    bars: createDefaultBars(4)
+                }
+            ]
+        };
+        setComposition(defaultComp);
+        setActiveSectionId(defaultComp.sections[0].id);
+    }, []);
+
     return {
         composition,
         setComposition,
@@ -250,7 +274,8 @@ export const useComposition = () => {
         removeSection,
         updateSectionBars,
         toggleInstrument,
-        renameComposition
+        renameComposition,
+        resetToDefault
     };
 };
 
