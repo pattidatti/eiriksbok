@@ -117,6 +117,19 @@
             "content": "P\u00e5 1970-tallet inns\u00e5 lederne at kappl\u00f8pet var i ferd med \u00e5 t\u00f8mme statskassene og øke risikoen for ulykker. Dette f\u00f8rte til en serie avtaler kjent som SALT (Strategic Arms Limitation Talks), der man ble enige om \u00e5 begrense antall raketter.\n\nP\u00e5 1980-tallet gikk Ronald Reagan og Mikhail Gorbatsjov enda lenger med INF-avtalen, som fjernet en hel klasse med mellomdistanseraketter i Europa. For f\u00f8rste gang i historien begynte man faktisk \u00e5 skrote fungerende atomv\u00e5pen i stedet for bare \u00e5 begrense veksten."
         },
         {
+            "type": "header",
+            "text": "Hva skjer egentlig etter et atomangrep?"
+        },
+        {
+            "type": "text",
+            "content": "For \u00e5 forst\u00e5 de katastrofale f\u00f8lgene av et moderne atomangrep, kan vi se p\u00e5 denne visualiseringen fra Kurzgesagt. Videoen forklarer i detalj hva som skjer i de f\u00f8rste sekundene, minuttene og timene etter at en moderne hydrogenbombe treffer en storby \u2013 fra den intense ildkulen og trykkb\u00f8lgen til det d\u00f8delige radioaktive nedfallet."
+        },
+        {
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=5iPH-br_eJQ",
+            "title": "Hva skjer hvis en storby blir rammet?"
+        },
+        {
             "type": "component",
             "name": "Quiz",
             "props": {
@@ -168,19 +181,6 @@
             "type": "component",
             "name": "NuclearSimulator",
             "props": {}
-        },
-        {
-            "type": "header",
-            "text": "Hva skjer egentlig etter et atomangrep?"
-        },
-        {
-            "type": "text",
-            "content": "For \u00e5 forst\u00e5 de katastrofale f\u00f8lgene av et moderne atomangrep, kan vi se p\u00e5 denne visualiseringen fra Kurzgesagt. Videoen forklarer i detalj hva som skjer i de f\u00f8rste sekundene, minuttene og timene etter at en moderne hydrogenbombe treffer en storby \u2013 fra den intense ildkulen og trykkb\u00f8lgen til det d\u00f8delige radioaktive nedfallet."
-        },
-        {
-            "type": "video",
-            "url": "https://www.youtube.com/watch?v=5iPH-br_eJQ",
-            "title": "Hva skjer hvis en storby blir rammet?"
         }
     ],
     "quiz": [
