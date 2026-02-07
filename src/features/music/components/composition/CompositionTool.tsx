@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Settings, Folder, Users, Share2 } from 'lucide-react';
+import { Users, Share2, Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useComposition } from './useComposition';
 import { useCompositionSync } from './useCompositionSync';
@@ -8,8 +8,7 @@ import { getCreatorId } from './utils';
 import { StructureTimeline } from './StructureTimeline';
 import { NotationEditor } from './NotationEditor';
 import { RhythmPalette } from './RhythmPalette';
-import { CompositionSettings } from './CompositionSettings';
-import { SongLibrary } from './SongLibrary';
+import { ProjectManager } from './ProjectManager';
 
 export const CompositionTool: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -33,17 +32,18 @@ export const CompositionTool: React.FC = () => {
         setIsRestMode,
         toggleInstrument,
         renameComposition,
-        resetToDefault
+        resetToDefault,
+        moveSection
     } = useComposition();
 
     const { activeUsers, isLoading, saveAsNew, deleteSong } = useCompositionSync(
         composition,
         setComposition,
-        songId
+        songId,
+        resetToDefault
     );
 
-    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-    const [isLibraryOpen, setIsLibraryOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isNamingOpen, setIsNamingOpen] = useState(false);
     const [pendingName, setPendingName] = useState('');
 
@@ -58,10 +58,12 @@ export const CompositionTool: React.FC = () => {
     const handleSaveAsNew = async () => {
         if (!pendingName.trim()) return;
 
+        console.log('Saving as new:', pendingName);
         const newId = await saveAsNew({
             ...composition,
             title: pendingName
         });
+        console.log('Saved with ID:', newId);
         setSearchParams({ id: newId });
         setIsNamingOpen(false);
         setPendingName('');
@@ -69,6 +71,14 @@ export const CompositionTool: React.FC = () => {
 
     const handleSelectSong = (id: string) => {
         setSearchParams({ id });
+    };
+
+    const handleDeleteSong = async (id: string) => {
+        await deleteSong(id);
+        if (id === songId) {
+            setSearchParams({});
+            setIsMenuOpen(false);
+        }
     };
 
     return (
@@ -83,11 +93,22 @@ export const CompositionTool: React.FC = () => {
                         </h2>
 
                         {/* Presence Bubble */}
-                        {songId && (
+                        {songId ? (
                             <div className="flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full border border-blue-100 shadow-sm animate-pulse">
                                 <Users size={12} className="fill-current" />
                                 <span className="text-[10px] font-black uppercase tracking-tighter">{activeUsers} aktive</span>
                             </div>
+                        ) : (
+                            <button
+                                onClick={() => {
+                                    setPendingName(composition.title);
+                                    setIsNamingOpen(true);
+                                }}
+                                className="flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 text-amber-700 rounded-full border border-amber-200/50 shadow-sm hover:bg-amber-100 transition-colors animate-in fade-in zoom-in duration-300"
+                            >
+                                <div className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                                <span className="text-[10px] font-black uppercase tracking-tighter">Utkast (Ikke lagret)</span>
+                            </button>
                         )}
                     </div>
 
@@ -98,19 +119,12 @@ export const CompositionTool: React.FC = () => {
                         </div>
 
                         <button
-                            onClick={() => setIsLibraryOpen(true)}
-                            className="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-slate-900 hover:shadow-md transition-all text-slate-600 hover:text-slate-900"
-                            title="Bibliotek"
+                            onClick={() => setIsMenuOpen(true)}
+                            className="p-2.5 bg-slate-900 text-white rounded-xl hover:bg-black hover:shadow-lg transition-all flex items-center gap-2"
+                            title="Prosjektmeny"
                         >
-                            <Folder size={20} />
-                        </button>
-
-                        <button
-                            onClick={() => setIsSettingsOpen(true)}
-                            className="p-2.5 bg-slate-900 text-white rounded-xl hover:bg-black hover:shadow-lg transition-all"
-                            title="Innstillinger"
-                        >
-                            <Settings size={20} />
+                            <Menu size={20} />
+                            <span className="text-xs font-bold uppercase tracking-widest hidden sm:inline">Meny</span>
                         </button>
                     </div>
                 </div>
@@ -121,6 +135,7 @@ export const CompositionTool: React.FC = () => {
                     onSelectSection={scrollToSection}
                     onAddSection={addSection}
                     onRemoveSection={removeSection}
+                    onReorderSections={moveSection}
                 />
             </div>
 
@@ -219,30 +234,22 @@ export const CompositionTool: React.FC = () => {
                 )}
             </div>
 
-            {/* Modals */}
-            <CompositionSettings
-                isOpen={isSettingsOpen}
-                onClose={() => setIsSettingsOpen(false)}
-                title={composition.title}
-                onRename={renameComposition}
-                onDelete={async () => {
-                    if (songId) {
-                        await deleteSong(songId);
-                        setSearchParams({});
-                        setIsSettingsOpen(false);
-                    }
-                }}
-                shareUrl={window.location.origin + window.location.pathname + (songId ? `?id=${songId}` : '')}
+            {/* Project Manager Modal */}
+            <ProjectManager
+                isOpen={isMenuOpen}
+                onClose={() => setIsMenuOpen(false)}
+                activeComposition={composition}
+                activeSongId={songId}
                 isCreator={isCreator}
-            />
-
-            <SongLibrary
-                isOpen={isLibraryOpen}
-                onClose={() => setIsLibraryOpen(false)}
+                onRename={renameComposition}
+                onDelete={handleDeleteSong}
+                shareUrl={window.location.origin + window.location.pathname + (songId ? `?id=${songId}` : '')}
                 onSelect={handleSelectSong}
                 onNew={() => {
                     resetToDefault();
                     setSearchParams({});
+                    setPendingName('Ny Sang');
+                    setIsNamingOpen(true);
                 }}
             />
 

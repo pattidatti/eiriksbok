@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ref, onValue, set, onDisconnect, push, serverTimestamp } from 'firebase/database';
+import { ref, onValue, set, remove, onDisconnect, push, serverTimestamp } from 'firebase/database';
 import { db } from '../../../../lib/firebase';
 import type { Composition } from './types';
 import { getCreatorId, generateShortId, MY_SONGS_KEY } from './utils';
@@ -7,7 +7,8 @@ import { getCreatorId, generateShortId, MY_SONGS_KEY } from './utils';
 export const useCompositionSync = (
     composition: Composition,
     setComposition: (c: Composition) => void,
-    activeId: string | null
+    activeId: string | null,
+    resetToDefault: () => void
 ) => {
     const [activeUsers, setActiveUsers] = useState(0);
     const [isLoading, setIsLoading] = useState(!!activeId);
@@ -21,8 +22,13 @@ export const useCompositionSync = (
         const songRef = ref(db, `compositions/${activeId}`);
         const unsubscribe = onValue(songRef, (snapshot) => {
             const data = snapshot.val();
-            if (data && !isLocalChange.current) {
-                setComposition(data);
+            if (data) {
+                if (!isLocalChange.current) {
+                    setComposition(data);
+                }
+            } else {
+                console.warn('Song data is null, resetting to default.');
+                resetToDefault();
             }
             setIsLoading(false);
         }, (err) => {
@@ -67,7 +73,10 @@ export const useCompositionSync = (
             }
         }, 1000);
 
-        return () => clearTimeout(timeout);
+        return () => {
+            clearTimeout(timeout);
+            isLocalChange.current = false;
+        };
     }, [composition, activeId]);
 
     const saveAsNew = async (comp: Composition) => {
@@ -88,14 +97,29 @@ export const useCompositionSync = (
         if (!mySongs.includes(newId)) {
             localStorage.setItem(MY_SONGS_KEY, JSON.stringify([...mySongs, newId]));
         }
+        localStorage.removeItem('composition_draft');
 
+        // Optimistic update
+        setComposition(newComp);
         return newId;
     };
 
     const deleteSong = async (id: string) => {
-        await set(ref(db, `compositions/${id}`), null);
-        const mySongs = JSON.parse(localStorage.getItem(MY_SONGS_KEY) || '[]');
-        localStorage.setItem(MY_SONGS_KEY, JSON.stringify(mySongs.filter((s: string) => s !== id)));
+        console.log('[Delete] Starting delete for:', id);
+        try {
+            await remove(ref(db, `compositions/${id}`));
+            const currentList = localStorage.getItem(MY_SONGS_KEY);
+            console.log('[Delete] Current list before:', currentList);
+
+            const mySongs = JSON.parse(currentList || '[]');
+            const newList = mySongs.filter((s: string) => s !== id);
+            localStorage.setItem(MY_SONGS_KEY, JSON.stringify(newList));
+
+            console.log('[Delete] New list saved:', newList);
+        } catch (error) {
+            console.error('Error deleting song:', error);
+            throw error;
+        }
     };
 
     return { activeUsers, isLoading, error, saveAsNew, deleteSong };

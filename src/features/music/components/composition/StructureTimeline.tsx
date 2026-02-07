@@ -1,7 +1,24 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import {
+    DndContext,
+    closestCenter,
+    KeyboardSensor,
+    PointerSensor,
+    useSensor,
+    useSensors,
+    DragOverlay,
+    defaultDropAnimationSideEffects,
+    type DragStartEvent,
+    type DragEndEvent
+} from '@dnd-kit/core';
+import {
+    SortableContext,
+    sortableKeyboardCoordinates,
+    horizontalListSortingStrategy
+} from '@dnd-kit/sortable';
 import type { Section, SectionType } from './types';
 import { Plus } from 'lucide-react';
+import { SortableSectionItem } from './SortableSectionItem';
 
 interface StructureTimelineProps {
     sections: Section[];
@@ -9,6 +26,7 @@ interface StructureTimelineProps {
     onSelectSection: (id: string) => void;
     onAddSection: (type: SectionType) => void;
     onRemoveSection: (id: string) => void;
+    onReorderSections?: (oldIndex: number, newIndex: number) => void; // Added prop
 }
 
 const SECTION_TYPES: { type: SectionType, label: string, color: string }[] = [
@@ -25,42 +43,86 @@ export const StructureTimeline: React.FC<StructureTimelineProps> = ({
     activeSectionId,
     onSelectSection,
     onAddSection,
-    onRemoveSection
+    onRemoveSection,
+    onReorderSections
 }) => {
+    const [activeId, setActiveId] = useState<string | null>(null);
+
+    const sensors = useSensors(
+        useSensor(PointerSensor, {
+            activationConstraint: {
+                distance: 5, // Prevent accidental drags when clicking
+            },
+        }),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        })
+    );
+
+    const handleDragStart = (event: DragStartEvent) => {
+        setActiveId(event.active.id as string);
+    };
+
+    const handleDragEnd = (event: DragEndEvent) => {
+        const { active, over } = event;
+        setActiveId(null);
+
+        if (over && active.id !== over.id && onReorderSections) {
+            const oldIndex = sections.findIndex((s) => s.id === active.id);
+            const newIndex = sections.findIndex((s) => s.id === over.id);
+            onReorderSections(oldIndex, newIndex);
+        }
+    };
+
+    const dropAnimation = {
+        sideEffects: defaultDropAnimationSideEffects({
+            styles: {
+                active: {
+                    opacity: '0.5',
+                },
+            },
+        }),
+    };
+
+    const activeSection = sections.find(s => s.id === activeId);
+
     return (
         <div className="w-full flex flex-col gap-3">
             {/* Current Structure Row */}
-            {sections.length > 0 && (
+            <DndContext
+                sensors={sensors}
+                collisionDetection={closestCenter}
+                onDragStart={handleDragStart}
+                onDragEnd={handleDragEnd}
+            >
                 <div className="flex flex-wrap items-center gap-2">
-                    {sections.map((section) => (
-                        <motion.div
-                            key={section.id}
-                            layout
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            onClick={() => onSelectSection(section.id)}
-                            className={`
-                                relative h-8 px-3 rounded border cursor-pointer
-                                flex items-center gap-2 transition-all group
-                                ${section.id === activeSectionId ? 'ring-2 ring-slate-400 font-bold shadow-sm ring-inset' : 'opacity-70 hover:opacity-100 hover:bg-white'}
-                                ${getSectionStyles(section.type)}
-                            `}
-                        >
-                            <span className="text-[10px] font-black uppercase tracking-wider">{section.name}</span>
-                            <div
-                                role="button"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    if (confirm('Slette seksjon?')) onRemoveSection(section.id);
-                                }}
-                                className="w-3 h-3 rounded-full bg-black/5 hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all text-[8px]"
-                            >
-                                ✕
-                            </div>
-                        </motion.div>
-                    ))}
+                    <SortableContext
+                        items={sections.map(s => s.id)}
+                        strategy={horizontalListSortingStrategy}
+                    >
+                        {sections.map((section) => (
+                            <SortableSectionItem
+                                key={section.id}
+                                section={section}
+                                isActive={section.id === activeSectionId}
+                                onSelect={() => onSelectSection(section.id)}
+                                onRemove={() => onRemoveSection(section.id)}
+                            />
+                        ))}
+                    </SortableContext>
                 </div>
-            )}
+
+                <DragOverlay dropAnimation={dropAnimation}>
+                    {activeId && activeSection ? (
+                        <SortableSectionItem
+                            section={activeSection}
+                            isActive={activeSectionId === activeSection.id}
+                            onSelect={() => { }}
+                            onRemove={() => { }}
+                        />
+                    ) : null}
+                </DragOverlay>
+            </DndContext>
 
             {/* Add Section Palette (Separate Row) */}
             <div className="flex items-center gap-2 border-t border-slate-100 pt-2 overflow-x-auto no-scrollbar">
@@ -83,16 +145,4 @@ export const StructureTimeline: React.FC<StructureTimelineProps> = ({
             </div>
         </div>
     );
-};
-
-const getSectionStyles = (type: SectionType) => {
-    switch (type) {
-        case 'intro': return 'bg-emerald-50 border-emerald-200 text-emerald-700';
-        case 'verse': return 'bg-blue-50 border-blue-200 text-blue-700';
-        case 'chorus': return 'bg-rose-50 border-rose-200 text-rose-700';
-        case 'bridge': return 'bg-amber-50 border-amber-200 text-amber-700';
-        case 'solo': return 'bg-orange-50 border-orange-200 text-orange-700';
-        case 'outro': return 'bg-purple-50 border-purple-200 text-purple-700';
-        default: return 'bg-slate-50 border-slate-200 text-slate-700';
-    }
 };

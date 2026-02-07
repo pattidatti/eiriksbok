@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import type { Composition, Section, Bar, RhythmNode, NoteDuration, SectionType, InstrumentType } from './types';
 import { getCreatorId } from './utils';
@@ -35,9 +35,52 @@ export const useComposition = () => {
         ]
     });
 
-    const [activeSectionId, setActiveSectionId] = useState<string>(composition.sections[0].id);
+    const [activeSectionId, setActiveSectionId] = useState<string>('');
+    useEffect(() => {
+        if (composition.sections.length > 0 && !activeSectionId) {
+            setActiveSectionId(composition.sections[0].id);
+        }
+    }, [composition.sections, activeSectionId]);
+
     const [selectedDuration, setSelectedDuration] = useState<NoteDuration>('4n');
     const [isRestMode, setIsRestMode] = useState(false);
+
+    // Draft Logic: Load from local storage on mount if no ID
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        if (!id) {
+            const draft = localStorage.getItem('composition_draft');
+            if (draft) {
+                try {
+                    const parsed = JSON.parse(draft);
+                    // Minimal schema validation
+                    if (parsed.sections && Array.isArray(parsed.sections)) {
+                        setComposition(parsed);
+                        if (parsed.sections.length > 0) {
+                            setActiveSectionId(parsed.sections[0].id);
+                        }
+                    }
+                } catch (e) {
+                    console.error('Failed to parse draft', e);
+                }
+            } else {
+                // Ensure active section is set for default composition
+                if (composition.sections.length > 0) {
+                    setActiveSectionId(composition.sections[0].id);
+                }
+            }
+        }
+    }, []);
+
+    // Draft Logic: Auto-save to local storage if no ID
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        if (!id) {
+            localStorage.setItem('composition_draft', JSON.stringify(composition));
+        }
+    }, [composition]);
 
     const activeSection = composition.sections.find(s => s.id === activeSectionId);
 
@@ -230,7 +273,11 @@ export const useComposition = () => {
     }, []);
 
     const renameComposition = useCallback((newTitle: string) => {
-        setComposition(prev => ({ ...prev, title: newTitle }));
+        setComposition(prev => ({
+            ...prev,
+            title: newTitle,
+            lastModified: Date.now()
+        }));
     }, []);
 
 
@@ -254,6 +301,19 @@ export const useComposition = () => {
         };
         setComposition(defaultComp);
         setActiveSectionId(defaultComp.sections[0].id);
+        localStorage.removeItem('composition_draft');
+    }, []);
+
+    const moveSection = useCallback((oldIndex: number, newIndex: number) => {
+        setComposition(prev => {
+            const newSections = [...prev.sections];
+            const [movedSection] = newSections.splice(oldIndex, 1);
+            newSections.splice(newIndex, 0, movedSection);
+            return {
+                ...prev,
+                sections: newSections
+            };
+        });
     }, []);
 
     return {
@@ -275,7 +335,8 @@ export const useComposition = () => {
         updateSectionBars,
         toggleInstrument,
         renameComposition,
-        resetToDefault
+        resetToDefault,
+        moveSection
     };
 };
 
