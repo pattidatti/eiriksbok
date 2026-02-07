@@ -1,3 +1,5 @@
+import React from 'react';
+import { motion, LayoutGroup } from 'framer-motion';
 import type { Bar, NoteDuration, NoteType } from './types';
 
 interface NotationEditorProps {
@@ -46,7 +48,7 @@ export const NotationEditor: React.FC<NotationEditorProps> = ({
                 <div
                     className="fixed z-50 bg-white shadow-xl rounded-lg border border-indigo-200 p-1 flex flex-col gap-1 animate-in fade-in zoom-in-95 duration-100"
                     style={{ left: editingChord.x - 20, top: editingChord.y - 10 }}
-                    onClick={(e) => {
+                    onClick={(e: React.MouseEvent) => {
                         e.stopPropagation(); // Critical: Prevent click from bubbling to the container which closes it
                     }}
                 >
@@ -120,7 +122,7 @@ const BarView: React.FC<{
                                 {/* Chord Zone (Above Note) - Higher elevation */}
                                 <div
                                     className="absolute -top-10 inset-x-0 h-10 flex items-center justify-center cursor-text z-20"
-                                    onClick={(e) => {
+                                    onClick={(e: React.MouseEvent) => {
                                         e.stopPropagation();
                                         const rect = e.currentTarget.getBoundingClientRect();
                                         setEditingChord({ barId: bar.id, beat: beatPos, x: rect.left + rect.width / 2, y: rect.top });
@@ -130,7 +132,7 @@ const BarView: React.FC<{
                                         <motion.div
                                             initial={{ scale: 0 }}
                                             animate={{ scale: 1 }}
-                                            onClick={(e) => {
+                                            onClick={(e: React.MouseEvent) => {
                                                 e.stopPropagation();
                                                 const idx = bar.chords.indexOf(nodeChord);
                                                 if (confirm(`Slette ${nodeChord.chord}?`)) onRemoveChord(idx);
