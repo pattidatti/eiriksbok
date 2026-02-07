@@ -1,6 +1,4 @@
-import React from 'react';
-import { motion, LayoutGroup } from 'framer-motion';
-import type { Bar, RhythmNode, NoteDuration, NoteType } from './types';
+import type { Bar, NoteDuration, NoteType } from './types';
 
 interface NotationEditorProps {
     bars: Bar[];
@@ -33,8 +31,6 @@ export const NotationEditor: React.FC<NotationEditorProps> = ({
                                 bar={bar}
                                 index={barIndex + 1}
                                 color={color}
-                                selectedDuration={selectedDuration}
-                                isRestMode={isRestMode}
                                 onNodeClick={(idx) => onUpdateBar(bar.id, idx, selectedDuration, isRestMode)}
                                 onRemoveChord={(idx) => onRemoveChord(bar.id, idx)}
                                 setEditingChord={setEditingChord}
@@ -85,12 +81,10 @@ const BarView: React.FC<{
     bar: Bar,
     index: number,
     color: string,
-    selectedDuration: NoteDuration,
-    isRestMode: boolean,
     onNodeClick: (nodeIndex: number) => void,
     onRemoveChord: (index: number) => void,
     setEditingChord: (data: { barId: string, beat: number, x: number, y: number }) => void
-}> = ({ bar, index, color, selectedDuration, isRestMode, onNodeClick, onRemoveChord, setEditingChord }) => {
+}> = ({ bar, index, color, onNodeClick, onRemoveChord, setEditingChord }) => {
 
     return (
         <div className={`relative w-full h-[100px] border-r-0 border-b border-slate-100 flex flex-col justify-end group transform transition-all hover:bg-white/50 rounded-xl hover:shadow-sm pb-1 overflow-hidden`}>

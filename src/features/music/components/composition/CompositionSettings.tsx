@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Share2, Download, Trash2, Edit3, Check, Copy } from 'lucide-react';
+import { X, Download, Trash2, Check, Copy } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import { motion, AnimatePresence } from 'framer-motion';
 
