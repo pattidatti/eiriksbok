@@ -53,35 +53,57 @@ export const SectionItem: React.FC<SectionItemProps> = ({
 
     if (isOverlay) {
         return (
-            <div className="relative bg-white rounded-2xl shadow-xl p-4 border border-slate-100 opacity-90 scale-105 rotate-1">
-                <div className="h-10 bg-slate-50 rounded-xl w-full mb-4" />
-                <div className="h-24 bg-slate-50/50 rounded-xl w-full" />
+            <div className="relative bg-white rounded-full shadow-xl p-2 border border-slate-100 opacity-90 scale-105 rotate-1 w-fit">
+                <div className="h-10 bg-slate-50 rounded-full w-64" />
             </div>
         );
     }
 
     return (
-        <div ref={setNodeRef} style={style} id={`section-${section.id}`} className="mb-6 touch-none">
+        <div ref={setNodeRef} style={style} id={`section-${section.id}`} className="mb-4 touch-none group/section">
 
-            {/* Main Container acting as Drag Handle */}
+            {/* Header / Control Strip (Transparent Full Width) */}
             <div
                 {...attributes}
                 {...listeners}
-                className="group/section bg-white rounded-3xl p-1 pl-2 shadow-sm border border-slate-100 hover:border-slate-200 hover:shadow-md transition-all duration-300 cursor-grab active:cursor-grabbing relative"
+                className="flex items-center w-full mb-2 px-1 cursor-grab active:cursor-grabbing group/header hover:bg-slate-50/50 rounded-xl transition-colors duration-300 py-1"
             >
-                {/* Header / Control Strip */}
-                <div className="flex items-center gap-4 p-2">
+                <div className="flex items-center gap-4">
+                    {/* Section Name Pill + Repeats */}
+                    <div className={`px-4 py-1.5 rounded-full ${section.color} ${section.color.replace('bg-', 'text-').replace('-100', '-700')} shadow-sm flex items-center gap-3`}>
+                        <span className="text-[10px] font-black uppercase tracking-widest pointer-events-none">
+                            {{
+                                'intro': 'Intro',
+                                'verse': 'Vers',
+                                'chorus': 'Refreng',
+                                'bridge': 'Bro',
+                                'solo': 'Solo',
+                                'outro': 'Outro'
+                            }[section.type] || section.name}
+                        </span>
 
-                    {/* Section Name Pill */}
-                    <div className={`px-4 py-1.5 rounded-full ${section.color} ${section.color.replace('bg-', 'text-').replace('-100', '-700')} shadow-sm`}>
-                        <span className="text-[10px] font-black uppercase tracking-widest pointer-events-none">{section.name}</span>
+                        {/* Repeats (Inside Pill) */}
+                        <div className="flex items-center gap-1 border-l border-black/10 pl-3 ml-1"
+                            onPointerDown={(e) => e.stopPropagation()}
+                            onKeyDown={(e) => e.stopPropagation()}
+                        >
+                            <Repeat size={12} className="opacity-50" />
+                            <span className="font-bold text-sm min-w-[12px] text-center">{section.repeatCount}</span>
+                            <div className="flex flex-col -space-y-1 ml-0.5 opacity-0 group-hover/header:opacity-100 transition-opacity">
+                                <button
+                                    onClick={() => updateSection(section.id, { repeatCount: section.repeatCount + 1 })}
+                                    className="text-[8px] hover:scale-125 px-0.5"
+                                >▲</button>
+                                <button
+                                    onClick={() => updateSection(section.id, { repeatCount: Math.max(1, section.repeatCount - 1) })}
+                                    className="text-[8px] hover:scale-125 px-0.5"
+                                >▼</button>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Divider */}
-                    <div className="w-px h-6 bg-slate-100 hidden sm:block" />
-
-                    {/* Metrics Group */}
-                    <div className="flex items-center gap-6">
+                    {/* Metrics Group (Just Bars now) */}
+                    <div className="flex items-center gap-6 opacity-60 group-hover/header:opacity-100 transition-opacity">
                         {/* Bars */}
                         <div className="flex items-center gap-2 group/metric"
                             onPointerDown={(e) => e.stopPropagation()}
@@ -98,31 +120,13 @@ export const SectionItem: React.FC<SectionItemProps> = ({
                                 title="Antall takter"
                             />
                         </div>
-
-                        {/* Repeats */}
-                        <div className="flex items-center gap-2 group/metric"
-                            onPointerDown={(e) => e.stopPropagation()}
-                            onKeyDown={(e) => e.stopPropagation()}
-                        >
-                            <Repeat size={15} className="text-slate-300 group-hover/metric:text-amber-400 transition-colors" />
-                            <div className="flex items-center gap-1">
-                                <span className="font-bold text-sm text-slate-700 w-4 text-center">{section.repeatCount}</span>
-                                <div className="flex flex-col opacity-0 group-hover/metric:opacity-100 transition-opacity -space-y-1">
-                                    <button
-                                        onClick={() => updateSection(section.id, { repeatCount: section.repeatCount + 1 })}
-                                        className="text-[8px] hover:text-amber-600 px-1"
-                                    >▲</button>
-                                    <button
-                                        onClick={() => updateSection(section.id, { repeatCount: Math.max(1, section.repeatCount - 1) })}
-                                        className="text-[8px] hover:text-amber-600 px-1"
-                                    >▼</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                </div>
 
+                {/* Right Side: Instruments + Delete */}
+                <div className="flex items-center gap-4 ml-auto">
                     {/* Instrument Toggles */}
-                    <div className="flex items-center gap-1 ml-auto"
+                    <div className="flex items-center gap-1"
                         onPointerDown={(e) => e.stopPropagation()}
                         onKeyDown={(e) => e.stopPropagation()}
                     >
@@ -137,9 +141,9 @@ export const SectionItem: React.FC<SectionItemProps> = ({
                                 key={inst.id}
                                 onClick={() => toggleInstrument(section.id, inst.id as any)}
                                 title={inst.id}
-                                className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black transition-all duration-200 border border-transparent ${section.instruments?.includes(inst.id as any)
-                                        ? 'bg-slate-900 text-white shadow-md scale-100'
-                                        : 'bg-slate-50 text-slate-300 hover:bg-slate-100 hover:text-slate-400 hover:scale-105'
+                                className={`w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-black transition-all duration-200 border border-transparent ${section.instruments?.includes(inst.id as any)
+                                    ? 'bg-slate-900 text-white shadow-md scale-100'
+                                    : 'bg-slate-50 text-slate-300 hover:bg-slate-100 hover:text-slate-400 hover:scale-105'
                                     }`}
                             >
                                 {inst.label}
@@ -151,29 +155,29 @@ export const SectionItem: React.FC<SectionItemProps> = ({
                     <button
                         onClick={() => removeSection(section.id)}
                         onPointerDown={(e) => e.stopPropagation()}
-                        className="w-8 h-8 flex items-center justify-center text-slate-200 hover:text-red-500 hover:bg-red-50 rounded-full transition-all ml-2"
+                        className="w-7 h-7 flex items-center justify-center text-slate-200 hover:text-red-500 hover:bg-red-50 rounded-full transition-all"
                         title="Fjern seksjon"
                     >
-                        <Trash2 size={16} />
+                        <Trash2 size={14} />
                     </button>
                 </div>
+            </div>
 
-                {/* Content Area */}
-                <div className="px-2 pb-4 pt-0"
-                    onPointerDown={(e) => e.stopPropagation()}
-                    onKeyDown={(e) => e.stopPropagation()}
-                >
-                    <NotationEditor
-                        bars={section.bars}
-                        color={section.color}
-                        selectedDuration={selectedDuration}
-                        isRestMode={isRestMode}
-                        onUpdateBar={(barId, nodeIndex, duration, isRest) => updateBar(section.id, barId, nodeIndex, duration, isRest)}
-                        onAddChord={(barId, beat, chord) => addChord(section.id, barId, beat, chord)}
-                        onRemoveChord={(barId, chordIdx) => removeChord(section.id, barId, chordIdx)}
-                        onUpdateLyrics={(barId, text) => onUpdateLyrics && onUpdateLyrics(section.id, barId, text)}
-                    />
-                </div>
+            {/* Content Area (Indented slightly) */}
+            <div className="pl-4 pb-4 pt-0 relative"
+                onPointerDown={(e) => e.stopPropagation()}
+                onKeyDown={(e) => e.stopPropagation()}
+            >
+                <NotationEditor
+                    bars={section.bars}
+                    color={section.color}
+                    selectedDuration={selectedDuration}
+                    isRestMode={isRestMode}
+                    onUpdateBar={(barId, nodeIndex, duration, isRest) => updateBar(section.id, barId, nodeIndex, duration, isRest)}
+                    onAddChord={(barId, beat, chord) => addChord(section.id, barId, beat, chord)}
+                    onRemoveChord={(barId, chordIdx) => removeChord(section.id, barId, chordIdx)}
+                    onUpdateLyrics={(barId, text) => onUpdateLyrics && onUpdateLyrics(section.id, barId, text)}
+                />
             </div>
         </div>
     );
