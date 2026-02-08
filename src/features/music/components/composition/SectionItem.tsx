@@ -75,8 +75,10 @@ export const SectionItem: React.FC<SectionItemProps> = ({
                             {{
                                 'intro': 'Intro',
                                 'verse': 'Vers',
+                                'preChorus': 'Pre-Refreng',
                                 'chorus': 'Refreng',
                                 'bridge': 'Bro',
+                                'interlude': 'Mellomspill',
                                 'solo': 'Solo',
                                 'outro': 'Outro'
                             }[section.type] || section.name}

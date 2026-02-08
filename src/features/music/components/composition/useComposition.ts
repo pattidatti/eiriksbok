@@ -368,8 +368,10 @@ const getSectionColor = (type: SectionType): string => {
     switch (type) {
         case 'intro': return 'bg-emerald-100';
         case 'verse': return 'bg-blue-100';
+        case 'preChorus': return 'bg-pink-100';
         case 'chorus': return 'bg-rose-100';
         case 'bridge': return 'bg-amber-100';
+        case 'interlude': return 'bg-teal-100';
         case 'outro': return 'bg-purple-100';
         case 'solo': return 'bg-orange-100';
         default: return 'bg-slate-100';

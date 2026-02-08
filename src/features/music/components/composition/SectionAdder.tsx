@@ -10,8 +10,10 @@ interface SectionAdderProps {
 const SECTION_TYPES: { type: SectionType, label: string, color: string }[] = [
     { type: 'intro', label: 'Intro', color: 'bg-emerald-100 border-emerald-300 text-emerald-800' },
     { type: 'verse', label: 'Vers', color: 'bg-blue-100 border-blue-300 text-blue-800' },
+    { type: 'preChorus', label: 'Pre-refreng', color: 'bg-pink-100 border-pink-300 text-pink-800' },
     { type: 'chorus', label: 'Refreng', color: 'bg-rose-100 border-rose-300 text-rose-800' },
     { type: 'bridge', label: 'Bro', color: 'bg-amber-100 border-amber-300 text-amber-800' },
+    { type: 'interlude', label: 'Mellomspill', color: 'bg-teal-100 border-teal-300 text-teal-800' },
     { type: 'solo', label: 'Solo', color: 'bg-orange-100 border-orange-300 text-orange-800' },
     { type: 'outro', label: 'Outro', color: 'bg-purple-100 border-purple-300 text-purple-800' },
 ];

@@ -1,4 +1,4 @@
-export type SectionType = 'intro' | 'verse' | 'chorus' | 'bridge' | 'outro' | 'solo';
+export type SectionType = 'intro' | 'verse' | 'preChorus' | 'chorus' | 'bridge' | 'interlude' | 'solo' | 'outro';
 
 export type NoteDuration = '1n' | '2n' | '4n' | '8n'; // Whole, Half, Quarter, Eighth
 

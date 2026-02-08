@@ -126,10 +126,10 @@ export const CompositionTool: React.FC = () => {
     return (
         <div className="flex flex-col h-[calc(100vh-100px)] bg-[#FDFBF7] relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
             {/* Header Area */}
-            <div className="px-5 py-4 bg-white/60 backdrop-blur-xl border-b border-slate-200/50 z-20 sticky top-0 flex items-center justify-between">
+            <div className="px-5 py-4 bg-white/60 backdrop-blur-xl border-b border-slate-200/50 z-50 sticky top-0 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                     {/* Editable Title */}
-                    <div className="relative group/title flex items-center gap-2">
+                    <div className="relative z-10 group/title flex items-center gap-2">
                         <input
                             ref={titleInputRef}
                             value={composition.title}
