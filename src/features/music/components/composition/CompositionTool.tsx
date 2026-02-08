@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Users, Share2, Menu, Edit3, Check } from 'lucide-react';
+import { Users, Share2, Menu, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useComposition } from './useComposition';
 import { useCompositionSync } from './useCompositionSync';
@@ -19,8 +19,6 @@ export const CompositionTool: React.FC = () => {
     const {
         composition,
         setComposition,
-        activeSectionId,
-        setActiveSectionId,
         addSection,
         updateSection,
         updateSectionBars,
@@ -72,17 +70,10 @@ export const CompositionTool: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isNamingOpen, setIsNamingOpen] = useState(false);
     const [pendingName, setPendingName] = useState('');
-    const [isEditingTitle, setIsEditingTitle] = useState(false);
     const [isCopied, setIsCopied] = useState(false);
     const titleInputRef = useRef<HTMLInputElement>(null);
 
     const isCreator = composition.creatorId === getCreatorId();
-
-    const scrollToSection = (id: string) => {
-        setActiveSectionId(id);
-        const el = document.getElementById(`section-${id}`);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
 
     const handleSaveAsNew = async () => {
         if (!pendingName.trim()) return;
@@ -127,7 +118,6 @@ export const CompositionTool: React.FC = () => {
     };
 
     const handleTitleBlur = () => {
-        setIsEditingTitle(false);
         if (!songId && composition.title.trim() !== 'Ny Sang') {
             // Optional: Auto-save draft logic could go here
         }
